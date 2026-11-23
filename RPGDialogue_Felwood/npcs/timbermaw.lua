@@ -460,7 +460,7 @@ P:NPC {
   communities = { "felwood_wilds" }, temper = { "pompous" }, values = { "ambitious", "proud" },
   impression = {
     first = "He is extremely sure of his own importance.",
-    third = "{name} met Niby the Almighty, a self-important imp camped in the wilds of Felwood.",
+    third = "{name} met Niby the Almighty, a self-important gnome warlock camped in the wilds of Felwood.",
   },
 
   greetings = {
@@ -474,7 +474,7 @@ P:NPC {
       big = true,
       lines = { { id = "xapala_default", text = "No, no, no, the Almighty is far too important to be smote! Niby is merely a humble ruler of these ruins, misunderstood by the Shadow Council and underappreciated by the world, and a paladin of your obvious wisdom will surely see that Niby means no harm, mostly." } },
       choices = {
-        { text = "An imp is still a demon. I'm watching you, Niby.", next = "BACK", reply = "Watch, watch, Niby has nothing to hide, nothing at all! The Almighty is an open book, with very short pages.", fx = { align = { light = 1 } } },
+        { text = "Your imp is still a demon. I'm watching you, Niby.", next = "BACK", reply = "Watch, watch, Niby has nothing to hide, nothing at all! The Almighty is an open book, with very short pages.", fx = { align = { light = 1 } } },
         { text = "You're harmless. I'll let you rule your ruins in peace.", next = "BACK", reply = "Harmless? The Almighty? Well, Niby will accept your peace, but he resents the word harmless deeply.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -483,8 +483,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because the Almighty's enemies are many and his arms are, admittedly, short. The Shadow Council at Jaedenar think Niby is a joke, and when Niby has his way, a large warrior will explain to them why they are wrong." } },
       choices = {
-        { text = "I don't fight for demons, little or almighty.", next = "BACK", reply = "Then you are a fool, and a large one, and Niby will remember it when he rules everything. Off you go.", fx = { align = { honor = 1 } } },
-        { text = "I'll fight for anyone who pays, even a very small demon.", next = "BACK", reply = "Splendid! Niby will pay you in glory, and possibly a shiny thing Impsy found. Mostly glory.", fx = { align = { honor = -1 } } },
+        { text = "I don't fight for warlocks, little or almighty.", next = "BACK", reply = "Then you are a fool, and a large one, and Niby will remember it when he rules everything. Off you go.", fx = { align = { honor = 1 } } },
+        { text = "I'll fight for anyone who pays, even a very small warlock.", next = "BACK", reply = "Splendid! Niby will pay you in glory, and possibly a shiny thing Impsy found. Mostly glory.", fx = { align = { honor = -1 } } },
         { text = "Something else, Niby.", next = "BACK" },
       },
     },
@@ -495,7 +495,7 @@ P:NPC {
         { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Impsy is my servant, my apprentice and my footstool, and he would be insulted to be called a pet, if he were allowed to have opinions. And that {pet} of yours keeps sniffing at Impsy, so call it off, before Impsy sets it alight and Niby has to listen to you whine." },
       },
       choices = {
-        { text = "A beast that follows for love is worth ten slaves, imp.", next = "BACK", reply = "Ten slaves? Niby has only the one, and he's barely worth the trouble. Perhaps you have a point, mortal.", fx = { align = { light = 1 } } },
+        { text = "A beast that follows for love is worth ten slaves, Niby.", next = "BACK", reply = "Ten slaves? Niby has only the one, and he's barely worth the trouble. Perhaps you have a point, mortal.", fx = { align = { light = 1 } } },
         { text = "Fear works too. Maybe you're on to something, Niby.", next = "BACK", reply = "At last, a mortal with sense! Niby will remember you kindly, when he remembers anyone.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -513,7 +513,7 @@ P:NPC {
       big = true,
       lines = { { id = "xmage_default", text = "Niby is biding his time, as the great ones do, and choosing his servants with care. Kroshius, the great doomguard who fell near here, will rise again, and when he does, those who helped Niby will be remembered, and those who mocked him will be remembered much less fondly." } },
       choices = {
-        { text = "I serve no imp. Keep your threats.", next = "BACK", reply = "Rude, very rude, and Niby will remember it when Kroshius wakes. Your name goes in the bad book.", fx = { align = { order = 1 } } },
+        { text = "I serve no gnome. Keep your threats.", next = "BACK", reply = "Rude, very rude, and Niby will remember it when Kroshius wakes. Your name goes in the bad book.", fx = { align = { order = 1 } } },
         { text = "Fine, I'll play along, for now.", next = "BACK", reply = "For now is all Niby asks, and Niby is very patient. Kroshius will remember you fondly.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Whatever you say, Almighty.", next = "BACK" },
       },
@@ -522,7 +522,7 @@ P:NPC {
       big = true,
       lines = { { id = "xrogue_default", text = "Niby wants nothing stolen, because Niby is owed everything already. But if the remains of Kroshius, a mighty doomguard, happened to need waking, and a certain sneaky someone happened to help, Niby might consider that very loyal, very loyal indeed." } },
       choices = {
-        { text = "I steal for myself, not for imps.", next = "BACK", reply = "Self-serving, how very demonic of you. Niby approves, despite himself.", fx = { align = { honor = 1 } } },
+        { text = "I steal for myself, not for warlocks.", next = "BACK", reply = "Self-serving, how very demonic of you. Niby approves, despite himself.", fx = { align = { honor = 1 } } },
         { text = "Loyalty to the Almighty it is, if it pays.", next = "BACK", reply = "Excellent! Pay is a strong word, but Niby has many shiny things in mind. Most of them are Impsy's.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "I'll keep my hands in my pockets.", next = "BACK" },
       },
@@ -538,7 +538,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "Want with it? Niby likes it! The fel in the ground is delicious, the satyrs are excellent company and nobody makes Niby wash. You druids want to scrub it all green and boring again, which is very rude, but Niby is almighty enough to forgive you, probably." } },
+      lines = { { id = "xdruid_default", text = "Want with it? Niby likes it! The fel in the ground is marvellous, the satyrs are excellent company and nobody makes Niby wash. You druids want to scrub it all green and boring again, which is very rude, but Niby is almighty enough to forgive you, probably." } },
       choices = {
         { text = "Felwood will be cleansed, Niby, and you'll have to leave.", next = "BACK", reply = "Then Niby will move to Azshara, or the Blasted Lands, somewhere with good fel and no scrubbing. Your loss, druid.", fx = { align = { order = 1 } } },
         { text = "Fair point. A forest can be green and still have imps.", next = "BACK", reply = "A druid with sense! Niby will put in a good word with the satyrs for you.", fx = { affinity = 1, align = { order = -1 } } },
@@ -560,7 +560,7 @@ P:NPC {
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue! Niby approves of sneaking, since it saves on all the tiresome fighting. Do you also steal things for great and powerful masters, or only for yourself?" },
         { id = "h_default", text = "I am Niby the Almighty, master of fel secrets, keeper of terrible knowledge, and yes, I am small, so don't mention it. Felwood is full of demonic remains, and Niby knows exactly what they're good for." },
-        { id = "h_cond", when = { class = "WARLOCK" }, text = "A warlock! At last, someone who appreciates a demon's wisdom, and who might do as Niby says without all the whining." },
+        { id = "h_cond", when = { class = "WARLOCK" }, text = "A warlock! At last, someone who appreciates a warlock's wisdom, and who might do as Niby says without all the whining." },
         { id = "h_hpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } }, text = "A priest? Niby supposes even the Almighty must suffer visitors who pray, so pray quietly, and don't point any of that holy light at my imp." },
         { id = "h_druidcl", when = { class = "DRUID" }, text = "A druid! How dull, a mortal who turns into animals when Niby could teach you to command demons instead. Still, Niby is gracious, and Niby will hear you out." },
       },
@@ -569,27 +569,27 @@ P:NPC {
         { id = "h_again2", text = "Yes, yes, what else?" },
       },
       choices = {
-        { text = "Do the elements still have any power here, imp?", next = "xhsham", when = { class = "SHAMAN" } },
-        { text = "You're planning something, imp.", next = "power" },
-        { text = "There's another imp with you.", next = "impsy" },
+        { text = "Do the elements still have any power here, Niby?", next = "xhsham", when = { class = "SHAMAN" } },
+        { text = "You're planning something, Niby.", next = "power" },
+        { text = "There's an imp with you.", next = "impsy" },
         { text = "Why camp in Felwood?", next = "felwood" },
-        { text = "I could use a demon's knowledge, if the price is right.", next = "warlock", when = { class = "WARLOCK" } },
+        { text = "I could use a fellow warlock's knowledge, if the price is right.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "If you're so mighty, why are you camped in a ruin?", next = "xmage", when = { class = "MAGE" } },
         { text = "What would the Almighty want stolen?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "What would a demon want with a priest, Niby?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
+        { text = "What would a warlock want with a priest, Niby?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Why would a great master need a warrior, Niby?", next = "xwarcl", when = { class = "WARRIOR" } },
-        { text = "Is the other imp really your pet, Niby?", next = "xhuntcl", when = { class = "HUNTER" } },
-        { text = "I can't think what a demon wants with Felwood, Niby.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Is that imp really your pet, Niby?", next = "xhuntcl", when = { class = "HUNTER" } },
+        { text = "I can't think what a warlock wants with Felwood, Niby.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Should I point my holy light at you instead, Niby?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Farewell, Almighty One.", next = "END" },
       },
     },
     power = {
       lines = {
-        { id = "power_default", text = "Planning is such a small word for it. There are infernal things buried in Felwood that a clever demon could use, and a clever mortal could fetch them for him." },
+        { id = "power_default", text = "Planning is such a small word for it. There are infernal things buried in Felwood that a clever warlock could use, and a clever mortal could fetch them for him." },
       },
       choices = {
-        { text = "Why would I help a demon?", next = "power2" },
+        { text = "Why would I help a warlock?", next = "power2" },
       },
     },
     power2 = {
@@ -611,7 +611,7 @@ P:NPC {
     },
     felwood = {
       lines = {
-        { id = "felwood_default", text = "Because it smells like home, mortal, and because the druids are too busy weeping over trees to bother me. Also the view of the burning bits is lovely at night." },
+        { id = "felwood_default", text = "Because Stormwind exiled the Almighty and cannot reach him here, mortal, and because the druids are too busy weeping over trees to bother me. Also the view of the burning bits is lovely at night." },
       },
       choices = {
         { text = "I suppose that's a reason.", next = "BACK" },

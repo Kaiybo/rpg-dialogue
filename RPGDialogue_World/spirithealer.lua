@@ -1183,6 +1183,17 @@ P:Pool {
         { text = "My people's souls return to Elune.", next = "elune", when = { race = "NightElf" } },
         { text = "Did Gnomeregan's dead come through here?", next = "gnomeregan", when = { race = "Gnome" } },
         { text = "Do my ancestors ever stop to talk?", next = "ancestors", when = { race = "Tauren" } },
+        { text = "Have you ever held a sword?", next = "c_warrior", when = { class = "WARRIOR" } },
+        { text = "Can anyone sneak past you?", next = "c_rogue", when = { class = "ROGUE" } },
+        { text = "Is this place made of magic?", next = "c_mage", when = { class = "MAGE" } },
+        { text = "Do the demons I bind come here?", next = "c_warlock", when = { class = "WARLOCK" } },
+        { text = "Do beasts ever come up this hill?", next = "c_hunter", when = { class = "HUNTER" } },
+        { text = "Does Cenarius know this place?", next = "c_druid", when = { class = "DRUID" } },
+        { text = "What happened to Lordaeron's dead?", next = "r_human", when = { race = "Human" } },
+        { text = "Do dwarves go to the stone when they die?", next = "r_dwarf", when = { race = "Dwarf" } },
+        { text = "Did the orcs who drank the blood come here?", next = "r_orc", when = { race = "Orc" } },
+        { text = "Do the loa ever come for their own?", next = "r_troll", when = { race = "Troll" } },
+        { text = "Why do you still send me back?", next = "r_forsaken", when = { race = "Scourge" } },
       },
     },
 
@@ -1342,6 +1353,391 @@ P:Pool {
         { id = "ac2_default",
           text = "Then perhaps it was. He had grass seed caught in his mane and a very patient way of waiting for an answer, and if he was yours, you have his patience too, a little; you have let me ramble far longer than most." },
       },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    c_warrior = {
+      lines = {
+        { id = "wr_default",
+          text = "Twice, I think, though not with hands. Warriors sometimes come up the hill still gripping theirs, and the blade stays in the world while the grip comes with them. I have held a great many of those grips while they learned to open." },
+      },
+      choices = {
+        { text = "Does it get easier to let go?", next = "c_warrior2", fx = { trait = { curious = 1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    c_warrior2 = {
+      lines = {
+        { id = "wr2_default",
+          text = "For your kind it gets easier each time, and that is what worries me. The first time, a warrior weeps for the fight they lost. By the twentieth, they only ask how long the walk is, and I would rather they still wept a little." },
+      },
+      choices = {
+        { text = "Then I'll make sure I never stop weeping.", next = "c_warrior3a", fx = { align = { light = 1 } } },
+        { text = "Weeping won't win the next fight. I'll stay hard.", next = "c_warrior3b", fx = { align = { order = 1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    c_warrior3a = {
+      lines = { { id = "c_warrior_3a", text = "Good. Keep the grief, and let it keep you careful. A warrior who still mourns the fight is a warrior who still remembers why it mattered." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    c_warrior3b = {
+      lines = { { id = "c_warrior_3b", text = "Hard, then, if you must. But stone cracks in the cold, and I have seen a great many hard warriors climb this hill in pieces." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    c_rogue = {
+      lines = {
+        { id = "ro_default",
+          text = "Your kind try, every one of them, sooner or later. They creep along the edge of the mist as if I could not see a soul that is only made of light, and I let them get quite far before I clear my throat." },
+      },
+      choices = {
+        { text = "Has anyone ever made it?", next = "c_rogue2", fx = { trait = { witty = 1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    c_rogue2 = {
+      lines = {
+        { id = "ro2_default",
+          text = "One, once, a long time ago, and I have never told the silence about it. She slipped into the gray and did not come back to me, and either she found a door I do not know about, or the gray found her. I hope it was the door." },
+      },
+      choices = {
+        { text = "If there's a door, I'd want to find it.", next = "c_rogue3a", fx = { align = { order = -1 } } },
+        { text = "Some doors should stay shut, even for me.", next = "c_rogue3b", fx = { align = { order = 1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    c_rogue3a = {
+      lines = { { id = "c_rogue_3a", text = "I thought you might say that. Your kind never could leave a lock alone. Only remember that a door you find alone, you also walk through alone." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    c_rogue3b = {
+      lines = { { id = "c_rogue_3b", text = "That is wiser than I expected, and I mean it kindly. Most of your trade would sell the key before they knew what it opened." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    c_mage = {
+      lines = {
+        { id = "mg_default",
+          text = "Every mage asks that, and every one of them is disappointed by the answer. It is not arcane, or not any arcane your Kirin Tor would recognize; it is older and much less tidy, and it does not like to be studied." },
+      },
+      choices = {
+        { text = "What happens if someone studies it anyway?", next = "c_mage2", fx = { trait = { curious = 1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    c_mage2 = {
+      lines = {
+        { id = "mg2_default",
+          text = "A magister from Dalaran tried, once, and spent his whole visit counting the threads of the mist. When he went back down he had forgotten his own mother's name, though he remembered the number of threads perfectly. I took that as the hill's answer." },
+      },
+      choices = {
+        { text = "Some knowledge isn't worth the price.", next = "c_mage3a", fx = { align = { light = 1 } } },
+        { text = "He just needed better wards. I'd try again.", next = "c_mage3b", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    c_mage3a = {
+      lines = { { id = "c_mage_3a", text = "Then you have learned the lesson he paid for, and you learned it free. Keep it close; Dalaran forgets that lesson every few centuries." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    c_mage3b = {
+      lines = { { id = "c_mage_3b", text = "You would, and that frightens me more than anything you could cast. The hill is patient with fools, but it is not patient forever." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    c_warlock = {
+      lines = {
+        { id = "wl_default",
+          text = "No, and I am grateful for it. When one of your servants falls, it goes home to the Nether, howling, and it never climbs this hill. But I can smell them on you, every time you arrive, and the others in the gray drift away from you while you stand here." },
+      },
+      choices = {
+        { text = "Does that frighten them?", next = "c_warlock2" },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    c_warlock2 = {
+      lines = {
+        { id = "wl2_default",
+          text = "It frightens them, and it saddens me, because you are still one of the living I am meant to send home. I will send you home as I send everyone else. I only ask that you remember, down there, how the gray drew away from you." },
+      },
+      choices = {
+        { text = "I'll remember. Power isn't worth everything.", next = "c_warlock3a", fx = { align = { light = 2 } } },
+        { text = "The fel is a tool. Their fear is their own.", next = "c_warlock3b", fx = { align = { light = -2 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    c_warlock3a = {
+      lines = { { id = "c_warlock_3a", text = "Then perhaps the gray will drift back toward you, one day. I will tell them you said it, though I cannot promise they will believe me." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    c_warlock3b = {
+      lines = { { id = "c_warlock_3b", text = "So every warlock says, right up until the tool begins to hold the hand. Go, then. I will still be here when it does." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    c_hunter = {
+      lines = {
+        { id = "hn_default",
+          text = "Not to me. The beasts have their own hill, I think, somewhere off in the mist, with a keeper who smells of rain and fur. Sometimes I hear a wolf calling from that direction, and I wonder whether it is waiting for someone." },
+      },
+      choices = {
+        { text = "Would my companion wait for me there?", next = "c_hunter2", fx = { affinity = 1 } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    c_hunter2 = {
+      lines = {
+        { id = "hn2_default",
+          text = "If any creature would, yours would. I have seen hunters come up this hill with their eyes still on the place they left their beast, and the beasts are always there when they go back down. That kind of loyalty does not stop at a hillside." },
+      },
+      choices = {
+        { text = "My companion is family. I'd wait for them too.", next = "c_hunter3a", fx = { align = { honor = 1 } } },
+        { text = "A beast is a beast. It serves, then it's replaced.", next = "c_hunter3b", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    c_hunter3a = {
+      lines = { { id = "c_hunter_3a", text = "Then you are well matched, and the beasts' hill will know your name before you ever see it. That is no small thing." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    c_hunter3b = {
+      lines = { { id = "c_hunter_3b", text = "Say that to the wolf I hear calling in the mist. I think it would disagree, and I think it would be right." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    c_druid = {
+      lines = {
+        { id = "dr_default",
+          text = "If he does, he has never said so to me. Your Emerald Dream lies close to here, closer than any other place I know; on quiet nights I can hear it breathing, like a forest asleep on the other side of a wall." },
+      },
+      choices = {
+        { text = "Could I walk into the Dream from here?", next = "c_druid2", fx = { trait = { curious = 1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    c_druid2 = {
+      lines = {
+        { id = "dr2_default",
+          text = "Please do not try. A druid did, once, with the best of intentions, and I watched her walk into the green and come back out years later with leaves for eyes and no memory of her own name. The Dream keeps what it likes." },
+      },
+      choices = {
+        { text = "The Dream is sacred. I'd never trespass there.", next = "c_druid3a", fx = { align = { order = 1 } } },
+        { text = "Someone has to learn what it hides. I'd risk it.", next = "c_druid3b", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    c_druid3a = {
+      lines = { { id = "c_druid_3a", text = "Then you are the kind of druid the forest trusts, and there are fewer of those than the Circle likes to admit." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    c_druid3b = {
+      lines = { { id = "c_druid_3b", text = "Someone will, I suppose, and the Dream will keep them too. I only hope you leave a name with someone before you go." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    r_human = {
+      lines = {
+        { id = "hm_default",
+          text = "They came up here by the thousand, in the plague year, and I sent back every one I could. But many of them never arrived at all, because the Scourge pulled them back down before they reached the top, and I could only watch the hill empty." },
+      },
+      choices = {
+        { text = "Do you blame Arthas for that?", next = "r_human2" },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    r_human2 = {
+      lines = {
+        { id = "hm2_default",
+          text = "I do not keep blame; there is no room for it on this hill. But I remember the old king's face when he came up, and I remember that he kept looking back down toward his son, and that is a thing no one should have to see." },
+      },
+      choices = {
+        { text = "Lordaeron will rise again. We'll take it back.", next = "r_human3a", fx = { align = { order = 1 } } },
+        { text = "Some kingdoms should stay buried.", next = "r_human3b", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    r_human3a = {
+      lines = { { id = "r_human_3a", text = "Perhaps. The ones who climbed up here from Lordaeron said the same, every one of them, and I hope some of them were right." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    r_human3b = {
+      lines = { { id = "r_human_3b", text = "A hard thing to say about your own people's home, and I do not think you said it lightly. The hill has heard worse truths." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    r_dwarf = {
+      lines = {
+        { id = "dw_default",
+          text = "Your people believe so, and I have never seen a dwarf argue with me about where they were going. They only come up, set their jaw, and wait to be sent back, as though dying were an errand that took longer than it should." },
+      },
+      choices = {
+        { text = "And the ones who don't go back?", next = "r_dwarf2", fx = { affinity = 1 } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    r_dwarf2 = {
+      lines = {
+        { id = "dw2_default",
+          text = "They walk down the far side of the hill, toward something that sounds like a forge at a great distance. I have never followed them, but every one of them was smiling before they reached the bottom, and that tells me enough." },
+      },
+      choices = {
+        { text = "I'll go back. There's work left to do.", next = "r_dwarf3a", fx = { align = { honor = 1 } } },
+        { text = "Maybe one day I'll walk toward the forge.", next = "r_dwarf3b", fx = { align = { honor = -1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    r_dwarf3a = {
+      lines = { { id = "r_dwarf_3a", text = "Spoken like every dwarf who ever stood here. The forge can wait for you; it has waited a long time already." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    r_dwarf3b = {
+      lines = { { id = "r_dwarf_3b", text = "One day, perhaps, and you will smile on the way down. But not today. Today I have a file with your name on it." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    r_orc = {
+      lines = {
+        { id = "or_default",
+          text = "Some did, and they were the hardest guests I have ever had. They came up still burning with that red rage, and it did not leave them even here, and I had to stand beside them until it guttered out on its own." },
+      },
+      choices = {
+        { text = "Did it ever go out?", next = "r_orc2" },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    r_orc2 = {
+      lines = {
+        { id = "or2_default",
+          text = "In most of them, yes, though it took a long time. When it finally cooled they wept, great old warriors with their heads in their hands, and asked me what they had done. I told them it was not only them who had done it, and some of them believed me." },
+      },
+      choices = {
+        { text = "The rage was ours too. We must answer for it.", next = "r_orc3a", fx = { align = { honor = 2 } } },
+        { text = "The demons did that. Orcs owe no one.", next = "r_orc3b", fx = { align = { honor = -2 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    r_orc3a = {
+      lines = { { id = "r_orc_3a", text = "Then you carry it better than they did. Answering for a thing is heavier than denying it, and far rarer on this hill." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    r_orc3b = {
+      lines = { { id = "r_orc_3b", text = "The old warriors said that too, at first. It was only when they stopped saying it that the fire went out in them." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    r_troll = {
+      lines = {
+        { id = "tr_default",
+          text = "Once, and I will not forget it. A great shadow came to the edge of the mist, wearing a mask of bones, and called a troll by name, and the troll went to it without even looking back at me. I have never been so thoroughly ignored." },
+      },
+      choices = {
+        { text = "Was that Bwonsamdi?", next = "r_troll2", fx = { trait = { curious = 1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    r_troll2 = {
+      lines = {
+        { id = "tr2_default",
+          text = "He did not introduce himself, and I did not ask. But he looked at me with great interest, as though we were in the same line of work, and I have spent a long time since wondering whether that is true." },
+      },
+      choices = {
+        { text = "The loa keep their own. That's how it should be.", next = "r_troll3a", fx = { align = { order = 1 } } },
+        { text = "No loa owns me. I'll choose my own road.", next = "r_troll3b", fx = { align = { order = -1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    r_troll3a = {
+      lines = { { id = "r_troll_3a", text = "Then perhaps one day he will come for you as well, and you will walk past me without a glance. I will try not to be offended." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    r_troll3b = {
+      lines = { { id = "r_troll_3b", text = "A troll who refuses the loa. He would find you interesting, I think, and I am not sure that is a comfort." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    r_forsaken = {
+      lines = {
+        { id = "fk_default",
+          text = "Because you came up the hill, the same as everyone else. I do not ask what you are made of, or who made you; the climb is the only question I am permitted, and you answered it." },
+      },
+      choices = {
+        { text = "Some would say I don't deserve it.", next = "r_forsaken2" },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    r_forsaken2 = {
+      lines = {
+        { id = "fk2_default",
+          text = "Some would, and some of them are standing in the gray behind me right now. But they do not decide who goes home, and neither do you. I do. Go back down, and see that you earn the next climb." },
+      },
+      choices = {
+        { text = "I'll earn it. I'm not what the Scourge made me.", next = "r_forsaken3a", fx = { align = { light = 1 } } },
+        { text = "I'll take what I'm given. I owe nothing for it.", next = "r_forsaken3b", fx = { align = { light = -1 } } },
+        { text = "Let's talk about something else.", next = "talk" },
+      },
+    },
+    r_forsaken3a = {
+      lines = { { id = "r_forsaken_3a", text = "No, you are not. The Scourge never sent anyone back up this hill, and you came on your own feet. Remember that." } },
+      choices = {
+        { text = "Let's talk about something else.", next = "talk" },
+        { text = "Return me to life.", next = "BUSINESS" },
+      },
+    },
+    r_forsaken3b = {
+      lines = { { id = "r_forsaken_3b", text = "Take it, then, and I will give it, because that is the rule. But the gray is watching you, and they remember longer than I do." } },
       choices = {
         { text = "Let's talk about something else.", next = "talk" },
         { text = "Return me to life.", next = "BUSINESS" },

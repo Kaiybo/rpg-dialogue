@@ -5,7 +5,7 @@
 - https://warcraft.wiki.gg/wiki/An_Imp%27s_Request (read: warlock trainer sends you; felcloth from Felwood satyrs as a sign of good faith; he loves its burning feel and the evil thoughts; north of Bloodvenom Falls; 1.8.0)
 - https://warcraft.wiki.gg/wiki/The_Wrong_Stuff (read: 10 Rotting Wood from Irontree Woods treants for the eyes, 4 Bloodvenom Essence from nearby oozes for a demon scent)
 - https://warcraft.wiki.gg/wiki/Trolls_of_a_Feather (read: stuffing from Sunken Temple voodoo feathers, 2 amber/2 blue/2 green; rewards from Niby's belongings: Soul Harvester, Abyss Shard, Robes of Servitude)
-- RPGDialogue_Felwood/npcs/timbermaw.lua (Niby is written as an imp who summons Impsy; kept consistent)
+- RPGDialogue_Felwood/npcs/timbermaw.lua (Niby is a gnome warlock exiled from Stormwind who summoned Impsy; corrected from an earlier imp version)
 
 ## Their quests
 - An Imp's Request / Hot and Itchy (turn-in), The Wrong Stuff, Trolls of a Feather (give/turn-in): wants something of his own; resents servitude; pays with his master's things.

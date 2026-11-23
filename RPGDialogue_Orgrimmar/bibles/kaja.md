@@ -8,9 +8,9 @@
 - None.
 
 ## Identity
-TODO_NPC · Kaja · Kaja's Boomstick Imports, Valley of Honor, Orgrimmar · Horde · Goblin · Guns and Ammo Merchant
+TODO_NPC · Kaja · Boomstick Imports, Valley of Strength, Orgrimmar · Horde · Tauren (female) · Guns and Ammo Merchant (wowwiki archive: tauren, Valley of Strength pre-Cataclysm)
 Personality: pushy, cheerful, shameless
-Speech: goblin voice (CONTENT_GUIDE §2): prices aloud, 'pal', 'sweetheart', one 'Time is money'
+Speech: tauren voice, warm and businesslike, 'friend'; buys her stock from goblins
 Knows and cares about: guns, ammo, Steamwheedle neutrality
 Relationships: Jin'sora (rival across the way)
 Default attitudes: loyal to Thrall's Horde; wary of anything from the Alliance
@@ -24,7 +24,7 @@ Never says: anything after Year 1; no Garrosh, no later expansions
 Do the work well and keep the city standing.
 
 ## Secrets
-Authored, not canon: Cousin missing two fingers from 'testing'; hints she would sell to dwarves. Gender of Kaja: confirm.
+Authored, not canon: A Ratchet tinker supplier missing two fingers from 'testing'; her goblin suppliers sell to dwarves too.
 
 ## Reliability
 Reliable about their trade; opinions are their own.

@@ -434,7 +434,7 @@ P:NPC {
       },
       choices = {
         { text = "Sound it every time. Better tired than taken.", next = "BACK", reply = "That is what I do, and the fishermen curse me for it at dawn. I would rather be cursed.", fx = { align = { order = 1 } } },
-        { text = "Trust your judgement. A horn loses its meaning.", next = "BACK", reply = "So Lui'Mala says, usually when I have woken him. Perhaps you are both right, and I will go on not listening.", fx = { align = { order = -1 } } },
+        { text = "Trust your judgement. A horn loses its meaning.", next = "BACK", reply = "So Lui'Mala says, usually when I have woken her. Perhaps you are both right, and I will go on not listening.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

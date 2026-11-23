@@ -128,7 +128,7 @@ P:NPC {
   communities = { "orgrimmar" }, temper = { "sharp" }, values = { "ambitious", "curious" },
   notices = { "arcane", "class" },
   impression = {
-    first = "Her curtains are always slightly singed.",
+    first = "His curtains are always slightly singed.",
     third = "{name} met Uthel'nay, a Darkspear mage trainer in Orgrimmar's Valley of Spirits.",
   },
   greetings = {
@@ -370,7 +370,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     mages = {
-      lines = { { id = "ma_default", text = "They throw fire the way a peon throws stones, without asking it first and without thanking it after. Uthel'nay's students set her curtains alight every season, and I can hear the fire spirits laughing about it from here." } },
+      lines = { { id = "ma_default", text = "They throw fire the way a peon throws stones, without asking it first and without thanking it after. Uthel'nay's students set his curtains alight every season, and I can hear the fire spirits laughing about it from here." } },
       choices = {
         { text = "I'm a mage. Fire does what I tell it.", next = "mages_mage", when = { class = "MAGE" } },
         { text = "Something else.", next = "BACK" },

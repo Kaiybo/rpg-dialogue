@@ -460,12 +460,12 @@ P:NPC {
 
 -- Watcher Keefer: an old hand of the Night Watch in Darkshire.
 P:NPC {
-  key = "watcher_keefer", id = TODO_NPC("Watcher Keefer"), name = "Watcher Keefer", title = "The Night Watch", gender = "male",
+  key = "watcher_keefer", id = TODO_NPC("Watcher Keefer"), name = "Watcher Keefer", title = "The Night Watch", gender = "female",
   bible = "bibles/more_folk.md", role = "soldier", tier = "service",
   communities = { "darkshire" }, temper = { "gruff" }, values = { "dutiful" },
   notices = { "watch" },
   impression = {
-    first = "He has buried more friends than he cares to count.",
+    first = "She has buried more friends than she cares to count.",
     third = "{name} met Watcher Keefer, an old hand of the Night Watch in Darkshire.",
   },
   greetings = {
@@ -652,7 +652,7 @@ P:NPC {
     },
     counts = {
       lines = {
-        { id = "counts_1", text = "Do you think so? Watcher Keefer says a man who's frightened and stays is worth two who aren't and wander off, though he said it while he was telling me off for dropping my lamp." },
+        { id = "counts_1", text = "Do you think so? Watcher Keefer says a man who's frightened and stays is worth two who aren't and wander off, though she said it while she was telling me off for dropping my lamp." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -679,12 +679,12 @@ P:NPC {
 
 -- Watcher Royce: a watcher with a sense of humour.
 P:NPC {
-  key = "watcher_royce", id = TODO_NPC("Watcher Royce"), name = "Watcher Royce", title = "The Night Watch", gender = "male",
+  key = "watcher_royce", id = TODO_NPC("Watcher Royce"), name = "Watcher Royce", title = "The Night Watch", gender = "female",
   bible = "bibles/more_folk.md", role = "soldier", tier = "service",
   communities = { "darkshire" }, temper = { "wry" }, values = { "loyal" },
   notices = { "watch" },
   impression = {
-    first = "He jokes on watch because, he says, somebody has to.",
+    first = "She jokes on watch because, she says, somebody has to.",
     third = "{name} met Watcher Royce, the Night Watch's joker.",
   },
   greetings = {
@@ -748,7 +748,7 @@ P:NPC {
     },
     audience = {
       lines = {
-        { id = "audience_1", text = "Mocarski, on the south gate, because he laughs out of pure relief that it was only me coming up behind him. Keefer's the hardest, and I got a snort out of him last winter that I'm still living on." },
+        { id = "audience_1", text = "Mocarski, on the south gate, because he laughs out of pure relief that it was only me coming up behind him. Keefer's the hardest, and I got a snort out of her last winter that I'm still living on." },
       },
       choices = {
         { text = "What was the joke that got Keefer?", next = "keeferjoke" },
@@ -757,7 +757,7 @@ P:NPC {
     },
     keeferjoke = {
       lines = {
-        { id = "keeferjoke_1", text = "I told him Stormwind had finally answered the council's letters, and they'd sent us a tax collector. It isn't funny anywhere else in the kingdom, I grant you, but here it brought the house down." },
+        { id = "keeferjoke_1", text = "I told her Stormwind had finally answered the council's letters, and they'd sent us a tax collector. It isn't funny anywhere else in the kingdom, I grant you, but here it brought the house down." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -785,7 +785,7 @@ P:NPC {
     night_watch = { { id = "tp_x_night_watch", text = "Finest watch in the kingdom, and I can say so because the kingdom's sent no other to compare us with." } },
     worgen = { { id = "tp_x_worgen", text = "Big dogs with bad manners. I don't joke about them near the south gate, on account of Mocarski's nerves." } },
     advice = { { id = "tp_x_advice", text = "If something in the woods laughs back, stop telling jokes and walk quickly." } },
-    background = { { id = "tp_bg", text = "A Darkshire boy who joined the Watch and never stopped telling jokes." } },
+    background = { { id = "tp_bg", text = "A Darkshire girl who joined the Watch and never stopped telling jokes." } },
     _none = { { id = "tp_none", text = "No idea, but if you find out, let me know; I could use the material." } },
   },
 }
@@ -1464,7 +1464,7 @@ P:NPC {
     },
     ello = {
       lines = {
-        { id = "ello_1", text = "Then go straight in, and mind you give it into Lord Ello's own hand. He's waited on that page for some time, and Sirra Von'Indi doesn't part with her work for just anyone." },
+        { id = "ello_1", text = "Then go straight in, and mind you give it into Lord Ello's own hand. He's waited on that page for some time, and Sirra Von'Indi doesn't part with his work for just anyone." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -1704,7 +1704,7 @@ P:NPC {
     },
     visit = {
       lines = {
-        { id = "visit_1", text = "One or two, with a watcher beside them, to leave flowers at the gate because they can't go further. Sirra Von'Indi used to walk the rows copying the old stones for her histories, and she says half of what she copied has since been knocked down from underneath." },
+        { id = "visit_1", text = "One or two, with a watcher beside them, to leave flowers at the gate because they can't go further. Sirra Von'Indi used to walk the rows copying the old stones for his histories, and he says half of what she copied has since been knocked down from underneath." },
         { id = "visit_2", when = { class = { "PRIEST", "PALADIN" } }, text = "One or two, with a watcher beside them, and they go no further than the gate. If you'd walk them to the graves themselves some morning, you'd give them back something I can't." },
       },
       choices = {

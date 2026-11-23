@@ -254,7 +254,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "eager" }, values = { "curious", "kind" },
   notices = { "race" },
   impression = {
-    first = "Only he goes down to talk with the Forsaken.",
+    first = "Only she goes down to talk with the Forsaken.",
     third = "{name} met Siln Skychaser, a young shaman trainer on Spirit Rise.",
   },
 
@@ -553,7 +553,7 @@ P:NPC {
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "curious", "careful" },
   notices = { "origin" },
   impression = {
-    first = "He speaks of Dalaran the way the living speak of childhood homes.",
+    first = "She speaks of Dalaran the way the living speak of childhood homes.",
     third = "{name} met Ursyn Ghull, a Forsaken mage trainer in the Pools of Vision.",
   },
 

@@ -159,7 +159,7 @@ P:NPC {
     },
     dd_vs_dm = {
       lines = {
-        { id = "dd_vs_dm1", text = "They say the orcs are pullin' back toward Grim Batol, which is the first time I've written that in a report. They're no' beaten, mind, for they've red dragons chained in that mountain, an' a cornered orc wi' a dragon is the worst kind there is." },
+        { id = "dd_vs_dm1", text = "They say the orcs are pullin' back toward Grim Batol, which is the first time I've written that in a report. They're no' beaten, mind, for Nek'rosh has sworn vengeance on the reds that killed his da, an' a cornered orc wi' a grudge is the worst kind there is." },
       },
       choices = {
         { text = "Then we push now, while they're pulling back.", next = "BACK", reply = "Bold. I'll put it in front o' the captain, though he'll want more swords than we've got.", fx = { align = { order = -1 } } },

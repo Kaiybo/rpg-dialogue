@@ -48,7 +48,7 @@ P:NPC {
       },
     },
     checked = {
-      lines = { { id = "c_default", text = "Torn grumbles like a kodo at a river crossing, and then he thanks me the one time in a season that I find something. Chesmu only smiles, because he checked me first." } },
+      lines = { { id = "c_default", text = "Torn grumbles like a kodo at a river crossing, and then he thanks me the one time in a season that I find something. Chesmu only smiles, because she checked me first." } },
       choices = { { text = "A sound arrangement. Something else.", next = "BACK" } },
     },
     tent = {
@@ -61,7 +61,7 @@ P:NPC {
   },
   topics = {
     background = { { id = "tp_bg", text = "I count and I keep, here on the lower rise, and I have done it since the bank's poles were first raised." } },
-    _none = { { id = "tp_none", text = "That is beyond my ledgers, friend. Chesmu has longer ears than I do, so you might ask him." } },
+    _none = { { id = "tp_none", text = "That is beyond my ledgers, friend. Chesmu has longer ears than I do, so you might ask her." } },
   },
 }
 

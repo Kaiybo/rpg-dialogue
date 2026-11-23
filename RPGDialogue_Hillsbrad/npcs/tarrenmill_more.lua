@@ -461,7 +461,7 @@ P:NPC {
       lines = { { id = "xrogue_default", text = "They waited until I was relieving a patrol and crept past my tent in the dark, which I'll admit was well done. Dwarves from Dun Garok are better sneaks than anyone gives them credit for, and now I'm the joke of Tarren Mill." } },
       choices = {
         { text = "Then I'll take it back from them, quietly.", next = "BACK", reply = "You'd do that for me? I'll owe you a debt, and I always pay my debts, eventually.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "A guard who loses his gear deserves the jokes.", next = "BACK", reply = "Thank you, that's very helpful. I'll be sure to tell Samsa you've joined her side.", fx = { align = { order = -1 } } },
+        { text = "A guard who loses his gear deserves the jokes.", next = "BACK", reply = "Thank you, that's very helpful. I'll be sure to tell Samsa you've joined his side.", fx = { align = { order = -1 } } },
         { text = "Something else, Humbert.", next = "BACK" },
       },
     },

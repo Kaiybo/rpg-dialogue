@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Thunder Bluff |cff8a8a8a1.35.0|r
+## Title: RPG Dialogue: Thunder Bluff |cff8a8a8a1.36.0|r
 ## Notes: The tauren capital on its mesas: Cairne Bloodhoof, the Archdruid on Elder Rise, and the Elder Crone who thinks she should be chief.
 ## Author: RPG Dialogue
-## Version: 1.35.0
+## Version: 1.36.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.thunderbluff
@@ -32,4 +32,5 @@ npcs\missed2.lua
 npcs\missed3.lua
 npcs\missed4.lua
 npcs\missed_saern.lua
+npcs\unwritten.lua
 directions.lua

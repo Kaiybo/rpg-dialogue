@@ -659,7 +659,7 @@ P:NPC {
   communities = { "taurajo" }, temper = { "warm" }, values = { "generous", "kind" },
   notices = { "weary", "lock_shards" },
   impression = {
-    first = "She has never found the hyenas' laughter funny.",
+    first = "He has never found the hyenas' laughter funny.",
     third = "{name} rested at Innkeeper Byula's inn at Camp Taurajo, where the fire is always lit for travellers of the southern Barrens.",
   },
 

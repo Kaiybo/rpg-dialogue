@@ -352,7 +352,7 @@ P:NPC {
       },
     },
     food_char = {
-      lines = { { id = "fc_default", text = "They like it fine once they've tried it! Abeqwa won't admit it, but I've caught her back for seconds twice, and she told me it was only to check I hadn't burned the post down." } },
+      lines = { { id = "fc_default", text = "They like it fine once they've tried it! Abeqwa won't admit it, but I've caught him back for seconds twice, and he told me it was only to check I hadn't burned the post down." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     orc_soft = {

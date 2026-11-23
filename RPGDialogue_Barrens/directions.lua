@@ -9,7 +9,7 @@ P:Directions {
     { id = "auction", name = "The auction house", kind = "auction", text = "If you want the auction house, you'll have to go back to Orgrimmar. The wind riders will get you there faster than your feet will." },
     { id = "flight", name = "Wind rider master", kind = "flight", text = "Devrak keeps the wind riders on the tower at the west side of the fort, near the inn. Pay him and his beasts will carry you to Orgrimmar or Thunder Bluff.", x = 51.5, y = 30.3 },
     { id = "mail", name = "Mailbox", kind = "mail", text = "The mailbox stands outside the inn at the north end of the fort. It's the one thing here the centaur haven't tried to burn.", x = 52.4, y = 30.0 }, -- coords unsure
-    { id = "stable", name = "Stable master", kind = "stable", text = "Reggifuz the goblin keeps the stables by the inn, at the north end of the fort. He'll mind your beast, and he'll tell you what it costs while he does it.", x = 52.6, y = 29.8 }, -- coords unsure
+    { id = "stable", name = "Stable master", kind = "stable", text = "Sikwa keeps the stables by the inn, at the north end of the fort. She'll mind your beast as if it were her own.", x = 52.6, y = 29.8 }, -- coords unsure
 
     { id = "npc_thork", name = "Thork", kind = "npc", npc = "thork", text = "Thork holds the Crossroads for the Warchief, and he stands by the watchtower on the west side of the fort. If it concerns the safety of these roads, it concerns him.", x = 51.5, y = 30.9 },
     { id = "npc_sergra", name = "Sergra Darkthorn", kind = "npc", npc = "sergra", text = "Sergra Darkthorn stands on the south side of the fort, near the gate. She's the one sending new blood out past the walls to prove itself on the plains.", x = 52.2, y = 31.0 },

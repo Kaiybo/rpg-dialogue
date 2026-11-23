@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.36.0 (2026-11-23)
+- Lore fixes; NPCs that had no dialogue now talk (new file npcs/unwritten.lua: full game restart).
+
 ## 1.35.1 (2026-11-20)
 - Theramore first aid: the healer's question and reply no longer assume the Light, so they fit druids and shamans.
 

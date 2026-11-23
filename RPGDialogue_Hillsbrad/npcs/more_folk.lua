@@ -403,7 +403,7 @@ P:NPC {
       },
     },
     buyers2 = {
-      lines = { { id = "by2_default", text = "Samsa buys one, every week, and sets it on the wall where she stands watch. She never eats it. I asked her why once, and she said it gives the crows something to look at besides her, which is the only joke I've ever heard her make." } },
+      lines = { { id = "by2_default", text = "Samsa buys one, every week, and sets it on the wall where he stands watch. He never eats it. I asked him why once, and he said it gives the crows something to look at besides him, which is the only joke I've ever heard him make." } },
       choices = {
         { text = "That's nearly friendly, for a deathguard.", next = "BACK", reply = "I thought so! I gave her the next one free, and she reported me for bribery.", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -535,7 +535,7 @@ P:NPC {
       },
     },
     wear = {
-      lines = { { id = "w_default", text = "The left shoulder, where the shield strap rides, and the knees. Deathguard Samsa is through a pair of trousers a month, because she kneels to aim and won't be told. Humbert wears out nothing at all, and I've begun to wonder what he does on watch." } },
+      lines = { { id = "w_default", text = "The left shoulder, where the shield strap rides, and the knees. Deathguard Samsa is through a pair of trousers a month, because he kneels to aim and won't be told. Humbert wears out nothing at all, and I've begun to wonder what he does on watch." } },
       choices = {
         { text = "He stands very still, I think.", next = "BACK", reply = "Then he's the best friend my bench has, and I'll say no more against him.", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },

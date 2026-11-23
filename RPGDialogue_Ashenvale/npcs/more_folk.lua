@@ -2220,7 +2220,7 @@ P:NPC {
         { id = "worry_default", text = "Worry don't mend a net. Marukai glares at de water all day, and Karang counts his warriors, and Muglash dreams about his hydra. Somebody got to catch supper. I leave de worrying to dem dat be good at it." },
       },
       choices = {
-        { text = "A steady head is worth ten spears.", next = "BACK", reply = "Dat be what I tell Marukai. He don't listen, but he eats de fish.", fx = { align = { order = 1 } } },
+        { text = "A steady head is worth ten spears.", next = "BACK", reply = "Dat be what I tell Marukai. She don't listen, but she eats de fish.", fx = { align = { order = 1 } } },
         { text = "A man who isn't worried isn't watching.", next = "BACK", reply = "Oh, I be watching, mon. I just do it sitting down.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

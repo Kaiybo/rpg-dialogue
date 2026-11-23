@@ -725,7 +725,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Their ancestors were Highborne once, or fought against them, and the ruins of Eldre'Thalas are right across the water to remind them. Shandris doesn't forget a thing like that, and I can't say I'd want her to." } },
+      lines = { { id = "xmage_default", text = "Their ancestors were Highborne once, or fought against them, and the ruins of Eldre'Thalas stand in the hills across the water to remind them. Shandris doesn't forget a thing like that, and I can't say I'd want her to." } },
       choices = {
         { text = "I'll show them a mage can be trusted, in time.", next = "BACK", reply = "Good, and they'll notice, slow as they are to say so, because Shandris misses nothing.", fx = { align = { order = 1 } } },
         { text = "Their old grudges are their own. I won't apologise for my craft.", next = "BACK", reply = "That's your right, friend, but you'll find the Sentinels slow to forget, and slower to forgive.", fx = { align = { order = -1 } } },
@@ -1031,7 +1031,7 @@ P:NPC {
   notices = { "class", "kit", "lock_shards", "lock_steed" },
 
   impression = {
-    first = "His one answer for most problems in Feralas is killing ogres.",
+    first = "Her one answer for most problems in Feralas is killing ogres.",
     third = "{name} met Rok Orhan, who leads the Horde's fight against the Gordunni ogres from Camp Mojache.",
   },
 

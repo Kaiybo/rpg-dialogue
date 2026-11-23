@@ -1287,7 +1287,7 @@ P:NPC {
 }
 
 ---------------------------------------------------------------------------
--- Bart Tidewater: captain of the Maiden's Virtue, the ship between Menethil Harbor and Theramore.
+-- Bart Tidewater: captain of the Maiden's Virtue, a navy ship docked at Menethil (the Theramore run is the Lady Mehley's).
 ---------------------------------------------------------------------------
 P:NPC {
   key = "mf_tidewater", id = TODO_NPC("Bart Tidewater"), name = "Bart Tidewater", title = "Captain of the Maiden's Virtue",
@@ -1295,30 +1295,30 @@ P:NPC {
   communities = { "menethil" }, temper = { "weathered", "even" }, values = { "duty", "practical" },
   notices = { "race", "greenness" },
   impression = {
-    first = "Captain Bart Tidewater commands the Maiden's Virtue, which carries passengers between Menethil Harbor and Theramore Isle. He has made the crossing so often that he watches the passengers more than the sea.",
-    third = "{name} met Bart Tidewater, captain of the Maiden's Virtue, the ship that sails between Menethil Harbor and Theramore.",
+    first = "Captain Bart Tidewater commands the Maiden's Virtue, a navy ship that sits at her dock in Menethil Harbor while the Lady Mehley takes passengers to Theramore. He has made the crossing often enough in his time that he watches the passengers more than the sea.",
+    third = "{name} met Bart Tidewater, captain of the Maiden's Virtue, the navy ship docked at Menethil Harbor.",
   },
   greetings = {
-    { id = "g_hi", text = "Welcome aboard the Maiden's Virtue. Find a place at the rail, keep clear of the lines, and we'll have you in Theramore soon enough." },
-    { id = "g_back", when = { metBefore = true }, text = "You again. You're making this crossing nearly as often as I am, and I'm paid for it." },
-    { id = "g_night", when = { timeOfDay = "night" }, text = "A night crossing. Mind your footing on the deck, for it's slick, and I don't turn about for hats." },
+    { id = "g_hi", text = "Welcome to the Maiden's Virtue's dock. Keep clear of the lines, and if it's Theramore you want, the Lady Mehley will have you there soon enough." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. You're making the Theramore crossing more often than I have lately, and I'm the one paid to sail." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Out on the docks at night? Mind your footing on the planks, for they're slick, and nobody fishes out hats." },
   },
   notice = {
     { id = "n_green", cat = "greenness", when = { maxLevel = 25 },
-      text = "First time across the Great Sea, by the look of you. Watch the horizon and not the waves, and you'll keep your supper." },
+      text = "Bound across the Great Sea for the first time, by the look of you. Watch the horizon and not the waves, and you'll keep your supper." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
-      text = "A dwarf at sea. Hold onto something solid, friend, and I'll try to keep her level for you." },
+      text = "A dwarf bound for the sea. Hold onto something solid on the Lady Mehley, friend, for nobody can keep a ship level for you." },
   },
   start = "hello",
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "Bart Tidewater, captain of this ship. We run from Menethil Harbor to Theramore Isle and back, carrying soldiers, traders and anyone with business in Kalimdor. It's the longest regular crossing the Alliance keeps." },
+        { id = "h_default", text = "Bart Tidewater, captain of this ship. She's a navy ship of Stormwind, and she holds this harbor for the Alliance while the Lady Mehley runs folk to Theramore Isle and back. I made that crossing for years before my orders changed." },
         { id = "h_human", when = { race = "Human" }, text = "Bart Tidewater, captain. You'll find Theramore more like home than you expect, for half of it sailed from Lordaeron and brought their habits with them." },
       },
       again = {
         { id = "h_again", text = "What else? I've one eye on the weather, but go on." },
-        { id = "h_again2", text = "Aye, ask. There's time enough on a crossing." },
+        { id = "h_again2", text = "Aye, ask. There's time enough at a mooring." },
       },
       choices = {
         { text = "What's the crossing like?", next = "crossing" },
@@ -1365,7 +1365,7 @@ P:NPC {
       choices = { { text = "Then the harbor's in good hands.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
     passengers = {
-      lines = { { id = "y1_default", text = "They're adventurers, most of them, with new boots and old swords, bound for a continent they've only read about. I've carried a good many west. I make a point of remembering faces, so that I can be glad when I carry one back." } },
+      lines = { { id = "y1_default", text = "They're adventurers, most of them, with new boots and old swords, bound for a continent they've only read about. I carried a good many west in my sailing years. I make a point of remembering faces, so that I can be glad when I carry one back." } },
       choices = { { text = "I'll try to be one you carry back.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },
@@ -1405,7 +1405,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", text = "I'm Adam Lind, and I mind this pier. The ship that ties up here is the Maiden's Virtue, and she goes to Theramore Isle in Kalimdor. If it's Auberdine you want, you're on the wrong pier, and you wouldn't be the first today." },
+        { id = "h_default", text = "I'm Adam Lind, and I mind this pier. The ship that ties up here is the Lady Mehley, and she goes to Theramore Isle in Kalimdor. If it's Auberdine you want, you're on the wrong pier, and you wouldn't be the first today." },
       },
       again = {
         { id = "h_again", text = "Anything else I can tell you while you wait?" },
@@ -1421,7 +1421,7 @@ P:NPC {
       },
     },
     wait = {
-      lines = { { id = "wa_default", text = "Not long. She's across and back before you'd finish a meal at the Deepwater, though I couldn't tell you how Captain Tidewater manages it. I've stopped asking sailors questions like that." } },
+      lines = { { id = "wa_default", text = "Not long. She's across and back before you'd finish a meal at the Deepwater, though I couldn't tell you how the Lady Mehley's crew manage it. I've stopped asking sailors questions like that." } },
       choices = { { text = "Some things are better not asked.", next = "BACK", fx = { trait = { witty = 1 } } }, { text = "Something else.", next = "BACK" } },
     },
     wrong = {
@@ -1456,7 +1456,7 @@ P:NPC {
       choices = { { text = "Good neighbours make a hard post easier.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
     strange = {
-      lines = { { id = "y1_default", text = "A gnome with a mechanical chicken on a lead, taking it to Theramore to be mended. It clucked at Captain Tidewater the whole way up the plank. He let it aboard, and he told me after that it had better manners than most of his crew." } },
+      lines = { { id = "y1_default", text = "A gnome with a mechanical chicken on a lead, taking it to Theramore to be mended. It clucked at the Lady Mehley's first mate the whole way up the plank. He let it aboard, and he told me after that it had better manners than most of the crew." } },
       choices = { { text = "I hope the chicken was mended.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
     },
   },

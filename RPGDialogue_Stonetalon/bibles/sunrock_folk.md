@@ -1,7 +1,7 @@
 # Sun Rock service folk  (keys: stn_tharm, stn_gereck, stn_kulwia)
 
 ## Sources
-- Classic Sun Rock Retreat roster from memory (not read this pass): Tharm (Wind Rider Master), Gereck (Stable Master), Kulwia (Trade Supplies). Confirm names, races and titles in game.
+- Classic Sun Rock Retreat roster checked on warcraft.wiki.gg: Tharm (tauren Wind Rider Master), Gereck (orc Stable Master), Kulwia (Trade Supplies).
 - Neighbours from bibles/stonetalon.md (Maggran, Tammra, Braelyn, Jayka), LORE_NOTES.md Stonetalon section.
 
 ## Their quests
@@ -11,9 +11,9 @@
 
 # Tharm  (key: stn_tharm)
 ## Identity
-TODO_NPC · Tharm · Sun Rock Retreat · Horde · orc (from memory) · wind rider master
-Personality: gruff, proud, practical, quietly grieving
-Speech: blunt, dry jokes about the riders biting; "{class}".
+TODO_NPC · Tharm · Sun Rock Retreat · Horde · tauren (warcraft.wiki.gg) · wind rider master
+Personality: calm, proud, practical, quietly grieving
+Speech: slow, unhurried tauren register; speaks of the winds like kin; dry jokes about the riders biting.
 Knows and cares about: his riders; the wild Pridewing wyverns on the ridges; the Bloodfury harpies.
 Relationships: respects Maggran; wry about Braelyn's grudge and Tammra's planting.
 Never says: anything past Year 1; no later flight paths.
@@ -32,9 +32,9 @@ background (authored: kept riders in Durotar), advice, _none.
 
 # Gereck  (key: stn_gereck)
 ## Identity
-TODO_NPC · Gereck · Sun Rock Retreat · Horde · tauren (from memory) · stable master
-Personality: gentle, slow, patient, devoted to beasts
-Speech: soft, unhurried, "friend", "little cousin" to tauren.
+TODO_NPC · Gereck · Sun Rock Retreat · Horde · orc (warcraft.wiki.gg) · stable master
+Personality: gruff with people, fond of beasts, devoted to them
+Speech: plain, blunt orc; "{class}"; was a wolf handler before the internment camps and hates chains.
 Knows and cares about: hunters' beasts; animals fleeing the Charred Vale fires; spiders of the Webwinder Path.
 Relationships: Maggran's Besseleth scar; hopes Tammra is right about regrowth.
 ## Agenda

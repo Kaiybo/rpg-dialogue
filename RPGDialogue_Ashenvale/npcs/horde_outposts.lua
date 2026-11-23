@@ -47,7 +47,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_dd_naga", tags = { "news" }, when = { questDone = TODO_QUEST("Naga at the Zoram Strand") }, text = "Marukai say you cut down many naga on de strand for him. De water spirits be quieter tonight, and I be thinkin' dat not a coincidence." },
+        { id = "h_dd_naga", tags = { "news" }, when = { questDone = TODO_QUEST("Naga at the Zoram Strand") }, text = "Marukai say you cut down many naga on de strand for her. De water spirits be quieter tonight, and I be thinkin' dat not a coincidence." },
         { id = "h_default", key = true,
           text = "I be Je'neu Sancrea, of da Earthen Ring. Something stir in Blackfathom Deeps, north along da strand, and da water spirits be crying out about it, so I come here to listen and to answer." },
         { id = "h_ruins", tags = { "news" }, when = { questActive = TODO_QUEST("Amongst the Ruins") },
@@ -169,7 +169,7 @@ P:NPC {
   notices = { "class" },
 
   impression = {
-    first = "He glares at the sea as if it owed him money.",
+    first = "She glares at the sea as if it owed her money.",
     third = "{name} met Marukai, a Darkspear troll at Zoram'gar Outpost who wants the naga of the Zoram Strand thinned out.",
   },
 
@@ -399,7 +399,7 @@ P:NPC {
     darkspear = { { id = "tp_darkspear", text = "We be few, mon, and far from da Isles. Every one we lose be a song nobody sing no more." } },
     background = { { id = "tp_bg", text = "I keep da quiet watch at Zoram'gar, mon, and I wait for my kin's charms to come home." } },
     furbolgs = { { id = "tp_furbolgs", text = "Da Thistlefur be sick in da head, mon, and dey kill what come near. I hate dem and I pity dem, and I don't know which be heavier." } },
-    _none = { { id = "tp_none", text = "I don't know, mon. Ask Je'neu, who know many things, or Marukai, who think he do." } },
+    _none = { { id = "tp_none", text = "I don't know, mon. Ask Je'neu, who know many things, or Marukai, who think she do." } },
   },
 }
 

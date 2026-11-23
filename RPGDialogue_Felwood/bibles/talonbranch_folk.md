@@ -1,27 +1,27 @@
 # Talonbranch Glade folk  (keys: taronn, malygen)
 
 ## Sources
-- From memory, not checked this pass: Taronn Redfeather gives the Alliance "Wild Guardians" chain and "Guarding Secrets" at Talonbranch Glade (Classic). Wildkin details follow the Horde versions summarised in bibles/felwood.md (Trull): Winterspring wildkin guard night elf secrets; ragged and raging, moontouched in the north, berserk by small caves in the south; Elune made them to guard her sacred places. Malygen: reagent vendor at Talonbranch (role and gender unconfirmed; lines avoid pronouns).
+- Taronn Redfeather: https://warcraft.wiki.gg/wiki/Taronn_Redfeather (tauren male, Emerald Circle, Emerald Sanctuary; Classic quests Verifying the Corruption, Culling the Corrupted; unconfirmed for Forever). Also wowpedia and bibles/emerald_circle.md. Earlier night elf / Talonbranch / Wild Guardians version was wrong and has been removed. Malygen: reagent vendor at Talonbranch (role and gender unconfirmed; lines avoid pronouns).
 
 ## Their quests
-- Taronn: Wild Guardians, Guarding Secrets (TODO_QUEST). The Alliance turn-in NPC for the necklace is not named.
+- Taronn: Verifying the Corruption (Shatter Scar Vale craters; hoped for one clean water source, found none), Culling the Corrupted (end the entropic beasts' suffering). Both TODO_QUEST.
 
 ## Identity
-- Taronn Redfeather: night elf, male (unconfirmed). Curious, earnest scholar of the wildkin, a little afraid of Felwood; long-winded about owlbeasts.
+- Taronn Redfeather: tauren male druid of the Emerald Circle at the Emerald Sanctuary (his NPC entry lives in npcs/talonbranch_folk.lua). Slow, patient, earthy, a little weary; Earth Mother, An'she, Mu'sha, Mulgore, kodo; plants for those who come after. No night elf greetings.
 - Malygen: brisk, particular, keeps reagents dry and clean.
 
 ## Agenda
-- Taronn: learn what is driving the wildkin mad before the Sentinels decide on arrows.
+- Taronn: find one clean water source to begin healing; failing that, give the twisted beasts a quick death.
 - Malygen: sell nothing grown in Felwood soil.
 
 ## What they notice
-- Taronn: druids, dwarves.
+- Taronn: druids (warns about the Dream), tauren (one of the People).
 
 ## Never
 - Talonbranch's later worgen; anything past Classic about the wildkin.
 
 ## Authored, not canon
-- Taronn thinks the madness comes from what the wildkin guard, not from fel; he flies with Mishellena's birds to Winterspring and back in a day; he read about wildkin as a boy.
+- Taronn: still clumsy in moonkin form; Greta Mosshoof and he are the only tauren at the Sanctuary; the Horde at Bloodvenom drink from the falls and laugh at his warnings; misses the plains and kodo at dusk.
 - Malygen: Felwood-grown reagents make spells go wrong (the mage and his eyebrows); the Shadow Council grow theirs in that soil on purpose; supplies come by hippogryph from Ashenvale and Darnassus; the birds hate carrying candles.
 - Golhine (talonbranch.lua, deepened): about two in five of his students stay; the moonwell's light reaches a step less into the trees each year, and one day the glade may have to choose to stay or go south.
 # Talonbranch Glade keepers  (npcs/talonbranch_folk.lua; keys kaerbrus, malygen, mylini)

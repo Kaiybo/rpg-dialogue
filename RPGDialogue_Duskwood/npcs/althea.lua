@@ -280,7 +280,7 @@ P:NPC {
         { id = "h_watch_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Night Watch"), days = 3 } },
           text = "My watchers slept a full night, and two of them didn't know what to do with themselves." },
         { id = "h_stalvan", when = { questActive = TODO_QUEST("The Legend of Stalvan") },
-          text = "The Stalvan business is an old murder of some visiting nobles, years ago. Smitts never let it go, and now it seems neither will you, so follow it to the end." },
+          text = "The Stalvan business is an old murder of a noble family over in Westfall, years ago. Smitts never let it go, and now it seems neither will you, so follow it to the end." },
         { id = "h_morgan", when = { questActive = TODO_QUEST("Morgan Ladimore") },
           text = "Sirra Von'Indi sent you with a name, did he? Ladimore. Most of us stopped using it; we call what's left of him Mor'Ladim, when we call him anything at all." },
         { id = "h_ladim", tags = { "news" }, when = { questActive = TODO_QUEST("Mor'Ladim") },

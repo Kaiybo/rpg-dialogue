@@ -239,7 +239,7 @@ P:NPC {
 
   notice = {
     { id = "n_nightelf", cat = "race", when = { race = "NightElf" },
-      text = "A child of Kalimdor. Your people cast mine out ten thousand years ago, and here we stand in a blighted wood, both of us far from anything we would call home." },
+      text = "A child of Kalimdor. Your people cast mine out some seven thousand years ago, and here we stand in a blighted wood, both of us far from anything we would call home." },
     { id = "n_priest", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
       text = "You serve the Light, or something near it. Then pray with me a moment before you ask your question. This forest has had too few prayers." },
     { id = "n_mage", cat = "class", when = { class = "MAGE" },

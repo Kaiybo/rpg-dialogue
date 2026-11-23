@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Searing Gorge |cff8a8a8a1.23.0|r
+## Title: RPG Dialogue: Searing Gorge |cff8a8a8a1.24.0|r
 ## Notes: Thorium Point: Dark Iron smiths who escaped Ragnaros, a blind lookout who swears by his drink, an enforcer who'd rather be resting, and a grieving stranger with a story that doesn't quite add up.
 ## Author: RPG Dialogue
-## Version: 1.23.0
+## Version: 1.24.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.searinggorge
@@ -22,3 +22,4 @@ npcs\nilith.lua
 npcs\dying_archaeologist.lua
 npcs\maltrake.lua
 npcs\tanner_camp.lua
+npcs\unwritten.lua

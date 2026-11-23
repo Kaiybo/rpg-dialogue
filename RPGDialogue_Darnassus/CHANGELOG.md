@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.32.0 (2026-11-23)
+- Lore fixes; NPCs that had no dialogue now talk (new file npcs/unwritten.lua: full game restart).
+
 ## 1.31.2 (2026-11-23): Ghosts Set Right
 - Lore fix: Fandral now speaks of Valstann as his son, a warrior slain by the qiraji in Silithus.
 

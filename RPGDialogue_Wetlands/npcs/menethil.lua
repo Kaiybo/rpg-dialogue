@@ -515,7 +515,7 @@ P:NPC {
     explorers_league = { { id = "tp_league", text = "The League's man upstairs wants an escort to his dig. I've no men to spare for bones." } },
     _none = { { id = "tp_none", text = "That's no' my concern, I'm afraid; my concern's the wall." } },
     grim_batol = {
-      { id = "tp_grim_batol", text = "Grim Batol's the Dragonmaw's den, east past the highlands, an' in the war they kept a red dragon queen chained there. She's free now, they say, but the place still stinks o' dragon an' worse." },
+      { id = "tp_grim_batol", text = "Grim Batol was the Dragonmaw's den, east past the highlands, an' in the war they kept a red dragon queen chained there. She's free now, they say, but the place still stinks o' dragon an' worse." },
       { id = "tp_grim_batol2", when = { disposition = { min = 65 } }, text = "Between us, the old dwarves won't even say its name, for it was the Wildhammer's home before the Dark Irons cursed it. I've sent scouts past it, but never in, an' I never will." },
     },
     magni = { { id = "tp_magni", text = "King Magni gave me this wall an' this harbour, an' he expects both standin' when he next asks. I write tae him every month, an' I've never once had tae write bad news about the wall." } },
@@ -1812,7 +1812,7 @@ P:NPC {
     },
     xpt_company = {
       big = true,
-      lines = { { id = "xpt_company_default", text = "Aye, turn round, but you won't, so I'll say this instead: the Dragonmaw keep red drakes up there, and a company of five looks like a meal to a drake, not a threat. Stay low and stay in the trees, and come back here to dry out, because I'll want the story." } },
+      lines = { { id = "xpt_company_default", text = "Aye, turn round, but you won't, so I'll say this instead: red drakes still haunt the hills up there, and a company of five looks like a meal to a drake, not a threat. Stay low and stay in the trees, and come back here to dry out, because I'll want the story." } },
       choices = {
         { text = "We'll go carefully, as you say, and keep to the trees.", next = "BACK", reply = "That's all I ask, an' there'll be a seat by the fire when ye come back down. Mind the treeline, for the raptors are thicker in it than they look.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "We'll meet the drakes head on. Five of us is plenty.", next = "BACK", reply = "Five o' ye, is it? Then I'll set five places for supper an' hope I've no' wasted the bread. Off ye go, an' good luck.", fx = { align = { order = -1 } } },

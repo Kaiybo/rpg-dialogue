@@ -310,8 +310,8 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "Because across the water stand the ruins of Eldre'Thalas, and the satyrs that walk there were once my people. They traded what they were for power, and I can smell that same trade on you." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because across the water stand the ruins of Eldre'Thalas, and the satyrs that walk there were once my people. They traded what they were for power, and when I look at the thing beside you, I see the bargain that made them, so forgive me if I don't believe yours will end better." },
+        { id = "xlock_default", text = "Because across the water, in the eastern hills, stand the ruins of Eldre'Thalas, and the satyrs that walk there were once my people. They traded what they were for power, and I can smell that same trade on you." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because across the water, in the eastern hills, stand the ruins of Eldre'Thalas, and the satyrs that walk there were once my people. They traded what they were for power, and when I look at the thing beside you, I see the bargain that made them, so forgive me if I don't believe yours will end better." },
       },
       choices = {
         { text = "I understand. I'll prove my bargain is different.", next = "BACK", reply = "Then prove it, and I will be glad to be wrong, because I would like to believe a bargain can end well.", fx = { align = { order = 1 } } },

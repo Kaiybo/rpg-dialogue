@@ -70,9 +70,9 @@ P:NPC {
           text = "The Kolkar who came at us from the west have kin in Desolace, and the Warchief wants them dealt with. The road is long, so don't dawdle." },
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Kolkar", min = 40 } }, text = "My scouts are running out of Kolkar to count, and they tell me whose work that is. Keep it up, because the ones you leave alive are the ones who learn." },
         { id = "h_kw_resolved", tags = { "news" }, when = { thread = { id = "kolkar_war", state = "resolved" } },
-          text = "My troll Lanti'gah has been insufferable since we let Krom'zar's stragglers go, because the road's been quiet ever since and he won't stop saying so. I'll grant him the quiet, and nothing else." },
+          text = "My peon Lanti'gah has been insufferable since we let Krom'zar's stragglers go, because the road's been quiet ever since and he won't stop saying so. I'll grant him the quiet, and nothing else." },
         { id = "h_kw_soured", tags = { "news" }, when = { thread = { id = "kolkar_war", state = "soured" } },
-          text = "Not one of Krom'zar's riders reached the hills, and my grunts sing about it at night. Lanti'gah, my troll, doesn't sing, and he's taken to walking the perimeter facing west." },
+          text = "Not one of Krom'zar's riders reached the hills, and my grunts sing about it at night. Lanti'gah, my peon, doesn't sing, and he's taken to walking the perimeter facing west." },
       },
       again = {
         { id = "h_again", text = "What else? I've a war to run, and the Kolkar don't respect talk, only blood." },
@@ -162,7 +162,7 @@ P:NPC {
       },
     },
     lantigah = {
-      lines = { { id = "la_default", text = "He's a troll with sharp eyes and a sharper tongue, and he keeps my camp. He walks the perimeter at night and complains about the pigs, and I've never once had a centaur reach my door, so he can complain all he likes." } },
+      lines = { { id = "la_default", text = "He's a peon with sharp eyes and a sharper tongue, and he keeps my camp. He walks the perimeter at night and complains about the pigs, and I've never once had a centaur reach my door, so he can complain all he likes." } },
       choices = { { text = "Something else, Regthar.", next = "BACK" } },
     },
     fighting = {

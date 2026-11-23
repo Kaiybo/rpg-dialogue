@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.32.0 (2026-11-23)
+- Lore fixes; NPCs that had no dialogue now talk (new file npcs/unwritten.lua: full game restart).
+
 ## 1.31.2 (2026-11-22)
 - Raene's Warsong memory fixed (Cenarius fell in the forest; Grom died killing Mannoroth at Demon Fall) and deepened, with her own view of Hellscream.
 

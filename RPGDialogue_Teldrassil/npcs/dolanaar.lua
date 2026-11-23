@@ -787,7 +787,7 @@ P:NPC {
   prejudice = { class = "WARLOCK", amount = 10, why = "Carries the Council of the Forest's orders and won't let young Sentinels learn demons from a warlock." },
   notices = { "craft", "lock_armor" },
   impression = {
-    first = "He sorts his orders by which ones get someone hurt waiting.",
+    first = "She sorts her orders by which ones get someone hurt waiting.",
     third = "{name} met Syral Bladeleaf, who carries the Council of the Forest's orders to anyone in Dolanaar willing to follow them.",
   },
 

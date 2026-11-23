@@ -122,7 +122,7 @@ P:NPC {
     },
     xrogue = {
       big = true,
-      lines = { { id = "xrogue_default", text = "Not the ones who stay, because Keryn Sylvius keeps his students in line and I keep the ale flowing, and we understand each other. It's the Defias passing through I worry about, though they never seem to stay for a second drink." } },
+      lines = { { id = "xrogue_default", text = "Not the ones who stay, because Keryn Sylvius keeps her students in line and I keep the ale flowing, and we understand each other. It's the Defias passing through I worry about, though they never seem to stay for a second drink." } },
       choices = {
         { text = "Your spoons are safe with me, Farley. You have my word.", next = "BACK", reply = "I'll hold you to that, and I'll count them anyway. It's a habit by now.", fx = { align = { honor = 1 } } },
         { text = "If you've spoons worth counting, someone will find a way.", next = "BACK", reply = "Someone always does, aye, and I've a ledger to prove it. Mind you don't let it be you.", fx = { align = { honor = -1 } } },

@@ -14,7 +14,7 @@ P:NPC {
   bible = "bibles/townsfolk.md", role = "banker", tier = "service",
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "honest", "patient" },
   impression = {
-    first = "He still counts wealth in herds and in friends.",
+    first = "She still counts wealth in herds and in friends.",
     third = "{name} met Chesmu, a banker of Thunder Bluff who remembers when the tauren kept their wealth on the hoof.",
   },
 

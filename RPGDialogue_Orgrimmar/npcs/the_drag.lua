@@ -14,7 +14,7 @@ P:NPC {
   notices = { "purse", "dungeon" },
   impression = {
     first = "He believes everything in the world is his or about to be.",
-    third = "{name} met Dran Droffers, the goblin who runs Droffers and Son Salvage on Orgrimmar's Drag.",
+    third = "{name} met Dran Droffers, the orc who runs Droffers and Son Salvage on Orgrimmar's Drag.",
   },
 
   greetings = {
@@ -34,7 +34,7 @@ P:NPC {
   start = "hello",
   nodes = {
     xorig_drag = {
-      lines = { { id = "xdr_default", text = "Sure I know you, kid, you collected from my cousin Rizzle twice and only broke one of his fingers, which in this business is practically a love letter. So are you still in the collections game, or are you finally lookin' for honest work at a dishonest wage?" } },
+      lines = { { id = "xdr_default", text = "Sure I know you, kid, you collected from that goblin Rizzle for me twice and only broke one of his fingers, which in this business is practically a love letter. So are you still in the collections game, or are you finally lookin' for honest work at a dishonest wage?" } },
       choices = {
         { text = "Still collecting, Dran. Who owes you?", next = "BACK", fx = { trait = { greedy = 1 } } },
         { text = "I've left the knives behind, mostly.", next = "BACK", fx = { trait = { cautious = 1 } } },
@@ -43,7 +43,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Dran Droffers, of Droffers and Son Salvage, and that's me at the front of the name, not the son, whatever he tells you. We buy what other folks dig up and we sell it to folks with more gold than sense, and the margins are beautiful." },
-        { id = "h_goblin", when = { race = "Goblin" }, text = "Dran Droffers, and you're one of us, so I'll skip the sales pitch and give you the price I give my cousins. That's the same as everybody else's, by the way, but now you feel special." },
+        { id = "h_goblin", when = { race = "Goblin" }, text = "Dran Droffers, and you're a goblin, so I'll skip the sales pitch, because your people invented it. You get the price I give my friends, which is the same as everybody else's, by the way, but now you feel special." },
         { id = "h_ready", when = { questReady = TODO_QUEST("Necklace Recovery") }, text = "Is that it? Is that my necklace? Hand it over, hand it over, and don't you dare tell that troll Jarkal Mossmeld you came here first." },
       },
       again = {
@@ -154,7 +154,7 @@ P:NPC {
         { text = "What's your best item right now?", next = "best" },
         { text = "Where does all this salvage come from?", next = "salvage" },
         { text = "You mentioned a bargain bin.", next = "bin" },
-        { text = "How does a goblin family end up in Orgrimmar?", next = "goblins" },
+        { text = "How did a salvage shop end up on the Drag?", next = "goblins" },
         { text = "That hole in the helmet. It's my tusk's shape.", next = "tusk", when = { race = "Troll" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Farewell, Malton.", next = "END" },
@@ -221,9 +221,9 @@ P:NPC {
       choices = { { text = "Something else, Malton.", next = "BACK" } },
     },
     goblins = {
-      lines = { { id = "go_default", fx = { learn = { "ratchet" } }, text = "Same way as Gazlowe, friend, because the Warchief needed builders when the city went up, and goblins who build stay to sell. We came over from Ratchet with a cart of scrap, and Dad's been shouting at the Drag ever since." } },
+      lines = { { id = "go_default", fx = { learn = { "ratchet" } }, text = "Gazlowe's goblins built half this city, friend, and they left more scrap behind than they used. Dad bought a cart of it off them in Ratchet, and Dad's been shouting at the Drag ever since." } },
       choices = {
-        { text = "Do the orcs treat you fairly?", next = "goblins_orcs" },
+        { text = "Do your own people treat you fairly?", next = "goblins_orcs" },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -235,13 +235,13 @@ P:NPC {
       lines = { { id = "tu_default", text = "Ha! Then you'd know the story better than me, buddy, and I'd love to hear it, because a good story sells a helmet twice as fast. Was it a fight with a dwarf, or was the dwarf just in the wrong place?" } },
       choices = {
         { text = "The dwarf started it. I finished it.", next = "BACK", fx = { affinity = 1, trait = { brave = 1 } } },
-        { text = "A troll never tells, goblin.", next = "BACK", fx = { trait = { cunning = 1 } } },
+        { text = "A troll never tells, Malton.", next = "BACK", fx = { trait = { cunning = 1 } } },
       },
     },
   },
   topics = {
     _none = { { id = "tp_none", text = "Couldn't tell you, buddy, but I'll ask around, and Dad'll probably charge you for the answer." } },
-    background = { { id = "tp_bg", text = "Born over a crate of scrap in Ratchet, buddy, and raised on the Drag. The shop's my whole story so far, but I'm working on the sign." } },
+    background = { { id = "tp_bg", text = "Born in a camp the year before the Warchief freed us, buddy, and raised on the Drag. The shop's my whole story so far, but I'm working on the sign." } },
     advice = { { id = "tp_ad", text = "Never buy the first thing you see, friend, unless you see it in my shop." } },
     warsong = { { id = "tp_warsong", next = "salvage_ashenvale", text = "The Warsong send us their broken axes from Ashenvale, and some of them come back with stories." } },
   },

@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Badlands |cff8a8a8a1.33.0|r
+## Title: RPG Dialogue: Badlands |cff8a8a8a1.34.0|r
 ## Notes: Kargath, the Horde's lone outpost in Khaz Modan: a warlord stuck on watch, two Forsaken gossips, and a spymaster. Plus a prospector at the dig and a gnome lost in his elements.
 ## Author: RPG Dialogue
-## Version: 1.33.0
+## Version: 1.34.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.badlands
@@ -24,3 +24,4 @@ npcs\thaltrak.lua
 npcs\gorn.lua
 npcs\badlands_wanderers.lua
 npcs\kargath_force.lua
+npcs\unwritten.lua

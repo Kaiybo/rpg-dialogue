@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Elwynn Forest |cff8a8a8a1.42.0|r
+## Title: RPG Dialogue: Elwynn Forest |cff8a8a8a1.43.0|r
 ## Notes: Northshire Valley and Goldshire.
 ## Author: RPG Dialogue
-## Version: 1.42.0
+## Version: 1.43.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.elwynn
@@ -59,4 +59,5 @@ npcs\elwynn_forever.lua
 npcs\missed_folk.lua
 npcs\missed.lua
 npcs\missed2.lua
+npcs\unwritten.lua
 directions.lua

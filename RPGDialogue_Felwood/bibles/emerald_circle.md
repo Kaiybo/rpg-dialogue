@@ -1,4 +1,4 @@
-# Emerald Circle druids  (npcs/emerald_circle.lua; keys taronn, kelek)
+# Emerald Circle druids  (npcs/emerald_circle.lua: kelek; taronn lives in npcs/talonbranch_folk.lua)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Taronn_Redfeather (Classic section), https://warcraft.wiki.gg/wiki/Verifying_the_Corruption

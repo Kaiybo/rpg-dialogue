@@ -357,7 +357,7 @@ P:NPC {
 
   impression = {
     first = "Whatever she's building is furry, and someone is going to scream.",
-    third = "{name} met Umi Rumplesnicker, the playful gnome engineer of Everlook with a prank in progress.",
+    third = "{name} met Umi Rumplesnicker, the playful goblin engineer of Everlook with a prank in progress.",
   },
 
   greetings = {
@@ -438,7 +438,7 @@ P:NPC {
       lines = { { id = "xmage_default", text = "Because I can, and because Legacki laughed at me, and you don't laugh at an engineer unless you want a furry metal monster waiting by your door. Magic's very well, but nothing beats a good gear train when you want to scare someone properly." } },
       choices = {
         { text = "Engineering beats magic for a good prank, I'll grant you.", next = "BACK", reply = "Ha! I'll write that down, because no mage has ever said it to me before. A fireball's over in a second, but a mechanical yeti haunts you for a week.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "Scaring people isn't much of a goal for a craftsman.", next = "BACK", reply = "Not much of a goal? It's the best goal! Gnomeregan's gone and everything's grey, and if I can't make somebody laugh, what was all that engineering for?", fx = { align = { order = 1 } } },
+        { text = "Scaring people isn't much of a goal for a craftsman.", next = "BACK", reply = "Not much of a goal? It's the best goal! The whole world's gone grey since the Scourge came, and if I can't make somebody laugh, what was all that engineering for?", fx = { align = { order = 1 } } },
         { text = "I'll keep my sparks to myself.", next = "BACK" },
       },
     },
@@ -453,10 +453,10 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Gnomeregan's gone, half my friends are sleeping in Ironforge's spare rooms, and the whole world's gone grim, so yes, a good scare and a good laugh are worth every gear. I'd have thought a priest of all people would know a laugh mends more than a bandage does, some days." } },
+      lines = { { id = "xapriest_default", text = "Half the north is burned or haunted, Everlook is nothing but snow and ledgers, and the whole world's gone grim, so yes, a good scare and a good laugh are worth every gear. I'd have thought a priest of all people would know a laugh mends more than a bandage does, some days." } },
       choices = {
-        { text = "Mischief has its place. Life's grim enough without it.", next = "BACK", reply = "You understand! We lost a whole city, and if a yeti in a back alley makes a goblin squeal, that's one less sad face in the snow.", fx = { affinity = 1, align = { order = -1 } } },
-        { text = "There are better uses for your skill than frightening goblins.", next = "BACK", reply = "Probably, but nobody pays a refugee gnome for her best ideas anymore. A scare is free, a laugh is free, and both of them are better than sulking in Ironforge.", fx = { align = { order = 1 } } },
+        { text = "Mischief has its place. Life's grim enough without it.", next = "BACK", reply = "You understand! Half the world's in mourning, and if a yeti in a back alley makes a goblin squeal, that's one less sad face in the snow.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "There are better uses for your skill than frightening goblins.", next = "BACK", reply = "Probably, but nobody pays a goblin for her best ideas unless they explode. A scare is free, a laugh is free, and both of them are better than sulking over ledgers.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -465,7 +465,7 @@ P:NPC {
       lines = { { id = "xhcast_default", text = "Harmless? It's a work of art, and it's only going to frighten Legacki and Sprinkle and Quixxil a little bit, which they deserve. Everlook is cold and dull and full of goblins counting money, so somebody has to keep it lively." } },
       choices = {
         { text = "Frightening people isn't much of a gift, Umi.", next = "BACK", reply = "It's a gift to me, at least! Still, I'll take the warning, and maybe I'll set it off at a party instead, where everyone is braced for nonsense.", fx = { align = { order = 1 } } },
-        { text = "A bit of chaos does a cold town good.", next = "BACK", reply = "That's exactly what I keep saying! Everlook needs a jolt, and I'm just the gnome with the battery to give it one.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "A bit of chaos does a cold town good.", next = "BACK", reply = "That's exactly what I keep saying! Everlook needs a jolt, and I'm just the goblin with the battery to give it one.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -487,14 +487,14 @@ P:NPC {
         { id = "h_warcl", when = { class = "WARRIOR" },
           text = "A warrior! Stand still a moment, would you? I need to know how tall a yeti has to be before somebody in armour stops being brave about it." },
         { id = "h_huntcl", when = { class = "HUNTER" },
-          text = "A hunter! Oh, you'll know a real yeti's tracks better than anybody, so tell me straight, does mine walk like one or like a gnome in a fur coat?" },
+          text = "A hunter! Oh, you'll know a real yeti's tracks better than anybody, so tell me straight, does mine walk like one or like a goblin in a fur coat?" },
         { id = "h_shamancl", when = { class = "SHAMAN" }, text = "A shaman! Do you think the spirits would mind a mechanical yeti? I'd hate to offend the snow, because it's been so good to me." },
         { id = "h_magecl", when = { class = "MAGE" },
           text = "A mage! Could you make something glow? No, wait, don't, the last spark nearly set my yeti's fur alight, and that fur took me three weeks to get." },
         { id = "h_roguecl", when = { class = "ROGUE" },
           text = "A rogue, eh? You've got the right hands for fiddly work, and I always need someone to slip a part into somebody's shop when they're not looking, purely for science." },
         { id = "h_default", key = true,
-          text = "Umi Rumplesnicker, engineer! I teach, I tinker, and right now I'm building something wonderful that's roughly seventy percent fur, twenty-five percent gears and five percent pure Gnomeregan genius, and it's going to scare the bolts off every goblin I know." },
+          text = "Umi Rumplesnicker, engineer! I teach, I tinker, and right now I'm building something wonderful that's roughly seventy percent fur, twenty-five percent gears and five percent pure goblin genius, and it's going to scare the bolts off every goblin I know." },
         { id = "h_yeti", tags = { "news" }, when = { questActive = TODO_QUEST("Are We There, Yeti?") },
           text = "Yeti parts, real fur and real horns! The mechanical bits I've got already, so bring me the rest and we'll make a monster." },
         { id = "h_own", when = { questActive = TODO_QUEST("A Yeti of Your Own") },

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.31.0 (2026-11-23)
+- Lore fixes; NPCs that had no dialogue now talk (new file npcs/unwritten.lua: full game restart).
+
 ## 1.30.0 (2026-11-20)
 - Gart Mistrunner and Gennia Runetotem teach young tauren druids the basics and send them on to Turak.
 

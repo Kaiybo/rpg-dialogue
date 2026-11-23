@@ -181,7 +181,7 @@ P:NPC {
       },
     },
     cousins = {
-      lines = { { id = "co_default", text = "Torm's my cousin, and so is Taim, the one sending braves off to Alterac to fight beside the Frostwolves! Ker's an older relation who trained me himself, and he still says I drop my shoulder, and he's still right!" } },
+      lines = { { id = "co_default", text = "Torm's my cousin, and so is Taim, the one sending braves off to Alterac to fight beside the Frostwolves! Ker's an older relation who trained me herself, and she still says I drop my shoulder, and she's still right!" } },
       choices = {
         { text = "Why send tauren to fight in Alterac?", next = "alterac" },
         { text = "Something else.", next = "BACK" },

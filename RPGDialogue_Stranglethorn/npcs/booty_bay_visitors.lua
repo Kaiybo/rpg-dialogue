@@ -896,7 +896,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to the berth of the Maiden's Fancy, passenger! Have you tried the chowder yet? You should try the chowder." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, passenger! Either you missed the boat or you came back for the chowder, and I hope it's the chowder." },
-    { id = "g_away", when = { away = 14 }, text = "Gone {away}, passenger, and the Fancy's made the crossing four times while you were away. Kelsey Yance at the inn has changed her clams twice, too, so you've got some catching up to do." },
+    { id = "g_away", when = { away = 14 }, text = "Gone {away}, passenger, and the Fancy's made the crossing four times while you were away. Kelsey Yance at the inn has changed his clams twice, too, so you've got some catching up to do." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde passengers ride the Fancy same as anybody, at the same fare, and they're sick over the same rail, passenger." },
   },
 
@@ -936,7 +936,7 @@ P:NPC {
 
     chowder = {
       lines = {
-        { id = "ch_default", text = "Fresh clams from the cove, passenger, cream that only spent one day on a boat, and Kelsey Yance's secret, which she won't tell me no matter what I offer. I've eaten chowder in every port the Cartel trades in, and nothing comes close, and I've done the accounting." },
+        { id = "ch_default", text = "Fresh clams from the cove, passenger, cream that only spent one day on a boat, and Kelsey Yance's secret, which he won't tell me no matter what I offer. I've eaten chowder in every port the Cartel trades in, and nothing comes close, and I've done the accounting." },
       },
       choices = {
         { text = "Did you really offer to buy the recipe?", next = "chowder_offer" },

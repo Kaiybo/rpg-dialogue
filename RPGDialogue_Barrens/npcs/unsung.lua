@@ -347,12 +347,12 @@ P:NPC {
 -- Hula'mahi: reagents and herbs at the Crossroads.
 P:NPC {
   key = "hulamahi", id = TODO_NPC("Hula'mahi"), name = "Hula'mahi", title = "Reagents and Herbs",
-  gender = "female",
+  gender = "male",
   bible = "bibles/unsung.md", role = "vendor", tier = "service",
   communities = { "crossroads" }, temper = { "cheerful" }, values = { "curious", "shrewd" },
   notices = { "craft", "class", "lock_shards" },
   impression = {
-    first = "She knows which powder a spellcaster needs before they ask.",
+    first = "He knows which powder a spellcaster needs before they ask.",
     third = "{name} met Hula'mahi, the troll who sells reagents and herbs at the Crossroads.",
   },
   greetings = {
@@ -360,7 +360,7 @@ P:NPC {
     { id = "g_apprentice", when = { origin = "troll_witch_doctor_apprentice" }, text = "Ah, you got a witch doctor's hands, mon, all stained and careful. You grind roots for one of the old ones at Sen'jin, I bet, so you know already that nothing on my shelf be safe to boil if you don't know what it want first." },
     { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "hula_fl_no" } }, text = "Ooh, look what the road bring Hula'mahi today! Come in, mon, and stand where the light be good, because me want a proper look at you." },
     { id = "g_fl_yes", when = { flirt = true, chance = 0.5, npcFlagBefore = "hula_fl_yes" }, text = "There be my sweet one! Me been tellin' the herbs about you all week, mon, and every one of them be jealous." },
-    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "hula_fl_no" }, text = "Herbs and reagents only, me remember. Hula'mahi be on her best behaviour today, mostly." },
+    { id = "g_fl_no", when = { flirt = true, chance = 0.3, npcFlagBefore = "hula_fl_no" }, text = "Herbs and reagents only, me remember. Hula'mahi be on his best behaviour today, mostly." },
   },
   notice = {
     { id = "n_herb", cat = "craft", when = { profession = "Herbalism" },
@@ -373,7 +373,7 @@ P:NPC {
   start = "hello",
   nodes = {
     fl = {
-      lines = { { id = "fl_default", text = "Me always in a fine mood, mon, but some customers make it better, and you be one of them. A girl from the Echo Isles learn to know a good catch when it swim by, and you got the look of a big one." } },
+      lines = { { id = "fl_default", text = "Me always in a fine mood, mon, but some customers make it better, and you be one of them. A boy from the Echo Isles learn to know a good catch when it swim by, and you got the look of a big one." } },
       choices = {
         { text = "Then reel me in, Hula'mahi.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "hula_fl_yes" }, clear = { "hula_fl_no" } } } },
         { text = "Aren't I a bit large for you, Hula'mahi?", next = "fl_tauren", when = { race = "Tauren" } },
@@ -384,14 +384,14 @@ P:NPC {
       },
     },
     fl_charm = {
-      lines = { { id = "flc_default", text = "Me sell the herbs that go into every love charm a witch doctor ever make, mon, but Hula'mahi never once need one herself. Me just smile like this, and the rest take care of itself, see?" } },
+      lines = { { id = "flc_default", text = "Me sell the herbs that go into every love charm a witch doctor ever make, mon, but Hula'mahi never once need one himself. Me just smile like this, and the rest take care of itself, see?" } },
       choices = {
         { text = "I see it working, Hula'mahi.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "hula_fl_yes" }, clear = { "hula_fl_no" } } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     fl_tauren = {
-      lines = { { id = "flt_default", text = "Large? Mon, me be lookin' up at you like you a mesa out on the plains, and me always did like the view from up high. You tauren be gentle as rain and big as a kodo, and that be a fine thing for a girl who like a challenge." } },
+      lines = { { id = "flt_default", text = "Large? Mon, me be lookin' up at you like you a mesa out on the plains, and me always did like the view from up high. You tauren be gentle as rain and big as a kodo, and that be a fine thing for a troll who like a challenge." } },
       choices = {
         { text = "Then I'll try not to step on you, Hula'mahi.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "hula_fl_yes" }, clear = { "hula_fl_no" } } } },
         { text = "I'll stay down on the plains, thanks.", next = "BACK", fx = { trait = { reserved = 1 }, npcFlag = { set = { "hula_fl_no" }, clear = { "hula_fl_yes" } } }, reply = "Suit yourself, big one. The view still be fine from here." },
@@ -400,7 +400,7 @@ P:NPC {
     fl_yes = {
       lines = { { id = "fly_default", text = "Ha! Now we be talkin', mon. You come back when the Crossroads be quiet and the stars be out, and Hula'mahi show you which herbs be good for the heart and which ones only be good for the head." } },
       choices = {
-        { text = "I'll be back when the stars are out.", next = "BACK", reply = "Me be watchin' the road, mon. Don't keep a girl waitin' too long." },
+        { text = "I'll be back when the stars are out.", next = "BACK", reply = "Me be watchin' the road, mon. Don't keep a troll waitin' too long." },
         { text = "Something else.", next = "BACK" },
       },
     },

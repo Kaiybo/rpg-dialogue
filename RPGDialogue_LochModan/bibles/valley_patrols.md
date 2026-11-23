@@ -10,7 +10,7 @@
 ## Voices
 - Wallbang: loud, jovial rifleman. Authored: named for a shot through the Stoutlager's wall at a rat.
 - Langarr: dour, counts troggs for the Captain. Authored: saw a trogg carrying an idol.
-- Gwarth: youngest, eager, two months in. Authored: father a Mountaineer at Algaz; saving for a breastplate from Morhan.
+- Gwarth (female): youngest, eager, two months in. Authored: father a Mountaineer at Algaz; saving for a breastplate from Morhan.
 
 ## Never
 - Anything Cataclysm or later.
