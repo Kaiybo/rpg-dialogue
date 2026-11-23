@@ -208,7 +208,7 @@ P:NPC {
 
   impression = {
     first = "He cares more about an uncracked horn than why anybody wants it.",
-    third = "{name} met Felnok Steelspring, the careful gnome who builds parts for Tinkee Steamboil in Everlook.",
+    third = "{name} met Felnok Steelspring, the careful goblin who builds parts for Tinkee Steamboil in Everlook.",
   },
 
   greetings = {
@@ -275,7 +275,7 @@ P:NPC {
       lines = { { id = "xhsham_default", text = "Because the chimaera live in that wind all their lives, and the cold gets into the horn the way rust gets into iron. Tinkee wants them whole for her work, so I take them uncracked or not at all. I suppose you'd say there's a spirit of the ice in them, and I'd say it's density, and we could both be right, if you insist." } },
       choices = {
         { text = "A horn's a horn. Take as many as Tinkee pays for.", next = "BACK", reply = "Well, I'll take as many as she pays for, certainly, but I won't waste a beast for nothing. I'm precise, not greedy.", fx = { affinity = 1, align = { honor = -1 } } },
-        { text = "Respect the beast that gave the horn, Felnok.", next = "BACK", reply = "I do, I do, I'm not some goblin with a sack! Each horn gets labelled and logged, which is the most respect a gnome can give anything.", fx = { align = { honor = 1 } } },
+        { text = "Respect the beast that gave the horn, Felnok.", next = "BACK", reply = "I do, I do, I'm not some kobold with a sack! Each horn gets labelled and logged, which is the most respect a goblin can give anything.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -299,7 +299,7 @@ P:NPC {
     },
     xapriest = {
       big = true,
-      lines = { { id = "xapriest_default", text = "Less than I should, I'll admit, though I said a few on the day Gnomeregan fell and I meant every word of them. Now I put my faith in good springs and careful hands, and I find that's mostly enough." } },
+      lines = { { id = "xapriest_default", text = "Less than I should, I'll admit, though I said a few the day my first workshop burned and I meant every word of them. Now I put my faith in good springs and careful hands, and I find that's mostly enough." } },
       choices = {
         { text = "Faith and craft go together. Keep both close, Felnok.", next = "BACK", reply = "I'll try, though craft has never once failed me and faith has done so at least twice. Still, it's comforting to have a second plan.", fx = { align = { light = 1 } } },
         { text = "Good springs never failed anyone. I'm less sure of prayers.", next = "BACK", reply = "No, they never did, and I trust a good spring more than a good wish. But I'll keep a prayer in my pocket, just in case the springs ever let me down.", fx = { align = { light = -1 } } },
@@ -317,7 +317,7 @@ P:NPC {
     },
     xdruid = {
       big = true,
-      lines = { { id = "xdruid_default", text = "I take ore and scrap and the odd yeti hide, and I pay for it all, mostly. Machines don't grow on trees, druid, and Tinkee needs her order, but I'll admit Winterspring's quiet makes even a gnome think twice before he starts up a furnace." } },
+      lines = { { id = "xdruid_default", text = "I take ore and scrap and the odd yeti hide, and I pay for it all, mostly. Machines don't grow on trees, druid, and Tinkee needs her order, but I'll admit Winterspring's quiet makes even a goblin think twice before he starts up a furnace." } },
       choices = {
         { text = "Take only what you need. Winterspring won't forgive greed.", next = "BACK", reply = "I do, I promise, and I count everything I take, so I'd know if I were greedy. Winterspring won't get one bolt more out of me than Tinkee needs.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Build what you like. The snow has plenty to spare.", next = "BACK", reply = "Thank you, though I'd rather not test the snow's patience. Last time I took too much ore from one ridge, half the ridge followed me home.", fx = { align = { order = -1 } } },
@@ -369,7 +369,7 @@ P:NPC {
         { text = "Building something that stays cold must be tricky.", next = "eng", when = { profession = "Engineering" } },
         { text = "What are you working on, Felnok?", next = "xmage", when = { class = "MAGE" } },
         { text = "Has anyone actually stolen from you?", next = "xrogue", when = { class = "ROGUE" } },
-        { text = "Does a gnome tinker have much use for prayer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
+        { text = "Does a goblin tinker have much use for prayer?", next = "xapriest", when = { class = "PRIEST", faction = "Alliance" } },
         { text = "What does a tinker make of a priest's work, Felnok?", next = "xhcast", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "A warrior could be of some use to you, Felnok.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Why would a hunter bring you better horns, Felnok?", next = "xhuntcl", when = { class = "HUNTER" } },
@@ -389,7 +389,7 @@ P:NPC {
     tinkee_patron = {
       lines = { { id = "tp_line", text = "Somebody she calls a patron, very important, very rich and very secretive. Tinkee goes pale when she mentions him, so I stopped asking, and I'd advise you to stop as well." } },
       choices = {
-        { text = "Someone should find out who he is.", next = "BACK", reply = "I'd advise against it, and very strongly, because Tinkee is not a gnome who frightens easily. Whoever frightens her is someone I'd rather never meet.", fx = { align = { order = -1 }, trait = { curious = 1 } } },
+        { text = "Someone should find out who he is.", next = "BACK", reply = "I'd advise against it, and very strongly, because Tinkee is not a goblin who frightens easily. Whoever frightens her is someone I'd rather never meet.", fx = { align = { order = -1 }, trait = { curious = 1 } } },
         { text = "A client's business is his own.", next = "BACK", reply = "Precisely, and I'm glad someone in this town understands discretion. Ask me about my clients and I'll show you a very boring list of numbers.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

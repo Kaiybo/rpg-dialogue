@@ -39,11 +39,11 @@ mf_andrea (neighbours, the docks, the leather trade), mf_comar (who he meets on 
 Keys: mf_naela, mf_edwina, mf_falkan (vendors); mf_tidewater, mf_adam, mf_pompa (ship and piers); mf_hargin, mf_junder (Deepwater Tavern); mf_murphy, mf_timothy (keep); mf_caitlin (quest).
 
 ## Sources
-warcraft.wiki.gg via `tools/npc.py`, read 2026-11-18: each NPC's page. Classic placements used: Murphy West in the keep's basement, Timothy Clark as a hopeful (not yet a guard or lieutenant), Junder Brokk inside the tavern, Don Pompa on the Auberdine pier (removed 3.0.2), Adam Lind on the Theramore pier, Bart Tidewater aboard the Maiden's Virtue (afloat). Nothing about the flood, sandbags or Northrend.
+warcraft.wiki.gg via `tools/npc.py`, read 2026-11-18: each NPC's page. Classic placements used: Murphy West in the keep's basement, Timothy Clark as a hopeful (not yet a guard or lieutenant), Junder Brokk inside the tavern, Don Pompa on the Auberdine pier (removed 3.0.2), Adam Lind on the Theramore pier, Bart Tidewater aboard the Maiden's Virtue (afloat, docked; in Classic she never sails). Nothing about the flood, sandbags or Northrend.
 
 ## Their quests
 - **Caitlin Grassman** (house by the smithy): Forever quests Lost in the Thicket Things (written as given by her; ends at Ardin in the excavation) and Heartwoven (from Ardin, written as ending with her). Lines for active/done; see `wetlands_forever.md`. Who gives/ends each is inferred from Ardin's lines.
-- none: Naela Trance and Edwina Monzor (Bowyers), Falkan Armonis (Reagents), Bart Tidewater (Captain of the Maiden's Virtue, Theramore ship), Adam Lind (Theramore pier directions), Don Pompa (Auberdine pier directions), Hargin Mundar and Junder Brokk (tavern regulars), Murphy West (keep stores), Timothy Clark.
+- none: Naela Trance and Edwina Monzor (Bowyers), Falkan Armonis (Reagents), Bart Tidewater (Captain of the Maiden's Virtue, docked navy ship; the Theramore boat is the Lady Mehley), Adam Lind (Theramore pier directions), Don Pompa (Auberdine pier directions), Hargin Mundar and Junder Brokk (tavern regulars), Murphy West (keep stores), Timothy Clark.
 
 ## Voices
 - **Naela**: steady, wry; wax, strings, the damp. **Edwina**: brisk, proud; heavy bows, gull fletching. **Falkan**: courteous, fretful; sealing wax and salt boxes.

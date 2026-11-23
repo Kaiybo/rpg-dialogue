@@ -440,7 +440,7 @@ P:NPC {
       },
     },
     hold = {
-      lines = { { id = "ho_default", text = "They can now. Young Gwarth couldnae load in under a minute when he came tae me, an' he's down tae twenty breaths, though he still polishes his buttons when he should be oilin' his lock." } },
+      lines = { { id = "ho_default", text = "They can now. Young Gwarth couldnae load in under a minute when she came tae me, an' she's down tae twenty breaths, though she still polishes her buttons when she should be oilin' her lock." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     inspect = {

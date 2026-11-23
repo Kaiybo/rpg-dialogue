@@ -16,9 +16,9 @@
 - Scott Carevin · human man · cheerful mushroom man; "somebody in the family has to do something without a crossbow".
 - Watcher Callahan · human man · wry; not sure whether he guards the road or the goblin; doesn't take the goblin's coin (he says).
 - Watcher Brownell · human woman · young, earnest; wants the western road; admires Backus and denies anything more.
-- Watcher Keefer · human man · gruff old hand; tired; counts no more.
+- Watcher Keefer · human woman · gruff old hand; tired; counts no more.
 - Watcher Mocarski · human man · nervous at the south gate, holds it anyway; nervousness as one run-on sentence.
-- Watcher Royce · human man · the Watch's joker; gallows puns.
+- Watcher Royce · human woman · the Watch's joker; gallows puns.
 - Watcher Hartin · human man · devout; prays on rounds.
 
 ## Authored, not canon
