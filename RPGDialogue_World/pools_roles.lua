@@ -7486,8 +7486,11 @@ P:Pool {
 
 ---------------------------------------------------------------------------
 -- The dead (role "corpse", 0.105.2): any NPC lying dead in the world. They say nothing;
--- the box only shows the body, and the one reply is to leave them be.
+-- the box shows the body, and the player may pay respects in their own way.
+-- Opened only by the talk key: right-click on a corpse is left to looting, and a quest
+-- on a body shows the game's page (Conv.Start).
 ---------------------------------------------------------------------------
+local LEAVE = { text = "Leave them be.", next = "END" }
 P:Pool {
   id = "corpse", role = "corpse",
   greetings = {
@@ -7498,6 +7501,7 @@ P:Pool {
   start = "hello",
   nodes = {
     hello = {
+      hub = true,
       lines = {
         { id = "h_default", text = "*The body lies where it fell, still and cold, and no breath stirs it.*" },
         { id = "h_eyes", text = "*The eyes are open and fixed on nothing, and a fly crawls along the collar unbothered.*" },
@@ -7509,8 +7513,88 @@ P:Pool {
         { id = "a_again", text = "*The body hasn't moved.*" },
       },
       choices = {
-        { text = "Leave them be.", next = "END" },
+        { text = "Kneel and close their eyes.", next = "eyes" },
+        { text = "Say a prayer to the Light over them.", next = "light", when = { race = { "Human", "Dwarf" } } },
+        { text = "Ask Elune to light this soul's way home.", next = "elune", when = { race = "NightElf" } },
+        { text = "Take off your cap for a moment of quiet.", next = "gnome", when = { race = "Gnome" } },
+        { text = "Speak the old words for the fallen.", next = "ancestors", when = { race = "Orc" } },
+        { text = "Ask the Earth Mother to take this one back.", next = "earthmother", when = { race = "Tauren" } },
+        { text = "Ask the loa to carry this one over.", next = "loa", when = { race = "Troll" } },
+        { text = "Hope this one stays dead, for their sake.", next = "forsaken", when = { race = "Scourge" } },
+        { text = "Listen for whatever spirit lingers here.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "Read the ground around the body.", next = "tracks", when = { class = "HUNTER" } },
+        { text = "Reach for whatever is left of the soul.", next = "warlock", when = { class = "WARLOCK" } },
+        LEAVE,
       },
+    },
+    eyes = {
+      lines = {
+        { id = "e_default", text = "*The lids are cold under your fingers and close easily. It doesn't look like sleep, but it looks a little more like peace.*" },
+      },
+      choices = { LEAVE },
+    },
+    light = {
+      lines = {
+        { id = "l_default", text = "*You say the short prayer for the dead, the one every child of the Alliance learns, and the words sound small out here.*" },
+        { id = "l_holy", when = { class = { "PRIEST", "PALADIN" } }, text = "*You speak the rite for the dead as you were taught it, and for a moment a faint warmth settles over the body and then is gone.*" },
+        { id = "l_dwarf", when = { race = "Dwarf" }, text = "*You mutter the old words for the fallen and ask the Light to see them safe to the halls of their fathers.*" },
+      },
+      choices = { LEAVE },
+    },
+    elune = {
+      lines = {
+        { id = "el_default", text = "*You whisper to Elune, and you can only hope the Mother Moon still watches over the dead when the trees have stopped.*" },
+        { id = "el_night", when = { timeOfDay = "night" }, text = "*You whisper to Elune, and the moonlight lies over the body like a pale sheet, which is as much answer as she ever gives.*" },
+      },
+      choices = { LEAVE },
+    },
+    gnome = {
+      lines = {
+        { id = "gn_default", text = "*You hold your cap against your chest for a long moment, the way they did for everyone lost at Gnomeregan, and then put it back on.*" },
+      },
+      choices = { LEAVE },
+    },
+    ancestors = {
+      lines = {
+        { id = "an_default", text = "*You speak the old words low, so the ancestors may know this one is coming and make room at the fire.*" },
+      },
+      choices = { LEAVE },
+    },
+    earthmother = {
+      lines = {
+        { id = "em_default", text = "*You lay a hand on the ground beside the body and ask the Earth Mother to take back what was always hers.*" },
+      },
+      choices = { LEAVE },
+    },
+    loa = {
+      lines = {
+        { id = "lo_default", text = "*You mutter to the loa under your breath and ask that this one be carried across gently, whoever they bowed to in life.*" },
+      },
+      choices = { LEAVE },
+    },
+    forsaken = {
+      lines = {
+        { id = "fs_default", text = "*You look the body over for a long while. It isn't stirring, and nothing in the air says the Scourge has any claim on it. Good.*" },
+      },
+      choices = { LEAVE },
+    },
+    shaman = {
+      lines = {
+        { id = "sh_default", text = "*You still yourself and listen. Whatever spirit lived here is already gone, and the air around the body is quiet and empty.*" },
+      },
+      choices = { LEAVE },
+    },
+    tracks = {
+      lines = {
+        { id = "tr_default", text = "*The ground tells part of it: a scuffle, then a fall, and tracks that leave in a hurry. Whoever did this didn't stay.*" },
+      },
+      choices = { LEAVE },
+    },
+    warlock = {
+      lines = {
+        { id = "wl_default", text = "*You reach out the way you would for a shard, and find nothing. The soul is long gone, and wherever it went, it's beyond your grasp.*" },
+      },
+      choices = { LEAVE },
     },
   },
 }

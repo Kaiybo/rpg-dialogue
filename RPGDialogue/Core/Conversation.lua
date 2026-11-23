@@ -266,6 +266,9 @@ function Conv.Start(kind, unit, interactionName)
   if s then Conv.Finish() end
 
   local ctx = ns.Context.New({ unit = unit })
+  -- A body with a window of its own (a quest left on a dead courier): their page in the box,
+  -- never the corpse pool or anyone's lines. Only the talk key opens the corpse pool.
+  if kind ~= "talk" and C.UnitDead(unit) then return Conv.StartMenuOnly(kind, unit, ctx, guid, mode) end
   local info = Conv.Identify(unit, ctx, interactionName)
   if not info or (info.pooled and kind ~= "talk" and #ns.Data.PoolsFor(info, ctx) == 0) then
     -- Nobody we have lines for: still show their menu in the box, not the game's.
@@ -1611,6 +1614,8 @@ function Conv.OnWorldMouseDown(button)
   pressed = nil
   if button ~= "RightButton" or not ns.db or not ns.db.settings.rightClickTalk or C.InCombat() then return end
   if not C.Exists("mouseover") or C.IsPlayer("mouseover") or not C.IsFriendly("mouseover") then return end
+  -- Never on a corpse: right-click there is for looting. The dead only answer the talk key.
+  if C.UnitDead("mouseover") then return end
   local guid = C.GUID("mouseover")
   if guid then pressed = { guid = guid, t = C.Clock() } end
 end
