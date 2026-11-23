@@ -164,9 +164,9 @@ P:NPC {
       },
     },
     druid_q = {
-      lines = { { id = "dq_default", text = "That it was a dwarven hold once, an' the Dragonmaw have it now, wi' a red dragon chained in the deep. Even the beasts won't go near that mountain." } },
+      lines = { { id = "dq_default", text = "That it was a dwarven hold once, an' the Dragonmaw kept a red dragon queen chained in its deep in the war. She's free now, but her reds still haunt the place, an' even the beasts won't go near that mountain." } },
       choices = {
-        { text = "The red dragon must be freed.", next = "BACK", reply = "Freed? Ye'd need an army tae get within a mile o' Grim Batol, an' I've no' got one. If ye ever find a way, though, I'd like tae hear it.", fx = { align = { light = 1 } } },
+        { text = "Then the reds there must be driven off.", next = "BACK", reply = "Driven off? Ye'd need an army tae get within a mile o' Grim Batol, an' I've no' got one. If ye ever find a way, though, I'd like tae hear it.", fx = { align = { light = 1 } } },
         { text = "Leave that mountain and its dragons alone.", next = "BACK", reply = "Wise words, an' ones my dwarves have lived by since the Dragonmaw came. I've watched red dragons circle Grim Batol from this very bridge, an' I've no wish tae see them closer.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
