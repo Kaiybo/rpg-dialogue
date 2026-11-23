@@ -1333,8 +1333,8 @@ P:NPC {
       big = true,
       narr = "The Archdruid goes very still, and for once he does not reach for an answer before you have finished.",
       lines = {
-        { id = "nva_default", text = "Valstann. He was a druid, and the best of my students, and he rode beside me into Silithus when the qiraji came out of their hives a thousand years ago. He fell before the gates of Ahn'Qiraj, and I was close enough to see it and not close enough to stop it." },
-        { id = "nva_cold", when = { disposition = { max = 34 } }, text = "Who told you that? It is not a story I tell to those who sneer at my tree. Valstann fell in Silithus a thousand years ago, at the gates of Ahn'Qiraj, and that is all you will have from me." },
+        { id = "nva_default", text = "Valstann. He was my son, and a warrior, and he rode beside me into Silithus when the qiraji came out of their hives a thousand years ago. He went to hold Southwind, and the qiraji killed him before their lines, where I was close enough to see it and not close enough to stop it." },
+        { id = "nva_cold", when = { disposition = { max = 34 } }, text = "Who told you that? It is not a story I tell to those who sneer at my tree. My son fell in Silithus a thousand years ago, before the qiraji lines, and that is all you will have from me." },
       },
       choices = {
         { text = "I'm sorry. I shouldn't have raised it.", next = "ne_valstann2" },

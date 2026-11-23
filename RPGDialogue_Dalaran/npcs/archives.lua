@@ -48,7 +48,7 @@ P:NPC {
 
     hello = {
       lines = {
-        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Archimonde killed Antonidas in the street outside, and the city fell around him. You carry the stink of that lord's kind, so forgive me if I keep the counter between us." },
+        { id = "h_prejlock", when = { class = "WARLOCK", prejudiced = true }, text = "Arthas killed Antonidas in the street outside, and then Archimonde brought the city down around him. You carry the stink of that lord's kind, so forgive me if I keep the counter between us." },
         { id = "h_prejlock_over", when = { class = "WARLOCK", prejudiced = "overcome" }, text = "Ah, you again. I still keep the counter between us, but I've stopped counting the pieces after you leave." },
         { id = "h_default", key = true,
           text = "Archivist Delv Fortuz, keeper of Antonidas' Antiquities. Everything in these cases belonged to the Grand Magus or passed through his hands, and every piece of it was dug out of the rubble after the city fell." },

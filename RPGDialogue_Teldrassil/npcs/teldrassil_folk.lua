@@ -931,7 +931,7 @@ P:NPC {
     },
     ne_valstann = {
       lines = {
-        { id = "nva_default", text = "It is true, and it is written in our oldest war records, though nobody here reads it aloud. Valstann Staghelm fell at the gates of Ahn'Qiraj a thousand years ago, during the War of the Shifting Sands, and his father has never once spoken of it in my hearing." },
+        { id = "nva_default", text = "It is true, and it is written in our oldest war records, though nobody here reads it aloud. Valstann Staghelm was slain by the Qiraji in Silithus a thousand years ago, during the War of the Shifting Sands, and his father has never once spoken of it in my hearing." },
       },
       choices = {
         { text = "Then I'll not ask him either.", next = "BACK", reply = "Wise. Some books are best left closed in front of their authors.", fx = { learn = { "ahn_qiraj" } } },
