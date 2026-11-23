@@ -2,7 +2,7 @@
 -- pages: Diary (what happened, day by day, place by place), Stories (the throughlines they've
 -- stumbled into, and where each stands), People (who they've met, where, and how it stands),
 -- Heard of (topics, and what people said when asked), Myself (where they stand, what they've
--- done), Notes, and Letters (UI/Letters.lua builds that page).
+-- done), Notes.
 local _, ns = ...
 
 local C = ns.Compat
@@ -14,11 +14,11 @@ local J = {}
 ns.Journal = J
 UI.Journal = J
 
-local W, H = 740, 500
-local TAB_W, TAB_STEP = 85, 89
+local W, H = 660, 500
+local TAB_W, TAB_STEP = 86, 90
 local frame
 local current = "chronicle"
-local TABS = { "chronicle", "stories", "people", "heard", "letters", "sheet", "transcript", "notes" }
+local TABS = { "chronicle", "stories", "people", "heard", "sheet", "transcript", "notes" }
 -- Old page names (saved bindings, macros) land on the page that holds them now.
 local ALIASES = { topics = "heard", deeds = "sheet", threads = "stories" }
 -- Pages with a search box.
@@ -656,9 +656,10 @@ end
 -- Window
 ---------------------------------------------------------------------------
 local function create()
-  frame = CreateFrame("Frame", "RPGDialogueJournalFrame", UIParent)
+  frame = CreateFrame("Frame", nil, UIParent)
   frame:SetSize(W, H)
-  J.Place()
+  local pos = ns.db.settings.pos and ns.db.settings.pos.journal
+  if pos and pos[1] then frame:SetPoint(pos[1], UIParent, pos[2], pos[3], pos[4]) else frame:SetPoint("CENTER") end
   frame:SetFrameStrata("HIGH")
   frame:SetMovable(true)
   frame:EnableMouse(true)
@@ -697,7 +698,7 @@ local function create()
   frame.tabs = {}
   for _, id in ipairs(TABS) do
     local b = Theme.Button(frame, "", TAB_W, 22)
-    b:SetText(tabLabel(id))
+    b:SetText(L["J_TAB_" .. id:upper()])
     b:SetScript("OnClick", function() J.Show(id) end)
     frame.tabs[id] = b
   end
@@ -795,38 +796,6 @@ local function create()
   frame.sheetBtn:SetPoint("RIGHT", frame.originBtn, "LEFT", -6, 0)
   frame.sheetBtn:SetScript("OnClick", function() ns.UI.ExportFrame.Show("sheet") end)
   J.BuildPicker()
-  UI.Letters.Build(frame)
-end
-
--- Where the journal opens: where it was last dragged to, else the middle of the screen.
-function J.Place()
-  local pos = ns.db.settings.pos and ns.db.settings.pos.journal
-  frame:ClearAllPoints()
-  if pos and pos[1] then
-    frame:SetPoint(pos[1], UIParent, pos[2], pos[3], pos[4])
-  else
-    frame:SetPoint("CENTER")
-  end
-end
-
--- Opened by a mailbox: beside the mail window, unless the journal has been moved.
-function J.BesideMail()
-  local mail = _G.MailFrame
-  if not frame or (ns.db.settings.pos and ns.db.settings.pos.journal) then return end
-  if mail and mail:IsShown() then
-    frame:ClearAllPoints()
-    frame:SetPoint("TOPLEFT", mail, "TOPRIGHT", -30, -12)
-  end
-end
-
-local function tabLabel(id)
-  if id == "letters" then return UI.Letters.TabLabel() end
-  return L["J_TAB_" .. id:upper()]
-end
-
-function J.UpdateTabs()
-  if not frame then return end
-  for id, b in pairs(frame.tabs) do b:SetText(tabLabel(id)) end
 end
 
 ---------------------------------------------------------------------------
@@ -1298,7 +1267,6 @@ function J.Show(tab, keepScroll)
   J.Style()
   local isNotes = current == "notes"
   local isSheet = current == "sheet"
-  local isLetters = current == "letters"
   frame.notes:SetShown(isNotes)
   frame.text:SetShown(not isNotes)
   frame.search:SetShown(SEARCHABLE[current] == true)
@@ -1314,13 +1282,7 @@ function J.Show(tab, keepScroll)
   frame.pageTitle:SetText(L["J_TAB_" .. current:upper()])
   frame.pageCount:SetText("")
   frame.content:EnableMouse(isNotes)
-  frame.scroll:SetShown(not isLetters)
-  if isLetters then
-    frame.notes:ClearFocus()
-    J.Render({})
-    local n = ns.Letters.Unread()
-    frame.pageCount:SetText(n > 0 and L.J_COUNT_LETTERS:format(n) or "")
-  elseif isNotes then
+  if isNotes then
     J.Render({})
     frame.notes:SetText(ns.char.notes or "")
     frame.notes.hint:SetShown(frame.notes:GetText() == "" and not frame.notes:HasFocus())
@@ -1330,9 +1292,8 @@ function J.Show(tab, keepScroll)
     J.Render(J.Blocks(current, frame.search:GetText()))
   end
   frame.scroll:SetVerticalScroll(scrollWas)
-  UI.Letters.ShowPage(isLetters)
   for id, b in pairs(frame.tabs) do
-    b:SetText(tabLabel(id))
+    b:SetText(L["J_TAB_" .. id:upper()])
     b.selected = id == current
     if b.selected then
       b:LockHighlight()
@@ -1374,9 +1335,6 @@ function J.OnKey(self, key)
   elseif key == "ESCAPE" then
     handled = true
     frame:Hide()
-  elseif current == "letters" and (key == "UP" or key == "DOWN") then
-    handled = true
-    UI.Letters.Step(key == "DOWN" and 1 or -1)
   elseif key == "LEFT" or key == "RIGHT" then
     handled = true
     local idx = 1
