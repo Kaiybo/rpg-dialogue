@@ -9,6 +9,7 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Uses DialogueUI. Tests in game and sends screenshots.
 
 ## State (0.107.0)
+- Unreleased (user: "do whatever you want"): cross-pack NPC doubles cleared where one copy sat in a pack that never loads where the NPC stands: Frezza and Snurk Bucksquick removed from Orgrimmar (the Classic zeppelin tower is in Durotar; Durotar copies kept), Jekyll Flandring removed from Hillsbrad (he stands in Alterac Mountains; Dalaran copy kept). Left alone on purpose: Midsummer Merchant (one per city) and Rinling/Stamp Thunderhorn (Darkmoon Faire moves between Elwynn and Mulgore). One 16-word player reply in World `pools_roles.lua` cut to 15. No new files.
 - Unreleased (user: "do whatever you want"): Thunder Bluff `more_folk.lua` had 9 follow-up nodes nested inside their parent node (a misplaced `},`), so their replies led nowhere (Gullem, Elki, Thrag Stonehoof, Sewa, Halpa, Sura, Mahu, Mot Dawnstrider, Kray); fixed. A link scan of all packs found no other dead `next` links, and every pack file loads without error in the mock loader. No new files.
 - Unreleased (user: "do whatever you want"): every friendly `tier = "major"` NPC (~123, all packs) has its own `grievance`/`amends`/`spite` answers (gated by `grudge`) and its own `blurts` (what slips out in anger). Nefarius skipped (boss). No new files. Only `luac -p` run. Unsure lore is listed in the PR body (invented rumours worded as rumour; Prestor/Varimathras stay dramatic irony only).
 - 0.107.0 "Letters from Afar" (user: "build release if needed, pull, then merge"): everything below that was unreleased, plus the reply divider (+ setting) and Sylessa Duskwhisper (Wetlands). Core 0.107.0, World 1.55.0, Wetlands 1.33.0. New World letter files: full restart. Next: in-game test of letter replies and the quest-accept return.
@@ -74,7 +75,7 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Whether the Forever NPCs added in 0.78.0-0.81.0 open our box. If one doesn't, capture the in-game name.
 
 ## Next step
-0. Done (unreleased): 205 same-pack TODO_NPC doubles removed, deeper copy kept (52 files). 7 names doubled across different packs left alone.
+0. Done (unreleased): 205 same-pack TODO_NPC doubles removed, deeper copy kept (52 files); the cross-pack doubles are settled too (see State).
 1. The user's in-game test of 0.85.0 (and of 0.84.0), and their `/rpgd tts` output. Bottom bar crowding with disposition, tone, three persuasion buttons and "Ask about..." in the game look; DialogueUI rows.
 2. Spot checks: Admire a vain NPC, Intimidate a coward; a secret topic refused below Warm; tone at Thrall; "Where is...?" in Stormwind (with TomTom); a friendly imp or voidwalker (and a felhunter); "Teach me." at a trainer in DialogueUI; `/rpgd letters` away from and at a mailbox, then walk off; a Skyborne druid at an innkeeper; an innkeeper after dying a lot; a new `more_folk` NPC in Ironforge or Orgrimmar; a quest turned in inside a town (standing +3).
 3. Disposition next: put the major-NPC pass in a release when the user says; the same pass for `tier = "minor"` named NPCs if the user likes it in game.
