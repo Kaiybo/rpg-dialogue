@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.11.0 (2026-11-24): Old Grudges
+- Major NPCs answer for a grudge you hold against them (or they against you), and let things slip when angry.
+- Overlong speeches tightened.
+
 ## 1.10.0 (2026-11-23): Truths from the Old Books
 - Lore fixes and deeper quest-givers (core 0.101.0).
 

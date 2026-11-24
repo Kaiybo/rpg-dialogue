@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.32.0 (2026-11-24): Old Grudges
+- Major NPCs answer for a grudge you hold against them (or they against you), and let things slip when angry.
+- Overlong speeches tightened.
+
 ## 1.31.0 (2026-11-23): The Overlooked
 - Characters who had no conversation now have one (core 0.105.0).
 

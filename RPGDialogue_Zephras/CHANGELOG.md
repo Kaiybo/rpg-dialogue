@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.21.0 (2026-11-24): Old Grudges
+- Major NPCs answer for a grudge you hold against them (or they against you), and let things slip when angry.
+- Overlong speeches tightened.
+
 ## 1.20.0 (2026-11-20)
 - Urs'endris, the Great Windborne Bear Spirit, talks with Skyborne druids about the moon bear and the Circle.
 

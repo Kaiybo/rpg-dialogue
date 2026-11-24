@@ -2,6 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.41.0 (2026-11-24): Old Grudges
+- Major NPCs answer for a grudge you hold against them (or they against you), and let things slip when angry.
+- Overlong speeches tightened.
+- Jekyll Flandring removed here; he stands in Alterac Mountains (Dalaran pack).
+
 ## 1.40.0 (2026-11-23): The Overlooked
 - Characters who had no conversation now have one (core 0.105.0).
 

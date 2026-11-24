@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Silverpine Forest |cff8a8a8a1.28.0|r
+## Title: RPG Dialogue: Silverpine Forest |cff8a8a8a1.29.0|r
 ## Notes: The Sepulcher: a high executor holding the line, a plague-maker's apprentice, a dead archmage with a grudge against Dalaran, and a spymaster priest.
 ## Author: RPG Dialogue
-## Version: 1.28.0
+## Version: 1.29.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.silverpine
