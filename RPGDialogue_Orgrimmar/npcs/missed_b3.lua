@@ -1,6 +1,6 @@
 -- Orgrimmar folk the roster scan found unwritten, part three: the pond in the Valley of Honor
--- (Shankys, Tharl Stonebleeder, Zas'Tysh), Xan'tish and his snakes, Snurk Bucksquick on the
--- zeppelin tower, the scouts Stronghand and Tharr, and Warcaller Gorlach. Voice: bibles/missed_b.md
+-- (Shankys, Tharl Stonebleeder, Zas'Tysh), Xan'tish and his snakes,
+-- the scouts Stronghand and Tharr, and Warcaller Gorlach. Voice: bibles/missed_b.md
 local P = RPGDialogueAPI:Pack("rpgd.orgrimmar")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
@@ -285,83 +285,6 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "Darkspear, and a snake catcher since I was small. I walk the Valley of Spirits because the shamans don't scream." } },
     _none = { { id = "tp_none", text = "Can't help ya there, mon. Ask me about anything with scales and no legs." } },
-  },
-}
-
--- Snurk Bucksquick: zeppelin master for the Grom'gol run, Orgrimmar zeppelin tower.
-P:NPC {
-  key = "snurk", id = TODO_NPC("Snurk Bucksquick"), name = "Snurk Bucksquick", title = "Zeppelin Master", gender = "female",
-  bible = "bibles/missed_b.md", role = "zeppelin", tier = "service",
-  communities = { "orgrimmar" }, temper = { "brash", "flirtatious" }, values = { "shrewd" },
-  notices = { "purse", "class" },
-  impression = {
-    first = "Snurk Bucksquick runs the Stranglethorn zeppelin from the tower outside Orgrimmar, with a clipboard in one hand and the other on her hip. She looks every passenger up and down, and she lets them see her doing it.",
-    third = "{name} met Snurk Bucksquick, the goblin who runs the zeppelin to Grom'gol from Orgrimmar's tower.",
-  },
-  greetings = {
-    { id = "g_default", text = "Well, hello there, {g:handsome|sweetheart}! The Iron Eagle flies to Grom'gol, the ride's on the Warchief's account, and ya stand behind the line till she's tied off." },
-    { id = "g_back", when = { metBefore = true }, text = "Hey, I know you! Back for another trip south, or did ya just miss my smiling face, {g:big fella|hon}?" },
-  },
-  notice = {
-    { id = "n_purse", cat = "purse", when = { minLevel = 40 },
-      text = "Now that is some expensive-lookin' gear, pal. Somebody's been doin' well for themselves, and I do admire success." },
-  },
-  start = "hello",
-  nodes = {
-    hello = {
-      lines = {
-        { id = "h_default", text = "Snurk Bucksquick, zeppelin master, Steamwheedle certified and fully paid up. I run the Iron Eagle between here and Grom'gol Base Camp in Stranglethorn, and my brother Frezza runs the Undercity ship off the same tower, so it's a family business all the way up." },
-      },
-      again = {
-        { id = "h_again", text = "Anything else, {g:handsome|sweetheart}? She's not in yet, so I got a minute." },
-        { id = "h_again2", text = "Go ahead, pal, talkin's free and I don't say that often." },
-      },
-      choices = {
-        { text = "Is the zeppelin safe?", next = "safe" },
-        { text = "What's waiting at Grom'gol?", next = "gromgol" },
-        { text = "Goblins flying the Horde's airships?", next = "contract" },
-        { text = "You and your brother get along?", next = "frezza" },
-        { text = "I'll wait for the ship.", next = "END" },
-      },
-    },
-    safe = {
-      lines = { { id = "sf_default", text = "Safe? Pal, she's a bag of gas with an engine bolted underneath, and she's still the safest thing the Cartel ever built, so read into that what ya like. We ain't lost a passenger this quarter, and the one before that jumped, which is not a liability I accept." } },
-      choices = {
-        { text = "Jumped?", next = "jumped" },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    jumped = {
-      lines = { { id = "jp_default", text = "Some rogue who figured he'd get off early over the Barrens and save himself the walk. He lived, I hear, but that's between him and the ground, and it's why I got the line painted there and why ya stand behind it." } },
-      choices = { { text = "I'll stay behind the line. Something else.", next = "BACK" } },
-    },
-    gromgol = {
-      lines = { { id = "gg_default", text = "Jungle, mostly, and heat, and bugs ya could saddle. Grom'gol's an orc camp with a good wall around it, and south of that it's raptors, trolls who ain't the friendly kind, and then Booty Bay, where my people will sell ya a drink for triple." } },
-      choices = {
-        { text = "Triple? That's robbery.", next = "triple" },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    triple = {
-      lines = { { id = "tp_default", text = "That's overhead, sweetheart, there's a difference and it's all in the paperwork. Ya try shippin' ice to a jungle and see what ya charge, and anyway nobody ever died of an expensive drink.", fx = { learn = { "steamwheedle" } } } },
-      choices = { { text = "Something else.", next = "BACK" } },
-    },
-    contract = {
-      lines = { { id = "ct_default", text = "The Horde's got the destinations and the Cartel's got the engineers, so it's a contract, friend, signed and sealed and very nicely priced. Orcs are fine fighters, but ya do not want one of them tunin' a gas valve with an axe." } },
-      choices = {
-        { text = "The Horde could learn to fly its own.", next = "BACK", reply = "Sure, and I could learn to wrestle a kodo, but why would either of us go and ruin a good arrangement?" },
-        { text = "A sound bargain for both sides. Something else.", next = "BACK", fx = { affinity = 1 } },
-      },
-    },
-    frezza = {
-      lines = { { id = "fz_default", text = "Me and Frezza? Sure, as long as nobody brings up whose ship runs closer to schedule, because it's mine, and I got the logbook to prove it. He's a good kid, though, and he only ever set fire to the mooring line the once." } },
-      choices = { { text = "Only the once. Something else.", next = "BACK" } },
-    },
-  },
-  topics = {
-    background = { { id = "tp_bg", text = "Steamwheedle born, pal, and flyin' the Stranglethorn run on contract. The pay's steady and the view's free." } },
-    steamwheedle = { { id = "tp_sw", text = "The Cartel, friend. We sell to everybody, and that way nobody shoots at the ships." } },
-    _none = { { id = "tp_none", text = "Not my department, pal. If it ain't on the flight schedule, I can't bill for it and I don't know it." } },
   },
 }
 

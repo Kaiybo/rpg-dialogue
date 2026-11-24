@@ -6664,7 +6664,7 @@ local function sentinelTree()
         { id = "hd_default", text = "The orc who slew Cenarius is dead, and his clan still cuts our forests to warm their halls. Some of the priestesses say Thrall's Horde is not the old one, and we should talk. Some of us remember Cenarius. What do you say?" },
       },
       choices = {
-        { text = "Talk first. Thrall's Horde isn't the one that served the demons, and they should hear it.", next = "horde_after", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Talk first. This isn't the Horde that served the demons, and they should hear it.", next = "horde_after", fx = { align = { light = 1 }, trait = { kind = 1 } } },
         { text = "Arrows are the only treaty the Warsong will honour.", next = "horde_after", fx = { align = { light = -1 }, trait = { stern = 1 } } },
         { text = "What would you do, if it were yours to decide?", next = "horde_her" },
       },

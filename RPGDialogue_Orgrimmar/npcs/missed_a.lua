@@ -1,6 +1,6 @@
 -- Missed Orgrimmar folk, part one: the Hall of Legends (Advisor Willington, First Sergeant Hola'mahi,
--- Grunt Korf, Grunt Bek'rah), the Valley of Strength's callers (Grinkle, Furmund), the Cenarion emissary
--- in the Valley of Wisdom, and Frezza at the zeppelin tower. Voices: bibles/missed_a.md
+-- Grunt Korf, Grunt Bek'rah), the Valley of Strength's callers (Grinkle, Furmund), and the Cenarion emissary
+-- in the Valley of Wisdom. Voices: bibles/missed_a.md
 local P = RPGDialogueAPI:Pack("rpgd.orgrimmar")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
@@ -553,79 +553,5 @@ P:NPC {
     background = { { id = "tp_bg", text = "I was a hunter on the plains of Mulgore before I was a druid, and a druid before I was an emissary. Each seemed a long walk at the time." } },
     silithid = { { id = "tp_sil", text = "They are many, and they are patient, and they do not tire. The Circle watches them from its hold in Silithus." } },
     _none = { { id = "tp_none", text = "That lies outside what the Circle sent me to speak of, friend. Ask among the orcs, whose city this is." } },
-  },
-}
-
--- Frezza: goblin zeppelin master for the Undercity run, at the tower outside Orgrimmar.
-P:NPC {
-  key = "frezza", id = TODO_NPC("Frezza"), name = "Frezza", title = "Zeppelin Master", gender = "male",
-  bible = "bibles/missed_a.md", role = "zeppelin master", tier = "service",
-  communities = { "orgrimmar" }, temper = { "brisk", "pushy" }, values = { "practical", "greedy" },
-  notices = { "class", "race" },
-  impression = {
-    first = "Frezza runs the Undercity zeppelin from the tower outside Orgrimmar, a goblin with a schedule in one hand and a list of rules in his head. He swears the service is perfectly safe, and then explains at length what passengers must not set on fire.",
-    third = "{name} met Frezza, the goblin zeppelin master on the Orgrimmar to Undercity run.",
-  },
-  greetings = {
-    { id = "g_default", text = "Undercity zeppelin, pal, this platform right here! Stand back from the edge and have a little patience, because she comes when she comes." },
-    { id = "g_back", when = { metBefore = true }, text = "A returning passenger, and that's my favourite kind, friend. It means the last trip landed." },
-  },
-  notice = {
-    { id = "n_fire", cat = "class", when = { class = { "MAGE", "WARLOCK", "SHAMAN" } },
-      text = "Whoa, whoa, I know that look and I'm telling ya now: no fire spells on my ship. That's a great big bag of gas up there, and my liability doesn't stretch to it." },
-    { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
-      text = "Heading home to the Undercity, friend? You folks are my steadiest fares, and you never complain about the cold up top." },
-  },
-  start = "hello",
-  nodes = {
-    hello = {
-      lines = {
-        { id = "h_default", text = "Frezza's the name, and I'm the zeppelin master for the Tirisfal run. One ship, straight across the sea to the tower outside the Undercity, and it's the safest way to cross that anybody's selling, pal." },
-      },
-      again = {
-        { id = "h_again", text = "What else d'you need? Talk fast, I'm watching the sky." },
-        { id = "h_again2", text = "Go on, friend, she's not in sight yet." },
-      },
-      choices = {
-        { text = "How safe is the zeppelin, really?", next = "safe" },
-        { text = "What will I find at the other end?", next = "undercity" },
-        { text = "A goblin crew, flying for the Horde.", next = "goblins" },
-        { text = "I'll wait for the ship.", next = "END" },
-      },
-    },
-    safe = {
-      lines = { { id = "s_default", text = "Completely safe, friend, on my mother's ledger, so long as everybody aboard follows two little rules. There's no smoking on deck and no fire magic of any kind, and I mean not even a spark to warm your hands." } },
-      choices = {
-        { text = "What happens if someone breaks the rules?", next = "rules" },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    rules = {
-      lines = {
-        { id = "r_mage", when = { class = "MAGE" }, text = "Then you and me and the whole crew learn to swim from a great height, pal. I've had mages tell me they've got perfect control, and I tell every one of them the same thing: control it on the ground." },
-        { id = "r_default", text = "Then we all come down a lot faster than the schedule says, and I've got paperwork till Winter Veil. It hasn't happened on my run yet, and I mean to keep it that way." },
-      },
-      choices = { { text = "No fire. Understood.", next = "BACK" } },
-    },
-    undercity = {
-      lines = { { id = "u_default", text = "You land in Tirisfal Glades, which is grey and wet and smells like old flowers, and the Undercity's a short walk down through the ruins of Lordaeron. The Forsaken are polite enough hosts, but don't eat anything an apothecary hands ya." } },
-      choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
-    },
-    goblins = {
-      lines = { { id = "g_default", text = "Steamwheedle built 'em and Steamwheedle flies 'em, friend, and the Horde pays the invoice on time, which makes 'em a valued customer. My sister Snurk works the Stranglethorn run off this same tower, and between us the family's got both routes sewn up.", fx = { learn = { "steamwheedle" } } } },
-      choices = {
-        { text = "Which of you has the better route?", next = "sister" },
-        { text = "Something else.", next = "BACK" },
-      },
-    },
-    sister = {
-      lines = { { id = "si_default", text = "She gets sunshine and the jungle, and I get rain and dead people, so you tell me. But my passengers don't get airsick, on account of most of 'em haven't got the stomach for it any more, so I come out ahead on cleaning." } },
-      choices = { { text = "Something else.", next = "BACK" } },
-    },
-  },
-  topics = {
-    background = { { id = "tp_bg", text = "I've been flying since before I could reach the wheel, pal. It's steady work, and the view beats a counting-house." } },
-    steamwheedle = { { id = "tp_sw", text = "The Cartel does business with everybody, friend. The Horde just happened to want airships first." } },
-    _none = { { id = "tp_none", text = "Not my department, pal. I do departures, arrivals and fire safety, and that's the whole list." } },
   },
 }
