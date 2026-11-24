@@ -2,6 +2,9 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## Unreleased
+- **The reply divider shows in every conversation.** When the game lists none of its own options (a shopkeeper whose wares open straight away, or anyone you hail with the talk key), the faint line now sits above "Get on with it". It also appears in DialogueUI's window. The same setting turns it off.
+
 ## 0.108.0 (2026-11-24): Old Grudges
 No new files; a /reload is enough.
 - **Major figures remember a grudge.** Around 120 important NPCs on both sides now have their own words when there is bad blood between you: a grievance to air, a way to make amends, or plain spite. And when they are angry, things slip out.
