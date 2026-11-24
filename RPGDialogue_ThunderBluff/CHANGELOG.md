@@ -2,6 +2,11 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.37.0 (2026-11-24): Old Grudges
+- Major NPCs answer for a grudge you hold against them (or they against you), and let things slip when angry.
+- Overlong speeches tightened.
+- Nine townsfolk (Gullem, Elki, Thrag Stonehoof, Sewa, Halpa, Sura, Mahu, Mot Dawnstrider, Kray) had replies that led nowhere; fixed.
+
 ## 1.36.0 (2026-11-23)
 - Lore fixes; NPCs that had no dialogue now talk (new file npcs/unwritten.lua: full game restart).
 

@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.34.0 (2026-11-24): Old Grudges
+- Major NPCs answer for a grudge you hold against them (or they against you), and let things slip when angry.
+- Overlong speeches tightened.
+
 ## 1.33.0 (2026-11-24): Letters from Afar
 - Sylessa Duskwhisper gets her own dialogue.
 

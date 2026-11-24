@@ -2,6 +2,13 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.108.0 (2026-11-24): Old Grudges
+No new files; a /reload is enough.
+- **Major figures remember a grudge.** Around 120 important NPCs on both sides now have their own words when there is bad blood between you: a grievance to air, a way to make amends, or plain spite. And when they are angry, things slip out.
+- **Tighter speeches.** Every NPC line over 70 words was cut to 60 or fewer, keeping the facts and anything your replies answer.
+- **Thunder Bluff:** nine townsfolk (Gullem, Elki, Thrag Stonehoof, Sewa, Halpa, Sura, Mahu, Mot Dawnstrider, Kray) had replies that led nowhere; fixed.
+- **No more doubles:** Frezza and Snurk Bucksquick now speak only in Durotar, and Jekyll Flandring only in Alterac Mountains.
+
 ## 0.107.0 (2026-11-24): Letters from Afar
 **New files: a full game restart is needed** (not just /reload).
 - **Answer your letters.** Open a letter in the Letters tab and press Reply: each letter has its own answers, or a warm, brief or cold one. What you say can earn a follow-up letter later.
