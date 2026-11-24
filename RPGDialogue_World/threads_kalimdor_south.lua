@@ -37,7 +37,7 @@ P:Thread {
     {
       id = "b1_bilgewhizzle", npc = "bilgewhizzle",
       when = { minLevel = 40, thread = { id = "gadgetzan_water", notBeat = "b1_bilgewhizzle" } },
-      text = "The Wastewanders sit on half the springs in Tanaris now, pal, and the Bruisers won't set foot past the town gate, because the Cartel pays them to keep the peace in Gadgetzan and not one yard outside it. So my pumps at Waterspring Field are guarded by my crew, a lot of hope and a sign that says 'Company property', and you can guess how much work the sign is doing.",
+      text = "The Wastewanders sit on half the springs in Tanaris now, pal, and the Bruisers won't step past the gate, since the Cartel only pays them to keep the peace in Gadgetzan. So my pumps at Waterspring Field are guarded by my crew, a lot of hope and a 'Company property' sign, and you can guess how hard that sign works.",
       fx = { thread = { id = "gadgetzan_water", beat = "b1_bilgewhizzle", state = "stirring" }, learn = { "steamwheedle" } },
     },
     {

@@ -131,7 +131,7 @@ P:Thread {
       id = "b4_himmik", npc = "himmik",
       when = { thread = { id = "winterfall_firewater", beat = "b1_donova" },
                ["not"] = { thread = { id = "winterfall_firewater", beat = "b4_himmik" } } },
-      text = "Listen, chum, I sell drink for a living, so I know what drink costs, and somebody up in Winterfall Village is pourin' it by the barrel for furbolgs who haven't got two coppers to rub together. Nobody gives away firewater for free, so whoever's payin' for it wants somethin' a lot pricier than a party, and in the meantime my supply carts go the long way round and I eat the difference.",
+      text = "Listen, chum, I sell drink for a livin', so I know what it costs, and somebody in Winterfall Village is pourin' it by the barrel for furbolgs without two coppers to rub together. Nobody gives firewater away, so whoever's payin' wants somethin' pricier than a party, and meanwhile my carts go the long way round on my dime.",
       fx = { thread = { id = "winterfall_firewater", beat = "b4_himmik", state = "unfolding" }, learn = { "steamwheedle" } },
     },
     {

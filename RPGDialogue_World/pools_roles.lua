@@ -2150,7 +2150,7 @@ P:Pool {
     },
     m_tabetha = {
       big = true,
-      lines = { { id = "mtb_default", text = "Tabetha is a mage who lives out in the Quagmire of Dustwallow Marsh, on a little farm with two apprentices and more wards than I'd care to count. Trainers of both the Alliance and the Horde send their students to her around your age, and she sets them tasks that teach more than any lecture of mine, with something worth carrying at the end of it, a wand or the like." } },
+      lines = { { id = "mtb_default", text = "Tabetha is a mage who keeps a little farm in the Quagmire of Dustwallow Marsh, with two apprentices and more wards than I'd care to count. Alliance and Horde trainers alike send students to her at your age, and her tasks teach more than any lecture of mine, with a wand or the like at the end." } },
       choices = {
         { text = "Why would a mage live alone in a swamp?", next = "m_tabetha2" },
         { text = "What sort of tasks does she set?", next = "m_tabetha3" },
@@ -3352,7 +3352,7 @@ P:Pool {
     h_roads = {
       hub = true,
       big = true,
-      lines = { { id = "hro_default", text = "There are three roads, and every hunter walks one further than the others. The beast-master grows so close to the companion that it becomes a terror, the marksman learns a steadiness that the whole party feels in Trueshot Aura, and the survivalist lays traps and stings that leave the quarry helpless. Volley you'll learn from me at forty whichever road you take, for the days when the quarry comes in herds." } },
+      lines = { { id = "hro_default", text = "There are three roads, and every hunter walks one further than the others. The beast-master's companion becomes a terror, the marksman's steady aim lifts the whole party through Trueshot Aura, and the survivalist's traps and stings leave the quarry helpless. Whichever road you take, I'll teach you Volley at forty, for when the quarry comes in herds." } },
       again = {
         { id = "hroa_again", text = "Another road? I'll warn you, I have favourites." },
       },
