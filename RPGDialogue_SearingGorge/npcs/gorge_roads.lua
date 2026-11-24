@@ -55,8 +55,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Dwarf boots, heavy ones, an' the ruts o' a cart full o' diggin' tools, for that's what my team carried when they went on ahead. The basilisks an' the lava spiders trample over everythin', but a good hunter can tell a dwarf's print from a beast's, I'd hope." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Dwarf boots, heavy ones, an' the ruts o' a cart full o' diggin' tools, for that's what my team carried when they went on ahead. The basilisks an' the lava spiders trample over everythin', but a good hunter can tell a dwarf's print from a beast's, I'd hope. Yer {pet} might sniff them out faster than either of us, for my lads didnae wash often, an' a dwarf who's been diggin' all day leaves a scent ye'll not forget." },
+        { id = "xhuntcl_default", text = "Dwarf boots, heavy ones, an' the ruts o' a cart full o' diggin' tools, for that's what my team carried. The basilisks an' lava spiders trample over everythin', but a good hunter can tell a dwarf's print from a beast's, I'd hope." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Dwarf boots, heavy ones, an' the ruts o' a cart full o' diggin' tools, for that's what my team carried. The basilisks an' lava spiders trample over everythin', but a good hunter can tell a dwarf's print from a beast's, I'd hope. Yer {pet} might sniff them out faster than either of us, for my lads didnae wash often." },
       },
       choices = {
         { text = "I'll find them, Dorius, alive if they can be found.", next = "BACK", reply = "Alive, aye, that's all I ask. Bless ye for sayin' it, for nobody else in this Gorge has.", fx = { align = { light = 1 } } },

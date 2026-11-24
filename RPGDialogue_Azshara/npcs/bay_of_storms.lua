@@ -935,7 +935,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "The bay obeys no one, not even the one, though it is fond of Arkkoroc, and that is nearly the same. The Waterlords on their island think the tides belong to them, and the naga think the deep belongs to them, and the one lets them think it. A hydra has been killing the one's sons and the sea did nothing to stop it, so you see even a god's waters have their limits." } },
+      lines = { { id = "xhsham_default", text = "The bay obeys no one, not even the one, though it is fond of Arkkoroc. The Waterlords on their island think the tides are theirs, the naga think the deep is theirs, and the one lets them think it. Yet a hydra has been killing the one's sons and the sea did nothing, so even a god's waters have limits." } },
       choices = {
         { text = "The waters should have a lord. Better you than the naga.", next = "BACK", reply = "The one agrees, and the one is glad the land-folk see it. The naga are a poison in the tide.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The sea is free. No god or duke commands it.", next = "BACK", reply = "The sea is free, yes, and so is the one. The Waterlords will learn that.", fx = { align = { order = -1 } } },

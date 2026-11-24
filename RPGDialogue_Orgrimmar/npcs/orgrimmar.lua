@@ -389,7 +389,7 @@ P:NPC {
       },
     },
     grom = {
-      lines = { { id = "gr_default", text = "Grom was the first of us to drink Mannoroth's blood and the last of us to be free of it, and he bought that freedom with his life in a canyon in Ashenvale. He killed the demon who chained us, and I held him while he died, and he told me he was free, so whenever an orc tells me our people are cursed for good, I think of that." } },
+      lines = { { id = "gr_default", text = "Grom was the first to drink Mannoroth's blood and the last to be free of it, and he paid for that freedom with his life in Ashenvale. He killed the demon who chained us and told me he was free as I held him, so when an orc says our people are cursed for good, I think of that." } },
       choices = {
         { text = "Then the blood can be overcome.", next = "grom2", fx = { affinity = 1 } },
         { text = "What became of his clan?", next = "grom2" },

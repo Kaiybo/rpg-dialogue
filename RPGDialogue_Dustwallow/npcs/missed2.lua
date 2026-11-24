@@ -415,7 +415,7 @@ P:NPC {
     },
     kt_jaina = {
       big = true,
-      lines = { { id = "ktj_default", text = "No, and I've had the argument with my own mother more times than I can count. She marched with the Admiral, and I was a babe on her hip, but I grew up behind these walls in a peace the Lady paid for with her own grief. Her father came to burn it all down, and she stood in his way, and I think that took more courage than anything he ever did." } },
+      lines = { { id = "ktj_default", text = "No, and I've had that argument with my mother more times than I can count. She marched with the Admiral, but I grew up behind these walls in a peace the Lady paid for with her grief. When her father came to burn it down, she stood in his way, and that took more courage than anything he did." } },
       choices = {
         { text = "Your mother's right. Daelin died for his people.", next = "BACK", reply = "He died for his hatred, and he took good marines with him. I'll not change my mind, friend.", fx = { align = { light = -1 }, opinion = { jaina = "traitor" } } },
         { text = "She chose her people over her father. I respect that.", next = "BACK", reply = "So do I, and so would my mother if she'd ever say it aloud. Thank you for that.", fx = { align = { light = 1 }, opinion = { jaina = "admire" } } },

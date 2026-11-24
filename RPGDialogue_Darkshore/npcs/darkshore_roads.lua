@@ -118,7 +118,7 @@ P:NPC {
       },
     },
     light_learn = {
-      lines = { { id = "ll_default", text = "Not spells, if that's what you're thinking, because he says the Light isn't a trick you learn. He taught me to pray the way his order does, to ask for strength and not for victory, and to face the thing I'm afraid of because the Light walks there too. When I keep watch on the tower at night now, I say his words under my breath, and the dark doesn't press as close." } },
+      lines = { { id = "ll_default", text = "Not spells, because he says the Light isn't a trick you learn. He taught me to pray as his order does, for strength and not for victory, and to face what I fear because the Light walks there too. Now I say his words on the tower at night, and the dark doesn't press as close." } },
       choices = {
         { text = "Strength, not victory. That's a soldier's prayer.", next = "BACK", reply = "It is, and I've been a soldier long enough to know how rare it is. Most of us pray to win, and then blame the goddess when we don't.", fx = { align = { light = 1, honor = 1 } } },
         { text = "Victory is the only prayer worth answering.", next = "BACK", reply = "Then we'd be praying to different things, {class}, and I suspect yours answers less often. Delgren says the Light never promised anyone a win.", fx = { align = { honor = -1 } } },
@@ -126,7 +126,7 @@ P:NPC {
       },
     },
     light_try = {
-      lines = { { id = "lt_default", text = "Once, and I've told no one but Delgren. A Sentinel took a fel bolt in the shoulder near the tower, and I had nothing left to give her but his prayer, so I said it with my hands on the wound. There was warmth, and the bleeding slowed. Perhaps it was the Light, or perhaps it was Elune answering in a voice I didn't know. Either way, I haven't stopped thinking about it." } },
+      lines = { { id = "lt_default", text = "Once, and I've told no one but Delgren. A Sentinel took a fel bolt in the shoulder near the tower, and with nothing else to give her, I said his prayer with my hands on the wound. There was warmth and the bleeding slowed, whether from the Light or from Elune, and I haven't stopped thinking about it." } },
       choices = {
         { text = "Then it answered you. Don't doubt it.", next = "BACK", reply = "Delgren said the same, and then he made me eat something, because I'd gone white as a moonstone. I'm trying not to doubt it, {class}.", fx = { align = { light = 1 } } },
         { text = "Wounds close on their own. Don't read too much into it.", next = "BACK", reply = "Maybe you're right, and I'm a lonely scout seeing signs in the dark. But they don't close that fast, and I was there.", fx = { align = { light = -1 } } },

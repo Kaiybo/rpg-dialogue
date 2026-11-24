@@ -832,8 +832,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Because every hunter in Stranglethorn learns sooner or later that a panther moves faster than you can draw, and that's when you want good steel in your hand. Jaquilina up at the camp will tell you the same, though she'll try to sell you a bigger axe than you need." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because every hunter in Stranglethorn learns sooner or later that a panther moves faster than you can draw, and that's when you want good steel in your hand. Jaquilina up at the camp will tell you the same, though she'll try to sell you a bigger axe than you need. Your {pet} will keep most of them off you, I'll grant, but even the best beast can't watch both sides of a trail at once." },
+        { id = "xhuntcl_default", text = "Because sooner or later every hunter in Stranglethorn learns that a panther moves faster than you can draw, and then you want good steel in hand. Jaquilina at the camp will say the same, though she'll sell you a bigger axe than you need." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because sooner or later every hunter in Stranglethorn learns that a panther moves faster than you can draw, and then you want good steel in hand. Jaquilina at the camp will say the same, though she'll sell you a bigger axe than you need. Even your {pet} can't watch both sides of a trail at once." },
       },
       choices = {
         { text = "If it reaches me, I'll meet it fairly with steel.", next = "BACK", reply = "Fair is fine, so long as your blade holds. Mine will.", fx = { align = { honor = 1 } } },

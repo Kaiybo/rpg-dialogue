@@ -328,7 +328,7 @@ P:NPC {
     },
     xcl_rfk = {
       big = true,
-      lines = { { id = "xcl_rfk_default", text = "*snort* Then you walked on the bones of Agamaggan, and the thorns let you live, so maybe the great boar did not mind you so much. Charlga Razorflank sits in the deep of it with her Death's Head priests, and she wanted all the tribes to kneel, but the Razormane knelt to no one. If you made her bleed, Mangletooth is not sorry, though he will not say so to the other quilboar." } },
+      lines = { { id = "xcl_rfk_default", text = "*snort* Then you walked on the bones of Agamaggan and the thorns let you live, so maybe the great boar did not mind you. Charlga Razorflank sits deep inside with her Death's Head priests and wants every tribe to kneel, but the Razormane kneel to no one. If you made her bleed, Mangletooth is not sorry." } },
       choices = {
         { text = "The quilboar should be left in peace in their holy place.", next = "BACK", reply = "*snort* Peace? Charlga does not want peace, she wants knees, and the Razormane will not bend them. The tall one is kinder than Mangletooth expected.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The Kraul should be burned out, thorns and all.", next = "BACK", reply = "*snort* Burn the thorns and Agamaggan will grow them back through your bones. Mangletooth will laugh at the smoke, and then he will stop laughing.", fx = { align = { light = -1 } } },

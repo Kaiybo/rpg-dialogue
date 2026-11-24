@@ -276,7 +276,7 @@ P:NPC {
     },
     f_truth = {
       big = true,
-      lines = { { id = "ftr_default", key = true, text = "No orcs, no dragon, no cards. The rent went up and the rain didn't come, and one night men in red masks came and asked for a share of the harvest, and I said no, and they burned the barn to show me what no costs. So I put Elsie in the cart with a sack of seed potatoes and drove out before dawn, and I left the house standing and the gate open, and I never went back." } },
+      lines = { { id = "ftr_default", key = true, text = "No orcs, no dragon, no cards. The rent went up and the rain didn't come, and when I refused the men in red masks a share of the harvest, they burned the barn to show me what no costs. So I put Elsie in the cart with a sack of seed potatoes, drove out before dawn and never went back." } },
       choices = {
         { text = "You kept your wife alive. That's what mattered.", next = "f_elsie", fx = { affinity = 2, align = { honor = 1 } } },
         { text = "You left your neighbours to face them alone.", next = "f_elsie", fx = { affinity = -1, align = { honor = -1 } } },

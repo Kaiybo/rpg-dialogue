@@ -432,7 +432,7 @@ P:NPC {
     },
     kal_first = {
       big = true,
-      lines = { { id = "kfi_d", text = "I was, and I will remember it until Elune takes me, which is a nearer thing for all of us now. They came out of the south with axes and red eyes, and they cut until Cenarius himself came out of the deep woods to stop them. Hellscream drank the demon Mannoroth's blood a second time to win that fight, and he won it, and the Lord of the Forest died among his own trees." } },
+      lines = { { id = "kfi_d", text = "I was, and I will remember it until Elune takes me. They came out of the south with axes and red eyes, cutting until Cenarius himself came out of the deep woods to stop them. Hellscream drank Mannoroth's blood a second time to win that fight, and the Lord of the Forest died among his own trees." } },
       choices = {
         { text = "Hellscream is dead. His people say he died free.", next = "kal_first2" },
         { text = "How could one orc kill a demigod?", next = "kal_how" },
@@ -450,7 +450,7 @@ P:NPC {
       },
     },
     kal_first2 = {
-      lines = { { id = "kfi2_d", text = "Free, yes, and I have heard the story enough to tell it myself. His warchief broke the hold on him, and he hunted Mannoroth down in the canyon east of here, the one the orcs now call Demon Fall, and killed the pit lord and died beside him. I will give him that much: he walked into that canyon knowing he would not walk out. But Cenarius never chose his death, and dying well does not unmake a murder." } },
+      lines = { { id = "kfi2_d", text = "Free, yes. His warchief broke the blood's hold on him, and he hunted Mannoroth down in the canyon the orcs now call Demon Fall, killed the pit lord and died beside him. He walked in knowing he would not walk out, I grant, but Cenarius never chose his death, and dying well does not unmake a murder." } },
       choices = {
         { text = "He killed the demon who ruined his people. That's atonement.", next = "BACK", reply = "Perhaps it is, for the orcs. The trees around Demon Fall have stayed dead all the same, and I have stopped waiting for them to forgive anyone.", fx = { align = { honor = 1 } } },
         { text = "Dying well doesn't wash out murder. You're right.", next = "BACK", reply = "I know I am, and I take no comfort in it. Being right has never grown back a single tree.", fx = { align = { honor = -1 } } },

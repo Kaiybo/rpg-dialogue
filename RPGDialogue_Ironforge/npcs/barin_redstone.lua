@@ -280,7 +280,7 @@ P:NPC {
     },
     dw_owed = {
       lines = {
-        { id = "dwo_default", text = "Blood an' coin, an' a great deal o' both. We sent our sons tae every field o' the Second War an' half o' them came home in cairns, we took in the gnomes when their city drowned in its own poison, an' we've held the Dark Iron off the Loch Modan roads for two hundred years wi' no help from anyone. An' what does Ironforge get back? Letters, an' requests for more." },
+        { id = "dwo_default", text = "Blood an' coin, an' a great deal o' both. We sent our sons tae every field o' the Second War an' half came home in cairns, then took in the gnomes when their city drowned in poison an' held the Dark Iron off the Loch Modan roads alone. An' what does Ironforge get back but letters askin' for more?" },
         { id = "dwo_miner", when = { origin = "dwarf_ironforge_miner" }, text = "Ye've dug the deeps, so ye know it better than the clerks do: this mountain gave the Alliance its iron, its rifles an' its sons, an' half o' them came home in cairns. Then we took in the gnomes an' held the Dark Iron off the roads, an' what we get back is letters askin' for more." },
       },
       choices = {

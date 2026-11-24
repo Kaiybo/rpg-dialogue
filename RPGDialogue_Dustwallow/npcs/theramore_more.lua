@@ -254,8 +254,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Along the shore south of the island, where the mudrocks haul out to sun themselves, though they've grown wise to the soldiers I send. It takes a hunter's patience to catch one, because a tortoise with its head in its shell can wait you out till nightfall." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Along the shore south of the island, where the mudrocks haul out to sun themselves, though they've grown wise to the soldiers I send. It takes a hunter's patience to catch one, because a tortoise with its head in its shell can wait you out till nightfall. Don't let {pet} near the shell pile out back, or it'll crack a tooth, and then you'll be in here asking me for a soup it can drink." },
+        { id = "xhuntcl_default", text = "Along the shore south of the island, where the mudrocks haul out to sun themselves, though they've grown wise to the soldiers I send. It takes a hunter's patience, because a tortoise with its head in its shell can wait you out till nightfall." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Along the shore south of the island, where the mudrocks haul out to sun themselves, though they've grown wise to the soldiers I send. It takes a hunter's patience, because a tortoise with its head in its shell can wait you out till nightfall. Keep {pet} away from the shell pile out back, or it'll crack a tooth." },
       },
       choices = {
         { text = "Take only what the kitchen needs. Leave the rest be.", next = "BACK", reply = "That's the way to do it, and the mudrocks will thank you, if tortoises thank anyone. There'll be soup enough either way.", fx = { align = { light = 1 } } },

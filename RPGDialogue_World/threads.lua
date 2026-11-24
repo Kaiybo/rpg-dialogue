@@ -865,13 +865,13 @@ P:Thread {
       id = "b2_burlguard", npc = "burlguard",
       when = { class = "WARRIOR", any = { { thread = { id = "war_willem", beat = "b1_llane" } }, { thread = { id = "war_willem", beat = "b1_lyria" } } },
                ["not"] = { thread = { id = "war_willem", beat = "b2_burlguard" } } },
-      text = "So someone's told you about Willem. He sat on that stool you're on and took Bartleby's mug off him in two swings, and the army sent him to Westfall to guard the grain roads. Now his sergeant writes that he took off his tabard one night and walked up the hill to Stoutmantle's farmers, and I've a list of my lads that I read when the place is empty, and I can't decide whether his name belongs on it.",
+      text = "So someone's told you about Willem, who took Bartleby's mug off him in two swings on that stool. The army sent him to guard Westfall's grain roads, and now his sergeant writes that he shed his tabard and joined Stoutmantle's farmers. I keep a list of my lads, and I can't decide whether he belongs on it.",
       fx = { thread = { id = "war_willem", beat = "b2_burlguard", state = "unfolding" } },
     },
     {
       id = "b3_gryan", npc = "gryan",
       when = { class = "WARRIOR", minLevel = 10, thread = { id = "war_willem", beat = "b2_burlguard" }, ["not"] = { thread = { id = "war_willem", beat = "b3_gryan" } } },
-      text = "You'll be asking after Willem Tarn, I expect, because he said someone from Old Town would come up this hill one day. He walked in with his tabard folded under his arm and told me he'd watched a Moonbrook family go hungry beside the grain cart he was guarding, and now he drills my farmers every morning with a spear in one hand and a hayfork in the other. If Stormwind wants him back, it can come and ask, and it can bring the grain while it's at it.",
+      text = "You'll be asking after Willem Tarn, I expect; he said someone from Old Town would come. He watched a Moonbrook family go hungry beside the grain cart he guarded, so he came up here with his tabard under his arm, and now he drills my farmers. If Stormwind wants him back, it can come and ask, and bring the grain.",
       fx = { thread = { id = "war_willem", beat = "b3_gryan" } },
     },
   },
@@ -924,7 +924,7 @@ P:Thread {
       id = "b2_uzzek", npc = "uzzek",
       when = { class = "WARRIOR", any = { { thread = { id = "war_garvak", beat = "b1_frang" } }, { thread = { id = "war_garvak", beat = "b1_sorek" } } },
                ["not"] = { thread = { id = "war_garvak", beat = "b2_uzzek" } } },
-      text = "Garvak came to me three times for the path of defense, and three times he charged when I told him to stand. The fourth time he took a Kolkar pack alone and won, and two grunts who ran after him didn't come back. The old ones say that's the demon's blood still talking, and the young ones say it's only an orc being an orc, and I've stopped knowing which.",
+      text = "Three times Garvak took the path of defense, and three times he charged when I told him to stand. The fourth time he took a Kolkar pack alone and won, and two grunts who followed him died. The old ones call it the demon's blood, the young call it an orc being an orc, and I no longer know which.",
       fx = { thread = { id = "war_garvak", beat = "b2_uzzek", state = "unfolding" } },
     },
     {
@@ -1039,7 +1039,7 @@ P:Thread {
     {
       id = "b3_archesonus", npc = "archesonus",
       when = { race = "Dwarf", minLevel = 15, thread = { id = "dwarf_haldin", beat = "b1_kadrell" }, ["not"] = { thread = { id = "dwarf_haldin", beat = "b3_archesonus" } } },
-      text = "I could hear Haldin Forgebrow's name in your step before you said it, because his mother has come to my desk with the same question every month for three years. I tell her what the histories tell me, that the Dark Irons were our kin before the War of the Three Hammers, and that a few of them up in the Searing Gorge have remembered it. They call themselves the Thorium Brotherhood, and they've cut more than one of our folk out of Thaurissan's chains.",
+      text = "I heard Haldin Forgebrow's name in your step, for his mother has asked me the same every month these three years. I tell her the Dark Irons were our kin before the War of the Three Hammers, and a few in the Searing Gorge remember it. That Thorium Brotherhood has cut more than one of our folk from Thaurissan's chains.",
       fx = { thread = { id = "dwarf_haldin", beat = "b3_archesonus" } },
     },
     {
@@ -1085,13 +1085,13 @@ P:Thread {
     {
       id = "b1_grif", npc = "mf_grif",
       when = { class = "HUNTER", faction = "Alliance", minLevel = 10, thread = { id = "hun_alliance", notBeat = "b1_grif" }, ["not"] = { thread = { id = "hun_alliance", beat = "b1_jeenra" } } },
-      text = "Ye'll be tamin' yer first beast soon, so let me tell ye about the best student I ever had on this hill. Durgan Flintbrow could call a boar off its charge wi' one whistle, an' he took a boat tae Darnassus tae learn how the elves talk tae their beasts, an' I've had no letter from him since the autumn. If ye're ever over the water, ask after him for me.",
+      text = "Ye'll be tamin' yer first beast soon, so hear about the best student I ever had. Durgan Flintbrow could call a boar off its charge wi' one whistle, an' he sailed tae Darnassus tae learn how the elves talk tae their beasts. I've had no letter since the autumn, so if ye're ever over the water, ask after him.",
       fx = { thread = { id = "hun_alliance", beat = "b1_grif", state = "stirring" } },
     },
     {
       id = "b1_jeenra", npc = "jeenra",
       when = { class = "HUNTER", faction = "Alliance", minLevel = 10, thread = { id = "hun_alliance", notBeat = "b1_jeenra" }, ["not"] = { thread = { id = "hun_alliance", beat = "b1_grif" } } },
-      text = "A dwarf came through Rut'theran last spring with a bow too big for him and the gentlest hands I've seen on a hunter of his kind. His name was Durgan Flintbrow, and he wanted to learn how we bond with our beasts, so I sent him up to Dorion. I hear he went on to Darkshore with a grey bear at his heel, and I've wondered since how that ended.",
+      text = "A dwarf came through Rut'theran last spring with a bow too big for him and the gentlest hands I've seen on his kind. Durgan Flintbrow wished to learn how we bond with our beasts, so I sent him to Dorion, and he went on to Darkshore with a grey bear at his heel. I wonder how that ended.",
       fx = { thread = { id = "hun_alliance", beat = "b1_jeenra", state = "stirring" } },
     },
     {
@@ -1174,7 +1174,7 @@ P:Thread {
     {
       id = "b3_holt", npc = "holt",
       when = { class = "HUNTER", thread = { id = "hun_horde", beat = "b2_sergra" }, ["not"] = { thread = { id = "hun_horde", beat = "b3_holt" } } },
-      text = "The herds of the Barrens are half what they were when the Horde came, and I have walked those plains long enough to count them myself. Garra Steelgaze is not cruel, and she is not greedy, but she hunts as though the plains will always be full, the way a young hunter does before the Earth Mother teaches her otherwise. I would rather she learned it from me than from an empty plain.",
+      text = "The herds of the Barrens are half what they were when the Horde came; I have counted them myself. Garra Steelgaze is neither cruel nor greedy, but she hunts as if the plains will always be full, as the young do before the Earth Mother teaches them. Better she learn it from me than from an empty plain.",
       fx = { thread = { id = "hun_horde", beat = "b3_holt" } },
     },
   },
@@ -1214,7 +1214,7 @@ P:Thread {
     {
       id = "b1_jocaste", npc = "jocaste",
       when = { class = "HUNTER", faction = "Alliance", minLevel = 55, thread = { id = "hun_rhokdelar", notBeat = "b1_jocaste" }, ["not"] = { thread = { id = "hun_rhokdelar", beat = "b1_urek" } } },
-      text = "There is little left that I can teach you, hunter, so let me tell you something instead. In the Irontree Woods of Felwood the spirits of three Ancients of Lore still stand where they fell at Hyjal, Vartrus and Stoma and Hastat, and they are waiting for a hunter worthy of a bow made from their own wood. If you ever carry a leaf that has turned to stone, take it to them.",
+      text = "There is little left I can teach you, hunter, so let me tell you something instead. In Felwood's Irontree Woods, three Ancients of Lore, Vartrus, Stoma and Hastat, still stand where they fell at Hyjal, awaiting a hunter worthy of a bow of their own wood. If you ever carry a leaf turned to stone, take it to them.",
       fx = { thread = { id = "hun_rhokdelar", beat = "b1_jocaste", state = "stirring" } },
     },
     {
@@ -1227,7 +1227,7 @@ P:Thread {
       id = "b2_vartrus", npc = "vartrus",
       when = { class = "HUNTER", any = { { thread = { id = "hun_rhokdelar", beat = "b1_jocaste" } }, { thread = { id = "hun_rhokdelar", beat = "b1_urek" } } },
                ["not"] = { thread = { id = "hun_rhokdelar", beat = "b2_vartrus" } } },
-      text = "Someone has told you of us, and you have come anyway, which is the first test and the easiest. The corrupters who poison this forest walk among your kind with kind faces now: Simone, Franklin, Nelson and Artorius, gentle names on things that are not gentle at all. The people around them love them, small one, and when you kill them, those people will see a hunter murder a friend.",
+      text = "Someone has told you of us, and you came anyway, which is the first test and the easiest. The corrupters poisoning this forest walk among your kind with kind faces: Simone, Franklin, Nelson and Artorius. Their people love them, small one, and when you kill them, those people will see a hunter murder a friend.",
       fx = { thread = { id = "hun_rhokdelar", beat = "b2_vartrus", state = "unfolding" } },
     },
     {
@@ -1280,32 +1280,32 @@ P:Thread {
     {
       id = "b1_rellian", npc = "rellian",
       when = { race = "NightElf", minLevel = 8, thread = { id = "elf_saelra", notBeat = "b1_rellian" }, ["not"] = { thread = { id = "elf_saelra", beat = "b1_glynda" } } },
-      text = "Forgive me if I'm short today, friend, because a druid called Thalanir Duskwind was here this morning, and he does not like to hear the word tumor said near Teldrassil. He slept in the barrow dens for ten thousand years and woke to help plant this tree, so he loves it the way you love a child. His sister is a Sentinel in Auberdine, and I'm told she hasn't said his name since he woke.",
+      text = "Forgive me if I'm short, friend; the druid Thalanir Duskwind was here this morning, and he hates to hear the word tumor near Teldrassil. He woke from the barrow dens to help plant this tree, and loves it like a child. His sister is a Sentinel in Auberdine, and they say she hasn't spoken his name since.",
       fx = { thread = { id = "elf_saelra", beat = "b1_rellian", state = "stirring" } },
     },
     {
       id = "b1_glynda", npc = "glynda",
       when = { race = "NightElf", minLevel = 12, thread = { id = "elf_saelra", notBeat = "b1_glynda" }, ["not"] = { thread = { id = "elf_saelra", beat = "b1_rellian" } } },
-      text = "The oldest bow on my post belongs to Saelra Duskwind, who stood watch on the Ashenvale borders before most of Darnassus was born. She fought the satyrs after the Sundering and the orcs when they came to cut Ashenvale, and her brother slept through all of it in the barrow dens. He's a druid of the Enclave now, and if you say his name on this dock she will walk to the end of it and stay there until dark.",
+      text = "The oldest bow on my post belongs to Saelra Duskwind, who watched the Ashenvale borders before most of Darnassus was born. She fought satyrs and orcs while her brother slept in the barrow dens. He's an Enclave druid now, and if you say his name on this dock, she'll walk to the end of it and stay until dark.",
       fx = { thread = { id = "elf_saelra", beat = "b1_glynda", state = "stirring" } },
     },
     {
       id = "b2_mathrengyl", npc = "mathrengyl",
       when = { race = "NightElf", any = { { thread = { id = "elf_saelra", beat = "b1_rellian" } }, { thread = { id = "elf_saelra", beat = "b1_glynda" } } },
                ["not"] = { thread = { id = "elf_saelra", beat = "b2_mathrengyl" } } },
-      text = "Thalanir slept beside me in the barrow dens, and I'll tell you what I've told him, and what his sister has never wanted to hear. We were not idle in the Dream, young one, for we walked it and tended it and kept it whole, and that was a watch too, though no Sentinel ever saw us keep it. The trouble is that she bled for hers, and we did not.",
+      text = "Thalanir slept beside me in the barrow dens, and I'll tell you what I told him, which his sister never wished to hear. We were not idle in the Dream, young one, for tending it was a watch too, though no Sentinel saw us keep it. The trouble is that she bled for hers, and we did not.",
       fx = { thread = { id = "elf_saelra", beat = "b2_mathrengyl", state = "unfolding" } },
     },
     {
       id = "b3_fandral", npc = "fandral",
       when = { race = "NightElf", minLevel = 10, thread = { id = "elf_saelra", beat = "b2_mathrengyl" }, ["not"] = { thread = { id = "elf_saelra", beat = "b3_fandral" } } },
-      text = "Duskwind? Thalanir was among the first to answer when I called the Circle to plant Teldrassil, and he has given more of himself to this tree than most. I will not hear a Sentinel's grievance against him, because the Sentinels guarded our borders and the druids guarded the Dream, and both watches were kept. If his sister wishes to quarrel with how the Circle spends its strength, she may bring it to me.",
+      text = "Thalanir Duskwind was among the first to answer when I called the Circle to plant Teldrassil, and he has given this tree more than most. The Sentinels guarded our borders and the druids the Dream, and both watches were kept, so I will hear no grievance against him. His sister may bring her quarrel to me.",
       fx = { thread = { id = "elf_saelra", beat = "b3_fandral" } },
     },
     {
       id = "b3_tyrande", npc = "tyrande",
       when = { race = "NightElf", minLevel = 10, thread = { id = "elf_saelra", beat = "b2_mathrengyl" }, ["not"] = { thread = { id = "elf_saelra", beat = "b3_tyrande" } } },
-      text = "Saelra Duskwind stood beside me against the satyrs when the Sentinels were still young, and I remember her bow better than most faces. I know what it is to keep the watch while the one you love sleeps in the Dream, because I have done it longer than she has, and I have forgiven Malfurion for it more than once. She has not learned to forgive her brother yet, and I have wondered whether I should ask her to.",
+      text = "Saelra Duskwind stood beside me against the satyrs when the Sentinels were young, and I remember her bow better than most faces. I too have kept watch while the one I love slept in the Dream, and forgiven Malfurion for it more than once. She has not forgiven her brother, and I wonder whether to ask her to.",
       fx = { thread = { id = "elf_saelra", beat = "b3_tyrande" } },
     },
   },
@@ -1359,19 +1359,19 @@ P:Thread {
       id = "b2_maginor", npc = "maginor",
       when = { class = "MAGE", any = { { thread = { id = "mage_alliance", beat = "b1_jennea" } }, { thread = { id = "mage_alliance", beat = "b1_elsharin" } } },
                ["not"] = { thread = { id = "mage_alliance", beat = "b2_maginor" } } },
-      text = "You've heard about Pryce, then, and I expect you've heard I was the villain of it. The bakers' guild brought me a petition, because the boy was feeding half the cellars for nothing and three ovens in Old Town went cold that winter, and I told him the art is not a soup kitchen. Magic burns the untrained, and it burns a city that learns to lean on it, and I still believe that, though I've slept worse since he went to Ironforge.",
+      text = "You've heard about Pryce, then, and I expect I was the villain of it. The boy was feeding half the cellars for nothing, three Old Town ovens went cold, and when the bakers' guild petitioned me, I told him the art is not a soup kitchen. I still believe that, though I've slept worse since he went to Ironforge.",
       fx = { thread = { id = "mage_alliance", beat = "b2_maginor", state = "unfolding" }, learn = { "mages" } },
     },
     {
       id = "b3_bink", npc = "bink",
       when = { class = "MAGE", minLevel = 15, thread = { id = "mage_alliance", beat = "b2_maginor" }, ["not"] = { thread = { id = "mage_alliance", beat = "b3_bink" } } },
-      text = "Wendel Pryce? Tall, mournful, smells faintly of fresh bread? He spent a whole winter in Tinker Town conjuring water for the Gnomeregan refugees, one thousand one hundred and forty flasks by my count, and he never once asked who was paying for it. Then a letter came from Theramore, and he packed his books and took the boat from Menethil, and I'm told Lady Jaina's magi don't mind feeding people at all.",
+      text = "Wendel Pryce, tall and mournful, smelling faintly of bread? He spent a whole winter in Tinker Town conjuring water for the Gnomeregan refugees, eleven hundred and forty flasks by my count, and never asked who was paying. Then a letter came from Theramore and he sailed from Menethil, and I'm told Lady Jaina's magi don't mind feeding people at all.",
       fx = { thread = { id = "mage_alliance", beat = "b3_bink" }, learn = { "theramore" } },
     },
     {
       id = "b4_tervosh", npc = "tervosh",
       when = { class = "MAGE", minLevel = 30, thread = { id = "mage_alliance", beat = "b3_bink" }, ["not"] = { thread = { id = "mage_alliance", beat = "b4_tervosh" } } },
-      text = "Pryce is here, yes, and he's feeding every refugee and deserter who washes up on my docks, and Lady Jaina likes him enormously. Malin and Dumas have both written asking me to send him back to his books before he turns into a bread cart in a robe. I haven't decided, and Theramore is a small town, so whatever you think mages are for, I'll hear it from somebody before you've finished saying it.",
+      text = "Pryce is here, feeding every refugee and deserter who washes up on my docks, and Lady Jaina likes him enormously. Malin and Dumas both want him sent back to his books before he becomes a bread cart in a robe. I haven't decided, and Theramore is small, so whatever you think mages are for, I'll hear it soon.",
       fx = { thread = { id = "mage_alliance", beat = "b4_tervosh" }, learn = { "mages" } },
     },
     {
@@ -1433,7 +1433,7 @@ P:Thread {
     {
       id = "b1_uthelnay", npc = "uthelnay",
       when = { class = "MAGE", faction = "Horde", minLevel = 8, thread = { id = "mage_horde", notBeat = "b1_uthelnay" }, ["not"] = { thread = { id = "mage_horde", beat = "b1_pephredo" } } },
-      text = "I had an orc girl in dis lodge once, mon, a camp-born one called Mogra, an' she froze a bucket of water solid on her second day and laughed like a child. Her grandfather heard about it, an' he come in here an' broke her focus in front of all my students, an' none of dem has asked for frost since. She be in de Undercity now, learnin' from de dead.",
+      text = "I had a camp-born orc girl in dis lodge once, mon, called Mogra, an' she froze a bucket solid on her second day and laughed like a child. Her grandfather come in an' broke her focus before all my students, an' none of dem has asked for frost since. She be in de Undercity now, learnin' from de dead.",
       fx = { thread = { id = "mage_horde", beat = "b1_uthelnay", state = "stirring" } },
     },
     {
@@ -1509,7 +1509,7 @@ P:Thread {
     {
       id = "b1_dibbs", npc = "dibbs",
       when = { class = "MAGE", faction = "Alliance", minLevel = 30, thread = { id = "mage_dalaran", notBeat = "b1_dibbs" } },
-      text = "A magus of the Kirin Tor came down from the dome last spring and bought every book I had on Kel'Thuzad, even the bad ones. His name was Aldous Crane, and he told me he'd been the necromancer's student before anybody called him a necromancer, and he paid in old Dalaran silver without once meeting my eye. Archmage Malin in Stormwind studied with that crowd, if you want to know more.",
+      text = "A Kirin Tor magus came down from the dome last spring and bought every book I had on Kel'Thuzad, even the bad ones. Aldous Crane said he'd been the necromancer's student once, and he paid in old Dalaran silver without meeting my eye. Archmage Malin in Stormwind studied with that crowd, if you want to know more.",
       fx = { thread = { id = "mage_dalaran", beat = "b1_dibbs", state = "stirring" }, learn = { "kelthuzad", "dalaran" } },
     },
     {
@@ -1521,25 +1521,25 @@ P:Thread {
     {
       id = "b2_malin", npc = "malin",
       when = { class = "MAGE", faction = "Alliance", thread = { id = "mage_dalaran", beat = "b1_dibbs" }, ["not"] = { thread = { id = "mage_dalaran", beat = "b2_malin" } } },
-      text = "Aldous Crane, yes; he sat two benches from me in Dalaran and copied Kel'Thuzad's lectures in a better hand than the man's own. The Council expelled Kel'Thuzad and we all agreed never to speak of it, and years later Crane signed the order that sent Arugal to Silverpine, and we agreed never to speak of that either. If Crane has come out from behind the dome, then I think he means to speak of both.",
+      text = "Aldous Crane, yes; he sat two benches from me in Dalaran and copied Kel'Thuzad's lectures. The Council expelled Kel'Thuzad and we agreed never to speak of it, and years later Crane signed the order sending Arugal to Silverpine, and we agreed the same. If Crane has left the dome, I think he means to speak of both.",
       fx = { thread = { id = "mage_dalaran", beat = "b2_malin", state = "unfolding" }, learn = { "shadowfang", "kirin_tor" } },
     },
     {
       id = "b2_voidglare", npc = "hb_voidglare",
       when = { class = "MAGE", faction = "Horde", thread = { id = "mage_dalaran", beat = "b1_bethor" }, ["not"] = { thread = { id = "mage_dalaran", beat = "b2_voidglare" } } },
-      text = "Crane? I've had him watched for a month, and I'll tell you what my watchers learned, since it costs me nothing. He signed the council's order that sent Arugal into Silverpine, and the worgen at Pyrewood are his as much as anyone's, and now he's written the whole of it down. A copy went to Dalar Dawnweaver at the Sepulcher, of all the dead in Lordaeron, and I would very much like to read it before anyone else does.",
+      text = "I've had Crane watched for a month, and since it costs me nothing, I'll share what my watchers learned. He signed the order that sent Arugal into Silverpine, so Pyrewood's worgen are his as much as anyone's, and he's written it all down. A copy went to Dalar Dawnweaver at the Sepulcher, and I'd like to read it first.",
       fx = { thread = { id = "mage_dalaran", beat = "b2_voidglare", state = "unfolding" }, learn = { "shadowfang", "kirin_tor" } },
     },
     {
       id = "b3_ansirem", npc = "ansirem",
       when = { class = "MAGE", faction = "Alliance", minLevel = 35, thread = { id = "mage_dalaran", beat = "b2_malin" }, ["not"] = { thread = { id = "mage_dalaran", beat = "b3_ansirem" } } },
-      text = "Crane's confession is on my desk, and I have read it three times, which is twice more than I wished to. Kel'Thuzad and Arugal, both in his own hand, and both of them things the Council decided long ago the world need not hear. Crane wants it read aloud in Southshore and Stormwind, and the Council wants it burned, and I find I would like to know what the mages outside this barrier think of the Kirin Tor before I choose.",
+      text = "Crane's confession is on my desk, Kel'Thuzad and Arugal both in his own hand, things the Council long ago decided the world need not hear. Crane wants it read aloud in Southshore and Stormwind, and the Council wants it burned. I would know what mages beyond this barrier think of the Kirin Tor before I choose.",
       fx = { thread = { id = "mage_dalaran", beat = "b3_ansirem" }, learn = { "kirin_tor" } },
     },
     {
       id = "b3_dalar", npc = "dalar",
       when = { class = "MAGE", faction = "Horde", minLevel = 35, thread = { id = "mage_dalaran", beat = "b2_voidglare" }, ["not"] = { thread = { id = "mage_dalaran", beat = "b3_dalar" } } },
-      text = "Crane sent his confession to me, because I warned them and died for it, and I suppose he thought the dead would forgive him more cheaply. It's all there, Kel'Thuzad and Arugal both, in that tidy hand of his. I could have it read aloud in every corner of the Undercity by morning, or I could put it in the fire, and I find I want to know what you think of the Kirin Tor before I do either.",
+      text = "Crane sent his confession to me, because I warned them and died for it, and perhaps he thought the dead forgive cheaply. Kel'Thuzad and Arugal are both in it, in his tidy hand. I could have it read across the Undercity by morning or burn it, and I want to know what you think of the Kirin Tor first.",
       fx = { thread = { id = "mage_dalaran", beat = "b3_dalar" }, learn = { "kirin_tor" } },
     },
     {
@@ -1638,7 +1638,7 @@ P:Thread {
     {
       id = "b4_tharnariun", npc = "tharnariun",
       when = { class = "DRUID", minLevel = 14, thread = { id = "dru_alliance", beat = "b3_great_bear" }, ["not"] = { thread = { id = "dru_alliance", beat = "b4_tharnariun" } } },
-      text = "There's a bear that comes down to my pens at night and lies beside the sick ones, and it lets me work, which no wild bear of Darkshore has done in a year. It wears a druid's mark under the fur, and when I called it Aelthas, it looked at me for a long moment and then went back into the trees. It went south, towards Ashenvale, and I haven't seen it since.",
+      text = "A bear comes to my pens at night and lies beside the sick ones, letting me work, which no wild bear of Darkshore has done in a year. It wears a druid's mark under the fur, and when I called it Aelthas, it looked at me a long moment and went back into the trees. It went south, towards Ashenvale.",
       fx = { thread = { id = "dru_alliance", beat = "b4_tharnariun" } },
     },
     {
@@ -1650,7 +1650,7 @@ P:Thread {
     {
       id = "b6_dendrite", npc = "dendrite",
       when = { class = "DRUID", minLevel = 20, thread = { id = "dru_alliance", beat = "b5_shaeldryn" }, ["not"] = { thread = { id = "dru_alliance", beat = "b6_dendrite" } } },
-      text = "Aelthas has been in the bear for two winters now, and Shael'dryn says he guards Ashenvale better than a company of Sentinels. Half the Circle wants him fetched home in roots before he forgets his own name for good, and the other half says a druid who finds the balance in a bear's shape has found it all the same. Moonglade is a small place, so whatever you think of druids, I'll hear it soon enough.",
+      text = "Aelthas has been in the bear two winters, and Shael'dryn says he guards Ashenvale better than a company of Sentinels. Half the Circle wants him fetched home before he forgets his name, and half says balance found in a bear's shape is balance all the same. Moonglade is small, so whatever you think of druids, I'll hear it.",
       fx = { thread = { id = "dru_alliance", beat = "b6_dendrite" }, learn = { "druids" } },
     },
     {
@@ -1721,7 +1721,7 @@ P:Thread {
       id = "b2_turak", npc = "turak",
       when = { class = "DRUID", any = { { thread = { id = "dru_horde", beat = "b1_gart" } }, { thread = { id = "dru_horde", beat = "b1_gennia" } } },
                ["not"] = { thread = { id = "dru_horde", beat = "b2_turak" } } },
-      text = "I sent Mahka to Moonglade, as I sent you, and the kaldorei there told her about Naralex and his disciples, who went into the earth to heal the Barrens and came out mad. She asked me whether the same thing could happen to her, and I said no, and I am not as sure as I sounded. The Earth Mother gives us these shapes, little one, but she does not promise that we will always know ourselves inside them.",
+      text = "I sent Mahka to Moonglade, as I sent you, and there she heard of Naralex, who went into the earth to heal the Barrens and came out mad. She asked if that could happen to her, and I said no, though I am not sure. The Earth Mother gives us these shapes, little one, but not always ourselves in them.",
       fx = { thread = { id = "dru_horde", beat = "b2_turak", state = "unfolding" }, learn = { "cenarion_circle" } },
     },
     {
@@ -1745,7 +1745,7 @@ P:Thread {
     {
       id = "b6_hamuul", npc = "hamuul",
       when = { class = "DRUID", minLevel = 20, thread = { id = "dru_horde", beat = "b5_tsunaman" }, ["not"] = { thread = { id = "dru_horde", beat = "b6_hamuul" } } },
-      text = "Mahka has done more good in a season at Sun Rock than some of our elders in a lifetime, and the Keeper has asked me to send her to sit at the Circle's fire in Moonglade. The Warchief's people remember the Fang, though, and they ask whether a tauren who walks as a beast should be kept close to home, where the Horde can see her. Thunder Bluff hears everything on the wind, so whatever you think of druids, it will reach me.",
+      text = "Mahka has done more good at Sun Rock in a season than some elders in a lifetime, and the Keeper asks me to send her to the Circle's fire in Moonglade. But the Warchief's people remember the Fang, and would keep a beast-walking tauren where the Horde can see her. Whatever you think of druids, the wind will tell me.",
       fx = { thread = { id = "dru_horde", beat = "b6_hamuul" }, learn = { "druids" } },
     },
     {
@@ -1761,7 +1761,7 @@ P:Thread {
       when = { class = "DRUID", thread = { id = "dru_horde", beat = "b6_hamuul" },
                opinion = { topic = "druids", stance = { "savage", "wary" } },
                ["not"] = { any = { { thread = { id = "dru_horde", beat = "b7_hamuul_send" } }, { thread = { id = "dru_horde", beat = "b7_hamuul_keep" } } } } },
-      text = "I hear you've been saying that druids who walk as beasts are only a step from the Fang, and the Warchief's people repeat it to me as though it were wisdom. I have called Mahka home to the Elder Rise, where the Horde can see her, and she studies and does not argue. The saplings at Sun Rock are dying without her, and I try not to think about it.",
+      text = "I hear you say that druids who walk as beasts are a step from the Fang, and the Warchief's people repeat it to me as wisdom. So I have called Mahka home to the Elder Rise, where she studies without arguing. The saplings at Sun Rock are dying without her, and I try not to think of it.",
       fx = { thread = { id = "dru_horde", beat = "b7_hamuul_keep", state = "soured" } },
     },
   },
@@ -1844,7 +1844,7 @@ P:Thread {
       id = "b4_remulos", npc = "remulos",
       when = { class = "DRUID", minLevel = 55, any = { { thread = { id = "dru_circle", beat = "b3_bor" } }, { thread = { id = "dru_circle", beat = "b3_proudhorn" } } },
                ["not"] = { thread = { id = "dru_circle", beat = "b4_remulos" } } },
-      text = "I have letters from Darnassus and from Thunder Bluff on my table, and both ask for the same two druids back. The Circle has always stood above banners, or said it did, but I cannot hold a druid against the will of their own people if the world's druids no longer believe the Circle is worth it. Tell the glade what you think of us, druid; I will hear it from the wind before you are halfway home.",
+      text = "Darnassus and Thunder Bluff both write asking for the same two druids back. The Circle has always stood above banners, or said it did, but I cannot hold a druid against their people's will if the world's druids no longer think it worth it. Tell the glade what you think of us, druid; the wind will bring it to me.",
       fx = { thread = { id = "dru_circle", beat = "b4_remulos" }, learn = { "emerald_dream" } },
     },
     {

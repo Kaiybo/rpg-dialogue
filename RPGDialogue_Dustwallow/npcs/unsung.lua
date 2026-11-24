@@ -262,8 +262,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "I can slow it down, which is the best anyone can promise in Dustwallow, with a good coat of tallow and a brushing every night. Hunters lie in the reeds for hours waiting on a crocolisk, and I've never met the mail that came out of those reeds the same as it went in." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I can slow it down, which is the best anyone can promise in Dustwallow, with a good coat of tallow and a brushing every night. Hunters lie in the reeds for hours waiting on a crocolisk, and I've never met the mail that came out of those reeds the same as it went in. And keep {pet} away from the tallow pot, because every hound in Theramore has had a go at it and none of them were sorry." },
+        { id = "xhuntcl_default", text = "I can slow it down, which is the best anyone promises in Dustwallow, with tallow and a nightly brushing. Hunters lie in the reeds for hours waiting on crocolisks, and no mail comes out of those reeds the same as it went in." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I can slow it down, which is the best anyone promises in Dustwallow, with tallow and a nightly brushing. Hunters lie in the reeds for hours waiting on crocolisks, and no mail comes out of those reeds the same as it went in. And keep {pet} off the tallow pot, for every hound in Theramore has tried it." },
       },
       choices = {
         { text = "I'll tallow it every night. Neglect is how gear fails.", next = "BACK", reply = "That's the only way to keep it, and I'm glad to hear you say it. Tallow's on the bench, take a pot.", fx = { align = { order = 1 } } },

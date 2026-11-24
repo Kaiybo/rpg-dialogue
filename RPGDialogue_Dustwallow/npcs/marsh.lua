@@ -117,8 +117,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "The crocolisks in the shallows, first, because they lie as still as logs until you're standing on them, and then the black whelps that come down from the Wyrmbog. The whelps are the worst, since they're clever and they burn, and they've started roosting closer to my hut than I'd like." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The crocolisks in the shallows, first, because they lie as still as logs until you're standing on them, and then the black whelps that come down from the Wyrmbog. The whelps are the worst, since they're clever and they burn, and they've started roosting closer to my hut than I'd like. And {pet} had better stay out of my herb beds, because the mud here grows nothing easily and I've fought for every leaf." },
+        { id = "xhuntcl_default", text = "The crocolisks in the shallows first, since they lie still as logs until you're standing on them, and then the black whelps from the Wyrmbog. The whelps are worse, being clever and fiery, and they've started roosting closer to my hut than I'd like." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The crocolisks in the shallows first, since they lie still as logs until you're standing on them, and then the black whelps from the Wyrmbog. The whelps are worse, being clever and fiery, and they've started roosting closer to my hut than I'd like. And keep {pet} out of my herb beds, because I've fought this mud for every leaf." },
       },
       choices = {
         { text = "I'll drive those whelps back toward the Wyrmbog for you.", next = "BACK", reply = "Would you? That would be a kindness, and a brave one, because they burn hotter than they look. Come back and tell me how many you turned.", fx = { align = { honor = 1 } } },

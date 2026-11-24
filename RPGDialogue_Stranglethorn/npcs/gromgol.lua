@@ -1197,8 +1197,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Not my power, hunter, but an old power from the days when the trolls of this jungle worshipped the beast gods, and some of it still runs in the blood of the strongest tigers and panthers. I need their fangs and their hearts, and I ask the hunters who bring them to make clean kills." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not my power, hunter, but an old power from the days when the trolls of this jungle worshipped the beast gods, and some of it still runs in the blood of the strongest tigers and panthers. I need their fangs and their hearts, and I ask the hunters who bring them to make clean kills. Your {pet} feels it too, I think, the old power in this jungle, which is why it watches the trees more closely than you do." },
+        { id = "xhuntcl_default", text = "Not my power, hunter, but an old one from when the jungle trolls worshipped the beast gods, and it still runs in the blood of the strongest tigers and panthers. I need their fangs and hearts, and I ask the hunters who bring them to kill cleanly." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not my power, hunter, but an old one from when the jungle trolls worshipped the beast gods, and it still runs in the blood of the strongest tigers and panthers. I need their fangs and hearts, and I ask the hunters who bring them to kill cleanly. Your {pet} feels it too, which is why it watches the trees." },
       },
       choices = {
         { text = "Clean kills only. The beasts deserve that much.", next = "BACK", reply = "That is the hunter's debt, and you pay it well. The beasts give us their strength, and the least we owe them is a clean end.", fx = { align = { light = 1 } } },
