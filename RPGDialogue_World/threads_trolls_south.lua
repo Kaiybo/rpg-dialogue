@@ -52,7 +52,7 @@ P:Thread {
       id = "b3_garthok", npc = "garthok",
       when = { faction = "Horde", any = { { thread = { id = "darkspear_isles", beat = "b1_gadrin" } }, { thread = { id = "darkspear_isles", beat = "b2_larprowltusk" } } },
                ["not"] = { thread = { id = "darkspear_isles", beat = "b3_garthok" } } },
-      text = "Half the scouts who watch my roads are Darkspear, and they do it without complaint, though they lost their whole home and I only lost a few grunts to the Kul Tirans at Tiragarde Keep. When a troll asks me for leave to sit on the shore at Sen'jin for a night, I give it, and I don't ask what for.",
+      text = "Half the scouts who watch my roads are Darkspear, and they serve without complaint, though they lost their whole home and I only lost a few grunts to the Kul Tirans at Tiragarde Keep. When a troll asks leave to sit on the shore at Sen'jin for a night, I give it, and I don't ask what for.",
       fx = { thread = { id = "darkspear_isles", beat = "b3_garthok", state = "unfolding" } },
     },
     {

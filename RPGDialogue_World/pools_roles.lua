@@ -2623,7 +2623,7 @@ P:Pool {
       choices = { { text = "I'll keep my distance when it breaks.", next = "BACK", reply = "Sensible. More than a few never got the chance." } },
     },
     inferno = {
-      lines = { { id = "in_default", text = "Inferno rips an infernal out of the Nether and throws it down like a burning stone, and the crater it leaves is the least of its damage. It fights for you only so long as you keep it enslaved, and it hates you with a fury that never cools, so keep the chain on it, or don't call it at all." } },
+      lines = { { id = "in_default", text = "Inferno rips an infernal out of the Nether and throws it down like a burning stone, and the crater is the least of its damage. It fights for you only while you keep it enslaved, and it hates you without end, so keep the chain on it, or don't call it at all." } },
       choices = { { text = "I'll keep that in mind.", next = "BACK", reply = "Keep it close to the front of your mind, then. Infernals don't give second warnings." } },
     },
 
@@ -2689,7 +2689,7 @@ P:Pool {
     doom = {
       big = true,
       narr = "The trainer glances at the door, then leans across the table to speak more quietly still.",
-      lines = { { id = "d_default", text = "There's the Ritual of Doom, which opens a gate for a doomguard of the Legion, and the circle pays for it, sometimes with a life. And there's the dreadsteed of Xoroth: Mor'zul Bloodbringer in the Burning Steppes knows the way of it, and it ends in Dire Maul, in a circle of warlocks holding back the dreadsteed itself, and whatever lord of Xoroth comes looking for it." } },
+      lines = { { id = "d_default", text = "There's the Ritual of Doom, which opens a gate for a doomguard, and the circle pays for it, sometimes with a life. And there's the dreadsteed of Xoroth: Mor'zul Bloodbringer in the Burning Steppes knows the way, and it ends in Dire Maul, with a circle of warlocks holding back the dreadsteed and whatever lord of Xoroth comes for it." } },
       choices = {
         { text = "The Legion's own ritual, turned to my ends. Gladly.", next = "BACK", reply = "Gladly is the word that worries me. Go, then, but count the people in the circle when it's done.", fx = { align = { light = -1, order = -1 }, taint = 2 } },
         { text = "I'll take the dreadsteed, and leave the doomguard alone.", next = "BACK", reply = "The steed is a trophy, and the doomguard is a debt. I think you've chosen well.", fx = { align = { light = 1, order = 1 } } },
@@ -3248,7 +3248,7 @@ P:Pool {
     },
     h_feed = {
       lines = {
-        { id = "hfd_default", text = "Depends on the beast. Cats and wolves and raptors want meat, bats and striders want fruit and mushrooms, boars and bears will eat anything you'd eat and a good deal you wouldn't, and a wind serpent likes bread and cheese, of all things. Feed it food that's near its own strength; a great beast won't thank you for a scrap of rabbit." },
+        { id = "hfd_default", text = "Depends on the beast. Cats, wolves and raptors want meat, bats and striders want fruit and mushrooms, boars and bears will eat nearly anything, and a wind serpent likes bread and cheese, of all things. Feed it food near its own strength; a great beast won't thank you for a scrap of rabbit." },
         { id = "hfd_cat", when = { pet = { family = "Cat" } }, text = "Your cat wants meat or fish, and fresh, mind, not something that's been rattling in your pack for a week. Cats remember who fed them badly, and they sulk about it for days." },
         { id = "hfd_wolf", when = { pet = { family = "Wolf" } }, text = "A wolf eats meat and nothing else, so keep a strip of it in your pack at all times. It'll forgive you a hard fight, but it'll never forgive you an empty supper." },
         { id = "hfd_boar", when = { pet = { family = { "Boar", "Bear" } } }, text = "Yours will eat anything, which makes it the easiest beast in the world to keep. Bread, fish, fruit, mushrooms, meat; you'll run out of food before it runs out of appetite." },
@@ -3290,7 +3290,7 @@ P:Pool {
       },
     },
     h_cats = {
-      lines = { { id = "hca_default", text = "A cat, then, and a quick one. There's a great cat in the Badlands called Broken Tooth that strikes faster than any I've seen, and the hunters who've tamed him swear by it. Out in the Barrens there's Humar the Pridelord and the white lion Echeyakee, both prized for their Bite and their Dash, if you can find them before someone else does." } },
+      lines = { { id = "hca_default", text = "A cat, then, and a quick one. There's a great cat in the Badlands called Broken Tooth that strikes faster than any I've seen, and the hunters who've tamed him swear by it. In the Barrens there's Humar the Pridelord and the white lion Echeyakee, both prized for their Bite and Dash, if you find them first." } },
       choices = {
         { text = "Do they come quietly?", next = "h_cats2" },
         { text = "Tell me about another kind.", next = "h_choose" },
@@ -3940,7 +3940,7 @@ P:Pool {
       lines = {
         { id = "dmg_default", text = "Because Moonglade is the one place where the Circle sits together, elf and tauren, under the same moon, and every druid is called there once to be seen. At ten you'll learn to step there with a word, and you'll be glad of it, because the walk through Felwood is no place for a young druid." },
         { id = "dmg_alliance", when = { faction = "Alliance" }, text = "Because Moonglade is where the Circle sits together, and every young druid is called there once to be seen. At ten the Enclave in Darnassus will send you, Mathrengyl Bearwalker most likely, and you'll learn to step there with a word, which is a mercy, because the road through Felwood is no place for a young druid." },
-        { id = "dmg_horde", when = { faction = "Horde" }, text = "Because Moonglade is where the Circle sits together, tauren and kaldorei under the same moon, and every young druid is called there once to be seen. At ten Turak Runetotem on the Elder Rise will send you, and you'll learn to step there with a word, which is a mercy, because the road through Felwood is no place for a young druid." },
+        { id = "dmg_horde", when = { faction = "Horde" }, text = "Because Moonglade is where the Circle sits together, tauren and kaldorei under the same moon, and every young druid is called there once. At ten Turak Runetotem on the Elder Rise will send you, and you'll learn to step there with a word, which is a mercy, because the road through Felwood is no place for a young druid." },
       },
       choices = {
         { text = "Horde and Alliance druids, at the same fire?", next = "d_moonglade2" },
@@ -4021,7 +4021,7 @@ P:Pool {
     },
     d_rebirth = {
       lines = {
-        { id = "drb_default", text = "It is the heaviest we have. At twenty you can plant a seed in a fallen friend and call them back up out of death, in the middle of the fight, and the seed costs a few coppers while the choice costs a great deal more. You'll be asked to use it more often than you'd think, and you'll have to decide each time." },
+        { id = "drb_default", text = "It is the heaviest we have. At twenty you can plant a seed in a fallen friend and call them back from death in the middle of the fight, and the seed costs a few coppers while the choice costs a great deal more. You'll be asked to use it more often than you'd think." },
       },
       choices = {
         { text = "Death is part of the wild's balance. I'll use it rarely.", next = "d_path", reply = "The Keeper would nod at that, and so would the oldest of the Circle. Just be sure that rarely doesn't become too late.", fx = { align = { order = 1 }, trait = { cautious = 1 } } },
@@ -5275,7 +5275,7 @@ P:Pool {
     },
     ga_gnome = {
       lines = {
-        { id = "gag_default", text = "The younger lads talk about it the way they talk about marrying a princess, which is to say often and with no plan at all. The sergeants who saw your people come out of Dun Morogh don't talk about it; they say whatever drove you out is still down there, and the troggs with it. Does your High Tinker mean to go back?" },
+        { id = "gag_default", text = "The younger lads talk about it the way they talk about marrying a princess, often and with no plan at all. The sergeants who saw your people come out of Dun Morogh don't; they say whatever drove you out is still down there, and the troggs with it. Does your High Tinker mean to go back?" },
       },
       choices = {
         { text = "One day. We've planned every gear of it.", next = "BACK", reply = "Then I hope I'm there to see it, and I hope I'm standing well back when it starts." },

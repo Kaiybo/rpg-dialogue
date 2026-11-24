@@ -43,13 +43,13 @@ P:Thread {
     {
       id = "b2_fizzledowser", npc = "fizzledowser",
       when = { questDone = TODO_QUEST("Gadgetzan Water Survey"), thread = { id = "gadgetzan_water", notBeat = "b2_fizzledowser" } },
-      text = "You took my widget out to Sandsorrow Watch and brought it back in one piece, pal, which puts you ahead of most of my crews. Every circle on this map is a spring we found and the Wastewanders found next, and lately I draw the new ones in pencil, because I'm tired of scratching out ink every time the bandits move in.",
+      text = "You took my widget out to Sandsorrow Watch and brought it back in one piece, pal, which puts you ahead of most of my crews. Every circle on this map is a spring we found and the Wastewanders found next, and lately I draw new ones in pencil, because I'm tired of scratching out ink whenever the bandits move in.",
       fx = { thread = { id = "gadgetzan_water", beat = "b2_fizzledowser", state = "stirring" } },
     },
     {
       id = "b3_luglunket", npc = "luglunket",
       when = { questDone = TODO_QUEST("Water Pouch Bounty"), thread = { id = "gadgetzan_water", notBeat = "b3_luglunket" } },
-      text = "Every pouch you bring back is Company water returned to Company tanks, and I pay out a care package for every five, all by the book, huzzah! Only, between you and me and the spigot, pal, some weeks I'd swear I've bought back the very same pouch twice, which means the Company is paying for its own water at a markup it didn't set.",
+      text = "Every pouch you bring back is Company water returned to Company tanks, and I pay a care package for every five, all by the book, huzzah! Only, between you and me, pal, some weeks I'd swear I've bought back the same pouch twice, which means the Company is paying for its own water at a markup it didn't set.",
       fx = { thread = { id = "gadgetzan_water", beat = "b3_luglunket", state = "unfolding" } },
     },
     {
@@ -57,7 +57,7 @@ P:Thread {
       when = { minLevel = 40,
                any = { { thread = { id = "gadgetzan_water", beat = "b1_bilgewhizzle" } }, { thread = { id = "gadgetzan_water", beat = "b2_fizzledowser" } }, { thread = { id = "gadgetzan_water", beat = "b3_luglunket" } } },
                ["not"] = { thread = { id = "gadgetzan_water", beat = "b4_security" } } },
-      text = "The Cartel pays the Southsea to leave our ships alone, and it worked, mostly, right up until it didn't, and now I hear somebody up the ladder is asking what the Wastewanders would charge for the same deal. I'll tell you what I'd tell them, pal: you pay a bandit once and you've hired him, and he'll send you an invoice every quarter for the rest of your life.",
+      text = "The Cartel pays the Southsea to leave our ships alone, and it worked, mostly, until it didn't, and now somebody up the ladder is asking what the Wastewanders would charge for the same deal. I'll tell you what I'd tell them, pal: pay a bandit once and you've hired him, and he'll invoice you every quarter for life.",
       fx = { thread = { id = "gadgetzan_water", beat = "b4_security", state = "unfolding" } },
     },
     {
@@ -100,7 +100,7 @@ P:Thread {
     {
       id = "b1_pentigast", npc = "pentigast",
       when = { minLevel = 30, faction = "Alliance", thread = { id = "desolace_clans", notBeat = "b1_pentigast" } },
-      text = "Kolkar to the north, Gelkis and Magram to the south, and the Maraudine sitting on Maraudon as if it were the last holy thing in the world, which to them it may be. My orders are to hold this ridge, {class}, and the cheapest way I know to hold it is to keep the clans counting each other's dead instead of mine.",
+      text = "Kolkar to the north, Gelkis and Magram to the south, and the Maraudine sitting on Maraudon as if it were the last holy thing in the world, which to them it may be. My orders are to hold this ridge, {class}, and the cheapest way is to keep the clans counting each other's dead instead of mine.",
       fx = { thread = { id = "desolace_clans", beat = "b1_pentigast", state = "stirring" } },
     },
     {

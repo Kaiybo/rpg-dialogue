@@ -766,7 +766,7 @@ P:Pool {
     },
     road_story = {
       lines = {
-        { id = "rs_default", text = "Once, in a world whose name I won't trouble you with, there was a queen who wanted to live forever. She called my sisters and me to court, and we promised her eternal youth, and we gave it to her, in a manner of speaking. She's still in the throne room, as far as I know, and still quite young, and still screaming." },
+        { id = "rs_default", text = "Once, in a world whose name I won't trouble you with, a queen wanted to live forever. She called my sisters and me to court, and we gave her eternal youth, in a manner of speaking. She's still in the throne room, as far as I know, still quite young, and still screaming." },
       },
       choices = {
         { text = "That's horrible, {npc}.", next = "road", reply = "It's a love story, master. You just haven't heard enough of them.", fx = { trait = { witty = 1 } } },

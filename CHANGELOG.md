@@ -2,6 +2,10 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.110.0 (2026-11-24): Plain Speaking
+No new files; a /reload is enough.
+- **Shared talk trimmed.** 61 rumour threads, role chatter, spirit healer and bound-demon lines in the World pack ran past 60 words; each is now 60 or fewer, same facts and accents. Letters keep their length.
+
 ## 0.109.0 (2026-11-24): Fewer Words, Same Voice
 No new files; a /reload is enough.
 - **Long speeches trimmed.** About 270 NPC lines in 43 zone packs ran past 60 words; each is now 60 or fewer, with the same facts, names and accent, so the box no longer fills with a wall of text.

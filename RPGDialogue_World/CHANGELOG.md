@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.57.0 (2026-11-24): Plain Speaking
+- Rumour threads, role pools and a few spirit healer and demon lines over 60 words trimmed; letters stay long.
+
 ## 1.56.0 (2026-11-24): Old Grudges
 - Major NPCs answer for a grudge you hold against them (or they against you), and let things slip when angry.
 - Overlong speeches tightened.

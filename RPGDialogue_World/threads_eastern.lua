@@ -39,7 +39,7 @@ P:Thread {
     {
       id = "b1_razzle", npc = "razzle_sprysprocket",
       when = { faction = "Alliance", minLevel = 6, thread = { id = "gnomeregan_lost", notBeat = "b1_razzle" } },
-      text = "Every leper gnome out in that snow had a workbench and a name once, {class}, and a few of them used to say good morning to me on the lift. The dwarves in Kharanos keep asking me whose fault it was, as though I'd drawn up a schematic, and I tell them I'm busy building the cure, which is true and is also the easiest answer I've got.",
+      text = "Every leper gnome out in that snow had a workbench and a name once, {class}, and a few used to greet me on the lift. The dwarves in Kharanos keep asking whose fault it was, as though I'd drawn up a schematic, and I tell them I'm busy building the cure, which is true and also the easiest answer.",
       fx = { thread = { id = "gnomeregan_lost", beat = "b1_razzle", state = "stirring" }, learn = { "gnomeregan" } },
     },
     {
@@ -51,7 +51,7 @@ P:Thread {
     {
       id = "b3_bingles", npc = "bingles",
       when = { faction = "Alliance", minLevel = 12, thread = { id = "gnomeregan_lost", notBeat = "b3_bingles" } },
-      text = "The troggs nosing round the Ironband dig look exactly like the ones that came up under the city, same grey hide and same stubborn faces, and every time one runs off with a spanner of mine I think, well, that's how it started at home. Nobody in Tinker Town agrees about anything except that it wasn't their fault, which is very gnomish of us, I'm afraid.",
+      text = "The troggs nosing round the Ironband dig look exactly like the ones that came up under the city, and every time one runs off with a spanner of mine I think, well, that's how it started at home. Nobody in Tinker Town agrees about anything except that it wasn't their fault, which is very gnomish of us, I'm afraid.",
       fx = { thread = { id = "gnomeregan_lost", beat = "b3_bingles", state = "unfolding" }, learn = { "troggs" } },
     },
     {
@@ -59,13 +59,13 @@ P:Thread {
       when = { faction = "Alliance", minLevel = 18,
                any = { { thread = { id = "gnomeregan_lost", beat = "b1_razzle" } }, { thread = { id = "gnomeregan_lost", beat = "b2_stonehallow" } }, { thread = { id = "gnomeregan_lost", beat = "b3_bingles" } } },
                ["not"] = { thread = { id = "gnomeregan_lost", beat = "b4_gnoarn" } } },
-      text = "Every night in Tinker Town it's the same argument, friend: the troggs did it, Thermaplugg did it, the High Tinker signed the order, and round it goes until somebody's kettle boils over. I say it doesn't matter whose hand was on the lever while the city's still down there waiting for us, though the poison from that lever took my hair, so perhaps I've earned a little shouting.",
+      text = "Every night in Tinker Town it's the same argument, friend: the troggs did it, Thermaplugg did it, the High Tinker signed the order. I say it doesn't matter whose hand was on the lever while the city's still down there waiting, though the poison from that lever took my hair, so perhaps I've earned a little shouting.",
       fx = { thread = { id = "gnomeregan_lost", beat = "b4_gnoarn", state = "unfolding" } },
     },
     {
       id = "b5_mekkatorque", npc = "mekkatorque",
       when = { faction = "Alliance", thread = { id = "gnomeregan_lost", beat = "b4_gnoarn" }, ["not"] = { thread = { id = "gnomeregan_lost", beat = "b5_mekkatorque" } } },
-      text = "Gnoarn's been holding his meetings again, and I hear every word of them, because Tinker Town has very thin walls and very loud gnomes. They argue over whether it was Thermaplugg's plan or my signature, and they've asked me to stand up at the next assembly and settle it, so I'd dearly like to know what you'd tell them in my place.",
+      text = "Gnoarn's been holding his meetings again, and I hear every word, because Tinker Town has thin walls and loud gnomes. They argue over whether it was Thermaplugg's plan or my signature, and they've asked me to settle it at the next assembly, so I'd dearly like to know what you'd tell them in my place.",
       fx = { thread = { id = "gnomeregan_lost", beat = "b5_mekkatorque", state = "unfolding" } },
     },
   },
@@ -113,7 +113,7 @@ P:Thread {
     {
       id = "b3_kirith", npc = "kirith",
       when = { minLevel = 45, thread = { id = "portal_watch", notBeat = "b3_kirith" } },
-      text = "My company, Thrall's Grasp, came into these wastes after those, orc and human both, who can't believe the Portal is finished and gather here to pray at it. The Shadowsworn were the worst of them, and you've seen what they made of me, so tell whoever keeps your watch that the stones may be cold but the people around them are not.",
+      text = "My company, Thrall's Grasp, came into these wastes after those, orc and human both, who can't believe the Portal is finished and gather to pray at it. The Shadowsworn were the worst, and you've seen what they made of me, so tell your watch that the stones may be cold but the people around them are not.",
       fx = { thread = { id = "portal_watch", beat = "b3_kirith", state = "unfolding" }, learn = { "dark_portal" } },
     },
     {
@@ -121,13 +121,13 @@ P:Thread {
       when = { faction = "Alliance", thread = { id = "portal_watch", beat = "b2_lungertz" },
                any = { { thread = { id = "portal_watch", beat = "b1_valstag" } }, { thread = { id = "portal_watch", beat = "b3_kirith" } } },
                ["not"] = { thread = { id = "portal_watch", beat = "b4_mahar_ba" } } },
-      text = "Khadgar went through that gate with the Alliance expedition, and it died behind them, and not one of them has come back to tell us how. You've heard what I hear, that the Dragonmaw fight as though somebody's coming and the soldiers grumble because nobody is, and I've written all of it in the book, which Lungertz has asked me very kindly to stop reading aloud at supper.",
+      text = "Khadgar went through that gate with the Alliance expedition, and it died behind them, and not one has come back. You've heard what I hear, that the Dragonmaw fight as though somebody's coming and the soldiers grumble because nobody is, and I've written it all in the book, which Lungertz has kindly asked me to stop reading aloud at supper.",
       fx = { thread = { id = "portal_watch", beat = "b4_mahar_ba", state = "resolved" }, learn = { "khadgar" }, standing = { nethergarde = 3 } },
     },
     {
       id = "b5_ruag", npc = "ruag",
       when = { faction = "Horde", minLevel = 35, thread = { id = "portal_watch", notBeat = "b5_ruag" } },
-      text = "Stonard was raised by orcs who stayed in the swamp when the rest were put in the camps, and from the walls you can see the road south to the gate that brought us all here. The humans at Nethergarde watch it for fear of us, and I watch it for fear of the ones who opened it, and I couldn't tell you which of us sleeps worse.",
+      text = "Stonard was raised by orcs who stayed in the swamp when the rest went to the camps, and from the walls you see the road south to the gate that brought us here. The humans at Nethergarde watch it for fear of us, I for fear of those who opened it, and I couldn't say who sleeps worse.",
       fx = { thread = { id = "portal_watch", beat = "b5_ruag", state = "stirring" }, learn = { "dark_portal", "nethergarde" } },
     },
     {
@@ -139,7 +139,7 @@ P:Thread {
     {
       id = "b7_ruag", npc = "ruag",
       when = { faction = "Horde", minLevel = 45, thread = { id = "portal_watch", beat = "b6_malosh" }, ["not"] = { thread = { id = "portal_watch", beat = "b7_ruag" } } },
-      text = "I sent two scouts as far as the steps of the Portal, and they came back to tell me the stones are cold and nothing came out of the gate but wind. I wrote it in the dispatch book under their names, and I'll send them again next moon, because cold stones are exactly what I want to read every time.",
+      text = "I sent two scouts to the steps of the Portal, and they came back to tell me the stones are cold and nothing came out but wind. I wrote it in the dispatch book under their names, and I'll send them again next moon, because cold stones are exactly what I want to read every time.",
       fx = { thread = { id = "portal_watch", beat = "b7_ruag", state = "resolved" }, standing = { stonard = 3 } },
     },
   },
@@ -205,7 +205,7 @@ P:Thread {
       when = { faction = "Alliance", questDone = TODO_QUEST("Maxwell's Mission"),
                any = { { thread = { id = "blackrock_down", beat = "b2_marris" } }, { thread = { id = "blackrock_down", beat = "b3_keeshan" } }, { thread = { id = "blackrock_down", beat = "b4_helendis" } } },
                ["not"] = { thread = { id = "blackrock_down", beat = "b5_maxwell" } } },
-      text = "With Voone, Omokk and Wyrmthalak gone, the camps under the Spire have been squabbling over who gives the orders, and fewer of them have gone over the passes this month than any month I've kept count. I'll put it in a report that nobody in Stormwind reads, so you'd better tell Marris in Lakeshire yourself, because somebody down there ought to hear it.",
+      text = "With Voone, Omokk and Wyrmthalak gone, the camps under the Spire squabble over who gives the orders, and fewer have come over the passes this month than any I've counted. I'll put it in a report nobody in Stormwind reads, so you'd better tell Marris in Lakeshire yourself, because somebody down there ought to hear it.",
       fx = { thread = { id = "blackrock_down", beat = "b5_maxwell", state = "resolved" }, standing = { morgans_vigil = 3, lakeshire = 2 } },
     },
   },
