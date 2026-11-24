@@ -734,7 +734,7 @@ P:Pool {
       big = true,
       narr = "The imp glances over his shoulder, as if someone very large might be listening.",
       lines = {
-        { id = "bi_al_1", text = "Gul'dan wanted it all, master, and the things in that tomb tore him to bits for it. Archimonde wanted the whole world and got blown apart by a swarm of wisps on Hyjal, which I'd have paid good coin to see. The Legion's beaten for now, but it loves an ambitious warlock, because ambitious warlocks open doors, and then little imps like me get trodden flat." },
+        { id = "bi_al_1", text = "Gul'dan wanted it all, master, and the things in that tomb tore him to bits for it. Archimonde wanted the whole world and got blown apart by wisps on Hyjal, which I'd have paid to see. The Legion loves an ambitious warlock, because ambitious warlocks open doors, and then little imps like me get trodden flat." },
       },
       choices = {
         { text = "Then I'll never open a door to the Legion.", next = "BACK", reply = "Good, master, keep it shut, and keep your hand on the latch. I'd rather not go back to being stepped on by pit lords.", fx = { align = { light = 1 }, trait = { stern = 1 } } },

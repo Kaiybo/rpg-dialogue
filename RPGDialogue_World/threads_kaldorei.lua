@@ -51,7 +51,7 @@ P:Thread {
       id = "b2_grazle", npc = "grazle",
       when = { any = { { thread = { id = "felwood_rot", beat = "b1_golhine" } }, { thread = { id = "felwood_rot", beat = "b1_trull" } } },
                ["not"] = { thread = { id = "felwood_rot", beat = "b2_grazle" } } },
-      text = "You have come from the outpost with the forest's sickness on your boots, and Grazle can smell it. The Deadwood ate from this land and drank from its river until the sickness was in them too, and now they are not cousins to the Timbermaw any more, only the shape of cousins, and that is a hard thing to put an axe to.",
+      text = "You have come from the outpost with the forest's sickness on your boots, and Grazle can smell it. The Deadwood ate and drank from this land until the sickness was in them too, and now they are not cousins to the Timbermaw any more, only the shape of cousins, and that is a hard thing to put an axe to.",
       fx = { thread = { id = "felwood_rot", beat = "b2_grazle", state = "unfolding" }, learn = { "furbolgs" } },
     },
     {
@@ -71,7 +71,7 @@ P:Thread {
       id = "b5_greta", npc = "greta",
       when = { questDone = TODO_QUEST("A Final Blow"), thread = { id = "felwood_rot", beat = "b4_greta" },
                ["not"] = { thread = { id = "felwood_rot", beat = "b5_greta" } } },
-      text = "The Shadow Hold has taken a blow it won't soon forget, and the Council will spend a long while deciding who gives the orders now, which is a long while they aren't spending on this forest. I took the stone I carry from Mulgore out of my pocket this morning and left it on the table, and I can't remember the last time I let go of it.",
+      text = "The Shadow Hold has taken a hard blow, and the Council will spend a long while deciding who gives the orders, time they aren't spending on this forest. I took the stone I carry from Mulgore out of my pocket this morning and left it on the table, and I can't remember when I last let go of it.",
       fx = { thread = { id = "felwood_rot", beat = "b5_greta", state = "resolved" } },
     },
   },

@@ -35,7 +35,7 @@ P:Pool {
     { id = "n_mind", cat = "dark", place = "after", when = { insanity = { min = 40 } },
       text = "Your thoughts came over in pieces, so I have set them out in order for you, though they were not in that order when you arrived." },
     { id = "n_lock_soulstone", cat = "lock_soulstone", when = { class = "WARLOCK", carrying = { 5232, 16892, 16893, 16895, 16896 } }, place = "after",
-      text = "There is a stone in your pack shaped to hold a soul, and I know whose shape it has been waiting for. Once you promise yourself to it, you will not climb this hill when you fall; you will go into the stone instead, and in all my years no one has told me what the waiting is like in there." },
+      text = "There is a stone in your pack shaped to hold a soul, and I know whose shape it awaits. Once you promise yourself to it, you will not climb this hill when you fall; you will go into the stone instead, and no one has ever told me what the waiting is like in there." },
     { id = "n_lock_soulstone_given", cat = "lock_soulstone", when = { ["not"] = { class = "WARLOCK" }, carrying = { 5232, 16892, 16893, 16895, 16896 } }, place = "after",
       text = "Someone has given you a stone to keep a soul in, a warlock by the cold of it. If they bind you to it, your next death goes somewhere I cannot follow, so let me look at you properly now, in case the next page of your file is one I do not get to write." },
     { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 10 } }, place = "after",

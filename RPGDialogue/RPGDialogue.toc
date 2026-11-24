@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue |cff8a8a8a0.109.0|r
+## Title: RPG Dialogue |cff8a8a8a0.110.0|r
 ## Notes: Branching, reactive conversations with the people of Azeroth.
 ## Author: RPG Dialogue
-## Version: 0.109.0
+## Version: 0.110.0
 ## IconTexture: Interface\AddOns\RPGDialogue\Media\Logo
 ## SavedVariables: RPGDialogueDB
 ## SavedVariablesPerCharacter: RPGDialogueCharDB
