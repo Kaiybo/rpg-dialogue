@@ -2236,13 +2236,13 @@ P:NPC {
         { text = "Why the morning?", next = "gather_morning" },
         { text = "Something else.", next = "BACK" },
       },
+    },
     gather_morning = {
       lines = { { id = "gather_morning_d", text = "Because a crafter with a whole day ahead buys what the work needs, and a crafter at dusk buys only what is cheap. The same stack of copper is worth more to a smith who has not yet lit the forge." } },
       choices = {
         { text = "I had not thought of the buyer's day.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
-    },
     },
   },
   topics = {
@@ -2734,13 +2734,13 @@ P:NPC {
         { text = "What have you seen Hewa do?", next = "hewa_seen" },
         { text = "Something else.", next = "BACK" },
       },
+    },
     hewa_seen = {
       lines = { { id = "hewa_seen_d", text = "Last winter a young shaman came in with more courage than coin, and Hewa told her that the shirt she wanted had a flaw and must go at half its price. I oiled that shirt myself, and there was no flaw in it." } },
       choices = {
         { text = "I'll keep his secret, as you have.", next = "BACK", fx = { trait = { discreet = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
-    },
     },
     weight = {
       lines = { { id = "weight_d", text = "On the first day you will curse it, and on the day a boar gets past your pet you will bless it. Wear it on short hunts near the bluff until your shoulders learn, and take it into the Barrens after that." } },
@@ -2845,13 +2845,13 @@ P:NPC {
         { text = "What would the orcs teach that Karn won't?", next = "after_orcs" },
         { text = "Something else.", next = "BACK" },
       },
+    },
     after_orcs = {
       lines = { { id = "after_orcs_d", text = "Speed, friend! An orc smith can arm a whole warband before a Stonehoof has finished warming the iron. Karn says that what is made quickly is mended often, and I say there are days when the warband cannot wait." } },
       choices = {
         { text = "There's a place for both.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
-    },
     },
   },
   topics = {
@@ -3343,13 +3343,13 @@ P:NPC {
         { text = "What do you talk about, when you do speak?", next = "kah_talk" },
         { text = "Something else.", next = "BACK" },
       },
+    },
     kah_talk = {
       lines = { { id = "kah_talk_d", text = "The weather on the water, and whether the old grey fish under the far bank is still alive. We have each hooked it once and let it go, and neither of us has told the students that it is there." } },
       choices = {
         { text = "Then I never heard of it.", next = "BACK", fx = { trait = { discreet = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
-    },
     },
     funny = {
       big = true,
@@ -3550,13 +3550,13 @@ P:NPC {
         { text = "Will it be afraid in strange lands?", next = "care_afraid" },
         { text = "Something else.", next = "BACK" },
       },
+    },
     care_afraid = {
       lines = { { id = "care_afraid_d", text = "For a day or two, and then it will decide that wherever you are is its burrow. I have had word of little ones of mine seen in Orgrimmar and in the Undercity itself, sitting up on a shoulder as if they owned the place." } },
       choices = {
         { text = "They're braver than they look.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
-    },
     },
     turn = {
       big = true,
@@ -4071,13 +4071,13 @@ P:NPC {
         { text = "Do you envy them the druid's path?", next = "kin_envy" },
         { text = "Something else.", next = "BACK" },
       },
+    },
     kin_envy = {
       lines = { { id = "kin_envy_d", text = "I did when I was young, for they were called and I was not. Then the war parties began to come home whole in harnesses I had fitted, and I understood that the Earth Mother gives each of us a different way to keep the tribe alive." } },
       choices = {
         { text = "Yours is as worthy as theirs.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
-    },
     },
     rise = {
       lines = { { id = "rise_d", text = "Sunn Ragetotem with her staves, who is good company on a slow day, and the weapon hall, which is never slow and never quiet. Una's leatherworkers cure my hides, and Mahu sells me buckles when the Stonehoofs are behind on theirs." } },
@@ -4902,13 +4902,13 @@ P:NPC {
         { text = "And which of the masters do you admire?", next = "favour_masters" },
         { text = "Something else.", next = "BACK" },
       },
+    },
     favour_masters = {
       lines = { { id = "favour_masters_d", text = "Tepa and Una both, and I would say it to their faces together. Each of them unpicks a student's work without mercy and then sits up late to show how it should be done, and neither knows how alike they are." } },
       choices = {
         { text = "Perhaps someone should tell them.", next = "BACK", reply = "Not I. I mean to go on selling thread to both of them for many years." },
         { text = "Something else.", next = "BACK" },
       },
-    },
     },
     black = {
       lines = { { id = "black_d", text = "I asked one of your apothecaries the same thing, and she said that colour was for those with something to look forward to. I did not know how to answer her, so I sold her the thread and wished her well." } },
@@ -5107,13 +5107,13 @@ P:NPC {
         { text = "What did your father say when he found out?", next = "first_father" },
         { text = "Something else.", next = "BACK" },
       },
+    },
     first_father = {
       lines = { { id = "first_father_d", text = "He said that taking without asking was the one sin in our craft. Then, when he thought I was asleep, he came and looked at the wraps for a long time, and I heard him laugh under his breath." } },
       choices = {
         { text = "He was proud of you.", next = "BACK", reply = "I think he was. He would sooner be unmade himself than say it.", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
       },
-    },
     },
     camp = {
       lines = { { id = "camp_d", text = "Light and warmth that need no wood, to begin with. A fire tells every beast for a league where you are sleeping, and an enchanter can give a camp a gentler glow that keeps its own counsel." } },
@@ -5305,13 +5305,13 @@ P:NPC {
         { text = "What small mistakes has she let you make?", next = "bena_mistakes" },
         { text = "Something else.", next = "BACK" },
       },
+    },
     bena_mistakes = {
       lines = { { id = "bena_mistakes_d", text = "She once watched me put twice the briarthorn into a draught and said nothing whatever. It set like river clay, and I spent the evening chipping it out of the flask, and I have never misread that measure since." } },
       choices = {
         { text = "A lesson that sticks.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
-    },
     },
     wrong = {
       lines = { { id = "wrong_d", text = "They hurry the heat. Peacebloom and silverleaf want a slow fire and a covered pot, and a beginner will boil them hard and then wonder why the potion tastes of grass and does nothing whatever." } },
