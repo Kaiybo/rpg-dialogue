@@ -4,7 +4,7 @@ local P = RPGDialogueAPI:Pack("rpgd.stormwind")
 local TODO_NPC = P.TODO_NPC
 
 P:NPC {
-  key = "anduin", id = TODO_NPC("King Anduin Wrynn"), name = "King Anduin Wrynn",
+  key = "anduin", id = 1747, name = "Anduin Wrynn",
   bible = "bibles/anduin.md", role = "noble", tier = "major",
   communities = { "stormwind" }, temper = { "steady" }, values = { "kind", "curious" },
   notices = { "wonder", "far", "form", "lock_steed", "lock_soulstone" },
