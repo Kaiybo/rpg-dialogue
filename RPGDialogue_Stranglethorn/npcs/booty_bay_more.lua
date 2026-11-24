@@ -52,7 +52,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Young and patient, with a lot of fish and a heavy glove, and you never once let it think it's won a fight with you. A gryphon remembers every slight for years, which I'd guess your own beasts have taught you too." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Young and patient, with a lot of fish and a heavy glove, and you never once let it think it's won a fight with you. A gryphon remembers every slight for years, which I'd guess your own beasts have taught you too. Keep {pet} back from the ledge, though, because my birds see anything with four legs and fur as a snack that's walked itself over." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Young and patient, with a lot of fish and a heavy glove, and never once let it think it's won a fight with you. A gryphon remembers every slight for years, as your own beasts have likely taught you. Keep {pet} back from the ledge, though, because my birds see anything with fur as a snack." },
       },
       choices = {
         { text = "A beast needs firm rules, or it never trusts you.", next = "BACK", reply = "Aye, that's it exactly, and the birds respect ye for it. Firm and fair, an' plenty o' fish, and ye'll have a friend for life.", fx = { align = { order = 1 } } },
@@ -434,7 +434,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hides, tusks, a stuffed raptor head nobody's come back for in two years, and the claws of a tiger I'm told was enormous. Every piece back there has a fee, and every fee has a date, and I remember every date." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hides, tusks, a stuffed raptor head nobody's come back for in two years, and the claws of a tiger I'm told was enormous. Every piece back there has a fee, and every fee has a date, and I remember every date. I'm afraid {pet} can't be deposited, before you ask, since the last live beast I took in ate a strongbox and most of what was in it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hides, tusks, a stuffed raptor head nobody's claimed in two years, and the claws of a tiger I'm told was enormous. Every piece has a fee, every fee has a date, and I remember every date. And {pet} can't be deposited, before you ask, since the last live beast I took in ate a strongbox." },
       },
       choices = {
         { text = "I keep trophies to honor the beasts I've taken.", next = "BACK", reply = "And they'll be safe here as long as you keep paying, friend. There's a stuffed panther in box nine that frightens the night clerk every single time.", fx = { align = { light = 1 } } },
@@ -639,7 +639,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "King Bangalash himself, according to the dwarf who sold it to me, and he swore Nesingwary paid him handsomely for the pelt. Nesingwary's people say Bangalash is alive and well, so either the dwarf lied or the old king has nine lives." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "King Bangalash himself, according to the dwarf who sold it to me, and he swore Nesingwary paid him handsomely for the pelt. Nesingwary's people say Bangalash is alive and well, so either the dwarf lied or the old king has nine lives. Your {pet} doesn't care for the smell of this knife, I see, which is either a good sign about its history or a very bad one." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "King Bangalash himself, said the dwarf who sold it to me, and he swore Nesingwary paid handsomely for the pelt. Nesingwary's people say Bangalash is alive and well, so either the dwarf lied or the old king has nine lives. Your {pet} doesn't care for the smell of this knife, which is a good sign or a very bad one." },
       },
       choices = {
         { text = "Lying about a kill is the worst thing a hunter can do.", next = "BACK", reply = "It is, and I'll grant you, I wouldn't swear to it. But the hunters love the tale, and they buy the claws.", fx = { align = { honor = 1 } } },
@@ -1034,7 +1034,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because every pirate wants a parrot and nobody wants to feed one, and you hunters already know how much work a real beast is. I sell more stuffed parrots than anything else in the shop, at a markup you wouldn't believe, and they come back for a second one when the first gets sat on." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because every pirate wants a parrot and nobody wants to feed one, and you hunters already know how much work a real beast is. I sell more stuffed parrots than anything else in the shop, mostly because pirates keep sitting on 'em. Not that {pet} needs a rival, mind, and I can tell from the way it's eyeing my parrots that it doesn't approve." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because every pirate wants a parrot and nobody wants to feed one, and you hunters know how much work a real beast is. I sell more stuffed parrots than anything else, mostly because pirates keep sitting on 'em. Not that {pet} needs a rival, and from the way it's eyeing my parrots, it doesn't approve." },
       },
       choices = {
         { text = "A beast is a partner, not a costume piece.", next = "BACK", reply = "A partner, sure, and a partner who eats twice its weight in seed a week. I'll stick to the stuffed ones, thanks.", fx = { align = { honor = 1 } } },
@@ -1200,7 +1200,7 @@ P:NPC {
   start = "hello",
   nodes = {
     flirt = {
-      lines = { { id = "fl_default", text = "Every customer? No, no, I call the ones I like sweetheart, and the rest I call pal and add a copper to the bill. Listen, listen, I close the kitchen at midnight, and a goblin with a full larder and an empty table is a sad sight, so if you came by after hours, I'd call it an investment in customer relations." } },
+      lines = { { id = "fl_default", text = "Every customer? No, no, I call the ones I like sweetheart, and the rest I call pal and add a copper to the bill. Listen, I close the kitchen at midnight, and a goblin with a full larder and an empty table is a sad sight, so if you came by after hours, I'd call it customer relations." } },
       choices = {
         { text = "Midnight it is, then. Save me some bread.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
         { text = "Is there any decent ale in that larder, goblin?", next = "flirt_ale", when = { race = "Dwarf" } },
@@ -1234,7 +1234,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Hunters, mostly, and fishermen, and a few sailors who bring strange things back from Jaguero Isle that I don't ask about. A good hunter keeps my kitchen going and a bad one keeps the infirmary going, so I know which ones to be nice to." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hunters, mostly, and fishermen, and a few sailors who bring strange things back from Jaguero Isle that I don't ask about. A good hunter keeps my kitchen going and a bad one keeps the infirmary going, so I know which ones to be nice to. And your {pet} has been eyeing my sausages since you walked up, and I don't blame it one bit." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Hunters, mostly, and fishermen, and a few sailors who bring strange things back from Jaguero Isle that I don't ask about. A good hunter keeps my kitchen going and a bad one keeps the infirmary going, so I know whom to be nice to. And your {pet} has been eyeing my sausages, and I don't blame it." },
       },
       choices = {
         { text = "I hunt for the table, never for waste.", next = "BACK", reply = "That's what I like to hear, pal! Bring me what you hunt and I'll make it worth the walk.", fx = { align = { light = 1 } } },

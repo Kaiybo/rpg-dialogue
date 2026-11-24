@@ -374,7 +374,7 @@ P:NPC {
       },
     },
     varimathras = {
-      lines = { { id = "va_default", text = "A dreadlord who ruled these ruins with his brothers while I was still learning to be free, and who begged for his life when I came for them, which is more than his brothers had the wit to do. He knows every passage beneath this city and every secret of the Legion that made the Scourge, and so he lives, and serves, and calls me his queen very prettily." } },
+      lines = { { id = "va_default", text = "A dreadlord who ruled these ruins with his brothers while I was still learning to be free, and who begged for his life when I came for them, which his brothers lacked the wit to do. He knows every passage beneath this city and the Legion's secrets, so he lives, and serves, and calls me his queen very prettily." } },
       choices = {
         { text = "I'd not trust a demon, my lady.", next = "varimathras2" },
         { text = "Something else, my lady.", next = "BACK" },
@@ -408,7 +408,7 @@ P:NPC {
     },
     scarlet = {
       lines = {
-        { id = "sc_default", text = "Zealots who survived the plague and decided the Light had spared them to burn everything that moves wrongly, which in Tirisfal means us. They hold the monastery in the north of these glades and Hearthglen beyond, and they kill my people with the same fervour they save for the Scourge, because they cannot tell us apart and do not care to.", fx = { learn = { "scarlet_crusade" } } },
+        { id = "sc_default", text = "Zealots who survived the plague and decided the Light had spared them to burn everything that moves wrongly, which in Tirisfal means us. They hold the monastery north of these glades and Hearthglen beyond, and they kill my people with the same fervour they save for the Scourge, for they cannot tell us apart.", fx = { learn = { "scarlet_crusade" } } },
         { id = "sc_priest", when = { origin = "forsaken_chapel_priest" }, text = "You preached the same Light they burn us in the name of, and I suspect you knew some of them, which makes them your concern before anyone's. They hold the monastery in the north of these glades and kill my people as gladly as they kill the Scourge.", fx = { learn = { "scarlet_crusade" } } },
       },
       choices = {
@@ -476,7 +476,7 @@ P:NPC {
     },
     freedom = {
       lines = {
-        { id = "fr_default", text = "His power waned for reasons I have never learned, and the chains slackened, and I was the first to slip them because I had been waiting for nothing else. I gathered every one of the dead who woke beside me with their own minds again, and I named them the Forsaken, because that is what the world had made of us." },
+        { id = "fr_default", text = "His power waned for reasons I have never learned, and the chains slackened, and I was the first to slip them. I gathered the dead who woke beside me with their own minds, and I named them the Forsaken, because that is what the world had made of us." },
         { id = "fr_scourge", when = { origin = "forsaken_scourge_remembered" }, text = "You remember your time under him, as I do, every village and every face, so I'll tell you what I tell myself: the hand that did those things was yours, but the will was his, and he will answer for both." },
       },
       choices = {
@@ -493,7 +493,7 @@ P:NPC {
       },
     },
     dreadlords = {
-      lines = { { id = "dl_default", text = "Three dreadlords of the Legion, left behind to rule the ruins, and they thought me a useful servant who'd forgotten to stay dead. I turned them against each other, and I allied with a human called Garithos, a Grand Marshal of the Alliance's leftovers who hated elves as much as he hated the dead, and together we drove the demons out of the capital." } },
+      lines = { { id = "dl_default", text = "Three dreadlords of the Legion, left behind to rule the ruins, and they thought me a useful servant who'd forgotten to stay dead. I turned them against each other, and I allied with a human called Garithos, a Grand Marshal of the Alliance's leftovers who hated the dead, and together we drove the demons out of the capital." } },
       choices = {
         { text = "And what became of Garithos?", next = "garithos" },
         { text = "Something else, my lady.", next = "BACK" },
@@ -550,7 +550,7 @@ P:NPC {
       },
     },
     thrall_truth = {
-      lines = { { id = "tt_default", text = "Thrall is an honest king, which is rarer than a living one in these parts and far more dangerous to the people around him, because honest kings expect honesty back. He was a slave and remembers it, so he looks at my people and sees chains where I see a weapon, and I have never once corrected him, because his pity has served us better than his respect would." } },
+      lines = { { id = "tt_default", text = "Thrall is an honest king, which is rarer than a living one here, and dangerous, because honest kings expect honesty back. He was a slave and remembers it, so he looks at my people and sees chains where I see a weapon, and I have never corrected him; his pity has served us better than his respect would." } },
       choices = {
         { text = "Does he know you think this?", next = "thrall_truth2" },
         { text = "I'll keep that to myself, my lady.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
@@ -565,7 +565,7 @@ P:NPC {
       choices = { { text = "As you say, my lady.", next = "BACK" } },
     },
     cairne = {
-      lines = { { id = "ca_default", text = "Cairne and his Arch Druid spoke for my people when the orcs would have left us in the ruins, and the old bull speaks of curing us as though we were sick and not dead. I find him kind, and I've learned to be wary of kind people, but I've never once caught him lying, which is more than I can say of any king I knew in life." } },
+      lines = { { id = "ca_default", text = "Cairne and his Arch Druid spoke for my people when the orcs would have left us in the ruins, and the old bull speaks of curing us as though we were sick and not dead. I am wary of kind people, but I've never caught him lying, which is more than I can say of any king I knew in life." } },
       choices = {
         { text = "Do you want to be cured, my lady?", next = "cure" },
         { text = "Something else, my lady.", next = "BACK" },
@@ -1255,7 +1255,7 @@ P:NPC {
     },
     ne_faranell = {
       lines = {
-        { id = "ne_default", text = "Oh, the kaldorei! Their druids have been watching Felwood rot for years now, so they must have the finest notes on corruption ever written, and they won't share a single page of them with the Society. They treat knowledge as if it were one of their sacred groves, fenced off and watered with tears, and it's a terrible waste of a good poison." },
+        { id = "ne_default", text = "Oh, the kaldorei! Their druids have watched Felwood rot for years, so they must have the finest notes on corruption ever written, and they won't share a single page of them with the Society. They treat knowledge as if it were one of their sacred groves, fenced off, and it's a terrible waste of a good poison." },
       },
       choices = {
         { text = "Perhaps they fear what you'd do with it.", next = "ne_faranell_fear" },
@@ -1497,7 +1497,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "hu2_default",
-          text = "Of course they were afraid; I'd be afraid of me. But I sat their examinations and shared their libraries and mourned their dead, and they decided in a single afternoon that I was a thing to be put down. Thule went to the Lich King, Gunther went mad, and I went to the Dark Lady, and the Kirin Tor think all three of us are the same." },
+          text = "Of course they were afraid; I'd be afraid of me. But I sat their examinations and mourned their dead, and in one afternoon they decided I was a thing to put down. Thule went to the Lich King, Gunther went mad, and I went to the Dark Lady, and the Kirin Tor think all three of us are the same." },
       },
       choices = {
         { text = "Dalaran betrayed you. Let the Kirin Tor rot behind their shield.", next = "BACK",

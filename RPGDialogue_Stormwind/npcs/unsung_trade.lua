@@ -40,7 +40,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I don't look, and I'd never tell, but I've noticed the boxes kept by the Lamb's people tend to be the warmest in the vault, which is odd for a stone room underground. Nothing has ever been stolen from this bank, as I say, though I sometimes wonder whether that's the locks or the fact that nobody wants to open those boxes." },
+        { id = "xlock_default", text = "I don't look, and I'd never tell, but the boxes kept by the Lamb's people tend to be the warmest in the vault, which is odd for a stone room underground. Nothing has ever been stolen from this bank, though I sometimes wonder whether that's the locks or that nobody wants to open those boxes." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I don't look, and I'd never tell, but the warlock boxes are always the warmest in the vault, and standing beside your servant I think I finally know why. Nothing has ever been stolen from this bank, and with that thing at the counter, I doubt anyone in the queue would dare try today." },
       },
       choices = {
@@ -1305,7 +1305,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Lord Wishock would try, and loudly, but the law says a guild is a guild so long as it pays its fee and breaks no statute. I've already had to talk him out of burning one crest, which was a very handsome crest." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Lord Wishock would try, and loudly, and if he saw what you've brought into my office, he'd have the Watch here before you finished signing. The law says a guild is a guild so long as it pays its fee and breaks no statute, though I don't recall a statute about demons in the waiting room, so let's not go looking for one." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Lord Wishock would try, and loudly, and if he saw what you've brought into my office, he'd have the Watch here before you finished signing. The law says a guild is a guild so long as it pays its fee and breaks no statute, and I don't recall one about demons in the waiting room, so let's not go looking." },
       },
       choices = {
         { text = "The law protects every guild equally. Good.", next = "BACK", reply = "It does, and Lord Wishock will learn it. I'll draw your crest.", fx = { align = { order = 1 } } },

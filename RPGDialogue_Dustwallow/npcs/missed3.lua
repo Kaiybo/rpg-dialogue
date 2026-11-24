@@ -265,7 +265,7 @@ P:NPC {
     },
     kt_jaina = {
       big = true,
-      lines = { { id = "ktj_default", text = "I think she's the reason I'm sleeping in a bog. Her father crossed an ocean to avenge Lordaeron, and she let the Warchief's orcs butcher him at the gates of her own city, and then she shook hands with the beasts over his body. Every Kul Tiras marine who stayed in her colors is either a saint or a fool, and I never met a saint." } },
+      lines = { { id = "ktj_default", text = "I think she's the reason I'm sleeping in a bog. Her father crossed an ocean to avenge Lordaeron, and she let the Warchief's orcs butcher him at her gates, and then she shook hands with the beasts over his body. Every marine who stayed in her colors is a saint or a fool, and I never met a saint." } },
       choices = {
         { text = "She betrayed her father and her people.", next = "BACK", reply = "There, you see it too, and you never even wore the tabard. Say that in Theramore and see how long you keep your post.", fx = { align = { light = -1 }, opinion = { jaina = "traitor" } } },
         { text = "You deserted. Don't blame her for your choices.", next = "BACK", reply = "Easy for you to say with dry boots. Maybe you're right, but it changes nothing out here.", fx = { align = { light = 1 }, opinion = { jaina = "admire" } } },

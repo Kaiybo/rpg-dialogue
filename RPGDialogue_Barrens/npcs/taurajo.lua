@@ -44,7 +44,7 @@ P:NPC {
     },
     xcl_rfk = {
       big = true,
-      lines = { { id = "xcl_rfk_default", text = "Then you've seen where the quilboar were born, or where they believe they were. The Kraul grew from the body of Agamaggan, the great boar, and the quilboar guard it like a temple while their crone Charlga whispers to powers that should never have been invited in. I've hunted the Barrens all my life, and I've never once sent a student in there." } },
+      lines = { { id = "xcl_rfk_default", text = "Then you've seen where the quilboar were born, or where they believe they were. The Kraul grew from the body of Agamaggan, the great boar, and the quilboar guard it like a temple while their crone Charlga whispers to powers that should never have been invited in. I've never once sent a student in there." } },
       choices = {
         { text = "It's their sacred ground, Jorn. I went in with respect.", next = "BACK", reply = "Then the great boar's spirit may have noticed, and so have I. I've watched proud hunters walk into those thorns and not walk out.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Sacred or not, the quilboar raid our caravans.", next = "BACK", reply = "They do, and I won't pretend otherwise when the caravans come in bleeding. Strike at the raiders if you must, but leave the thorns their sleep.", fx = { align = { honor = -1 } } },
@@ -701,7 +701,7 @@ P:NPC {
     },
     xcl_rfd = {
       big = true,
-      lines = { { id = "xcl_rfd_default", text = "Then you've seen the dead walking among the quilboar, which I'd never have believed if the herders hadn't seen it too. Something cold came out of the north and made a nest in the Downs, and the quilboar there took it in like an honoured guest. The kodo won't graze within a day's walk of the place, and the kodo are wiser than most of my guests." } },
+      lines = { { id = "xcl_rfd_default", text = "Then you've seen the dead walking among the quilboar, which I'd never have believed otherwise. Something cold came out of the north and made a nest in the Downs, and the quilboar there took it in like an honoured guest. The kodo won't graze within a day's walk of the place, and the kodo are wiser than most." } },
       choices = {
         { text = "The dead should be put back in the ground, every one.", next = "BACK", reply = "Yes, every one, and the Earth Mother will thank you for it. The Downs should hold quilboar and thorns, not the cold dead from the north.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let the quilboar and the dead tear each other apart.", next = "BACK", reply = "That's a hard way to look at it, though the herders say the same some nights. Just be sure you're not standing between them when they start.", fx = { align = { light = -1 } } },

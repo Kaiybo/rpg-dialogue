@@ -608,7 +608,7 @@ P:NPC {
     },
     kt_jaina = {
       big = true,
-      lines = { { id = "ktj_default", text = "My brother sailed with the Admiral's fleet when it came for Durotar, and he didn't come back. The Lady could have stopped her father with a word and a ship, they tell me, and instead she stood beside the orcs while he fell. I serve her because I swore to, and I'll keep that oath, but don't ask me to like it." } },
+      lines = { { id = "ktj_default", text = "My brother sailed with the Admiral's fleet when it came for Durotar, and he didn't come back. The Lady could have stopped her father, they tell me, and instead she stood beside the orcs while he fell. I serve her because I swore to, and I'll keep that oath, but don't ask me to like it." } },
       choices = {
         { text = "She chose orcs over her own blood.", next = "BACK", reply = "She did, and my brother's in the sea for it. I'm glad someone outside the Guard sees it.", fx = { align = { light = -1 }, opinion = { jaina = "traitor" } } },
         { text = "Your brother followed a man who wouldn't hear reason.", next = "BACK", reply = "Maybe he did. That doesn't bring him home, and it doesn't make me love her for it.", fx = { align = { light = 1 }, opinion = { jaina = "admire" } } },

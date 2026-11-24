@@ -389,7 +389,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "The old hands say so, an' the old hands are the ones still alive, so I listen tae them. Deepmountain Minin' has taught for generations that a creakin' tunnel's only settlin', but I've lost good diggers who believed it. If the stone talks tae ye, I'd sooner ye taught my students tae hear it than I taught them tae ignore it." } },
+      lines = { { id = "xdsham_default", text = "The old hands say so, an' the old hands are the ones still alive, so I listen. Deepmountain Minin' has taught for generations that a creakin' tunnel's only settlin', but I've lost good diggers who believed it. If the stone talks tae ye, I'd sooner ye taught my students tae hear it than I taught them tae ignore it." } },
       choices = {
         { text = "Keep Deepmountain's methods, and add the listening on top.", next = "BACK", reply = "That's what I'd do, an' it's what I've told the lads, for the old teachin' kept them alive an' the listenin' might keep them alive longer.", fx = { align = { order = 1 } } },
         { text = "Throw out the old teaching. Listen to the stone first.", next = "BACK", reply = "Bold, an' maybe right, but Deepmountain's way has kept generations o' miners alive, so I'll no' throw it out tomorrow.", fx = { align = { order = -1 } } },

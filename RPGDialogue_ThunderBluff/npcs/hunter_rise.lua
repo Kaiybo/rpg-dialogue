@@ -520,7 +520,7 @@ P:NPC {
       },
     },
     u_humar = {
-      lines = { { id = "uh_default", text = "Real as you are, and black as a moonless night, lying under a lone tree west of Ratchet with his pride around him. When he's hurt he roars, and every lion in the pride comes running, which is how I learned to run faster than a lion, briefly. Hunters wait there for days to tame him, and some of them still have their legs." } },
+      lines = { { id = "uh_default", text = "Real as you are, and black as a moonless night, lying under a lone tree west of Ratchet with his pride around him. When he's hurt he roars, and every lion in the pride comes running, which taught me to run faster than a lion, briefly. Hunters wait days to tame him, and some still have their legs." } },
       choices = {
         { text = "I'd wait a week for a beast like that.", next = "u_tales", fx = { trait = { brave = 1 } } },
         { text = "I'll keep the companion I have, thank you.", next = "u_tales", reply = "Ha! A wise hunter, and a loyal one. Your companion's glad to hear it, look.", fx = { affinity = 1 } },

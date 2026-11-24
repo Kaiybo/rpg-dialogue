@@ -774,7 +774,7 @@ P:NPC {
     },
     xnelf = {
       lines = {
-        { id = "xnelf_default", text = "I know, I know, and I do understand, truly! I've moved it twelve paces back, padded the casing with two of my socks, and the hum is down to a polite whisper. It only listens, I promise, it doesn't take a drop from the well. If Thundris wants it gone I'll fetch it tonight, though it's my best reading by a clear fourteen percent." },
+        { id = "xnelf_default", text = "I know, and I do understand, truly! I've moved it twelve paces back, padded the casing with two of my socks, and the hum is down to a polite whisper. It only listens, I promise, it doesn't take a drop from the well. If Thundris wants it gone I'll fetch it tonight, though it's my best reading by fourteen percent." },
       },
       choices = {
         { text = "I'll tell them it only listens. Something else.", next = "BACK" },
@@ -798,7 +798,7 @@ P:NPC {
     },
     ne_look = {
       lines = {
-        { id = "nel_default", text = "Oh, they do, they absolutely do, and I've measured it: a kaldorei will stand eleven paces from a buzzbox, which is precisely the distance you'd stand from a fused barrel of blasting powder. They distrust anything with a gear in it, and I can't say I blame them after what happened to my city, but it does make fieldwork very lonely." },
+        { id = "nel_default", text = "Oh, they do, and I've measured it: a kaldorei will stand eleven paces from a buzzbox, which is precisely the distance you'd stand from a fused barrel of blasting powder. They distrust anything with a gear in it, and I can't say I blame them after what happened to my city, but it does make fieldwork very lonely." },
         { id = "nel_gnome", when = { race = "Gnome" },
           text = "They do, and they look at us the same way, you'll have noticed: a dangerous toy that wandered off from its workshop. I've measured it, eleven paces from any buzzbox, and I'd love to say they're wrong to keep their distance, only I can't, not after Gnomeregan." },
       },
@@ -815,7 +815,7 @@ P:NPC {
     },
     ne_help = {
       lines = {
-        { id = "neh_default", text = "In their way, which is to say they'll tell you the answer and never how they got it. The druids know exactly which streams have turned and which bears have gone wrong, and when I ask for their records, they tell me the land remembers, which is very poetic and absolutely useless on a graph. I've tried plotting it. The line just goes wistful." },
+        { id = "neh_default", text = "In their way, which is to say they'll tell you the answer and never how they got it. The druids know which streams have turned and which bears have gone wrong, and when I ask for their records, they tell me the land remembers, which is poetic and useless on a graph. The line just goes wistful." },
       },
       choices = {
         { text = "What would you ask them, if they'd answer?", next = "ne_ask" },
@@ -824,7 +824,7 @@ P:NPC {
     },
     ne_ask = {
       lines = {
-        { id = "nea_default", text = "How the shore looked a hundred years ago, before the sickness, because without a baseline every reading I take is a number floating in the dark! They've lived through it, they remember it, and they won't write a word of it down for a gnome, and if that isn't the most maddening thing on this continent, I'll eat my goggles, lenses and all." },
+        { id = "nea_default", text = "How the shore looked a hundred years ago, before the sickness, because without a baseline every reading I take is a number floating in the dark! They remember it, and they won't write a word of it down for a gnome, and if that isn't the most maddening thing on this continent, I'll eat my goggles." },
       },
       choices = {
         { text = "Maybe they don't think in numbers.", next = "BACK", reply = "Then I'll learn to think in whatever they think in, if I have to, though I suspect it involves a great deal of sitting very still." },

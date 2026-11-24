@@ -135,7 +135,7 @@ P:NPC {
       },
     },
     light_delgren = {
-      lines = { { id = "ld_default", text = "He said the Light doesn't ask what race you are, only what you're willing to stand for. Then he laughed and said his order would have to write a new rule, because they've never had a night elf come asking before. I think he was only half joking, and I think I was only half listening, because I was already wondering if I'd ask." } },
+      lines = { { id = "ld_default", text = "He said the Light doesn't ask what race you are, only what you're willing to stand for. Then he laughed and said his order would have to write a new rule, because no night elf had ever asked before. I think he was only half joking, and I was already wondering if I'd ask." } },
       choices = {
         { text = "Then ask him. You've earned the right.", next = "BACK", reply = "Perhaps I will, once the tower is quiet. I'd want to be worth his trouble before I put it to him.", fx = { align = { light = 1, order = -1 } } },
         { text = "Take it slowly. A vow like that is forever.", next = "BACK", reply = "It is, and our forever is longer than his. That's the part that keeps me awake, more than the warlocks do.", fx = { align = { order = 1 } } },
@@ -143,7 +143,7 @@ P:NPC {
       },
     },
     light_elune = {
-      lines = { { id = "le_default", text = "No, and I won't. Elune watched over me long before Delgren came, and I still say her prayers when the moon rises. But I've started saying his when it sets, and some nights I can't tell where one prayer ends and the other begins. If that makes me half a convert, then I'm half a convert, and I'm not ashamed of it." } },
+      lines = { { id = "le_default", text = "No, and I won't. Elune watched over me long before Delgren came, and I still say her prayers when the moon rises. But I've started saying his when it sets, and some nights I can't tell where one prayer ends and the other begins. If that makes me half a convert, I'm not ashamed of it." } },
       choices = {
         { text = "Two lights are better than one in the dark.", next = "BACK", reply = "That's how it feels, most nights. When the tower's fires burn, I'll take every light I can find.", fx = { align = { light = 1 } } },
         { text = "A divided heart serves neither well.", next = "BACK", reply = "My elders say exactly that, and perhaps they're right. But my heart was never so whole that the Light had to break it open.", fx = { align = { order = 1 } } },

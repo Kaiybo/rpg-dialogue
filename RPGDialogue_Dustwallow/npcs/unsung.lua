@@ -415,7 +415,7 @@ P:NPC {
     },
     kt_jaina = {
       big = true,
-      lines = { { id = "ktj_default", text = "I made shields for the Admiral's fleet, and I followed his daughter's ships here because she asked for smiths and I had none of my own to look after. When he came with his warships I mended the shields that stood against them, and that's a thing I'll carry to my grave. She was right, and I hate that she was right, and I'll not say more than that." } },
+      lines = { { id = "ktj_default", text = "I made shields for the Admiral's fleet, and I followed his daughter's ships here because she asked for smiths. When he came with his warships I mended the shields that stood against them, and that's a thing I'll carry to my grave. She was right, and I hate that she was right, and I'll not say more than that." } },
       choices = {
         { text = "She should never have taken the orcs' side.", next = "BACK", reply = "Maybe, and maybe there was no other side worth taking. Either way, the shields got made.", fx = { align = { light = -1 }, opinion = { jaina = "traitor" } } },
         { text = "She was right. That's what matters.", next = "BACK", reply = "It is, and it's cold comfort at night. Mind the rust on your way out.", fx = { align = { light = 1 }, opinion = { jaina = "admire" } } },

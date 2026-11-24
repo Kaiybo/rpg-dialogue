@@ -76,7 +76,7 @@ P:NPC {
       },
     },
     xcl_wc2 = {
-      lines = { { id = "xcl_wc2_default", text = "The tauren say they were disciples of a night elf named Naralex, who went down to heal the Barrens and fell asleep in his own dream. His followers went down after him and came back up wrong, and now they call themselves the Druids of the Fang. I don't pretend to understand druids, but I know a deserter when I see one." } },
+      lines = { { id = "xcl_wc2_default", text = "The tauren say they were disciples of a night elf named Naralex, who went down to heal the Barrens and fell asleep in his own dream. His followers went after him and came back wrong, and now call themselves the Druids of the Fang. I don't pretend to understand druids, but I know a deserter when I see one." } },
       choices = { { text = "Then I hope the dreamer stays awake, Thork.", next = "BACK" } },
     },
     xfpala = {
@@ -913,7 +913,7 @@ P:NPC {
     },
     xcl_wc = {
       big = true,
-      lines = { { id = "xcl_wc_default", text = "Then the nightmare under the Barrens may finally be loosening its grip. Naralex went down to make this land green again, but his dream turned sour and poisoned the oases from below, and that was the power Thunder Bluff sent me to find. I'll write to Hamuul tonight, because he'll want to know that a stranger's hand did what the Circle's could not." } },
+      lines = { { id = "xcl_wc_default", text = "Then the nightmare under the Barrens may finally be loosening its grip. Naralex went down to make this land green again, but his dream turned sour and poisoned the oases from below, and that was the power Thunder Bluff sent me to find. I'll write to Hamuul tonight; a stranger's hand did what the Circle's could not." } },
       choices = {
         { text = "Naralex meant well. He deserves to be saved, not blamed.", next = "BACK", reply = "He did, and I believe he can still be saved. Go into the caverns, and bring his dream back to the waking world.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "His good intentions poisoned the Barrens. He should answer for it.", next = "BACK", reply = "He may yet answer for it, but not to us. Save him first, and let the Earth Mother judge him after.", fx = { align = { light = -1 } } },
@@ -935,7 +935,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Perhaps the creatures that drink from them, if not the water itself, because what sickens the oases comes from under the earth and does not answer to prayers. The druids who went down into the Wailing Caverns meant to heal the land, and something answered them that should not have. Mend what you can on the surface, and leave the deep places to us." } },
+      lines = { { id = "xhpriest_default", text = "Perhaps the creatures that drink from them, because what sickens the oases comes from under the earth and does not answer to prayers. The druids who went down into the Wailing Caverns meant to heal the land, and something answered them that should not have. Mend what you can on the surface, and leave the deep places to us." } },
       choices = {
         { text = "Then I'll mend whatever crawls out of those waters sick.", next = "BACK", reply = "Bless you, then, because the beasts suffer as much as we do. The Earth Mother will see your kindness.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If the land is poisoned, let it burn clean instead.", next = "BACK", reply = "Fire leaves ash, and ash grows nothing for a long while. I'd rather heal what I can, and burn only what I must.", fx = { align = { light = -1 } } },
@@ -1077,7 +1077,7 @@ P:NPC {
       },
     },
     d_gazelle2 = {
-      lines = { { id = "dr_tg2_default", text = "Because every poison wants its own antidote, and finding it is slow, dirty work with earthroot and kodo horn and boiled water. Moonglade wants you to know that before you ever purge a poison with a word, so you'll never take the word for granted; I can't do it myself, and I think about it every time I grind another kodo horn." } },
+      lines = { { id = "dr_tg2_default", text = "Because every poison wants its own antidote, and finding it is slow, dirty work with earthroot and kodo horn and boiled water. Moonglade wants you to know that before you ever purge a poison with a word, so you'll never take the word for granted. I think about that every time I grind a kodo horn." } },
       choices = { { text = "Something else, Tonga.", next = "BACK", fx = { trait = { kind = 1 } } } },
     },
     d_stone = {
@@ -1221,7 +1221,7 @@ P:NPC {
     },
     xcl_rfd = {
       big = true,
-      lines = { { id = "xcl_rfd_default", text = "Destroyed, yes, since he was already dead, though I'll allow the distinction is academic. The Scourge sent him to make the quilboar into servants, and he very nearly managed it, so you may judge for yourself what the Lich King thinks Kalimdor is for. The Forsaken know better than anyone what it is to be one of his tools, and we take a certain pleasure in breaking them." } },
+      lines = { { id = "xcl_rfd_default", text = "Destroyed, yes, since he was already dead, though I'll allow the distinction is academic. The Scourge sent him to make the quilboar into servants, and he very nearly managed it, so you may judge for yourself what the Lich King thinks Kalimdor is for. The Forsaken know what it is to be his tools, and we enjoy breaking them." } },
       choices = {
         { text = "His power could have been studied first, apothecary.", next = "BACK", reply = "Studied, yes, if he'd held still long enough. Unfortunately, he was rather insistent on raising an army in the meantime.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Every servant of the Lich King deserves to be destroyed.", next = "BACK", reply = "Quite so, and I'd include him among the first. The Lich King took our lives, and I'd like to return the favour one servant at a time.", fx = { align = { light = 1 } } },
@@ -1722,7 +1722,7 @@ P:NPC {
     xwarlock = {
       big = true,
       lines = {
-        { id = "xwarlock_default", text = "Once, to a fellow who smelled like you, and the thing he kept ate the whole haunch in a breath and looked at me like I was next on the hook. I don't know what those things eat when nobody's feeding them, and I don't want to find out, so I'll sell you meat for your own belly and that's where it stays." },
+        { id = "xwarlock_default", text = "Once, to a fellow who smelled like you, and the thing he kept ate the whole haunch in a breath and looked at me like I was next on the hook. I don't want to know what those things eat, so I'll sell you meat for your own belly and that's where it stays." },
         { id = "xwarlock_demon", when = { pet = { type = "Demon" } }, text = "Once, and the thing ate the whole haunch in a breath and looked at me like I was next on the hook. Yours is giving me that same look right now over the cookfire, so I'll sell you meat for your own belly, and you'll keep that thing back from my spit." },
       },
       choices = {

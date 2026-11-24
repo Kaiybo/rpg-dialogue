@@ -43,7 +43,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Not a thing, friend, since your sort take to a mace about as well as a goblin takes to swimming, though I've had hunters buy one to crack coconuts and I didn't ask questions. I'd sell your beast a mace head to chew on, if anybody had ever asked." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not a thing, friend, since your sort take to a mace about as well as a goblin takes to swimming, though I've had hunters buy one to crack coconuts. I'd sell your beast a mace head to chew on, if anybody had ever asked. Look at {pet}, now, eyeing my stock like it knows good steel, and I'd say it's got better taste than most of my customers." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not a thing, friend, since your sort take to a mace like a goblin takes to swimming, though I've had hunters buy one to crack coconuts. I'd sell your beast a mace head to chew on, if anybody asked. Look at {pet}, now, eyeing my stock like it knows good steel, which is better taste than most of my customers." },
       },
       choices = {
         { text = "Every hunter to his own weapon. I'll stick to the bow.", next = "BACK", reply = "Smart, friend, smart, a hunter with a mace is a liability with a nice hat. Stick to the bow and leave the bashing to the experts.", fx = { align = { order = 1 } } },
@@ -663,7 +663,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some do, for the big game, because a cheap point won't go through a basilisk's scales, and Nesingwary's people come down for good steel heads twice a year. They're particular about it, too, and I respect that." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, for the big game, because a cheap point won't go through a basilisk's scales, and Nesingwary's people come down for good steel heads twice a year. They're particular about it, too, and I respect that. Your {pet} has been sniffing at my coal sacks, which is a strange thing for a beast to fancy, but there's no accounting for taste." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, for the big game, because a cheap point won't go through a basilisk's scales, and Nesingwary's people come down for good steel heads twice a year. They're particular, and I respect that. Your {pet} has been sniffing at my coal sacks, which is a strange thing for a beast to fancy, but there's no accounting for taste." },
       },
       choices = {
         { text = "A clean kill needs good steel. I'll pay for the best.", next = "BACK", reply = "Good, friend, Nesingwary's men swear by mine. A basilisk won't wait for a second shot.", fx = { align = { honor = 1 } } },
@@ -879,7 +879,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because a beast doesn't care about locks, friend, and I've heard of a hunter's cat squeezing through gaps a goblin couldn't. I check the doors three times as it is, and I don't need paw prints on the list as well." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a beast doesn't care about locks, friend, and I've heard of a hunter's cat squeezing through gaps a goblin couldn't. I check the doors three times as it is, and I don't need paw prints on the list as well. Your {pet} looks well behaved, I'll admit, but I've written its name down all the same, and I'll be checking the vault floor tonight." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a beast doesn't care about locks, friend, and I've heard of a hunter's cat squeezing through gaps a goblin couldn't. I check the doors three times as it is, and I don't need paw prints on the list. Your {pet} looks well behaved, but I've written its name down all the same, and I'll check the vault floor tonight." },
       },
       choices = {
         { text = "Your doors, your rules. My cat waits outside.", next = "BACK", reply = "Thank you, friend, the vault thanks you, and so do my fingers. Your cat can admire the door from a distance.", fx = { align = { order = 1 } } },

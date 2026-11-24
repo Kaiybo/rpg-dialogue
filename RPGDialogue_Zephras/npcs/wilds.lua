@@ -39,7 +39,7 @@ P:NPC {
   start = "hello",
   nodes = {
     d_moonbear = {
-      lines = { { id = "dr_ub_default", text = "The old one on the mountain by the lake, yes, and I know of him the way one cloud knows another, from far off and by the shadow he casts. He teaches the heart before the body, I am told, and I teach the storm within before the storm without, and I suspect we are saying the same thing in two different winds." } },
+      lines = { { id = "dr_ub_default", text = "The old one on the mountain by the lake, yes. I know of him the way one cloud knows another, from far off and by the shadow he casts. He teaches the heart before the body, I am told, and I teach the storm within before the storm without, and I suspect we say the same thing in two winds." } },
       choices = { { text = "Something else, great spirit.", next = "BACK", fx = { learn = { "cenarion_circle" } } } },
     },
     d_dire = {
@@ -53,7 +53,7 @@ P:NPC {
     },
     d_circle = {
       big = true,
-      lines = { { id = "dr_uc_default", text = "That is for the shen'dorei to decide, child, not for an old bear. The druids below the clouds are many and wise and would teach you much, but they would also teach you to look at the moon, and I have watched the winds fade from this isle, and I do not know who would remember them if you all looked away." } },
+      lines = { { id = "dr_uc_default", text = "That is for the shen'dorei to decide, child, not for an old bear. The druids below the clouds are wise and would teach you much, but they would also teach you to look at the moon, and I have watched the winds fade from this isle, and I do not know who would remember them if you looked away." } },
       choices = {
         { text = "We should join them, and carry the winds with us.", next = "BACK", reply = "Then carry them carefully, child, for the winds are lighter than they used to be. Tell the old bear by the lake I said so.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "united" } } },
         { text = "Our druids should keep the winds' ways, apart from theirs.", next = "BACK", reply = "Then someone will remember the winds, at least. Learn what the Circle offers, but bring it home to this sky.", fx = { align = { order = 1 }, opinion = { druids = "divided" } } },
@@ -62,7 +62,7 @@ P:NPC {
     },
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "I am Urs'endris. For more generations than your elders can count, the druids of the shen'dorei have come to this place to learn my shape. The strength I teach is not only in the arms and the back; it is in standing firm against what troubles you from outside and what troubles you from within, and that is what it is to wear my shape." },
+        { id = "h_default", key = true, text = "I am Urs'endris. For more generations than your elders can count, the druids of the shen'dorei have come to this place to learn my shape. The strength I teach is not only in the arms; it is in standing firm against what troubles you from outside and what troubles you from within." },
         { id = "h_mercy", tags = { "news" }, when = { questActive = TODO_QUEST("Strength and Mercy") },
           text = "Go to her, child of the winds. She will not know you, and she will not know herself, and that is why it must be done gently." },
         { id = "h_mercydone", tags = { "news" }, when = { questDone = TODO_QUEST("Strength and Mercy") },
@@ -131,7 +131,7 @@ P:NPC {
     mercy = {
       big = true,
       lines = {
-        { id = "me_default", text = "I would have her suffering ended, and I cannot do it myself. I have asked it of the young ones who come to learn my shape, because there is no strength in the bear's way that does not also know mercy. Tell me, child: is it mercy to end a life that has lost itself, or should one wait, in case it finds its way back?" },
+        { id = "me_default", text = "I would have her suffering ended, and I cannot do it myself. I have asked it of the young ones who learn my shape, for there is no strength in the bear's way that does not also know mercy. Tell me, child: is it mercy to end a life that has lost itself, or should one wait for it to return?" },
       },
       choices = {
         { text = "End it. Suffering with no way back is no life.", next = "BACK", reply = "You speak as one who has seen suffering, child. Go gently, if you go.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },

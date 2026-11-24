@@ -40,7 +40,7 @@ P:NPC {
     },
     xwarcl = {
       big = true,
-      lines = { { id = "xwarcl_default", text = "Welcome is a strong word, but you'd not be thrown off the cliff, which is more than our grandfathers would have said. Our clans have been at each other since the War of the Three Hammers, and I still flinch at the soot on their beards, but these ones turned their backs on the mountain, and I give them their due." } },
+      lines = { { id = "xwarcl_default", text = "Welcome is a strong word, but you'd not be thrown off the cliff. Our clans have been at each other since the War of the Three Hammers, and I still flinch at the soot on their beards, but these ones turned their backs on the mountain, and I give them their due." } },
       choices = {
         { text = "Old wars should stay old. These Dark Irons earned a chance.", next = "BACK", reply = "Aye, that's what I keep telling myself on the bad nights. They've earned that much, by my reckoning.", fx = { align = { light = 1 } } },
         { text = "A Dark Iron's a Dark Iron. I'll keep my hand near my sword.", next = "BACK", reply = "Keep it near if you must, but keep it sheathed, or you'll have Oilfist to answer to. They've been good hosts.", fx = { align = { light = -1 } } },
@@ -246,8 +246,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "They hate it, all smoke and fire and no clean wind, so I fly them out early in the day before the heat comes up off the Cauldron. They're tough beasts, but they weren't made for this place, and neither was I." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They hate it, all smoke and fire and no clean wind, so I fly them out early in the day before the heat comes up off the Cauldron. They're tough beasts, but they weren't made for this place, and neither was I. Your {pet} looks like it's handling the heat better than my riders, so whatever you're feeding it, keep on doing it." },
+        { id = "xhuntcl_default", text = "They hate it, all smoke and fire and no clean wind, so I fly them out early in the day before the heat comes up off the Cauldron. They're tough, but not made for this place, nor was I." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They hate it, all smoke and fire and no clean wind, so I fly them out early in the day before the heat comes up off the Cauldron. They're tough, but not made for this place, nor was I. Your {pet} looks like it's handling the heat better than my riders, so keep feeding it whatever you are." },
       },
       choices = {
         { text = "A strict routine keeps a beast healthy anywhere.", next = "BACK", reply = "That's what keeps mine alive in this pit. Early wings, home by noon.", fx = { align = { order = 1 } } },

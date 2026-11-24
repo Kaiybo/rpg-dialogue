@@ -106,7 +106,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because there's titan-work in these cases, an' I've no notion what it would make o' yer wee shadow standin' over it, an' I'd rather no' find out. Besides, my brother Dorius risks his neck in the Searing Gorge for every stone he sends me, an' I'll no' have one cracked by somethin' curious." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "An' now there's a demon standin' over the cases, which is the very thing I was afraid of, for there's titan-work in them an' I've no notion what it'll make o' yer {pet}. My brother Dorius risks his neck in the Searing Gorge for every stone he sends me, so keep it back from the glass, for it's starin' at them like it's hungry." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "An' now there's a demon standin' over the cases, the very thing I feared, for there's titan-work in them an' I've no notion what it'll make o' yer {pet}. My brother Dorius risks his neck in the Searing Gorge for every stone he sends me, so keep it back from the glass, for it's starin' like it's hungry." },
       },
       choices = {
         { text = "Understood. What follows me waits by the door.", next = "BACK", reply = "Thank ye kindly. I'd rather no' find out what titan-work thinks o' the likes o' it, an' Dorius would never forgive me if I did.", fx = { align = { order = 1 } } },
@@ -788,7 +788,7 @@ P:NPC {
     dw_kin = {
       big = true,
       lines = {
-        { id = "dwk_default", text = "Aye, they are, an' that's the part that keeps me up at night more than any fire-lord. Every Dark Iron diggin' in Uldaman had a grandsire who drank in the same halls as mine, before the War o' the Three Hammers, an' I'd give a good deal tae know whether they dig for Ragnaros because they want tae, or because they cannae stop." },
+        { id = "dwk_default", text = "Aye, they are, an' that keeps me up at night more than any fire-lord. Every Dark Iron diggin' in Uldaman had a grandsire who drank in the same halls as mine, before the War o' the Three Hammers, an' I'd give a deal tae know whether they dig for Ragnaros because they want tae, or because they cannae stop." },
       },
       choices = {
         { text = "Thralls or not, they killed Hammertoe. No pity.", next = "dw_kin_hard", fx = { align = { light = -1 } } },
@@ -823,7 +823,7 @@ P:NPC {
     },
     kn_day = {
       lines = {
-        { id = "knd_default", text = "Reads what the Prospectors send back an' tells them where they've got it wrong, mostly, an' then writes tae the High Explorer tae tell him the same. The rest o' the time I'm matchin' rubbings from Uldaman against rubbings from Ironband's dig, lookin' for the same mark in two places, for that's how ye find out what was one thing once." },
+        { id = "knd_default", text = "Reads what the Prospectors send back an' tells them where they've got it wrong, an' then writes tae the High Explorer tae tell him the same. The rest o' the time I'm matchin' rubbings from Uldaman against Ironband's dig, lookin' for the same mark in two places, for that's how ye find what was one thing once." },
       },
       choices = {
         { text = "That sounds slower than digging.", next = "BACK", reply = "It's slower, aye, an' it's where every find actually becomes knowledge. A dug-up relic wi' no reader is just a heavy stone in a crate.", fx = { affinity = 1 } },
@@ -1089,7 +1089,7 @@ P:NPC {
     threats = {
       big = true,
       lines = {
-        { id = "thr_default", text = "Ask the Senate an' ye'll get six answers, so I'll give ye the King's. The Dark Iron in the south, for they've Ragnaros behind them now; the troggs that came up out o' Uldaman an' Gnomeregan both, for there's no end tae them; an' the Frostmane trolls in the western snows, who were killin' dwarves long before any o' the others." },
+        { id = "thr_default", text = "Ask the Senate an' ye'll get six answers, so here's the King's. The Dark Iron in the south, for they've Ragnaros behind them now; the troggs out o' Uldaman an' Gnomeregan both, for there's no end tae them; an' the Frostmane trolls in the western snows, who were killin' dwarves long before the others." },
       },
       choices = {
         { text = "Then strike the Dark Iron first, and hard.", next = "BACK", reply = "That's the King's heart talkin', an' half the Military Ward's. The other half reminds him that every army we send south leaves Dun Morogh thinner, an' the troggs can count.", fx = { align = { order = -1 } } },

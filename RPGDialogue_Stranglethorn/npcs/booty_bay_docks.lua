@@ -56,7 +56,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Same thing, near enough: you learn where your quarry feeds, when it feeds and what it fancies, and then you wait. The difference is that a tiger can't snap your line, though a big enough tastyfish surely can." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Same thing, near enough: you learn where your quarry feeds, when it feeds and what it fancies, and then you wait. The difference is that a tiger can't snap your line, though a big enough tastyfish surely can. And your {pet} would sit still for a fish, I'd wager, while the young anglers in the Baron's tournament can't sit still for the length of one cast." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Same thing, near enough: you learn where your quarry feeds, when and on what, and then you wait. The difference is that a tiger can't snap your line, though a big tastyfish surely can. And your {pet} would sit still for a fish, I'd wager, while the young anglers in the Baron's tournament can't manage one cast." },
       },
       choices = {
         { text = "Fish and beasts both deserve a hunter's respect.", next = "BACK", reply = "They do, and they'll repay it by feeding you for the rest of your days. The ones who forget that end up hungry and wondering why.", fx = { align = { honor = 1 } } },

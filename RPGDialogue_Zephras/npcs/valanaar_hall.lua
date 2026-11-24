@@ -510,7 +510,7 @@ P:NPC {
     },
     orchard = {
       lines = {
-        { id = "or_default", text = "The cyclone construct? I've heard of it, and I've heard it drove off the bandits who hurt Alvarion Windfield, which means there's more wind left in it than anyone thought. If his wife Aamelia wants a Windshaper to look it over, she's only to ask, and I'd go gladly, since it's not every day one of them wakes up on its own." },
+        { id = "or_default", text = "The cyclone construct? I've heard of it, and I've heard it drove off the bandits who hurt Alvarion Windfield, so there's more wind in it than anyone thought. If his wife Aamelia wants a Windshaper to look it over, she's only to ask; it's not every day one wakes on its own." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },

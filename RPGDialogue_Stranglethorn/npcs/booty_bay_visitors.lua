@@ -513,7 +513,7 @@ P:NPC {
       },
     },
     family_debt = {
-      lines = { { id = "fd_default", text = "Pix said the chest went missing on my watch, sport, which is technically true, so I hauled crates on the docks for the Bruisers until my arms were longer than my legs. I paid off every copper, and with what was left, I opened this place, because I'd spent so long picking up other people's stuff that I figured I'd start charging for it." } },
+      lines = { { id = "fd_default", text = "Pix said the chest went missing on my watch, sport, which is technically true, so I hauled crates for the Bruisers until my arms were longer than my legs. I paid off every copper and opened this place with the rest, because after so long picking up other people's stuff, I figured I'd start charging for it." } },
       choices = {
         { text = "You worked it off. That's honest.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else, Rix.", next = "BACK" },

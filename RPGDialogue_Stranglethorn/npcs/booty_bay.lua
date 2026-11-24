@@ -100,7 +100,7 @@ P:NPC {
     },
     xpt_revilgaz = {
       big = true,
-      lines = { { id = "xpt_revilgaz_default", text = "Honest is a word I hear twenty times a day from people standing on my docks, and I've learned to value it at about a copper an ounce. Still, a crew that keeps its word is worth more to me than any cargo, because the Bloodsail would have this whole bay if the honest ones ever went home, and that's a loss I can't insure." } },
+      lines = { { id = "xpt_revilgaz_default", text = "Honest is a word I hear twenty times a day on my docks, and I value it at about a copper an ounce. Still, a crew that keeps its word is worth more than any cargo, because the Bloodsail would have this bay if the honest ones went home, and that's a loss I can't insure." } },
       choices = {
         { text = "Then you'll find us good to our word, Baron.", next = "BACK", reply = "We'll see, friend, because the ledger has a long memory and I read it every night. Keep your word and you'll find mine is good too, at the usual rates.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Honesty is for people without enemies. We do what pays.", next = "BACK", reply = "Ha! Now that's the most honest thing anyone's said on my balcony all week. I'll charge you accordingly, and watch my purse while you're here.", fx = { align = { honor = -1 } } },
@@ -144,7 +144,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Pelts for Gadgetzan, tusks for Ratchet, and panther skins for every lord in Stormwind who wants a rug that snarls, all at a very healthy markup. The jungle is a warehouse with teeth, and you lot are the ones brave enough to open the doors." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Pelts for Gadgetzan, tusks for Ratchet, and panther skins for every lord in Stormwind who wants a rug that snarls, all at a very healthy markup. The jungle is a warehouse with teeth, and you lot open the doors. Your {pet} looks well fed, which means it's either a fine hunter or it's been eating my dock rats, and I'm grateful either way." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Pelts for Gadgetzan, tusks for Ratchet, and panther skins for every Stormwind lord who wants a rug that snarls, all at a healthy markup. The jungle is a warehouse with teeth, and you lot open the doors. Your {pet} looks well fed, so it's either a fine hunter or it's been eating my dock rats." },
       },
       choices = {
         { text = "I hunt fair, Baron, and I won't strip a jungle for coin.", next = "BACK", reply = "Fair hunting, eh? Very noble, and the lords in Stormwind will still buy whatever you bring me. Strip nothing, sell me something.", fx = { align = { honor = 1 } } },
@@ -718,7 +718,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Now and then, when we run down the coast to Jaguero Isle and want fresh meat that didn't come out of a barrel. A good hunter can drop a Bloodsail lookout from his crow's nest at a hundred paces, too, and I'll not pretend I've never been glad of it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Now and then, when we run down the coast to Jaguero Isle and want fresh meat that didn't come out of a barrel. A good hunter can drop a Bloodsail lookout from his crow's nest at a hundred paces, too, and I'll not pretend I've never been glad of it. Mind, if {pet} comes aboard, it'll want to fight the ship's cat, and the ship's cat has never lost." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Now and then, when we run down to Jaguero Isle and want fresh meat that didn't come out of a barrel. A good hunter can drop a Bloodsail lookout from his crow's nest at a hundred paces, too. Mind, if {pet} comes aboard, it'll want to fight the ship's cat, and the ship's cat has never lost." },
       },
       choices = {
         { text = "I'd hunt for the galley, not shoot sailors for coin.", next = "BACK", reply = "Good, good, the galley could use a hunter who knows game. The cook will love you more than the captain does.", fx = { align = { honor = 1 } } },
@@ -798,7 +798,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "hu2_default",
-          text = "The Kul Tiran navy hangs every pirate it catches, and when the wars ended it paid off its own sailors with a handshake, so half of them walked straight to the Bloodsail because the sea and the cutlass were all they knew. My navigator went down under a Bloodsail broadside off the Cape, matey, fighting her own kind, and the Earth Mother keep her." },
+          text = "The Kul Tiran navy hangs every pirate it catches, and after the wars it paid off its sailors with a handshake, so half of them joined the Bloodsail because the sea was all they knew. My navigator went down under a Bloodsail broadside off the Cape, matey, fighting her own kind, and the Earth Mother keep her." },
       },
       choices = {
         { text = "They breed pirates and then hang them. Hypocrites, the lot.", next = "BACK",
@@ -1505,7 +1505,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Tiger pelts are down, since Nesingwary's lot keep flooding the market, but basilisk scales are up, way up, and a white tiger's hide would buy you a house here if anyone ever came back from King Bangalash alive to sell it." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Tiger pelts are down, since Nesingwary's lot keep flooding the market, but basilisk scales are way up, and a white tiger's hide would buy you a house if anyone ever came back from King Bangalash. And don't think of selling me {pet}, pal, because I've seen that look in a hunter's eye and it's never the look of somebody who sells." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Tiger pelts are down, since Nesingwary's lot keep flooding the market, but basilisk scales are up, and a white tiger's hide would buy you a house if anyone came back from King Bangalash. And don't think of selling me {pet}, pal, because that look in your eye is never the look of somebody who sells." },
       },
       choices = {
         { text = "I'd take Bangalash for the hunt, not for your buyers.", next = "BACK", reply = "A purist! Pal, Bangalash is a legend, and legends sell for twice the price. Bring me his pelt, and we'll talk.", fx = { align = { honor = 1 } } },
@@ -1584,7 +1584,7 @@ P:NPC {
     hu_krazek = {
       lines = {
         { id = "hu_default", key = true,
-          text = "Humans? Pal, humans are my bread and butter, because nobody buys gossip like a human, especially about other humans. They'd pay a gold piece to hear which Stormwind lord is broke and two to hear whose wife ran off with a sailor, and then they go home and tell everybody goblins are crooks, which is insulting and only about half true." },
+          text = "Humans? Pal, humans are my bread and butter, because nobody buys gossip like a human. They'd pay a gold piece to hear which Stormwind lord is broke and two to hear whose wife ran off with a sailor, and then they go home and tell everybody goblins are crooks, which is only about half true." },
       },
       choices = {
         { text = "What do humans want to know most?", next = "hu_krazek_2" },
@@ -2417,7 +2417,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "They tell the biggest lies in the South Seas, and to hear 'em tell it, each one has very nearly killed King Bangalash. The ones from Nesingwary's camp come down for rum and a real bed, and they leave mud all over the stairs the Baron has to walk up, which comes out of my wages, not theirs." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They tell the biggest lies in the South Seas, and to hear 'em tell it, each one has very nearly killed King Bangalash. The ones from Nesingwary's camp come down for rum and a real bed and leave mud all over the Baron's stairs, which comes out of my wages. Keep {pet} by the hearth where I can see it, and well away from the kitchen and that cleaver." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They tell the biggest lies in the South Seas, and each one has very nearly killed King Bangalash. The ones from Nesingwary's camp come down for rum and a real bed and leave mud all over the Baron's stairs, which comes out of my wages. Keep {pet} by the hearth, and well away from the kitchen." },
       },
       choices = {
         { text = "A hunter who lies about a kill dishonors the beast.", next = "BACK", reply = "It does, and the beasts would agree with you. Most hunters at my bar don't, mind.", fx = { align = { honor = 1 } } },
@@ -2653,7 +2653,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "By the wreckage, mostly, since they leave a trail of broken hulls from the Cape down to the Wild Shore. You'll see them wading the shallows near the old wrecks, and anyone who says they can't be hunted has never lost two ships to them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "By the wreckage, mostly, since they leave a trail of broken hulls from the Cape down to the Wild Shore. You'll see them wading the shallows near the old wrecks, and anyone who says they can't be hunted has never lost two ships to them. Keep {pet} out of the surf when you go, because a giant won't notice a beast underfoot until it's stepped on it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "By the wreckage, mostly, since they leave broken hulls from the Cape down to the Wild Shore. You'll see them wading the shallows near the old wrecks, and anyone who says they can't be hunted has never lost two ships to them. Keep {pet} out of the surf, because a giant won't notice a beast underfoot." },
       },
       choices = {
         { text = "Revenge isn't hunting, Captain. You should let them go.", next = "BACK", reply = "Let them go? Friend, they took my ships and my crews, and I'll not let them go while I've breath. Hunting or not, I want them.", fx = { align = { light = 1 } } },
@@ -4029,7 +4029,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Raptor for toughness, panther for suppleness, and crocolisk for anything that has to stand up to sea water, which in Booty Bay is everything. Skin it clean, keep it out of the sun, and bring it to me before the flies find it, because flies knock a hide's price in half." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Raptor for toughness, panther for suppleness, and crocolisk for anything that has to stand up to sea water, which in Booty Bay is everything. Skin it clean and bring it to me before the flies find it. And keep {pet} away from my drying racks, pal, because last week a hunter's cat ate half a crocolisk hide, eleven gold of it, and I'm still not over it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Raptor for toughness, panther for suppleness, and crocolisk for anything that has to stand up to sea water, which in Booty Bay is everything. Bring it to me before the flies find it. And keep {pet} away from my drying racks, pal, because last week a hunter's cat ate eleven gold of crocolisk hide." },
       },
       choices = {
         { text = "I skin clean and waste nothing. The beast is owed that.", next = "BACK", reply = "A clean skinner, I like that, pal, and the hides show it. Bring me clean work and I'll pay you for it.", fx = { align = { honor = 1 } } },
@@ -4205,7 +4205,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Boar when we could get it, crocolisk tail when we couldn't, and once a whole panther that the Captain swore blind was venison. Fresh meat keeps a crew happy at sea, and I still miss having a crew to cook for." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boar when we could get it, crocolisk tail when we couldn't, and once a whole panther that the Captain swore blind was venison. Fresh meat keeps a crew happy at sea, and I still miss having a crew to cook for. Your {pet} looks like it'd eat anything I put down, which is the highest compliment a cook gets these days." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Boar when we could get it, crocolisk tail when we couldn't, and once a whole panther the Captain swore was venison. Fresh meat keeps a crew happy at sea, and I still miss having a crew to cook for. Your {pet} looks like it'd eat anything I put down, which is the highest compliment a cook gets now." },
       },
       choices = {
         { text = "A cook keeps a crew alive. That matters as much as fighting.", next = "BACK", reply = "It does, and I'd like to think I kept a few of them alive a little longer. Thank you for saying it.", fx = { align = { light = 1 } } },
@@ -4684,7 +4684,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because animals come off the boats as well as on, and I've had a Barrens hyena loose in the hold of the Ratchet boat and a crocolisk asleep on my scales. Everything that walks through Booty Bay goes past me first, and that includes things with four legs." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because animals come off the boats as well as on, and I've had a Barrens hyena loose in the hold of the Ratchet boat and a crocolisk asleep on my scales. Everything that walks through Booty Bay goes past me first, and that includes things with four legs. Your {pet} looks well behaved enough, so it can go on the good list, provided it stays off my crates." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because animals come off the boats as well as on, and I've had a Barrens hyena loose in the hold and a crocolisk asleep on my scales. Everything that walks through Booty Bay goes past me first, four legs included. Your {pet} looks well behaved enough for the good list, provided it stays off my crates." },
       },
       choices = {
         { text = "Then I'll keep my beast leashed on your dock.", next = "BACK", reply = "Smart, friend, and my wharf thanks you. The last hyena cost me a week of crates.", fx = { align = { order = 1 } } },

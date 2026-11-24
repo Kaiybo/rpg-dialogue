@@ -544,7 +544,7 @@ P:NPC {
   nodes = {
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "He said he saw orcs in the internment camps who'd been shamans once, broken and quiet, and that he felt sorry for them, which was an unpopular thing to say in a Menethil tavern. Then he went west with Lady Proudmoore. I like to think he'd be glad to see a dwarf take up the old ways and use them well." } },
+      lines = { { id = "xdsham_default", text = "He said he saw orcs in the internment camps who'd been shamans once, broken and quiet, and that he felt sorry for them, an unpopular thing tae say in Menethil. Then he went west with Lady Proudmoore. I like to think he'd be glad to see a dwarf take up the old ways and use them well." } },
       choices = {
         { text = "Your brother was right. Pity is no weakness.", next = "BACK", reply = "That's what he said, word for word, and the whole tavern went quiet. I'm glad someone else sees it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Pity for orcs? They earned those camps.", next = "BACK", reply = "That's what the tavern said, too, and they nearly threw him out for it. I don't know who was right, honestly.", fx = { align = { light = -1 } } },

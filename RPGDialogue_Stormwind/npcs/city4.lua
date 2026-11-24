@@ -886,7 +886,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "A fair bit, because the folk from the Lamb come up hungry and pale and buy six rolls at once, and I never ask what kept them below so long. I sell to the Cathedral at noon and the Lamb at dusk, and I'm fairly sure I'm the only man in the city who does both." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A fair bit, because the folk from the Lamb come up hungry and pale and buy six rolls at once, though I've never had one bring the thing along to stare at my loaves. I sell to the Cathedral at noon and the Lamb at dusk, and if yours keeps breathing on the crust like that, I'll not be selling these to either." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "A fair bit, because the folk from the Lamb come up hungry and pale and buy six rolls at once, though none has brought the thing along to stare at my loaves. I sell to the Cathedral at noon and the Lamb at dusk, and if yours keeps breathing on the crust, I'll not be selling these to either." },
       },
       choices = {
         { text = "Then I'll pay for my roll and keep your secret.", next = "BACK", reply = "Thank you, friend. Some secrets taste better with butter.", fx = { align = { honor = 1 } } },

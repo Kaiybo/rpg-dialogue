@@ -1760,7 +1760,7 @@ P:NPC {
   nodes = {
     bk_tele = {
       big = true,
-      lines = { { id = "bkt_default", text = "Of course it did, because that's where the rune was anchored, right here between the mages and the priests, so everyone who comes home arrives in time for evening prayers. I measured the landing point once, and it drifts about a hand's width a year, which I think means the mountain is breathing and the Kirin Tor think means I'm wrong." } },
+      lines = { { id = "bkt_default", text = "Of course it did, because that's where the rune was anchored, between the mages and the priests, so everyone who comes home arrives in time for evening prayers. The landing point drifts about a hand's width a year, which I think means the mountain is breathing and the Kirin Tor think means I'm wrong." } },
       choices = {
         { text = "Someone should fix the anchor before it drifts too far.", next = "BACK", reply = "I've written to them about it, twice, with diagrams! They wrote back to ask who'd given me permission to measure it.", fx = { align = { order = 1 } } },
         { text = "Let it drift. A breathing mountain sounds wonderful.", next = "BACK", reply = "Doesn't it? I've started leaving a little cushion on the landing spot, just in case it sneezes.", fx = { affinity = 1, align = { order = -1 } } },
@@ -2089,7 +2089,7 @@ P:NPC {
       },
     },
     mi_dwarf = {
-      lines = { { id = "mid_default", text = "Because the dwarves who came to the Hall wanted to study rock, not air, and the gnomes who came had just lost a city and wanted very badly to be able to leave one quickly. I'd be delighted to be the first to teach a dwarf portals, provided you stop tapping the anchoring stones with your knuckles to see if they're sound." } },
+      lines = { { id = "mid_default", text = "Because the dwarves who came to the Hall wanted to study rock, not air, and the gnomes had just lost a city and wanted very badly to be able to leave one quickly. I'd be delighted to teach the first dwarf portals, provided you stop tapping the anchoring stones with your knuckles to see if they're sound." } },
       choices = {
         { text = "They are sound. I checked.", next = "BACK", fx = { trait = { witty = 1 } } },
         { text = "Something else, Milstaff.", next = "BACK" },

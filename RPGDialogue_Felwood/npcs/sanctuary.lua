@@ -859,7 +859,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "It goes down to the roots and the water both, so salves and seeds take seasons to show anything. My people would say Elune's light has gone out of this place, and yours would say the spirits are sick, and I think we're describing the same wound from opposite sides. That's as near as I'll come to agreeing with the Horde today." } },
+      lines = { { id = "xhsham_default", text = "It goes down to the roots and water both, so salves take seasons to show anything. My people would say Elune's light has gone out of this place, and yours would say the spirits are sick, and I think we're describing the same wound from opposite sides. That's as near as I'll come to agreeing with the Horde today." } },
       choices = {
         { text = "The spirits don't care about banners, and neither do I.", next = "BACK", reply = "Then you're welcome here, shaman, whatever your banner says. The roots don't know an orc from an elf.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "My place is with the Horde, and I'll mend from there.", next = "BACK", reply = "That's honest, and I'll take honest help from anywhere. Mend from wherever you stand.", fx = { align = { order = 1 } } },

@@ -1221,7 +1221,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Spoil them? It keeps them, friend, it's the best larder in Kalimdor! The trouble is getting the stores here at all, through the tunnels or over the pass, and the snow shuts one or the other every week. The way I see it, the frost spirits and I have a deal: they keep my meat cold, and I don't complain about the wind." } },
+      lines = { { id = "xhsham_default", text = "Spoil them? It keeps them, friend, best larder in Kalimdor! The trouble is getting the stores here at all, through the tunnels or over the pass, and the snow shuts one or the other weekly. The frost spirits and I have a deal: they keep my meat cold, and I don't complain about the wind." } },
       choices = {
         { text = "That's a fair bargain. Keep your word to the frost.", next = "BACK", reply = "I always do, friend, and the frost's never once let me down. I just wish it'd let the caravans through more often.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "No bargain binds the wind. It'll take what it likes.", next = "BACK", reply = "Probably not, but it's held for me so far, and I'm not about to stop asking nicely. You'd be surprised what the wind likes.", fx = { align = { order = -1 } } },

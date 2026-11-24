@@ -262,7 +262,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "The wind over this forest is foul, shaman; it carries the stink of the river and something worse besides, and the beasts fight their harness when we climb through it. I fly them high and fast and never let them drink below. If the air spirits are sick here, I'd thank you to say a word to them on my riders' behalf." } },
+      lines = { { id = "xhsham_default", text = "The wind over this forest is foul, shaman; it carries the stink of the river and something worse besides, and the beasts fight their harness in it. I fly them high and fast and never let them drink below. If the air spirits are sick here, I'd thank you to say a word to them on my riders' behalf." } },
       choices = {
         { text = "I'll ask the wind's leave properly, by the old rites.", next = "BACK", reply = "Good, shaman. Do it before you mount, and maybe my beasts will climb easier out of this stink.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I don't bother with rites. I tell the wind what I need.", next = "BACK", reply = "Then the wind might tell you something back, and you won't like it. Mind how you speak to it.", fx = { align = { order = -1 } } },
@@ -448,7 +448,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "I don't know, shaman, and I've asked myself that every morning I've stood at this counter. In Mulgore the soil was black and sweet, but here it's grey and it stings the hand, and even the water I sell has to be carried in from outside. The Emerald Circle says it can be mended, and I'd like to believe them, though I've seen what runs in that river." } },
+      lines = { { id = "xhsham_default", text = "I don't know, shaman, and I ask myself that every morning. In Mulgore the soil was black and sweet, but here it's grey and it stings the hand, and even my water is carried in from outside. The Emerald Circle says it can be mended, and I'd like to believe them, though I've seen what runs in that river." } },
       choices = {
         { text = "We owe the Earth Mother our help. I'll do my part.", next = "BACK", reply = "Then go to the druids at the Sanctuary, friend, and tell them Bale sent you. They will put you to work.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Some land is lost. Our strength is better spent elsewhere.", next = "BACK", reply = "Perhaps, but I am not ready to say so, not while the druids are still trying. The Earth Mother does not give up on her children.", fx = { align = { honor = -1 } } },

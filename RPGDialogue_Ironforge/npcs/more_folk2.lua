@@ -5747,7 +5747,7 @@ P:NPC {
       },
     },
     doom = {
-      lines = { { id = "dm_default", text = "Then you'll learn to call down an infernal, which is a burning stone with a demon inside it, and to work the Ritual of Doom with others of the craft. The infernal will turn on you once its binding wears off, and the doomguard demands a life before it will serve, so neither is a toy, and both are exactly what the Legion threw at Hyjal." } },
+      lines = { { id = "dm_default", text = "Then you'll learn to call down an infernal, a burning stone with a demon inside, and to work the Ritual of Doom with others of the craft. The infernal turns on you once its binding fades, and the doomguard demands a life before it serves, so neither is a toy, and both are exactly what the Legion threw at Hyjal." } },
       choices = {
         { text = "A life? Whose?", next = "doom2" },
         { text = "Train me, then.", next = "BUSINESS" },

@@ -1065,7 +1065,7 @@ P:NPC {
       choices = { { text = "That is a thin sort of comfort.", next = "BACK", reply = "It is the only sort this cavern offers, and I have learned to be content with it." }, { text = "Let's move on.", next = "BACK" } },
     },
     shop_students = {
-      lines = { { id = "ss_default", text = "Very few, because a dwarf who feels the pull of it usually drinks until it goes away. Most who come down these stairs are gnomes out of Tinker Town or humans who found Stormwind too watchful, and I turn away the ones who are only angry, since anger is a poor reason to open a door that does not close again." } },
+      lines = { { id = "ss_default", text = "Very few, because a dwarf who feels the pull usually drinks until it goes away. Most who come down these stairs are gnomes from Tinker Town or humans who found Stormwind too watchful, and I turn away the ones who are only angry, since anger is a poor reason to open a door that does not close again." } },
       choices = {
         { text = "At least you turn some away.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else, then.", next = "BACK" },
@@ -1263,7 +1263,7 @@ P:NPC {
       },
     },
     hp_food = {
-      lines = { { id = "hpf_default", text = "Depends on the beast. A boar'll eat anythin' ye drop, a bear likes fish an' fruit an' bread, an' a cat or a wolf wants meat an' looks at ye like ye've insulted its mother if ye offer it a biscuit. Feed it somethin' near its own strength, too, for a beast that's grown past wolf meat won't thank ye for it." } },
+      lines = { { id = "hpf_default", text = "Depends on the beast. A boar'll eat anythin' ye drop, a bear likes fish an' fruit an' bread, an' a cat or wolf wants meat an' looks at ye like ye've insulted its mother if ye offer a biscuit. Feed it somethin' near its own strength, for a beast grown past wolf meat won't thank ye for it." } },
       choices = {
         { text = "I'll carry what it likes, even if it costs me.", next = "BACK", reply = "That's a good hunter, an' yer beast will know it, even if ye never see it say so.", fx = { align = { light = 1 } } },
         { text = "It'll eat what I have, or go hungry.", next = "BACK", reply = "Then it'll go hungry, an' then it'll go, an' ye'll have only yerself tae blame.", fx = { align = { light = -1 } } },

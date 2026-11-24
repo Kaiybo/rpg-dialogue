@@ -161,7 +161,7 @@ P:NPC {
     xcl_bfd = {
       big = true,
       lines = {
-        { id = "xcl_bfd_default", text = "Then you have seen more than any of my scouts, because the ones I sent down never came back to tell me. The naga in that water carry the same taint I have been chasing through Darkshore since the moonkin went mad, and I have long suspected that the sickness on our shore and the chanting in Blackfathom grow from one root." },
+        { id = "xcl_bfd_default", text = "Then you have seen more than any of my scouts, because the ones I sent never came back. The naga in that water carry the same taint I have been chasing through Darkshore since the moonkin went mad, and I have long suspected that the sickness on our shore and the chanting in Blackfathom grow from one root." },
       },
       choices = {
         { text = "Seal the Deeps for good, before anything else crawls out.", next = "BACK", reply = "That would be the wisest course, I think. The Deeps were a temple to Elune once, and look what has crawled out of them since.", fx = { affinity = 1, align = { order = 1 } } },

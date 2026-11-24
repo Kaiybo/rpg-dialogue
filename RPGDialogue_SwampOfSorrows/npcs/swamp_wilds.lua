@@ -63,8 +63,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Into their huts by the water, I imagine, because murlocs love anything shiny and haven't the faintest idea what's actually in it. Follow the smell of fish and the trail of wet footprints, and you'll find it, I'm certain." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Into their huts by the water, I imagine, because murlocs love anything shiny and haven't the faintest idea what's actually in it. Follow the smell of fish and the trail of wet footprints, and you'll find it, I'm certain. And maybe {pet} could sniff it out, since it smells of me, and I haven't washed in a week, which is the one thing working in our favor." },
+        { id = "xhuntcl_default", text = "Into their huts by the water, I imagine, because murlocs love anything shiny and haven't the faintest idea what's actually in it. Follow the smell of fish and the trail of wet footprints, and you'll find it." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Into their huts by the water, I imagine, because murlocs love anything shiny and haven't the faintest idea what's actually in it. Follow the smell of fish and the trail of wet footprints, and you'll find it. And maybe {pet} could sniff it out, since it smells of me, and I haven't washed in a week." },
       },
       choices = {
         { text = "I'll find your strongbox and return it untouched.", next = "BACK", reply = "Untouched! Friend, you're an honest one, and I'll not forget it. Follow the smell; you can't miss it.", fx = { align = { honor = 1 } } },

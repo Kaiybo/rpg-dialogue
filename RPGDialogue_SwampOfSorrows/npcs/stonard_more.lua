@@ -53,8 +53,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Swamp jaguars, if you're quick, and the big crocolisks along the shore if you're brave, and the spiders if you're daft. None of it tastes good, but Karakul will cook anything you bring him and never asks what it was." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Swamp jaguars, if you're quick, and the big crocolisks along the shore if you're brave, and the spiders if you're daft. None of it tastes good, but Karakul will cook anything you bring him and never asks what it was. Your {pet} looks like it would enjoy chasing a jaguar through the reeds, so let it, and bring back whatever's left." },
+        { id = "xhuntcl_default", text = "Swamp jaguars, if you're quick, and the big crocolisks along the shore if you're brave None of it tastes good, but Karakul will cook anything you bring him and never asks what it was." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Swamp jaguars, if you're quick, and the big crocolisks along the shore if you're brave None of it tastes good, but Karakul will cook anything you bring him and never asks what it was. Your {pet} looks like it would enjoy chasing a jaguar through the reeds, so let it, and bring back whatever's left." },
       },
       choices = {
         { text = "I hunt only what the town needs, no more.", next = "BACK", reply = "Good, and Karakul will thank you for it. Bring him jaguar if you can; the grunts are sick of crocolisk.", fx = { align = { light = 1 } } },
@@ -291,8 +291,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Dry them every day, check their feet for rot and keep the leeches off, because a swamp leech will drain a beast weaker than any wound. It's dull work, but a hunter who skips it ends up with a sick animal and no idea why." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Dry them every day, check their feet for rot and keep the leeches off, because a swamp leech will drain a beast weaker than any wound. It's dull work, but a hunter who skips it ends up with a sick animal and no idea why. Check {pet}'s paws tonight, I'd say, because the mud gets between the pads and festers if you leave it." },
+        { id = "xhuntcl_default", text = "Dry them every day, check their feet for rot and keep the leeches off, because a swamp leech will drain a beast weaker than any wound. A hunter who skips it ends up with a sick animal and no idea why." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Dry them every day, check their feet for rot and keep the leeches off, because a swamp leech will drain a beast weaker than any wound. A hunter who skips it ends up with a sick animal and no idea why. Check {pet}'s paws tonight, because the mud gets between the pads and festers if you leave it." },
       },
       choices = {
         { text = "Daily care is a hunter's first duty to his beast.", next = "BACK", reply = "It is, and you'll make a fine handler for knowing it. Dull work keeps beasts alive.", fx = { align = { order = 1 } } },
@@ -464,8 +464,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and on a bad night I'll take a hatred I can see coming." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Better isn't the word I'd use, but they're more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and on a bad night I'll take a hatred I can see coming. Your {pet} would be torn to pieces by a felhunter in a heartbeat, but it does look happier than any demon I've ever bound." },
+        { id = "xhuntcl_default", text = "Not better, but more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and on a bad night I'll take a hatred I can see coming." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Not better, but more useful if you know how to bind them, and they never need feeding. A beast loves you and a demon hates you, and on a bad night I'll take a hatred I can see coming. Your {pet} would be torn to pieces by a felhunter in a heartbeat, but it looks happier than any demon I've bound." },
       },
       choices = {
         { text = "I'd take a loyal beast over any bound demon.", next = "BACK", reply = "Most would, and most die loving their beasts. I'll keep my demons and my wits.", fx = { align = { light = 1 } } },
@@ -637,8 +637,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "When I can get them, aye, because a warrior who's only fought other warriors will freeze the first time a swamp jaguar comes at him out of the reeds. A hunter's beast makes a fine sparring partner, if it's patient and the hunter keeps a hand on the lead." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "When I can get them, aye, because a warrior who's only fought other warriors will freeze the first time a swamp jaguar comes at him out of the reeds. A hunter's beast makes a fine sparring partner, if it's patient and the hunter keeps a hand on the lead. Your {pet} looks like it would give my recruits a good fright, which is exactly what they need." },
+        { id = "xhuntcl_default", text = "When I can, aye, because a warrior who's only fought warriors freezes the first time a swamp jaguar leaps out of the reeds. A hunter's beast makes a fine sparring partner, if it's patient and the hunter keeps a hand on the lead." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "When I can, aye, because a warrior who's only fought warriors freezes the first time a swamp jaguar leaps out of the reeds. A hunter's beast makes a fine sparring partner, if it's patient and the hunter keeps a hand on the lead. Your {pet} looks like it would give my recruits a good fright, which they need." },
       },
       choices = {
         { text = "Disciplined sparring saves lives in the field. It's worth doing.", next = "BACK", reply = "It is, and I'm glad you see it. Come to the yard and spar with the recruits.", fx = { align = { order = 1 } } },

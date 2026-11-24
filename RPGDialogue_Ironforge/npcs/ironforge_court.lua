@@ -1075,7 +1075,7 @@ P:NPC {
     },
     gn_fall = {
       lines = {
-        { id = "gnf_default", text = "I've tried, and yer people keep me honest by correcting every line. What I have is this: something rose up from the deep places under Gnomeregan, the troggs came with it, and Mekkatorque, on Thermaplugg's counsel, flooded the city with poison to drive them out. It killed more gnomes than troggs, and Thermaplugg stayed behind in the ruin, which I find very interesting indeed." },
+        { id = "gnf_default", text = "I've tried, and yer people keep me honest by correcting every line. Something rose from the deep places under Gnomeregan, the troggs came with it, and Mekkatorque, on Thermaplugg's counsel, flooded the city with poison to drive them out. It killed more gnomes than troggs, and Thermaplugg stayed behind in the ruin, which I find very interesting indeed." },
       },
       choices = {
         { text = "Thermaplugg betrayed us. Write it plainly.", next = "BACK", reply = "Then I'll write it plainly, with yer name beside it as the witness, for a history needs more than one blind dwarf's suspicion. Thank ye.", fx = { align = { order = -1 } } },
@@ -1605,7 +1605,7 @@ P:NPC {
     },
     gn_map = {
       lines = {
-        { id = "gnm_default", text = "We had a few of the outer halls, the ones your people let us see, though your engineers kept rebuilding them faster than we could draw them. Since the fall we've had a team go in as far as the radiation lets them, and they came back with maps, a terrible cough and a deep respect for whatever your Mekkatorque built down there." },
+        { id = "gnm_default", text = "We had a few of the outer halls your people let us see, though your engineers rebuilt them faster than we could draw them. Since the fall a team has gone in as far as the radiation allows, and came back with maps, a terrible cough and a deep respect for whatever your Mekkatorque built down there." },
       },
       choices = {
         { text = "We'll take it back. The maps will matter then.", next = "gn_map_back", fx = { align = { honor = 1 } } },
@@ -2063,7 +2063,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Today, curiosity, an' I'll hear about it from my colleagues. The old Senate families think the Titans shaped the stone an' left it tae us, so it's ours tae carve an' no' ours tae chat with. The League's seen too much in Uldaman an' the deep places tae be so sure, an' I'm no' sure o' anything anymore, which makes me a poor senator." } },
+      lines = { { id = "xdsham_default", text = "Today, curiosity, an' I'll hear about it from my colleagues. The old Senate families think the Titans shaped the stone an' left it tae us, ours tae carve an' no' ours tae chat with. The League's seen too much in Uldaman tae be so sure, an' I'm no' sure o' anything anymore, which makes me a poor senator." } },
       choices = {
         { text = "The Senate's caution has kept Ironforge standing, Senator.", next = "BACK", reply = "Maybe it has. It's also kept the Senate warm an' the quarry cold, an' I've had my fill o' both.", fx = { align = { order = 1 } } },
         { text = "Curiosity is exactly what the Senate's been missing.", next = "BACK", reply = "Say that again, louder! I've been arguin' that very point in the Senate for twenty years.", fx = { affinity = 1, align = { order = -1 } } },
@@ -2475,7 +2475,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Some do, an' they mutter into their mugs, but the Stonefire's had worse at the bar, includin' a Dark Iron spy we didnae catch till he'd drunk half a barrel. Tell us a good story an' they'll forget what ye are by the third round." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some do, an' a few at the bar have turned their stools tae watch yer demon instead o' their mugs, but the Stonefire's had worse, includin' a Dark Iron spy we didnae catch till he'd drunk half a barrel. Tell us a good story an' they'll forget what ye are by the third round, though that thing might take a fourth." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Some do, an' a few at the bar have turned tae watch yer demon instead o' their mugs, but the Stonefire's had worse, includin' a Dark Iron spy we didnae catch till he'd drunk half a barrel. Tell us a good story an' they'll forget what ye are by the third round, though that thing might take a fourth." },
       },
       choices = {
         { text = "I'll tell the truth, even if it frightens them.", next = "BACK", reply = "The regulars might grumble, but they'll respect it. An honest, frightenin' story beats a dull, friendly one any night.", fx = { align = { honor = 1 } } },

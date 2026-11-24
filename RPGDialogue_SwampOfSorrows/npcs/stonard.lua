@@ -1020,8 +1020,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "You could, for they leave tracks like ducks in the mud and smell like a week-old fish market, but there are many of them and only one of you. Hunt them carefully, and remember what they did to me before you get too close." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "You could, for they leave tracks like ducks in the mud and smell like a week-old fish market, but there are many of them and only one of you. Hunt them carefully, and remember what they did to me before you get too close. Keep {pet} close out there, for the murlocs throw nets, and I saw a wolf caught in one once, and it did not end well." },
+        { id = "xhuntcl_default", text = "You could, for they leave tracks like ducks in the mud and stink of old fish, but there are many of them and only one of you. Hunt them carefully, and remember what they did to me before you get too close." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "You could, for they leave tracks like ducks in the mud and stink of old fish, but there are many of them and only one of you. Hunt them carefully, and remember what they did to me before you get too close. Keep {pet} close out there, for the murlocs throw nets, and I once saw a wolf caught in one." },
       },
       choices = {
         { text = "I'll hunt them carefully and honor what they took from you.", next = "BACK", reply = "Carefully, aye, and with honour. That's more than the murlocs gave us.", fx = { align = { honor = 1 } } },

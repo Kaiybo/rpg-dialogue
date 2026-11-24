@@ -62,7 +62,7 @@ P:NPC {
     },
     d_bears = {
       big = true,
-      lines = { { id = "dr_ghb_default", text = "They were bears once, and some of them still are, under the rot, and that's the worst of it. A druid who wears the bear in Felwood has to decide whether the thing in front of them is an enemy or kin who can't be reached any more, and you'll have to decide it quickly, because they won't wait for you." } },
+      lines = { { id = "dr_ghb_default", text = "They were bears once, and some of them still are, under the rot, and that's the worst of it. A druid who wears the bear in Felwood has to decide whether the thing in front of them is an enemy or kin who can't be reached any more, and decide it quickly, because they won't wait." } },
       choices = {
         { text = "I'll face them as kin, cleanly, and end it quickly.", next = "d_road", reply = "That's the only mercy left to most of them, and it's no small one. Say something to them when you do; I always have.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "They're beasts now. I'll do whatever keeps me alive.", next = "d_road", reply = "That will keep you alive, I don't doubt. Only don't let Felwood teach you to stop seeing what they were.", fx = { align = { honor = -1 } } },

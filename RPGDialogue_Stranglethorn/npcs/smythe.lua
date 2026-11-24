@@ -110,7 +110,7 @@ P:NPC {
     },
     salvage_fee = {
       big = true,
-      lines = { { id = "svf_default", text = "The Blackwater Raiders took the hulk, and the Baron ruled that any crew found aboard a captured ship was salvage, at so much a head. I couldn't pay my own price, so I spent three years tallying crates on the docks for the Cartel until I'd bought myself back, and by then I had a room, a trade and no reason to leave." } },
+      lines = { { id = "svf_default", text = "The Blackwater Raiders took the hulk, and the Baron ruled that any crew aboard a captured ship was salvage, at so much a head. I couldn't pay my own price, so I spent three years tallying crates for the Cartel until I'd bought myself back, and by then I had a room, a trade and no reason to leave." } },
       choices = {
         { text = "A debt's a debt, even a strange one. You were right to pay it.", next = "BACK", reply = "That's what I told myself, every coin of the way, and I think it's why the Baron trusted me after. A witness who'd skip on his own debt wouldn't be worth much.", fx = { align = { order = 1 }, learn = { "steamwheedle" } } },
         { text = "I'd have slipped aboard the first ship north and owed nobody.", next = "BACK", reply = "Plenty tried, and the Bruisers fished most of them out of the harbour. The ones they didn't fish out, well, the sharks hold the receipts for those.", fx = { align = { order = -1 }, learn = { "steamwheedle" } } },

@@ -590,7 +590,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Anything Kurzen's men might have eaten or brewed, because I've begun to wonder whether some of the madness came out of a pot rather than a curse. The trolls know which leaves turn a man's mind, and I'd wager somebody learned it from them." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Anything Kurzen's men might have eaten or brewed, because I've begun to wonder whether some of the madness came out of a pot rather than a curse. The trolls know which leaves turn a man's mind, and I'd wager somebody learned it from them. And watch what {pet} eats out there, too, because if I'm right about those leaves, the beasts may know about them before we do." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Anything Kurzen's men might have eaten or brewed, because I wonder whether some of the madness came out of a pot rather than a curse. The trolls know which leaves turn a man's mind, and somebody may have learned it from them. And watch what {pet} eats out there, because the beasts may know those leaves before we do." },
       },
       choices = {
         { text = "If it's poison, it can be cured. I'll help you find it.", next = "BACK", reply = "Thank you, friend, I'll take any help I can get. A poison has a cure, but madness has only prayers.", fx = { align = { light = 1 } } },

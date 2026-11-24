@@ -44,7 +44,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Everyone should learn to stand properly, because the day comes when the thing you summoned is gone and the enemy is not. I've seen your sort fall because they forgot they had legs, and I'd teach you to use yours, if you can bear to hear the same lesson twenty times." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Everyone should learn to stand properly, because the day comes when the thing you summoned is gone and the enemy is not, and yours won't always be at your heel the way it is now. I've seen warlocks fall because they leaned on their demons and forgot their legs, so send it to the corner and show me how you stand without it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Everyone should learn to stand properly, because the day comes when the thing you summoned is gone and the enemy is not. I've seen warlocks fall because they leaned on their demons and forgot their legs, so send yours to the corner and show me how you stand without it." },
       },
       choices = {
         { text = "Then teach me, Master Shen, twenty times if needed.", next = "BACK", reply = "Twenty times, then forty, and you will curse me for every one. That is how I know it is working.", fx = { align = { order = 1 } } },

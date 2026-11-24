@@ -435,7 +435,7 @@ P:NPC {
       },
     },
     terrace2 = {
-      lines = { { id = "tc2_default", text = "People say to a cook what they would not say to a priestess, because nobody is ashamed in front of a stew. This season the talk is all of the young ones leaving for Darkshore and Ashenvale, and of how few come back to visit. I send them off with a recipe each, so that they will at least eat properly where they are going." } },
+      lines = { { id = "tc2_default", text = "People say to a cook what they would not say to a priestess, because nobody is ashamed in front of a stew. This season the talk is of the young ones leaving for Darkshore and Ashenvale, and how few return. I send them off with a recipe each, so that they will at least eat properly where they are going." } },
       choices = {
         { text = "They should stay and guard their own tree.", next = "BACK", reply = "Some of the elders say so, and I understand it. But a tree that keeps all its seeds grows no forest.", fx = { align = { order = 1 } } },
         { text = "Let them go. The world needs them out in it.", next = "BACK", reply = "I think so too, though my fire is lonelier for it. Go well, then, and eat before you travel.", fx = { align = { order = -1 } } },

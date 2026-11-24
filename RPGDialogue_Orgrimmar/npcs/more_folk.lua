@@ -2434,7 +2434,7 @@ P:NPC {
     },
     orcs3 = {
       big = true,
-      lines = { { id = "or3_default", text = "Survive unsinged, I mean, relax! Nobody's died on my bench, and I got the paperwork to prove it. Listen, between us, I like the big lugs. One of my students rebuilt my whole steam press after it went up, wouldn't take a copper, said it was owed. I didn't know what to do with that, so I gave him a wrench." } },
+      lines = { { id = "or3_default", text = "Survive unsinged, I mean, relax! Nobody's died on my bench, and I got the paperwork to prove it. Between us, I like the big lugs. One of my students rebuilt my whole steam press after it went up, wouldn't take a copper, said it was owed. I didn't know what to do with that, so I gave him a wrench." } },
       choices = {
         { text = "That's the Horde. Debts of honor, not coin.", next = "BACK", reply = "Yeah, I'm getting that, and it's wrecking my bookkeeping. Good wrench, though. He cried a little.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "You should have billed him for the lesson in repairs.", next = "BACK", reply = "Ha! Now you're talking my language, friend. I thought about it, and then I didn't, and don't tell the Cartel.", fx = { align = { honor = -1 } } },

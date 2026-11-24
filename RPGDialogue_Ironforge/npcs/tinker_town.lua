@@ -442,7 +442,7 @@ P:NPC {
     },
     ne_balance = {
       lines = {
-        { id = "neb_default", text = "Wrong? No, not entirely, but not right either. I wrote to Darnassus to ask how they keep Teldrassil's roots supplied with water at that height, which is a perfectly reasonable engineering question, and four months later I received one line back, which said 'Through balance', and I have read it every day since and it still contains no numbers at all." },
+        { id = "neb_default", text = "Wrong? Not entirely, but not right either. I wrote to Darnassus asking how they keep Teldrassil's roots supplied with water at that height, a perfectly reasonable engineering question, and four months later received one line back: 'Through balance'. I have read it every day since, and it still contains no numbers at all." },
       },
       choices = {
         { text = "You keep gnomish secrets under a pledge, Tinkmaster.", next = "ne_pledge" },

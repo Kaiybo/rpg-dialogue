@@ -28,7 +28,7 @@ P:NPC {
   nodes = {
     tb_wand = {
       big = true,
-      lines = { { id = "tbw_default", text = "Because a wand is a little vessel that holds a mage's spare breath, and it learns the shape of the hand that gathered it. Jade holds the charge, a lightning-struck bramble gives it a spark, and a passage in a certain old book tells me how to bind the two without blowing my roof off, and I want you to have touched every piece of it." } },
+      lines = { { id = "tbw_default", text = "Because a wand is a little vessel that holds a mage's spare breath, and it learns the hand that gathered it. Jade holds the charge, a lightning-struck bramble gives it a spark, and an old book tells me how to bind the two without blowing my roof off, and I want you to have touched every piece." } },
       choices = {
         { text = "Gathering it myself is the honest way.", next = "BACK", reply = "It is, dear, and you'll be able to say so in every tavern in the Alliance, which is half the pleasure of it.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A wand's a tool. I'd sooner buy one and save the bother.", next = "BACK", reply = "Then Ardwyn Cailen in Stormwind will sell you a very polite one, and you'll never know what you missed.", fx = { align = { honor = -1 } } },
@@ -41,7 +41,7 @@ P:NPC {
     },
     tb_tirth = {
       big = true,
-      lines = { { id = "tbt_default", text = "Tirth was the finest scholar of ritual magic in his generation, and he could make a circle hold for a week on nothing but stubbornness. Then he discovered gnomes racing goblins across the Shimmering Flats, and the wagers that go with them, and now I hear he sold his last copy of his own book to pay a debt, which is almost too sad to be funny." } },
+      lines = { { id = "tbt_default", text = "Tirth was the finest scholar of ritual magic in his generation, and he could make a circle hold for a week on nothing but stubbornness. Then he discovered gnomes racing goblins across the Shimmering Flats, and now I hear he sold his last copy of his own book to pay a debt, which is almost too sad to be funny." } },
       choices = {
         { text = "Poor man. Somebody ought to help him.", next = "BACK", reply = "Somebody should, and I write to him every winter, and every winter he bets the stamp.", fx = { align = { light = 1 } } },
         { text = "A scholar who gambles away his life's work deserves it.", next = "BACK", reply = "Perhaps he does, though I'd not say it to his face, because he still knows a hex or two.", fx = { align = { light = -1 } } },
@@ -64,7 +64,7 @@ P:NPC {
     },
     tb_tiara = {
       big = true,
-      lines = { { id = "tbti_default", text = "Velratha, a hydromancer of the sand trolls, has a tiara of mine down in Zul'Farrak, the Tiara of the Deep, which I made long ago for working the sea, and she came by it through a bad bargain I'd rather not discuss. It holds water magic beautifully, and I'd sooner it sat on my shelf than on a troll's head, for everyone's sake." } },
+      lines = { { id = "tbti_default", text = "Velratha, a hydromancer of the sand trolls, has a tiara of mine down in Zul'Farrak, the Tiara of the Deep, which I made for working the sea, and she came by it through a bad bargain I'd rather not discuss. I'd sooner it sat on my shelf than on a troll's head, for everyone's sake." } },
       choices = {
         { text = "I'll bring it back to you, Tabetha.", next = "BACK", reply = "Bless you, dear, and bring a priest along too, because Velratha fights dirty and so do her friends.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "What's it worth to you, exactly?", next = "BACK", reply = "A good deal, dear, and you'll be paid in what I have, which is mostly shoulder pads and gratitude.", fx = { align = { honor = -1 } } },
