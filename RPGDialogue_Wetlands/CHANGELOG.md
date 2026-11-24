@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.33.0 (2026-11-24): Letters from Afar
+- Sylessa Duskwhisper gets her own dialogue.
+
 ## 1.32.0 (2026-11-23): The Overlooked
 - Characters who had no conversation now have one (core 0.105.0).
 
