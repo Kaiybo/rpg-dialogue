@@ -49,7 +49,7 @@ P:NPC {
   nodes = {
     d_old = {
       big = true,
-      lines = { { id = "dr_ma_default", text = "Every night, around the fires, because the old war is the reason we are here at all. A thousand years ago our people held this desert's edge against the qiraji until the dragons sealed them behind the Scarab Wall, and the Arch Druid's own son died before that wall, which is part of why Darnassus sends us so little, and remembers us so badly." } },
+      lines = { { id = "dr_ma_default", text = "Every night, around the fires, because the old war is the reason we are here at all. A thousand years ago our people held this desert's edge against the qiraji until the dragons sealed them behind the Scarab Wall, and the Arch Druid's own son died before that wall, which is partly why Darnassus sends us so little." } },
       choices = {
         { text = "Darnassus should send more, whatever the Arch Druid's grief.", next = "BACK", reply = "I have written as much, more politely, three times this year. The answers come back courteous and empty, and I go on asking.", fx = { align = { order = -1 } } },
         { text = "The Arch Druid has earned his distance from this place.", next = "BACK", reply = "Perhaps he has, and I would not wish his memories on anyone. But the silithid do not care what any of us have earned.", fx = { align = { order = 1 } } },

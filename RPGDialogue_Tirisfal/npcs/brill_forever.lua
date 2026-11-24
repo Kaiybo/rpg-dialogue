@@ -188,7 +188,7 @@ P:NPC {
     },
     bareth = {
       lines = {
-        { id = "ba_default", text = "He was carrying a message from the Keep to me when the Scarlet Crusade took him at the Crusader's Outpost. They meant to try him, for nothing more than standing up after he died, and Bareth told me afterward that it was their Light that frightened him most, because it was the same Light as his and it was full of hate." },
+        { id = "ba_default", text = "He was carrying a message from the Keep to me when the Scarlet Crusade took him at the Crusader's Outpost. They meant to try him for standing up after he died, and Bareth told me afterward that it was their Light that frightened him most, because it was the same Light as his and it was full of hate." },
       },
       choices = {
         { text = "The same Light? How can that be?", next = "same_light" },

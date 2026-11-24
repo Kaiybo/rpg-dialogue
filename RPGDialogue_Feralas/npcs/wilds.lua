@@ -900,7 +900,7 @@ P:NPC {
       },
     },
     b3_2 = {
-      lines = { { id = "b3_2_l", text = "They say so, and they are right; the great ruins the gordunni crawl through were an elven city long before the ogres came, and the stones still remember it. But the Feathermoon speak as though every tree from here to Darkshore is theirs for having been here first, and if being first were enough, the Earth Mother would own all of it, and her children with her." } },
+      lines = { { id = "b3_2_l", text = "They say so, and they are right; the ruins the gordunni crawl through were an elven city long before the ogres came. But the Feathermoon speak as though every tree from here to Darkshore is theirs for having been here first, and if being first were enough, the Earth Mother would own all of it, and her children with her." } },
       choices = {
         { text = "They were here first. Their claim is a fair one.", next = "BACK",
           reply = "Fair in their eyes, perhaps, and I will not spit on an old claim. But old claims do not feed a camp through the winter, and we are here now, with calves to feed.",

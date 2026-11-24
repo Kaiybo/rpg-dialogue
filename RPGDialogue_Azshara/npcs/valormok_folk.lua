@@ -72,7 +72,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Cursed enough that I won't feed anything from it to my orcs. The fruit in those woods looks fine and the water looks clean, but the elves who lived here broke something deep, and I'm not betting a warrior's belly on whether it's mended. Everything I sell comes in by wind rider, and I'll pay goblin freight before I bury another orc." } },
+      lines = { { id = "xhsham_default", text = "Cursed enough that I won't feed anything from it to my orcs. The fruit looks fine and the water clean, but the elves who lived here broke something deep, and I'm not betting a warrior's belly on whether it's mended. Everything I sell comes in by wind rider, and I'll pay goblin freight before I bury another orc." } },
       choices = {
         { text = "Keep your rules, Kurll. Discipline keeps this camp alive.", next = "BACK", reply = "They do, shaman, and I'll keep them, whatever anyone grumbles. Thank you for saying it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let the warriors forage. They've earned fresh food.", next = "BACK", reply = "They've earned it, aye, and they'll have it in Orgrimmar. Not here, not with the naga watching.", fx = { align = { order = -1 } } },

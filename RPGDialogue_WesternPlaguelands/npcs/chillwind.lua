@@ -73,7 +73,7 @@ P:NPC {
     },
     xpt_company = {
       big = true,
-      lines = { { id = "xpt_company_default", text = "Then I'll tell you what I tell every company: stay together north of the river, don't split to chase a straggler, and burn what you kill, because what you leave lying in the Plaguelands gets up again by morning. The Scourge would sooner take one of you than kill all five, since one of you is a new soldier for them." } },
+      lines = { { id = "xpt_company_default", text = "Then I'll tell you what I tell every company: stay together north of the river, don't split to chase a straggler, and burn what you kill, because what you leave lying here gets up by morning. The Scourge would sooner take one of you than kill all five, since one of you is a new soldier for them." } },
       choices = {
         { text = "No one gets left behind. We bring back our own.", next = "BACK", reply = "Good. That's the rule I'd have every company swear to, and it's kept more of my soldiers alive than any sword.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If one falls, the rest press on. The fight comes first.", next = "BACK", reply = "I've heard that before, {class}, usually from someone I later wrote a letter about. Press on if you must, but count heads first.", fx = { align = { honor = -1 } } },

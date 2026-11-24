@@ -443,7 +443,7 @@ P:NPC {
       },
     },
     kal_how = {
-      lines = { { id = "kho_d", text = "He didn't, not truly. No orc could have stood against Cenarius in his own wood, so Hellscream went back to the pit lord and drank again, and what swung that axe had the Legion's fire where its heart should have been. Cenarius had walked these woods since before the Sundering, and he fell all the same, and the forest has not sounded the same since." } },
+      lines = { { id = "kho_d", text = "He didn't, truly. No orc could have stood against Cenarius in his own wood, so Hellscream went back to the pit lord and drank again, and what swung that axe had the Legion's fire for a heart. Cenarius had walked these woods since before the Sundering, yet he fell, and the forest has not sounded the same since." } },
       choices = {
         { text = "And Hellscream? What became of him?", next = "kal_first2" },
         { text = "Something else, Raene.", next = "BACK" },

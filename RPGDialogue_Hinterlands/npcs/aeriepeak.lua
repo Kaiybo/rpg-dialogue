@@ -856,7 +856,7 @@ P:NPC {
     xnightelf_sky = {
       narr = "He grunts, and for once he doesn't look past you toward the aeries.",
       lines = {
-        { id = "xnes_default", text = "Aye, we do, an' that's more than I can say for my Bronzebeard cousins, who'd roof over the sky if they could find enough stone. They'll tell ye yer folk are stiff-necked an' proud, an' maybe ye are, but ye sleep under trees an' ride wild beasts, an' there's no' a dwarf in Ironforge who understands why a body would want tae." },
+        { id = "xnes_default", text = "Aye, we do, an' that's more than I can say for my Bronzebeard cousins, who'd roof over the sky if they could. They'll tell ye yer folk are stiff-necked an' proud, an' maybe ye are, but ye sleep under trees an' ride wild beasts, an' there's no' a dwarf in Ironforge who understands why a body would want tae." },
       },
       choices = {
         { text = "Then the Wildhammer are closer kin to us than to Ironforge.", next = "BACK",

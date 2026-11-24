@@ -769,7 +769,7 @@ P:NPC {
     },
     gr_spring = {
       lines = {
-        { id = "gxsp_default", text = "By spring? Then Light help me, I'll finally do it. I've a plan for Moonbrook I've shown nobody but Danuvin, a night march down the old cart road with every man on the hill, and I've never dared it because it needs twice the swords I have, so if the Keep actually sends them, we take the town back in one night and the farmers walk home behind us." },
+        { id = "gxsp_default", text = "By spring? Light help me, then I'll do it. I've a plan for Moonbrook only Danuvin has seen, a night march down the old cart road with every man on the hill, and it needs twice the swords I have, so if the Keep sends them, we take the town back in one night and the farmers walk home." },
       },
       choices = {
         { text = "I hope it comes to that, Commander.", next = "BACK" },

@@ -780,7 +780,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Not openly, for their priests can sniff out shadow the way a hound sniffs out a hare. But something sent ahead to make noise at the gate would give a quiet scout all the time she needed, and I'd have liked that kind of help." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not openly, for their priests can sniff out shadow the way a hound sniffs out a hare, and they'd smell yours from the valley floor. My people remember the Legion's servants from long before the humans had kingdoms, so I'll not pretend I like it at your heel, but sent ahead to make noise at the gate it would buy a quiet scout all the time she needed." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not openly, for their priests sniff out shadow like hounds, and they'd smell yours from the valley floor. My people remember the Legion's servants from long before the humans had kingdoms, so I'll not pretend I like it at your heel, but sent ahead to make noise at the gate it would buy a quiet scout the time she needed." },
       },
       choices = {
         { text = "The Crusade deserves no mercy. Use me, and what I bring.", next = "BACK", reply = "There's someone after my own heart. Make it loud, whatever it is.", fx = { affinity = 1, align = { light = -1 } } },

@@ -260,7 +260,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Oh, I read all sorts, and I've always been good at guessing how stories end. The ones about people who bargain with things from beyond tend to end badly, though not always, and I'd very much like yours to be one of the exceptions, if you'll let it." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Oh, I read all sorts, and I've always been good at guessing how stories end, and your demon has the look of a character who's waiting for the last chapter. The ones about people who bargain with things from beyond tend to end badly, so keep a firm hand on it, because I'd very much like yours to be the exception." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Oh, I read all sorts, and I'm good at guessing endings, and your demon has the look of a character who's waiting for the last chapter. The ones about people who bargain with things from beyond tend to end badly, so keep a firm hand on it, because I'd very much like yours to be the exception." },
       },
       choices = {
         { text = "I'll keep my bargains in check, Chromie. I promise.", next = "BACK", reply = "Good! I'd very much like your story to end well, and I'm usually right about these things.", fx = { affinity = 1, align = { light = 1 } } },

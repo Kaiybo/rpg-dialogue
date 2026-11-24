@@ -139,7 +139,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "It might, but the Forsaken down there keep dark company of their own, I'd wager, and they'd know a summoned thing the moment it crept past the fence. Phin taught us that the best way to watch is to be boring, and I've never met anything from the dark that knew how to be boring." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It might, but the Forsaken down there have warlocks of their own, I'd wager, and they'd know a summoned thing the moment it crept past the fence. Phin taught us that the best way to watch is to be boring, and your demon has been staring down at that farm like it wants to be anything but, so keep it low behind the ridge." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It might, but the Forsaken have warlocks of their own, and they'd know a summoned thing the moment it crept past the fence. Phin taught us that the best way to watch is to be boring, and your demon has been staring down at that farm like it wants to be anything but, so keep it low behind the ridge." },
       },
       choices = {
         { text = "Boring it is. I'll keep my creature back.", next = "BACK", reply = "Thank you. Boring keeps us alive, and I've grown very fond of boring since I came up this ridge.", fx = { affinity = 1, align = { order = 1 } } },

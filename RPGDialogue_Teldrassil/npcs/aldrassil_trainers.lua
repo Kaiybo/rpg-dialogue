@@ -611,7 +611,7 @@ P:NPC {
     },
     hr_aspect = {
       lines = {
-        { id = "hra_default", text = "An aspect is a way of standing in the world that you borrow from a beast, and the monkey's is the first, because it teaches you to slip aside from a blow you didn't see coming. Later there'll be the hawk for your aim and the cheetah for the road, and each one asks you to be a little less yourself for a while." },
+        { id = "hra_default", text = "An aspect is a way of standing in the world that you borrow from a beast, and the monkey's is the first, for it teaches you to slip an unseen blow. Later there'll be the hawk for your aim and the cheetah for the road, and each one asks you to be a little less yourself for a while." },
       },
       choices = {
         { text = "Is that the same as a druid's shapes?", next = "hr_aspect2" },

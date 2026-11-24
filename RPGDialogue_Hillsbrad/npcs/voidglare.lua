@@ -69,7 +69,7 @@ P:NPC {
     },
     m_binding = {
       big = true,
-      lines = { { id = "mb_default", text = "Not how, for I'm still learning that myself, and I don't hand out half a theory. But here is what I've found: they don't command the elemental at all, they persuade it that the bracer is its own body, and it obeys the bracer as you obey your own hand. Elegant and monstrous, and I'd give a great deal to have thought of it first." } },
+      lines = { { id = "mb_default", text = "Not how, for I'm still learning, and I don't hand out half a theory. But here is what I've found: they don't command the elemental at all, they persuade it that the bracer is its own body, and it obeys the bracer as you obey your own hand. Elegant and monstrous, and I wish I'd thought of it first." } },
       choices = {
         { text = "Monstrous. Some secrets should stay with them.", next = "BACK", reply = "Spoken like a priest. I'll take your squeamishness under advisement and ignore it entirely.", fx = { align = { light = 1 } } },
         { text = "Elegant. I want to learn it too.", next = "BACK", reply = "Then fetch me more bracers, and we'll learn it together, though I'll be taking the credit.", fx = { affinity = 1, align = { light = -1 } } },

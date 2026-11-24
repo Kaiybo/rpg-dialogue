@@ -661,7 +661,7 @@ P:NPC {
     },
     d_rau = {
       big = true,
-      lines = { { id = "dr_rc_default", text = "I did, on Elder Rise, and I learned the bear like everyone else, though I was never much good in it. Hamuul saw that I'd rather sit with an old carving than run with the herds, and he told me the Circle needs druids who read the past as much as ones who guard the present, and I've been reading ever since." } },
+      lines = { { id = "dr_rc_default", text = "I did, on Elder Rise, and learned the bear, though I was never much good in it. Hamuul saw that I'd rather sit with an old carving than run with the herds, and he told me the Circle needs druids who read the past as much as ones who guard the present, and I've been reading ever since." } },
       choices = {
         { text = "The past matters. Someone has to read it.", next = "BACK",
           reply = "That's kind, and it's what Hamuul told me when I doubted it. The centaur carvings out here are older than Freewind, and nobody else is going to sit with them.",

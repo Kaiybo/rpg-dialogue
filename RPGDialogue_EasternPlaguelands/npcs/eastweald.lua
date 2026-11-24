@@ -85,7 +85,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "Once I'd have said the Light was the only true path, and then an orc showed me more honour than my own order did, and it cost me everything I had. I've learned to judge a soul by what it does, and if the spirits lead you against the Scourge, then we walk the same road, whatever we call the one who lit it." } },
+      lines = { { id = "xdsham_default", text = "Once I'd have said the Light was the only true path, and then an orc showed me more honour than my own order did, and it cost me everything. I judge a soul by its deeds, and if the spirits lead you against the Scourge, then we walk the same road, whatever we call the one who lit it." } },
       choices = {
         { text = "The Light and the spirits both guard this world, Tirion.", next = "BACK", reply = "I've come to believe that, though it took an orc to teach me. Walk well, shaman.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Faith is only a weapon, Tirion. Use whichever one cuts.", next = "BACK", reply = "A weapon cuts both ways, friend, and faith used that way cuts the one holding it soonest. I'd be more careful with it.", fx = { align = { light = -1 } } },
@@ -114,7 +114,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "I do. He was an old warrior hiding from his own Horde, and he saved my life, and when my own people would have killed him for it, I couldn't stand by. They took my lands and my name, and they told my son I was a traitor, and I'd make the same choice again tomorrow, though I'd give a great deal to have Taelan understand it." } },
+      lines = { { id = "xhsham_default", text = "I do. He was an old warrior hiding from his own Horde, and he saved my life, and when my own people would have killed him for it, I couldn't stand by. They took my lands and my name, and they told my son I was a traitor, and I'd choose the same again, though I'd give much for Taelan to understand." } },
       choices = {
         { text = "You chose rightly, Tirion. Honour knows no colours.", next = "BACK", reply = "Thank you. Better men than you have told me otherwise, some of them under oath, and I still believe you're right.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Your own people came first. You should have remembered that.", next = "BACK", reply = "My own people came to kill a man who saved my life. I remembered them very well, friend.", fx = { align = { honor = -1 } } },

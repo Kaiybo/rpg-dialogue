@@ -54,7 +54,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "hu2_default",
-          text = "Not badly, pal, just like the help. They ask me to fix their gear and call it tinkering, and then the Refuge's name goes on the discoveries and mine goes on nothing, and back in Booty Bay a human lord once paid me for a clockwork songbird with a letter of credit from a bank that turned out to be a pigeon coop." },
+          text = "Not badly, pal, just like the help. They have me fix their gear, and then the Refuge's name goes on the discoveries and mine goes on nothing, and back in Booty Bay a human lord once paid me for a clockwork songbird with a letter of credit from a bank that turned out to be a pigeon coop." },
       },
       choices = {
         { text = "Humans are fair, mostly. That lord was one bad egg.", next = "BACK",

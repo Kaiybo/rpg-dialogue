@@ -331,7 +331,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I think he's right about most things, but he's never met one of your sort who could explain their craft as well as he explains his. If you told me how a soul shard holds its charge, I'd listen very politely and only take a few notes." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think he's right about most things, but he's never met a warlock who could explain their craft, and he's certainly never met {pet}, who's looking at my notebook in a way I find flattering and slightly alarming. If you told me how a soul shard holds its charge, I'd listen very politely, and I'd only ask to sketch your demon once." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I think he's right about most things, but he's never met a warlock who could explain their craft, and he's certainly never met {pet}, who's eyeing my notebook in a flattering, alarming way. If you told me how a soul shard holds its charge, I'd listen very politely, and I'd only ask to sketch your demon once." },
       },
       choices = {
         { text = "Knowledge should be free, even mine.", next = "BACK", reply = "That's a generous thought. I'll write down anything you're willing to tell me, and keep it from Malin.", fx = { affinity = 1, align = { order = -1 } } },
@@ -477,7 +477,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "They will, because I've trained them to carry anyone the Captain lets through the gate, but they'll flatten their feathers and fly fast, and I've had one try to shake a rider off over the Thandol Span. Treat the bird well and keep your company out of its sight, and you'll land where you meant to." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They will, because I've trained them to carry anyone the Captain lets through the gate, but you can see the feathers going flat all along the roost now your demon's in sight. Treat the bird well and send that thing out of the yard before we saddle up, or it'll try to shake you off over the Thandol Span the way the last one did." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They will, because I've trained them to carry anyone the Captain lets through the gate, but the feathers are going flat all along the roost. Treat the bird well and send that thing out of the yard before we saddle up, or it'll try to shake you off over the Thandol Span the way the last one did." },
       },
       choices = {
         { text = "I'll treat your birds with respect, Cedrik.", next = "BACK", reply = "Thank you. They'll notice, believe me; that big grey one bites anyone who doesn't.", fx = { affinity = 1, align = { order = 1 } } },
