@@ -375,7 +375,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Devlin Agamand still walks the Agamand Mills with what's left of his family, mindless and dangerous. Put them down for good, and the farms around the mills might be safe again." },
+    { id = "bl2", text = "The Crusade's patrols come down from the monastery road in the evening, and they hunt in small packs. Never assume you've seen the last of one." },
+    { id = "bl3", text = "The Undercity sends me more orders than soldiers, and the court argues while Brill bleeds. Don't repeat that where the Dark Lady's people can hear it." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've been more trouble in Tirisfal than you've been worth, and I keep careful count of both. That is my problem with you." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "You wore the Crusade's red before you died, and I've hanged scouts who stood exactly the way you're standing now. Give me a reason to stop watching you." },
+      { id = "gv_town", when = { grudge = "town" }, text = "Brill's Deathguard report everything to me, and your name keeps turning up in those reports. None of the mentions are flattering." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're Alliance, in the heart of the Dark Lady's lands, and you expect me to answer you civilly. Count yourself lucky I'm answering at all." },
+    },
+    amends = {
+      { id = "am1", text = "Kill Scarlets for the Deathguard and bring me proof of it. The Dark Lady's enemies are the only currency I accept." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Spill enough Scarlet blood that nobody could mistake you for one of theirs. Then we'll talk about trust." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're a liability walking about in good armor. If the Crusade takes you, I'll not waste a single Deathguard getting you back." },
+      { id = "sp_prej", when = { grudge = "prejudice" }, text = "I think you never stopped being Scarlet, and one day you'll prove it. When you do, I'll be the one holding the rope." },
+    },
     humans = { { id = "tp_humans", text = "The Scarlet Crusade calls itself the last pure men of Lordaeron, and the rest of humanity simply wants us burned by somebody else. I keep the Deathguard on the walls, and I don't take prisoners for conversation." } },
     knows = {
       { id = "tp_knows", text = "Reports reach me from every field and road in Tirisfal. Ask what you need, and keep it brief." },

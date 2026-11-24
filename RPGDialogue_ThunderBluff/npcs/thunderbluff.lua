@@ -704,7 +704,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Grimtotem raid the Venture Company and the night elves alike in Stonetalon, and they carry Thunder Bluff's name when they do it. Magatha swears she knows nothing of it, and I have no proof yet that she lies." },
+    { id = "bl2", text = "There are dwarves digging at Bael'dun in Mulgore, turning over our land for reasons they won't share. My braves drive them off, and each season they come back with more." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I don't hold anger long, young one, but I hold it longer than you'd think. You've given me cause, and you know it as well as I do." },
+      { id = "gv_rival", when = { grudge = "rival" }, text = "You've been walking Elder Rise in Magatha's company and carrying her words for her. I know the Grimtotem, and I know what those words are for." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You've shed blood that didn't need shedding and called it bravery. The Earth Mother does not see it that way, and neither do I." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You come to my High Rise wearing the Alliance's colours while your dwarves dig in Mulgore. I'll keep the peace with you, but I'll not pretend I welcome you." },
+    },
+    amends = {
+      { id = "am1", text = "Walk the plains with honor for a time, and let your deeds speak where your words have failed. The Earth Mother forgives, and so, in time, do I." },
+      { id = "am_rival", when = { grudge = "rival" }, text = "Choose whom you serve on this bluff with more care. Magatha's gifts all come with a price, and you've already begun paying it." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you have strength without wisdom, young one, and I've buried too many who had the same. I had hoped to be wrong about you." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you carry the old Horde's bloodlust and call it honor. Thrall cast that off, and the tauren never wore it, so take it elsewhere." },
+    },
     humans = { { id = "tp_humans", text = "I fought beside humans on Hyjal and against their admiral in Durotar, so I've seen both faces. Lady Proudmoore keeps the peace in Theramore, and I pray to the Earth Mother that her soldiers at Northwatch learn it from her." } },
     _gated = {
       { id = "gt1", text = "That's a matter I keep for those I know well, and we've only begun to know each other. Walk with us a while longer, and I'll speak of it gladly." },
@@ -1231,7 +1249,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The oases of the Barrens are failing because Naralex's own disciples turned on him in the Wailing Caverns. They call themselves the Druids of the Fang now, and they are twisting his dream into a nightmare." },
+    { id = "bl2", text = "Magatha still says no tauren should have learned the druid's path from a night elf, and she says it loudest when Cairne is out of hearing. The Grimtotem have never forgiven Malfurion, or me." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "Even a druid's patience has its season, traveller, and you've let mine pass. There is no balance between us now, and I'd be lying to say otherwise." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You take from the wild without giving anything back, and you seem proud of it. The land keeps a reckoning, and I keep a smaller one." },
+      { id = "gv_rival", when = { grudge = "rival" }, text = "You've been running errands for Magatha on this very rise. She has never forgiven Malfurion for teaching a tauren, and I wonder what she's told you of me." },
+      { id = "gv_tone_b", when = { grudge = "tone", tone = "blunt" }, text = "You speak to the elders here as if we were stubborn kodo to be driven. The old ones are thinking, and they think better without shouting." },
+    },
+    amends = {
+      { id = "am1", text = "Go and heal something that is hurt, whether a grove, a beast or a person. Balance returns slowly, but it does return." },
+      { id = "am_values", when = { grudge = "values" }, text = "Plant where you have burned, and spare what you would have taken. Do that for a season, and then come back to me." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are like a fire in dry grass, traveller, consuming everything and calling it growth. The land will put you out, as it puts out every fire." },
+      { id = "sp_rival", when = { grudge = "rival" }, text = "I think Magatha has found herself a useful tool, and you are too proud to see the hand that holds you." },
+    },
     humans = { { id = "tp_humans", text = "A hurried people, who build as if winter were always coming. The kaldorei fear their wizards, but some of them stood with us on Hyjal, and I try to remember that." } },
     _gated = {
       { id = "gt1", text = "That's not a thing I speak of with one I've only just met. Give it time, and let me come to know your heart first." },
@@ -2138,7 +2174,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "My Grimtotem hold Darkcloud Pinnacle in the Thousand Needles, and they do not ask Thunder Bluff's leave to keep it. Walk there with Thrall's mark on you, and see how long you keep your hide." },
+    { id = "bl2", text = "Half the elders on this bluff grumble that Cairne gave the tauren to Thrall for the price of a few kodo. They say it quietly, child, but they say it to me." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You have been of no use to me, and you have made yourself a nuisance besides. On Elder Rise, that is a short road to being forgotten." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "You are one of Thrall's strays, and Cairne opened our bluff to your kind without asking a single Grimtotem elder. I will be courteous, child, but I will not pretend you belong here." },
+      { id = "gv_rival", when = { grudge = "rival" }, text = "You have been fetching and carrying for Cairne and his little druid. I can smell Hamuul's incense on you from here." },
+      { id = "gv_pers", when = { grudge = "persuade" }, text = "You tried to bend me with clever words, as though an Elder Crone had never heard clever words before. I have heard them all, child, and used most of them." },
+    },
+    amends = {
+      { id = "am1", text = "Be useful to me, child, and be quiet about it. The Grimtotem remember who serves them well, long after Cairne's friends have forgotten." },
+      { id = "am_rival", when = { grudge = "rival" }, text = "Stop running Cairne's errands, and come to me when you want work with a future in it. You would not be the first to change sides on this bluff." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are a little thing that believes itself important because a chieftain smiled at it once. Cairne smiles at everyone, child; it is the only trick he knows." },
+      { id = "sp_prej", when = { grudge = "prejudice" }, text = "I think your Warchief's strays have made servants of our people in our own lands. One day the elders will remember that, and so will you." },
+    },
     humans = { { id = "tp_humans", text = "They caged the orcs, and the orcs came here, and now the humans have followed the mess they made to Kalimdor. Cairne calls it peace, and I call it waiting." } },
     _gated = {
       { id = "gt1", text = "That's a matter for those I trust, child, and I trust very few. You aren't yet among them." },

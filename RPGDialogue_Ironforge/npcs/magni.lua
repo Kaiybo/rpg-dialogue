@@ -796,5 +796,24 @@ P:NPC {
     stromgarde = { { id = "tp_stromgarde", text = "Thoras Trollbane was a hard old wolf an' a good friend tae Ironforge, an' his kingdom deserved better than ogres an' bandits in its halls. I've sent what I can spare tae Refuge Pointe, though it's never enough." } },
     dalaran = { { id = "tp_dalaran", text = "I'll be glad tae see the wizards' city standin' again, though I'd be gladder still if they opened their gates a wee bit faster. Mages like their walls, an' I suppose after what Archimonde did tae them, ye cannae blame them." } },
     _none = { { id = "tp_none", text = "Ask the Explorers' League. They know a wee bit about everythin', an' they'll tell ye all of it." } },
+    grievance = {
+      { id = "gv_1", text = "Ye stand before the High Seat wi' nae respect for it, an' I've noticed. That's my grievance." },
+      { id = "gv_wr", when = { grudge = { worst = "wronged" } }, text = "Ye spoke tae the King o' Ironforge like he was a brewmaster ye didnae like. I'm no' so proud I cannae laugh, but I'm no' laughin'." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "Ye're Horde, standin' in my hall. Ironforge suffers that only while ye keep the peace inside its gates, an' ye've no' kept it." },
+      { id = "gv_val", when = { grudge = "values" }, text = "I've heard what ye've been about, an' it's no' honest work. Ironforge keeps the law, an' so does its king." },
+    },
+    amends = {
+      { id = "am_1", text = "Serve Ironforge well, an' let me hear of it. A king remembers good service longer than bad words." },
+      { id = "am_wr", when = { grudge = "wronged" }, text = "Address the High Seat as it ought tae be addressed. Do that, an' I'll consider the matter closed." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think ye're a disappointment, an' I've had my fill o' those in this hall. Off wi' ye." },
+      { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think ye'd have sided wi' Thaurissan in the War o' the Three Hammers. I've no use for that sort in my city." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "Moira's in Shadowforge City wi' Thaurissan, an' I'd give the crown tae have her home. Every day I wonder if she went willin', an' I cannae bear the thought." },
+    { id = "bl_2", text = "The Explorers' League found discs in Uldaman that say we were made from stone by the titans. I've no' told the city yet, for I dinnae know what it'll do tae them." },
+    { id = "bl_3", text = "My brother Muradin went tae Northrend wi' Arthas an' never came home. I've sent men tae look, an' none o' them found him." },
   },
 }

@@ -372,7 +372,24 @@ P:NPC {
     },
   },
 
+  blurts = {
+    { id = "bl1", text = "The furbolgs of Felwood were not always mad. Only the Timbermaw kept themselves clean, and their tunnels are the one safe road through that sick forest." },
+    { id = "bl2", text = "The blue dragon in the ruins below watches every relic the naga drag out of the sea. Ogtinc keeps far away from him, and so should you, unless you come with many friends." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "Ogtinc does not like to be angry, but you have made it hard to be anything else. The land feels it too." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You kill without grief and take without asking. The Circle teaches balance, and you have shown Ogtinc none." },
+      { id = "gv_town", when = { grudge = "town" }, text = "The others on the cliff say your name with frowns, and Ogtinc listens to the others." },
+    },
+    amends = {
+      { id = "am1", text = "Go and heal something you did not break. Ogtinc will hear of it, for the wind carries news along these cliffs." },
+      { id = "am_values", when = { grudge = "values" }, text = "Take only what the land can spare, and give something back to it. Ogtinc will see it in you, in time." },
+    },
+    spite = {
+      { id = "sp1", text = "Ogtinc thinks you are a storm that does not know it is a storm. Everything you pass is bent a little, and you never look back." },
+      { id = "sp_values", when = { grudge = "values" }, text = "Ogtinc thinks you are what the Highborne were, hungry and clever and blind. The sea took them for it." },
+    },
     _gated = {
       { id = "gt1", text = "Ogtinc does not know you well enough yet to speak of that. Walk gently on this coast a while, and then ask me again." },
       { id = "gt2", text = "That is a thing I keep close, friend, and I am not ready to give it to you. A furbolg learns to be slow with his trust." },

@@ -664,6 +664,24 @@ P:NPC {
     stratholme = { { id = "tp_stratholme", text = "Stratholme was the jewel of the north, and Prince Arthas burned it to the ground. I've heard the Argent Dawn's tales of what's there now, and I'll not repeat them in front of children." } },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady, they call her up the hill, and she's turned the Undercity into a nest of the walking dead. I'd not trust her as far as I could throw her, and I'd not want to touch her to try." } },
     _none = { { id = "tp_none", text = "Ask Magistrate Maleb; he's paid to know things, and I'm paid to stand here." } },
+    grievance = {
+      { id = "gv_1", text = "Southshore's a stubborn little town, and I'm a stubborn little marshal. You've given us both reason to be wary." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You wear the Horde's colours in a town that buries farmers poisoned by Tarren Mill. I'm doing my best not to hold it against you." },
+      { id = "gv_rival", when = { grudge = "rival" }, text = "You've been seen at Maleb's door more than at mine. He's welcome to his opinions, and I'm welcome to mine about the company he keeps." },
+      { id = "gv_prej", when = { grudge = "prejudice", class = "WARLOCK" }, text = "I was a boy when orc warlocks burned Hillsbrad, {class}. I've tried to grow out of what I saw, and I haven't managed it yet." },
+    },
+    amends = {
+      { id = "am_1", text = "Help the farmers in the fields, and keep the Syndicate off the roads. That's what earns a name in Southshore." },
+      { id = "am_enemy", when = { grudge = "enemy" }, text = "Stay out of Hillsbrad Fields and leave our farmers alone. That would be a fine start, and likely the only one." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you're more trouble than this town can afford, and we've precious little left to spend." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think you'd poison the well yourself if Tarren Mill asked you to. Prove me wrong somewhere far from here." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "The Syndicate are Alterac's old nobles playing at thieves, and they hold Durnholde's ruins east of town. Lord Perenolde's kin are behind them, whatever the Crown pretends." },
+    { id = "bl_2", text = "The Forsaken at Tarren Mill test their poisons on our farms in Hillsbrad Fields. I've sent word to Stormwind three times, and nobody's come." },
   },
 }
 

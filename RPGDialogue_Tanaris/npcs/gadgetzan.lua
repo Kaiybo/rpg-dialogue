@@ -534,7 +534,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Wastewander bandits camp out at Waterspring Field and the Noonshade Ruins, and they're stealing water we pay good gold to bring in. There's a bounty on their water pouches, if you want to do something useful for once." },
+    { id = "bl2", text = "Half my reagents come in by sea, and the Southsea pirates at Lost Rigger Cove have been skimming the cargo. I'd pay good money to see their ships sunk, pal." },
+    { id = "bl3", text = "Between you and me, the side effects on my elixir aren't getting any better. Sometimes you float and sometimes you turn into a skeleton, and I still can't tell you which." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "My problem, pal? You cost me money or you cost me time, and in Gadgetzan those are the same thing. I keep a ledger, and you're in the red." },
+      { id = "gv_pers", when = { grudge = "persuade" }, text = "You tried to haggle me down like I was some back-alley peddler, pal. Marin Noggenfogger doesn't haggle; he sets the price and you pay it." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You never buy, you never invest and you never tip. A customer like that is just a body standing in my shade." },
+      { id = "gv_town", when = { grudge = "town" }, text = "The whole town's talking about you, and not the good kind of talk. Bad talk's bad for business, and business is everything here." },
+    },
+    amends = {
+      { id = "am1", text = "Buy something, pal, preferably something expensive. Nothing mends a friendship like a healthy sale." },
+      { id = "am_pers", when = { grudge = "persuade" }, text = "Pay the price on the label next time and don't argue about it. That's all it takes to get back on my good side, which is a very profitable side." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're a deadbeat, pal, the worst kind of customer there is. I wouldn't sell you my elixir if you paid double, and I'd sell it to a kobold." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you'd steal the water out of a man's canteen in this desert and call it a bargain. The bruisers have a word for your sort, pal, and it isn't customer." },
+    },
     humans = { { id = "tp_humans", text = "Humans buy my elixir, complain about my elixir, and then tax my elixir, all in the same week. Stormwind calls it a safety levy, pal, and I call it robbery with paperwork." } },
     knows = {
       { id = "tp_knows", text = "Ask me anything, anything at all, as long as we stay in the shade while I answer it!" },

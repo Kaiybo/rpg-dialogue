@@ -379,6 +379,23 @@ P:NPC {
       { id = "gt1", text = "That's an old wound, and I don't open it for someone I hardly know. Sit by the river a few times more, and perhaps I'll tell you." },
       { id = "gt2", text = "I'd rather not speak of that just yet. Forgive an old man his silences, for they've been his only company for years." },
     },
+    grievance = {
+      { id = "gv_1", text = "I don't hold grudges easily, friend, but you've given me cause to be careful. I'd rather be careful than bitter." },
+      { id = "gv_val", when = { grudge = "values" }, text = "I've seen men turn their backs on the innocent for an easy road, and it cost me my lands to stand against it. You remind me of them." },
+      { id = "gv_wr", when = { grudge = { worst = "wronged" } }, text = "You spoke harshly to an old man who'd done you no harm. The Light asks me to forgive that, and I'm still working on it." },
+    },
+    amends = {
+      { id = "am_1", text = "Show a little mercy to someone who doesn't expect it. That's the whole of the Light, as far as I've ever understood it." },
+      { id = "am_val", when = { grudge = "values" }, text = "Keep an oath when it costs you something. Do that once, and I'll think differently of you." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you've a hard heart, friend, and the Plaguelands have plenty of those already. I hope you find a softer one." },
+      { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think you'd have stood with the lords at my trial and said nothing. Most men did." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "My son Taelan commands at Hearthglen under the Crusade's banner. Grand Inquisitor Isillien keeps him close, and I fear what that man has taught him to believe." },
+    { id = "bl_2", text = "The orc I was disgraced for, Eitrigg, still lives, and he serves in Orgrimmar now. The Crusade would hang me twice over if they knew I still think of him as a friend." },
   },
 }
 
@@ -677,5 +694,22 @@ P:NPC {
       { id = "gt1", text = "That's none of your concern, and it won't be until you've proven you're more than adequate. Go and earn the right to ask." },
       { id = "gt2", text = "I don't speak of that to servants I've barely tested. Finish the work I set you, and I may reconsider." },
     },
+    grievance = {
+      { id = "gv_1", text = "You have not proven useful, and I have no other measure for the living or the dead. That is my whole grievance." },
+      { id = "gv_prej", when = { grudge = "prejudice", race = "Troll" }, text = "I spent my life killing Amani on the borders of Quel'Thalas, troll. I do not see why death should have changed my opinion." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You wear the Alliance's colours at the Dark Lady's outpost. I have killed paladins for less, and the Lady thanked me for it." },
+    },
+    amends = {
+      { id = "am_1", text = "Do as you are told, and do it well. The Dark Lady values results, and so do I." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "You may not. But bring me enough plaguehound pelts, and I will learn to look past you." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you are a tool with a poor edge, and I would not waste the oil to sharpen you." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think the Amani made a better enemy than you will ever make an ally. At least they were honest about their hatred." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "Baron Rivendare holds the Scourge half of Stratholme from the heart of the city, behind the ziggurats. Kill the three masters of the ziggurats, and the way to him opens." },
+    { id = "bl_2", text = "An old paladin camps by the river in the Eastweald, the one Lordaeron exiled for sparing an orc. The Crusade would pay well to know where he sleeps, and I have not decided whether to tell them." },
   },
 }

@@ -461,7 +461,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "I'm not supposed to know, but Lord Lescovar meets a man in a black cloak in the Keep's garden after dark. I saw them from my window." },
+    { id = "bl2", text = "Bolvar still sends ships out to look for my father, even though the council says it costs too much. He thinks I don't know, so please don't tell him." },
+    { id = "bl3", text = "I don't like the way Lady Prestor watches Bolvar when he isn't looking at her. I've never told anyone that, because I can't explain why." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I'm sorry, I know I'm supposed to be fair to everyone, but you've made it very hard. Bolvar says a king should say so plainly, so I am." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You talked to me like I was just a little boy playing at being king. I know I'm young, but I'm still trying, and that hurt." },
+      { id = "gv_values", when = { grudge = "values" }, text = "I've heard what you do when you think nobody important is watching. Archbishop Benedictus says the Light is in everyone, but I'm having trouble finding it in you." },
+      { id = "gv_town", when = { grudge = "town" }, text = "The guards and the servants talk about you when they think I can't hear. None of them say anything nice, and I listen to the guards." },
+    },
+    amends = {
+      { id = "am1", text = "Be kind to someone who can't do anything for you, and don't tell me about it. I'll find out anyway; people tell me things." },
+      { id = "am_wronged", when = { grudge = "wronged" }, text = "Just talk to me like a person, the way you would if I weren't king. That's all, really." },
+    },
+    spite = {
+      { id = "sp1", text = "I think my father wouldn't have liked you. I'm sorry, but you asked, and he always said a king shouldn't lie." },
+      { id = "sp_values", when = { grudge = { worst = "values" } }, text = "I think you're the kind of person the statues in the Valley of Heroes are there to remind us not to be. That's a horrible thing to say, and I meant it." },
+    },
     _gated = {
       { id = "gt1", text = "Bolvar says I'm not to talk about that with people the crown doesn't know well yet. I'm sorry, but I did promise him." },
       { id = "gt2", text = "I'd like to tell you, only I don't really know you yet, and a king has to be careful who he tells things to." },

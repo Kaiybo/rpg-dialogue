@@ -286,7 +286,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Venture Company dig in the north of Mulgore, and their supervisor hides in the mine like a rat in a hole. Somebody ought to drag him out by the ears, and I'd pay to watch." },
+    { id = "bl2", text = "Half the bluff wants the Forsaken out of the Pools of Vision, and the High Chieftain's the only one stopping it. You didn't hear that from me, but you'll hear it from plenty of others." },
+    { id = "bl3", text = "The Grimtotem buy my dried meat by the sackful and carry it off toward Stonetalon, and they don't eat it on Elder Rise. I'd like to know who they're feeding out there." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've a way of standing at my stall like you own the meat and I'm only keeping it for you. I don't care for it, and I don't care for you." },
+      { id = "gv_tone_p", when = { grudge = "tone", tone = "polite" }, text = "Every word out of you comes wrapped up like a gift from the Orgrimmar market, and none of it means anything. Speak straight, or don't speak at all." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You'd take three kodo where one would feed you and leave the rest for the vultures. The plains remember who's greedy, and so do I." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're Alliance, up on Thunder Bluff, haggling at my stall like nothing's wrong with that. The High Chieftain may be patient, but I'm only a butcher." },
+    },
+    amends = {
+      { id = "am1", text = "Buy honest, eat what you buy and thank the beast for it. That's how you earn a little warmth from me." },
+      { id = "am_values", when = { grudge = "values" }, text = "Hunt clean and take only what you'll eat in a season. Show me you can do that, and we'll talk again." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're no better than the goblins with their saws, taking and taking until the plains are bare. My son paid for that kind of greed with his leg, and I've no kindness left for it." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think the Alliance sends you up our lifts to see how high we've built. Look your fill, then, and go back down." },
+    },
     _gated = {
       { id = "gt1", text = "That's family business, and I don't lay it out for every customer. Come by a few more times, and we'll see." },
       { id = "gt2", text = "I'd sooner not speak of that with someone I hardly know. Ask me about the meat instead." },

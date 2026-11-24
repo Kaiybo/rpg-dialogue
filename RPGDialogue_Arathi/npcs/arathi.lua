@@ -540,7 +540,27 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Syndicate's cutthroats bed down in Northfold Manor on the northern road, and their masters have crept into the upper halls of Stromgarde itself." },
+    { id = "bl2", text = "The Witherbark trolls in the southeastern hills raid Hammerfall as often as they raid us, and Drum Fel will never admit how badly they hurt him." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "My problem is that I've a kingdom to take back, and you've given me nothing but trouble. Stromgarde can't afford trouble, and neither can I." },
+      { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "You walk like the Syndicate walks, and men in boots like yours cut down three of my lookouts this season. I'll not apologise for remembering it." },
+      { id = "gv_wronge", when = { grudge = "wronged" }, text = "I spoke to you as one soldier to another, and you answered like a sellsword with a hand in my stores. That's my problem." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You wear the Horde's colours in a Stromgarde camp, and I've buried too many soldiers to forget what those colours cost us." },
+    },
+    amends = {
+      { id = "am1", text = "Fight for Refuge Pointe and let my sentries see you do it. Stromgarde forgives soldiers, but it has no use for talkers." },
+      { id = "am_prejud", when = { grudge = "prejudice" }, text = "Bring me Syndicate blood from the northern road, and I'll stop reading your boots before I read your face." },
+      { id = "am_tone", when = { grudge = "tone" }, text = "Speak to me like a soldier, plainly and to the point, and we'll start again from there." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're a passing sellsword who'll leave the highlands to the ogres the moment the pay runs dry. I've met a hundred like you." },
+      { id = "sp_prejud", when = { grudge = { worst = "prejudice" } }, text = "I think you're one bad night away from selling my patrol routes to the Syndicate, and I've told my sentries as much." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think Hammerfall sent you to count my swords. Go back and tell Drum Fel there are more of them than he hopes." },
+    },
     kaldorei = { { id = "tp_kaldorei", text = "Not the elves Stromgarde remembers. The quel'dorei kept faith with Arathor for two thousand years, and the kaldorei have had a year to show us what they're worth." } },
     _gated = {
       { id = "gt1", text = "That's the camp's business, and I don't share it with people I haven't seen under arms. Prove yourself to Refuge Pointe first." },
@@ -913,7 +933,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Refuge Pointe is thinner than it looks. Stromgarde has more tents than soldiers there, and the Syndicate pick off its lookouts every week." },
+    { id = "bl2", text = "The Boulderfist ogres have crawled into the ruins of Stromgarde, and nothing pleases me more than watching the humans bleed against them for it." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've made yourself a nuisance in Hammerfall, and I've no patience for nuisances while there are ogres left in the highlands." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're Alliance, standing inside walls your people built to cage mine. I've not forgotten who held the keys." },
+      { id = "gv_wronge", when = { grudge = "wronged" }, text = "I gave you honest words and honest work, and you threw both back at me. An orc remembers that a long time." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You fight for yourself and nobody else. Hammerfall was built by orcs who learned better than that in the camps." },
+    },
+    amends = {
+      { id = "am1", text = "Kill ogres and trolls in Hammerfall's name, and keep at it until my grunts can say your name without spitting." },
+      { id = "am_enemy", when = { grudge = "enemy" }, text = "You can't, not while you wear Alliance colours. Keep away from my walls, and we'll both live longer." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you'd have made a good guard in the internment camps, and that's the worst thing I know how to say to anyone." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think Refuge Pointe sent you to look at my walls. Tell them these walls are thicker than the ones they kept us behind." },
+    },
     _gated = {
       { id = "gt1", text = "That isn't for your ears yet. Fight for Hammerfall first, and then I'll decide what you've earned." },
       { id = "gt2", text = "I know it, and I'll keep it until you've proven yourself to me. I don't share such things with those I haven't seen bleed for the Horde." },

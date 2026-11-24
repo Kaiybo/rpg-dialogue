@@ -1296,7 +1296,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Men with red scarves come round the Old Town at night asking beggars who's seen what. They pay in copper, and some of the lads take it." },
+    { id = "bl2", text = "The Defias asked me to join once, and the fellow who asked me drinks in the Pig and Whistle every night. I've never told the guards which one he is." },
+    { id = "bl3", text = "There's a farmhouse near Moonbrook where the Defias keep their stores, friend, and I know because it used to be my neighbour's. I'd go and look myself if I were braver." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "Even a beggar has his pride, friend, and you've walked all over mine. I'll not hold my hand out to you again." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You laughed at an old farmer under a bridge, and you did it loud enough for the whole canal to hear. I've had my farm taken, but I'll not have my dignity taken too." },
+      { id = "gv_values", when = { grudge = "values" }, text = "I've seen you walk past the poor with your purse full and your eyes on the sky. I've had nicer treatment from the Defias, and they took my farm." },
+      { id = "gv_town", when = { grudge = "town" }, text = "Everybody in the Trade District says the same about you, friend, and beggars hear everything. Not one kind word in the lot." },
+    },
+    amends = {
+      { id = "am1", text = "Drop a copper in a beggar's cup without making a show of it. Not mine, friend, any of them, and I'll hear about it." },
+      { id = "am_values", when = { grudge = "values" }, text = "Be kind to somebody who can't pay you back. It's a cheap habit, friend, and I should know, because it's the only one I can afford." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're the sort that walks past an old farmer in the rain and calls it minding your business. I hope it rains on you someday, friend." },
+      { id = "sp_values", when = { grudge = { worst = "values" } }, text = "I think you've a purse full of gold and a heart full of nothing, and I'd not trade my bridge for either of them." },
+    },
     _gated = {
       { id = "gt1", text = "Ah, now, that's a tale I keep for my true friends, and we're not quite there yet, are we? Come by the step a few more times." },
       { id = "gt2", text = "I'll not be telling that one to just anybody, friend. Even a beggar's got a thing or two he doesn't give away." },

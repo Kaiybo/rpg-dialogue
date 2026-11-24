@@ -576,7 +576,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "SI:7 has never found a plank of the King's ship, nor a body, nor a ransom note. I've told no one outside this hall, and I'd thank you to forget it." },
+    { id = "bl2", text = "The Stockade's riot is led by a Defias named Bazil Thredd, and someone at court keeps telling me to leave him be. I've not yet learned who started that advice." },
+    { id = "bl3", text = "Theramore has asked for soldiers against the black dragon in Dustwallow Marsh, and the House of Nobles has voted every request down. I sign the refusals with a heavy hand." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I try to judge every citizen fairly, and I've judged you, and found you wanting. I'll not dress that up for you." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "I fought Gul'dan's warlocks in the Second War and saw what they made of the dead. The law lets you stand in this hall, but it cannot make me glad of it." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to the Regent of Stormwind as if this throne were a joke. I keep it for a king who isn't here, and I'll not have it mocked." },
+      { id = "gv_values", when = { grudge = "values" }, text = "The reports that cross my desk about you are not the reports of a servant of the Alliance. I read every one, and I remember them." },
+    },
+    amends = {
+      { id = "am1", text = "Serve the kingdom honestly, and let the reports say so. I'll read them with an open mind, as I read everything." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Turn your craft against the Defias and the Blackrock, and let it be seen. The Light teaches mercy, and I am trying to learn it." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are one more burden on a kingdom that already has too many. I would not say that to a subject, but you asked for the truth." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think you walk the same road Gul'dan's warlocks walked, and I've seen where it ends. I pray to the Light I'm not the one who has to end it for you." },
+    },
     _gated = {
       { id = "gt1", text = "That's a matter of state, and I don't discuss matters of state with those I've no cause yet to trust. Serve the kingdom a while and ask me again." },
       { id = "gt2", text = "I'll not speak of that to you, {class}. My trust is earned in the field, and it isn't to be had for the asking in a throne room." },

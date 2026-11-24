@@ -254,5 +254,22 @@ P:NPC {
     nordrassil = { { id = "tp_nordrassil", text = "The great tree has stood longer than I've circled, and I've circled a very long time. Everything dies eventually, little meat, but that one is taking its time." } },
     kelthuzad = { { id = "tp_kelthuzad", text = "A necromancer who keeps the dead from dying properly. If I ever find him, little meat, I'll show him how the cycle is supposed to end." } },
     _none = { { id = "tp_none", text = "If it is not dead, I do not much care about it, little meat." } },
+    grievance = {
+      { id = "gv_1", text = "You are still breathing in my direction, little meat, and doing nothing useful with it. That is my grievance." },
+      { id = "gv_val", when = { grudge = "values" }, text = "You leave bodies where they fall and walk off as though the mountain will tidy them. I am the mountain's tidiness, and I am tired." },
+      { id = "gv_scourge", when = { grudge = "prejudice", race = "Scourge" }, text = "You walk when you ought to be lying down, little meat. I find that offensive on a professional level, and I will not apologise for it." },
+    },
+    amends = {
+      { id = "am_1", text = "Put the dead down properly, little meat, the ones that refuse to stay down. Then I may think better of you." },
+      { id = "am_val", when = { grudge = "values" }, text = "Bring me the walking dead in pieces small enough to be useful. That is how one makes amends to a vulture." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you will make a very ordinary meal, little meat, and I will not hurry to it." },
+      { id = "sp_scourge", when = { grudge = { worst = "prejudice" } }, text = "I think you are a meal that argues, and I have never liked those. Lie down, and we will both be happier." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "Demons still hide in Darkwhisper Gorge, at the far end of Winterspring. Nothing I would eat lives there, so I know exactly where it is." },
+    { id = "bl_2", text = "The Scourge buried on this mountain do not all stay buried, little meat. Where the snow is darkest on the slopes, something is digging them back up." },
   },
 }

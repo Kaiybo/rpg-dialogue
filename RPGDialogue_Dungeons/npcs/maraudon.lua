@@ -137,7 +137,24 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Theradras keeps my father's body in the deepest part of Maraudon, beneath the falls of Earth Song, and she will not give it up while she lives." },
+    { id = "bl2", text = "The scepter I made can open the way to the inner halls, if you would rather not wade through every corridor of my father's tomb again." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I owe you my freedom, and still you have made me regret owing you anything. That is a sorrow I did not expect." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You walk through my father's tomb as if it were a mine. Maraudon was holy once, and you treat it as plunder." },
+      { id = "gv_wronge", when = { grudge = "wronged" }, text = "I spoke to you of my father and my grief, and you answered with scorn. The curse was gentler than that." },
+    },
+    amends = {
+      { id = "am1", text = "Carry Zaetar's memory gently, and leave his tomb in peace when you are done. That would be enough." },
+      { id = "am_values", when = { grudge = "values" }, text = "Take only what you need from Maraudon, and do not mock the dead there. I will know if you do." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are as hard as Theradras' stone, and as blind to what grows around you." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you would rob my father's grave if the gems were large enough, and the earth-mother would welcome you as one of her own." },
+    },
     maraudon = { { id = "tp_mar", text = "Maraudon is my father's tomb and Theradras' house. It was holy once." } },
     _none = { { id = "tp_none", text = "I have been lost a long while. I do not know that." } },
   },

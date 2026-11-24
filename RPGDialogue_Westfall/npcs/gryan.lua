@@ -941,7 +941,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "VanCleef's Brotherhood hides in the old mine beneath Moonbrook, where they're building a ship to sail against Stormwind. The way in is through the Moonbrook mine, if you're brave enough or fool enough." },
+    { id = "bl2", text = "Edwin VanCleef was a stonemason, like me, and Stormwind's nobles cheated every mason who rebuilt their city. I don't excuse what he's become, but I understand how he got there." },
+    { id = "bl3", text = "The Defias pass their messages along the road between the Jangolode Mine and Moonbrook, and their runners travel alone. Catch one, and you'll learn more than any spy could tell you." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I've no quarrel with most folk who come to Sentinel Hill, but I've one with you. You've done this land more harm than good, and Westfall's had harm enough." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "I saw what the Horde's warlocks did to men and land in the Second War. You carry that same fel about you, and I'll not pretend I can't smell it." },
+      { id = "gv_town", when = { grudge = "town" }, text = "The farmers and the militia talk, and they talk about you, and none of it's kind. These are folk who've lost everything, so I listen when they're upset." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You take what you want and leave the rest to burn, the same as the Defias. I didn't raise this militia to watch that happen again." },
+    },
+    amends = {
+      { id = "am1", text = "Help the people of Westfall, farmers and militia both, and don't ask to be paid for every bit of it. That's how this hill was built." },
+      { id = "am_town", when = { grudge = "town" }, text = "Do right by the farmers. When they speak well of you, I'll be glad to hear it, and I'll tell you so." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're no better than the Defias, only better armed and with a prettier excuse. Westfall's had its fill of your kind." },
+      { id = "sp_prej", when = { grudge = "prejudice" }, text = "I think the fel you carry will turn on you the way it turned on the old Horde. I fought them for this land, and I'd fight you just the same." },
+    },
     _gated = {
       { id = "gt1", text = "That's not something I'll speak of to one I've not yet seen stand with us. Do a turn for Westfall, and you'll find me more open." },
       { id = "gt2", text = "I'll hold my tongue on that for now, friend. Too many ears on this hill have turned out to be the Brotherhood's, and I've learned to know a body first." },

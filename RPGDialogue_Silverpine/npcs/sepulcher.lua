@@ -302,7 +302,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Arugal sits in Shadowfang Keep and lets his worgen do his fighting. I have sent deathstalkers after him, and none came back, which tells me the keep's gates are the least of it." },
+    { id = "bl2", text = "The Rot Hide gnolls on Fenris Isle answer to a sorcerer named Thule Ravenclaw. Kill him, and the isle goes quiet." },
+    { id = "bl3", text = "The Dalaran wizards at Ambermill are working some great spell there, and they guard the town more closely than their own lives. I want to know what it is before they finish it." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I have enemies on every side of this forest, and I count you among the lesser ones. Do not mistake that for kindness." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "Arugal was a mage, and his wolves still howl in my forest. Dalaran's people tramp through Silverpine as if they own it, and you wear their robes." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You stand in the Sepulcher wearing the colours of the living kingdoms that left Lordaeron to die. I do not forget that, and neither does the Dark Lady." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me as if I were a corpse that had forgotten to lie down. I am the High Executor of this forest, and you will address me as such." },
+    },
+    amends = {
+      { id = "am1", text = "Kill worgen, kill Dalaran's wizards, and report to me. Results are the only apology I accept." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Turn your spells on Ambermill and on Arugal's keep, and keep turning them. The Sepulcher judges by what you burn." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you would make a poor Forsaken, because you would whine about it. Now get out of my sight and into the forest." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think every mage in this world is one bad idea away from Arugal, and I think you have had several already." },
+    },
     humans = { { id = "tp_humans", text = "Humans surround the Sepulcher: Gilneas behind its wall, Dalaran's wizards at Ambermill, and Southshore's militia shooting at my deathstalkers. I trust none of them, and the Kirin Tor least of all." } },
     knows = {
       { id = "tp_knows", text = "Every deathstalker report in Silverpine ends on my desk. Ask what you need to know, and I'll tell you what they found." },

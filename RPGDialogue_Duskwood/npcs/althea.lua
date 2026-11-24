@@ -669,5 +669,24 @@ P:NPC {
     holy_light = { { id = "tp_holy_light", text = "Half my watchers pray to the Light before every patrol and the other half pray during it. I don't stop either kind." } },
     green_dragons = { { id = "tp_green_dragons", text = "Hunters near Twilight Grove swear there are great green dragons sleeping among the trees, and I've no reason to doubt them. So long as they keep sleeping, they aren't my concern." } },
     second_war = { { id = "tp_second_war", text = "The Watch is mostly farmers and their sons, and the few veterans among them fought orcs in the Second War. They all say the same thing: they'd rather face orcs than what's in our woods." } },
+    grievance = {
+      { id = "gv_1", text = "My problem is that I've a roster of the dead and not enough of the living, and you've done nothing to change either. Darkshire needs swords, not trouble." },
+      { id = "gv_prej", when = { grudge = "prejudice", class = "WARLOCK" }, text = "I've buried watchmen killed by the dark casters on Raven Hill, {class}. You'll forgive me if I don't warm to the craft that killed them." },
+      { id = "gv_rogue", when = { grudge = "prejudice", class = "ROGUE" }, text = "The last smooth talker of your trade sold my payroll and a patrol route to bandits, and three watchmen died for it. I've not forgotten their names." },
+      { id = "gv_rival", when = { grudge = "rival" }, text = "You've been keeping company at the town hall, I hear. Lord Ello can write all the letters he likes, but I'm the one who stands on the wall." },
+    },
+    amends = {
+      { id = "am_1", text = "Take a night on the Raven Hill road and come back alive. That's how anyone earns their place in this town." },
+      { id = "am_values", when = { grudge = "values" }, text = "Show me some discipline. I don't need you to like me, but I need to know you'll hold when the dead come up the road." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you're a liability, and I've no room on my roster for one. Stay out of my watchers' way." },
+      { id = "sp_town", when = { grudge = { worst = "town" } }, text = "I think Darkshire would sleep easier without you in it, and so would I. That's not a small thing in this town." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "Morbent Fel can't be touched by honest steel while his wards hold at Forlorn Rowe. Sven Yorgen knows what breaks them, and I've no doubt he'd tell someone with the stomach for it." },
+    { id = "bl_2", text = "The Dark Riders come down out of Deadwind Pass, and they're always looking for something. Whoever sends them isn't from Duskwood, I'd stake my commission on it." },
+    { id = "bl_3", text = "Mor'Ladim walks the woods around Raven Hill every night, and my patrols go around him. If you want to die, that's where you'll find him." },
   },
 }

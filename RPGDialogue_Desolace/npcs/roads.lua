@@ -1298,7 +1298,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The ogres still hold Dire Maul, and I know ogres better than anyone. The Gordok will follow whoever kills their king, and they don't care who that is." },
+    { id = "bl2", text = "Proudmoore's sailors still hold Tiragarde Keep on Durotar's coast, and they haven't forgiven the Horde for the Admiral. Neither has his daughter, entirely." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I don't like you, and Misha likes you less. She's a better judge than I am." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You treat beasts like tools and people like beasts. I've seen enough of that in my life to know it when it walks up to me." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "I helped the Horde throw Admiral Proudmoore off Durotar's shore, and the banner you wear isn't so different from his." },
+      { id = "gv_tone", when = { grudge = "tone", tone = "polite" }, text = "You talk like a courtier. I left the company of courtiers a long time ago, and I don't miss it." },
+    },
+    amends = {
+      { id = "am1", text = "Leave me alone on the road, and leave alone the beasts that don't need killing. That's all I'll ask." },
+      { id = "am_values", when = { grudge = "values" }, text = "Learn to respect the wild. Misha will smell it on you when you have." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're the kind that kills for sport and calls it a living. The wild has a way of evening that score." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think Misha would make a meal of you, and I wouldn't call her off." },
+    },
     _gated = {
       { id = "gt1", text = "That's mine to keep, and I don't share it with someone I've known for the length of one conversation." },
       { id = "gt2", text = "I'll not speak of that. Earn Misha's trust first, and mine may follow." },

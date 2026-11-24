@@ -571,7 +571,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Venture Company's got a whole operation chewing through Stonetalon up north, and they'd like Ratchet next. Don't you dare tell 'em I said so." },
+    { id = "bl2", text = "The Southsea pirates camp along the Merchant Coast south of here, pal, and every ship they rob is one I'd have taxed." },
+    { id = "bl3", text = "I built half of Orgrimmar, pal, and the Warchief never paid the last invoice. I still know where every drain in that city comes out, and that's worth something to somebody." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You're bad for business, pal, and in Ratchet that's the only crime I really care about." },
+      { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "You're a night elf, pal. Your people gripe about my smoke, haggle over my prices and never buy a thing, so it's nothing personal, it's just the books." },
+      { id = "gv_wronge", when = { grudge = "wronged" }, text = "I gave you a fair shake and you treated me like some Venture Company stooge. A goblin keeps a ledger on that sort of thing, pal." },
+      { id = "gv_persua", when = { grudge = "persuade" }, text = "You tried to lean on me in my own port. I've had trolls try that, pal, and the bruisers threw 'em off the dock." },
+    },
+    amends = {
+      { id = "am1", text = "Do some work that makes me money, pal. Gold's the only apology a goblin understands, and I understand it real well." },
+      { id = "am_wronge", when = { grudge = "wronged" }, text = "Bring me something worth buying and say sorry nice. Then we'll call it square, minus the interest." },
+    },
+    spite = {
+      { id = "sp1", text = "You want it straight, pal? You're a deadbeat with a sword, and if you owed me money I'd have sold the debt already." },
+      { id = "sp_prejud", when = { grudge = "prejudice" }, text = "I think you'd hug a tree before you'd pay a fair price for one, pal. That's the trouble with your whole people." },
+    },
     humans = { { id = "tp_humans", text = "Theramore's ships pay their fees, pal, but Northwatch keeps sending soldiers up the beach to inspect my cargo. Inspecting is human for stealing with a clipboard." } },
     _gated = {
       { id = "gt1", text = "That's inside information, pal, and inside information goes to people I know and like, which so far isn't you." },

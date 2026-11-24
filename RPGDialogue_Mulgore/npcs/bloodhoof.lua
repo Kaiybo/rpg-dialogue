@@ -520,6 +520,24 @@ P:NPC {
     onyxia = { { id = "tp_onyxia", text = "I know only what the Horde's runners tell me, that a black dragon nests in Dustwallow Marsh and the Brackenwall grunts fear her. Mulgore is far from her, and I would like it to stay that way." } },
     _none = { { id = "tp_none", text = "I don't know, but I'll ask, and I'll remember you asked first. May the Earth Mother guide you to someone who does." } },
     venture_company = { { id = "tp_venture", text = "We refused them the right to mine, and they poisoned our wells anyway. I'd still rather they sat down and talked, though I'm starting to doubt they know how." } },
+    grievance = {
+      { id = "gv_1", text = "I try to think well of everyone, and you've made it hard. My father would tell me to be patient, and I am trying." },
+      { id = "gv_wr", when = { grudge = { worst = "wronged" } }, text = "You spoke to me as though I were a calf. I am Cairne's son, and I will be spoken to with respect." },
+      { id = "gv_town", when = { grudge = "town" }, text = "The braves of Bloodhoof talk, and they have nothing kind to say about you. I listen to my people." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You wear the Alliance's colours in Mulgore. I bear you no hatred, but I cannot ask my people to trust you." },
+    },
+    amends = {
+      { id = "am_1", text = "Help the people of Bloodhoof, and do it without being asked. The Earth Mother notices such things." },
+      { id = "am_town", when = { grudge = "town" }, text = "Do some good for the village, and the braves will speak for you. That is how a name is mended here." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you have a hard heart, and the plains have no use for those. I hope you find a gentler road." },
+      { id = "sp_wr", when = { grudge = { worst = "wronged" } }, text = "I think you'd have fit in well with the Grimtotem. They also speak to my father without respect." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "Magatha Grimtotem smiles at my father in council, but her clan raids in Stonetalon and the Needles. My father won't hear a word against her, so I say nothing." },
+    { id = "bl_2", text = "The Palemane gnolls are bold this season, and they answer to a chieftain at Palemane Rock in the south-west of Mulgore. Cut him down and the rest will scatter." },
   },
 }
 

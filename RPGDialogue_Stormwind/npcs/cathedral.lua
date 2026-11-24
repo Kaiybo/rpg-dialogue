@@ -494,7 +494,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "There is a brother in this very Cathedral who writes to the Scarlet Monastery in Tirisfal, and I have let him go on doing it. I cannot bring myself to send him away." },
+    { id = "bl2", text = "The Cathedral feeds more of Westfall's families than the House of Nobles knows, and we pay for it out of the offering plates. If the nobles ever asked, I would have to lie to them." },
+    { id = "bl3", text = "I still pray for the priests who stayed in Lordaeron when the plague came, and I have heard some of them walk again among the Forsaken. I do not know what the Light makes of that, and I am afraid to ask it." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "The Light asks me to love everyone, child, and I am trying very hard with you. I confess I am not succeeding as well as I should." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "The Light's mercy is wide, but I will not bless the darkness you carry. Archbishop Faol taught me that mercy and approval are not the same thing." },
+      { id = "gv_values", when = { grudge = "values" }, text = "I've heard how you treat those who can do nothing for you, and it grieves me. The Light is not a thing you use and set aside." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You mocked the faith in this house, and before the people who came here to pray. I can forgive a great deal, but I could not forgive that quickly." },
+    },
+    amends = {
+      { id = "am1", text = "Serve someone poorer than yourself, child, and expect nothing for it. Come back when you have, and we will speak again." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Put the darkness aside, if only while you are in this house. The Light is patient, and so, most days, am I." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you have a hard heart, child, and I pray every night for hard hearts. I find I must pray a little longer for yours." },
+      { id = "sp_values", when = { grudge = { worst = "values" } }, text = "I think the Light is still in you somewhere, but buried so deep I cannot see it. Forgive me, I should not have said that aloud." },
+    },
     _gated = {
       { id = "gt1", text = "That is something I share with those I've come to know, child, and we've not walked far enough together yet. Come and sit with us a few more times." },
       { id = "gt2", text = "I'll keep my counsel on that for now. It's no unkindness, only that some things are for friends of the Cathedral, and I'd be glad to count you one in time." },

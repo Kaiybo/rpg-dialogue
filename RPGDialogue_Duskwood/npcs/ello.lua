@@ -588,5 +588,23 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "Lordaeron fell to its dead within a year, and Darkshire has held out against its own for longer than that with farmers and lanterns. I should like someone in Stormwind to consider that before they tell me the army is stretched." } },
     holy_light = { { id = "tp_holy_light", text = "Darkshire's chapel lights its candles every evening, and the Light has kept us better than the Crown has. I say that as a loyal man, and I have the tax receipts to prove it." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "I once petitioned the Darkmoon Faire to come to Darkshire and lift the town's spirits. They sent a most courteous letter declining, which I filed beside the Keep's." } },
+    grievance = {
+      { id = "gv_1", text = "I am the mayor of a loyal town, and I am owed some courtesy for it. You have shown me precious little." },
+      { id = "gv_wr", when = { grudge = { worst = "wronged" } }, text = "You spoke to me as though I were a clerk who'd forgotten his place. I am a lord of Stormwind, and I've not forgotten what you said." },
+      { id = "gv_rival", when = { grudge = "rival" }, text = "You've been running errands for the Commander, I'm told. Althea has her watchers, and she seems to believe that makes her the town." },
+      { id = "gv_town", when = { grudge = "town" }, text = "The council talks, and none of it about you is flattering. I can't be seen to favour someone Darkshire distrusts." },
+    },
+    amends = {
+      { id = "am_1", text = "Do some good for Darkshire, and do it where people can see. A mayor must be seen to reward the deserving." },
+      { id = "am_wr", when = { grudge = "wronged" }, text = "A little courtesy would go a long way, and it costs nothing. Address me properly next time, and we'll begin again." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you're the sort Stormwind sends us instead of soldiers, and I'm tired of being grateful for it." },
+      { id = "sp_rival", when = { grudge = "rival" }, text = "I think you've taken the Commander's side, as everyone in this town eventually does. Then go and stand on her wall." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "That old hermit on Raven Hill isn't harmless, whatever the watchers think. Lights burn in his hut at strange hours, and I've heard of things walking down from that hill." },
+    { id = "bl_2", text = "I've written to the House of Nobles every week for a year, and not one letter has been answered. Somebody in the Keep is burying them, and I'd give a great deal to know who." },
   },
 }

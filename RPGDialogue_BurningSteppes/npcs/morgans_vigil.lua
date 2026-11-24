@@ -477,7 +477,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Every Blackrock camp in the Steppes answers to Warchief Rend Blackhand up in the Spire. Cut off that head and the camps will turn on each other." },
+    { id = "bl2", text = "Windsor didn't fall in the Steppes. Ragged John saw the Dark Irons take him alive, and I'd give my rank to know where they put him." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've been more burden than help at the Vigil, and I haven't the soldiers to carry anyone." },
+      { id = "gv_wronge", when = { grudge = "wronged" }, text = "I spoke to you plainly and you made light of it. Men have died on this ridge for less than what you mocked." },
+      { id = "gv_tone", when = { grudge = "tone", tone = "polite" }, text = "You dress every word up like a court herald. This is the Steppes, and out here we say what we mean before the ash fills our mouths." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You fight for your own glory. Windsor fought for his men, and I've no patience for anyone who can't tell the difference." },
+    },
+    amends = {
+      { id = "am1", text = "Bring me Blackrock heads from the camps below the ridge, and I'll know where you stand." },
+      { id = "am_tone", when = { grudge = "tone" }, text = "Talk to me like a soldier, plainly and quickly. Do that and I'll forget the rest." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're one more hero who'll ride up to Blackrock Spire, and I'll be writing another letter to Stormwind about you." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think Windsor would have sent you home on the first wagon, and I'd have helped him load it." },
+    },
     knows = {
       { id = "tp_knows", text = "Every report from this ridge passes across my crate, deputy, and I read them even if Stormwind doesn't. Ask me about any of these." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've done more for this camp than the Keep has, so you get the long answers. Pick any of these and pull up a crate." },
@@ -993,7 +1011,24 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The black dragons of the Spire answer to a son of Deathwing who calls himself a lord of men. Lakeshire would not believe me, so perhaps you will." },
+    { id = "bl2", text = "The black whelps roost at Draco'dar on the northern slopes, and their brood-keepers are never far away. Go there in strength, or do not go at all." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You have tried my patience, and my people have a great deal of patience to try. That should tell you something." },
+      { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "My brother died at Mount Hyjal fighting the Legion, and you carry its fire in your hands. I cannot look past that, though I have tried." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to me as the soldiers here speak to their mules. My people remember courtesy, even in a land of ash." },
+    },
+    amends = {
+      { id = "am1", text = "Help me read this mountain, and bring me what I ask from the dragons' slopes. Work done well speaks louder than an apology." },
+      { id = "am_prejud", when = { grudge = "prejudice" }, text = "Put the fel aside. Nothing less will mend this, and I know how unlikely that is." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are a short-lived creature in a great hurry, and you will burn out before you understand anything you have seen." },
+      { id = "sp_prejud", when = { grudge = "prejudice" }, text = "I think the Legion would know your name if it came again, and I think you would answer it." },
+    },
     knows = {
       { id = "tp_knows", text = "I have read these mountains for a long while, and they have told me a good deal. Ask me about any of these, and I'll tell you what I can prove." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you I'll share what I suspect as well as what I can prove. Here is what I can speak to." },

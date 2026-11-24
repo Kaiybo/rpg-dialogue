@@ -358,5 +358,22 @@ P:NPC {
     tyrande = { { id = "tp_tyrande", text = "The high priestess and her Sentinels fought beside us on this mountain. In Ashenvale we fight them now, and I find no honour in it." } },
     the_elements = { { id = "tp_the_elements", text = "A shaman saved my life once, when I should have died. I have honoured the spirits since, though I do not hear them as he did." } },
     _none = { { id = "tp_none", text = "I know nothing of that. Ask someone who spends less time with a sword in hand and less blood on the snow." } },
+    grievance = {
+      { id = "gv_1", text = "You have not stood beside me in Dae'gun, and you speak as though you had. That is my grievance." },
+      { id = "gv_wr", when = { grudge = { worst = "wronged" } }, text = "You spoke to me without honour, and I have little else left. I will not overlook it." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "Your people and mine bled on this mountain together, and now you look at me like an enemy. I find that harder than the demons." },
+    },
+    amends = {
+      { id = "am_1", text = "Fight beside me in Dae'gun, and do not turn your back. Then we will speak of honour." },
+      { id = "am_wr", when = { grudge = "wronged" }, text = "Speak to me as one warrior speaks to another. That is all I ask, and it is not a small thing." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you are a blade without a temper, and you will shatter on the first demon that matters." },
+      { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think you would have stayed in the camps, if someone had fed you well enough. I would not." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "Grom Hellscream's monument stands in Demon Fall Canyon, where he killed Mannoroth. The satyrs gather there to mock it, and someday I will go and clear them." },
+    { id = "bl_2", text = "The Doomguard in Dae'gun come down from above, but they guard something on the ground. Watch where they land, and you will find what they protect." },
   },
 }

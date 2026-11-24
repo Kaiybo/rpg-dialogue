@@ -813,6 +813,24 @@ P:NPC {
       { id = "tp_theramore2", text = "Theramore is a home for people who had no home left after the Third War. We're small and damp and far from everyone, but we're still here." },
     },
     _none = { { id = "tp_none", text = "I don't know, but Tervosh might, and if he doesn't, he'll find out." } },
+    grievance = {
+      { id = "gv_1", text = "I've tried to be fair with you, and you've made that harder than it needs to be. I'd rather say so plainly than pretend." },
+      { id = "gv_val", when = { grudge = "values" }, text = "I've watched how you treat the people of this island, and it isn't how Theramore was built. We came here to stop doing that." },
+      { id = "gv_pers", when = { grudge = "persuade" }, text = "You tried to push me, and I don't respond well to that. I've stood up to my own father, so I'll stand up to you." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're of the Horde, and that's not the problem; Thrall's people are welcome here in peace. The way you've conducted yourself is the problem." },
+    },
+    amends = {
+      { id = "am_1", text = "Do something that helps the peace instead of straining it. I'll notice, I promise you." },
+      { id = "am_val", when = { grudge = "values" }, text = "Treat the people here as though their lives matter as much as yours. That's all I've ever asked of anyone." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you're exactly the sort of person who makes peace so very expensive. I'll keep paying for it anyway." },
+      { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think you'd have marched with my father's fleet and called it justice. I've seen where that road ends." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "King Varian was sailing to meet me here when he vanished, and someone knew his route. I've written to Stormwind about it, and they tell me nothing." },
+    { id = "bl_2", text = "Some of my father's old soldiers never forgave me for Durotar, and a few of them went into the marsh rather than serve me. I don't know where all of them are, and that frightens me more than the Horde does." },
   },
 }
 

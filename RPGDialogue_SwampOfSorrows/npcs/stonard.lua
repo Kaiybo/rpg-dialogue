@@ -438,7 +438,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The orders I sent never reached Thrall's Grasp, because murlocs took them off the road. Bengor's the only one who lived, and he says a murloc called the Swamp Talker has them in a cave to the east." },
+    { id = "bl2", text = "Fel'zerul says the Atal'ai are stirring in the temple under the Pool of Tears, and he's never wrong about trolls. I've doubled the scouts on the lake road, and it still isn't enough." },
+    { id = "bl3", text = "Nethergarde's mages sit right on top of the Dark Portal, and they watch us more closely than they watch it. If you're going south, go wide around their keep." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've been nothing but trouble in my reports, and I write everything down. My problem with you is the length of the page." },
+      { id = "gv_pers", when = { grudge = "persuade" }, text = "You came into my hall and tried to talk me out of what I know, as if a dispatch commander bends because someone leans on him. I don't." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're Alliance, inside a Horde fort with Alliance banners on every side of it. I can count, and I don't like the sum." },
+      { id = "gv_town", when = { grudge = "town" }, text = "Stonard's a small fort, and every complaint in it lands on my desk. Too many of them have your name on them." },
+    },
+    amends = {
+      { id = "am1", text = "Take my orders, carry them out and report back without excuses. Do it enough times, and I'll write something kinder in the log." },
+      { id = "am_town", when = { grudge = "town" }, text = "Do this fort some good. When the reports from my own people turn, so will mine." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're the kind of soldier who loses the orders and blames the swamp. I've buried enough of those, and I'd not miss one more." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think you're an Alliance scout who walked in the front gate because nobody thought you'd dare. Next time, the gate won't open." },
+    },
     knows = {
       { id = "tp_knows", text = "Every report in Stonard crosses my desk, so I know a little about most things in this swamp. Ask me about any of these, and keep it short." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "You'll get what's in the public log and nothing more, so choose one and be brief." },

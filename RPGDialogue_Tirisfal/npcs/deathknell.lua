@@ -462,7 +462,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Night Web's Hollow is crawling with spiders bigger than the Deathguard who tried to clear it. If you're sent there, take a torch and someone slower than you." },
+    { id = "bl2", text = "The Scarlet Crusade has zealots skulking just past the edge of Deathknell, preaching at the dead who've only just risen. Kill them before they convince anyone foolish enough to listen." },
+    { id = "bl3", text = "The dreadlord whispers in the Dark Lady's ear day and night, and the court pretends that's perfectly normal. I serve her, not him, and I'd thank you not to confuse the two." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "My problem with you? You've been tiresome, and death left me very little patience for the tiresome. That's all, and it's quite enough." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You've been handed a second life and seem determined to waste it. I find that personally offensive, as someone who also went to the trouble of dying." },
+      { id = "gv_pers", when = { grudge = "persuade" }, text = "You tried to talk me round as though I hadn't heard every lie the living ever told. I was a priest once, and I heard confessions for a living." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're not one of ours, and you're standing in Deathknell asking a Shadow Priest for his opinion. That's either very brave or very stupid." },
+    },
+    amends = {
+      { id = "am1", text = "Go and be useful to the Dark Lady for a while, and do try to be less tedious about it. I'll notice eventually." },
+      { id = "am_values", when = { grudge = "values" }, text = "Do something with your life, whichever one you're on, that's worth the trouble of living it. I'm not asking for much, only that." },
+    },
+    spite = {
+      { id = "sp1", text = "I think the Scourge would have kept you only for parts, and even then only the smaller ones. The Dark Lady is far less particular, and you should thank her for it." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you'll die again soon, and badly, and I'll find it very difficult to look surprised." },
+    },
     knows = {
       { id = "tp_knows", text = "People tell a shadow priest all sorts of things, usually right before or right after they die. Ask about these; I've heard plenty." },
     },

@@ -743,6 +743,24 @@ P:NPC {
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw guard the passes to this glade, and they kept their minds when their cousins lost theirs. Treat them well, little one, because without them Moonglade would be harder to reach." } },
     highborne = { { id = "tp_highborne", text = "Azshara's court nearly ended the world, and my father fought to stop them. I remember, and so does every tree in this glade." } },
     _none = { { id = "tp_none", text = "That is beyond the glade, little one, and I have listened to the glade alone for ten thousand years. Rabine keeps better track of the world than I do." } },
+    grievance = {
+      { id = "gv_1", text = "The glade welcomes all who come in peace, little one, and you have not come in peace. That is my grievance." },
+      { id = "gv_prej", when = { grudge = "prejudice", class = "WARLOCK" }, text = "My father was slain by those drunk on Mannoroth's blood, and you bargain with that same darkness. I cannot set it aside." },
+      { id = "gv_val", when = { grudge = "values" }, text = "You treat the wild as a thing to be taken. The balance remembers, even when you do not." },
+    },
+    amends = {
+      { id = "am_1", text = "Walk gently in the wild for a season, and harm nothing you do not need to. The glade will know, and so will I." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Lay down the darkness, little one. Until then, I cannot help you, and I will not pretend I can." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you are a storm that does not know it is a storm, and the forest will bend away from you." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think the demons will welcome you as one of their own one day, and I hope I am not there to see it." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "My brother Zaetar lies in Maraudon, and his beloved Theradras still guards his bones. I do not speak of it, and you will not either." },
+    { id = "bl_2", text = "Teldrassil was planted without nature's blessing, and the corruption is already in its roots. Fandral will not hear it, and I have stopped telling him." },
+    { id = "bl_3", text = "The green dragons who guard the Dream have been seen at the great trees in Ashenvale, Feralas, Duskwood and the Hinterlands. Something troubles them, and it is not the mortal world." },
   },
 }
 

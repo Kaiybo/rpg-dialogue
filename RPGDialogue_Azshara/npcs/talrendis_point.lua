@@ -441,7 +441,24 @@ P:NPC {
     },
   },
 
+  blurts = {
+    { id = "bl1", text = "The orcs at Valormok send scouts along the Ashenvale border every few nights, and the Sentinels here are fewer than they let anyone believe." },
+    { id = "bl2", text = "The satyrs of the Haldarr Encampment still remember that they were elves once, and that memory is what makes them so cruel." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I am a guest here, and you have made trouble for my hosts. A guest's anger is a quiet thing, but it is anger all the same." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You speak of this land as something to be taken. The Earth Mother gave it to no one, and least of all to you." },
+      { id = "gv_town", when = { grudge = "town" }, text = "The Sentinels speak of you with narrowed eyes, and I have learned to trust what they see in the dark." },
+    },
+    amends = {
+      { id = "am1", text = "Walk gently in these woods and leave the shrine in peace. The Earth Mother forgives slowly, but she does forgive." },
+      { id = "am_town", when = { grudge = "town" }, text = "Do some kindness for the Sentinels of Talrendis. They let me stay, and I will think well of anyone who repays them for it." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you walk through the world as if no one walked it before you, and the ground remembers every heavy step." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you would cut down the last tree in Azshara if someone paid you for the wood. My people have a word for that, and it is not a kind one." },
+    },
     _gated = {
       { id = "gt1", text = "Forgive me, friend, but I do not speak of that with those I hardly know. A guest must be careful what he says, and to whom." },
       { id = "gt2", text = "I would rather keep that to myself for now. When we know each other better, ask me again, and I will not turn you away." },

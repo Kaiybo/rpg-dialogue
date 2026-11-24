@@ -444,7 +444,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The lich Araj the Summoner commands Andorhal, and his skeletons will keep rising until he falls. Bring me proof he's dead, and I'll know the town can be taken." },
+    { id = "bl2", text = "Weldon Barov is here for his family's deeds, not for Lordaeron, and his brother Alexi wants them just as badly at the Bulwark. The Barovs sold Caer Darrow to the Cult, and neither of them likes to be reminded of it." },
+    { id = "bl3", text = "Kel'Thuzad's Cult runs a school of necromancy beneath Caer Darrow, out on Darrowmere Lake. I've lost two scouts trying to see inside, and I'll not send a third." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I don't have room in this camp for soldiers I can't rely on, and I can't rely on you. That's the whole of my complaint, and it's enough." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "You call on the same dark the Cult used to bring Andorhal down, and you think I should trust you with my soldiers. I buried men who made that mistake." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You wear the Horde's colours in a Stormwind camp, within sight of Andorhal. My soldiers have lost too many friends to forget that." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You treat this war like a hunting trip, collecting trophies and leaving the burying to others. I write the letters home, and I don't care for your sort." },
+    },
+    amends = {
+      { id = "am1", text = "Fight beside my soldiers, and bring them home alive when you can. I'll notice, and so will the families I write to." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Put that power aside and fight with steel and the Light like the rest of us. Until you do, I'll not trust you near my lines." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you'd step over a wounded soldier to reach a sack of loot. I've written letters to the widows of better people than you." },
+      { id = "sp_prej", when = { grudge = "prejudice" }, text = "I think you're one bargain away from becoming the very thing we're fighting. When that day comes, I'll not hesitate, and neither will my soldiers." },
+    },
     knows = {
       { id = "tp_knows", text = "A commander hears everything that comes through his gate, whether he wants to or not. Ask me about any of this and you'll get it straight." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I'll give you what any soldier at this camp would know, and no more. Pick one and be quick." },

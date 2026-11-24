@@ -431,7 +431,24 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Kel'Thuzad sat on the Council of Six, and some of what he carried out of our vaults has never been found. The council would much prefer that nobody knew it." },
+    { id = "bl2", text = "The wards around the city are thinner than we let on. Half the Kirin Tor are off chasing the books the Scourge stole, and the rest of us hold the barrier together with stubbornness." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've been a poor guest of the Violet Citadel, and I took a risk letting outsiders in at all. I'm beginning to regret it." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to an archmage of the Kirin Tor as if she kept a tavern. Some of my colleagues would turn you into something small for that, and I'm tempted to let them." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You treat magic as a weapon to be grabbed and swung. That is how Kel'Thuzad began, and it's why I don't like the look of you." },
+    },
+    amends = {
+      { id = "am1", text = "Do the work I asked of you, and do it carefully. The council's opinion of outsiders rests partly on you." },
+      { id = "am_tone", when = { grudge = "tone" }, text = "Courtesy, mostly. Dalaran runs on it, and you'll find it opens more doors than a sword ever will." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're exactly what the council warned me outsiders would be, and I hate giving them the satisfaction." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you'd have followed Kel'Thuzad into his cult if he'd promised you something that glittered." },
+    },
     _gated = {
       { id = "gt1", text = "That's council business, and I don't discuss it with people I've only just met. Give me cause to trust you, and we'll see." },
       { id = "gt2", text = "I could tell you, but I won't, not yet. The Kirin Tor have learned at great cost to be careful with what we share." },
@@ -755,7 +772,24 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Some of the worst books from our vaults turned up in Scholomance, in the Barov family's own library, after the Cult of the Damned had them. Nobody upstairs will say how they got there." },
+    { id = "bl2", text = "The Kirin Tor have pulled more of their magi back behind the barrier than we admit to Stormwind. We cannot spare them, and we will not say so." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've worn out what little patience I had for you, and I never had much. Antonidas was the patient one." },
+      { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "I watched Archimonde reduce this city to rubble, and you call his kind to you like pets. I'll not hear another word on it." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You look at our shelves the way a thief looks at a purse. Dalaran has lost enough books to people like you." },
+    },
+    amends = {
+      { id = "am1", text = "Leave the forbidden texts alone and bring back any you find. That's the only payment I'll accept." },
+      { id = "am_prejud", when = { grudge = "prejudice" }, text = "Give up the demons. Antonidas would have asked it more kindly, but he's dead, and I'm what's left." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're careless, and careless people get cities burned. I've seen it happen once, and I'll not see it again." },
+      { id = "sp_prejud", when = { grudge = "prejudice" }, text = "I think you're a fool who believes you're holding the leash. Every warlock believes that, right up until the moment it isn't true." },
+    },
     _gated = {
       { id = "gt1", text = "I'm not in the habit of discussing that with people I hardly know. Ask me again when you've given me a reason to." },
       { id = "gt2", text = "That's not something I'll go into with you, at least not yet. I'm careful about whom I tell things, and I've had cause to be." },

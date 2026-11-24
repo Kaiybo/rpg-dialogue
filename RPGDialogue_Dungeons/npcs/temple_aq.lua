@@ -150,7 +150,24 @@ P:NPC {
     },
   },
 
+  blurts = {
+    { id = "bl1", text = "The Twin Emperors guard the way to C'Thun, and they mend each other's wounds when they stand together. Keep them apart, or you will never finish either." },
+    { id = "bl2", text = "The Prophet Skeram splits into images of himself when he is pressed, and only one of them is real. Strike the false ones and you waste your strength." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You have been careless with my patience, and a dragon's patience is not as endless as mortals like to assume." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to one of Malygos' brood as one speaks to a beast of burden. I have outlived kingdoms that spoke to me so." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You think only of the next blade and the next gem. The Old God below thinks in ages, and he will devour you for it." },
+    },
+    amends = {
+      { id = "am1", text = "Serve the bronze flight's purpose here, and do it with care. Time will soften my opinion if you give it reason." },
+      { id = "am_tone", when = { grudge = "tone" }, text = "Speak with the courtesy due to an elder of my flight. Time will do the rest." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are a candle in a very large dark, and you have not noticed how near the wind is." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think C'Thun would find you a simple thing to whisper into. Do not prove me right." },
+    },
     cthun = { { id = "tp_cthun", text = "The Old God below. Do not linger on his name.", next = "cthun" } },
     nozdormu = { { id = "tp_noz", text = "The Timeless One, Aspect of the bronze flight, whom we serve here.", next = "nozdormu" } },
     _none = { { id = "tp_none", text = "That thread of time is not one I have followed." } },

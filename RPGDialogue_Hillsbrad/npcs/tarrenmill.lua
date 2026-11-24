@@ -492,6 +492,23 @@ P:NPC {
     lordaeron = { { id = "tp_lordaeron", text = "Lordaeron is ours now, the dead kingdom of the dead, and the living can mourn it from Southshore. We remember it better than they do, because we died in it." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme belongs to the Scourge and to the Scarlet zealots, and both will answer to the Dark Lady in time. I've sent scouts there, and few of them have come back." } },
     _none = { { id = "tp_none", text = "That is irrelevant to the front. Ask someone with less to do." } },
+    grievance = {
+      { id = "gv_1", text = "You have been of little use to the Dark Lady's front, and I measure everyone by that. You measure poorly." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "The living Horde flinch when they see us, and you flinched. I return the courtesy." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You wear the Alliance's colours in Tarren Mill, and my deathguards have long memories. I am restraining them, for now." },
+    },
+    amends = {
+      { id = "am_1", text = "Go to Southshore and do the Dark Lady's work. Results are all I count." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Look at us without flinching for a season. Then I may stop expecting it." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you are a waste of the Dark Lady's time, and she has a great deal of it to waste." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think you are as squeamish as the rest of the living Horde, and I think you will die badly because of it." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "Southshore's Marshal spreads his patrols thin across the farms. The fields of Hillsbrad are where the living break first." },
+    { id = "bl_2", text = "The magi of Dalaran hide behind their violet shield, and they think we do not count their sentries. We count every one." },
   },
 }
 

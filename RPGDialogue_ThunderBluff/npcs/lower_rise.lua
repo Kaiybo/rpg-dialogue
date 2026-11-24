@@ -288,7 +288,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Grimtotem at Darkcloud Pinnacle in the Thousand Needles answer to Magatha, whatever she says on Elder Rise. I can't prove it yet, and the High Chieftain won't move until I can." },
+    { id = "bl2", text = "The Compendium of the Fallen sits in the library of the Scarlet Monastery, and the zealots guard their books more closely than their lives. I want it back, and I'd take it from anyone's hands." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I keep notes on everyone who passes through Thunder Bluff, and yours have grown rather long and rather unflattering. That's my problem, if you must have it." },
+      { id = "gv_pers", when = { grudge = "persuade" }, text = "You tried to argue me round with half a fact and a confident voice. I've spent my life catching people doing exactly that, and I caught you." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You tell stories that flatter yourself and leave out who else was there. I asked around, and the others remember it rather differently." },
+      { id = "gv_town", when = { grudge = "town" }, text = "Thunder Bluff talks, and I listen for a living. What it says about you has not improved my opinion." },
+    },
+    amends = {
+      { id = "am1", text = "Bring me something true that I didn't already know, and bring it honestly. That's the only coin a sage accepts." },
+      { id = "am_pers", when = { grudge = "persuade" }, text = "Next time, bring evidence instead of a raised voice. I'm very easy to convince with the right page." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're a footnote, and not an interesting one. When I write the history of these years, I'll spell your name wrong on purpose." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you'd sell the High Chieftain to Magatha for a good story and a full purse. I've written that down, too." },
+    },
     _gated = {
       { id = "gt1", text = "I know the answer, but I'm careful about whom I hand my findings to, and I don't know you well enough yet." },
       { id = "gt2", text = "That one stays in my notes for now. Give me cause to trust you with it, and I'll tell you all of it." },

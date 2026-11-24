@@ -470,7 +470,26 @@ P:NPC {
     },
   },
 
+  blurts = {
+    { id = "bl1", text = "I had Lorthuna watched long before the cult marched, and most of the Council never knew I'd ordered it. Don't speak of her near Ayessa Dawnsinger; they were sisters, whatever else they became." },
+    { id = "bl2", text = "We still have no word from Shen'dramar, even with the skycutters running again. I don't say so aloud, because I don't know what we'd find if we went." },
+    { id = "bl3", text = "Every relic taken back from the cult passes through my hands before it goes to the collection. I've learned more about some families that way than I ever wished to." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I try to think well of everyone who comes to this isle, child, and you've made it very hard work. I'm too tired for hard work that pays nothing." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "Our ancestors fled Eldre'Thalas so they'd never share a hall with power like yours again. I'll keep my courtesy, but I'll not pretend to more." },
+      { id = "gv_town", when = { grudge = "town" }, text = "Half of Valanaar and most of the Council have come to me with complaints about you. I listen to every complaint on this isle, and yours have piled up." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You treat our sacred places as curiosities and our quarrels as entertainment. People have died over those quarrels, and I'll not have them made light of." },
+    },
+    amends = {
+      { id = "am1", text = "Help both orders without choosing between them, and don't boast of it to either. That is what I ask of everyone, and almost no one manages it." },
+      { id = "am_values", when = { grudge = "values" }, text = "Show our sacred sites the respect you'd want shown to your own dead. That's a beginning, and beginnings are all I ask for." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're one more stranger who came to watch our islands drift and stayed to pick through whatever falls. I've met enough of you to know." },
+      { id = "sp_prej", when = { grudge = "prejudice" }, text = "I think you carry the same hunger that fed Tortheldrin's demons, and I'd not trust it near our children. I'm sorry, child, but I've never been good at lying." },
+    },
     _gated = {
       { id = "gt1", text = "That's a matter I keep for those the isle has reason to trust, and I don't yet know you well enough. Give it time, and ask me again." },
       { id = "gt2", text = "I'll not speak of that yet. I'm honest about what I know, and I'm equally honest that I choose who hears it." },

@@ -459,7 +459,27 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Sin'Dall keeps to the high ground in the north of the jungle, and he'll smell you long before you see him. Come at him from downwind, if you've the sense." },
+    { id = "bl2", text = "King Bangalash prowls the northern hills with his tigers around him like a royal court. Kill the guards first, or they'll be at your back when the king comes." },
+    { id = "bl3", text = "Barnil's still missing half the pages of my Green Hills of Stranglethorn, and the trolls and pirates have them scattered all over the jungle. Bring him every page you find, and he'll pay you for it." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You tramp through my camp like a kodo through a crockery shop, and you scare off every beast for a mile. A hunter who can't keep quiet is no hunter at all." },
+      { id = "gv_rival", when = { grudge = "rival" }, text = "I've seen you running errands for Kebok and his Booty Bay lot. Any friend of that goblin's is welcome to his company, and not to mine." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You made light of my life's work, as if hunting were some game for bored lords. I've stalked tigers longer than you've been alive, so mind it." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You kill for the pleasure of it and leave the meat to rot. That's butchery, not hunting, and I'll not call it anything else." },
+    },
+    amends = {
+      { id = "am1", text = "Go out and bring me a clean kill, taken fair and skinned properly. That's the only apology a hunter ever needs to make." },
+      { id = "am_wronged", when = { grudge = "wronged" }, text = "Show a little respect for the craft, and for the beasts as well. They've earned it, even if you haven't yet." },
+      { id = "am_rival", when = { grudge = "rival" }, text = "Stop doing Kebok's fetching, and I'll stop counting you as one of his. It's as simple as that." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're the sort who'd shoot a tiger in its sleep and call it sport. I'd not put your name in my book if you were the last hunter alive." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you're a butcher with a bow, and the jungle will remember you for it. It always does, sooner or later." },
+    },
     knows = {
       { id = "tp_knows", text = "I've hunted every corner of this jungle, and I know it better than any map. Ask, and I'll tell you what I've learned." },
     },

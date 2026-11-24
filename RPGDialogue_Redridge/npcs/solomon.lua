@@ -758,7 +758,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Gath'Ilzogg holds Stonewatch Keep for the Blackrock and has not left its walls in months. Every raid on this valley is planned behind them." },
+    { id = "bl2", text = "I have come to suspect my letters to the Regent are read by Lady Prestor's clerks before they ever reach his desk. I cannot prove it, and I should not have said it." },
+    { id = "bl3", text = "The Shadowhide gnolls in the eastern hills take their orders from the Blackrock, whatever they pretend. Break the orcs, and the gnolls will scatter of their own accord." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "This court has formed an opinion of you, and it was not formed lightly. I am afraid it is not a favourable one." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "The law of Stormwind names demon-summoning a crime, and Lakeshire buried its dead the last time warlocks came down this valley. I will not set either fact aside for your convenience." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You addressed this court with less respect than I would expect from an orc under a flag of truce. I have entered it in the record, and the record does not forget." },
+      { id = "gv_town", when = { grudge = "town" }, text = "Lakeshire has complained of you, and Lakeshire is my court's first and only concern. When my people speak, I listen, which is more than Stormwind does for me." },
+    },
+    amends = {
+      { id = "am1", text = "Serve Lakeshire, and let the township speak for you before this court. Petitions on your behalf will be weighed fairly, as all petitions are." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Show this valley that your craft can be turned against the Blackrock and not against us. Until then, the law and I will both keep our distance." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are one more thing this township must endure while it waits for help that never comes. I have endured a great deal, and I shall endure you." },
+      { id = "sp_town", when = { grudge = { worst = "town" } }, text = "I think Lakeshire would be glad to see your back on the road to Elwynn, and I would sign the order myself if the law allowed it." },
+    },
     kaldorei = { { id = "tp_kaldorei", text = "The court has no quarrel with the night elves, only with how quickly Stormwind answers their letters. It notes the difference, and it notes it often." } },
     _gated = {
       { id = "gt1", text = "That is not a matter I discuss with persons the court has no reason yet to trust. Serve Lakeshire, and you may ask me again." },

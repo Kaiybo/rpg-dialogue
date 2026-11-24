@@ -779,7 +779,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Burning Blade meet in Ragefire Chasm beneath this very city, and I let them, because I want to see which of my people go down to them." },
+    { id = "bl2", text = "Jaina Proudmoore and I keep this peace with less trust than either of our peoples believes. One bad season, and every word of it could burn." },
+    { id = "bl3", text = "Cairne is wise, but Magatha Grimtotem smiles too easily on Elder Rise. I have said nothing to him, because he will not hear a word against her without proof." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I welcome every voice in this hall, but I do not have to like what some of them say. You have given me reason to doubt you, and a warchief does not forget such reasons." },
+      { id = "gv_values", when = { grudge = "values" }, text = "I built the Horde so orcs would never again serve cruelty for its own sake. I have heard what you do in the Horde's name, and it is not what I built it for." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me as if this crown were a thing to be mocked. Orgrim Doomhammer gave his life for it, and I will not hear it mocked by you." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You walk into the heart of Orgrimmar under the banner that kept my people in chains. I honour the peace with Theramore, but I am not obliged to welcome you." },
+    },
+    amends = {
+      { id = "am1", text = "Serve the Horde with honour, and let others tell me of it. I trust what is said of a warrior behind his back far more than to his face." },
+      { id = "am_values", when = { grudge = "values" }, text = "Remember what we were in the camps, and choose to be something better. That is the only thing I ask of anyone who calls themselves Horde." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you have the strength the old Horde valued and none of the wisdom we paid so dearly to learn. That frightens me more than any Alliance army." },
+      { id = "sp_values", when = { grudge = { worst = "values" } }, text = "I think you would have served Gul'dan gladly, and never once asked what he was buying with your blood. Go, before I say more than a warchief should." },
+    },
     _gated = {
       { id = "gt1", text = "That's not something I'll speak of with one I hardly know. Serve the Horde well, and there'll come a day when I'll tell you gladly." },
       { id = "gt2", text = "A Warchief must choose who hears what, and for now I choose to keep that to myself. Take it as a reason to prove yourself, and not as an insult." },
@@ -1195,7 +1214,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "My son Yenniku be a prisoner of the Bloodscalp in Stranglethorn, and they keep him under a hex. I don't speak of it, because a chief with a captive son be a chief who can be bargained with." },
+    { id = "bl2", text = "Zalazane never leave the Echo Isles; he hide behind his hexed Darkspear and let them die for him. Kill the witch doctor, and the hexes break with him." },
+    { id = "bl3", text = "The Banshee Queen's apothecaries ask too many questions about plague and poison, mon. I told the Warchief once, and he say he got enough enemies already." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "Vol'jin decide about you a while back, mon, and the deciding didn't go your way. I don't change my mind for the asking." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "You look at a Darkspear like the humans used to, like we be something crawled out of the sea. I remember them looks, and I remember you got one too." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You talk to Vol'jin like he be a jungle troll with a bone in his nose. Plenty of folk do, mon, and most of them stop eventually." },
+      { id = "gv_values", when = { grudge = "values" }, text = "The loa watch how a body walk in the world, and they whisper to me about you. They don't whisper nothin' good." },
+    },
+    amends = {
+      { id = "am1", text = "Do right by the Darkspear, and let my people tell me about it. Trolls remember kindness as long as we remember insults, and that be a long time." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Go to Sen'jin Village and look at my people, really look, mon. Then come back and tell me what you see." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you be the kind of fool the spirits like to play with, mon. They play rough, and I won't be cuttin' you down when they done." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think you be no better than Zalazane's puppets, dancing to somebody else's hate. At least the puppets got an excuse." },
+    },
     _gated = {
       { id = "gt1", text = "Dat be a thing Vol'jin keep close, and you not be close enough yet. Do right by the Darkspear, and maybe one day I be telling you." },
       { id = "gt2", text = "No, mon, Vol'jin not be speaking of dat with you, not today. Some words be only for those who earned them." },
@@ -1546,7 +1584,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Searing Blade hold Ragefire Chasm beneath our feet, and their leaders keep to the deepest caverns where the fire is hottest. I know rather more of their habits than I usually admit." },
+    { id = "bl2", text = "I tell the Warchief what serves the Warchief, and I decide what that is. You may make of that whatever you like." },
+    { id = "bl3", text = "Not every warlock in the Cleft is as reformed as the Warchief believes. Some of them are simply very good at lying to me, and I let them, because they lead me to the others." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "Oh, I have no problem with you, my friend. I simply find you less useful than I hoped, and I am a man who values useful things." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me in my own Cleft as if I were one of the fire-worshippers I watch. I do not forget insults, though I am far too polite to say so often." },
+      { id = "gv_pers", when = { grudge = "persuade" }, text = "You tried to lean on me, and clumsily too. In the Cleft we lean on people very gently, so they never notice until they are already falling." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You are careless, my friend, and carelessness reaches the Warchief's ears. I would rather it did not reach them through me." },
+    },
+    amends = {
+      { id = "am1", text = "Be useful to me, quietly, and let me decide when we are even. I keep very careful accounts, you see." },
+      { id = "am_wronged", when = { grudge = "wronged" }, text = "A little courtesy, offered where people can see it, would go a long way. Appearances are everything in the Cleft." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are the sort the Burning Blade recruit by the dozen, loud and easily flattered. I think one day I shall see your name on one of my little lists." },
+      { id = "sp_pers", when = { grudge = "persuade" }, text = "I think you mistake shouting for strength, my friend. The Cleft is full of people who made that mistake, and most of them are very quiet now." },
+    },
     _gated = {
       { id = "gt1", text = "That is a conversation for friends, and we are not yet quite friends, are we? Prove yourself useful, and I may find I have more to say." },
       { id = "gt2", text = "I think I shall keep that to myself for the present. One doesn't hand one's confidences to every {class} who wanders in out of the sun." },

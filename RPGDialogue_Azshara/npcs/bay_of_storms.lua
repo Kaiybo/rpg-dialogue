@@ -391,7 +391,24 @@ P:NPC {
     },
   },
 
+  blurts = {
+    { id = "bl1", text = "The runes of fire in the Molten Core feed the Firelord's lieutenants, and only water from my court will douse them. Do it, and his Majordomo must come out to face you." },
+    { id = "bl2", text = "Ragnaros was torn into this world by the Dark Iron sorcerer Thaurissan, and every fire elemental under Blackrock answers to him. Do not imagine you are fighting strays." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You were given work and treated it as a favour you might grant. I do not tolerate such presumption from my instruments." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You address a lord of the Waterlords as if he sold fish on a pier. The tide has drowned prouder things than you." },
+      { id = "gv_wronge", when = { grudge = "wronged" }, text = "I measured you and found you wanting, and you answered with insolence. Water remembers every stone thrown into it." },
+    },
+    amends = {
+      { id = "am1", text = "Carry my war into the Firelord's halls and come back alive. Deeds wash words away, and nothing else does." },
+      { id = "am_tone", when = { grudge = "tone" }, text = "Speak with the courtesy owed to a duke of the elemental courts, and I may hear you again." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are a pebble that believes itself a mountain. The sea is very patient with such pebbles, and very thorough." },
+      { id = "sp_tone", when = { grudge = "tone" }, text = "I think you were raised among people who never learned to bow. The Firelord's servants will teach you, and they are less kind than I am." },
+    },
     _gated = {
       { id = "gt1", text = "The deeper waters are not opened to every mortal who wades in. Serve the Waterlords against fire, and then ask me again." },
       { id = "gt2", text = "I will not speak of that to one whose name the tide has not yet troubled to carry. Earn my regard first, mortal." },
@@ -796,7 +813,25 @@ P:NPC {
     },
   },
 
+  blurts = {
+    { id = "bl1", text = "Razelikh the Defiler draws his protection from an amulet, and its pieces are held by his servants scattered across the Blasted Lands. Gather them, and he can be reached." },
+    { id = "bl2", text = "Lord Kazzak himself still walks the Tainted Scar, gathering what is left of the old armies. Your kingdoms sleep very soundly for people with such a neighbour." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You came to my island and wasted my time. Demons waste enough of it without your help." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You flinch from what must be done, and a hunter who flinches is a meal. I have no patience for meals." },
+      { id = "gv_wronge", when = { grudge = "wronged" }, text = "I told you plainly what hunts in the dark, and you answered with mockery. I have outlived better jesters than you." },
+      { id = "gv_temper", when = { grudge = { worst = "temper" } }, text = "Do not flatter yourself. I dislike everyone who has not watched a demon wear a friend's face, and that is nearly everyone." },
+    },
+    amends = {
+      { id = "am1", text = "Kill Razelikh's servants in the Blasted Lands and bring me proof of it. Respect is earned in demon blood here." },
+      { id = "am_wronge", when = { grudge = "wronged" }, text = "Come back when you have learned to listen. I am old, and I can wait longer than you can live." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are exactly what the Legion loves best: clever, proud and certain that nothing can touch you. They will enjoy you." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you would bargain with a dreadlord the first time one smiled at you. I have watched it happen to better elves than you." },
+    },
     _gated = {
       { id = "gt1", text = "That is mine to keep, and I do not share it with strangers who wander onto my island. Prove that you are something more than that." },
       { id = "gt2", text = "No. I have told you what a demon is, and the rest I tell only to those I have reason to trust." },

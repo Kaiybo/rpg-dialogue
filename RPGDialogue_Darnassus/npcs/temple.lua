@@ -445,7 +445,24 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Not every priestess in this Temple trusts the Arch Druid's tree, though we are told to say nothing of it. Some of us pray over its roots at night." },
+    { id = "bl2", text = "If you want to know what the Enclave will not tell you, go to Moonglade and ask Keeper Remulos. He speaks to the Sisterhood more honestly than Fandral ever has." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You have been a discourteous guest in Elune's house. I am patient by training, but I am not blind." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You speak in the Temple as one shouts in a marketplace. Elune hears everything, and so do I." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You treat healing as a trade and prayer as a nuisance. That is a cold way to walk the world." },
+    },
+    amends = {
+      { id = "am1", text = "Tend to the sick before you come back to me. Mercy mends more than apology does." },
+      { id = "am_tone", when = { grudge = "tone" }, text = "Speak softly in the Temple, and remember whose house it is. That will do for a beginning." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you came here for power and not for faith, and Elune grants the first only to those who seek the second." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you would bargain with the moon herself if you thought she would pay. She does not, and you will learn it." },
+    },
     _gated = {
       { id = "gt1", text = "That is not something I would share with one who is still a stranger to this Temple. Come to me again when we know one another better." },
       { id = "gt2", text = "I must keep my own counsel on that for the present. A priestess learns which things are spoken only among those she trusts." },

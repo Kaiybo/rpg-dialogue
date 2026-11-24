@@ -417,7 +417,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Zalazane hide on the Echo Isles and keep his hexed trolls close around him. Strike the witch doctor himself, and his hexes break with him." },
+    { id = "bl2", text = "Sen'jin, Vol'jin's father, died in a sea witch's cage before he ever saw Durotar. Vol'jin don't speak of it, and you won't either." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "Gadrin be an old troll, and old trolls don't waste smiles. You be making Gadrin waste a frown instead." },
+      { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "You be dead and walking, child, like the puppets Zalazane raises from our own kin on the Echo Isles. Gadrin can't look at you without seeing them." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You be scorning the loa and the old ways both. Gadrin taught Zalazane once, and he scorned them too." },
+      { id = "gv_tone", when = { grudge = "tone", tone = "blunt" }, text = "You be talking to Gadrin like he a boar in the road. The Darkspear keep their manners, even when they keep nothing else." },
+    },
+    amends = {
+      { id = "am1", text = "Help the Darkspear take back the Echo Isles, and Gadrin will think on it." },
+      { id = "am_prejud", when = { grudge = "prejudice" }, text = "Gadrin be trying, child. Fight Zalazane's dead beside us, and maybe the loa make it easier." },
+    },
+    spite = {
+      { id = "sp1", text = "Gadrin think you be the kind of student he had once before, all hunger and no wisdom. He named that one Zalazane." },
+      { id = "sp_prejud", when = { grudge = "prejudice" }, text = "Gadrin think you be one of Zalazane's puppets who forgot whose strings you wear." },
+    },
     _gated = {
       { id = "gt1", text = "No, no, dat be a story Gadrin only tell to friends, and you not be one just yet. Help the village some more and come ask again." },
       { id = "gt2", text = "An old witch doctor be allowed to keep a few things to himself. I know the answer well enough, but I not be giving it to you today." },

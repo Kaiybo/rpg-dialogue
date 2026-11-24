@@ -321,7 +321,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Burning Blade have a nest in Skull Rock, right outside Orgrimmar's gate, and the guards there pretend not to see it." },
+    { id = "bl2", text = "Lieutenant Benedict commands what's left of Kul Tiras at Tiragarde Keep, and he keeps his orders locked in a chest at the top of the keep." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've wasted my time, and I don't have much of it to waste." },
+      { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "I saw the old warlocks burn the clans to the bone. You carry the same rot, and Razor Hill will not have it." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're Alliance, inside Razor Hill. Tiragarde is just across the water, and I don't need another enemy inside my walls." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You fight for coin, and the Horde fights for its home. That's the difference between us." },
+    },
+    amends = {
+      { id = "am1", text = "Fight for Razor Hill. Kill the Kul Tiras dogs at Tiragarde Keep, and I'll forget the rest." },
+      { id = "am_prejud", when = { grudge = "prejudice" }, text = "Throw away the demons. Until you do, keep your distance from my barracks." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're soft, and Durotar kills the soft ones first." },
+      { id = "sp_prejud", when = { grudge = "prejudice" }, text = "I think you'd sell the Horde back to the Legion for a little more power. Your kind always do." },
+    },
     _gated = {
       { id = "gt1", text = "That's not for your ears, not until you've done more for this post than talk." },
       { id = "gt2", text = "I don't discuss that with those I can't yet vouch for. Earn it, and ask me again." },

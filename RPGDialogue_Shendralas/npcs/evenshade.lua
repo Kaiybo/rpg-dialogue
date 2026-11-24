@@ -779,7 +779,26 @@ P:NPC {
     },
   },
 
+  blurts = {
+    { id = "bl1", text = "The Prince keeps the demon Immol'thar chained in the western wing, and five crystal pylons hold its prison shut. Break them, and the cage opens." },
+    { id = "bl2", text = "Prince Tortheldrin drains that demon to keep the Shen'dralar alive, and he has been doing it for ten thousand years. I have never said aloud how much I despise him for it." },
+    { id = "bl3", text = "The ogres in the northern courtyards answer to a king they call Gordok, and his throne goes to whoever kills him. Even ogres understand inheritance, in their way." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I have been courteous to you, which is a habit of ten thousand years, and you have not returned it. I find I have run short of patience." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "Your people drove mine out of our own forests and called it justice. I know the quarrel is older than you, and I find I cannot help blaming you for it anyway." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me as though I were a ghost in a ruin, something to be gawked at and left. I was a scholar of Zin-Azshari when your ancestors were still learning to farm." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You came to Eldre'Thalas for treasure, and the city can always tell. I have watched it punish greed for a very long time, and I see it in you." },
+    },
+    amends = {
+      { id = "am1", text = "Go into the ruins looking for understanding, and come back and tell me what you learned. That is the only gift I still value." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Show me that the kaldorei have learned something since they drove us out. I would be glad to be proven wrong, though I confess I rarely am." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you would have been perfectly at home in Azshara's court, preening and clever and entirely blind. I mean that as the worst insult I know." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think your people learned to talk to bears because they could never bear to listen to us. Leave my overlook, child of the kaldorei." },
+    },
     _gated = {
       { id = "gt1", text = "That is a private matter, and I do not open such things to those I scarcely know. Perhaps when we are better acquainted, I shall." },
       { id = "gt2", text = "I would rather not speak of it to you, not yet. A Highborne learns slowly whom he may trust, and I have had ten thousand years to grow slower." },

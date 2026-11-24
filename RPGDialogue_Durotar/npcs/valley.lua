@@ -519,7 +519,24 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Burning Blade coven in the cave to the north answers to a warlock called Yarrog Baneshadow. Kill him, and the rest are just frightened cultists." },
+    { id = "bl2", text = "There's a scorpid called Sarkoth in the canyon to the northeast that nearly killed Hana'zua, and nobody has gone back for it." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've been trouble since you crawled into my Den. Recruits are supposed to get easier to deal with, not harder." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You fight for yourself and no one else. The Horde doesn't need that kind, and the Den didn't make you that way." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're Alliance, standing in the Valley where we raise our young. Don't ask me what my problem is." },
+    },
+    amends = {
+      { id = "am1", text = "Go back out and kill what Zureetha and the others tell you to kill. Do it well and I'll stop frowning when I see you." },
+      { id = "am_values", when = { grudge = "values" }, text = "Fight for someone besides yourself. That's the first thing the Den teaches, and you skipped it." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're a whelp who never learned to get back up. One day you'll fall and stay down." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think the Burning Blade would take you in a heartbeat, and you'd go with them." },
+    },
     _gated = {
       { id = "gt1", text = "You've not earned that answer yet, recruit. Do the work I give you, and then we'll see what I tell you." },
       { id = "gt2", text = "That's not something I share with a whelp who's barely bloodied. Come back when the valley knows your name." },

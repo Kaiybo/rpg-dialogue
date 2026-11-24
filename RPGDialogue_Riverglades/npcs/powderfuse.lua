@@ -329,7 +329,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The port's charter is in my name only because the Cartel's clerk owed me a very large favour. If anybody in Undermine ever looks too closely, I'm in trouble." },
+    { id = "bl2", text = "The Venture Company's had a man asking prices on my warehouses for months. I'll burn the place to the waterline before I sell, and I've already bought the oil." },
+    { id = "bl3", text = "Those Twilight types pay in coin that's cold to the touch, pal. I take it anyway, and I don't keep it in the same strongbox as the rest." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "My problem, kid? You cost me money, or you cost me time, and time is money, so either way you're in the red." },
+      { id = "gv_pers", when = { grudge = "persuade" }, text = "You tried to squeeze me, pal, in my own port. Nobody squeezes Melbin Powderfuse, because I'm the one who does the squeezing round here." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You talked about my port like it was a heap of sand with some planks on it. It is, pal, but it's my heap, and I built every plank." },
+      { id = "gv_rival", when = { grudge = "rival" }, text = "I hear you've been doing favours for the Venture Company boys. Anybody who helps those clowns can find another port to dock in." },
+    },
+    amends = {
+      { id = "am1", text = "Spend some money, kid, a lot of it, and spend it here. Gold has a lovely way of healing old wounds." },
+      { id = "am_pers", when = { grudge = "persuade" }, text = "Stop trying to haggle me down and pay full price for once. You'd be amazed how friendly I get." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're a bad investment, pal, and I never make bad investments twice. Off my dock before I charge you for the standing." },
+      { id = "sp_wronged", when = { grudge = { worst = "wronged" } }, text = "I think you're the kind of customer who breaks the merchandise and blames the shop. I've got a sign about your kind, and it's not friendly." },
+    },
     knows = {
       { id = "tp_knows", text = "Information's like timber, pal: it floats down to me eventually, and I sell it on at a markup. Ask, and we'll talk terms later." },
     },

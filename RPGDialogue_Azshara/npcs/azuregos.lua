@@ -209,7 +209,25 @@ P:NPC {
     },
   },
 
+  blurts = {
+    { id = "bl1", text = "The naga dig in Eldarath for the same relics I guard, and they answer to something beneath the waves that remembers Queen Azshara personally." },
+    { id = "bl2", text = "My master Malygos has not been himself since Deathwing slaughtered most of our flight, and he guards magic now with a jealousy that frightens even me." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "Mortals annoy me as a rule, and you have managed to annoy me as an exception. That is a considerable achievement." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You look at these ruins and see loot rather than history. The Highborne were fools, but even they understood the difference." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to a dragon as if he kept a tavern. I have eaten tavern keepers, though not lately." },
+      { id = "gv_persua", when = { grudge = "persuade" }, text = "You tried to bully a dragon. I am still deciding whether that was courage or ordinary stupidity." },
+    },
+    amends = {
+      { id = "am1", text = "Leave the relics of Eldarath where they lie, and go and bother someone shorter-lived. That would be a fine beginning." },
+      { id = "am_values", when = { grudge = "values" }, text = "Bring me something the Highborne left behind instead of pocketing it. Then I may revise my opinion of you, slightly." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are a brief, noisy thing that will be dust while I am still guarding these ruins. It is the only comfort you have given me." },
+      { id = "sp_persua", when = { grudge = "persuade" }, text = "I think you are fortunate that I have grown patient over the centuries. My younger self would have frozen you where you stand." },
+    },
     _gated = {
       { id = "gt1", text = "No, little one. I guard what the Highborne left behind from mortals I have no reason to trust, and you haven't yet given me one." },
       { id = "gt2", text = "That I'll keep to myself for now. A dragon doesn't hand his knowledge to every traveller who wanders up to ask, and so far you are only a traveller." },
