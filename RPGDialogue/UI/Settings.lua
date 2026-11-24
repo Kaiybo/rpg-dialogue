@@ -295,7 +295,10 @@ local function build()
   fontPicker(L.OPT_FONT_TEXT, "fontBody", "body")
   fontPicker(L.OPT_FONT_NAME, "fontName", "name")
   checkbox(L.OPT_CONTRAST, "highContrast")
-  checkbox(L.OPT_GAME_DIVIDER, "gameDivider", { onChange = function() if UI.Dialogue and UI.Dialogue.Layout then UI.Dialogue.Layout() end end })
+  checkbox(L.OPT_GAME_DIVIDER, "gameDivider", { onChange = function()
+    if UI.Dialogue and UI.Dialogue.Layout then UI.Dialogue.Layout() end
+    if UI.DUIView and UI.DUIView.IsShown and UI.DUIView.IsShown() then UI.DUIView.Refresh() end
+  end })
   -- Put a dragged conversation box back where it opens by default (0.61.0).
   buttonRow(L.OPT_RESET_POS_LABEL, L.OPT_RESET_POS, function() UI.Dialogue.ResetPosition() end)
 

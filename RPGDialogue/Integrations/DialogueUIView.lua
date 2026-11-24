@@ -38,12 +38,32 @@ local function window() return C.DialogueUIFrame() end
 -- Methods copied in by DialogueUI's mixin are fields of the window itself.
 local function has(f, name) return type(rawget(f, name)) == "function" end
 
+-- The faint rule between the NPC's replies and the game's options (or "Get on with it"
+-- when no game options are listed), as in the box. One texture per option button we've
+-- drawn on; DialogueUI reuses its buttons, so every layout hides them all first.
+local RULE_COLOR = { 0.55, 0.46, 0.36, 0.45 }
+local ruleTex = {}
+local function hideRules()
+  for _, t in pairs(ruleTex) do t:Hide() end
+end
+local function ruleFor(b)
+  local t = ruleTex[b]
+  if not t then
+    t = b:CreateTexture(nil, "ARTWORK")
+    t:SetHeight(1)
+    t:SetColorTexture(RULE_COLOR[1], RULE_COLOR[2], RULE_COLOR[3], RULE_COLOR[4])
+    ruleTex[b] = t
+  end
+  return t
+end
+
 local function install(f)
   if installed then return true end
   for _, name in ipairs(HANDLERS) do
     local original = rawget(f, name)
     if type(original) == "function" then
       f[name] = function(self, ...)
+        hideRules()
         if page then
           local ok, laidOut = pcall(V.Layout, self)
           if ok and laidOut then return true end
@@ -143,12 +163,16 @@ local function buildRows(p)
     out[#out + 1] = { text = L.DUI_BACK, gap = true, onClick = function() page.asking = nil; page.askPage = nil; V.Refresh() end }
     return out
   end
+  local nChoices, anyGame = #(p.choices or {}), false
   for i, c in ipairs(p.choices or {}) do
+    if c.game then anyGame = true end
     out[#out + 1] = {
       text = (c.locked and (L.LOCKED_MARK .. " ") or "") .. c.text, icon = c.icon, locked = c.locked, gap = c.gap,
+      rule = c.game and c.gap or nil,
       onClick = function() Conv.Choose(i) end,
     }
   end
+  local firstAfter = #out + 1
   if p.canAsk then
     local n = ns.Topics.Count()
     out[#out + 1] = { text = n > 0 and L.DUI_ASK_N:format(n) or L.DUI_ASK, gap = true,
@@ -165,6 +189,11 @@ local function buildRows(p)
     local name = L["TONE_" .. p.tone:upper()] or p.tone
     out[#out + 1] = { text = L.DUI_TONE:format(name), gap = true,
       onClick = function() Conv.SetTone(ns.Disposition.NextTone(p.tone)) end }
+  end
+  -- No game options listed: the rule goes under the replies, above what follows them.
+  if nChoices > 0 and not anyGame and out[firstAfter] then
+    out[firstAfter].rule = true
+    out[firstAfter].gap = true
   end
   return out
 end
@@ -190,6 +219,13 @@ function V.Layout(f)
     b.onClickFunc = function() V.Click(i) end
     if r.locked and b.Disable then b:Disable() end
     b:SetPoint("TOPLEFT", last, "BOTTOMLEFT", 0, (i == 1 or r.gap) and -SPACING or 0)
+    if r.rule and i > 1 and ns.db.settings.gameDivider ~= false and b.CreateTexture then
+      local t = ruleFor(b)
+      t:ClearAllPoints()
+      t:SetPoint("BOTTOMLEFT", b, "TOPLEFT", 4, SPACING / 2)
+      t:SetWidth(math.max(40, (b:GetWidth() or 300) * 0.6))
+      t:Show()
+    end
     last = b
     if has(f, "IndexGamePadObject") then f:IndexGamePadObject(b) end
   end

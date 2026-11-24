@@ -573,11 +573,18 @@ function D.Layout()
     frame.replyRule:SetPoint("TOPRIGHT", -PAD, y)
     y = y - 8
   end
+  -- With none of the game's options listed (a vendor whose shop opens straight away, the
+  -- talk key), the rule goes above "Get on with it" instead, so every box has one.
+  local anyGame = false
+  for _, b in ipairs(frame.buttons) do
+    if b:IsShown() and b.game then anyGame = true end
+  end
   for _, b in ipairs(frame.buttons) do
     if b:IsShown() then
       -- A little space before the game's own options, with a faint rule across it so
       -- the addon's replies and the game's options read as two lists.
-      local sep = b.gap and b.game and not b.isGetOn and settings().gameDivider ~= false
+      local sep = b.gap and settings().gameDivider ~= false
+        and ((b.game and not b.isGetOn) or (b.isGetOn and not anyGame))
       if sep then
         y = y - 6
         b.sep:ClearAllPoints()
