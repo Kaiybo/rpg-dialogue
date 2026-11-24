@@ -211,7 +211,7 @@ P:NPC {
     camps_old = {
       big = true,
       lines = {
-        { id = "co_default", key = true, text = "There was an old grey one we called Grandfather, because none of us could say his name. He whittled bits of firewood with a spoon edge, and one winter he pushed a little footman through the wire to me, with my nose on it, which was cruel and very accurate. It's on the shelf behind me, and I've never once known what to do with it." },
+        { id = "co_default", key = true, text = "There was an grey one we called Grandfather, because none of us could say his name. He whittled firewood with a spoon edge, and one winter he pushed a little footman through the wire to me, with my nose on it, cruel and very accurate. It's on the shelf behind me, and I've never known what to do with it." },
       },
       choices = {
         { text = "What happened to him?", next = "camps_old_fate" },

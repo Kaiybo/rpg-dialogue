@@ -2477,7 +2477,7 @@ P:NPC {
       },
     },
     r_learn = {
-      lines = { { id = "rln_default", text = "From the wild, as all beasts learn. Bind a swoop that knows how to dive, or a cougar that knows how to claw, and while it walks with you your own companion watches, and when you let the stranger go, the lesson stays. I teach the rest here: the growl, the thicker hide, the will to shrug off frost and fire." } },
+      lines = { { id = "rln_default", text = "From the wild, as all beasts learn. Bind a swoop that knows how to dive, or a cougar that knows how to claw, and while it walks with you, your companion watches, and when you let the stranger go, the lesson stays. I teach the rest here: the growl, the thicker hide, the will against frost." } },
       choices = { { text = "Back to the keeping.", next = "r_keep" } },
     },
     r_kodo = {

@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.36.0 (2026-11-24): Fewer Words, Same Voice
+- NPC speeches over 60 words were trimmed so they fit the dialogue box; nothing they say was lost.
+
 ## 1.35.0 (2026-11-23): The Overlooked
 - High Executioner Nuzrak now speaks at Kargath (core 0.105.0).
 

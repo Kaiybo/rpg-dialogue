@@ -864,7 +864,7 @@ P:NPC {
     },
     kt_jaina = {
       big = true,
-      lines = { { id = "ktj_default", text = "The Admiral's daughter? I watched her grow up on the Boralus docks, a bright little thing always running off with her books, and every man in the fleet would have died for her. Then she went west and sided with the orcs, and her father died for her after all, though not the way any of us meant it. I drink to him, and I'll not drink to her." } },
+      lines = { { id = "ktj_default", text = "The Admiral's daughter? I watched her grow up on the Boralus docks, a bright little thing with her books, and every man in the fleet would have died for her. Then she went west and sided with the orcs, and her father died for her after all. I drink to him, and I'll not drink to her." } },
       choices = {
         { text = "She turned traitor to her blood and her nation.", next = "BACK", reply = "That she did, and you'll hear the same from any Kul Tiran in this tavern. Pour one for the Admiral.", fx = { align = { light = -1 }, opinion = { jaina = "traitor" } } },
         { text = "He sailed to start a war. She ended one.", next = "BACK", reply = "Maybe she did, and maybe I'm too old to see it. I'll still not drink to her.", fx = { align = { light = 1 }, opinion = { jaina = "admire" } } },
@@ -945,7 +945,7 @@ P:NPC {
     },
     xdsham = {
       big = true,
-      lines = { { id = "xdsham_default", text = "It troubles me some, an' I'll no' lie about it. The Church taught me the Light's the answer tae every darkness, an' here ye are wi' a different answer that seems tae work. But I've buried more drowned sailors than I can count, an' if yer waters keep one more off my table, I'll pray for ye whether ye like it or no'." } },
+      lines = { { id = "xdsham_default", text = "It troubles me some, I'll no' lie. The Church taught me the Light's the answer tae every darkness, an' here ye are wi' a different answer that seems tae work. But I've buried more drowned sailors than I can count, an' if yer waters keep one more off my table, I'll pray for ye whether ye like it or no'." } },
       choices = {
         { text = "Pray for me, Glorin. I'll take every blessing offered.", next = "BACK", reply = "I will, an' gladly, for the Light's blessing sits easy beside any other. Go wi' it, an' may it keep ye safe in the marsh.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Save your prayers. The waters answer me well enough.", next = "BACK", reply = "They answer ye, aye, an' I'll no' argue wi' it. But I'll pray for ye anyway, for that's what I do.", fx = { align = { light = -1 } } },
@@ -1552,7 +1552,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Now and then a crate comes in from Stormwind marked for nobody in particular, aye. I don't open them and I don't ask, because a merchant marine who asks questions doesn't last long in the trade, but I do write down who collects them." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Now and then a crate comes in from Stormwind marked for nobody in particular, aye, and your demon has gone straight to the one in the corner, which I'd rather it didn't. I don't open them and I don't ask, because a merchant marine who asks questions doesn't last long, but I do write down who collects them, and what they bring along." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Now and then a crate comes from Stormwind marked for nobody, aye, and your demon has gone straight to the one in the corner, which I'd rather it didn't. I don't open them and I don't ask, for a marine who asks questions doesn't last, but I do write down who collects them, and what they bring along." },
       },
       choices = {
         { text = "Good. Someone should keep a record of who buys what.", next = "BACK", reply = "Somebody should, and it's me, though I'd never admit it to the men who send those crates. I could tell you who bought rope in this harbour three winters back, and what for.", fx = { affinity = 1, align = { order = 1 } } },
@@ -2067,7 +2067,7 @@ P:NPC {
     },
     ne_ale = {
       lines = {
-        { id = "nea_default", text = "One o' them told me ale dulls the spirit, very politely, an' I told her that was the whole point o' ale, an' she didnae laugh at that either. I've since heard they make a wine out o' moonberries that tastes like a garden, so it's no' that they dinnae drink, it's that they dinnae drink anythin' a dwarf would recognise." },
+        { id = "nea_default", text = "One o' them told me politely that ale dulls the spirit, an' I told her that was the whole point o' ale, an' she didnae laugh at that either. I've since heard they make a moonberry wine, so it's no' that they dinnae drink, it's that they dinnae drink anythin' a dwarf would recognise." },
       },
       choices = {
         { text = "So it's a matter of taste, not temperament.", next = "BACK", reply = "Taste, aye, I'll give ye that, an' maybe I'll order a cask o' that moonberry business, just tae see their faces when I pour it." },

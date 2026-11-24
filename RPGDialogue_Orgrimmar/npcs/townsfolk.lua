@@ -1684,7 +1684,7 @@ P:NPC {
   nodes = {
     xcl_brd = {
       big = true,
-      lines = { { id = "xcl_brd_default", text = "Then you've seen their forges, and I envy you that much. Dark iron comes from the mountain's heart and takes a heat no orc forge can give it, so the dwarves down there make things I can only guess at from the broken pieces traders bring me. They make fine weapons for a wicked master, and that's always been the trouble with good steel." } },
+      lines = { { id = "xcl_brd_default", text = "Then you've seen their forges, and I envy you that. Dark iron comes from the mountain's heart and takes a heat no orc forge can give, so the dwarves down there make things I can only guess at from the broken pieces traders bring me. Fine weapons for a wicked master, and that's always been the trouble with good steel." } },
       choices = {
         { text = "A smith should know whose hand will hold the blade.", next = "BACK", reply = "It should, and I try, though half my orders come through goblin middlemen now, and they never say who's paying.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Good steel should go to whoever has the coin, Saru.", next = "BACK", reply = "It should, maybe, but I'd rather know whose hand holds my work. Mind it.", fx = { align = { honor = -1 } } },

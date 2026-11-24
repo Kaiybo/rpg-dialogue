@@ -3247,7 +3247,7 @@ P:NPC {
       },
     },
     hnt_bow = {
-      lines = { { id = "hbo_d", text = "There are old tales among our hunters of a bow grown from the bark of the Ancients who died at Hyjal, given only to a hunter who proves worthy against the Legion's agents alone. If it is true, the spirits in Felwood's Irontree Woods would know, so go and ask them, and come back and tell me whether I wasted my youth." } },
+      lines = { { id = "hbo_d", text = "There are old tales among our hunters of a bow grown from the bark of the Ancients who died at Hyjal, given only to a hunter who proves worthy against the Legion's agents alone. If it is true, the spirits in Felwood's Irontree Woods would know, so ask them, and tell me whether I wasted my youth." } },
       choices = { { text = "I'll seek the Ancients in Felwood.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     kal_archer = {
@@ -3610,7 +3610,7 @@ P:NPC {
     },
     plan2 = {
       lines = {
-        { id = "plan2_default", text = "Because then the elves at Astranaar would walk into Splintertree behind us and burn it. I have enough warriors to hold this post, or to take theirs, and I have not enough for both. So I send a small fist and hit hard, and I am back behind my wall before they can gather. That is all the art there is." },
+        { id = "plan2_default", text = "Because then the elves at Astranaar would walk into Splintertree behind us and burn it. I have enough warriors to hold this post, or to take theirs, and I have not enough for both. So I send a small fist and hit hard, and I am home before they gather. That is all the art there is." },
       },
       choices = {
         { text = "And if the small fist fails?", next = "plan3" },

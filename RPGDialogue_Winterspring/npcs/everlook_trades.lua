@@ -280,7 +280,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Everybody who walks the road to the springs, and a few who should've stayed home! The Winterfall come down out of their camps drunk on that firewater and swinging like madmen, so I sell an axe a day and a rifle to anyone who'd rather not get close. I wouldn't expect a shaman to buy a rifle, but there's always a first time." } },
+      lines = { { id = "xhsham_default", text = "Everybody who walks the road to the springs! The Winterfall come down out of their camps drunk on that firewater and swinging like madmen, so I sell an axe a day and a rifle to anyone who'd rather not get close. I wouldn't expect a shaman to buy a rifle, but there's always a first time." } },
       choices = {
         { text = "Sell them all the rifles they want. Business is business.", next = "BACK", reply = "Music to my ears, friend, and I'll pass the word around the camps. A little trouble on the road is very good for the shot trade.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "The furbolgs are sick, not wicked. Arm against them sparingly.", next = "BACK", reply = "Sparingly, sure, and I'll sell you exactly enough to be sparing with, friend. But when one comes at you swinging, you'll be glad you bought the extra box.", fx = { align = { honor = 1 } } },
@@ -480,7 +480,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Twice a winter at least, and every crafter in town learns to count their thread when it happens. The pass down to Felwood closes, the tunnels through Timbermaw Hold stay open only so long as the furbolgs like us, and then it's just whatever's on my shelves at whatever I say it costs. Your spirits would make a fortune up here, friend, if they could shovel." } },
+      lines = { { id = "xhsham_default", text = "Twice a winter at least, and every crafter learns to count their thread. The pass down to Felwood closes, the tunnels through Timbermaw Hold stay open only so long as the furbolgs like us, and then it's whatever's on my shelves at my price. Your spirits would make a fortune up here, friend, if they could shovel." } },
       choices = {
         { text = "Then keep good stores, and keep faith with the Timbermaw.", next = "BACK", reply = "Sound advice, pal, and I keep both, because the Timbermaw remember who treated them fairly. I sold one of 'em a wool blanket three winters back, and his clan's been trading with me since.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Rules mean little in a blizzard. Take what you need.", next = "BACK", reply = "Not in my shop, you don't, pal, blizzard or no blizzard. The Bruisers don't care about the weather, and neither does the Cartel's ledger.", fx = { align = { order = -1 } } },
@@ -833,7 +833,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Oh, I'd love to know, and I've bottled that water three times to find out! It stays warm for an hour and then it's just water, which means either there's nothing in it or it only works where the earth wants it to, and either way I can't sell it. Donova Snowden would call it science, you'd call it spirits, and I'd say you both owe me a vial." } },
+      lines = { { id = "xhsham_default", text = "Oh, I'd love to know, and I've bottled that water three times! It stays warm for an hour and then it's just water, so either there's nothing in it or it only works where the earth wants, and I can't sell it. Donova Snowden would call it science, you'd call it spirits, and you both owe me a vial." } },
       choices = {
         { text = "Keep bottling it. If it works, sell it.", next = "BACK", reply = "I'm trying, love, but water that cools in an hour isn't much of a product. Still, if I ever bottle the warmth, I'll call it Whirlbrew's Wonder.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "The springs' gift should stay at the springs.", next = "BACK", reply = "Hmm, maybe you're right, love, and the springs do seem to sulk when I bottle them. I'll leave them be and just drink the tea.", fx = { align = { honor = 1 } } },

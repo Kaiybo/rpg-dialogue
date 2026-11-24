@@ -49,7 +49,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Some do, and raptors are the worst, because they panic when the ground goes away and then they bite whoever's nearest. Keep your beast low and close, talk to it the whole way, and it'll land in Orgrimmar a happier animal than it took off." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, and raptors are the worst, because they panic when the ground goes away and then they bite whoever's nearest. Keep your beast low and close, talk to it the whole way, and it'll land in Orgrimmar a happier animal than it took off. And {pet} looks sturdy enough, but I'll be standing well back during the launch, pal, no offense meant." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Some do, and raptors are the worst, because they panic when the ground goes away and bite whoever's nearest. Keep your beast low and close, talk to it the whole way, and it'll land in Orgrimmar a happier animal. And {pet} looks sturdy enough, but I'll stand well back during the launch, pal, no offense meant." },
       },
       choices = {
         { text = "I'll keep my beast close and calm the whole way.", next = "BACK", reply = "That's what I like to hear, pal. A calm beast is a happy beast, and a happy beast doesn't bite my crew.", fx = { align = { order = 1 } } },
@@ -237,7 +237,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Since the walls went up, and they've never once come down while the wind riders are in the air, which tells me they're smarter than the grunts believe. A good hunter could learn their paths, and I'd sleep better knowing which way they go home." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Since the walls went up, and they've never once come down while the wind riders are in the air, which tells me they're smarter than the grunts believe. A good hunter could learn their paths, and I'd sleep better knowing which way they go home. Your {pet} keeps looking up at the ridges, too, and I trust a beast's nose over a grunt's eyes any day." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Since the walls went up, and they've never once come down while the wind riders are aloft, so they're smarter than the grunts believe. A good hunter could learn their paths, and I'd sleep better knowing which way they go home. Your {pet} keeps looking up at the ridges, and I trust a beast's nose over a grunt's eyes." },
       },
       choices = {
         { text = "I'll scout their paths and report them plainly to the Commander.", next = "BACK", reply = "The Commander needs eyes like yours, and he will listen to a hunter sooner than to me. Report plainly, and the wind riders will fly safer for it.", fx = { align = { order = 1 } } },
@@ -414,7 +414,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because everything comes in by zeppelin, the goblins charge by the crate, and the hunters at this camp fire at anything that moves in the trees. Buy enough for a week and aim properly, and you won't need to come back to me complaining." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because everything comes in by zeppelin, the goblins charge by the crate, and the hunters at this camp fire at anything that moves in the trees. Buy enough for a week and aim properly, and you won't need to come back to me complaining. And food for {pet} as well, I suppose, unless it's learned to hunt for itself, which out here it had better." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because everything comes in by zeppelin, the goblins charge by the crate, and the hunters here fire at anything that moves in the trees. Buy enough for a week and aim properly, and you won't need to come back complaining. And food for {pet} as well, unless it's learned to hunt for itself, which out here it had better." },
       },
       choices = {
         { text = "Every arrow should count. I don't waste shots.", next = "BACK", reply = "Then you are a rare hunter in this camp, and the goblins will hate you for it. Every wasted shot is coin straight into their pockets.", fx = { align = { order = 1 } } },

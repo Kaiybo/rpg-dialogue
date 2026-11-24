@@ -1166,7 +1166,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "They'll carry you, so long as you've sent your friend back where it came from before you mount, because a gryphon smells that sort of thing from across the square and won't stop screaming. I had one of the Lamb's lot try to sneak an imp aboard in a satchel once, and he spent the whole flight to Lakeshire upside down." },
+        { id = "xlock_default", text = "They'll carry you, so long as you've sent your friend back where it came from before you mount, because a gryphon smells that across the square and won't stop screaming. One of the Lamb's lot tried to sneak an imp aboard in a satchel once, and he spent the whole flight to Lakeshire upside down." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "They'll carry you, but not while that thing's standing in my roost, because every gryphon here caught the smell of it the moment you came up, and you can hear the screaming yourself. Send it back where it came from before you mount, or you'll spend the flight upside down, same as the last fellow." },
       },
       choices = {

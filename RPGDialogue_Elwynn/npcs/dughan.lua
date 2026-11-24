@@ -1048,7 +1048,7 @@ P:NPC {
     },
     dg_tired = {
       lines = {
-        { id = "dxt_default", text = "Two nights ago, I think, and only because Farley came over and turned my lamp down himself. Since you ask kindly, I'll tell you what I don't tell the guards: some nights I sit here in the dark and count the farms I couldn't send anyone to, and I wonder how many more seasons Elwynn can be held together with adventurers and luck." },
+        { id = "dxt_default", text = "Two nights ago, I think, and only because Farley came over and turned my lamp down himself. Since you ask kindly, here's what I don't tell the guards: some nights I sit here in the dark and count the farms I couldn't send anyone to, and wonder how many seasons Elwynn can be held together with adventurers and luck." },
       },
       choices = {
         { text = "Then let me carry some of it.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },

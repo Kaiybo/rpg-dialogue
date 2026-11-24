@@ -97,7 +97,7 @@ P:NPC {
     },
     xcl_rfk = {
       big = true,
-      lines = { { id = "xcl_rfk_default", text = "Then you've seen that the quilboar are not only raiders, whatever the young braves say. They have a holy place and elders and a crone who speaks for them, which means there is someone who could be spoken to, if she weren't so set on war. I'd rather have had a word with Charlga than a fight, though I know she'd never have allowed it." } },
+      lines = { { id = "xcl_rfk_default", text = "Then you've seen that the quilboar are not only raiders, whatever the braves say. They have a holy place and elders and a crone who speaks for them, which means there is someone who could be spoken to, if she weren't so set on war. I'd rather have spoken with Charlga than fought her, though she'd never have allowed it." } },
       choices = {
         { text = "There's always someone to speak with, Baine. You're right to try.", next = "BACK", reply = "Thank you, that means more to me than you'd think. I'll keep sending runners, then, whatever answer they bring back.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Talk wouldn't have stopped her, Baine. Only steel would.", next = "BACK", reply = "Maybe not, and I'll not pretend I know her heart. Still, I'd rather have tried and failed than never tried at all.", fx = { align = { honor = -1 } } },

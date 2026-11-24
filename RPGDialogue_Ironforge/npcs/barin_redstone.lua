@@ -192,7 +192,7 @@ P:NPC {
     gnomes_vote = {
       big = true,
       lines = {
-        { id = "gv_default", key = true, text = "No. When the troggs came up in Gnomeregan, Mekkatorque sent tae this Senate for the Ironforge Reserve, an' we argued three days over the cost o' sendin' it, an' I argued longest. On the fourth day word came that he'd flooded the halls wi' poison tae save what he could, an' I've been blamin' the gnomes for it ever since, because the other way round is harder tae carry." },
+        { id = "gv_default", key = true, text = "No. When the troggs came up in Gnomeregan, Mekkatorque sent tae this Senate for the Ironforge Reserve, an' we argued three days over the cost, an' I argued longest. On the fourth day word came he'd flooded the halls wi' poison, an' I've blamed the gnomes ever since, because the other way round is harder tae carry." },
       },
       choices = {
         { text = "You couldn't have known what he'd do.", next = "gnomes_vote_after", fx = { affinity = 2 } },

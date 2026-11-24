@@ -432,7 +432,7 @@ P:NPC {
       },
     },
     feign = {
-      lines = { { id = "fe_default", text = "Ye drop where ye stand an' ye stop breathin', an' whatever's chasin' ye loses interest. It's an old trick, older than dwarves; a fox does it, an' so does a beetle, an' if a beetle can manage it, so can ye. Learn it when yer trainer offers it, an' practise it where nobody's watchin', for the first few times ye'll look a fool." } },
+      lines = { { id = "fe_default", text = "Ye drop where ye stand an' stop breathin', an' whatever's chasin' ye loses interest. It's an old trick, older than dwarves; a fox does it, an' so does a beetle, an' if a beetle can manage it, so can ye. Learn it when yer trainer offers, an' practise where nobody's watchin', for at first ye'll look a fool." } },
       choices = {
         { text = "There's no shame in living to hunt again.", next = "BACK", reply = "None at all. The proud ones are under the snow.", fx = { align = { honor = -1 } } },
         { text = "Playing dead feels like cowardice to me.", next = "BACK", reply = "Then ye'll die proud, an' I'll say somethin' nice over ye. It's no' cowardice if ye get up again an' finish the job.", fx = { align = { honor = 1 } } },

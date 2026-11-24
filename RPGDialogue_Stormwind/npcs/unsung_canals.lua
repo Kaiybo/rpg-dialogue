@@ -223,7 +223,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "It does, and I've the ruined rods in a box at the back to prove it, because a customer from the Lamb once leaned on the counter for half an hour. Lucan was so cross he didn't speak for a day, which for Lucan is the same as shouting, so you'll understand why I'm careful." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It does, and I've the ruined rods in a box at the back to prove it, all from one customer leaning on the counter for half an hour without a demon in sight. Yours has been in here a minute and the rods on the top shelf are already dimming, so if you'd take it outside, Lucan might speak to me tonight." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It does, and I've the ruined rods in a box at the back, all from one customer leaning on the counter for half an hour without a demon in sight. Yours has been here a minute and the rods on the top shelf are already dimming, so if you'd take it outside, Lucan might speak to me tonight." },
       },
       choices = {
         { text = "I'll keep clear of the counter, Jessara.", next = "BACK", reply = "Thank you. I've had quite enough of that box.", fx = { align = { order = 1 } } },

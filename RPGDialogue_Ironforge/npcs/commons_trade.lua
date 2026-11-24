@@ -945,7 +945,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Skulls I'll do, an' flames, for every guild's got those, but I'll no' stitch a sigil from the pit onto good Ironforge cloth. I had a lass ask me once, an' she couldnae tell me what it meant, which was worse." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Skulls I'll do, an' flames, but I'll no' stitch a demon's sigil onto good Ironforge cloth, so I'll thank yer {pet} tae keep its eyes off my bolts, for it's lookin' at them like it's choosin' one. I had a lass ask me once, an' she couldnae tell me what the sigil meant, an' I'd wager that thing could, which is worse." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Skulls I'll do, an' flames, but I'll no' stitch a demon's sigil onto good Ironforge cloth, so tell yer {pet} tae keep its eyes off my bolts, for it's lookin' like it's choosin' one. A lass asked me once, an' she couldnae tell me what the sigil meant, an' I'd wager that thing could, which is worse." },
       },
       choices = {
         { text = "Then I'll ask for nothing you'd be ashamed of.", next = "BACK", reply = "Then I'll stitch ye somethin' fine. Good taste in yer line o' work is rarer than ye'd think in this city.", fx = { align = { light = 1 } } },

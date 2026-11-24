@@ -337,7 +337,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Iron that's quenched in the wrong oil still holds an edge, the book says, but it cracks when you least expect it. I don't mean it unkindly, because you plainly have will enough for two, and I'd only say a sermon needs a warning in the middle, and you'd make a fine one." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Iron that's quenched in the wrong oil still holds an edge, the book says, but it cracks when you least expect it, and your demon is the oil I'd point to. You plainly have will enough for two, so I'd only say a sermon needs a warning in the middle, and the pair of you standing there would make a fine one." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Iron quenched in the wrong oil still holds an edge, the book says, but it cracks when you least expect it, and your demon is the oil I'd point to. You plainly have will enough for two, so I'd only say a sermon needs a warning in the middle, and the pair of you would make a fine one." },
       },
       choices = {
         { text = "Then let me be the warning. Use it well.", next = "BACK", reply = "You'd make a fine example, my friend, and a good sermon. I'll pray it holds.", fx = { align = { light = 1 } } },
@@ -1103,7 +1103,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I fear what the world does to children, {class}, and I've seen enough of it to have no fear left over for you in particular. But I've had boys come back from the Mage Quarter with burns they wouldn't explain, so I'll thank you to keep away from the young ones who've begun asking questions about power." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I fear what the world does to children, {class}, and I've no fear left over for you or for the thing at your side. But the older boys are already crowding the window to look at it, and I've had boys come back from the Mage Quarter with burns they wouldn't explain, so take it away from my door before one of them asks how it's done." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I fear what the world does to children, {class}, and I've no fear left over for you or the thing at your side. But the older boys are crowding the window to look at it, and some came back from the Mage Quarter with burns they wouldn't explain, so take it from my door before one asks how it's done." },
       },
       choices = {
         { text = "I'll keep away from them, Matron. You have my word.", next = "BACK", reply = "Thank you, {class}. That means more than you'd think.", fx = { align = { light = 1 } } },
@@ -1333,7 +1333,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "I'd like to believe it, because I pray over every child every night and I'd hate to think any of them was beyond it. If the Light can find a way to a canal urchin who bit me twice last week, I suppose it can find a way to you, though you might meet it halfway." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd like to believe it, because I pray over every child every night and I'd hate to think any of them was beyond it. If the Light can find a way to a canal urchin who bit me twice last week, it can find a way to you, though I'll pray it leaves your demon behind, because I can feel it watching me even now." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd like to believe it, because I pray over every child every night and I'd hate to think any was beyond it. If the Light can reach a canal urchin who bit me twice last week, it can reach you, though I'll pray it leaves your demon behind, because I can feel it watching me even now." },
       },
       choices = {
         { text = "I'll try to meet it halfway, Shellene.", next = "BACK", reply = "That's all I ask, love. The Light will meet you the rest of the way.", fx = { align = { light = 1 } } },

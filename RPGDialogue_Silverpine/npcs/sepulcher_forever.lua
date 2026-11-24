@@ -769,7 +769,7 @@ P:NPC {
     forsaken = {
       big = true,
       lines = {
-        { id = "f_default", text = "Strange, and kinder than I was warned, at least the ones who came for me. On the isle we scatter our dead to the wind so they can't be disturbed, and here are people who were disturbed and stood up and kept going, and I haven't decided yet whether that's a horror or a kind of courage. What would you say?" },
+        { id = "f_default", text = "Strange, and kinder than I was warned. On the isle we scatter our dead to the wind so they can't be disturbed, and here are people who were disturbed and stood up and kept going, and I haven't decided yet whether that's a horror or a kind of courage. What would you say?" },
         { id = "f_scourge", when = { race = "Scourge" },
           text = "Kinder than I was warned, starting with you. On the isle we scatter our dead to the wind, and here you are, standing and walking and arguing with me, and I can't decide yet whether that's a horror or a courage I don't have a word for. Which is it, from where you stand?" },
       },

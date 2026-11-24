@@ -50,7 +50,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Not on our side, they didn't, not in the Second War, because the Horde had the warlocks and we had the burns to show for it. I've had to get used to your sort walking about the city since, and I'll say this much: the ones I've met fight dirtier than an orc and complain less." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not on our side, they didn't, because the Horde had the warlocks and we had the burns to show for it, and the smell off that thing of yours takes me straight back to the Second War. I've had to get used to your sort walking about the city since, but I'll thank you to keep it on the far side of my table while I drink." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Not on our side, they didn't, because the Horde had the warlocks and we had the burns, and the smell off that thing takes me straight back to the Second War. I've had to get used to your sort in the city since, but I'll thank you to keep it on the far side of my table while I drink." },
       },
       choices = {
         { text = "I fight for Stormwind, Harry, not like the Horde.", next = "BACK", reply = "Aye, you do, and I'll give you that. Just keep the green fire away from my curtains.", fx = { align = { honor = 1 } } },

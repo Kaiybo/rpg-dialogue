@@ -187,7 +187,7 @@ P:NPC {
       choices = { { text = "I am ready for the real thing.", next = "BACK", fx = { trait = { brave = 1 } } } },
     },
     hnt_artorius = {
-      lines = { { id = "har_d", text = "Hrrm. Artorius, who calls himself the Amiable, and smiles at travellers on the snow road, and has never been amiable in all his long and evil life. He is a doomguard under that face, and when you show him you know it, he will burn you with a doom that clings, so stay beyond his reach and let your arrows do the walking." } },
+      lines = { { id = "har_d", text = "Hrrm. Artorius, who calls himself the Amiable, and smiles at travellers on the snow road, and has never been amiable in his long, evil life. He is a doomguard under that face, and when you show him you know it, he will burn you with a doom that clings, so stay beyond his reach and use your arrows." } },
       choices = { { text = "Beyond his reach. I understand.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
   },
@@ -232,7 +232,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = {
-        { id = "h_default", key = true, text = "Hm, hm. I am Hastat, an Ancient of Lore, and like my brothers I left my body at Hyjal and did not leave the forest. Vartrus gives the stave and Stoma the string, and I give the quiver, for an archer with nothing to shoot is only a person holding a stick, and I have been a very large stick for a very long time." },
+        { id = "h_default", key = true, text = "Hm, hm. I am Hastat, an Ancient of Lore, and like my brothers I left my body at Hyjal and did not leave the forest. Vartrus gives the stave and Stoma the string, and I give the quiver, for an archer with nothing to shoot is only holding a stick, and I have been a very large stick for a long time." },
         { id = "h_hunter_hi", when = { class = "HUNTER", minLevel = 58 }, text = "Hm. You have the look of one who has walked in fire and come back, hunter. If Vartrus has set you on the path, then hear me too, for I can wrap a quiver in the sinew of a blue dragon that will carry arrows faster than your hand can want them." },
         { id = "h_nonhunter", when = { ["not"] = { class = "HUNTER" } }, text = "Hm. I am Hastat, an Ancient of Lore, or the shade of one. My craft is for hunters, small one, but I will talk with anyone who stands still long enough, which most of the living do not. You are all so quick, like squirrels." },
       },
@@ -275,7 +275,7 @@ P:NPC {
       choices = { { text = "I'll tell you, if I do. Something else.", next = "BACK", fx = { trait = { curious = 1 } } } },
     },
     brothers = {
-      lines = { { id = "b_d", text = "Hm, hm. Vartrus speaks as though every word were a gift, Stoma speaks as though every word were a cost, and I speak because I like to. We were three trees side by side for longer than your oldest city has stood, and three ghosts side by side since, so we have had time to grow tired of each other's voices." } },
+      lines = { { id = "b_d", text = "Hm, hm. Vartrus speaks as though every word were a gift, Stoma speaks as though every word were a cost, and I speak because I like to. We were three trees side by side for longer than your oldest city has stood, and three ghosts side by side since, so we have grown tired of each other's voices." } },
       choices = { { text = "And yet you stay together.", next = "BACK", reply = "Where else would we go? The forest is here, and so are they.", fx = { affinity = 1 } } },
     },
     hyjal = {

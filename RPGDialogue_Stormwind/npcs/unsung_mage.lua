@@ -250,7 +250,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "My people remember the War of the Ancients, when those who drew on such powers nearly ended the world, and memories that long don't fade easily. I carried these tools across the sea as a gift of friendship, and I'll sell to you in that same spirit, though I'd ask you not to be the one who makes me regret it." },
+        { id = "xlock_default", text = "My people remember the War of the Ancients, when those who drew on such powers nearly ended the world, and memories that long fade slowly. I carried these tools across the sea as a gift of friendship, and I'll sell to you in that spirit, though I'd ask you not to make me regret it." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "My people remember the War of the Ancients, and one look at the thing you've brought into my shop makes that memory feel like yesterday. I carried these tools across the sea as a gift of friendship, and I'll sell to you in that same spirit, but please, send it away before it touches anything." },
       },
       choices = {

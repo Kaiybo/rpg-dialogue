@@ -205,7 +205,7 @@ P:NPC {
     council = {
       big = true,
       lines = {
-        { id = "co_default", text = "The high council ordered us to keep the matter private, so as not to shame the Kirin Tor, and I understand why. But we can't keep up the charade forever while the city is overrun, so I sent Jacques out for help and came out here myself, and I'll answer to the Six afterward. Do you think me a traitor to my order for it?" },
+        { id = "co_default", text = "The high council ordered us to keep the matter private, so as not to shame the Kirin Tor. But we can't keep up the charade forever while the city is overrun, so I sent Jacques for help and came myself, and I'll answer to the Six afterward. Do you think me a traitor to my order for it?" },
       },
       choices = {
         { text = "No. Your city comes before your council's pride.", next = "BACK", reply = "You sound like my own conscience, and it's been saying the same for months. I'll carry that, whatever comes.", fx = { affinity = 1, align = { order = -1 } } },

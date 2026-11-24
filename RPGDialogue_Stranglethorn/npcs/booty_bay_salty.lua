@@ -336,7 +336,7 @@ P:NPC {
       },
     },
     ravenholdt = {
-      lines = { { id = "rv_default", text = "I grew up a day's ride from those hills, so I've heard the stories, and once a quiet man in grey sat at this table and asked me whether my knife was for sale. I said no, and he paid for my drink and left a raven's feather on the bar, and I've never decided whether that was a compliment or a warning." } },
+      lines = { { id = "rv_default", text = "I grew up a day's ride from those hills, so I've heard the stories, and once a quiet man in grey sat here and asked whether my knife was for sale. I said no, and he paid for my drink and left a raven's feather on the bar, and I've never decided whether that was a compliment or a warning." } },
       choices = {
         { text = "What did he want with a troll knife?", next = "ravenholdt_why" },
         { text = "Did you keep the feather?", next = "ravenholdt_feather" },

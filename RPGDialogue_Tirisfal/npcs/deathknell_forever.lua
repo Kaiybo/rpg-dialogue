@@ -70,7 +70,7 @@ P:NPC {
     },
     kinds = {
       lines = {
-        { id = "k_default", text = "There are primary trades and secondary ones. You can only keep two primary trades at a time, and if you drop one you lose everything you learned of it, so choose with some care. The secondary ones, like cooking and fishing and first aid, have no limit at all, and they'll keep you alive more often than they'll make you rich." },
+        { id = "k_default", text = "There are primary trades and secondary ones. You can only keep two primary trades at a time, and if you drop one you lose everything you learned of it, so choose carefully. The secondary ones, like cooking and fishing and first aid, have no limit at all, and they'll keep you alive more often than they'll make you rich." },
       },
       choices = {
         { text = "Which two would you choose?", next = "choose" },

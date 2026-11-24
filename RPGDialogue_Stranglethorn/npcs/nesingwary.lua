@@ -1101,7 +1101,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "A panther wants to eat you and makes no secret of it, while a noble wants the same and smiles as he says otherwise. Out here I know exactly where I stand, and in Stormwind I never did." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A panther wants to eat you and makes no secret of it, while a noble wants the same and smiles as he says otherwise. Out here I know exactly where I stand, and in Stormwind I never did. Your {pet} would make a better lord than most of the House of Nobles, and I say that with the deepest respect for your beast." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A panther wants to eat you and makes no secret of it, while a noble wants the same and smiles as he denies it. Out here I know exactly where I stand, and in Stormwind I never did. Your {pet} would make a better lord than most of the House of Nobles, and I mean that with the deepest respect." },
       },
       choices = {
         { text = "Honest danger beats false friends. You chose well.", next = "BACK", reply = "I did, and I sleep better for it, even with the panthers coughing outside the tent. One walked past my boots last week and didn't so much as ask my rank.", fx = { align = { honor = 1 } } },

@@ -49,8 +49,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "They'd like to, and they'd come back covered in mud and stinking of crocolisk, so I feed them fish off the boats instead. A gryphon that learns to hunt the shallows starts diving at every log, and some of those logs bite back." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They'd like to, and they'd come back covered in mud and stinking of crocolisk, so I feed them fish off the boats instead. A gryphon that learns to hunt the shallows starts diving at every log, and some of those logs bite back. {pet} had better keep its head down near the roost, because my old hen has snatched a hare out of a man's arms before now." },
+        { id = "xhuntcl_default", text = "They'd like to, and they'd come back stinking of crocolisk, so I feed them fish off the boats instead. A gryphon that learns to hunt the shallows starts diving at every log, and some of those logs bite back." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "They'd like to, and they'd come back stinking of crocolisk, so I feed them fish off the boats instead. A gryphon that learns to hunt the shallows starts diving at every log, and some of those logs bite back. {pet} had better keep its head down near the roost, because my old hen has snatched hares from men's arms." },
       },
       choices = {
         { text = "Keep them fed and disciplined. That's how a roost runs.", next = "BACK", reply = "That's how my father ran his roost, an' his father before him. Three generations, an' nae bird ever flew off on us.", fx = { align = { order = 1 } } },

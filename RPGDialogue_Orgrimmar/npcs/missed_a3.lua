@@ -130,7 +130,7 @@ P:NPC {
     },
     m_orcmage = {
       big = true,
-      lines = { { id = "mo_default", text = "I think you are braver than I was. I wanted the spirits, and when they would not answer I sold powders rather than reach for anything else, and you know what happened to the orcs who did reach, long ago. An orc who takes up the arcane in daylight, with no bargain in it, is what we should have been the first time." } },
+      lines = { { id = "mo_default", text = "I think you are braver than I was. I wanted the spirits, and when they would not answer I sold powders rather than reach for anything else, and you know what became of the orcs who did reach. An orc who takes up the arcane in daylight, with no bargain, is what we should have been the first time." } },
       choices = {
         { text = "Then I'll carry it in daylight, always.", next = "BACK", reply = "Then come and buy your runes where the elders can see you do it. It does them good.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Power is power. I don't care who it frightens.", next = "BACK", reply = "That is very nearly what my grandfather's warlock said. I hope you will forgive me for not liking it.", fx = { align = { light = -1 } } },

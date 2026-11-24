@@ -499,7 +499,7 @@ P:NPC {
 
     r_hunter = {
       lines = {
-        { id = "rh_default", text = "Then let one hunter tell another what Hemet's camp will ask of you. He'll send you after the panthers first, then the tigers, then the raptors, more of each than any tauren would take, and at the end he'll offer you the oldest beasts of the jungle, the ones with names. Take his work if you like, but count your kills, and know when you have enough." },
+        { id = "rh_default", text = "Let one hunter tell another what Hemet will ask. He'll send you after the panthers first, then the tigers, then the raptors, more of each than any tauren would take, and at the end he'll offer you the oldest beasts of the jungle, the ones with names. Take his work, but count your kills and know when you have enough." },
         { id = "rh_pet", when = { pet = { type = "Beast" } }, text = "Then let one hunter tell another what Hemet's camp will ask of you, and of {pet}. He'll set you on the panthers and the tigers and the raptors, more of each than any tauren would take, and your companion will grow strong on it, so feed it well and let it rest between his hunts." },
       },
       choices = {

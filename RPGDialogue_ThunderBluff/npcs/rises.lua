@@ -84,7 +84,7 @@ P:NPC {
       },
     },
     xcl_wc2 = {
-      lines = { { id = "xcl_wc2_default", text = "As far as we can tell, the dream of the sleeping druid Naralex leaked into the water and the water leaked into everything else. The changes are fast and unpredictable, which in a living thing is a sign of something powerful at work, and if it could be understood it might be very useful, though I wouldn't say so to Hamuul." } },
+      lines = { { id = "xcl_wc2_default", text = "As far as we can tell, the dream of the sleeping druid Naralex leaked into the water and the water into everything else. The changes are fast and unpredictable, which in a living thing means something powerful at work, and if it could be understood it might be very useful, though I wouldn't say so to Hamuul." } },
       choices = { { text = "I'll keep that between us, Zamah.", next = "BACK" } },
     },
     xfpala = {
@@ -235,7 +235,7 @@ P:NPC {
     },
     ne_zamah_why = {
       lines = {
-        { id = "nw_default", text = "Because the first of those wells was filled from the Well of Eternity, if the druids' stories are right, and the elves lived ten thousand years beside them without growing a day older. The druids insist it was their great tree that kept them young and not the water, but I've never trusted a druid's account of anything I couldn't put in a flask." },
+        { id = "nw_default", text = "Because the first of those wells was filled from the Well of Eternity, if the druids' stories are right, and the elves lived ten thousand years beside them without aging a day. The druids insist their great tree kept them young and not the water, but I've never trusted a druid's account of anything I couldn't put in a flask." },
       },
       choices = {
         { text = "Hamuul would never let you near a moonwell.", next = "BACK",

@@ -991,7 +991,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because a cook wants to know if his food can please anyone at all, and a demon must be the hardest critic in the world. Stephen says I'm mad, and he's probably right, but I'd still like to see the little thing's face." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a cook wants to know if his food can please anyone at all, and a demon must be the hardest critic in the world, and here's one standing at my stall. Stephen says I'm mad, and he's probably right, but I'd give a good deal to know whether your servant would taste my stew or only stare at me like it's doing now." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because a cook wants to know if his food can please anyone, and a demon must be the hardest critic in the world, and here's one at my stall. Stephen says I'm mad, and he's probably right, but I'd give a lot to know whether your servant would taste my stew or only stare at me like it's doing now." },
       },
       choices = {
         { text = "Don't feed it, Kendor. It'll only want more than food.", next = "BACK", reply = "You're probably right, my friend. I'll stick to customers who pay in coin.", fx = { align = { light = 1 } } },

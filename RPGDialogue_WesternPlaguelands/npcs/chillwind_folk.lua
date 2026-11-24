@@ -269,8 +269,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Up in the hills toward Alterac, where the wind carries the cauldron stink the other way. There are fewer of them every season, mind, and the ones that come down to the farms have usually caught something, mange or worse, and they stink to the treeline." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Up in the hills toward Alterac, where the wind carries the cauldron stink the other way. There are fewer of them every season, mind, and the ones that come down to the farms have usually caught something, mange or worse, and they stink to the treeline. That's a fine coat on {pet}, {class}, and I'm a leatherworker, so I'll say that once and never again." },
+        { id = "xhuntcl_default", text = "Up in the hills toward Alterac, where the wind carries the cauldron stink the other way. There are fewer of them every season, mind, and the ones that come down to the farms have usually caught mange or worse." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Up in the hills toward Alterac, where the wind carries the cauldron stink the other way. There are fewer of them every season, mind, and the ones that come down to the farms have usually caught mange or worse. That's a fine coat on {pet}, {class}, and I'm a leatherworker, so I'll say that once and never again." },
       },
       choices = {
         { text = "Then I'll leave the last clean packs alone to breed.", next = "BACK", reply = "That's a hunter with sense. There'll be pelts next year, if we're careful.", fx = { align = { light = 1 } } },
@@ -298,7 +298,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "Frost kills what the plague leaves in the hair, if it's cold enough and quick enough, and I can't afford to lose a whole bundle because one pelt came off a sick wolf. The salt does most of the work, but salt is slow and the soldiers are impatient, so a mage with steady hands would save me a week of scraping." } },
+      lines = { { id = "xmage_default", text = "Frost kills what the plague leaves in the hair, if it's cold enough and quick enough, and I can't afford to lose a whole bundle because one pelt came off a sick wolf. Salt does most of the work, but it's slow and soldiers are impatient, so a mage with steady hands would save me a week of scraping." } },
       choices = {
         { text = "Bring me the hides. I'll freeze them properly.", next = "BACK", reply = "Bless you, {class}, that'll save half my bundle. Bring them round the back and mind the salt.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Burn the doubtful ones. Fire's surer than frost.", next = "BACK", reply = "Fire's surer, aye, but it's dearer too. I'll burn the worst and freeze the rest.", fx = { align = { order = -1 } } },

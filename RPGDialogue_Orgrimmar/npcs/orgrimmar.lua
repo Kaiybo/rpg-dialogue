@@ -83,7 +83,7 @@ P:NPC {
     },
     xcl_rend = {
       big = true,
-      lines = { { id = "xcl_rend_default", text = "Then the last of Blackhand's line to claim my title is gone. Rend gathered the Blackrock who would not follow me and gave them to the black dragons in the Spire, and he called that rabble the true Horde. He thought the Horde was a weapon to be pointed at the world, and I have spent my life proving it can be a people instead." } },
+      lines = { { id = "xcl_rend_default", text = "Then the last of Blackhand's line to claim my title is gone. Rend gave the Blackrock who would not follow me to the black dragons in the Spire, and called that rabble the true Horde. He thought the Horde was a weapon to point at the world, and I have spent my life proving it can be a people instead." } },
       choices = {
         { text = "The Horde needs one Warchief, and every clan should answer to him.", next = "BACK", reply = "There must be, or we'll tear ourselves apart again. Rend learned that too late.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let the clans choose their own chiefs, Warchief. That's the old way.", next = "BACK", reply = "The old way gave us Blackhand and Doomhammer and the demons. I'll keep the clans close, and listen to them all.", fx = { align = { order = -1 } } },
@@ -377,7 +377,7 @@ P:NPC {
     },
     clans = {
       lines = {
-        { id = "cl_default", text = "The Frostwolves, the Warsong, the Blackrock who stayed loyal, and the orcs born in the camps who never had a clan at all, and I've tried to make one Horde out of all of them. Some days the old banners matter more to my people than the new one, and I can't blame them, because a clan is the one thing the demons never managed to take." },
+        { id = "cl_default", text = "The Frostwolves, the Warsong, the loyal Blackrock, and the camp-born orcs who never had a clan, and I've tried to make one Horde of them all. Some days the old banners matter more to my people than the new one, and I can't blame them, because a clan is the one thing the demons never managed to take." },
         { id = "cl_orc", when = { race = "Orc" }, text = "You know this as well as I do, {g:brother|sister}, because if you ask any orc in the Drag for their clan you'll learn more about them than their name ever told you. I've tried to make one Horde out of all those banners, and some days the old ones still pull harder than the new." },
       },
       choices = {
@@ -436,7 +436,7 @@ P:NPC {
     },
     spire = {
       lines = {
-        { id = "sp_default", text = "Rend Blackhand, the son of the Warchief who led the Horde before Orgrim, and he calls himself Warchief now and calls me a slave who learned his masters' manners. He sits in Blackrock Spire with the black dragons at his back, and I sent the Kargath expedition into the Badlands to watch him, because I can't spare an army to go and fetch him.", fx = { learn = { "blackrock" } } },
+        { id = "sp_default", text = "Rend Blackhand, son of the Warchief who led the Horde before Orgrim, who calls himself Warchief and calls me a slave who learned his masters' manners. He sits in Blackrock Spire with the black dragons behind him, and I sent the Kargath expedition into the Badlands to watch him, because I can't spare an army to fetch him.", fx = { learn = { "blackrock" } } },
         { id = "sp_dead", when = { killed = { name = "Rend Blackhand" } }, text = "Rend Blackhand did, until you and yours put an end to him, and now the black dragons hold orcs without a chief, which is either the best news I've had this year or the most dangerous.", fx = { learn = { "blackrock" } } },
       },
       choices = { { text = "Something else, Warchief.", next = "BACK" } },
@@ -455,7 +455,7 @@ P:NPC {
       },
     },
     darkspear2 = {
-      lines = { { id = "dk2_default", text = "His home back, which means the Echo Isles off our coast, where a witch doctor named Zalazane has turned his own people into hexed slaves. I gave Vol'jin my word that the Horde would help him, and the hardest part of being Warchief is keeping a promise like that while the Scourge and the Alliance and the Blackrock all want my warriors first.", fx = { learn = { "echo_isles" } } } },
+      lines = { { id = "dk2_default", text = "His home back: the Echo Isles off our coast, where a witch doctor named Zalazane has turned his own people into hexed slaves. I gave Vol'jin my word that the Horde would help, and the hardest part of being Warchief is keeping such a promise while the Scourge, the Alliance and the Blackrock all want my warriors first.", fx = { learn = { "echo_isles" } } } },
       choices = {
         { text = "I'll help the Darkspear at Sen'jin, Warchief.", next = "BACK", fx = { affinity = 1, opinion = { darkspear = "ally" } } },
         { text = "The Horde has bigger enemies than one witch doctor.", next = "BACK", fx = { trait = { stern = 1 }, opinion = { darkspear = "later" } } },
@@ -478,7 +478,7 @@ P:NPC {
     },
     tauren_p = {
       lines = {
-        { id = "tr_default", text = "Cairne Bloodhoof found us lost in the Barrens with the centaur at our heels, and he never asked what we'd done in the old war before he fought beside us. He taught me what it is to lead a people who would rather be at peace, and I go to Thunder Bluff whenever I need to remember why I'm doing any of this." },
+        { id = "tr_default", text = "Cairne Bloodhoof found us lost in the Barrens with the centaur at our heels, and he never asked what we'd done in the old war before he fought beside us. He taught me what it is to lead a people who would rather be at peace, and I go to Thunder Bluff whenever I need to remember why." },
         { id = "tr_tauren", when = { race = "Tauren" }, text = "Your people taught mine that the land isn't something you conquer but something you belong to, and we were slow students. Cairne was patient with us, as he's patient with everyone except the Grimtotem." },
       },
       choices = {
@@ -513,7 +513,7 @@ P:NPC {
     },
     forsaken_p = {
       lines = {
-        { id = "fk_default", text = "The Forsaken were humans and elves once, and the Scourge made them into the very thing they'd fought, until their queen tore them free and gave them a name for what was done to them. I took them into the Horde because I know what it is to be made into a weapon by someone else's hand, and because Cairne asked me to." },
+        { id = "fk_default", text = "The Forsaken were humans and elves once, and the Scourge made them into the very thing they'd fought, until their queen tore them free. I took them into the Horde because I know what it is to be made a weapon by someone else's hand, and because Cairne asked me to." },
         { id = "fk_scourge", when = { race = "Scourge" }, text = "You'll know better than I do what it is to be what you are, so bear with me if I speak of your people as a stranger, because that's still what I am to them. I took the Forsaken in because I know what it is to be made into someone else's weapon." },
       },
       choices = {
@@ -573,7 +573,7 @@ P:NPC {
     },
     jaina = {
       lines = {
-        { id = "ja_default", text = "The prophet who sent me across the sea sent her too, and at Mount Hyjal, with the Legion at the door, we stood together because the alternative was dying apart. When her father came after us in Durotar she let him fall rather than break the peace, and I don't think anyone who hasn't lost a parent to their own choices understands what that cost her." },
+        { id = "ja_default", text = "The prophet who sent me across the sea sent her too, and at Mount Hyjal, with the Legion at the door, we stood together rather than die apart. When her father came after us in Durotar she let him fall rather than break the peace, and few who haven't lost a parent to their own choices understand that cost." },
         { id = "ja_alliance", when = { faction = "Alliance" }, text = "You wear the Alliance's colours in my hall, so I'll say this plainly. Jaina and I stood together at Hyjal because the alternative was dying apart, and we keep this peace with our own hands, so be careful what you carry back to Stormwind about it." },
       },
       choices = {
@@ -611,7 +611,7 @@ P:NPC {
       },
     },
     durnholde = {
-      lines = { { id = "du_default", text = "Durnholde was a fortress in the hills above Hillsbrad, where Aedelas Blackmoore taught me to fight in his arena and taught me to read so that I'd make a better weapon for him. He named me Thrall because that's what I was, and I kept the name after I left, so I'd never forget what this Horde was built to end." } },
+      lines = { { id = "du_default", text = "Durnholde was a fortress in the hills above Hillsbrad, where Aedelas Blackmoore taught me to fight in his arena and to read, so I'd make a better weapon for him. He named me Thrall because that's what I was, and I kept the name so I'd never forget what this Horde was built to end." } },
       choices = {
         { text = "No one there can have shown you kindness.", next = "taretha" },
         { text = "You must hate the humans for it.", next = "durnholde_hate" },
@@ -659,11 +659,11 @@ P:NPC {
       },
     },
     durotan2 = {
-      lines = { { id = "d2_default", narr = "He glances toward Eitrigg at the foot of the throne and waits until the old orc turns away before he answers.", text = "I wonder about it more often than I'd admit to my advisors. I'd have been a Frostwolf, I think, raised in the snow with a wolf and a clan and no notion of Warchiefs, and some part of me envies that orc very much, so don't repeat it in the Drag, because my people need a Warchief and not a son still missing his father." } },
+      lines = { { id = "d2_default", narr = "He glances toward Eitrigg at the foot of the throne and waits until the old orc turns away before he answers.", text = "I wonder about it more often than I'd admit to my advisors. I'd have been a Frostwolf, I think, raised in the snow with a wolf and a clan, and part of me envies that orc very much, so don't repeat it in the Drag, because my people need a Warchief and not a son still missing his father." } },
       choices = { { text = "It stays between us, Warchief.", next = "BACK", fx = { affinity = 2, trait = { discreet = 1 } } } },
     },
     doomhammer = {
-      lines = { { id = "dm_default", text = "He'd been hiding in the hills, a living legend who'd slipped the camps, and when I came to him he tested me with weapons before he'd hear a word. We broke the camps open together, and when a knight's lance took him from behind he gave me his hammer and his armour and the Horde in one breath, which is more than any orc should be handed at once." } },
+      lines = { { id = "dm_default", text = "He'd been hiding in the hills, a living legend who'd slipped the camps, and he tested me with weapons before he'd hear a word. We broke the camps open together, and when a knight's lance took him from behind he gave me his hammer, his armour and the Horde in one breath, more than any orc should be handed." } },
       choices = {
         { text = "You can't have felt ready.", next = "doomhammer2" },
         { text = "Something else, Warchief.", next = "BACK" },
@@ -677,7 +677,7 @@ P:NPC {
       },
     },
     kalimdor = {
-      lines = { { id = "ka_default", text = "A prophet came to me in a dream and then in the flesh, a man who wore a raven's shape, and he told me the old world was doomed and the Horde's future lay across the sea. I believed him because nothing else I'd seen made sense, and he was right, because the Scourge swallowed Lordaeron not long after our ships left it." } },
+      lines = { { id = "ka_default", text = "A prophet came to me in a dream and then in the flesh, a man who wore a raven's shape, and told me the old world was doomed and the Horde's future lay across the sea. I believed him because nothing else made sense, and he was right, for the Scourge swallowed Lordaeron not long after our ships left." } },
       choices = {
         { text = "And the Legion followed you here.", next = "hyjal" },
         { text = "Something else, Warchief.", next = "BACK" },
@@ -693,7 +693,7 @@ P:NPC {
     burden = {
       big = true,
       lines = {
-        { id = "bu_default", narr = "He rolls one armoured shoulder as if the black plate sits badly on it, and lowers his voice so it carries no farther than you.", text = "Everything weighs on me, and nothing so much as the fear that I'll become what I fought, a master who thinks he knows what's best for orcs who never asked him. The Horde follows me because I freed it, and I'm not sure gratitude is a good enough reason for anyone to follow anyone, so tell me, should a Warchief rule alone?" },
+        { id = "bu_default", narr = "He rolls one armoured shoulder as if the black plate sits badly on it, and lowers his voice so it carries no farther than you.", text = "Everything weighs on me, and nothing more than the fear that I'll become what I fought, a master who thinks he knows what's best for orcs who never asked. The Horde follows me because I freed it, and I'm not sure gratitude is reason enough to follow anyone, so tell me, should a Warchief rule alone?" },
         { id = "bu_warm", when = { disposition = { min = 65 } }, text = "I'll tell you what I don't tell my chieftains: some mornings I put on Doomhammer's armour and it feels like another set of chains, and the only thing that gets me through the gate is knowing the peons in the Valley of Strength never chose their burdens either. So tell me, should a Warchief carry it all alone?" },
         { id = "bu_cold", when = { disposition = { max = 34 } }, text = "A Warchief's burdens are his own to carry, though I'll ask you one thing about them, since you asked me. Should a Warchief rule alone, or share the weight?" },
       },
@@ -894,7 +894,7 @@ P:NPC {
     },
     xcl_zg = {
       big = true,
-      lines = { { id = "xcl_zg_default", text = "Quiet for now, mon. The Gurubashi call that Soulflayer into the world because they want their empire back, and they forget that a god who drink blood never stop at the enemy's. My people lose our place in that jungle long ago, and I shed no tears for the ones who drive us out, but no troll should be food for Hakkar." } },
+      lines = { { id = "xcl_zg_default", text = "Quiet for now, mon. The Gurubashi call that Soulflayer into the world to get their empire back, and they forget a god who drink blood never stop at the enemy's. My people lose our place in that jungle long ago, and I shed no tears for the ones who drive us out, but no troll should be food for Hakkar." } },
       choices = {
         { text = "Even the Gurubashi deserved better than to be his food.", next = "BACK", reply = "They did, mon, and it grieve me even now. Hakkar eat his own, and he'll eat everyone else after.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Those trolls chose their god, Vol'jin. Let them pay his price.", next = "BACK", reply = "They chose, ya, but they chose for all of us. Hakkar won't stop at the Gurubashi, mon.", fx = { align = { light = -1 } } },
@@ -1707,7 +1707,7 @@ P:NPC {
     },
     xcl_rfc = {
       big = true,
-      lines = { { id = "xcl_rfc_default", text = "Good, because some nights my cellar smells of brimstone, and I've told the guards so twice. The recruits joke that there's a whole city of troggs and cultists under the Cleft, and after a few ales they dare each other to go and look, and most of them come back limping. I patch them up and feed them and tell them to wait until they're grown." } },
+      lines = { { id = "xcl_rfc_default", text = "Good, because some nights my cellar smells of brimstone, and I've told the guards twice. The recruits joke that there's a city of troggs and cultists under the Cleft, and after a few ales they dare each other to look, and most come back limping. I patch them up, feed them and tell them to wait until they're grown." } },
       choices = {
         { text = "The guards should have sealed those caves long ago.", next = "BACK", reply = "They should, and I've told them twice. Maybe they'll listen to someone who isn't holding a ladle.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let the young ones go down, Gryshka. It's how they'll learn.", next = "BACK", reply = "Learn, or die, and I've buried enough recruits already. Let them grow up first.", fx = { align = { order = -1 } } },

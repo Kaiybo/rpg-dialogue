@@ -94,7 +94,7 @@ P:NPC {
     },
     xcl_zg = {
       big = true,
-      lines = { { id = "xcl_zg_default", text = "Then you done a thing the old empires never could. Hakkar ate the Gurubashi from the inside once already, and they had to drive his priests out to save themselves, and if the Vilebranch had ever got his blood in their bowls, they'd have come down on Revantusk with a god at their backs, so I be owin' you twice now." } },
+      lines = { { id = "xcl_zg_default", text = "Then you done what the old empires never could. Hakkar ate the Gurubashi from the inside once already, and they drove his priests out to save themselves, and if the Vilebranch had ever got his blood in their bowls, they'd have come down on Revantusk with a god at their backs. I be owin' you twice now." } },
       choices = {
         { text = "The Zandalari called for help, and honour said to answer.", next = "BACK", reply = "Ya, honour, and de Zandalari will remember it. You make dis old Primal proud, mon.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Honour had nothing to do with it. I went for the city's treasures.", next = "BACK", reply = "Ha! At least you be honest about it, mon. De loa don't care why, so long as Hakkar stay dead.", fx = { align = { honor = -1 } } },

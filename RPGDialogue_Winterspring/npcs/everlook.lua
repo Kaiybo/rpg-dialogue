@@ -100,7 +100,7 @@ P:NPC {
     },
     xmage = {
       big = true,
-      lines = { { id = "xmage_default", text = "I did, sugar, and the fella who sold me this place swore nothing creepy could live in the cold, and then the yetis brought in fleas and the frostsabers brought in ticks, so I'm still waiting on my refund. A mage could freeze the lot of 'em solid, I suppose, but then I'd have a frozen inn, and that's bad for business." } },
+      lines = { { id = "xmage_default", text = "I did, sugar, and the fella who sold me this inn swore nothing creepy could live in the cold, and then the yetis brought in fleas and the frostsabers brought in ticks. A mage could freeze the lot of 'em solid, but then I'd have a frozen inn, and that's bad for business." } },
       choices = {
         { text = "I'll freeze any bug that bothers you.", next = "BACK", reply = "Oh, sugar, would you? Start with the big black one under the stairs, because it looks at me, I swear it looks at me when I walk past.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Bugs are your problem, not mine.", next = "BACK", reply = "Well, I suppose they are, sugar, but you'll be sleeping on my mattresses tonight, so don't come crying to me when something nibbles your toes.", fx = { affinity = -1, align = { light = -1 } } },
@@ -820,7 +820,7 @@ P:NPC {
     },
     scarlet_inside = {
       lines = {
-        { id = "si_default", text = "I'll give you a straight answer, since you asked a straight question. There are Dawn soldiers who'd rather the Forsaken weren't welcome at our fires, and a few who flinch at an orc, and I've had to write that down in my reports too, because the Dawn keeps careful records of its own failings or it's no better than the Crusade." },
+        { id = "si_default", text = "You asked straight, so I'll answer straight. There are Dawn soldiers who'd rather the Forsaken weren't welcome at our fires, and a few who flinch at an orc, and I've had to write that down in my reports too, because the Dawn keeps careful records of its own failings or it's no better than the Crusade." },
       },
       choices = {
         { text = "Writing it down is a start.", next = "BACK", fx = { affinity = 2, learn = { "argent_dawn" } } },

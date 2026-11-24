@@ -67,7 +67,7 @@ P:NPC {
     },
     xcl_zf = {
       big = true,
-      lines = { { id = "xcl_zf_default", text = "Then you see what Zalazane be wantin' to make of the Echo Isles. The Sandfury witch doctors drag their dead back up to guard the walls and call it devotion, but a spirit pulled back into rotten flesh never be grateful for it. I teach my students that the dead deserve rest, and Zul'Farrak be a whole city that forget it." } },
+      lines = { { id = "xcl_zf_default", text = "Then you see what Zalazane be wantin' to make of the Echo Isles. The Sandfury witch doctors drag their dead up to guard the walls and call it devotion, but a spirit pulled back into rotten flesh never be grateful for it. I teach that the dead deserve rest, and Zul'Farrak be a whole city that forget it." } },
       choices = {
         { text = "The dead deserve their rest, whoever raised them.", next = "BACK", reply = "They do, and Gadrin be glad to hear you say it. Rest be the last gift we give our dead, and Zalazane steal even that.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "If the dead can still fight, it's a waste not to use them.", next = "BACK", reply = "A waste, you say, like the dead be tools on a shelf. That be how Zalazane talk, child, before he fall.", fx = { align = { light = -1 } } },

@@ -205,7 +205,7 @@ P:NPC {
     },
     darkiron = {
       lines = {
-        { id = "d_default", text = "Every day! The Dark Irons hold Angor Fortress to the east and dig in the hills, and they hate the orcs worse than they hate the Alliance. If it weren't for the walls and the warlord's grunts, buddy, I'd have been out of business and out of a head a long time ago, and I'm not sure which I'd miss more." },
+        { id = "d_default", text = "Every day! The Dark Irons hold Angor Fortress to the east and dig in the hills, and they hate the orcs worse than they hate the Alliance. If it weren't for the walls and the warlord's grunts, buddy, I'd be out of business and out of a head long ago, and I'm not sure which I'd miss more." },
       },
       choices = {
         { text = "Then the grunts earn their keep.", next = "BACK", fx = { affinity = 1 } },

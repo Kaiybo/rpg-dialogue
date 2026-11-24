@@ -90,7 +90,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "I've thought about it, and then I've thought about explaining a burned storehouse to Warlord Goretooth, and I stopped thinking about it. Coyotes I can shoot, but an imp that gets bored in the night is a problem I don't know how to track." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I've thought about it, and I'm thinking about it again with yours standing here, because it would keep a better watch than half my grunts. Then I think about explaining a burned storehouse to Warlord Goretooth, and I stop, because coyotes I can shoot, but a demon that gets bored in the night is a problem I don't know how to track." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I've thought about it, and I'm thinking about it again with yours standing here, since it'd watch better than half my grunts. Then I think about explaining a burned storehouse to Warlord Goretooth, and I stop, because coyotes I can shoot, but a demon that gets bored in the night is a problem I don't know how to track." },
       },
       choices = {
         { text = "Use what works. A few burned sacks are worth it.", next = "BACK", reply = "Worth it until it's my storehouse, maybe. I'll think about it again when Goretooth's in a better mood.", fx = { align = { order = -1 } } },

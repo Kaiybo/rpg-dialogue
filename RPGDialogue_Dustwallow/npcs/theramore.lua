@@ -687,7 +687,7 @@ P:NPC {
     },
     jd_test2 = {
       lines = {
-        { id = "jte2_default", text = "I had him clean the envoy's boots on the same dock, in front of the same people, and then I paid his passage home to Kul Tiras myself, because he couldn't bear to live beside orcs and I couldn't let him go on trying. Theramore couldn't decide whether I'd been too harsh or too soft, and the envoy thought the whole thing very funny, which helped more than anything." },
+        { id = "jte2_default", text = "I had him clean the envoy's boots on the same dock, in front of the same people, and then I paid his passage home to Kul Tiras myself, because he couldn't bear living beside orcs. Theramore couldn't decide whether I'd been too harsh or too soft, and the envoy thought the whole thing very funny." },
       },
       choices = {
         { text = "That sounds like justice to me, my lady.", next = "BACK", fx = { affinity = 1 } },
@@ -970,8 +970,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Tortoises, if you'll believe it, great mudrock tortoises that climb out of the shallows at night and eat my herbs down to the stems. I've warded half the beds against them, and the creatures simply walk around the wards, which I take personally." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Tortoises, if you'll believe it, great mudrock tortoises that climb out of the shallows at night and eat my herbs down to the stems. I've warded half the beds against them, and the creatures simply walk around the wards, which I take personally. {pet} looks a sight more sensible than the tortoises, though I'd still ask you to keep it on the path." },
+        { id = "xhuntcl_default", text = "Tortoises, if you'll believe it, great mudrock tortoises that climb out at night and eat my herbs down to the stems. I've warded half the beds against them, and the creatures simply walk around the wards, which I take personally." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Tortoises, if you'll believe it, great mudrock tortoises that climb out at night and eat my herbs down to the stems. I've warded half the beds against them, and the creatures simply walk around the wards, which I take personally. {pet} looks more sensible than the tortoises, but I'd still ask you to keep it on the path." },
       },
       choices = {
         { text = "Leave the tortoises be. The island can share its garden.", next = "BACK", reply = "Share, {g:he|she} says, as though the tortoises have ever shared anything. Still, perhaps you're right, and I'll leave a bed unwarded for them.", fx = { align = { light = 1 } } },
@@ -1870,8 +1870,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Tortoise, if you can get it, and a young raptor's flank if you're brave, though Morgan Stern the cook swears by the tortoise and he's usually right. Crocolisk I won't touch, because it tastes of the mud it came out of, and no amount of pepper fixes that." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Tortoise, if you can get it, and a young raptor's flank if you're brave, though Morgan Stern the cook swears by the tortoise and he's usually right. Crocolisk I won't touch, because it tastes of the mud it came out of, and no amount of pepper fixes that. And {pet} can lie by the hearth if it behaves, because the sailors like a beast in the room." },
+        { id = "xhuntcl_default", text = "Tortoise, if you can get it, and a young raptor's flank if you're brave, though Morgan Stern the cook swears by the tortoise and he's usually right. Crocolisk I won't touch, because it tastes of mud, and no pepper fixes that." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Tortoise, if you can get it, and a young raptor's flank if you're brave, though Morgan Stern the cook swears by the tortoise and he's usually right. Crocolisk I won't touch, because it tastes of mud, and no pepper fixes that. And {pet} can lie by the hearth if it behaves, because the sailors like a beast in the room." },
       },
       choices = {
         { text = "I hunt for the pot, never for sport.", next = "BACK", reply = "That's the right way, and Morgan would agree with you. Bring me a tortoise, and I'll make you a feast.", fx = { align = { honor = 1 } } },

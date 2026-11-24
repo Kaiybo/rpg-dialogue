@@ -355,7 +355,7 @@ P:NPC {
     },
     kal_highborne = {
       big = true,
-      lines = { { id = "kh_d", text = "I do not think it, I know it, for the old texts are plain on the matter. Xavius, the Queen's own counsellor, was the first to take the horns as a gift from the Legion, and those of his followers who survived the Sundering wear them still in Ashenvale and Felwood, so every satyr you put down was once one of us." } },
+      lines = { { id = "kh_d", text = "I do not think it, I know it; the old texts are plain. Xavius, the Queen's own counsellor, was the first to take the horns as a gift from the Legion, and those of his followers who survived the Sundering wear them still in Ashenvale and Felwood, so every satyr you put down was once one of us." } },
       choices = {
         { text = "Then killing them is a kind of mercy.", next = "BACK", reply = "That is the kindest way to say it, and I let my students say it. I am not sure I believe it, for nothing in my jars looks grateful.", fx = { align = { light = 1 } } },
         { text = "They chose the horns. I owe them nothing.", next = "BACK", reply = "Then keep that hardness, for you will need it in Felwood. I only ask that you remember they chose because they were hungry, and hunger is not so rare among us.", fx = { align = { light = -1 } } },
@@ -363,7 +363,7 @@ P:NPC {
       },
     },
     kal_again = {
-      lines = { { id = "ka_d", text = "It is the only question I study, and I study it every night. The change begins with wanting magic more than one wants anything else, and our people did not stop wanting it when the Well was lost, they only stopped admitting it, and some of the young ones in Darnassus speak of the arcane with a light in their eyes I do not like." } },
+      lines = { { id = "ka_d", text = "It is the only question I study. The change begins with wanting magic more than one wants anything else, and our people did not stop wanting it when the Well was lost, they only stopped admitting it, and some of the young ones in Darnassus speak of the arcane with a light in their eyes I do not like." } },
       choices = { { text = "I will watch for that light. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
     },
     kal_naga = {

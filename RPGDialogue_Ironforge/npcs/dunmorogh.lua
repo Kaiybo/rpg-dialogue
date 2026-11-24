@@ -298,7 +298,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "It's for a gnome who came through last month wi' ink-black fingers, an' I'm fairly sure it's no' a letter at all. Most folk in Coldridge have heard tales o' what warlocks did in the war, so ye'll find them slow tae trust ye." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's for a gnome warlock who came through last month, an' I'm fairly sure it's no' a letter at all, for it's started rattlin' since yer demon came up the path. Most folk in Coldridge have heard tales o' what warlocks did in the war, an' the young ones are starin' at that thing already, so ye'll find them slow tae trust ye." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It's for a gnome warlock who came through last month, an' I'm fairly sure it's no' a letter at all, for it started rattlin' when yer demon came up the path. Most folk in Coldridge have heard what warlocks did in the war, an' the young ones are starin' already, so ye'll find them slow tae trust ye." },
       },
       choices = {
         { text = "I'll earn their trust slowly. That's only fair.", next = "BACK", reply = "That's fair, an' it'll work, for the folk in Coldridge are slow tae warm but they never forget a kindness, nor a slight.", fx = { align = { light = 1 } } },
@@ -430,7 +430,7 @@ P:NPC {
     },
     anv = {
       lines = {
-        { id = "anv_default", text = "Aye, Modimus Anvilmar, the last high king o' all the clans, back when Bronzebeard an' Wildhammer an' Dark Iron drank from the same cask. When he died the clans went tae war over his throne, an' somebody thought it'd be a fine thing tae put his name on the place where young dwarves learn tae fight, so they'd remember what happens when we fight each other." },
+        { id = "anv_default", text = "Aye, Modimus Anvilmar, the last high king o' all the clans, when Bronzebeard an' Wildhammer an' Dark Iron drank from the same cask. When he died the clans went tae war over his throne, so somebody put his name where young dwarves learn tae fight, tae remind them what happens when we fight each other." },
         { id = "anv_dwarf", when = { race = "Dwarf" }, text = "Modimus Anvilmar, the last high king o' all three clans, an' ye'll have heard the tale at yer granddad's knee. He held us together, an' when he died we went tae war over his chair, so they put his name on the place where young dwarves learn tae fight, tae remind them who the fightin's for." },
       },
       choices = {

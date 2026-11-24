@@ -519,7 +519,7 @@ P:NPC {
     },
     kt_jaina = {
       big = true,
-      lines = { { id = "ktj_default", text = "Love her? Half the old quay families still won't say her name, and the other half say it too often, as if to prove something. My own father served the Admiral, and he took the first ship home to Boralus once he heard the Lady had stood with the orcs, so I'll let you guess which half I was raised in." } },
+      lines = { { id = "ktj_default", text = "Love her? Half the old quay families won't say her name, and the other half say it too often. My own father served the Admiral, and he took the first ship home to Boralus once he heard the Lady had stood with the orcs, so I'll let you guess which half I was raised in." } },
       choices = {
         { text = "Your father was right to go home.", next = "BACK", reply = "He thought so, and he writes every season to say so. I stayed for the sea air, and for nothing else.", fx = { align = { light = -1 }, opinion = { jaina = "traitor" } } },
         { text = "She saved this town. Your father was wrong.", next = "BACK", reply = "Perhaps, but you'd not say it to him twice. I'll grant you she keeps the ships sailing on time.", fx = { align = { light = 1 }, opinion = { jaina = "admire" } } },

@@ -414,7 +414,7 @@ P:NPC {
     },
     m_trick = {
       big = true,
-      lines = { { id = "mt_default", text = "Here is one, and the Kirin Tor would have my robes for it: a ward keyed not to the caster but to the place, so that it holds long after you're gone. The Highborne left them all over this coast, which is why their ruins still bite after ten thousand years, and you mustn't use it on your own house, or you'll lock yourself out." } },
+      lines = { { id = "mt_default", text = "Here is one, and the Kirin Tor would have my robes for it: a ward keyed not to the caster but to the place, so it holds after you're gone. The Highborne left them all over this coast, which is why their ruins still bite, and you mustn't use it on your own house, or you'll lock yourself out." } },
       choices = {
         { text = "I'll use it to guard what matters.", next = "BACK", reply = "Sensible. Dull, but sensible, and you'll keep all your fingers.", fx = { align = { order = 1 } } },
         { text = "I'll use it to keep the Kirin Tor out.", next = "BACK", reply = "Spoken like my own heart. Don't tell them where you learned it.", fx = { affinity = 1, align = { order = -1 } } },

@@ -1636,7 +1636,7 @@ P:NPC {
       },
     },
     trade_count = {
-      lines = { { id = "tc_default", text = "Soul shards, first of all. Whatever you kill with Drain Soul on it hardens into a shard in your pack, and every great working you'll ever do spends one, so a warlock who wastes them comes up short at the worst moment. After that you count your own blood, because Life Tap pays you in mana straight out of your veins." } },
+      lines = { { id = "tc_default", text = "Soul shards, first of all. Whatever you kill with Drain Soul on it hardens into a shard in your pack, and every great working you'll ever do spends one, so waste them and you'll come up short. After that you count your own blood, because Life Tap pays you in mana straight out of your veins." } },
       choices = {
         { text = "Shards and blood. I'll keep the ledger.", next = "BACK", reply = "Keep it honestly, too. The imp keeps its own, and it never rounds in your favour." },
         { text = "Something else, then.", next = "BACK" },

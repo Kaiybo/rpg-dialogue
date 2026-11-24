@@ -254,7 +254,7 @@ P:NPC {
     hu_sol_x = {
       lines = {
         { id = "husx_default", key = true,
-          text = "We do, and the court won't pretend otherwise; we are a people of petitions and long memories for small slights, which you'll forgive in a race that lives sixty years and spends forty of them arguing. Being human, as far as this court can tell, means building a town in an orc's shadow, expecting the crown to send help, and building it again when the crown doesn't." },
+          text = "We do, and the court won't pretend otherwise; we are a people of petitions and long memories for small slights, forgivable in a race that lives sixty years and argues for forty. Being human, this court finds, means building a town in an orc's shadow, expecting the crown to send help, and building it again when the crown doesn't." },
       },
       choices = {
         { text = "That stubbornness built Stormwind twice. It's worth admiring.", next = "BACK",

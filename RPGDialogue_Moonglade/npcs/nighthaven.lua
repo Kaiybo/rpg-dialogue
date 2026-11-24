@@ -97,7 +97,7 @@ P:NPC {
     },
     d_hold = {
       big = true,
-      lines = { { id = "dr_rmh_default", text = "Because the desert was green once, little one, before an old war burned it, and because something sleeps beneath those sands that the Circle swore long ago to watch. Cenarion Hold is that oath kept, by tauren and kaldorei shoulder to shoulder, and it is the one place where the Circle's quarrels are forgotten, because there is no time for them." } },
+      lines = { { id = "dr_rmh_default", text = "Because the desert was green once, little one, before an old war burned it, and because something sleeps beneath those sands that the Circle swore long ago to watch. Cenarion Hold is that oath kept, by tauren and kaldorei shoulder to shoulder, and there the Circle's quarrels are forgotten, for there is no time for them." } },
       choices = {
         { text = "The Hold should mend the desert, not only fight it.", next = "d_road", reply = "It should, and its druids would like nothing better. But you cannot plant a grove while the ground is still moving under you, little one.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Then send claws, Keeper, not healers. It's a war.", next = "d_road", reply = "Commander Mar'alith would agree with you, and he has buried more of his druids than I like to count. Go to him, if that is your heart.", fx = { align = { light = -1 } } },
@@ -1256,7 +1256,7 @@ P:NPC {
     },
     xapala = {
       big = true,
-      lines = { { id = "xapala_default", text = "The druids' trials, to learn their forms, and they go off to the Great Bear Spirit or the sea or wherever they're sent, and come back changed, in more ways than one. You'd find them very dull, I imagine, since the Light doesn't ask you to swim with the turtles, but I do enjoy watching your sort try to keep up." } },
+      lines = { { id = "xapala_default", text = "The druids' trials, to learn their forms, and they go off to the Great Bear Spirit or the sea or wherever they're sent, and come back changed. You'd find them very dull, I imagine, since the Light doesn't ask you to swim with the turtles, but I do enjoy watching your sort try to keep up." } },
       choices = {
         { text = "Every path has its trials. I respect theirs.", next = "BACK", reply = "They do, and theirs are as hard as any knight's vigil. I'm glad you see it.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I'll stick to my hammer. Turtles hold no wisdom for me.", next = "BACK", reply = "As you like, though the turtle would be offended, if it cared. It once taught a young druid to hold his breath for an hour, which is more than most hammers manage.", fx = { align = { light = -1 } } },
@@ -1656,7 +1656,7 @@ P:NPC {
     },
     d_moonkin = {
       big = true,
-      lines = { { id = "dr_lgm_default", text = "I think it's a strange shape and a beautiful one, half owl and half something older, and the druids who take it see further into the moon's light than I ever will. I also think some take it because it's easier to stand back and call down the stars than to stand in front with claws, and only you know which kind you are." } },
+      lines = { { id = "dr_lgm_default", text = "It's a strange shape and a beautiful one, half owl and half something older, and the druids who take it see further into the moon's light than I will. I think some take it because it's easier to stand back and call down the stars than stand in front with claws, and only you know which kind you are." } },
       choices = {
         { text = "I'd take it for the moon's sake, not to stand back.", next = "d_road", reply = "Then the moon will know it, and so will the moonkin of Darkshore, who are very particular about who borrows their shape.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Standing back is wise. Druids who stand in front die.", next = "d_road", reply = "They do, sometimes, and I've buried a few. I'll not argue with you, only ask you to remember who stood in front so you could stand back.", fx = { align = { light = -1 } } },
@@ -1671,7 +1671,7 @@ P:NPC {
     d_split = {
       big = true,
       lines = {
-        { id = "dr_lgs_default", text = "It is split, and I won't pretend otherwise to a druid who's seen both ends of it. Darnassus sends its druids to the Arch Druid's Enclave and Thunder Bluff sends its own to Hamuul Runetotem on the Elder Rise, and here in the glade they sit on the same benches because the Keeper insists, and some days that's all that holds it together." },
+        { id = "dr_lgs_default", text = "It is split, and I won't pretend otherwise to you. Darnassus sends its druids to the Arch Druid's Enclave and Thunder Bluff sends its own to Hamuul Runetotem on the Elder Rise, and here in the glade they sit on the same benches because the Keeper insists, and some days that's all that holds it together." },
         { id = "dr_lgs_tauren", when = { race = "Tauren" }, text = "It is split, and you'll have felt it more than I have, I expect. Your people learn from Hamuul on the Elder Rise and mine from the Arch Druid in Darnassus, and the two of them don't write to each other unless the Keeper makes them, so this glade is the only place where the Circle is still one thing." },
       },
       choices = {
@@ -2330,7 +2330,7 @@ P:NPC {
       },
     },
     game = {
-      lines = { { id = "ga_default", text = "The spirit's eyes narrow to slits of gold. Somewhere in the grass between here and the lake is a thing I have hidden, and you will look for it, and I will watch you look, and at some moment you will stop looking and start listening. When that happens, you will have won, and you will know it before I tell you." } },
+      lines = { { id = "ga_default", text = "The spirit's eyes narrow to slits of gold. Somewhere in the grass between here and the lake is a thing I have hidden, and you will look for it, and I will watch you look, and at some moment you will stop looking and start listening. Then you will have won, and you will know it before I tell you." } },
       choices = {
         { text = "And if I never stop looking?", next = "game2" },
         { text = "Something else, great cat.", next = "BACK" },

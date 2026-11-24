@@ -455,7 +455,7 @@ P:NPC {
     xekowant = {
       big = true,
       lines = {
-        { id = "xek_default", text = "Ha! Your old master teach you right. De E'ko be a little spirit dat want to finish what de beast was doin' when it died, mon, runnin' or huntin' or keepin' warm, so Mau'ari give it a job in de juju and it go quiet and happy. Some witch doctors say dat be a kindness, and some say it be a leash, so which you think?" },
+        { id = "xek_default", text = "Ha! Your master teach you right. De E'ko be a little spirit dat want to finish what de beast was doin' when it died, mon, runnin' or huntin' or keepin' warm, so Mau'ari give it a job in de juju and it go quiet. Some say dat be a kindness, some say a leash. Which you think?" },
       },
       choices = {
         { text = "A kindness. A spirit with work is a spirit at rest.", next = "BACK", reply = "Ya, you understand de E'ko, mon, and your old master would grin to hear it. A spirit with somethin' to do be a spirit dat don't haunt nobody.", fx = { affinity = 2, align = { light = 1 }, trait = { kind = 1 } } },

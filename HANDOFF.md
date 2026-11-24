@@ -8,7 +8,8 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants quick, efficient sessions: no constant re-validation; follow `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
 
-## State (0.108.1)
+## State (0.109.0)
+- 0.109.0 "Fewer Words, Same Voice" (user: "keep building out the addon. Build a release and merge"): ~270 NPC lines over 60 words in 43 zone packs tightened to 60 or fewer by 3 parallel agents. Core 0.109.0, 43 packs minor-bumped. No new files. Only `luac -p` run. Next: World pack still has ~700 strings over 60 words (many are letters, which may be fine long); in-game check of 0.108.x.
 - 0.108.1 "A Line Drawn" (user: "build a release"): the reply divider now shows in every conversation (above "Get on with it" when the game lists no options, e.g. single-service vendors and talk-key visits) and in DialogueUI's window (PR #250). Core only. No new files. Only `luac -p` run; nothing seen in game. Next: in-game check of the line on DialogueUI's parchment/dark theme, plus the 0.108.0 tests.
 - 0.108.0 "Old Grudges" (user: "build a release, pull and merge"): grievance/amends/spite answers and blurts for ~123 friendly major NPCs; NPC lines of 70+ words tightened to 60 or fewer (61-69-word lines, ~370, remain); Thunder Bluff `more_folk.lua` nested-node fix (9 NPCs); doubles removed (Frezza, Snurk Bucksquick from Orgrimmar; Jekyll Flandring from Hillsbrad). Core 0.108.0, 46 packs minor-bumped. No new files. Only `luac -p` run; nothing seen in game. Next: in-game test of grudge talk, letter replies and the quest-accept return.
 - 0.107.0 "Letters from Afar" (user: "build release if needed, pull, then merge"): everything below that was unreleased, plus the reply divider (+ setting) and Sylessa Duskwhisper (Wetlands). Core 0.107.0, World 1.55.0, Wetlands 1.33.0. New World letter files: full restart. Next: in-game test of letter replies and the quest-accept return.

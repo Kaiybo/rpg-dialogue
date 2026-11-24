@@ -140,7 +140,7 @@ P:NPC {
     },
     why_goblins = {
       big = true,
-      lines = { { id = "wg_default", text = "Better than I feared, because a goblin will tell you exactly what he wants from you, and my old neighbours in the Trade District never once managed that. They pay on time and haggle like it's a sport, and when I was ill last winter, three of them climbed all these stairs to ask after me, though I suspect they were checking on their orders." } },
+      lines = { { id = "wg_default", text = "Better than I feared, because a goblin tells you exactly what he wants, and my old neighbours in the Trade District never once managed that. They pay on time and haggle like it's a sport, and when I was ill last winter, three of them climbed these stairs to ask after me, though probably to check their orders." } },
       choices = {
         { text = "Honest dealing's honest dealing, whoever does it.", next = "BACK", reply = "My thoughts exactly, and it's a lesson Stormwind could stand to learn. I've had fairer bargains on this dock than I ever had in the Trade District.", fx = { align = { honor = 1 } } },
         { text = "A goblin's honesty only lasts until the price changes.", next = "BACK", reply = "Oh, it lasts a little longer than that, if you're a steady customer. But you're not wrong, and I keep my receipts the same as anyone in this town.", fx = { align = { honor = -1 } } },

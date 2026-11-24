@@ -272,7 +272,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Because the chimaera live in that wind all their lives, and the cold gets into the horn the way rust gets into iron. Tinkee wants them whole for her work, so I take them uncracked or not at all. I suppose you'd say there's a spirit of the ice in them, and I'd say it's density, and we could both be right, if you insist." } },
+      lines = { { id = "xhsham_default", text = "Because the chimaera live in that wind, and the cold gets into the horn the way rust gets into iron. Tinkee wants them whole for her work, so I take them uncracked or not at all. I suppose you'd say there's a spirit of the ice in them, and I'd say it's density, and we could both be right." } },
       choices = {
         { text = "A horn's a horn. Take as many as Tinkee pays for.", next = "BACK", reply = "Well, I'll take as many as she pays for, certainly, but I won't waste a beast for nothing. I'm precise, not greedy.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Respect the beast that gave the horn, Felnok.", next = "BACK", reply = "I do, I do, I'm not some kobold with a sack! Each horn gets labelled and logged, which is the most respect a goblin can give anything.", fx = { align = { honor = 1 } } },
@@ -473,7 +473,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "No, I don't, though I've tried to. The men who brought the plague to Lordaeron dabbled in the same things you do, and it's hard to look at that creature of yours and not think of what came over the hills toward Darrowshire. But if you've been into the Plaguelands and seen my family's village, I'd hear it from anyone, even you." },
+        { id = "xlock_default", text = "No, I don't, though I've tried. The men who brought the plague to Lordaeron dabbled in the same things you do, and it's hard to look at that creature of yours and not think of what came over the hills toward Darrowshire. But if you've been into the Plaguelands and seen my family's village, I'd hear it from anyone." },
         { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "No, I don't, though I've tried to, and it's harder with that thing standing there and that sulphur smell coming off it. The men who brought the plague to Lordaeron dabbled in the same things you do, but if you've seen Darrowshire, I'd hear it from anyone, even you and your servant." },
       },
       choices = {

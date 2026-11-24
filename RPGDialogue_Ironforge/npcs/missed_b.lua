@@ -303,7 +303,7 @@ P:NPC {
       },
     },
     k_klockmort = {
-      lines = { { id = "kk_default", text = "He is, an' they're good, which I'll no' say twice, for he wants searing coral off the Wetlands coast south o' Menethil, an' a deal o' patience from ye before he'll make them. Gnomish work fits a fist better than ye'd think, an' it's never once caught fire on me, which is more than I can say for their other inventions." } },
+      lines = { { id = "kk_default", text = "He is, an' they're good, which I'll no' say twice, for he wants searing coral off the Wetlands coast south o' Menethil, an' a deal o' patience before he'll make them. Gnomish work fits a fist better than ye'd think, an' it's never once caught fire on me, which is more than I can say for their other inventions." } },
       choices = { { text = "Searing coral, then. Something else.", next = "BACK" } },
     },
     islander = {

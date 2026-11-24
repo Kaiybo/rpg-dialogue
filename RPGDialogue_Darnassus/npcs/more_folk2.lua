@@ -1938,7 +1938,7 @@ P:NPC {
     },
     where3 = {
       lines = {
-        { id = "where3_default", text = "That the tree is well, that the Temple worries too much, and that nobody has asked their opinion. He says it to everyone, and so I suppose he must mean it. I am only a seller of torches, and I do not know who has the right of it. But I notice that the Temple has stopped sending him honey cakes at the festival." },
+        { id = "where3_default", text = "That the tree is well, that the Temple worries too much, and that nobody has asked their opinion. He says it to everyone, so he must mean it. I am only a seller of torches, and I do not know who has the right of it. But I notice that the Temple has stopped sending him honey cakes at the festival." },
       },
       choices = {
         { text = "That tells its own tale. Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } },

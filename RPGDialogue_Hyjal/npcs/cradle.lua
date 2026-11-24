@@ -81,7 +81,7 @@ P:NPC {
         { id = "o_burning_legion_beaten", tags = { "news" }, when = { gossip = { topic = "burning_legion", stance = "beaten" } },
           text = "The orc says you think the Legion is finished. It is never finished; it is only elsewhere." },
         { id = "h_default", key = true,
-          text = "I am Maerion Thaelemaches. They call this place the Cradle of Tranquility, and I suppose it is tranquil, if you ignore what lies under the mountain and what still hides on its slopes. I have hunted the Legion since the Well of Eternity burned, and if this is what we call a victory, you would not want to know the full breadth of a defeat." },
+          text = "I am Maerion Thaelemaches. They call this place the Cradle of Tranquility, and I suppose it is tranquil, if you ignore what lies under the mountain and on its slopes. I have hunted the Legion since the Well of Eternity burned, and if this is what we call a victory, you would not want to know defeat." },
         { id = "h_apriest", when = { class = "PRIEST", faction = "Alliance" },
           text = "A priest of the human Light. You will want to save me, I expect, and I will decline politely, and we will both be disappointed." },
         { id = "h_horde", when = { faction = "Horde" },

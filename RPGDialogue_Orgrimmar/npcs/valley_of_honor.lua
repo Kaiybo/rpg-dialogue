@@ -797,7 +797,7 @@ P:NPC {
       },
     },
     z_growl = {
-      lines = { { id = "zg_default", text = "Growl, first and always, so it pulls the enemy's eyes off you. A thicker hide, and the will to shrug off fire and frost and shadow, which the wild never needed to teach it. But listen: when you go into the deep places with other fighters, tell your beast to keep its growl in its throat, or the warrior will curse you both." } },
+      lines = { { id = "zg_default", text = "Growl, first and always, so it pulls the enemy's eyes off you. A thicker hide, and the will to shrug off fire, frost and shadow, which the wild never taught it. But listen: when you go into the deep places with other fighters, tell your beast to keep its growl in its throat, or the warrior will curse you both." } },
       choices = {
         { text = "My beast protects me first, whatever the warrior says.", next = "z_growl2" },
         { text = "Back to the beast.", next = "z_beast" },
@@ -813,7 +813,7 @@ P:NPC {
       },
     },
     z_families = {
-      lines = { { id = "zf_default", text = "The wind serpents of the Needles breathe lightning, the owls screech to frighten, and the bats dive like a hunter's arrow. The great apes of the south stomp the ground, the boars charge like orcs, and every cat in the world knows how to creep up on you. Tame one of each, if you can, and your own beast will watch and learn." } },
+      lines = { { id = "zf_default", text = "The wind serpents of the Needles breathe lightning, the owls screech to frighten, and the bats dive like arrows. The great apes of the south stomp the ground, the boars charge like orcs, and every cat knows how to creep up on you. Tame one of each, if you can, and your own beast will watch and learn." } },
       choices = {
         { text = "Which would you keep, Xao'tsu?", next = "z_mine" },
         { text = "Back to the beast.", next = "z_beast" },

@@ -811,7 +811,7 @@ P:NPC {
     },
     drag = {
       lines = {
-        { id = "drag_default", text = "Start at this end with Magar's, which is us, and across the way are the Kodohide Leatherworkers, with Karolek and his hides. Then come Zamja and Borstan's firepit, where you eat, Godan's Runeworks for enchanting, Yelmak's shop, which is the one that smells, and Gotri's for bags. I wouldn't linger at the far end, where it goes down to the Cleft." },
+        { id = "drag_default", text = "Start at this end with Magar's, which is us, and across the way is the Kodohide Leatherworkers, with Karolek and his hides. Then come Zamja and Borstan's firepit, where you eat, Godan's Runeworks for enchanting, Yelmak's shop, which smells, and Gotri's for bags. I wouldn't linger where it goes down to the Cleft." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },

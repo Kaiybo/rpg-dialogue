@@ -178,7 +178,7 @@ P:NPC {
     hu_gazlowe = {
       lines = {
         { id = "hu_default", key = true,
-          text = "I built half of Orgrimmar for Thrall, pal, so the humans figure I'm Horde, and the Horde figures I'm a goblin, which is the only thing everybody's right about. Theramore's ships still dock here now and then, and they're fine customers, but Northwatch Hold down the coast keeps sending soldiers up the beach to inspect my cargo, and inspecting is human for stealing with a clipboard." },
+          text = "I built half of Orgrimmar, pal, so the humans figure I'm Horde, and the Horde figures I'm a goblin, which is the only thing everybody's right about. Theramore's ships are fine customers, but Northwatch Hold down the coast keeps sending soldiers up the beach to inspect my cargo, and inspecting is human for stealing with a clipboard." },
       },
       choices = {
         { text = "Does Northwatch really take your cargo?", next = "hu_gazlowe_2" },
@@ -394,7 +394,7 @@ P:NPC {
       },
     },
     c_venture = {
-      lines = { { id = "cv_default", text = "The Venture Company's what you get when a goblin decides contracts are for suckers, pal. They strip a hill bare, foul the water and shoot the locals, and then they wonder why nobody wants to trade with goblins, so every tauren who spits on my boots is really spitting at them, and I'm the one paying to have the boots cleaned." } },
+      lines = { { id = "cv_default", text = "The Venture Company's what you get when a goblin decides contracts are for suckers, pal. They strip a hill bare, foul the water and shoot the locals, and then they wonder why nobody wants to trade with goblins, so every tauren who spits on my boots is really spitting at them." } },
       choices = {
         { text = "But you're all goblins, the Venture Company too.", next = "c_venture2" },
         { text = "Something else.", next = "BACK" },
@@ -436,7 +436,7 @@ P:NPC {
       },
     },
     d_owed = {
-      lines = { { id = "do_default", text = "He said WHAT? Sparks and sprockets, I don't owe Revilgaz a copper, pal, it's the racing team I owe, and if the Baron's telling people I'm behind on payments, the Cartel's gonna start asking about Ratchet's books. And since the Southsea started hitting my boats, I've been padding the dock fees a little to cover the losses, so the books really don't want to be asked about." } },
+      lines = { { id = "do_default", text = "He said WHAT? Sparks and sprockets, I don't owe Revilgaz a copper, pal, it's the racing team I owe, and if the Baron's telling people I'm behind on payments, the Cartel's gonna start asking about Ratchet's books. And since the Southsea started hitting my boats, I've padded the dock fees a little, so those books don't want asking about." } },
       choices = {
         { text = "Your secret's safe with me, Gazlowe.", next = "BACK", fx = { affinity = 1, trait = { discreet = 1 } } },
         { text = "Revilgaz never said a word, by the way.", next = "BACK", fx = { affinity = -1, trait = { witty = 1 } } },
@@ -532,7 +532,7 @@ P:NPC {
       },
     },
     o_sailed = {
-      lines = { { id = "osl_default", text = "Thrall's boats! You lot came off those ships soaked and hungry and arguing about a sea witch, and a week later you'd built half of Sen'jin out of driftwood and stubbornness. I quoted Vol'jin a fair price on proper lumber, and he looked at me like I'd tried to sell him his own island, so I've had a soft spot for trolls ever since." } },
+      lines = { { id = "osl_default", text = "Thrall's boats! You lot came off those ships soaked and arguing, and a week later you'd built half of Sen'jin out of driftwood and stubbornness. I quoted Vol'jin a fair price on proper lumber, and he looked at me like I'd tried selling him his own island, so I've had a soft spot for trolls ever since." } },
       choices = {
         { text = "We were grateful, Gazlowe, even if Vol'jin didn't show it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Driftwood was free, goblin.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -645,7 +645,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Well, I don't know how prayer works, exactly, or at all, but I've tried wrenches and maps and shouting, so it can't do any worse! If your loa or your shadow or whatever you've got happens to see a big brass contraption out in the Barrens, you'd tell me first, wouldn't you, before anybody tries to sell it back to me?" } },
+      lines = { { id = "xhpriest_default", text = "Well, I don't know how prayer works, but I've tried wrenches and maps and shouting, so it can't do any worse! If your loa or your shadow or whatever you've got happens to see a big brass contraption out in the Barrens, you'd tell me first, wouldn't you, before anybody tries to sell it back to me?" } },
       choices = {
         { text = "I'll pray for it with you, Sputtervalve. It can't hurt.", next = "BACK", reply = "Oh, thank you, pal, really, and you can pray in whatever direction feels right. I'll hold the wrench, just in case.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The gods have better things to find than your contraption.", next = "BACK", reply = "Well, sure, probably, but they don't have a year of my savings in it, do they? Maybe they do, I don't know how gods work, I'm a tinker.", fx = { align = { light = -1 } } },
@@ -1078,7 +1078,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "hu2_default",
-          text = "Not navy ships, pal, never navy, because the navy'd sooner sink us. Merchant boats, cut loose since the admiral died, all proud captains with empty holds, and they'd rather tie up in a goblin harbour than sail home to Kul Tiras and admit there's no work. I feel for 'em, sort of, right up until they try to pay in promises." },
+          text = "Not navy ships, pal, never navy, because the navy'd sooner sink us. Merchant boats, cut loose since the admiral died, with empty holds, and they'd rather tie up in a goblin harbour than sail home to Kul Tiras and admit there's no work. I feel for 'em, sort of, right up until they try to pay in promises." },
       },
       choices = {
         { text = "Proud sailors down on their luck. Cut them some slack.", next = "BACK",

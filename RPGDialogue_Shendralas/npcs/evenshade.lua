@@ -615,7 +615,7 @@ P:NPC {
     },
     m_forsaken = {
       big = true,
-      lines = { { id = "mf_default", text = "Then you were taught, after a fashion, by the grandchildren of our exiles, and betrayed by them, which I am sorry to say is an old tradition among those who hold the arcane. My people shut Eldre'Thalas against the kaldorei and the kaldorei shut their forests against us, and every door slammed in this world was slammed by someone who was afraid." } },
+      lines = { { id = "mf_default", text = "Then you were taught, after a fashion, by the grandchildren of our exiles, and betrayed by them, an old tradition among those who hold the arcane. My people shut Eldre'Thalas against the kaldorei and the kaldorei shut their forests against us, and every door slammed in this world was slammed by someone who was afraid." } },
       choices = {
         { text = "Then I won't slam doors of my own.", next = "BACK", reply = "Then you will be the first mage in ten thousand years to manage it, and I shall watch with great interest.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Then I'll slam them back, and harder.", next = "BACK", reply = "My people said the same of the kaldorei, and we have been slamming them ever since. It has not made the halls any warmer.", fx = { align = { light = -1 } } },

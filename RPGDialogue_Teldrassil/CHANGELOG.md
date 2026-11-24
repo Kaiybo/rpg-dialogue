@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.32.0 (2026-11-24): Fewer Words, Same Voice
+- NPC speeches over 60 words were trimmed so they fit the dialogue box; nothing they say was lost.
+
 ## 1.31.0 (2026-11-24): Old Grudges
 - Major NPCs answer for a grudge you hold against them (or they against you), and let things slip when angry.
 - Overlong speeches tightened.

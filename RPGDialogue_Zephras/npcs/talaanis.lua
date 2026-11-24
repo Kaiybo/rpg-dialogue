@@ -55,7 +55,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "It troubles me as any power taken from the Nether troubles me, because that is what drove us into hiding ten thousand years ago. I won't judge you by your craft alone, since I've known honest people with stranger habits, but you'll find that many on this isle have longer memories than I do." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It troubles me as any power taken from the Nether troubles me, and the thing at your side troubles me more, because I last saw eyes like those when we fled into hiding ten thousand years ago. I won't judge you by your craft alone, but many on this isle have longer memories than I do, and they will all be looking at it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "It troubles me as any power taken from the Nether troubles me, and the thing at your side troubles me more, because I last saw eyes like those ten thousand years ago. I won't judge you by your craft alone, but many on this isle have longer memories than I do, and they will be watching it." },
       },
       choices = {
         { text = "I understand. What I carry stays hidden while I'm here.", next = "BACK", reply = "That's courteous of you, and wiser than you may know. Keep it close, and the isle will warm to you in time.", fx = { affinity = 1, align = { order = 1 } } },
@@ -285,7 +285,7 @@ P:NPC {
     },
     leaders = {
       lines = {
-        { id = "le_default", text = "Elaadrin Evengale, Supreme Magister, has taken the High Order to the Kirin Tor and the Sky Enclave in Dalaran, and Ayessa Dawnsinger, Grand Skyseer, has taken the Windshapers to the Earthen Ring at Camp Gev'rek in Mulgore. Both still swear the truce at the Shrine of Akir was only for the moment, and I've told them both I'd like them alive in ten years." },
+        { id = "le_default", text = "Elaadrin Evengale, Supreme Magister, has taken the High Order to the Kirin Tor and the Sky Enclave in Dalaran, and Ayessa Dawnsinger, Grand Skyseer, has taken the Windshapers to the Earthen Ring at Camp Gev'rek in Mulgore. Both swear the truce at the Shrine of Akir is temporary, and I'd like them both alive in ten years." },
       },
       choices = {
         { text = "That seems a modest hope.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 }, learn = { "two_orders" } } },
@@ -360,7 +360,7 @@ P:NPC {
     lorthuna = {
       big = true,
       lines = {
-        { id = "lo_default", key = true, text = "I set young people to watch her, and a broken recall crystal told us at last what she meant to do: bring down the wards that hid Zephras and let the Windlord in. When Rohash came to her beacon she begged to be brought before Al'Akir, and he struck her aside into the open sky, and nobody has seen her since." },
+        { id = "lo_default", key = true, text = "I set watchers on her, and a broken recall crystal told us at last what she meant to do: bring down the wards that hid Zephras and let the Windlord in. When Rohash came to her beacon she begged to be brought before Al'Akir, and he struck her aside into the open sky, and none has seen her since." },
       },
       choices = {
         { text = "I'd guess she's dead by now.", next = "lorthuna2" },

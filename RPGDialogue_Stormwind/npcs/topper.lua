@@ -872,7 +872,7 @@ P:NPC {
       },
     },
     n_masons = {
-      lines = { { id = "nm_default", text = "They rebuilt this whole city after the orcs knocked it down, friend, every wall and bridge you're looking at. Then the nobles wouldn't pay them, and there was a riot, and the masons went west and put on masks, and now they're the Defias, and I sit under a bridge they built and beg from the folk who didn't pay them." } },
+      lines = { { id = "nm_default", text = "They rebuilt this whole city after the orcs knocked it down, friend, every wall and bridge you see. Then the nobles wouldn't pay them, there was a riot, and the masons went west and put on masks, and now they're the Defias, and I sit under a bridge they built and beg from the folk who didn't pay them." } },
       choices = {
         { text = "The masons were wronged. Westfall is the price.", next = "n_masons_stance" },
         { text = "Did you know any of them?", next = "n_masons_knew" },

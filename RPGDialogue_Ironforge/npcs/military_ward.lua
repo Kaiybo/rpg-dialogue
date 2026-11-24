@@ -517,7 +517,7 @@ P:NPC {
     },
     ks_deep = {
       lines = {
-        { id = "ksdp_default", text = "Ye're askin' which road tae walk tae the end, an' I'll tell ye honest: Mortal Strike for a two-handed axe an' a cold head, Bloodthirst for a temper ye cannae keep in, an' Shield Slam for the dwarf who stands at the front o' every fight in Khaz Modan. Each one's a lifetime's work, so pick the one ye'll still love when ye're old." },
+        { id = "ksdp_default", text = "Ye're askin' which road tae walk tae the end, so I'll tell ye honest: Mortal Strike for a two-handed axe an' a cold head, Bloodthirst for a temper ye cannae keep, an' Shield Slam for the dwarf at the front o' every fight. Each one's a lifetime's work, so pick the one ye'll still love when ye're old." },
       },
       choices = {
         { text = "Shield Slam. I'll stand at the front.", next = "BACK", reply = "Good, the dungeons o' this world are cryin' out for ye. Kelv'll be pleased.", fx = { affinity = 1 } },

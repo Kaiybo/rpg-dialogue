@@ -46,7 +46,7 @@ P:NPC {
     xmage = {
       big = true,
       lines = {
-        { id = "xmage_default", text = "More than they'd admit, since half of what comes out of these woods was made by somebody who studied, and the Watch only knows how to shoot it. If you've a fire in your hands, burn the bodies the dead leave behind on the cemetery road, and I'll cross a few more names off the list of things that might get up again." },
+        { id = "xmage_default", text = "More than they'd admit, since half of what comes out of these woods was made by somebody who studied, and the Watch only knows how to shoot it. If you've a fire in your hands, burn the bodies on the cemetery road, and I'll cross a few more names off the list of things that might get up again." },
       },
       choices = {
         { text = "I'll burn them, Elaine, and say a word over each.", next = "BACK", reply = "Then you've a kinder fire than most, and I'll add the words to my list of things done right. Thank you.", fx = { align = { light = 1 } } },

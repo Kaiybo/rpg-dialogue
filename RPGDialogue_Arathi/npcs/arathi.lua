@@ -885,7 +885,7 @@ P:NPC {
       big = true,
       lines = { { id = "xwl_default", fx = { learn = { "burning_blade" } },
         text = "It troubles me more than any ogre, and I'll tell you why: I've seen the Burning Blade, and I remember what that magic did to our people. Thrall allows your kind in the Horde, so I allow you in Hammerfall, but I'll be watching where you point it." },
-        { id = "xwl_demon", when = { pet = { type = "Demon" } }, fx = { learn = { "burning_blade" } }, text = "It troubles me more than any ogre, and more still with one of those things standing at my fire, for I've seen the Burning Blade and I remember what that magic did to our people. Thrall allows your kind in the Horde, so I allow you in Hammerfall, but your demon stays where my grunts can see it, and so do you." },
+        { id = "xwl_demon", when = { pet = { type = "Demon" } }, fx = { learn = { "burning_blade" } }, text = "It troubles me more than any ogre, and more with that thing at my fire, for I've seen the Burning Blade and I remember what that magic did to our people. Thrall allows your kind in the Horde, so I allow you in Hammerfall, but your demon stays where my grunts can see it, and so do you." },
       },
       choices = {
         { text = "Watch all you like. It points at the Horde's enemies.", next = "BACK", reply = "Good. As long as it keeps pointing that way, we have no quarrel.", fx = { affinity = 1, align = { honor = 1 } } },

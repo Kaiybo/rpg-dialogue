@@ -652,7 +652,7 @@ P:NPC {
     },
     el_allies2 = {
       lines = {
-        { id = "ea2_default", text = "Because I stood on the shore when the Highborne sailed east, and they did not go sorrowing; they went clutching their spells and promising to build again. They did build again, and the old Alliance of Lordaeron called their kingdom a friend, and now their mages walk the halls of Stormwind while ours are buried in the Temple's records as a warning." },
+        { id = "ea2_default", text = "Because I stood on the shore when the Highborne sailed east, and they did not go sorrowing; they went clutching their spells and promising to build again. They did build again, and now their mages walk the halls of Stormwind while ours are buried in the Temple's records as a warning." },
       },
       choices = {
         { text = "Then you'll hate me too, for I'm a mage.", next = "el_mage", when = { class = "MAGE" } },

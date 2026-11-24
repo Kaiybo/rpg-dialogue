@@ -501,7 +501,7 @@ P:NPC {
     d_horde = {
       big = true,
       lines = {
-        { id = "dr_bo_default", text = "No orc has ever asked, which surprised me when I came here, because your shamans listen to the land as closely as any druid. The Circle is slow to open a door, friend, and it took Malfurion's own word to open one for my people, but I'd carry the request to Moonglade myself if an orc ever brought it to me." },
+        { id = "dr_bo_default", text = "No orc has ever asked, which surprised me, because your shamans listen to the land as closely as any druid. The Circle is slow to open a door, friend, and it took Malfurion's own word to open one for my people, but I'd carry the request to Moonglade myself if an orc ever brought it to me." },
         { id = "dr_bo_troll", when = { race = "Troll" }, text = "None has asked, and I'll be honest, the kaldorei of the Circle remember the old troll empires as the hand that burned their first forests. I'd carry the request to Moonglade if a Darkspear brought it to me, but I'd not promise you a kind answer." },
       },
       choices = {

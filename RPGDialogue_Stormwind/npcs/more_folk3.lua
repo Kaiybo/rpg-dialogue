@@ -595,7 +595,7 @@ P:NPC {
     },
     hp_end = {
       big = true,
-      lines = { { id = "hpe_default", text = "In the worst places in the world, and I mean that kindly. The Beaststalker mail's taken off things in Scholomance and Stratholme and the Blackrock spire, and the elves speak of an ancient in Felwood who grows a bow for a hunter who's tracked down the worst of the demons there. I've never followed that trail, but I'd like tae hear it from someone who has." } },
+      lines = { { id = "hpe_default", text = "In the worst places in the world, and I mean that kindly. The Beaststalker mail's taken off things in Scholomance, Stratholme and Blackrock Spire, and the elves speak of an ancient in Felwood who grows a bow for a hunter who's tracked down the worst demons there. I've never followed that trail, but I'd like tae hear it told." } },
       choices = {
         { text = "I'll follow it, and tell you how it ends.", next = "BACK", reply = "Do, and I'll listen tae every word, which I don't say tae Ulfir.", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },

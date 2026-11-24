@@ -748,7 +748,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "hu2_default",
-          text = "I remember every one of them, which is exactly the trouble. The miller's daughter who came to me with a fever the week the grain arrived, the plague in the bread, the way they looked at me when my own cures failed; and their kin in Southshore still say the apothecaries brought the sickness, when we only failed to stop it." },
+          text = "I remember every one of them, which is exactly the trouble. The miller's daughter with a fever the week the grain arrived, the plague in the bread, the way they looked at me when my own cures failed; and their kin in Southshore still say the apothecaries brought the sickness, when we only failed to stop it." },
       },
       choices = {
         { text = "They blame you because they can't blame the Lich King. Ignore them.", next = "BACK",

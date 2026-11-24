@@ -139,7 +139,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "We have our shaman and our druids, and we have never needed priests the way your peoples have, so you will find few here who understand you. But a healer is a healer, and when the centaur harried our caravans across the Barrens, I would have welcomed any hand that could close a wound. Walk among us gently, and you will find room enough." } },
+      lines = { { id = "xhpriest_default", text = "We have our shaman and our druids, and have never needed priests as your peoples have, so few here will understand you. But a healer is a healer, and when the centaur harried our caravans across the Barrens, I would have welcomed any hand that could close a wound. Walk among us gently, and you will find room enough." } },
       choices = {
         { text = "Then I'll walk gently and heal where I'm needed.", next = "BACK", reply = "Then you will find more friends here than you expect. A gentle step and a healing hand are understood in every tongue.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I don't need the tauren to understand me, Chieftain.", next = "BACK", reply = "Perhaps not, but you may find you want it one day, when the wind is cold. My people's hearths stay open whether you ask for them or not.", fx = { align = { light = -1 } } },
@@ -202,7 +202,7 @@ P:NPC {
       },
     },
     walk_thrall = {
-      lines = { { id = "wkt_default", text = "He came upon my people as the centaur fell on us, and he and his orcs fought as though our calves were their own, though they owed us nothing. Afterwards I told him of the Oracle on Stonetalon Peak, because he was searching for a road for his people, and I think that small kindness was the beginning of everything since." } },
+      lines = { { id = "wkt_default", text = "He came upon my people as the centaur fell on us, and he and his orcs fought as though our calves were their own, though they owed us nothing. Afterwards I told him of the Oracle on Stonetalon Peak, for he sought a road for his people, and that small kindness began everything since." } },
       choices = {
         { text = "That's a debt I'd honor too, Chieftain.", next = "BACK", fx = { affinity = 1 } },
         { text = "And the Horde has had your word ever since.", next = "thrall" },
@@ -210,7 +210,7 @@ P:NPC {
       },
     },
     walk2 = {
-      lines = { { id = "wk2_default", narr = "He feeds a length of wood into the fire and watches it catch before he goes on.", text = "Friends of my youth lie somewhere in the grass between the Gold Road and the Stonetalon foothills, and I could not tell you the places, because we left them at a run. That is what wandering costs a people: you cannot visit your dead, so you learn to carry them in your songs instead, and Mulgore is the first land where our dead can lie still." } },
+      lines = { { id = "wk2_default", narr = "He feeds a length of wood into the fire and watches it catch before he goes on.", text = "Friends of my youth lie somewhere between the Gold Road and the Stonetalon foothills, and I could not tell you where, because we left them at a run. That is what wandering costs a people: you cannot visit your dead, so you carry them in your songs, and Mulgore is the first land where our dead can lie still." } },
       choices = {
         { text = "I'm sorry, Chieftain. That's a heavy thing to carry.", next = "walk3", fx = { trait = { kind = 1 } } },
         { text = "Songs are a strong way to remember them.", next = "walk3", fx = { trait = { curious = 1 } } },
@@ -1054,7 +1054,7 @@ P:NPC {
     },
     d_musha = {
       big = true,
-      lines = { { id = "dr_mu_default", text = "The night elves say Elune is a goddess, and we say Mu'sha is the Earth Mother's left eye, the one that watches us while we sleep. I've stood in the Temple of the Moon and in the Hall of Elders and felt the same light on my face in both, so I think we're two herds grazing the same field under different names." } },
+      lines = { { id = "dr_mu_default", text = "The night elves say Elune is a goddess, and we say Mu'sha is the Earth Mother's left eye, which watches us while we sleep. I've stood in the Temple of the Moon and in the Hall of Elders and felt the same light in both, so I think we're two herds grazing one field under different names." } },
       choices = {
         { text = "One light, two names. That's good enough for me.", next = "d_road",
           reply = "And for me, though there are priestesses in Darnassus who'd turn pale to hear it. Keep it gently, and it'll keep you.",
@@ -1066,7 +1066,7 @@ P:NPC {
       },
     },
     d_musha2 = {
-      lines = { { id = "dr_mu2_default", text = "The wise ones do, and Malfurion once asked me to tell him the whole story of An'she and Mu'sha, and he listened like a calf at the fire. The younger ones mostly think we've borrowed their goddess and given her a funny name, and I let them think it, because arguing about the moon is a poor use of the night." } },
+      lines = { { id = "dr_mu2_default", text = "The wise ones do, and Malfurion once asked me for the whole story of An'she and Mu'sha, and listened like a calf at the fire. The younger ones mostly think we've borrowed their goddess and given her a funny name, and I let them, because arguing about the moon is a poor use of the night." } },
       choices = { { text = "Back to the road, Arch Druid.", next = "d_road", fx = { learn = { "elune" } } } },
     },
     d_cenarius = {
@@ -1081,20 +1081,20 @@ P:NPC {
       choices = { { text = "Back to the road, Arch Druid.", next = "d_road", fx = { learn = { "cenarion_circle" } } } },
     },
     d_why = {
-      lines = { { id = "dr_wy_default", text = "Because I watched the demigods and the druids stand on Hyjal against the Legion, and I saw the bear and the storm crow fight beside our braves, and I thought: our people once heard the wild like that, and we've forgotten. So I went to Malfurion when the smoke cleared and asked him to teach me, and I kept asking until he said yes." } },
+      lines = { { id = "dr_wy_default", text = "Because I watched the demigods and the druids stand on Hyjal against the Legion, the bear and the storm crow fighting beside our braves, and I thought: our people once heard the wild like that, and we've forgotten. So I went to Malfurion when the smoke cleared and asked him to teach me, and kept asking until he said yes." } },
       choices = {
         { text = "And you brought it home to the Runetotem.", next = "d_why2" },
         { text = "Back to the road, Arch Druid.", next = "d_road" },
       },
     },
     d_why2 = {
-      lines = { { id = "dr_wy2_default", text = "To all the tribes, though the Runetotem took to it first, so now you'll find a Runetotem teaching druids in every corner of Mulgore. Turak and Sheal here on the Rise, Gennia in Bloodhoof, and Tonga out at the Crossroads trying to heal the Barrens, which is more than any one tauren can do but which he insists on doing anyway." } },
+      lines = { { id = "dr_wy2_default", text = "To all the tribes, though the Runetotem took to it first, so you'll find a Runetotem teaching druids all over Mulgore. Turak and Sheal here on the Rise, Gennia in Bloodhoof, and Tonga at the Crossroads trying to heal the Barrens, which is more than any one tauren can do, though he insists on trying." } },
       choices = { { text = "Back to the road, Arch Druid.", next = "d_road" } },
     },
     d_moonkin = {
       big = true,
       lines = {
-        { id = "dr_mk_default", text = "The moonkin are Elune's own creatures, and the Circle teaches their shape only to druids who have given themselves wholly to the moon and the stars. Some of the elves say a tauren in that shape is a kodo wearing an owl's feathers, and I say a druid in any shape is a druid, so take it if it calls you." },
+        { id = "dr_mk_default", text = "The moonkin are Elune's own creatures, and the Circle teaches their shape only to druids given wholly to the moon and the stars. Some elves say a tauren in that shape is a kodo wearing an owl's feathers, and I say a druid in any shape is a druid, so take it if it calls you." },
         { id = "dr_mk_skyborne", when = { race = "Skyborne" }, text = "The moonkin are Elune's own creatures, and the Circle teaches their shape only to druids who have given themselves wholly to the moon and the stars. Your people know the high sky better than any of us, so I suspect the moonkin will feel less strange to you than it did to me." },
       },
       choices = {
@@ -1131,7 +1131,7 @@ P:NPC {
       },
     },
     d_sixty = {
-      lines = { { id = "dr_sx_default", text = "Everything? Ha! There's a raiment the Circle still speaks of, woven in Cenarius's name for the druids who first served him, and it was scattered in the deep places of the world long ago. Remulos would dearly love to see it on a druid's shoulders again, and I'd love it to be a tauren's, though I'd never say so in Moonglade." } },
+      lines = { { id = "dr_sx_default", text = "Everything? Ha! There's a raiment the Circle still speaks of, woven in Cenarius's name for his first druids, and scattered in the deep places of the world long ago. Remulos would dearly love to see it on a druid's shoulders again, and I'd love it to be a tauren's, though I'd never say so in Moonglade." } },
       choices = {
         { text = "Then I'll go looking for it.", next = "d_road", fx = { affinity = 1, trait = { curious = 1 } } },
         { text = "Back to the road, Arch Druid.", next = "d_road" },
@@ -1140,7 +1140,7 @@ P:NPC {
     d_others = {
       big = true,
       lines = {
-        { id = "dr_ot_default", text = "No orc has ever asked me, and I've wondered why, because your shamans hear the elements as clearly as ours do. Perhaps the orcs had druids once, on the world you came from, and lost them with everything else, and perhaps the Circle would teach one of you if you came with Thrall's blessing and a great deal of patience. I truly don't know." },
+        { id = "dr_ot_default", text = "No orc has ever asked me, and I've wondered why, because your shamans hear the elements as clearly as ours. Perhaps the orcs had druids on the world you came from, and lost them with everything else, and perhaps the Circle would teach one of you who came with Thrall's blessing and great patience. I truly don't know." },
         { id = "dr_ot_troll", when = { race = "Troll" }, text = "I've asked myself that, because your witch doctors know the roots and the beasts better than half my students. But the kaldorei remember the old troll empires as the enemy who burned their first forests, and the Circle is their circle before it's ours, so I fear they'd sooner teach a quilboar." },
       },
       choices = {
@@ -1533,7 +1533,7 @@ P:NPC {
     d_poison = {
       big = true,
       lines = {
-        { id = "dr_po_default", text = "Because Cenarius gave us the gift of purging poison with a word, and a gift like that makes a druid careless of what everyone else must suffer. So Dendrite will send you to Tonga Runetotem at the Crossroads, where the gazelles are sickening, and you'll cure them the slow way, with salve and earthroot, before I teach you the quick one." },
+        { id = "dr_po_default", text = "Because Cenarius gave us the gift of purging poison with a word, and such a gift makes a druid careless of what others suffer. So Dendrite will send you to Tonga Runetotem at the Crossroads, where the gazelles are sickening, and you'll cure them the slow way, with salve and earthroot, before I teach you the quick one." },
         { id = "dr_po_done", when = { questDone = TODO_QUEST("Power over Poison") }, text = "You've learned it already, the slow way and then the quick, and I'll confess the trouble at the Crossroads surprised me. Poison in the water is no accident, and I've asked Tonga to keep watching Dreadmist Peak." },
       },
       choices = {
@@ -1583,7 +1583,7 @@ P:NPC {
     },
     d_tbear = {
       big = true,
-      lines = { { id = "dr_tb_default", text = "Some of the elders say so, and they point to the old stories of tauren who ran with the Earth Mother's beasts long before any of us had seen a night elf. I think they're half right: the Earth Mother gave us the hearing, Malfurion gave Hamuul the words to make sense of it, and a druid who forgets either half walks crooked." } },
+      lines = { { id = "dr_tb_default", text = "Some elders say so, and point to the old stories of tauren who ran with the Earth Mother's beasts long before any of us saw a night elf. I think they're half right: the Earth Mother gave us the hearing, Malfurion gave Hamuul the words to make sense of it, and a druid who forgets either half walks crooked." } },
       choices = {
         { text = "Both halves, then. I'll honor the Circle and the Earth Mother.", next = "BACK",
           reply = "Then you'll walk straight, which is rarer than you'd think on these bluffs. Hamuul would be glad to hear you say it.",
@@ -1764,7 +1764,7 @@ P:NPC {
   nodes = {
     prej_magatha = {
       big = true,
-      lines = { { id = "prej_magatha_default", text = "Both, if you want the truth, and I'm too old to waste time on anything else. My people walked these plains for a thousand years before the orcs came across the sea, and Cairne bound us to a Horde that did nothing for us but help one fight with the centaur. Now every orc, troll and walking corpse thinks Mulgore is theirs to wander." } },
+      lines = { { id = "prej_magatha_default", text = "Both, if you want the truth, and I'm too old to waste time on anything else. My people walked these plains a thousand years before the orcs crossed the sea, and Cairne bound us to a Horde that did nothing for us but help one fight with the centaur. Now every orc, troll and walking corpse thinks Mulgore is theirs." } },
       choices = {
         { text = "The Horde stood with you against the centaur. That debt is real.", next = "BACK", reply = "Real, and paid many times over, child, though Cairne still keeps writing promissory notes. A debt that never ends is no longer a debt, it's a chain.", fx = { align = { honor = 1 }, affinity = 1 } },
         { text = "Then the tauren should stand alone, and the Grimtotem lead them.", next = "BACK", reply = "Now there's a voice I don't hear often enough up here. Say it again, child, but quieter, because Cairne's braves have long ears.", fx = { align = { order = -1, honor = -1 }, affinity = 1 } },
@@ -1885,7 +1885,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "That faith is a tool like any other, and that the dead learned as much when the Light stopped answering them. Cairne would call that a sad lesson, but I think it a useful one, and I find the Forsaken far more practical company than the elders who sit beside me. Remember that, priest, if you ever need a friend on this bluff." } },
+      lines = { { id = "xhpriest_default", text = "That faith is a tool like any other, as the dead learned when the Light stopped answering them. Cairne would call that a sad lesson, but I think it a useful one, and I find the Forsaken more practical company than the elders who sit beside me. Remember that, priest, if you ever need a friend on this bluff." } },
       choices = {
         { text = "Faith isn't a tool, Magatha. That's a dangerous belief.", next = "BACK", reply = "Is it, child? Then why do the dead still pray? Something answers them, and it isn't kindness.", fx = { align = { light = 1 } } },
         { text = "They're right. Faith serves whoever wields it best.", next = "BACK", reply = "Practical words, and I like them better than the sermons I usually hear on this rise. You'll do well among the Forsaken, priest.", fx = { affinity = 1, align = { light = -1 } } },
@@ -2257,7 +2257,7 @@ P:NPC {
     },
     xcl_wc = {
       big = true,
-      lines = { { id = "xcl_wc_default", text = "Then you'll have heard the moaning in the stone, which the young ones say is the cave itself crying. My cousin's boy went in with a hunting party and talked in his sleep about snakes for a month after, and he still won't eat eel. I feed them all when they come back up, because it's the only cure I know." } },
+      lines = { { id = "xcl_wc_default", text = "Then you'll have heard the moaning in the stone, which the young ones say is the cave itself crying. My cousin's boy went in with a hunting party and talked in his sleep about snakes for a month, and he still won't eat eel. I feed them all when they come back up, because it's the only cure I know." } },
       choices = {
         { text = "The young ones should stay out until they're ready.", next = "BACK", reply = "I'd say so too, but they never listen to an old innkeeper. I'll keep the stew hot for when they come back scared.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Let them go, Pala. Fear is how the young learn.", next = "BACK", reply = "Fear's a fine teacher, I'll grant you, but a cruel one. I'll keep the stew hot, then, and the beds warm, for the lessons that don't end well.", fx = { align = { order = -1 } } },
@@ -2279,7 +2279,7 @@ P:NPC {
     },
     xhpriest = {
       big = true,
-      lines = { { id = "xhpriest_default", text = "Oh, every night, it seems, and mostly from the Barrens road, with arrows in them or centaur bruises all down their sides. I give them stew and a bed and send for a shaman, but a priest by the hearth would save my old legs a lot of running about. You're welcome to sit with the sore ones, if you'd like, and I'll keep your bowl warm." } },
+      lines = { { id = "xhpriest_default", text = "Oh, every night, it seems, mostly from the Barrens road, with arrows in them or centaur bruises down their sides. I give them stew and a bed and send for a shaman, but a priest by the hearth would save my old legs much running. Sit with the sore ones, if you'd like, and I'll keep your bowl warm." } },
       choices = {
         { text = "I'll sit with them tonight, Pala. Keep the stew coming.", next = "BACK", reply = "Bless you, child, you've no idea what a help that will be. The stew's on the house tonight, at least the extra bowl for you.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I didn't come here to nurse strangers, Pala.", next = "BACK", reply = "Then sit by the fire and eat your stew, and let an old innkeeper do the nursing. I'm used to it by now.", fx = { align = { light = -1 } } },

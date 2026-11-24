@@ -177,7 +177,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xlock_default", text = "Because the Alliance asked us to, and because I have seen what happens when my people refuse to listen to anyone. But I fought the Legion beneath the walls of Zin-Azshari and again at Mount Hyjal, and I have watched what demons do to those who call them servants, so I will pray for you, and I will watch you." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Alliance asked us to, and because I have seen what happens when my people refuse to listen to anyone. But I fought the Legion beneath the walls of Zin-Azshari and again at Mount Hyjal, and I knew the eyes of your servant's kind long before you were born, so I will pray for you, and I will watch it." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Because the Alliance asked us to, and because I have seen what happens when my people refuse to listen to anyone. But I fought the Legion beneath the walls of Zin-Azshari and again at Mount Hyjal, and I knew your servant's kind long before you were born, so I will pray for you, and I will watch it." },
       },
       choices = {
         { text = "Then watch. I'll give you no reason to raise a bow.", next = "BACK", reply = "Then I will hold my bow and watch, and pray you keep your word. Many before you meant it too.", fx = { align = { order = 1 } } },
@@ -1064,7 +1064,7 @@ P:NPC {
     xcl_wc = {
       big = true,
       lines = {
-        { id = "xcl_wc_default", text = "Quieter, perhaps, though the Druids of the Fang will not grow back their sense as quickly as the Barrens grow back their grass. Naralex wished to heal that land through the Dream, and he let the Dream turn on him, and his own students went in after him and came back as serpents. That is what comes of reaching too far without a firm hand to guide you." },
+        { id = "xcl_wc_default", text = "Quieter, perhaps, though the Druids of the Fang will not regain their sense as quickly as the grass returns. Naralex wished to heal that land through the Dream, and he let the Dream turn on him, and his own students went in after him and came back as serpents. That is what comes of reaching too far unguided." },
       },
       choices = {
         { text = "Then the Circle needs a firm hand, as you say.", next = "BACK", reply = "Firm, and patient, and above all certain. The Circle has faltered too often under softer leaders.", fx = { affinity = 1, align = { order = 1 } } },
@@ -1584,7 +1584,7 @@ P:NPC {
     hu_view = {
       lines = {
         { id = "huv_default", key = true,
-          text = "I have watched them for a very short time, as my people count it, and in that time they have cut their own forests bare, opened a gate for the orcs through one of their own mages, and carried their wars across the sea to Ashenvale. They are not wicked, I think, only hungry, and hunger without patience does great harm." },
+          text = "I have watched them only briefly, as my people count it, and in that time they have cut their own forests bare, opened a gate for the orcs through one of their own mages, and carried their wars across the sea to Ashenvale. They are not wicked, I think, only hungry, and hunger without patience does great harm." },
         { id = "huv_human", when = { race = "Human" },
           text = "I have watched your people for a short time, as we count it, and you have cut your forests bare and opened a gate for the orcs through a mage of your own. You are hungry, I think, and hunger without patience does great harm." },
       },
@@ -1766,7 +1766,7 @@ P:NPC {
     xcl_mara = {
       big = true,
       lines = {
-        { id = "xcl_mara_default", text = "Then Zaetar may lie a little easier, though he has been dead a very long time. He loved Theradras, and the centaur were their children, and those children killed their own father in their first rage, and she has kept his body in the stone below Desolace ever since. Her grief has been souring that earth for longer than Teldrassil has been a seed." },
+        { id = "xcl_mara_default", text = "Then Zaetar may lie a little easier. He loved Theradras, and the centaur were their children, and those children killed their own father in their first rage, and she has kept his body in the stone below Desolace ever since. Her grief has been souring that earth for longer than Teldrassil has been a seed." },
       },
       choices = {
         { text = "Even the centaur might heal, now that her grip is gone.", next = "BACK", reply = "They might, and I would like to think it possible. Zaetar would have wished it for his children.", fx = { affinity = 1, align = { light = 1 } } },
@@ -1960,7 +1960,7 @@ P:NPC {
     d_sea = {
       big = true,
       lines = {
-        { id = "dr_sea", text = "A Lesson to Learn, and then the Trial of the Lake in Moonglade and the Trial of the Sea Lion after it, which means a bauble from the bottom of Lake Elune'ara and two halves of an old pendant hidden in deeper water. The sea teaches that a druid can be at home where he cannot breathe, which is a stranger lesson than it sounds." },
+        { id = "dr_sea", text = "A Lesson to Learn, and then the Trial of the Lake in Moonglade and the Trial of the Sea Lion after it, which means a bauble from Lake Elune'ara and two halves of a pendant in deeper water. The sea teaches that a druid can be at home where he cannot breathe, which is a stranger lesson than it sounds." },
         { id = "dr_sea_done", when = { questDone = TODO_QUEST("Aquatic Form") }, text = "You wear the sea lion's shape now, and you brought the Pendant of the Sea Lion back whole. I am impressed, and I do not say so lightly, because half my students come back with only one half and a cold." },
       },
       choices = {
@@ -2015,7 +2015,7 @@ P:NPC {
     },
     d_forty = {
       big = true,
-      lines = { { id = "dr_forty", text = "The Claw would have you take the dire bear and hold the line for every Sentinel in Ashenvale, and the healers would have you pour your strength into others with Innervate and never be thanked for it. A few druids go deeper into Elune's light and take the moonkin's shape, which is a strange and beautiful thing, and the moonkin of Darkshore will look at you very oddly afterwards." } },
+      lines = { { id = "dr_forty", text = "The Claw would have you take the dire bear and hold the line for the Sentinels, and the healers would have you pour your strength into others with Innervate and never be thanked for it. A few take the moonkin's shape in Elune's light, a strange and beautiful thing, and the moonkin of Darkshore will look at you oddly." } },
       choices = {
         { text = "The dire bear. Someone must stand in front.", next = "d_road", reply = "Then welcome to the Claw in all but name, and come and sit with the old bears of the Enclave sometimes.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "The moonkin. Elune's light suits me better than claws.", next = "d_road", reply = "Then let the old druids grumble that a moonkin cannot hold a line, because they always do, and then they ask you to stand with them anyway.", fx = { align = { order = -1 } } },
@@ -2036,7 +2036,7 @@ P:NPC {
     d_sixty = {
       big = true,
       narr = "He folds both hands over his staff and is quiet for a long moment.",
-      lines = { { id = "dr_sixty", text = "Nothing that I can teach, and a great deal that the world will. The elders speak of a raiment of the Cenarion Circle still being woven for druids who have not yet been found, and of Malfurion sleeping in the barrow dens of Moonglade until the Dream needs him less, and some druids go looking for the first while others keep watch over the second." } },
+      lines = { { id = "dr_sixty", text = "Nothing that I can teach, and a great deal that the world will. The elders speak of a Cenarion raiment still being woven for druids not yet found, and of Malfurion sleeping in the barrow dens of Moonglade until the Dream needs him less, and some druids go looking for the first while others keep watch over the second." } },
       choices = {
         { text = "I'll keep watch over Malfurion's sleep.", next = "d_road", reply = "Then you will be lonely sometimes, and you will be right. Keeper Remulos will be glad of another watcher.", fx = { affinity = 1, align = { order = 1 }, opinion = { druids = "watchers" } } },
         { text = "I'll go looking for what's still being woven.", next = "d_road", reply = "Then go, and bring the Circle back a story. The young ones need to see that the road leads somewhere.", fx = { align = { order = -1 } } },
@@ -2049,7 +2049,7 @@ P:NPC {
     },
     d_sleep = {
       big = true,
-      lines = { { id = "dr_sleep", text = "Perhaps, one day, if the Circle calls you and you are willing. The old druids slept ten thousand years in the barrow dens and walked the Dream while the waking world went on without them, and some of us came back to find that our sisters had fought every war alone. I will not tell you it was right, only that it was done for love of the world." } },
+      lines = { { id = "dr_sleep", text = "Perhaps, one day, if the Circle calls you and you are willing. The old druids slept ten thousand years in the barrow dens, walking the Dream, and some of us came back to find that our sisters had fought every war alone. I will not tell you it was right, only that it was done for love of the world." } },
       choices = {
         { text = "I'd sleep, if the Dream needed me.", next = "BACK", reply = "Then you have a druid's heart, and I hope the Dream asks gently when it asks.", fx = { align = { order = 1 }, opinion = { druids = "dreamers" } } },
         { text = "I'd rather stay awake beside the Sentinels.", next = "BACK", reply = "Then the Sisterhood will be glad of you, and I will not blame you, because we owe them that much.", fx = { align = { order = -1 }, opinion = { druids = "slept_too_long" } } },
@@ -2141,7 +2141,7 @@ P:NPC {
     xwoke = {
       big = true,
       lines = {
-        { id = "xwk_default", text = "None of it, and all of it, which I know is a teacher's answer. We slept while the trolls were driven back and the humans built their kingdoms, and we woke to find the forest on fire and orcs in it, so some of the Circle say the world is ours to reclaim, and some say we're only its keepers. Where do you stand?" },
+        { id = "xwk_default", text = "None of it, and all of it. We slept while the humans built their kingdoms, and woke to find the forest on fire and orcs in it, so some of the Circle say the world is ours to reclaim, and some say we only keep it. Where do you stand?" },
       },
       choices = {
         { text = "Keepers. We slept; we don't get to claim it now.", next = "BACK", reply = "That is honest of you, and it humbles me to hear it. We slept, and the world went on without us.", fx = { affinity = 2, align = { order = -1 }, trait = { kind = 1 } } },

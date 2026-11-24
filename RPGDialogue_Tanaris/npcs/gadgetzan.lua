@@ -724,7 +724,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "hu2_default",
-          text = "Well, since you ask, sweetie, a human lady came through last season with a bodyguard and a lace hanky, and she called me the little green cook to my face and tipped me a copper like she was feeding a duck. Noggy says not to mind it, but my sister in the Hinterlands says humans have called us little and green for a long time, and she's never wrong." },
+          text = "Since you ask, sweetie, a human lady with a lace hanky came through last season, and she called me the little green cook to my face and tipped me a copper like she was feeding a duck. Noggy says not to mind it, but my sister in the Hinterlands says humans have always called us that, and she's never wrong." },
       },
       choices = {
         { text = "That lady was rude, but most humans aren't. Don't let her spoil it.", next = "BACK",
@@ -1952,7 +1952,7 @@ P:NPC {
   start = "hello",
   nodes = {
     flirt = {
-      lines = { { id = "fl_default", text = "Attentive? Sweetheart, I run the only inn in Gadgetzan, so I see every face in Tanaris sooner or later, and most of 'em are sunburned and cranky. Yours isn't, and that's a rare commodity, so how about I show you the roof after sundown, because the stars over the dunes are the one thing in this town I don't charge for." } },
+      lines = { { id = "fl_default", text = "Attentive? Sweetheart, I run the only inn in Gadgetzan, so I see every face in Tanaris sooner or later, and most are sunburned and cranky. Yours isn't, and that's a rare commodity, so how about I show you the roof after sundown, because the stars over the dunes are the one thing in this town I don't charge for." } },
       choices = {
         { text = "Show me the roof, then, Fizzgrimble.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
         { text = "A goblin courting a gnome? The Cartel would laugh.", next = "flirt_gnome", when = { race = "Gnome" } },
@@ -1975,7 +1975,7 @@ P:NPC {
     },
     xpt_fizzgrimble = {
       big = true,
-      lines = { { id = "xpt_fizzgrimble_default", text = "I mean I've watched more companies break up over loot than over any monster, and it always starts at my tables after the third drink, usually with a broken chair. The smart ones decide who gets what before they go out, and the rest end up asking me to hold a grudge for them, which I do, for a small fee." } },
+      lines = { { id = "xpt_fizzgrimble_default", text = "I mean I've watched more companies break up over loot than over any monster, and it always starts at my tables after the third drink. The smart ones decide who gets what before they go out, and the rest end up asking me to hold a grudge for them, which I do, for a small fee." } },
       choices = {
         { text = "We split everything evenly. That's the only fair way.", next = "BACK", reply = "Even's fair, friend, and it's also the fastest way to argue over who did nothing, but at least it doesn't end with my chairs broken.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Whoever does the most work should take the most.", next = "BACK", reply = "That's how most of my broken chairs got broken, pal, so if you're going to say it, say it outside.", fx = { align = { honor = -1 } } },

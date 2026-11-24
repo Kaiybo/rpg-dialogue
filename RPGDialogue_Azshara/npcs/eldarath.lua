@@ -443,8 +443,8 @@ P:NPC {
     xlock = {
       big = true,
       lines = {
-        { id = "xlock_default", text = "I'd guess they hate them, since the blue flight fought the Legion long before any of us were born, or so I'm told. I don't ask what a customer does with my scales once they leave, but I do keep a list of names who didn't come back, and you'd be surprised how many were warlocks." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd guess they hate them, since the blue flight fought the Legion long before any of us were born, and your demon is the first customer who looks nervous at a pile of scales. I don't ask what a customer does with my wares, but I do keep a list of names who didn't come back, and you'd be surprised how many were warlocks." },
+        { id = "xlock_default", text = "I'd guess they hate them, since the blue flight fought the Legion before any of us were born, or so I'm told. I don't ask what a customer does with my scales once they leave, but I do keep a list of names who didn't come back, and many were warlocks." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "I'd guess they hate them, since the blue flight fought the Legion long before any of us were born, and your demon is the first customer nervous of a pile of scales. I don't ask what customers do with my wares, but I keep a list of those who didn't return, and you'd be surprised how many were warlocks." },
       },
       choices = {
         { text = "Then I'll keep my demon out of the dragons' sight.", next = "BACK", reply = "Good idea, and I'd like to keep my list short. Dragons have long memories and short tempers.", fx = { align = { order = 1 } } },
@@ -706,7 +706,7 @@ P:NPC {
     },
     xhsham = {
       big = true,
-      lines = { { id = "xhsham_default", text = "Both, and the curse is the elves' fault as far as I'm concerned! The old ones built all this, blew it up and left it full of ghosts and satyrs, and then their cousins come along and hire me to dig through it. If your spirits want to be useful, they can find my equipment before the satyrs at Legash do." } },
+      lines = { { id = "xhsham_default", text = "Both, and the curse is the elves' fault as far as I'm concerned! The old ones built all this, blew it up and left it full of ghosts and satyrs, and then their cousins come along and hire me to dig through it. Your spirits could find my equipment before the satyrs at Legash do." } },
       choices = {
         { text = "For a fair cut, I'll find your gear myself.", next = "BACK", reply = "A fair cut, partner, now we're talking business! I'll draw you a map and a contract, in that order.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "The spirits don't fetch goods, Kim'jael. Show some respect.", next = "BACK", reply = "Respect, respect, I respect everybody, I just respect my gear more. Fine, I'll ask the spirits nicely.", fx = { align = { honor = 1 } } },

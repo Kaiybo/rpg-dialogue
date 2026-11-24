@@ -95,8 +95,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Lava spiders, glassweb spiders an' the blackened basilisks, an' not one o' them has the decency tae die quietly. The spiders have taken tae troublin' the bairns at the Point, too, so I'll not complain if ye thin them out." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Lava spiders, glassweb spiders an' the blackened basilisks, an' not one o' them has the decency tae die quietly. The spiders have taken tae troublin' the bairns at the Point, too, so I'll not complain if ye thin them out. Keep {pet} back from the webs, mind, for they spin them over the vents, an' a beast that blunders through one is cooked before ye can pull it free." },
+        { id = "xhuntcl_default", text = "Lava spiders, glassweb spiders an' the blackened basilisks, an' none dies quietly. The spiders have taken tae troublin' the bairns at the Point, too, so thin them out." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Lava spiders, glassweb spiders an' the blackened basilisks, an' none dies quietly. The spiders have taken tae troublin' the bairns at the Point, too, so thin them out. Keep {pet} back from the webs, mind, for they spin them over the vents, an' a beast that blunders through is cooked before ye can free it." },
       },
       choices = {
         { text = "I'll clear the spiders and help keep the Point safe.", next = "BACK", reply = "Bless ye for that, an' the bairns' mothers will too. Mind the glassweb ones, they spit.", fx = { align = { order = 1 } } },
@@ -162,7 +162,7 @@ P:NPC {
     },
     xcl_mc = {
       big = true,
-      lines = { { id = "xcl_mc_default", text = "Ye'll forgive an old Dark Iron for sittin' down. I spent most o' my life makin' weapons for that thing's armies, an' every one o' us at Thorium Point remembers the heat o' his voice through the stone. He's no' dead, mind, for ye cannae kill fire, but he's been sent back down, an' that's further than any dwarf ever pushed him." } },
+      lines = { { id = "xcl_mc_default", text = "Ye'll forgive an old Dark Iron for sittin' down. I spent most o' my life makin' weapons for that thing's armies, an' we all remember the heat o' his voice through the stone. He's no' dead, for ye cannae kill fire, but he's been sent back down, an' that's further than any dwarf ever pushed him." } },
       choices = {
         { text = "Your people were his slaves. The blame for what they made is his.", next = "BACK", reply = "Kind o' ye tae say, an' I'll try tae believe it. Some nights I cannae.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Your people forged his weapons. They should answer for that too.", next = "BACK", reply = "We do, every day we stay up here, an' I'll no' pretend otherwise. That's why we fight now.", fx = { align = { light = -1 } } },
@@ -681,8 +681,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Fur an' leather an' trail mud, an' a wee bit o' whatever the beast last rolled in, which is never roses. I'd know a hunter in the dark, which is lucky, because for me it's always dark." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Fur an' leather an' trail mud, an' a wee bit o' whatever the beast last rolled in, which is never roses. I'd know a hunter in the dark, which is lucky, because for me it's always dark. An' yer {pet} smells like it's been chasin' basilisks, which is a brave thing for a beast tae do down here, so give it a scratch from me." },
+        { id = "xhuntcl_default", text = "Fur an' leather an' trail mud, an' whatever the beast last rolled in. I'd know a hunter in the dark, which is lucky, because for me it's always dark." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Fur an' leather an' trail mud, an' whatever the beast last rolled in. I'd know a hunter in the dark, which is lucky, because for me it's always dark. An' yer {pet} smells like it's been chasin' basilisks, a brave thing down here, so give it a scratch from me." },
       },
       choices = {
         { text = "A good hunter trusts every sense, as you do.", next = "BACK", reply = "Aye, they do, an' they'll serve ye better than the eyes when the smoke's thick. Ye smell like a good one.", fx = { align = { order = 1 } } },
@@ -950,8 +950,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "I follow them as you'd follow any prey, for they leave signs like any other: soot on the rocks, ash on the wind and the cries of their slaves. When I find the ones who did it, I'll take them as cleanly as any hunter takes a wolf." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I follow them as you'd follow any prey, for they leave signs like any other: soot on the rocks, ash on the wind and the cries of their slaves. When I find the ones who did it, I'll take them as cleanly as any hunter takes a wolf. Your {pet} would find their trail sooner than I could, I think, for a beast doesn't let grief cloud its nose." },
+        { id = "xhuntcl_default", text = "I follow them as you'd follow any prey, for they leave signs: soot on the rocks, ash on the wind and the cries of their slaves. When I find the ones who did it, I'll take them cleanly." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "I follow them as you'd follow any prey, for they leave signs: soot on the rocks, ash on the wind and the cries of their slaves. When I find the ones who did it, I'll take them cleanly. Your {pet} would find their trail sooner than I could, I think, for a beast doesn't let grief cloud its nose." },
       },
       choices = {
         { text = "Take only the guilty, Kalaran, not everything in reach.", next = "BACK", reply = "Only the guilty, then, as you say. I'll know them when I see them.", fx = { align = { light = 1 } } },

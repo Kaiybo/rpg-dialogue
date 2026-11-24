@@ -33,7 +33,7 @@ P:NPC {
   nodes = {
     mg_poly = {
       big = true,
-      lines = { { id = "mgp_default", text = "It should feel wrong, and I'd worry about you if it didn't. Polymorph doesn't hurt the creature; it persuades its body for a while that it was always a sheep, and the mind inside goes on thinking its own thoughts in a very small skull. We chose the sheep because nothing in the world is less dangerous, and that's the kindest thing I can tell you about it." } },
+      lines = { { id = "mgp_default", text = "It should feel wrong, and I'd worry if it didn't. Polymorph doesn't hurt the creature; it persuades its body for a while that it was always a sheep, and the mind goes on thinking its own thoughts in a very small skull. We chose the sheep because nothing is less dangerous, and that's the kindest thing I can tell you." } },
       choices = {
         { text = "It's a mercy, Master Dumas. Nobody has to die.", next = "BACK", reply = "Often, yes, and that is why the Kirin Tor taught it to students before they taught them fire. Remember it when you're tempted to reach for the fireball first.", fx = { align = { light = 1 } } },
         { text = "It's a weapon like any other. The sheep gets no say.", next = "BACK", reply = "No, it doesn't, and you're honest to say so. Only don't let honesty turn into indifference, because that is how a great many clever mages began their fall.", fx = { align = { light = -1 } } },

@@ -499,7 +499,7 @@ P:NPC {
     },
     kal_hyjal = {
       big = true,
-      lines = { { id = "khy_d", text = "I remember the humans and the orcs falling back up the mountain to us, which I had never thought to see, and Tyrande's archers on the slopes loosing until our fingers bled. I remember the wisps rising, and the World Tree giving everything, and after Archimonde fell I remember sitting down in the ashes for the first time in a year and not being able to stand." } },
+      lines = { { id = "khy_d", text = "I remember the humans and the orcs falling back up the mountain to us, and Tyrande's archers on the slopes loosing until our fingers bled. I remember the wisps rising, and the World Tree giving everything, and after Archimonde fell I sat down in the ashes for the first time in a year and could not stand." } },
       choices = {
         { text = "We owe the humans and orcs for that day.", next = "BACK", reply = "We owe the humans, and I will say so in any court. The orcs paid a debt that day, and I will not call it a gift.", fx = { align = { honor = 1 } } },
         { text = "We won that war ourselves. The outsiders only slowed him.", next = "BACK", reply = "Spoken with a Sentinel's pride, and it is not entirely wrong. Do not say it in front of Jaina Proudmoore, though.", fx = { align = { honor = -1 } } },

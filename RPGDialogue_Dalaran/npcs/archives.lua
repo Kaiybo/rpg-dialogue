@@ -155,7 +155,7 @@ P:NPC {
 
     work = {
       lines = {
-        { id = "wk_default", text = "I catalogue, I clean, I label, and I tell visitors not to touch, which is the part of the work I do most. The Kirin Tor asked that his things be shown rather than shut away, so the city wouldn't forget what it lost. Archivist Anvilhand keeps the Archival Exhibit down the way, and between us we hold most of what Dalaran remembers." },
+        { id = "wk_default", text = "I catalogue, I clean, I label, and I tell visitors not to touch, which I do most. The Kirin Tor asked that his things be shown rather than shut away, so the city wouldn't forget what it lost. Archivist Anvilhand keeps the Archival Exhibit down the way, and between us we hold most of what Dalaran remembers." },
       },
       choices = {
         { text = "Tell me about Anvilhand.", next = "helm" },

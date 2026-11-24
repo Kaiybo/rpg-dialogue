@@ -2,6 +2,10 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.109.0 (2026-11-24): Fewer Words, Same Voice
+No new files; a /reload is enough.
+- **Long speeches trimmed.** About 270 NPC lines in 43 zone packs ran past 60 words; each is now 60 or fewer, with the same facts, names and accent, so the box no longer fills with a wall of text.
+
 ## 0.108.1 (2026-11-24): A Line Drawn
 No new files; a /reload is enough.
 - **The reply divider shows in every conversation.** When the game lists none of its own options (a shopkeeper whose wares open straight away, or anyone you hail with the talk key), the faint line now sits above "Get on with it". It also appears in DialogueUI's window. The same setting turns it off.

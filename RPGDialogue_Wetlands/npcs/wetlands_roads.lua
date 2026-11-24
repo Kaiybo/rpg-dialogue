@@ -720,7 +720,7 @@ P:NPC {
     xlock = {
       big = true,
       lines = { { id = "xlock_default", text = "Bones, pots an' a few carvings in a hand nobody at the League can read yet, an' none o' it hums, thank the Light. If anythin' ever does start hummin', it goes straight tae Ironforge an' no' tae you, so dinnae get yer hopes up." },
-        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bones, pots an' a few carvings in a hand nobody at the League can read yet, an' none o' it hums, thank the Light, though yer demon's been sniffin' round the crates as if it hopes otherwise. If anythin' ever does start hummin', it goes straight tae Ironforge an' no' tae you or yer {pet}, so dinnae get yer hopes up." },
+        { id = "xlock_demon", when = { pet = { type = "Demon" } }, text = "Bones, pots an' a few carvings in a hand nobody at the League can read yet, an' none o' it hums, thank the Light, though yer demon's been sniffin' round the crates hopefully. If anythin' ever does start hummin', it goes straight tae Ironforge an' no' tae you or yer {pet}, so dinnae get yer hopes up." },
       },
       choices = {
         { text = "Ironforge is the right place for it, Whelgar.", next = "BACK", reply = "It is, an' the scholars there will make sense o' it, which I cannae. I'm glad tae hear ye say so, if I'm honest.", fx = { affinity = 1, align = { order = 1 } } },

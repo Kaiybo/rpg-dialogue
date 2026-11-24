@@ -380,7 +380,7 @@ P:NPC {
     },
     d_call = {
       lines = {
-        { id = "dr_gc_default", text = "Turak teaches the druids of the Claw on Elder Rise, and when a young druid reaches their tenth season, he sends for them. He'll send you on to Moonglade to sit with the Great Bear Spirit, and then he'll test you, and then he'll give you the bear's shape, which is the moment every druid remembers for the rest of their life." },
+        { id = "dr_gc_default", text = "Turak teaches the druids of the Claw on Elder Rise, and when a young druid reaches their tenth season, he sends for them. He'll send you on to Moonglade to sit with the Great Bear Spirit, and then he'll test you, and then he'll give you the bear's shape, a moment every druid remembers for life." },
         { id = "dr_gc_done", when = { questDone = TODO_QUEST("Body and Heart") }, text = "You've answered it already, I see, and you've the bear in you now. Tell me what the Great Bear Spirit felt like, because I still dream of mine some nights." },
       },
       choices = {

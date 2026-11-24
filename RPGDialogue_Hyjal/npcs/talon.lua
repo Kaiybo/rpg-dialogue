@@ -83,7 +83,7 @@ P:NPC {
     },
     d_tree = {
       big = true,
-      lines = { { id = "dr_tht_default", text = "It heals slowly because a tree that size takes a long time to heal, and quickly would be worse, because we'd be tempted to think we'd got our long lives back. I don't mind the Arch Druid's tree half as much as the Keeper does; I mind that he thought we needed a new one more than we needed this one mended." } },
+      lines = { { id = "dr_tht_default", text = "It heals slowly because a tree that size takes a long time to heal, and quickly would be worse, for we'd think our long lives had returned. I don't mind the Arch Druid's tree half as much as the Keeper does; I mind that he thought we needed a new one more than we needed this one mended." } },
       choices = {
         { text = "Teldrassil was right. Our people needed a new home.", next = "d_road", reply = "Maybe they did, and maybe I'm only cross because I'm the one up here with a shovel. Go and look at the crown, though, and tell me it doesn't need us.", fx = { align = { order = 1 } } },
         { text = "Every druid we have should be here, mending Nordrassil.", next = "d_road", reply = "Now you're talking like a Druid of the Talon! I'll find you a shovel and an owl, and you can start with whichever bites less.", fx = { affinity = 1, align = { order = -1 } } },
@@ -466,7 +466,7 @@ P:NPC {
     },
     kal_arch = {
       big = true,
-      lines = { { id = "kar_d", text = "I flew as a storm crow over the slopes that day, carrying word between the Sentinels' lines, and I saw the wisps rise out of the forest like snow falling upward. When the World Tree gave its strength and the demon came apart, the whole mountain went quiet, and I forgot how to be anything but a bird for three days." } },
+      lines = { { id = "kar_d", text = "That day I flew as a storm crow between the Sentinels' lines, and I saw the wisps rise out of the forest like snow falling upward. When the World Tree gave its strength and the demon came apart, the whole mountain went quiet, and I forgot how to be anything but a bird for three days." } },
       choices = {
         { text = "The tree's sacrifice cost us our immortality.", next = "BACK", reply = "It did, and I would make the trade again tomorrow. A long life under the Legion is not a life.", fx = { align = { order = 1 } } },
         { text = "We should have found another way to stop him.", next = "BACK", reply = "Tell me what it was, and I will fly it to Malfurion myself. Until then, I will honour the way we had.", fx = { align = { order = -1 } } },
