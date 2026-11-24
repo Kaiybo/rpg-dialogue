@@ -248,7 +248,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because a fed wind rider is a lazy wind rider, and a lazy one lands in the swamp halfway to Stonard, and then I'm paying somebody to fetch it. They eat what I give them when I give it, and they fly the faster for being a little hungry." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a fed wind rider is a lazy wind rider, and a lazy one lands in the swamp halfway to Stonard. They eat what I give them when I give it, and they fly the faster for being a little hungry. That goes for {pet} too, so don't let it beg off my birds, because they'll share nothing and take a bite of it for asking." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a fed wind rider is a lazy one, and a lazy one lands in the swamp halfway to Stonard. They eat what I give them when I give it, and fly faster for being a little hungry. That goes for {pet} too, so don't let it beg off my birds, because they'll take a bite of it for asking." },
       },
       choices = {
         { text = "Keeping beasts hungry is cruel. I'd feed them well.", next = "BACK", reply = "Fed beasts land in the swamp, and then nobody eats. Lean is kinder than drowned.", fx = { align = { light = 1 } } },

@@ -1,8 +1,8 @@
 ## Interface: 16001, 16002
-## Title: RPG Dialogue: Hillsbrad Foothills |cff8a8a8a1.41.0|r
+## Title: RPG Dialogue: Hillsbrad Foothills |cff8a8a8a1.42.0|r
 ## Notes: Southshore and Tarren Mill, two towns a short ride and a whole war apart.
 ## Author: RPG Dialogue
-## Version: 1.41.0
+## Version: 1.42.0
 ## Dependencies: RPGDialogue
 ## LoadOnDemand: 1
 ## X-RPGD-Pack: rpgd.hillsbrad

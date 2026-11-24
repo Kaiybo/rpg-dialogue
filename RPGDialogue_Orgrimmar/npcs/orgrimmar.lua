@@ -663,7 +663,7 @@ P:NPC {
       choices = { { text = "It stays between us, Warchief.", next = "BACK", fx = { affinity = 2, trait = { discreet = 1 } } } },
     },
     doomhammer = {
-      lines = { { id = "dm_default", text = "He'd been hiding in the hills, a living legend who'd slipped the camps, and when I came to him he tested me with weapons before he'd hear a word. We broke the camps open together, and when a knight's lance took him from behind he gave me his hammer and his armour and the Horde in one breath, which is more than any orc should be handed at once." } },
+      lines = { { id = "dm_default", text = "He'd been hiding in the hills, a living legend who'd slipped the camps, and he tested me with weapons before he'd hear a word. We broke the camps open together, and when a knight's lance took him from behind he gave me his hammer, his armour and the Horde in one breath, more than any orc should be handed." } },
       choices = {
         { text = "You can't have felt ready.", next = "doomhammer2" },
         { text = "Something else, Warchief.", next = "BACK" },

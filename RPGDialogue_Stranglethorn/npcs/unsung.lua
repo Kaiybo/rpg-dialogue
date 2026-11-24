@@ -1065,7 +1065,7 @@ P:NPC {
       big = true,
       lines = {
         { id = "xhuntcl_default", text = "Because a tiger hears a wool cloak brushing a fern from fifty paces, and then it's gone, or worse, it's coming for you. Silk moves quiet and dries fast, so I sell it to every hunter clever enough to ask, and it's cheaper than a funeral." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a tiger hears a wool cloak brushing a fern from fifty paces, and then it's gone, or worse, it's coming for you. Silk moves quiet and dries fast, so I sell it to every hunter clever enough to ask. Your {pet} hears you coming from a mile off as it is, so you might as well make it a little harder for the rest of the jungle." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Because a tiger hears a wool cloak brushing a fern from fifty paces, and then it's gone, or it's coming for you. Silk moves quiet and dries fast, so I sell it to every hunter clever enough to ask. Your {pet} hears you a mile off already, so make it harder for the rest of the jungle." },
       },
       choices = {
         { text = "A careful hunter prepares every detail. I'll take the silk.", next = "BACK", reply = "You'll be a quiet hunter, dear, and a well-dressed one. The tigers won't hear a thing.", fx = { align = { order = 1 } } },
