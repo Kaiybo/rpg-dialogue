@@ -373,7 +373,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The spirits in Southwind are not at rest because something in the ruins still binds them. I have felt it under the sand, and I have not dared to dig." },
+    { id = "bl2", text = "Fandral's son Valstann died here in the old war, and in all my years here the Arch Druid has never come to see the place. I think he cannot bear it, and I have never said so to anyone." },
+    { id = "bl3", text = "The weeping in the ruins at night is not always the dead. Sometimes it is the Twilight's Hammer, and they use it to draw the curious away from the roads." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I tend the dead here, and they ask very little of anyone. You have managed to disturb them anyway, and I am sorry to say I hold it against you." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You walk through Valor's Rest as if it were any other ruin, and the graves can feel it. The balance is not served by carelessness." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke of my soldiers as if they were bones and nothing else. They had names, and I still say them every night." },
+    },
+    amends = {
+      { id = "am1", text = "Walk softly here, and bring peace to the spirits of Southwind if you can. The dead forgive more easily than the living." },
+      { id = "am_values", when = { grudge = "values" }, text = "Learn to leave a place as you found it. The desert has been taking from us for a thousand years, and it does not need your help." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are one of those who wakes the past and then leaves others to bury it again. I have buried too much already." },
+      { id = "sp_wronged", when = { grudge = { worst = "wronged" } }, text = "I think that when you fall in these wastes, no one will tend your grave, and I am ashamed to find I would not volunteer." },
+    },
     knows = {
       { id = "tp_knows", text = "I know the graves, the ruins and the roads between them. Ask about any of these." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, I'll even speak of the things I usually keep to myself. Which would you hear?" },
@@ -707,7 +725,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The officers summon things through the wind stones with a proper set of ritual garb and a signet, and only the ranked ones carry the signets. Kill the right cultist, and you could open a stone yourself, if you're mad enough." },
+    { id = "bl2", text = "The cult keeps its tablets and orders at Twilight Base Camp, under guard, and the guards change at moonrise. I timed it every night before I ran." },
+    { id = "bl3", text = "I told the cult I went to Westfall, but one of them didn't believe me. If a cultist with a scarred face ever asks after me, kill him before he finishes asking." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You make me nervous, and I've lived among cultists, so that's quite an accomplishment. I'd like you to stand further away." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You called me a coward to my face, in my own cave. I am a coward, mind, but I'm a very well-informed one, and I don't like being told." },
+      { id = "gv_rival", when = { grudge = "rival" }, text = "You've been seen with people the cult watches, and anyone the cult watches leads it straight to me. That's my problem with you." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You'd sell me out for the right price, I can see it in you. I know the look, because I wore it myself once." },
+    },
+    amends = {
+      { id = "am1", text = "Keep my cave a secret and burn a cult camp or two. A man sleeps better knowing his friends are busy." },
+      { id = "am_rival", when = { grudge = "rival" }, text = "Stop leading every Twilight cutthroat in Silithus up my hill, and we'll call it even." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're exactly the sort the cult would love to recruit, and I think you'd say yes. There, I've said it, now please go away." },
+      { id = "sp_values", when = { grudge = { worst = "values" } }, text = "I think the Abyssal Council would find you very easy to talk to. I left because I was afraid I'd say yes, and you wouldn't even hesitate." },
+    },
     knows = {
       { id = "tp_knows", text = "I know the cult from the inside, which is more than anyone else in this desert can say. Ask, and keep your voice down." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, I'll even tell you the things I'm ashamed of knowing. Pick one." },

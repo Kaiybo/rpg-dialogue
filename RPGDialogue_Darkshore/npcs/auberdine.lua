@@ -464,7 +464,24 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Blackwood furbolgs did not go mad on their own. Something demonic hides near their camp and poisons what they eat, and I fear the same rot is creeping south." },
+    { id = "bl2", text = "The Highborne ghosts at Bashal'Aran still cling to their old home, and they are not all as harmless as the young Sentinels think." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I have tried to think well of you, and you have made that harder than it should be. Auberdine has enough sorrows without new ones." },
+      { id = "gv_town", when = { grudge = "town" }, text = "The people of Auberdine speak of you unkindly, and I listen to my people. A village this small cannot be careless with its trust." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to an elder of this village as if he worked the ferry's ropes. We kaldorei keep our courtesies, even here." },
+    },
+    amends = {
+      { id = "am1", text = "Help the village, and let Auberdine speak well of you again. I will hear it when it does." },
+      { id = "am_town", when = { grudge = "town" }, text = "Ask in the village who needs help, and give it without being asked twice. That is how trust is mended here." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you came to Darkshore for what you could take from it, and that you will leave it poorer than you found it." },
+      { id = "sp_town", when = { grudge = "town" }, text = "I think Auberdine will breathe easier when the boat carries you away, and I am ashamed to say that I will too." },
+    },
     _gated = {
       { id = "gt1", text = "That is a matter I keep for those who have earned Auberdine's trust, and you are still new to us. Help the village a while, and ask me again." },
       { id = "gt2", text = "I know something of it, but I am not ready to share it with you. An elder must be careful about whom he confides in." },

@@ -903,7 +903,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Gnarlpine were a gentle people once, but something on Teldrassil has driven them mad, and the fel moss is part of it. Whatever spreads it festers in the dark of Fel Rock, and I fear what grows there." },
+    { id = "bl2", text = "Teldrassil was planted without the Dreamer's blessing, and the Arch Druid will not speak of it. I pray each morning that the tree will forgive us our haste." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I don't come to dislike anyone easily, young one, and it grieves me that I've come to it with you. You've given me little to hope on, and hope is what I keep up here." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You've walked through Shadowglen as though the glade were yours to take from and never to tend. Teldrassil is young, and it remembers who treats it carelessly." },
+      { id = "gv_town", when = { grudge = "town" }, text = "The sentinels and the young druids speak of you, and nothing kind has climbed up this tree. I listen to them, as I would once have listened to you." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke harshly to me, and I can bear that, but I watched you do it to others in the glade as well. That I find harder to forgive." },
+    },
+    amends = {
+      { id = "am1", text = "Go back down into the glade and do some good there, without anyone asking you to. When the young ones speak your name gladly, I'll be glad to hear it." },
+      { id = "am_values", when = { grudge = "values" }, text = "Learn to tend before you take, young one. Plant something, mend something, and watch it grow." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you came down this tree and forgot every lesson it gave you. I had hoped for more from you, and that hope is all I truly regret." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you would strip this whole forest bare and never once look back at the stumps. Our people nearly ended the world with that same hunger, long ago." },
+    },
     _gated = {
       { id = "gt1", text = "That is a thing I share only with those I have come to know well. Climb to me a few more times, and we shall see." },
       { id = "gt2", text = "I would rather keep that to myself for now, friend. You and I have not yet shared enough for me to speak of it." },

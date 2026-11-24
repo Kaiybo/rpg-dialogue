@@ -298,7 +298,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Not every elder at Gev'rek wanted to come down from the sky, and some of them still say we should have stayed with the isle. I have never told Thunder Bluff how close that vote was." },
+    { id = "bl2", text = "The Al'Aketh were never all accounted for when we left the isle, and I lie awake wondering whether any of the grey robes followed us down." },
+    { id = "bl3", text = "The goblins at the Venture Company mine in the north hills have been watching Gev'rek since the day we arrived. I don't believe it is our welfare they are counting." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I gave you the welcome of Gev'rek, and you have not honoured it. I will say no more than that, because I would rather not speak ill of a guest." },
+      { id = "gv_values", when = { grudge = "values" }, text = "The winds go quiet around people who live as you do, and my Windshapers notice. I cannot pretend I don't notice it too." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me as if my people were beggars at Thunder Bluff's door. We came down from the sky with nothing, but we did not come without our pride." },
+      { id = "gv_town", when = { grudge = "town" }, text = "My people talk at the fires, and none of them speak well of you. I listen to my people, because they are all I have left of Skywall." },
+    },
+    amends = {
+      { id = "am1", text = "Come to Gev'rek in peace, and keep coming, and let the camp see it. Trust is a slow wind, but it does turn." },
+      { id = "am_wronged", when = { grudge = "wronged" }, text = "Speak to us as you would speak to any tauren of the plains. That is all we have ever asked of anyone down here." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are the kind of storm my people fled from, loud and careless and sure of itself. We have weathered worse, but I would rather not weather you." },
+      { id = "sp_values", when = { grudge = { worst = "values" } }, text = "I think the winds were right to fall still when you walked in. They have always been wiser than I am about people." },
+    },
     _gated = {
       { id = "gt1", text = "That's a matter for my own people, and for friends who've proven themselves to us. You may become one, but you aren't yet." },
       { id = "gt2", text = "I'll not speak of that with you today. Some of what we carried from the isle isn't mine to hand to a stranger." },

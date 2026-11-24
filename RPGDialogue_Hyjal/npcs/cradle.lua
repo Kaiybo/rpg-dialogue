@@ -342,6 +342,24 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "The orcs fought beside us on this mountain because Thrall chose to bring them. Whatever they are doing in Ashenvale now, that choice was made, and it held." } },
     emerald_dream = { { id = "tp_emerald_dream", text = "The druids look to the Dream for answers, and I look to the ground for demons. I find mine more often." } },
     _none = { { id = "tp_none", text = "I do not know, and if it is not a demon, I likely do not care. Ten thousand years of hunting leaves little room for other questions." } },
+    grievance = {
+      { id = "gv_1", text = "I have no use for you, and you have given me no reason to find one. That is my grievance." },
+      { id = "gv_val", when = { grudge = "values" }, text = "You are careless, and carelessness on this mountain gets others killed. I watched it happen ten thousand years ago." },
+      { id = "gv_prej", when = { grudge = "prejudice", class = "WARLOCK" }, text = "You bargain with the same creatures I have hunted for ten thousand years. I am not inclined to think kindly of you." },
+      { id = "gv_wr", when = { grudge = { worst = "wronged" } }, text = "You spoke to me as though I were a curiosity. I am not, and I remember the ones who think so." },
+    },
+    amends = {
+      { id = "am_1", text = "Kill demons and leave me in peace. That is the only thing you could do that I would notice." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "You cannot. You chose your road, and I chose mine. They do not meet." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you are the kind of fool the Legion finds most useful. I have killed better than you who thought they could bargain." },
+      { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think you would have stood with the Highborne at the Well of Eternity and called it wisdom." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "The Shadow Council hides in the Shadow Hold beneath Jaedenar, in Felwood. The rot in that forest flows from them, whatever the druids tell you." },
+    { id = "bl_2", text = "Demon Fall Canyon in Ashenvale is where Mannoroth died, and his blood is still in the stone. The satyrs gather there, and I hunt them when I can." },
   },
 }
 

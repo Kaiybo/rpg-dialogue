@@ -381,7 +381,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "I could retake the Stockade in an afternoon, and I've told the Keep so twice. The order to wait came from someone close to Lady Prestor, not from the Regent himself." },
+    { id = "bl2", text = "Gryan Stoutmantle writes every week asking for soldiers to clear the Defias out of the Moonbrook mines. I have none to send, and I've begun to suspect the Keep likes it that way." },
+    { id = "bl3", text = "The Blackrock in Redridge are bolder than the reports admit, and Lakeshire's walls wouldn't hold a real assault. Magistrate Solomon is right about that, and I can't say so publicly." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I try to treat every visitor courteously, and I've treated you so. I'm afraid that courtesy is all you'll have from me now." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "I commanded men in the Second War who died screaming under warlock fire. You'll forgive me if I find your craft hard to overlook." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me as if a general of Stormwind were a gatekeeper in a fancy coat. I've held this city's walls since the Second War, and I've earned some respect." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You come to Stormwind wearing the colours of the Horde that burned it. The peace allows it, but my memory does not." },
+    },
+    amends = {
+      { id = "am1", text = "Serve the city, help the provinces, and let the reports reach my desk. I read every one of them, twice." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Fight for Westfall or Redridge, and let the men there see your craft on their side. I'll believe it when they write to me." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're the sort of soldier who gets his whole squad killed and lives to tell the tale. I've written too many letters to widows because of men like you." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think warlock fire killed better men than you will ever be. I'll keep my courtesy, but not my respect." },
+    },
     _gated = {
       { id = "gt1", text = "That's not something I discuss with every traveller who rides through my gate. Come back when I know you better, and I may." },
       { id = "gt2", text = "I'll keep that to myself for now, friend. A general learns to be careful with what he says and to whom he says it." },

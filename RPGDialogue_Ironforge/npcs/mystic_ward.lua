@@ -585,6 +585,23 @@ P:NPC {
     argent_dawn = { { id = "tp_argent_dawn", text = "The Argent Dawn fights the dead wi' faith an' good sense in equal measure, an' they take anyone who'll stand. That's the Light as I understand it." } },
     elune = { { id = "tp_elune", text = "The night elves pray tae their moon goddess wi' as much faith as any priest o' the Light. I've talked wi' their priestesses, an' I'll no' say they're wrong." } },
     _none = { { id = "tp_none", text = "That's beyond the Hall's walls an' my knowledge, I'm afraid. Ask in the Commons; somebody there always thinks they know." } },
+    grievance = {
+      { id = "gv_1", text = "I'll pray for anyone, lad, but I've had a hard time prayin' for ye. That's my trouble." },
+      { id = "gv_val", when = { grudge = "values" }, text = "Ye've no' shown an ounce o' mercy since ye came tae this hall. The Light doesnae ask much, but it asks that." },
+      { id = "gv_wr", when = { grudge = { worst = "wronged" } }, text = "Ye spoke harshly tae an old priest in his own hall. I forgive easily, but I'm still workin' on that one." },
+    },
+    amends = {
+      { id = "am_1", text = "Do a kindness for someone who cannae repay it. That's how the Light measures a soul, an' so do I." },
+      { id = "am_val", when = { grudge = "values" }, text = "Spend an afternoon in the infirmary helpin' the gnomes. Ye'll learn more about the Light there than in any sermon o' mine." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think ye've a heart like a cold forge, an' I've seen warmer ones in Dun Morogh's snow." },
+      { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think the Light would have tae shine awful hard tae reach ye, an' I'm no' sure it'll bother." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "There's gnomes in the infirmary whose wounds glow at night, an' the High Tinker begged me tae keep it quiet. Gnomeregan's poison didnae stay in Gnomeregan." },
+    { id = "bl_2", text = "I've heard confession from a dwarf whose kin serve the Dark Iron in the Burning Steppes. Thaurissan's folk have ears in this city, an' I'll say no more." },
   },
 }
 

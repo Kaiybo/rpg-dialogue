@@ -496,7 +496,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Dragonmaw have dug in at the Angerfang Encampment, an' every orc we kill on the road came down from there or from Grim Batol beyond it. Hit the camp, an' the road breathes easier." },
+    { id = "bl2", text = "The Dark Irons hold Dun Modr at the north end o' the Wetlands, an' they've cut the road tae the Thandol Span. Ironforge's wagons have tae come the long way round, if they come at all." },
+    { id = "bl3", text = "Ironforge sends me fewer soldiers every season, an' fewer letters with them. If the Dragonmaw push in force, this harbour falls before anyone in the mountain hears of it." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "My problem's simple enough. Ye've been more bother than help in my harbour, an' I've no patience left for bother." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "I lost a whole watch tae orc warlocks on the Thandol Span, an' ye stand here reekin' o' the same fel. Ye'll get no warmth from me." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "Ye wear the Horde's colours in an Alliance harbour, an' ye expect a civil word. Ye're lucky the guards havenae thrown ye in the bay." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "Ye talked down tae me in front o' my own men, as if I were some green recruit. I'll no' forget it, an' neither will they." },
+    },
+    amends = {
+      { id = "am1", text = "Go where I send ye, do what I tell ye an' come back alive. Do that a few times, an' I'll stop glarin' at ye." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Get rid o' that fel an' fight like an honest soldier. Until then, ye'll stay off my walls." },
+    },
+    spite = {
+      { id = "sp1", text = "I think ye'd run at the first sight o' a Dragonmaw banner an' leave my lads tae hold the gate. I've no use for cowards, an' less for liars." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think ye're a Horde spy who came in on the tide, an' the next tide'll carry ye out, one way or another." },
+    },
     _gated = {
       { id = "gt1", text = "That's keep business, an' I'll no' share it wi' someone I've no' seen fight. Earn yer place on the wall an' ask me again." },
       { id = "gt2", text = "I know well enough, but I'm no' tellin' a stranger. A captain keeps his mouth shut till he knows who's listenin'." },

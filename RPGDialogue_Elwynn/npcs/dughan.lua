@@ -1123,5 +1123,23 @@ P:NPC {
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "When the Faire camps near Goldshire I double the night watch and still lose three purses a day. I like the music well enough, I'll say that." } },
     si7 = { { id = "tp_si7", text = "SI:7 doesn't report to marshals, and marshals don't ask SI:7 questions. I'll leave it there, and so should you." } },
     thrall = { { id = "tp_thrall", text = "They say the orcs have a new warchief across the sea, one who broke out of an internment camp and freed the prisoners in the other camps after him. I stood guard at one of those camps once, and I'm not sorry I'm in Goldshire now.", fx = { learn = { "internment" } } } },
+    grievance = {
+      { id = "gv_1", text = "I've a village to keep, and you've made my job harder rather than easier. That's my problem with you." },
+      { id = "gv_prej", when = { grudge = "prejudice", class = "WARLOCK" }, text = "I saw what the Horde's warlocks did to men on the line in the Second War. Your trade doesn't sit easy with me, {class}, and it never will." },
+      { id = "gv_tone", when = { grudge = "tone", tone = "blunt" }, text = "You speak to an officer of the Stormwind Guard as if he were a farmhand. I expect better manners than that in Goldshire." },
+      { id = "gv_town", when = { grudge = "town" }, text = "Half the complaints on my desk this week have your name on them. I'd rather they didn't." },
+    },
+    amends = {
+      { id = "am_1", text = "Do some honest work for Goldshire, and do it properly. I've a board full of it." },
+      { id = "am_tone", when = { grudge = "tone" }, text = "Address me properly and keep a civil tongue. I'll meet courtesy with courtesy, but not with anything else." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you're one more pair of hands I'd rather not have, and I take any hands I can get." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think your sort should be kept in that cellar with the rest of them, under lock and key." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "There are warlocks in the cellar of the Lion's Pride, and Stormwind has ordered me to leave them be. I don't like it, and I'll thank you not to repeat that I said so." },
+    { id = "bl_2", text = "Hogger runs with the Riverpaw at Forest's Edge in the southwest, and he's killed more of my guards than I care to count. Bring me his claw and I'll forget a great deal." },
   },
 }

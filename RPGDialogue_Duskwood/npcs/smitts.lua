@@ -424,5 +424,22 @@ P:NPC {
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire won't come to Darkshire, and I don't blame them, but I've a copy of their song sheet behind the bar. On a bad night, Hann plays it on a spoon." } },
     booty_bay = { { id = "tp_booty_bay", text = "A Booty Bay captain once told me their rum is distilled from bad decisions. I bought a barrel to see if he was right, and he was." } },
     holy_light = { { id = "tp_holy_light", text = "The Light keeps Darkshire going as much as the Watch does, and the chapel lamp has never once gone out in all my years here. I check it every night on my way home." } },
+    grievance = {
+      { id = "gv_1", text = "I pour for everyone, friend, and I listen to everyone. I've heard enough about you to keep my distance." },
+      { id = "gv_town", when = { grudge = "town" }, text = "The watchers drink here every night, and your name comes up more than I'd like. None of it's kindly said." },
+      { id = "gv_val", when = { grudge = "values" }, text = "You've a way of looking at my regulars as if they were in your road. This room's all some of them have left." },
+    },
+    amends = {
+      { id = "am_1", text = "Sit quietly, pay for your drink, and don't make trouble in my room. Do that long enough and folk forget." },
+      { id = "am_town", when = { grudge = "town" }, text = "Stand a night with the Watch, and they'll speak for you at the bar. In Darkshire, that's how a name gets mended." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you're the kind of tale I'd rather not tell, friend. Drink up and go." },
+      { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think you'd have done well in Stalvan's day. You've his way of smiling at people you don't care for." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "The hermit up on Raven Hill buys zombie juice by the crate. He says it's for his garden, and I've stopped believing him." },
+    { id = "bl_2", text = "Stalvan Mistmantle's old manor stands empty north of town, and nobody from the Watch will go near it after dark. They say his diary's still in the house somewhere." },
   },
 }

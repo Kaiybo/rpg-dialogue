@@ -333,7 +333,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Burning Blade have a nest in Ragefire Chasm, right under the Cleft of Shadow, and anyone who says the Cleft doesn't know about it is lying or a fool." },
+    { id = "bl2", text = "If I were the Warchief, I'd watch whoever keeps the Cleft of Shadow as closely as he claims to watch the Burning Blade. That's all I'll say, and I'll deny I said it." },
+    { id = "bl3", text = "Half the Warchief's own guard buy their axes off me, and I know which of them can't swing them. Ask me the wrong way and I'll tell the whole Drag." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I don't like you, and I don't sell my best steel to folk I don't like. That's the whole of it." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "I fought beside living orcs and honest steel my whole life, and you're neither. Don't ask me to pretend I don't see it." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You haggled me like a goblin and then talked down to me like a peon. I've broken grunts' noses for less in the camps." },
+      { id = "gv_values", when = { grudge = "values" }, text = "A warrior who fights dirty and boasts about it isn't a warrior, he's a liability. I've watched you, and I know which you are." },
+    },
+    amends = {
+      { id = "am1", text = "Fight clean, pay what you owe, and stop wasting my time. Do that for a season and I might forget your face." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "You can't change what you are, so don't try. Just keep your hexes and your stink outside my stall and we'll get along well enough." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you'd drop the first blade I sold you the moment something bit back. I'd not trust you to hold a shield in a line." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think the Warchief is too generous with who he calls Horde, and you're the proof of it. Now get away from my axes." },
+    },
     _gated = {
       { id = "gt1", text = "That's my business and none of yours, not until I know you better than I do." },
       { id = "gt2", text = "I don't tell that to every stranger with coin in hand, so prove yourself first, and then we'll see." },

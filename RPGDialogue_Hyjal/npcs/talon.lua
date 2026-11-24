@@ -538,5 +538,22 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "The undead came up the slopes before the demons, and the mountain buried them. Sometimes I find bones in the snow and the owls get very upset." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw guard the gorge into Winterspring, and they'll let you pass if you're polite. I wasn't, once, and I'm still apologising." } },
     _none = { { id = "tp_none", text = "No idea, and I've no time to find out. Ask the owls; they're terrible gossips, and Elune made them that way on purpose, I'm sure of it." } },
+    grievance = {
+      { id = "gv_1", text = "You've done nothing for the mountain, and you act like it owes you something. That's my problem with you." },
+      { id = "gv_val", when = { grudge = "values" }, text = "You're careless with the forest, and the owls noticed before I did. They're never wrong about people." },
+      { id = "gv_pers", when = { grudge = "persuade" }, text = "You tried to bully me, and I've been bullied by Loganaar, who's much better at it. It didn't work then either." },
+    },
+    amends = {
+      { id = "am_1", text = "Do something for Hyjal that you won't get paid for. Then I'll stop glaring at you." },
+      { id = "am_val", when = { grudge = "values" }, text = "Clean up after yourself on the slopes and stop trampling the saplings. The owls will tell me if you do." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you're the kind of person who walks past a wounded owl and calls it nature. I've no time for that." },
+      { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think you'd cut down Nordrassil for kindling if no one was watching. Good thing the owls are always watching." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "The Winterfall furbolgs are drinking a firewater brewed with something out of Felwood, and it's driving them mad. Somebody is supplying it, and the Circle won't listen." },
+    { id = "bl_2", text = "The Timbermaw tunnel is the only safe way between Felwood and Winterspring. Make friends with them before you need it, not after." },
   },
 }

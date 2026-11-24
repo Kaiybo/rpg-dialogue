@@ -444,7 +444,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Lord Gregor Lescovar has been meeting someone in the Keep's garden after dark. I know who he's meeting, and I'm waiting to learn who's paying them both." },
+    { id = "bl2", text = "Somebody's been paying the Stockade guards, and the riot didn't start by accident. The money came from a house in the Keep, not from Westfall." },
+    { id = "bl3", text = "Lady Prestor's file is the thinnest in this building, and nobody can tell me where she was before Alterac. I find that more interesting than anything in it." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I have a file on you. It used to be thin, and now it isn't, and nothing in it is flattering." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me in my own building as though SI:7 were a club for pickpockets. I let it pass then, and I wrote it down." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You're careless, and careless people get my agents killed. I don't like people who get my agents killed." },
+      { id = "gv_rival", when = { grudge = "rival" }, text = "You keep company I've been watching for months. That makes you either a fool or a lead, and I haven't decided which." },
+    },
+    amends = {
+      { id = "am1", text = "Do something quiet and useful for the city, and don't tell me about it. I'll find out, because I always do." },
+      { id = "am_values", when = { grudge = "values" }, text = "Learn to keep your mouth shut and your tracks clean. When you've done that, come back, and we'll talk." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're a liability with a sword. If you ever went missing, I'd have a very short file to close." },
+      { id = "sp_rival", when = { grudge = { worst = "rival" } }, text = "I think whoever you're working for will cut you loose the moment you're inconvenient. I've seen it happen a hundred times, and I usually do the cutting." },
+    },
     _gated = {
       { id = "gt1", text = "That's not for you, not yet. Information in this building is paid for in trust, and you're short of it." },
       { id = "gt2", text = "I know the answer, and I'm choosing not to give it to you. Earn a place on my good side and ask again." },

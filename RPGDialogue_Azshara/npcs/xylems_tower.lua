@@ -483,7 +483,25 @@ P:NPC {
     },
   },
 
+  blurts = {
+    { id = "bl1", text = "The Highborne kept their finest work in the Ruins of Eldarath, and the naga have been dragging it out piece by piece while Azuregos guards it after his fashion." },
+    { id = "bl2", text = "Arcane power leaks from those ruins like water from a cracked jug, and anything that drinks too deeply of it goes mad. Look at the satyrs if you doubt me." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've been tiresome, my dear, and I have very little patience for the tiresome. Ask my apprentices, the ones who are left." },
+      { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "You're a druid, and your Circle would let the greatest library in history rot beneath the sea out of sheer squeamishness. I'm not inclined to forgive the robes." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to an archmage of Dalaran as if he poled a barge for a living. Manners are free, my dear, and you've been miserly with them." },
+      { id = "gv_wronge", when = { grudge = "wronged" }, text = "I gave you my time, which is worth a great deal more than your sword, and you squandered it." },
+    },
+    amends = {
+      { id = "am1", text = "Bring me something worth studying from the Highborne ruins, intact, and I may find I've misjudged you." },
+      { id = "am_prejud", when = { grudge = "prejudice" }, text = "Admit that the Highborne's knowledge deserves study rather than burial. I won't hold my breath, but I'll listen." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're a blunt instrument that has learned to talk. It's a charming trick, but it doesn't make you interesting." },
+      { id = "sp_prejud", when = { grudge = "prejudice" }, text = "I think you'd plant a tree over the Well of Eternity and call it wisdom. That is what your Circle does with everything it fears." },
+    },
     _gated = {
       { id = "gt1", text = "That is research in progress, and I don't discuss my research with people I've barely met. Come back when I've some reason to think you'd understand it." },
       { id = "gt2", text = "No, I think not. The contents of this tower are for my friends and my betters, and so far you're neither." },

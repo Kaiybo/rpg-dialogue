@@ -442,7 +442,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The House of Nobles will never pay the Stonemasons, little one, and I made very sure of it. Debts are so much more useful left unpaid." },
+    { id = "bl2", text = "Dear Bolvar signs whatever I put before him at the end of a long council, when he's tired. I find late afternoons are the most productive part of the day." },
+    { id = "bl3", text = "Half the petitions from Lakeshire never reach the Regent's desk, darling. I read them first, and most of them find their way into my fire." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "My problem, darling? I have none; I simply find you tiresome. One does tire of things, and then one puts them away." },
+      { id = "gv_rival", when = { grudge = "rival" }, text = "You've been listening to Baros Alexston and his tiresome masons, little one. People who keep that sort of company tend to find the Keep's doors rather heavy." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me as if I were some provincial lordling's wife who'd wandered into council. I am the Regent's counsel, and I do not forget a slight." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to a lady of the court like a dockhand haggling over fish. Breeding tells, little one, and yours tells a great deal." },
+    },
+    amends = {
+      { id = "am1", text = "Make yourself useful to the crown, darling, and do it where the right people can see. I reward usefulness, eventually." },
+      { id = "am_rival", when = { grudge = "rival" }, text = "Stop running errands for the City Architect, little one. A sensible person knows which side of the Keep the bread is buttered on." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're a little hero with a borrowed sword, darling, and the world is full of those. They end up as statues or as bones, and rarely as statues." },
+      { id = "sp_wronged", when = { grudge = { worst = "wronged" } }, text = "I think you are exactly the sort of creature this kingdom used to keep in kennels. Do run along before I remember the way to them." },
+    },
     _gated = {
       { id = "gt1", text = "I do not discuss such things with strangers, darling, and you are still very much a stranger to me." },
       { id = "gt2", text = "That is a matter for the council, and you are not of it. Perhaps we shall speak of it when you have made yourself more agreeable." },

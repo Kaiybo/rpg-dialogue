@@ -380,7 +380,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Half the smiths in Old Town sell mail to the Defias through middlemen, and they all swear blind they don't. I know because they try to buy my offcuts." },
+    { id = "bl2", text = "Anduin Lothar fell at the foot of Blackrock Spire, and the orcs are back in it now. Somebody ought to finish what he started, and the Keep won't." },
+    { id = "bl3", text = "Quartermaster Lewis at Sentinel Hill keeps the Militia going on nothing, and he's down to his last crates. I send him plate when I can, and I don't charge him." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I've sold plate to men I wouldn't share a pint with, and you're one of them. Your coin's good, and that's the end of it." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "Your kind sat in your trees through two wars while we bled for the whole world. I'll sell you steel, but I'll not pretend to like you." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You talked down my work as if it were tin pans hammered in a back alley. That plate's turned orc axes, and it'll turn yours." },
+      { id = "gv_values", when = { grudge = "values" }, text = "I've heard how you fight, from men who stood beside you. A soldier who leaves his mates for loot isn't a soldier." },
+    },
+    amends = {
+      { id = "am1", text = "Go down to Westfall and help Lewis's lot keep their farms. Do that, and I'll let you back in my shop without a scowl." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Stop with the moonlight and the riddles, and talk to me like a soldier. I'm an old man, but I'm not a stubborn one, mostly." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you'd have turned and run at Blackrock Spire, and left better men to die there. I was there, and I know the type." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think your people would have let us all burn if the orcs hadn't come knocking at your trees too. There, I've said it plainly." },
+    },
     _gated = {
       { id = "gt1", text = "That's my own business, and I don't hand it to folk I've no reason to trust. Come back when you've given me one." },
       { id = "gt2", text = "I'll not talk about that with you, not yet. A man's allowed to keep a few things behind the counter." },

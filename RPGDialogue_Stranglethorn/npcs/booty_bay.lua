@@ -565,7 +565,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Fleet Master Firallon has somebody inside my harbor, friend, passing him the sailing times. I've read one of their letters, and I'm waiting to catch the rest." },
+    { id = "bl2", text = "The Cartel doesn't know half of what this port really earns, and I'd like to keep it that way. Repeat that in Gadgetzan and you'll never dock here again." },
+    { id = "bl3", text = "A king goes missing on his way to Theramore and nobody finds a plank, friend. I've seen ships vanish like that, and somebody was always paid to make it happen." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You're a bad account, friend, and I close bad accounts. It's nothing personal; it's bookkeeping." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You talked down to me on my own balcony, in front of my Bruisers. A goblin can forgive debts, but not that sort." },
+      { id = "gv_pers", when = { grudge = "persuade" }, text = "You tried to lean on me, friend, in a port I built out of nothing. I've had sharper men than you try it, and they're feeding the sharks." },
+      { id = "gv_rival", when = { grudge = "rival" }, text = "I hear you've been doing business with the Bloodsail. Anybody who sells to those cutthroats can find another harbor." },
+    },
+    amends = {
+      { id = "am1", text = "Settle your accounts, and settle them generously. A goblin's memory is long, but it can be bought down." },
+      { id = "am_rival", when = { grudge = "rival" }, text = "Sink a few Bloodsail for me, and bring back proof. That's the only currency that clears your page in my ledger." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're a cost and not an asset, friend. If I could sell you to the Bloodsail, I'd take whatever they offered." },
+      { id = "sp_pers", when = { grudge = { worst = "persuade" } }, text = "I think you're a bully who's never met a goblin with a full treasury. Push me again, and you'll meet several hired ones." },
+    },
     humans = { { id = "tp_humans", text = "Humans are the best customers in the cove and the worst debtors on the Great Sea. The Bloodsail are mostly humans too, friend, and they tried to collect on me with a knife." } },
     knows = {
       { id = "tp_knows", text = "Everything that happens in this cove ends up in my ledger sooner or later. Ask, and I'll tell you what it says, within reason and within budget." },
@@ -1330,7 +1349,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Fleet Master Firallon hides on his flagship off the southern coast and lets Stillwater and Keelhaul do his raiding. Kill all three, and the Bloodsail lose their heads." },
+    { id = "bl2", text = "The Bloodsail keep a compound on the coast north of the bay, and they plan their raids there. My lookouts watch it, but I've not the men to burn it." },
+    { id = "bl3", text = "The Baron's sworn the Cartel won't hear how many ships the Blackwater really keep. That's a secret that'd cost him his seat, so don't you go repeating it." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I like nearly everybody, friend, and I've tried to like you, but you've made it awful hard. I've given up for now." },
+      { id = "gv_rival", when = { grudge = "rival" }, text = "You've been seen drinking with Bloodsail, and nobody on my deck drinks with red sails. That's the whole of my problem with you." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You laughed at a tauren on a ship like I was a joke in a sailor's song. I've sunk better comedians than you, friend." },
+      { id = "gv_values", when = { grudge = "values" }, text = "The sea and the Earth Mother both punish greed, and you're full of it. I don't sail with anybody the sea wants to drown." },
+    },
+    amends = {
+      { id = "am1", text = "Fight the Bloodsail, friend, and fight them hard. Nothing mends a quarrel on the Blackwater like a sunk red sail." },
+      { id = "am_rival", when = { grudge = "rival" }, text = "Cut your ties with the red sails and bring me a few of their hats. Then we'll drink, and I'll forget all about it." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you'd make a fine Bloodsail, friend, and I mean that as the nastiest thing I can say. Get off my deck." },
+      { id = "sp_rival", when = { grudge = { worst = "rival" } }, text = "I think you'd sell this whole harbor to Firallon for a barrel of rum. I'd sooner the Earth Mother swallowed you first." },
+    },
     humans = { { id = "tp_humans", text = "Half the Bloodsail are humans out of Kul Tiras and Stormwind's back alleys, so I've crossed more human cutlasses than I've shaken human hands. Then again, the best navigator I ever had was a Lordaeron girl, Earth Mother keep her." } },
     knows = {
       { id = "tp_knows", text = "Every ship that sails these waters sends word back to me, one way or another! Ask, and I'll tell you what the sea's been saying." },

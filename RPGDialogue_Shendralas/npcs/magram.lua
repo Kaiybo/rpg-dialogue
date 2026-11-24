@@ -434,7 +434,26 @@ P:NPC {
     },
   },
 
+  blurts = {
+    { id = "bl1", text = "The Gelkis pray to the stone at Maraudon and think the earth will save them. Kill their shamans, and the rest forget how to fight." },
+    { id = "bl2", text = "The Burning Blade orcs in the north of Desolace come to this valley at night to bargain for bones. They think the Magram do not notice, and the Magram let them think it." },
+    { id = "bl3", text = "The Kodo Graveyard holds more dead than this whole valley, and the spirits there are not mine. That is the one place in Desolace I will not go." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You are weak, outsider, and the weak are only good for bones. I have not yet decided which of yours I want." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You have Magram blood on you, and the dead of this valley tell me whose. They do not forgive, and neither do I." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me as if I were a beast in a field, when I command the dead themselves. The bones heard it, and they remember faces." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You flinch from the dead and call it virtue. The Magram have no use for those who are afraid of what they will become." },
+    },
+    amends = {
+      { id = "am1", text = "Kill Gelkis and bring me what is left. The dead do not care about apologies, and neither do I." },
+      { id = "am_enemy", when = { grudge = "enemy" }, text = "Spill as much Gelkis blood as you spilled Magram, and then we will talk. Until then, the bones are watching you." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you will make a poor servant when you are dead, outsider. You are too soft, and soft bones break in the first fight." },
+      { id = "sp_enemy", when = { grudge = { worst = "enemy" } }, text = "I think the dead in this valley are waiting for you, and I think they are patient. When you fall in Desolace, I will come and find you." },
+    },
     _gated = {
       { id = "gt1", text = "That is Magram business, and you have not shown me enough strength to hear it. Earn your place in this valley first." },
       { id = "gt2", text = "I do not open my work to every outsider who comes down among the bones. When I think better of you, ask again." },

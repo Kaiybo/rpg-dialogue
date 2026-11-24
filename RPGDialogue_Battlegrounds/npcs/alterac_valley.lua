@@ -220,7 +220,25 @@ P:NPC {
     },
   },
 
+  blurts = {
+    { id = "bl1", text = "Drek'Thar's blind, but he's no' alone. Burn the four Frostwolf towers an' his warmasters fall wi' them, an' then he's just an old orc in a cold hall." },
+    { id = "bl2", text = "The Frostwolves call up Lokholar the Ice Lord wi' the blood o' my fallen soldiers. Every Stormpike corpse ye leave in the snow is another drop for him." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "Ye've been naught but trouble in my hall, an' I've a war tae win. That's my problem wi' ye." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "Ye're a friend o' the Frostwolves, standin' in Dun Baldar. I'd have ye in irons if the Expedition's charter allowed it." },
+      { id = "gv_wronge", when = { grudge = "wronged" }, text = "I spoke tae ye like a soldier o' the Guard, an' ye answered like a Frostwolf spy. A Stormpike doesnae forget that." },
+      { id = "gv_values", when = { grudge = "values" }, text = "Ye fight for loot an' glory, no' for the Guard. The valley's full o' graves for soldiers like that." },
+    },
+    amends = {
+      { id = "am1", text = "Take a tower, hold a graveyard an' bring me Frostwolf banners. That's how the Stormpike Guard settles its accounts." },
+      { id = "am_enemy", when = { grudge = "enemy" }, text = "Ye cannae, no' while ye wear the Horde's colours. Come up the valley again an' I'll settle it the other way." },
+    },
+    spite = {
+      { id = "sp1", text = "I think ye're a sellsword who'd change sides for an extra pouch o' silver, an' the Frostwolves are welcome tae ye." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think ye're one o' Drek'Thar's dogs, an' I'll see yer head on the bridge before the snow melts." },
+    },
     knows = { { id = "tp_knows", text = "I know this valley, its mines an' its enemies better than any dwarf alive. Ask." } },
     background = { { id = "tp_bg", text = "General o' the Stormpike Guard, an' a Stormpike before that, which up here means a dwarf who doesnae know when tae quit." } },
     advice = { { id = "tp_ad", text = "Take the towers, hold the graveyards an' guard the bridge, for the Frostwolves come straight down the middle when they're hungry." } },
@@ -1464,7 +1482,26 @@ P:NPC {
     },
   },
 
+  blurts = {
+    { id = "bl1", text = "Vanndar Stormpike keeps four marshals at his side, and each draws strength from a bunker or a tower. Burn those, and his marshals fall with them." },
+    { id = "bl2", text = "The Stormpike druids gather storm crystals to call Ivus, the Forest Lord, against us. Every crystal you take from them is one they cannot use." },
+    { id = "bl3", text = "The dwarves dug too deep in the Irondeep Mine, and they woke things in the dark that have no love for dwarves." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You have brought discord into my keep, and the spirits like it no better than I do." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You are a Stormpike, or a friend to them. They dig into our mountain for iron and relics, and you stand in my hall as if it were yours." },
+      { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "You are dead and do not rest, and the spirits of Alterac cry out when you walk near them. I cannot pretend I do not hear it." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You fight without honor, and the Frostwolves still remember Durotan, who never did." },
+    },
+    amends = {
+      { id = "am1", text = "Fight for the Frostwolf Clan with honor, and let the spirits speak your name to me. They are better judges than I am." },
+      { id = "am_enemy", when = { grudge = "enemy" }, text = "There is no making it right while the Stormpike dig in our mountain. Leave Alterac, and perhaps the snow will forgive you." },
+    },
+    spite = {
+      { id = "sp1", text = "I am blind, but I see you clearly enough. You are a small thing with a loud spirit, and the wind does not care for it." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think the Stormpike sent us their worst, and the snows of Alterac will have you before the spring." },
+    },
     knows = { { id = "tp_knows", text = "The spirits, the clan and the long memory of the Frostwolves. Ask." } },
     background = { { id = "tp_bg", text = "Elder shaman of the Frostwolf Clan, who led them through the snow after Durotan fell." } },
     advice = { { id = "tp_ad", text = "Respect the cold, and honor your enemy, and do not trust the ground the Stormpike have dug." } },

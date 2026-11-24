@@ -373,6 +373,23 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "A paladin of Lordaeron, a veteran of the Third War, and now the Dawn's commander at the citadel's door." } },
     _none = { { id = "tp_none", text = "I could not say. Ask Archmage Dosantos; she knows more than I do of most things." } },
+    grievance = {
+      { id = "gv_1", text = "You have not stood where the Brotherhood stands, and you speak as though you had. That is my grievance." },
+      { id = "gv_val", when = { grudge = "values" }, text = "I have buried brothers who fought for less than you ask in payment. You will forgive me if I find you hard to like." },
+      { id = "gv_wr", when = { grudge = { worst = "wronged" } }, text = "You addressed a commander of the Light like a hireling. I have not forgotten it, and the men who heard you have not either." },
+    },
+    amends = {
+      { id = "am_1", text = "Go out and cut the Scourge down, and bring me proof. Deeds are the only coin the Brotherhood accepts." },
+      { id = "am_wr", when = { grudge = "wronged" }, text = "Speak to me as a soldier speaks to his commander. Do that, and we can begin again." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you would break before the citadel's gate, and I will not send the Brotherhood after you when you do." },
+      { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think Mograine would have turned you away at the door. I am kinder than he was, and I am considering it." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "Kel'Thuzad keeps four death knights in his inner hall, and our scouts swear one of them bears a face I knew. I do not speak of it, and you will not either." },
+    { id = "bl_2", text = "The necropolis has four quarters, and each has its own master. Archmage Dosantos has studied them longer than anyone here; ask her before you go in blind." },
   },
 }
 

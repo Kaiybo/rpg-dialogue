@@ -146,7 +146,24 @@ P:NPC {
     },
   },
 
+  blurts = {
+    { id = "bl1", text = "The Fanglords were my disciples once: Cobrahn, Anacondra, Pythas and Serpentis. The Nightmare turned them, and each one keeps a den of their own in these caverns." },
+    { id = "bl2", text = "When I wake, the Nightmare will send Mutanus the Devourer after us. It does not let go of its prey easily, so keep your weapons ready." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I'm grateful you woke me, truly, but you've made it hard to remember why. The Dream was quieter than you are." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You walk these caverns killing what is already sick and calling it a cure. I made that mistake once, and you can see where it led." },
+      { id = "gv_wronge", when = { grudge = "wronged" }, text = "I told you what I did to the Barrens, and you mocked me for it. I mock myself enough without your help." },
+    },
+    amends = {
+      { id = "am1", text = "Find my disciples who are still themselves and bring them out of the caverns. That would mend more than words could." },
+      { id = "am_values", when = { grudge = "values" }, text = "Learn what balance means before you swing at the next thing that frightens you." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are a waking nightmare of your own, and you don't even need the Dream to be one." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think the Nightmare would welcome you gladly, and you would never notice the difference." },
+    },
     nightmare = { { id = "tp_nm", text = "The sickness in the Dream. I've no better name for it yet.", next = "nightmare" } },
     wailing_caverns = { { id = "tp_wc", text = "These caverns were meant to be the heart of a reborn Barrens, and I made them a nest of nightmares instead." } },
     _none = { { id = "tp_none", text = "Forgive me, my mind is still half in the Dream. I can't speak to that." } },

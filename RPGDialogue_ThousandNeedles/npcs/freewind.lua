@@ -420,7 +420,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Galak plan their raids from Camp E'thok, down in the canyons, and that's where their chiefs sit. Strike there, and the mesas will breathe easier." },
+    { id = "bl2", text = "Arnak Grimtotem keeps his people at Darkcloud Pinnacle, and they call themselves tauren while they hunt ours. I've written to Thunder Bluff about it, and I've heard nothing back but silence." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "From this mesa I watch for things that bring trouble to Freewind, and lately I've been watching you. That is my whole complaint." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "You carry the same darkness the Galak shamans bargain with, and I've seen what it does to a people. I'll not lower my spear because you smile." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're Alliance, standing on a Horde mesa, and I'm the one charged with watching who climbs up here. I'll leave you to work out the rest." },
+      { id = "gv_town", when = { grudge = "town" }, text = "Freewind is small, and every voice on these mesas has something to say about you. None of it has made me trust you more." },
+    },
+    amends = {
+      { id = "am1", text = "Help Freewind against the centaur, and don't brag of it afterwards. A watchman trusts what he sees with his own eyes." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Put the fel away from you and leave it buried. Until you do, nothing you do will sit right with me." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you bring trouble wherever you walk, and the canyon has enough of its own. I'll be glad to see your back on the bridges out of Freewind." },
+      { id = "sp_prej", when = { grudge = "prejudice" }, text = "I think whatever you've bound to yourself will eat you in the end, the way the dark has eaten the Galak's hearts. I'll not mourn you, and I'll not light a fire for you." },
+    },
     _gated = {
       { id = "gt1", text = "That is not a matter I will speak of with one I do not yet trust. Prove yourself to Freewind, and ask again." },
       { id = "gt2", text = "I will keep my own counsel on that. A watcher learns to be careful about what he lets past the gate, and that goes for words as well." },

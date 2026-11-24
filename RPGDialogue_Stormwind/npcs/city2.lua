@@ -360,7 +360,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Scarlet Crusade hold the Monastery in Tirisfal and call themselves heirs of the Silver Hand. Half of their commanders were my brothers once, and they would burn me now for heresy." },
+    { id = "bl2", text = "The Silver Hand is more a name than an order these days. I have fewer than a dozen lords I could call to arms, and I have never admitted it in front of my students." },
+    { id = "bl3", text = "The Tome of Divinity is only the first trial, and most who pass it never face the last ones. I don't tell the young paladins how few of us finish." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I judge a person first by how they keep their gear, and then by how they keep their word. You have failed both measures." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "The Silver Hand was raised to fight the very darkness your craft serves. I hold it beneath contempt, and I hold you only a little above it." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You treat the Light as a weapon you pick up when convenient. It is a discipline, and you have none." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to a lord of the Silver Hand as you might to a tavern brawler. Manners are a discipline too, and you lack that one as well." },
+    },
+    amends = {
+      { id = "am1", text = "Come back with your gear clean, your prayers honest and your word kept. I will notice, because I always do." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Put your craft to work against the Scourge, where the Hand can see it. I'll not bless it, but I may learn to tolerate you." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you would have broken in the first week of training under Uther, and I think you would have blamed him for it." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think you are what the Silver Hand was founded to destroy, and I think the Hand would have done it gladly. Leave my hall." },
+    },
     _gated = {
       { id = "gt1", text = "I'll not speak of that with one I hardly know. Such matters are for those who've proven themselves before the Light and before me." },
       { id = "gt2", text = "That is not yours to ask of me yet. Show me your worth in deeds, and I may answer you then." },

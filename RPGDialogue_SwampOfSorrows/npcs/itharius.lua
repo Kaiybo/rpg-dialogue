@@ -275,7 +275,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Jammal'an the Prophet leads the Atal'ai in the depths of the temple, and their rites falter without him. Strike him down, and you will have done more than all my kin managed." },
+    { id = "bl2", text = "My own kin guard the deepest halls of the temple now, and their minds are no longer their own. Do not hesitate when you meet them, mortal, for they will not." },
+    { id = "bl3", text = "Eranikus is held in the temple's lowest chamber, more shade than dragon. If you ever carry his essence out of that place, bring it to me, and do not listen if it whispers to you on the way." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You have given me no reason to think well of you, mortal, and dragons do not hand out good opinion for nothing. That is the whole of it." },
+      { id = "gv_tone_b", when = { grudge = "tone", tone = "blunt" }, text = "You speak to me as you would to a tavern keeper, mortal. I have watched your kingdoms rise and fall, and I will be addressed accordingly." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke lightly of my flight and my mistress in my own cave. I do not forget such things, and I have a very long time in which to remember them." },
+      { id = "gv_values", when = { grudge = "values" }, text = "I have seen how you walk the world, taking what you wish and caring little what it costs. The Dream feels such carelessness, even when you do not." },
+    },
+    amends = {
+      { id = "am1", text = "Serve the Dream, and do it without being asked. Then perhaps I will think better of you, in a century or two." },
+      { id = "am_tone_b", when = { grudge = "tone", tone = "blunt" }, text = "Learn courtesy, mortal. It costs you little, and it is the least a dragon is owed." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are a brief and careless creature who mistakes being noticed for being important. The whelps have better manners." },
+      { id = "sp_wronged", when = { grudge = { worst = "wronged" } }, text = "I think you are exactly the sort of mortal my mistress warned me of, and I am sorry she was right. Leave my cave." },
+    },
     knows = {
       { id = "tp_knows", text = "I have watched this swamp and the world beyond it for a long while, mortal. I will tell you what a dragon thinks a mortal should know." },
     },

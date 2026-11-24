@@ -372,5 +372,23 @@ P:NPC {
     troggs = { { id = "tp_troggs", text = "They come up wherever we dig too deep, an' Stonehallow's the only one in the Senate who'll fight them himself." } },
     frostmane = { { id = "tp_frost", text = "Trolls in the hills, an' Whitebeard's reports say there are more than last year. I've read them twice." } },
     _none = { { id = "tp_none", text = "That's no' a matter before the Senate. Ask a clerk, or better yet, ask the King; he signs anythin'." } },
+    grievance = {
+      { id = "gv_1", text = "I've a long list o' everyone who's wronged Ironforge, an' ye've put yer name on it. That's my grievance." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "Ye stand in Ironforge wearin' Horde colours. I've written a motion against less, an' I'll write one against ye." },
+      { id = "gv_wr", when = { grudge = { worst = "wronged" } }, text = "Ye spoke tae a Senator o' Ironforge like he was a tavern loud-mouth. That goes on the list, in ink." },
+      { id = "gv_val", when = { grudge = "values" }, text = "Ye've no respect for the law, an' I've watched ye prove it. Ironforge is a city o' law, whatever the Dark Iron might think." },
+    },
+    amends = {
+      { id = "am_1", text = "Do some good for Ironforge an' let it be recorded. I'll strike yer name off the list when it is." },
+      { id = "am_wr", when = { grudge = "wronged" }, text = "Address me properly, as a Senator. Ye'd be surprised how far a proper title goes in this city." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think ye're the sort o' trouble the Senate debates for a fortnight an' then forgets. I'll no' forget." },
+      { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think ye'd sell Ironforge tae the Dark Iron for a mug o' ale, an' they'd short ye on the ale." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "The King's own daughter is in Shadowforge City wi' Thaurissan, an' the Senate cannae agree she was taken against her will. Ye didnae hear that from me." },
+    { id = "bl_2", text = "The Wildhammer are owed Grim Batol, by their reckoning, an' some in the Senate would gladly see them have it back cursed. I am no' one o' them, mind." },
   },
 }

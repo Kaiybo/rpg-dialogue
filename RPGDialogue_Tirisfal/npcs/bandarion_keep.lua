@@ -310,7 +310,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Crusade means to burn the zeppelin tower outside Brill, and they're bold enough to try it. If you're any friend to the Forsaken at all, warn the Deathguard before I have to." },
+    { id = "bl2", text = "The Solliden farmers have thrown in with the Crusade at their outpost, and they feed the zealots from their own fields. That's where Bareth was taken, and they mean to try him for the crime of existing." },
+    { id = "bl3", text = "The Dark Lady all but openly sneers at this keep, and half her court would be glad to see us gone. I never put that in my letters." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I try to see the good in everyone who climbs to this keep, and with you I've had to try very hard. If I'm honest, I'm tired of trying." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You treat being strong as leave to be cruel, and I've seen where that road ends. It ends in Scarlet red, with the Light in the hand and hatred in the heart." },
+      { id = "gv_town", when = { grudge = "town" }, text = "Brill talks, and the letters that reach this keep talk too. Very few of them have anything kind to say of you." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me as though a Forsaken paladin were a joke in poor taste. I've heard that from the Crusade and from the Undercity both, and I didn't expect it from you." },
+    },
+    amends = {
+      { id = "am1", text = "Do some good for its own sake, with nobody watching and nothing to gain. That's all divinity ever asked of any of us." },
+      { id = "am_wronged", when = { grudge = "wronged" }, text = "Speak to us as you would to any knight of the Silver Hand. We were knights once, and some of us still are." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're the sort the Light abandons long before you notice it's gone. I'd pray for you, but I'm not sure you'd want me to." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you'd have worn Scarlet red very comfortably, and I don't say that lightly. I knew those people, and I've buried some of them." },
+    },
     knows = {
       { id = "t_kn", text = "Letters reach me from Brill, the Undercity and Light's Hope, and the murlocs bring the rest. Ask, and I'll tell you what I can." },
       { id = "t_kn_warm", when = { disposition = { min = 65 } }, text = "You've done right by this keep, so I'll tell you what I don't put in my letters." },

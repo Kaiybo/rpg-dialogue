@@ -488,7 +488,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Hammer uses lights across the river to draw my sentries out at night. Half the riders on our memorial followed one." },
+    { id = "bl2", text = "There are fewer riders in Farholde than the rolls in Stormwind say, and I've stopped correcting the rolls. If the Hammer knew how thin we are, they'd already be at the gate." },
+    { id = "bl3", text = "Whoever leads in Krol'dok wants the mage tower at Sunnyglade, and I don't know why. That worries me more than all the ogres in the caves." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I've buried better soldiers than you and liked them more. You haven't given me a reason to change my mind." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "Every summoner the Hammer ever sent against this keep cost me riders, and I name them all. Yours is the same craft, and I'll not forget it." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me in my own keep as if the Brotherhood were a band of farmers on borrowed horses. Twenty years of graves say otherwise." },
+      { id = "gv_values", when = { grudge = "values" }, text = "The Brotherhood rides for each other first and glory last. You've shown me you have that the wrong way round." },
+    },
+    amends = {
+      { id = "am1", text = "Ride for Farholde, bleed for it, and come back. Do that enough times and I'll stop looking at you sideways." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Kill Hammer summoners, and bring me proof of it. That's the only argument for your craft I'll ever accept." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you'd have opened the gate for Howard and called it good sense. I've no use for anyone who'd do that." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think one day your own summonings will turn on you the way the Hammer's turned on my riders. I'll not ride out to save you." },
+    },
     knows = {
       { id = "tp_knows", text = "Every report from the glades crosses my table before it reaches anyone else. Ask, and I'll tell you what's worth knowing." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } },
@@ -918,7 +937,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "I think the Knight Commander is unfair to Lord Bolvar, and I'd never say so in front of Demar. Please forget I said it." },
+    { id = "bl2", text = "The mage tower in Sunnyglade is still warded, and I'm fairly certain the wards were my father's work. Whatever the Hammer wants inside, they can't get to it yet." },
+    { id = "bl3", text = "I came back from the western expedition alone, and I haven't told anyone all of what we found there. Some of it still hums in a locked box under my bed." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I'm sorry, I'm trying very hard to be fair to you, and I'm not managing it. You've made it rather difficult, if I'm honest." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke about my father's work as if it were an old man's hobby. It's all I have left of him, and you knew that when you said it." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You talk to me as though I were a clerk who'd got above herself. I'm Farholde's advisor, and I've earned the chair, even if it's covered in books." },
+      { id = "gv_values", when = { grudge = "values" }, text = "I've watched what you do with the things you find out there, and you'd sell a Hammer relic to the first buyer without asking what it whispers. That frightens me." },
+    },
+    amends = {
+      { id = "am1", text = "Bring me something from Sunnyglade and let me catalogue it properly, without arguing. I forgive people who help me read." },
+      { id = "am_wronged", when = { grudge = "wronged" }, text = "Read my father's notes, honestly read them, and then tell me what you think. I'd like to hear you say something kind about him." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're the sort of person who would use a book to prop a door open. I'm sorry, but there it is, and I've said it now." },
+      { id = "sp_values", when = { grudge = { worst = "values" } }, text = "I think if the Hammer offered you a relic that hummed, you'd take it and never wonder why. I've buried people who did exactly that." },
+    },
     knows = {
       { id = "tp_knows", text = "Oh, I know all sorts, and I'm out of practice at keeping any of it to myself. Ask, and stop me if I go on." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } },

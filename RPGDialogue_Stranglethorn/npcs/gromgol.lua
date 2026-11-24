@@ -430,7 +430,28 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Mosh'Ogg ogres at their mound east of the road have more spellcasters than my scouts can count. Kill the magi first, or they'll burn you down before you reach the brutes." },
+    { id = "bl2", text = "The Bloodscalp watch the river from their ruins in the north, and that's where my crates have been going. If you want to hurt them, hit the ruins and not the road." },
+    { id = "bl3", text = "Booty Bay sells my patrol routes to anyone with gold, the Alliance included. I've stopped telling the goblins where my grunts will be." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "My problem is that you take more from this camp than you give, and in Grom'gol that makes you dead weight. I don't carry dead weight up the Stonard road." },
+      { id = "gv_wronged", when = { grudge = { worst = "wronged" } }, text = "You spoke to me like a grunt who'd never held a line, in my own camp and in front of my soldiers. I remember it, and so do they." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're Alliance, standing inside the only wall the Horde has on this coast. Every guard I have wants to know why I haven't had you thrown in the river." },
+      { id = "gv_pers", when = { grudge = "persuade" }, text = "You tried to talk me round like a Booty Bay merchant haggling over crates. I command here, and I don't bend because someone pushes." },
+    },
+    amends = {
+      { id = "am1", text = "Work. Haul crates, kill Bloodscalp and bring back what you're sent for, because Grom'gol forgives the ones who sweat for it." },
+      { id = "am_wronged", when = { grudge = "wronged" }, text = "Speak to me straight and with respect, the way one soldier speaks to another. Do that, and I'll forget the rest in time." },
+      { id = "am_enemy", when = { grudge = "enemy" }, text = "You can't, not while you wear the Alliance's colours. The best you can do is leave my camp before the next watch changes." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're the kind who comes to the jungle for glory and leaves the burying to someone else. I've buried enough grunts to know your sort on sight." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think the Alliance sent you here to count my walls. Count them, then, and tell Stormwind there are more than enough for you." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you'd have been right at home in the old Horde, drunk on blood and proud of it. My grandfather died of that, and I've no patience left for it." },
+    },
     knows = {
       { id = "tp_knows", text = "My scouts report everything that moves on the Stonard road. Ask what you need, and don't waste my time." },
     },

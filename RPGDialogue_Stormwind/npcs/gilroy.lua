@@ -352,7 +352,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The warlocks of this city meet in the cellar under the Slaughtered Lamb in the Mage Quarter, and the guards know perfectly well. I've sold them parchment, Light forgive me." },
+    { id = "bl2", text = "I left Dalaran because a Kirin Tor magister wanted copies of books he had no business reading. I didn't make them, and I wasn't welcome after that." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I copy every scroll by hand, and I don't care to copy them for you. I'm sorry, but that's the plain truth of it." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You snapped at me as if I were a servant slow with your boots. I'm a scribe, and I take my time because the ink demands it." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You read a scroll aloud in my shop and laughed when it crumbled. That was a week of my work, and you thought it was a joke." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You treat learning like a pocketful of tricks, to be used and thrown away. I can't abide that, even in a customer." },
+    },
+    amends = {
+      { id = "am1", text = "Buy a scroll, read it properly, and come back and tell me what it taught you. I'd like that very much." },
+      { id = "am_tone", when = { grudge = "tone" }, text = "Speak to me gently, the way you'd handle an old book. I'm a little brittle these days, like most of my stock." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're the sort who reads the last page first and wonders why nothing makes sense. Please, go and do it somewhere else." },
+      { id = "sp_values", when = { grudge = { worst = "values" } }, text = "I think you've never once copied anything out by hand in your life, and it shows in everything you do." },
+    },
     _gated = {
       { id = "gt1", text = "That's a story for people I've shared a pot of tea with, and we've not got that far. Stay and talk a while when you next come for scrolls, and we'll see." },
       { id = "gt2", text = "I'd rather not go into that with someone I barely know. It's nothing against you; I'm as careful with my words as I am with my ink." },

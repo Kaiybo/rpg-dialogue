@@ -585,6 +585,24 @@ P:NPC {
     sentinels = { { id = "tp_sentinels", text = "The Sentinels guarded Kalimdor while our men slept in the Dream, and we are still guarding it. Feathermoon is the far edge of that watch, and it is a cold, wet edge." } },
     satyrs = { { id = "tp_satyrs", text = "The satyrs were our own people once, before they sold themselves to the Legion. When I put an arrow in one, I am finishing a quarrel ten thousand years old." } },
     _none = { { id = "tp_none", text = "That's not a matter for the Sentinels. Ask in Darnassus, where the priestesses have centuries to spare for such questions." } },
+    grievance = {
+      { id = "gv_1", text = "You have given my Sentinels reason to watch you, and I do not like the reasons. That is my grievance." },
+      { id = "gv_prej", when = { grudge = "prejudice", class = "WARLOCK" }, text = "You bargain with the same powers that burned my family in the War of the Ancients. I will not pretend I can forget that." },
+      { id = "gv_mage", when = { grudge = "prejudice", class = "MAGE" }, text = "The Highborne's hunger for magic brought the Legion upon us once. You walk the same road, and you walk it carelessly." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You wear the Horde's colours on Feathermoon's shore. My archers have been told to let you pass, and they find that difficult." },
+    },
+    amends = {
+      { id = "am_1", text = "Serve the Sentinels well, and say little while you do it. That is how anyone earns my trust." },
+      { id = "am_enemy", when = { grudge = "enemy" }, text = "Keep your people away from our forests, and keep your axes away from our trees. Then we may speak again." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you are a danger to anyone who stands near you, and I will not stand near you." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think the Legion would welcome you warmly, and I would rather not live to see it." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "What remains of the Highborne still lives in Dire Maul, under a prince called Tortheldrin. They draw their power from something chained in the ruins, and the High Priestess has not yet decided what to do about them." },
+    { id = "bl_2", text = "The Grimtotem have built a compound in the south of Feralas, and they answer to no tauren chief I know of. Rok Orhan's people would not thank me for telling you that." },
   },
 }
 
@@ -1424,6 +1442,23 @@ P:NPC {
     tyrande = { { id = "tp_tyrande", text = "The night elves' priestess sends archers to shoot our scouts in Ashenvale and calls it defense. Let her come to Feralas and see what defense looks like." } },
     sylvanas = { { id = "tp_sylvanas", text = "The dead ones in Lordaeron are allies because the Warchief says so. I would not let one cook for me." } },
     _none = { { id = "tp_none", text = "I don't know, but if it's an ogre, I'll learn, and it'll learn what an orc's axe feels like." } },
+    grievance = {
+      { id = "gv_1", text = "You've not killed a single ogre for me, and you talk like you've killed a hundred. That's my problem." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're Alliance, standing in Camp Mojache. My braves have buried friends on that elf boat's account, and they'd sooner bury you." },
+      { id = "gv_prej", when = { grudge = "prejudice", class = "WARLOCK" }, text = "The Gordunni's casters stink of the same fel you carry, warlock. Every time I look at you, I smell them." },
+    },
+    amends = {
+      { id = "am_1", text = "Go north to the Gordunni and bring me their heads. Then come and talk to me." },
+      { id = "am_enemy", when = { grudge = "enemy" }, text = "You can't, not here. Go back to your elves on the island and leave this camp to people who belong in it." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you'd run from an ogre with a club, and I don't waste my words on cowards." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think the night elves sent you to count my braves. Count them, then, and tell them we're more than enough." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "The Gordunni in Dire Maul answer to a king called Gordok. Kill him, and the ogres there will bow to whoever did it, the fools." },
+    { id = "bl_2", text = "The Grimtotem in the south of Feralas don't answer to Cairne, and I know it. Thunder Bluff doesn't want to hear about it, so I keep my braves away from their compound." },
   },
 }
 

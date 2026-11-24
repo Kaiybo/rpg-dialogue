@@ -344,7 +344,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Gelkis and the Magram would sooner kill each other than us, and Nijel's Point lives on that hate. If they ever made peace, we'd be gone within the week." },
+    { id = "bl2", text = "The centaur say something called Theradras lives beneath Maraudon, the earth spirit who killed their father. Whatever she is, she's poisoning the valley around it." },
+    { id = "bl3", text = "The Burning Blade's warlocks keep their circles inside Thunder Axe Fortress in the north, and that's where their demons come from." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've cost me more than you've given, and I keep a careful count. That's my problem with you." },
+      { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "I've buried soldiers the Burning Blade sent back to me in pieces, and you practise the same craft. I'm not inclined to make exceptions." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You wear the Horde's colours in a Stormwind garrison. I'd have you watched even if you'd done nothing, and you've done something." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You play everyone false and call it cleverness. I do the same, but I do it for Stormwind, and you do it for yourself." },
+    },
+    amends = {
+      { id = "am1", text = "Help me keep the centaur busy with each other and the Burning Blade busy with their graves. Then we'll see." },
+      { id = "am_prejud", when = { grudge = "prejudice" }, text = "Kill the Burning Blade at Thunder Axe Fortress and bring me proof. That's the only sort of warlock I've ever liked." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're a card I'd play once and then throw away. Don't mistake that for a compliment." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think Ghost Walker Post sent you to count my soldiers. Go and tell Takata there are more than he'd like." },
+    },
     _gated = {
       { id = "gt1", text = "That's not something I discuss with anyone I haven't taken the measure of. Do some work for the Point, and we'll speak again." },
       { id = "gt2", text = "I know the answer, and I'm keeping it. Out here I'm careful about who learns what." },
@@ -1583,7 +1602,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Burning Blade's warlocks keep to the inner rooms of Thunder Axe Fortress, and the fel stink is strongest there. Go in from the side, not the gate." },
+    { id = "bl2", text = "The Blade here are the same cult that hides in Ragefire Chasm beneath Orgrimmar, and the Warchief knows it. Kill them in one place and they crawl out of another." },
+    { id = "bl3", text = "Nijel's Point has fewer soldiers than it shows. Pentigast walks the same men along different walls, and he thinks we don't notice." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've shown me nothing worth respecting, and I measure everyone by that. Fight, or get out of my way." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're Alliance, and Nijel's Point sits up the valley with its spears pointed at us. Don't ask me what my problem is." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You talk the way the Burning Blade talk, about the power you'll have. I kill people who talk like that." },
+    },
+    amends = {
+      { id = "am1", text = "Kill Burning Blade at Thunder Axe Fortress and bring me their heads. That's how you make anything right at Ghost Walker Post." },
+      { id = "am_enemy", when = { grudge = "enemy" }, text = "You can't. Go back to Nijel's Point and leave us to our dead." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you'd last one night in the internment camps, and you'd be begging the guards for mercy before dawn." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think the Blade would welcome you, and I'd kill you along with the rest of them." },
+    },
     _gated = {
       { id = "gt1", text = "That's not something I tell to one who hasn't bled beside me. Fight the demons here, and then ask." },
       { id = "gt2", text = "I'll keep that to myself until I know what kind of {class} you are." },

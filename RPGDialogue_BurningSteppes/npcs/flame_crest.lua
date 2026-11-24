@@ -416,7 +416,24 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Windsor's no' dead. The Dark Irons took him alive down intae Blackrock Depths, an' they keep him in the prison cells beneath their city." },
+    { id = "bl2", text = "Windsor had papers on him when they took him, papers about dragons an' somebody very high in Stormwind's court. If the Dark Irons have read them, somebody in that keep is in trouble." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "Ye've been a pain in my backside since ye walked in, an' I've enough pains already, most o' them in my head." },
+      { id = "gv_wronge", when = { grudge = "wronged" }, text = "Ye called me a coward tae my face, same as Maxwell does. The difference is Maxwell's earned the right, an' ye havenae." },
+      { id = "gv_values", when = { grudge = "values" }, text = "Ye're a hero, an' I've buried a lot o' heroes. I've no wish tae add ye tae the list, nor tae drink wi' ye first." },
+    },
+    amends = {
+      { id = "am1", text = "Buy me a drink, an' then buy me another, an' then maybe we'll talk about it." },
+      { id = "am_wronge", when = { grudge = "wronged" }, text = "Say ye were wrong about me, an' mean it. Then fetch the ale, because that's how a dwarf takes an apology." },
+    },
+    spite = {
+      { id = "sp1", text = "I think ye're the sort who charges over the hill first an' leaves the rest o' us tae carry ye home. I've done that once already, an' I'll no' do it again." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think ye'll end up in Blackrock like Windsor, an' nobody'll come lookin' for ye either." },
+    },
     knows = {
       { id = "tp_knows", text = "Ye'd be amazed what a dwarf picks up at the bottom of a mug in a goblin camp. Ask old John about any o' this." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For a friend o' the cask, I'll even tell it straight, mostly. Here's what I know, *hic*." },

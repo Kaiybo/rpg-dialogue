@@ -342,7 +342,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The black drake over the Portal is called Teremus, and he devours anything that lands in that valley. Kum'isha has watched him eat three adventurers in a single season." },
+    { id = "bl2", text = "Kum'isha is not the only one of his people who escaped the orcs. Others hide in places your maps do not show, and they want to be found even less than he does." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "Kum'isha has no patience for you. You came with empty hands and a full mouth, and that is the worst kind of visitor." },
+      { id = "gv_wronge", when = { grudge = "wronged" }, text = "You spoke to Kum'isha as one speaks to a beggar. Kum'isha was not always broken, and he remembers when your kind were nothing at all." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You count Kum'isha's coin and not his loss. Greed he understands, but yours has no grief in it." },
+      { id = "gv_orc", when = { race = "Orc" }, text = "An orc asks what Kum'isha's problem is? Your people burned his cities and broke his body, and you need to ask." },
+    },
+    amends = {
+      { id = "am1", text = "Bring draenethyst, and keep bringing it. Crystals speak more sweetly to Kum'isha than you ever have." },
+      { id = "am_orc", when = { race = "Orc" }, text = "An orc cannot make that right, and Kum'isha will not pretend otherwise. Bring crystals, and leave the rest unsaid." },
+    },
+    spite = {
+      { id = "sp1", text = "Kum'isha thinks you are a scavenger like the rest of them, picking over a world that is not even yours to ruin." },
+      { id = "sp_wronge", when = { grudge = "wronged" }, text = "Kum'isha thinks you would sell his bones to the gnolls if they paid in silver, and they would, for that is all they are worth." },
+    },
     knows = { { id = "tp_knows", text = "Kum'isha has walked these wastes for a long time and listened to every fool who passed. Choose, then, and I will tell you what I have heard." } },
     background = {
       { id = "tp_bg", text = "Kum'isha the Collector, broken, lost, and very far from home. That is all a stranger needs to know, and more than most of them ask.", next = "who" },

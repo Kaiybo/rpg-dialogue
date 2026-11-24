@@ -668,5 +668,22 @@ P:NPC {
     heroes_vigil = { { id = "tp_heroes_vigil", text = "The stone ring on Stone Cairn Lake honors the dead of the First War, and rogue mages squat on it now. Marshal Dughan wants it cleared, and when you're ready, recruit, so will I." } },
     the_stockade = { { id = "tp_the_stockade", text = "The Defias we catch in this valley go to the Stockade, and the warden sends word back that the cells are full. That's a problem for the city; my problem is the next one." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Faire draws every recruit in the valley down to Goldshire the week it's there. I'll allow it, so long as they're back on watch at dawn." } },
+    grievance = {
+      { id = "gv_1", text = "I've a valley to hold and too few to hold it, recruit, and you've not helped. That's the long and short of it." },
+      { id = "gv_val", when = { grudge = "values" }, text = "You don't follow orders, and in Northshire that gets people killed. I've written enough letters home to know it." },
+      { id = "gv_wr", when = { grudge = { worst = "wronged" } }, text = "You spoke to me like I was one of your recruits. I'm the Marshal here, and I'll be spoken to like one." },
+    },
+    amends = {
+      { id = "am_1", text = "Do the work on the board, come back alive, and don't argue with me about it. That's all I ask of anyone." },
+      { id = "am_val", when = { grudge = "values" }, text = "Follow an order to the letter, once, without complaint. I'll notice." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you're the sort of recruit who gets the others killed, and I'm glad to see you leave the valley." },
+      { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think you'd sell out the abbey for a handful of silver, the same as the thieves in the vineyard." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "The Defias in the vineyards answer to a man called Garrick Padfoot, and he keeps to their shack by the vines. Cut him down and the rest will scatter." },
+    { id = "bl_2", text = "The kobolds in Echo Ridge Mine are digging for something deeper than candles, and I don't know what. I've not the men to go and look." },
   },
 }

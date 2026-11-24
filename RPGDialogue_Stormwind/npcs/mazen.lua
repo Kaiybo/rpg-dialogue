@@ -463,7 +463,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Defias have asked after maps of the old city more than once, through other people. I keep telling them the maps are being rebound, and they're starting to sound impatient." },
+    { id = "bl2", text = "Gakin the Darkbinder borrows books from this library and returns them late, and some of them come back smelling of sulfur. I've stopped asking which ones." },
+    { id = "bl3", text = "Watcher Mahar Ba at Nethergarde writes to me every month, and his letters lately suggest the Dark Portal isn't as quiet as the Keep believes." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I'm a polite man, and I'm being polite about this, but I'd rather you didn't touch the books. Any of them. Ever again, if possible." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You called the Academy a dusty attic for frightened clerks. Some of us are frightened, yes, but only because we've read what's in here." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You want knowledge for what it can do for you, and you don't care what it costs. Khadgar warned about people like that, and I copied out every word." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to me as though I were a shopkeeper who'd misplaced your order. I am the keeper of this library, and I'd like to be treated as one." },
+    },
+    amends = {
+      { id = "am1", text = "Return something to a library somewhere, anywhere, and on time. You'd be amazed how much that would mean to me." },
+      { id = "am_values", when = { grudge = "values" }, text = "Read something for the joy of it, with no purpose at all, and come and tell me about it. Then I might trust you near the shelves." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're the reason the Academy keeps its best books under lock and key. I think you'd lick your thumb before turning a page, too." },
+      { id = "sp_values", when = { grudge = { worst = "values" } }, text = "I think if you ever found a book of real power, you'd use it before you understood it. I've read the histories, and that never ends well." },
+    },
     _gated = {
       { id = "gt1", text = "I'm afraid I don't share that with visitors I've only just met. It isn't rudeness, I hope; a careful man keeps some pages closed until he knows his reader." },
       { id = "gt2", text = "I'd rather not say, not yet. Come by again and talk books with me a while, and perhaps I'll feel differently." },

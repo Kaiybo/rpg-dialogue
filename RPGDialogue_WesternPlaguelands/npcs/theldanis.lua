@@ -241,7 +241,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Tirion Fordring lives as an exile in a hut not far from this hill, stripped of his rank for showing mercy to an orc. His own son Taelan commands the Crusade at Hearthglen and will not speak his name." },
+    { id = "bl2", text = "The Scarlet Crusade at Hearthglen covets this tomb, and they would make Uther's rest a shrine to their own hatred. I sleep lightly because of it." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I bless most who climb this hill, and I would gladly have blessed you. But you've given me little reason, and I'll not pretend otherwise before the Lightbringer's tomb." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "You keep company with the Nether, and you've brought it to the very door of Uther's rest. I cannot forgive that, however gently I try." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You fight for plunder and call it a crusade, and the Light sees the difference even when you don't. Uther would have seen it too." },
+      { id = "gv_tone_b", when = { grudge = "tone", tone = "blunt" }, text = "You speak in this holy place as though it were a barracks yard. Lower your voice, and lower your pride with it." },
+    },
+    amends = {
+      { id = "am1", text = "Pray, if you are able, and do good without seeking praise for it. The Light is patient, and I will try to be as patient as it is." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Turn from the dark, and come back to this hill without it. The Light's door is never closed, even to you." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you have strayed far from any light, and you seem content to stay lost. I will pray for you, though I doubt you'd thank me for it." },
+      { id = "sp_prej", when = { grudge = "prejudice" }, text = "I think you would bargain away the Lightbringer's own bones if a demon offered enough. I will not let you near them while I live." },
+    },
     knows = { { id = "tp_knows", text = "I've watched this hill a long while, and travelers bring news with their hunger. Ask, and I'll tell you what I know, and no more than that." } },
     background = { { id = "tp_bg", text = "I'm the one who keeps the tomb. The rest of my story is long and mostly about sweeping, so I'll spare you." } },
     advice = { { id = "tp_ad", text = "Eat when there's bread, sleep when there's a wall at your back, and pray when there's neither." } },

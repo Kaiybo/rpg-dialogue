@@ -419,6 +419,23 @@ P:NPC {
       { id = "gt1", text = "That's a matter I keep for those who've stood with the Dawn a while. Do the work, and I'll speak of it when I know you better." },
       { id = "gt2", text = "I'd rather not discuss that with someone I've only just met. Forgive my reserve, but it has kept this chapel standing." },
     },
+    grievance = {
+      { id = "gv_1", text = "The Dawn takes anyone who'll stand, and I've watched you stand poorly. That's my concern with you, and it's enough." },
+      { id = "gv_prej", when = { grudge = "prejudice", class = "WARLOCK" }, text = "I fought the Cult of the Damned's dark-callers when they were still men, {class}. The Dawn needs you, and I'm trying to remember that." },
+      { id = "gv_val", when = { grudge = "values" }, text = "You treat this chapel like a market, and the dead out there like a harvest. Light's Hope is neither." },
+    },
+    amends = {
+      { id = "am_1", text = "Stand with the Dawn when it costs you something. Bring scourgestones to the quartermaster and your name will mend itself." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Fight the dead in the open where my paladins can see you do it. I can be persuaded by deeds, not by words." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you're here for the rewards, and the dead can smell that. Don't expect me to mourn you." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think your craft is how all this began, and I'll thank you to keep it away from my chapel." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "Corin's Crossing is where the Scourge gather before they march on the chapel. If you mean to thin them, that's where it counts." },
+    { id = "bl_2", text = "The Crusade at Tyr's Hand would sooner burn this chapel than any ziggurat, and they've said so to my envoys' faces. I keep that out of the reports to Stormwind." },
   },
 }
 

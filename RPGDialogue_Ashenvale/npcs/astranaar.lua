@@ -525,7 +525,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The orcs mass at the Warsong Lumber Camp in the east, and the road from the Barrens keeps it fed with fresh grunts. Burn that camp and the rest of this war gets easier." },
+    { id = "bl2", text = "The Thistlefur furbolgs in the hold to the north have gone mad, and whatever turned them is buried deep in their tunnels." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've been more trouble to Astranaar than help, and I've no time for either while the Warsong are cutting at the forest." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're Horde, and Horde axes are biting into Ashenvale as we speak. I'll need a better reason than your face to stop counting them." },
+      { id = "gv_wronge", when = { grudge = "wronged" }, text = "I've lost people to this forest, and you spoke to me as though their names were nothing. I haven't forgotten it." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You'd sell a grove to the first lumber camp that paid you. I can hear it in how you talk about the trees." },
+    },
+    amends = {
+      { id = "am1", text = "Stand a night watch on the eastern road and bring my scouts home alive. Do that, and we'll talk again." },
+      { id = "am_enemy", when = { grudge = "enemy" }, text = "You won't, not while your Warchief's lumber camps are eating Ashenvale. Go home, and take the Warsong with you." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're one more stranger who sees Ashenvale as a hunting ground. The forest will teach you otherwise, and I hope I'm there to watch." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think you're a Warsong axe with a mouth, and my Sentinels would put an arrow in you if I let them." },
+    },
     _gated = {
       { id = "gt1", text = "That's not something I'll talk about with someone I've barely hunted beside. Do some work for Astranaar, and I may tell you." },
       { id = "gt2", text = "I know, and I'm keeping it to myself until I'm surer of you. Out here we've learned to be careful about whom we trust." },

@@ -696,6 +696,23 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "An orc who freed his people and made peace where he could, by all accounts, and a clever one. I'd love to know how they build those spiked towers, though I'm not sure I'd love to be invited in to see." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Silas Darkmoon's carnival has some of the finest steam-driven contraptions I've ever seen at a fair, and some of the worst. I sent an apprentice to study them and he came back with a goldfish and no notes." } },
     _none = { { id = "tp_none", text = "Not my department, I'm afraid. I have only the one department, and it's on fire." } },
+    grievance = {
+      { id = "gv_1", text = "I've a whole people living in someone else's city, and you've added to my worries rather than lightened them. That's my problem." },
+      { id = "gv_val", when = { grudge = "values" }, text = "You don't respect the work, and gnomes are nothing without the work. I can't abide that." },
+      { id = "gv_wr", when = { grudge = { worst = "wronged" } }, text = "You spoke to me as though I were a tinkerer of no account. I was elected, you know, by every gnome who survived." },
+    },
+    amends = {
+      { id = "am_1", text = "Help my people get Gnomeregan back, or at least help them while they wait. I'll take either." },
+      { id = "am_val", when = { grudge = "values" }, text = "Show some respect for what we build. A kind word for the engineers would go further than you'd think." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you're a bolt in the gears, and I've had quite enough of those to last a lifetime." },
+      { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think you'd have sold Gnomeregan to the troggs for a pair of boots. Thermaplugg would have liked you." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "Mekgineer Thermaplugg advised the radiation flush that ruined Gnomeregan, and I listened to him. He's still down there, in the heart of the city, and he's no longer on our side." },
+    { id = "bl_2", text = "There's a workshop entrance behind Gnomeregan's main gate, and only a Workshop Key will open it. Most adventurers never find it, which is rather the point." },
   },
 }
 

@@ -656,7 +656,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Of the three dreadlords who held Lordaeron, I broke Detheroc and Varimathras bent the knee, but Balnazzar slipped away. Bring me word of where he hides, and I may yet forget my displeasure." },
+    { id = "bl2", text = "Kel'Thuzad still serves his master from Naxxramas, high above the Plaguelands, and he will answer to me before the end. Until then the Scourge in the east are his, and the Bulwark is all that stands before them." },
+    { id = "bl3", text = "My apothecaries are brewing something for the Scourge, and for whoever else stands in my way. Be grateful you know even that much." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You have disappointed me, and I am not accustomed to repeated disappointments. That you still stand in my court is a courtesy, not a promise." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You are of the Alliance, which once called my people abominations and still does. You stand here because I allow it, and for no other reason." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me as though I were some petty warlord to be lectured. I was Ranger-General of Silvermoon before you were born, and I am queen of the Forsaken now." },
+      { id = "gv_pers", when = { grudge = "persuade" }, text = "You tried to bend my will with words, as Arthas once bent it with steel. He failed in the end, and so have you." },
+    },
+    amends = {
+      { id = "am1", text = "Serve the Forsaken, and serve them well, and do not make me ask twice. My memory is long, but it does keep accounts of loyalty." },
+      { id = "am_enemy", when = { grudge = "enemy" }, text = "There is nothing you can do while you wear their colours. Some debts are owed by whole kingdoms." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are a pawn who believes itself a player, and I have outlived far greater pieces than you. Go, before I decide what you are worth to me." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think your kings left Lordaeron to die and now pretend they were never here. You are what remains of their conscience, and it is very small indeed." },
+    },
     humans = { { id = "tp_humans", text = "Most of my people were human once, and their living kin have answered them with torches and the Crusade's pyres. I expect nothing from humanity, and so far it has never disappointed me." } },
     knows = {
       { id = "tp_knows", text = "Little happens in my kingdom that does not reach me, one way or another. Ask, and I will decide how much of it you need." },
@@ -961,7 +980,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "My brother Balnazzar did not perish, whatever the court believes; he hides among the Scarlet Crusade in Stratholme, behind a crusader's face. The Dark Lady knows it, naturally, for I keep nothing from her." },
+    { id = "bl2", text = "The Dark Lady's banshees listen in every corridor of this city, and nothing said in the Undercity stays private for long. You might remember that before you speak of me again." },
+    { id = "bl3", text = "Lord Kazzak gathers what the Legion left behind in the Blasted Lands, in the shadow of the Dark Portal. I mention it only so that you know which direction not to wander." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You have bored me, mortal, which is the one crime I find truly unforgivable. The Dark Lady's tolerance is hers, and mine is rather shorter." },
+      { id = "gv_tone_b", when = { grudge = "tone", tone = "blunt" }, text = "You address me as you would a goblin peddler in the Trade Quarter. I have served greater masters than you can imagine, and none of them spoke to me so." },
+      { id = "gv_pers", when = { grudge = "persuade" }, text = "You attempted to manipulate me, mortal, as though I had not been doing it since before your kingdoms were founded. It was almost charming, and then it was merely tiresome." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You have the morals of a crusader and the manners of a ghoul. I cannot decide which offends me more." },
+    },
+    amends = {
+      { id = "am1", text = "Make yourself useful to the Dark Lady, and do it with a little grace. I may then remember you less unkindly." },
+      { id = "am_tone_b", when = { grudge = "tone", tone = "blunt" }, text = "Learn to address your betters with proper courtesy. It is a small thing, and small things are all I expect of you." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are a short-lived, short-sighted creature who mistakes being tolerated for being liked. In a century no one will remember your name, and I shall not try." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you would sell your own soul for a sharper sword, and the buyer would still be overcharged." },
+    },
     knows = {
       { id = "tp_knows", text = "Everything in this city passes through my hands on its way to the Dark Lady, faithfully, as always. Ask, and I will share what she would wish you to know." },
       { id = "tp_knows_warm", when = { disposition = { min = 65 } }, text = "The Dark Lady values you, and therefore so do I, naturally. Ask me anything you like." },
@@ -1315,7 +1353,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Lydon in Tarren Mill tests our compounds on whatever wanders within his reach, and his results are splendid. Don't let him offer you a drink, whatever he says is in it." },
+    { id = "bl2", text = "The Scarlet zealots in their monastery have the most remarkable hearts, simply bursting with conviction, and I need dozens of them. Bring me as many as you can carry, and don't ask why." },
+    { id = "bl3", text = "The Society is brewing a little something of our own for the Scourge, and the Dark Lady watches its progress very closely indeed. Oh dear, I wasn't meant to say that." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "Oh, my problem? You're a spoiled reagent, my friend, the kind that ruins the whole batch. Science has no use for you, and neither, I'm afraid, do I." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You mocked my work, my life's work, to my very face! Science forgives a great deal, but it never forgets an insult." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You squeamish types are all the same, wrinkling your noses at the Apothecarium's methods. Progress is messy, and you'd rather it weren't made at all." },
+      { id = "gv_town", when = { grudge = "town" }, text = "The whole Society's been whispering about you, and none of the whispers are complimentary. Apothecaries gossip terribly, you know; it's the fumes." },
+    },
+    amends = {
+      { id = "am1", text = "Bring me reagents, splendid ones, without being asked and without complaining. Nothing restores a friendship like a fresh delivery!" },
+      { id = "am_wronged", when = { grudge = "wronged" }, text = "Show a little respect for the work, that's all, and perhaps a little awe. Awe is always welcome in the Apothecarium." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you'd make a splendid test subject, honestly, and I mean that as the cruellest thing I can say. Do keep well away from the green vats." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you're a coward who wants the Scourge gone but won't dirty your hands with the how. The Society will save you anyway, and you'll never thank us." },
+    },
     humans = { { id = "tp_humans", text = "Humans are the finest reagent in Lordaeron, my friend, and the Scarlet Crusade keeps delivering them right to our door. I was one once, and I can say with authority that it's overrated." } },
     knows = {
       { id = "tp_knows", text = "Oh, I collect information the way I collect reagents: eagerly, and without asking too closely where it came from! Pick something, anything." },

@@ -496,6 +496,25 @@ P:NPC {
     the_elements = { { id = "tp_the_elements", text = "We Wildhammer still talk tae the spirits, as the Bronzebeards stopped doin' long ago. Fraggar can tell ye more, if ye can get him tae stop listenin' tae the wind long enough." } },
     zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi have woken their blood god down in Stranglethorn, an' the Vilebranch up here have been dancin' tae the same drums. I dinnae like it, an' I like it less every night." } },
     _none = { { id = "tp_none", text = "Never heard o' it! Is it a troll, now? Then I'll hear of it soon enough." } },
+    grievance = {
+      { id = "gv_1", text = "I've a hall full o' riders an' a sky tae keep, an' ye've given me nae reason tae like ye. That's the whole o' it." },
+      { id = "gv_prej", when = { grudge = "prejudice", race = "Dwarf" }, text = "Ye smell o' Ironforge, lad, an' Ironforge drove my folk out o' Grim Batol. We've long memories in the Wildhammer." },
+      { id = "gv_human", when = { grudge = "prejudice", race = "Human" }, text = "Lordaeron's lords treated my riders like hired beasts in the war. Ye've the look o' them, an' I'll no' pretend otherwise." },
+      { id = "gv_wr", when = { grudge = { worst = "wronged" } }, text = "Ye spoke tae a High Thane like he was a stable boy. No Wildhammer forgets that, an' I'm the least forgettin' o' them all." },
+    },
+    amends = {
+      { id = "am_1", text = "Go an' put a few Vilebranch in the ground, then come back an' drink wi' us. That's how it's done here." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Prove ye're no' one o' those Ironforge sorts who think we're savages. It'll take a while, mind." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think ye'd fall off a gryphon in a stiff breeze, an' I'd no' send a rider tae catch ye." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think Ironforge grew ye in a cellar, away from the sky. It shows." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "The Vilebranch keep their prisoners at the top o' Jintha'Alor, past the altars. If ye mean tae free anyone, ye'll be climbin' through the whole tribe." },
+    { id = "bl_2", text = "The Witherbark at Shadra'Alor pray tae a spider, an' their priests are weaker than they look once ye break the idols. Don't tell the Revantusk I said that." },
+    { id = "bl_3", text = "Grim Batol was our home, an' it's cursed now by Thaurissan's death. We dinnae go back, an' we dinnae talk about it." },
   },
 }
 

@@ -354,7 +354,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The lich in Andorhal is Araj the Summoner, and the dead in that town rise at his word. Kill him and take what he carries, and the whole west breathes easier." },
+    { id = "bl2", text = "Alexi Barov plays the loyal Forsaken on my wall, but his family sold Caer Darrow to the Cult of the Damned. He wants the deeds back, and so does his brother at Chillwind." },
+    { id = "bl3", text = "Vandis and Dithers can sour the plague cauldrons on the farms, but the Cult sets a cauldron lord over each one, and he carries the key. Kill the keeper first, or you'll get nowhere near the cauldron." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You cost me time, and time on this wall is counted in the living who can still be saved. I don't waste it on people who don't pull their weight." },
+      { id = "gv_tone_p", when = { grudge = "tone", tone = "polite" }, text = "You dress up every request like a courtier in the Royal Quarter. This is the Bulwark, and out here we say what we mean or we die." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're Alliance, inside a Forsaken fort on the edge of the Plaguelands. I'll use you if the Scourge comes over the wall, but I won't pretend to like it." },
+      { id = "gv_town", when = { grudge = "town" }, text = "The Deathguard on this wall trust each other with their unlives, and none of them trust you. I've learned to listen when they agree." },
+    },
+    amends = {
+      { id = "am1", text = "Go out past the wall, kill something that needs killing and burn it. Do that enough times, and we'll call it even." },
+      { id = "am_town", when = { grudge = "town" }, text = "Earn the wall's trust one night at a time. The Deathguard remember who stood with them." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you'd run from the first ghoul over the wall and call it a strategic withdrawal. I've seen your kind before, and I've buried what was left of them." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think the Alliance sends people like you to look at our defences, and I think you've seen too much already. Leave by the gate while it's still open." },
+    },
     knows = {
       { id = "tp_knows", text = "Everything that comes over this wall crosses my desk first, and I remember all of it. Ask about these, and keep it useful." },
     },

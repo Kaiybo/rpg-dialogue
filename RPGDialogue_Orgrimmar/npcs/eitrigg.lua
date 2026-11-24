@@ -298,7 +298,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Rend keeps his throne in the upper halls of Blackrock Spire, behind his arena and his dragons. He calls himself Warchief because he could never bear that Thrall carries the name." },
+    { id = "bl2", text = "Tirion Fordring lives alone in a hut in the Plaguelands, cast out by his own order for sparing my life. If you ever pass that way, he would welcome word that I still live." },
+    { id = "bl3", text = "There are Blackrock grunts in that mountain who follow Rend only because they fear the dragons more than him. I have never told the Warchief how many, because I do not truly know." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I have known too many orcs who mistook cruelty for strength, and you remind me of them. I left the Horde once over that sort, and I am too old to keep quiet about it now." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me as if I were some broken old deserter good for nothing but sitting in the Warchief's shadow. I have been called that before, and I liked it no better then." },
+      { id = "gv_values", when = { grudge = "values" }, text = "Honor is the only thing that separates the Horde from the Blackrock in their mountain. I have watched how you carry yours, and I find it thin." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You stand in Grommash Hold under the wrong banner. I owe my life to one human, but that debt does not extend to every one who walks in here." },
+    },
+    amends = {
+      { id = "am1", text = "Deeds, not words. Fight for something better than yourself, and let the Warchief's people see you do it." },
+      { id = "am_wronged", when = { grudge = "wronged" }, text = "Speak to me as one soldier speaks to another, plainly and without the sneer. I will hear you if you do." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are what I was at your age, strong and blind and pleased with yourself. It took me years in the hills to undo it, and I doubt you have the patience." },
+      { id = "sp_values", when = { grudge = { worst = "values" } }, text = "I think Rend Blackhand would have found a place for you in his Spire. That is the worst thing I know how to say about anyone." },
+    },
     _gated = {
       { id = "gt1", text = "That's a thing I speak of with those who've earned it, and you haven't yet. Show me what kind of {class} you are, and ask again." },
       { id = "gt2", text = "I'll keep that to myself for now, because I don't know you well enough to hand you the heavier parts of my life." },

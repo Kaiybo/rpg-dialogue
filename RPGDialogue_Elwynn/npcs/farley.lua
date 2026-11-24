@@ -523,5 +523,22 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "They say there's an orc warchief across the sea now who talks of peace and means some of it. My father would have spat at that, but then my father also rebuilt this inn twice." } },
     booty_bay = { { id = "tp_booty_bay", text = "Sailors from Booty Bay drink here on their way to the city, and they tip in coins I've never seen before. I keep a jar of them behind the bar, and Verina says it's the ugliest jar in Elwynn." } },
     bolvar = { { id = "tp_bolvar", text = "The Highlord's a good man and a tired one, I hear. Folk from the Keep say he hasn't had a decent supper since the king went missing, and I'd send him one if they'd let me." } },
+    grievance = {
+      { id = "gv_1", text = "I've never turned anyone out of the Lion's Pride, friend, but you've tested that. I'd rather not say more." },
+      { id = "gv_town", when = { grudge = "town" }, text = "Goldshire's a small town and it talks, and it's been talking about you. I keep a happy house, and you don't help." },
+      { id = "gv_tone", when = { grudge = "tone", tone = "blunt" }, text = "You snapped at my serving girls like they were in your road. My family's kept this inn for generations on kind words, and I'll keep it that way." },
+    },
+    amends = {
+      { id = "am_1", text = "Buy a round for the room and mind your manners. Most of Goldshire forgives anyone who does both." },
+      { id = "am_town", when = { grudge = "town" }, text = "Help the marshal with his troubles, and folk here will hear of it. Goldshire remembers its friends." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you'd water the drinks if you ran this place, and I've never once watered a drink." },
+      { id = "sp_town", when = { grudge = { worst = "town" } }, text = "I think this inn would be a merrier place with you on the road to Stormwind. There, I've said it." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "The Maclure girl sneaks out to meet the Stonefield boy by the lake, and both families would brawl in my common room if they knew it. Don't you dare tell them." },
+    { id = "bl_2", text = "There's a door to my cellar I don't go through, and the folk down there pay their rent on time. Stormwind tells me not to ask about them, so I don't." },
   },
 }

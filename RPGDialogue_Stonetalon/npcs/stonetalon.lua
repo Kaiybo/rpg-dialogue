@@ -413,7 +413,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Venture Company's overseer keeps his camp at Windshear Crag, and he never leaves it without his guards. Kill him, and the saws stop for a season." },
+    { id = "bl2", text = "The Grimtotem who attacked Camp Aparaje did not act alone, and Magatha knows it. Cairne knows it too, and he will not move against her." },
+    { id = "bl3", text = "The Bloodfury harpies nest on the high cliffs above the Charred Vale, and their matriarch never comes down. My braves have tried, and lost too many." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I was gentle once, before the battles, and you have reminded me why I stopped. Say what you need and go." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "Cairne told me what demon blood did to the orcs, and I believe him. You carry the same taint up my mountain, and I will not have it." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You fight like the goblins cut trees, taking everything and mending nothing. The Earth Mother does not love that, and neither do I." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me as if Sun Rock were a place for old bulls to die. It is a place to hold, and I am holding it." },
+    },
+    amends = {
+      { id = "am1", text = "Fight the Venture Company and the harpies, and let my braves tell me of it. Deeds carry further than words on this rock." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Keep your demon below the switchbacks, and prove your craft can serve the land. I am slow to change my mind, but I am not stone." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you would have been one of the centaur's raiders, if you had been born with hooves. I have killed enough of them to know the look." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think the darkness you carry will eat you from the inside, as it ate the orcs. I will not be the one to mourn you." },
+    },
     _gated = {
       { id = "gt1", text = "That's not something I speak of with strangers, and you're still a stranger to me. Do some good on this mountain first." },
       { id = "gt2", text = "I'll keep that to myself. I've trusted the wrong ears before, and I'm slower with it now." },

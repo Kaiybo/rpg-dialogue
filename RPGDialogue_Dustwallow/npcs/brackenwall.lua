@@ -437,6 +437,23 @@ P:NPC {
     sylvanas = { { id = "tp_sylvanas", text = "The Banshee Queen keeps her word to the Warchief, so far. I would watch her hands, but I watch everyone's hands." } },
     centaur = { { id = "tp_centaur", text = "The Kolkar raid caravans in the Barrens, and they think a horse's legs make them a horde. A good axe cuts the legs the same as anything else." } },
     _none = { { id = "tp_none", text = "I don't care about that. Find me the burners, and bring me deeds, not talk." } },
+    grievance = {
+      { id = "gv_1", text = "My problem is that I have a burned inn, dead travellers, and no time for anyone who isn't helping. You haven't helped." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You come from Theramore's side of the marsh, and an inn full of my people burned. I'll want better than your word before I trust you." },
+      { id = "gv_wr", when = { grudge = { worst = "wronged" } }, text = "You spoke to me like a grunt who doesn't know his work. I command Brackenwall, and I remember who forgets that." },
+    },
+    amends = {
+      { id = "am_1", text = "Find out who burned the Shady Rest, and bring the answer to me first. Then we'll talk." },
+      { id = "am_enemy", when = { grudge = "enemy" }, text = "Bring me proof that Theramore had no hand in the burning. I'll believe a peace that's earned, not one that's promised." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you're one more stranger in the marsh with more questions than answers. The Warchief's name deserves better than you." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think the Lady keeps peace in her tower and lets her soldiers do as they please in the marsh. You smell like one of them." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "Deserters from Theramore hide in the marsh north of here, and they've no love for either side. If you want answers about that inn, start with them." },
+    { id = "bl_2", text = "Black dragons nest in the Wyrmbog to the south, and their whelps come further every month. Something big in there is feeding them, and it isn't a beast." },
   },
 }
 

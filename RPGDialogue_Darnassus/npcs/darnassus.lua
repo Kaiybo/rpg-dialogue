@@ -794,7 +794,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Malfurion has slept in the Emerald Dream longer than he should, and the druids of the Enclave will not tell my Sentinels why he has not woken." },
+    { id = "bl2", text = "Fandral's tree was never blessed by the Aspects as Nordrassil was, and my priestesses feel a wrongness creeping into its roots. Ask the Gnarlpine what it does to those who live beneath it." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You have dishonored yourself before me, and in the Temple of the Moon that is no small thing. Elune sees what you are." },
+      { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "I led the Sisterhood at Hyjal and buried hundreds of my priestesses when the Legion was done with them. You call that same fire into your hands, and you ask me what my problem is." },
+      { id = "gv_rival", when = { grudge = "rival" }, text = "You stand close to Fandral Staghelm and his ambitions, and a friend of his ambitions is no friend of mine." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You are Horde, and Horde axes are falling in Ashenvale as we speak. I will not pretend that is nothing." },
+    },
+    amends = {
+      { id = "am1", text = "Serve the Sentinels in Ashenvale, and let Elune judge what you are. Her judgment is kinder than mine." },
+      { id = "am_rival", when = { grudge = "rival" }, text = "Choose where your loyalty lies. My Sentinels will know it when you do." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are a sword with no hand to guide it, and swords like that cut whoever stands closest." },
+      { id = "sp_prejud", when = { grudge = "prejudice" }, text = "I think that if the Legion returns, you will be standing at its gate and holding it open." },
+    },
     _gated = {
       { id = "gt1", text = "That is not something I will speak of to one I scarcely know. Earn the trust of my people, and perhaps you will earn mine." },
       { id = "gt2", text = "I know the answer, and I choose to keep it. There are matters the High Priestess shares only with those who have proven themselves to the kaldorei." },
@@ -1466,7 +1484,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "My son Valstann died at the hands of the qiraji in Silithus, and I will see that hive burned before I die. Tyrande has never once spoken his name to me." },
+    { id = "bl2", text = "The Circle keeps druids at Cenarion Hold watching the qiraji walls, and they report to me long before they report to the Temple." },
+    { id = "bl3", text = "The Gnarlpine went mad, yes, but that is a weakness of the furbolgs and no fault of my tree, whatever the priestesses whisper about its roots." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You are tiresome, and I have no patience for the tiresome. Ask any druid of the Enclave how much I have." },
+      { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "You wield the same arcane that drowned Zin-Azshari and sundered the world. I do not forgive that, and I do not forget it." },
+      { id = "gv_rival", when = { grudge = "rival" }, text = "You have made yourself Tyrande's creature, and the priestesses already have too many voices in this city's affairs." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to the Arch Druid of the Cenarion Circle like a mule driver. Mind your tongue in my Enclave." },
+    },
+    amends = {
+      { id = "am1", text = "Do the Circle's work without question, and perhaps I will remember you more kindly. Perhaps." },
+      { id = "am_prejud", when = { grudge = "prejudice" }, text = "Renounce the arcane. You will not, of course, and so we have nothing to discuss." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are a short-lived meddler who will be forgotten before my tree has grown another ring." },
+      { id = "sp_prejud", when = { grudge = "prejudice" }, text = "I think you are the Highborne all over again, and I only hope I am not here to watch your folly ruin another world." },
+    },
     _gated = {
       { id = "gt1", text = "That is the Circle's business, and you have given me no reason to make it yours. Prove you are worth my time, and then ask again." },
       { id = "gt2", text = "I do not discuss such things with every wanderer who climbs to the Enclave. You will have to stand a good deal higher in my regard first." },

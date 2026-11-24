@@ -505,7 +505,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Twilight's Hammer hold three camps across this desert, and the officers keep the wind stones close. Every stone is a door for something worse." },
+    { id = "bl2", text = "The hives all tunnel toward the city behind the Scarab Wall, and I believe something inside is calling them. I have written to Fandral, and he has not answered." },
+    { id = "bl3", text = "I still send a scout each month to the hive where Natalia was taken, though I have told the Circle I stopped. I cannot bring myself to stop looking for whatever took her mind." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "The Hold needs those it can rely on, and I have learned I cannot rely on you. I do not have time to pretend otherwise." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "My forebears died at Hyjal to drive the Legion from this world, and you call its servants to your side. I will not forgive that for the Circle's sake." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke of my wife as if she were a soldier's tale, something to shrug at over a fire. She was my wife, and I will not hear her spoken of so." },
+      { id = "gv_values", when = { grudge = "values" }, text = "The Circle holds this desert for the sake of balance, and you treat it as a hunting ground for your own glory. I see it, and Elune sees it." },
+    },
+    amends = {
+      { id = "am1", text = "Burn the Twilight's camps, and let the Hold's sentries speak for you. I will listen to them sooner than to you." },
+      { id = "am_wronged", when = { grudge = "wronged" }, text = "Speak her name with respect, once, and mean it. That is all I have left to ask of anyone." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you came to Silithus for glory, and the desert will give you a grave instead. I will not send my Sentinels to dig it." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think the Twilight's Hammer began with people very like you, who thought they could bind darkness and walk away. None of them walked away." },
+    },
     knows = {
       { id = "tp_knows", text = "Every scout's report crosses my table before it goes to Moonglade. I'll tell you what I can of any of these." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've earned straight answers in this Hold. Ask about any of these, and I'll hold nothing back that I'm free to give." },
@@ -915,7 +934,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The crystals nearest Hive'Ashi hum lowest, an' the silithid gather thickest around them. Whatever drives the bugs, it's in the stone." },
+    { id = "bl2", text = "Hermit Ortell in the eastern hills can read the cult's writing, an' he'll do it for anyone who brings him their scraps. The Hammer'd pay well to know where he hides." },
+    { id = "bl3", text = "I've written to Ironforge three times about what I'm hearin' here, an' nobody's answered. I'm beginnin' to think the Explorers' League doesn't want to know." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I'm a patient dwarf, friend, and ye've worn that patience down to the bedrock. I'll say no more than that." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "Ye laughed at the hum like I was a daft old woman talkin' to rocks. I am talkin' to rocks, but I'm not daft, an' ye might have listened." },
+      { id = "gv_values", when = { grudge = "values" }, text = "Ye smash things to see what's inside them, an' then ye leave the pieces lying. That's no way to treat a desert, nor a dig site." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "Ye talk to me like I'm a hired digger with a pick. I've a doctorate from the Hall of Explorers, if it matters to ye, an' it should." },
+    },
+    amends = {
+      { id = "am1", text = "Bring me crystal samples from near the hives, whole an' unchipped. That would mend more than ye'd think." },
+      { id = "am_wronged", when = { grudge = "wronged" }, text = "Sit with me at night an' listen to the stones, properly, for an hour. Then tell me I'm imaginin' it." },
+    },
+    spite = {
+      { id = "sp1", text = "I think ye've a head harder than any rock in this desert, an' far less interesting. There, I've said it, an' I'll not take it back." },
+      { id = "sp_values", when = { grudge = { worst = "values" } }, text = "I think ye'd crack open the Scarab Wall itself just to see what fell out. Somebody like ye is how the world ends, friend." },
+    },
     knows = {
       { id = "tp_knows", text = "Rocks, bugs and cultists, in about that order of how much I like them. Ask away." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, I'll even put down the hammer. What would ye know?" },

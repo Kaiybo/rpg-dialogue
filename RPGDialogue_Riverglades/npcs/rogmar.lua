@@ -380,7 +380,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Their leader sits deep in Krol'dok, beyond the ogres, and the cultists bring him prisoners for his altar every few nights. The ogres only guard the door." },
+    { id = "bl2", text = "The Brotherhood on their island are fewer than they pretend. I have counted their riders from the ridge, and they could not hold that keep against a real assault." },
+    { id = "bl3", text = "Someone in Krol'dok wants the human tower at Sunnyglade, and the cultists dig toward it every night. I do not know why, and that is why I want their master dead." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You are not someone I would send into Krol'dok, and that is the worst thing I say of anyone in Rog'mar. Ask me again when that has changed." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "Gul'dan's warlocks sold my people to the demons, and the Hammer's orcs grew from the same poison. You carry it on your hands, and I smell it." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You fight for yourself and call it serving the Horde. The camps taught me what that kind of orc is worth when the blades come out." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You wear the Alliance's colours in a Horde camp, and I fought your kind for too many years to forget it now." },
+    },
+    amends = {
+      { id = "am1", text = "Bring me cultist blood from Krol'dok, and plenty of it. Deeds are the only words I trust." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Turn that thing on the Hammer and keep it turned there. When I see that, I may stop watching your hands." },
+    },
+    spite = {
+      { id = "sp1", text = "I think the caves would eat you before you reached the first ogre, and I would not waste a grunt to fetch your body." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think you would have knelt to Gul'dan gladly, and that you are only one bad bargain away from the Hammer. Now get out of my sight." },
+    },
     knows = { { id = "tp_knows", text = "I know the caves, the cult and the glades between us and them. Ask about those, and don't waste my time on the rest." } },
     background = { { id = "tp_bg", text = "I fought in the Warchief's wars and buried enough friends for two lifetimes. Now I bury cultists instead, which I prefer." } },
     advice = { { id = "tp_ad", text = "Never fight an ogre in a narrow place, and never trust anyone in a dark robe; the old Horde learned that one from Gul'dan's warlocks, and paid for it in blood." } },

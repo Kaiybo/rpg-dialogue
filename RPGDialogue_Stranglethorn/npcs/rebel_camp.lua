@@ -438,7 +438,27 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Kurzen keeps himself deep inside his compound, behind every man he still has. You'll not reach him by walking in the front, so don't even try it." },
+    { id = "bl2", text = "Kurzen's medicine men brew something for the troops out of jungle herbs, and I think it's what keeps them obedient. Bring me what they carry, and Nimetz can tell us what it is." },
+    { id = "bl3", text = "Stormwind hasn't answered a single one of my letters in months. Either nobody's reading them, or someone between here and the keep is making sure they never arrive." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I judge a soldier by what they do when nobody's giving orders, and I don't like what I've seen of you. That's my problem, as plainly as I can put it." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "You bargain with darkness for your power, the same way the Colonel did before it ate him whole. I'll not stand easy near that again." },
+      { id = "gv_town", when = { grudge = "town" }, text = "My men talk around the fire, and your name keeps coming up with nothing good beside it. I trust their judgement more than I trust yours." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You follow whatever order pays best and call that loyalty. I walked away from my own commander for less, so don't expect me to warm to it." },
+    },
+    amends = {
+      { id = "am1", text = "Fight for this camp and keep your word while you do it. My men will notice, and so will I." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Prove to me the darkness hasn't got its hooks in you, and keep on proving it. It'll take more than one good day." },
+      { id = "am_town", when = { grudge = "town" }, text = "Do right by my men. When they stop muttering your name, I'll stop with them." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're the kind of soldier who'd have stayed with Kurzen and never asked a single question. That's the worst thing I can say of anyone." },
+      { id = "sp_prej", when = { grudge = "prejudice" }, text = "I think whatever you've bound to yourself will have you in the end, the way it had the Colonel. I only hope I'm not standing beside you when it does." },
+    },
     knows = {
       { id = "tp_knows", text = "I keep my ears open and my mouth shut, mostly, but I'll answer what I can for someone on our side. Ask." },
     },

@@ -284,7 +284,26 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "The Bristleback make their lair at the far end of Brambleblade Ravine, and they keep their chieftain deep inside it where my braves cannot easily reach him." },
+    { id = "bl2", text = "Grull is braver than he is wise, and I fear for him every time he leads a hunt past the ravine. I have never said so to his face." },
+    { id = "bl3", text = "Since my mother died, some of the elders in Bloodhoof Village think Narache needs a wiser chief than I am. Perhaps they are right, but they will not hear me admit it." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "Narache is a camp for the young, and I watch everyone who walks near them. I have watched you, and I did not like what I saw." },
+      { id = "gv_prej", when = { grudge = "prejudice" }, text = "You keep company with demons, and my calves sleep fifty paces from where you stand. That is my problem, and it will stay my problem." },
+      { id = "gv_values", when = { grudge = "values" }, text = "The Greatmother taught us that a hunter takes only what the herd can spare. You take whatever you like, and the camp has seen it." },
+      { id = "gv_town", when = { grudge = "town" }, text = "The braves of Narache do not speak well of you, and they are not easily turned against anyone. I trust their eyes as I trust my own." },
+    },
+    amends = {
+      { id = "am1", text = "Do honest work for the camp and ask nothing for it. The Earth Mother sees such things, and in time so will I." },
+      { id = "am_prej", when = { grudge = "prejudice" }, text = "Keep your demon far from my fire and far from the young ones. Do that long enough, and I may stop counting your steps." },
+    },
+    spite = {
+      { id = "sp1", text = "I think my mother would have sent you away from this fire, and I think she would have been right. I am only slower to do it than she was." },
+      { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think whatever you have bound to you will turn on you one day, and I pray to the Earth Mother that no calf of Narache is near when it does." },
+    },
     _gated = {
       { id = "gt1", text = "That's a thing I keep close, and I'll not speak of it to one I've only just met. Prove yourself to this camp first." },
       { id = "gt2", text = "I'll hold my tongue on that for now. When you've done more for Narache, ask me again." },

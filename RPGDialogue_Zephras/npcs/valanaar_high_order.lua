@@ -304,7 +304,25 @@ P:NPC {
     },
   },
 
+  blurts = {
+    { id = "bl1", text = "The Windshapers sent their own people to frighten Belathaan on the road, before Lorthuna's cult ever laid a hand on him. They'd like the whole isle to forget that, and I never will." },
+    { id = "bl2", text = "The Index Esoteria at the Overlook Standing Stones shows safe paths between the planes, and the Windshapers call those stones sacred so that we can't touch them. That is the real quarrel between the orders, whatever anyone tells you." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've wasted my time, and time is the one thing the High Order cannot replace. I don't forgive that easily, and I see no reason to start with you." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You come to Valanaar under the Horde's banner, the same banner the Windshapers have run off to join in Mulgore. Forgive me if I'm not delighted." },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke of Belathaan as though his death were a story to pass the time. He was one of mine, and I'll not hear him spoken of so lightly again." },
+      { id = "gv_pers", when = { grudge = "persuade" }, text = "You tried to argue me into a corner, as though the Supreme Magister had never been argued with. I've outlasted far better debaters in council." },
+    },
+    amends = {
+      { id = "am1", text = "Bring the High Order something it has lost, whether knowledge, relics or plain loyalty. Any of the three would begin to change my mind." },
+      { id = "am_wronged", when = { grudge = "wronged" }, text = "Honour Belathaan's name, and see his death answered. That is the only apology I'll accept for it." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're a tourist in a dying land, gawking at our ruins and calling it adventure. When the isles fall you'll have a fine story, and we'll have nothing." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think the Windshapers chose their friends badly, and you're the proof of it. Tell them I said so, if you see them in Mulgore." },
+    },
     _gated = {
       { id = "gt1", text = "The Order's business is not for every visitor who walks into my hall. Prove your worth to Zephras, and I may speak more freely." },
       { id = "gt2", text = "I'll not discuss that with you yet. Knowledge is the one treasure we have left, and I'm careful whom I hand it to." },

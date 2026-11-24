@@ -420,6 +420,24 @@ P:NPC {
     zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi have woken Hakkar in their old city, and his priests' blood magic has reached even the Vilebranch. The Zandalar are gathering heroes to stop it, and I hope they're quick." } },
     sunken_temple = { { id = "tp_sunken_temple", text = "The Atal'ai worship the blood god in their sunken temple in the south, and the Vilebranch have learned their ways. I'll burn every one of their altars, if I live long enough." } },
     _none = { { id = "tp_none", text = "That don't feed the village or free my mate. Ask me somethin' else." } },
+    grievance = {
+      { id = "gv_1", text = "You come to my beach and you give de Revantusk nothin', mon. Dat be my problem." },
+      { id = "gv_enemy", when = { grudge = "enemy" }, text = "You fly de Alliance's banner, and de dwarves up at Aerie Peak fly it too. Dey shoot my people for sport, mon." },
+      { id = "gv_wr", when = { grudge = { worst = "wronged" } }, text = "You talk to me like I be some jungle troll beggin' at de door. I lead dis tribe while my mate sit in a cage, and I don't forget." },
+    },
+    amends = {
+      { id = "am_1", text = "Kill some Vilebranch for me, and bring back somethin' to show for it. Den we talk." },
+      { id = "am_enemy", when = { grudge = "enemy" }, text = "You can't, mon, not wearin' dat banner. Go home and tell de dwarves to stay out of de sky over my village." },
+    },
+    spite = {
+      { id = "sp_1", text = "I think you be a coward with a big mouth, mon. Even de Vilebranch got more spine." },
+      { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think de dwarves send you to count my spears. Go back and tell dem we got plenty." },
+    },
+  },
+  blurts = {
+    { id = "bl_1", text = "De Vilebranch keep dere cages at de top of Jintha'Alor, mon, and dat be where my mate sit. You want to hurt dem, hurt dem dere." },
+    { id = "bl_2", text = "De elves at Quel'Danil Lodge hunt trolls in de hills like we be deer. Nobody at Aerie Peak stop dem, and I remember it." },
+    { id = "bl_3", text = "De Witherbark at Shadra'Alor worship de spider loa, and dey be worse dan de Vilebranch, mon. Even my own people don't go near dere." },
   },
 }
 

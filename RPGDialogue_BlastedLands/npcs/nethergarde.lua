@@ -397,7 +397,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Every wagon this Keep sees comes down the one road from the Swamp of Sorrows, and the Dreadmaul ogres know it as well as I do. If they ever hold that pass, we starve inside a month." },
+    { id = "bl2", text = "The last few shipments of reagents for the mage tower never arrived, and the seals were intact on the empty crates. Somebody between here and Stormwind is selling them." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've been a drain on this Keep, friend, and I keep a ledger of drains. Your name is in it, and not in the credit column." },
+      { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "I write the letters home for every soldier the demons kill, and you walk in here smelling of the same fire. I'll not pretend that sits easy with me." },
+      { id = "gv_wronge", when = { grudge = "wronged" }, text = "I gave you fair dealing and good bread, and you treated me like a clerk to be stepped over. Clerks have long memories, friend." },
+      { id = "gv_town", when = { grudge = "town" }, text = "Half the garrison grumbles your name over supper, and I hear every word of it, because I'm the one serving supper." },
+    },
+    amends = {
+      { id = "am1", text = "Bring the Keep what it needs, meat and hides and honest work, and in time I'll mark the debt as paid." },
+      { id = "am_prejud", when = { grudge = "prejudice" }, text = "Keep your demons out of my storeroom and away from my soldiers. Do that long enough and I'll stop counting you among the losses." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're a line in my ledger that costs more than it earns, and out here that's the worst thing anybody can be." },
+      { id = "sp_prejud", when = { grudge = "prejudice" }, text = "I think one day I'll be writing a letter about something you summoned. I hope I'm wrong, and I don't expect to be." },
+    },
     knows = {
       { id = "tp_knows", text = "Everything that comes into this keep crosses my desk, and most of the gossip with it. Pick something and I'll tell you what the ledgers say." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "For you, the ledgers and what isn't in them. Go on, ask." },
@@ -803,7 +821,24 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Khadgar and the Sons of Lothar went through the Portal and never came back, and nobody at Nethergarde knows whether any of them still live. We aren't supposed to say so to visitors." },
+    { id = "bl2", text = "The demons in these wastes aren't strays. They answer to Kazzak's lieutenants, and the Watchers believe Kazzak himself still walks the Tainted Scar." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "I've tried to be patient with you, truly, but you've made it very hard. Scholars are meant to be patient, and I'm failing at it." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to me the way a carter speaks to his mule. I studied in Dalaran, and even the worst masters there managed some courtesy." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You look at the Portal and see glory, not danger. Khadgar closed that door at a terrible price, and you treat it as an adventure." },
+    },
+    amends = {
+      { id = "am1", text = "Help the Keep, and show me you understand what we're guarding here. That would go further than any apology." },
+      { id = "am_tone", when = { grudge = "tone" }, text = "A little courtesy would mend most of it. I'm not hard to please, as anyone at Nethergarde will tell you." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you're the sort who'd walk through the Portal just to say you had. Khadgar's people did it to save the world, and I doubt you could manage either." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think you'd sell Khadgar's notes to the highest bidder and never read a single word of them." },
+    },
     knows = {
       { id = "tp_knows", text = "I've spent years reading about this land and a few more measuring it, so I'll answer what I can. Choose, and I'll try to keep it short." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "Ask me anything you like; I've been hoping someone would." },
@@ -1169,7 +1204,24 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Kazzak's no' gone, whatever Stormwind thinks. I've seen things move in the glass at night near the Tainted Scar, an' they're bigger than any imp." },
+    { id = "bl2", text = "Aerie Peak's no' as loyal tae Ironforge as Magni would like. Falstad keeps his own counsel, an' the Wildhammer have never knelt tae the Bronzebeards." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "Ye've wasted my time an' my patience, an' I charge dear for both. That's my problem wi' ye." },
+      { id = "gv_values", when = { grudge = "values" }, text = "Ye'd sell yer own mother's gryphon for a handful o' silver, an' I've no use for a body like that." },
+      { id = "gv_tone", when = { grudge = "tone", tone = "polite" }, text = "All that bowin' an' scrapin'. I'm Wildhammer, no' some Ironforge clerk, an' I like a body tae say what they mean." },
+    },
+    amends = {
+      { id = "am1", text = "Bring me what I ask for from the wastes, an' pay me what I'm worth. That's how a Wildhammer makes a friend." },
+      { id = "am_tone", when = { grudge = "tone" }, text = "Talk tae me straight, like a dwarf wi' a gryphon tae feed, an' I'll forget the rest." },
+    },
+    spite = {
+      { id = "sp1", text = "I think ye're the kind o' fool the Legion loves best: brave enough tae walk in, an' no' clever enough tae walk out." },
+      { id = "sp_values", when = { grudge = "values" }, text = "I think a gryphon has more honour in its tail feathers than ye've got in yer whole body." },
+    },
     knows = { { id = "tp_knows", text = "I know a deal o' things most folk would rather I didnae. Which o' these d'ye want?" } },
     background = {
       { id = "tp_bg", text = "Aerie Peak bred me an' books ruined me. That's the short o' it, an' the long o' it costs extra.", next = "why" },
@@ -1546,7 +1598,25 @@ P:NPC {
       },
     },
   },
+  blurts = {
+    { id = "bl1", text = "Not every elf of Quel'Thalas died when Arthas came. Some still keep to the ruins of Silvermoon, and without the Sunwell they suffer in ways I will not describe to a stranger." },
+    { id = "bl2", text = "The best of my people followed Prince Kael'thas out of this world altogether when Garithos turned on them. Stormwind's court has never troubled to tell its people that." },
+  },
   topics = {
+    grievance = {
+      { id = "gv1", text = "You've given me cause to regret receiving you, and an ambassador does not enjoy regret. It reads poorly in the dispatches." },
+      { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "You traffic with demons, and I have spent years telling kings what that traffic costs. You are the very thing I warn them about." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to an envoy of Quel'Thalas as if he were a dockhand. My kingdom may be ash, but its courtesies are not." },
+      { id = "gv_wronge", when = { grudge = "wronged" }, text = "I offered you candour, which is the rarest coin an ambassador carries, and you spent it carelessly." },
+    },
+    amends = {
+      { id = "am1", text = "Serve the cause I speak for. Stand against the Legion wherever you find it, and I'll write kinder things beside your name." },
+      { id = "am_prejud", when = { grudge = "prejudice" }, text = "Put away the demons you keep. I don't expect you to, but nothing short of it will satisfy me." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are what the young races always are: brave, loud and certain the world began on the day you were born. It did not." },
+      { id = "sp_prejud", when = { grudge = "prejudice" }, text = "I think one day your circle will open a little wider than you intended, and I hope I am far from Nethergarde when it does." },
+    },
     knows = {
       { id = "tp_knows", text = "Diplomats hear everything, mostly from people who don't think we're listening. Pick a subject." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've listened to me, which nobody else here does, so I'll return the favour. Ask anything." },
