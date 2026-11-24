@@ -2,6 +2,15 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.107.0 (2026-11-24): Letters from Afar
+**New files: a full game restart is needed** (not just /reload).
+- **Answer your letters.** Open a letter in the Letters tab and press Reply: each letter has its own answers, or a warm, brief or cold one. What you say can earn a follow-up letter later.
+- **Far more letters.** Around 260 new letters and follow-ups: from people you have met on both sides, strangers, odd junk, and events like dungeons, raids and class and level milestones.
+- **Letters arrive spaced out.** At most one an hour, and unasked letters are rarer, so the mailbox never floods.
+- **Accepting a quest no longer closes the conversation.** After you accept, decline or hand in a quest in the box, you return to the conversation with fresh options when the NPC's menu comes back.
+- **A faint divider** now separates the addon's replies from the game's own options. You can turn it off in Settings.
+- **Wetlands:** Sylessa Duskwhisper has her own conversation.
+
 ## 0.106.0 (2026-11-23): Rites for the Fallen
 No new files; a /reload is enough.
 - **The dead have a quiet scene of their own.** The talk key on a corpse opens the box with a short description of the body, written for its creature type (humanoid, beast, undead, demon, dragonkin and more), and, when the combat log saw it, how it died and who struck the last blow.

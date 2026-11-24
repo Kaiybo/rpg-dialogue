@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.55.0 (2026-11-24): Letters from Afar
+- About 260 new letters and follow-ups, with replies for every letter. New files (letters/met_alliance.lua, met_horde.lua, strangers_neutral.lua): full game restart.
+
 ## 1.54.0 (2026-11-23): Rites for the Fallen
 - New corpse pool (descriptions by creature type, how they died, respects for every class and many races) and a quiet pool for nameless citizens outside towns. No new files.
 
