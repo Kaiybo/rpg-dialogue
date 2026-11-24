@@ -7,6 +7,7 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants conversations with real depth (many replies, deep branches) and people who talk like people (whole sentences, Warcraft's register, never clipped one-liners). Everything stays inside one box (ours or DialogueUI's) and never bounces to the game's window.
 - Wants quick, efficient sessions: no constant re-validation; follow `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
+- Wants the core four races per faction to get the attention, not the Skyborne (no new Skyborne NPCs or Al'Akir threads beyond what Forever places; see `CONTENT_GUIDE.md` §4). Wants the dwarves to get up to more.
 
 ## State (0.106.0)
 - Unreleased fix (user video: Gnoarn, accept a quest in the box, the menu flashes back as a fresh greeting, then the box closes): after accept/decline/hand-in the visit waits ~1.5s for the game to reopen the NPC's menu (`s.questAnswered`, `Conv.CheckClosed`); when it does, the box returns to the conversation node with refreshed options (`s.lastView`). Only `luac -p` run. Unsure whether the second close came from DialogueUI closing the gossip itself.

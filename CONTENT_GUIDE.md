@@ -82,6 +82,7 @@ Bad: "Greetings, night elf druid." (a mad-lib, and anyone could say it)
 - Real reactions with a point of view, never a swapped label. **Tokens decorate; they never carry a line.** A line built around `{race}` or `{class}` fails the voice check.
 - New combinations (human hunter, dwarf shaman, gnome priest, orc mage, troll warlock, undead paladin) and the Skyborne should feel new: curious, skeptical or impressed.
 - **Skyborne:** only what section 10 of the brief supports (and `LORE_NOTES.md`). NPCs may be curious or wary; they don't state facts about them that the brief doesn't give.
+- **Skyborne stay small (user, 0.106.0).** Reactions to a Skyborne *player* are fine, and so are the Skyborne NPCs Forever itself places. Don't invent new Skyborne NPCs, enclaves or envoys out in the world, and don't build throughlines around Al'Akir or Skywall. Spend that attention on the core four races of each faction, dwarves first.
 - Gender only through `{g:lad|lass}`, always respectful. In-world racial friction is fine where it's true to lore; never echo real-world bigotry.
 
 ## 5. Everything matters sometimes
