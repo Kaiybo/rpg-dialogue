@@ -413,3 +413,75 @@ P:NPC {
     _none = { { id = "tp_none", text = "I haven't heard a thing about that, and I hear most things. It's not about my wagon, is it?" } },
   },
 }
+
+-- Sylessa Duskwhisper (Forever, id 270844): a Kaldorei traveller on the Menethil docks, waiting on the
+-- Auberdine boat and making what peace she can with a human harbor. Had no entry, so she was speaking
+-- the human citizen pool (and its line about laughing at night elves).
+P:NPC {
+  key = "wl_sylessa_duskwhisper", id = 270844, name = "Sylessa Duskwhisper", gender = "female",
+  race = "NightElf", role = "citizen", tier = "service",
+  communities = { "menethil", "kaldorei" }, temper = { "reserved", "wry" }, values = { "patient", "curious" },
+  notices = { "race" },
+  impression = {
+    first = "Sylessa Duskwhisper is a Kaldorei woman waiting on the Menethil docks for the Auberdine boat. She watches the humans the way a hunter watches a herd: with patience, and a little more fondness than she lets show.",
+    third = "{name} met Sylessa Duskwhisper, a night elf waiting for the Auberdine boat in Menethil Harbor.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ishnu-alah. You are not one of the sailors, so I will assume you have not come to tell me the boat is late again." },
+    { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
+      text = "Ishnu-alah, sister. It is good to see a face that will still be young when this harbor's grandchildren are old. Are you bound for home, or away from it?" },
+    { id = "g_back", when = { metBefore = true }, text = "You again. The boat has still not come, so the tide and I are keeping each other company." },
+  },
+  notice = {
+    { id = "n_rc_human", cat = "race", when = { race = "Human" },
+      text = "Your people built all of this in a few lifetimes, and half of it is already sinking. I find that both admirable and a little sad." },
+    { id = "n_rc_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf, and not complaining about the damp. You must be new to the Wetlands." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "I came east to see the human kingdoms with my own eyes, rather than trust the stories the Sentinels bring home. Now I am going back, and I find I have more questions than I left with." },
+        { id = "h_nelf", when = { race = "NightElf" },
+          text = "I came east to see the human kingdoms with my own eyes, sister. The sailors laugh at us behind their hands, but they laugh at the dwarves too, and at each other most of all." },
+      },
+      again = { { id = "h_again", text = "Ask, then. The tide will not turn any faster for my silence." } },
+      choices = {
+        { text = "What did you make of the human lands?", next = "humans" },
+        { text = "How do the people here treat you?", next = "treat" },
+        { text = "Why go home now?", next = "home" },
+        { text = "Safe crossing, Sylessa.", next = "END" },
+      },
+    },
+    humans = {
+      lines = { { id = "hu_default", text = "They are loud, they are quick, and they forget everything within a generation. Yet they stood against the Burning Legion at Hyjal beside us, and I have not forgotten that, even if they have." } },
+      choices = {
+        { text = "Our peoples should stand closer together.", next = "BACK",
+          reply = "I would like that. Some of the elders would sooner see the boats burned, but the elders were wrong about the Highborne too, once.", fx = { align = { order = 1 } } },
+        { text = "The Kaldorei owe them nothing. Let them sink.", next = "BACK",
+          reply = "Harsh words, but you are not the first to say them on this dock. I hope you meet a human worth changing your mind for.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    treat = {
+      lines = { { id = "t_default", text = "Well enough. The innkeeper overcharges me, the children follow me to see if I glow in the dark, and the guards call me 'miss' as though I might break. It is not unkind, only very young." } },
+      choices = {
+        { text = "They should show you more respect.", next = "BACK",
+          reply = "Respect is earned slowly, and humans have so little time to spend on it. I would rather have their curiosity than their fear.", fx = { align = { honor = 1 } } },
+        { text = "Laugh along with them. It costs you nothing.", next = "BACK",
+          reply = "Perhaps you are right. I let a little girl pull my ear yesterday, and her mother nearly fainted, and I confess I enjoyed it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home = {
+      lines = { { id = "ho_default", text = "Word reached me that the trees in Darkshore are sickening, and that something walks the shore at night that should not. I am no Sentinel, but I can carry water and keep watch." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    background = { { id = "tp_bg", text = "I am Sylessa of Darnassus. I have walked the human roads for a season, and now I am waiting for a boat like everyone else." } },
+    auberdine = { { id = "tp_aub", text = "Auberdine is the nearest thing my people have to a harbor. It is quieter than this one, and the gulls are better mannered." } },
+    _none = { { id = "tp_none", text = "I have not been here long enough to know that. Ask a sailor; they will tell you something, even if it is not true." } },
+  },
+}
