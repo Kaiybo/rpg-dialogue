@@ -2881,8 +2881,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "No! I mean, yes, but only if they're small tracks, and only if they're leaving. A hunter can read who's been where, can't they, so you'd know if a large man from the Sea Wolf's table had been waiting about, and I might sleep through a whole night for knowing." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "No! I mean, yes, but only if they're small tracks, and only if they're leaving. A hunter can read who's been where, can't they, so you'd know if a large man from the Sea Wolf's table had been waiting about, and I might sleep through a whole night for knowing. And could {pet} sit by my door tonight, perhaps, just for a little while, since nobody knocks on a door with a beast in front of it?" },
+        { id = "xhuntcl_default", text = "No! I mean, yes, but only small tracks, and only if they're leaving. A hunter can read who's been where, can't they, so you'd know if a large man from the Sea Wolf's table had been lurking, and I might sleep a whole night." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "No! I mean, yes, but only small tracks, and only if they're leaving. A hunter can read who's been where, can't they, so you'd know if a large man from the Sea Wolf's table had been lurking, and I might sleep a whole night. Could {pet} sit by my door tonight, since nobody knocks past a beast?" },
       },
       choices = {
         { text = "Pay your debts, Shaky, and you won't need a guard.", next = "BACK", reply = "Pay them? With what, my nerves? I'd pay if I could, honestly I would, and that's the whole trouble, isn't it.", fx = { align = { honor = 1 } } },
@@ -3138,8 +3138,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "The Bloodsail scouts who land at night down the coast and creep up toward town, then vanish before morning. Find where they come ashore and I'll know where they're anchored, and then the Raiders can pay them a visit with a few kegs of blasting powder." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The Bloodsail scouts who land at night down the coast, creep up toward town, then vanish before morning. Find where they come ashore and I'll know where they're anchored, and the Raiders can pay them a visit with a few kegs of powder. Your {pet} would sniff them out quicker than any of us, since a pirate who hasn't washed in a month leaves a trail a blind dog could follow." },
+        { id = "xhuntcl_default", text = "The Bloodsail scouts who land at night down the coast, creep toward town, then vanish before morning. Find where they come ashore and I'll know where they're anchored, and the Raiders can pay them a visit with a few kegs of blasting powder." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "The Bloodsail scouts who land at night down the coast, creep toward town, then vanish before morning. Find where they come ashore and I'll know where they're anchored, and the Raiders can pay them a visit with a few kegs of blasting powder. Your {pet} could sniff them out quicker than any of us." },
       },
       choices = {
         { text = "I'll track them, but I won't lead you to murder them asleep.", next = "BACK", reply = "Fair enough, friend, I'll not ask you to slit throats. Find their landing spots and leave the rest to the Raiders.", fx = { align = { honor = 1 } } },
@@ -3567,8 +3567,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Rich goblins in Gadgetzan and Undermine who want a panther in a cage beside the fountain, mostly, and a raptor egg fetches a fortune if it hatches on the ship and not before. Keeping the stock alive is another matter, and last month a panther ate the parrots, the cage and very nearly the cabin boy." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Rich goblins in Gadgetzan and Undermine who want a panther in a cage beside the fountain, mostly, and a raptor egg fetches a fortune if it hatches on the ship and not before. Keeping the stock alive is another matter, and last month a panther ate the parrots, the cage and very nearly the cabin boy. Now don't look at me like that, pal, because I'd never try to buy {pet}, at least not while you're standing right there." },
+        { id = "xhuntcl_default", text = "Mostly rich goblins in Undermine who want a panther caged by the fountain, and a raptor egg fetches a fortune if it hatches on the ship and not before. Keeping stock alive is another matter, since last month a panther ate the parrots, the cage and nearly the cabin boy." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Mostly rich goblins in Undermine who want a panther caged by the fountain, and a raptor egg fetches a fortune if it hatches on the ship and not before. Keeping stock alive is another matter, since last month a panther ate the parrots, the cage and nearly the cabin boy. Relax, pal, I'd never buy {pet} with you standin' there." },
       },
       choices = {
         { text = "A beast deserves a clean hunt, not a cage in Undermine.", next = "BACK", reply = "A clean hunt, buddy? The goblins of Undermine don't buy clean, they buy caged. Suit yourself, though.", fx = { align = { honor = 1 } } },
@@ -3804,8 +3804,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Ha! If anyone could, it'd be one of your sort, because I'd know the smell of that port anywhere, and I'd swear it left a trail of happy scoundrels behind it. It was the finest in the South Seas, and somewhere out there somebody is drinking it without me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ha! If anyone could, it'd be one of your sort, because I'd know the smell of that port anywhere, and I'd swear it left a trail of happy scoundrels behind it. It was the finest in the South Seas, and somewhere out there somebody is drinking it without me. Even {pet} could follow that scent, friend, and if your beast finds it first, I'll forgive it for having a little sip." },
+        { id = "xhuntcl_default", text = "Ha! If anyone could, it'd be one of your sort, because I'd know the smell of that port anywhere, and I swear it left a trail of happy scoundrels. It was the finest in the South Seas, and somewhere out there somebody is drinking it without me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Ha! If anyone could, it'd be one of your sort, because I'd know the smell of that port anywhere, and I swear it left a trail of happy scoundrels. It was the finest in the South Seas, and somewhere out there somebody is drinking it without me. Even {pet} could follow that scent, friend." },
       },
       choices = {
         { text = "I'll find your port and bring it back unopened.", next = "BACK", reply = "Would you, friend? Oh, I'd weep like a babe if you did. That port's the last good thing I had from home.", fx = { align = { honor = 1 } } },

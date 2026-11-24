@@ -50,8 +50,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Poorly, though they'll never admit it, for they're mountain birds and this place is all ash and sulfur. I water them twice as often as I would in Ironforge, and they still fly out of here a good deal faster than they fly in." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Poorly, though they'll never admit it, for they're mountain birds and this place is all ash and sulfur. I water them twice as often as I would in Ironforge, and they still fly out of here a good deal faster than they fly in. And {pet} looks hot and bothered too, poor thing, so give it a drink before you go, because the Gorge is cruel to anything with fur." },
+        { id = "xhuntcl_default", text = "Poorly, though they'll never admit it, for they're mountain birds and this place is all ash and sulfur. I water them twice as often as I would in Ironforge, and they still fly out faster than they fly in." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Poorly, though they'll never admit it, for they're mountain birds and this place is all ash and sulfur. I water them twice as often as I would in Ironforge, and they still fly out faster than they fly in. And {pet} looks hot and bothered too, poor thing, so give it a drink before you go." },
       },
       choices = {
         { text = "A beast in pain should be cared for, whatever the cost.", next = "BACK", reply = "Aye, and I'd spend my last silver on them before I'd see them suffer. They're good birds.", fx = { align = { light = 1 } } },

@@ -294,7 +294,7 @@ P:NPC {
     },
     shalnan = {
       lines = {
-        { id = "sh_default", text = "The Shal'nan led the rebellion against Tortheldrin and brought our ancestors to Skywall, and he gave up his rule to a council of elders when the Shrine of the Four Winds was begun. He went on tending our bond with the spirits for a very long time, and now he's gone as they are, and not even Valennia Stormfist, who captained his Empyrean Blades for nearly nine centuries, can say why." },
+        { id = "sh_default", text = "The Shal'nan led the rebellion against Tortheldrin, brought our ancestors to Skywall, and gave his rule to a council of elders when the Shrine of the Four Winds was begun. He tended our bond with the spirits for ages, and now he's gone as they are, and not even Valennia Stormfist, his Empyrean Blades' captain for nine centuries, knows why." },
       },
       choices = {
         { text = "I hope they're found.", next = "BACK", fx = { affinity = 1 } },

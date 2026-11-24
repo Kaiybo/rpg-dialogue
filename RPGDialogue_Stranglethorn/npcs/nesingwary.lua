@@ -561,8 +561,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "A clean kill, a straight story, an' the hide in one piece, an' he cannae abide anybody who shoots a beast while it drinks. He's written it all in his book, the rules an' the hunts, so if ye find any loose pages out in the jungle, bring them back tae me." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A clean kill, a straight story, an' the hide in one piece, an' he cannae abide anybody who shoots a beast while it drinks. He's written it all in his book, the rules an' the hunts, so if ye find any loose pages out in the jungle, bring them back tae me. An' that {pet} o' yers is a fine beast, but keep it off the master's tent, for he's sleepin', an' he snores like a basilisk." },
+        { id = "xhuntcl_default", text = "A clean kill, a straight story an' the hide in one piece, an' he cannae abide anybody who shoots a beast while it drinks. He's written it all in his book, the rules an' the hunts, so if ye find loose pages in the jungle, bring them tae me." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "A clean kill, a straight story an' the hide in one piece, an' he cannae abide anybody who shoots a beast while it drinks. He's written it all in his book, the rules an' the hunts, so if ye find loose pages in the jungle, bring them tae me. An' keep yer {pet} off the master's tent." },
       },
       choices = {
         { text = "His rules are right. A hunt without rules is just killing.", next = "BACK", reply = "Aye, an' that's near enough the first page o' his book. A hunt without rules is just the jungle, an' the jungle's got killers enough.", fx = { align = { order = 1 } } },

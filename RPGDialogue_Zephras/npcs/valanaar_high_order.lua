@@ -134,7 +134,7 @@ P:NPC {
     },
     shrine2 = {
       lines = {
-        { id = "s2_default", text = "Ayessa Dawnsinger of the Windshapers and I faced her on the Rohashi Spires, and she told us the wards had been down for days and she'd lit a beacon for Al'Akir's followers. Rohash of the Conclave answered it, struck her away into the sky, and promised us the Windlord's judgement, and if Ansirem hadn't brought the Kirin Tor through when he did, I wouldn't be here to tell you so." },
+        { id = "s2_default", text = "Ayessa Dawnsinger of the Windshapers and I faced her on the Rohashi Spires, where she told us the wards had been down for days and she'd lit a beacon for Al'Akir's followers. Rohash of the Conclave answered, struck her into the sky and promised us the Windlord's judgement, and without Ansirem's Kirin Tor I wouldn't be here." },
       },
       choices = {
         { text = "So the orders fought side by side.", next = "ceasefire" },

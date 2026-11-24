@@ -784,7 +784,7 @@ P:NPC {
     xnelf_well = {
       narr = "He takes off his goggles, which seems to cost him something.",
       lines = {
-        { id = "xnw_default", text = "Ah. There it is, the look! The elders give me that exact look, eyebrows at roughly forty degrees, as if I'd lit a fuse to see whether it was a candle. Now, your people have watched this coast for ten thousand years, which is a marvellous sample size! You could tell me the tide heights, the water clarity, the glow per fathom before the sickness came, and instead I get a proverb about balance. Not one number. I counted!" },
+        { id = "xnw_default", text = "Ah, there it is, the look! The elders give me that look, eyebrows at roughly forty degrees, as if I'd lit a fuse to see whether it was a candle. Your people have watched this coast for ten thousand years, a marvellous sample size, yet instead of tide heights I get a proverb about balance and not one number." },
       },
       choices = {
         { text = "We've seen what clever hands do with power. Forgive our caution.", next = "BACK",

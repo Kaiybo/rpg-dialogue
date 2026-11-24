@@ -73,7 +73,7 @@ P:NPC {
     },
     xcl_dm = {
       big = true,
-      lines = { { id = "xcl_dm_default", text = "Yeah, and I'll tell you what bugs me about it, pal. VanCleef was a builder, same as me, and he and his masons rebuilt Stormwind and never saw a copper of the bill, so they took their tools and went to war. I built Orgrimmar for Thrall, and he paid me on time every time, so I'm running a port instead of hiding in a mine with a rag over my face." } },
+      lines = { { id = "xcl_dm_default", text = "Yeah, and here's what bugs me, pal. VanCleef was a builder like me, and his masons rebuilt Stormwind and never saw a copper, so they took their tools and went to war. I built Orgrimmar for Thrall and he paid on time, so I'm running a port instead of hiding in a mine with a rag over my face." } },
       choices = {
         { text = "Always pay the builders. Stormwind had it coming.", next = "BACK", reply = "Ha! You'd make a fine builder, pal, and you're right about the bill. But a city with no walls is a bad customer, so I'd rather they paid than fell.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "VanCleef was owed, Gazlowe, but that doesn't make him right.", next = "BACK", reply = "Fair point, and I'll grant you a war's a lousy way to collect a debt. Still, I sleep better knowin' Thrall paid his invoice on time.", fx = { align = { order = 1 } } },

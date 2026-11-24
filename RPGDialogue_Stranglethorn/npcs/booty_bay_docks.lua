@@ -277,8 +277,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Range, punch and noise, and the noise is the part everybody forgets, because the shot that doesn't kill it still scares it out of the brush. Haren the bowyer across the way will tell you a bow's quieter, and I'll tell you quiet is overrated." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Range, punch and noise, and the noise is the part everybody forgets, because the shot that doesn't kill it still scares it out of the brush. Haren the bowyer across the way will tell you a bow's quieter, and I'll tell you quiet is overrated. Your {pet} will get used to the bang soon enough, they all do, and then it'll come running at every shot because it knows supper's down." },
+        { id = "xhuntcl_default", text = "Range, punch and noise, and the noise is the part everybody forgets, because the shot that doesn't kill it still scares it out of the brush. Haren the bowyer across the way says a bow's quieter, and I say quiet is overrated." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Range, punch and noise, and the noise is the part everybody forgets, because the shot that doesn't kill it still scares it out of the brush. Haren the bowyer across the way says a bow's quieter, and I say quiet is overrated. Your {pet} will get used to the bang soon enough, since they all do." },
       },
       choices = {
         { text = "A quiet, clean shot honors the beast. Noise is lazy.", next = "BACK", reply = "Lazy? Pal, the noise is the whole point, it scares off the second beast while you're skinning the first. Efficiency, that's what you're buyin'.", fx = { align = { honor = 1 } } },
@@ -454,8 +454,8 @@ P:NPC {
     xhuntcl = {
       big = true,
       lines = {
-        { id = "xhuntcl_default", text = "Oil every morning, wax on the string every evening, and never leave it leaning against a wet tent, which is exactly what every hunter at Nesingwary's camp does. The damp gets into the wood and twists it, and then your shot goes left when you need it straight." },
-        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oil every morning, wax on the string every evening, and never leave it leaning against a wet tent, which is exactly what every hunter at Nesingwary's camp does. The damp gets into the wood and twists it, and then your shot goes left when you need it straight. Your {pet} has chewed a bow tip in its time, I'd guess, they all do, so keep the stave off the ground at night." },
+        { id = "xhuntcl_default", text = "Oil every morning, wax on the string every evening, and never leave it leaning against a wet tent, which is exactly what every hunter at Nesingwary's camp does. The damp twists the wood, and then your shot goes left when you need it straight." },
+        { id = "xhuntcl_pet", when = { pet = { type = "Beast" } }, text = "Oil every morning, wax on the string every evening, and never leave it leaning against a wet tent, which is exactly what every hunter at Nesingwary's camp does. The damp twists the wood, and then your shot goes left when you need it straight. Keep the stave off the ground at night, too, or {pet} will chew the tip." },
       },
       choices = {
         { text = "Oil and wax, every day, without fail. I'll keep the routine.", next = "BACK", reply = "Then your bow will outlast you, and the damp won't get a look in. You'd be surprised how few hunters say that and mean it.", fx = { align = { order = 1 } } },

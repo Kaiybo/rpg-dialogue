@@ -68,7 +68,7 @@ P:NPC {
     },
     xcl_wc = {
       big = true,
-      lines = { { id = "xcl_wc_default", text = "Then you've seen what's been crawling up out of those hills. Deviate beasts and twisted raptors have been coming out of the caves for years, along with serpents the size of a kodo and the druids in snakeskin robes who were meant to be healing the place. Every caravan I lose on the northern road I lose to something from those caves, so whatever you did down there, the road will feel it." } },
+      lines = { { id = "xcl_wc_default", text = "Then you've seen what's been crawling out of those hills, from twisted raptors and serpents the size of a kodo to the druids in snakeskin robes who were meant to heal the place. Every caravan I lose on the northern road I lose to something from those caves, so whatever you did down there, the road will feel it." } },
       choices = {
         { text = "The Horde should guard those caves until the land heals.", next = "BACK", reply = "Aye, and I'd put a garrison on them if I had the grunts to spare. Until then, every beast you put down at the mouth of those caves is one less at my gate.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "That's tauren business, Thork. I've done my part.", next = "BACK", reply = "You've done more than most, I'll grant you. But what crawls out of those caves doesn't stop at tauren land, so don't be surprised if it follows you home.", fx = { align = { honor = -1 } } },

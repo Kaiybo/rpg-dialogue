@@ -221,7 +221,7 @@ P:NPC {
     },
     ne_zamah_dead = {
       lines = {
-        { id = "nd_default", text = "Oh, yes. The few of our people who strayed into Ashenvale and came home again say the elves' priestesses called down a silver light that burned worse than the Light ever did, and they made no distinction at all between a Forsaken and a Scourge ghoul while they did it. I'd give a great deal to know whether it's the moon or the water that does it, purely for science, of course." },
+        { id = "nd_default", text = "Oh, yes. Those of our people who strayed into Ashenvale and came home say the elves' priestesses called down a silver light that burned worse than the Light, and drew no line between a Forsaken and a Scourge ghoul. I'd give a great deal to know whether the moon or the water does it, purely for science, of course." },
       },
       choices = {
         { text = "To an elf, a Forsaken looks no different from the Scourge.", next = "BACK",

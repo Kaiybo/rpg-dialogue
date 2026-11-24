@@ -1552,7 +1552,7 @@ P:NPC {
     },
     d_aquatic = {
       lines = {
-        { id = "dr_aq_default", text = "Most of us don't, and I've watched big bulls go down in the pools below the bluffs like stones. That's why Dendrite sets the Trial of the Sea Lion: one half of the pendant lies in the Sludge Fen of the northern Barrens, where the Venture Company has fouled the water, and the other on the sea floor off Silverpine, where the cold will try to crush the breath out of you." },
+        { id = "dr_aq_default", text = "Most of us don't, and I've watched big bulls sink like stones in the pools below the bluffs. So Dendrite sets the Trial of the Sea Lion: half the pendant lies in the Sludge Fen of the northern Barrens, where the Venture Company fouls the water, and half on the sea floor off Silverpine, where the cold crushes your breath." },
         { id = "dr_aq_done", when = { questDone = TODO_QUEST("Aquatic Form") }, text = "And yet here you are with the water in you, a tauren who swims, which my grandmother would never have believed. You'll be a strange sight in the rivers, so enjoy it, and mind the crocolisks." },
       },
       choices = {

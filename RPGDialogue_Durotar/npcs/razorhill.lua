@@ -457,7 +457,7 @@ P:NPC {
     },
     xcl_rfc = {
       big = true,
-      lines = { { id = "xcl_rfc_default", text = "Some of them are, and that's more than I've managed. The Searing Blade are the Burning Blade's young, the ones the old cult raises in the dark beneath our feet, and they've been feeding a demon down there since the city was built. I hunt them in the hills because I can reach them there, but the ones I really want are closer than that, and they smile at me in the street." } },
+      lines = { { id = "xcl_rfc_default", text = "Some of them are, which is more than I've managed. The Searing Blade are the Burning Blade's young, raised in the dark beneath our feet to feed a demon there. I hunt them in the hills because I can reach them there, but the ones I really want are closer, and they smile at me in the street." } },
       choices = {
         { text = "Bring proof to the Warchief, and let him judge them.", next = "BACK", reply = "I will, when I have enough to hang them. The Warchief needs proof, and I'll bring him a pile of it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "Kill them where they stand, Orgnil, inside the walls or not.", next = "BACK", reply = "Inside the walls is harder, but you're not wrong. When the time comes, I'll do it myself.", fx = { align = { order = -1 } } },

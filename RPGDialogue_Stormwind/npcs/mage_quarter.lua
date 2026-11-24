@@ -49,7 +49,7 @@ P:NPC {
     },
     mg_evoc = {
       big = true,
-      lines = { { id = "mge_default", text = "Then you've learned the spell I wrote my book for. Evocation draws mana back into you from the currents that run through everything, and it's the nearest a mage comes to drinking straight from the river, so mind how deep you drink. The quel'dorei built a kingdom on a fountain they could never stop drinking from, and you've only to watch Elsharin's face when she speaks of it to know how that ended." } },
+      lines = { { id = "mge_default", text = "Then you've learned the spell I wrote my book for. Evocation draws mana back into you from the currents all around, the nearest a mage comes to drinking from the river, so mind how deep you drink. The quel'dorei built a kingdom on a fountain they could never stop drinking from, and Elsharin's face tells you how that ended." } },
       choices = {
         { text = "I'll take only what I need, and stop.", next = "BACK", reply = "Then you've learned it properly, which most never do. Come back in a year and tell me whether you still can.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "If the river's there, I'll drink as deep as I please.", next = "BACK", reply = "So did half the students I've buried. I'll not stop you, but I'll ask you to remember that I warned you.", fx = { align = { order = -1 } } },
