@@ -483,8 +483,8 @@ P:NPC {
     hakkar = {
       lines = { { id = "hk_default", text = "The Soulflayer, a god of blood the Gurubashi called into this world long ago. Their own priests once cast him out at great cost, and now the Atal'ai and others would bring him back. The Zandalar on their isle to the north watch it with grave faces.", fx = { learn = { "hakkar" } } } },
       choices = {
-        { text = "Then someone should storm the city and end it.", next = "BACK", reply = "Bravely said. Bring many friends, for the Gurubashi do not die easily.", fx = { align = { valor = 1 } } },
-        { text = "Let the trolls clean up their own mess.", next = "BACK", reply = "A cold answer, but an honest one. Yet a god of blood does not keep to one people's lands.", fx = { align = { valor = -1 } } },
+        { text = "Then someone should storm the city and end it.", next = "BACK", reply = "Bravely said. Bring many friends, for the Gurubashi do not die easily.", fx = { align = { honor = 1 } } },
+        { text = "Let the trolls clean up their own mess.", next = "BACK", reply = "A cold answer, but an honest one. Yet a god of blood does not keep to one people's lands.", fx = { align = { honor = -1 } } },
       },
     },
     festival = {
@@ -562,8 +562,8 @@ P:NPC {
     goblins = {
       lines = { { id = "gb_default", text = "They build and they sell and they never sit still, and they would sell the sky if they could find a buyer. I do not hate them for it. The Earth Mother made the restless ones too." } },
       choices = {
-        { text = "Their greed will burn the world one day.", next = "BACK", reply = "Perhaps, if no one keeps them honest. That is a task for the living.", fx = { align = { balance = 1 } } },
-        { text = "Trade makes the world turn. Good for them.", next = "BACK", reply = "Ha. Spoken like a goblin, though you do not look like one.", fx = { align = { balance = -1 } } },
+        { text = "Their greed will burn the world one day.", next = "BACK", reply = "Perhaps, if no one keeps them honest. That is a task for the living.", fx = { align = { order = 1 } } },
+        { text = "Trade makes the world turn. Good for them.", next = "BACK", reply = "Ha. Spoken like a goblin, though you do not look like one.", fx = { align = { order = -1 } } },
       },
     },
     festival = {
@@ -637,8 +637,8 @@ P:NPC {
     spirit = {
       lines = { { id = "s_default", text = "Now you start to understand. The beast gives its skin, so you honour it with good work and no waste. The old loa be watching, and they don't like wasted hides." } },
       choices = {
-        { text = "Every part used. That is the right way.", next = "BACK", reply = "Yah. You have a good heart for this.", fx = { align = { tradition = 1 } } },
-        { text = "A hide is a hide. Spirits don't pay.", next = "BACK", reply = "Heh. Then you will make good armour and bad leather, mon.", fx = { align = { tradition = -1 } } },
+        { text = "Every part used. That is the right way.", next = "BACK", reply = "Yah. You have a good heart for this.", fx = { align = { order = 1 } } },
+        { text = "A hide is a hide. Spirits don't pay.", next = "BACK", reply = "Heh. Then you will make good armour and bad leather, mon.", fx = { align = { order = -1 } } },
       },
     },
     camp = {
@@ -880,8 +880,8 @@ P:NPC {
     safe = {
       lines = { { id = "s_default", text = "Safe is a relative word, pal. Point them up, stand back, and don't light them near the powder kegs on the docks, and you'll be fine." } },
       choices = {
-        { text = "Fireworks in a wooden town? That's reckless.", next = "BACK", reply = "Reckless? It's tradition! Mostly reckless tradition.", fx = { align = { caution = 1 } } },
-        { text = "Give me the biggest one you've got.", next = "BACK", reply = "Now that's a customer! Just sign this waiver first.", fx = { align = { caution = -1 } } },
+        { text = "Fireworks in a wooden town? That's reckless.", next = "BACK", reply = "Reckless? It's tradition! Mostly reckless tradition.", fx = { align = { order = 1 } } },
+        { text = "Give me the biggest one you've got.", next = "BACK", reply = "Now that's a customer! Just sign this waiver first.", fx = { align = { order = -1 } } },
       },
     },
     brows = {

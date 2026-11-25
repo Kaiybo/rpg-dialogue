@@ -195,8 +195,8 @@ P:NPC {
     ruins = {
       lines = { { id = "r_default", text = "It was a city of the Highborne once, proud and full of magic. Their pride brought the Sundering, and the snow covered what was left." } },
       choices = {
-        { text = "The Highborne got what they deserved.", next = "BACK", reply = "Perhaps. But their children did not.", fx = { align = { mercy = -1 } } },
-        { text = "Even the proud deserve to be mourned.", next = "BACK", reply = "Yes. That is why I return.", fx = { align = { mercy = 1 } } },
+        { text = "The Highborne got what they deserved.", next = "BACK", reply = "Perhaps. But their children did not.", fx = { align = { light = -1 } } },
+        { text = "Even the proud deserve to be mourned.", next = "BACK", reply = "Yes. That is why I return.", fx = { align = { light = 1 } } },
         { text = "What became of their children?", next = "children" },
       },
     },

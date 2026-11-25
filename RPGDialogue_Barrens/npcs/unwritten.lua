@@ -815,8 +815,8 @@ P:NPC {
     answer = {
       lines = { { id = "a_default", text = "Not in words, but the rain comes when the land needs it, and the calves grow strong. That is answer enough for an old elf who does not need to be spoken to." } },
       choices = {
-        { text = "Faith like that is a strength.", next = "BACK", fx = { align = { faith = 1 } } },
-        { text = "Rain falls whether we pray or not.", next = "BACK", fx = { align = { faith = -1 } } },
+        { text = "Faith like that is a strength.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Rain falls whether we pray or not.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

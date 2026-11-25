@@ -757,8 +757,8 @@ P:NPC {
     why = {
       lines = { { id = "w_default", text = "Holiday cheer, pal! Folk like to look festive, and Smokywood likes folk walking about in our colours. Everybody wins." } },
       choices = {
-        { text = "That's just walking advertising.", next = "BACK", reply = "Shh! Don't say it so loud.", fx = { align = { balance = 1 } } },
-        { text = "Clever marketing. I'll take a zap.", next = "BACK", reply = "That's the spirit! Hold still.", fx = { align = { balance = -1 } } },
+        { text = "That's just walking advertising.", next = "BACK", reply = "Shh! Don't say it so loud.", fx = { align = { order = 1 } } },
+        { text = "Clever marketing. I'll take a zap.", next = "BACK", reply = "That's the spirit! Hold still.", fx = { align = { order = -1 } } },
       },
     },
     smokywood = {

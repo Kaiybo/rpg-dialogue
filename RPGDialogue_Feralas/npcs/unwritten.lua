@@ -606,8 +606,8 @@ P:NPC {
     clan = {
       lines = { { id = "c_default", text = "They follow Magatha now, and they hate all who are not tauren. Even the tauren of Thunder Bluff they call traitors." } },
       choices = {
-        { text = "Then they must be stopped.", next = "BACK", reply = "Stopped, yes. I hope not destroyed.", fx = { align = { mercy = -1 } } },
-        { text = "Perhaps they can be called home again.", next = "BACK", reply = "That is my prayer, every year I return.", fx = { align = { mercy = 1 } } },
+        { text = "Then they must be stopped.", next = "BACK", reply = "Stopped, yes. I hope not destroyed.", fx = { align = { light = -1 } } },
+        { text = "Perhaps they can be called home again.", next = "BACK", reply = "That is my prayer, every year I return.", fx = { align = { light = 1 } } },
         { text = "Who is this Magatha?", next = "magatha" },
       },
     },

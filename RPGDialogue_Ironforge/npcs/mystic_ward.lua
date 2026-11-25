@@ -208,7 +208,7 @@ P:NPC {
         { text = "Teach me something, High Priest.", next = "lesson", when = { class = "PRIEST" } },
         { text = "Does the Light listen to gnomes?", next = "gnome", when = { race = "Gnome" } },
         { text = "What troubles you, High Priest?", tag = "Persuade", next = "worry",
-          check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { trait = { kind = 3 } } } } },
+          check = { pass = { any = { { disposition = { min = 65 } }, { class = "PRIEST" }, { trait = "kind" } } } },
           fail = { next = "worry_no", fx = { affinity = -1 } } },
         { text = "I'm a paladin, High Priest. Teach me what the priests know.", next = "paladin", when = { class = "PALADIN" } },
         { text = "I listen to the earth, High Priest, not the Light.", next = "shaman", when = { race = "Dwarf", class = "SHAMAN" } },

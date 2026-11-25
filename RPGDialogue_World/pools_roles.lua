@@ -5698,7 +5698,10 @@ P:Pool {
     { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
       text = "Your blood's running hot; I can see it in your face. That's no battle-fever, that's an imp's pact, and I've heard what demon blood did to the Horde." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "I can smell you, so come out." } },
+  react = {
+    { id = "r_stealth", on = "stealth", text = "I can smell you, so come out." },
+    { id = "r_lock_armor", on = "aura", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } }, text = "You call demon skin onto yourself in front of a grunt? Do that again near the wolf pens and I'll let the wolves decide what you are." },
+  },
   lines = {
     { id = "l_default", text = "If you're looking for a fight, there are better places than my post. Ask anyone." },
     { id = "l_warrior", when = { class = "WARRIOR" }, text = "Good, another warrior. If trouble comes through this gate, you'll stand with us." },
@@ -5706,7 +5709,6 @@ P:Pool {
     { id = "l_shaman", when = { class = "SHAMAN" }, text = "The spirits are restless past the camp, shaman. The scouts say the wind's been wrong all week." },
     { id = "l_hunter", when = { class = "HUNTER" }, text = "Hunters bring the best news, since you go where the scouts don't. Seen anything moving out there?" },
     { id = "l_mage", when = { class = "MAGE" }, text = "Keep the fire in your hands and out of the supply tents, mage." },
-    { id = "r_lock_armor", on = "aura", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } }, text = "You call demon skin onto yourself in front of a grunt? Do that again near the wolf pens and I'll let the wolves decide what you are." },
   },
   -- 0.71.0: a conversation tree shared by every Horde guard: orc grunts, troll and tauren
   -- braves and Forsaken Deathguard alike, so it speaks for the Horde, not one people.
@@ -6510,14 +6512,16 @@ P:Pool {
     { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
       text = "That's a firestone ye've got on ye. The smiths at the Great Forge say it makes a blade burn, an' they say it like a curse." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "Sneakin' about under the mountain? Out wi' ye, where I can see." } },
+  react = {
+    { id = "r_stealth", on = "stealth", text = "Sneakin' about under the mountain? Out wi' ye, where I can see." },
+    { id = "r_lock_armor", on = "aura", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } }, text = "Did ye just pull demon skin round yerself, in front o' the King's own guard? Ye've more nerve than sense, an' I'm watchin' ye now." },
+  },
   lines = {
     { id = "l_default", text = "Great Forge in the middle, King Magni up in the throne room, the tram to Stormwind down the Tinker Town way. Ye'll not get lost, it's a circle." },
     { id = "l_warrior", when = { class = "WARRIOR" }, text = "Hall of Arms for the fightin' trades, through the Military Ward. Ye'll hear it afore ye find it." },
     { id = "l_rogue", when = { class = "ROGUE" }, text = "Keep yer hands where the mountain can see them. We've a long memory under here, and short tempers." },
     { id = "l_magni", text = "King Magni holds court in the High Seat, an' he's a fair king if ye bring him an honest matter. Bring him a dishonest one an' ye'll learn how loud a throne room echoes." },
     { id = "l_dark_iron", text = "If ye see a Dark Iron anywhere near the gates, ye shout, an' ye shout loud. We've not forgotten what Thaurissan's lot did to this mountain." },
-    { id = "r_lock_armor", on = "aura", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } }, text = "Did ye just pull demon skin round yerself, in front o' the King's own guard? Ye've more nerve than sense, an' I'm watchin' ye now." },
   },
   choices = { { text = "Thanks.", next = "END" } },
   topics = {
@@ -6883,14 +6887,16 @@ P:Pool {
     { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
       text = "You smell of the fel, the old smell that hung over Zin-Azshari before the sea took it. Our elders taught us that smell, stranger, so that we would never forget it." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "The Sentinels own every dark corner in this city. Step out where I can see you." } },
+  react = {
+    { id = "r_stealth", on = "stealth", text = "The Sentinels own every dark corner in this city. Step out where I can see you." },
+    { id = "r_lock_armor", on = "aura", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } }, text = "You call a demon's skin onto yourself beneath the World Tree? My glaive is drawn, and it will stay drawn until you leave." },
+  },
   lines = {
     { id = "l_default", text = "The Temple of the Moon for the priestesses, the Cenarion Enclave for the druids. Walk softly; this tree is young." },
     { id = "l_warrior", when = { race = "NightElf", class = "WARRIOR" }, text = "Our warriors train on the Warrior's Terrace. The Sentinels will want to measure you, so be ready." },
     { id = "l_hunter", when = { class = "HUNTER" }, text = "Hunters gather at the Cenarion Enclave with the druids. Keep your companion close on the bridges." },
     { id = "l_tree", text = "Teldrassil is young yet, and the Sentinels guard her the way you would guard a sapling in a storm. Walk gently on her branches, and she will hold you." },
     { id = "l_tyrande", text = "The High Priestess keeps the Temple of the Moon, and her word is law beneath these boughs. If you seek an audience, the priestesses will tell you whether you may have one." },
-    { id = "r_lock_armor", on = "aura", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } }, text = "You call a demon's skin onto yourself beneath the World Tree? My glaive is drawn, and it will stay drawn until you leave." },
   },
   choices = { { text = "Thank you, Sentinel.", next = "END" } },
   tier = "service",
@@ -7100,13 +7106,15 @@ P:Pool {
     { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
       text = "Bound your soul in a stone, have you? Some of us would have given a great deal for that kind of choice the day the plague came, so use it well." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "We see better in the dark than you think, so out." } },
+  react = {
+    { id = "r_stealth", on = "stealth", text = "We see better in the dark than you think, so out." },
+    { id = "r_lock_soulstone", on = "aura", when = { aura = { 20707, 20762, 20763, 20764, 20765 } }, text = "A soulstone, down here? It hardly matters in the Undercity, friend. Most of us came back without one." },
+  },
   lines = {
     { id = "l_default", text = "The Apothecarium, the Magic Quarter, the War Quarter and the Rogues' Quarter, all in a ring around the Trade Quarter. The Banshee Queen keeps the Royal Quarter, and you don't." },
     { id = "l_shaman", when = { class = "SHAMAN" }, text = "Shamans don't come down here much. The elements are a long way from the Undercity, and they seem to like it that way." },
     { id = "l_lady", text = "The Dark Lady gave us our wills back, and we stand guard so no one takes them again. That's all the reason a Deathguard needs, and a better one than the living ever gave me." },
     { id = "l_scarlet", text = "The Scarlet Crusade would burn this whole city with us in it, and they'd sing hymns while they did. Keep that in mind when the living tell you we're the monsters." },
-    { id = "r_lock_soulstone", on = "aura", when = { aura = { 20707, 20762, 20763, 20764, 20765 } }, text = "A soulstone, down here? It hardly matters in the Undercity, friend. Most of us came back without one." },
   },
   choices = { { text = "Understood.", next = "END" } },
   topics = {

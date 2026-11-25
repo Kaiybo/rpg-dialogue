@@ -679,8 +679,8 @@ P:NPC {
       narr = "She looks south, toward the walls of Ahn'Qiraj shimmering in the heat.",
       lines = { { id = "w_default", text = "The qiraji and their swarms, in the War of the Shifting Sands. We sealed them behind a great wall and thought it would last forever. Nothing does." } },
       choices = {
-        { text = "Then they must be destroyed this time.", next = "BACK", reply = "Yes. Do not stop halfway as we did.", fx = { align = { mercy = -1 } } },
-        { text = "Sealing them saved many lives back then.", next = "BACK", reply = "It did, and cost many. Both are true.", fx = { align = { mercy = 1 } } },
+        { text = "Then they must be destroyed this time.", next = "BACK", reply = "Yes. Do not stop halfway as we did.", fx = { align = { light = -1 } } },
+        { text = "Sealing them saved many lives back then.", next = "BACK", reply = "It did, and cost many. Both are true.", fx = { align = { light = 1 } } },
       },
     },
     festival = {
@@ -848,8 +848,8 @@ P:NPC {
     seen = {
       lines = { { id = "s_default", text = "More of them than ever, and bigger. They're breeding, and something deeper in the hive is driving them." } },
       choices = {
-        { text = "Then we should burn the hive.", next = "BACK", reply = "If only we could. The Circle wants it watched first.", fx = { align = { mercy = -1 } } },
-        { text = "Patience. Learn first, strike later.", next = "BACK", reply = "That's the Circle's wisdom, and mine too.", fx = { align = { mercy = 1 } } },
+        { text = "Then we should burn the hive.", next = "BACK", reply = "If only we could. The Circle wants it watched first.", fx = { align = { light = -1 } } },
+        { text = "Patience. Learn first, strike later.", next = "BACK", reply = "That's the Circle's wisdom, and mine too.", fx = { align = { light = 1 } } },
       },
     },
     report = {

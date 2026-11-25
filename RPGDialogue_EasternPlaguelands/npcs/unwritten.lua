@@ -344,8 +344,8 @@ P:NPC {
     stronger = {
       lines = { { id = "s_default", text = "Because Kel'Thuzad has his citadel back, and with it the full strength of his necromancy. Scourge activity has grown tenfold, and there are reports from as far away as Kalimdor." } },
       choices = {
-        { text = "Then we strike the citadel itself, and soon.", next = "BACK", reply = "Soon, but not blindly. We will lose the best we have if we rush.", fx = { align = { mercy = -1 } } },
-        { text = "First we protect the villages he threatens.", next = "BACK", reply = "Aye. A soldier who forgets the people he guards is only a man with a sword.", fx = { align = { mercy = 1 } } },
+        { text = "Then we strike the citadel itself, and soon.", next = "BACK", reply = "Soon, but not blindly. We will lose the best we have if we rush.", fx = { align = { light = -1 } } },
+        { text = "First we protect the villages he threatens.", next = "BACK", reply = "Aye. A soldier who forgets the people he guards is only a man with a sword.", fx = { align = { light = 1 } } },
       },
     },
     war = {
@@ -389,8 +389,8 @@ P:NPC {
       narr = "For a moment his stern face softens.",
       lines = { { id = "lo_default", text = "Then you know what was taken from us. Every town between here and the Thondroril was full of good people once, and the Scourge wears their faces now. Fight for them, and you fight for your own blood." } },
       choices = {
-        { text = "I will see it reclaimed one day.", next = "BACK", reply = "Hold to that. Hope is a weapon too, though it is a heavy one.", fx = { align = { mercy = 1 } } },
-        { text = "I'll see it burned clean first.", next = "BACK", reply = "Fire may come to that, but remember there were homes in those ruins.", fx = { align = { mercy = -1 } } },
+        { text = "I will see it reclaimed one day.", next = "BACK", reply = "Hold to that. Hope is a weapon too, though it is a heavy one.", fx = { align = { light = 1 } } },
+        { text = "I'll see it burned clean first.", next = "BACK", reply = "Fire may come to that, but remember there were homes in those ruins.", fx = { align = { light = -1 } } },
       },
     },
     redemption = {
@@ -502,8 +502,8 @@ P:NPC {
     here = {
       lines = { { id = "he_default", text = "Because the living who come here need hope more than any. An elder in a garden reminds no one of anything; an elder in the blight reminds them the world was not always like this." } },
       choices = {
-        { text = "This land is lost. Better to burn it clean.", next = "BACK", reply = "Fire is quick, and the healing after it is slow. I have seen both.", fx = { align = { mercy = -1 } } },
-        { text = "Then it can be healed, one day.", next = "BACK", reply = "One day. The elders measure in long days.", fx = { align = { mercy = 1 } } },
+        { text = "This land is lost. Better to burn it clean.", next = "BACK", reply = "Fire is quick, and the healing after it is slow. I have seen both.", fx = { align = { light = -1 } } },
+        { text = "Then it can be healed, one day.", next = "BACK", reply = "One day. The elders measure in long days.", fx = { align = { light = 1 } } },
       },
     },
     festival = {
@@ -701,8 +701,8 @@ P:NPC {
     free = {
       lines = { { id = "f_default", text = "No. The poison's in my blood, and the cage is the least of it. Don't waste the strength trying." } },
       choices = {
-        { text = "I won't leave you to die here.", next = "BACK", reply = "Kind, and foolish. Fight the master of this place instead; that is how you help me.", fx = { align = { mercy = 1 } } },
-        { text = "Then your knowledge is what matters now.", next = "BACK", reply = "Hard, but right. Let's not waste it.", fx = { align = { mercy = -1 } } },
+        { text = "I won't leave you to die here.", next = "BACK", reply = "Kind, and foolish. Fight the master of this place instead; that is how you help me.", fx = { align = { light = 1 } } },
+        { text = "Then your knowledge is what matters now.", next = "BACK", reply = "Hard, but right. Let's not waste it.", fx = { align = { light = -1 } } },
       },
     },
     teach = {
@@ -850,8 +850,8 @@ P:NPC {
     trust = {
       lines = { { id = "t_default", text = "The cures are scarce, and they go to those who've fought beside us. Harsh, but there's only so much to go round." } },
       choices = {
-        { text = "Healing should go to anyone who needs it.", next = "BACK", reply = "In a better world, aye. This one's not.", fx = { align = { mercy = 1 } } },
-        { text = "Fair. Those who fight should come first.", next = "BACK", reply = "That's how the Dawn sees it.", fx = { align = { mercy = -1 } } },
+        { text = "Healing should go to anyone who needs it.", next = "BACK", reply = "In a better world, aye. This one's not.", fx = { align = { light = 1 } } },
+        { text = "Fair. Those who fight should come first.", next = "BACK", reply = "That's how the Dawn sees it.", fx = { align = { light = -1 } } },
       },
     },
   },
@@ -894,8 +894,8 @@ P:NPC {
     avenge = {
       lines = { { id = "a_default", text = "Do that. But don't go alone, whatever you think of yourself." } },
       choices = {
-        { text = "The Scourge must pay for every soldier lost.", next = "BACK", reply = "They will, sooner or later.", fx = { align = { mercy = -1 } } },
-        { text = "I'll do it for the living, not for vengeance.", next = "BACK", reply = "That's a better reason, maybe.", fx = { align = { mercy = 1 } } },
+        { text = "The Scourge must pay for every soldier lost.", next = "BACK", reply = "They will, sooner or later.", fx = { align = { light = -1 } } },
+        { text = "I'll do it for the living, not for vengeance.", next = "BACK", reply = "That's a better reason, maybe.", fx = { align = { light = 1 } } },
       },
     },
     help = {
