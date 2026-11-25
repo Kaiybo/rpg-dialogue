@@ -19,6 +19,8 @@ local function settings() return ns.db.settings end
 local function apply()
   UI.Dialogue.Restyle()
   if UI.AskAbout.IsShown() then UI.AskAbout.Style() end
+  local J = ns.Journal
+  if J and J.IsShown and J.IsShown() and not J.IsPicking() then J.Show(nil, true) end
   T.Refresh()
 end
 
