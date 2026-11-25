@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.36.1 (2026-11-25): Mending the Seams
+- Bug pass: lines and replies that never showed (wrong condition keys or values, unremembered "heard" lines, duplicate line ids, NPCs sharing one key) fixed; stance replies phrased as statements.
+
 ## 1.36.0 (2026-11-25): More to Say
 - Thin conversations deepened: more topics, a longer thread, and a reply only some characters get.
 

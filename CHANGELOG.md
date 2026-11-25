@@ -2,6 +2,18 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.115.0 (2026-11-25): Mending the Seams
+No new files; a /reload is enough. A deep bug pass over the core, the UI, DialogueUI and every pack.
+- **Hundreds of hidden lines now show.** Lines and replies gated on several conditions at once (`all`) never passed; about 495 of them across the packs now appear. So do replies that depend on something you heard earlier (81 were never remembered), lines for Forsaken players (written as "Undead" instead of the game's "Scourge"), dawn and night lines, medics who notice you're hurt, profession lines that list more than one trade, lines about your named pet, and more.
+- **Five pairs of different people no longer share one mind.** Bronk Steelrage (Mulgore), Gurda Wildmane (Desolace), Jannos Lighthoof and Kylanna Windwhisper (Feralas), and Corporal Thund Splithoof (Swamp of Sorrows) were merged with a namesake; they're themselves again (their memory of you starts fresh).
+- **Stances count.** 52 replies moved alignment on axes that don't exist and did nothing; they now move Light, Order or Honor. Replies that were questions but took a stance are now statements.
+- **DialogueUI: no more dead buttons.** After a page with a locked row, the reused button stayed disabled and ignored clicks. One click can no longer pick two replies.
+- **DialogueUI and shops.** The talk key on someone at their vendor or trainer shows the box at once, and DialogueUI's window no longer stays open over the shop.
+- **Quest-list NPCs come back to the conversation** after you accept, decline or hand in, in the box too.
+- **Never lose the quest buttons.** Asking a topic while a quest page is up can't replace Accept or Complete; auto-advance never takes a quest or reward for you.
+- **Keys work in combat.** With the journal open when a fight starts, it no longer swallows your keys and action bars.
+- **Smaller fixes.** Letters can't stop arriving for good; letter replies remember what you chose; "go to" errands count places you already know, and inns and town halls are noticed; Fel Taint fades as it should; town standing only fades when you're away; barks roll each time; "once" lines stay once; a second pack's barks and views for the same person are kept; settings apply to an open journal at once; the mail window's title switches back from "Letters"; the journal button keeps its place after /reload; the "Aa" panel doesn't reopen on the next conversation.
+
 ## 0.114.0 (2026-11-25): Friends, Foes and Fools
 - **When they like you.** Nine new things to ask people who are Warm, Friendly or Devoted toward you: what they make of you, something most folk don't know, who to trust, what to watch out for, their worries and hopes, a favor, what your friendship means, and something they've never told anyone. Every major character answers in their own voice.
 - **When they don't.** Grievances, amends and spite now sound like the person you're talking to, not a stock answer, across every pack.

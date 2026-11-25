@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.58.1 (2026-11-25): Mending the Seams
+- Bug pass: lines and replies that never showed (wrong condition keys or values, unremembered "heard" lines, duplicate line ids, NPCs sharing one key) fixed; stance replies phrased as statements.
+
 ## 1.58.0 (2026-11-25): Friends, Foes and Fools
 - Ask topics for people who like you (regard, confide, trust, watch out, worries, hopes, favor, friendship, never told), with fondness and grudge pools tripled and new pools by role and capital city.
 - Jokes: flat ones rewritten; about 340 new ones by race, class, faction, trade, place and for twenty named characters; more laugh and groan answers.

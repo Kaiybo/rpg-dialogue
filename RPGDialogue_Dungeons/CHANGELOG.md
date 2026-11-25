@@ -1,5 +1,8 @@
 # RPG Dialogue: Dungeons changelog
 
+## 1.5.1 (2026-11-25): Mending the Seams
+- Bug pass: lines and replies that never showed (wrong condition keys or values, unremembered "heard" lines, duplicate line ids, NPCs sharing one key) fixed; stance replies phrased as statements.
+
 ## 1.5.0 (2026-11-25): Friends, Foes and Fools
 - Major characters answer the new friendly topics and grievances in their own voice.
 
