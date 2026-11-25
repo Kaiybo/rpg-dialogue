@@ -523,10 +523,11 @@ end
 
 -- What slips out in anger (0.90.0, topics with `blurts`): the NPC's own `blurts` lines, else
 -- whatever is going round their town or zone (any role).
-function Engine.PickBlurt(info, ctx, env)
+-- field: "blurts" (default) or "confides" (0.114.0, what a friend lets you in on).
+function Engine.PickBlurt(info, ctx, env, field)
   local cands = {}
   local def = info.def
-  if def then add(cands, def.blurts, Engine.BASE.own, "own") end
+  if def then add(cands, def[field or "blurts"], Engine.BASE.own, "own") end
   if #cands == 0 and ns.Rumors then
     for _, set in ipairs(ns.Rumors.SetsFor(info, ctx, true)) do add(cands, set.lines, 300, "rumor:" .. set.id) end
   end

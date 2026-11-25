@@ -84,6 +84,20 @@ P:Topic { id = "grievance", name = "What's your problem with me?", category = "a
 P:Topic { id = "amends", name = "How do I make this right?", category = "anyone", standard = true, order = 7, maxDisposition = 34, learned = "anyone who dislikes you" }
 P:Topic { id = "spite", name = "Say what you really think of me.", category = "anyone", standard = true, order = 8, maxDisposition = 19, blurts = true, learned = "anyone who hates you" }
 
+-- Only when they like you (0.114.0), the mirror of the above: Warm (60) opens the first four,
+-- Friendly (75) the next three, Devoted (90) the last two. Answers in persuade.lua, keyed on
+-- what's warming them to you (condition `fondness`). `confides`: as a friend they let you
+-- in on something useful after the answer (a chance, or always).
+P:Topic { id = "regard", name = "What do you make of me?", category = "anyone", standard = true, order = 9, minDisposition = 60, learned = "anyone who likes you" }
+P:Topic { id = "confide", name = "Tell me something most folk don't know.", category = "anyone", standard = true, order = 10, minDisposition = 60, confides = true, learned = "anyone who likes you" }
+P:Topic { id = "trust", name = "Who here can I trust?", category = "anyone", standard = true, order = 11, minDisposition = 60, learned = "anyone who likes you" }
+P:Topic { id = "watchout", name = "Anything I should watch out for?", category = "anyone", standard = true, order = 12, minDisposition = 60, confides = 0.5, learned = "anyone who likes you" }
+P:Topic { id = "worries", name = "What's weighing on you?", category = "anyone", standard = true, order = 13, minDisposition = 75, learned = "anyone who counts you a friend" }
+P:Topic { id = "hopes", name = "What do you hope for?", category = "anyone", standard = true, order = 14, minDisposition = 75, learned = "anyone who counts you a friend" }
+P:Topic { id = "favor", name = "Is there anything I can do for you?", category = "anyone", standard = true, order = 15, minDisposition = 75, confides = 0.5, learned = "anyone who counts you a friend" }
+P:Topic { id = "friendship", name = "Do you count me a friend?", category = "anyone", standard = true, order = 16, minDisposition = 90, learned = "anyone devoted to you" }
+P:Topic { id = "never_told", name = "Tell me something you've never told anyone.", category = "anyone", standard = true, order = 17, minDisposition = 90, confides = true, learned = "anyone devoted to you" }
+
 -- Stormwind (Stormwind pack 1.6.0)
 P:Topic { id = "si7", keywords = { "SI:7" }, name = "SI:7", category = "people", learned = "Mathias Shaw, Renzik or Elling Trias in Stormwind" }
 P:Topic { id = "stonemasons", keywords = { "Stonemasons" }, name = "The Stonemasons' Guild", category = "people", learned = "Baros Alexston, Mathias Shaw or Arthur the Faithful" }
