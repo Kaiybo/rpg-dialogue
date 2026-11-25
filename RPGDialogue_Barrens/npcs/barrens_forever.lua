@@ -1077,3 +1077,62 @@ P:NPC {
     _none = { { id = "tp_none", text = "No idea, pal, I just carry the bags. Ask the auctioneer, he knows everything with a price on it." } },
   },
 }
+
+-- Fizzlefuse: goblin "Opportunist Engineer" at the Durotar Supply and Logistics camp outside the Crossroads (Forever).
+-- Sells engineering parts, flux and ammunition. (His Season of Discovery spell at New Avalon is not used.)
+P:NPC {
+  key = "bar_fizzlefuse", id = TODO_NPC("Fizzlefuse"), name = "Fizzlefuse", title = "Opportunist Engineer", gender = "male",
+  role = "vendor", tier = "service",
+  temper = { "brash", "eager" }, values = { "practical", "greedy" },
+  notices = { "craft" },
+  impression = {
+    first = "A goblin with singed eyebrows and a toolbelt that clanks every time he gestures, which is constantly.",
+    third = "{name} met Fizzlefuse, a goblin engineer selling parts and ammunition at the supply camp outside the Crossroads.",
+  },
+  greetings = {
+    { id = "g_default", text = "Yo, what do you need? Tubes, powder, shells, flux, I got it all, and most of it hasn't even blown up yet." },
+    { id = "g_back", when = { metBefore = true }, text = "Hey, a repeat customer! I love repeat customers, pal, because they've already learned not to haggle." },
+  },
+  notice = {
+    { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
+      text = "Whoa, whoa, you're an engineer? Then you know what a bronze framework's worth out here, and you know I'm practically giving 'em away." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Fizzlefuse, opportunist engineer, and the opportunity right now is the Barrens, buddy, because every grunt on this road needs bullets and every tinkerer needs parts. I set up next to the supply camp so the Crossroads crowd could find me, and the margins have been beautiful." },
+        { id = "h_hunter", when = { class = "HUNTER" }, text = "A hunter! Oh, I've been waiting for you, pal, because I've got thorium shells and searing arrows, and nobody out here sells 'em cheaper, or at least nobody I've met yet." },
+      },
+      again = {
+        { id = "h_again", text = "What else, friend? Talk's free, but my stock ain't." },
+        { id = "h_again2", text = "Anything more? Clock's ticking, and that clock cost me twelve silver." },
+      },
+      choices = {
+        { text = "Why set up out here, of all places?", next = "why" },
+        { text = "Do you sell to the Alliance too?", next = "both" },
+        { text = "You look like something blew up near you recently.", next = "eyebrows" },
+        { text = "I'll take a look at your goods later.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Because the Crossroads is the middle of everything, chum, and things in the middle get shot at, and things that get shot at need ammunition. The Horde pays on time, mostly, and the supply camp keeps the raiders off my crates." } },
+      choices = { { text = "Sounds like a sound investment. Something else.", next = "BACK" } },
+    },
+    both = {
+      lines = { { id = "b_default", text = "Listen, listen, I'm a goblin of Booty Bay, and a bullet doesn't care who fires it, so neither do I. Out here, though, the customers are all green or grey or horned, and I'm not about to walk to Northwatch to drum up trade." } },
+      choices = {
+        { text = "Selling to both sides is just good business.", next = "BACK", reply = "See, you get it! Neutrality's the most profitable position on any map, pal.", fx = { align = { order = -1 } } },
+        { text = "A man should know which side he stands on.", next = "BACK", reply = "I stand on the side with the money, sweetheart, and today that's yours, so let's not spoil it.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eyebrows = {
+      lines = { { id = "e_default", text = "Ha! That was a coarse blasting powder batch with a little too much enthusiasm in it, and the eyebrows'll grow back, mostly. My cousin lost both of his and a hat, so I'm calling it a good day." } },
+      choices = { { text = "I'll buy my powder somewhere safer. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "No idea, pal, but if you find out and it's worth money, I'll buy the information." } },
+  },
+}
