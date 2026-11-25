@@ -154,6 +154,11 @@ P:NPC {
     { id = "bl1", text = "The Twin Emperors guard the way to C'Thun, and they mend each other's wounds when they stand together. Keep them apart, or you will never finish either." },
     { id = "bl2", text = "The Prophet Skeram splits into images of himself when he is pressed, and only one of them is real. Strike the false ones and you waste your strength." },
   },
+  confides = {
+    { id = "cnf_1", text = "The three royal bugs in the outer halls take strength from each other's deaths. Bring them down as near together as you can manage." },
+    { id = "cnf_2", text = "Ouro the sandworm burrows when he is pressed and rises beneath whoever stands nearest the place he vanished. Spread out, and let him choose wrongly." },
+    { id = "cnf_3", text = "The Old God's eye sweeps the whole of his chamber, and its gaze leaps from one mortal to the next. Keep apart from your companions, or it will take you all together." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "You have been careless with my patience, and a dragon's patience is not as endless as mortals like to assume." },
@@ -171,6 +176,45 @@ P:NPC {
     cthun = { { id = "tp_cthun", text = "The Old God below. Do not linger on his name.", next = "cthun" } },
     nozdormu = { { id = "tp_noz", text = "The Timeless One, Aspect of the bronze flight, whom we serve here.", next = "nozdormu" } },
     _none = { { id = "tp_none", text = "That thread of time is not one I have followed." } },
+    regard = {
+      { id = "rg_1", text = "I think you are more than the young races usually manage to be, mortal. You have stood where few have stood, and you did not come here for gold alone." },
+      { id = "rg_2", text = "You listen before you strike, and in this temple that is the difference between the living and the dead. I have watched you, and I approve." },
+      { id = "rg_mage", when = { class = "MAGE" }, text = "A mage who treats magic with respect rather than hunger. My flight would have made use of you, in an age less troubled than this one." },
+      { id = "rg_order", when = { alignment = { axis = "order", min = 30 } }, text = "You keep to your purpose and to your word. The bronze value that above most things, and so, in my own fashion, do I." },
+    },
+    confide = {
+      { id = "cf_1", text = "My father Malygos has not been himself for a very long time. I serve the bronze here partly because there is no one left in my own flight to serve." },
+      { id = "cf_2", text = "Kandrostrasz, Vethsera and I do not always agree about the young races. I have been outvoted more than once in your favour, and once against it." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Kandrostrasz of the red and Vethsera of the green, who keep this vigil with me. We have quarrelled for a thousand years, but we have never lied to one another." },
+      { id = "tr_2", text = "Trust nothing in these halls that speaks with a voice you know. The Old God below wears faces the way you wear cloaks." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Guard your thoughts in the deeper chambers, for something listens to them there, and it answers in your own voice." },
+      { id = "wo_2", text = "The qiraji are disciplined in a way the silithid of the desert are not. Do not mistake the swarm above for the army below." },
+    },
+    worries = {
+      { id = "wy_1", text = "That my father will never come back to himself, and that the blue flight will drift without him until there is nothing left to drift." },
+      { id = "wy_2", text = "That the young races will forget this place once its doors are closed again. Memory is short among you, and the things that sleep here are patient." },
+    },
+    hopes = {
+      { id = "hp_1", text = "That the Old God below never stirs again, and that no mortal after you ever has to see the inside of these chambers." },
+      { id = "hp_2", text = "I hope to see the blue flight whole again over the northern seas, as it was before Deathwing's betrayal. It is a small hope, as dragons count them, but it is mine." },
+    },
+    favor = {
+      { id = "fv_1", text = "Carry what you learn here to the Cenarion Circle, so that the young races remember. Memory is the one thing the bronze cannot keep for you." },
+      { id = "fv_2", text = "Do not boast of what you see in this temple, mortal. Some threads of time are best left unpulled, and boasting pulls them." },
+    },
+    friendship = {
+      { id = "fr_1", text = "A dragon's friendship is a long thing, mortal, longer than your life. You have mine, and it will outlast you, which is the saddest and finest thing I can offer." },
+      { id = "fr_2", text = "Yes, I count you a friend, and I have said those words only a handful of times in all my long years." },
+      { id = "fr_al", when = { fondness = "alignment" }, text = "We hold to the same purpose, you and I, though we see it from very different heights. That is a sound footing for a friendship, even between a dragon and a mortal." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When Deathwing turned on the Aspects, I was young, and I fled rather than stand with my father. I have served the bronze ever since to answer for that flight." },
+      { id = "nt_2", text = "Some nights the Old God whispers to me in my father's voice, and I must remind myself that my father has never spoken so kindly." },
+    },
   },
 }
 

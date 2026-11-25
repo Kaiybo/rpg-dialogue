@@ -150,6 +150,11 @@ P:NPC {
     { id = "bl1", text = "The Fanglords were my disciples once: Cobrahn, Anacondra, Pythas and Serpentis. The Nightmare turned them, and each one keeps a den of their own in these caverns." },
     { id = "bl2", text = "When I wake, the Nightmare will send Mutanus the Devourer after us. It does not let go of its prey easily, so keep your weapons ready." },
   },
+  alignment = { light = 1 },
+  confides = {
+    { id = "cnf_1", text = "Each of the Fanglords keeps a den of their own deep in the caverns, and they call the deviate beasts to them when they're pressed. Take them one at a time, and never two at once." },
+    { id = "cnf_2", text = "My disciple will only begin the waking once all four Fanglords are dead. Clear their dens before you go to him, or you'll be fighting the whole cavern while he chants." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "I'm grateful you woke me, truly, but you've made it hard to remember why. The Dream was quieter than you are." },
@@ -167,5 +172,44 @@ P:NPC {
     nightmare = { { id = "tp_nm", text = "The sickness in the Dream. I've no better name for it yet.", next = "nightmare" } },
     wailing_caverns = { { id = "tp_wc", text = "These caverns were meant to be the heart of a reborn Barrens, and I made them a nest of nightmares instead." } },
     _none = { { id = "tp_none", text = "Forgive me, my mind is still half in the Dream. I can't speak to that." } },
+    regard = {
+      { id = "rg_1", text = "I think you're real, which still matters to me more than you'd guess. And I think you're good, which matters even more." },
+      { id = "rg_2", text = "You pulled me out of a dream I'd stopped trying to escape. I'll think well of you for the rest of my days, however many there are." },
+      { id = "rg_druid", when = { class = "DRUID" }, text = "You're of the Circle, and you came all this way down for one of your own. Malfurion would be proud of you, if he were awake to see it." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "There's a clean light about you, like the first morning after a long fever. I'd almost forgotten what that looked like." },
+    },
+    confide = {
+      { id = "cf_1", text = "I still dream of the caverns some nights, and I wake with the taste of the green water in my mouth. I'm not sure I ever entirely left." },
+      { id = "cf_2", text = "I chose these caverns because the Barrens were dying and I thought I could save them alone. I never asked the Circle's leave, because I knew they'd tell me to wait." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the disciple who stayed by my side all those years, and the druids of the Circle in Thunder Bluff and Moonglade. They'll tell you the truth about the Dream, even when it frightens them." },
+      { id = "tr_2", text = "Not my old disciples, whatever they say to you. Cobrahn and the others still wear the Fang's robes, and the Nightmare still wears them." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Beware dreams that feel too real, especially after a hard fight. If you wake more tired than you lay down, find a druid before you sleep again." },
+      { id = "wo_2", text = "Beware the deviate creatures in these caverns, for they were ordinary once and the sickness is still in them. Don't eat anything that crawled out of this place." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the sickness I found in the Dream isn't confined to these caverns, and I've seen only the smallest corner of it. If it could reach me here, it can reach anyone sleeping anywhere." },
+      { id = "wy_2", text = "That my disciples can't be brought back, and that I'll have to go on living knowing I led them down here." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To see the oases of the Barrens run clean and green again, the way I dreamed they would. That was the whole reason I came." },
+      { id = "hp_2", text = "That I'll sleep one night without dreaming at all. Just once, an ordinary, empty sleep, and I'd count it a gift." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you pass the oases of the Barrens, look at the water for me and tell me whether it's any clearer. I need to know whether I made things better or only worse." },
+      { id = "fv_2", text = "Tell the Circle what you saw down here, plainly. They'll take it more seriously from you than from a druid who slept through his own mistake." },
+    },
+    friendship = {
+      { id = "fr_1", text = "You're my friend, {name}, the first I made after waking. I think I'll always remember that, even if I forget the dream." },
+      { id = "fr_2", text = "I owe you my life and my mind both, and friend is the smallest name I could give you. Yes, a thousand times over." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You came back into the caverns for me after you'd already done more than anyone could ask. That's friendship, whatever else it is, and I'll answer it however I can." },
+    },
+    never_told = {
+      { id = "nt_1", text = "There were moments in the Dream when I didn't want to be woken. The Nightmare was terrible, but it was also quiet, and I was so very tired." },
+      { id = "nt_2", text = "I heard Mutanus long before I ever saw him, and he spoke in my own voice, telling me I'd failed. I believed him, and some days I still do." },
+    },
   },
 }

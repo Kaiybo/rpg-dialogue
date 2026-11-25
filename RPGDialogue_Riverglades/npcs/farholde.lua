@@ -493,6 +493,11 @@ P:NPC {
     { id = "bl2", text = "There are fewer riders in Farholde than the rolls in Stormwind say, and I've stopped correcting the rolls. If the Hammer knew how thin we are, they'd already be at the gate." },
     { id = "bl3", text = "Whoever leads in Krol'dok wants the mage tower at Sunnyglade, and I don't know why. That worries me more than all the ogres in the caves." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Twilight's Hammer move through the northwest caves in the dark and come out near the river after midnight. If you want to catch them in the open, wait by the water." },
+    { id = "cnf_2", text = "Alphonse at the smithy can cast a key from a Krol'dok moulding if you bring him thick leather and iron bars. He'll grumble, but he's never yet turned down a puzzle." },
+    { id = "cnf_3", text = "Gray Dawnbright drinks at the port because he can't face Fern's stone here. Leave him his story about her, because it's all that's holding him together." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "I've buried better soldiers than you and liked them more. You haven't given me a reason to change my mind." },
@@ -541,6 +546,45 @@ P:NPC {
       { id = "gt2", text = "I don't discuss that with those I haven't taken the measure of, and I'm still taking yours." },
     },
     _none = { { id = "tp_none", text = "If it isn't in the Riverglades, it isn't my concern. Ask Ashe; she reads." } },
+    regard = {
+      { id = "rg_1", text = "I think you're the kind of rider the Brotherhood used to have plenty of and doesn't anymore. I'd put you on the wall tonight without a second thought." },
+      { id = "rg_2", text = "You came to the Riverglades when Stormwind wouldn't, and you stayed when it got ugly. That's the only measure I've ever trusted." },
+      { id = "rg_order", when = { alignment = { axis = "order", min = 30 } }, text = "You keep your word and hold your post without anyone standing over you. Give me ten like you and I'd have our banner over Sunnyglade by autumn." },
+      { id = "rg_pal", when = { class = "PALADIN" }, text = "A paladin who'll ride east of Stormwind's walls is worth a company of them that won't. I told Rowland so, and she agreed with me, which is rare enough to mention." },
+    },
+    confide = {
+      { id = "cf_1", text = "There are nights I sit with the rolls and count who's left, and the number gets smaller even when nobody's died. Men slip away to Stormwind, and I can't say I blame them." },
+      { id = "cf_2", text = "Ashe thinks I don't know she reads her father's notes all night. I know, and I leave lamp oil by her door, and neither of us has ever said a word about it." },
+    },
+    trust = {
+      { id = "tr_1", text = "Ashe, before anyone, even when she's wrong about Stormwind. Riftan, because he's held the front longer than some of my riders have been alive, and Cady, because she sees what's coming before the rest of us hear it." },
+      { id = "tr_2", text = "Sister Rowland, with your life and anything else you've got. Don't trust anyone who rides in from Stormwind promising help, because I've had twenty years of those." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the ridge to the north, because the orcs at Rog'mar count our riders from it. I let them count, but I never let them see the stables." },
+      { id = "wo_2", text = "Stay out of the caves along the northwest mountains unless you've friends at your back. I've lost scouts in there who were better than either of us." },
+    },
+    worries = {
+      { id = "wy_1", text = "That I'll be the last Knight Commander of Farholde, and that I'll be remembered as the one who lost it. Twenty years, and that's what keeps me up at night." },
+      { id = "wy_2", text = "Whatever the Hammer wants in Sunnyglade's tower. A cult doesn't dig that hard for nothing, and I've no mage but Ashe to tell me what it is." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To ride into Sunnyglade at the head of the Brotherhood and raise our banner over it again. After that they can bury me with the others, and I'll go content." },
+      { id = "hp_2", text = "That Stormwind remembers us one day and sends riders instead of letters. I've stopped expecting it, but I haven't stopped hoping, damn it all." },
+    },
+    favor = {
+      { id = "fv_1", text = "Next time you're in Stormwind, tell anyone who'll listen that Farholde still stands. Tell them who's holding it, and what it's cost." },
+      { id = "fv_2", text = "Read the memorials in the hall, every name, and remember one or two of them. That's all the dead ask of the living." },
+    },
+    friendship = {
+      { id = "fr_1", text = "You're Brotherhood in all but the oath, {name}, and I count you a friend. I don't say that to many, because I've buried most of the ones I said it to." },
+      { id = "fr_2", text = "I do, and there's a place at my table whenever you ride back through the gate. That's not something I offer lightly." },
+      { id = "fr_values", when = { fondness = "values" }, text = "You're brave and you're loyal, and that's all the Brotherhood ever asked of anyone. Friend, then, and I'll stand by it." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I wanted to ride in the King's own guard once, and Stormwind turned me down for a lord's son. I came east angry, and I've been angry ever since." },
+      { id = "nt_2", text = "I stopped writing to Stormwind for help two winters ago, though I tell my riders the letters still go out every month. Better they think the city's deaf than know I've stopped asking." },
+    },
   },
 }
 
@@ -942,6 +986,11 @@ P:NPC {
     { id = "bl2", text = "The mage tower in Sunnyglade is still warded, and I'm fairly certain the wards were my father's work. Whatever the Hammer wants inside, they can't get to it yet." },
     { id = "bl3", text = "I came back from the western expedition alone, and I haven't told anyone all of what we found there. Some of it still hums in a locked box under my bed." },
   },
+  confides = {
+    { id = "cnf_1", text = "The ward light on the Sunnyglade tower can be seen from the hill east of the ruins, and it flickers whenever the cultists test it. If it ever goes dark, ride for Farholde and tell Demar at once." },
+    { id = "cnf_2", text = "Sister Rowland hasn't slept a full night since the sickness came to the chapel. If you have any skill with healing, an hour of your help would mean more to her than anything you could buy." },
+    { id = "cnf_3", text = "Riftan's runners carry the Hammer's mementos back from the front in plain sacks, and anything that's whispering gets passed to me. If you find one out there, it goes the same way." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "I'm sorry, I'm trying very hard to be fair to you, and I'm not managing it. You've made it rather difficult, if I'm honest." },
@@ -984,6 +1033,45 @@ P:NPC {
       { id = "gt2", text = "That one I don't share with visitors, I'm sorry. Ask me again when you've been around Farholde a while longer." },
     },
     _none = { { id = "tp_none", text = "I don't know! I'd love to, though, so write it down for me, would you? I'll look into it." } },
+    regard = {
+      { id = "rg_1", text = "I think you're wonderful, honestly, and I'm sorry if that's too much. You listen, and you bring me interesting things, and you don't sigh when I start explaining them." },
+      { id = "rg_2", text = "You're clever, {name}, properly clever, not the sort who only repeats things. I don't meet many people I can really talk to, and I've noticed you're one of them." },
+      { id = "rg_mage", when = { class = "MAGE" }, text = "A fellow mage, and a good one! My father would have kept you up all night arguing ward theory, and I'm very tempted to do the same." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "There's something steady about you, a sort of light, the way Sister Rowland has it. I don't understand it in the least, but I've learned to be glad of it." },
+    },
+    confide = {
+      { id = "cf_1", text = "The box under my bed hums louder when it rains. I've measured it, which isn't at all the same as understanding it, and I'd much rather understand it." },
+      { id = "cf_2", text = "I'm the one who talks Demar out of riding on Krol'dok with twelve men every few months. He thinks it was his own idea each time, and I let him." },
+    },
+    trust = {
+      { id = "tr_1", text = "Demar, absolutely, even when he's being impossible, and Sister Rowland, who's never once told me a kind lie. Cady too, though she says about four words a week." },
+      { id = "tr_2", text = "Riftan, though he grumbles, and Alphonse at the forge. I'd be careful of anyone at the port who offers to buy a Hammer relic from you, because they're not buying it to keep on a shelf." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Anything the Hammer carried that feels warm when it shouldn't, or cold when it shouldn't. Bring those to me, and please don't sleep beside them." },
+      { id = "wo_2", text = "The Twilight's Shroud, where Riftan keeps his watch. The air there does things to your thoughts if you stay too long, and I think it's doing them to him." },
+    },
+    worries = {
+      { id = "wy_1", text = "That Riftan's wearing out, and Demar too, and that I'm the only one who sees it. I'm a mage, not a healer, so all I can do is notice, which is awful." },
+      { id = "wy_2", text = "That I'll open the wrong box one day, or the right one too soon. I'm very careful, but my father was careful too, and he still went west." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To finish my father's work on the Sunnyglade wards and put his name on it, properly, in a book someone in Dalaran will actually read. I'm sorry, that's a terribly vain thing to hope." },
+      { id = "hp_2", text = "That Farholde has a proper library one day, with a fire and a window and nobody bleeding on the pages. I'd sit in it for a year and not say a word, which you won't believe." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you find any of my father's notes out in the glades, bring them to me before anyone else sees them. His hand is very small and slants backward, so you'll know it." },
+      { id = "fv_2", text = "Make Demar eat something, if you're in the hall at supper. He listens to visitors more than he listens to me, which is infuriating." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Of course I do! Oh, I'm sorry, that was loud, but yes, you're my friend, {name}, and I haven't had many since I came back." },
+      { id = "fr_2", text = "You're one of the few people I'd trust with my father's notes, and that's the most I can say of anyone. Yes, a friend, and a dear one." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've carried more cursed rubbish back to Farholde for me than anyone alive, and you've never once asked me to stop. I'd call that friendship, wouldn't you?" },
+    },
+    never_told = {
+      { id = "nt_1", text = "When I came back from the west alone, the first thing I felt wasn't grief, it was relief that I was alive. I've hated myself for it every day since." },
+      { id = "nt_2", text = "I don't think my father ever finished the wards on the Sunnyglade tower. I think they're holding by luck, and I'm terrified someone in Krol'dok will work that out before I do." },
+    },
   },
 }
 

@@ -475,6 +475,11 @@ P:NPC {
     { id = "bl2", text = "We still have no word from Shen'dramar, even with the skycutters running again. I don't say so aloud, because I don't know what we'd find if we went." },
     { id = "bl3", text = "Every relic taken back from the cult passes through my hands before it goes to the collection. I've learned more about some families that way than I ever wished to." },
   },
+  confides = {
+    { id = "cnf_1", text = "The pylons nearest the cliffs are failing first, and the Council has quietly stopped building near them. If you see a family moving inland, help them carry; they've been told, and their neighbours haven't." },
+    { id = "cnf_2", text = "Some relics taken back from the Al'Aketh still hum with the cult's prayers, which is why every one passes through my hands before the collection. If anything you carry feels warm, bring it to me." },
+    { id = "cnf_3", text = "The skycutter crews know more about which islands have shifted than the Council does. Ask a dockmaster where the stones have drifted this month, and you'll hear it before I do." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "I try to think well of everyone who comes to this isle, child, and you've made it very hard work. I'm too tired for hard work that pays nothing." },
@@ -514,5 +519,44 @@ P:NPC {
     earth_mother = { { id = "tp_earth_mother", text = "Muln Earthfury of the tauren came with the Earthen Ring and stood with us when the elementals turned. His people speak of an Earth Mother, and the Windshapers are learning to listen to her voice beside the wind's." } },
     cairne = { { id = "tp_cairne", text = "The tauren chieftain, Cairne, has opened his lands in Mulgore to the Windshapers, and I don't know how to thank a man I've never met. I'm told he'd say there's nothing to thank him for, which makes me like him already." } },
     _none = { { id = "tp_none", text = "The Council has many questions and fewer answers, and that's one of the many." } },
+    regard = {
+      { id = "rg_1", text = "I think you're honest, {name}, and honest about what you don't know, which is the only kind of honesty I've ever really trusted." },
+      { id = "rg_2", text = "You help both orders without keeping score, and I've watched you do it. Do you know how few people on this isle can say the same?" },
+      { id = "rg_kin", when = { race = "Skyborne" }, text = "You're one of ours, child, and you've grown into someone I'd be proud to see on the Council, though I'd never wish the Council on anyone I liked." },
+      { id = "rg_order", when = { alignment = { axis = "order", min = 30 } }, text = "You respect our laws even where they make little sense to someone from below. That costs you something, and I've noticed you pay it without complaint." },
+    },
+    confide = {
+      { id = "cf_1", text = "I took this office because the alternative was watching the two orders each push one of their own for it. I'd have lost one of them that day, and perhaps both." },
+      { id = "cf_2", text = "I keep the names of our druids in a little book, since there are so few of them. I'm afraid of the day I turn a page and find I've nothing new to write." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Peacekeepers, child, for they answer to the Council and not to either order. And trust anyone who has lost someone to the quarrel and still wants it ended." },
+      { id = "tr_2", text = "Elaadrin and Ayessa will each tell you the truth as they see it, and each truth will be incomplete. Listen to both, and believe the parts where they agree." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Mind the drifting islands, for the pylons that hold them are failing, and the ground can drop away beneath you between one breath and the next." },
+      { id = "wo_2", text = "Be careful what you say about Lorthuna, and to whom. Some still mourn her and some still follow her, and from the outside they look very much alike." },
+    },
+    worries = {
+      { id = "wy_1", text = "That our young people will go down to Azeroth and like it better there. I'd not blame them, child, but I don't know what Zephras becomes without them." },
+      { id = "wy_2", text = "The Shal'nan's silence. He gave up his crown, went on tending our bond with the spirits, and then he was simply gone, and I can't make that into any shape I like." },
+    },
+    hopes = {
+      { id = "hp_1", text = "That one day a child of Zephras can visit Mulgore and Dalaran both and come home without being asked which side they're on." },
+      { id = "hp_2", text = "That I'll be able to hand this office to someone younger, and then go and sit on the sea cliffs and watch the wind for a year without having to interpret it." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you go to Mulgore or to Dalaran, carry a kind word about the other order with you and say it where it'll be heard. You'd be surprised how far one goes." },
+      { id = "fv_2", text = "Bring me any word of Shen'dramar, however small. I'd rather hear something hard than go on hearing nothing at all." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, child, and I'm a little surprised by it. A High Elder isn't supposed to have favourites, so let's keep that between us." },
+      { id = "fr_2", text = "You're my friend, {name}, and one of the few people I can be honest with about how little I know. That's a rare comfort, and I'm grateful for it." },
+      { id = "fr_honest", when = { fondness = "values" }, text = "You're honest and you keep faith with our laws, and those are the two things I'd ask of any friend. You have my friendship, and you've had it a while." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I voted against my own name when the Council chose a High Elder. I've never told them, and I suppose they'd find it funny now." },
+      { id = "nt_2", text = "My mother gave me her heirloom on my coming of age and told me to carry it somewhere better than she had. I've carried it to every Council meeting since, and I'm still not sure I've managed it." },
+    },
   },
 }

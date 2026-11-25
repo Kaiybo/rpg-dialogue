@@ -308,6 +308,11 @@ P:NPC {
     { id = "bl1", text = "The Windshapers sent their own people to frighten Belathaan on the road, before Lorthuna's cult ever laid a hand on him. They'd like the whole isle to forget that, and I never will." },
     { id = "bl2", text = "The Index Esoteria at the Overlook Standing Stones shows safe paths between the planes, and the Windshapers call those stones sacred so that we can't touch them. That is the real quarrel between the orders, whatever anyone tells you." },
   },
+  confides = {
+    { id = "cnf_1", text = "Our skycutter sets down at the north end of Dalaran, and the Sky Enclave keeps a portal to Stormwind in the Violet Citadel. It's the quickest road off this isle to anywhere that matters." },
+    { id = "cnf_2", text = "Iaadaria Bitterwind has a scar from trying to distil a windstone, and she knows more about their insides than anyone in Valanaar. If one of yours behaves oddly, take it to her before it behaves worse." },
+    { id = "cnf_3", text = "Not every Al'Aketh was broken at the Shrine of Akir. I'm certain a few slipped away with their robes in their packs, and I'd watch any grey-robed stranger on the outer islands." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "You've wasted my time, and time is the one thing the High Order cannot replace. I don't forgive that easily, and I see no reason to start with you." },
@@ -334,6 +339,45 @@ P:NPC {
     shal_nan = { { id = "tp_shal", text = "He brought us out of Eldre'Thalas and then gave up his crown, and then he left without a word. I've wished more than once that he'd left us his reasons." } },
     windstones = { { id = "tp_stones", text = "Concentrated power, and our people spend them like coin. One day I hope we'll understand them well enough to make more." } },
     _none = { { id = "tp_none", text = "That's outside my study, I'm afraid. Ask one of the scholars; they'll be delighted to bore you." } },
+    regard = {
+      { id = "rg_1", text = "I think you have a mind worth training, {name}, and I don't say that to many outside the Order. Don't let it go to waste on swordplay." },
+      { id = "rg_2", text = "You've served Zephras without asking what it would pay, and I've watched you do it. The High Order remembers its friends, whatever the Windshapers say of us." },
+      { id = "rg_mage", when = { class = "MAGE" }, text = "A mage who actually studies, rather than merely throwing fire about. If you were Skyborne, I'd have you in the Sky Enclave by spring." },
+      { id = "rg_order", when = { alignment = { axis = "order", min = 30 } }, text = "You respect discipline and you keep your word, which is more than I can say for half the Council. I find that very restful." },
+    },
+    confide = {
+      { id = "cf_1", text = "I haven't slept a whole night since Belathaan died, and Dondallion has noticed, though he's too polite to say so. I work by lamplight because the dark is full of things I should have said." },
+      { id = "cf_2", text = "Ansirem's letters from Dalaran are mostly jokes about gnomes, and I read every one of them twice. Don't tell the Order; they believe I only read his formulae." },
+    },
+    trust = {
+      { id = "tr_1", text = "Dondallion, who keeps our records twice over and has never lost a page. And Archmage Ansirem, who came when we called and hasn't yet asked for anything in return." },
+      { id = "tr_2", text = "Trust the Peacekeepers to keep the peace, and expect nothing else of them. They're stretched so thin they couldn't search for a lost scholar if the Council begged them." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Be wary of anyone at the Overlook Standing Stones who tells you they're only praying. The Windshapers guard those stones more jealously than any vault, and they're not gentle with trespassers." },
+      { id = "wo_2", text = "Don't carry High Order papers through Windshaper country, and don't wear our colours in Mulgore. The ceasefire is a truce and not a peace, whatever the Council tells you." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the Windshapers are right, and we've been reaching for power that was never meant for us. I don't believe it, but I think about it far more often than I'd like." },
+      { id = "wy_2", text = "That Rohash will come back for Zephras before the Order is ready, and that I'll have to choose between the isle and the Order's pride. I know which I'd choose, and I'm not sure the Order does." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To make a windstone with our own hands, from Highborne knowledge and nothing else. The day we can, Zephras stops begging the spirits for its lamplight." },
+      { id = "hp_2", text = "That Belathaan's death is answered, and that his is the last. I'd settle for the first, but I'd give a great deal for the second." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you find any Highborne writing out in the world, even a scrap, bring it to Valanaar before you sell it. Knowledge is the one thing we can't afford to let slip a second time." },
+      { id = "fv_2", text = "Visit Belathaan's family, if you pass them. His mother was a Windshaper, and she won't want to hear his name from me." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}, and you'd be astonished how few people the Supreme Magister can say that of. Most want something from this chair; you've only ever wanted to help." },
+      { id = "fr_2", text = "Yes, a friend, and one I'd trust in my own hall with the wards down. That's rarer on this isle than any windstone." },
+      { id = "fr_horde", when = { faction = "Horde" }, text = "You wear the Horde's colours, and I count you a friend anyway, which I'd have sworn was impossible a year ago. Don't tell the Order I said so." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I was afraid of the arcane as a child, truly terrified of it, and I joined the Order to prove to myself I wasn't. I'm still not certain I've proved it." },
+      { id = "nt_2", text = "I envy the Windshapers sometimes, for their certainty that someone is listening. When I speak to the empty air at night, I'm never sure anything hears." },
+    },
   },
 }
 

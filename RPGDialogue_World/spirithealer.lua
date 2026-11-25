@@ -2426,6 +2426,11 @@ P:Pool {
       choices = { { text = "Return me to life.", next = "BUSINESS" } },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "If you walk back to your body instead of letting me raise you here, you keep your strength and spare your armour the extra wear my hands would cost you." },
+    { id = "cnf_2", text = "The weakness I leave on you is brief for the young and lasts longer as you grow. Sit somewhere safe while it passes, and do not pick a fight in it." },
+    { id = "cnf_3", text = "Your body is never as far as it feels from up here. Go straight down the hill and do not stop to look into the gray, for leaving is easier than it seems." },
+  },
   topics = {
     knows = {
       { id = "t_kn1", text = "The dead bring their news up the hill with them, and I write down whatever they let fall. This much I can speak to, if you will sit a moment longer." },
@@ -2460,6 +2465,57 @@ P:Pool {
     },
     argent_dawn = {
       { id = "t_argent", text = "They speak of the dead with great care, and I appreciate that, since most of the living only fight them." },
+    },
+    grievance = {
+      { id = "gv1", text = "You come up the hill angry and go down it angrier, and you leave a mark on the grass that I have to tidy. I do not enjoy tidying." },
+      { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to me as if I were a toll-keeper. I do not take tolls; I keep records, and yours is not flattering." },
+    },
+    amends = {
+      { id = "am1", text = "Sit a moment the next time you come up the hill, and let me finish a sentence. That would mend more than you think." },
+      { id = "am_values", when = { grudge = "values" }, text = "Stop dying so carelessly, as though the hill were a shortcut. The file notices, and so do I." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you will come up this hill one day and I will have to look up your name. I have never once had to look up a name, and I am saving that for you." },
+    },
+    regard = {
+      { id = "rg_1", text = "I think you are one of the few who come up the hill and look at me, rather than past me at the way back. I have noticed, and I have written it down." },
+      { id = "rg_2", text = "Your file is thick, but there is not one cruel page in it, and that is rarer than you would think. I read it more often than I need to." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "You arrive bright, every time, and the others in the gray turn toward you when you do. I find I turn too, and I am not sure I am permitted to." },
+      { id = "rg_shadow", when = { alignment = { axis = "light", max = -30 } }, text = "There is dark in your file, more than most, and still you come up the hill gently. I do not judge the dark; I only note how you carry it." },
+      { id = "rg_many", when = { deaths = { min = 50 } }, text = "We have met so often that I think of you as a regular, the way an innkeeper might. That is not a complaint." },
+    },
+    confide = {
+      { id = "cf_1", text = "I do not remember my own face, but I remember a blue latch on a door and bread cooling on a sill. I take them out and look at them when the hill is quiet." },
+      { id = "cf_2", text = "I am not certain I am allowed to grow fond of anyone. No one has said I may not, and so I have, a little, with you." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the ones who come back and say the names of the dead aloud. They have understood something most of the living never do." },
+      { id = "tr_2", text = "Trust your own feet on the walk back to your body. They are slower than my hands, but they take nothing from you but time." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the ones who die without fear. They are not brave; they have only forgotten what they stand to lose, and they forget other things soon after." },
+      { id = "wo_2", text = "Be wary of anyone who offers to keep your soul safe in a stone. When you fall into a stone you do not come to me, and I cannot tell you who you go to instead." },
+    },
+    worries = {
+      { id = "wy_1", text = "That one day I will forget a name. I never have yet, but the file grows and I am only one, and some nights the ink looks paler than it did." },
+      { id = "wy_2", text = "The door past the mist was warm again this morning, and I do not know what that means. I have stopped telling the others when it is warm." },
+    },
+    hopes = {
+      { id = "hp_1", text = "That you die very old, in a bed, with someone holding your hand, and that you come up the hill only once more after that and stay as long as you like." },
+      { id = "hp_2", text = "That someone, somewhere, keeps a file on me. I should like to think I am remembered as carefully as I remember." },
+    },
+    favor = {
+      { id = "fv_1", text = "Say a name aloud for me when you are back among the living, any name from your own losses. The dead are kept by being spoken." },
+      { id = "fv_2", text = "Come up the hill a little less often, if you can manage it. I should miss you, but I would rather miss you than see you so pale." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do. I have never been sure the dead may have friends among the living, but I have stopped waiting for anyone to forbid it." },
+      { id = "fr_2", text = "You are the page I turn back to when the hill is too full. If that is not friendship, I do not know what the word is for." },
+      { id = "fr_many", when = { deaths = { min = 100 } }, text = "After a hundred climbs and more? You are the oldest friend I have, and very nearly the only one who keeps coming back." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I wrote your name on the first page of my own file once, without meaning to. I have not crossed it out, and I do not think I will." },
+      { id = "nt_2", text = "Once, someone begged me to keep them here, and I said no and sent them back down. They never came up the hill again, and I have never learned whether that means they lived or that they never arrived." },
     },
   },
 }

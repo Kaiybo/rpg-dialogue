@@ -385,6 +385,11 @@ P:NPC {
     { id = "bl2", text = "The Brotherhood on their island are fewer than they pretend. I have counted their riders from the ridge, and they could not hold that keep against a real assault." },
     { id = "bl3", text = "Someone in Krol'dok wants the human tower at Sunnyglade, and the cultists dig toward it every night. I do not know why, and that is why I want their master dead." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Hammer's master keeps the ogre enforcers at the cave mouth and his true believers deep inside. Cut through the ogres fast, because the cultists behind them run to warn him." },
+    { id = "cnf_2", text = "Kreza keeps a rack of the Hammer's gear taken from the dead, and some of it still fits. A cultist's robe has opened more doors in Krol'dok than any axe." },
+    { id = "cnf_3", text = "The Brotherhood watches the river crossings by day and not by night, because their riders are too few for both. If you must cross unseen, cross in the dark." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "You are not someone I would send into Krol'dok, and that is the worst thing I say of anyone in Rog'mar. Ask me again when that has changed." },
@@ -423,6 +428,45 @@ P:NPC {
       { id = "gt2", text = "I do not speak of such things with those who have not earned it, so ask about the caves or the cult instead." },
     },
     _none = { { id = "tp_none", text = "That's no concern of mine. Ask Neza, who listens to everything." } },
+    regard = {
+      { id = "rg_1", text = "You are a warrior who finishes what you begin, and in Rog'mar that is the only praise worth having. I would send you into Krol'dok at my side." },
+      { id = "rg_2", text = "You spend your strength on the enemy and not on boasting. I have known chieftains who could not manage that, and I respect you more than some of them." },
+      { id = "rg_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You fight with honor, the way the Warchief teaches, the way we forgot under the demons. When I see that in a young one, the camps feel very far behind me." },
+      { id = "rg_orc", when = { race = "Orc" }, text = "You are of my blood, and you carry it well. Our people have known too much shame, and you are no part of it." },
+    },
+    confide = {
+      { id = "cf_1", text = "I still wake some nights with the camp walls around me, and I have to walk out to the ridge before I believe I am free. No grunt in Rog'mar knows that." },
+      { id = "cf_2", text = "I give the orders here because someone must, not because the Warchief named me to it. Every day I wait for him to send a better orc, and every day I hope he does not." },
+    },
+    trust = {
+      { id = "tr_1", text = "Neza, who judges every newcomer for me and has never yet judged wrong. Tan'jani too, though those two will argue spears and arrows until the sun goes out." },
+      { id = "tr_2", text = "Clugfist's ogres at Bolder'ok, for they bled the Hammer to leave it and have nowhere else to go. Do not trust the goblins at the port with more than your coin." },
+    },
+    watchout = {
+      { id = "wo_1", text = "The Hammer takes prisoners for its altars, and it takes the wounded first. If you fall in Krol'dok, make sure you fall where your friends can drag you out." },
+      { id = "wo_2", text = "The riders of Farholde do not trust us, and some of them would put a lance through an orc and call it an accident. Keep to our side of the river when you can." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the Hammer finds what it digs for under Sunnyglade before we reach their master. A cult with a purpose is worse than a cult with an altar." },
+      { id = "wy_2", text = "That the young grunts who never saw the camps think peace is the natural way of things. It is not; it was bought with blood, and it can be lost the same way." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To see Krol'dok burn and its master's head on a spear above our gate. After that I would like a quiet hill in Durotar and a son to teach." },
+      { id = "hp_2", text = "That one day our children hear the word camp and think only of a fire with friends around it." },
+    },
+    favor = {
+      { id = "fv_1", text = "Bring me word of anything the cult carries out of Sunnyglade, even a rumour of it. I would rather know a little than nothing." },
+      { id = "fv_2", text = "Go with Neza on the next hunt to the southern pools. Neza will never ask for help, and one day will need it." },
+    },
+    friendship = {
+      { id = "fr_1", text = "You are my friend, {name}, and among orcs that is not a word we waste. Lok'tar." },
+      { id = "fr_2", text = "I have fought beside you, and that makes you blood to me. If you fall, Rog'mar will sing your name, and I will lead the song." },
+      { id = "fr_al", when = { fondness = "alignment" }, text = "We hold to the same honor, you and I, and friendships built on that do not break when the blades come out." },
+    },
+    never_told = {
+      { id = "nt_1", text = "In the old war I followed a warlock's orders without question, and I watched him do things I will not name. I said nothing, and I have hated that silence for half my life." },
+      { id = "nt_2", text = "I was afraid in the camps, so afraid that the fight nearly went out of me for good. The Warchief gave it back, and I have never told him what he gave me." },
+    },
   },
 }
 

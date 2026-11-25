@@ -166,6 +166,8 @@ function kinds.Pool(pack, def)
   indexList(def.lines, prefix, prefix, "line")
   indexList(def.barks, prefix, prefix, "bark")
   indexTopics(def.topics, prefix, prefix)
+  indexList(def.blurts, prefix .. ".blurt", prefix, "blurt")
+  indexList(def.confides, prefix .. ".confide", prefix, "confide")
   -- Pools may carry whole conversation trees (spirit healers): they then act as one
   -- shared character for every NPC of that role.
   for nodeId, node in pairs(def.nodes or {}) do

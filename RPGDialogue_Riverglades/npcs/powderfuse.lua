@@ -334,6 +334,12 @@ P:NPC {
     { id = "bl2", text = "The Venture Company's had a man asking prices on my warehouses for months. I'll burn the place to the waterline before I sell, and I've already bought the oil." },
     { id = "bl3", text = "Those Twilight types pay in coin that's cold to the touch, pal. I take it anyway, and I don't keep it in the same strongbox as the rest." },
   },
+  alignment = { honor = -1 },
+  confides = {
+    { id = "cnf_1", text = "Sleebo's gas vents by the southwest ponds go up like a firework if a spark gets near 'em, so don't throw fire around over there. Ask me how I know, pal." },
+    { id = "cnf_2", text = "The Venture Company fella who keeps askin' about my warehouses goes back to Tanaris on the second boat every week, regular as a clock. If anybody wanted to know who he reports to, that's where I'd start." },
+    { id = "cnf_3", text = "The murloc islands off the coast have more wreckage on 'em than any beach in the Riverglades, and wreckage means salvage, kid. Go at low tide, and go armed." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "My problem, kid? You cost me money, or you cost me time, and time is money, so either way you're in the red." },
@@ -367,6 +373,45 @@ P:NPC {
       { id = "gt2", text = "Nope, not for you, kid, not yet. Some information I keep locked up with the good tools, and you haven't earned the key." },
     },
     _none = { { id = "tp_none", text = "Is it for sale? If it isn't, kid, I haven't got an opinion, and if it is, it's probably mine." } },
+    regard = {
+      { id = "rg_1", text = "You, pal? You're a good customer, and you know what that makes you in my book? Practically family, and family's the one thing I don't put a price on, mostly." },
+      { id = "rg_2", text = "I think you're the best investment that's walked down my dock all year, kid, and I've seen some ships come in. You keep payin' off, and I keep noticin'." },
+      { id = "rg_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You know when to bend a rule and when to snap it clean in half, and I respect that, pal. Honest folk are lovely, but they're murder on the margins." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've done right by the port, kid, and I've got it all written down in the good ledger, the one with the leather cover. That's where I keep my friends." },
+    },
+    confide = {
+      { id = "cf_1", text = "Half the planks in this port came off a wreck I didn't exactly find, pal. The other half came off a wreck I did find, after I'd helped it along a little." },
+      { id = "cf_2", text = "The other goblins tease me about the port being mine, and I laugh along, but it gets under the plating. I really did build most of it, give or take a few hundred workers." },
+    },
+    trust = {
+      { id = "tr_1", text = "Zizplink at the inn, because she's too cheerful to lie, and Gritta, because she's too rude to bother. Everybody else in this port I trust about as far as I can throw a steam pump." },
+      { id = "tr_2", text = "Trust the Cartel's paperwork and nobody's handshake, pal. And if a fella in a Venture Company hat offers you a job, you never met me." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch Sleebo Fizzlespout and his gas jars, kid, because he thinks I don't know about his little operation down by the southwest ponds. I know, and so does anything with a match." },
+      { id = "wo_2", text = "Don't drink with Argo Brinewhistle unless you want to end up rowing out to the murloc islands at midnight. He's a lovely fella, but he's a terrible plan with legs." },
+    },
+    worries = {
+      { id = "wy_1", text = "Overhead, pal, always overhead, and the Venture Company sniffin' round my warehouses with an offer I keep tearin' up. One of these days they stop offerin', and then what?" },
+      { id = "wy_2", text = "The salt eats the pilings faster than I can pitch 'em, kid, and one morning the whole south dock's goin' into the bay with somebody's cargo on it. Probably mine, knowin' my luck." },
+    },
+    hopes = {
+      { id = "hp_1", text = "A statue, pal, right at the end of the dock, of me holding a wrench, in bronze with a bit of gold leaf and a little plaque so nobody forgets who built the place." },
+      { id = "hp_2", text = "Honestly? That the port's still standing when I'm gone and somebody says 'Melbin built this.' That's the only profit you can't spend, and I want it anyway." },
+    },
+    favor = {
+      { id = "fv_1", text = "Tell folk in Booty Bay and Gadgetzan that Powderfuse Port's open for business, kid. Word of mouth's the cheapest advertising there is, and I love cheap." },
+      { id = "fv_2", text = "If you ever see a Venture Company surveyor on my sand with a measuring chain, I want to know about it the same day. That's a favour I'd remember, pal." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Friend? Kid, you're a valued customer, a business partner and a friend, in that order, and two out of three is the best rate anybody gets from me." },
+      { id = "fr_2", text = "Yeah, all right, you're a friend, and don't go spreadin' it round the dock or everybody'll want one. I've only got so much goodwill in stock." },
+      { id = "fr_rival", when = { fondness = "rival" }, text = "Anybody who gives the Venture Company a black eye is a friend of Melbin Powderfuse for life, pal. That's a lifetime contract, and there's no small print." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I got thrown out of a workshop in Undermine for blowin' up my cousin's half of it, and it wasn't an accident, pal. He had it coming, but I still send his mother a crate of fish every year." },
+      { id = "nt_2", text = "I came here on the first Steamwheedle boat with four coppers and a wrench, and I slept under the pier for a month. Every plank I nailed down after that, I nailed down so I'd never sleep under one again." },
+    },
   },
 }
 

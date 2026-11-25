@@ -378,6 +378,11 @@ P:NPC {
     { id = "bl2", text = "Fandral's son Valstann died here in the old war, and in all my years here the Arch Druid has never come to see the place. I think he cannot bear it, and I have never said so to anyone." },
     { id = "bl3", text = "The weeping in the ruins at night is not always the dead. Sometimes it is the Twilight's Hammer, and they use it to draw the curious away from the roads." },
   },
+  confides = {
+    { id = "cnf_1", text = "The road down from Un'Goro is safest just after dawn, when the scorpids are still cold and slow. Come up it at noon and you will fight for every step." },
+    { id = "cnf_2", text = "Clear Southwind's outer ruins before you go near the tower, because the hive inside wakes to any disturbance and calls the whole village down on you." },
+    { id = "cnf_3", text = "Rabine Saturna in Nighthaven knows more about Southwind than he lets on. If you ever speak with him, ask about the Reliquary, and watch his face when you do." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "I tend the dead here, and they ask very little of anyone. You have managed to disturb them anyway, and I am sorry to say I hold it against you." },
@@ -410,6 +415,45 @@ P:NPC {
       { id = "gt2", text = "Forgive me, but I'd rather not speak of that with someone I've only just met. Ask me of the graves or the roads instead." },
     },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. Cenarion Hold might; it's down the road, in the heart of the desert, and the moon will light your way there." } },
+    regard = {
+      { id = "rg_1", text = "I think you walk carefully among the dead, {name}, and you do not need me to remind you. That is rarer than you might believe, even among my own people." },
+      { id = "rg_2", text = "You have a gentle way about you, for all the blades you carry. The spirits here are quieter when you come up the road, and I have noticed." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "There is a brightness in you that the graves seem to lean toward, the way grass leans toward the moon. I would not presume to name it, but I am glad of it." },
+      { id = "rg_horde", when = { faction = "Horde" }, text = "You are of the Horde, and still you have honoured the kaldorei dead here as though they were your own. Elune sees that, and so do I." },
+    },
+    confide = {
+      { id = "cf_1", text = "I do not know all the names of those buried at Valor's Rest. I say the ones I know each night, and for the rest I simply say that someone remembers them." },
+      { id = "cf_2", text = "I am younger than most who wear the Circle's robes, and I sometimes think I was sent here because no one wiser wanted the post. I try to be worthy of it anyway." },
+    },
+    trust = {
+      { id = "tr_1", text = "Commander Mar'alith, for he keeps faith even when it costs him everything. And Umber the archivist in Nighthaven, who is strange but brilliant, and has never lied to me about the past." },
+      { id = "tr_2", text = "Trust the Sentinels on the road between here and the Hold, and anyone who will bury a stranger without asking whose side they fought on." },
+    },
+    watchout = {
+      { id = "wo_1", text = "If you hear weeping near Southwind after dark, remember it may be the Twilight's Hammer and not the dead. They have learned how the living answer grief." },
+      { id = "wo_2", text = "Beware the hive inside Southwind's old tower, for it feels whatever stirs around it and wakes. Go quietly, and do not linger there." },
+    },
+    worries = {
+      { id = "wy_1", text = "That I will grow old here, as the kaldorei count it, and forget the faces of the ones I tend. Already some of them blur when I close my eyes." },
+      { id = "wy_2", text = "That Darnassus and Moonglade will go on quarrelling while the desert swallows the people who stayed. We are few out here, and every quarrel costs us something." },
+    },
+    hopes = {
+      { id = "hp_1", text = "That every spirit in Southwind will rest one day, kaldorei or not, and that I will be here to feel the quiet when it comes." },
+      { id = "hp_2", text = "I hope the shell from the tower holds a journal, and that Umber can read it. A single page from those who fell here would be worth a lifetime of tending graves." },
+    },
+    favor = {
+      { id = "fv_1", text = "When you pass Valor's Rest, stop a moment and say one name over the graves, any name you know. The dead do not care whose it is, only that it is said." },
+      { id = "fv_2", text = "If you find anything in Southwind that a druid or a Sentinel once carried, bring it to me rather than to a merchant. Their kin may yet want it." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}, and I would be glad to have you beside me on the long nights here. The dead are good company, but they do not answer." },
+      { id = "fr_2", text = "You are my friend, and if you fall in these wastes, I will tend your grave myself and say your name every night after. I hope I never have to keep that promise." },
+      { id = "fr_val", when = { fondness = "values" }, text = "We value the same quiet things, you and I: mercy, and memory, and a light step. Friends like that are worth crossing a desert for." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I was afraid when they sent me here, more afraid than I have ever admitted. I wept my first night at Valor's Rest, and I have never told a soul." },
+      { id = "nt_2", text = "I once prayed to Elune that the Arch Druid would come and see where his son fell, and then I prayed that he never would, because I did not know what I would say to him." },
+    },
   },
 }
 
@@ -730,6 +774,11 @@ P:NPC {
     { id = "bl2", text = "The cult keeps its tablets and orders at Twilight Base Camp, under guard, and the guards change at moonrise. I timed it every night before I ran." },
     { id = "bl3", text = "I told the cult I went to Westfall, but one of them didn't believe me. If a cultist with a scarred face ever asks after me, kill him before he finishes asking." },
   },
+  confides = {
+    { id = "cnf_1", text = "The three Twilight Keepers who carry the Lexicon never sleep in the same tent twice. Watch for the tent with a guard at the door at moonrise, and that's your Keeper." },
+    { id = "cnf_2", text = "There's a goat path behind my hill that comes out above Twilight Base Camp, and from there you can count every cultist in the place. I used it twice before I lost my nerve." },
+    { id = "cnf_3", text = "The templars, dukes and lords of the Abyssal Council can't stand one another, and their cultists know it. A camp whose officers are quarrelling is a camp half asleep." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "You make me nervous, and I've lived among cultists, so that's quite an accomplishment. I'd like you to stand further away." },
@@ -763,6 +812,44 @@ P:NPC {
       { id = "gt2", text = "That stays in my head, where it's safe, until I'm a good deal surer of you than I am now." },
     },
     _none = { { id = "tp_none", text = "Never heard of it, and I make a point of hearing about everything." } },
+    regard = {
+      { id = "rg_1", text = "I think you're the first person in months I haven't wanted to hide from, and I mean that as high praise. I hide from almost everyone." },
+      { id = "rg_2", text = "You're clever, and you know how to keep your mouth shut, which are the two things I value most in this world. Possibly the only two, if I'm honest." },
+      { id = "rg_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You're a schemer, aren't you? I can always tell, because I am one, and I'll admit it's rather comforting to have one on my side for a change." },
+      { id = "rg_rival", when = { fondness = "rival" }, text = "You've been killing the cultists who hunt me, and I sleep better for every one of them. That seems a fine basis for a friendship, I think." },
+    },
+    confide = {
+      { id = "cf_1", text = "I muddle my own code on purpose sometimes, so that if they ever catch me they'll catch a man who can't tell them anything useful. At least, that's what I tell myself when I muddle it by accident." },
+      { id = "cf_2", text = "I still read the True Believer every month, because they print the names of the people they're hunting, and mine's always near the top. I find it oddly flattering." },
+    },
+    trust = {
+      { id = "tr_1", text = "Geologist Larksbane, because she's never once asked me why I joined, and the Wildmane brothers, because they're far too big to be cultists in disguise. That's my whole list." },
+      { id = "tr_2", text = "Nobody who comes up my hill at night, nobody who asks for me by name, and nobody wearing anything purple. Everyone else is merely suspicious." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch out for anyone who seems a bit too interested in the end of the world over a mug of ale. That's how they start, friendly and full of questions." },
+      { id = "wo_2", text = "Mind the wind stones, and never lay a bare hand on one. Whatever waits on the other side notices, and I'm told it remembers your smell." },
+    },
+    worries = {
+      { id = "wy_1", text = "That one of them didn't believe the Westfall story, and that he's a patient man. A patient cultist is the worst kind, and I've only ever got away from the impatient ones." },
+      { id = "wy_2", text = "That I'll die in this cave with all I know still in my head and nobody will ever read it. I've started writing it down, but I keep hiding the pages from myself." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope the Hammer burns, every camp and every stone, so I can walk down to Cenarion Hold in daylight and order a hot meal like an ordinary man." },
+      { id = "hp_2", text = "That Dalaran takes me back one day, even as a clerk sweeping the library floors. I'd settle for that, truly, and I'd never complain about anything again." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you see a cultist with a scarred face anywhere in Silithus, tell me where, and then go the other way. Don't be brave about it, please." },
+      { id = "fv_2", text = "Bring me any scrap of the True Believer you find on a cultist. I like to know where my name stands this month." },
+    },
+    friendship = {
+      { id = "fr_1", text = "A friend? Oh, I should think so, and I'm frankly astonished. I haven't had one since before I put on the robe, so you'll forgive me if I'm doing it wrong." },
+      { id = "fr_2", text = "You're the only friend I've got who knows where I live, which makes you either very dear to me or very dangerous. I've decided on dear." },
+    },
+    never_told = {
+      { id = "nt_1", text = "The name of the man who recruited me is scratched into the wall behind my bedroll. I look at it every night, and I still can't decide whether I want him dead or want him to come back for me." },
+      { id = "nt_2", text = "I never studied in Dalaran, not properly. I swept floors for a magister there and read his books while he slept, and that's the whole of my education." },
+    },
   },
 }
 
