@@ -661,3 +661,60 @@ P:NPC {
     _none = { { id = "tp_none", text = "I couldn't tell you. Ask the trees, if you can find one here." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Toby (upstairs in the Silver Enclave) and Tycho (the Sky Enclave): house cats. Their lines are
+-- what they do, written as narration in asterisks.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dal_cat_toby", id = TODO_NPC("Toby"), name = "Toby", gender = "male",
+  role = "citizen", tier = "service", temper = { "precise" }, values = { "order" },
+  impression = {
+    first = "A grey cat upstairs in the Silver Enclave who sits on the papers as if he had been asked to guard them.",
+    third = "{name} met Toby, the cat upstairs in the Silver Enclave.",
+  },
+  greetings = {
+    { id = "g_default", text = "*A neat grey cat sits upstairs in the Silver Enclave, squarely on top of somebody's stack of papers.*" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Toby tucks his paws beneath him on the papers and watches you with the solemn air of a clerk on duty.*" },
+      },
+      again = { { id = "a_again", text = "*Toby has not moved off the papers, and he plainly never will.*" } },
+      choices = {
+        { text = "I think somebody needs those papers, Toby.", next = "BACK", reply = "*Toby lies down on them more firmly, which settles the matter.*" },
+        { text = "Pet his smooth grey head.", next = "BACK", reply = "*He pushes up into your hand with a small, rusty purr, still keeping one eye on the door.*" },
+        { text = "Carry on, then. The papers are in good hands.", next = "END", reply = "*Toby gives you a slow blink, the nearest thing to a salute a cat will give.*" },
+      },
+    },
+  },
+}
+
+P:NPC {
+  key = "dal_cat_tycho", id = TODO_NPC("Tycho"), name = "Tycho", gender = "male",
+  role = "citizen", tier = "service", temper = { "curious" }, values = { "curious" },
+  impression = {
+    first = "A star-gazing cat in the Sky Enclave who spends his nights watching the sky through the open windows.",
+    third = "{name} met Tycho, the cat of the Sky Enclave.",
+  },
+  greetings = {
+    { id = "g_default", text = "*A slim black cat sits on a windowsill in the Sky Enclave, staring upward with great seriousness.*" },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "*Tycho sits in the window with the stars reflected in both his eyes, and his tail twitches at every shooting star.*" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Tycho glances at you, then back up at the sky, as if you had interrupted an important observation.*" },
+      },
+      again = { { id = "a_again", text = "*Tycho has gone back to watching the sky.*" } },
+      choices = {
+        { text = "What are you looking at up there?", next = "BACK", reply = "*You follow his gaze upward and see only clouds, though Tycho's ears are pricked as if something up there were moving.*" },
+        { text = "Stroke his back while he watches.", next = "BACK", reply = "*He arches into your hand without once taking his eyes off the sky.*" },
+        { text = "Don't fall out of the window, now.", next = "END", reply = "*Tycho shifts his weight back an inch, purely to humour you.*" },
+      },
+    },
+  },
+}
