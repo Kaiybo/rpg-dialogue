@@ -420,8 +420,53 @@ P:NPC {
     { id = "bl1", text = "Windsor's no' dead. The Dark Irons took him alive down intae Blackrock Depths, an' they keep him in the prison cells beneath their city." },
     { id = "bl2", text = "Windsor had papers on him when they took him, papers about dragons an' somebody very high in Stormwind's court. If the Dark Irons have read them, somebody in that keep is in trouble." },
   },
+  confides = {
+    { id = "cnf_1", text = "There's a gully on the west side o' the Altar o' Storms where ye can lie flat an' watch the whole Blackrock road go by, an' no orc has ever once looked down intae it." },
+    { id = "cnf_2", text = "The goblins at Flame Crest water their ale on the third day o' every week, so do yer drinkin' on the second an' save yer coin." },
+    { id = "cnf_3", text = "The Dark Irons who took Windsor went in by the lower gate o' the mountain, no' the great one, an' that's the door a body would want tae find if they meant tae bring him out." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think ye're all right, {g:lad|lass}, an' I don't say that tae many sober folk. Ye've never once looked at me like I'm somethin' the goblins forgot tae sweep up." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "Ye've done more for Windsor than anybody in Stormwind has, an' ye've done it for an old drunk's say-so. I'll no' forget that, no' even at the bottom o' a cask." },
+      { id = "rg_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "Ye're a slippery one, an' ye know when tae duck an' when tae talk yer way round a thing. I respect that more than all the charging in the world, because it's how I'm still breathin'." },
+      { id = "rg_dwarf", when = { race = "Dwarf" }, text = "Ye're a son o' the mountain, or near enough, an' ye've no' once told me I'm a disgrace tae Ironforge. My own cousins cannae manage that, so ye're ahead o' them." },
+    },
+    confide = {
+      { id = "cf_1", text = "I'm no' as drunk as I let on, most days. A drunk dwarf hears everythin' in a goblin camp, because nobody thinks tae lower their voice around one." },
+      { id = "cf_2", text = "I used tae be a fine scout, the best in Windsor's company, an' I can still walk the Steppes wi'out a single orc hearin' me. The ale's just so I don't have tae think about why I'm good at hidin'." },
+    },
+    trust = {
+      { id = "tr_1", text = "Maxwell, though he'd sooner spit than drink wi' me. He's loyal tae Windsor right down tae his boots, an' that's the only thing we've ever agreed on." },
+      { id = "tr_2", text = "Trust the goblins tae sell ye anythin' an' nothin' else. Trust me when I'm on my second mug, because by the fifth I'll swear the mountain's made o' cheese." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the skies over the northern slopes, because the black whelps there flock like crows an' they've a nasty habit o' bringin' their mothers. I lost a good hat that way." },
+      { id = "wo_2", text = "Watch the Blackrock worg riders on the open ground. Ye'll hear the wolves before ye see the orcs, an' by then it's too late tae find a bush." },
+    },
+    worries = {
+      { id = "wy_1", text = "That Windsor's still alive down there an' he knows I ran. I don't mind him dead near as much as I mind him knowin'." },
+      { id = "wy_2", text = "That the ale's goin' tae get me before the orcs do, an' nobody'll be left who saw what happened that day. I'm the only witness, an' I'm a poor one." },
+    },
+    hopes = {
+      { id = "hp_1", text = "That somebody brings Windsor out o' that mountain, an' he looks at me an' says it's all right. I'd give up the drink for that, I think, or at least cut it back tae the evenin'." },
+      { id = "hp_2", text = "I'd like tae see these hills green again, the way they were before the Horde an' their dragons burned them. I'm no' daft enough tae think I will, but I'd like tae." },
+    },
+    favor = {
+      { id = "fv_1", text = "If ye ever get down intae Blackrock Depths, look for Windsor. Even if ye cannae bring him out, I'd like tae know he's no' alone down there." },
+      { id = "fv_2", text = "Have a drink wi' me now an' then, an' don't tell Maxwell. That's all an old coward really wants from anybody." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Aye, ye are, an' that's a rare thing for me tae say sober, so ye know I mean it. Ye're the best friend I've had since Windsor." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "Ye've listened tae every one o' my stories, even the ones I've told twice, an' ye've done right by Windsor. If that's no' a friend, then I've never had one." },
+      { id = "fr_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "Ye've a goodness about ye that makes me want tae be a better dwarf, which is a terrible thing tae do tae a drunk. Aye, ye're my friend, an' I'll try no' tae let ye down." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When the Dark Irons came for Windsor, I was close enough tae touch him, an' I hid under a cart instead. He looked straight at me as they dragged him past, an' he didnae shout, because he knew they'd find me too." },
+      { id = "nt_2", text = "I got a letter from Ironforge last year askin' if I'd come home, an' I burned it wi'out answerin'. I cannae go home a coward, an' I cannae stop bein' one, so here I stay." },
+    },
     grievance = {
+      { id = "gv_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "Ye're all honour an' oaths an' standin' yer ground, same as Windsor, an' I watched where that got him. I cannae abide lookin' at ye, because ye remind me what I didnae do." },
       { id = "gv1", text = "Ye've been a pain in my backside since ye walked in, an' I've enough pains already, most o' them in my head." },
       { id = "gv_wronge", when = { grudge = "wronged" }, text = "Ye called me a coward tae my face, same as Maxwell does. The difference is Maxwell's earned the right, an' ye havenae." },
       { id = "gv_values", when = { grudge = "values" }, text = "Ye're a hero, an' I've buried a lot o' heroes. I've no wish tae add ye tae the list, nor tae drink wi' ye first." },

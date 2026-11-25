@@ -539,8 +539,53 @@ P:NPC {
     { id = "bl2", text = "Half my reagents come in by sea, and the Southsea pirates at Lost Rigger Cove have been skimming the cargo. I'd pay good money to see their ships sunk, pal." },
     { id = "bl3", text = "Between you and me, the side effects on my elixir aren't getting any better. Sometimes you float and sometimes you turn into a skeleton, and I still can't tell you which." },
   },
+  confides = {
+    { id = "cnf_1", text = "The best dew glands come from the Thistleshrub up in the north of Tanaris, and the ones nearest the oasis are juicier, so don't waste your time on the scrawny ones by the road." },
+    { id = "cnf_2", text = "The Wastewander water thieves meet at the old well in the Noonshade Ruins every night just after sundown to divide what they've stolen, so that's where the bounty money is, pal, all in one place." },
+    { id = "cnf_3", text = "The Bruisers at the south gate get bored after midnight and play cards in the guard hut, so if you're bringing anything into town you don't want looked at, now you know when." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're a good investment, pal, the kind I'd put money on and expect it back with interest. That's high praise from a goblin, so don't spend it all in one place." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've brought me dew glands and run my errands across half this desert without once asking for a cut you didn't earn. On my mother's ledger, pal, you're the best customer I've ever had who wasn't paying me." },
+      { id = "rg_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You know how to bend a deal just right, and I've watched you do it to the Bruisers and walk away smiling. If you were a goblin, pal, I'd make you a partner tomorrow." },
+      { id = "rg_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You keep your word like it's worth something, which it is, pal, because in Gadgetzan an honest face is rare enough to sell. I'd put you behind my counter and watch the sales double." },
+    },
+    confide = {
+      { id = "cf_1", text = "The elixir's a gamble, pal, every single bottle. I've turned into a skeleton three times testing it, and once I floated over the town wall and landed in a cactus, but don't tell the customers that last part." },
+      { id = "cf_2", text = "Without Sprinkle's secret ingredient, the elixir tastes like an old boot left out in the sun. I owe her half the fortune, at least, and I'm working up the courage to say so." },
+    },
+    trust = {
+      { id = "tr_1", text = "Sprinkle, always. She knows every secret I've got and she's never once sold one, which makes her either the best friend in the Cartel or the worst businesswoman, and I'm not sure which." },
+      { id = "tr_2", text = "Trust the Bruisers to keep the peace and nothing else. Trust anyone selling water out in the dunes about as far as you can spit, and in this heat that's not very far." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Dunemaul ogres out east, pal. They've got no business sense whatsoever, and they'll smash a caravan just to see what's inside it." },
+      { id = "wo_2", text = "Watch the sand trolls from Zul'Farrak. They come out of the dunes when you least expect it, and they're not interested in buying anything." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the water's running out, pal. Every month the wells give a little less and the Water Company charges a little more, and one day there won't be any left to sell." },
+      { id = "wy_2", text = "That the elixir will never be anything more than a funny story at the tavern. I've bet my whole fortune on it, sweetheart, and a goblin who loses his fortune doesn't get another one." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To see the elixir on the shelf in every port from Everlook to Booty Bay, with my face on the label. That's the dream, pal, and I'm closer every day, even if it doesn't look like it." },
+      { id = "hp_2", text = "That one day Gadgetzan's the richest town in the Cartel, and nobody in Undermine says the name without a little jealousy in their voice. Sand and all, pal, sand and all." },
+    },
+    favor = {
+      { id = "fv_1", text = "Bring me any dew glands you find out in the desert, pal, the bigger the better. I can't make the elixir without them, and the elixir's going to make us both famous." },
+      { id = "fv_2", text = "Tell people about the elixir wherever you go, the good parts, mind you, not the skeleton parts. Word of mouth's the best advertising there is, and it's the only kind I can afford." },
+    },
+    friendship = {
+      { id = "fr_1", text = "A friend? Pal, you're the only person in this whole desert I'd lend money to without a contract, and in goblin terms that's practically a blood oath." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've done more for this town than the whole Cartel council put together, and you never once sent me a bill. Of course you're a friend, pal, and I'd fight anybody who says different, or at least I'd hire someone to." },
+      { id = "fr_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You and me, pal, we see the world the same way, all angles and opportunities. Course you're a friend, and I've got the receipts to prove it." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I nearly sold Gadgetzan once, pal, the whole town, to a Venture Company man who offered twice what it was worth. I signed half the contract before I remembered I'd have nowhere left to drink my own elixir, and I tore it up." },
+      { id = "nt_2", text = "When I was a kid, my family had nothing, and I mean nothing, not even water. I swore I'd never be thirsty again, and every bottle I sell is me keeping that promise to a little goblin nobody remembers but me." },
+    },
     grievance = {
+      { id = "gv_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "You keep looking at my prices like they're a sin, pal, and you keep telling people to buy water from the honest folks. Honest doesn't build towns in a desert, sweetheart, and I'd thank you to stop preaching in my shade." },
       { id = "gv1", text = "My problem, pal? You cost me money or you cost me time, and in Gadgetzan those are the same thing. I keep a ledger, and you're in the red." },
       { id = "gv_pers", when = { grudge = "persuade" }, text = "You tried to haggle me down like I was some back-alley peddler, pal. Marin Noggenfogger doesn't haggle; he sets the price and you pay it." },
       { id = "gv_values", when = { grudge = "values" }, text = "You never buy, you never invest and you never tip. A customer like that is just a body standing in my shade." },

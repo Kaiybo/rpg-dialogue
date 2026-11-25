@@ -443,8 +443,53 @@ P:NPC {
     { id = "bl2", text = "Kurzen's medicine men brew something for the troops out of jungle herbs, and I think it's what keeps them obedient. Bring me what they carry, and Nimetz can tell us what it is." },
     { id = "bl3", text = "Stormwind hasn't answered a single one of my letters in months. Either nobody's reading them, or someone between here and the keep is making sure they never arrive." },
   },
+  confides = {
+    { id = "cnf_1", text = "Kurzen's compound can be reached along the cliff behind the cages, where his guards never look because no sane man would climb it." },
+    { id = "cnf_2", text = "The medicine men brew their draught from a vine that grows by the falls south of the compound, and Nimetz thinks it only works fresh, so they must gather it every few days." },
+    { id = "cnf_3", text = "Two of Kurzen's sentries on the south wall were my men once, and they still look the other way when they see a rebel signal." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're one of the few who've come into this clearing and done what they said they would. After Kurzen, I don't give that sort of trust easily, so take it for what it's worth." },
+      { id = "rg_town", when = { fondness = "town" }, text = "My men speak well of you around the fire, and they've been through too much to be easy to impress. I listen to them, so I listen to that." },
+      { id = "rg_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You keep to your duty and respect a chain of command, even out here where there's barely one left. That's the first thing the Colonel lost, and it's the first thing I look for now." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "There's something steady in you, something the Brother would call the Light. I don't know much about that, but I know I sleep better when you're in camp." },
+    },
+    confide = {
+      { id = "cf_1", text = "I signed the order that sent Thorsen into Kurzen's camp. When we found him half dead, I wrote out my resignation and then burned it, because there was nobody else to lead these men." },
+      { id = "cf_2", text = "Some nights I still set out the Colonel's cup by the fire before I remember. Fifteen years of serving the man leaves habits, and I can't seem to break that one." },
+    },
+    trust = {
+      { id = "tr_1", text = "Brother Nimetz, without question. He walked out of Kurzen's camp the same night I did, and he's never asked anything for himself since." },
+      { id = "tr_2", text = "Trust the men who came out of the compound with me. Be more careful with anyone who joined us later, because I still don't know how Kurzen learned about Thorsen." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for soldiers in Stormwind colours on the jungle paths. Kurzen's men still wear the tabard, and they'll wave you over as if you were old friends." },
+      { id = "wo_2", text = "Don't drink from any stream that runs past Kurzen's compound. Whatever the medicine men put in his soldiers' cups, I'd not trust the water downhill of it." },
+    },
+    worries = {
+      { id = "wy_1", text = "That Stormwind has written us off as deserters, and when this is over they'll hang the men who did the right thing. I promised them it would be worth it." },
+      { id = "wy_2", text = "That I'll finally reach Kurzen and find there's still enough of the old man left in him to beg. I don't know what I'll do if he does." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To march these men home to Stormwind with their heads up, and to stand before the Highlord and tell him everything that happened here." },
+      { id = "hp_2", text = "That Nimetz finds a cure in all that glassware for whatever Kurzen's men are drinking. Some of them were my friends, and I believe they're still in there somewhere." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you pass through Stormwind, ask at the keep whether anyone is reading the letters from the Rebel Camp. I need to know if my reports are reaching a living soul." },
+      { id = "fv_2", text = "Look in on Private Thorsen now and then. He won't say so, but he still wakes up shouting, and a friendly face does more for him than my orders." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I've learned out here not to call anyone a friend too quickly, and I watched you a long while before I said it. Yes, you're my friend, and I'd follow you into Kurzen's compound tomorrow." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've bled for men you didn't know, under an officer with no real authority left to give you. If that isn't friendship, I don't know the word." },
+      { id = "fr_al_shadow", when = { alignment = { axis = "light", max = -30 } }, text = "There's a shadow on you that I'd not trust in another soul, and it worries me. But you've stood by this camp, so I'll call you a friend and pray you master it better than the Colonel did." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I saw the change in Kurzen months before anyone else did, and I said nothing because I thought loyalty meant keeping quiet. Every man we've lost to him since is on me, and I keep the list." },
+      { id = "nt_2", text = "I didn't leave the Colonel because I was brave. I left because I was afraid I'd start agreeing with him, and that frightens me more than anything in this jungle." },
+    },
     grievance = {
+      { id = "gv_al_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You treat orders like suggestions and walk off whenever it suits you. Out here that gets men killed, and I've buried enough already." },
       { id = "gv1", text = "I judge a soldier by what they do when nobody's giving orders, and I don't like what I've seen of you. That's my problem, as plainly as I can put it." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "You bargain with darkness for your power, the same way the Colonel did before it ate him whole. I'll not stand easy near that again." },
       { id = "gv_town", when = { grudge = "town" }, text = "My men talk around the fire, and your name keeps coming up with nothing good beside it. I trust their judgement more than I trust yours." },

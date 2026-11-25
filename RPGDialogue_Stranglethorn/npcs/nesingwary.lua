@@ -464,8 +464,54 @@ P:NPC {
     { id = "bl2", text = "King Bangalash prowls the northern hills with his tigers around him like a royal court. Kill the guards first, or they'll be at your back when the king comes." },
     { id = "bl3", text = "Barnil's still missing half the pages of my Green Hills of Stranglethorn, and the trolls and pirates have them scattered all over the jungle. Bring him every page you find, and he'll pay you for it." },
   },
+  confides = {
+    { id = "cnf_1", text = "The raptors on the ridge east of camp come down to drink at dusk, and a patient shot from the rocks above the pool will take two before the rest scatter." },
+    { id = "cnf_2", text = "King Bangalash sleeps through the heat of the afternoon, and his court of tigers gets lazy around him while he does." },
+    { id = "cnf_3", text = "Kebok buys Skullsplitter tusks and ships them overseas as tiger fangs, so half the trophies on the South Seas islands are troll teeth." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "You're a hunter, whatever your trade says. I can see it in the way you stand still, and most folk never learn to stand still." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've brought back clean kills, taken fair, and you never once bragged about them at my fire. That's how I knew you were worth my time." },
+      { id = "rg_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You hunt fair. You don't shoot a beast at the water or in its sleep, and you don't lie about the size of it afterwards, and that's rarer than a white tiger." },
+      { id = "rg_hunter", when = { class = "HUNTER" }, text = "You and that beast of yours move like one animal, and I've watched a good many hunters try for that and fail. Aye, I like you, and I don't like many." },
+    },
+    confide = {
+      { id = "cf_1", text = "I left the mountain after the war because Ironforge got too loud for me, with too many stories and not enough quiet. I've not been back in years, and I don't miss the noise." },
+      { id = "cf_2", text = "Every morning I wake and say 'still here' out loud before the fire's lit. It isn't for luck; it's to remind myself the jungle hasn't had me yet." },
+      { id = "cf_3", text = "I've missed Sin'Dall four times, and three of those times he was looking straight at me. I think he lets me live so I'll keep coming back." },
+    },
+    trust = {
+      { id = "tr_1", text = "Barnil, always. He's carried my rifle and my mistakes for twenty years and never dropped either one." },
+      { id = "tr_2", text = "Trust Ajeck in the bush, because she reads a track better than I do and would never say so. Erlgadin's a fine shot and an honest man, but he's angry, and angry men take chances." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the river. Crocolisks lie in the shallows like logs, and more than one hunter has stepped on a log that stepped back." },
+      { id = "wo_2", text = "Watch for Kebok's tusk men on the trails north of here. They'll take your kill off the ground and swear on their mothers they shot it." },
+    },
+    worries = {
+      { id = "wy_1", text = "That I'm getting old and slow, and the jungle knows it before I do. A hunter's last mistake is always the one he didn't feel coming." },
+      { id = "wy_2", text = "That the book will outlive me and say nothing true. Barnil can fix the spelling, but nobody can fix a hunt that's been written down wrong." },
+    },
+    hopes = {
+      { id = "hp_1", text = "One more clean shot at Sin'Dall, from downwind, with the sun at my back. If I take him I'll hang up the rifle, or that's what I tell Barnil." },
+      { id = "hp_2", text = "I'd like the jungle to stay wild after I'm gone, with no Venture saws and no trophy lords out of Stormwind. Leave the tigers something to be proud of." },
+    },
+    favor = {
+      { id = "fv_1", text = "Take a tiger for me, a big one, cleanly, and tell me about it at the fire. I'm too old now to stalk every one I'd like to." },
+      { id = "fv_2", text = "Keep an eye on Ajeck when she goes after Sin'Dall. She's good, but she's young, and that cat has been at this longer than she has." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Aye, you're a friend, and I don't say it twice, so remember it. There's a place at my fire for you as long as I've got a fire." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "We've hunted the same ground and eaten the same meat, and you never once let me down. That's what a friend is, out here." },
+      { id = "fr_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You're a sly one and you bend the truth more than I'd like, but you've never lied to me about a kill. I'll call you a friend and keep an eye on you, the way I would a clever fox." },
+    },
+    never_told = {
+      { id = "nt_1", text = "In the Second War I froze once, when an orc came over a wall at me, and a lad beside me took the axe that was meant for my head. Every beast I've hunted since has been me trying to be the man who didn't freeze." },
+      { id = "nt_2", text = "I wrote the book because I never could write to that lad's mother. Barnil thinks it's about tigers, and I've let him." },
+    },
     grievance = {
+      { id = "gv_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You lie about your kills, and I've read the spoor that proves it. A hunter who lies about the hunt will lie about anything." },
       { id = "gv1", text = "You tramp through my camp like a kodo through a crockery shop, and you scare off every beast for a mile. A hunter who can't keep quiet is no hunter at all." },
       { id = "gv_rival", when = { grudge = "rival" }, text = "I've seen you running errands for Kebok and his Booty Bay lot. Any friend of that goblin's is welcome to his company, and not to mine." },
       { id = "gv_wronged", when = { grudge = "wronged" }, text = "You made light of my life's work, as if hunting were some game for bored lords. I've stalked tigers longer than you've been alive, so mind it." },

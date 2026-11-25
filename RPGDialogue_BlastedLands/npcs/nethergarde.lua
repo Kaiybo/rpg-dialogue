@@ -401,8 +401,54 @@ P:NPC {
     { id = "bl1", text = "Every wagon this Keep sees comes down the one road from the Swamp of Sorrows, and the Dreadmaul ogres know it as well as I do. If they ever hold that pass, we starve inside a month." },
     { id = "bl2", text = "The last few shipments of reagents for the mage tower never arrived, and the seals were intact on the empty crates. Somebody between here and Stormwind is selling them." },
   },
+  confides = {
+    { id = "cnf_1", text = "The wagons from the Swamp of Sorrows always stop for water at the ruined stone bridge in the pass, and that's where the Dreadmaul hit them, so cross it quickly and don't stop to fill up." },
+    { id = "cnf_2", text = "The empty reagent crates all came through the same carter in Darkshire, a pleasant fellow with a new cloak every time I see him." },
+    { id = "cnf_3", text = "The well in the lower courtyard tastes of iron but it's clean, and the one by the barracks isn't, whatever the sergeants tell the recruits." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're one of the few people who've walked through that gate and left the Keep better stocked than they found it. In my ledger, friend, that's about as high as praise goes." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've hauled meat and hides and honest work into this Keep without once asking me to bend the rules for you. I've put a little star beside your name, and I don't give out many stars." },
+      { id = "rg_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You sign for what you take and you bring back what you borrow, and you'd be amazed how rare that is at the edge of the world. If the whole garrison were like you, I'd sleep through the night." },
+      { id = "rg_low", when = { maxLevel = 50 }, text = "I think you're younger than most who come this far south, and you've kept your head anyway. I'd like to keep you off the list of letters I have to write, so do me that kindness." },
+    },
+    confide = {
+      { id = "cf_1", text = "I keep a second ledger in my bunk with the name of every soldier I've written home about. I read it through once a month, start to finish, so that somebody here still remembers them." },
+      { id = "cf_2", text = "I've been short on arrows for three seasons now, and I've never once told the sergeants. I make them up by trading with Enohar's people out in the wastes and writing it down as breakage." },
+      { id = "cf_3", text = "I asked for a posting back to Stormwind years ago and the request came back stamped approved. I put it in the drawer and never used it, because who else would count the crates?" },
+    },
+    trust = {
+      { id = "tr_1", text = "The Watcher upstairs, Mahar Ba, because the lad hasn't got a dishonest bone in him and wouldn't know what to do with one. If he tells you something's dangerous, believe him." },
+      { id = "tr_2", text = "Trust the soldiers on the wall; they've nothing to gain out here but the next sunrise. Be careful of anyone who arrives with a wagon and leaves without one." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the sky over the Portal valley, because the black drake up there takes anything that stops to rest. I've written two letters this year about soldiers who sat down for lunch." },
+      { id = "wo_2", text = "Watch your water and your feet, friend, in that order. The red dust gets into boots and blisters, and a soldier who can't walk out here doesn't last long." },
+    },
+    worries = {
+      { id = "wy_1", text = "The supply road, always the road. If the Dreadmaul ever hold the pass for a fortnight, I'll be the one telling the garrison there's no supper, and I don't know how I'd say it." },
+      { id = "wy_2", text = "That Stormwind has forgotten us, and the budget keeps shrinking because nobody at court can find Nethergarde on a map. I write cheerful requisitions so nobody here notices how worried I am." },
+    },
+    hopes = {
+      { id = "hp_1", text = "A full storeroom, just once, with a spare crate of everything and nothing on order. I'd stand in the doorway and look at it the way other men look at the sea." },
+      { id = "hp_2", text = "That I'll go a whole year without writing a single letter home. I've never managed it yet, but a quartermaster is allowed to hope." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you're ever in Darkshire, keep an eye on the carters who load for Nethergarde and tell me who seems to be doing a bit too well. I'd like a name to put beside those empty crates." },
+      { id = "fv_2", text = "Stay off my list of letters, friend. That's the only favour I'll ever really ask of anyone, and it's the one most people can't manage." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, and that's a strange thing for a quartermaster to admit, because we're meant to keep everyone at the length of a ledger. You've got past the ledger, friend, and I'm glad of it." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've done more for this Keep than half the garrison and asked less than any of them. Of course you're a friend, and I've written that down where it can't be lost." },
+      { id = "fr_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "You've a goodness about you that this place badly needs, and I notice it every time you walk past the storeroom. Yes, you're a friend, and the best one I've made out here." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I've never written a letter home for myself, not once in all these years, because there's nobody left at home to read it. I suppose that's why I write the others so carefully." },
+      { id = "nt_2", text = "When the demons came over the ridge in my first winter here, I hid in the storeroom and counted flour sacks until it was over. I've been the cheerful one ever since, because it's easier than being the frightened one." },
+    },
     grievance = {
+      { id = "gv_al_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You take what you like and sign for none of it, and this Keep runs on signatures. Every crate you walk off with is a soldier going without, friend, and I know exactly which soldier." },
       { id = "gv1", text = "You've been a drain on this Keep, friend, and I keep a ledger of drains. Your name is in it, and not in the credit column." },
       { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "I write the letters home for every soldier the demons kill, and you walk in here smelling of the same fire. I'll not pretend that sits easy with me." },
       { id = "gv_wronge", when = { grudge = "wronged" }, text = "I gave you fair dealing and good bread, and you treated me like a clerk to be stepped over. Clerks have long memories, friend." },
@@ -825,8 +871,53 @@ P:NPC {
     { id = "bl1", text = "Khadgar and the Sons of Lothar went through the Portal and never came back, and nobody at Nethergarde knows whether any of them still live. We aren't supposed to say so to visitors." },
     { id = "bl2", text = "The demons in these wastes aren't strays. They answer to Kazzak's lieutenants, and the Watchers believe Kazzak himself still walks the Tainted Scar." },
   },
+  confides = {
+    { id = "cnf_1", text = "The demons in the Tainted Scar grow restless at the dark of the moon, and the Watchers keep a doubled guard on those nights without ever telling the soldiers why." },
+    { id = "cnf_2", text = "Khadgar left a sealed coffer in the tower archive with orders that it be opened only if the Portal ever stirs, and nobody here knows what's inside it." },
+    { id = "cnf_3", text = "The red rock near the Portal's stair hums faintly if you lay your palm on it, and if it ever stops humming, I'd like to be told before anyone else." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're the most interesting person to come up these stairs in a year, and I've been taking notes, I'm afraid. Don't be alarmed; I take notes on everything I like." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You speak to me as if a scholar's time were worth something, and after years of soldiers rolling their eyes, I can't tell you what that means to me." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "There's a brightness about you that I feel in my scrying glass even when you're on the other side of the Keep. Khadgar wrote that the Light leaves its mark on the faithful, and I think I finally understand what he meant." },
+      { id = "rg_mage", when = { class = "MAGE" }, text = "You handle the arcane with care and you don't show off, which is more than I can say for half the Kirin Tor. I'd have been glad of you as a study partner in Dalaran." },
+    },
+    confide = {
+      { id = "cf_1", text = "I've read everything Khadgar left here twice, and some of it I've read so many times I can recite it. I sometimes talk to his old chair when I'm stuck, and it has never once laughed at me." },
+      { id = "cf_2", text = "I was in Dalaran the year Kel'Thuzad was censured, and I sat two tables from him in the library more than once. He was kind to me, and that's the part I've never known what to do with." },
+    },
+    trust = {
+      { id = "tr_1", text = "Quartermaster Lungertz, entirely. He smiles too much, but he's the only one here who knows exactly how close we are to running out of everything, and he still smiles." },
+      { id = "tr_2", text = "Trust the Watchers with the Portal and the soldiers with the walls. Be a little careful with Thadius, though; he's brilliant and honest, but he'd trade you for a rare book if the book were rare enough." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for imps around the Tainted Scar that seem to be carrying things. A lone imp is a nuisance, but an imp running errands means something larger sent it." },
+      { id = "wo_2", text = "Don't touch anything glowing out in the wastes, however pretty it looks. I've catalogued nine kinds of tainted crystal, and only one of them is merely poisonous." },
+    },
+    worries = {
+      { id = "wy_1", text = "That I'm watching the wrong thing. We stare at the Portal day and night, but the Ambassador says the danger is already on this side, and I'm afraid he might be right." },
+      { id = "wy_2", text = "That Dalaran will be rebuilt and nobody there will remember we're out here. I write to the Kirin Tor every month, and the replies are getting shorter." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To finish my study of the Portal's binding, and to understand properly what Khadgar did. I don't need anyone to read it; I only want to know I got it right." },
+      { id = "hp_2", text = "I'd like to see the libraries of Dalaran open again, with the lamps lit and the students arguing. I'd sit in my old corner and not say a word for a week." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you come across old notes or journals in the wastes, anything at all with writing on it, bring them to me before you sell them. Even a scrap might be Khadgar's." },
+      { id = "fv_2", text = "Come and tell me what the Tainted Scar looks like when you've been near it. I've studied it for years from the tower, and I've never once dared to go and look." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Oh, I'd like to think so! I've not had a proper friend since I left Dalaran, and I'd quite forgotten how nice it is to have someone to tell things to." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've listened to every one of my long explanations and come back for more, which no one else here has ever done. Yes, you're my friend, and I'm very glad of it." },
+      { id = "fr_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You've a sense of duty that reminds me of the old Guardians' writings, steady and patient and never showy. I'm proud to count you a friend, truly." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I wasn't sent to Nethergarde because I was the best student. I asked to come because the Scourge had just risen and I was frightened, and the edge of the world seemed safer than Dalaran." },
+      { id = "nt_2", text = "Some nights I dream that the Portal opens and Khadgar walks out of it, older and tired, and asks me what I've learned. I always wake up before I can answer him." },
+    },
     grievance = {
+      { id = "gv_al_shadow", when = { alignment = { axis = "light", max = -30 } }, text = "There's a darkness that clings to you, and I've read enough to know where darkness like that leads. I study the Legion from a distance, and I would prefer to keep you at one too." },
       { id = "gv1", text = "I've tried to be patient with you, truly, but you've made it very hard. Scholars are meant to be patient, and I'm failing at it." },
       { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to me the way a carter speaks to his mule. I studied in Dalaran, and even the worst masters there managed some courtesy." },
       { id = "gv_values", when = { grudge = "values" }, text = "You look at the Portal and see glory, not danger. Khadgar closed that door at a terrible price, and you treat it as an adventure." },
@@ -1208,8 +1299,53 @@ P:NPC {
     { id = "bl1", text = "Kazzak's no' gone, whatever Stormwind thinks. I've seen things move in the glass at night near the Tainted Scar, an' they're bigger than any imp." },
     { id = "bl2", text = "Aerie Peak's no' as loyal tae Ironforge as Magni would like. Falstad keeps his own counsel, an' the Wildhammer have never knelt tae the Bronzebeards." },
   },
+  confides = {
+    { id = "cnf_1", text = "There's a cave in the ridge north o' the Keep where the Dreadmaul stash what they steal from the wagons, an' they guard it worse than they guard their chieftain." },
+    { id = "cnf_2", text = "The glass in the tower shows the Tainted Scar clearest just after midnight, an' whatever's movin' there has been movin' more this season than last." },
+    { id = "cnf_3", text = "Some o' the reagents that go missin' from the mage tower end up in my shop by way o' a Darkshire carter, an' I've stopped askin' him where he gets them." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think ye're one o' the rare ones who can sit still long enough tae learn somethin', an' no' so still ye forget how tae fight. That's a balance I've only seen in a good gryphon rider." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "Ye talk straight wi' me, an' I've no' had that since I left the Peak. These Keep folk wrap every word in velvet, an' it makes my teeth ache." },
+      { id = "rg_al_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "Ye go yer own road an' ye don't ask leave o' anybody, an' that's the Wildhammer way, whatever blood's in ye. I liked ye the minute I saw ye ignore a sergeant." },
+      { id = "rg_dwarf", when = { race = "Dwarf" }, text = "Ye're one o' the mountain folk, an' ye've no' looked down yer nose at a Wildhammer once. I'd stand ye a drink for that, if there were a decent drink south o' Darkshire." },
+    },
+    confide = {
+      { id = "cf_1", text = "I had a gryphon at the Peak, Skyrender, an' I left her wi' my sister when I went tae Dalaran. She's still alive, my sister writes, an' she still won't let anybody else ride her." },
+      { id = "cf_2", text = "I scried for the Legion once, early on, an' somethin' looked back. I've no' done it since, an' I keep a cloth over the glass every night now, just in case." },
+    },
+    trust = {
+      { id = "tr_1", text = "Mahar Ba, for all his chatter. The lad's never told a lie in his life, an' he'd no' know how tae start." },
+      { id = "tr_2", text = "Trust the Quartermaster wi' yer supplies an' the soldiers wi' yer back. Trust no mage wi' yer books, an' that includes me." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the black drake over the Portal valley, an' don't ye fly a gryphon anywhere near it. I've seen Teremus take a rider out o' the air like a hawk takes a sparrow." },
+      { id = "wo_2", text = "Watch the Dreadmaul shamans more than the brutes. The big ones hit hard, but the shamans have been learnin' tricks they shouldnae know, an' I'd like tae know who's teachin' them." },
+    },
+    worries = {
+      { id = "wy_1", text = "That I left the Peak for books an' I'll die in this tower wi' nobody tae ride home an' tell them. The Wildhammer burn their dead on the cliffs, an' there's no cliffs here worth the name." },
+      { id = "wy_2", text = "That what I see in the glass at night is gettin' closer. I've told the Watchers, an' they write it down, an' then they go tae bed." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I'd like tae fly home tae Aerie Peak one day wi' a book under my arm that I wrote myself. Even the Wildhammer might read it, if there were enough gryphons in it." },
+      { id = "hp_2", text = "That Skyrender's still there when I go back, an' that she knows me. That's all, an' it's more than I've a right tae." },
+    },
+    favor = {
+      { id = "fv_1", text = "If ye're ever up at Aerie Peak, find a gryphon called Skyrender an' tell her keeper that Thadius is well. Don't tell my sister I asked, mind, or she'll want a letter." },
+      { id = "fv_2", text = "Bring me word o' anythin' strange ye see near the Scar. My glass is good, but it's no' as good as a pair o' eyes that came back." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Aye, I do, though I'll deny it if ye tell the Watcher. A Wildhammer doesnae make friends easy, but when he does, it's for life." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "Ye've brought me what I asked for an' never once haggled me down, an' ye've sat an' listened when I went on about gryphons. If that's no' a friend, I've never had one." },
+      { id = "fr_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "Yer word's as good as a gryphon's loyalty, an' I can't say fairer than that. Aye, ye're a friend, an' I'd fly through a storm for ye." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I didnae leave the Peak for books. I left because I fell from Skyrender's back in a storm an' I've been feared o' the sky ever since, an' a Wildhammer who fears the sky is no Wildhammer at all." },
+      { id = "nt_2", text = "The Kirin Tor offered me a seat once, a real one, an' I turned it down because I thought they were mockin' me. I've wondered every day since whether they meant it." },
+    },
     grievance = {
+      { id = "gv_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "Ye follow every rule an' every order like a Bronzebeard clerk while ye look at me like I'm breakin' some law by breathin'. A Wildhammer doesnae answer tae a rulebook, an' I'll no' start for you." },
       { id = "gv1", text = "Ye've wasted my time an' my patience, an' I charge dear for both. That's my problem wi' ye." },
       { id = "gv_values", when = { grudge = "values" }, text = "Ye'd sell yer own mother's gryphon for a handful o' silver, an' I've no use for a body like that." },
       { id = "gv_tone", when = { grudge = "tone", tone = "polite" }, text = "All that bowin' an' scrapin'. I'm Wildhammer, no' some Ironforge clerk, an' I like a body tae say what they mean." },
@@ -1602,8 +1738,53 @@ P:NPC {
     { id = "bl1", text = "Not every elf of Quel'Thalas died when Arthas came. Some still keep to the ruins of Silvermoon, and without the Sunwell they suffer in ways I will not describe to a stranger." },
     { id = "bl2", text = "The best of my people followed Prince Kael'thas out of this world altogether when Garithos turned on them. Stormwind's court has never troubled to tell its people that." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Keep's officers send their dispatches north through Darkshire, and they are read before they reach Stormwind, because I have seen the seals lifted and pressed back." },
+    { id = "cnf_2", text = "The demons in the Tainted Scar keep to a pattern of patrols that shifts with the turning of the moon, and the Watchers have charted it without ever acting on it." },
+    { id = "cnf_3", text = "There are elves in the hills of Quel'Thalas still holding out against the Scourge, and any traveller going north who carries word for them will find a warmer welcome than the maps suggest." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you listen, which is the rarest quality I meet in this keep and the one I value most. I have written your name in my dispatches, and not as a complaint." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You address me with the courtesy my office deserves, even here at the edge of the world where nobody bothers. Silvermoon would have received you gladly." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "There is a light in you that the Legion would fear, if it troubled to notice you. I hope it never does, but I am glad the light is there." },
+      { id = "rg_horde", when = { faction = "Horde" }, text = "You come from the Horde, and you have shown me nothing but good faith. That is precisely the proof I keep offering Stormwind, and precisely the proof it refuses to hear." },
+    },
+    confide = {
+      { id = "cf_1", text = "My credentials were issued by a court that no longer exists, signed by a king who died in his own city. I present them anyway, because no one has yet thought to ask who sent me." },
+      { id = "cf_2", text = "I was in Silvermoon the day the dead came through the gates, and I left on the last road south with my papers and nothing else. I tell people I was abroad, because it sounds better." },
+    },
+    trust = {
+      { id = "tr_1", text = "Watcher Mahar Ba is honest to the point of foolishness, which in this keep amounts to the same thing as wisdom. Trust what he tells you, if not always how long he takes to say it." },
+      { id = "tr_2", text = "Trust anyone who fears the Legion more than they hate the Horde, and be wary of those for whom it is the other way round. You will find more of the second sort than the first." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for anyone who speaks warmly of the Legion's power, even in jest. That is how it begins, with a jest, and I have seen where it ends." },
+      { id = "wo_2", text = "Mind the court in Stormwind, if your road takes you there. Someone near the throne has been very careful to keep Nethergarde poor, and I doubt it is an accident." },
+    },
+    worries = {
+      { id = "wy_1", text = "That I shall spend the rest of my long life delivering a warning nobody hears, and that the day they finally hear it will be the day it is too late. I have seen that day once already." },
+      { id = "wy_2", text = "That those of my people who remain at home are fading, and that I am too far away and too proud to go back and be of any use to them." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To see Alliance and Horde stand together against the Legion at least once, as they stood together at Hyjal. If I could live to see it twice, I would count my embassy a success." },
+      { id = "hp_2", text = "That someday I may walk the gardens of Silvermoon again and find them green. It is a foolish hope, but an elf has a long time to nurse one." },
+    },
+    favor = {
+      { id = "fv_1", text = "Speak of the Legion wherever you go, plainly, to anyone who will listen. You carry a sword and so they may believe you, whereas they have long since learned to ignore me." },
+      { id = "fv_2", text = "If your road takes you north toward Quel'Thalas, tell any of my people you meet that Ardalan still speaks for them. I would like them to know that someone does." },
+    },
+    friendship = {
+      { id = "fr_1", text = "An ambassador is not supposed to have friends, only interests. I find, somewhat to my own surprise, that you have become both." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have heard my warnings and acted on them, which no king has yet done. I count you a friend, and a better ally than any court has sent me." },
+      { id = "fr_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You keep your word as the old houses of Quel'Thalas kept theirs, without counting the cost. Yes, I count you a friend, and I do not say so lightly to anyone." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When the Scourge came, I argued in council that we should wait and see what the humans would do. Some of those who listened to me did not live to regret it, and I have been urging haste ever since." },
+      { id = "nt_2", text = "I have not had a letter from Quel'Thalas in three years. I keep writing anyway, and I tell myself the roads are simply closed." },
+    },
     grievance = {
+      { id = "gv_al_shadow", when = { alignment = { axis = "light", max = -30 } }, text = "You walk in shadow and seem pleased with it, and I watched my homeland die of people who were pleased with shadow. Forgive me if I do not offer you a chair." },
       { id = "gv1", text = "You've given me cause to regret receiving you, and an ambassador does not enjoy regret. It reads poorly in the dispatches." },
       { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "You traffic with demons, and I have spent years telling kings what that traffic costs. You are the very thing I warn them about." },
       { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to an envoy of Quel'Thalas as if he were a dockhand. My kingdom may be ash, but its courtesies are not." },
