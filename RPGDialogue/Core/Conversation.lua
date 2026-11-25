@@ -276,7 +276,8 @@ function Conv.Start(kind, unit, interactionName)
     end
     s.questAnswered = nil
     -- The same, inside DialogueUI: a quest picked from the conversation, then its menu again.
-    if s.duiQuest and kind == "gossip" and s.view == "dui" and not s.menuOnly and s.nodeDef and s.lastView then
+    if s.duiQuest and (kind == "gossip" or (kind == "quest" and Conv.questStage == "greeting"))
+        and s.view == "dui" and not s.menuOnly and s.nodeDef and s.lastView then
       s.duiQuest = nil
       s.mode = "full"
       local v = s.lastView
@@ -368,7 +369,8 @@ function Conv.DecideFull(s, mode)
   local settings = ns.db.settings
   if s.kind == "talk" then return true, "talk" end
   if C.InCombat() then return false, "combat" end
-  if Conv.JustHandedOver(s.guid) then return nil, "just handed over to the game's page" end
+  -- Only the game reopening a quest page a moment later; a right-click afterwards talks.
+  if s.kind == "quest" and Conv.JustHandedOver(s.guid) then return nil, "just handed over to the game's page" end
   if mode == "stepback" then return false, "another dialogue addon is in charge" end
   if settings.openMode == "full" then return true, "setting: always full" end
   local first = (s.mem.times or 0) == 0
@@ -506,7 +508,7 @@ end
 -- interaction around a quest page (a quest-only NPC, a hand-in), which would open the
 -- conversation again on top of the page just handed over; for a short while it doesn't.
 local lastHandover
-Conv.HANDOVER_GRACE = 20
+Conv.HANDOVER_GRACE = 3
 -- Inside DialogueUI only: that's where the game's page sits under our page and the
 -- restart showed. In the box, talking again right after a vendor still opens the talk.
 function Conv.NoteHandover(s)
@@ -1731,11 +1733,24 @@ function Conv.RightClicked(guid)
   if s and not s.ended then return end              -- the game opened their window: that path has it
   if C.AnyInteractionFrameShown() then return end
   if not C.Exists("target") or C.GUID("target") ~= guid then return end
-  local cap = ns.db.capture.npcs[C.NPCID(guid) or -1]
-  if cap and (cap.gossip or cap.interacts) then return end   -- known to have a menu; it's on its way
   if C.InRange("target") == false or not hasContent("target") then return end
+  -- Known to have opened a menu or a quest before: it's probably on its way, so give the
+  -- game a moment. But a quest-giver with nothing left to give (every quest handed in)
+  -- opens nothing at all, and used to never speak on a right-click again: talk then.
+  local cap = ns.db.capture.npcs[C.NPCID(guid) or -1]
+  if cap and (cap.gossip or cap.interacts) then
+    C.After(Conv.MENU_WAIT, function()
+      local cur = Conv.session
+      if cur and not cur.ended then return end
+      if C.AnyInteractionFrameShown() or C.InCombat() then return end
+      if not C.Exists("target") or C.GUID("target") ~= guid or C.InRange("target") == false then return end
+      Conv.TalkToTarget(true)
+    end)
+    return
+  end
   Conv.TalkToTarget(true)
 end
+Conv.MENU_WAIT = 0.8
 
 ns.OnLogin(function()
   C.HookWorldClicks(function(b) Conv.OnWorldMouseDown(b) end, function(b) Conv.OnWorldMouseUp(b) end)
@@ -1762,10 +1777,10 @@ local function deferStart(kind, unit, interactionName)
 end
 
 ns.On("GOSSIP_SHOW", function() deferStart("gossip", "npc") end)
-ns.On("QUEST_GREETING", function() questStage = "greeting"; deferStart("quest", "npc") end)
-ns.On("QUEST_DETAIL", function() questStage = "detail"; deferStart("quest", "npc") end)
-ns.On("QUEST_PROGRESS", function() questStage = "progress"; deferStart("quest", "npc") end)
-ns.On("QUEST_COMPLETE", function() questStage = "complete"; deferStart("quest", "npc") end)
+ns.On("QUEST_GREETING", function() questStage = "greeting"; Conv.questStage = questStage; deferStart("quest", "npc") end)
+ns.On("QUEST_DETAIL", function() questStage = "detail"; Conv.questStage = questStage; deferStart("quest", "npc") end)
+ns.On("QUEST_PROGRESS", function() questStage = "progress"; Conv.questStage = questStage; deferStart("quest", "npc") end)
+ns.On("QUEST_COMPLETE", function() questStage = "complete"; Conv.questStage = questStage; deferStart("quest", "npc") end)
 
 ---------------------------------------------------------------------------
 -- The game's own options in the box: the NPC's quests (hand-ins first), then their gossip

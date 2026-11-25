@@ -2,6 +2,11 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## Unreleased
+- **Right-click talks again after you've handed in their quests.** Anyone who once opened a quest or menu for you was taken to always have one, so once their quests were done a right-click did nothing. Now, if no menu comes, they talk.
+- **DialogueUI: no silent spell after a hand-in.** The pause that stops a conversation reopening over a quest page now lasts three seconds and only applies to that quest page, so people talk again straight away on your next visit.
+- **DialogueUI: back to the conversation after a quest from a quest list.** People who show a list of quests instead of a menu now bring you back to the conversation after you take or hand in one, as menu NPCs do.
+
 ## 0.113.0 (2026-11-25): Through the Right Door
 No new files; a /reload is enough.
 - **DialogueUI: "What do you know?" fits.** Their answer is just what they say; the topics they name are listed first as rows you can ask about, instead of a long plain list that pushed the replies off the page.
