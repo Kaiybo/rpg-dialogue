@@ -510,6 +510,21 @@ function V.Release()
   page = nil
 end
 
+-- About to pick one of the game's rows from our page, as DialogueUI's own rows do first:
+-- for a quest, the game closes the NPC's menu before the quest's page opens, and DialogueUI
+-- hides its window on that close (which would close the quest page too) unless told the
+-- close is expected. A plain option clears that.
+function V.BeforeGamePick(kind, active)
+  local f = window()
+  if not f then return end
+  if kind == "gossipQuest" or kind == "greetingQuest" then
+    if has(f, "SetConsumeGossipClose") then pcall(f.SetConsumeGossipClose, f, true) end
+    if not active and has(f, "MarkQuestIsFromGossip") then pcall(f.MarkQuestIsFromGossip, f, true) end
+  elseif kind == "gossipOption" then
+    if has(f, "SetConsumeGossipClose") then pcall(f.SetConsumeGossipClose, f, false) end
+  end
+end
+
 -- The next Show opens DialogueUI's window itself (talk key, right-click: no game menu).
 function V.Own() owned = true end
 -- The game's own menu arrived after all (gossip after a right-click): the window is the
