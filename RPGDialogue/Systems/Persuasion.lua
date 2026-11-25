@@ -15,7 +15,7 @@
 --
 -- An outcome is a disposition modifier (`mem.persuadeMod = { v, t }`) that fades toward
 -- nothing by DECAY_PER_DAY a day, capped at +-MOD_MAX. No bribes (an addon can't take gold),
--- Alignment (0.115.0) counts a little: praise lands better from someone whose stand they
+-- Alignment (0.114.0) counts a little: praise lands better from someone whose stand they
 -- share, a fighter respects a taunt from the honorable, and the shadow-touched frighten.
 local _, ns = ...
 

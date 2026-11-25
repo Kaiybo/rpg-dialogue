@@ -1,5 +1,8 @@
 # RPG Dialogue: Battlegrounds
 
+## 1.4.0 (2026-11-25): Friends, Foes and Fools
+- Major characters answer the new friendly topics and grievances in their own voice.
+
 ## 1.3.0 (2026-11-24): Old Grudges
 - Major NPCs answer for a grudge you hold against them (or they against you), and let things slip when angry.
 - Overlong speeches tightened.

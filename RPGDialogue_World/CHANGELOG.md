@@ -2,6 +2,10 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.58.0 (2026-11-25): Friends, Foes and Fools
+- Ask topics for people who like you (regard, confide, trust, watch out, worries, hopes, favor, friendship, never told), with fondness and grudge pools tripled and new pools by role and capital city.
+- Jokes: flat ones rewritten; about 340 new ones by race, class, faction, trade, place and for twenty named characters; more laugh and groan answers.
+
 ## 1.57.0 (2026-11-24): Plain Speaking
 - Rumour threads, role pools and a few spirit healer and demon lines over 60 words trimmed; letters stay long.
 

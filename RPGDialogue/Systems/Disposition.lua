@@ -6,7 +6,7 @@
 --     * what they value against who you've shown yourself to be
 --       (the NPC's `values` against your dominant traits):           +8 each, -8 for the opposite
 --     * their temper (warm, jovial, gentle +5; gruff, cold -5)
---     * your alignment (0.115.0), on every axis their values (or role) care about,
+--     * your alignment (0.114.0), on every axis their values (or role) care about,
 --       either way (Disp.VALUE_AXES, ROLE_AXES):                     +-3/6/9/12 at 15/30/50/75
 --     * a hostile or unfriendly unit reaction:                        -10
 --     * their rivals (`rivals` on the NPC, 0.55.0): your affinity with each
@@ -247,7 +247,7 @@ end
 
 -- info: the conversation's NPC info (def, communities...); mem: their memory record.
 -- Returns the value and a list of reasons ({ text, delta }) for /rpgd why and the tooltip.
--- Alignment (0.115.0). What someone values ties them to an axis, one way or the other:
+-- Alignment (0.114.0). What someone values ties them to an axis, one way or the other:
 -- +1 when they want you toward Light / Order / Honor, -1 when they want you the other way.
 Disp.VALUE_AXES = {
   lawful = { "order", 1 }, dutiful = { "order", 1 }, duty = { "order", 1 }, order = { "order", 1 },
@@ -313,7 +313,7 @@ function Disp.Compute(info, mem, ctx)
   for _, t in ipairs(def and def.temper or {}) do
     if Disp.COLD_TEMPER[t] then add(-5, "temper " .. t); break end
   end
-  -- Where you stand (0.115.0): every axis they care about, either way, scaled by how far
+  -- Where you stand (0.114.0): every axis they care about, either way, scaled by how far
   -- you lean (Disp.AlignWeight). What they value says which axes and which way; people who
   -- value nothing on an axis get their role's (Disp.ROLE_AXES).
   local align = ns.char.align or {}

@@ -418,7 +418,7 @@ function Engine.PickAgain(info, nodeId, ctx, env)
 end
 
 -- Special reply options: success comes from who the player is, never dice.
--- Disposition decides the extremes (0.115.0): someone Devoted to you (90+) is won over by
+-- Disposition decides the extremes (0.114.0): someone Devoted to you (90+) is won over by
 -- any Persuade or Deceive, and someone Hostile (below 20) believes nothing you say.
 -- Intimidate is left alone: fear works on people who hate you.
 Engine.CHECK_DEVOTED, Engine.CHECK_HOSTILE = 90, 20
