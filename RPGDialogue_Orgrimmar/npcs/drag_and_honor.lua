@@ -205,3 +205,48 @@ P:NPC {
     _none = { { id = "tp_none", text = "Orokk does not know. Orokk knows metal, and that is not metal." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Mayhoa Skyhoof, "Girl with Puppies": a tauren calf who walks the Drag and the Valley of Honor
+-- with a basket of prairie wolf pups to sell. Light entry.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mayhoa_skyhoof", id = TODO_NPC("Mayhoa Skyhoof"), name = "Mayhoa Skyhoof", title = "Girl with Puppies",
+  gender = "female", role = "vendor", tier = "service",
+  communities = { "orgrimmar" }, temper = { "cheerful" }, values = { "nature" },
+  impression = {
+    first = "A tauren calf wandering the Drag with a carrier full of prairie wolf pups, every one of them trying to climb out at once.",
+    third = "{name} met Mayhoa Skyhoof, a tauren girl selling prairie wolf pups in Orgrimmar.",
+  },
+  greetings = {
+    { id = "g_default", text = "Do you want to see the puppies? They're prairie wolves from Mulgore, and they need good homes before they chew through my basket." },
+    { id = "g_tauren", when = { race = "Tauren" }, text = "You're from home! Do you want a puppy? They're Mulgore wolves, so they'll like you better than these orcs." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "You've got a pet already, so you'll know how to look after one of mine, won't you?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I walk up and down the Drag and through the Valley of Honor all day, because the warriors there are the ones who pretend they don't want a puppy and then buy two. This one's the runt, but she's the bravest, and she bit a grunt yesterday." } },
+      again = { { id = "h_again", text = "Anything else? Hold still, he's chewing your boot." } },
+      choices = {
+        { text = "Where did you find wolf pups?", next = "where" },
+        { text = "Isn't Orgrimmar a rough place for a calf?", next = "rough" },
+        { text = "Let me see the puppies.", next = "BUSINESS" },
+        { text = "Good luck finding them homes.", next = "END" },
+      },
+    },
+    where = {
+      lines = { { id = "w_default", text = "Their mother was hurt out on the plains near Bloodhoof, and the braves brought the pups in. My family said I could keep one if I found homes for the rest, so I came all the way to Orgrimmar because there are more people here to say yes." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    rough = {
+      lines = { { id = "r_default", text = "Everyone says that, but the orcs are nice when you have puppies. The big ones in the Valley of Honor go all soft, and one of them told me the Frostwolf clan rides wolves into battle, so it's practically a Horde tradition." } },
+      choices = {
+        { text = "A calf shouldn't be wandering alone here.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Good for you. Go where you please.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I don't know! Ask somebody grown up. Do you want a puppy, though?" } } },
+}

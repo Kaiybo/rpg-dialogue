@@ -1010,3 +1010,84 @@ P:NPC {
     _none = { { id = "tp_none", text = "Don't know it. Ask me about the snow instead; it's nothing like the grass of home." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Sky Earthtotem, who keeps to the Hunter's Hall, and Rown Leaftender, a young hunter of the rise.
+-- Light entries: the wiki gives no more than where they stand.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "sky_earthtotem", id = TODO_NPC("Sky Earthtotem"), name = "Sky Earthtotem", gender = "male",
+  role = "citizen", tier = "service",
+  communities = { "thunder_bluff" }, temper = { "calm" }, values = { "tradition" },
+  impression = {
+    first = "A seasoned tauren hunter sitting in the Hunter's Hall, oiling a bowstring with the slow care of someone who has done it ten thousand times.",
+    third = "{name} spoke with Sky Earthtotem in the Hunter's Hall on Hunter Rise.",
+  },
+  greetings = {
+    { id = "g_default", text = "Sit, if you have the time. The Hunter's Hall was built for resting between hunts, and too few use it that way." },
+    { id = "g_hunter", when = { class = "HUNTER" }, text = "A fellow hunter, and your companion with you. Let {pet} lie by the fire; the hall has seen muddier paws." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I have hunted Mulgore and the Barrens since before this city had bridges, and now I sit in the hall and tell the young ones where the game has gone. It is a good life for old knees." } },
+      again = { { id = "h_again", text = "What else? Ask before the young ones come back and want the fire." } },
+      choices = {
+        { text = "Where has the game gone?", next = "game" },
+        { text = "What makes a good hunt?", next = "hunt" },
+        { text = "Earth Mother guide your arrows.", next = "END" },
+      },
+    },
+    game = {
+      lines = { { id = "ga_default", text = "North and west, away from the quilboar and the Venture Company's machines at the Red Rocks. The plainstriders still come down to the Stonebull Lake in the evenings, but the great kodo herds walk farther from us every year." } },
+      choices = {
+        { text = "The Venture Company should be driven out by force.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Cairne will deal with them in his own time.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hunt = {
+      lines = { { id = "hu_default", text = "Patience first, then a clean shot, and thanks to the beast before you touch it. A hunter who forgets the thanks will find, sooner or later, that the plains forget him." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I only know the trails and the beasts on them, friend. Ask the elders for the rest." } } },
+}
+
+P:NPC {
+  key = "rown_leaftender", id = TODO_NPC("Rown Leaftender"), name = "Rown Leaftender", gender = "male",
+  role = "citizen", tier = "service",
+  communities = { "thunder_bluff" }, temper = { "eager" }, values = { "nature" },
+  impression = {
+    first = "A young tauren on Hunter Rise with leaves still caught in his mane, plainly fresh in from the plains.",
+    third = "{name} spoke with Rown Leaftender on Hunter Rise.",
+  },
+  greetings = {
+    { id = "g_default", text = "Oh, hello! I'm only just back from the plains, so forgive the burrs, {class}." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I'm still learning the bow from the trainers here, though I confess I spend more time watching the grass grow than watching for game. My mother says I was named well, and she doesn't always mean it kindly." } },
+      again = { { id = "h_again", text = "Anything else? I'm in no rush, which is part of my trouble." } },
+      choices = {
+        { text = "What do you watch for in the grass?", next = "grass" },
+        { text = "A hunter has to learn to take a life.", next = "take" },
+        { text = "Good luck with the bow.", next = "END" },
+      },
+    },
+    grass = {
+      lines = { { id = "gr_default", text = "Which herbs come up after the rain, which places the plainstriders nest, where the wolves have been. The trainers say it's wasted time, but I've never once come home without knowing where to find something." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    take = {
+      lines = { { id = "t_default", text = "I know it, and I can, when I have to. I only think the hunt should be the last thing a tauren learns, not the first, and some of the older hunters laugh at me for it." } },
+      choices = {
+        { text = "You're right. Tend the land before you take from it.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Hunger doesn't wait for gentleness. Learn the bow.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I don't know about that, I'm afraid. Ask someone who spends less time looking at grass." } } },
+}

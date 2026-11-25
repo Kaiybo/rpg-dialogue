@@ -1266,3 +1266,161 @@ P:NPC {
     _none = { { id = "tp_none", text = "I'm afraid I don't know, child. Perhaps ask someone who gets out more, or someone still breathing." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Alodan the Hopeful: a Forsaken paladin trainer in the Pools of Vision (a Forever change). He
+-- keeps to the Light though it burns him, and calls every visitor back to it. Gevreka, a quiet
+-- tauren of Spirit Rise, follows below.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "alodan", id = TODO_NPC("Alodan the Hopeful"), name = "Alodan the Hopeful", title = "Paladin Trainer",
+  gender = "male", race = "Scourge", role = "trainer", tier = "quest",
+  communities = { "thunder_bluff", "undercity" }, temper = { "calm" }, values = { "devout", "hopeful" },
+  notices = { "class", "race" },
+  impression = {
+    first = "A Forsaken in plain plate, standing a little apart from the mages, with a faint golden haze about his hands that seems to cost him something.",
+    third = "{name} met Alodan the Hopeful, a Forsaken who still trains paladins of the Light in the Pools of Vision beneath Thunder Bluff.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Welcome back to the Light, friend. Whatever brought you down these steps, you are welcome at my side." },
+    { id = "g_paladin", when = { class = "PALADIN" }, text = "Welcome back to the Light, {class}. Do you require training, or only a moment's quiet among those who understand?" },
+    { id = "g_other", when = { ["not"] = { class = "PALADIN" } }, text = "You may not be a paladin, but you may yet find solace in the Light, should you seek it." },
+    { id = "g_away", when = { away = 14 }, text = "{away} since you came down to the pools. I prayed you would come back, and here you are, which I take as a small kindness from the Light." },
+  },
+
+  notice = {
+    { id = "n_scourge_pal", cat = "race", when = { race = "Scourge", class = "PALADIN" },
+      text = "It burns you too, doesn't it? I can see it in how you hold your hands. Good; it means you are still trying." },
+    { id = "n_priest", cat = "class", when = { class = "PRIEST" },
+      text = "One of the priests from the pool beside mine. We drink from the same well, you and I, though they ask fewer questions of you upstairs." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Alodan, and I teach the ways of the Light to those the Horde sends me. The tauren gave me this corner of the Pools of Vision, and I have tried to repay them by being no trouble at all." },
+        { id = "h_tauren", when = { race = "Tauren" }, text = "A child of the Earth Mother come to see the dead man who prays. I don't blame you for staring; I would stare too, if I still had the eyes I was born with." },
+        { id = "h_scourge", when = { race = "Scourge" }, text = "One of our own. Most of the Forsaken who come down here are looking for the mages, and they walk past me as if I were a ghost, which, I suppose, I nearly am." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you know? I have time; that is the one thing the grave gave me plenty of." },
+        { id = "h_again2", text = "Ask, friend. The Light has never minded questions, only the lack of them." },
+      },
+      choices = {
+        { text = "How does one of the Forsaken still wield the Light?", next = "light" },
+        { text = "Why do they call you the Hopeful?", next = "hope" },
+        { text = "Why train here, and not in the Undercity?", next = "here" },
+        { text = "You look like it hurts you, Alodan.", next = "pain" },
+        { text = "Teach me, Alodan.", next = "BUSINESS", when = { class = "PALADIN" } },
+        { text = "Light keep you.", next = "END" },
+      },
+    },
+    light = {
+      lines = { { id = "l_default", text = "Not easily, and not without cost. When I woke in the grave I was certain the Light had turned its back on me, so I turned mine on it for a long while, until I learned it had only been waiting for me to ask again." } },
+      choices = {
+        { text = "And it simply answered?", next = "light2" },
+        { text = "The Light abandoned Lordaeron. Why trust it now?", next = "light2" },
+      },
+    },
+    light2 = {
+      big = true,
+      lines = { { id = "l2_default", text = "It answered the way a cold hearth answers a single spark, slowly and painfully. Every blessing I call down burns my own flesh, and I have decided the burning is a kind of honesty: the Light does not pretend I am what I was, and neither do I." } },
+      choices = {
+        { text = "Faith that endures pain is the truest kind.", next = "BACK", reply = "That is the hope I live on, friend. If the Light can still find a use for me, there is very little in this world it would give up on.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Pain for a god that left you? That's no faith.", next = "BACK", reply = "Many of my people would say the same, and loudly. I only ask that you watch what I do with it, and judge me by that rather than by what I am.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hope = {
+      lines = { { id = "ho_default", text = "Because I am the only one in the Pools of Vision who still expects things to get better, I think, and the others found it amusing. I kept the name because it is the best thing anyone has called me since I died." } },
+      choices = {
+        { text = "Hope seems a strange thing for the Forsaken.", next = "hope2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hope2 = {
+      lines = { { id = "ho2_default", text = "It is rare, and the Dark Lady does not preach it, I'll grant you. But we were men and women of Lordaeron once, and Lordaeron had paladins in every village, so some of us remember how it felt to hope and would like to feel it again." } },
+      choices = {
+        { text = "The Forsaken should look forward, not back to Lordaeron.", next = "BACK", reply = "Forward is where I am looking, friend. I only carry with me the parts of the old kingdom that deserve to be carried.", fx = { align = { order = -1 } } },
+        { text = "Then keep the old ways alive. Someone must.", next = "BACK", reply = "Someone must, and I would rather it were a paladin than a ghost on a battlement. Thank you for saying so.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    here = {
+      lines = { { id = "he_default", text = "The Undercity has no shortage of my brothers and sisters who would like to see my kind put back in the ground, and the Scarlet Crusade would like it even more. The tauren pray to the sun, and they understood what I was asking for better than my own people did." } },
+      choices = {
+        { text = "The tauren don't mind a dead man praying in their bluff?", next = "here2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    here2 = {
+      lines = { { id = "he2_default", text = "Some mind, and they walk the long way round the stair. But Cairne Bloodhoof let our people into these pools when no one else would, and the Sun Priests speak to me kindly about An'she, whom I think the Light and I have both met under another name." } },
+      choices = {
+        { text = "You think An'she and the Light are the same?", next = "BACK", reply = "I think the sun does not ask what you are before it warms you. Ask Eylah Sunhorn on the rise above, if you want a wiser answer than mine.", fx = { learn = { "an_she" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pain = {
+      lines = {
+        { id = "p_default", text = "It does, every time, and I have stopped hiding it. A paladin who pretends his burdens weigh nothing teaches his students to lie, and I would rather teach them to carry things." },
+        { id = "p_scourge", when = { race = "Scourge" }, text = "It does, and if you walk this path it will hurt you too. I won't pretend otherwise, but I will tell you the pain grows quieter as the will grows louder." },
+      },
+      choices = {
+        { text = "Then why not stop?", next = "BACK", reply = "Because I stopped once already, in a cold grave in Lordaeron, and I did not care for who I was then." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "I was a paladin in Lordaeron, then I was dead, and now I am a paladin again, though the second time has been much harder than the first." } },
+    advice = { { id = "tp_ad", text = "Whatever you are, ask the Light for help anyway. The worst it can do is refuse, and in my experience it rarely does." } },
+    scarlet_crusade = { { id = "tp_scarlet", text = "They wear the Light like a butcher's apron, and they would burn me for daring to touch it. I pray for them, which they would find far more insulting than any sword." } },
+    sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady gave us back our wills, and for that I owe her my loyalty. She has not asked for my prayers, but she has them all the same." } },
+    _none = { { id = "tp_none", text = "I don't know, friend, and I won't pretend to. Ask the mages beside me; they pretend to know everything." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Gevreka: a quiet tauren of Spirit Rise. Light entry.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "gevreka", id = TODO_NPC("Gevreka"), name = "Gevreka", gender = "male",
+  role = "citizen", tier = "service",
+  communities = { "thunder_bluff" }, temper = { "calm" }, values = { "devout" },
+  impression = {
+    first = "A broad tauren who stands near the edge of Spirit Rise, looking out at the plains as if he were waiting for someone in particular.",
+    third = "{name} spoke with Gevreka on Spirit Rise.",
+  },
+  greetings = {
+    { id = "g_default", text = "Peace, {class}. Spirit Rise is a quiet place, and I try to keep it so." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Mu'sha is bright tonight. On nights like this the spirits come close to the rise, and I like to be here when they do." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I come up to Spirit Rise most days to sit near the shaman and listen to the wind. The Skychasers do the real work of speaking with the spirits, but someone ought to listen when they are finished." } },
+      again = { { id = "h_again", text = "Something more? The wind is in no hurry, so neither am I." } },
+      choices = {
+        { text = "What do you hear in the wind?", next = "wind" },
+        { text = "It's a long way down from here.", next = "view" },
+        { text = "Walk with the Earth Mother.", next = "END" },
+      },
+    },
+    wind = {
+      lines = { { id = "w_default", text = "Mostly the herds on the Golden Plains, and the rain coming in over the Red Rocks a day before it arrives. Some days I think I hear my grandfather, though the shaman tell me that is only wishing." } },
+      choices = {
+        { text = "The ancestors are always near. Trust what you hear.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The shaman are right. The dead should rest.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    view = {
+      lines = { { id = "v_default", text = "It is, and that is why I like it. From up here Mulgore looks the way the Earth Mother must see it, small and green and worth keeping." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "That I could not tell you, friend. The Skychasers know more than I do about nearly everything." } } },
+}
