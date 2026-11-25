@@ -39,6 +39,7 @@ local owned, hidingSelf = false, false
 local page                  -- { text, choices, canAsk, asking }
 local lastView              -- the last page asked for, to move it to the box if needed
 local rows = {}             -- what each option button does, from the last layout
+local lastText              -- the words of the last page laid out (for the fade-in)
 
 local function window() return C.DialogueUIFrame() end
 
@@ -135,6 +136,7 @@ local function install(f)
     if type(original) == "function" then
       f[name] = function(self, ...)
         resetButtons()
+        if not page then lastText = nil end
         if page then
           local ok, laidOut = pcall(V.Layout, self)
           if ok and laidOut then return true end
@@ -358,11 +360,17 @@ function V.Layout(f)
   local top, bottom = first:GetTop(), last:GetBottom()
   f:SetScrollRange((top and bottom) and (top - bottom) or (offsetY + 40 * #rows))
   if has(f, "SetQuestTextRange") then f:SetQuestTextRange(nil) end
-  if has(f, "FadeInContentFrame") then f:FadeInContentFrame() end
+  -- Its fade-in (and page sound) only when the words changed: a refresh for a new
+  -- disposition, a page of topics or a tone used to replay both, often twice a click.
+  if has(f, "FadeInContentFrame") and (text ~= lastText or not f:IsShown()) then f:FadeInContentFrame() end
+  lastText = text
   return true
 end
 
+-- Only rows of the page on show: after a game option, DialogueUI keeps the old page above
+-- the next one as history, and its buttons must not act on a page that's gone.
 function V.Click(i)
+  if not page then return end
   local r = rows[i]
   if r and not r.locked then r.onClick() end
 end
@@ -489,6 +497,10 @@ end
 local function hideOwned()
   owned, page = false, nil
   local f = window()
+  -- Someone else's menu has just come into it (another NPC right-clicked mid-talk): leave
+  -- it open, since hiding it would close their menu too.
+  local ok, npc = pcall(_G.UnitExists, "npc")
+  if ok and npc then lastText = nil; return end
   if f and f:IsShown() then
     hidingSelf = true
     pcall(f.Hide, f)

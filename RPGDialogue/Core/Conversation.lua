@@ -609,6 +609,7 @@ function Conv.Business(hint)
     if opt then
       if s.view == "dui" then
         ns.UI.DUIView.Release()
+        ns.UI.DUIView.BeforeGamePick("gossipOption")
         s.mode = "business"
       elseif s.mode == "full" and Conv.KeepPages(s) and not Conv.OverOtherWindow() then
         s.following = true

@@ -397,3 +397,28 @@ describe("Handing in from the conversation in DialogueUI", function()
     eq(dui.consumeClose, true, "DialogueUI told the menu's close is expected, so its window stays for the quest")
   end)
 end)
+
+describe("DialogueUI edge cases", function()
+  it("leaves the window open when another NPC's menu arrives during a talk-key visit", function()
+    local ns, dui = bootInside()
+    Mock.state.units.target = { guid = "Creature-0-1-0-1-9002-AB", name = "Deputy Willem", level = 10 }
+    ns.Conversation.TalkToTarget()
+    eq(dui:IsShown(), true)
+    Mock.calls = {}
+    visit(dui, "Marshal McBride")
+    eq(dui:IsShown(), true, "not hidden under the new menu")
+    eq(ns.Conversation.session.view, "dui")
+    ok(not called("CloseGossip"), "their menu isn't closed")
+    contains(names(dui), "Get on with it")
+  end)
+
+  it("ignores old rows once the page is gone", function()
+    local ns, dui = bootInside()
+    visit(dui, "Marshal McBride")
+    local old = dui.buttons[1]
+    ns.UI.DUIView.Release()
+    local before = ns.Conversation.session.node
+    old.onClickFunc(old)
+    eq(ns.Conversation.session.node, before, "a stale row does nothing")
+  end)
+end)

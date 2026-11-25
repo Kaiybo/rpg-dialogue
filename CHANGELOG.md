@@ -3,6 +3,7 @@
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
 ## Unreleased
+- **DialogueUI: fixes from a full pass.** Right-clicking someone with a menu while a talk-key conversation is open no longer closes their menu. Old replies left above a new page as history no longer do anything when clicked. The page no longer replays DialogueUI's fade-in and page sound each time it updates.
 - **DialogueUI: handing in and taking quests from the conversation works.** Clicking "Hand in: ..." (or a new quest) on our page closed DialogueUI's window as the quest page opened, so nothing happened. It now opens the quest page as DialogueUI's own rows do.
 - **DialogueUI: a shorter Ask about... list.** The first list holds the "ask anyone" topics and what this person can tell you about; everything else you've heard of is folded into one row per kind (People, Places, Threats...), each with its own pages. No more thirteen pages of seven.
 - **DialogueUI: a tidier page.** The disposition now sits on the Persuade row ("Persuade... (they feel warm)") instead of heading every page, and the muted lines are easier to read on the brown parchment.
