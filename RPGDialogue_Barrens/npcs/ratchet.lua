@@ -571,12 +571,55 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Southsea pirates keep their best loot in the beached ship on the Merchant Coast, under the captain's quarters, and they guard it worst at high tide." },
+    { id = "cnf_2", text = "Every ship leaving Ratchet for Booty Bay carries a bit of contraband nobody declares, and the dockmaster takes his cut without writing it down." },
+    { id = "cnf_3", text = "The Venture Company has a spy in Ratchet who poses as a fisherman, and he pays the bruisers to look the other way when he goes north." },
+  },
   blurts = {
     { id = "bl1", text = "The Venture Company's got a whole operation chewing through Stonetalon up north, and they'd like Ratchet next. Don't you dare tell 'em I said so." },
     { id = "bl2", text = "The Southsea pirates camp along the Merchant Coast south of here, pal, and every ship they rob is one I'd have taxed." },
     { id = "bl3", text = "I built half of Orgrimmar, pal, and the Warchief never paid the last invoice. I still know where every drain in that city comes out, and that's worth something to somebody." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're good for business, pal, and from me that's the highest compliment going. You pay, you work, and you don't break my docks." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You did right by Ratchet when there wasn't a copper in it for you, and that's an investment I notice. I keep a ledger on everybody, and yours is in the black." },
+      { id = "rg_3", when = { fondness = "tone" }, text = "You talk straight and fast, which saves us both time, and time's money. I like a customer who gets to the point." },
+      { id = "rg_al", when = { alignment = { axis = "honor", max = -30 } }, text = "You know when to bend the rules and when to bend the truth, and you don't get caught at either. Honestly, kid, you'd do fine in the Cartel." },
+    },
+    confide = {
+      { id = "cf_1", text = "Ratchet only stays neutral because both sides need the docks more than they hate each other. The day one of 'em stops needing us, this town's in real trouble." },
+      { id = "cf_2", text = "Between you and me, the Warchief did pay that last invoice, mostly. I just like complaining about it, and folk buy me drinks when I tell the story." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Steamwheedle men on my docks, pal, because they're paid to keep the peace and they know I check. Trust the bruisers too, since I pay them better than the Venture Company does." },
+      { id = "tr_2", text = "Never trust a goblin with a Venture Company badge, and never trust one who says he's left the Venture Company. That's the same goblin with a new hat." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Southsea pirates along the Merchant Coast, kid, because they'll lift your purse and your boots in the same breath. Their camp's south of here, and they don't take kindly to visitors." },
+      { id = "wo_2", text = "If somebody on the docks offers you a crate of 'salvage' at half price, walk away. It's either stolen from me or rigged to blow, and both are bad for your health." },
+    },
+    worries = {
+      { id = "wy_1", text = "The Venture Company's chewing through Stonetalon, and they've been looking at Ratchet like a slice of pie. If they get a foothold on this coast, the Cartel's books go red, and so does the water." },
+      { id = "wy_2", text = "Theramore and Orgrimmar both send ships through my harbor, and one bad fight on my docks could start a war. I'm a businessman, not a diplomat, and I'd rather not become one in a hurry." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I'd like Ratchet to be the biggest port on Kalimdor, bigger than Booty Bay, with my name on every crate. Is that so much to ask?" },
+      { id = "hp_2", text = "Someday I want a statue in Orgrimmar, pal, right in the Valley of Strength, with a plaque that says who really built the place. Small, tasteful, made of gold." },
+    },
+    favor = {
+      { id = "fv_1", text = "Knock the Southsea pirates down a peg on the Merchant Coast, and do it loud. Bad for their business is good for mine." },
+      { id = "fv_2", text = "Keep your ears open in Orgrimmar for any talk about the Venture Company buying up contracts. Information's the one thing I'll always want more of." },
+    },
+    friendship = {
+      { id = "fr_1", text = "A friend? Kid, you're practically a business partner, and in Ratchet that's better than family. Family borrows money." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You came through for Ratchet when you could've walked away, and I don't forget it. Yeah, I count you a friend, and I don't hand that out cheap." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When I came to Kalimdor I was running from a bad debt in Undermine, not chasing a fortune. Building Orgrimmar was the only job that'd take me, and it turned out to be the best thing ever happened to me." },
+      { id = "nt_2", text = "The Warchief's the only boss I ever had who said thank you, pal, and he meant it. I've never told him that, because a goblin's got a reputation to keep." },
+    },
     grievance = {
       { id = "gv1", text = "You're bad for business, pal, and in Ratchet that's the only crime I really care about." },
       { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "You're a night elf, pal. Your people gripe about my smoke, haggle over my prices and never buy a thing, so it's nothing personal, it's just the books." },

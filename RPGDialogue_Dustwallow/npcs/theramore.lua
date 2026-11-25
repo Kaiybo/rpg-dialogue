@@ -780,6 +780,44 @@ P:NPC {
     },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're someone who keeps the peace with your actions and not just your words, {name}. That's rarer than it should be, on both sides of the border." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You've helped Theramore in ways that most people wouldn't, and you didn't ask for gratitude. I remember those things, even if I don't always say so." },
+      { id = "rg_3", when = { faction = "Horde" }, text = "You're Horde, and you've been nothing but honest with me. That's exactly the kind of thing that keeps this peace alive, and I'm grateful for it." },
+      { id = "rg_al", when = { alignment = { axis = "order", min = 30 } }, text = "You keep faith with the law and with your duty, and that matters to me more than you might think. Theramore was built on keeping faith." },
+    },
+    confide = {
+      { id = "cf_1", text = "I didn't sleep for a week after Hyjal, {name}. We won, but I saw what the Legion could do, and I still see it every time I close my eyes." },
+      { id = "cf_2", text = "Some of the nobles in Stormwind think I'm a traitor for making peace with Thrall. They don't say it to my face, but I hear what they say in their letters." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Captain Vimes and the soldiers of Theramore, who've stood by me through everything. Trust Archmage Tervosh, who's been my friend since Dalaran." },
+      { id = "tr_2", text = "Don't trust everyone in Stormwind's court, {name}. Some of them have their own reasons for wanting this peace to fail." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for my father's old soldiers in the marsh. Some of them never forgave me for Durotar, and they may not care which side you're on." },
+      { id = "wo_2", text = "The black dragons in the Wyrmbog are growing bolder, and I don't believe that's an accident. Something's stirring in the south of the marsh." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry about the king, {name}. Varian vanished on his way to meet me, and Stormwind tells me nothing, and Lady Prestor seems to answer every question before it's asked." },
+      { id = "wy_2", text = "I worry the peace with the Horde won't outlast Thrall and me. Too many people on both sides remember the wars and want another one." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Theramore become a place where humans and orcs trade and talk without fear. That's what I built it for." },
+      { id = "hp_2", text = "I hope to find the king, and bring him home to Stormwind. Whatever happened to him, I'd like to know the truth." },
+    },
+    favor = {
+      { id = "fv_1", text = "Keep your ears open for any word of King Varian, wherever you travel. Even a rumor would help me." },
+      { id = "fv_2", text = "Speak well of the peace wherever you go, {name}. The more people believe in it, the harder it is to break." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}. I've had few friends since Lordaeron fell, and I'm glad to count you among them." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You've done right by Theramore when you didn't have to, and that's the heart of a friend. I'm grateful for you, more than I say." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I left Arthas at Stratholme, and I've wondered every day since whether I could have stopped him if I'd stayed. I've never told anyone, not even Thrall." },
+      { id = "nt_2", text = "When my father died at Durotar, part of me was relieved that I didn't have to choose between him and the peace any longer. I've never forgiven myself for that." },
+    },
     _gated = {
       { id = "gt1", text = "I'd rather not speak of that with someone I've only just met. Perhaps I will when I know you better." },
       { id = "gt2", text = "That's a matter I keep close, and I hope you'll forgive me for it. Trust is hard to come by on this island, and I spend mine carefully." },
@@ -790,6 +828,11 @@ P:NPC {
         text = "Ask me anything; you've earned plain answers in this tower. I'll tell you as much as I'd tell Tervosh." },
     },
     background = { { id = "tp_bg", text = "Kul Tiras, Dalaran, Lordaeron, and now a tower in a swamp. Every step was further from home and closer to where I'm needed.", next = "lordaeron" } },
+  confides = {
+    { id = "cnf_1", text = "Lady Katrana Prestor in Stormwind sends letters to Theramore that are far too well informed, and I've begun to wonder who her sources are." },
+    { id = "cnf_2", text = "My father's old soldiers who deserted into the marsh keep a camp somewhere north of the Shady Rest, and they've been watching the road." },
+    { id = "cnf_3", text = "Archmage Tervosh keeps a private study at the top of the tower, and he knows more about the black dragons than he's said in council." },
+  },
     advice = { { id = "tp_ad", text = "Learn the other side's words before you need them. Captain Vimes speaks orcish, and it's saved more lives than his sword." } },
     grimtotem = { { id = "tp_grimtotem", text = "There are tauren who'd like a war with us. Thrall isn't one of them, and neither am I. That's where we start." } },
     burning_blade = { { id = "tp_blade", text = "Thrall's problem, and he knows it. I'll help if he asks, though he won't ask." } },

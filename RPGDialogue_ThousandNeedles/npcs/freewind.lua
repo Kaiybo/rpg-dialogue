@@ -420,11 +420,54 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Galak chiefs at Camp E'thok sleep in the largest tent near the western cliff, and their guards change at midnight." },
+    { id = "cnf_2", text = "There is a hidden trail down the back of Freewind mesa that leads to the canyon floor, and my scouts use it when the lifts are watched." },
+    { id = "cnf_3", text = "Arnak Grimtotem sends messengers from Darkcloud Pinnacle toward Thunder Bluff every few weeks, and they never come through Freewind." },
+  },
   blurts = {
     { id = "bl1", text = "The Galak plan their raids from Camp E'thok, down in the canyons, and that's where their chiefs sit. Strike there, and the mesas will breathe easier." },
     { id = "bl2", text = "Arnak Grimtotem keeps his people at Darkcloud Pinnacle, and they call themselves tauren while they hunt ours. I've written to Thunder Bluff about it, and I've heard nothing back but silence." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you keep watch even when nobody asks you to, {name}, and that is the best thing I can say of anyone. A cliffwatcher learns to see it." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You have done much for Freewind and asked little in return. I keep a list of those who help the post, and your name is on it more than once." },
+      { id = "rg_3", when = { fondness = "values" }, text = "You protect what needs protecting and do not boast of it. Freewind was built by tauren like that, and it still stands because of them." },
+      { id = "rg_al", when = { alignment = { axis = "order", min = 30 } }, text = "You keep your post and your word, {class}, and that steadiness is rare in the Needles. The canyons breed restless folk." },
+    },
+    confide = {
+      { id = "cf_1", text = "I have not written to my brother Nataka in a year, and every day I mean to. I am better at watching the cliffs than at finding the words for him." },
+      { id = "cf_2", text = "The Galak raid us more often than Thunder Bluff knows. I send my reports, and I hear nothing back, so I have stopped counting on help from the bluff." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the scouts of Freewind, who see more than I do and tell me all of it. Trust the High Chieftain, even when his silence makes it hard." },
+      { id = "tr_2", text = "Do not trust any Grimtotem from Darkcloud Pinnacle, whatever they say of kinship. They call themselves tauren while they hunt ours." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Galak in the canyons below, {name}, and do not let them draw you into Camp E'thok alone. They are cunning, and they fight best in numbers." },
+      { id = "wo_2", text = "The lifts at Freewind are old, and the ropes need mending more often than we can mend them. Wait for the operator before you ride down." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that Nataka thinks I have forgotten him. He keeps watch at Ghost Walker Post in Desolace, and a brother's silence is a heavy thing to carry." },
+      { id = "wy_2", text = "I worry the Grimtotem will strike at Freewind before Thunder Bluff believes they are a threat. By then it will be too late for anyone on these mesas." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see my brother again, and to sit by a fire with him in Desolace and say the things I could not write. That is the hope I carry closest." },
+      { id = "hp_2", text = "I hope one day the Needles are quiet enough that Freewind needs no watchman. Then I could put down my spear and go home." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you ever travel to Desolace, find my brother Nataka at Ghost Walker Post and tell him I think of him. That would ease my heart more than any victory." },
+      { id = "fv_2", text = "Strike at the Galak in Camp E'thok and break their chiefs, so the mesas can breathe again. My scouts will thank you." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}. You have stood watch with me on these cliffs, and a cliffwatcher's friendship is made in the long, quiet hours." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You came to Freewind's aid when nobody else did, and you asked for nothing. That is the friendship my brother and I once shared." },
+    },
+    never_told = {
+      { id = "nt_1", text = "The last time I saw Nataka, we quarreled over who should stay with our mother, and I left angry. She died that winter, and I have never told him I was sorry." },
+      { id = "nt_2", text = "Some nights on watch I fall asleep for a moment, and I wake afraid the Galak came while I slept. They never have, but I have never told my scouts how close I come." },
+    },
     grievance = {
       { id = "gv1", text = "From this mesa I watch for things that bring trouble to Freewind, and lately I've been watching you. That is my whole complaint." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "You carry the same darkness the Galak shamans bargain with, and I've seen what it does to a people. I'll not lower my spear because you smile." },

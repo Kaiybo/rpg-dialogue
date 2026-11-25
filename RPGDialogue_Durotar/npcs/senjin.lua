@@ -417,11 +417,54 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "Zalazane's hexes break if he fall, but his puppets fight hardest when they hear his drums, so strike him in the quiet after the drumming stops." },
+    { id = "cnf_2", text = "The narrow strait between Sen'jin and the Echo Isles be shallow enough to wade at low tide, if you don't mind the makrura." },
+    { id = "cnf_3", text = "The fishers of Sen'jin know which tide brings Zalazane's hexed trolls down to the beach, and dey will tell anybody who come with Gadrin's blessing." },
+  },
   blurts = {
     { id = "bl1", text = "Zalazane hide on the Echo Isles and keep his hexed trolls close around him. Strike the witch doctor himself, and his hexes break with him." },
     { id = "bl2", text = "Sen'jin, Vol'jin's father, died in a sea witch's cage before he ever saw Durotar. Vol'jin don't speak of it, and you won't either." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you got a good spirit in you, child, and old Gadrin can see spirits better than he see faces these days. Yours be a bright one." },
+      { id = "rg_2", when = { fondness = "tone" }, text = "You speak to an old troll with manners, and dat warm my bones more than the sun on the shore. Not many young ones bother." },
+      { id = "rg_3", when = { race = "Troll" }, text = "You be Darkspear through and through, and you make your people proud. I see Sen'jin's stubbornness in you, mon, and I mean it kindly." },
+      { id = "rg_al", when = { alignment = { axis = "light", min = 30 } }, text = "Dere be a warmth in you the loa like, child, a light dat don't burn. Keep it, because Zalazane lost his and never found it again." },
+    },
+    confide = {
+      { id = "cf_1", text = "I taught Zalazane everything he know about hexes, child, and he was the quicker of my two students. Vol'jin had the heart, and Zalazane had the hunger, and I fed the wrong one too long." },
+      { id = "cf_2", text = "Some nights I hear my old students' voices on the wind from the Echo Isles. Dey be calling for help, and I can't tell if it be the loa or my own guilt talking." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Vol'jin, because he got the heart of his father and the patience Sen'jin never had. Trust Gar'Thok in Razor Hill, who be gruff but straight as a spear." },
+      { id = "tr_2", text = "Don't trust a troll who come back from the Echo Isles sayin' Zalazane let him go. Zalazane don't let nobody go, mon." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the water near the Echo Isles, child, because the makrura crawl up out of the surf at night and dey pinch harder than they look." },
+      { id = "wo_2", text = "If you see a Darkspear walking stiff with his eyes gone dull, don't turn your back on him. Zalazane's hexes make puppets of our own." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry I won't live to see the Echo Isles free, child. Old Gadrin got more yesterdays than tomorrows now." },
+      { id = "wy_2", text = "I worry the young trolls be forgetting the old songs here in Durotar. The orcs be good friends, but dey don't sing to the loa." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to sit on the shore of the Echo Isles one more time and teach a new student, one with a good heart, before I join the ancestors." },
+      { id = "hp_2", text = "I hope Vol'jin outlives all the trouble Zalazane made. He deserve to rule a people who be home, not waiting." },
+    },
+    favor = {
+      { id = "fv_1", text = "Go to the Echo Isles, child, and bring an end to Zalazane. He was my student, and he should fall by a better hand than the one dat taught him." },
+      { id = "fv_2", text = "Come sit with old Gadrin now and then, and tell me what you see out in the world. My legs don't carry me far anymore." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Of course you be my friend, child. The loa brought you to my fire more than once, and the loa don't make mistakes like dat." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You helped my people with your own two hands, mon, and old Gadrin don't forget a kindness. You be family now, whether you want it or not." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When Zalazane first turned his hex on our own, I went to the Echo Isles alone to stop him, and I couldn't raise my hand against my own student. I came back and told Vol'jin I never found him." },
+      { id = "nt_2", text = "I was there the night the sea witch came for Sen'jin, child, and I ran. Everybody think I was off the island, and I let dem think it." },
+    },
     grievance = {
       { id = "gv1", text = "Gadrin be an old troll, and old trolls don't waste smiles. You be making Gadrin waste a frown instead." },
       { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "You be dead and walking, child, like the puppets Zalazane raises from our own kin on the Echo Isles. Gadrin can't look at you without seeing them." },

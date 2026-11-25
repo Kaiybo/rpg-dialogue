@@ -333,12 +333,55 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Kor'kron captain buys his axes from me and can't swing them worth a spit, so if you ever need to beat him in the ring, go for his left side." },
+    { id = "cnf_2", text = "There's a back stair from the Cleft of Shadow that comes out behind the Drag, and the cultists use it so nobody sees them on the main steps." },
+    { id = "cnf_3", text = "The smiths of the Valley of Honor sell their seconds cheap at the end of the week, and a sharp eye can find good steel among them." },
+  },
   blurts = {
     { id = "bl1", text = "The Burning Blade have a nest in Ragefire Chasm, right under the Cleft of Shadow, and anyone who says the Cleft doesn't know about it is lying or a fool." },
     { id = "bl2", text = "If I were the Warchief, I'd watch whoever keeps the Cleft of Shadow as closely as he claims to watch the Burning Blade. That's all I'll say, and I'll deny I said it." },
     { id = "bl3", text = "Half the Warchief's own guard buy their axes off me, and I know which of them can't swing them. Ask me the wrong way and I'll tell the whole Drag." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you know which end of an axe to hold, and you don't haggle like a goblin. That puts you ahead of most of the Drag." },
+      { id = "rg_2", when = { fondness = "tone" }, text = "You talk straight and you don't waste my morning. I respect that more than all the gold in the Valley of Honor." },
+      { id = "rg_3", when = { fondness = "earned" }, text = "You've done right by an old grunt when you didn't have to. I don't forget that, not in this city and not in the camps." },
+      { id = "rg_al", when = { alignment = { axis = "honor", min = 30 } }, text = "You fight clean, {class}, and folk tell me so without my asking. That's the only reputation worth buying, and nobody sells it." },
+    },
+    confide = {
+      { id = "cf_1", text = "Half the blades I sell were forged by the same smith in the Valley of Honor, and I put a different mark on them depending on who's buying. The steel's good, and the mark is for vanity." },
+      { id = "cf_2", text = "I still wake up counting the guards on the camp walls, the way I did behind the camp walls. Twenty years free, and my eyes still do the counting for me." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Kor'kron and the grunts who did time in the camps. We learned what a promise costs in there, and most of us still pay ours." },
+      { id = "tr_2", text = "Not the Cleft of Shadow, and not the witch doctors' huts in the Drag, and not anyone who sells you a blade with jewels on the hilt. Buy plain, trust plain." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the hooded ones who go down the steps to the Cleft at night and come back up smelling of sulfur. The Burning Blade don't wear their badges in the street." },
+      { id = "wo_2", text = "If a peddler in the Drag offers you a blade for half what I ask, it's half the steel too, and it'll snap on the first skull you hit." },
+    },
+    worries = {
+      { id = "wy_1", text = "My arm's going, {name}, and I can feel it in the cold months. A weapon-seller who can't test his own axes is just a shopkeeper, and I never wanted to be one of those." },
+      { id = "wy_2", text = "I worry the young grunts think the Alliance has forgotten us. I sat behind their walls for years, and they haven't forgotten a single orc." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see a war fought for something worth winning before I'm too old to carry an axe to it. Doomhammer gave us one, and I'd like another." },
+      { id = "hp_2", text = "I hope my stall outlasts me, and some grunt I've never met is still swinging one of my axes when I'm under the stones." },
+    },
+    favor = {
+      { id = "fv_1", text = "Go down into Ragefire Chasm and break a few of those cultists for me. I'd do it myself if my knees would carry me down the stairs." },
+      { id = "fv_2", text = "Tell the young ones on the Drag what an honest blade looks like. They'll listen to you sooner than to a grumbling old merchant." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I don't say the word often, but yes, you're a friend. You've stood at this stall more than any customer I've had, and you never once tried to cheat me." },
+      { id = "fr_2", when = { race = "Orc" }, text = "You're blood of the Horde and you carry it well, so aye, you're my friend. I'd stand beside you in a shield-line, and I don't say that to many." },
+    },
+    never_told = {
+      { id = "nt_1", text = "In the camps I traded a guard's name to the humans for an extra ration, and they beat him half to death for it. I've never told a soul, because I've never found the words to make it smaller." },
+      { id = "nt_2", text = "When Thrall's army broke the gates, I hid in the barracks until the fighting stopped. Everyone thinks I charged out with the rest, and I've let them think it for twenty years." },
+    },
     grievance = {
       { id = "gv1", text = "I don't like you, and I don't sell my best steel to folk I don't like. That's the whole of it." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "I fought beside living orcs and honest steel my whole life, and you're neither. Don't ask me to pretend I don't see it." },

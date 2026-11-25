@@ -286,12 +286,55 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Venture Company supervisor in the north Mulgore mine keeps a ledger of every tree they've cut, and the High Chieftain would pay a good deal of attention to it." },
+    { id = "cnf_2", text = "The Grimtotem carry their sacks of meat along the northern trail toward Stonetalon, past the Venture Company's hills, and they travel at dusk to avoid the braves." },
+    { id = "cnf_3", text = "The best plainstrider hunting in Mulgore is near Thunderhorn Water Well, where the herds gather to drink at midday." },
+  },
   blurts = {
     { id = "bl1", text = "The Venture Company dig in the north of Mulgore, and their supervisor hides in the mine like a rat in a hole. Somebody ought to drag him out by the ears, and I'd pay to watch." },
     { id = "bl2", text = "Half the bluff wants the Forsaken out of the Pools of Vision, and the High Chieftain's the only one stopping it. You didn't hear that from me, but you'll hear it from plenty of others." },
     { id = "bl3", text = "The Grimtotem buy my dried meat by the sackful and carry it off toward Stonetalon, and they don't eat it on Elder Rise. I'd like to know who they're feeding out there." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're decent, and you pay what you owe without whining about it. On these mesas, that's most of what a tauren asks of anybody." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You did right by me and my son when you didn't have to, and I don't forget a kindness, no matter how gruff I sound saying so." },
+      { id = "rg_3", when = { race = "Tauren" }, text = "You carry yourself like a child of the plains, and that warms my old heart more than I'd say out loud. Your family should be proud." },
+      { id = "rg_al", when = { alignment = { axis = "honor", min = 30 } }, text = "Your word means something, and I've heard it said on every mesa. My son's the same way, and I wish more people were." },
+    },
+    confide = {
+      { id = "cf_1", text = "Tahote still limps from what that shredder did to his leg, and he hunts anyway because he won't let me feed us alone. I worry for him every time he goes out." },
+      { id = "cf_2", text = "Half the meat sold on these mesas comes from hunters I've never met, and some of it's quilboar-spoiled. I check mine by the smell, and I'd tell you if it ever went bad." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the High Chieftain, and the braves who walk the bluff at night. They've kept this place safe since the day we came up onto these mesas." },
+      { id = "tr_2", text = "Don't trust anybody who buys meat by the sackful and won't say what it's for. The Grimtotem do that, and I'd love to know where it goes." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Venture Company's mine in north Mulgore, and don't go near their shredders. They'll grind a leg as quick as a log, and they don't care whose." },
+      { id = "wo_2", text = "If you're down at the Pools of Vision, don't take anything the Forsaken offer you. I don't care if they call it a cure or a kindness, it's poison until proven otherwise." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry Tahote will push that leg too far one day and not come back from the hunt. He's the only family I've got under my roof, and I can't lose him." },
+      { id = "wy_2", text = "The Venture Company keeps digging further into Mulgore, and the High Chieftain keeps saying he'll handle it. I hope he does before they reach the plains my family hunts." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope my son's leg heals well enough that he can run with the herd again. That's all I want, and I pray to the Earth Mother for it every night." },
+      { id = "hp_2", text = "I'd like to see the Venture Company chased out of Mulgore for good, and their mine filled in with stones. Let the land heal over what they did." },
+    },
+    favor = {
+      { id = "fv_1", text = "Go to the Venture Company's mine in the north and give their supervisor a good fright for me. If he never comes out of his hole again, I'd sleep better." },
+      { id = "fv_2", text = "If you see Tahote on the plains, look in on him and make sure he isn't pushing that leg. He won't listen to me, but he might listen to you." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Aye, you're a friend, and I don't say it to many. You've been good to me and mine, and on these mesas that makes you family." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You stood up for Tahote when nobody else would, and I'll remember that for the rest of my life. That's what a friend is, child." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When Tahote came home with his leg crushed, I cursed the Earth Mother for letting it happen. I've never told a soul, and I've prayed every night since for her to forgive me." },
+      { id = "nt_2", text = "I sold meat to the Grimtotem for years without asking where it went, because their coin was good. Now I wonder if I've fed the ones who hurt my own people." },
+    },
     grievance = {
       { id = "gv1", text = "You've a way of standing at my stall like you own the meat and I'm only keeping it for you. I don't care for it, and I don't care for you." },
       { id = "gv_tone_p", when = { grudge = "tone", tone = "polite" }, text = "Every word out of you comes wrapped up like a gift from the Orgrimmar market, and none of it means anything. Speak straight, or don't speak at all." },

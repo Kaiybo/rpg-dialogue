@@ -321,11 +321,54 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Kul Tiran commander at Tiragarde Keep keeps his orders locked in a chest at the top of the keep, and the stair to it is guarded by only two men at night." },
+    { id = "cnf_2", text = "Skull Rock has a back entrance on the north side, half hidden by a rockfall, that the Burning Blade use when they don't want the Orgrimmar gate guards to see them." },
+    { id = "cnf_3", text = "The harpies of Drygulch Ravine are weakest at noon, when the heat keeps them on their nests and off the wing." },
+  },
   blurts = {
     { id = "bl1", text = "The Burning Blade have a nest in Skull Rock, right outside Orgrimmar's gate, and the guards there pretend not to see it." },
     { id = "bl2", text = "Lieutenant Benedict commands what's left of Kul Tiras at Tiragarde Keep, and he keeps his orders locked in a chest at the top of the keep." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you do the work in front of you and don't make speeches about it. Razor Hill could use more like you, {class}." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "Your name's been in my reports more than once, and always for the right reasons. I read every report, so that counts for something." },
+      { id = "rg_3", when = { fondness = "town" }, text = "The grunts on the wall speak well of you, and they don't speak well of anybody. That's enough for me." },
+      { id = "rg_al", when = { alignment = { axis = "order", min = 30 } }, text = "You follow orders and you finish what you're given, and that's the whole of soldiering. Too many young ones think discipline is for peons." },
+    },
+    confide = {
+      { id = "cf_1", text = "Razor Hill has fewer grunts than it looks, because Orgrimmar keeps pulling them north for the gate and the Barrens. If Tiragarde ever marched in force, I'd hold the wall with cooks and peons." },
+      { id = "cf_2", text = "I asked the Warchief for this post because nobody else wanted it. A quiet town on a hard coast suits me better than the halls of Orgrimmar ever would." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Orgnil Soulscar, because he says what he sees and nothing else. Trust the trolls of Sen'jin too, since they've more reason than us to hate the Kul Tirans." },
+      { id = "tr_2", text = "Don't trust anyone who comes up from Skull Rock with a story about where they've been. Honest orcs have no business in those caves." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Kul Tiran scouts slip out of Tiragarde at dusk and watch the road from the brush. Walk it in daylight, or walk it armed." },
+      { id = "wo_2", text = "The harpies in Drygulch Ravine dive from the cliffs without warning, and they go for the eyes. Keep your head covered and your back to the rock." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry about the day Kul Tiras sends more ships to Tiragarde Keep. I've got enough to hold the hill, not enough to hold Durotar." },
+      { id = "wy_2", text = "The Burning Blade grows in the caves like rot in a beam, and every month I find another orc missing from the farms. I don't know if they're dead or recruited, and I don't know which is worse." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Tiragarde Keep empty and the Kul Tiran flag cut down. Then Razor Hill can be a town instead of a garrison." },
+      { id = "hp_2", text = "I'd like one year where my reports are dull, {name}. Nothing burned, nobody missing, no cultists in the caves." },
+    },
+    favor = {
+      { id = "fv_1", text = "Thin the Kul Tirans at Tiragarde Keep, and bring me word of what's in their orders. That's worth more to me than a hundred boar hides." },
+      { id = "fv_2", text = "If you see a farmer on the road out alone after dark, walk them home. I can't post a grunt at every door." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Aye, you're a friend. I don't have many, and I'd rather have a few who show up than many who talk." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You stood with Razor Hill when it needed you, and I don't forget the names on that list. Yours is near the top." },
+    },
+    never_told = {
+      { id = "nt_1", text = "My first command in the Second War was a raid on a human village, and I didn't stop my grunts when I should have. Every report I sign carefully now is for that day." },
+      { id = "nt_2", text = "I think the Warchief gave me Razor Hill to keep me away from the warlocks in Orgrimmar, because he knows I'd break one if he looked at me wrong. He's probably right to." },
+    },
     grievance = {
       { id = "gv1", text = "You've wasted my time, and I don't have much of it to waste." },
       { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "I saw the old warlocks burn the clans to the bone. You carry the same rot, and Razor Hill will not have it." },

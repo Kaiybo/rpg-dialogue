@@ -495,8 +495,51 @@ P:NPC {
     },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you are someone who listens before you strike, {name}, and that is rarer than courage. My father taught me to value it above all else." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You have helped Bloodhoof Village when no one asked you to, and the village remembers. So do I, and I will not forget." },
+      { id = "rg_3", when = { fondness = "values" }, text = "You are gentle where you can be and fierce where you must be, and that balance is what my father hopes for in me. I see it in you." },
+      { id = "rg_al", when = { alignment = { axis = "light", min = 30 } }, text = "There is a kindness in you that the Earth Mother would smile upon, {name}. My father would say you walk under An'she's light." },
+    },
+    confide = {
+      { id = "cf_1", text = "My father is strong, but he is old, and I see him tire on the long walk up the lifts. I do not know if I am ready to lead the tauren, and I pray I do not have to learn soon." },
+      { id = "cf_2", text = "I would rather talk my enemies into peace than drive them off with a spear, and some of the braves think that makes me weak. I wonder sometimes if they are right." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust my father, and trust the Arch Druid on Elder Rise. Both have given their lives to the tauren and never asked for thanks." },
+      { id = "tr_2", text = "Be careful of Magatha's people, {name}, though I would not say so before my father. Her smiles are warm, and her raids are cold." },
+    },
+    watchout = {
+      { id = "wo_1", text = "The Palemane gnolls at Palemane Rock grow bolder every season, and they ambush travelers on the south road. Walk in pairs if you can." },
+      { id = "wo_2", text = "The Venture Company in the north hills of Mulgore cut trees faster than the land can grow them. Do not be caught near their machines." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry I will never be the leader my father is, {name}. The tauren will expect a great bull, and I may only be a good one." },
+      { id = "wy_2", text = "I worry the Grimtotem will do something terrible, and my father will not see it until it is too late. He trusts Magatha like an old friend, and I am not so sure." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Mulgore at peace in my lifetime, with no gnolls, no goblins and no dwarves digging in our hills. Just the plains, and the herds, and the wind." },
+      { id = "hp_2", text = "I hope to make my father proud, and to deserve the name Bloodhoof when it comes to me. He carries it so well, and I fear I will stumble." },
+    },
+    favor = {
+      { id = "fv_1", text = "Drive the Palemane gnolls from Palemane Rock, and Bloodhoof Village will sleep easier for it. My braves are stretched thin." },
+      { id = "fv_2", text = "Look in on my father when you are in Thunder Bluff. He will not say when he is tired, but you may see it." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}. You have walked beside my people and shared their troubles, and among the tauren that makes you kin." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You came to Bloodhoof Village's aid with an open heart and asked for nothing. That is the friendship my father taught me to honor." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When I was young, I ran from a centaur raid and hid in the grass while braves fought around me. My father never learned of it, and I have tried every day since to be the bull who stood his ground." },
+      { id = "nt_2", text = "Sometimes I wish my father were not the High Chieftain, so that I could simply be his son. I have never said that aloud, because it feels like a betrayal." },
+    },
     humans = { { id = "tp_humans", text = "I've heard more about humans than I've met, and most of it is Northwatch raiding the Gold Road. My father fought beside them at Hyjal, so I try to keep both stories in mind." } },
     _gated = {
+  confides = {
+    { id = "cnf_1", text = "The Palemane chieftain keeps to the highest tent at Palemane Rock, and his guards sleep at dawn after their night raids." },
+    { id = "cnf_2", text = "The Venture Company's supervisor in the north Mulgore mine has a stash of stolen tauren totems, and he means to sell them in Ratchet." },
+    { id = "cnf_3", text = "There is a hidden spring in the hills west of Bloodhoof Village where the plainstriders drink, and the hunting there is best at sunset." },
+  },
       { id = "gt1", text = "That's something I'd share with a friend of the village, and I hope you'll become one. For now I'll keep it to myself." },
       { id = "gt2", text = "Forgive me, but I'll not speak of that yet. I owe my people some care in what I tell to those I've only just met." },
     },
