@@ -83,6 +83,14 @@ local function resetButtons()
   for _, t in pairs(ruleTex) do t:Hide() end
   for b in pairs(touched) do
     b.rpgdRow = nil
+    -- A locked row's Disable() would otherwise stay on the pooled button for the next page.
+    if b.rpgdDisabled then
+      b.rpgdDisabled = nil
+      if b.Enable then b:Enable() end
+    end
+    if b.rpgdShowUI ~= nil then
+      b.shouldShowUIOnClick, b.rpgdShowUI = b.rpgdShowUI.v, nil
+    end
     if b.Icon and b.Icon.SetDesaturated then b.Icon:SetDesaturated(false) end
     if b.Icon and b.Icon.SetVertexColor then b.Icon:SetVertexColor(1, 1, 1) end
   end
@@ -355,16 +363,19 @@ function V.Layout(f)
         if icon.atlas then b.Icon:SetAtlas(icon.atlas) elseif icon.file then b.Icon:SetTexture(icon.file) end
       end
     end
+    if b.rpgdShowUI == nil then b.rpgdShowUI = { v = b.shouldShowUIOnClick } end
     b.shouldShowUIOnClick = false
-    b.onClickFunc = function(self)
-      if self then self.rpgdFired = true end
+    -- The button itself (not the argument, which DialogueUI may not pass) is marked, so the
+    -- OnClick hook below never picks a second row from the page this click lays out.
+    b.onClickFunc = function()
+      b.rpgdFired = true
       V.Click(i)
     end
     b.rpgdRow = i
     touched[b] = true
     hookButton(b)
     if r.locked then
-      if b.Disable then b:Disable() end
+      if b.Disable then b:Disable(); b.rpgdDisabled = true end
       if b.Icon and b.Icon.SetDesaturated then b.Icon:SetDesaturated(true) end
       if b.Icon and b.Icon.SetVertexColor then b.Icon:SetVertexColor(0.6, 0.6, 0.6) end
     end

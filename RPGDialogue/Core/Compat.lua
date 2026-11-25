@@ -539,7 +539,13 @@ end
 -- Is the addon enabled for this character? (Disabled packs must not be loaded.)
 function C.IsAddOnEnabled(name)
   local playerName = call("UnitName", "player")
-  local state = call({ "C_AddOns.GetAddOnEnableState", "GetAddOnEnableState" }, name, playerName)
+  -- C_AddOns takes (addon, character); the old global took (character, addon).
+  local state
+  if resolve("C_AddOns.GetAddOnEnableState") then
+    state = call("C_AddOns.GetAddOnEnableState", name, playerName)
+  else
+    state = call("GetAddOnEnableState", playerName, name)
+  end
   if state == nil then return true end
   if type(state) == "boolean" then return state end
   return state > 0
@@ -872,7 +878,7 @@ function C.QuestState(questID)
   if done then return "done" end
   local idx = logIndexFor(questID)
   if idx and idx > 0 then
-    if call("C_QuestLog.ReadyForTurnIn", questID) or call("C_QuestLog.IsComplete", questID) then
+    if call("C_QuestLog.ReadyForTurnIn", questID) or call({ "C_QuestLog.IsComplete", "IsQuestComplete" }, questID) then
       return "ready"
     end
     return "active"
@@ -892,12 +898,12 @@ function C.QuestObjectives(questID)
     return out
   end
   local idx = logIndexFor(questID)
-  if not idx then return out end
+  if not idx or idx == 0 then return out end
   for i = 1, 10 do
     local text, _, finished = call("GetQuestLogLeaderBoard", i, idx)
     if not text then break end
     local have, need = text:match("(%d+)%s*/%s*(%d+)")
-    out[#out + 1] = { text = text, done = finished == true, have = tonumber(have) or 0, need = tonumber(need) or 0 }
+    out[#out + 1] = { text = text, done = finished == true or finished == 1, have = tonumber(have) or 0, need = tonumber(need) or 0 }
   end
   return out
 end
