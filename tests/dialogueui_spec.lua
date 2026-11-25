@@ -167,6 +167,8 @@ local function fakeWindow(opts)
     return b
   end
   f.SetScrollRange = function() end
+  f.SetConsumeGossipClose = function(self, v) self.consumeClose = v end
+  f.MarkQuestIsFromGossip = function(self, v) self.fromGossip = v end
   return f
 end
 
@@ -378,5 +380,20 @@ describe("Our windows in DialogueUI's style", function()
     _G.DialogueUI_DB = nil
     ns.db.settings.look = "wood"
     eq(ns.UI.Theme.Look(), "wood", "and can be switched back")
+  end)
+end)
+
+describe("Handing in from the conversation in DialogueUI", function()
+  it("picks the quest in the game when the hand-in row is clicked", function()
+    local ns, dui = bootInside()
+    Mock.state.gossipActive = { { title = "The Color of Blood", questID = 388, isComplete = true } }
+    visit(dui, "Marshal McBride")
+    local pick
+    for i, b in ipairs(dui.buttons) do if (b.name or ""):find("The Color of Blood", 1, true) then pick = i end end
+    ok(pick, "the hand-in row: " .. names(dui))
+    Mock.calls = {}
+    dui.buttons[pick].onClickFunc(dui.buttons[pick])
+    ok(called("SelectActiveQuest"), "the game is asked to open the quest")
+    eq(dui.consumeClose, true, "DialogueUI told the menu's close is expected, so its window stays for the quest")
   end)
 end)

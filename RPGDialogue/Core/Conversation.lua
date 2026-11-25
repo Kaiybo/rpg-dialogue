@@ -1079,6 +1079,7 @@ function Conv.Choose(index)
       ns.UI.DUIView.Release()
       s.mode = "business"
       if g.kind == "gossipQuest" or g.kind == "greetingQuest" then s.duiQuest = true end
+      ns.UI.DUIView.BeforeGamePick(g.kind, g.active)
     else
       -- Hand over to the game's window first, then pick the option there.
       Conv.HandOver()
