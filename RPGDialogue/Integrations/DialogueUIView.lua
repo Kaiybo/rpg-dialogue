@@ -546,7 +546,14 @@ local function hideOwned()
   -- Someone else's menu has just come into it (another NPC right-clicked mid-talk): leave
   -- it open, since hiding it would close their menu too.
   local ok, npc = pcall(_G.UnitExists, "npc")
-  if ok and npc then
+  -- Not when that someone opened a vendor, trainer or flight map instead: no menu of theirs
+  -- comes into DialogueUI's window then, and it would stay up over their window.
+  local service = false
+  for _, k in ipairs({ "merchant", "trainer", "taxi", "bank", "stable", "auction" }) do
+    local w = C.BlizzardFrame(k)
+    if w and w:IsShown() then service = true end
+  end
+  if ok and npc and not service then
     -- Their menu, not our old page (which DialogueUI may already have laid out for it).
     lastText = nil
     V.Refresh()

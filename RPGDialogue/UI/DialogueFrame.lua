@@ -1115,7 +1115,8 @@ function D.StartAutoAdvance()
   -- A timer from an earlier page must not take a choice on this one.
   if autoTimer then autoTimer.cancelled = true; autoTimer = nil end
   if not settings().autoAdvance or not view then return end
-  if #(view.choices or {}) ~= 1 or view.choices[1].locked then return end
+  -- Never one of the game's rows: a lone "Complete quest" or quest used to be taken unasked.
+  if #(view.choices or {}) ~= 1 or view.choices[1].locked or view.choices[1].game then return end
   local token = { cancelled = false }
   autoTimer = token
   C.After(settings().autoDelay or 4, function()
