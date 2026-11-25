@@ -529,6 +529,11 @@ P:NPC {
     { id = "bl1", text = "The orcs mass at the Warsong Lumber Camp in the east, and the road from the Barrens keeps it fed with fresh grunts. Burn that camp and the rest of this war gets easier." },
     { id = "bl2", text = "The Thistlefur furbolgs in the hold to the north have gone mad, and whatever turned them is buried deep in their tunnels." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Warsong lumber camp gets its supplies up the road from the Barrens at dawn, and the carts are lightly guarded because the grunts think we never patrol that early." },
+    { id = "cnf_2", text = "There's a deer path along the ridge above the Thistlefur hold that the furbolgs never watch, and it'll take you past their camp without a fight." },
+    { id = "cnf_3", text = "The moonwell at the Shrine of Aessina is still clean, and the Sentinels go there to wash out their wounds when Astranaar's healers are too busy." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "You've been more trouble to Astranaar than help, and I've no time for either while the Warsong are cutting at the forest." },
@@ -568,6 +573,45 @@ P:NPC {
     elune = { { id = "tp_elune", text = "I'm a hunter, not a priestess, but I pray to Elune before every long patrol. Korra sits with me, and I like to think she's praying too." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw up in Felwood are what the Thistlefur used to be, before the madness. I'd like our furbolgs back, but I'll settle for keeping them out of Astranaar." } },
     _none = { { id = "tp_none", text = "That's not mine to know. Ask a Sentinel, or ask the trees, if you know how; they remember more than any of us." } },
+    regard = {
+      { id = "rg_1", text = "You fight like you mean it and you don't pretend to be more than you are. I don't have much use for most outsiders, but I've got use for you." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've spilled Warsong blood on the forest floor for Astranaar, and you never asked me twice what was in it for you. That counts here, {name}." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You talk straight with me, and I like that. Half the envoys from Darnassus take three sentences to say good morning." },
+      { id = "rg_honor", when = { fondness = "alignment", alignment = { axis = "honor", min = 30 } }, text = "You keep your word and you don't strike from the dark, and Korra likes you, which is rarer than you'd think." },
+    },
+    confide = {
+      { id = "cf_1", text = "I lost a patrol of four on the Zoram Strand last spring because I sent them out on a hunch. I still walk past the moonwell where we said their names every morning, and Korra waits for me while I do." },
+      { id = "cf_2", text = "The Sentinels in Darnassus think Astranaar is holding, and I let them think it. We're holding the way a cracked bowl holds water." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Korra first and always, because she smells an orc long before I see one. After her, trust Pelturas and his family; they stayed in Astranaar when they could have gone to the city." },
+      { id = "tr_2", text = "Trust Delgren the Purifier when there's fel to burn out, and trust nobody who tells you the Warsong are packing up. They aren't." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Thistlefur when you're near their hold, because they've taken to laying ambushes on the road north. They never used to be that clever." },
+      { id = "wo_2", text = "If you hear saws in the east at night, go the other way. Night work means they're bringing more grunts up from the Barrens, and fresh grunts are the hungry kind." },
+    },
+    worries = {
+      { id = "wy_1", text = "Every season the Warsong cut a little further west, and every season I have fewer Sentinels to stop them. One day I'll look out from Astranaar and see nothing but stumps, and I don't know what I'll do then." },
+      { id = "wy_2", text = "Korra's getting older, and she still runs the long patrols with me. I don't know how to leave her behind, and I don't know how I'd watch her fall either." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see that lumber camp burned to ash and green shoots coming up through it. I'd sit there with Korra for a whole day and just watch them grow." },
+      { id = "hp_2", text = "I hope the Thistlefur come back to themselves. They used to bring honey to the edge of town at midsummer, and I'd like that back more than I'd admit to anyone else." },
+    },
+    favor = {
+      { id = "fv_1", text = "Next time you're near the Warsong camp, count their saws for me and come tell me the number. I'd rather know than guess." },
+      { id = "fv_2", text = "If you see Relara Whitemoon wandering past the edge of town, walk her home. She thinks the forest is a playground, and it isn't." },
+    },
+    friendship = {
+      { id = "fr_1", text = "You're a friend, {name}. I don't say that to many, and Korra says it to fewer, so take it from both of us." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've bled for this forest beside my Sentinels, and in Astranaar that's how you get to be family." },
+      { id = "fr_al", when = { fondness = "alignment" }, text = "We want the same things for this forest, you and I, and that's enough for me to call you a friend and mean it." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I found Korra as a cub beside her dead mother, with a Warsong arrow in the mother's flank. I never tell it, because people would think that's why I hate orcs, and the truth is I hated them long before." },
+      { id = "nt_2", text = "Some nights I think about leaving the Sentinels and going into the deep forest with only Korra, with nobody to give orders to and nobody to bury. I'd never do it, but I think about it more than a captain should." },
+    },
   },
 }
 

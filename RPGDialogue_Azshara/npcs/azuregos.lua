@@ -213,6 +213,11 @@ P:NPC {
     { id = "bl1", text = "The naga dig in Eldarath for the same relics I guard, and they answer to something beneath the waves that remembers Queen Azshara personally." },
     { id = "bl2", text = "My master Malygos has not been himself since Deathwing slaughtered most of our flight, and he guards magic now with a jealousy that frightens even me." },
   },
+  confides = {
+    { id = "cnf_1", text = "The naga carry what they dig from Eldarath out past the reefs and down into the deep water, and none of it ever comes back up." },
+    { id = "cnf_2", text = "The blue dragonkin at Lake Mennar answer to my flight, and they will leave a traveller alone so long as the lake's stones are left untouched." },
+    { id = "cnf_3", text = "The Highborne ghosts at the Shadowsong Shrine are only grieving, and they will let you pass if you do not answer when they call to you." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "Mortals annoy me as a rule, and you have managed to annoy me as an exception. That is a considerable achievement." },
@@ -247,5 +252,43 @@ P:NPC {
     green_dragons = { { id = "tp_green_dragons", text = "Ysera's children dream while the world burns, and they call it vigilance. I have nothing against them, except that they never answer a question directly, which I suppose I have no right to resent." } },
     burning_legion = { { id = "tp_burning_legion", text = "The Legion came for the Well of Eternity because of the magic my kind protect, and it will come again for the same reason. That is why I take magic away from careless mortals like you." } },
     _none = { { id = "tp_none", text = "That is beneath my interest, little one, and very little is beneath a dragon." } },
+    regard = {
+      { id = "rg_1", text = "You have come back to my ruins several times now and not once tried to pocket anything that glows. For a mortal, little one, that is very nearly saintly." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have cleared the naga from my shores and left the relics where they lay. I am not given to gratitude, but I find I have a little to spare for you." },
+      { id = "rg_values", when = { fondness = "values" }, text = "You are curious without being greedy, which is the rarest combination in any species. Most mortals manage only one, and it is usually the second." },
+      { id = "rg_order", when = { fondness = "alignment", alignment = { axis = "order", min = 30 } }, text = "You respect the old rules even when nobody is watching to enforce them. My flight was made to keep rules like that, little one, and we notice those who keep them too." },
+    },
+    confide = {
+      { id = "cf_1", text = "I am rather lonely out here, if you must know. My flight is scattered, my master broods in the north, and the only one who talks to me is a human archmage I cannot stand." },
+      { id = "cf_2", text = "I watched the Highborne at their work when I was young, little one, and they were magnificent. I have spent ten thousand years guarding their leavings, and I have never quite stopped admiring them." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the furbolg on the cliffs, Ogtinc. He has never once tried to sell me anything or steal from me, which makes him the most honest creature in Azshara." },
+      { id = "tr_2", text = "Do not trust the human in the tower, little one, for Xylem would trade an apprentice for a Highborne footnote. He very nearly has, I understand." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Beware the Spitelash sirens when they sing on the shore. Their song can turn a strong mind to porridge, and I have watched it happen to cleverer travellers than you." },
+      { id = "wo_2", text = "Do not touch anything in Eldarath that hums. Highborne work hums when it is still awake, and it does not like being woken by strangers." },
+    },
+    worries = {
+      { id = "wy_1", text = "My master has not been the same since Deathwing broke our flight, and I have not seen him in a very long time. I tell myself he is only grieving, little one, and I would very much like to believe it." },
+      { id = "wy_2", text = "The naga are digging toward something beneath Eldarath that is older than anything I guard. I do not know what it is, and a dragon who does not know a thing is a very uncomfortable dragon." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see my flight gathered again one day, with the northern sky blue with wings as it was when I was young. I would even sit through my master's speeches for it." },
+      { id = "hp_2", text = "I hope that one day a mortal finds a Highborne relic and has the sense to leave it alone without my having to frighten them. I am not holding my breath, little one, though I have a great deal of breath." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you see anyone carrying Highborne relics out of Eldarath, tell me where they went. I would rather hear it from you than find out from the explosion." },
+      { id = "fv_2", text = "Bring me news of the world now and then, little one, the stranger the better. A dragon grows terribly bored guarding a ruin." },
+    },
+    friendship = {
+      { id = "fr_1", text = "A dragon does not have friends, little one; he has acquaintances he has not yet eaten. You are, I admit, my favourite of those." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have helped me guard what must be guarded and asked for nothing glittering in return. Very well, I count you a friend, and you may tell no one." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When Deathwing turned on us, I fled rather than fight, little one, and I have told every dragon since that I was carrying an urgent message. There was no message." },
+      { id = "nt_2", text = "I once let a young Highborne apprentice keep a small relic she had found, because she looked at it the way I look at the sea. I have regretted it for ten thousand years, and I would do it again." },
+    },
   },
 }

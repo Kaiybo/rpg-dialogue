@@ -599,10 +599,54 @@ P:NPC {
       { id = "sp_1", text = "I think you are a danger to anyone who stands near you, and I will not stand near you." },
       { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think the Legion would welcome you warmly, and I would rather not live to see it." },
     },
+    regard = {
+      { id = "rg_1", text = "You report what you saw and not what you wished you'd seen, and you do it on time. I'd make you a Sentinel if you were the right sort, and I'm half tempted anyway." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've held the line for Feathermoon when my scouts were stretched too thin to hold it themselves. I don't forget that, {name}, and neither will they." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You speak plainly and you don't waste my scouts' time with pleasantries. That's the fastest road into my good graces, and you found it." },
+      { id = "rg_order", when = { fondness = "alignment", alignment = { axis = "order", min = 30 } }, text = "You understand duty, {class}, the kind that holds when nobody is watching and nobody will thank you. I learned it at the High Priestess's side, and I see it in you." },
+    },
+    confide = {
+      { id = "cf_1", text = "I was an orphan in the war against the Legion, and Tyrande took me in because I wouldn't stop following her. I've been following her ever since, and I've never once regretted it." },
+      { id = "cf_2", text = "Feathermoon is the farthest post the Sentinels hold, and Darnassus forgets about us for whole seasons at a time. I don't complain, but I do keep a list." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust any Sentinel who wears Feathermoon's colours, because I chose every one of them myself. Trust the hippogryph masters too; their birds know this coast better than any map." },
+      { id = "tr_2", text = "Trust the green dragons to guard their portal and nothing more. They aren't our allies, only on the same side for now, and that isn't the same thing." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Gordunni along the road to Dire Maul, because they've started ambushing travellers in pairs. An ogre alone is stupid, but two together have learned to be patient." },
+      { id = "wo_2", text = "Stay clear of the harpy cliffs in the north after dark. They nest above the old ruins there, and they drop on anything that walks alone." },
+    },
+    worries = {
+      { id = "wy_1", text = "The Highborne in Dire Maul draw on something chained in their ruins, and every year they draw harder. If what they hold ever breaks loose, Feathermoon is the closest post, and we are not enough." },
+      { id = "wy_2", text = "The High Priestess carries our whole people on her shoulders while Malfurion sleeps. I worry about her more than any ogre, and from here I can't do a thing about it." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see the Highborne of Dire Maul answer for what their pride cost us ten thousand years ago. Some of my family died for it, and I'd like to be there when it ends." },
+      { id = "hp_2", text = "I hope to hand Feathermoon over one day to a commander who never has to fight for it. That would mean I'd done my work properly." },
+    },
+    favor = {
+      { id = "fv_1", text = "When you're next in Darnassus, tell the High Priestess that Feathermoon holds and Shandris is well. She'll pretend she wasn't worried." },
+      { id = "fv_2", text = "If you go into Dire Maul, count the Highborne you see and bring me the number. My scouts can't get inside, and I'd rather know than guess." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do. A commander keeps most people at a distance for good reason, but I've let you closer than most, and I don't regret it." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've fought beside my Sentinels and come back to report like one of them. That makes you a friend of Feathermoon, and a friend of mine." },
+      { id = "fr_al", when = { fondness = "alignment" }, text = "We hold to the same duty, you and I, and I can't think of firmer ground for a friendship than that." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I don't remember my mother's face, {name}. I remember the fire and I remember Tyrande's hand, and I've let everyone assume I remember more." },
+      { id = "nt_2", text = "Some nights I take a hippogryph out over the sea alone and fly until I can't see the island. I come back every time, but I've never told anyone how much I'd like not to." },
+    },
   },
   blurts = {
     { id = "bl_1", text = "What remains of the Highborne still lives in Dire Maul, under a prince called Tortheldrin. They draw their power from something chained in the ruins, and the High Priestess has not yet decided what to do about them." },
     { id = "bl_2", text = "The Grimtotem have built a compound in the south of Feralas, and they answer to no tauren chief I know of. Rok Orhan's people would not thank me for telling you that." },
+  },
+  confides = {
+    { id = "cnf_1", text = "The ogres of Dire Maul never go near the eastern gardens, because they're afraid of whatever grows there, so a careful scout can watch the whole ruin from that side." },
+    { id = "cnf_2", text = "The Grimtotem compound in the south keeps its lookouts on the low ground, and you can see their whole camp from the ridge above without being seen." },
+    { id = "cnf_3", text = "The green dragons at the Dream Bough attack anyone who comes near, whatever their banner, so go around that grove and never through it." },
   },
 }
 
@@ -1455,10 +1499,53 @@ P:NPC {
       { id = "sp_1", text = "I think you'd run from an ogre with a club, and I don't waste my words on cowards." },
       { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think the night elves sent you to count my braves. Count them, then, and tell them we're more than enough." },
     },
+    regard = {
+      { id = "rg_1", text = "You fight hard and you don't talk much while you do it. That's the best thing I can say about anyone, and I'm saying it about you." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've broken enough Gordunni skulls to earn a place at my fire, {name}. Sit there whenever you like." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You talk straight and you don't waste my time. Most visitors to Mojache take an hour to ask for directions." },
+      { id = "rg_honor", when = { fondness = "alignment", alignment = { axis = "honor", min = 30 } }, text = "You fight with honour, {class}, face to face and blade to blade. The Warchief would be proud of you, and so am I, which is rarer." },
+    },
+    confide = {
+      { id = "cf_1", text = "I asked Orgrimmar for a post in Ashenvale, where the real war is, and they sent me to break ogres. I complained for a month, and then I found I liked the ogres better than the orders." },
+      { id = "cf_2", text = "The tauren of Mojache are better neighbours than I deserve. I shout at them and they bring me food anyway, and I've never worked out why." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the tauren of Mojache, all of them; they're slow to speak but they never lie. Trust my braves to fight, and trust me to tell you when you're being a fool." },
+      { id = "tr_2", text = "Don't trust anybody in Grimtotem colours, whatever they tell you about Cairne. And don't trust a quiet ogre, because it's only waiting for its friends." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the slopes near Dire Maul, because the Gordunni roll rocks down on anyone who walks the road below. They think it's funny, and it is, if you're the ogre." },
+      { id = "wo_2", text = "Keep clear of the Woodpaw gnolls in the south. They're weak alone, but they hunt in packs, and they'll steal your boots while you sleep." },
+    },
+    worries = {
+      { id = "wy_1", text = "Every ogre I kill, two more crawl out of Dire Maul, and I've only so many braves. I worry I'll run out of warriors before that ruin runs out of ogres." },
+      { id = "wy_2", text = "The Grimtotem in the south grow bolder every season, and Thunder Bluff won't hear a word against a tauren clan. I worry my braves will pay for that silence before the elders do." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see the Gordunni king dead and his whole ruin empty. Then I'll go to Ashenvale and fight a real war, if the Warchief will have me." },
+      { id = "hp_2", text = "I hope to grow old enough to tell young grunts about the camps and have them not believe me. That's the best thing I can wish for my people." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you go into Dire Maul, come back and tell my braves what you saw in there. A story from someone who's been inside will do them more good than any speech of mine." },
+      { id = "fv_2", text = "If you're going to Orgrimmar, tell anyone at the Warchief's hall who'll listen that Mojache holds. He won't need to hear it, but I want him to." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do. I don't have many friends who aren't orcs or tauren, and I don't have many friends at all, so you're in rare company." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've bled for Mojache and never once complained about it. That makes you blood to me, whatever your mother was." },
+    },
+    never_told = {
+      { id = "nt_1", text = "In the camps I let a human guard beat me for something my brother did, and I never told him. He died at Hyjal thinking he'd got away with it, and I've never known whether I'm proud of that or angry." },
+      { id = "nt_2", text = "I'm afraid of the sea, {name}. I'll fight any ogre in Feralas, but I won't stand on the shore at night, and my braves think it's because I'm watching the coast." },
+    },
   },
   blurts = {
     { id = "bl_1", text = "The Gordunni in Dire Maul answer to a king called Gordok. Kill him, and the ogres there will bow to whoever did it, the fools." },
     { id = "bl_2", text = "The Grimtotem in the south of Feralas don't answer to Cairne, and I know it. Thunder Bluff doesn't want to hear about it, so I keep my braves away from their compound." },
+  },
+  confides = {
+    { id = "cnf_1", text = "The Gordunni in the northern camps change their guards at midday, when the sun is hottest and they're laziest, so that's the time to hit them." },
+    { id = "cnf_2", text = "The tauren of Mojache keep a spring north of the camp that the ogres have never found, and its water runs clean when the rivers run brown." },
+    { id = "cnf_3", text = "The Grimtotem send their hunters north along the coast road at dawn, so stay off that road then unless you want a fight with tauren." },
   },
 }
 

@@ -784,6 +784,11 @@ P:NPC {
     { id = "bl2", text = "Prince Tortheldrin drains that demon to keep the Shen'dralar alive, and he has been doing it for ten thousand years. I have never said aloud how much I despise him for it." },
     { id = "bl3", text = "The ogres in the northern courtyards answer to a king they call Gordok, and his throne goes to whoever kills him. Even ogres understand inheritance, in their way." },
   },
+  confides = {
+    { id = "cnf_1", text = "The satyrs who haunt the eastern wing of Eldre'Thalas were once my own colleagues, and they still fear the old wards on the library doors, so a scholar may shelter there if he must." },
+    { id = "cnf_2", text = "The Prince withdraws to his chambers for a few hours each dawn, and that is the only time his guards grow careless about the western wing." },
+    { id = "cnf_3", text = "The Shen'dralar spirits on this hill remember where the old roads ran before the forest took them, and those roads are still the safest way through the wilds." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "I have been courteous to you, which is a habit of ten thousand years, and you have not returned it. I find I have run short of patience." },
@@ -819,5 +824,43 @@ P:NPC {
     nordrassil = { { id = "tp_nordrassil", text = "The great tree on Hyjal was planted after the Sundering, by druids who distrusted everything we were. I hear it still grows, and I am glad, though I would never tell them so." } },
     scourge = { { id = "tp_scourge", text = "The Magram's dead are crude work, and I have heard that in the far north there is a far greater master of the craft. I have no wish to meet him, nor to compare notes." } },
     _none = { { id = "tp_none", text = "I have read most of the library below, and I do not recall that being in it. Perhaps it was in one of the volumes the satyrs burned." } },
+    regard = {
+      { id = "rg_1", text = "You listen to an old scholar's long sentences without fidgeting, which is more than my own people have managed in the last thousand years. I find that I look forward to your visits." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have done Eldre'Thalas more good in a few seasons than I have managed in ten thousand years, and you never once asked why I did not. I am grateful, and a little ashamed." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You speak with courtesy, and courtesy is the last thing my people still value after everything else was lost. It is good to hear it again on this hill." },
+      { id = "rg_honor", when = { fondness = "alignment", alignment = { axis = "honor", min = 30 } }, text = "You tell the truth even when it costs you, {name}. I watched too many of my peers choose the pleasant lie, and I find your honesty more precious than any tome in the library." },
+    },
+    confide = {
+      { id = "cf_1", text = "I come out to the overlook at night to watch the moonlight on the old temple, and I tell the spirits it is for my health. It is not; I simply cannot bear the library after dark any longer." },
+      { id = "cf_2", text = "When the Veiled One's rebels fled the city, I watched them go from a high window and did nothing to help or hinder them. I called it prudence, and I have been calling it that for a very long time." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the spirits of my people who walk these ruins, for they are past lying and have nothing left to gain. They will answer you honestly, if they can remember the answer." },
+      { id = "tr_2", text = "Do not trust the Prince, whatever he offers you, and do not trust anyone who has drunk too long from the same well he does." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Do not touch the crystal pylons in the western wing unless you mean to break them, for the thing they hold notices every hand that comes near." },
+      { id = "wo_2", text = "Be wary of the Magram's dead in the Valley of Bones. Some of those bones were once my people, and they have no reason to love a living elf, or anyone who stands with one." },
+    },
+    worries = {
+      { id = "wy_1", text = "The Prince drinks deeper from his prisoner every year, and the creature grows angrier for it. I fear that one day the chains will fail, and the first thing it will seek is whoever stood by and did nothing." },
+      { id = "wy_2", text = "I worry that when I am gone there will be no one left who remembers what Eldre'Thalas was, before the ogres gave it that dreadful name." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Luminarian's blades made whole again and borne by someone worthy of them. It is a small thing beside all we have lost, but it would be a beginning." },
+      { id = "hp_2", text = "I hope that one day the kaldorei will listen to what my people have to say and not only remember what we once did. I do not expect it, but a scholar is permitted to hope for the improbable." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you go into Eldre'Thalas, tell me whether the satyrs have burned more of the eastern library. I cannot bear to go and look for myself." },
+      { id = "fv_2", text = "Speak the city's true name now and then, {name}, when others call it Dire Maul. A name lives only as long as someone is willing to say it." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I believe I do, though I am sadly out of practice; my last friend was a scholar who died before your kingdoms had names. You remind me of her a little, in your patience." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have helped my people when I could not, and listened to me when I could not stop talking. That is friendship by any reckoning I know." },
+    },
+    never_told = {
+      { id = "nt_1", text = "On the night of the purge, I hid in the deepest stacks of the library with my hands over my ears. I tell the spirits I was reading, and they are too kind to correct me." },
+      { id = "nt_2", text = "I loved the queen, as every one of us did, and some small and foolish part of me loves her still. It is the thing I am most ashamed of, and I have never said it aloud until now." },
+    },
   },
 }

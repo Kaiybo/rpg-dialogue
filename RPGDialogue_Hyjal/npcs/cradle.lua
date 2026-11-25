@@ -356,10 +356,53 @@ P:NPC {
       { id = "sp_1", text = "I think you are the kind of fool the Legion finds most useful. I have killed better than you who thought they could bargain." },
       { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think you would have stood with the Highborne at the Well of Eternity and called it wisdom." },
     },
+    regard = {
+      { id = "rg_1", text = "You have not once asked me what the fel feels like, and you have not looked at my eyes as though they might bite. That is enough for me to think well of you, which I rarely do of anyone." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have killed demons beside me and did not boast of it afterward. I respect that more than any words you could offer me." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You speak plainly and waste none of my time. Most who climb to the Cradle bring either pity or questions, and you brought neither." },
+      { id = "rg_honor", when = { fondness = "alignment", alignment = { axis = "honor", min = 30 } }, text = "You keep your oaths, {class}, even when bending them would be easier. I swore an oath once and kept it badly, so I notice those who keep theirs well." },
+    },
+    confide = {
+      { id = "cf_1", text = "My people struck my name from their rolls when I took the fel into myself, and my mother closed her door to me. I tell myself they chose rightly, and on most days I believe it." },
+      { id = "cf_2", text = "Jereman lets me sit in the Cradle because I do not pretend to be anything other than what I am. The Wild Gods are honest that way, and I find their company easier than that of my own people." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Yashiro. He is an orc and I am what I am, and still he has never once hesitated to stand beside me against a demon." },
+      { id = "tr_2", text = "Trust no one who tells you the demons are all gone from this mountain. The Circle would like that to be true far more than they would like to know the truth." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the ground in Felblood Scar, where the fel rained down longest. If the earth is warm beneath your boots, step back, because something under it is still alive." },
+      { id = "wo_2", text = "Be wary of the barrows beneath the mountain. They are deep, and they are not as empty as the Circle hopes." },
+    },
+    worries = {
+      { id = "wy_1", text = "The demons who fled into Darkwhisper Gorge have had years to gather, and I am one hunter on a very large mountain. I fear I am counting them more slowly than they are multiplying." },
+      { id = "wy_2", text = "I worry that when the Legion comes again, the Sentinels will still be watching me instead of the sky. That would be a foolish way for both of us to die." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to kill the last demon on this mountain and find that I have nothing left to do. I do not know what I would be then, but I would like to find out." },
+      { id = "hp_2", text = "I hope my mother lives long enough, now that she is mortal, to see that I did not become what she feared. That is the only victory I still want for myself." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you find a fel crystal in the thorium veins, do not sell it to a goblin. Bury it deep where nothing grows, and tell no one where." },
+      { id = "fv_2", text = "When you are next in Ashenvale, look at what the satyrs have made of Demon Fall Canyon and tell me how many there are. I would rather hear it from you than from the Sentinels." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I have not had a friend since I took the fel, {name}. If this is not friendship, it is the nearest thing I have known in a very long time." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have stood with me against demons and never asked what I was. Yes, I count you a friend, and I do not say that easily." },
+    },
+    never_told = {
+      { id = "nt_1", text = "On the night the wisps rose, I stood beneath Nordrassil, and for one moment I wished the Legion would simply win so that the war would end. I have hunted demons ever since, and I have never forgiven myself that moment." },
+      { id = "nt_2", text = "I still keep the sword I carried as a soldier, wrapped in cloth, in the hollow where I sleep. I cannot hold it without the fel stirring in my hands, and I cannot bring myself to leave it behind." },
+    },
   },
   blurts = {
     { id = "bl_1", text = "The Shadow Council hides in the Shadow Hold beneath Jaedenar, in Felwood. The rot in that forest flows from them, whatever the druids tell you." },
     { id = "bl_2", text = "Demon Fall Canyon in Ashenvale is where Mannoroth died, and his blood is still in the stone. The satyrs gather there, and I hunt them when I can." },
+  },
+  confides = {
+    { id = "cnf_1", text = "The demons in Darkwhisper Gorge come out to hunt when the snow falls heaviest, because the storm hides their fire from the Sentinels' watch." },
+    { id = "cnf_2", text = "Fel crystal grows in the thorium veins wherever the fel rained down on this mountain, and anything that sleeps too near those veins wakes up hungry." },
+    { id = "cnf_3", text = "The Shadow Council in Jaedenar sends its messengers north through Felwood by night, and they always keep to the high ground above the road." },
   },
 }
 

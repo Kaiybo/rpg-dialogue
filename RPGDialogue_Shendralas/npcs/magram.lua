@@ -434,10 +434,16 @@ P:NPC {
     },
   },
 
+  alignment = { light = -1 },
   blurts = {
     { id = "bl1", text = "The Gelkis pray to the stone at Maraudon and think the earth will save them. Kill their shamans, and the rest forget how to fight." },
     { id = "bl2", text = "The Burning Blade orcs in the north of Desolace come to this valley at night to bargain for bones. They think the Magram do not notice, and the Magram let them think it." },
     { id = "bl3", text = "The Kodo Graveyard holds more dead than this whole valley, and the spirits there are not mine. That is the one place in Desolace I will not go." },
+  },
+  confides = {
+    { id = "cnf_1", text = "The Gelkis shamans pray at dawn facing Maraudon, and they leave their camp lightly guarded while they do." },
+    { id = "cnf_2", text = "The outcast necromancers carry the bones they steal to their hideaway in the hills before they bind them, so whatever they took last night is still lying there today." },
+    { id = "cnf_3", text = "The Bristleback send their hunters out at dusk, and the Magram Front is quietest then, so that is the hour to pass between them." },
   },
   topics = {
     grievance = {
@@ -472,6 +478,44 @@ P:NPC {
     quilboar = { { id = "tp_quilboar", text = "The Bristleback grow fat on the land the Magram need, and they are pushed out of somewhere better, I think, by their hungry look. They will make good bones when they are done." } },
     cairne = { { id = "tp_cairne", text = "The tauren chief in Mulgore is old and strong, and his people are many. The Magram do not need his friendship, and he would not offer it." } },
     _none = { { id = "tp_none", text = "That is no business of the Magram, and so it is no business of mine." } },
+    regard = {
+      { id = "rg_1", text = "You do not flinch when the dead rise, and you do not waste breath pleading for them. That is strength, outsider, and the Magram respect strength." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have served the Magram well, and the dead of this valley know your name now. That is no small thing, for they forget most names quickly." },
+      { id = "rg_values", when = { fondness = "values" }, text = "You are strong, and you are cunning enough to know when strength is not enough. The Gelkis have neither, which is why they pray." },
+      { id = "rg_shadow", when = { fondness = "alignment", alignment = { axis = "light", max = -30 } }, text = "You do not fear the dark, outsider, and you do not shrink from what lies in it. The Magram have always known that the dark is only another kind of strength." },
+    },
+    confide = {
+      { id = "cf_1", text = "Some of the outcast necromancers were my students once. They believed they had learned enough to leave, and I will show them how little they knew." },
+      { id = "cf_2", text = "Khan Jehn was not a wise khan, but he was a strong one, and the clan needs a strong khan. That is why I will raise him, outsider, and why I do not care what he thinks of it." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Hagiak on the front, for he fights well even though he does not trust the dead. Trust nothing that wears Gelkis colours." },
+      { id = "tr_2", text = "Trust the dead, outsider, for they do only what they are told. The living always want something more." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Bristleback when they are hungry, for hunger makes them bold, and they are always hungry now." },
+      { id = "wo_2", text = "Do not walk among the bones at the Kodo Graveyard. The spirits there are not mine to command, and they do not care whom you serve." },
+    },
+    worries = {
+      { id = "wy_1", text = "The outcasts steal the valley's dead faster than I can bind them, and every body they take is one less servant for the clan. If it goes on, the Magram will be weaker by spring." },
+      { id = "wy_2", text = "The Magram Front is hungry, and hungry warriors do not fight well. I can raise the dead, but I cannot feed the living, and that troubles me more than I would ever admit to Hagiak." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Khan Jehn ride again at the head of the Magram, with the valley's dead marching behind him. Then the Gelkis will learn what it means to kneel." },
+      { id = "hp_2", text = "I hope to bind a spirit so strongly that it no longer needs my voice to obey. Then I will know I have mastered this art, and the Magram's dead will never fail them." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you find an outcast necromancer in the hills, kill him and leave his body where the clan will see it. A body teaches the others better than a warning." },
+      { id = "fv_2", text = "When you travel beyond Desolace, ask one of the Forsaken how it felt to break a binding, and bring me the answer. I will not tell you why I want to know." },
+    },
+    friendship = {
+      { id = "fr_1", text = "The Magram do not have friends; they have the strong and the dead. You are strong, outsider, and I would not like to see you dead, which is as close as I come." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have served the clan and earned the respect of the dead. You are no outsider to me now, Magram, whatever your blood says." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When I was young, I raised my mother's bones to ask her a question she had died before answering. She would not speak, so I laid her down again, and I have never tried since." },
+      { id = "nt_2", text = "Sometimes the dead I bind look at me as though they know me, though I never met them in life. I do not understand it, outsider, and I have never told the clan." },
+    },
   },
 }
 
