@@ -1089,7 +1089,58 @@ P:NPC {
       },
     },
   },
+  alignment = { order = 1 },
+  confides = {
+    { id = "cnf_1", text = "Guard Thomas at the eastern bridge sees every rider who comes in from Redridge, and he keeps a better log than I do. If you want to know who's been on the road, ask him before you ask me." },
+    { id = "cnf_2", text = "The riders who pay Remy in gold dust come in from the west at night and never stay till morning. I've a man watching the Westbrook road, and he's yet to see where they go." },
+    { id = "cnf_3", text = "The kobolds in Fargodeep Mine have dug a lower level right under the farms, and the Stonefields and Maclures hear scratching beneath their cellars at night. I've told them it's rats, and I don't believe it." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're one of the few who come through Goldshire and leave it better than you found it. That goes in my report, and my reports are not generous." },
+      { id = "rg_2", text = "I think you do the work and don't make a song about it, which is all I ask of anyone. You'd be surprised how few manage both halves of that." },
+      { id = "rg_town", when = { fondness = "town" }, text = "Half of Goldshire has stopped by my desk to tell me you helped them, {name}. I'd complain about the interruptions, but it's the first good news I've had all season." },
+      { id = "rg_order", when = { alignment = { axis = "order", min = 30 } }, text = "You respect the law and the chain of command, and you don't need a guard standing over you to do it. If I had six like you, I could sleep through the night." },
+      { id = "rg_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You've a habit of settling things your own way and telling me after, and that's not how a marshal likes it done. Still, the things you settle stay settled, and I can't say that of my own guards." },
+    },
+    confide = {
+      { id = "cf_1", text = "I play the Defias down in the inn because the town would panic if I didn't. The truth is they're organised, they're paid, and they're closer than anyone in Goldshire knows." },
+      { id = "cf_2", text = "I've written to Stormwind four times for more guards and been told four times to make do. I keep the replies in a drawer, in case anyone ever asks why the woods weren't safe." },
+      { id = "cf_3", text = "Marshal McBride and I don't always see eye to eye, but I'd trust him with my life. Don't tell him I said so; he'd be insufferable for a month." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Farley at the Lion's Pride; he knows everyone and lies to no one, which is more than I can say for his regulars. Trust Guard Thomas on the eastern bridge with anything." },
+      { id = "tr_2", text = "Trust Marshal McBride up at Northshire, though he'll see an army behind every bush. And trust the Brotherhood at the Abbey, who've never once asked me for a favour they didn't need." },
+      { id = "tr_3", text = "Not Remy, not with your coin and not with your secrets, though he's harmless enough otherwise. A man who talks that much eventually says something he's been paid to say." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch Forest's Edge in the southwest, where Hogger runs with the Riverpaw. He's killed better soldiers than you think you are, so go with friends or don't go at all." },
+      { id = "wo_2", text = "Watch the Westfall border and anyone in a red bandana. They're not stray thieves, whatever I say in the inn, and they don't work alone." },
+      { id = "wo_3", text = "Watch the inn cellar, and don't go asking questions about it in my hearing. Stormwind's orders, and I don't care for them, but I follow them." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that the day the Defias decide to take Goldshire, I'll have nine guards and a desk to stop them. I've done the sums, and I don't like them." },
+      { id = "wy_2", text = "I worry about the farmers on the southern edge, the ones closest to the Riverpaw. Every week one of them asks me when they'll be safe, and I've run out of honest answers." },
+      { id = "wy_3", text = "I worry I've become a clerk with a sword, {name}. I joined the Army to hold a line, and I spend my days stamping complaints about kobolds." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Hogger's head on a pike outside the Lion's Pride, and then I'd like a week of nothing. Not peace, mind, just nothing." },
+      { id = "hp_2", text = "I hope Stormwind remembers Goldshire is the door to the capital, and sends soldiers before somebody kicks it in. I'm not holding my breath." },
+      { id = "hp_3", text = "I'd like to retire to a farm by Crystal Lake, if I ever reach retirement. I'd keep pigs, because a pig has never once filed a complaint." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you see anything odd on the Westfall road, write it down and bring it to me, with dates. I can do more with one honest report than a dozen rumours from the inn." },
+      { id = "fv_2", text = "Keep the young ones out of Forest's Edge, {name}. They hear about Hogger's bounty and go chasing it, and I'm the one who writes to their mothers." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, and I'll say it once, because I'm not a man who says such things twice. You're a friend to me and to this town, and that's the same thing as far as I'm concerned." },
+      { id = "fr_2", text = "You're a friend, {name}, and if anyone in Goldshire gives you trouble, they'll be giving it to me. Take a number, as I'd tell anyone else, but you go to the front." },
+      { id = "fr_order", when = { alignment = { axis = "order", min = 40 } }, text = "A friend, and the closest thing to a reliable officer I've had in years. I'd give you a commission tomorrow if Stormwind would pay for it." },
+    },
+    never_told = {
+      { id = "nt_1", text = "In the Second War, I froze the first time I saw a warlock's fire take a man, and the sergeant beside me died pulling me out of it. I've been trying to be worth that ever since." },
+      { id = "nt_2", text = "I asked to be posted to Lordaeron before it fell, and they sent me here instead. Every man in my old company who went north is dead or worse, and I've never known whether to be grateful." },
+    },
     kaldorei = { { id = "tp_kaldorei", text = "The night elves are our allies now, and I keep the peace with anyone the crown names a friend. I'd only like to have seen one of them on the line before the war was won." } },
     _gated = {
       { id = "gt1", text = "That's garrison business, and I don't share it with folk I've no reason yet to trust. Do right by Goldshire, and we'll speak again." },

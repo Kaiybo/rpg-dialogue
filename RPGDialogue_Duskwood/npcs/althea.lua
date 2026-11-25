@@ -638,7 +638,57 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Night Watch changes shifts at the second bell after dusk, and for a few minutes the north road out of Darkshire is held by one tired man. If you're leaving town quietly, that's when, and if you're coming in with trouble behind you, that's when to shout." },
+    { id = "cnf_2", text = "Sven Yorgen keeps a camp in the western woods these days, away from his family's old farm. He knows what breaks Morbent Fel's wards, and he'll only tell someone who's already proved they mean to use it." },
+    { id = "cnf_3", text = "The Dark Riders cross the river by the old ford east of town, never the bridge. My patrols have found their hoofprints there a dozen times, and never once the riders." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're the sort I'd put on the roster without a second look, {name}, and I put very few on it that way. You stand your shift and you don't complain about the dark." },
+      { id = "rg_2", text = "I think you've done more for Darkshire than the Army has, which isn't saying much, but it's saying something. My watchers ask after you, and they don't ask after anyone." },
+      { id = "rg_earned", when = { fondness = { best = "earned" } }, text = "You've kept watchmen alive who'd otherwise be in the cemetery, and every one of them knows your name. That's the only currency this town has left, and you've earned a fortune." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "You carry a light into these woods, and I don't mean a lantern. The dead don't like it, and neither do the things that raise them, which suits me perfectly." },
+      { id = "rg_order", when = { alignment = { axis = "order", max = -30 } }, text = "You don't follow orders well, and I'd have you on latrine duty for a month if you were mine. But you come back alive and so does whoever you went with, so I'll overlook it." },
+    },
+    confide = {
+      { id = "cf_1", text = "The Night Watch is twenty-two strong on paper and fourteen in truth, and three of those are too old to run. If the dead came for Darkshire in force, we'd hold the town square for an hour, perhaps two." },
+      { id = "cf_2", text = "Lord Ello writes to Stormwind every week and gets nothing back, and I've stopped telling him it's pointless. He needs to write those letters more than I need him to stop." },
+      { id = "cf_3", text = "I've never once slept through a night since I took command. I nap in the afternoons, in the bell tower, and my watchers pretend not to know." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust my watchers, every one of them; they've stood the night for no pay and less thanks. And trust Smitts at the Scarlet Raven, who knows more about this town than its records do." },
+      { id = "tr_2", text = "Trust Sirra Von'Indi and the folk at the Town Hall to tell you the truth, even when it's grim. Darkshire has no use for comfortable lies; we've no room for them." },
+      { id = "tr_3", text = "Not the hermit on Raven Hill, whatever the young watchers think of him. And not any smooth talker who wants to know the patrol routes, {name}; I learned that one at a cost." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch Raven Hill and its cemetery, and give Mor'Ladim a wide berth if you hear him walking. My patrols go around him, and I'm not ashamed of it." },
+      { id = "wo_2", text = "Watch for the worgen in the Brightwood Grove and the hills to the north. They come in packs now, and they don't stop at the treeline the way they used to." },
+      { id = "wo_3", text = "Watch the road to Deadwind Pass, {name}. The Dark Riders come down from there, and they're looking for something, and they don't care who's in the way." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that one night the bell will ring and nobody will come, because there's nobody left to answer it. Every watcher I lose is one I can't replace." },
+      { id = "wy_2", text = "I worry that the woods are getting darker, and I don't mean the season. Duskwood was Brightwood once, {name}, and I'm old enough to remember the light through the trees." },
+      { id = "wy_3", text = "I worry I've grown too hard. The watchers call me the Commander and never my name, and I can't recall when I last laughed at anything that wasn't grim." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Darkshire through one winter without a funeral. Just one, {name}, and I'll stand the whole Watch a round at the Scarlet Raven." },
+      { id = "hp_2", text = "I hope the Army comes, someday, with enough soldiers to clear Raven Hill and burn what needs burning. Then my watchers could go home to their families at night." },
+      { id = "hp_3", text = "I'd like to walk through these woods in daylight without my hand on my sword. I'm told Elwynn's like that, and I've almost forgotten what it feels like." },
+    },
+    favor = {
+      { id = "fv_1", text = "Stand a night with the Watch, if you've one to spare. Not for glory, {name}, just so my watchers know someone outside Darkshire thinks they're worth standing with." },
+      { id = "fv_2", text = "If you pass through Stormwind, tell anyone who'll listen that Darkshire is still holding. They seem to have forgotten we exist, and I'd like to remind them before we stop." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}, and I'd put you on the roster as a friend of the Watch, which is the highest honour Darkshire can give. It comes with no pay and long nights, so you'll feel right at home." },
+      { id = "fr_2", text = "Aye, a friend, and I'd stand beside you against anything those woods could throw at us. I've said that to very few people, and most of them are buried on Raven Hill." },
+      { id = "fr_light", when = { alignment = { axis = "light", min = 40 } }, text = "A friend, and a light in a dark place, which is more than most folk can claim in Duskwood. Keep shining, {name}; we need every lamp we can get." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When I was first given command, I went to Lord Ello and asked him to send for someone older. He refused me flat, and he's never told a soul I asked, and I've never once thanked him for either." },
+      { id = "nt_2", text = "When I was a girl, I wanted to leave Duskwood and join the Army in Stormwind. I stayed because this town needed me, and some nights I still wonder who I'd have been." },
+    },
     kaldorei = { { id = "tp_kaldorei", text = "Darkshire thinks the night elves are aloof. I think their Sentinels hold a forest against the Horde with fewer people than I have, and I'd like to know how." } },
     _gated = {
       { id = "gt1", text = "That's Watch business, and I don't share Watch business with people I've no cause to trust yet. Prove yourself useful to Darkshire first." },

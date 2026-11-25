@@ -445,6 +445,11 @@ P:NPC {
     { id = "bl1", text = "The orcs at Valormok send scouts along the Ashenvale border every few nights, and the Sentinels here are fewer than they let anyone believe." },
     { id = "bl2", text = "The satyrs of the Haldarr Encampment still remember that they were elves once, and that memory is what makes them so cruel." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Haldarr satyrs move along the northern ridge at dusk, and the Sentinels set their watch on the bridge at that hour because of it." },
+    { id = "cnf_2", text = "The Highborne spirits at the Shadowsong Shrine grow quiet when someone sings to them, and the Sentinels hum the old hymns there for exactly that reason." },
+    { id = "cnf_3", text = "The blue dragonkin at Lake Mennar seldom stray far from the water, so a traveller who keeps to the high road can pass them unseen." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "I am a guest here, and you have made trouble for my hosts. A guest's anger is a quiet thing, but it is anger all the same." },
@@ -487,6 +492,45 @@ P:NPC {
     arkkoroc = { { id = "tp_arkkoroc", text = "A sea giant lives in a drowned temple and calls himself a god. I do not argue with gods, real or otherwise." } },
     thrall = { { id = "tp_thrall", text = "The Warchief keeps a peace with the humans, and I keep a smaller peace here with the elves. I hope his is easier than mine." } },
     _none = { { id = "tp_none", text = "That I do not know, friend, and I would rather say so than guess. The Sentinels might, if you ask them kindly." } },
+    regard = {
+      { id = "rg_1", text = "You keep the peace in this camp and you keep your voice low near the shrine, and the Sentinels have noticed. So have I, friend, and I am grateful." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You helped the restless spirits find their way, and you did it gently. The Earthmother saw it, and I think she smiled." },
+      { id = "rg_values", when = { fondness = "values" }, text = "You walk with an open hand, friend, which is the only way I know how to walk myself. It is good to have company on that road." },
+      { id = "rg_honor", when = { fondness = "alignment", alignment = { axis = "honor", min = 30 } }, text = "You keep your promises the way my grandmother taught me to keep mine, all the way to the end and without complaint. That is a rare thing in any herd." },
+    },
+    confide = {
+      { id = "cf_1", text = "The Sentinels still count their arrows after I leave a room, friend. I take no offence, because I would count mine too, but I would like one day to see them forget." },
+      { id = "cf_2", text = "I miss the plains of Mulgore more than I admit, the long grass and the smell of rain on it. Azshara's autumn never ends, and I find I long for a spring." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Ogtinc on the cliffs to the east. He is a furbolg of the Circle, and he is as gentle as anyone I have met, whatever his size." },
+      { id = "tr_2", text = "Trust the Sentinels to keep their word to a guest, even when they do not like him. I have lived among them long enough to know that much." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Do not linger near the Shadowsong Shrine after dark, friend. The Highborne spirits there carry a hunger with no bottom to it, and they reach for anyone who listens." },
+      { id = "wo_horde", when = { faction = "Horde" }, text = "Do not draw a blade near Talrendis Point, friend, not even against a beast. The Sentinels will not wait to ask which of us you meant it for." },
+      { id = "wo_2", text = "The Haldarr satyrs sometimes leave little shining gifts on the road. Leave them where they lie, because nothing a satyr gives is ever only a gift." },
+    },
+    worries = {
+      { id = "wy_1", text = "The peace between the Sentinels and the orcs at Valormok is thinner than a kodo's patience in summer. I worry that one careless arrow will undo everything I have tried to build here." },
+      { id = "wy_2", text = "I worry for the furbolgs, struck down by a sickness they did nothing to earn. The land weeps for them, and I hear it every night." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see a tauren and a Sentinel share a fire without anyone counting arrows afterward. If it can happen here, perhaps one day it can happen in Ashenvale." },
+      { id = "hp_2", text = "I hope to walk home to Mulgore one day and tell the elders that the elves were good hosts. I would like that to be the whole of my story." },
+    },
+    favor = {
+      { id = "fv_1", text = "Speak kindly of the Sentinels wherever you go, friend, even if they were short with you. Their name travels further than their arrows, and I would like it to travel well." },
+      { id = "fv_2", text = "Sit with me at the shrine some evening and say nothing at all. The spirits there are calmer when there are two of us." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, friend, and gladly. A guest in a strange land learns quickly who his friends are, and you have been one." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have helped the land and the spirits and the people of this camp, and you have never once asked why a tauren is here. That is a friend, by any herd's counting." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I did not come here only for the Earthmother, friend. I quarrelled with my father and could not bear to stay in Mulgore, and I have been too proud to write to him since." },
+      { id = "nt_2", text = "On my first night here, a Sentinel left a blanket beside my bedroll and never said a word about it. I still do not know which of them it was, and I have never asked, because I do not want the kindness to end." },
+    },
   },
 }
 

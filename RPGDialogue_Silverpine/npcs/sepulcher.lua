@@ -302,12 +302,58 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "Arugal's worgen avoid the river crossings west of the Sepulcher, so if you're ever chased, make for the water." },
+    { id = "cnf_2", text = "Pyrewood's villagers turn at nightfall and change back at dawn, and they remember nothing of what they did in between." },
+    { id = "cnf_3", text = "The Sepulcher's catacombs run under the hill much further than the visitors' halls, and the Deathguard store their reserve arms down there." },
+  },
   blurts = {
     { id = "bl1", text = "Arugal sits in Shadowfang Keep and lets his worgen do his fighting. I have sent deathstalkers after him, and none came back, which tells me the keep's gates are the least of it." },
     { id = "bl2", text = "The Rot Hide gnolls on Fenris Isle answer to a sorcerer named Thule Ravenclaw. Kill him, and the isle goes quiet." },
     { id = "bl3", text = "The Dalaran wizards at Ambermill are working some great spell there, and they guard the town more closely than their own lives. I want to know what it is before they finish it." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're one of the few blades through this forest I don't have to count twice. You do the work, you come back, and you report, which is all I've ever asked of anyone." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've cleared more of my enemies from Silverpine than some of my deathstalkers have. I've put your name in my reports to the Undercity, and I don't do that for many." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You say what you mean and you say it quickly, and in a forest full of enemies, that's worth more than manners." },
+      { id = "rg_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You follow a chain of command and you don't need it explained twice. I'd put a squad under you and sleep easy, if I slept." },
+      { id = "rg_al_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You answer to nobody, and in my experience that ends one of two ways, in a medal or in a ditch. So far you've avoided the ditch, and I've noticed." },
+    },
+    confide = {
+      { id = "cf_1", text = "I lost more deathstalkers to Shadowfang Keep than I've admitted to the Undercity. The ones I did report, I reported as missing, because missing sounds like something I might yet fix." },
+      { id = "cf_2", text = "I was a forester in Silverpine before the plague, and I walked these roads with a bow and a lantern. I know every trail Arugal's wolves use, because I cut half of them myself." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Shadow Priest Allister to know things, and Dalar Dawnweaver to know poisons. Trust the deathstalkers when they come back, and worry when they don't." },
+      { id = "tr_2", text = "Trust nobody from Pyrewood after dark, and nobody from Ambermill at any hour. The first can't help what they are, and the second can help it very well." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch Pyrewood Village after sundown, when its people stop being people. The Deathguard learned that the hard way, and three of them didn't learn it at all." },
+      { id = "wo_2", text = "Watch the road past Ambermill, where Dalaran's apprentices have killed three of my Deathguard and called it self-defence." },
+      { id = "wo_3", text = "Watch Fenris Isle, where the gnolls answer to Thule Ravenclaw. They're stupid, but he isn't, and he knows how the dead move." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the worgen will one day stop howling at the walls and come over them all at once. I've counted their numbers, and I don't like the sum." },
+      { id = "wy_2", text = "Whatever Dalaran's wizards are building at Ambermill. Mages don't guard a village that closely unless they're making something they'll regret." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Arugal's head on a pike over the Sepulcher's gate, and the forest quiet enough to hear the river again." },
+      { id = "hp_2", text = "I hope the Dark Lady sends me enough soldiers to hold Silverpine without spending them faster than they arrive. That's all an Executor hopes for, if he's honest." },
+    },
+    favor = {
+      { id = "fv_1", text = "Kill worgen wherever you meet them and bring me word of anything that walks out of Shadowfang Keep. I want to know what Arugal is doing before he does it." },
+      { id = "fv_2", text = "Find out what Ambermill's wizards are working on, if you're ever near the place. Even a scrap of it is worth more to me than a dozen dead gnolls." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I don't make friends in Silverpine, because I bury too many of them. You've lasted, though, and that counts for something with me." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've bled in this forest for the Sepulcher, and I've watched you do it. If that's not a friend, I don't know what else to call it." },
+      { id = "fr_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You keep your word and you keep your post, and that's the only friendship a soldier understands. Yes, you're a friend of the Sepulcher, and of mine." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I knew Pyrewood before the curse, and I drank in its tavern more nights than I can count. Some of the worgen at my walls were men I called by name, and I've never told the Deathguard so." },
+      { id = "nt_2", text = "When the plague reached Silverpine, I sent my family south to Hillsbrad ahead of the Scourge. I've never gone to look for them, because I don't want to know whether they made it or what they'd think of me." },
+    },
     grievance = {
       { id = "gv1", text = "I have enemies on every side of this forest, and I count you among the lesser ones. Do not mistake that for kindness." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "Arugal was a mage, and his wolves still howl in my forest. Dalaran's people tramp through Silverpine as if they own it, and you wear their robes." },

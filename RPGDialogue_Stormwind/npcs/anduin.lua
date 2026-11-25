@@ -466,7 +466,58 @@ P:NPC {
     { id = "bl2", text = "Bolvar still sends ships out to look for my father, even though the council says it costs too much. He thinks I don't know, so please don't tell him." },
     { id = "bl3", text = "I don't like the way Lady Prestor watches Bolvar when he isn't looking at her. I've never told anyone that, because I can't explain why." },
   },
+  alignment = { light = 1 },
+  confides = {
+    { id = "cnf_1", text = "The kitchen boys use a little door behind the Keep's larder to slip down to the Trade District, and the guards on it are always asleep after lunch. I've used it twice, and Bolvar only caught me once." },
+    { id = "cnf_2", text = "Lord Lescovar's man in the black cloak always leaves through the garden gate by the moat, never the front. If you watched that gate after dark, I think you'd learn more than I can from my window." },
+    { id = "cnf_3", text = "Lady Prestor's clerks carry the letters from the provinces up to her rooms before they go to Bolvar. I saw a seal from Lakeshire on one, and I never heard it read at council." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're the first grown-up in ages who talks to me as if I'll understand the answer. I usually do, you know, if people let me try." },
+      { id = "rg_2", text = "I think you're brave, and not in the way the knights at council say it, all puffed up. You just go and do things, and then you come back and tell me about them." },
+      { id = "rg_earned", when = { fondness = { best = "earned" } }, text = "You've been kind to me every time, even when there was nothing to get from it. Bolvar says that's how you know who someone really is, and I think he's right." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "Archbishop Benedictus says some people carry the Light so plainly you can almost see it on them. I think you're one of those, {name}, and I'm not just being polite." },
+      { id = "rg_shadow", when = { alignment = { axis = "light", max = -30 } }, text = "I like you, but sometimes you look at things the way the people in the old stories do, just before they go wrong. Please don't go wrong; I'd hate that." },
+    },
+    confide = {
+      { id = "cf_1", text = "The crown is far too heavy for me, so the one I wear at council is made of tin and painted gold. The real one sits in a box, and I've only had it on twice." },
+      { id = "cf_2", text = "Bolvar falls asleep in his chair after the long councils, and Lady Prestor always stays behind with him. I've never seen what she does there, because they send me to bed." },
+      { id = "cf_3", text = "I practise being king in front of the mirror in my father's room. I'm much better at it when nobody's watching, which I don't think is how it's supposed to work." },
+    },
+    trust = {
+      { id = "tr_1", text = "Bolvar, always, because he's never once lied to me, even when I wanted him to. And the Archbishop, because he listens to the end before he answers." },
+      { id = "tr_2", text = "Master Shaw, I think, though he frightens me a little. He told me once that his job is to distrust everyone so that I don't have to, which was nice of him, in a way." },
+      { id = "tr_3", text = "I'm still working out the nobles, so I'd say none of them yet. The ones who smile the most at me are the ones who never write to Westfall." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the people at court who agree with everything. My father used to say that a man who never argues with you is usually arguing with you somewhere else." },
+      { id = "wo_2", text = "The guards say the Stockade is still full of rioters, and nobody will tell me why we haven't put it down. Please don't go near it alone, even if they ask you to." },
+      { id = "wo_low", when = { maxLevel = 20 }, text = "Watch the roads to Westfall, because the soldiers say the farms there belong to the Defias now. I'd hate for you to get hurt before you come back to tell me things." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that my father won't recognise me when he comes home, because I'm taller now and I've started saying things the way Bolvar does. What if he wanted me to stay the way I was?" },
+      { id = "wy_2", text = "I worry that I'll make a mistake at council and people far away will be hungry because of it. Bolvar says that's what a crown is, and I don't think I like crowns very much." },
+      { id = "wy_3", text = "Sometimes I dream the ship comes back empty, and I wake up and can't tell anyone, because a king isn't supposed to be frightened. I'm telling you, though." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope my father comes home and takes the crown back, and then I can go to the Darkmoon Faire like a normal boy. I'd watch the fire juggler all day." },
+      { id = "hp_2", text = "I hope that when I'm grown, nobody in Westfall has to be a Defias just to eat. I don't know how to do that yet, but I'm writing ideas down in a book." },
+      { id = "hp_3", text = "I'd like to meet Thrall one day and ask him how his people changed. If orcs can change, then anybody can, and that seems important to know." },
+    },
+    favor = {
+      { id = "fv_1", text = "Would you write down what you see out there and tell me? Everyone at council only tells me about money, and I want to know what the world actually looks like." },
+      { id = "fv_2", text = "If you ever hear anything about my father's ship, anything at all, please come straight to me before you tell anyone else. I promise I'll be brave about it." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}, and I don't have very many, because people are always being my servant or my teacher instead. You're the first one who's just been my friend." },
+      { id = "fr_2", text = "Yes, and when I'm grown up and properly king, I'm going to remember it. Bolvar says kings should remember their friends, so I've written your name down already." },
+      { id = "fr_light", when = { alignment = { axis = "light", min = 40 } }, text = "Of course I do. The Archbishop says the Light gathers people together who need each other, and I think that's what happened with us." },
+    },
+    never_told = {
+      { id = "nt_1", text = "The night my father left, I was cross with him because he wouldn't take me, and I didn't say goodbye properly. I've never told anyone, not even Bolvar, because I don't want it to be the last thing." },
+      { id = "nt_2", text = "I touched the Tome of Divinity when Duthorian Rall wasn't looking, and it felt warm, like a hand. I've never told anyone, because I don't know whether it meant anything, and I'm a bit afraid it did." },
+    },
     grievance = {
       { id = "gv1", text = "I'm sorry, I know I'm supposed to be fair to everyone, but you've made it very hard. Bolvar says a king should say so plainly, so I am." },
       { id = "gv_wronged", when = { grudge = "wronged" }, text = "You talked to me like I was just a little boy playing at being king. I know I'm young, but I'm still trying, and that hurt." },

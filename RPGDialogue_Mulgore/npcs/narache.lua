@@ -284,12 +284,55 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Bristleback chieftain sleeps in the deepest den of Brambleblade Ravine, and his guards are fewest at the start of the rains." },
+    { id = "cnf_2", text = "There is a narrow path along the eastern ridge of the ravine that the braves use to scout the Bristleback without being seen." },
+    { id = "cnf_3", text = "My mother's totem still stands on the hill above Narache, and the young come to it when they are afraid, though they think nobody sees them." },
+  },
   blurts = {
     { id = "bl1", text = "The Bristleback make their lair at the far end of Brambleblade Ravine, and they keep their chieftain deep inside it where my braves cannot easily reach him." },
     { id = "bl2", text = "Grull is braver than he is wise, and I fear for him every time he leads a hunt past the ravine. I have never said so to his face." },
     { id = "bl3", text = "Since my mother died, some of the elders in Bloodhoof Village think Narache needs a wiser chief than I am. Perhaps they are right, but they will not hear me admit it." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you are strong in a way the young ones of Narache should learn from, {name}. You protect what is yours, and you do not boast of it." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You have helped the young of Narache when you could have walked on, and that is what my mother would have done. I honor you for it." },
+      { id = "rg_3", when = { race = "Tauren" }, text = "You carry yourself like a true child of the plains, and my mother would have been proud to call you one of hers. I am proud to know you." },
+      { id = "rg_al", when = { alignment = { axis = "light", min = 30 } }, text = "There is a light in you that the young ones look to, {name}. Guard it, because Narache needs examples like you." },
+    },
+    confide = {
+      { id = "cf_1", text = "My mother led this camp for more years than I have lived, and I feel her eyes on me every time I give an order. I do not know if I will ever be the leader she was." },
+      { id = "cf_2", text = "Grull leads the hunts past Brambleblade Ravine, and I let him because he is brave. I am afraid every time he goes, and I have never told him." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Baine in Bloodhoof Village, who listens before he judges. Trust my mother's old friends among the elders too, even the ones who doubt me, because they doubt me honestly." },
+      { id = "tr_2", text = "Trust the braves of Narache, every one, for they have stood beside me since my mother passed. They are the best of us." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Bristleback in Brambleblade Ravine, and do not go deep without others beside you. Their chieftain keeps to the far end of the ravine." },
+      { id = "wo_2", text = "The plainstriders near Narache are gentle, but the bears in the woods are not. Stay on the open plain when you can." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry I am not wise enough to lead Narache, and the elders think it too. My mother would have known what to say to them." },
+      { id = "wy_2", text = "I worry for Grull, who is braver than he is wise, and for the young who follow him into the ravine. If I lose them, I lose Narache." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see the young of Narache grow strong and wise, and go out into the world to make the tauren proud. That is all my mother ever wanted." },
+      { id = "hp_2", text = "I hope to earn the elders' trust before the next season turns, and to lead Narache the way my mother did." },
+    },
+    favor = {
+      { id = "fv_1", text = "Go into Brambleblade Ravine and drive out the Bristleback chieftain, so that our hunters can walk safely. That would ease my heart." },
+      { id = "fv_2", text = "Speak to Grull, and tell him to be careful on his hunts. He will not listen to me, but he may listen to you." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}. You have helped Narache and its young, and among the tauren that makes you kin to this camp." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You have stood beside the young when they needed someone, and my mother would have called you friend. I call you one too." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When my mother died, I was out on a hunt and did not come back in time. I have never forgiven myself, and I have never told anyone how late I was." },
+      { id = "nt_2", text = "I sometimes wish Narache had chosen another chief, someone wiser and older. I took the role because no one else would, and I have doubted it every day since." },
+    },
     grievance = {
       { id = "gv1", text = "Narache is a camp for the young, and I watch everyone who walks near them. I have watched you, and I did not like what I saw." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "You keep company with demons, and my calves sleep fifty paces from where you stand. That is my problem, and it will stay my problem." },

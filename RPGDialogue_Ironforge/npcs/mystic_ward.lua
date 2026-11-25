@@ -564,7 +564,57 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The memorial stones in the Mystic Ward have a wee chapel behind them that hardly anybody uses, an' it's the quietest spot in all o' Ironforge. If ye ever need tae pray or weep where nobody'll see, that's the place." },
+    { id = "cnf_2", text = "There's a Dark Iron lass who comes tae my confession every month, wi' kin still servin' Thaurissan's folk. She's tryin' tae leave, an' if ye ever meet a Dark Iron in this city who seems genuinely afraid, be gentle." },
+    { id = "cnf_3", text = "Some o' the gnome refugees carry wounds from Gnomeregan that glow at night, an' they'll no' heal by the Light alone. Mekkatorque an' I are workin' on it together, an' the work is slow." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think ye've a good heart, {name}, an' a steady one, which is a fine combination in a world that's lost its footin'. Ye'd make a grand priest, if ye ever tire o' whatever ye're doin'." },
+      { id = "rg_2", text = "I think ye're the sort the Light likes tae work through, though ye might no' always feel it. I've seen it in the way ye treat folk who cannae do anythin' for ye." },
+      { id = "rg_earned", when = { fondness = { best = "earned" } }, text = "Ye've done good in this city that nobody asked ye tae do, an' half o' it came back tae me through confession. Folk are grateful, {name}, even when they're too proud tae say it." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "The Light shines on ye like the sun on a good seam o' gold, an' I've been minin' for it all my life. It does an old priest good tae see it so plain." },
+      { id = "rg_shadow", when = { alignment = { axis = "light", max = -30 } }, text = "There's a shadow about ye, an' I'll no' pretend I cannae see it. But the Light's no' given up on ye, an' neither have I, for I've seen deeper darkness come round." },
+    },
+    confide = {
+      { id = "cf_1", text = "I pace the Hall o' Mysteries because I cannae sit still while I pray, an' never could. The young priests think it's a holy discipline, an' I let them." },
+      { id = "cf_2", text = "Before Gnomeregan fell, I'd never once healed a gnome, for they had their own ways an' little use for the Light. Now half my patients are gnomes, an' they're the most curious lot I've ever prayed over." },
+      { id = "cf_3", text = "I lent my old exorcism censer tae Lord Shadowbreaker's paladins in Stormwind, an' I miss it more than I'd like. It's been through more dark nights than I have, an' I've had a few." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust King Magni wi' yer life an' yer honour, for he's the best king this mountain's had in a long age. Trust the High Tinker, too, who carries more guilt than any soul should." },
+      { id = "tr_2", text = "Trust the priests o' this Hall, every one, for they've chosen a hard road for nae reward. An' trust High Priestess Laurena in Stormwind, who's a dear friend an' wiser than me." },
+      { id = "tr_3", text = "Be careful wi' anyone who claims tae speak for the Light while carryin' a torch, {name}. The Scarlet Crusade's done more harm in its name than any heretic." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for the Scarlet Crusade if ye travel north, an' dinnae let their fine words fool ye. They'd burn a sick child tae be sure o' the plague, an' they've done it." },
+      { id = "wo_2", text = "Watch the Dark Iron's ears in this city, {name}, an' mind what ye say in the Forlorn Cavern. There's folk there who sell secrets tae Thaurissan's kin." },
+      { id = "wo_3", text = "Watch yer own heart, too, for it's the first thing the Scourge goes after. Despair's a sickness that spreads faster than any plague, an' I've seen it take good folk." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry about the gnomes whose wounds willnae heal, an' about the bairns among them most of all. The Light can ease them, but it cannae yet cure them, an' that troubles me sore." },
+      { id = "wy_2", text = "I worry about Lordaeron's priests, the ones who walk wi' the Forsaken now. I pray for them every night, an' I dinnae know if the Light hears prayers for the dead who walk." },
+      { id = "wy_3", text = "I worry about the King, {name}, for he carries Moira's loss like a stone in his chest. He'll no' speak of it, but I see it on him every time he comes tae pray." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope tae see Gnomeregan cleansed an' its people home, wi' a priest o' their own in every hall. The gnomes have a fine sort o' faith once they find it, curious an' bright." },
+      { id = "hp_2", text = "I hope tae see the Church stand together again, Stormwind an' Ironforge an' whatever's left in the north, wi' nae Scarlet madness among us." },
+      { id = "hp_3", text = "I'd like tae retire tae a wee chapel in Dun Morogh an' tend the sick o' Kharanos, wi' a good fire an' a better ale. That'd be a fine end tae a long road." },
+    },
+    favor = {
+      { id = "fv_1", text = "Look in on the infirmary when ye can, {name}, an' sit wi' the gnomes for a while. They're lonely in a city built for dwarves, an' a friendly face helps more than ye'd think." },
+      { id = "fv_2", text = "If ye travel north, bring back word o' any priest who's held true tae the Light in the plaguelands. I keep a list, an' it's shorter than I'd like." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Aye, an' a dear one, {name}. A priest has a great many folk he prays for, an' very few he prays wi', an' ye're one o' those." },
+      { id = "fr_2", text = "I do, an' gladly, for ye've a kind heart an' a strong arm, an' I've nae better wish for any friend. My door's always open tae ye, day or night." },
+      { id = "fr_light", when = { alignment = { axis = "light", min = 40 } }, text = "A friend an' kin in the Light, which is the dearest bond I know. When I'm gone, I'd like tae think ye'll say a prayer for this old dwarf now an' then." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When Gnomeregan fell, I was too slow tae open this Hall tae the wounded, for I waited on the Senate's leave. Three gnomes died on the steps while I waited, an' I've never forgiven myself." },
+      { id = "nt_2", text = "I lost my own brother tae the Dark Iron, {name}, years ago, an' I've never quite forgiven them, priest or no'. It's the one prayer I cannae finish, an' I've stopped tryin'." },
+    },
     _gated = {
       { id = "gt1", text = "That's a thing I'd only talk over wi' someone I know well, an' we've no' walked enough laps together yet. Give it time, an' I'll tell ye gladly." },
       { id = "gt2", text = "I'll keep that one tae myself for now, if ye'll forgive me. Some matters are for friends, an' we're still gettin' acquainted." },

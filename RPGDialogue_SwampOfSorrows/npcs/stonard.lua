@@ -443,8 +443,53 @@ P:NPC {
     { id = "bl2", text = "Fel'zerul says the Atal'ai are stirring in the temple under the Pool of Tears, and he's never wrong about trolls. I've doubled the scouts on the lake road, and it still isn't enough." },
     { id = "bl3", text = "Nethergarde's mages sit right on top of the Dark Portal, and they watch us more closely than they watch it. If you're going south, go wide around their keep." },
   },
+  confides = {
+    { id = "cnf_1", text = "The murlocs on the eastern coast change their hunting grounds with the tide, and at low water their cave is almost empty, which is the time to go in after the Swamp Talker." },
+    { id = "cnf_2", text = "Nethergarde's scouts cross the swamp road at the broken bridge south of Stonard every third day, always at midday, so anyone heading south should go a different day." },
+    { id = "cnf_3", text = "The lake road past the Pool of Tears floods in the rains and the scouts take the high path instead, but the high path is where the Atal'ai wait, so keep to the water even if it means wet boots." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're reliable, {class}. Every order I've given you came back done and on time, and in my line of work there's no higher praise." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You went back to Thrall's Grasp for me when no one else would. I've written that in the log, in my own hand, and I don't do that for many." },
+      { id = "rg_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You follow orders, you report back and you don't invent excuses. If I had a hundred like you, there'd be no need for a dispatch commander." },
+      { id = "rg_orc", when = { race = "Orc" }, text = "You fight like an orc who remembers the camps and doesn't want to go back. That's the kind of soldier Stonard needs, and the kind the Warchief built the new Horde for." },
+    },
+    confide = {
+      { id = "cf_1", text = "I signed the order that sent the regiment to Thrall's Grasp, and I chose the road the messenger took. The murlocs were on that road, and I knew they might be." },
+      { id = "cf_2", text = "I keep the last report from Thrall's Grasp in my armour, against my skin, the same way I tell my scouts to carry their orders. I read it before I sign anything." },
+    },
+    trust = {
+      { id = "tr_1", text = "Fel'zerul. He's an old troll and he talks to things I can't see, but he's never once been wrong about the Atal'ai, and he's never once asked for anything in return." },
+      { id = "tr_2", text = "Trust Bengor's eyes and Helgrum's wings. Bengor saw the murlocs take my orders, and Helgrum has never yet lost a message between here and Grom'gol." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the water. The murlocs on the coast don't fight fair, and they'll drag you under in the shallows before you've drawn your blade." },
+      { id = "wo_2", text = "Watch for Nethergarde patrols on the southern road. They're not at war with us, not officially, but they'd be glad of an excuse." },
+    },
+    worries = {
+      { id = "wy_1", text = "That I'll lose another regiment the same way, because of a road I chose and orders that never arrived. Every dispatch I send now, I wonder if it's the next Thrall's Grasp." },
+      { id = "wy_2", text = "That the Atal'ai are closer to what they want than any of us think. Fel'zerul doesn't sleep any more, and when a troll that old stops sleeping, I start to worry." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To get those orders back from the Swamp Talker and read them. I want to know if they would have saved anyone, and then I want to burn them." },
+      { id = "hp_2", text = "A year without a single lost dispatch. I'd frame the log for that year and hang it on the wall, and nobody would understand why." },
+    },
+    favor = {
+      { id = "fv_1", text = "Carry a dispatch for me now and then, when you're going my way. I trust you to get it there, and I can't say that about everybody who walks through my door." },
+      { id = "fv_2", text = "If you're ever in Orgrimmar and someone mentions Thrall's Grasp, tell them Stonard hasn't forgotten. That's all, and it matters more than it sounds." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {class}. I don't have many, because a dispatch commander sends people to die and it's hard to call them friends after, but you keep coming back." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've carried my orders and brought back my dead, and you never once complained. Yes, you're a friend, and I'd write your name in the log beside the Warchief's." },
+      { id = "fr_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "When you say a thing is done, it's done, and I don't have to check. In my work that's the closest thing to friendship there is, and I count you a friend." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I was the one who wanted to send a single runner instead of a squad, to save soldiers for the regiment. I saved four soldiers, and I lost the whole regiment for it." },
+      { id = "nt_2", text = "I asked the Warchief to relieve me of command after Thrall's Grasp. He refused, and said a soldier who's made that mistake once will never make it again, and I've spent every day since trying to prove him right." },
+    },
     grievance = {
+      { id = "gv_al_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You come and go as you please and report to nobody. That's exactly how a regiment dies in a swamp, and I've already written that report once." },
       { id = "gv1", text = "You've been nothing but trouble in my reports, and I write everything down. My problem with you is the length of the page." },
       { id = "gv_pers", when = { grudge = "persuade" }, text = "You came into my hall and tried to talk me out of what I know, as if a dispatch commander bends because someone leans on him. I don't." },
       { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're Alliance, inside a Horde fort with Alliance banners on every side of it. I can count, and I don't like the sum." },

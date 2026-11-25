@@ -419,6 +419,49 @@ P:NPC {
     },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you do your work and keep your mouth shut about it, {class}, and that's what a soldier is. Brackenwall's got room for you any time." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You helped me get to the bottom of that business at Shady Rest when nobody else would. I don't forget who stood with the Warchief's name." },
+      { id = "rg_3", when = { fondness = "tone" }, text = "You speak straight and you don't waste my time. In this swamp, that's the only kind of talk I trust." },
+      { id = "rg_al", when = { alignment = { axis = "honor", min = 30 } }, text = "You keep your word, and that matters here more than anywhere. Somebody tried to make a liar of the Warchief in this marsh, and you're the opposite of them." },
+    },
+    confide = {
+      { id = "cf_1", text = "I don't believe Jaina had anything to do with Shady Rest, whatever my grunts say. Somebody wants us at each other's throats, and I mean to find out who." },
+      { id = "cf_2", text = "Brackenwall's got fewer grunts than it ought to, because Orgrimmar keeps forgetting we're here. If Theramore marched tomorrow, we'd hold a day, maybe two." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the scouts who come back muddy. The ones who come back clean haven't been anywhere worth going." },
+      { id = "tr_2", text = "Trust the Warchief and his word, even out here. Don't trust anyone in a Theramore tabard who won't look you in the eye, and don't trust a deserter of any colour." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the black dragons coming out of the Wyrmbog to the south. They come further every month, and something big is feeding them in there." },
+      { id = "wo_2", text = "The Bloodfen raptors hunt in packs and come out of the reeds without a sound. Keep your back to solid ground and your eyes on the water." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry somebody will start a war in this marsh, and the Warchief will have to finish it. Shady Rest was a match, {name}, and this swamp is full of dry tinder." },
+      { id = "wy_2", text = "Those black dragons are getting bolder, and whatever's feeding them in the Wyrmbog isn't a beast. If it turns its eye on Brackenwall, we'll need more than axes." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to find whoever burned Shady Rest and drag them to the Warchief in chains. Then nobody can say the Horde broke the peace." },
+      { id = "hp_2", text = "I'd like to see Brackenwall become a real village one day, with families and fires instead of just grunts and mud. A man can hope." },
+    },
+    favor = {
+      { id = "fv_1", text = "Go into the marsh north of here and find those Theramore deserters, and get the truth out of them about Shady Rest. That's worth more than any trophy." },
+      { id = "fv_2", text = "If you pass through Orgrimmar, remind them we're still out here. A word from you might get me more grunts." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Aye, you're a friend. You've stood in the mud with me, and out here that's what counts." },
+  confides = {
+    { id = "cnf_1", text = "The Theramore deserters camp in the marsh north of Brackenwall, near the old ruins, and they post a lookout on the highest stone." },
+    { id = "cnf_2", text = "The black dragonkin in the Wyrmbog gather near a cave at the southern end of the marsh, and whatever feeds them goes in and out of there." },
+    { id = "cnf_3", text = "Theramore soldiers patrol the road past Brackenwall every few days, and their sergeant is a fair one who'll talk to an orc if nobody's watching." },
+  },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You helped me clear the Warchief's name when it mattered, and I don't forget that. I'd trust you at my back in the Wyrmbog." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When I first heard about Shady Rest, I wanted war. I was ready to march on Theramore that night, and only the Warchief's orders stopped me." },
+      { id = "nt_2", text = "Some nights I wonder if the Warchief sent me here because I'm useful or because I'm out of the way. I've never asked him, because I'm afraid of the answer." },
+    },
     _gated = {
       { id = "gt1", text = "That is not for you to hear yet. Prove your worth to the Horde in this marsh, and then I will speak of it." },
       { id = "gt2", text = "I know the answer, and I don't give it to those I haven't measured. Come back when you've shown me what you are." },

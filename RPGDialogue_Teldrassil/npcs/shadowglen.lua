@@ -907,6 +907,11 @@ P:NPC {
     { id = "bl1", text = "The Gnarlpine were a gentle people once, but something on Teldrassil has driven them mad, and the fel moss is part of it. Whatever spreads it festers in the dark of Fel Rock, and I fear what grows there." },
     { id = "bl2", text = "Teldrassil was planted without the Dreamer's blessing, and the Arch Druid will not speak of it. I pray each morning that the tree will forgive us our haste." },
   },
+  confides = {
+    { id = "cnf_1", text = "The satyr Lord Melenas hides in the deepest hollow of Fel Rock, and the moss grows thickest there because he tends it himself." },
+    { id = "cnf_2", text = "The nightsabers at the northern edge of the glade are only hungry and not mad, so you can pass them safely if you keep a steady pace and do not run." },
+    { id = "cnf_3", text = "The Gnarlpine who still sing at dusk have not yet eaten the moss, and they will leave you alone if you leave them alone." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "I don't come to dislike anyone easily, young one, and it grieves me that I've come to it with you. You've given me little to hope on, and hope is what I keep up here." },
@@ -938,6 +943,44 @@ P:NPC {
     elune = { { id = "tp_elune", text = "The moon rises right over Shadowglen, and from the crown you can watch Elune climb the whole sky. I think I chose this post for that, more than the view." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Travellers tell me the Darkmoon Faire is all lanterns and music. From up here I'd see it coming from leagues away, if it ever came." } },
     _none = { { id = "tp_none", text = "That is beyond what I can see from here, and I can see a long way." } },
+    regard = {
+      { id = "rg_1", text = "You climbed all the way up Aldrassil to see an old elf when you could have gone straight on to Dolanaar. I have watched a great many young ones leave Shadowglen, and few ever climb back." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You helped the glade when it needed hands, and you did it without being asked twice. I watched you from up here, and I was proud of you." },
+      { id = "rg_town", when = { fondness = "town" }, text = "Everyone in Shadowglen speaks well of you, even Melithar, and Melithar speaks well of almost no one." },
+      { id = "rg_light", when = { fondness = "alignment", alignment = { axis = "light", min = 30 } }, text = "There is a gentle light about you, {name}, like the moon coming up over the crown of the glade. I am glad to have it climbing my stairs." },
+    },
+    confide = {
+      { id = "cf_1", text = "I took this post because I was afraid of the world below after Hyjal, and I told everyone it was for the view. The view turned out to be worth it, so perhaps it was not entirely a lie." },
+      { id = "cf_2", text = "Conservator Ilthalaine counts every grell and every nightsaber in the glade, and he frets over each one that goes missing. He would never say so, but he has been worried for months." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Ilthalaine and Melithar and anyone else who tends the glade, young one. Shadowglen is small, and those who stay here stay because they love it." },
+      { id = "tr_2", text = "Trust the Sentinels on the road to Dolanaar, and be wary of any stranger who comes up from the shore without the priestesses knowing their name." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for the fel moss around Fel Rock, because the Gnarlpine eat it and it turns them savage. If you see a furbolg stagger, give it a wide berth." },
+      { id = "wo_2", text = "Mind the spiders in the western woods, which have grown bold of late and nest close to the path. I have seen more than one novice carried home with a swollen leg." },
+    },
+    worries = {
+      { id = "wy_1", text = "The Gnarlpine were my neighbours, and I used to trade songs with their elders at the edge of the glade. Now I watch them go mad from up here, and there is little an old elf in a tree can do about it." },
+      { id = "wy_2", text = "I worry that Teldrassil does not want us here as much as we want to be here. Trees have their own minds, young one, and this one was never asked." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope the Gnarlpine will come back to themselves one day and walk up to the glade's edge to sing with me again. I have kept the old songs, in case they do." },
+      { id = "hp_2", text = "I hope to watch the young ones of Shadowglen go out into the whole wide world and come back now and then to tell me of it. You are one of them, if you will allow me." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you go through Dolanaar, tell the innkeeper that old Tenaron is still up his tree and still well. She worries about me, and I would rather she did not." },
+      { id = "fv_2", text = "Come up and tell me what you have seen out in the world whenever you are passing. My eyes are good from up here, but they do not reach past the edge of Teldrassil." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, young one, and I have since the day you first climbed these stairs out of breath and pretending you were not." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have helped this glade and come back to tell me of it, and an old elf cannot ask more of a friend than that." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I was at Hyjal, {name}, and I ran when the demons broke our line on the western slopes. I came back and I fought, but I ran first, and I have never told a soul in Shadowglen." },
+      { id = "nt_2", text = "My sister lies buried among Aldrassil's roots, and I watch from the top of the tree so that I do not have to pass her stone every morning. She would laugh at me for it, I think." },
+    },
   },
 }
 

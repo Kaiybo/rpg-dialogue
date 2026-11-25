@@ -551,9 +551,52 @@ P:NPC {
       { id = "sp_1", text = "I think you're the kind of person who walks past a wounded owl and calls it nature. I've no time for that." },
       { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think you'd cut down Nordrassil for kindling if no one was watching. Good thing the owls are always watching." },
     },
+    regard = {
+      { id = "rg_1", text = "You're all right, you know that? You don't dither, you don't lecture, and you don't ask me to slow down, which is three more things than the Skylord manages." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've done more for this mountain in a few weeks than the Circle has done in years, and the owls have noticed. They don't notice much that isn't a mouse." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You talk straight, and you don't wrap everything in ten layers of moonlight and manners. I like that, and so do the owls." },
+      { id = "rg_chaos", when = { fondness = "alignment", alignment = { axis = "order", max = -30 } }, text = "You don't wait for permission any more than I do, and look how much we get done between us. The Skylord would hate you, which is the best thing I can say about anyone." },
+    },
+    confide = {
+      { id = "cf_1", text = "During the battle I carried messages over the lines in owl shape, and I was younger than any Talon ought to have been. I saw things from the air that I still dream about, and I've never told the Skylord how bad the dreams get." },
+      { id = "cf_2", text = "The Skylord thinks I'm reckless, and he's right, but he's wrong about why. I'm not brave, {name}, I just can't stand waiting while something I love gets hurt." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Yashiro with your life, because he'll trust you with his, and he never says anything he doesn't mean. Trust Jereman too, even when he answers sideways." },
+      { id = "tr_2", text = "Trust the Timbermaw, trust the owls, and don't trust anybody selling firewater on the road out of Felwood. That's half of what I know about people, and it's the useful half." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch out for Celastrus on the eastern slopes, that horrible thornbush that eats things. Thylaen will tell you it's only a plant, and Thylaen is wrong." },
+      { id = "wo_2", text = "Don't fly low over Darkwhisper Gorge, even in bird shape. Something down there throws fire at anything with feathers, and I've lost tail feathers proving it." },
+    },
+    worries = {
+      { id = "wy_1", text = "The Skylord keeps walking the Dream and coming back grey and quiet, and he won't tell me why. I'd rather he shouted at me like he used to, because at least then I'd know he was all right." },
+      { id = "wy_2", text = "The owls are leaving the southern valley earlier every year, and owls don't leave a place they love without a reason. I don't know the reason yet, and I hate not knowing." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Aviana's shrine full of Talon again, with feathers on every branch and nobody asking the Circle's leave to fly. That's how it was in the old stories, and I want to see it for real." },
+      { id = "hp_2", text = "I hope Nordrassil heals while I'm still young enough to fly to the top of it. The Skylord says that's centuries away, and I say he was never any good at counting." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you go through the Timbermaw tunnel, be extra polite to them and tell them Thisalee says sorry. I still owe them an apology, and I'm terrible at making them." },
+      { id = "fv_2", text = "Bring me a white feather from the southern valley if you find one lying loose. Don't pull one from a nest, though, or the owls will never forgive either of us." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Of course I do, you great lump! I don't tell just anybody what the owls really think, you know." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've fought for this mountain and you've put up with me, which is harder, so yes, you're my friend, {name}, and the owls agree." },
+    },
+    never_told = {
+      { id = "nt_1", text = "During the battle I dropped a message I was carrying to the Sentinels, and they didn't get the order to fall back in time. Nobody ever found out, and I've spent every year since trying to make it up to this mountain." },
+      { id = "nt_2", text = "I'm afraid of the Dream, {name}. The other Talon walk it like it's a meadow, and I go in for a moment and come out shaking, and I've never told a single druid." },
+    },
   },
   blurts = {
     { id = "bl_1", text = "The Winterfall furbolgs are drinking a firewater brewed with something out of Felwood, and it's driving them mad. Somebody is supplying it, and the Circle won't listen." },
     { id = "bl_2", text = "The Timbermaw tunnel is the only safe way between Felwood and Winterspring. Make friends with them before you need it, not after." },
+  },
+  confides = {
+    { id = "cnf_1", text = "The Shrine of Aviana has a ring of old stones where the first druids laid her to rest, and nobody is allowed to raise a weapon inside it, not even against a demon." },
+    { id = "cnf_2", text = "The safest way down from the Cradle to Mourning's Rest follows the stream, because the raveners won't cross running water if they can help it." },
+    { id = "cnf_3", text = "Azzleby's caravan drivers will carry a letter back to Everlook if you ask them nicely, and they hear more gossip on the passes than the owls do." },
   },
 }

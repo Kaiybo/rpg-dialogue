@@ -1048,10 +1048,65 @@ P:Pool {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "*{npc} lifts its nose and turns toward the nearest water, and you remember that it always knows where to drink long before you do.*" },
+    { id = "cnf_2", text = "*{npc} growls low at a patch of ground nobody else has noticed, and when you look closer there are tracks there far bigger than anything you have hunted yet.*" },
+  },
   topics = {
     beasts = { { id = "t_beasts", text = "*{npc} lifts its nose and works the wind, and you can tell it knows every beast for a mile, and has opinions about all of them.*" } },
     background = { { id = "t_bg", text = "*{npc} turns its head toward the hills where you found it, and then back to you, and settles.*" } },
     advice = { { id = "t_ad", text = "*{npc} sniffs at your pack, then at you, and sits down pointedly beside the pack, which is about as clear as advice gets.*" } },
     _none = { { id = "t_none", text = "*{npc} tilts its head at you, ears forward, and waits for something it can actually understand, like supper.*" } },
+    grievance = {
+      { id = "gv1", text = "*{npc} turns its back on you and lies down facing the other way, ears flat, and refuses to look round no matter what you say.*" },
+      { id = "gv_wronged", when = { grudge = "wronged" }, text = "*{npc} flinches when your hand comes near, and it has not done that since the day you tamed it.*" },
+    },
+    amends = {
+      { id = "am1", text = "*{npc} looks at your pack, then at you, and then at your pack again, as if pointing out the obvious answer.*" },
+      { id = "am2", text = "*{npc} walks a few paces off and waits, and only comes back once you have sat down and stayed quiet for a good long while.*" },
+    },
+    spite = {
+      { id = "sp1", text = "*{npc} bares its teeth at you, not quite a snarl, and holds your eye far longer than any tame beast should.*" },
+    },
+    regard = {
+      { id = "rg_1", text = "*{npc} looks up at you for a long moment, then presses its whole flank against your legs and stays there, as plain an answer as any beast has ever given.*" },
+      { id = "rg_2", text = "*{npc} sniffs your hand, your sleeve and your face, as if checking that every part of you is still there, and then settles at your feet with a contented sigh.*" },
+      { id = "rg_wolf", when = { pet = WOLF }, text = "*{npc} rears up, puts its paws on your shoulders and licks your chin once, firmly, the way a wolf greets the one who leads the pack.*" },
+      { id = "rg_cat", when = { pet = CAT }, text = "*{npc} considers you, then slowly closes its eyes at you and opens them again, which from a cat is very nearly a declaration of love.*" },
+      { id = "rg_dark", when = { alignment = { axis = "light", max = -30 } }, text = "*{npc} sniffs at the shadow that clings to you, entirely unbothered, as though whatever dark you carry is only one more smell of home.*" },
+    },
+    confide = {
+      { id = "cf_1", text = "*{npc} leads you a few steps off the path and paws at the ground under a bush, where it has buried something it was clearly saving for a special occasion.*" },
+      { id = "cf_2", text = "*{npc} looks over its shoulder toward the wilds where you found it, and its ears go back for just a moment, as though it remembers something it has never shown you.*" },
+    },
+    trust = {
+      { id = "tr_1", text = "*{npc} looks from you to everyone nearby in turn, and its hackles stay down only for you, which tells you exactly how far its trust extends.*" },
+      { id = "tr_2", text = "*{npc} lifts its nose and sorts through every scent on the wind, and then turns its back on all of them and faces you.*" },
+    },
+    watchout = {
+      { id = "wo_1", text = "*{npc} stiffens and stares hard at the treeline, a low rumble starting in its chest, until you look where it is looking.*" },
+      { id = "wo_2", text = "*{npc} circles you twice with its nose to the ground, and then plants itself on your downwind side, where anything creeping up would have to go through it first.*" },
+    },
+    worries = {
+      { id = "wy_1", text = "*{npc} pushes its nose under your hand and holds still there, and you realise it is checking, as it always does, whether you smell of blood today.*" },
+      { id = "wy_2", text = "*{npc} whines softly and keeps glancing at the ground at your feet, as though it still does not trust the earth not to take you again the way it did the last time you fell.*" },
+    },
+    hopes = {
+      { id = "hp_1", text = "*{npc} stretches out in the sun at your feet with its belly to the sky, and you suspect that this, a full stomach with you nearby, is the whole of what it hopes for.*" },
+      { id = "hp_2", text = "*{npc} looks out across open country and its muscles bunch, eager, as though it would like nothing better than to run the whole of it with you at its side.*" },
+    },
+    favor = {
+      { id = "fv_1", text = "*{npc} sits pointedly beside your pack and looks from it to you and back again, with the patience of a creature that knows exactly where the food is kept.*" },
+      { id = "fv_2", text = "*{npc} drops a stick at your feet, steps back and waits, with the air of one asking a very small favour that would mean a great deal.*" },
+    },
+    friendship = {
+      { id = "fr_1", text = "*{npc} leans into you with all its weight and closes its eyes, and you understand that the question was never in doubt.*" },
+      { id = "fr_2", text = "*{npc} lies down across your feet so that you could not leave without waking it, and that is answer enough.*" },
+      { id = "fr_high", when = { minLevel = 50 }, text = "*{npc} rests its head on your knee, as it has after a hundred hard fights together, and sighs as though there were nowhere else in the world.*" },
+    },
+    never_told = {
+      { id = "nt_1", text = "*{npc} goes very still and looks at you, and in its eyes is something of the wild thing you tamed, the one that chose to stay when it could have run. It has never let you see that before.*" },
+      { id = "nt_2", text = "*{npc} lies down with its chin on your boot, and for once it lets you see how tired it is from keeping up with you, as if trusting you not to think less of it.*" },
+    },
   },
 }

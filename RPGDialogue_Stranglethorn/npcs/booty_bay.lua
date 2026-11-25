@@ -570,8 +570,55 @@ P:NPC {
     { id = "bl2", text = "The Cartel doesn't know half of what this port really earns, and I'd like to keep it that way. Repeat that in Gadgetzan and you'll never dock here again." },
     { id = "bl3", text = "A king goes missing on his way to Theramore and nobody finds a plank, friend. I've seen ships vanish like that, and somebody was always paid to make it happen." },
   },
+  confides = {
+    { id = "cnf_1", text = "Firallon's spy in my harbor buys ink every week from the same dockside stall, which is a strange habit for a sailor who claims he can't write. I'm letting him run a while longer to see who reads the letters." },
+    { id = "cnf_2", text = "Nobody should moor overnight at the outer pier, because it's the one stretch of dock my Bruisers don't walk after dark, and the Bloodsail know that as well as I do." },
+    { id = "cnf_3", text = "Short John Mithril buys rope and bandages in bulk the day before every Arena chest, so when you see his boys at the chandler's, the betting's about to open." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I make you out as an asset, friend, and I don't use that word lightly, because most people who climb my stairs end up in the expenses column. You're in the other one, and I check it twice a week just to enjoy the view." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've done right by this port when nobody was paying you to, and in Booty Bay that's practically a miracle. I've written it down in ink, friend, which is more than I do for most of the Cartel." },
+      { id = "rg_town", when = { fondness = "town" }, text = "My Bruisers like you, Skindle likes you, and even the parrot has stopped biting when you're on the balcony. That's a better credit report than most trade princes could show." },
+      { id = "rg_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "Your word holds, and I've tested it more times than you know, through Krazek and a few Bruisers who owed me favors. A goblin can borrow against a name like yours, and I'd lend on it at a very decent rate." },
+      { id = "rg_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You bend the truth exactly as far as it'll go and not an inch further, which is the finest skill in commerce. If you were a goblin, friend, I'd have you running a branch office by spring." },
+    },
+    confide = {
+      { id = "cf_1", text = "I had the shark's jaws hung over the harbor mouth myself, so every captain sailing in knows exactly who eats whom in this cove. Half of them still think the beast died there of old age." },
+      { id = "cf_2", text = "I came to this cove with a ledger, a plan and a debt to a moneylender in Undermine that I'm still quietly paying off. Nobody in the Cartel knows it, and keeping it quiet is the best money I spend all year." },
+      { id = "cf_3", text = "The Blackwater were pirates before they were my harbor guard, and a few of them still miss it. I pay them a shade over what the Bloodsail would, because loyalty, friend, is just a wage that's been rounded up." },
+    },
+    trust = {
+      { id = "tr_1", text = "Seahorn, and you can take that to any bank in Undermine. That bull would sooner sink with his ship than sell me, which makes him the worst businessman and the best partner I've got." },
+      { id = "tr_2", text = "Trust the Bruisers to keep the peace and Krazek to know everything, but never trust Krazek to keep what he knows, because he sells it by the ounce. Everyone else in this town, friend, you price before you trust." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch anybody on the docks who asks which ship you're sailing on and when, friend. Firallon pays good coin for sailing times, and I'd hate to lose a valued customer over the side." },
+      { id = "wo_2", text = "Watch the stairs after dark, and don't take the same one twice if you can help it. The Bloodsail have tried for my throat more often than I've had hot dinners, and they aren't fussy about who's standing next to me." },
+    },
+    worries = {
+      { id = "wy_1", text = "The Bloodsail don't worry me, friend, because they're a known cost and I've priced them in. What keeps me up at night is the day the Cartel sends an auditor who actually knows how to count." },
+      { id = "wy_2", text = "This port holds because I'm on this balcony watching it, and I'm not getting any younger or any cheaper to keep alive. There's no heir in the ledger, and that's the one line I can't make balance." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I'd like Booty Bay to be the richest port in the world, and I'd like the Cartel to have to come and ask me nicely for a share of it. That isn't greed, friend, it's long-term planning." },
+      { id = "hp_2", text = "One season, just one, without a red sail on the horizon. I'd put the savings into a bigger balcony and finally buy a parrot that doesn't bite." },
+    },
+    favor = {
+      { id = "fv_1", text = "Keep your ears open on the docks and bring me anything with Firallon's name on it, because information is the one thing I'm always buying. I'll not insult you by putting a price on it, friend, which tells you how far you've come." },
+      { id = "fv_2", text = "Sink a Bloodsail ship or two when you're passing, and tell Seahorn it was your idea. He enjoys it more when it isn't mine." },
+    },
+    friendship = {
+      { id = "fr_1", text = "In my line of work, friend is what you call a customer just before you charge him, and I've said it ten thousand times without meaning it once. With you I mean it, and I'll thank you not to tell the Cartel." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've put more into this port than you've ever taken out, and I've the figures to prove it. That's the only kind of friendship a goblin truly believes in, and you're the only one in my books." },
+      { id = "fr_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "We both know the rules are written by whoever owns the ink, friend. Of course you're a friend, because I'd hate to have you as competition." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When the Bloodsail's knife came through my window that night, I hid in the ledger cupboard with the books in my arms while Seahorn did all the fighting. The whole cove thinks I faced them down, and you're the only one who knows I saved the books first." },
+      { id = "nt_2", text = "Before this cove I failed at three ventures in Undermine, and the third one ended with my name scratched off a door. Every coin on this balcony is me paying that door back, friend, and it still isn't enough." },
+    },
     grievance = {
+      { id = "gv_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "You walk my docks preaching like a Stormwind cleric, friend, and sermons are terrible for business. Nobody buys rum from someone who's just been told he's a sinner." },
       { id = "gv1", text = "You're a bad account, friend, and I close bad accounts. It's nothing personal; it's bookkeeping." },
       { id = "gv_wronged", when = { grudge = "wronged" }, text = "You talked down to me on my own balcony, in front of my Bruisers. A goblin can forgive debts, but not that sort." },
       { id = "gv_pers", when = { grudge = "persuade" }, text = "You tried to lean on me, friend, in a port I built out of nothing. I've had sharper men than you try it, and they're feeding the sharks." },
@@ -1354,8 +1401,53 @@ P:NPC {
     { id = "bl2", text = "The Bloodsail keep a compound on the coast north of the bay, and they plan their raids there. My lookouts watch it, but I've not the men to burn it." },
     { id = "bl3", text = "The Baron's sworn the Cartel won't hear how many ships the Blackwater really keep. That's a secret that'd cost him his seat, so don't you go repeating it." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Bloodsail compound up the coast keeps its powder in the stone hut nearest the water, and one good torch through that door would end their raiding for a season." },
+    { id = "cnf_2", text = "When the lookout rings the harbor bell twice, there's a red sail on the horizon, and the smart folk get off the docks before the third ring." },
+    { id = "cnf_3", text = "The Bloodsail's officers carry their orders sewn into their hat bands, so when you take a hat off one of them, look inside it before you throw it in the sea." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I make you out to be a good hand in a storm, friend, the sort who laughs when the mast cracks and grabs a rope anyway. I'd have you on my deck any day, and I don't say that to many who come up those stairs." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You talk straight, like a sailor and not like a Cartel clerk, and I've liked you for it since the first word. The Baron makes me sit through enough fancy speeches for both of us." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "There's a warmth about you like An'she rising over the plains, friend, and I feel it every time you climb my stairs. It does this old bull good, after so many years of salt and grey water." },
+      { id = "rg_tauren", when = { race = "Tauren" }, text = "You've the smell of Mulgore on you still, and I'd forgotten how much I missed it. A calf of the herd who's gone out into the wide world is a fine thing to see." },
+    },
+    confide = {
+      { id = "cf_1", text = "I left the plains because I was a poor hunter and a worse herder, and my father said so in front of the whole tribe. The sea never once told me I wasn't good enough, so I gave her the rest of my life." },
+      { id = "cf_2", text = "I can't swim, friend, not a single stroke, and in all my years at sea not one soul has found out. Hooves were made for grass, and I've simply never fallen overboard." },
+    },
+    trust = {
+      { id = "tr_1", text = "The Baron, though he'd charge you for saying so. He's never once lied to me about money, and with a goblin that's as close as you'll ever come to a sworn oath." },
+      { id = "tr_2", text = "Trust any sailor with a Blackwater mark, for they've bled on my deck, but look twice at anybody new on the docks who asks too much about the tides. Firallon always has eyes in this harbor." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for red sails, of course, and watch for red sashes on sailors who swear they've never seen one. The Bloodsail don't all wear their colors on the outside." },
+      { id = "wo_2", text = "Mind the sea giants down the coast, friend, because Smotts lost two crews to them and he's no fool, whatever the tavern says. The water's deep there, and the giants are deeper." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the Bloodsail will reach the Baron some night when I'm not there, and I'll have to tell the whole cove I was asleep. I sleep less than I let on, friend, and that's the reason." },
+      { id = "wy_2", text = "I worry I've been gone from the plains so long the herd has forgotten my name, and that I'll be laid to rest in salt water instead of the grass. I suppose the Earth Mother's daughter will have to take me in." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I'd like to see Firallon's flagship go down off the southern coast with every red sail beside it, and I'd like to be standing on the deck that sank her. After that, a long drink and a longer nap!" },
+      { id = "hp_2", text = "Some day I'd like to sail up the Southfury as far as a keel can go, and look out at the Barrens grass from the deck. It's a silly wish for an old sea bull, but there it is." },
+    },
+    favor = {
+      { id = "fv_1", text = "Sink a few red sails for me when you're out on the water, and come back up the stairs to tell me how it went. A good story is worth more to me than any cargo." },
+      { id = "fv_2", text = "Keep an eye on the Baron while I'm at sea, friend, because he'll never ask anyone to, and he needs it more than he lets on." },
+    },
+    friendship = {
+      { id = "fr_1", text = "A friend? Ha! You're crew, which is better, because a friend might leave you standing on the dock but crew goes down with the ship beside you. I'd sail into any storm with you." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've fought the red sails beside me and never once asked what was in it for you. On the Blackwater that makes you family, and I'll hear no argument about it." },
+      { id = "fr_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You keep your word the way the elders keep the old ways, and that's the finest thing I know to say of anyone. Of course you're my friend, and the Earth Mother is my witness." },
+    },
+    never_told = {
+      { id = "nt_1", text = "The night the Bloodsail came for the Baron, I was late up the stairs because I'd stopped to finish my grog. He thinks I came as fast as I could, and I've let him think it for years." },
+      { id = "nt_2", text = "My father came to Booty Bay once and stood on the dock below this window, and I never went down to him. I don't know if he came to bring me home or to tell me he was proud, and I've never been brave enough to find out." },
+    },
     grievance = {
+      { id = "gv_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You lie as easily as a Bloodsail sails, friend, and I've no stomach for it. On my deck a word is as good as a rope, and yours wouldn't hold a rowboat." },
       { id = "gv1", text = "I like nearly everybody, friend, and I've tried to like you, but you've made it awful hard. I've given up for now." },
       { id = "gv_rival", when = { grudge = "rival" }, text = "You've been seen drinking with Bloodsail, and nobody on my deck drinks with red sails. That's the whole of my problem with you." },
       { id = "gv_wronged", when = { grudge = "wronged" }, text = "You laughed at a tauren on a ship like I was a joke in a sailor's song. I've sunk better comedians than you, friend." },

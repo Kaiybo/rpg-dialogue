@@ -395,6 +395,11 @@ P:NPC {
     { id = "bl1", text = "The runes of fire in the Molten Core feed the Firelord's lieutenants, and only water from my court will douse them. Do it, and his Majordomo must come out to face you." },
     { id = "bl2", text = "Ragnaros was torn into this world by the Dark Iron sorcerer Thaurissan, and every fire elemental under Blackrock answers to him. Do not imagine you are fighting strays." },
   },
+  confides = {
+    { id = "cnf_1", text = "The fire elementals of Searing Gorge rise out of the Cauldron's lowest cracks, so those who wait above the cracks can strike before the flame finds its shape." },
+    { id = "cnf_2", text = "The Dark Iron dwarves fear water nearly as much as their master does, and they keep their cisterns sealed with iron lest my servants rise out of them." },
+    { id = "cnf_3", text = "The Spitelash never chase their prey into fresh water, and the river mouths along this coast are the safest places to come ashore." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "You were given work and treated it as a favour you might grant. I do not tolerate such presumption from my instruments." },
@@ -431,6 +436,44 @@ P:NPC {
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Iron dwarves kneel to the Firelord in their mountain, and they would drown very easily if I had my way. Bring me their dead and I will think better of you." } },
     thrall = { { id = "tp_thrall", text = "The orc shaman who leads the Horde speaks to the elements as a friend, I am told. The water does not need friends, mortal; it needs servants." } },
     _none = { { id = "tp_none", text = "That is a matter for dry land, mortal, and of no interest to the Waterlords." } },
+    regard = {
+      { id = "rg_1", text = "You have served the pure waters faithfully, mortal, and returned each time with what was asked. The tide remembers those who do not waste it." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have put out more of the Firelord's servants than any mortal I have sent. I begin to think you were worth the trouble of noticing." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You speak to me with proper respect, as one ought to speak to a duke of the deep. Few mortals manage it, and I find I have grown fond of the exception." },
+      { id = "rg_order", when = { fondness = "alignment", alignment = { axis = "order", min = 30 } }, text = "You understand that the world must be held in its proper shape, mortal, and that fire left unchecked unmakes everything. The water approves of you." },
+    },
+    confide = {
+      { id = "cf_1", text = "The other Waterlords think me too fond of mortals because I bargain with you. I bargain with you because you are useful and because there is no one else, and I have never told them the second reason." },
+      { id = "cf_2", text = "My lord Neptulon has not spoken to me in a long while. I tell my court that a silent lord is a pleased lord, and I hope that I am right." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the pure waters, mortal, and trust any shaman who honours water above the lesser elements. There are few of them, but they are reliable." },
+      { id = "tr_2", text = "Trust Lord Arkkoroc to hate the naga, and trust nothing else about him. A giant who calls himself a god is always looking for worshippers." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Beware the Spitelash naga when the tide runs high, mortal, for they move through the water faster than any of your kind can swim, and they are not merciful." },
+      { id = "wo_2", text = "Do not trust the warmth of any spring near Blackrock. Fire hides inside water there, and it will scald you from within before you know it is there." },
+    },
+    worries = {
+      { id = "wy_1", text = "Fire grows stronger beneath Blackrock every year, and my waters cannot follow it into the mountain's heart. I worry that by the time mortals reach it, the flame will be too great to drown." },
+      { id = "wy_2", text = "The naga grow bolder in these waters every season, and they serve something beneath the sea that is older than my court. I do not fear them, mortal, but I do not understand them, and I dislike that more." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see the Firelord's servants hissing and drowned in their own mountain, and the Dark Iron forges cold for good. That is the only hope a Waterlord needs." },
+      { id = "hp_2", text = "I hope one day to be summoned before Neptulon and told that the shore I held was held well. A duke may wait a very long time for such words, mortal, but water is patient." },
+    },
+    favor = {
+      { id = "fv_1", text = "Bring me word of any fire elemental you see outside Blackrock, mortal, wherever in the world it may be. Fire wanders, and I would know where it has wandered." },
+      { id = "fv_2", text = "When next you cross the sea, pour a little fresh water into the salt in Neptulon's name. He may not notice, but the tide will, and so will I." },
+    },
+    friendship = {
+      { id = "fr_1", text = "The Waterlords do not have friends, mortal; they have allies and they have obstacles. You are the first ally I have thought of fondly, and I find the feeling strange." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have quenched fire at my word and come back unburned. If a duke of the deep may call a mortal friend, then you are mine." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I was not always a duke, mortal. I was a lesser current in Neptulon's court, and I rose because those above me were boiled away by fire while I fled into the deep. I have hunted flame ever since, and it has never been enough." },
+      { id = "nt_2", text = "Long ago I let a single spark live in a tide pool on this island, because it was small and it flickered like something afraid. I put it out the next morning, and I still think of it, which troubles me greatly." },
+    },
   },
 }
 
@@ -817,6 +860,11 @@ P:NPC {
     { id = "bl1", text = "Razelikh the Defiler draws his protection from an amulet, and its pieces are held by his servants scattered across the Blasted Lands. Gather them, and he can be reached." },
     { id = "bl2", text = "Lord Kazzak himself still walks the Tainted Scar, gathering what is left of the old armies. Your kingdoms sleep very soundly for people with such a neighbour." },
   },
+  confides = {
+    { id = "cnf_1", text = "The satyrs of the Haldarr camp keep their spellcasters at the back of every war party, so whoever comes at them from behind will find the dangerous ones first." },
+    { id = "cnf_2", text = "Arkkoroc knows the true names of half the demons on this coast, and he will trade one for a service if you ask him when the sea is calm." },
+    { id = "cnf_3", text = "The water around this island smells of brimstone because my hounds bury what they kill beneath the sand, so do not dig here." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "You came to my island and wasted my time. Demons waste enough of it without your help." },
@@ -854,6 +902,44 @@ P:NPC {
     elune = { { id = "tp_elune", text = "Elune turned her face from me when I took the demon's fire into my body. I do not blame her, but I do still pray, out of habit." } },
     dark_portal = { { id = "tp_dark_portal", text = "The orcs opened a door the Legion was waiting at, and you mortals closed it with more luck than you deserved. The Legion was waiting on the other side, as it always is." } },
     _none = { { id = "tp_none", text = "That is not a demon, so it does not concern me." } },
+    regard = {
+      { id = "rg_1", text = "You have come back to this island more times than most who come once, mortal, and you have not yet tried to bargain with what lives in my blood. I find that I almost respect you." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have killed what I sent you to kill and come back with the proof. That is the only language I speak fluently, and you speak it well." },
+      { id = "rg_values", when = { fondness = "values" }, text = "You are hard on yourself and harder on the dark, and you do not flinch from what must be done. I was like you once, before I paid my price." },
+      { id = "rg_light", when = { fondness = "alignment", alignment = { axis = "light", min = 30 } }, text = "You carry a light that would burn me if I stood too close, {race}, and I am glad of it. Someone ought to carry it, since I no longer can." },
+    },
+    confide = {
+      { id = "cf_1", text = "My hounds are the only company I keep, and I chose them because they cannot pity me. You would be surprised how restful that is." },
+      { id = "cf_2", text = "I watched the Highborne court open its door to the Legion and said nothing, because I was young and the queen was beautiful. Everything I have done since has been an answer to that silence." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust my hounds before you trust me, mortal, and trust me before you trust anyone who tells you the Legion is finished." },
+      { id = "tr_2", text = "Trust the duke on his rock to hate fire, and trust Arkkoroc to want payment. That is all the trust this bay will bear." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Beware any stranger who offers you a bargain in the Blasted Lands. Razelikh's servants wear mortal faces there, and they are very persuasive." },
+      { id = "wo_2", text = "Never sleep within sight of the Tainted Scar, mortal. Kazzak's hunters roam by night, and they do not need you awake to take you." },
+    },
+    worries = {
+      { id = "wy_1", text = "The demon in my blood grows hungrier as I grow older, mortal, and I do not know which of us will tire first. I hunt harder each year so that it never has the leisure to decide." },
+      { id = "wy_2", text = "Your kingdoms sleep while Kazzak gathers what is left of the old armies, and I worry that I will be too old to hunt him by the time they wake." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Razelikh's name struck from the world before my own is, mortal. I have few hopes left, and that one keeps me sharp." },
+      { id = "hp_2", text = "I hope to die cleanly, by a demon's hand and not by my own blood turning on me. It is a small hope, but it is mine." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you take a satyr's horn in your travels, burn it on a shore where the sea can see. It is an old custom of my people, and I am too tired to keep it alone." },
+      { id = "fv_2", text = "Tell no one in Darnassus that you know me, mortal. They would think less of you for it, and I would not have that on my account." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I have not called anyone friend since before your kingdoms existed, mortal. If I were to begin again, I would begin with you." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have stood against demons at my word and never asked what it cost me to give it. My hounds trust you, and so, to my surprise, do I." },
+    },
+    never_told = {
+      { id = "nt_1", text = "The first demon I ever killed was one I had called myself, mortal, in a moment of youthful arrogance. I have never told anyone, and I have killed thousands since to bury that one." },
+      { id = "nt_2", text = "In the years after the Sundering, a priestess of Elune brought me bread on this island and never once asked what I was. She stopped coming long ago, and I have never learned whether she died or simply grew afraid." },
+    },
   },
 }
 

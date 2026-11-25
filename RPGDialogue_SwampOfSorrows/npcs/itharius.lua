@@ -280,8 +280,54 @@ P:NPC {
     { id = "bl2", text = "My own kin guard the deepest halls of the temple now, and their minds are no longer their own. Do not hesitate when you meet them, mortal, for they will not." },
     { id = "bl3", text = "Eranikus is held in the temple's lowest chamber, more shade than dragon. If you ever carry his essence out of that place, bring it to me, and do not listen if it whispers to you on the way." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Atal'ai send their acolytes up through a drowned stair on the north side of the Pool of Tears, and they come at dusk, when the mists are thickest." },
+    { id = "cnf_2", text = "The swamp's crocolisks will not hunt near the old troll stones on the lake's edge, for something in those stones still remembers Hakkar, and the beasts can smell it." },
+    { id = "cnf_3", text = "Those who sleep too near the temple begin to dream of a great red serpent, and if your dreams ever turn that colour, wake and leave the swamp at once." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you are less brief than most of your kind, mortal, though you do not live any longer. You pause before you act, and in a dragon's eyes that is the beginning of wisdom." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have gone into the temple on my behalf and come back unchanged, which many of my own flight could not manage. I have not forgotten it, and I do not intend to." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "There is a clarity in you that the Dream recognises, mortal. When you sleep, I expect its edges are kinder to you than to most." },
+      { id = "rg_druid", when = { class = "DRUID" }, text = "You walk the Dream's paths with the Cenarion Circle's blessing, and the whelps grow quiet when you enter, as they do for my own kin. That is no small thing." },
+    },
+    confide = {
+      { id = "cf_1", text = "Eranikus was my elder in the flight, and he taught me to fly through the Dream without losing my way. It is a strange thing, mortal, to ask a stranger to bring back the essence of one's own teacher." },
+      { id = "cf_2", text = "The whelps in this cave are not mine by blood. They are the young of the kin who went into the temple and did not come out, and I have not told them so." },
+      { id = "cf_3", text = "I have not walked the Dream in many seasons. I fear that what took my kin in the temple would follow me in, and so I keep my eyes open, which for one of Ysera's flight is a kind of exile." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the druids of the Cenarion Circle in this swamp, for they serve the Dream and want nothing from the temple. Trust no troll who speaks of the old gods with longing." },
+      { id = "tr_2", text = "Trust my whelps' noses more than your own eyes. If they will not follow you down a path, there is a reason, even if you cannot see it." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Beware the dragonkin in the temple's deeper halls, mortal, for they wear the colours of my flight and their minds are no longer their own. Do not mistake them for allies because they look like me." },
+      { id = "wo_2", text = "Beware the Pool of Tears after dark. The Atal'ai have laced its waters with something, and those who drink from it begin to hear voices they will later wish they had not." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the silence of my kin is spreading. Those I sent to ask after Eranikus have not returned, and the Dream itself feels further away than it should." },
+      { id = "wy_2", text = "That I am too proud to ask my mistress for help, and too few to manage without it. A dragon should not have to admit such a thing to a mortal, and yet here I am." },
+    },
+    hopes = {
+      { id = "hp_1", text = "That Eranikus may yet be freed of whatever holds him, and that he will remember the one who waited for him. I do not ask that he thank me, only that he know me." },
+      { id = "hp_2", text = "To see these whelps grown and flying in the Dream as their parents did, untouched by the temple's corruption. That would be enough for a long while, even by a dragon's reckoning." },
+    },
+    favor = {
+      { id = "fv_1", text = "Strike at the Atal'ai wherever you find them, mortal, and tell me what you saw in their eyes. I must know whether they are mad or merely devoted, for the two are dealt with differently." },
+      { id = "fv_2", text = "If you walk the edges of the Dream in your sleep, and you see a great green shape that does not know its own name, do not run from it. Say mine, and see if it listens." },
+    },
+    friendship = {
+      { id = "fr_1", text = "A dragon does not use that word lightly, mortal, for we outlive our friends and must carry them a very long time. I will carry you, and I find I do not mind the weight." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have served my flight without being asked and without asking anything in return. Yes, I count you a friend, and I have counted very few of your kind in my long life." },
+      { id = "fr_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "Your word is woven truly, mortal, and the Dream is made of such threads. I count you a friend of the green flight, and that is no small thing for a creature who lives so briefly." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When my kin went down into the temple, I was meant to go with them. I lingered at the entrance a moment too long, and the way closed behind them, and I have never been certain it was an accident." },
+      { id = "nt_2", text = "Sometimes, in the deepest part of the night, I hear Eranikus calling my name from beneath the water. I do not answer, and I do not know whether that is wisdom or cowardice." },
+    },
     grievance = {
+      { id = "gv_al_shadow", when = { alignment = { axis = "light", max = -30 } }, text = "There is a shadow in you that the Dream recoils from, mortal, and I feel the recoil each time you enter my cave. My mistress would not suffer you near her, and I am less patient than she is." },
       { id = "gv1", text = "You have given me no reason to think well of you, mortal, and dragons do not hand out good opinion for nothing. That is the whole of it." },
       { id = "gv_tone_b", when = { grudge = "tone", tone = "blunt" }, text = "You speak to me as you would to a tavern keeper, mortal. I have watched your kingdoms rise and fall, and I will be addressed accordingly." },
       { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke lightly of my flight and my mistress in my own cave. I do not forget such things, and I have a very long time in which to remember them." },

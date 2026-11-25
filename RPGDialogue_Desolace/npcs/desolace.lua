@@ -349,6 +349,11 @@ P:NPC {
     { id = "bl2", text = "The centaur say something called Theradras lives beneath Maraudon, the earth spirit who killed their father. Whatever she is, she's poisoning the valley around it." },
     { id = "bl3", text = "The Burning Blade's warlocks keep their circles inside Thunder Axe Fortress in the north, and that's where their demons come from." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Gelkis and the Magram both send scouts to the cliffs above Nijel's Point at dawn to see which way our patrols ride, so I send the morning patrol the wrong way on purpose." },
+    { id = "cnf_2", text = "There's a dry gully running south from Nijel's Point that the centaur never patrol, and it'll get you most of the way to the Kodo Graveyard unseen." },
+    { id = "cnf_3", text = "The Burning Blade trade with the Magram for bones, and they make the exchange at night on the edge of the Valley of Bones." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "You've cost me more than you've given, and I keep a careful count. That's my problem with you." },
@@ -382,6 +387,44 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "The orcs at Shadowprey Village keep to their coast and I keep to my mountain, which suits us both. Their warchief signed a peace with Theramore, but I don't see it written on any Kolkar spear." } },
     scourge = { { id = "tp_scourge", text = "There are dead walking in the Valley of Bones, raised by the Magram, and the Scarlet Crusade has sent zealots after them. I've no love for either, and I'm short of men to spare." } },
     _none = { { id = "tp_none", text = "Not in my orders. Ask Kreldig; the Reclaimers poke into everything." } },
+    regard = {
+      { id = "rg_1", text = "You get things done without making noise about it, and you know when to keep your mouth shut. That makes you more useful to me than half my garrison." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've done Nijel's Point more good than the last three reinforcements Stormwind promised me. I wrote as much in my last report, for whatever that's worth." },
+      { id = "rg_values", when = { fondness = "values" }, text = "You think before you act, and you think a step or two further than most. I like that in a soldier, and I like it more in a friend." },
+      { id = "rg_cunning", when = { fondness = "alignment", alignment = { axis = "honor", max = -30 } }, text = "You understand that honour won't feed a garrison or hold up a wall, {name}. Out here that isn't cynicism, it's arithmetic." },
+    },
+    confide = {
+      { id = "cf_1", text = "Stormwind sent me here because I embarrassed a lord at a staff meeting, and I've never regretted it. Desolace is dry and miserable, but nobody here pretends otherwise." },
+      { id = "cf_2", text = "Now and then I let word slip to the Kolkar of where the Gelkis are camped, so the Gelkis stay too busy to look our way. It's not the sort of thing I'd put in a report, but it works." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Kreldig and the Reclaimers to tell you what they've found, if not always where. They're dwarves, so they lie about treasure and nothing else." },
+      { id = "tr_2", text = "Trust no centaur clan's promise for longer than it takes them to find a better one. That isn't prejudice; it's every report I've ever filed." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Never ride through the Valley of Bones at night, because the Magram raise what's buried there and send it walking. My scouts learned that the hard way, and I'd rather you didn't." },
+      { id = "wo_2", text = "Watch the satyrs at Thunder Axe Fortress, and watch the orcs with them even more closely. A demon you can see is less dangerous than a man who'll sell you to one." },
+    },
+    worries = {
+      { id = "wy_1", text = "I've got half the soldiers Nijel's Point needs and a wall that's older than I am. If the centaur ever stopped fighting one another, I'd have about a day to decide what to save." },
+      { id = "wy_2", text = "Whatever is poisoning the valley around Maraudon is spreading slowly, the way a thing does when it means to stay. I worry I'll be ordered to hold this post long after it's sensible." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see a full company march up from Feralas one day with orders to relieve me. I'd hand over the post with a smile and a list of every centaur grudge worth knowing." },
+      { id = "hp_2", text = "I hope to retire to a farm in Elwynn and never see sand again. I won't, but a soldier is allowed one foolish hope." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you pass a Gelkis camp, keep your ears open and tell me what they're saying about the Magram. A little news at the right moment is worth a squad to me." },
+      { id = "fv_2", text = "Next time you're in Stormwind, mention Nijel's Point to anyone in uniform who'll listen. Somebody up there has to remember we exist." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I suppose I do, which is unusual for me. In my line of work friends are a liability, and I've decided you're one I can afford." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've done more for Nijel's Point than Stormwind has, and you never asked for a commission. That's a friend by any soldier's reckoning." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I lost a whole patrol my first season here because I trusted a Magram scout who swore the road was clear. I've played the clans against each other ever since, and I've never trusted one again." },
+      { id = "nt_2", text = "I write to my sister in Goldshire every month and tell her Desolace is a quiet post with a lovely view. She believes me, and I'd like it to stay that way." },
+    },
   },
 }
 
@@ -1607,6 +1650,11 @@ P:NPC {
     { id = "bl2", text = "The Blade here are the same cult that hides in Ragefire Chasm beneath Orgrimmar, and the Warchief knows it. Kill them in one place and they crawl out of another." },
     { id = "bl3", text = "Nijel's Point has fewer soldiers than it shows. Pentigast walks the same men along different walls, and he thinks we don't notice." },
   },
+  confides = {
+    { id = "cnf_1", text = "The satyrs around Thunder Axe Fortress patrol in a ring, and if you watch long enough you'll see the gap they leave every time they pass the eastern wall." },
+    { id = "cnf_2", text = "The Burning Blade hide their supplies in the dry riverbeds north of the fortress, because they think nobody will look in a ditch." },
+    { id = "cnf_3", text = "The tauren at Ghost Walker Post know where every clean spring in Desolace lies, and they'll tell you if you ask them with respect." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "You've shown me nothing worth respecting, and I measure everyone by that. Fight, or get out of my way." },
@@ -1637,6 +1685,44 @@ P:NPC {
     centaur = { { id = "tp_centaur", text = "The centaur clans fight each other more than they fight us, and I am content to let them. My blade is for demon-lovers first." } },
     dark_portal = { { id = "tp_dark_portal", text = "The orcs came through the Dark Portal with demon blood in their veins, and some of us have never washed it out. I would see that door stay shut forever." } },
     _none = { { id = "tp_none", text = "Not my hunt. Ask someone who has time to talk instead of fight." } },
+    regard = {
+      { id = "rg_1", text = "You kill demon-lovers without hesitating, and you don't ask me to explain why. That's all I ask of anyone, and you give it." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've put enough Burning Blade in the dust to earn my respect, {name}, and that's not a thing I give away." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You don't waste words, and you don't flinch when I don't waste mine. We understand each other." },
+      { id = "rg_honor", when = { fondness = "alignment", alignment = { axis = "honor", min = 30 } }, text = "You fight with honour, and you'd never sell your soul for power. After what the Blade have done to my people, that's worth more to me than any blade." },
+    },
+    confide = {
+      { id = "cf_1", text = "My father drank the demon's blood with the rest of them, and he never got over it, even after Thrall freed us. I hunt the Blade because I couldn't hunt the thing that ruined him." },
+      { id = "cf_2", text = "Keldran sent me to Desolace because I was too angry to keep in Orgrimmar. He was right, and I'll never tell him so." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust my scouts at Ghost Walker Post; they're the best I've ever had. Trust the Magram's hatred of the Gelkis, and nothing else about either clan." },
+      { id = "tr_2", text = "Don't trust any orc who smells of brimstone, whatever he tells you about the Horde. The Blade wear our faces, and that's the worst thing about them." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the satyrs in the hills around Thunder Axe Fortress, because they can make you see things that aren't there. If a friend calls you off the road, look twice." },
+      { id = "wo_2", text = "Stay away from the Kodo Graveyard after dark. The spirits there don't care whose side you're on." },
+    },
+    worries = {
+      { id = "wy_1", text = "The Blade are spreading faster than I can kill them, and some of the new ones are young. I worry the Horde is still making warlocks faster than I can unmake them." },
+      { id = "wy_2", text = "Some nights I wonder whether there'll be enough of me left over from this hunt to be anything else. I don't like the answer." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to walk through Thunder Axe Fortress one day and find it empty. Then I'll sit on its steps and drink something stronger than water for once." },
+      { id = "hp_2", text = "I hope the next generation of orcs hears the word warlock and never once thinks of their own people. That's all I want out of this war." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you go down into Ragefire Chasm beneath Orgrimmar, kill every Blade you find and come tell me how many there were. I want to know if they're growing or shrinking." },
+      { id = "fv_2", text = "When you're next in Orgrimmar, tell Keldran I'm still angry and still hunting. He'll know what it means." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I don't have friends, {name}; I have people I'd fight beside. You're one of them, and that's as close as I get." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've hunted the Blade with me and never once flinched. That's friendship, the only kind I know." },
+    },
+    never_told = {
+      { id = "nt_1", text = "The first Burning Blade I ever killed was my cousin. I didn't know it until his hood fell back, and I've never told a soul, not even Keldran." },
+      { id = "nt_2", text = "I'm afraid of what's in my own blood, {name}. My father had it, and I hunt it in other orcs so that I don't have to look for it in myself." },
+    },
   },
 }
 

@@ -375,12 +375,58 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Scarlet patrols change shift at the old bridge west of Brill at dusk, and for a short while nobody is watching the road." },
+    { id = "cnf_2", text = "Two Forsaken went back to the Monastery this season hoping to be forgiven, and the Crusade burned them and sent their ashes to Brill as a message." },
+    { id = "cnf_3", text = "Magistrate Sevren keeps a second ledger of the town's stores, and it never matches the one he sends to the Undercity." },
+  },
   blurts = {
     { id = "bl1", text = "Devlin Agamand still walks the Agamand Mills with what's left of his family, mindless and dangerous. Put them down for good, and the farms around the mills might be safe again." },
     { id = "bl2", text = "The Crusade's patrols come down from the monastery road in the evening, and they hunt in small packs. Never assume you've seen the last of one." },
     { id = "bl3", text = "The Undercity sends me more orders than soldiers, and the court argues while Brill bleeds. Don't repeat that where the Dark Lady's people can hear it." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're useful, and you've proven it more than once in Tirisfal. I don't say that to many, so take it for what it's worth." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've killed Scarlets for me without being asked twice and without asking for thanks. That puts you ahead of half the Deathguard I command." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You speak plainly and you don't waste my time with flattery. I've no patience left for anything else, and you seem to understand that." },
+      { id = "rg_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You follow orders and you finish the work, which is the whole of a soldier's worth. I'd put you on the walls of Brill tomorrow." },
+      { id = "rg_al_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You answer to nobody, and that would worry me in a soldier. In you it hasn't yet cost me anything, so I'll keep watching rather than judging." },
+    },
+    confide = {
+      { id = "cf_1", text = "The Deathguard I command are fewer than the court believes, and the court believes what I tell it. If the Crusade ever learned the true count, they'd march on Brill the next morning." },
+      { id = "cf_2", text = "I served in Lordaeron's army before the plague, and I was a sergeant, not an officer. The Dark Lady made me an Executor because I was still standing when the officers were not." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Deathguard on the walls, because they've nothing left to lose and nowhere else to be. Trust the magistrate with the town's records and with nothing that has a blade." },
+      { id = "tr_2", text = "Trust nobody who comes down the monastery road claiming to have left the Crusade. I've caught four Scarlet spies this season, and every one of them had a good story." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the road past Agamand Mills at dusk, where the Crusade's patrols come down in small packs. Never assume you've seen the last of them." },
+      { id = "wo_2", text = "Watch for Maggot Eye's lot near Garren's Haunt, gnolls with more spite than sense. They've killed better fighters than they had any right to." },
+      { id = "wo_3", text = "Watch the lake shore north of Brill, where the murlocs come up after dark. They don't care what side you're on, only whether you can run." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the court will send me another letter full of orders and no soldiers, and that I'll lose Brill while I'm reading it. That's the only worry I allow myself." },
+      { id = "wy_2", text = "The faces of the Crusaders I've cut down, some of whom I'd have known in life. I keep count so I don't have to look at them, and some nights the count isn't enough." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see the Scarlet Monastery empty and its banners burned in the yard. After that, I'll find out whether I'm good for anything besides this." },
+      { id = "hp_2", text = "I hope the Dark Lady turns east one day with every soldier she has, and that Brill can spare me when she does." },
+    },
+    favor = {
+      { id = "fv_1", text = "Kill Scarlets, and bring me what they carry, especially their orders. A dead zealot is worth something to me, but his letters are worth a great deal more." },
+      { id = "fv_2", text = "If you hear the Deathguard grumbling about their posts, tell me before it turns into something worse. I'd rather hear it from you than from the Undercity." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I don't keep friends, because I lose them too easily out here. If I did, you'd be one, and that's as far as I'll go." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've stood on my walls and bled for this town. In the Deathguard that makes you a comrade, and a comrade is worth more to me than any friend." },
+      { id = "fr_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You keep your word and you hold the line, and I can count on you when it matters. Yes, I'd call you a friend, and I'd let the Deathguard hear me say it." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When I first woke as Forsaken, I walked to my old house in Brill before I reported to anyone. There was a Scarlet family living in it, and I left them there, and I never told the Dark Lady." },
+      { id = "nt_2", text = "I'm not sure the freedom the Dark Lady gave us reached all of me. Some days I kill too easily, and I can't tell whether that's me or what the Scourge left behind." },
+    },
     grievance = {
       { id = "gv1", text = "You've been more trouble in Tirisfal than you've been worth, and I keep careful count of both. That is my problem with you." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "You wore the Crusade's red before you died, and I've hanged scouts who stood exactly the way you're standing now. Give me a reason to stop watching you." },

@@ -656,12 +656,60 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "Varimathras reports to me faithfully, which is precisely why I have my banshees report on Varimathras." },
+    { id = "cnf_2", text = "The Deathstalkers answer to me alone, not to the Executors and not to the Horde, and they go where even my Deathguard are not sent." },
+    { id = "cnf_3", text = "The Bulwark in the Western Plaguelands holds by a thread, and if it ever breaks, the Scourge will be in Brill before the Executors have finished arguing." },
+  },
   blurts = {
     { id = "bl1", text = "Of the three dreadlords who held Lordaeron, I broke Detheroc and Varimathras bent the knee, but Balnazzar slipped away. Bring me word of where he hides, and I may yet forget my displeasure." },
     { id = "bl2", text = "Kel'Thuzad still serves his master from Naxxramas, high above the Plaguelands, and he will answer to me before the end. Until then the Scourge in the east are his, and the Bulwark is all that stands before them." },
     { id = "bl3", text = "My apothecaries are brewing something for the Scourge, and for whoever else stands in my way. Be grateful you know even that much." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you are useful, {name}, and I have learned to value usefulness above affection. That I trouble to say so at all should tell you more than the words." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have done what I asked without needing to be asked twice. Few of the living manage that, and fewer of the dead." },
+      { id = "rg_scourge", when = { race = "Scourge" }, text = "You clawed your way out of the Lich King's grip as I did, and you have made something of the freedom. That is all I have ever asked of my people." },
+      { id = "rg_al_dark", when = { alignment = { axis = "light", max = -30 } }, text = "You do not shrink from the dark, and you do not pretend to be cleaner than you are. I find that honest, which is more than I can say of the Light's servants." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "You still carry the Light about you like a lantern, which is a curious thing to bring into my court. Keep it, if it helps you, but do not expect me to warm my hands at it." },
+    },
+    confide = {
+      { id = "cf_1", text = "I do not sleep, {name}, and the nights beneath Lordaeron are very long. I spend most of them listening to my banshees repeat what my subjects say when they think I cannot hear." },
+      { id = "cf_2", text = "This throne room was a crypt for Lordaeron's kings before it was mine. I had their bones moved, not out of respect, but because I did not care to rule above them." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust my Deathguard, who died for Lordaeron once and will die for me a second time without complaint. Trust my apothecaries with their work, and with nothing else." },
+      { id = "tr_2", text = "Trust no one who tells you how gladly they serve me. Those who truly serve me do it coldly, as I would, and without needing to say so." },
+      { id = "tr_horde", when = { faction = "Horde" }, text = "The tauren elders who spoke for us, and your Warchief, as far as he goes. The rest of the Horde still flinch when my people pass, and flinching is not the same as faith." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Scarlet Crusade, who burn any Forsaken they take and call it mercy. Their monastery in Tirisfal stands closer to this throne than I would like." },
+      { id = "wo_2", text = "Watch the canals in the lower rings. Things fall into that green water that are not always meant to come out again." },
+      { id = "wo_3", text = "Watch Hillsbrad, where the humans of Southshore pretend the war ended with the last one. Tarren Mill is all that reminds them otherwise." },
+    },
+    worries = {
+      { id = "wy_1", text = "I do not worry, {name}; I calculate. Still, I calculate how long the Horde will tolerate us, and the sum is never as comfortable as I would wish." },
+      { id = "wy_2", text = "Arthas sits on his throne of ice while I rule a city of the dead beneath a ruin. Some nights I wonder whether I am free of him, or only far from him." },
+      { id = "wy_3", text = "My people break, sometimes, when their memories come back too sharply. I cannot make them whole, and I dislike very much the things I cannot do." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to stand over Arthas when he falls and watch him understand what he made of me. Beyond that, hope is a luxury I leave to the living." },
+      { id = "hp_2", text = "A homeland for my people, where no Crusader's torch reaches and no master's voice can find them. Lordaeron will serve, once it has been cleansed." },
+    },
+    favor = {
+      { id = "fv_1", text = "Kill the Scourge wherever you find them, and the Scarlets wherever they find you. Each one you put down is a debt I note, and I keep my accounts well." },
+      { id = "fv_2", text = "When the living ask you what the Forsaken are, tell them the truth: that we were murdered and refused to stay so. My people have few enough voices above ground." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I had friends once, {name}, and the plague took every one of them. I will not call you that, but I will say that I would notice if you did not return." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have stood by my people when it cost you something. If I still kept friends, you would be counted among them, and that is as near as I come." },
+      { id = "fr_al_dark", when = { alignment = { axis = "light", max = -30 } }, text = "You walk the shadows I walk, and you have not once flinched. That is nearer to friendship than anything I have offered anyone since Silvermoon." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When Arthas raised me, there was a moment, before his will closed over mine, when I might have let go and simply died. I did not, and some nights I am no longer sure it was strength that held on." },
+      { id = "nt_2", text = "I cannot feel the sun when I stand in it now. Of everything Arthas took from me, that is the smallest, and it is the one I mind on the quiet nights." },
+    },
     grievance = {
       { id = "gv1", text = "You have disappointed me, and I am not accustomed to repeated disappointments. That you still stand in my court is a courtesy, not a promise." },
       { id = "gv_enemy", when = { grudge = "enemy" }, text = "You are of the Alliance, which once called my people abominations and still does. You stand here because I allow it, and for no other reason." },
@@ -980,12 +1028,59 @@ P:NPC {
       },
     },
   },
+  alignment = { light = -1, honor = -1 },
+  confides = {
+    { id = "cnf_1", text = "Half the petitioners who wait in the Royal Quarter never reach the throne, because I decide which of them my queen should see." },
+    { id = "cnf_2", text = "The Apothecarium's deepest vault is sealed by the Dark Lady's own order, and not even Faranell is permitted to enter it alone." },
+    { id = "cnf_3", text = "The bat handlers in the Trade Quarter keep a ledger of every flight, and that ledger finds its way to me each evening." },
+  },
   blurts = {
     { id = "bl1", text = "My brother Balnazzar did not perish, whatever the court believes; he hides among the Scarlet Crusade in Stratholme, behind a crusader's face. The Dark Lady knows it, naturally, for I keep nothing from her." },
     { id = "bl2", text = "The Dark Lady's banshees listen in every corridor of this city, and nothing said in the Undercity stays private for long. You might remember that before you speak of me again." },
     { id = "bl3", text = "Lord Kazzak gathers what the Legion left behind in the Blasted Lands, in the shadow of the Dark Portal. I mention it only so that you know which direction not to wander." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you are a remarkably durable mortal, which in this city is very nearly a compliment. The Dark Lady values you, and so, naturally, do I." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have made yourself useful to my queen time and again, and I always notice who is useful. I always choose wisely, after all, and I find I have chosen to like you." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You address me properly, which is so rare among the living that I had almost forgotten the pleasure of it." },
+      { id = "rg_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You understand that a truth told at the wrong moment is merely a blunder. We could have such interesting conversations, you and I." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "You glow with the Light, mortal, rather like a candle left burning in a cellar, and I confess the effect is almost touching. Do keep it away from my robes." },
+    },
+    confide = {
+      { id = "cf_1", text = "The Royal Quarter has more doors than any visitor ever counts, and I know every one of them. A majordomo must, you understand, purely for my queen's safety." },
+      { id = "cf_2", text = "I have lived longer than your oldest kingdom, and I have served more than one master in that time. Each was wiser than the last, and my queen, of course, is the wisest of them all." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Dark Lady absolutely, as I do. Everyone else in the Undercity is merely ambitious, which is a very different thing." },
+      { id = "tr_2", text = "Trust the Deathguard to be dull and loyal, and the apothecaries to be clever and neither. As for me, I am entirely at my queen's service, as everyone knows." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the banshees in the corridors, mortal, for they carry every careless word straight to the throne. I mention it as a kindness, which you will find I rarely do." },
+      { id = "wo_2", text = "Watch the Blasted Lands, should your wanderings take you south. What the Legion leaves behind does not sleep, whatever the mortals of Nethergarde like to believe." },
+      { id = "wo_3", text = "Watch anyone who smiles at you too readily in this city. The dead do not smile without a reason, and the reason is seldom yours." },
+    },
+    worries = {
+      { id = "wy_1", text = "Worry is a mortal habit, and I set mine aside a very long time ago. If anything troubles me, it is that my queen's enemies multiply faster than her servants do." },
+      { id = "wy_2", text = "Kel'Thuzad still broods in Naxxramas, and liches have long memories for old acquaintances. I would prefer he never found occasion to remember mine." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see my queen's dominion stretch from the Tirisfal Glades to the gates of Stratholme. A loyal servant hopes for nothing else, naturally." },
+      { id = "hp_2", text = "I hope for a world in which the strong rule and the clever advise them. I believe I am rather well suited to such a world." },
+    },
+    favor = {
+      { id = "fv_1", text = "Speak well of me to the Dark Lady, should the occasion arise. It costs you nothing, and I do keep a careful record of such kindnesses." },
+      { id = "fv_2", text = "Tell me what you hear in Brill and Tarren Mill, the little grumbles of the Executors. My queen likes to know, and I like to be the one who tells her." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Friendship is a mortal word, and I find it rather sweet. Let us say instead that I would be sorry to see you dead, and leave it there." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have done more for this court than most of its courtiers. If I were to choose a friend among the living, and I always choose wisely, it might very well be you." },
+      { id = "fr_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You and I understand one another, mortal, and that is worth more than any friendship I have seen among your kind." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When the Dark Lady broke my brother Detheroc, I knelt before she had finished drawing her bow. I have never told anyone how quickly, because it was very quick indeed." },
+      { id = "nt_2", text = "I do sometimes miss the skies of the Nether, which burned in colours your eyes could not hold. You will forgive me for not describing them further, I trust." },
+    },
     grievance = {
       { id = "gv1", text = "You have bored me, mortal, which is the one crime I find truly unforgivable. The Dark Lady's tolerance is hers, and mine is rather shorter." },
       { id = "gv_tone_b", when = { grudge = "tone", tone = "blunt" }, text = "You address me as you would a goblin peddler in the Trade Quarter. I have served greater masters than you can imagine, and none of them spoke to me so." },
@@ -1353,12 +1448,58 @@ P:NPC {
       },
     },
   },
+  alignment = { light = -1 },
+  confides = {
+    { id = "cnf_1", text = "The Society pays well for anything taken off the Scarlet zealots at the monastery in Tirisfal, and it asks no questions about whose it was." },
+    { id = "cnf_2", text = "The apothecaries in Brill and the Sepulcher send me field notes every week, and the Silverpine ones are always late, because Arugal's worgen keep eating the couriers." },
+    { id = "cnf_3", text = "When a vat in the Apothecarium starts to whistle, leave the room at once, because that whistle is the only warning anyone ever gets." },
+  },
   blurts = {
     { id = "bl1", text = "Lydon in Tarren Mill tests our compounds on whatever wanders within his reach, and his results are splendid. Don't let him offer you a drink, whatever he says is in it." },
     { id = "bl2", text = "The Scarlet zealots in their monastery have the most remarkable hearts, simply bursting with conviction, and I need dozens of them. Bring me as many as you can carry, and don't ask why." },
     { id = "bl3", text = "The Society is brewing a little something of our own for the Scourge, and the Dark Lady watches its progress very closely indeed. Oh dear, I wasn't meant to say that." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're a splendid specimen, my friend, and I mean that in the nicest possible way! You're sturdy and reliable, and you keep coming back from things that would kill most people." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You bring me exactly what I ask for, in usable condition, which is more than I can say for half my apprentices. I'd hire you, honestly, if you'd ever stand still long enough." },
+      { id = "rg_al_dark", when = { alignment = { axis = "light", max = -30 } }, text = "You don't flinch at the vats, and you never stop to ask whether the Light approves. Oh, we'd have got on famously when I was alive, and better still now." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "You've still got that Light-touched glow about you, and I can't decide whether to admire it or bottle it. Don't worry, I've decided to admire it, for now." },
+    },
+    confide = {
+      { id = "cf_1", text = "I was a chemist in Lordaeron before the plague, mixing tonics for gout and bad livers. The work's far more interesting now, and nobody complains about the side effects." },
+      { id = "cf_2", text = "Half the vats in the Apothecarium are for show, you know, bubbling away to impress visiting orcs. The real work happens in rooms with fewer windows and a great deal more ventilation." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust a good apothecary's measurements and nothing else they say. We're all frightful liars, but our scales are honest." },
+      { id = "tr_2", text = "Trust the Deathguard, who are too dull to be anything but honest, and trust the Dark Lady to remember everything. Never trust an apprentice who's suddenly cheerful, because it means something has gone missing." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the green puddles in the lower canals, my friend, because not all of them are water and not all of them are finished. I'd hate to lose you to a half-made batch." },
+      { id = "wo_2", text = "Watch the spiders in Silverpine and the bears in Hillsbrad, both of which I've sent people to collect, and both of which have collected a few of my people in return." },
+      { id = "wo_3", text = "Watch the Kirin Tor's lot at Ambermill, who'd steal a recipe right out of your pocket and call it research. I'd know, since I've done the very same to them." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the Dark Lady will lose patience before we've got it right. She's very supportive, but her support has a cold edge, and I've seen what becomes of those who disappoint her." },
+      { id = "wy_2", text = "Sometimes I wonder whether I'd recognise the old me, with his little shop and his gout tonics. I don't think he'd like me much, and the trouble is that I don't mind at all." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To finish it, my friend, the great work, the thing the Society will be remembered for. Imagine the Scourge melting in the fields like snow in spring!" },
+      { id = "hp_2", text = "A proper laboratory, with a ceiling that doesn't drip and apprentices who don't explode. I'm told that's unreasonable, but I keep hoping." },
+    },
+    favor = {
+      { id = "fv_1", text = "Bring me anything strange you find out there, anything that glows, oozes or bites when it ought to be dead. I'll be the judge of whether it's useful." },
+      { id = "fv_2", text = "If you pass through Tarren Mill, ask Lydon how the colloid is settling and tell me exactly what he says, not what he'd like me to hear." },
+    },
+    friendship = {
+      { id = "fr_1", text = "A friend? Oh, my dear {name}, I'm terribly fond of you, and I've only ever said that to two people and a particularly productive mould. You rank well above the mould." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After all the hearts and venom sacs you've hauled down here for me? You're the best friend the Society has, and the Society has precious few." },
+      { id = "fr_al_dark", when = { alignment = { axis = "light", max = -30 } }, text = "You understand that progress doesn't ask permission, and neither do I. That makes us friends, I think, or something rather more useful." },
+    },
+    never_told = {
+      { id = "nt_1", text = "The first batch I made for the Dark Lady didn't work, and I told her it did. I fixed it before anyone noticed, but I've never rested so badly, and I don't even sleep." },
+      { id = "nt_2", text = "I kept a cat, back when I was alive and had a shop in the capital. I sometimes wonder what became of her, which is absurd, given everything, but there it is." },
+    },
     grievance = {
       { id = "gv1", text = "Oh, my problem? You're a spoiled reagent, my friend, the kind that ruins the whole batch. Science has no use for you, and neither, I'm afraid, do I." },
       { id = "gv_wronged", when = { grudge = "wronged" }, text = "You mocked my work, my life's work, to my very face! Science forgives a great deal, but it never forgets an insult." },

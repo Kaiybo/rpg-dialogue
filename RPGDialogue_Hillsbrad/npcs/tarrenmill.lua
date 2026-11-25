@@ -474,6 +474,47 @@ P:NPC {
     },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you are useful to the front, which is the only measure I keep. You measure well, and I have noted it." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have taken fields from Southshore for the Dark Lady and come back to report it. That is more than most of my deathguards manage in a season." },
+      { id = "rg_scourge", when = { race = "Scourge" }, text = "You were taken by the Lich King as I was, and you came back as I did, and now you serve the Dark Lady's front. I do not need to know more of you than that." },
+      { id = "rg_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You follow orders and you do not argue them in front of the deathguards. That is discipline, and I value it above courage." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", max = -30 } }, text = "You do not shy from the Society's work or the dark that comes with it. The squeamish do not last in Tarren Mill, and you are not squeamish." },
+    },
+    confide = {
+      { id = "cf_1", text = "My reports to the Undercity have grown pleasantly short, because the arithmetic is simple. Southshore has more food than I have soldiers, and I have more patience than they have nerve." },
+      { id = "cf_2", text = "I was a quartermaster's daughter in Tarren Mill before the plague. I know which cellars still hold dry grain and which wells were poisoned before the Society ever arrived." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Apothecary Lydon's work, and never his hospitality. Trust the deathguards on the ridge, because they have nowhere else to go." },
+      { id = "tr_2", text = "Trust Varimathras's orders, because they come from the Dark Lady through him. Trust your own count of the dead more than anyone's report." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch Southshore's walls, where the guards are bored, and bored men shoot first. Do not linger in range for the sake of a better look." },
+      { id = "wo_2", text = "Watch the Syndicate in the Alterac foothills, who will sell you to Southshore and Southshore to you. They are thieves with family names, nothing more." },
+      { id = "wo_3", text = "Watch Lydon's cellar, and do not go down there without him. Some of what he keeps is still working." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the Society's work will not be ready before Southshore's reinforcements arrive. I hold these fields on borrowed time, and I can count the days." },
+      { id = "wy_2", text = "That the living Horde will leave this ridge again the moment Southshore's militia rides out. I have seen them do it once, and once was enough to plan around." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to stand in Southshore's square and hand its keys to the Dark Lady. After that, the Alterac hills, and after that, whatever she asks." },
+      { id = "hp_2", text = "I hope to see Tarren Mill as it was before the plague, with its mill turning, and with my people in it instead of the living." },
+    },
+    favor = {
+      { id = "fv_1", text = "Take fields from Southshore and bring me word of their patrols. Food, iron and nerve are what wins this valley, and I want to know how much they have left of each." },
+      { id = "fv_2", text = "If you go to the Syndicate's camps, kill whoever carries orders. A dead thief is a small thing, but a thief's letters tell me what Alterac's nobles intend." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do not keep friends, and I have not since I died. If I did, you would be among the few I would not send to the front first." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have done more for this front than most of the Dark Lady's officers. I count you an ally I can rely on, and in Tarren Mill that is the highest word we have." },
+      { id = "fr_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You hold the line, keep your word and follow orders without needing them explained. I call that a comrade, which is better than a friend." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I watched my own mill burn while I still had a mind, before the Scourge took me. I have never told the deathguards that Tarren Mill was my home, because they would wonder why I am so patient with it." },
+      { id = "nt_2", text = "I knew Marshal Redpath, before. He bought grain from my father, and he was kind to me once at a harvest fair, and I think of it when I plan his town's fall." },
+    },
     _gated = {
       { id = "gt1", text = "That is not something I discuss with those who have yet to prove their worth to the front, so go and prove it." },
       { id = "gt2", text = "I know the answer, and you have not earned it. The Dark Lady's officers do not confide in every passerby." },
@@ -505,6 +546,11 @@ P:NPC {
       { id = "sp_1", text = "I think you are a waste of the Dark Lady's time, and she has a great deal of it to waste." },
       { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think you are as squeamish as the rest of the living Horde, and I think you will die badly because of it." },
     },
+  },
+  confides = {
+    { id = "cnf_1", text = "Southshore's militia changes its watch at midnight, and for a little while the road to the farms has no one on it." },
+    { id = "cnf_2", text = "Lydon's colloid goes into the wells on the Hillsbrad farms first, so never drink from any well below the ridge." },
+    { id = "cnf_3", text = "The Syndicate keeps a lookout on the high road to Alterac, and they report to both Southshore and Tarren Mill for coin." },
   },
   blurts = {
     { id = "bl_1", text = "Southshore's Marshal spreads his patrols thin across the farms. The fields of Hillsbrad are where the living break first." },

@@ -267,9 +267,52 @@ P:NPC {
       { id = "sp_1", text = "I think you will make a very ordinary meal, little meat, and I will not hurry to it." },
       { id = "sp_scourge", when = { grudge = { worst = "prejudice" } }, text = "I think you are a meal that argues, and I have never liked those. Lie down, and we will both be happier." },
     },
+    regard = {
+      { id = "rg_1", text = "You have not once tried to shoo me off a carcass, little meat, which puts you above most of the mortals on this mountain. I have decided I like you, and I do not decide that often." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You put the restless dead back down where they belong, and you did it properly. The cycle thanks you, and I suppose I do as well." },
+      { id = "rg_values", when = { fondness = "values" }, text = "You do not waste what you kill and you do not linger over it. I find that a very attractive quality in someone who makes my meals." },
+      { id = "rg_light", when = { fondness = "alignment", alignment = { axis = "light", min = 30 } }, text = "There is a clean light on you, little meat, the kind that puts the dead to rest instead of raising them. Death and light get along far better than the priests think." },
+    },
+    confide = {
+      { id = "cf_1", text = "The pretty Wild Gods turn their beaks up at me, little meat, but every one of them will come to me in the end. I find that a great comfort on the long afternoons." },
+      { id = "cf_2", text = "I flew over this mountain on the night of the battle and ate nothing for a month afterward. There was too much, and none of it was right, and I have never been so hungry and so sick at once." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Jereman in the Cradle, little meat, because ravens remember everything and lie about nothing. Trust Thisalee too, though she talks far too much for something that small." },
+      { id = "tr_2", text = "Trust the dead that stay down. The ones that get back up have nothing worth hearing to say, even when they say it in a voice you know." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Do not let the raveners near your wounds, little meat. They drink the life out of a body before it has finished being alive, which is very bad manners." },
+      { id = "wo_2", text = "Stay out of the wailers' hearing when the mist sits low over Mourning's Rest. The crying gets into your head, and then you start to answer it." },
+    },
+    worries = {
+      { id = "wy_1", text = "Something on this mountain is keeping the dead from lying down, little meat, and it is not the dead's own idea. I would very much like to know who, and then I would like to eat them." },
+      { id = "wy_2", text = "The cycle is out of balance up here, and a vulture notices that before anyone. Too many things refuse to die and too few stay dead, and I am growing thin on the difference." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to circle over Mourning's Rest one morning and find every soldier buried there lying quietly, as they ought to. Then I will take a very long nap." },
+      { id = "hp_2", text = "I hope the mortals on this mountain learn that death is a kindness when it comes properly. It would save me a great deal of explaining." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you find a soldier's ring or token in the snow near Mourning's Rest, put it back on the grave you think it came from. The dead rest easier with their things, little meat." },
+      { id = "fv_2", text = "Leave a little of whatever you hunt on the high rocks above the Rest when you are done with it. I am not asking for myself, of course, but I would not refuse it either." },
+    },
+    friendship = {
+      { id = "fr_1", text = "You are the first living thing in a long while that I would not mind outliving, little meat. Take that as the compliment it is, because I have no better one." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have put the dead to rest and left my meals alone, so yes, you are a friend of mine. Do not tell the pretty Wild Gods, or they will think I have gone soft." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I am afraid of the day the cycle comes for the vulture and nothing comes after, little meat. I do not tell the others, because they already think I am morbid enough." },
+      { id = "nt_2", text = "Before the battle, a young Sentinel left me the best of her kills every evening and never asked why. She lies at Mourning's Rest now, and I have never once touched her grave, and I keep the others away from it." },
+    },
   },
   blurts = {
     { id = "bl_1", text = "Demons still hide in Darkwhisper Gorge, at the far end of Winterspring. Nothing I would eat lives there, so I know exactly where it is." },
     { id = "bl_2", text = "The Scourge buried on this mountain do not all stay buried, little meat. Where the snow is darkest on the slopes, something is digging them back up." },
+  },
+  confides = {
+    { id = "cnf_1", text = "The wailers drift toward the oldest graves at dusk, so a warrior who waits by the newer ones can take them one at a time." },
+    { id = "cnf_2", text = "The Forgotten Soldiers still walk the old patrol routes of the defenders' camp, and anyone who learns those routes can pass between them unseen." },
+    { id = "cnf_3", text = "The furbolgs of Malorne's Retreat throw their dead into the water instead of burying them, which is why nothing there tastes right and why I never land near it." },
   },
 }

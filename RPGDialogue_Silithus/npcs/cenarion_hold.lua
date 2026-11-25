@@ -510,6 +510,11 @@ P:NPC {
     { id = "bl2", text = "The hives all tunnel toward the city behind the Scarab Wall, and I believe something inside is calling them. I have written to Fandral, and he has not answered." },
     { id = "bl3", text = "I still send a scout each month to the hive where Natalia was taken, though I have told the Circle I stopped. I cannot bring myself to stop looking for whatever took her mind." },
   },
+  confides = {
+    { id = "cnf_1", text = "Hive'Regal lies in the south, nearest the Scarab Wall, and it was the last place anyone saw Natalia. If you go there, go with friends and go by daylight." },
+    { id = "cnf_2", text = "The Sentinels on the southern road report less than they see, because they know what it does to me. Ask Vish Kozus for the true count, and he will give it to you." },
+    { id = "cnf_3", text = "Rutgar and Frankal at Bronzebeard's Encampment saw her last. They tell it as a comic tale, but listen past the jokes, for it is the truest account I have." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "The Hold needs those it can rely on, and I have learned I cannot rely on you. I do not have time to pretend otherwise." },
@@ -555,6 +560,46 @@ P:NPC {
       { id = "gt2", text = "Forgive me, but I keep that to myself, and to those who have earned this Hold's trust. You have not yet had the chance." },
     },
     _none = { { id = "tp_none", text = "I'm afraid that's outside my reports. Larksbane or the Wildmanes might know, Elune willing." } },
+    regard = {
+      { id = "rg_1", text = "I think you are one of the few who come back from the desert still themselves, {name}, and I have learned to value that above any sword." },
+      { id = "rg_2", text = "You listen when I speak of the hives, and you do not look away when I speak of my wife. Few in the Hold can manage both, and I am grateful for it." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have gone where I could not send my own Sentinels and come back with the truth, however hard it was. I do not forget a debt like that, and I do not intend to." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "There is something of Elune's light about you, and in this desert I notice it the way a thirsty man notices water. Natalia would have seen it in you at once." },
+      { id = "rg_priest", when = { class = "PRIEST" }, text = "You remind me of her a little, and I find I do not mind it as much as I thought I would. That may be the kindest thing I can say to anyone just now." },
+    },
+    confide = {
+      { id = "cf_1", text = "I keep Natalia's field notes in a chest beneath my cot, and I have not been able to read past her first weeks here. Her hand changes after that, and I am afraid of what I will find." },
+      { id = "cf_2", text = "I am no longer certain I am the right one to command this Hold, but there is no one in Moonglade I would trust to take it from me." },
+    },
+    trust = {
+      { id = "tr_1", text = "Vish Kozus, before anyone, for he has never once told me a comfortable lie. The Wildmane brothers next, because they watch the cult while the rest of us watch the hives." },
+      { id = "tr_2", text = "Trust Larksbane's ears and Layo Starstrike's heart, and trust the Sentinels on the walls to do their duty. Beyond the gate, trust no one in a twilight robe, however lost they seem." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for anyone who wanders the sand alone and talks to the air. I have seen that once already, and I told myself it was prayer." },
+      { id = "wo_2", text = "Beware the crystals near the hives, for the silithid gather thickest wherever they hum. And never camp downwind of a Twilight fire, because they post their watchers where the smoke hides them." },
+    },
+    worries = {
+      { id = "wy_1", text = "That Natalia is alive, and that she is not, and I cannot tell you which frightens me more. I lie awake weighing one against the other until the moon sets." },
+      { id = "wy_2", text = "That Darnassus will not see what is gathering here until it is too late. I have written to the Arch Druid until my ink ran dry, and the answers grow shorter each time." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to bring her home, whatever is left of her, and lay her somewhere green beneath the moon. After that I would be content to hold this wall until I fall." },
+      { id = "hp_2", text = "That the Scarab Wall holds for another thousand years, and that no one in this Hold ever has to learn what lies behind it." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you go near Hive'Regal, look for any sign of her, a scrap of robe or a word scratched in the stone. Bring it to me and to no one else." },
+      { id = "fv_2", text = "Sit with Vish Kozus a while, when he comes down from the tower. He carries more of this Hold than he admits, and he will not hear it from me." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}, and I had thought this desert had taken the last of my friendships with it. Elune is kinder than I gave her credit for." },
+      { id = "fr_2", text = "You are a friend to me and to this Hold, and to Natalia too, though she never had the chance to meet you." },
+      { id = "fr_al", when = { fondness = "alignment", alignment = { axis = "order", min = 30 } }, text = "We are alike, you and I, keeping to our duty when it would be easier to break. That is a firmer bond than most, and I am glad of it." },
+    },
+    never_told = {
+      { id = "nt_1", text = "Some nights I walk to the edge of the Hold and listen to the hives for her voice. I have never heard it, and I do not know whether to be grateful." },
+      { id = "nt_2", text = "When the agent brought word of her, my first thought was not of Natalia but of the Hold, and who would hold it if I went after her. I have never forgiven myself that thought." },
+    },
   },
 }
 
@@ -939,6 +984,11 @@ P:NPC {
     { id = "bl2", text = "Hermit Ortell in the eastern hills can read the cult's writing, an' he'll do it for anyone who brings him their scraps. The Hammer'd pay well to know where he hides." },
     { id = "bl3", text = "I've written to Ironforge three times about what I'm hearin' here, an' nobody's answered. I'm beginnin' to think the Explorers' League doesn't want to know." },
   },
+  confides = {
+    { id = "cnf_1", text = "The silithid follow the crystals' note more than any scent, so if ye need to slip past a hive, keep to the side farthest from the hummin' stones." },
+    { id = "cnf_2", text = "The Twilight's Hammer pry crystals loose by the cartload an' haul them west to their camps. Follow the drag marks in the sand an' ye'll find their stores." },
+    { id = "cnf_3", text = "The stone in the eastern hills round Ortell's cave is dead quiet, no hum at all. If yer head's ringin' from the hives, rest up there an hour an' it'll clear." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "I'm a patient dwarf, friend, and ye've worn that patience down to the bedrock. I'll say no more than that." },
@@ -974,6 +1024,45 @@ P:NPC {
       { id = "gt2", text = "That's not somethin' I talk about wi' strangers, friend. Come back when we know each other better, an' I might." },
     },
     _none = { { id = "tp_none", text = "If it isn't a rock, I'm the wrong dwarf to ask, and that's the long and short of it." } },
+    regard = {
+      { id = "rg_1", text = "I think ye're a rare one, friend, for ye ask about the stones an' then actually wait for the answer. Most folk are already lookin' at the door." },
+      { id = "rg_2", text = "Ye've a steady head on ye, an' out here that's worth more than a fine axe. I'd put my name to ye in front of the whole Hold." },
+      { id = "rg_dwarf", when = { race = "Dwarf" }, text = "Ye're a proper child o' the mountain, an' it does me good to hear a dwarven voice that isnae my own. This desert's no' kind to our kind, so we'd best stick together." },
+      { id = "rg_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "Ye tell the truth even when it costs ye, an' I've seen it cost ye. A geologist values that above gold, because the rock never lies an' neither should we." },
+    },
+    confide = {
+      { id = "cf_1", text = "I press my ear to the samples at night an' count the hum, like a midwife countin' a heartbeat. I write the numbers in a wee book that nobody else has seen." },
+      { id = "cf_2", text = "I'm no' half so sure of myself as I sound at the commander's table. Half my findings are guesses wearin' a good coat, an' I'm hopin' the other half'll catch up." },
+    },
+    trust = {
+      { id = "tr_1", text = "The commander, always, for he's an honest elf even in his grief. An' the Wildmane lads, though they'll argue the hind legs off a kodo about whether the land or the bugs matter more." },
+      { id = "tr_2", text = "Trust Ortell wi' the cult's writing an' nothin' else, mind. He means well, but he couldnae keep his own instructions straight if ye tied them to his beard." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the ground near the big crystals, for it's thinner than it looks, wi' hollows beneath where the bugs have been diggin'. I've lost a good pick that way, an' nearly a leg." },
+      { id = "wo_2", text = "Dinnae sleep wi' yer head on the sand near a hive. I mean that, friend, for the dreams ye get there are no' yer own." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the hum is countin' down to somethin', an' that I'll work out what it is about a day too late. That's the whole of it, an' it's plenty." },
+      { id = "wy_2", text = "That Natalia heard somethin' in the stones I taught her to listen to. If I started her down that road, I'll carry it to my grave." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to go home to Ironforge wi' a book under my arm the Explorers' League cannae ignore. An' then I hope to sleep for a month somewhere wi' proper stone overhead." },
+      { id = "hp_2", text = "That one day the hum stops, an' I can say I was wrong about all of it. I'd be glad to be wrong, an' that's no' a thing a scholar says lightly." },
+    },
+    favor = {
+      { id = "fv_1", text = "Bring me a crystal shard from near Hive'Zora, whole an' unchipped, if ye pass that way. I'd like to hear whether its note matches the others." },
+      { id = "fv_2", text = "If ye're ever in Ironforge, knock at the Hall of Explorers an' ask whether they've read my letters. Dinnae let them fob ye off, mind." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Aye, an' a good one, {name}. I've few enough friends who'll sit wi' me an' listen to a rock, so ye're precious to me whether ye like it or no'." },
+      { id = "fr_2", text = "Ye're as near kin as I've got south o' the mountains. That's the truth, an' I'll stand by it at any table ye like." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After all the samples ye've hauled back for me, an' the fights it took to get them? Ye're a friend for life, an' I'll hear no argument." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I never finished my doctorate, whatever I've told folk. The Hall gave me the title to get me out o' their archives, an' I was too proud to turn it down." },
+      { id = "nt_2", text = "Some nights I hear a voice under the hum, no' words exactly, but somethin' patient. I've never said so aloud, for fear o' endin' up like Natalia." },
+    },
   },
 }
 

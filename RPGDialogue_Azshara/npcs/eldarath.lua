@@ -376,6 +376,11 @@ P:NPC {
     { id = "bl1", text = "The furbolgs of Felwood were not always mad. Only the Timbermaw kept themselves clean, and their tunnels are the one safe road through that sick forest." },
     { id = "bl2", text = "The blue dragon in the ruins below watches every relic the naga drag out of the sea. Ogtinc keeps far away from him, and so should you, unless you come with many friends." },
   },
+  confides = {
+    { id = "cnf_1", text = "The coursers of this coast drink from the stream below the cliffs at dawn, and that is the only time they are calm enough to be watched without bolting." },
+    { id = "cnf_2", text = "The green drake Morphaz lies deep in the Sunken Temple in the Swamp of Sorrows, and others of his kind guard him, so go there with many friends." },
+    { id = "cnf_3", text = "The Highborne ghosts in the ruins below grow restless when the moon is full, and that is when their ichor is easiest to gather." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "Ogtinc does not like to be angry, but you have made it hard to be anything else. The land feels it too." },
@@ -412,6 +417,44 @@ P:NPC {
     queen_azshara = { { id = "tp_queen_azshara", text = "This land is named for a queen who drowned, and her ruins are everywhere. The trees here do not forget her, and Ogtinc does not like what they remember." } },
     loramus = { { id = "tp_loramus", text = "The elf on the island across the bay smells of demons, and the coursers will not swim near him. Ogtinc keeps his distance too." } },
     _none = { { id = "tp_none", text = "I do not know that, and I will not pretend to. Ask Loh'atu at the elves' camp; he walks further than I do." } },
+    regard = {
+      { id = "rg_1", text = "You walk softly on this cliff, and you watch before you strike. Ogtinc sees it, and Ogtinc is glad." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You helped the Circle when it needed hands, and you asked for nothing. That is the divine path, friend, and you walk it better than many druids." },
+      { id = "rg_values", when = { fondness = "values" }, text = "You are patient with beasts and kind to those who are weaker. Ogtinc's mother would have liked you, and she liked very few outsiders." },
+      { id = "rg_light", when = { fondness = "alignment", alignment = { axis = "light", min = 30 } }, text = "There is a gentle light around you, friend, like the spirits' light at the edge of a moonwell. Ogtinc feels safer when you stand on this cliff." },
+    },
+    confide = {
+      { id = "cf_1", text = "Ogtinc gives a name to every courser he must kill, and he says the names at night so they are not forgotten. There are many names now, more than Ogtinc likes." },
+      { id = "cf_2", text = "The druids are kind to me, but some of the elves still put their hands on their bows when I walk into a camp. Ogtinc does not blame them; he only wishes it were different." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Loh'atu at the elves' camp. He keeps his promises the way the old furbolgs did, and there are not many left who do." },
+      { id = "tr_2", text = "Trust the Timbermaw if you meet them, for they are the last of my people whose minds are whole. Do not trust a furbolg who smells of the sick forest, however friendly he seems." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the wavethrashers in the shallows below the cliffs. They lie still like rocks, and they are very fast when they stop pretending." },
+      { id = "wo_2", text = "Be careful near the blue dragon's ruins, friend. Ogtinc does not go near Azuregos, and Ogtinc is not a coward." },
+    },
+    worries = {
+      { id = "wy_1", text = "The sickness in Felwood spreads a little every year, and every year more of my people lose their minds to it. Ogtinc worries that one day there will be no furbolgs left who remember who they were." },
+      { id = "wy_2", text = "Ogtinc is growing old, friend, and the salve is still not finished. He worries that he will not be the one to finish it." },
+    },
+    hopes = {
+      { id = "hp_1", text = "Ogtinc hopes to carry the finished salve north one day and see a sick furbolg open its eyes and know its own name again. That is the only thing he wants." },
+      { id = "hp_2", text = "Ogtinc hopes that elves and furbolgs will sit together at the old moonwells again, as they did in the stories. Perhaps not in his life, but still he hopes." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you meet a Timbermaw, tell them that Ogtinc of the Circle sends his greeting and his prayers. They will not know me, but they will know the words." },
+      { id = "fv_2", text = "When you hunt on this coast, take only what you need and thank the spirit of the beast afterward. Ogtinc asks it of everyone, and few remember." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Yes, friend. Ogtinc has had few friends since he left his people, and he counts you among them gladly." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have helped the Circle and helped Ogtinc and never asked why a furbolg is here. That is how friends are made, among my people and among yours." },
+    },
+    never_told = {
+      { id = "nt_1", text = "Some nights Ogtinc dreams that the sickness has come for him too, and he wakes and smells his own fur to be sure. He has never told the druids, because they would worry." },
+      { id = "nt_2", text = "Ogtinc still keeps the bead necklace his mother made him when he was a cub, though it is far too small to wear. He takes it out when he prays, and he has never shown it to anyone." },
+    },
   },
 }
 

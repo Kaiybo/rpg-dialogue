@@ -435,8 +435,53 @@ P:NPC {
     { id = "bl2", text = "The Bloodscalp watch the river from their ruins in the north, and that's where my crates have been going. If you want to hurt them, hit the ruins and not the road." },
     { id = "bl3", text = "Booty Bay sells my patrol routes to anyone with gold, the Alliance included. I've stopped telling the goblins where my grunts will be." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Bloodscalp cross the river at the shallows below their ruins just before dawn, so a hunter who waits on the far bank gets the first throw." },
+    { id = "cnf_2", text = "I give Booty Bay false patrol routes every month now and watch who turns up where, and twice it's been Alliance scouts waiting in the trees." },
+    { id = "cnf_3", text = "There are naga at the Holy Spring up the coast now, so fill your waterskins inside the walls before you head north." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I make you out as someone who does the work and doesn't wait to be thanked, {class}. In Grom'gol that's the highest praise I have, and I've given it maybe four times." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've carried crates and killed Bloodscalp for this camp when you could have been off chasing glory. My grunts noticed, and so did I." },
+      { id = "rg_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "Your word holds. When you say a thing will be done, it gets done, and on the Stonard road that's worth more than a sharp axe." },
+      { id = "rg_orc", when = { race = "Orc" }, text = "You fight like an orc should, with your head and not only your blood. The old Horde forgot the difference, and we all paid for it." },
+    },
+    confide = {
+      { id = "cf_1", text = "The grunts say this camp was named for Grom Hellscream, and I've never corrected them, because I don't know myself. A soldier holds a wall better when he thinks a hero's name is carved on it." },
+      { id = "cf_2", text = "I lose more caravans on the Stonard road than Orgrimmar knows, because I make up the half-lost ones from my own stores. Stonard eats either way, and that's what matters to me." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Darkspear in this camp. Vol'jin's people know the jungle, and they hate the Gurubashi more than any orc ever could, so they'll never sell you to them." },
+      { id = "tr_2", text = "Trust Thulbek with your life and your secrets, but not with your coin at the dice. Trust nobody in Booty Bay further than you can throw a crate." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Mosh'Ogg mound east of the road. The ogres there ambush caravans, and they don't care whose banner is on the wagon." },
+      { id = "wo_2", text = "When the birds go quiet on the road, stop and draw your weapon. Lashtail raptors hunt in threes, and the first one you see is never the first one there." },
+    },
+    worries = {
+      { id = "wy_1", text = "Supply. Every crate that doesn't reach Stonard is a soldier in the swamp going hungry, and I can't hold a road with a wall alone." },
+      { id = "wy_2", text = "That I'll grow too old to hold this command before the Warchief finds someone fit to take it. Grom'gol wears commanders down, and I've read the list of names that came before mine." },
+    },
+    hopes = {
+      { id = "hp_1", text = "That one day a caravan walks from here to Stonard with no guard at all, because nothing left in the jungle dares touch it. I won't live to see it, but someone should." },
+      { id = "hp_2", text = "I'd like a son someday, but I've never had the time, and Grom'gol is all the family I've made. When the road is safe, I'll think about it." },
+    },
+    favor = {
+      { id = "fv_1", text = "Walk the road to the Mizjah Ruins now and then and kill whatever's waiting there. Every ogre you put down is a caravan I don't have to bury." },
+      { id = "fv_2", text = "If you're in Orgrimmar, tell the Warchief that Grom'gol holds. He reads it in my reports, but he'll believe it more from someone who's seen it." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I don't have friends, {class}. I have soldiers I'd die beside, and you're one of them, which counts for more where I come from." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've bled for this camp and asked nothing for it. Yes, you're a friend, and anyone in Grom'gol who says otherwise will answer to me." },
+      { id = "fr_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You keep to your duty when nobody's watching, which is what the Warchief asked of us when he broke open the camps. That's a friend I want at my back." },
+    },
+    never_told = {
+      { id = "nt_1", text = "My grandfather drank the demon's blood with the rest of them, and he died raving for more of it while I watched. I swore nothing would ever own me the way that blood owned him, and that's why I'm as hard as I am." },
+      { id = "nt_2", text = "When the Warchief gave me this command, I thought he'd made a mistake. I've spent every day since making sure he never has to find out whether he did." },
+    },
     grievance = {
+      { id = "gv_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You twist your words like a Booty Bay merchant, and I can never tell where the lie ends. A soldier I can't believe is a soldier I can't use." },
       { id = "gv1", text = "My problem is that you take more from this camp than you give, and in Grom'gol that makes you dead weight. I don't carry dead weight up the Stonard road." },
       { id = "gv_wronged", when = { grudge = { worst = "wronged" } }, text = "You spoke to me like a grunt who'd never held a line, in my own camp and in front of my soldiers. I remember it, and so do they." },
       { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're Alliance, standing inside the only wall the Horde has on this coast. Every guard I have wants to know why I haven't had you thrown in the river." },

@@ -779,12 +779,55 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Burning Blade in Ragefire Chasm are led from the deepest cavern, and the warlocks of the Cleft know the way better than they admit." },
+    { id = "cnf_2", text = "Northwatch Hold sends scouts as far as the Crossroads at night, and my commanders have orders to capture them alive, not to kill them." },
+    { id = "cnf_3", text = "Jaina and I exchange letters by a quiet ship from Theramore to Ratchet, and if those letters ever stop, something in Theramore has gone very wrong." },
+  },
   blurts = {
     { id = "bl1", text = "The Burning Blade meet in Ragefire Chasm beneath this very city, and I let them, because I want to see which of my people go down to them." },
     { id = "bl2", text = "Jaina Proudmoore and I keep this peace with less trust than either of our peoples believes. One bad season, and every word of it could burn." },
     { id = "bl3", text = "Cairne is wise, but Magatha Grimtotem smiles too easily on Elder Rise. I have said nothing to him, because he will not hear a word against her without proof." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you are what I hoped the Horde would become when I led my people out of the camps. You fight hard, but you think before you fight, and that is the harder lesson." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You have done more for the Horde than most who come into this hall asking for something. I notice who gives and who takes, {name}, and I remember." },
+      { id = "rg_3", when = { fondness = "town" }, text = "Orgrimmar speaks well of you, from the Kor'kron to the peons in the Valley of Strength. My people are hard to please, so I take their word gladly." },
+      { id = "rg_al", when = { alignment = { axis = "honor", min = 30 } }, text = "Your honor is plain to see, {class}, and it shames some of my own captains. Orgrim would have liked you, and he was harder to please than I am." },
+    },
+    confide = {
+      { id = "cf_1", text = "I was raised by a human, and I still dream in his tongue some nights. Blackmoore taught me to read and to fight, and everything I am fights against everything he wanted me to be." },
+      { id = "cf_2", text = "There are days I would trade this hall for a shaman's fire in the hills and the voices of the elements and nothing else. The Warchief has many voices to listen to, and none of them are the wind." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Eitrigg, who will tell you the truth even when it shames him. Trust Vol'jin, who will tell you the truth even when it shames me." },
+      { id = "tr_2", text = "Cairne, always, for he has never once given me counsel to serve himself. I wish I could say the same of every elder on his bluffs." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Cleft of Shadow, {name}, and watch it with a quiet face. I allow the warlocks there because I would rather see them than wonder where they are." },
+      { id = "wo_2", text = "Some of my own commanders in the Barrens would welcome a war with Theramore. If you hear one of them speak of an excuse, I would like to hear of it too." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that the demon blood is still in us, waiting, and that it will rise in my people the moment I stop watching. Grom fought it to his last breath, and he was stronger than any of us." },
+      { id = "wy_2", text = "Durotar is a hard land, and every harvest is a battle. If the Horde goes hungry, the old ways will look sweet again, and no speech of mine will stop it." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope for a day when an orc child grows up and never knows a cage, a chain or a demon's whisper. That child would be worth every battle I have fought." },
+      { id = "hp_2", text = "I hope the peace with Jaina outlives the both of us. If it does, our peoples may learn what we learned on Hyjal without needing another Hyjal to teach them." },
+    },
+    favor = {
+      { id = "fv_1", text = "Go among the Horde and listen, {name}, for my people tell a stranger what they will not tell their Warchief. If something is rotten, I would hear it from a friend." },
+      { id = "fv_2", text = "Help the young ones in the Valley of Trials when you pass that way. Gornek is hard on them, and a word from someone who has walked the long road does them good." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}. A warchief has many followers and very few friends, so I am careful with the word, and I give it to you freely." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You have stood with my people when it cost you something. That is how Grom became my friend, and it is how you became one." },
+    },
+    never_told = {
+      { id = "nt_1", text = "There was a human girl at Durnholde named Taretha, who treated me as a person when no one else would, and she died for helping me escape. I carry her memory as I carry this hammer, and I have never spoken her name in this hall." },
+      { id = "nt_2", text = "When Grom died, part of me was relieved that his fight with the demon blood was over. I have never forgiven myself for that feeling, and I have never confessed it to anyone." },
+    },
     grievance = {
       { id = "gv1", text = "I welcome every voice in this hall, but I do not have to like what some of them say. You have given me reason to doubt you, and a warchief does not forget such reasons." },
       { id = "gv_values", when = { grudge = "values" }, text = "I built the Horde so orcs would never again serve cruelty for its own sake. I have heard what you do in the Horde's name, and it is not what I built it for." },
@@ -1214,12 +1257,55 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "Zalazane keep his hut on the biggest of the Echo Isles, and his hexed trolls gather around it at night when the fires be lit." },
+    { id = "cnf_2", text = "There be Darkspear among the Bloodscalp in Stranglethorn who still remember Sen'jin's name, and they will talk to a stranger who says it right." },
+    { id = "cnf_3", text = "The shamans in the Valley of Wisdom hear everything said in Grommash Hold within a day, because the Warchief's advisors gossip worse than fishwives." },
+  },
   blurts = {
     { id = "bl1", text = "My son Yenniku be a prisoner of the Bloodscalp in Stranglethorn, and they keep him under a hex. I don't speak of it, because a chief with a captive son be a chief who can be bargained with." },
     { id = "bl2", text = "Zalazane never leave the Echo Isles; he hide behind his hexed Darkspear and let them die for him. Kill the witch doctor, and the hexes break with him." },
     { id = "bl3", text = "The Banshee Queen's apothecaries ask too many questions about plague and poison, mon. I told the Warchief once, and he say he got enough enemies already." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "You interesting, {name}, and Vol'jin only waste his breath on the interesting ones. The spirits like you too, which be more than I can say for most who come in here." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You do good by the Darkspear when nobody be making you, mon. Trolls remember a debt, and so do I." },
+      { id = "rg_3", when = { race = "Troll" }, text = "You carry the Darkspear name with your head up, and dat make an old chief proud. Sen'jin would have liked you." },
+      { id = "rg_al", when = { alignment = { axis = "honor", max = -30 } }, text = "You clever, and you know when to keep a card hid. Vol'jin respect dat, because the Darkspear survive by cunning more often than by spears." },
+    },
+    confide = {
+      { id = "cf_1", text = "The loa talk to me less in Orgrimmar than they did on the islands, mon. Too much stone and too many orcs, and maybe they be waiting for me to bring them home." },
+      { id = "cf_2", text = "Zalazane and I learned our hexes at the same fire under Gadrin. I knew he was hungry for power even then, and I said nothing, which be my own sin to carry." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Warchief, because he keep his word to trolls when nobody would have blamed him for breaking it. Trust Gadrin, who never told a lie he didn't confess by supper." },
+      { id = "tr_2", text = "Don't trust anybody who say the loa told them to do somethin' wicked. The loa ask a lot, but they never ask dat." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Forsaken apothecaries, mon, and what they be asking about plague and poison. I told the Warchief, and he got bigger fires to put out, so now I'm telling you." },
+      { id = "wo_2", text = "If you go to the Echo Isles, don't let Zalazane's hexed trolls get you surrounded. They were my people once, and they still fight like Darkspear." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry my people be getting soft in Sen'jin Village, waiting for a home they think the orcs will win back for them. The Darkspear should take the Echo Isles with Darkspear spears." },
+      { id = "wy_2", text = "Some of the young trolls be looking at the old empires, Zul'Gurub and the Gurubashi, and thinking dat be greatness. It be blood and madness, and I've seen where it ends." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to stand on the Echo Isles again with Zalazane's head on a pole and my people's fires lit on the shore. Dat be the only crown Vol'jin want." },
+      { id = "hp_2", text = "I hope the Darkspear be remembered as the trolls who chose to be better. The world has plenty of the other kind." },
+    },
+    favor = {
+      { id = "fv_1", text = "Go to the Echo Isles and thin Zalazane's hexed army, mon. Every troll freed from his voodoo be one more Darkspear coming home." },
+      { id = "fv_2", text = "If you ever travel through Stranglethorn, listen for word of the Bloodscalp and what they keep in their camps. Vol'jin don't ask more dan dat." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Yes, {name}, you be a friend of Vol'jin, and dat don't happen often. Trolls make enemies easy and friends slow." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You did right by my people with your own hands, mon, and the spirits saw it. Dat be the friendship dat counts." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When the sea witch took my father, I heard him tell Thrall to look after us, and I was jealous of the orc for a moment, because my father's last words weren't for me. I never told nobody dat, not even the loa." },
+      { id = "nt_2", text = "My son Yenniku don't know if his father be coming for him, and some nights I don't know either. A chief can't bargain with the Bloodscalp, and a father can't stop wanting to." },
+    },
     grievance = {
       { id = "gv1", text = "Vol'jin decide about you a while back, mon, and the deciding didn't go your way. I don't change my mind for the asking." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "You look at a Darkspear like the humans used to, like we be something crawled out of the sea. I remember them looks, and I remember you got one too." },
@@ -1584,12 +1670,56 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Searing Blade bring their recruits into Ragefire Chasm through the lowest tunnel, beside the lava, and the recruits never see the city again." },
+    { id = "cnf_2", text = "One of the reagent-sellers in the Cleft answers my questions a little too readily, and I've been watching him for a season now." },
+    { id = "cnf_3", text = "The demon-trainers in the Cleft keep their best grimoires behind the counter for students they trust, and they don't trust anyone the first time." },
+  },
+  alignment = { light = -1 },
   blurts = {
     { id = "bl1", text = "The Searing Blade hold Ragefire Chasm beneath our feet, and their leaders keep to the deepest caverns where the fire is hottest. I know rather more of their habits than I usually admit." },
     { id = "bl2", text = "I tell the Warchief what serves the Warchief, and I decide what that is. You may make of that whatever you like." },
     { id = "bl3", text = "Not every warlock in the Cleft is as reformed as the Warchief believes. Some of them are simply very good at lying to me, and I let them, because they lead me to the others." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're a great deal more interesting than the cultists I spend my days with, {name}, which I mean as a compliment, though I understand if you don't take it as one." },
+      { id = "rg_2", when = { fondness = "tone" }, text = "You speak to me with manners, and almost nobody does that in Orgrimmar. A shadowmaster gets used to scowls, so courtesy rather catches me off guard." },
+      { id = "rg_3", when = { class = "WARLOCK" }, text = "You keep your demons on a short chain and your wits about you, which is all I ask of a warlock. Most of my students manage one or the other." },
+      { id = "rg_al", when = { alignment = { axis = "light", max = -30 } }, text = "You don't flinch from shadow, and you don't drown in it either. That balance is rarer than talent, and far more useful." },
+    },
+    confide = {
+      { id = "cf_1", text = "The Warchief tolerates the Cleft because I make myself useful to him, and I make myself useful because I know exactly how thin that tolerance is. It's a dance, and I'm rather good at it." },
+      { id = "cf_2", text = "Some of the Searing Blade cultists in Ragefire were my students once. I taught them their first incantations, and they chose to go further than I did." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust nobody in the Cleft fully, myself included, though I'll be more honest with you than with most. Down here, honesty is a currency, and I don't spend it freely." },
+      { id = "tr_2", text = "The Warchief is honest to a fault, and so is that old Blackrock who stands beside him. They're good men to trust and bad men to deceive." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the stalls at the bottom of the Cleft that sell reagents too cheaply. Cheap soul shards come from somewhere, and you won't like where." },
+      { id = "wo_2", text = "If someone in black robes offers you power for a small favor, the favor is never small. I've watched good orcs learn that too late." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry the Warchief will someday decide the Cleft isn't worth the trouble, and close it with all of us still inside. I'd like to think I've made myself too valuable for that." },
+      { id = "wy_2", text = "The Searing Blade grow bolder every season, and one day they'll do something I can't explain away. On that day, my position here ends." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to prove that an orc can study the fel without becoming its slave. If I can, the Horde will have a weapon the Legion never expected." },
+      { id = "hp_2", text = "I hope the Warchief comes to trust me, though I've no illusions that he ever fully will. I'd settle for being understood." },
+    },
+    favor = {
+      { id = "fv_1", text = "Go into Ragefire Chasm and break the Searing Blade's leaders for me, and do it before they find a way into the city above. I have my reasons for not going myself." },
+      { id = "fv_2", text = "Tell me what you hear in the city about the Cleft, especially the unkind things. I'd much rather know than guess." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Friend is a word I use carefully, {name}, because in my trade it tends to precede a betrayal. But yes, I think you are one, and I find that I'm glad of it." },
+      { id = "fr_2", when = { fondness = { best = "persuade" } }, text = "You talked me round once, and I'm not easily talked round. Anyone who can do that is either a friend or a danger, and I've decided you're the first." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I heard the Legion's whisper once, deep in my studies, and for one moment I wanted to answer it. I've never told the Warchief how close I came, because he would never let me teach again." },
+      { id = "nt_2", text = "I keep a list of every warlock who's gone from the Cleft to the Searing Blade, and their names are all names I taught. I read it every night, and I've never shown it to anyone." },
+    },
     grievance = {
       { id = "gv1", text = "Oh, I have no problem with you, my friend. I simply find you less useful than I hoped, and I am a man who values useful things." },
       { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me in my own Cleft as if I were one of the fire-worshippers I watch. I do not forget insults, though I am far too polite to say so often." },

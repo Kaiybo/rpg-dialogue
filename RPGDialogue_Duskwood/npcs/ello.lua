@@ -556,7 +556,57 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Scarlet Raven's back room is where the town council actually meets, whatever the notices in the Town Hall say. If you want something done in Darkshire, find Smitts before you find me." },
+    { id = "cnf_2", text = "Clerk Daltry keeps a fair copy of every letter I've sent to Stormwind, which is more than the Keep seems to do. If you ever need proof of how long Darkshire has begged for help, he'll show you the whole stack." },
+    { id = "cnf_3", text = "The old Ebonlocke family vault under the chapel has a passage that comes out beyond the town wall, built in my grandfather's day for a siege. If Darkshire ever falls, that's the way out, and I've told precious few people where it is." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you are a person of quality, {name}, whatever your birth, and I don't say that of many who come through those doors. You have the bearing of someone who could take a seat on any council." },
+      { id = "rg_2", text = "I think you have done more for this town than every noble house in Stormwind combined. I've half a mind to write them a letter saying so, though I suppose they'd not read that one either." },
+      { id = "rg_earned", when = { fondness = { best = "earned" } }, text = "You've served Darkshire as if it were your own home, and you asked nothing grand in return. I find that rather humbling, and I'm not easily humbled, as my kinswoman will tell you." },
+      { id = "rg_order", when = { alignment = { axis = "order", min = 30 } }, text = "You respect proper authority, {name}, even in a town where authority has only ink and paper to show for itself. I can't tell you how refreshing that is." },
+      { id = "rg_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You have, shall we say, an independent attitude to the proprieties. I'd disapprove more if you hadn't done Darkshire so much good with it." },
+    },
+    confide = {
+      { id = "cf_1", text = "The town treasury is down to a single locked chest, {name}, and half of what's in it is my family's silver. I've told the council the town's finances are sound, and I've told them so firmly." },
+      { id = "cf_2", text = "I am frightened every night, and I take great care that nobody sees it. A lord's fear spreads faster than any plague, and Darkshire has quite enough to be afraid of already." },
+      { id = "cf_3", text = "The Commander and I quarrel in council because someone must argue with her, and nobody else dares. She's usually right, and I would sooner be eaten by worgen than admit it in public." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Commander Althea with this town's defence, for nobody alive does it better. Trust her temper rather less, though that's a family matter." },
+      { id = "tr_2", text = "Trust Clerk Daltry and Sirra Von'Indi at the Town Hall to keep honest records, and Smitts to keep honest ale. That's the backbone of any decent town, {name}." },
+      { id = "tr_3", text = "Do not trust anyone in Stormwind who promises soldiers, and do not trust the hermit on Raven Hill, however harmless he seems. I've no proof against either, only a long memory." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Beware the Raven Hill cemetery after dark, and beware the lights in that hermit's hut. Whatever he grows in his garden, I'd wager it isn't vegetables." },
+      { id = "wo_2", text = "Beware the Dark Riders on the Deadwind road, {name}. They're no common bandits, and whoever sent them has a purse deeper than Darkshire's and a purpose darker still." },
+      { id = "wo_3", text = "Beware the Mistmantle manor to the north. There are stories about that house that this town has kept quiet for a generation, and they're quiet for good reason." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that Darkshire will simply be forgotten, {name}, not destroyed but erased, a name on an old map that no one in Stormwind remembers. I think that would be worse." },
+      { id = "wy_2", text = "I worry that I'm a lord of nothing, presiding over a council of the frightened. My father held this seat with dignity, and I hold it with letters nobody answers." },
+      { id = "wy_3", text = "I worry for the Commander, though she'd have my head for saying so. She takes every death on herself, and one day the weight of it will be too much." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see a company of the Stormwind Army march into Darkshire square with banners flying. I'd host a feast the like of which this town hasn't seen in thirty years, if we had the food." },
+      { id = "hp_2", text = "I hope to restore the Ebonlocke name to what it was in Brightwood's day, when lords from Stormwind came here to hunt and stayed for the summer. Darkshire was a fine town once." },
+      { id = "hp_3", text = "I'd like the Commander and I to agree on something, just once, in front of the whole council. It would cause a sensation, and the minutes would be fascinating." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you go to Stormwind, call at the House of Nobles and ask, in a loud voice, whether they've received my letters. Somebody there is burying them, and I'd like them to feel watched." },
+      { id = "fv_2", text = "Speak well of Darkshire on your travels, {name}. Tell them we're still here, and still proud, and that our ale is better than anything in Lakeshire." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I count you a friend, {name}, and I'll put it in the council minutes if you like. It's the most important thing anyone's recorded there all year." },
+      { id = "fr_2", text = "A friend, indeed, and a dear one. The Ebonlockes have long memories, and we don't forget those who stood by us when no one else would." },
+      { id = "fr_order", when = { alignment = { axis = "order", min = 40 } }, text = "A friend, and a true servant of the realm's law, which is rarer than you'd think in a forest full of the dead. I'd be proud to have you at my table." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I've written my own resignation letter, {name}, addressed to the Regent, and kept it in my desk for a year. I'm terrified that if I send it, it'll be the first letter Stormwind ever answers." },
+      { id = "nt_2", text = "I nearly sold my family's lands to a Stormwind merchant last winter and took my household to Elwynn. I had the papers drawn, and I tore them up the morning the Watch buried two more of their own." },
+    },
     _gated = {
       { id = "gt1", text = "That is council business, and I do not share council business with those who have yet to prove themselves friends of Darkshire." },
       { id = "gt2", text = "I shall keep my own counsel on that, {class}. Earn the town's regard, and the mayor's will follow." },

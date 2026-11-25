@@ -704,11 +704,54 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The dwarves at Bael'dun guard a deep shaft at the heart of their dig, and whatever they seek lies at its bottom." },
+    { id = "cnf_2", text = "The Grimtotem who raid in Stonetalon carry braids in the old Grimtotem fashion, and any brave can tell them apart from our own hunters." },
+    { id = "cnf_3", text = "There is a quiet spring below the Spirit Rise where I go to pray when the council grows loud, and no one disturbs a tauren who sits there." },
+  },
   blurts = {
     { id = "bl1", text = "The Grimtotem raid the Venture Company and the night elves alike in Stonetalon, and they carry Thunder Bluff's name when they do it. Magatha swears she knows nothing of it, and I have no proof yet that she lies." },
     { id = "bl2", text = "There are dwarves digging at Bael'dun in Mulgore, turning over our land for reasons they won't share. My braves drive them off, and each season they come back with more." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you walk the land as if it were a friend and not a road, {name}, and that is how a tauren judges anyone. The Earth Mother knows her own." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You have done much for my people and asked little in return. An old bull remembers the ones who carried water when the herd was thirsty." },
+      { id = "rg_3", when = { fondness = "town" }, text = "Thunder Bluff speaks well of you, from the braves on the lifts to the elders on their rises. My people are slow to praise, so their words weigh much." },
+      { id = "rg_al", when = { alignment = { axis = "honor", min = 30 } }, text = "Your word is as firm as the mesas, {class}. I have known chieftains who could not say the same, and I have outlived most of them." },
+    },
+    confide = {
+      { id = "cf_1", text = "When the centaur drove us across the Barrens, I did not know if any of us would live to see Mulgore. I led my people with a calm face, and every night I begged the Earth Mother not to let me fail them." },
+      { id = "cf_2", text = "I am old, {name}, older than most on this bluff know, and I feel the winters more than I once did. Baine will lead after me, and I pray the herd is kind to him while he learns." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Hamuul, who speaks slowly because he thinks before every word. Trust my son, who will tell you the truth even when it is not what I want to hear." },
+      { id = "tr_2", text = "Trust Thrall, who kept his word to the tauren when breaking it would have cost him nothing. That is the measure of a friend." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the dwarves at Bael'dun in the south of Mulgore. They dig deeper every season and will not tell my braves what they seek." },
+      { id = "wo_2", text = "Some of the Grimtotem do not walk the same path as the rest of us, and their braves carry our name into places I have not sent them. Be watchful in Stonetalon and the Needles." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that the peace of Mulgore makes my people forget how it was won. The young braves have never been hunted across the plains, and I pray they never will be." },
+      { id = "wy_2", text = "The Grimtotem trouble me more than I let the council see. Magatha is an old friend, and I will not accuse her without proof, but the reports keep coming." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see the tauren whole again, every tribe walking the same path under the Earth Mother. We were scattered for so long that some have forgotten we were one herd." },
+      { id = "hp_2", text = "I hope Baine grows into a wiser chieftain than I ever was. He listens more than I did at his age, and that gives an old bull much hope." },
+    },
+    favor = {
+      { id = "fv_1", text = "Drive the dwarves from Bael'dun if you have the strength, and learn what they dig for. Mulgore is sacred, and I would know who disturbs it." },
+      { id = "fv_2", text = "Visit Baine in Bloodhoof Village and lend him your strength when he needs it. He will not ask, so I am asking for him." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}. You have walked beside my people and shared our burdens, and among the tauren that is what friendship means." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You came to my people's aid with open hands and asked for nothing. The Earth Mother sees such deeds, and so do I, and I name you friend gladly." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When Thrall's Horde came to our aid against the centaur, I was ready to die with my people rather than ask outsiders for help. Thrall offered before I could ask, and I have never told him how close I came to refusing him." },
+      { id = "nt_2", text = "I have doubts about Magatha that I keep from everyone, even Baine. If I speak them and I am wrong, I will have split the tauren over an old woman's pride, so I wait, and I wonder if waiting is cowardice." },
+    },
     grievance = {
       { id = "gv1", text = "I don't hold anger long, young one, but I hold it longer than you'd think. You've given me cause, and you know it as well as I do." },
       { id = "gv_rival", when = { grudge = "rival" }, text = "You've been walking Elder Rise in Magatha's company and carrying her words for her. I know the Grimtotem, and I know what those words are for." },
@@ -1249,11 +1292,54 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Druids of the Fang keep their lairs in the Wailing Caverns, and Naralex lies in the deepest chamber where the water is still." },
+    { id = "cnf_2", text = "The young druids practise their shapes in a quiet grove behind Elder Rise, and Magatha's people watch them from across the bridges." },
+    { id = "cnf_3", text = "The druids who come up the lift from Moonglade travel by the hidden paths through Ashenvale, and they do not take the roads the Horde patrols." },
+  },
   blurts = {
     { id = "bl1", text = "The oases of the Barrens are failing because Naralex's own disciples turned on him in the Wailing Caverns. They call themselves the Druids of the Fang now, and they are twisting his dream into a nightmare." },
     { id = "bl2", text = "Magatha still says no tauren should have learned the druid's path from a night elf, and she says it loudest when Cairne is out of hearing. The Grimtotem have never forgiven Malfurion, or me." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think there is balance in you, {name}, the kind that comes slowly and does not leave easily. The wild would find you a good companion." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You have done the Circle's work without being asked, and the land remembers such things longer than people do. So do I." },
+      { id = "rg_3", when = { class = "DRUID" }, text = "You walk the druid's path with patience, and that is the hardest lesson Malfurion ever taught me. I am glad to see it in you." },
+      { id = "rg_al", when = { alignment = { axis = "light", min = 30 } }, text = "There is a gentleness in you that the land answers, {name}. The Emerald Dream would know your face if you ever walked there." },
+    },
+    confide = {
+      { id = "cf_1", text = "When I asked Malfurion to teach the tauren, he was silent for so long that I thought he would refuse. I have spent every year since trying to deserve the yes he finally gave me." },
+      { id = "cf_2", text = "Naralex was a friend to me, and when he went into the Wailing Caverns to heal the Barrens, I did not go with him. I have wondered every day since whether I could have stopped his nightmare." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the High Chieftain, whose heart is as steady as the mesas. Trust the druids who come up from Moonglade, for the Circle keeps faith with the land above all else." },
+      { id = "tr_2", text = "Do not trust anyone who calls himself a druid of the Fang. They wear the Circle's robes, but the nightmare has taken them." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Wailing Caverns, {name}, and the oases of the Barrens around them. The land there is sick, and the sickness spreads into whatever drinks from it." },
+      { id = "wo_2", text = "If you walk the Emerald Dream in sleep, do not follow the voices that call you deeper. Some of them belong to friends who are lost." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry for Naralex, still dreaming beneath the Barrens, and for the land that dreams with him. If his nightmare spreads, the oases will fail one by one." },
+      { id = "wy_2", text = "Magatha has never forgiven me for learning from a night elf, and her voice is loud on Elder Rise. I worry she will turn the young against the Circle before they ever hear its teachings." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see the Barrens green again, with the oases full and the beasts unafraid. Naralex dreamed of that, and I would see it done for him." },
+      { id = "hp_2", text = "I hope more young tauren take the druid's path, so that I am not the last of us who remembers how. The land needs many hands to tend it." },
+    },
+    favor = {
+      { id = "fv_1", text = "Go into the Wailing Caverns and wake Naralex from his nightmare, if it can be done. The Barrens will thank you, even if no one else does." },
+      { id = "fv_2", text = "Speak kindly of the Circle on Elder Rise when you pass there. A few gentle words may undo much of what Magatha says." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}. You have walked with the land and with me, and friendship among the druids is measured by the paths we share." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You have tended what others would have left to wither, and that is the heart of a friend. I am glad to call you one." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When I first took the bear's shape, I could not find my way back to myself for three days, and I was afraid I never would. I told Malfurion it went smoothly, because I could not bear for him to doubt me." },
+      { id = "nt_2", text = "There are nights I wonder whether Magatha is right, and whether the tauren should have found the druid's path alone. Then the land answers me, and I put the doubt away, but it always returns." },
+    },
     grievance = {
       { id = "gv1", text = "Even a druid's patience has its season, traveller, and you've let mine pass. There is no balance between us now, and I'd be lying to say otherwise." },
       { id = "gv_values", when = { grudge = "values" }, text = "You take from the wild without giving anything back, and you seem proud of it. The land keeps a reckoning, and I keep a smaller one." },
@@ -2174,11 +2260,55 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "Darkcloud Pinnacle in the Thousand Needles is held by Arnak Grimtotem, and he answers to Elder Rise, whatever the council believes." },
+    { id = "cnf_2", text = "Half the elders on this bluff send me gifts in secret, and every one of them would deny it in council before Cairne." },
+    { id = "cnf_3", text = "The Forsaken apothecaries in the Pools of Vision draw water from the pools at night and carry it down the lifts in sealed jars." },
+  },
+  alignment = { honor = -1 },
   blurts = {
     { id = "bl1", text = "My Grimtotem hold Darkcloud Pinnacle in the Thousand Needles, and they do not ask Thunder Bluff's leave to keep it. Walk there with Thrall's mark on you, and see how long you keep your hide." },
     { id = "bl2", text = "Half the elders on this bluff grumble that Cairne gave the tauren to Thrall for the price of a few kodo. They say it quietly, child, but they say it to me." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you are clever, child, and you know when to keep your mouth closed. That makes you more useful than most of the fools on this bluff." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You have done things for me without asking why, and I value that more than you know. Loyalty is rare, and I remember it." },
+      { id = "rg_3", when = { race = "Tauren" }, text = "You are tauren through and through, child of the true herd, and that is worth more than all the Horde's promises. Never forget what you are." },
+      { id = "rg_al", when = { alignment = { axis = "honor", max = -30 } }, text = "You know that honor is a cloak the strong put on for the weak to admire, child. I have always liked those who see through it." },
+    },
+    confide = {
+      { id = "cf_1", text = "The tauren were whole before Thrall came, child, and we will be whole again when he is gone. Not every elder on this bluff agrees with Cairne, and some of them come to me at night." },
+      { id = "cf_2", text = "I was a healer before I was an elder, and I have closed more wounds than any shaman on these rises. The Earth Mother gave me the gift, and I gave it to my people." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Grimtotem, child, because we have never once pretended to be anything other than what we are. The rest of this bluff wears smiles over their true faces." },
+      { id = "tr_2", text = "Do not trust Thrall's orcs or the trolls he drags behind him. They came to Mulgore with empty hands, and they will leave with full ones." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Forsaken in the Pools of Vision, and watch what they take from the water. They are dead things, and dead things want what the living have." },
+      { id = "wo_2", text = "Watch the Truthseeker, child, who asks too many questions about things that are not his business. Curiosity has killed better tauren than him." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that Cairne will give away everything the tauren are to keep Thrall's friendship. An old bull can be led anywhere if you are kind to him." },
+      { id = "wy_2", text = "The young tauren are learning orc ways and troll ways, and they forget the old songs. If no one keeps them, the herd will forget its own name." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see the tauren stand alone again, child, beholden to no orc and no warchief. We were great before the Horde, and we will be great after it." },
+      { id = "hp_2", text = "I hope the Grimtotem are given the respect they are owed on this bluff. We are the oldest clan, and we have waited long enough." },
+    },
+    favor = {
+      { id = "fv_1", text = "Carry a word for me, child, to my people at Darkcloud Pinnacle, and do not open it on the way. Some messages are for Grimtotem eyes alone." },
+      { id = "fv_2", text = "Tell me what the Truthseeker asks about, and who he asks. I like to know what an inquisitive bull is sniffing after." },
+    },
+    friendship = {
+      { id = "fr_1", text = "A friend, child? I have allies and I have tools, and you are something rarer than either. Call it a friend if you like, and I will not correct you." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You have served me well and kept my counsel, and that is all I have ever asked of anyone. Yes, I will call you friend, and I do not say it often." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When the tribes chose a High Chieftain, I asked the Earth Mother to choose me, and she chose Cairne. I have never forgiven her for it, child, and I have never told a soul." },
+      { id = "nt_2", text = "Some of my own elders think I am far too patient with Cairne, and they would move against him without me. I keep them leashed, child, and nobody on this bluff knows what that costs me." },
+    },
     grievance = {
       { id = "gv1", text = "You have been of no use to me, and you have made yourself a nuisance besides. On Elder Rise, that is a short road to being forgotten." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "You are one of Thrall's strays, and Cairne opened our bluff to your kind without asking a single Grimtotem elder. I will be courteous, child, but I will not pretend you belong here." },

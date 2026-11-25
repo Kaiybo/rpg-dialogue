@@ -1298,9 +1298,15 @@ P:NPC {
       },
     },
   },
+  alignment = { order = -1 },
   blurts = {
     { id = "bl1", text = "The ogres still hold Dire Maul, and I know ogres better than anyone. The Gordok will follow whoever kills their king, and they don't care who that is." },
     { id = "bl2", text = "Proudmoore's sailors still hold Tiragarde Keep on Durotar's coast, and they haven't forgiven the Horde for the Admiral. Neither has his daughter, entirely." },
+  },
+  confides = {
+    { id = "cnf_1", text = "The kodo come to the Graveyard in Desolace to die and nothing else, so leave them be; the ones that charge are the ones that have smelled blood on you." },
+    { id = "cnf_2", text = "The Gordok ogres in Dire Maul post their worst guards on the northern side, because they think nobody comes that way, and they're usually right." },
+    { id = "cnf_3", text = "The Venture Company in Stonetalon pay their goblins by the tree, so the loggers work fastest and watch least at the end of the day." },
   },
   topics = {
     grievance = {
@@ -1339,5 +1345,43 @@ P:NPC {
     sylvanas = { { id = "tp_sylvanas", text = "The Banshee Queen's people joined the Horde after I left it. I've met dead men I liked, but I haven't met her." } },
     forsaken = { { id = "tp_forsaken", text = "The Forsaken smell like the grave and talk like scholars, and I don't know what they want. That's enough for me to keep my distance." } },
     _none = { { id = "tp_none", text = "I don't know that, and I don't much care to. Misha cares even less." } },
+    regard = {
+      { id = "rg_1", text = "You don't talk much, and you don't pretend to be more than you are. Misha likes you, and hers is the only opinion I really trust." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've helped me without asking what you'd get for it. That's rare on these roads, and I don't forget it." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You talk straight with me, and I don't have to wade through polite words to find what you mean. That's worth more to me than gold." },
+      { id = "rg_free", when = { fondness = "alignment", alignment = { axis = "order", max = -30 } }, text = "You go your own way and answer to nobody, which is how I've lived since I left the Horde. Misha and I respect that more than you'd think." },
+    },
+    confide = {
+      { id = "cf_1", text = "I left the Horde because I don't like walls or warchiefs, not even Thrall's. He's my friend, but I'd rather be alone on a road than safe in a city." },
+      { id = "cf_2", text = "Misha's getting older, and she doesn't run as fast as she used to. I haven't said it to her and I won't, but I've started taking the shorter roads." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the tauren of Thunder Bluff, trust Thrall, and trust Misha's nose above all of them. She's never been wrong about a stranger." },
+      { id = "tr_2", text = "Don't trust anyone who tells you the wilds are safe. They aren't, and whoever says so wants you walking into something." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the centaur in Desolace when they ride in threes. One alone will run, but three together will chase you all the way to the sea." },
+      { id = "wo_2", text = "Stay off the roads near Stonetalon when the Venture Company's machines are running. The noise drives the beasts mad, and they'll go for anything that moves." },
+    },
+    worries = {
+      { id = "wy_1", text = "The Horde and the Alliance are drifting toward war again, and I fought too hard at Theramore to watch that peace fall apart. I worry I'll be needed, and I don't want to be." },
+      { id = "wy_2", text = "I don't know if any of my mother's people are left anywhere in this world. If I'm the last, there'll be nobody to remember them, and that weighs on me more than I let on." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to find a place where Misha and I can sleep without one eye open. I don't expect to, but it's a good thing to hope for." },
+      { id = "hp_2", text = "I hope the peace Thrall and the Proudmoore girl made holds, at least long enough for me to stop worrying about it." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you travel through Dustwallow, see whether the peace still holds on the Theramore road and tell me. I fought for it once, and I'd like to know it's still standing." },
+      { id = "fv_2", text = "Leave a bit of meat out for any bear you meet on the road. Misha thinks it's only polite, and I've learned not to argue with her." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I don't have many friends, and Misha has fewer. You're one of hers, and that makes you one of mine." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've walked the same roads as me and never once asked me to slow down. That's a friend, by my reckoning." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I'm half ogre and half orc, and neither people ever fully trusted me. I've never told anyone how much that still stings, even now." },
+      { id = "nt_2", text = "When Admiral Proudmoore fell, I saw his daughter's face, and I nearly lowered my axe. I've never told her, and I never will." },
+    },
   },
 }

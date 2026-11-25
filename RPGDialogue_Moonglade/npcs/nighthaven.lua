@@ -756,11 +756,54 @@ P:NPC {
       { id = "sp_1", text = "I think you are a storm that does not know it is a storm, and the forest will bend away from you." },
       { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think the demons will welcome you as one of their own one day, and I hope I am not there to see it." },
     },
+    regard = {
+      { id = "rg_1", text = "You walk gently in the glade, little one, and the trees noticed it before I did. They are slow to speak of mortals, and they speak well of you." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have done the glade's work and the Circle's without asking what it was worth. My father valued that above all things in those he taught." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You speak with care in Moonglade, as one ought to in a place older than speech, and it pleases me more than you know." },
+      { id = "rg_light", when = { fondness = "alignment", alignment = { axis = "light", min = 30 } }, text = "There is a stillness in you, little one, like moonlight on the lake at Nighthaven, and the darkness does not cling to you as it clings to so many." },
+    },
+    confide = {
+      { id = "cf_1", text = "I am undying still, as my father was, and the night elves who sit with me in the glade are not anymore. I have begun to count their winters, little one, and it is a habit I do not like." },
+      { id = "cf_2", text = "The Arch Druid hears my counsel less than he once did, and the Circle argues more than my father would have liked. I keep the peace here because I cannot keep it in Darnassus." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Rabine Saturna, who has kept Nighthaven's affairs in order since before it was a village, and trust the Timbermaw who guard the road. They have never once broken faith with me." },
+      { id = "tr_2", text = "Within Moonglade you may trust every druid, of whatever people, for the glade's peace binds them all. Beyond it, little one, trust them as you would any mortal." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Do not sleep too deeply in strange groves, little one. The Dream is restless lately, and those who wander into it unready do not always find their way back." },
+      { id = "wo_2", text = "Watch the Winterfall furbolgs on the Everlook road as well, for they have taken to a firewater brewed from Felwood's poison, and it makes them bold and cruel." },
+    },
+    worries = {
+      { id = "wy_1", text = "Malfurion's spirit walks far in the Dream, and he has sent no word to me in a long while. I keep his rest as I promised, and I tell Tyrande it is only a long dream, though I do not know that it is." },
+      { id = "wy_2", text = "Felwood was once the green heart of Ashenvale's north, and now its sickness creeps toward the glade a few trees every season. The Timbermaw hold the passes, but no furbolg can hold back a poison." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Felwood green again, as it was when my father walked it. I have time enough to wait for it, little one, if only the world allows me." },
+      { id = "hp_2", text = "I hope Malfurion wakes in a season of peace, so that he and Tyrande may have a few quiet years before the world asks anything more of them." },
+    },
+    favor = {
+      { id = "fv_1", text = "Treat the Timbermaw kindly on your way through their tunnels, little one, and greet them in their own manner. Their friendship is the oldest wall this glade has." },
+      { id = "fv_2", text = "If you pass through Felwood, bring me word of how the trees fare near Jaedenar. The wind carries me only half of what happens there." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, little one. I have been friend to few mortals in ten thousand years, for they pass so quickly, and I am glad to count you among them." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have tended what my father loved and asked nothing for it, so yes, you are a friend of Moonglade and of its keeper." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I have never gone to my brother Zaetar's grave beneath Maraudon, little one, because Theradras guards it and her grief is greater than mine. I am ashamed that I have let her keep him alone." },
+      { id = "nt_2", text = "When my father fell to the orcs, I felt it in every root of this glade, and for one night the whole of Moonglade withered. I let it grow back, but I have never forgotten how much I wanted it to stay dead." },
+    },
   },
   blurts = {
     { id = "bl_1", text = "My brother Zaetar lies in Maraudon, and his beloved Theradras still guards his bones. I do not speak of it, and you will not either." },
     { id = "bl_2", text = "Teldrassil was planted without nature's blessing, and the corruption is already in its roots. Fandral will not hear it, and I have stopped telling him." },
     { id = "bl_3", text = "The green dragons who guard the Dream have been seen at the great trees in Ashenvale, Feralas, Duskwood and the Hinterlands. Something troubles them, and it is not the mortal world." },
+  },
+  confides = {
+    { id = "cnf_1", text = "The Timbermaw tunnel out of Felwood is the one road into Moonglade the satyrs have never found, and the Timbermaw mean to keep it that way." },
+    { id = "cnf_2", text = "The barrow dens beneath the glade are where the druids sleep when they walk the Dream, so tread softly on the stairs and do not wake them." },
+    { id = "cnf_3", text = "The druids bring the sick of Felwood to rest on the lakeshore at Nighthaven, because nothing fel has ever lived long in that water." },
   },
 }
 

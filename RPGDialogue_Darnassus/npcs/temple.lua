@@ -449,6 +449,11 @@ P:NPC {
     { id = "bl1", text = "Not every priestess in this Temple trusts the Arch Druid's tree, though we are told to say nothing of it. Some of us pray over its roots at night." },
     { id = "bl2", text = "If you want to know what the Enclave will not tell you, go to Moonglade and ask Keeper Remulos. He speaks to the Sisterhood more honestly than Fandral ever has." },
   },
+  confides = {
+    { id = "cnf_1", text = "Sister Aquinne reads aloud at the moonwell each night the name of every traveller who asked the Temple for help, and she has never once forgotten a name." },
+    { id = "cnf_2", text = "The priestesses on the Temple's upper balconies can see the whole road down to Rut'theran, and they know who has arrived in the city long before the Sentinels report it." },
+    { id = "cnf_3", text = "The calmer Gnarlpine still remember the priestesses' old hymns, and a verse sung softly will sometimes make one hesitate long enough for you to step away." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "You have been a discourteous guest in Elune's house. I am patient by training, but I am not blind." },
@@ -481,6 +486,45 @@ P:NPC {
     forsaken = { { id = "tp_forsaken", text = "The humans' dead who walk in the north, and some claim to have freed themselves. I pray for them, though I don't think they'd thank me." } },
     scourge = { { id = "tp_scourge", text = "I've read the reports from the human lands, of whole towns rising as the dead. If there's one thing our priests are for, it's that." } },
     _none = { { id = "tp_none", text = "That is outside what a priestess of the Temple can speak to. The Sentinels or the Enclave might know more." } },
+    regard = {
+      { id = "rg_1", text = "You come to the Temple quietly and you leave it the same way, which is more than most young people manage. I have come to look forward to your visits." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You speak gently under this roof, as one ought to in Elune's house. It is a small courtesy, and it tells me a great deal about you." },
+      { id = "rg_values", when = { fondness = "values" }, text = "You heal before you ask what it will cost, and you pray when no one is watching. I teach priests every day, and I wish more of them were like you." },
+      { id = "rg_light", when = { fondness = "alignment", alignment = { axis = "light", min = 30 } }, text = "Elune's light sits easily on you, {name}, and I have taught long enough to know the difference between those who wear it and those who carry it." },
+    },
+    confide = {
+      { id = "cf_1", text = "I was a novice when the Well was destroyed, and I lost my voice for a year afterward. The High Priestess taught me the hymns again one word at a time, and I teach them the same way now." },
+      { id = "cf_2", text = "Laurena's human priests are better at comforting the dying than mine are, because their own lives are short and they understand. I send my students to watch them, though I never tell them why." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Sister Aquinne with anything you would not tell the Sentinels, because she has kept more secrets in the Temple Gardens than I have kept in ten thousand years." },
+      { id = "tr_2", text = "Trust the priestesses who pray longest and speak least. The ones who are eager to tell you Elune's will usually have their own in mind." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Be careful what you say about the Arch Druid's tree in the Temple, because the walls listen, and not all of them belong to Elune." },
+      { id = "wo_2", text = "Beware of anyone in the city who offers to sell you a trinket from the Highborne ruins. Such things are never as dead as the seller promises." },
+    },
+    worries = {
+      { id = "wy_1", text = "Some of the young priestesses have never known a world where we did not live forever, and they do not truly believe they will die. I worry that I have not taught them well enough to be ready." },
+      { id = "wy_2", text = "The human priests come to me less often since the plague took the north, and the ones who come look older than their years. I pray for their Cathedral, though I do not know whether Elune hears prayers for the Light." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see a priestess of Elune and a priest of the Light kneel together at the moonwell and find they are praying for the same thing. I have very nearly seen it twice." },
+      { id = "hp_2", text = "I hope Teldrassil proves me wrong about its roots, and that I live long enough to apologise to the Arch Druid. He would enjoy that a great deal." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you pass through Stormwind, give Laurena my regards at the Cathedral and ask how her students fare. She writes to me less than she should." },
+      { id = "fv_2", text = "Pray at the moonwell before you leave the city, even briefly. The Temple notices who stops, and so do I." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I count you a friend, {name}, and I am careful with that word. A priestess hears a great many confessions and makes very few friends." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have been kind to my students and patient with an old teacher's lectures, so yes, you are a friend of this Temple and of mine." },
+      { id = "fr_al", when = { fondness = "alignment" }, text = "Elune's light rests on us both, and I have found that friends who share a light seldom lose each other in the dark." },
+    },
+    never_told = {
+      { id = "nt_1", text = "In the last days of the old war I healed a Highborne sorcerer before I knew what he was, and he thanked me with real tears. I have distrusted the arcane ever since, and I have never managed to hate him." },
+      { id = "nt_2", text = "When the High Priestess goes to Moonglade alone, she leaves the Temple in my keeping, and I have not slept on one of those nights in all the years since Hyjal." },
+    },
   },
 }
 

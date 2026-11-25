@@ -288,11 +288,54 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Grimtotem on Elder Rise use a narrow rope path down the back of the bluff at night, and their messengers carry letters toward the Thousand Needles." },
+    { id = "cnf_2", text = "The library in the Scarlet Monastery has a second floor that the zealots rarely guard, and the oldest books are kept there under lock." },
+    { id = "cnf_3", text = "Magatha keeps her letters in a carved chest by her bed, and only one of her servants is allowed near it." },
+  },
   blurts = {
     { id = "bl1", text = "The Grimtotem at Darkcloud Pinnacle in the Thousand Needles answer to Magatha, whatever she says on Elder Rise. I can't prove it yet, and the High Chieftain won't move until I can." },
     { id = "bl2", text = "The Compendium of the Fallen sits in the library of the Scarlet Monastery, and the zealots guard their books more closely than their lives. I want it back, and I'd take it from anyone's hands." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you ask good questions, {name}, which is rarer than you'd imagine. Most people ask questions they already know the answer to." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You've brought me answers I couldn't have found alone, and you didn't pretend to know more than you did. That honesty is worth more to me than any tome." },
+      { id = "rg_3", when = { fondness = "values" }, text = "You're careful and curious in equal measure, which is the right balance for a scholar or a scout. I've met few who manage both." },
+      { id = "rg_al", when = { alignment = { axis = "order", min = 30 } }, text = "You respect the law and you keep your word, and those two things make you more trustworthy than half the council. I've checked." },
+    },
+    confide = {
+      { id = "cf_1", text = "I've spent every season since we came to Mulgore trying to prove Magatha is behind the Grimtotem raids, and I'm closer than she thinks. The problem is that Cairne won't believe a word of it without evidence he can hold." },
+      { id = "cf_2", text = "My grandmother taught me to ask who benefits from every story. I learned that rule too well, and now I can't hear even a kind word without wondering what it's for." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the High Chieftain, because Cairne has never once lied to me, even when it would have been easier. Trust the Arch Druid as well, who's as honest as he is slow." },
+      { id = "tr_2", text = "Don't trust anyone on Elder Rise who smiles too often at the Grimtotem. Smiles are cheap, and Magatha buys them in bulk." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Grimtotem who come and go from Elder Rise at night. They don't use the main lifts, and that's how I know they're up to something." },
+      { id = "wo_2", text = "If you go to the Scarlet Monastery, guard any book you find there with your life. The zealots will kill you sooner for a page than for a sword." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry I'll find proof against Magatha too late, after she's already done whatever she's planning. Cairne is wise, but he's too trusting of an old friend." },
+      { id = "wy_2", text = "The Forsaken in the Pools of Vision are watching us as closely as we watch them, and I don't think their reasons are as innocent as ours." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to bring the Compendium of the Fallen back to Thunder Bluff and learn what the tauren have forgotten. Our history is scattered across the world, and I'd like to gather it." },
+      { id = "hp_2", text = "I hope that someday the High Chieftain thanks me for being suspicious, and that I'm wrong about everything. I'd rather be wrong than right about Magatha." },
+    },
+    favor = {
+      { id = "fv_1", text = "Keep your eyes open at Darkcloud Pinnacle, and tell me who gives the Grimtotem their orders. A name is all I need to begin." },
+      { id = "fv_2", text = "If you ever go into the Scarlet Monastery's library, look for the Compendium of the Fallen. I'd be in your debt for the rest of my life." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}, and I don't say that lightly, because I trust very few people. You're one of them." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You've helped me when I needed it and asked for nothing, which is what a friend does. I'm grateful, more than I usually say." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I once accused an innocent tauren of working with the Grimtotem, and he was exiled for it before I found my mistake. I've never told the council, and I've never stopped looking for him." },
+      { id = "nt_2", text = "Sometimes I wonder if Magatha is right that the tauren should stand alone, without the Horde. Then I remember who's saying it, and I stop wondering." },
+    },
     grievance = {
       { id = "gv1", text = "I keep notes on everyone who passes through Thunder Bluff, and yours have grown rather long and rather unflattering. That's my problem, if you must have it." },
       { id = "gv_pers", when = { grudge = "persuade" }, text = "You tried to argue me round with half a fact and a confident voice. I've spent my life catching people doing exactly that, and I caught you." },

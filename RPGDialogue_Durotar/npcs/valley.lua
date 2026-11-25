@@ -519,11 +519,54 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "Yarrog Baneshadow keeps to the deepest chamber of the cave north of the Den, and his imps stay with him, so clear the cultists by the entrance before you go any further." },
+    { id = "cnf_2", text = "The scorpid Sarkoth hides in the canyon to the northeast and only comes out when there's fresh prey, so bring a boar carcass and wait." },
+    { id = "cnf_3", text = "The peons in the Valley know where every cache of supplies is buried, because they're the ones who dig them, and they'll tell you if you're kind to them." },
+  },
   blurts = {
     { id = "bl1", text = "The Burning Blade coven in the cave to the north answers to a warlock called Yarrog Baneshadow. Kill him, and the rest are just frightened cultists." },
     { id = "bl2", text = "There's a scorpid called Sarkoth in the canyon to the northeast that nearly killed Hana'zua, and nobody has gone back for it." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you got back up every time the Valley knocked you down, and that's all I ever ask of a recruit. You've done more than that since." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You came out of the Den green and made something of yourself without leaning on anyone. I've watched a lot of recruits, and you're one I'd send to the Warchief by name." },
+      { id = "rg_3", when = { fondness = "tone" }, text = "You speak plain and you don't whine, which already makes you better than half the Den. Keep it that way." },
+      { id = "rg_al", when = { alignment = { axis = "order", min = 30 } }, text = "You take orders and keep your gear clean and your word cleaner. Discipline like that keeps a Horde standing when the drums stop." },
+    },
+    confide = {
+      { id = "cf_1", text = "I'm hard on the recruits because I buried too many who were coddled. The Valley of Trials is the gentlest thing they'll ever face, and most of them never believe me." },
+      { id = "cf_2", text = "I keep a tally of every recruit who's passed through the Den. The ones who died on their first trip to the Barrens, I keep a second tally for, and I read it more often." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Zureetha and Galgar here in the Valley, and trust Gar'Thok in Razor Hill. They're hard, the same as me, and hard folk don't lie to recruits." },
+      { id = "tr_2", text = "Don't trust any recruit who says he can handle a fight alone. That one gets the rest of his squad killed." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Burning Blade coven in the cave to the north, and don't go in until you've cut down a few boars and know your own limits. Yarrog's imps go for the weak first." },
+      { id = "wo_2", text = "Scorpids in the canyon sting worse when they're cornered, so give them room to run. A cornered scorpid will take you down with it." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry the recruits think the war's over because the Warchief made peace. It's never over, it only takes a rest." },
+      { id = "wy_2", text = "Every season I get more recruits and fewer veterans to train them. One day the Den will be run by grunts who never saw a real fight, and that worries me more than any cultist." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope one of my recruits stands at the Warchief's side someday. I'd tell the Den about it for the rest of my life." },
+      { id = "hp_2", text = "I hope to see the Valley of Trials quiet one season, with no cultists in the caves and no scorpids in the canyon. Just recruits learning, and nobody dying." },
+    },
+    favor = {
+      { id = "fv_1", text = "When you pass through the Valley, say a word to the green ones. They'll listen to a veteran who got out alive sooner than to an old grunt who never leaves the Den." },
+      { id = "fv_2", text = "If you hear of a recruit from the Valley who fell in the Barrens, send me word. I'd rather know than wonder." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Friend's not a word I use with recruits, but you stopped being a recruit a long time ago. Aye, you're a friend." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You proved yourself in the Valley and everywhere after. I'd trust you at my back, and I don't say that to many." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I hauled stone in the camps and never held a blade, and I picked up an axe for the first time the night Thrall broke us out. I've never told the recruits, because they'd stop believing I was born hard." },
+      { id = "nt_2", text = "The first recruit I ever lost was a girl who reminded me of my sister, who died in the camps. I was too soft with her, and the Barrens took her anyway." },
+    },
     grievance = {
       { id = "gv1", text = "You've been trouble since you crawled into my Den. Recruits are supposed to get easier to deal with, not harder." },
       { id = "gv_values", when = { grudge = "values" }, text = "You fight for yourself and no one else. The Horde doesn't need that kind, and the Den didn't make you that way." },

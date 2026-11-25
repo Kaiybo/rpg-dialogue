@@ -395,7 +395,57 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "Abercrombie on Raven Hill buys zombie juice from me by the crate, and he pays in old Stormwind coin from before the First War. Where a hermit gets that sort of money, I'd dearly like to know." },
+    { id = "cnf_2", text = "Jitters, the nervous fellow by the road, was at Raven Hill the night something went badly wrong, and he's never told the Watch what he saw. Buy him a drink and ask gently, and he might tell you." },
+    { id = "cnf_3", text = "Marshal Haggard, out by Eastvale in Elwynn, kept his own notes on the old Mistmantle case, separate from the Watch's records. If you ever want to read what we couldn't prove, start with him." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're a good listener, friend, and that's the rarest thing that walks through my door. Most folk want to talk at a barkeep; you talk with one." },
+      { id = "rg_2", text = "I think you've got a sharp eye for detail, the kind I'd have liked when I was chasing old cases. You notice what's out of place, and in Duskwood that keeps you alive." },
+      { id = "rg_earned", when = { fondness = { best = "earned" } }, text = "You've done this town a dozen good turns and never asked for a free round, which in my trade is practically sainthood. I keep a list, friend, and you're near the top." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "You bring a bit of warmth in with you, friend, and in Duskwood that's no small thing. The regulars sit up straighter when you come in, and they don't do that for the Watch." },
+      { id = "rg_shadow", when = { alignment = { axis = "light", max = -30 } }, text = "You've a darkness about you, friend, and in a town this close to Raven Hill, folk notice it. I don't hold it against you, but I'd be lying if I said I hadn't noticed too." },
+    },
+    confide = {
+      { id = "cf_1", text = "The Scarlet Raven was my father's, and before that it was a coaching house on the Brightwood road. There's a painted sign in the cellar from those days, and some nights I go down and look at it." },
+      { id = "cf_2", text = "Haggard and I spent a whole year on the Mistmantle murders, and we came close, closer than the records show. The pages wouldn't match, and without them we had nothing a magistrate would hear." },
+      { id = "cf_3", text = "Grual's stew is half of what keeps this town going, and he's never once had all the proper ingredients. Don't ask what's in it, friend; it's better that way, for both of us." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Commander Althea with your life, friend, and Lord Ello with your letters, though not with your patience. They're both honest, in their different ways." },
+      { id = "tr_2", text = "Trust Marshal Haggard out in Elwynn, an old friend who never once lied to me about a case. And trust Trelayne with your bed and your boots; she's never lost either." },
+      { id = "tr_3", text = "Trust what the regulars tell you after the second drink, friend, not the first. The first is for show, and the second is for the truth." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Mistmantle manor north of town, friend. Nobody from the Watch goes there after dark, and I'm one of the few who knows why." },
+      { id = "wo_2", text = "Watch the hermit on Raven Hill, however friendly he seems. A man who buys that much zombie juice is either very thirsty or very busy, and I don't like either answer." },
+      { id = "wo_3", text = "Watch the road past the Brightwood Grove, friend. The worgen have been bolder there this season, and they've stopped running from torches." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that the case will die with me, friend, and with Haggard, and nobody will ever know what happened in that manor. Some truths deserve to be told, even late." },
+      { id = "wy_2", text = "I worry about Jitters, who's never paid his tab and never will. He's a broken man, and I keep a stool for him because nobody else will." },
+      { id = "wy_3", text = "I worry that the Scarlet Raven will be the last warm room in Duskwood one day. It nearly is now, and I'm not sure I'm the man to keep the fire going." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to close the Mistmantle case before I'm too old to remember the details. Just to write the last line in the ledger, friend, and put it to rest." },
+      { id = "hp_2", text = "I hope Darkshire sees a proper harvest festival again, with lanterns in the square and nobody looking over their shoulder at the trees. I'd pour for free that night, if I could afford it." },
+      { id = "hp_3", text = "I'd like to write a history of Duskwood, from the Brightwood days to now. I've the notes for it in a dozen boxes, and the regulars think I'm mad." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you're ever out by Eastvale, look in on Marshal Haggard and tell him Smitts still has the file open. He'll know what I mean, and it'll do the old man good." },
+      { id = "fv_2", text = "If you find any old papers or letters in the manors and ruins round here, bring them by before you burn them for kindling. You'd be amazed what an old letter can tell you." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, friend, and there's a stool by the fire with your name on it whenever you're in town. That's not a promise I make lightly; there are only so many stools." },
+      { id = "fr_2", text = "Aye, you're a friend, and a good one. In this town, friends are the ones who come back, and you've always come back." },
+      { id = "fr_light", when = { alignment = { axis = "light", min = 40 } }, text = "A friend, and a light in Duskwood, which is a rare thing to have walk through the door. I'll keep a candle in the window for you." },
+    },
+    never_told = {
+      { id = "nt_1", text = "Haggard and I had a name, back then, a name we both believed, and we couldn't prove it. I've never said it aloud, friend, and I won't until the pages are found." },
+      { id = "nt_2", text = "I nearly gave up the Raven after my wife passed and went back to Stormwind to clerk. I stayed because the regulars kept coming in, and I couldn't bear to tell them to leave." },
+    },
     _gated = {
       { id = "gt1", text = "That one's in my book, and my book's not open to folk I've only just met. Come by a few more nights." },
       { id = "gt2", text = "I know a thing or two about that, and I'm keeping it behind the bar for now. I only tell what I know to those I've come to trust." },

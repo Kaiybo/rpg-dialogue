@@ -763,7 +763,57 @@ P:NPC {
     { id = "bl2", text = "I have come to suspect my letters to the Regent are read by Lady Prestor's clerks before they ever reach his desk. I cannot prove it, and I should not have said it." },
     { id = "bl3", text = "The Shadowhide gnolls in the eastern hills take their orders from the Blackrock, whatever they pretend. Break the orcs, and the gnolls will scatter of their own accord." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Blackrock cross Lake Everstill at the narrows below the falls when the water runs low, not by the bridge as the town believes. Marshal Marris has two men watching the narrows, and they need a third." },
+    { id = "cnf_2", text = "Stonewatch Keep has an old postern on its eastern side, built when the Keep was ours, that Gath'Ilzogg's orcs have walled up badly. A determined party with a pick could open it in an hour." },
+    { id = "cnf_3", text = "Lakeshire's grain stores are lower than the town knows, and the court has quietly bought from Goldshire's farms to fill them. If the bridge falls, we have six weeks before hunger does the Blackrock's work for them." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you are one of the very few who have answered Lakeshire's call without first asking what it pays. The court has noted it, and so have I, privately." },
+      { id = "rg_2", text = "I think you're useful, {name}, and I mean that as the highest praise in my vocabulary. This town has had enough sympathy to last a century, and far too little help." },
+      { id = "rg_earned", when = { fondness = { best = "earned" } }, text = "You've done more for this valley in a season than Stormwind has in a year of letters. I've written that down, and I may yet send it to the Regent." },
+      { id = "rg_order", when = { alignment = { axis = "order", min = 30 } }, text = "You honour the law even here, where the law has little enough to show for itself. The court finds in your favour, {name}, without reservation." },
+      { id = "rg_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You have, I suspect, broken several of the kingdom's statutes on your way through my valley. The court has elected not to notice, on account of the orcs you broke at the same time." },
+    },
+    confide = {
+      { id = "cf_1", text = "I have written to the Regent twenty-three times since the spring, and received four replies, all of them signed by clerks. I keep a ledger of them, and I've begun to suspect I'm writing to an empty room." },
+      { id = "cf_2", text = "Gryan Stoutmantle asked me for help once, before Lakeshire's troubles began, and I said no because we had none to spare. I understood his position perfectly, which is why I've never forgiven myself." },
+      { id = "cf_3", text = "Marshal Marris is the finest officer in Redridge and he knows it, which makes him difficult to command. I give him what he asks for and pretend it was my idea." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Marshal Marris with the defence of this town and with your life. Trust Bravo Company if you can find them, though they keep their own counsel in the hills." },
+      { id = "tr_2", text = "Trust Gryan Stoutmantle in Westfall, who has never written me a dishonest line. We both ask for what we cannot get, and we understand each other perfectly." },
+      { id = "tr_3", text = "Do not trust any assurance from the Keep that soldiers are coming. I have received six such assurances, {name}, and not one soldier." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Everstill bridge; it's the only good crossing, and the Blackrock know it as well as we do. If it falls, Lakeshire is cut off from Elwynn in a morning." },
+      { id = "wo_2", text = "Watch the Shadowhide gnolls in the eastern hills. They pretend to be their own masters, but they move as the Blackrock move, and they move first." },
+      { id = "wo_3", text = "Watch the tower across the lake, where Morganth practises things no court in the kingdom would license. Whatever he raises there, it won't stay there." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that the Blackrock are no longer raiders but an army, and that their orders come from somewhere deep beyond the mountains. Orcs raid, {name}; these orcs plan, and planning means a war." },
+      { id = "wy_2", text = "I worry that I'll be the last magistrate of Lakeshire, {name}, and that the town's records will end with my name and a note that help was expected." },
+      { id = "wy_3", text = "I worry that the families on the outer farms are staying because I told them to. If the Blackrock come in force, their deaths will be on my ruling, and I made it." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Stonewatch Keep in our hands again and the Blackrock driven back over the mountains. I would hold court on its walls for a day, just to say I had." },
+      { id = "hp_2", text = "I hope to receive a single letter from Stormwind that answers what I asked. I am not a man who hopes for much, so I hope for that." },
+      { id = "hp_3", text = "I hope Lakeshire's fishermen can go out on the lake again without an archer in every boat. It's a small thing, {name}, but it was the town's whole life once." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you go to Stormwind, put my letters into the Regent's own hands, not his clerks'. I've begun to think that's the only way he'll ever see one." },
+      { id = "fv_2", text = "Stand a watch on the bridge, if you have a night to spare. The men there haven't slept properly in weeks, and a fresh pair of eyes is worth a company of tired ones." },
+    },
+    friendship = {
+      { id = "fr_1", text = "The court does not generally rule on matters of the heart, {name}. In this case, it will make an exception: yes, I count you a friend, and a dear one." },
+      { id = "fr_2", text = "I do, and I've precious few. A magistrate's friends are mostly people he's ruled in favour of, and they tend to forget him quickly. You haven't." },
+      { id = "fr_order", when = { alignment = { axis = "order", min = 40 } }, text = "A friend, and an upholder of the law in a land that's almost forgotten it. I could ask no better ally in Lakeshire's court." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When the first raids came, I drafted a letter to Stormwind asking permission to abandon Lakeshire. I never sent it, but I kept it, and I read it whenever I think I'm being brave." },
+      { id = "nt_2", text = "I was a clerk in Stormwind before I came here, {name}, and I took this post because nobody else wanted it. I came to love this town only after it was too late to leave." },
+    },
     grievance = {
       { id = "gv1", text = "This court has formed an opinion of you, and it was not formed lightly. I am afraid it is not a favourable one." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "The law of Stormwind names demon-summoning a crime, and Lakeshire buried its dead the last time warlocks came down this valley. I will not set either fact aside for your convenience." },

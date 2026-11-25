@@ -468,6 +468,11 @@ P:NPC {
     { id = "bl1", text = "The Blackwood furbolgs did not go mad on their own. Something demonic hides near their camp and poisons what they eat, and I fear the same rot is creeping south." },
     { id = "bl2", text = "The Highborne ghosts at Bashal'Aran still cling to their old home, and they are not all as harmless as the young Sentinels think." },
   },
+  confides = {
+    { id = "cnf_1", text = "The ghosts of Bashal'Aran grow quieter when what was taken from them is returned, so leave their things where they lie unless you mean to bring them back." },
+    { id = "cnf_2", text = "The Greymist murlocs come ashore at dusk along the northern beaches, and they will swarm a lone traveller long before any Sentinel can reach her." },
+    { id = "cnf_3", text = "The Twilight's Hammer at the Master's Glaive are supplied by night from the south, along the old road past the Grove of the Ancients." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "I have tried to think well of you, and you have made that harder than it should be. Auberdine has enough sorrows without new ones." },
@@ -507,6 +512,44 @@ P:NPC {
     theramore = { { id = "tp_theramore", text = "The Theramore ships call at our docks more often these days, and the humans are courteous guests. I'm glad of allies who come by sea and not with axes." } },
     green_dragons = { { id = "tp_green_dragons", text = "Ysera's children watch over the Dream, and something has unsettled them lately, if the druids are to be believed. I am an old elf, and I would prefer the dragons settled." } },
     _none = { { id = "tp_none", text = "I don't know, but I will find someone who does. Auberdine is small, but its memory is long." } },
+    regard = {
+      { id = "rg_1", text = "You listen before you speak, which is a rarer gift than any spell, and you come back when you say you will. Auberdine has learned to count on you, and so have I." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You are courteous to an old elf who talks too long, {name}, and I am grateful for it. Courtesy has grown scarce on this shore since the troubles began." },
+      { id = "rg_town", when = { fondness = "town" }, text = "The village speaks well of you, from the docks to the moonwell. Auberdine is slow to warm to strangers, so that is no small thing." },
+      { id = "rg_honor", when = { fondness = "alignment", alignment = { axis = "honor", min = 30 } }, text = "You keep your word as though it weighed something, and on a shore where so many promises have washed away, I value that above most things." },
+    },
+    confide = {
+      { id = "cf_1", text = "I asked the Circle in Darnassus three times for druids to help us cleanse the Blackwood, and three times they sent me a letter instead. I have stopped asking, and I tell the village that help is coming." },
+      { id = "cf_2", text = "Cerellean Whiteclaw has not slept a full night since Anaya died, and I hear him walking the shore toward Ameth'Aran when the moon is high. I do not stop him, though perhaps I should." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Terenthis in matters of the land, for he knows the fel moss better than anyone on this coast, and trust Sentinel Glynda in matters of the bow." },
+      { id = "tr_2", text = "Be careful with the dwarves at Remtravel's camp. They mean no harm, but they dig where they should not, and what they dig up has a way of following them home." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Do not drink from the rivers that run down from the east, and do not let your animals drink from them either. The Blackwood's sickness travels in the water before it travels in the blood." },
+      { id = "wo_2", text = "Keep away from the Master's Glaive after dark, {name}. The Twilight's Hammer post no guards that you can see, and that is exactly what worries me." },
+    },
+    worries = {
+      { id = "wy_1", text = "This shore is dying slowly, ruin by ruin and river by river, and I am an old druid with a small village and a handful of Sentinels. I fear I am tending a garden while the house burns." },
+      { id = "wy_2", text = "The young Sentinels think the Highborne ghosts are harmless because they only weep. I have heard what those ghosts say between their weeping, and I would not stand near them so carelessly." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to walk the road to Ameth'Aran one day and hear nothing but the sea. It has been a long while since that road was quiet." },
+      { id = "hp_2", text = "I hope the Blackwood remember us as friends when they are healed, and not as the people who stood by while they went mad." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you pass Cerellean Whiteclaw on the dock, sit with him a while and talk of anything but Anaya. He has too few people who will." },
+      { id = "fv_2", text = "Bring me word of anything strange you see on the road north toward Mist's Edge. My Sentinels cannot be everywhere, and the coast is very long." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, and gladly. An elder has many people to look after and few to sit with, and you have been one of the few." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have done more for Auberdine than many who were born here, {name}, and I count you a friend of the village and of mine." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I was a druid at Hyjal, and when the wisps rose I was too far down the mountain to see them. I have always been a little ashamed that I missed the one moment worth seeing in that whole war." },
+      { id = "nt_2", text = "I chose Auberdine because it was the farthest place from Darnassus I could find that still had a moonwell. I love the village truly, {name}, but that was the first reason, and I am not proud of it." },
+    },
   },
 }
 

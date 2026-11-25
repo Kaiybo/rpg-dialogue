@@ -141,6 +141,11 @@ P:NPC {
     { id = "bl1", text = "Theradras keeps my father's body in the deepest part of Maraudon, beneath the falls of Earth Song, and she will not give it up while she lives." },
     { id = "bl2", text = "The scepter I made can open the way to the inner halls, if you would rather not wade through every corridor of my father's tomb again." },
   },
+  alignment = { light = 1 },
+  confides = {
+    { id = "cnf_1", text = "Theradras rises from the falls of Earth Song when her house is threatened. Clear the halls behind you before you face her, for you will want an easy road out." },
+    { id = "cnf_2", text = "The orange halls belong to Noxxion's foul spawn and the purple halls to Lord Vyletongue. Either road leads deeper, but the purple road leaves you less sick at the end of it." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "I owe you my freedom, and still you have made me regret owing you anything. That is a sorrow I did not expect." },
@@ -157,5 +162,44 @@ P:NPC {
     },
     maraudon = { { id = "tp_mar", text = "Maraudon is my father's tomb and Theradras' house. It was holy once." } },
     _none = { { id = "tp_none", text = "I have been lost a long while. I do not know that." } },
+    regard = {
+      { id = "rg_1", text = "I think you are kind, though you carry yourself as if you would rather no one noticed. You freed me, and you have never once asked what it cost me." },
+      { id = "rg_2", text = "You walk through my father's tomb with care now, and the earth notices that, even here. So do I." },
+      { id = "rg_druid", when = { class = "DRUID" }, text = "You walk the path my grandsire taught, and you walk it well. Cenarius would know you for one of his own, as I do." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "There is a gentleness in you that the curse would have torn out of me, had you not come. I feel it whenever you speak, and it heals something." },
+    },
+    confide = {
+      { id = "cf_1", text = "I remember the curse more than I let you see. I remember what I said and did as Celebras the Cursed, and some days I cannot be sure which of us is speaking." },
+      { id = "cf_2", text = "I do not know whether Theradras ever truly loved my father, or whether he was only another stone in her house. I hope she did, and I fear she did not." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the druids of the Circle, who have tried to mend Desolace for longer than you have been alive. They are patient, and patience is what this land needs most." },
+      { id = "tr_2", text = "Not the centaur, though they are my kin and I love them as a brother must. The Khans have never kept a promise they could break." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Beware the water in the deeper halls, for it is fouled by what lives there, and it does not wash clean as ordinary water does." },
+      { id = "wo_2", text = "Beware the earth itself near Theradras' throne. She is the stone, and she knows where you stand before you take each step." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the curse is not wholly gone, only sleeping. Some nights I feel the old bitterness stir, and I wonder how long I will remain myself." },
+      { id = "wy_2", text = "That my father's tomb will never be at peace, however many times it is cleansed. Too many have died in these halls for them to sleep easily." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To lay my father to rest beneath open sky, where the grass can grow over him as he would have wished. I do not know if it will ever be possible." },
+      { id = "hp_2", text = "That the Khans will one day remember they are Zaetar's children as well as Theradras', and lay down their spears." },
+    },
+    favor = {
+      { id = "fv_1", text = "Bring peace to Maraudon's halls when you pass through them, and do it gently where you can. My father would want his tomb cleansed, not plundered." },
+      { id = "fv_2", text = "If you speak with any druid of the Circle, tell them that Zaetar's son is himself again. I would like someone beyond these caverns to know it." },
+    },
+    friendship = {
+      { id = "fr_1", text = "You are my friend, {name}, the first I have had since the curse took me. I did not think I would ever have another." },
+      { id = "fr_2", text = "I count you a friend, and more than a friend, for you gave me back myself. There is no debt deeper than that, and no friendship truer." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You came back into the dark for me, again and again, when you had what you needed long ago. That is what a friend does, and I will not forget it." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I let you believe the curse took my memory of what I did in these halls. It did not, and I remember every hour of it." },
+      { id = "nt_2", text = "Sometimes I wish you had not freed me. The curse kept me from grieving, and now there is nothing between me and the grief." },
+    },
   },
 }

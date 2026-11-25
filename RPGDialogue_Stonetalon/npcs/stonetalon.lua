@@ -413,12 +413,55 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Venture Company overseer at Windshear Crag keeps his guards close by day, but they drink after sunset and grow careless near the lumber piles." },
+    { id = "cnf_2", text = "The Bloodfury matriarch nests on the highest cliff above the Charred Vale, and the only way up is a goat path on the eastern face." },
+    { id = "cnf_3", text = "The druids at Stonetalon Peak keep a quiet trail down to Sun Rock that avoids the Webwinder spiders, and they will show it to anyone I vouch for." },
+  },
   blurts = {
     { id = "bl1", text = "The Venture Company's overseer keeps his camp at Windshear Crag, and he never leaves it without his guards. Kill him, and the saws stop for a season." },
     { id = "bl2", text = "The Grimtotem who attacked Camp Aparaje did not act alone, and Magatha knows it. Cairne knows it too, and he will not move against her." },
     { id = "bl3", text = "The Bloodfury harpies nest on the high cliffs above the Charred Vale, and their matriarch never comes down. My braves have tried, and lost too many." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you hold your ground when the ground is hard to hold, {name}. On Sun Rock that is the only praise that matters, and I give it to few." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You have bled for this rock beside my braves, and the stones remember blood that is freely given. So do I." },
+      { id = "rg_3", when = { fondness = "values" }, text = "You are brave without being foolish and loyal without being blind. Cairne sent me here to find such tauren, and I found you instead." },
+      { id = "rg_al", when = { alignment = { axis = "honor", min = 30 } }, text = "You keep your word in a place where the Venture Company buys and sells it by the crate. Stonetalon needs more like you, {class}, and fewer of everyone else." },
+    },
+    confide = {
+      { id = "cf_1", text = "Cairne sent me to Sun Rock to hold it and to mend, and I have done only the first. The battles took my gentleness, and I do not know how to ask the Earth Mother for it back." },
+      { id = "cf_2", text = "I lost more braves to the Bloodfury harpies than I have told Thunder Bluff. I write the numbers small in my reports, because the truth would bring the elders down on my rock with their questions." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the braves of Sun Rock, every one, and trust the druids of the Circle at Stonetalon Peak. They want the mountain healed as much as we do." },
+      { id = "tr_2", text = "Do not trust any Grimtotem who comes down from the north with a friendly word. The ones who attacked Camp Aparaje smiled before they drew their spears." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Webwinder Path at night, and the spiders that hang above it. They drop without a sound, and their poison is slow enough that you do not know you are dying." },
+      { id = "wo_2", text = "The Venture Company's shredders will not stop for a tauren in their way, so step aside when you hear the saws. Many braves learned too late." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry the Venture Company will strip this mountain bare before Cairne moves against them. Every tree they cut is a tree the land will not grow again in my lifetime." },
+      { id = "wy_2", text = "I worry I have become what I fought, {name}. I look at my braves and see only spears, and I remember a time I saw their faces first." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Stonetalon green again, with the saws silent and the Charred Vale grown over. Then I could go home to Mulgore with my work done." },
+      { id = "hp_2", text = "I hope to find my gentleness again before I am too old to use it. Cairne believes I will, and I would not like to prove him wrong." },
+    },
+    favor = {
+      { id = "fv_1", text = "Go to Windshear Crag and break the Venture Company's overseer, if you have the strength. Every season the saws are quiet is a season the mountain breathes." },
+      { id = "fv_2", text = "If you pass through Thunder Bluff, tell the High Chieftain that Sun Rock holds. He worries about this rock more than he says." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}. I have few friends left, because the battles took them too, and I am glad to have found one more." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You fought beside my braves when you owed us nothing, and you did not ask for thanks. That is how a hard bull makes a friend." },
+    },
+    never_told = {
+      { id = "nt_1", text = "In the war against the centaur, I killed a young Kolkar who had thrown down his spear. I tell myself it was the heat of battle, and I have never told anyone how calm I was when I did it." },
+      { id = "nt_2", text = "Some nights I go to the edge of the rock and weep for the gentle bull I used to be. My braves think I am keeping watch, and I let them." },
+    },
     grievance = {
       { id = "gv1", text = "I was gentle once, before the battles, and you have reminded me why I stopped. Say what you need and go." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "Cairne told me what demon blood did to the orcs, and I believe him. You carry the same taint up my mountain, and I will not have it." },

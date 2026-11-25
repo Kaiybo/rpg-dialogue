@@ -581,7 +581,58 @@ P:NPC {
     { id = "bl2", text = "The Stockade's riot is led by a Defias named Bazil Thredd, and someone at court keeps telling me to leave him be. I've not yet learned who started that advice." },
     { id = "bl3", text = "Theramore has asked for soldiers against the black dragon in Dustwallow Marsh, and the House of Nobles has voted every request down. I sign the refusals with a heavy hand." },
   },
+  alignment = { light = 1 },
+  confides = {
+    { id = "cnf_1", text = "The guard rotation at the Stockade changes at the second bell, and for a quarter of an hour the inner gate is held by two men. Thredd's rioters know it too, which is why I've ordered it doubled, and why the order keeps going astray." },
+    { id = "cnf_2", text = "Gryan Stoutmantle has asked for soldiers eleven times, and I have signed four of those requests myself. Somewhere between my desk and the barracks, every one of them was lost." },
+    { id = "cnf_3", text = "The Keep's treasury pays the House of Nobles' debts before it pays the city's soldiers, by an old law nobody has troubled to change. If you wonder why the Army is thin, begin there." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're the sort of {class} the Alliance was built on, in the days before it was all treaties and tariffs. You do the work in front of you and don't wait to be thanked." },
+      { id = "rg_2", text = "I spend my days among men who speak a great deal and do little, so you'll forgive me if I find you a relief. You've never once asked me for anything you hadn't earned." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've done this city more good than half the lords who sit in the Keep, and I've seen the reports to prove it. I don't forget that, {name}." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "The Light is on you, plain as dawn on a shield. I knew men like that in the Silver Hand, and I trusted every one of them with my life." },
+      { id = "rg_order", when = { alignment = { axis = "order", max = -30 } }, text = "You keep your own counsel and answer to no one, and as Regent I ought to mind that more than I do. As an old soldier, I find I rather understand it." },
+    },
+    confide = {
+      { id = "cf_1", text = "I never wanted the Regency, and I've drafted the letter giving it up more than once. Every time, I think of the boy and put it back in the drawer." },
+      { id = "cf_2", text = "I sleep badly since the King's ship was lost, and I've taken to walking the walls before dawn. The guards have stopped saluting, because they know I'd rather be left with my thoughts." },
+      { id = "cf_3", text = "There are days when the council's counsel feels like a fog I can't see through, and I come away agreeing to things I'd have refused that morning. I put it down to weariness, but I've begun to wonder." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust General Jonathan; he has never told me a comfortable lie in twenty years. And trust the Archbishop, who would sooner lose his mitre than his honesty." },
+      { id = "tr_2", text = "Mathias Shaw, for the things he knows, though not always for the things he tells you. SI:7 serves the crown, and it serves it in its own way." },
+      { id = "tr_3", text = "The provinces, more than the Keep. Solomon and Stoutmantle write to me in plain words about plain troubles, and a man who asks for help is rarely the one who'll knife you." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the House of Nobles, {name}. They've money tied up in Westfall's ruin, and they don't care to see it cleared before they've had their return." },
+      { id = "wo_2", text = "Watch the Stockade, and anyone who tells you it's best left as it is. A riot left alone becomes a garrison, and a garrison becomes an army." },
+      { id = "wo_3", text = "Watch for the Scourge's agents in the north, and for anyone preaching that the Light has abandoned us. Despair is how Lordaeron fell, long before the walls did." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that I'm keeping a throne warm for a king who won't return, and that the boy will grow up in a court that taught him only to wait. That isn't what Varian would want for him." },
+      { id = "wy_2", text = "I worry that Lordaeron's fate is waiting for us too, and that we're too busy counting coin to see it coming. I saw a great kingdom die once, and it began with exactly this sort of quarrelling." },
+      { id = "wy_3", text = "I worry that I've grown too used to the word patience. It's on my lips in every council, and some nights I can't remember when I first started saying it." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to hand Varian his crown back, and then go home to a quiet chapel and pray for a month without anyone asking me to sign a thing." },
+      { id = "hp_2", text = "I hope Anduin grows into a better king than any of us deserve. He has his father's courage and his mother's heart, and if the court doesn't spoil him, he'll be remarkable." },
+      { id = "hp_3", text = "I hope to see the Silver Hand stand together again, not as it was, but honest and whole. Uther would have wanted that more than any statue." },
+    },
+    favor = {
+      { id = "fv_1", text = "Look in on the boy when you're in the Keep. He hears too much and is told too little, and a friendly face who isn't paid to be here would do him good." },
+      { id = "fv_2", text = "If you're in Westfall or Redridge, carry back what you see with your own eyes and bring it straight to me. I'm told a great deal, and I've stopped being sure how much of it is true." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}. A regent has many servants and fewer friends than you'd think, and I count you among the few I'd trust at my back." },
+      { id = "fr_2", text = "Aye, and I'll say it plainly, since I say so little plainly these days. You've stood by this city when its own lords would not, and I'll stand by you." },
+      { id = "fr_light", when = { alignment = { axis = "light", min = 40 } }, text = "As a friend and as a brother in the Light, if you'll have it. The Silver Hand taught us to know our own, and I know you." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When Lordaeron fell, I was ordered south with the refugees, and I went. I've told everyone it was duty, but some part of me was glad to leave, and I've never forgiven that part." },
+      { id = "nt_2", text = "I was the one who urged Varian to sail for Theramore, because I believed peace was worth the risk, and he took my advice. I have never said so in council, and I carry it every day." },
+    },
     grievance = {
       { id = "gv1", text = "I try to judge every citizen fairly, and I've judged you, and found you wanting. I'll not dress that up for you." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "I fought Gul'dan's warlocks in the Second War and saw what they made of the dead. The law lets you stand in this hall, but it cannot make me glad of it." },

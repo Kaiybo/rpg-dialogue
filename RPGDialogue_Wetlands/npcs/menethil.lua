@@ -496,12 +496,58 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Dragonmaw at Angerfang change their sentries at moonrise, an' for a wee while their eastern side is thin." },
+    { id = "cnf_2", text = "The Dark Irons at Dun Modr have been tunnellin' under the old road, an' I think they mean tae come up somewhere behind the Span." },
+    { id = "cnf_3", text = "There's a sea cave below the keep where the old Lordaeron garrison stored powder an' shot, an' some o' it's still dry." },
+  },
   blurts = {
     { id = "bl1", text = "The Dragonmaw have dug in at the Angerfang Encampment, an' every orc we kill on the road came down from there or from Grim Batol beyond it. Hit the camp, an' the road breathes easier." },
     { id = "bl2", text = "The Dark Irons hold Dun Modr at the north end o' the Wetlands, an' they've cut the road tae the Thandol Span. Ironforge's wagons have tae come the long way round, if they come at all." },
     { id = "bl3", text = "Ironforge sends me fewer soldiers every season, an' fewer letters with them. If the Dragonmaw push in force, this harbour falls before anyone in the mountain hears of it." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think ye're a proper soldier, {name}, whether or no' ye ever took Ironforge's coin. Ye go where I send ye an' ye come back, an' that's all a captain asks." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "Ye've put more Dragonmaw in the ground than half my garrison, an' ye never once asked for a medal. My lads drink tae ye when ye're no' lookin'." },
+      { id = "rg_dwarf", when = { race = "Dwarf" }, text = "Ye're a dwarf o' the mountain, an' it shows in how ye stand on a wall. It does an old captain good tae see one o' our own out here in the bogs." },
+      { id = "rg_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "Ye follow orders an' ye finish the job, which is the whole o' soldierin'. I'd put ye in charge o' the gate tomorrow if Ironforge would let me." },
+      { id = "rg_al_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "Ye've a wild streak, an' that makes a captain nervous, I'll no' lie. Still, ye've done right by the harbour, so I'll keep ye on a long rope." },
+    },
+    confide = {
+      { id = "cf_1", text = "I watch the hills for Dragonmaw fires every night from the keep roof, after the watch thinks I've gone tae bed. A captain who sleeps through the first fire doesnae get tae see the second." },
+      { id = "cf_2", text = "I'm proud this harbour bears King Terenas's name, more than I let on. Lordaeron's gone, but names outlast the folk who gave them, an' I mean tae keep this one standin'." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust my sentries on the wall, who've held it through every Dragonmaw raid an' never once broke. Trust the harbour master about the tides an' nothin' else." },
+      { id = "tr_2", text = "Trust Longbraid's lads at the Thandol Span, who stand between the Dark Irons an' the rest o' us. Trust Jaina's marines tae sail, if no' tae soldier." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch Dun Algaz, where the Dragonmaw hold the pass, an' never walk it alone or at night. Ye'll meet orcs either way, but it's better tae see them first." },
+      { id = "wo_2", text = "Watch the bogs east o' the harbour, where the crocolisks lie so still ye'd swear they were logs. They've taken more o' my lads than the orcs have." },
+      { id = "wo_3", text = "Watch the Bluegill murlocs along the coast, who raid any ship that runs aground. They took the Blind Princess, an' they'll take ye if ye're careless." },
+    },
+    worries = {
+      { id = "wy_1", text = "That Ironforge forgets this harbour until the day it falls. I write tae the king every month, an' the answers get shorter every season." },
+      { id = "wy_2", text = "That the Dragonmaw will push in force before the Dark Irons are dealt wi', an' I'll have tae choose which gate tae hold. I cannae hold both, an' I know it." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope tae see bare banner poles on every Dragonmaw camp in the highlands, an' Nek'rosh's head on my wall. After that, a quiet ale an' a long sleep." },
+      { id = "hp_2", text = "I hope tae see the road tae the Thandol Span open again, wi' wagons from Ironforge rollin' in every week. That'd mean the harbour's safe, an' I could go home." },
+    },
+    favor = {
+      { id = "fv_1", text = "Go where I send ye an' come back alive, an' bring me every Dragonmaw banner ye can carry. My lads need tae see the orcs can be beaten." },
+      { id = "fv_2", text = "If ye're ever in Ironforge, tell the king Menethil holds, an' that it could hold better wi' more soldiers. He'll listen tae someone who's been here." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Friend? Aye, {g:lad|lass}, an' I dinnae say that tae many who come in on the tide. Ye've stood on my wall, an' that makes ye one o' mine." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After everythin' ye've done for this harbour? Ye're a friend o' Menethil for as long as I'm captain, an' I mean tae be captain a good while yet." },
+      { id = "fr_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "Ye keep yer word an' ye hold the line, an' that's all a soldier asks o' a friend. Ye've mine, an' ye've my lads' too." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I lost a whole watch tae orc warlocks on the Thandol Span in the Second War, an' I was the one who posted them there. I've never told anyone that last part, an' I'll no' say it again." },
+      { id = "nt_2", text = "I bury my dead on the high ground, where the sea cannae take them twice. I go up there alone some nights an' talk tae them, an' I'd thank ye no' tae mention it tae the lads." },
+    },
     grievance = {
       { id = "gv1", text = "My problem's simple enough. Ye've been more bother than help in my harbour, an' I've no patience left for bother." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "I lost a whole watch tae orc warlocks on the Thandol Span, an' ye stand here reekin' o' the same fel. Ye'll get no warmth from me." },

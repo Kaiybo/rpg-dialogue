@@ -241,11 +241,57 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Scarlet riders from Hearthglen water their horses at the stream below this hill at sunset, and they speak freely when they think nobody's near." },
+    { id = "cnf_2", text = "Taelan Fordring still rides past this tomb now and then, alone, and he stops at the gate as though he wants to come in." },
+    { id = "cnf_3", text = "There's a spring behind the tomb that the plague never reached, and its water is clean enough to drink." },
+  },
   blurts = {
     { id = "bl1", text = "Tirion Fordring lives as an exile in a hut not far from this hill, stripped of his rank for showing mercy to an orc. His own son Taelan commands the Crusade at Hearthglen and will not speak his name." },
     { id = "bl2", text = "The Scarlet Crusade at Hearthglen covets this tomb, and they would make Uther's rest a shrine to their own hatred. I sleep lightly because of it." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you are a good soul, traveler, and the garden seems a little greener when you climb the hill. I've learned to trust that feeling." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've been kind to this place and to the people who come to it, and you've never asked for thanks. Uther would have liked you, I think." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You speak gently in this holy place, which few remember to do. It does an old tomb-keeper good to hear it." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "The Light is strong in you, traveler, and you carry it humbly. That is the rarest thing I know, and the most precious." },
+      { id = "rg_al_dark", when = { alignment = { axis = "light", max = -30 } }, text = "There's a shadow on you that I don't like, and I won't pretend otherwise. Still, you've been kind to me, so I'll pray for you rather than bar the gate." },
+    },
+    confide = {
+      { id = "cf_1", text = "The Crusade once asked me to join them, and I very nearly did. Then I saw what they did to a family at the foot of this hill, and I've barred my door to them ever since." },
+      { id = "cf_2", text = "A good spade does more for this garden than any miracle I've ever worked. I tell the pilgrims it's the Light that keeps it green, and it is, but the spade helps." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Argent Dawn, who fight the Scourge without asking whose hands hold the sword. Trust Commander Valorfist at Chillwind, who's honest even when it costs him." },
+      { id = "tr_2", text = "Trust Tirion Fordring, if you can find him, whatever the Crusade says of him. He showed mercy when it cost him everything, and that's worth more than any rank." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Scarlet riders from Hearthglen, who covet this tomb and would make it a shrine to their hatred. They come down the north road in the evening." },
+      { id = "wo_2", text = "Watch the fields below the hill, where the plague still lingers in the soil. Don't eat anything that grows there, however hungry you are." },
+      { id = "wo_3", text = "Watch your own heart, traveler, in a land like this one. Grief turns to hatred very quickly, and hatred is what made the Crusade what it is." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the Crusade will one day come up this hill with torches, and I'll be too old to stop them. I pray for strength every morning, and some mornings the prayer feels very thin." },
+      { id = "wy_2", text = "That the Silver Hand will be remembered only as the Crusade remembers it, all fire and no mercy. Uther deserved better than that." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see the fields below this hill planted again, and children playing where the plague once spread. Then I'll know Uther's tomb kept its watch for a reason." },
+      { id = "hp_2", text = "I hope to see the Silver Hand reborn as Uther made it, with mercy at its heart. I may not live to see it, but I hope for it all the same." },
+    },
+    favor = {
+      { id = "fv_1", text = "Sit in the garden a while, when you've the time, and remember what the Light is for. That's all Uther ever asked of anyone who came here." },
+      { id = "fv_2", text = "If you meet refugees on the road, send them up this hill. I've little to give them, but I've bread and a wall to sleep against." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I count you a friend, traveler, and I don't say that lightly in this lonely place. You've made the hill feel less empty." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After all the kindness you've shown this tomb? You're a friend of the Lightbringer's rest, and of mine, for as long as I keep it." },
+      { id = "fr_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "We walk in the same Light, you and I, and that makes us more than friends. You'll always have a place in this garden." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I was meant to ride with Uther the day he died, and he sent me back to tend a sick novice. I've kept his tomb ever since, because I couldn't keep him." },
+      { id = "nt_2", text = "I sometimes speak to Uther in the evenings, as though he were sitting on the bench beside me. I've never told anyone, and I'd thank you to keep it between us." },
+    },
     grievance = {
       { id = "gv1", text = "I bless most who climb this hill, and I would gladly have blessed you. But you've given me little reason, and I'll not pretend otherwise before the Lightbringer's tomb." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "You keep company with the Nether, and you've brought it to the very door of Uther's rest. I cannot forgive that, however gently I try." },

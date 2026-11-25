@@ -346,8 +346,53 @@ P:NPC {
     { id = "bl1", text = "The black drake over the Portal is called Teremus, and he devours anything that lands in that valley. Kum'isha has watched him eat three adventurers in a single season." },
     { id = "bl2", text = "Kum'isha is not the only one of his people who escaped the orcs. Others hide in places your maps do not show, and they want to be found even less than he does." },
   },
+  confides = {
+    { id = "cnf_1", text = "The draenethyst gathers where the earth was split deepest, so look in the cracks along the edge of the Dreadmaul's ground, where the ogres do not think to dig." },
+    { id = "cnf_2", text = "Teremus sleeps on the cliffs west of the Portal through the hottest part of the day, and that is the only hour Kum'isha crosses the valley." },
+    { id = "cnf_3", text = "The gnolls of the Blasted Lands hoard anything that glitters, and an old gnoll's den can hold more crystal than a week of searching the open ground." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "Kum'isha thinks you are not like the other scavengers. You bring crystals and ask nothing about the price, and you look at him as if he were still something." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have brought Kum'isha crystal after crystal and never once mocked him for wanting them. He has not forgotten it, and he forgets very little." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "There is a light in you that Kum'isha's people would have known, long ago, before the fel came. It hurts him a little to see it, and he would not ask you to hide it." },
+      { id = "rg_shaman", when = { class = "SHAMAN" }, text = "You speak to the elements the way Kum'isha's teachers once taught him to, before he forgot how. He would not admit it to anyone else, but he envies you." },
+    },
+    confide = {
+      { id = "cf_1", text = "Kum'isha does not need the crystals to buy anything. He holds them in the dark at night, and for a moment they hum the way the old world hummed, and that is all he wants from them." },
+      { id = "cf_2", text = "Kum'isha had a name before Kum'isha, a longer one, and a family who said it. He stopped using it when there was no one left to say it to him." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust no one in these wastes, {race}, and trust Kum'isha least of all where crystals are concerned. Still, the dwarf Enohar pays what he promises, which is more than most." },
+      { id = "tr_2", text = "The mages at Nethergarde mean well, and they are fools, and they are honest. Kum'isha would trust them with his life and never with his crystals." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the sky in the Portal valley. Teremus does not hunt by sight but by stillness, and a traveller who stops to rest is a traveller he takes." },
+      { id = "wo_2", text = "Watch the ogres who carry crystals on cords around their necks. They think the stones are luck, and they fight hardest for luck." },
+    },
+    worries = {
+      { id = "wy_1", text = "That Kum'isha will die here among strangers, and no one will know what he was or where he came from. That frightens him more than the drake does." },
+      { id = "wy_2", text = "That the others who escaped are gone now, and Kum'isha is the last who remembers the old songs. He tries to sing them at night, and every year there are fewer words." },
+    },
+    hopes = {
+      { id = "hp_1", text = "That he will find one more like himself before the end, and they will sit together and say the old names aloud. Kum'isha does not need more than that." },
+      { id = "hp_2", text = "To fill a whole box with crystal, enough that it sings by itself without his hands on it. He would set it in the sun and sit beside it, and for a while he would be home." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you ever meet another of Kum'isha's kind in your travels, hiding in some forgotten corner, tell them he lives. They will not believe you, and you must tell them anyway." },
+      { id = "fv_2", text = "Bring crystals, of course, but bring one that you have found yourself and kept a while. Kum'isha wants to know what one feels like after it has been held by a friend." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Kum'isha has not had a friend since before your kind learned to count. He thinks perhaps he has one now, and he does not know quite what to do about it." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have come back to Kum'isha when there was nothing left to gain from it. That is friendship, {name}, and he calls you friend." },
+      { id = "fr_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You keep your word in a land where no one does, and Kum'isha has tested it more than you know. Yes, you are his friend, and he does not say that to the young races." },
+    },
+    never_told = {
+      { id = "nt_1", text = "Kum'isha was not taken by the orcs. He hid in a cellar while they took his family, and he came out afterward to find the sky had turned red and everything he loved was gone." },
+      { id = "nt_2", text = "He came through the Portal clinging to an orc supply wagon, among the very people who broke his world, and he has hated himself for it ever since. Now you know why he never speaks of crossing." },
+    },
     grievance = {
+      { id = "gv_al_shadow", when = { alignment = { axis = "light", max = -30 } }, text = "You smell of the same darkness that drank the orcs' souls before they came to burn Kum'isha's home. He knows that smell better than any of your priests do." },
       { id = "gv1", text = "Kum'isha has no patience for you. You came with empty hands and a full mouth, and that is the worst kind of visitor." },
       { id = "gv_wronge", when = { grudge = "wronged" }, text = "You spoke to Kum'isha as one speaks to a beggar. Kum'isha was not always broken, and he remembers when your kind were nothing at all." },
       { id = "gv_values", when = { grudge = "values" }, text = "You count Kum'isha's coin and not his loss. Greed he understands, but yours has no grief in it." },

@@ -487,6 +487,11 @@ P:NPC {
     { id = "bl1", text = "The Highborne kept their finest work in the Ruins of Eldarath, and the naga have been dragging it out piece by piece while Azuregos guards it after his fashion." },
     { id = "bl2", text = "Arcane power leaks from those ruins like water from a cracked jug, and anything that drinks too deeply of it goes mad. Look at the satyrs if you doubt me." },
   },
+  confides = {
+    { id = "cnf_1", text = "The naga carry their best finds from Eldarath down to the shore at low tide, and that is when a careful observer can see exactly what they have been digging for." },
+    { id = "cnf_2", text = "Sanath knows every path between the tower and the ruins that the satyrs never use, because he is terrified of them and has made a careful study of avoiding them." },
+    { id = "cnf_3", text = "The ruins of Eldarath hum loudest just before a storm comes in off the sea, which is the best time to learn which stones are still enchanted." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "You've been tiresome, my dear, and I have very little patience for the tiresome. Ask my apprentices, the ones who are left." },
@@ -524,6 +529,44 @@ P:NPC {
     burning_legion = { { id = "tp_burning_legion", text = "The Legion is a regrettable consequence of excellent research. I do not intend to repeat the consequence, only the research." } },
     onyxia = { { id = "tp_onyxia", text = "A black dragon in Dustwallow, I hear, and Deathwing's own daughter. I would not study her, because some subjects study you back." } },
     _none = { { id = "tp_none", text = "That's not my field, and I don't waste time outside my field, so try someone with less to do." } },
+    regard = {
+      { id = "rg_1", text = "You are competent, my friend, and you know it without being tiresome about it. You would be astonished how rarely those two arrive in the same person." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You did what I asked, you did it well, and you came back with all your limbs attached. That puts you well ahead of my apprentices." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You have the manners to listen while I am explaining something, which Sanath has never managed in all his years. I find it very restful." },
+      { id = "rg_chaos", when = { fondness = "alignment", alignment = { axis = "order", max = -30 } }, text = "You don't bow to councils or committees either, my friend, and I like you all the better for it. Dalaran would have hated you, which I mean as the highest praise." },
+    },
+    confide = {
+      { id = "cf_1", text = "I came west with the Kalimdor expedition and simply never went back. The Kirin Tor sent three letters asking when I would return, and I used them to light my lamp." },
+      { id = "cf_2", text = "I do miss my apprentice, my friend, though I would never say so in front of Sanath. He was insufferable and brilliant, and the tower is far too quiet without his questions." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Sanath to complain and then to obey, in that order. He is a sour little elf, but he has never once let anyone past my door without my leave." },
+      { id = "tr_2", text = "Trust Lord Ravenholdt's couriers to deliver anything, because he and I have an arrangement and his people are discreet. Trust nobody who tells you a Highborne relic is safe." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Spitelash sirens on the shore, my friend, for their song works on the mind and not the ears. Stopping your ears does nothing, which I learned at some cost." },
+      { id = "wo_2", text = "Be careful of Magus Rimtori's people if you meet them. Thalassians on an expedition are perfectly polite right up until they want what you have." },
+    },
+    worries = {
+      { id = "wy_1", text = "I am not getting any younger, my friend, and the Highborne wrote a great deal more than one human can read in a lifetime. I worry that I shall die halfway through the good part." },
+      { id = "wy_2", text = "The night elves keep threatening to come and tidy up my tower, as they put it. I worry that one day they will do it while I am out, and burn ten thousand years of learning because it frightened them." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to finish my translation of the Eldarath archives and send a copy to Dalaran with a very short covering letter. \"You were wrong\" ought to do it." },
+      { id = "hp_2", text = "I hope to find another apprentice with half the wit of my last and twice the caution. I am not optimistic, but I do keep the spare room aired." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you come across a Highborne tablet with writing on it, copy the runes down for me before anyone else touches it. Copy them, mind you, and do not read them aloud." },
+      { id = "fv_2", text = "Tell Sanath he is doing well, if you pass him on the stairs. He won't believe it from me, and I suspect he needs to hear it." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I suppose I do, my friend, which is a dreadful nuisance, because now I shall have to be polite to you. I will manage it now and then." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have done more useful work for this tower than three of my apprentices put together, so yes, {name}, you are a friend. Don't let it go to your head; it has gone to mine quite enough." },
+    },
+    never_told = {
+      { id = "nt_1", text = "As a student I was very nearly expelled from Dalaran for setting fire to a library, my friend. I told them it was an accident, and it was, but I had been reading something I was told never to touch, and I would read it again." },
+      { id = "nt_2", text = "My apprentice once asked whether I would ever go home, and I told him Azshara was home. It was the first time I had said it aloud, and I realised it was true, and I found that rather frightening." },
+    },
   },
 }
 

@@ -481,8 +481,53 @@ P:NPC {
     { id = "bl1", text = "Every Blackrock camp in the Steppes answers to Warchief Rend Blackhand up in the Spire. Cut off that head and the camps will turn on each other." },
     { id = "bl2", text = "Windsor didn't fall in the Steppes. Ragged John saw the Dark Irons take him alive, and I'd give my rank to know where they put him." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Blackrock change their sentries at Blackrock Stronghold an hour before dawn, and the new watch always comes down the eastern path half asleep." },
+    { id = "cnf_2", text = "Our supply wagons come in through Redridge on the first of every month, and the Firegut ogres have started to time their raids by it, so anyone travelling that road should travel on a different day." },
+    { id = "cnf_3", text = "My last three reports to Stormwind were copied before they were sealed, because I kept the drafts, and somebody in this camp is passing them on." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're the best help this camp has had since Windsor was taken, deputy, and I don't hand out praise in the Steppes. There's not enough of anything up here to waste it." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've gone down into those camps for us again and again, and you've never once asked for a medal. Windsor would have liked you, and that's the best thing I know how to say." },
+      { id = "rg_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You follow orders and you see them through, even when nobody's watching but the ash. That's a soldier, and I've had too few of them lately." },
+      { id = "rg_paladin", when = { class = "PALADIN" }, text = "You carry the Light into a place that's forgotten what it looks like, and the men stand straighter when you walk through camp. I've noticed, even if they won't say it." },
+    },
+    confide = {
+      { id = "cf_1", text = "I was Windsor's second for eleven years, and I never once wanted his command. Now I have it, and I lie awake every night thinking I've stolen it from him." },
+      { id = "cf_2", text = "I've written to Stormwind fourteen times about the black dragons, and I've kept a copy of every letter. If anything happens to me, deputy, those copies are in the strongbox under my cot." },
+    },
+    trust = {
+      { id = "tr_1", text = "Helendis, without question. He's an elf and he sees things the rest of us don't, and he's never once told me what I wanted to hear when it wasn't true." },
+      { id = "tr_2", text = "Trust Ragged John's eyes, but not his courage. He saw what happened to Windsor, and every word he's told me about it has checked out." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for black dragonkin in orc camps, deputy. When you see a drake standing beside a Blackrock officer, it isn't there as a guest." },
+      { id = "wo_2", text = "Watch what you write to Stormwind about the Steppes, and who carries it. My letters go missing, and I'd not want yours to go the same way." },
+    },
+    worries = {
+      { id = "wy_1", text = "That Windsor's papers are in the wrong hands, and the people they name are already moving to cover it up. If I'm right, my letters are going straight to the very people I'm warning about." },
+      { id = "wy_2", text = "That I'll run out of soldiers before Stormwind runs out of excuses. I have fewer men every month, and every one I lose I have to replace with nothing." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To see Windsor walk back into this camp and take his command off my hands. I'd salute him and go straight to sleep for a week." },
+      { id = "hp_2", text = "That someone at court finally reads my reports and sends us an army. I'd settle for a company, honestly, or a cart of arrows with a letter that says somebody cares." },
+    },
+    favor = {
+      { id = "fv_1", text = "Keep the Blackrock busy, deputy, wherever you find them. Every orc you put down is one fewer at the bottom of the ridge tonight." },
+      { id = "fv_2", text = "If you're ever in Stormwind, find out who's receiving the Vigil's reports at the keep. I just want a name, and I want it from someone I trust." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, deputy, and you're the first I've counted since Windsor was taken. In a place like this, a friend is the only thing that keeps a man from turning to ash himself." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've bled for this camp more than some of my own soldiers have, and you've done it without orders. Yes, you're my friend, and I'd stand at your back against the whole Spire." },
+      { id = "fr_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "The Light sent me you when I asked for reinforcements, and I've stopped thinking that's a joke. Yes, you're a friend, and I thank the Light for it every night." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I argued against the ride that got Windsor taken, and I lost the argument. I've never told a soul that I was right, because being right didn't bring him back." },
+      { id = "nt_2", text = "Some nights I stand at the edge of the ridge and look at the Spire and think about walking up to it alone. I don't, because the men need me, but I think about it more than a commander should." },
+    },
     grievance = {
+      { id = "gv_al_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You come and go as you please and answer to nobody, deputy, and that's how men end up dead on a ridge with nobody knowing where they went. I've no room for that at the Vigil." },
       { id = "gv1", text = "You've been more burden than help at the Vigil, and I haven't the soldiers to carry anyone." },
       { id = "gv_wronge", when = { grudge = "wronged" }, text = "I spoke to you plainly and you made light of it. Men have died on this ridge for less than what you mocked." },
       { id = "gv_tone", when = { grudge = "tone", tone = "polite" }, text = "You dress every word up like a court herald. This is the Steppes, and out here we say what we mean before the ash fills our mouths." },
@@ -1015,8 +1060,53 @@ P:NPC {
     { id = "bl1", text = "The black dragons of the Spire answer to a son of Deathwing who calls himself a lord of men. Lakeshire would not believe me, so perhaps you will." },
     { id = "bl2", text = "The black whelps roost at Draco'dar on the northern slopes, and their brood-keepers are never far away. Go there in strength, or do not go at all." },
   },
+  confides = {
+    { id = "cnf_1", text = "The brood-keepers at Draco'dar leave the eggs unguarded for a short while at moonrise, when they fly to feed, and that is the only time anyone should go near that slope." },
+    { id = "cnf_2", text = "The ruins north of here whisper to those who touch the stones, and I have seen two soldiers from the Vigil go back to them at night without knowing why, so do not let your hands linger there." },
+    { id = "cnf_3", text = "The black dragons sometimes fly south over Lakeshire in the form of men, and I have watched one walk into the Redridge mountains as a nobleman on a fine horse." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you are young, as all your kind are young to me, but you listen and you learn quickly. That is rarer than courage, and I have met a great deal of courage in the Steppes." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You speak to me with a courtesy I had stopped expecting from anyone outside Darnassus. It reminds me of home, and I am grateful for it." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "There is a light about you that Elune would know, even here under the smoke. When you are in camp, I find I can see the stars a little more clearly." },
+      { id = "rg_nightelf", when = { race = "NightElf" }, text = "You carry the forest with you even this far from Teldrassil, and I can smell the leaves on your cloak. I had not realised how much I missed it." },
+    },
+    confide = {
+      { id = "cf_1", text = "My brother and I quarrelled the night before Hyjal, over nothing of any consequence, and we did not make it right before the battle. I have read old places ever since, because the old places do not argue back." },
+      { id = "cf_2", text = "Tyrande did not send me here to read the mountain. She sent me because I asked to be sent anywhere far from the Legion's memory, and this was the furthest place she could find." },
+    },
+    trust = {
+      { id = "tr_1", text = "Marshal Maxwell is honest and tired, and he would die for his soldiers without a moment's thought. I trust him more than I trust most of my own people." },
+      { id = "tr_2", text = "Trust Ragged John's memory and his eyes, for they are sharper than he pretends. Do not trust anyone in Stormwind who smiles too easily when you speak of dragons." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for a dragon that does not look like a dragon. The black flight take mortal shapes, and they are most dangerous when they are most charming." },
+      { id = "wo_2", text = "Watch the lava flows at dusk, when the heat makes the air shimmer and the ground looks firmer than it is. I have seen an orc step onto stone that was not stone." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the black flight is closer to the heart of Stormwind than anyone dares say, and that by the time they believe me, the dragon will be sitting at the king's own table. That is a thought I keep only for friends." },
+      { id = "wy_2", text = "That I am growing used to the smoke. When I first came here I could not sleep for the stench of it, and now I barely notice, and that frightens me." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To see the Steppes green again, as the Dark Irons' ancestors once knew them. It will take a thousand years, perhaps, and I have stopped counting on having them." },
+      { id = "hp_2", text = "That my brother's spirit has found peace in Elune's light, and that he forgives me. I hope it every night, under whatever stars the smoke allows." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you go to Darnassus, lay a moonleaf at the Temple of the Moon for my brother, Aelyndis, who fell at Hyjal. I cannot go myself, and it has troubled me for a long time." },
+      { id = "fv_2", text = "Bring me anything you find in the Spire with writing on it, however damaged. The dragons keep records, and I need proof that Stormwind cannot ignore." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, and among my people that is not said quickly, for a friend is someone we expect to remember for a very long time. I will remember you, long after the Steppes have cooled." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have walked into the dragons' country at my word and come back with the truth, and you never once doubted me. Yes, you are my friend, and you are the first I have made outside Kalimdor." },
+      { id = "fr_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You keep faith as the Sentinels keep it, quietly and without asking for thanks. I count you a friend, and I would stand beside you as I once stood beside my brother." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I was not at Hyjal when my brother fell. I was ordered to the rear to guard the wounded, and I was relieved, and I have never forgiven myself for being relieved." },
+      { id = "nt_2", text = "I asked Elune for a sign the night he died, and the moon was hidden by smoke from the burning forest. I have looked for her in smoke ever since, and I think that is why I came here." },
+    },
     grievance = {
+      { id = "gv_al_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You live as though nothing came before you and nothing will come after, taking what you like and leaving the rest in ruins. My people learned what that costs at the Well of Eternity." },
       { id = "gv1", text = "You have tried my patience, and my people have a great deal of patience to try. That should tell you something." },
       { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "My brother died at Mount Hyjal fighting the Legion, and you carry its fire in your hands. I cannot look past that, though I have tried." },
       { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to me as the soldiers here speak to their mules. My people remember courtesy, even in a land of ash." },

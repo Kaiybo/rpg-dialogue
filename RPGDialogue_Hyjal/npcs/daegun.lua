@@ -371,9 +371,52 @@ P:NPC {
       { id = "sp_1", text = "I think you are a blade without a temper, and you will shatter on the first demon that matters." },
       { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think you would have stayed in the camps, if someone had fed you well enough. I would not." },
     },
+    regard = {
+      { id = "rg_1", text = "You move without wasted motion and you speak without wasted words. My master would have called that the beginning of stillness, and I find that I agree with him." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You lit the fires in Dae'gun and stood with me when the demons came to them. That is how a warrior earns respect on this mountain, and you have mine." },
+      { id = "rg_horde", when = { faction = "Horde" }, text = "You have carried the Horde's name up this mountain with honour, {name}, and I am glad to call you blood. Lok'tar." },
+      { id = "rg_honor", when = { fondness = "alignment", alignment = { axis = "honor", min = 30 } }, text = "Your honour is not a thing you speak of but a thing you carry, and I have watched you carry it through Dae'gun. It is the will of the mountain that such warriors find each other." },
+    },
+    confide = {
+      { id = "cf_1", text = "My master never told me his true name, and when he died I did not know what to carve over his grave. I carved the name of his blade instead, and I think he would have laughed." },
+      { id = "cf_2", text = "Some nights the stillness does not come, and I sit at the edge of Dae'gun with my blade across my knees and want nothing but vengeance. I am not proud of those nights, but I do not lie about them." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Thisalee Crow, though she is young and loud and rarely listens. Her heart belongs to the mountain, and she would fly into fire for anyone who stood with her." },
+      { id = "tr_2", text = "Trust the demon hunter Maerion against demons and in little else. He does not lie, but he does not say everything, and on this mountain the silences matter." },
+    },
+    watchout = {
+      { id = "wo_1", text = "When you light the bonfires in Dae'gun, do not stand between the fire and the sky. The Doomguard come down on the light, and they do not look where they land." },
+      { id = "wo_2", text = "Be careful in the Tainted Foothills when the wind turns warm. The fel that fell there still breathes on such days, and it makes the beasts reckless." },
+    },
+    worries = {
+      { id = "wy_1", text = "My people and the night elves held this mountain together, and now they kill one another in Ashenvale over trees. I fear that what we won here is being spent there, one axe at a time." },
+      { id = "wy_2", text = "I grow older, and the demons in Dae'gun do not. I do not fear dying, but I fear dying before the last of them is gone." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to find stillness one day without drawing my blade to reach it. My master found it at the end, and I would like to know what he saw." },
+      { id = "hp_2", text = "I hope that one day an orc and a night elf will stand on this mountain and remember only that they were allies here. That would be a greater victory than any of mine." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you go to Demon Fall Canyon, stand a moment at Grom Hellscream's monument and drive off any satyr you find near it. It shames me that they gather there while I keep my watch here." },
+      { id = "fv_2", text = "When you heal anyone on this mountain, of any people, do it in my name as well as your own. A shaman once did that for me, and I have never repaid him." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do. A blademaster has students and enemies and very few friends, and I am glad to count you among the few." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have fought beside me in Dae'gun and shared my fire afterward. Among my people that makes us kin of the blade, whatever blood we were born with." },
+    },
+    never_told = {
+      { id = "nt_1", text = "As a child in the camps I swore I would kill every human I ever saw. Then I stood on this mountain beside Proudmoore's soldiers and watched them die for my people, and I have never told anyone how ashamed I was of that child." },
+      { id = "nt_2", text = "I am afraid of the snow, {name}. I lost too many on these slopes in the white, and every winter I remember them and tell my students it is only the cold in my bones." },
+    },
   },
   blurts = {
     { id = "bl_1", text = "Grom Hellscream's monument stands in Demon Fall Canyon, where he killed Mannoroth. The satyrs gather there to mock it, and someday I will go and clear them." },
     { id = "bl_2", text = "The Doomguard in Dae'gun come down from above, but they guard something on the ground. Watch where they land, and you will find what they protect." },
+  },
+  confides = {
+    { id = "cnf_1", text = "Dae'gun stands where the Horde camped in the battle, and the old firepits are still there beneath the ash, so it is the best place on the mountain to light a fire the demons cannot ignore." },
+    { id = "cnf_2", text = "The furbolgs at Malorne's Retreat sleep through the middle of the day, and that is the only time to pass their cave without a fight." },
+    { id = "cnf_3", text = "Zet'gan's camp is short of arrows more often than it admits, so anyone who brings white feathers from the owl nests in the south will be welcome there." },
   },
 }

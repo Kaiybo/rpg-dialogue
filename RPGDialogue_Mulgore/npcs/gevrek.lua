@@ -298,12 +298,55 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The goblins of the Venture Company send a scout to the ridge above Gev'rek every few nights, and he counts our tents before he slips away." },
+    { id = "cnf_2", text = "There is a windstone in the hills north of Gev'rek that my Windshapers have not yet tamed, and the spirit bound there grows restless when strangers pass." },
+    { id = "cnf_3", text = "Some of our own elders still keep their sky-charms packed and ready, as if we might go back, and they meet at the eastern edge of camp after dark." },
+  },
   blurts = {
     { id = "bl1", text = "Not every elder at Gev'rek wanted to come down from the sky, and some of them still say we should have stayed with the isle. I have never told Thunder Bluff how close that vote was." },
     { id = "bl2", text = "The Al'Aketh were never all accounted for when we left the isle, and I lie awake wondering whether any of the grey robes followed us down." },
     { id = "bl3", text = "The goblins at the Venture Company mine in the north hills have been watching Gev'rek since the day we arrived. I don't believe it is our welfare they are counting." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think the winds carry you well, {name}, and they do not carry everyone so kindly. The spirits around Gev'rek have grown easy in your presence." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You have helped my people find their footing on the ground below the sky, and we owe you more than words. I will not forget it." },
+      { id = "rg_3", when = { fondness = "tone" }, text = "You speak to me with courtesy, and that means much to a people who are still strangers here. Thank you for it." },
+      { id = "rg_al", when = { alignment = { axis = "order", min = 30 } }, text = "You keep faith with your oaths, and the elements respect such constancy. So do I, for my people live by our debt to the wind." },
+    },
+    confide = {
+      { id = "cf_1", text = "Some nights I stand at the edge of Gev'rek and look up, and I wonder whether we were right to come down. The ground is kind, but it is not home yet." },
+      { id = "cf_2", text = "Our debt to the wind spirits is heavier than we tell the tauren. We paid it once to leave the isle, and the winds have not yet said they are satisfied." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the High Chieftain, who opened his gates to us when he owed us nothing. Trust the Earthen Ring, who answered when we called." },
+      { id = "tr_2", text = "Be wary of anyone who speaks for the High Order, {name}, whatever robe they wear. Our quarrel is old, and not all of it has stayed in the sky." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the goblins of the Venture Company mine in the north hills. They have watched Gev'rek since the day we arrived, and I do not think they mean us well." },
+      { id = "wo_2", text = "If you find a windstone that hums when you near it, do not touch it without a Windshaper beside you. The spirits bound there do not forgive carelessness." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that the Al'Aketh followed us down, and that one day they will walk into Gev'rek with smiles and grey robes. I have no proof, only a feeling in the wind." },
+      { id = "wy_2", text = "I worry the tauren will tire of us if we stay strangers too long. Hospitality is a gift, and gifts can be taken back." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope my people come to love this land as the tauren do, and that our children never long for the sky. That would be the truest homecoming." },
+      { id = "hp_2", text = "I hope to see our debt to the winds paid in full, so that the Windshapers can sing again without fear. The elements have been patient with us." },
+    },
+    favor = {
+      { id = "fv_1", text = "Speak kindly of the Windshapers in Thunder Bluff when you pass there. A good word from a friend opens more doors than any envoy." },
+      { id = "fv_2", text = "If you see grey robes anywhere in Mulgore, tell me at once. I would rather be warned of nothing than surprised by something." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}. You were among the first on the ground to welcome us, and the winds remember who held out a hand." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "You have given my people your help and your trust, and among the Windshapers that is how friendship is made. Winds be with you, friend." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When we voted to leave the isle, I cast the deciding voice, and I have never told my people. If coming down was a mistake, it is mine alone." },
+      { id = "nt_2", text = "Sometimes, when the wind blows from the west, I hear voices I left behind in the sky. I tell my people it is only the spirits, but I know whose voices they are." },
+    },
     grievance = {
       { id = "gv1", text = "I gave you the welcome of Gev'rek, and you have not honoured it. I will say no more than that, because I would rather not speak ill of a guest." },
       { id = "gv_values", when = { grudge = "values" }, text = "The winds go quiet around people who live as you do, and my Windshapers notice. I cannot pretend I don't notice it too." },

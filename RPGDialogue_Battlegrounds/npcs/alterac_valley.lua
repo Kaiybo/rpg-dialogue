@@ -224,6 +224,11 @@ P:NPC {
     { id = "bl1", text = "Drek'Thar's blind, but he's no' alone. Burn the four Frostwolf towers an' his warmasters fall wi' them, an' then he's just an old orc in a cold hall." },
     { id = "bl2", text = "The Frostwolves call up Lokholar the Ice Lord wi' the blood o' my fallen soldiers. Every Stormpike corpse ye leave in the snow is another drop for him." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Frostwolf Relief Hut sits on the Horde's flank wi' only a handful o' guards. Take that graveyard, an' their dead come back a long way from the fight." },
+    { id = "cnf_2", text = "Captain Galvangar holds Iceblood Garrison, an' he's a brute but no fool. Draw him out wi' a small party before ye bring the main force, or he'll have ye on the walls." },
+    { id = "cnf_3", text = "The Coldtooth Mine on the Horde side is full o' kobolds wi' no loyalty tae anyone. Clear them out, an' the Frostwolves lose their best iron for the whole fight." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "Ye've been naught but trouble in my hall, an' I've a war tae win. That's my problem wi' ye." },
@@ -246,6 +251,45 @@ P:NPC {
     magni = { { id = "tp_magni", text = "King Magni sent us up here, an' I'll no' send word tae him that we failed. There's no' a finer king under the mountain." } },
     thrall = { { id = "tp_thrall", text = "Durotan's son, an' a warchief who's kept his Horde out o' the human camps for good, they say. I'd respect him more if he kept his kin out o' my valley." } },
     _none = { { id = "tp_none", text = "That's no' a matter for a general wi' a war tae fight. Ask me about the valley." } },
+    regard = {
+      { id = "rg_1", text = "I think ye're a proper soldier o' the Guard, an' there's no higher praise from a Stormpike. Ye'd have a place on the walls o' Dun Baldar any day." },
+      { id = "rg_2", text = "Ye've bled for this valley an' never once asked what it'd pay ye. That's the Stormpike way, an' ye've learned it better than some o' my own kin." },
+      { id = "rg_dwarf", when = { race = "Dwarf" }, text = "A dwarf o' the mountain, standin' in my hall wi' Frostwolf snow on yer boots. Magni himself would be proud o' ye, an' so am I." },
+      { id = "rg_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "Ye fight fair even when the Frostwolves don't, an' I've seen it more than once. That's worth more tae me than any tower, soldier." },
+    },
+    confide = {
+      { id = "cf_1", text = "I'll tell ye straight, I didnae want this command. Magni gave it tae me because nobody else would sit in Dun Baldar through the winter, an' I'm too stubborn tae leave." },
+      { id = "cf_2", text = "The Expedition came up here for iron an' relics, an' I came tae make sure it got home again. Some o' my officers have forgotten which o' those matters more." },
+    },
+    trust = {
+      { id = "tr_1", text = "My marshals, every one, an' Captain Balinda Stonehearth at her outpost. She's held that post wi' fewer soldiers than I'd dare send anywhere else." },
+      { id = "tr_2", text = "Trust the Stormpike druids an' their rams, for they know the valley better than I do. Dinnae trust the Irondeep diggers tae tell ye what's down there, because they're all scared o' it." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Mind the bridge an' the Field o' Strife below it, for the Frostwolves come through there in force when they're hungry. Many a good soldier's fallen in that snow." },
+      { id = "wo_2", text = "Watch yer back near the Irondeep Mine, for the troggs down there have nae love for dwarves or anyone else." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the war in this valley never ends, an' my grandchildren are still fightin' Frostwolves for a mine their grandfathers forgot why they wanted." },
+      { id = "wy_2", text = "That we call on Ivus one day an' he doesnae go back tae sleep. An old spirit o' the forest owes nothin' tae dwarves, whatever the druids say." },
+    },
+    hopes = {
+      { id = "hp_1", text = "Tae see Frostwolf Keep empty an' our banner over it, an' then tae go home tae Ironforge an' sit by a proper fire for a whole winter." },
+      { id = "hp_2", text = "That Magni sends word one day sayin' the Expedition's done its job an' the lads can come home. I'd read it twice an' frame it." },
+    },
+    favor = {
+      { id = "fv_1", text = "Bring my soldiers back from the snow when ye can, so we can bury them proper. Lokholar's had enough Stormpike blood." },
+      { id = "fv_2", text = "When ye're next in Ironforge, tell the King the Stormpike Guard still holds. He'll want tae hear it from somebody who's been up here." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Aye, ye're a friend, soldier, an' a Stormpike in all but name. I'd have ye at my side in the last hall o' Dun Baldar, an' I'd want nobody else." },
+      { id = "fr_2", text = "Friend, an' brother in arms besides. That's a bond the snow cannae break, an' Drek'Thar's warriors have tried." },
+      { id = "fr_values", when = { fondness = "values" }, text = "Ye're loyal an' ye're brave, an' that's every word o' the Stormpike oath. Friend, then, an' I'll swear it on my beard." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I lost my own nephew at Iceblood in the first winter. I tell folk he went home tae Ironforge, because I cannae bear tae say it." },
+      { id = "nt_2", text = "Some nights I think the Frostwolves have more right tae this valley than we do. I'd never say it in front o' my marshals, an' I'd deny it tae Magni's face." },
+    },
   },
 }
 
@@ -1487,6 +1531,11 @@ P:NPC {
     { id = "bl2", text = "The Stormpike druids gather storm crystals to call Ivus, the Forest Lord, against us. Every crystal you take from them is one they cannot use." },
     { id = "bl3", text = "The dwarves dug too deep in the Irondeep Mine, and they woke things in the dark that have no love for dwarves." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Stonehearth Outpost is held by a dwarven captain with fewer soldiers than Vanndar admits. Strike it early, and the road north opens to you." },
+    { id = "cnf_2", text = "The Stormpike Aid Station lies close behind Dun Baldar, and their dead return from it quickly. Take it, and every Stormpike who falls must walk much farther to fight again." },
+    { id = "cnf_3", text = "Our wolves know the valley's paths better than any scout. Ride where they lead you, for they avoid the ground the dwarves have dug beneath." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "You have brought discord into my keep, and the spirits like it no better than I do." },
@@ -1509,6 +1558,45 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "Son of Durotan, and Warchief of the Horde. He is the best of us." } },
     the_elements = { { id = "tp_the_elements", text = "The elements here are old and cold, and they speak to me even without eyes." } },
     _none = { { id = "tp_none", text = "The spirits do not speak of such things, and neither will I." } },
+    regard = {
+      { id = "rg_1", text = "I am blind, {name}, but the spirits show me your heart, and it is a strong one. The clan has need of hearts like yours." },
+      { id = "rg_2", text = "You honor the Frostwolves without being asked, and the wind carries your name to me with respect. That is rare, and I do not forget it." },
+      { id = "rg_shaman", when = { class = "SHAMAN" }, text = "The elements answer you as they answer an old friend, young one. I hear it in the air around you, and it warms these cold bones." },
+      { id = "rg_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You fight with honor, as Durotan did, even when it would be easier not to. When I hear that in someone, I remember why we endured the snow." },
+    },
+    confide = {
+      { id = "cf_1", text = "I remember Durotan's face as clearly as I remember the snow. It is what I see when I close the eyes that no longer serve me, and I would not trade it for sight." },
+      { id = "cf_2", text = "I sometimes fear I am too old to lead the clan in battle, and that the young warriors only indulge me. I let them, because the clan needs a voice it remembers." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust my warmasters, and the wolf riders, who would die before they left a fallen brother in the snow. Trust the spirits most of all, for they have never lied to me." },
+      { id = "tr_2", text = "Trust Captain Galvangar's strength, but not his temper. He would fight the whole Stormpike Guard alone if I did not hold him back." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Beware the Stormpike druids when they gather their crystals, for the forest lord they call is old and angry, and he does not ask whose side you fight on." },
+      { id = "wo_2", text = "Do not linger at Dun Baldar's bridge, for the dwarves have fortified it for years, and every stone of it is set against you." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the clan will forget why we came to Alterac, and fight only for the mines as the dwarves do. We came here to survive, not to dig." },
+      { id = "wy_2", text = "That I will die before Thrall returns to see this valley at peace. I waited for him once already, and I am older now." },
+    },
+    hopes = {
+      { id = "hp_1", text = "That one day Frostwolf cubs will run through this valley without fear, and the only war they know will be in the old songs." },
+      { id = "hp_2", text = "To hear Thrall's voice in Frostwolf Keep once more before the spirits call me home. He came to us a lost child and left as the hope of our people." },
+    },
+    favor = {
+      { id = "fv_1", text = "Bring me word of the Stormpike druids' crystals, and of any you take from them. The spirits are uneasy each time the dwarves gather them." },
+      { id = "fv_2", text = "Speak to the wolves in the kennels, if you pass them. They miss the open snow, and they listen to a kind voice." },
+    },
+    friendship = {
+      { id = "fr_1", text = "You are a friend of the Frostwolf Clan, {name}, and of this old shaman. The spirits have known it for some time; I am only now saying it aloud." },
+      { id = "fr_2", text = "Among the Frostwolves, those we trust with our lives are called kin, and you are kin to me." },
+      { id = "fr_orc", when = { race = "Orc" }, text = "You are Frostwolf in your heart, whatever clan you were born to, and I count you a {g:son|daughter} of this valley." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When Durotan left the valley with Draka and their child, I did not try to stop him. I have wondered every day since whether he would still be alive if I had begged him to stay." },
+      { id = "nt_2", text = "I am afraid of the Forsaken, though the Warchief calls them allies. The spirits around them cry out, and I do not know how to answer them." },
+    },
   },
 }
 

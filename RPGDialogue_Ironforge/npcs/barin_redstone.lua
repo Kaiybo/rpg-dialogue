@@ -357,7 +357,57 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Senate's records on the Dark Iron are kept in a vault below the High Seat, an' half o' them have never been read aloud. Royal Historian Archesonus has a key, an' she'll share wi' anyone who asks proper questions." },
+    { id = "cnf_2", text = "There's a Dark Iron family livin' in the Forlorn Cavern that claims tae have fled Thaurissan's folk. The Senate's let them stay, an' I voted against it, an' I watch their door." },
+    { id = "cnf_3", text = "The Ironforge Reserve's best companies are at the Thandol Span an' Dun Algaz, no' in the city. If the Dark Iron ever struck at the gates, we'd be holdin' wi' the guard an' the brewers." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think ye're a credit tae the mountain, which I dinnae say often, for I keep a far longer list o' those who aren't. Ye've done Ironforge real service, an' it's in my records." },
+      { id = "rg_2", text = "I think ye're one o' the few who understands that duty means doin' the dull work as well as the grand. The Senate could use more like ye, an' fewer like some o' my colleagues." },
+      { id = "rg_earned", when = { fondness = { best = "earned" } }, text = "Ye've done this city good turns that never made it intae the ledgers, an' I've made sure they did. I'll no' have it said the Senate forgets its friends." },
+      { id = "rg_order", when = { alignment = { axis = "order", min = 30 } }, text = "Ye respect the law an' the Senate's place in it, an' that's rarer than gold in these halls. I'd sooner have one o' ye than a dozen heroes who think the rules are for others." },
+      { id = "rg_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "Ye've nae respect for procedure, an' I've half a mind tae have ye cited for it. But ye've done the mountain more good than most who follow every rule, an' that galls me." },
+    },
+    confide = {
+      { id = "cf_1", text = "I touch my great-grandfather's memorial stone in the Mystic Ward every mornin' before the Senate sits. He died at the gates in the Dark Iron War, an' I've never let a day pass wi'out sayin' his name." },
+      { id = "cf_2", text = "The King signs near anythin' the Senate puts before him, an' I've started readin' every bill twice tae make sure we dinnae put anythin' foolish there. Somebody has tae." },
+      { id = "cf_3", text = "The Redstones have sat in the Senate since Madoran's day, an' I'm the first who's ever been called sour tae his face. I take it as a compliment, mostly." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Senator Mehr Stonehallow, who's the only other member o' the Senate who reads what he votes on. Trust the King's heart, if no' always his signature." },
+      { id = "tr_2", text = "Trust the Mountaineers at the passes, for they see the Dark Iron first an' report true. Trust the Senate's records more than any Senator's memory, mine included." },
+      { id = "tr_3", text = "Dinnae trust any Dark Iron, {name}, nae matter how sorry they look. My family's paid that lesson in blood, an' I'll no' see ye pay it too." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Dark Iron in the Searing Gorge an' the Badlands. They're nae beaten, only waitin', an' they've a long memory an' a longer grudge." },
+      { id = "wo_2", text = "Watch the Wildhammer if ye travel tae the Hinterlands. They'll be friendly enough, but they answer tae nae Senate an' nae law but their own." },
+      { id = "wo_3", text = "Watch the Senate itself, {name}, if ye've business before it. Half my colleagues will smile at ye an' vote against ye the same afternoon." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry the Dark Iron will strike while we're squabblin' over the cost o' bread for the refugees. I've said so on the floor, an' been called a scold for it." },
+      { id = "wy_2", text = "I worry that the dwarves are scattered too far, Bronzebeard here, Wildhammer in the hills, an' the Dark Iron under the mountain. One people, three roofs, an' nae law tae bind them." },
+      { id = "wy_3", text = "I worry I've grown so used tae grumblin' that nobody hears me when I'm right. That's a Senator's worst fear, an' I've been livin' it a while now." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope tae see the Dark Iron brought tae heel in my lifetime, an' Thaurissan's folk answer for the war they started. My great-grandfather's stone deserves that much." },
+      { id = "hp_2", text = "I hope tae see the dwarves under one roof an' one law again, {name}, though I'll likely be dust before it happens. A Senator's allowed his dreams." },
+      { id = "hp_3", text = "I'd like the Senate's records tae show, one day, that Barin Redstone was right about somethin' important. I've a few candidates in mind." },
+    },
+    favor = {
+      { id = "fv_1", text = "If ye travel near the Dark Iron's lands, write down what ye see, in plain words wi' dates, an' bring it tae me. The Senate believes reports an' nothin' else." },
+      { id = "fv_2", text = "Speak well o' the Senate tae the King when ye see him. He thinks us slow an' stubborn, an' he's right, but we're no' as useless as he believes." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}, an' I'll have it entered intae the Senate's record if ye like. It'll be the first time anyone's called Barin Redstone a friend on the floor." },
+      { id = "fr_2", text = "Aye, a friend, an' one o' very few. Most folk find me hard company, an' they're no' wrong, but ye've stuck wi' me regardless." },
+      { id = "fr_order", when = { alignment = { axis = "order", min = 40 } }, text = "A friend, an' a true servant o' the law, which is a rare pairin' these days. I'd stand by ye in any vote, an' I dinnae say that about my own colleagues." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I've never been further from Ironforge than Kharanos, {name}, in all my years. I've voted on wars in lands I've only seen on maps, an' it shames me more than I'd ever say on the floor." },
+      { id = "nt_2", text = "My great-grandfather's memorial stone has the wrong date carved on it. He died a day later than it says, holdin' the gate on his own, an' I've never had it mended because I cannae bear tae have a mason shorten his last day." },
+    },
     _gated = {
       { id = "gt1", text = "That's no' a matter I'll open tae someone the Senate barely knows. Come back when ye've given me reason tae think it's safe wi' ye." },
       { id = "gt2", text = "I know well enough, an' I'll keep it behind my teeth for now. A Senator doesnae hand out the mountain's business tae every stranger who asks." },

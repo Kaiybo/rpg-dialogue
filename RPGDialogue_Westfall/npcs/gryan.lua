@@ -946,7 +946,57 @@ P:NPC {
     { id = "bl2", text = "Edwin VanCleef was a stonemason, like me, and Stormwind's nobles cheated every mason who rebuilt their city. I don't excuse what he's become, but I understand how he got there." },
     { id = "bl3", text = "The Defias pass their messages along the road between the Jangolode Mine and Moonbrook, and their runners travel alone. Catch one, and you'll learn more than any spy could tell you." },
   },
+  confides = {
+    { id = "cnf_1", text = "Salma Saldean keeps a pot on the fire for anyone who stands with the Militia, and her husband Farmer Saldean knows every ditch and fence line between the hill and the coast. If you need a guide in Westfall, start at their farm." },
+    { id = "cnf_2", text = "The Defias keep a lookout in the old lighthouse on the western coast, and they signal Moonbrook with lanterns after dark. Put that light out and their ship-workers lose their eyes on the sea road." },
+    { id = "cnf_3", text = "Wiley the Black in the Moonbrook ruins will sell you anything, including the Defias' own passwords, if you can stomach his prices. I've used him twice, and I scrubbed my hands both times." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're the kind of friend Westfall's been praying for, and not getting. You came when nobody made you, and you stayed when it got hard." },
+      { id = "rg_2", text = "I think you'd have made a fine mason, {name}, if the world had let you be one. You put things back together, and that's the whole trade." },
+      { id = "rg_earned", when = { fondness = { best = "earned" } }, text = "The farmers know your name now, and they don't learn names easily any more; too many of the folk they knew are gone. That's the best reward I can tell you about." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "I was trained by the Silver Hand, long ago, and I learned to know the Light when I see it in someone. I see it in you, plain as a lamp in a window." },
+      { id = "rg_order", when = { alignment = { axis = "order", max = -30 } }, text = "You've no great love for the crown's rules, and in Westfall I can hardly blame you; the crown's rules left us here. Just don't let it turn you into what VanCleef became." },
+    },
+    confide = {
+      { id = "cf_1", text = "The People's Militia has fewer than sixty in it, {name}, and half of those are farm boys with pitchforks. The Defias think we're far stronger, and I mean to keep them thinking it." },
+      { id = "cf_2", text = "I worked beside Edwin VanCleef on the cathedral, years ago, and he once shared his bread with me when I'd none. I think of that every time I send someone to kill his men." },
+      { id = "cf_3", text = "I haven't had a dry pair of socks since spring, and I've given up trying. Captain Danuvin keeps a wager going on when I'll next have one, and nobody's won it yet." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Saldeans and the Furlbrows; they've lost everything but their farms and their honesty, and they'll keep both to the last. Trust Captain Danuvin and Scout Galiaan as you'd trust me." },
+      { id = "tr_2", text = "Trust Quartermaster Lewis with your gear and your back. He's fed this militia on nothing for a year, and he's never once complained where the lads could hear." },
+      { id = "tr_3", text = "Not the nobles' factors who come out from the city to count what's left, and not anyone who tells you Westfall's troubles are only a few thieves. That's a lie the Keep likes to believe." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Harvest Watchers in the fields; the Defias have set them to work, and a scarecrow that moves will take your head as soon as look at you. Don't turn your back on any of them." },
+      { id = "wo_2", text = "Watch the Moonbrook mine, {name}. VanCleef's people are down there in strength, and anyone who goes in alone comes out on a cart, if they come out at all." },
+      { id = "wo_3", text = "Watch the gnolls in the south hills too; the Riverpaw raid the outlying farms whenever the Defias draw our patrols off. Westfall has more than one wolf at the door." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that winter will come before the harvest does, and I'll have families on this hill with nothing to eat. The Cathedral sends what it can, but it isn't enough." },
+      { id = "wy_2", text = "I worry about the young ones who join the Defias because the Defias feed them. Every one I lose that way is a boy I'll have to fight in the end." },
+      { id = "wy_3", text = "I worry that Stormwind has simply decided Westfall is lost, {name}, and is waiting for us to stop writing. I'll not stop, but I've begun to wonder who reads the letters." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see the Moonbrook mine sealed and the Defias scattered, and then I'd like to see every farm in this valley under a plough again. That's all I've ever wanted, truly." },
+      { id = "hp_2", text = "I hope the masons are paid one day, the honest ones who never took up a mask. It wouldn't undo what VanCleef's done, but it'd be justice of a sort." },
+      { id = "hp_3", text = "I'd like to lay stone again, {name}, a wall or a chapel or a farmhouse, something that stands for a hundred years. I've done enough breaking for one life." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you're in Stormwind, go to the Keep and tell them what you've seen in Westfall, in plain words. They've stopped hearing my letters, but they might hear you." },
+      { id = "fv_2", text = "Look in on the Furlbrows and the Saldeans when you pass their farms. They're stubborn folk, and they'd never ask, but a friendly face does them more good than a sack of grain." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}, and I'd put your name on the Militia's roll of honour if we had one. Every farmer on this hill counts you a friend, and so do I." },
+      { id = "fr_2", text = "Aye, a friend, and the best kind, the sort who stands on the wall at night when they could be sleeping somewhere warm. Westfall doesn't forget that, and neither will I." },
+      { id = "fr_light", when = { alignment = { axis = "light", min = 40 } }, text = "A friend and a brother in the Light, as the Silver Hand would have said it. I've not said that to anyone since I left the order, and I mean it." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I almost went with VanCleef when he left the city, {name}. He asked me first, before any of the others, and I said I'd think on it, and I thought on it for three days before I said no." },
+      { id = "nt_2", text = "I keep my old Silver Hand tabard folded in a chest under my cot, and I've never once worn it in Westfall. I'm not sure I've the right to any more." },
+    },
     grievance = {
       { id = "gv1", text = "I've no quarrel with most folk who come to Sentinel Hill, but I've one with you. You've done this land more harm than good, and Westfall's had harm enough." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "I saw what the Horde's warlocks did to men and land in the Second War. You carry that same fel about you, and I'll not pretend I can't smell it." },

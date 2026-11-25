@@ -365,7 +365,57 @@ P:NPC {
     { id = "bl2", text = "The Silver Hand is more a name than an order these days. I have fewer than a dozen lords I could call to arms, and I have never admitted it in front of my students." },
     { id = "bl3", text = "The Tome of Divinity is only the first trial, and most who pass it never face the last ones. I don't tell the young paladins how few of us finish." },
   },
+  confides = {
+    { id = "cnf_1", text = "Duthorian Rall keeps the Tome of Divinity in the Cathedral's east chapel, and he decides who may read it by watching how they kneel. Those who kneel for the onlookers never see a page." },
+    { id = "cnf_2", text = "Brother Crowley's Scarlet friends have sent recruiters to the Cathedral steps, and two of my own novices have gone north with them this season. If a smiling man in red offers you purpose, walk away." },
+    { id = "cnf_3", text = "The finest armourer for a paladin in this city isn't in the Trade District at all; it's Osric Strang in Old Town, who fought beside the Silver Hand and knows how plate must sit for prayer." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you keep your arms clean and your word cleaner, and I judge a {class} by both. You have not yet given me cause to find fault with either." },
+      { id = "rg_2", text = "I am not an easy man to please, as my students will tell you at length. You please me, and you may take that as a rare thing." },
+      { id = "rg_values", when = { fondness = "values" }, text = "You hold to discipline when no one is there to see it, and that is the whole of what I try to teach. Most never learn it." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "The Light answers you readily, I can see it in the way you carry yourself. Uther had that same ease, and I have rarely seen it since." },
+      { id = "rg_order", when = { alignment = { axis = "order", max = -30 } }, text = "You chafe at rule and rank, and I would have you flogged for it in my younger days. Yet you've done more good than many who obey, and I am old enough now to wonder at that." },
+    },
+    confide = {
+      { id = "cf_1", text = "I was not the first choice to lead the Silver Hand in Stormwind, nor the second. The better men are dead in Lordaeron or wear Scarlet now, and I was what was left." },
+      { id = "cf_2", text = "I inspect my students' gear so harshly because the first squire I ever trained died for a loose buckle. I have never told them why, and they think me merely vain." },
+      { id = "cf_3", text = "The Cathedral and the Silver Hand do not always agree on who should take up the hammer. The Archbishop is gentler than I, and I suspect he is right more often than I admit." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Archbishop's heart and Highlord Bolvar's word, for both are true. Trust Arthur the Faithful in a fight, for he has never once broken a line." },
+      { id = "tr_2", text = "Trust anyone who has passed the trials of the Tome honestly, {name}. The Light is a hard judge of character, harder even than I." },
+      { id = "tr_3", text = "Do not trust anyone who wears the colours of the Silver Hand without its discipline. There are many such men in the north, and they shame the name." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Beware the Scarlet Crusade, however fine their banners. They have taken the Silver Hand's oaths and kept only the parts that let them burn." },
+      { id = "wo_2", text = "Beware pride, {class}, which I say knowing well how much of it I carry. It has felled more paladins than any blade, and it will try you too." },
+      { id = "wo_3", text = "Beware the Mage Quarter after dark, and that cellar beneath the Slaughtered Lamb. The Crown suffers it, but I do not have to like it, and neither do you." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that I am training paladins for an order that no longer exists. There are fewer than a dozen lords left to call to arms, and I am the youngest of them." },
+      { id = "wy_2", text = "I worry about the ones who went Scarlet, for some of them were my brothers. One day I may have to raise a hammer against a man I once knelt beside, and I don't know if I can." },
+      { id = "wy_3", text = "I worry that my sternness drives away the ones who might have been the best of us. Uther was hard, but he was never cold, and I fear I have confused the two." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see the Silver Hand whole again, with honest knights in every city of the Alliance. Even a hundred would do, if they were the right hundred." },
+      { id = "hp_2", text = "I hope one of my students surpasses me, and that I live to see it. I would give my title gladly to one who earned it." },
+      { id = "hp_3", text = "I hope to make pilgrimage to Uther's tomb in Lordaeron one day, when it is safe to walk there. I never said goodbye to him." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you pass through the north, bring me word of any Silver Hand knight who still holds true. I keep a list, and it is shorter than I'd like." },
+      { id = "fv_2", text = "Speak kindly of the order to the young ones you meet, {name}. They hear too much of the Scarlet Crusade and too little of what we were." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, and I have not said that to anyone since Lordaeron fell. You will forgive me if I say it stiffly; I have fallen out of practice." },
+      { id = "fr_2", text = "You are a friend, and I would stand beside you in any line you chose to hold. From me, that is more than courtesy." },
+      { id = "fr_light", when = { alignment = { axis = "light", min = 40 } }, text = "A friend, and a brother of the Light in all but oath. If ever you would take the oath, I would be honoured to hear it." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I was at Stratholme's gates when the prince gave his order, and I rode away with Uther. I told myself I chose rightly, but I have never stopped hearing that city burn." },
+      { id = "nt_2", text = "I nearly went with the Scarlet Crusade myself, in the first grief after Lordaeron. A letter from the Archbishop kept me here, and I've never told him how close it was." },
+    },
     grievance = {
       { id = "gv1", text = "I judge a person first by how they keep their gear, and then by how they keep their word. You have failed both measures." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "The Silver Hand was raised to fight the very darkness your craft serves. I hold it beneath contempt, and I hold you only a little above it." },

@@ -468,7 +468,57 @@ P:NPC {
     { id = "bl2", text = "Gakin the Darkbinder borrows books from this library and returns them late, and some of them come back smelling of sulfur. I've stopped asking which ones." },
     { id = "bl3", text = "Watcher Mahar Ba at Nethergarde writes to me every month, and his letters lately suggest the Dark Portal isn't as quiet as the Keep believes." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Academy's restricted shelves are locked with a ward, but the ward was set by an apprentice in a hurry and it doesn't cover the ladder. I've reported it four times, and I've given up and started sleeping in the stacks." },
+    { id = "cnf_2", text = "Watcher Mahar Ba at Nethergarde Keep will tell an honest visitor more about the Dark Portal in an hour than the Keep has heard in a year. Mention my name and he'll at least offer you tea, which at Nethergarde is a great kindness." },
+    { id = "cnf_3", text = "A clerk from the court comes by every few weeks asking for anything we hold on the black dragonflight, and always with a different excuse. I've started lending him the dullest volumes I own." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're the first person in months who's asked me a question and stayed for the whole answer, which, as you've noticed, can be quite a long time. That alone puts you very high in my estimation." },
+      { id = "rg_2", text = "I think you're reliable, {name}, which in my experience is far rarer than brilliance. Brilliant people lose essays in swamps, and reliable people bring them back." },
+      { id = "rg_mage", when = { class = "MAGE" }, text = "I think you've a proper respect for what's written down, which is more than I can say for half the Academy. Khadgar always said a mage who won't read is just a candle with ambitions." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "There's a sort of calm about you that I don't often meet among people who carry swords. I find I stop fretting for nearly a whole minute when you're in the library." },
+      { id = "rg_shadow", when = { alignment = { axis = "light", max = -30 } }, text = "I like you, honestly I do, but you've the look of someone who's read a few books I'd rather keep locked up. Please tell me you haven't, or at least tell me you were careful." },
+    },
+    confide = {
+      { id = "cf_1", text = "The library's caught fire three times since I took it on, and only one of those was the orcs. Another was an apprentice's candle, and the third was a book that burned itself, dedicated to someone's patient master, and I've never been able to bring myself to throw out the ashes." },
+      { id = "cf_2", text = "I write to Dalaran every month asking after Khadgar's old papers, and nobody has answered in two years. I keep writing anyway, because one day somebody new will open the post." },
+      { id = "cf_3", text = "Acolyte Dellis is the finest cataloguer I've ever had and is now terrified of potted ferns, which is entirely my fault for sending her to the Swamp of Sorrows. I've hidden every plant in the Academy." },
+    },
+    trust = {
+      { id = "tr_1", text = "Adair Gilroy, without question, and Milton Sheaf at the Royal Library, though you'll need a free afternoon. Both of them treat a book as though it had feelings, which is the correct attitude." },
+      { id = "tr_2", text = "Watcher Mahar Ba, down at Nethergarde, who says what he sees and not what the Keep wants to hear. I'd trust him with Khadgar's essays, which is the highest trust I've got to give." },
+      { id = "tr_3", text = "Not the magisters who visit from the north and ask for our oldest books by shelf number. Anyone who knows exactly what they want from a library usually wants it for something dreadful." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for books that are warm to the touch, or that open to the same page however you drop them. Put them down, step away, and fetch someone like me who'll worry about them properly." },
+      { id = "wo_2", text = "Watch the Blasted Lands, {name}, if you ever go that way. The reports from Nethergarde say the Portal's stones are humming again, and stones shouldn't hum." },
+      { id = "wo_3", text = "Watch for Gakin the Darkbinder's students if they ever offer to lend you something. Their books come back to me smelling of sulfur, and I shudder to think what they do to people." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that something terrible is written down in this library and I've simply not found it yet, and that someone else will find it first. That's the librarian's nightmare, and I have it most nights." },
+      { id = "wy_2", text = "I worry that I sent Dellis somewhere dangerous because I was too busy to go myself. She came back, thank the Light, but I'm not sure all of her did." },
+      { id = "wy_3", text = "I worry about the Dark Portal, honestly, more than anyone in the Keep seems to. Khadgar wrote that a door once opened is never truly shut, and he was right about nearly everything." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to meet Khadgar one day, though I know it's a foolish hope and he's very likely gone for good. I'd just like to tell him his essays were safe with me, eventually, after a small incident with some swamp plants." },
+      { id = "hp_2", text = "I hope to see the Academy's library properly catalogued before I die, every book in its place and every dangerous one in a box with three locks. I estimate I need another forty years." },
+      { id = "hp_3", text = "I'd like the Academy to open its doors to ordinary children who want to read, not only to nobles' sons. I learned my letters above a bookbinder's shop, and look how I turned out, which is to say, harried but happy." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you ever travel to Nethergarde, please tell Mahar Ba I'm sorry his request sat so long on my desk. He's too polite to complain, and that only makes it worse." },
+      { id = "fv_2", text = "If you find a book anywhere that seems to be watching you, don't open it; bring it to me wrapped in something thick. I'll take it from there, with gloves on." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}, very much, and I'm a little embarrassed by how much. Most of my friends are bound in leather and haven't said a word to me in centuries." },
+      { id = "fr_2", text = "Of course! You're one of the very few people I'd let into the restricted stacks without a chaperone, which for a librarian is practically a declaration of love." },
+      { id = "fr_light", when = { alignment = { axis = "light", min = 40 } }, text = "A dear friend, and one I'd trust with any book in this building, even the ones that bite. That's not a thing I'd say lightly, given what they bite." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I've never actually been to Dalaran, {name}, not once. I've read about every corridor of the Violet Citadel, and I talk as though I've walked them, but I've never been further than Goldshire." },
+      { id = "nt_2", text = "I opened one of the forbidden books once, as a young man, just to see. I read a single line, and I've never forgotten it, and I've never told anyone what it said, and I never will." },
+    },
     grievance = {
       { id = "gv1", text = "I'm a polite man, and I'm being polite about this, but I'd rather you didn't touch the books. Any of them. Ever again, if possible." },
       { id = "gv_wronged", when = { grudge = "wronged" }, text = "You called the Academy a dusty attic for frightened clerks. Some of us are frightened, yes, but only because we've read what's in here." },

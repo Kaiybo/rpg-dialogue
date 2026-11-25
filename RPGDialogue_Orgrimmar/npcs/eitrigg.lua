@@ -298,12 +298,55 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "Blackrock grunts mark their patrol routes with scratched sigils at shoulder height, and anyone who knows the signs can read where the next sentry stands." },
+    { id = "cnf_2", text = "The Warchief's guards in this hold change watch an hour before dawn, and that is when the bold ones bring Thrall their quiet business." },
+    { id = "cnf_3", text = "Tirion Fordring lives near Hearthglen in the Western Plaguelands, by the water at the edge of the woods, and he will speak with an orc who comes in peace." },
+  },
   blurts = {
     { id = "bl1", text = "Rend keeps his throne in the upper halls of Blackrock Spire, behind his arena and his dragons. He calls himself Warchief because he could never bear that Thrall carries the name." },
     { id = "bl2", text = "Tirion Fordring lives alone in a hut in the Plaguelands, cast out by his own order for sparing my life. If you ever pass that way, he would welcome word that I still live." },
     { id = "bl3", text = "There are Blackrock grunts in that mountain who follow Rend only because they fear the dragons more than him. I have never told the Warchief how many, because I do not truly know." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you are a better soldier than I was at your age, {class}, because you seem to know what you fight for. I had to lose everything before I learned that much." },
+      { id = "rg_2", when = { fondness = "earned" }, text = "You have done right by me and asked nothing for it. A human did the same for me once in Lordaeron, and I have measured people by that ever since." },
+      { id = "rg_3", when = { fondness = "values" }, text = "You keep your honor where I can see it, and you don't make a show of it. That is the kind of orc Thrall hoped to raise from the camps, whatever blood you carry." },
+      { id = "rg_al", when = { alignment = { axis = "honor", min = 30 } }, text = "Your word holds, {name}, and the hall knows it. In the old Horde we had strength to spare and no word worth anything, so I value yours above most things here." },
+    },
+    confide = {
+      { id = "cf_1", text = "I do not sleep well in this hold, and I walk the Valley of Strength before dawn when only the peons are awake. An old deserter is never quite at ease under a warchief's roof, even a good one." },
+      { id = "cf_2", text = "I still know Blackrock signs and war-cries, and I could walk halfway into Rend's Spire before anyone thought to question me. That is not a thing I am proud of knowing." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Warchief, and trust the grunts who stood in the camps and came out still decent. Those who boast of the old wars, keep at a distance, because most of them miss the wrong parts." },
+      { id = "tr_2", text = "Trust the Kor'kron at the door with the Warchief's life and Vol'jin with the city's secrets. As for the Cleft of Shadow, trust nothing that comes up those stairs smiling." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for orcs who talk fondly of the days before Thrall, when the clans had warlocks and no shame. That fondness is how the Burning Blade finds its recruits." },
+      { id = "wo_2", text = "If your road takes you near Blackrock Mountain, do not trust a Blackrock who claims he wants to come home. Some do, but Rend sends the others." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that the young ones think the Horde was always this. They never saw what we were under Blackhand and Gul'dan, and what you never saw, you cannot fear properly." },
+      { id = "wy_2", text = "Tirion Fordring is alone in the Plaguelands with the dead all around him, and I owe him my life. Every season I hear nothing, I fear the worst." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Rend fall, not for vengeance, but so the Blackrock name can mean something other than slavery to dragons. My clan deserves a better end than him." },
+      { id = "hp_2", text = "I hope one day to stand in front of Tirion again and tell him his mercy was not wasted. I would like to say it while we both still have breath." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you ever ride through the Plaguelands, look for an old man in a hut by the water and tell him Eitrigg still lives. That is all I would ever ask of you." },
+      { id = "fv_2", text = "Fight the Blackrock in their Spire if you have the strength, and spare those who throw down their weapons. Some of them were boys when Rend took them." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}. I have had few friends in my life, and two of them were not orcs, so you are in strange company, but good company." },
+      { id = "fr_2", when = { fondness = { best = "earned" } }, text = "A friend is someone whose deeds you have seen when nobody else was watching. I have seen yours, and I count you one gladly." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When the humans put the rope around my neck in Stratholme, I was not afraid to die. I was afraid that no one would remember I had walked away from the Horde, and that I would die as only a Blackrock." },
+      { id = "nt_2", text = "Some nights I still hear the war drums of the Second War, and my hands remember what they did to the beat. I have never told the Warchief, because he would only look at me with kindness, and I could not bear it." },
+    },
     grievance = {
       { id = "gv1", text = "I have known too many orcs who mistook cruelty for strength, and you remind me of them. I left the Horde once over that sort, and I am too old to keep quiet about it now." },
       { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me as if I were some broken old deserter good for nothing but sitting in the Warchief's shadow. I have been called that before, and I liked it no better then." },

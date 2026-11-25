@@ -798,6 +798,11 @@ P:NPC {
     { id = "bl1", text = "Malfurion has slept in the Emerald Dream longer than he should, and the druids of the Enclave will not tell my Sentinels why he has not woken." },
     { id = "bl2", text = "Fandral's tree was never blessed by the Aspects as Nordrassil was, and my priestesses feel a wrongness creeping into its roots. Ask the Gnarlpine what it does to those who live beneath it." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Twilight's Hammer pray in Blackfathom Deeps, in a temple that was ours, and Elune's old altars there will still answer a priestess who knows the right words." },
+    { id = "cnf_2", text = "The Gnarlpine went mad near Fel Rock, and my priestesses have felt the same sickness creeping toward the moonwells closest to it." },
+    { id = "cnf_3", text = "Fandral sends druids to Silithus without telling the Temple, and they come back thinner and quieter than they left." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "You have dishonored yourself before me, and in the Temple of the Moon that is no small thing. Elune sees what you are." },
@@ -857,6 +862,45 @@ P:NPC {
     blackfathom = { { id = "tp_blackfathom", text = "That was a temple of Elune once, on the shore of Ashenvale, and the sea took it when the world broke. I am told the Twilight's Hammer pray there now, and it angers me more than I can say." } },
     bolvar = { { id = "tp_bolvar", text = "The lord regent holds Stormwind together while its king is missing and the boy on the throne is still a child. I have sent him my respect, and I hope he has time to read it." } },
     _none = { { id = "tp_none", text = "That is not a matter for the Temple of the Moon, though the Sentinels may know, for they hear what the city whispers." } },
+    regard = {
+      { id = "rg_1", text = "You came to the Temple a stranger, and you have stood by my people since without asking what it would earn you. I do not forget those who do that, {name}." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have bled for the Sentinels in places I could not send them myself. That is how anyone earns my regard, and you have earned it fairly." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You speak plainly to me, and you do not bow and flatter as the envoys from Stormwind do. I have had ten thousand years of flattery, and I prefer you." },
+      { id = "rg_light", when = { fondness = "alignment", alignment = { axis = "light", min = 30 } }, text = "There is a light in you that Elune would know at a glance, {class}. I have seen it in my best priestesses, and I see it in you." },
+    },
+    confide = {
+      { id = "cf_1", text = "There are nights I stand in the moonwell's light and feel nothing of Elune at all, only the silence. I have never said so to my priestesses, because they need me to be certain." },
+      { id = "cf_2", text = "I was a novice in the temple at Zin-Azshari when I first knew the brothers Stormrage, and I made my choice between them long before the war. I have lived with that choice for ten thousand years, and with what it cost the one I did not choose." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Shandris Feathermoon as you would trust me, for I raised her and she has never once lied to me. She holds Feralas for the Sentinels, and she holds it well." },
+      { id = "tr_2", text = "Trust the Sentinels on the walls and the priestesses at the moonwells. Be more careful in the Enclave, where every druid's counsel finds its way to the Arch Druid's ear." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Arch Druid when he smiles, {name}, because Fandral smiles most when he has already decided something without the Temple." },
+      { id = "wo_2", text = "Do not walk Ashenvale's eastern roads alone after dark. The Warsong have learned to move by night, and they do not stop to ask which travellers are harmless." },
+    },
+    worries = {
+      { id = "wy_1", text = "Malfurion should have woken by now, and the druids give me answers that are not answers. I keep the Temple and the Sentinels and the city, and still the one thing I cannot keep is him." },
+      { id = "wy_2", text = "Teldrassil grows too fast and too proud, and my priestesses tell me its roots feel wrong. If I am right about that tree, Fandral will never forgive me, and if I am wrong, I will never forgive myself." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to stand in the glade at Moonglade when Malfurion opens his eyes, and to have nothing urgent to tell him for once." },
+      { id = "hp_2", text = "I hope my Sentinels will one day hang their bows in the Temple and leave them there. I am old enough to know it is a foolish hope, and stubborn enough to keep it." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you pass through Astranaar, lend Raene Wolfrunner your strength for a day. She will not ask for it, and she needs it more than she lets me know." },
+      { id = "fv_2", text = "Say a prayer at the moonwell for the Sentinels who fell in Ashenvale this season. Elune knows their names, but it comforts their sisters to see that strangers remember them." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}, and I do not say it lightly, for the High Priestess has a great many followers and very few friends." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have stood beside my Sentinels and come back to tell me of it every time. A friend is one who comes back, and you always have." },
+      { id = "fr_al", when = { fondness = "alignment" }, text = "We stand under the same moon and for the same things, you and I. I would call that friendship even if you were too modest to." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When the Well broke and the sea came in, I prayed to Elune to take me instead of the people drowning around me. She did not answer, and I have never been certain whether that was mercy." },
+      { id = "nt_2", text = "When Malfurion sleeps too long, I go to Moonglade alone and sit by the barrow where his body lies, and I tell him about the city as though he could hear. My priestesses do not know how often I go, and I would rather they never did." },
+    },
   },
 }
 
@@ -1489,6 +1533,11 @@ P:NPC {
     { id = "bl2", text = "The Circle keeps druids at Cenarion Hold watching the qiraji walls, and they report to me long before they report to the Temple." },
     { id = "bl3", text = "The Gnarlpine went mad, yes, but that is a weakness of the furbolgs and no fault of my tree, whatever the priestesses whisper about its roots." },
   },
+  confides = {
+    { id = "cnf_1", text = "Mathrengyl Bearwalker is the one druid in the Enclave who has never carried my words to the Temple, so if you need something from the Circle quietly, go to him." },
+    { id = "cnf_2", text = "The Gnarlpine madness spreads out of Fel Rock and nowhere else, whatever the priestesses say of the roots, so burn the moss you find there and the rest of the furbolgs may yet recover." },
+    { id = "cnf_3", text = "The druids at Cenarion Hold know every crack in the old qiraji wall by heart, and they watch those cracks more closely than they watch the qiraji." },
+  },
   topics = {
     grievance = {
       { id = "gv1", text = "You are tiresome, and I have no patience for the tiresome. Ask any druid of the Enclave how much I have." },
@@ -1534,6 +1583,44 @@ P:NPC {
     elune = { { id = "tp_elune", text = "Elune is the Temple's, and Tyrande keeps her well. The druids keep the forest, and both of us keep this tree standing." } },
     timbermaw = { { id = "tp_timbermaw", text = "The Timbermaw kept their minds when the other furbolgs lost theirs, and they guard the passes to Winterspring jealously. I respect a people who keep to their own ground." } },
     _none = { { id = "tp_none", text = "That is not the Circle's concern, so ask a Sentinel. They enjoy being asked things, and they have the patience of the Temple besides." } },
+    regard = {
+      { id = "rg_1", text = "You do the Circle's work and do not waste my time with questions about it afterward. That is rarer in this city than you would think, and I value it." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have served the Enclave well, {name}, and I keep a careful account of who serves it. Your name sits higher on that account than most." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You address me with proper respect, which the Temple's priestesses have long since forgotten how to do. I notice it, and I am not ungrateful." },
+      { id = "rg_order", when = { fondness = "alignment", alignment = { axis = "order", min = 30 } }, text = "You understand that a people survives on order and a firm hand, and not on prayers alone. Half the druids of my Enclave could learn that from you." },
+    },
+    confide = {
+      { id = "cf_1", text = "I did not ask the Aspects to bless Teldrassil because I knew they would refuse, and I knew our people could not wait on their leisure. I would make the same choice again, whatever they whisper at the Temple." },
+      { id = "cf_2", text = "Valstann was a better druid than I was at his age, and a gentler one. I have sometimes thought the Circle kept the wrong Staghelm when Silithus was done with us." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the druids who keep their counsel, {class}, and trust no one who repeats the Temple's gossip as though it were prophecy." },
+      { id = "tr_2", text = "Do not trust anyone who tells you Teldrassil is sick. They have their reasons for saying it, and none of those reasons is the tree." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Temple's priestesses, for they gather every rumour on this tree and carry it to the High Priestess before it has had time to cool." },
+      { id = "wo_2", text = "Stay out of Fel Rock unless a druid goes with you. Whatever festers there does not belong to my tree, and it would be glad of a fresh visitor." },
+    },
+    worries = {
+      { id = "wy_1", text = "The qiraji stir behind their wall in Silithus, and my druids at Cenarion Hold send me word of it every moon. I sealed them away once, at a price I paid with my son, and I fear I will be asked to pay again." },
+      { id = "wy_2", text = "Our people are mortal now, and they have not yet understood what that means. They argue in the Temple about moonwells while their years run out, and someone must think further ahead than the next prayer." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Teldrassil crowned as Nordrassil once was, and our people undying again beneath its branches. They will thank me for it then, even those who curse me now." },
+      { id = "hp_2", text = "I hope to stand at the qiraji wall one day and see every last one of them buried behind it for good, so that Valstann's grave is finally quiet." },
+    },
+    favor = {
+      { id = "fv_1", text = "Carry no tales of my tree to the Temple, {name}. That is the only favour I ask, and you would be surprised how few can grant it." },
+      { id = "fv_2", text = "If you travel to Silithus, look in on my druids at Cenarion Hold and tell me honestly how they fare. Their reports are always brave, and I would like one that is true." },
+    },
+    friendship = {
+      { id = "fr_1", text = "The Arch Druid has allies and students, and he does not often have friends. You are as near to one as I have allowed in a long while." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have done the Circle's work without complaint and without carrying it to my rivals. If that is not friendship, it is the nearest thing I trust." },
+    },
+    never_told = {
+      { id = "nt_1", text = "On the day Valstann died, I did not weep, because there was a war to finish and I was its commander. I have waited ever since for the grief to come properly, and it never has." },
+      { id = "nt_2", text = "I asked Malfurion to let me lead the Circle while he slept, and he agreed so easily that I have never known whether he trusted me or simply did not care. I would very much like to know which." },
+    },
   },
 }
 

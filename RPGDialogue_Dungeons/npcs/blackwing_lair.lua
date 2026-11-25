@@ -261,8 +261,65 @@ P:NPC {
     },
   },
 
+  alignment = { light = -1 },
+  confides = {
+    { id = "cnf_1", text = "Warchief Rend believes he commands the Spire, but every orc there answers to General Drakkisath when it matters. Rend has never forgiven me for it, and he never will." },
+    { id = "cnf_2", text = "The Dark Iron emperor in the city below rules at Ragnaros' pleasure, and his court is full of those who would sell him to the first bidder. Blackrock Depths is rotten from the throne down." },
+    { id = "cnf_3", text = "Razorgore's brood chamber is the beating heart of my work, and every egg in it is precious to me. Break enough of them, and you will learn how a dragon looks when he truly loses his temper." },
+  },
   topics = {
     onyxia = { { id = "tp_ony", text = "My sister, and a far better actress than I.", next = "onyxia" } },
     _none = { { id = "tp_none", text = "Trivia. Ask me something that matters, or ask nothing at all." } },
+    grievance = {
+      { id = "gv1", text = "You are a dull guest, and I have no patience for dull guests. My children have a great deal of patience for them, however, and they find dullness very easy to digest." },
+      { id = "gv_values", when = { grudge = "values" }, text = "You came here swollen with righteousness and heroic purpose, and it bores me to tears. I much preferred you when I thought you might be clever." },
+    },
+    amends = {
+      { id = "am1", text = "Amuse me. Do something in my halls that I did not expect, and I may forgive you for wasting my evening." },
+      { id = "am_tone", when = { grudge = "tone" }, text = "Speak to me as a guest speaks to his host, with a little grace. Manners cost you nothing, and they may yet buy you a few more minutes." },
+    },
+    spite = {
+      { id = "sp1", text = "I think you are meat that has learned to talk, and not very well. When my children are finished with you, I will not trouble to remember your name." },
+      { id = "sp_values", when = { grudge = { worst = "values" } }, text = "I think you are exactly the sort of hero my sister collects at court, and she keeps a whole drawer of them, all very still." },
+    },
+    regard = {
+      { id = "rg_1", text = "I think you are a remarkable specimen, my dear guest, and I do not use the word lightly. Most of your kind break long before they reach my door." },
+      { id = "rg_2", text = "You amuse me, and you came up through the Spire alive, which is more than most of Rend's visitors can say. I find myself curious about what you will become." },
+      { id = "rg_shadow", when = { alignment = { axis = "light", max = -30 } }, text = "There is a darkness in you that you have not yet learned to love. Do not worry; it is patient, and so am I." },
+      { id = "rg_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You lie well and you scheme better, and you have the grace not to apologise for either. My sister would adore you, and I mean that as a warning." },
+    },
+    confide = {
+      { id = "cf_1", text = "My sister believes the court in Stormwind is her finest work. I believe it is merely her most comfortable, and she has grown soft lying on it." },
+      { id = "cf_2", text = "Ragnaros believes the Dark Irons serve him, and the Dark Irons believe they serve themselves. Both are mistaken, and I find it endlessly diverting." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust? Here? My dear guest, trust no one in this mountain, and trust me least of all. It is the only honest advice I will ever give you." },
+      { id = "tr_2", text = "Trust General Drakkisath to obey and Warchief Rend to betray, for both are wonderfully predictable. Everyone else in Blackrock I would watch very closely." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch my children's breath, for each of them was bred to burn something different, and I have been very thorough." },
+      { id = "wo_2", text = "Beware the Dark Irons below, who serve the Firelord with a devotion that makes them very hard to kill and very tedious to talk to." },
+    },
+    worries = {
+      { id = "wy_1", text = "Worry is a mortal affliction, but I will confess my work goes more slowly than I would like. Blood of every flight is difficult to come by, and the donors so rarely cooperate." },
+      { id = "wy_2", text = "That my sister's games in Stormwind will draw the wrong eyes to this mountain before my work is done. She has always been careless with her toys." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To see the chromatic flight made whole, bred from the blood of every flight and answering to no one but me. Then the world will learn what my father's son can build." },
+      { id = "hp_2", text = "I hope that you live long enough to see what I have made. It would be such a waste to show it to an empty room." },
+    },
+    favor = {
+      { id = "fv_1", text = "You might carry a message to my sister at court, though I suspect she would kill the messenger. That is rather the point of the message." },
+      { id = "fv_2", text = "Stay alive a little longer, {name}. You are the most interesting thing to climb this mountain in years, and I so dislike being bored." },
+    },
+    friendship = {
+      { id = "fr_1", text = "A friend? How charming. I count you a favourite guest, which in Blackwing Lair is a far rarer and far more dangerous honour." },
+      { id = "fr_2", text = "Dragons do not have friends, my dear, only allies and meals. But I confess I would be sorry to see you eaten, and I am so rarely sorry." },
+      { id = "fr_shadow", when = { fondness = "alignment", alignment = { axis = "light", max = -30 } }, text = "You have walked far enough into the dark to see the world as I do. That is as near to friendship as my kind can come, and nearer than anyone has come in a long while." },
+    },
+    never_told = {
+      { id = "nt_1", text = "My father does not answer when I call to him anymore. I tell my children he is resting, and I tell myself the same." },
+      { id = "nt_2", text = "Some of my early children did not survive the blending, and I kept their names. I could not tell you why, and I would kill anyone who repeated it." },
+    },
   },
 }

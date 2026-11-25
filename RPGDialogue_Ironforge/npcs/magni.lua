@@ -764,7 +764,57 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Explorers' League keeps its best maps in a locked chest in Magellas's hall, no' on the walls where the visitors gawk. Ask him nicely, an' mention my name, an' he might let ye see the Badlands sheets." },
+    { id = "cnf_2", text = "The Dark Iron have spies in the Forlorn Cavern, posin' as beggars an' tinkers. Rohan's priests have spotted a few, an' the guard's been told tae watch an' no' touch, for now." },
+    { id = "cnf_3", text = "The tram tae Stormwind has a maintenance shaft halfway along, an' the gnomes who built it are the only ones who know where. If the tunnels ever flood or fall, that's the way out." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think ye're a fine friend tae Ironforge, {name}, an' I dinnae say that tae just anyone who climbs these steps. Ye've done what was needed an' never once asked for a statue." },
+      { id = "rg_2", text = "I think ye've the heart o' a dwarf, whatever yer blood, an' that's the best I can say o' anybody. Ye stand yer ground, an' ye drink like ye mean it." },
+      { id = "rg_earned", when = { fondness = { best = "earned" } }, text = "Ye've done the mountain good turns that never reached the Senate's ledgers, an' I heard o' every one. A king remembers, {name}, even when his Senators dinnae." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "There's the Light about ye, like a forge glow on a cold night, an' I've seen enough priests tae know it. Muradin had a bit o' that, though he'd have laughed tae hear me say so." },
+      { id = "rg_honor", when = { alignment = { axis = "honor", max = -30 } }, text = "Ye've a twisty way about ye, I'll no' lie, an' I'm a plain dwarf who likes plain dealin'. Still, ye've never twisted against Ironforge, an' that's what counts at my table." },
+    },
+    confide = {
+      { id = "cf_1", text = "I'm feared o' the tram, {name}, if ye can credit it. I ride it wi' my eyes shut an' my hand on my axe, an' I tell my guards I'm restin' my eyes." },
+      { id = "cf_2", text = "The Senate argues every season that I'd have done better tae dig mines than dig for the past. They're no' wrong about the coin, but they're wrong about everythin' else." },
+      { id = "cf_3", text = "I keep Moira's childhood room just as she left it, an' I go in there sometimes when the Senate's been long. I sit on her wee stool an' I cannae fit on it, an' I sit there anyway." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Mekkatorque, for he's carried more grief than any king should an' never once lied tae me about it. Trust High Priest Rohan wi' yer wounds an' yer secrets both." },
+      { id = "tr_2", text = "Trust Magellas an' his Explorers, though they'll talk yer ear off about old stones. Trust the Senate tae argue, an' tae be right more often than I'd like." },
+      { id = "tr_3", text = "Dinnae trust anyone wi' a Dark Iron's beard who claims tae have left Thaurissan's folk behind. Some have, {name}, but I've buried men who believed the wrong ones." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Dark Iron in the Searing Gorge an' the Burning Steppes, an' anywhere near Blackrock. They've fire in their blood an' worse in their halls." },
+      { id = "wo_2", text = "Watch the troggs in Dun Morogh an' the Wetlands, for they're spillin' out o' the deep places faster than we can push 'em back. Where one trogg comes up, a dozen follow." },
+      { id = "wo_3", text = "Watch the Frostmane in the snowy hills, {name}. They've cost my house more than a few sheep over the years, an' they'll take what they can from yours." },
+    },
+    worries = {
+      { id = "wy_1", text = "Moira, always Moira. I lie awake wonderin' whether she's frightened or whether she's content, an' I cannae decide which would hurt worse." },
+      { id = "wy_2", text = "I worry about the discs from Uldaman an' what they'll do tae my people if the truth gets out. A dwarf's pride is built on stone, an' I'll no' be the king who cracked it." },
+      { id = "wy_3", text = "I worry that I've lost too many o' my kin tae count. Muradin in the north, Brann off diggin' somewhere, Moira under the mountain, an' I'm the one left mindin' the throne." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope tae see Moira walk back through the gates o' Ironforge on her own two feet, wi' her head high. I'd trade every gem in the royal vaults for it an' count myself rich." },
+      { id = "hp_2", text = "I hope the Explorers' League finds what we came from, an' that it makes us prouder an' no' smaller. That's a king's hope, {name}, an' a scholar's fear." },
+      { id = "hp_3", text = "I'd like tae see Gnomeregan back in gnomish hands, an' Mekkatorque sat on his own throne again instead o' a borrowed stool in Tinker Town. He's earned it twice over." },
+    },
+    favor = {
+      { id = "fv_1", text = "If ye ever get near Shadowforge City, listen for any word o' my daughter. Dinnae risk yer neck for it, {name}, but if ye hear anythin', bring it tae me first." },
+      { id = "fv_2", text = "Look in on the gnomes in Tinker Town an' see they're treated right. Some o' my own folk grumble about the cost, an' I'd have them know their king doesnae." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Aye, an' more than a friend; ye're near enough kin tae the Bronzebeards now. I'd share my last keg wi' ye, an' that's no' a thing I say lightly." },
+      { id = "fr_2", text = "I do, {name}, an' I'll say it in front o' the whole Senate if ye like. A king's friend is a rare thing, an' I mean tae keep this one." },
+      { id = "fr_light", when = { alignment = { axis = "light", min = 40 } }, text = "A friend, an' a shield-brother in the Light, as the old priests would say. Muradin would have liked ye, an' that's the best I can give." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I said hard words tae Moira the last time I saw her, {name}, about duty an' her place in this mountain. If she went tae the Dark Iron willin', it may be my words that drove her there." },
+      { id = "nt_2", text = "I never wanted the crown, an' I envied Muradin his freedom every day he was alive. When he went north wi' the prince, I was jealous o' him, an' I've never told a soul." },
+    },
     _gated = {
       { id = "gt1", text = "That's a matter I keep close, an' I'll no' open it tae someone I've barely shared a word wi'. Prove yerself a friend tae Ironforge first, an' then we'll see." },
       { id = "gt2", text = "Aye, I've thoughts on it, an' they're nae for a stranger's ears. A king learns early which doors stay shut, an' this is one o' them for now." },
