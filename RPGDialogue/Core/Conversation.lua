@@ -610,6 +610,7 @@ function Conv.Business(hint)
       if s.view == "dui" then
         ns.UI.DUIView.Release()
         ns.UI.DUIView.BeforeGamePick("gossipOption")
+        ns.UI.DUIView.BeforeServiceWindow()
         s.mode = "business"
       elseif s.mode == "full" and Conv.KeepPages(s) and not Conv.OverOtherWindow() then
         s.following = true
@@ -1081,6 +1082,11 @@ function Conv.Choose(index)
       s.mode = "business"
       if g.kind == "gossipQuest" or g.kind == "greetingQuest" then s.duiQuest = true end
       ns.UI.DUIView.BeforeGamePick(g.kind, g.active)
+      if g.kind == "gossipOption" then
+        for _, o in ipairs(C.GossipOptions()) do
+          if o.id == g.id and Conv.OptionKind(o) then ns.UI.DUIView.BeforeServiceWindow() end
+        end
+      end
     else
       -- Hand over to the game's window first, then pick the option there.
       Conv.HandOver()

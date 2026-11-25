@@ -146,11 +146,21 @@ local function install(f)
       end
     end
   end
+  -- Its own closing (Goodbye, Escape) of a window we opened. DialogueUI sets its window's
+  -- OnHide script afresh on every show and clears it on every hide, which drops a
+  -- HookScript, so we hook its Hide method (Goodbye and Escape both go through HideUI ->
+  -- Hide) and add the OnHide hook again on each show, after its own reset.
+  local function closed()
+    if not owned or hidingSelf then return end
+    owned, page = false, nil
+    if ns.Conversation.OnWindowClosed then ns.Conversation.OnWindowClosed() end
+  end
+  local hook = _G.hooksecurefunc
+  if type(hook) == "function" then pcall(hook, f, "Hide", closed) end
   if type(f.HookScript) == "function" then
-    f:HookScript("OnHide", function()
-      if not owned or hidingSelf then return end
-      owned, page = false, nil
-      if ns.Conversation.OnWindowClosed then ns.Conversation.OnWindowClosed() end
+    f:HookScript("OnHide", closed)
+    f:HookScript("OnShow", function(self)
+      if type(self.HookScript) == "function" then self:HookScript("OnHide", closed) end
     end)
   end
   installed = true
@@ -306,7 +316,11 @@ function V.Layout(f)
   local p = page
   f:ReleaseAllObjects()
   f:UseQuestLayout(false)
-  f.hasActiveGossipQuests, f.numAvailableQuests, f.keepGossipHistory = false, 0, false
+  -- How many quests they offer: DialogueUI waits longer after a quest is answered when
+  -- there are several (the game drops the interaction, then picks it up again).
+  local offered = 0
+  for _, q in ipairs(C.GossipQuests()) do if not q.active then offered = offered + 1 end end
+  f.hasActiveGossipQuests, f.numAvailableQuests, f.keepGossipHistory = false, offered, false
   local text = V.Compose(p)
   local offsetY, first, last = f:FormatParagraph(0, text ~= "" and text or " ")
   if not first then error("FormatParagraph returned nothing") end
@@ -428,6 +442,8 @@ function V.Show(v)
     -- Opened by us: no camera move or hidden UI (those come with the game's interaction).
     local ok = pcall(f.Show, f)
     if ok and has(f, "PlayIntroAnimation") then pcall(f.PlayIntroAnimation, f) end
+    -- Its settings re-lay the page through the handler it last used; give it ours.
+    if ok and not rawget(f, "handler") then f.handler = "HandleGossip" end
   end
   if f:IsShown() then
     V.Refresh()
@@ -500,7 +516,12 @@ local function hideOwned()
   -- Someone else's menu has just come into it (another NPC right-clicked mid-talk): leave
   -- it open, since hiding it would close their menu too.
   local ok, npc = pcall(_G.UnitExists, "npc")
-  if ok and npc then lastText = nil; return end
+  if ok and npc then
+    -- Their menu, not our old page (which DialogueUI may already have laid out for it).
+    lastText = nil
+    V.Refresh()
+    return
+  end
   if f and f:IsShown() then
     hidingSelf = true
     pcall(f.Hide, f)
@@ -509,6 +530,7 @@ local function hideOwned()
 end
 
 function V.Hide()
+  resetButtons()
   if owned then return hideOwned() end
   if not page then return end
   page = nil
@@ -531,10 +553,24 @@ function V.BeforeGamePick(kind, active)
   if not f then return end
   if kind == "gossipQuest" or kind == "greetingQuest" then
     if has(f, "SetConsumeGossipClose") then pcall(f.SetConsumeGossipClose, f, true) end
-    if not active and has(f, "MarkQuestIsFromGossip") then pcall(f.MarkQuestIsFromGossip, f, true) end
+    -- As its rows: every quest from the gossip menu, only new ones from a quest greeting
+    -- (so Cancel on a quest's page goes back to the menu rather than closing everything).
+    if (kind == "gossipQuest" or not active) and has(f, "MarkQuestIsFromGossip") then
+      pcall(f.MarkQuestIsFromGossip, f, true)
+    end
   elseif kind == "gossipOption" then
     if has(f, "SetConsumeGossipClose") then pcall(f.SetConsumeGossipClose, f, false) end
   end
+end
+
+-- A vendor, trainer or other window of the game's is about to open from our page. With
+-- DialogueUI's "Hide UI" on, the game's UI is hidden while its window is up; its own rows
+-- bring it back first ("some UI breaks if shown while UIParent is hidden"), so we do too.
+function V.BeforeServiceWindow()
+  local ui = _G.UIParent
+  if not ui then return end
+  if not ui:IsShown() and type(_G.SetUIVisibility) == "function" then pcall(_G.SetUIVisibility, true) end
+  if ui.GetAlpha and (ui:GetAlpha() or 1) < 1 then pcall(ui.SetAlpha, ui, 1) end
 end
 
 -- The next Show opens DialogueUI's window itself (talk key, right-click: no game menu).

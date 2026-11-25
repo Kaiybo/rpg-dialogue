@@ -4,6 +4,8 @@ All notable changes to RPG Dialogue. The core and each content pack get their ow
 
 ## 0.113.0 (2026-11-25): Through the Right Door
 No new files; a /reload is enough.
+- **DialogueUI: closing a talk-key conversation ends it.** Goodbye or Escape in DialogueUI's window now ends the visit (the talk key on the same person used to do nothing afterwards).
+- **DialogueUI: quests and shops from the conversation.** Cancel on the page of a quest you already have goes back to the conversation instead of closing everything; NPCs with several quests wait properly for their menu after you answer one; a vendor or trainer picked from the conversation opens with the game's UI showing, even with DialogueUI's "Hide UI" on.
 - **DialogueUI: fixes from a full pass.** Right-clicking someone with a menu while a talk-key conversation is open no longer closes their menu. Old replies left above a new page as history no longer do anything when clicked. The page no longer replays DialogueUI's fade-in and page sound each time it updates.
 - **DialogueUI: handing in and taking quests from the conversation works.** Clicking "Hand in: ..." (or a new quest) on our page closed DialogueUI's window as the quest page opened, so nothing happened. It now opens the quest page as DialogueUI's own rows do.
 - **DialogueUI: a shorter Ask about... list.** The first list holds the "ask anyone" topics and what this person can tell you about; everything else you've heard of is folded into one row per kind (People, Places, Threats...), each with its own pages. No more thirteen pages of seven.

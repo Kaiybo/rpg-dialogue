@@ -422,3 +422,16 @@ describe("DialogueUI edge cases", function()
     eq(ns.Conversation.session.node, before, "a stale row does nothing")
   end)
 end)
+
+describe("DialogueUI resetting its own scripts", function()
+  it("still ends a talk-key visit when its window's OnHide script was replaced", function()
+    local ns, dui = bootInside()
+    Mock.state.units.target = { guid = "Creature-0-1-0-1-9002-AB", name = "Deputy Willem", level = 10 }
+    ns.Conversation.TalkToTarget()
+    eq(dui:IsShown(), true)
+    -- What DialogueUI does on every show: its own OnHide, set afresh (hooks gone).
+    dui:SetScript("OnHide", function() end)
+    dui:Hide()
+    eq(ns.Conversation.session, nil, "Goodbye or Escape still ends the visit")
+  end)
+end)
