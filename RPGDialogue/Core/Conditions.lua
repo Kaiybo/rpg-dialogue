@@ -555,6 +555,22 @@ def("grudge", 25, "hinge", nil, function(ctx, v, env)
   return false, "grudge " .. tostring(worst)
 end)
 
+-- Fondness (0.114.0, Disposition.Fondness): what's warming this person to you, a word or a
+-- list (any one matches): earned, town, values, temper, rival, tone, persuade.
+-- { best = "word" } matches only the reason that helps you most. false: nothing does.
+-- Spoof with fondness=earned.
+def("fondness", 25, "hinge", nil, function(ctx, v, env)
+  local set, best = {}, nil
+  local spoof = ctx.spoofed and ctx.spoofed.fondness
+  if spoof then set[spoof] = true; best = spoof
+  elseif ns.Disposition and env and env.info then set, best = ns.Disposition.Fondness(env.info, env.mem, ctx) end
+  if v == false then return next(set) == nil, "fondness " .. tostring(best) end
+  if type(v) == "table" and v.best then return matches(best or "", v.best), "best fondness " .. tostring(best) end
+  local list = type(v) == "table" and v or { v }
+  for _, w in ipairs(list) do if set[w] then return true, "fondness " .. w end end
+  return false, "fondness " .. tostring(best)
+end)
+
 -- Tone (0.85.0, Systems/Disposition.lua): the manner you're speaking in, "polite" / "normal" /
 -- "blunt" (or a list). Spoof with tone=blunt.
 def("tone", 15, "hinge", nil, function(ctx, v)

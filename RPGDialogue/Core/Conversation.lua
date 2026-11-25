@@ -1422,6 +1422,8 @@ function Conv.Ask(topic)
   local tdef = ns.Data.topics[topic]
   local blurt = tdef and tdef.blurts and not brushoff and Conv.Blurt(s, tdef.blurts)
   if blurt then text = text .. " " .. blurt end
+  local confide = tdef and tdef.confides and not brushoff and Conv.Blurt(s, tdef.confides, "confides")
+  if confide then text = text .. " " .. confide end
   local linked = Conv.Hear(text, topic)
   Conv.Log("ask", tdef and tdef.name or topic)
   Conv.Log("npc", text)
@@ -1451,14 +1453,16 @@ end
 -- In anger they let something useful slip (0.90.0): a topic's `blurts` (true, or a chance
 -- 0-1) follows the answer with the NPC's own `blurts` line, or a local rumor behind an angry
 -- lead-in. Returns the text, or nil.
-function Conv.Blurt(s, chance)
+-- field "confides" (0.114.0): the friendly mirror, for topics that open at Warm or better:
+-- the NPC's own `confides` lines, or a local rumor behind a confiding lead-in.
+function Conv.Blurt(s, chance, field)
   if type(chance) == "number" and math.random() >= chance then return nil end
-  local w = Engine.PickBlurt(s.info, s.ctx, s.env)
+  local w = Engine.PickBlurt(s.info, s.ctx, s.env, field)
   if not w then return nil end
   Conv.Shown(w)
   local body = Tokens.Render(w.line.text, s.ctx, s.env, w.line.when)
   if w.src ~= "own" then
-    local leads = L.BLURT_LEADS
+    local leads = field == "confides" and L.CONFIDE_LEADS or L.BLURT_LEADS
     body = leads[math.random(#leads)] .. " " .. body
   end
   return body

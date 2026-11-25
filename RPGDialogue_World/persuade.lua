@@ -702,3 +702,270 @@ P:Pool { id = "grudges_trainer", role = "trainer", askOnly = true, topics = {
     { id = "s1", text = "I think teaching you was a mistake, and I'll be answering for it long after you're gone." },
   },
 } }
+
+---------------------------------------------------------------------------
+-- When they like you (0.114.0), the mirror of the above. Nine "ask anyone" topics that only
+-- show at Warm or better (worries, hopes, favor at Friendly; friendship, never_told at
+-- Devoted), answered by what's warming them to you (`fondness`). confide, watchout, favor
+-- and never_told let something useful slip after the answer (topics.lua `confides`).
+---------------------------------------------------------------------------
+P:Generic { id = "fondness", topics = {
+  -- Advice from someone who likes you: kinder, and more of it.
+  advice = {
+    { id = "adv_warm1", when = { disposition = { min = 60 } }, text = "Rest when you can, eat when you can, and never be too proud to run. The proud ones are all buried." },
+    { id = "adv_warm2", when = { disposition = { min = 60 } }, text = "Take a hearthstone to an inn you like and keep it there. Knowing where home is matters more than you'd think." },
+    { id = "adv_warm3", when = { disposition = { min = 60 }, maxLevel = 20 }, text = "Don't rush, {name}. Everyone your age wants to be a hero by next week, and half of them don't see next week." },
+    { id = "adv_warm4", when = { disposition = { min = 75 } }, text = "Find people you trust and fight beside them. Nobody lasts long out there alone, however good they are." },
+    { id = "adv_warm5", when = { disposition = { min = 75 }, minLevel = 40 }, text = "You've grown strong. Remember that strength draws eyes, and not all of them wish you well." },
+    { id = "adv_warm_war", when = { disposition = { min = 60 }, class = "WARRIOR" }, text = "Keep your shield arm fresh and your armour mended. A warrior who skimps on the smith pays the priest instead." },
+    { id = "adv_warm_pal", when = { disposition = { min = 60 }, class = "PALADIN" }, text = "The Light carries you a long way, but it won't mend a cracked breastplate. Look after the plain things too." },
+    { id = "adv_warm_hun", when = { disposition = { min = 60 }, class = "HUNTER" }, text = "Feed that beast of yours before you feed yourself. It'll remember, and it'll stand over you when you fall." },
+    { id = "adv_warm_rog", when = { disposition = { min = 60 }, class = "ROGUE" }, text = "Keep your poisons fresh and your exits in mind. And never rob anyone who knows your name." },
+    { id = "adv_warm_pri", when = { disposition = { min = 60 }, class = "PRIEST" }, text = "Mend yourself as well as the others. A healer who falls first leaves everyone to fall after." },
+    { id = "adv_warm_sha", when = { disposition = { min = 60 }, class = "SHAMAN" }, text = "Listen to the elements before you ask anything of them. They answer better when they know you've heard them." },
+    { id = "adv_warm_mag", when = { disposition = { min = 60 }, class = "MAGE" }, text = "Conjure your bread before you need it, and never stand still when something big is charging you." },
+    { id = "adv_warm_wlk", when = { disposition = { min = 60 }, class = "WARLOCK" }, text = "Keep a firm hand on whatever you've bound. The moment you trust it is the moment it stops being yours." },
+    { id = "adv_warm_dru", when = { disposition = { min = 60 }, class = "DRUID" }, text = "You can be anything the wild allows. Don't forget to come back to yourself at the end of the day." },
+  },
+  regard = {
+    { id = "rg1", text = "I think you're decent, {name}, and there aren't as many decent folk about as there ought to be." },
+    { id = "rg2", text = "I think you're the sort I'm glad to see coming up the road. That's rarer than you'd think." },
+    { id = "rg3", text = "Honestly? I like you. You listen, and you don't look down your nose at people like me." },
+    { id = "rg_earned", when = { fondness = "earned" }, text = "You've been good to me when you didn't have to be. I notice that sort of thing, and I remember it." },
+    { id = "rg_earned2", when = { fondness = { best = "earned" } }, text = "I've talked with you enough to know your heart, and I like what I've found there." },
+    { id = "rg_town", when = { fondness = "town" }, text = "Folk around {town} speak well of you, and they're not easy to please. I'd sooner trust them than my own eyes." },
+    { id = "rg_values", when = { fondness = "values" }, text = "You carry yourself the way a person ought to. I've watched you, and you've not let me down yet." },
+    { id = "rg_temper", when = { fondness = { best = "temper" } }, text = "Oh, I like most people, if I'm honest. But I like you more than most, if that helps." },
+    { id = "rg_rival", when = { fondness = "rival" }, text = "Anyone who's stood up to the folk I can't abide is all right in my book. You've done that." },
+    { id = "rg_tone_p", when = { fondness = "tone", tone = "polite" }, text = "You've manners, and you use them. It does an old heart good to be spoken to properly." },
+    { id = "rg_tone_b", when = { fondness = "tone", tone = "blunt" }, text = "You say what you mean and you don't waste my time. I can't ask more of anyone than that." },
+    { id = "rg_pers", when = { fondness = "persuade" }, text = "You've a way with words, I'll grant you. You had me smiling the last time, and I've not forgotten it." },
+    { id = "rg_low", when = { maxLevel = 15 }, text = "I think you're young yet, but you've a good head on you. Keep it on your shoulders and you'll go far." },
+    { id = "rg_high", when = { minLevel = 50 }, text = "I think you've seen more than most of us ever will, and it hasn't made you cruel. That's worth a great deal." },
+    { id = "rg_h", when = { faction = "Horde" }, text = "I think you're a credit to the Horde. If more were like you, we'd have less to fear from anyone." },
+    { id = "rg_a", when = { faction = "Alliance" }, text = "I think you're what the Alliance is meant to be, when it remembers itself. Don't lose that." },
+  },
+  confide = {
+    { id = "cf1", text = "Most folk only see what's in front of them. You'd be surprised what's said when they think nobody's listening." },
+    { id = "cf2", text = "This place looks quiet, but nothing here is ever as quiet as it looks." },
+    { id = "cf3", text = "I keep my ears open and my mouth shut, mostly. For you, I'll open it a little." },
+    { id = "cf4", text = "There's more going on around here than anyone admits, and I've heard a fair bit of it." },
+  },
+  trust = {
+    { id = "tr1", text = "Trust the ones who give you bad news to your face. It's the smiling ones you watch." },
+    { id = "tr2", text = "The guards, mostly, and the innkeeper. Anyone who's selling you something, count your coin twice." },
+    { id = "tr3", text = "Trust me, for a start. Beyond that, trust anyone who's bled for this place, and nobody who only talks about it." },
+    { id = "tr4", text = "Folk who've been here longest have least to gain from lying to you. Start with them." },
+    { id = "tr_h", when = { faction = "Horde" }, text = "Trust those who fought in the old wars and came out honest. Be wary of anyone too eager to tell you about it." },
+    { id = "tr_a", when = { faction = "Alliance" }, text = "Trust the soldiers and the clergy, mostly. Nobles and merchants, well, they've their own ledgers to balance." },
+    { id = "tr_scourge", when = { race = "Scourge" }, text = "Down here? Trust nobody fully, {name}. But trust the apothecaries least of all." },
+    { id = "tr_ne", when = { race = "NightElf" }, text = "The Sentinels keep faith, and so does the Cenarion Circle, mostly. The rest are still learning what faith is." },
+  },
+  watchout = {
+    { id = "wo1", text = "Watch the roads after dark. Things come out of the trees that don't care whose side you're on." },
+    { id = "wo2", text = "Watch who buys you a drink and asks nothing back. Nobody's that generous for no reason." },
+    { id = "wo3", text = "Watch your purse in a crowd and your back on a lonely road. That covers most of it." },
+    { id = "wo_low", when = { maxLevel = 20 }, text = "Watch anything bigger than you, which is most things yet. There's no shame in walking round a fight." },
+    { id = "wo_high", when = { minLevel = 45 }, text = "At your strength? Watch the ones who want to use you. They'll be sweeter than any enemy." },
+    { id = "wo_h", when = { faction = "Horde" }, text = "Watch for the Burning Blade, and for anyone who talks too fondly of the old Horde. Some never let it go." },
+    { id = "wo_a", when = { faction = "Alliance" }, text = "Watch for the Defias, and the cults that crawl about in cellars. Stormwind's rot starts underground." },
+  },
+  worries = {
+    { id = "wy1", text = "Everything, some nights. The war that never quite ends, the things in the dark, whether my work's worth anything." },
+    { id = "wy2", text = "I worry I'm getting old in a world that has no patience for old folk. That's the truth of it." },
+    { id = "wy3", text = "I worry about the people I've lost touch with. You never know which letter was the last one." },
+    { id = "wy4", text = "Money, mostly, if I'm honest. It's not noble, but it keeps a body awake all the same." },
+    { id = "wy5", text = "I worry about you lot, out there. I see faces come through here and some of them never come back." },
+    { id = "wy_h", when = { faction = "Horde" }, text = "That the peace won't last. We've built so much since the camps, and it all hangs on so little." },
+    { id = "wy_a", when = { faction = "Alliance" }, text = "That the kingdom's coming apart while the nobles bicker. The king's a boy, and the court's full of wolves." },
+    { id = "wy_scourge", when = { race = "Scourge" }, text = "That I'll forget who I was. Little things go first, a name, a face. I try to hold on to them." },
+    { id = "wy_dwarf", when = { race = "Dwarf" }, text = "Kin, as always. Too many of ours lost in Gnomeregan and Grim Batol, and there's no getting them back." },
+    { id = "wy_gnome", when = { race = "Gnome" }, text = "Home, of course. Every gnome worries about Gnomeregan, and most of us pretend we don't." },
+    { id = "wy_tauren", when = { race = "Tauren" }, text = "That the land is sick in too many places. The Earth Mother bears a great deal, but not everything." },
+    { id = "wy_troll", when = { race = "Troll" }, text = "Da tribe, always. We be few now, and every one we lose be a hole nobody can fill, mon." },
+  },
+  hopes = {
+    { id = "hp1", text = "A quiet year. Just one, with no war and no plague and nobody new to bury. That would do." },
+    { id = "hp2", text = "That I'll have done some good, when it's all counted up. Not much, but some." },
+    { id = "hp3", text = "To see my family settled and safe. Everything else can go hang, if I have that." },
+    { id = "hp4", text = "A little house with a garden and a door that locks. It's not much of a dream, but it's mine." },
+    { id = "hp5", text = "That folk like you win in the end. Somebody has to, and I'd rather it were you." },
+    { id = "hp_h", when = { faction = "Horde" }, text = "That our children never see the inside of an internment camp. That's all any of us want, really." },
+    { id = "hp_a", when = { faction = "Alliance" }, text = "That Lordaeron rises again someday. Maybe not in my time, but someday." },
+    { id = "hp_scourge", when = { race = "Scourge" }, text = "Hope? A strange word for the dead. But I hope the Lich King pays, and that I'm there to see it." },
+    { id = "hp_ne", when = { race = "NightElf" }, text = "That the forests heal, and that we keep faith with the world we nearly lost." },
+    { id = "hp_tauren", when = { race = "Tauren" }, text = "That the herds run free again across the plains, and that our elders see it before they rest." },
+  },
+  favor = {
+    { id = "fv1", text = "You've done plenty just asking. But keep yourself alive, would you? I'd miss you." },
+    { id = "fv2", text = "Come back now and then and tell me what you've seen. That's all I'd ask." },
+    { id = "fv3", text = "If you ever find yourself somewhere with a kind word to say about me, say it. That's enough." },
+    { id = "fv4", text = "Look after the young ones you meet on the road. Somebody looked after you once, I'd wager." },
+    { id = "fv5", text = "Nothing you can carry. But if you hear of trouble heading my way, send word ahead of it." },
+  },
+  friendship = {
+    { id = "fr1", text = "I do, {name}, and I don't say that lightly. I've few enough friends, and I'm glad of every one." },
+    { id = "fr2", text = "You need to ask? I'd stand by you against anyone, and I'd not think twice about it." },
+    { id = "fr3", text = "A friend, and more than most of them. If you ever need a place to rest, you've one here." },
+    { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After everything you've done for me? You're the best friend I've made in years." },
+    { id = "fr_town", when = { fondness = "town" }, text = "Not just me. Half this town would call you friend, and the other half just hasn't met you yet." },
+    { id = "fr_h", when = { faction = "Horde" }, text = "Friend, and more. Where I come from, we'd call you blood. Lok'tar, {name}." },
+    { id = "fr_tauren", when = { race = "Tauren" }, text = "You walk with the Earth Mother's blessing as far as I'm concerned, friend. Always." },
+    { id = "fr_dwarf", when = { race = "Dwarf" }, text = "Friend? You're near enough kin. I'd share my last keg with you, and that's no small thing." },
+  },
+  never_told = {
+    { id = "nt1", text = "I was a coward once, when it mattered. Someone else paid for it. I've been trying to make it right ever since." },
+    { id = "nt2", text = "I wanted to be an adventurer, like you. I got as far as the first crossroads and turned back." },
+    { id = "nt3", text = "I still talk to someone I lost, some nights, as if they were sitting across the table. Foolish, I know." },
+    { id = "nt4", text = "I don't believe half of what I'm told to believe. I just keep my mouth shut and do my work." },
+    { id = "nt5", text = "I had a chance to leave all this behind, once. I stayed, and I've never been sure it was right." },
+    { id = "nt_scourge", when = { race = "Scourge" }, text = "I remember dying. Not the pain, the quiet after. Sometimes I miss it, and that frightens me." },
+    { id = "nt_orc", when = { race = "Orc" }, text = "I was born in the camps. I've never told anyone, because I didn't want pity. Now you know." },
+    { id = "nt_human", when = { race = "Human" }, text = "My family fled Lordaeron. I tell folk we're from Stormwind, because I can't bear the questions." },
+    { id = "nt_ne", when = { race = "NightElf" }, text = "I miss the old immortality more than I admit. Every grey hair feels like a debt coming due." },
+  },
+} }
+
+P:Pool { id = "fondness_guard", role = "guard", askOnly = true, topics = {
+  regard = {
+    { id = "r1", text = "I think you're one of the few I don't have to watch. That's a real kindness to a tired guard." },
+  },
+  confide = {
+    { id = "c1", text = "Between you and me, we're stretched thinner than anyone admits. Half the watch hasn't slept properly in weeks." },
+  },
+  trust = {
+    { id = "t1", text = "Trust the watch, mostly. Not all of us, mind, but the ones who've been at it longest. We know this place." },
+  },
+  watchout = {
+    { id = "w1", text = "Pickpockets by the gate, and drunks after dark. And anyone who asks too many questions about patrol times." },
+  },
+  worries = {
+    { id = "y1", text = "That something comes over the wall one night and I'm the one who didn't see it. That's every guard's dream, I think." },
+  },
+  hopes = {
+    { id = "h1", text = "A pension and a chair by the fire. Somewhere nobody needs guarding." },
+  },
+  favor = {
+    { id = "f1", text = "If you see trouble on the road in, warn us before it gets here. That's the best help a guard can get." },
+  },
+  friendship = {
+    { id = "fr1", text = "Aye, friend. And that means if anyone gives you grief in this town, they'll answer to me." },
+  },
+  never_told = {
+    { id = "n1", text = "I let a thief go once. A child, starving. I've never regretted it, and I've never told my captain." },
+  },
+} }
+
+P:Pool { id = "fondness_innkeeper", role = "innkeeper", askOnly = true, topics = {
+  regard = {
+    { id = "r1", text = "I think you're a good guest and a better friend. Your room's always clean, and that's no accident." },
+  },
+  confide = {
+    { id = "c1", text = "An innkeeper hears everything, friend. I just don't usually repeat it." },
+  },
+  trust = {
+    { id = "t1", text = "The regulars, mostly. Anyone who drinks here every night and still pays their tab is honest enough." },
+  },
+  watchout = {
+    { id = "w1", text = "Strangers who pay in gold for cheap ale. They're buying something, and it isn't the drink." },
+  },
+  worries = {
+    { id = "y1", text = "Keeping the doors open. Fewer travellers every season, and the ones who come can't always pay." },
+  },
+  hopes = {
+    { id = "h1", text = "A full house on a feast night, with nobody fighting. Just once, I'd like to see that." },
+  },
+  favor = {
+    { id = "f1", text = "Tell folk where you rest your head. A good word from you fills more beds than any sign." },
+  },
+  friendship = {
+    { id = "fr1", text = "Friend? Your first drink of every night is on the house from now on. That's how much." },
+  },
+  never_told = {
+    { id = "n1", text = "I watered the ale for a whole winter once, to keep this place open. I've felt guilty about it since." },
+  },
+} }
+
+local function tradeFondness() return {
+  regard = {
+    { id = "r1", text = "I think you're a fine customer and finer company. I'd say that even if you never bought a thing." },
+  },
+  confide = {
+    { id = "c1", text = "Prices are going up again soon, so buy what you need now. You didn't hear that from me." },
+  },
+  trust = {
+    { id = "t1", text = "Never trust a trader who won't haggle. Somebody's already paying them, and it isn't you." },
+  },
+  watchout = {
+    { id = "w1", text = "Goblin goods with no maker's mark. Half of them fall apart, and the other half explode." },
+  },
+  worries = {
+    { id = "y1", text = "Supplies, always. One bad road or one burned caravan and I've nothing on my shelves for a month." },
+  },
+  hopes = {
+    { id = "h1", text = "A shop of my own in a big city, with my name above the door in gold letters." },
+  },
+  favor = {
+    { id = "f1", text = "Send your friends my way. Tell them you know me, and I'll treat them right." },
+  },
+  friendship = {
+    { id = "fr1", text = "A friend, and for a friend I've always got a fair price. A truly fair one, mind." },
+  },
+  never_told = {
+    { id = "n1", text = "I never wanted this trade. I wanted to paint. My father wanted coin, so here I am." },
+  },
+} end
+for _, role in ipairs({ "vendor", "blacksmith", "auctioneer", "banker" }) do
+  P:Pool { id = "fondness_" .. role, role = role, askOnly = true, topics = tradeFondness() }
+end
+
+P:Pool { id = "fondness_trainer", role = "trainer", askOnly = true, topics = {
+  regard = {
+    { id = "r1", text = "I think you're the best pupil I've had in a long while. Don't let it go to your head." },
+  },
+  confide = {
+    { id = "c1", text = "Half of what I teach, I learned by getting it wrong first. The books leave that part out." },
+  },
+  trust = {
+    { id = "t1", text = "Trust your training, and trust whoever taught you to doubt yourself a little. That one cared." },
+  },
+  watchout = {
+    { id = "w1", text = "Pride. It's killed more of my students than any beast or blade. Know when you're beaten." },
+  },
+  worries = {
+    { id = "y1", text = "That I've sent too many out the door who weren't ready. I think about them more than I'd like." },
+  },
+  hopes = {
+    { id = "h1", text = "That one of my students surpasses me someday. It might even be you." },
+  },
+  favor = {
+    { id = "f1", text = "Use what I've taught you well. That's all a teacher ever really asks." },
+  },
+  friendship = {
+    { id = "fr1", text = "More than a pupil now. A friend, and a credit to me. I'm proud of you." },
+  },
+  never_told = {
+    { id = "n1", text = "I almost quit, before you came. Teaching felt pointless. You reminded me why I started." },
+  },
+} }
+
+P:Pool { id = "fondness_flightmaster", role = "flightmaster", askOnly = true, topics = {
+  confide = {
+    { id = "c1", text = "The beasts can tell who's afraid of heights. They fly a little gentler for them, bless 'em." },
+  },
+  watchout = {
+    { id = "w1", text = "Don't lean out over the side to look down, no matter how pretty it is. I've lost riders that way." },
+  },
+  never_told = {
+    { id = "n1", text = "I've never flown myself. Not once. Can't stand heights, and that's the truth." },
+  },
+} }
+
+P:Pool { id = "fondness_stablemaster", role = "stablemaster", askOnly = true, topics = {
+  confide = {
+    { id = "c1", text = "Beasts know more about people than people do. Yours is fond of you, if you were wondering." },
+  },
+  never_told = {
+    { id = "n1", text = "I talk to the animals more than to folk. They've never once told my secrets." },
+  },
+} }

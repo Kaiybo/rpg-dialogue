@@ -233,6 +233,13 @@ L.BLURT_LEADS = {
   "Go and bother somebody else. Better yet, go and look into this:",
   "I'll tell you one thing, if it gets you out of my sight:",
 }
+L.CONFIDE_LEADS = {
+  "Since it's you asking, I'll tell you something else:",
+  "Keep this between us, but you ought to know:",
+  "I wouldn't tell just anyone, but here it is:",
+  "One more thing, as a friend:",
+  "You've been good to me, so hear this:",
+}
 L.GATED_NOTE = "They won't talk about that until they're %s toward you."
 L.ASK_GATED = "won't say"
 L.ASK_GATED_TIP = "They won't talk about this: their disposition toward you is too low. They'd need to be %s."

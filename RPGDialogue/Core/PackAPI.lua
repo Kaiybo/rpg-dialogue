@@ -75,6 +75,7 @@ local function indexNPC(def)
   indexTopics(def.topics, def.key, def.key)
   -- What they let slip when they hate you (0.90.0).
   indexList(def.blurts, def.key .. ".blurt", def.key, "blurt")
+  indexList(def.confides, def.key .. ".confide", def.key, "confide")
   -- Their own answers to Admire / Taunt / Intimidate (0.85.0).
   for action, byResult in pairs(def.persuade or {}) do
     if type(byResult) == "table" then

@@ -331,6 +331,33 @@ function Disp.Grudges(info, mem, ctx)
   return out, worst
 end
 
+-- What's warming them to you (0.114.0), the mirror of Grudges, for the `fondness`
+-- condition: earned (your affinity with them), town, values (your traits or alignment),
+-- temper (they're warm with everyone), rival (you've crossed someone they dislike), tone
+-- (you speak the way they like), persuade (an Admire or a joke they still remember).
+-- Only reasons worth 3 points or more in your favour count.
+Disp.FONDNESS_OF = { affinity = "earned", persuade = "persuade" }
+function Disp.Fondness(info, mem, ctx)
+  local _, why = Disp.Compute(info, mem, ctx)
+  local out, best, bestD = {}, nil, 0
+  for _, r in ipairs(why) do
+    local reason, d = r[1], r[2]
+    if d >= 3 then
+      local g = Disp.FONDNESS_OF[reason]
+      if not g then
+        if reason:find("^town:") then g = "town"
+        elseif reason:find("^rivalfoe:") then g = "rival"
+        elseif reason:find("^tone:") then g = "tone"
+        elseif reason:find("^temper ") then g = "temper"
+        else g = "values" end
+      end
+      out[g] = true
+      if d > bestD then best, bestD = g, d end
+    end
+  end
+  return out, best
+end
+
 -- The value for the NPC of a conversation environment (cached per conversation, and
 -- recomputed after anything that could move it: affinity, standing, traits).
 function Disp.For(env, ctx)
