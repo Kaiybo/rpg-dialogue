@@ -26,7 +26,11 @@ local NEEDED = { "HandleGossip", "ReleaseAllObjects", "UseQuestLayout", "FormatP
   "AcquireExitButton", "SetScrollRange" }
 local SPACING = 16          -- DialogueUI's space between a paragraph and the options
 local TALK_ICON = 132053    -- the gossip speech bubble
-local MAX_TOPICS = 7       -- topics per page of the Ask list (plus More, Back)
+local MAX_TOPICS = 8       -- topics per page of one kind in the Ask list (plus More, Back)
+-- The kinds of topic, in the order their rows are listed.
+local CAT_ORDER = { "people", "places", "threats", "lore", "rumors", "trade", "other" }
+local CAT_ORDER_SET = {}
+for _, c in ipairs(CAT_ORDER) do CAT_ORDER_SET[c] = true end
 
 local installed, broken = false, false
 -- A talk-key or right-click conversation (no game menu behind it): we showed DialogueUI's
@@ -55,7 +59,7 @@ local function usingGamePad()
 end
 
 -- Muted ink for narration and "You said", on the parchment and on the dark theme.
-local function dimColor() return darkTheme() and "|cffa49a8c" or "|cff8c7b67" end
+local function dimColor() return darkTheme() and "|cffa49a8c" or "|cff6e5a44" end
 
 -- DialogueUI's own icons, so our rows wear the same art as its gossip and quest rows.
 local ICON_PATH = "Interface\\AddOns\\DialogueUI\\Art\\Icons\\"
@@ -199,33 +203,54 @@ local function buildRows(p)
     for i, c in ipairs(p.choices or {}) do
       if c.view then out[#out + 1] = { text = c.text, onClick = function() Conv.Choose(i) end } end
     end
-    -- Every topic, a page at a time: "ask anyone" first, then what this person said they
-    -- know about, then the rest, newest first.
+    -- The first list: "ask anyone" and what this person can tell you about, in full; every
+    -- other topic you know folded into one row per kind (People, Places...), each opening
+    -- its own list, a page at a time. 80 topics were 13 pages of seven.
     local s = Conv.session
     local key = s and s.memKey
     local disp = s and ns.Disposition and ns.Disposition.For(s.env, s.ctx)
     local all = ns.Topics.Known(false, key, disp)
-    local std, knows, rest = {}, {}, {}
+    local std, knows, byCat = {}, {}, {}
     for _, t in ipairs(all) do
-      if t.standard then std[#std + 1] = t elseif t.knows then knows[#knows + 1] = t else rest[#rest + 1] = t end
+      if t.standard then std[#std + 1] = t
+      elseif t.knows then knows[#knows + 1] = t
+      else
+        local cat = CAT_ORDER_SET[t.category] and t.category or "other"
+        byCat[cat] = byCat[cat] or {}
+        table.insert(byCat[cat], t)
+      end
     end
-    local topics = {}
-    for _, group in ipairs({ std, knows, rest }) do
-      for _, t in ipairs(group) do topics[#topics + 1] = t end
-    end
-    local pages = math.max(1, math.ceil(#topics / MAX_TOPICS))
-    local pg = math.min(p.askPage or 0, pages - 1)
-    p.askPage = pg
-    for i = pg * MAX_TOPICS + 1, math.min(#topics, (pg + 1) * MAX_TOPICS) do
-      local t = topics[i]
+    local function topicRow(t, gap)
       local id = t.id
       local suffix = ""
       if key and ns.Topics.StillGated(id, key, disp) then suffix = " (" .. L.ASK_GATED .. ")"
       elseif key and ns.Topics.NothingFrom(id, key) then suffix = " (" .. L.ASK_NOTHING .. ")"
       elseif key and ns.Topics.AskedOf(id, key) and not t.standard then suffix = " (" .. L.ASK_ASKED .. ")"
       elseif t.knows then suffix = " *" end
-      out[#out + 1] = { text = t.name .. suffix, onClick = function() Conv.Ask(id) end }
+      out[#out + 1] = { text = t.name .. suffix, gap = gap, onClick = function() Conv.Ask(id) end }
     end
+    local cat = p.askCat
+    if cat and not byCat[cat] then cat, p.askCat = nil, nil end
+    if not cat then
+      for i, t in ipairs(std) do topicRow(t, i == 1 and #out > 0) end
+      for i, t in ipairs(knows) do topicRow(t, i == 1) end
+      local first = true
+      for _, c in ipairs(CAT_ORDER) do
+        local list = byCat[c]
+        if list then
+          out[#out + 1] = { text = L.DUI_CAT:format(L["TOPIC_CAT_" .. c:upper()] or c, #list), gap = first,
+            kind = "ask", onClick = function() page.askCat = c; page.askPage = 0; V.Refresh() end }
+          first = false
+        end
+      end
+      out[#out + 1] = { text = L.DUI_BACK, gap = true, kind = "nav", onClick = function() page.asking = nil; page.askPage = nil; V.Refresh() end }
+      return out
+    end
+    local topics = byCat[cat]
+    local pages = math.max(1, math.ceil(#topics / MAX_TOPICS))
+    local pg = math.min(p.askPage or 0, pages - 1)
+    p.askPage = pg
+    for i = pg * MAX_TOPICS + 1, math.min(#topics, (pg + 1) * MAX_TOPICS) do topicRow(topics[i]) end
     if pg + 1 < pages then
       out[#out + 1] = { text = L.DUI_MORE:format(pg + 2, pages), gap = true, kind = "nav",
         onClick = function() page.askPage = pg + 1; V.Refresh() end }
@@ -234,7 +259,7 @@ local function buildRows(p)
       out[#out + 1] = { text = L.DUI_PREV, gap = pg + 1 >= pages, kind = "nav",
         onClick = function() page.askPage = pg - 1; V.Refresh() end }
     end
-    out[#out + 1] = { text = L.DUI_BACK, gap = true, kind = "nav", onClick = function() page.asking = nil; page.askPage = nil; V.Refresh() end }
+    out[#out + 1] = { text = L.DUI_BACK, gap = true, kind = "nav", onClick = function() page.askCat = nil; page.askPage = nil; V.Refresh() end }
     return out
   end
   local nChoices, anyGame = #(p.choices or {}), false
@@ -250,10 +275,12 @@ local function buildRows(p)
   if p.canAsk then
     local n = ns.Topics.Count()
     out[#out + 1] = { text = n > 0 and L.DUI_ASK_N:format(n) or L.DUI_ASK, gap = true, kind = "ask",
-      onClick = function() page.asking = true; page.askPage = 0; V.Refresh() end }
+      onClick = function() page.asking = true; page.askPage = 0; page.askCat = nil; V.Refresh() end }
   end
   if ns.Persuasion and Conv.PersuadeState() then
-    out[#out + 1] = { text = L.DUI_PERSUADE, gap = not p.canAsk, kind = "persuade",
+    -- How they feel about you goes on this row (it's what the actions play on), not atop the page.
+    local dname = p.disp and p.disp.name
+    out[#out + 1] = { text = dname and L.DUI_PERSUADE_DISP:format(dname:lower()) or L.DUI_PERSUADE, gap = not p.canAsk, kind = "persuade",
       onClick = function() page.persuading = true; V.Refresh() end }
   end
   out[#out + 1] = { text = L.GET_ON_WITH_IT, gap = not p.canAsk and not Conv.PersuadeState(),
@@ -368,7 +395,9 @@ end
 -- reactions after them. The extras are in muted ink, the NPC's words in DialogueUI's own.
 local function compose(p)
   local dim, out = dimColor(), {}
-  if p.disp and p.disp.name then out[#out + 1] = dim .. L.DISP_LABEL:format(p.disp.name) .. "|r" end
+  -- The disposition goes on the Persuade row when there is one; otherwise it heads the page.
+  local onRow = ns.Persuasion and ns.Conversation.PersuadeState and ns.Conversation.PersuadeState()
+  if p.disp and p.disp.name and not onRow then out[#out + 1] = dim .. L.DISP_LABEL:format(p.disp.name) .. "|r" end
   if p.said and p.said ~= "" then out[#out + 1] = dim .. L.YOU_SAID:format(p.said) .. "|r" end
   if p.narr and p.narr ~= "" then out[#out + 1] = dim .. p.narr .. "|r" end
   local body = withName(p.body)
@@ -409,7 +438,7 @@ end
 
 function V.SetChoices(choices)
   if not page then return end
-  page.choices, page.asking, page.persuading = choices, nil, nil
+  page.choices, page.asking, page.persuading, page.askCat = choices, nil, nil, nil
   if lastView then lastView.choices = choices end
   V.Refresh()
 end
