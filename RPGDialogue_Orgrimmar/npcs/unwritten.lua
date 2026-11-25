@@ -2081,8 +2081,8 @@ P:NPC {
     advice = {
       lines = { { id = "a_default", text = "That a home is harder to keep than to take. The orcs fought for this land, and now they must learn to grow old in it." } },
       choices = {
-        { text = "The Horde must stay strong and ready for war.", next = "BACK", reply = "Strength, yes. But a spear held too long makes the arm ache.", fx = { align = { valor = 1 } } },
-        { text = "Peace is what the Horde needs now.", next = "BACK", reply = "Then guard that peace well, child. It breaks easier than bone.", fx = { align = { valor = -1 } } },
+        { text = "The Horde must stay strong and ready for war.", next = "BACK", reply = "Strength, yes. But a spear held too long makes the arm ache.", fx = { align = { honor = 1 } } },
+        { text = "Peace is what the Horde needs now.", next = "BACK", reply = "Then guard that peace well, child. It breaks easier than bone.", fx = { align = { honor = -1 } } },
       },
     },
     festival = {
@@ -2153,8 +2153,8 @@ P:NPC {
     where = {
       lines = { { id = "w_default", text = "One stands right here in Orgrimmar, Elder Darkhorn, beside Grommash Hold. Others wait in Thunder Bluff, the Undercity and across both continents." } },
       choices = {
-        { text = "I'll find every one of them.", next = "BACK", reply = "That is the spirit! The ancestors will smile on you.", fx = { align = { tradition = 1 } } },
-        { text = "Chasing ghosts for coins seems pointless.", next = "BACK", reply = "Then go for the feasting, friend. The elders will forgive you.", fx = { align = { tradition = -1 } } },
+        { text = "I'll find every one of them.", next = "BACK", reply = "That is the spirit! The ancestors will smile on you.", fx = { align = { order = 1 } } },
+        { text = "Chasing ghosts for coins seems pointless.", next = "BACK", reply = "Then go for the feasting, friend. The elders will forgive you.", fx = { align = { order = -1 } } },
       },
     },
     moonglade = {
@@ -2228,8 +2228,8 @@ P:NPC {
     flames = {
       lines = { { id = "fl_default", text = "They do, burning proudly in Stormwind, Ironforge and Darnassus. A daring Horde hero might slip in and bring a little of that flame home to Orgrimmar." } },
       choices = {
-        { text = "Stealing their flame would shame them. I'll do it.", next = "BACK", reply = "That's the spirit! Come back with fire in your hands.", fx = { align = { valor = 1 } } },
-        { text = "Let them keep their fire. It's a holiday.", next = "BACK", reply = "How generous of you. The Alliance would never return the favour.", fx = { align = { valor = -1 } } },
+        { text = "Stealing their flame would shame them. I'll do it.", next = "BACK", reply = "That's the spirit! Come back with fire in your hands.", fx = { align = { honor = 1 } } },
+        { text = "Let them keep their fire. It's a holiday.", next = "BACK", reply = "How generous of you. The Alliance would never return the favour.", fx = { align = { honor = -1 } } },
       },
     },
     fear = {
@@ -2281,8 +2281,8 @@ P:NPC {
     smokywood = {
       lines = { { id = "s_default", text = "Everything! They supply the treats, the trimmings and the trees, and they pay me to smile. Their stall's right over there, if you've coin to spend." } },
       choices = {
-        { text = "So the holiday is just a goblin sales pitch.", next = "BACK", reply = "Hey, a goblin's gotta eat too! But the cheer's free.", fx = { align = { balance = 1 } } },
-        { text = "Good business is good cheer, I say.", next = "BACK", reply = "Now there's someone who understands the season!", fx = { align = { balance = -1 } } },
+        { text = "So the holiday is just a goblin sales pitch.", next = "BACK", reply = "Hey, a goblin's gotta eat too! But the cheer's free.", fx = { align = { order = 1 } } },
+        { text = "Good business is good cheer, I say.", next = "BACK", reply = "Now there's someone who understands the season!", fx = { align = { order = -1 } } },
       },
     },
   },
@@ -2326,8 +2326,8 @@ P:NPC {
     mount = {
       lines = { { id = "m_default", text = "Armour, training and temper. A war wolf will charge into a line of spears without flinching, and it will not run even when its rider falls." } },
       choices = {
-        { text = "Glory in war is worth any cost.", next = "BACK", reply = "Spoken like a true raider. Go and earn it.", fx = { align = { valor = 1 } } },
-        { text = "I'd rather a mount that brings me home alive.", next = "BACK", reply = "Hmph. Wisdom, perhaps. But legends are not made that way.", fx = { align = { valor = -1 } } },
+        { text = "Glory in war is worth any cost.", next = "BACK", reply = "Spoken like a true raider. Go and earn it.", fx = { align = { honor = 1 } } },
+        { text = "I'd rather a mount that brings me home alive.", next = "BACK", reply = "Hmph. Wisdom, perhaps. But legends are not made that way.", fx = { align = { honor = -1 } } },
       },
     },
     hall = {

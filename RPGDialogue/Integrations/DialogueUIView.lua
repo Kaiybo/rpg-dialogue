@@ -83,6 +83,14 @@ local function resetButtons()
   for _, t in pairs(ruleTex) do t:Hide() end
   for b in pairs(touched) do
     b.rpgdRow = nil
+    -- A locked row's Disable() would otherwise stay on the pooled button for the next page.
+    if b.rpgdDisabled then
+      b.rpgdDisabled = nil
+      if b.Enable then b:Enable() end
+    end
+    if b.rpgdShowUI ~= nil then
+      b.shouldShowUIOnClick, b.rpgdShowUI = b.rpgdShowUI.v, nil
+    end
     if b.Icon and b.Icon.SetDesaturated then b.Icon:SetDesaturated(false) end
     if b.Icon and b.Icon.SetVertexColor then b.Icon:SetVertexColor(1, 1, 1) end
   end
@@ -181,7 +189,11 @@ function V.Broke(err)
   page = nil
   ns.Debug("DialogueUI view:", tostring(err))
   local v = lastView
-  C.After(0, function() ns.Conversation.FallbackToBox(v) end)
+  local sess = ns.Conversation.session
+  C.After(0, function()
+    -- Only for the visit that broke; a new NPC's visit must not get the old page.
+    if ns.Conversation.session == sess then ns.Conversation.FallbackToBox(v) end
+  end)
 end
 
 local function keyListener(f)
@@ -355,16 +367,19 @@ function V.Layout(f)
         if icon.atlas then b.Icon:SetAtlas(icon.atlas) elseif icon.file then b.Icon:SetTexture(icon.file) end
       end
     end
+    if b.rpgdShowUI == nil then b.rpgdShowUI = { v = b.shouldShowUIOnClick } end
     b.shouldShowUIOnClick = false
-    b.onClickFunc = function(self)
-      if self then self.rpgdFired = true end
+    -- The button itself (not the argument, which DialogueUI may not pass) is marked, so the
+    -- OnClick hook below never picks a second row from the page this click lays out.
+    b.onClickFunc = function()
+      b.rpgdFired = true
       V.Click(i)
     end
     b.rpgdRow = i
     touched[b] = true
     hookButton(b)
     if r.locked then
-      if b.Disable then b:Disable() end
+      if b.Disable then b:Disable(); b.rpgdDisabled = true end
       if b.Icon and b.Icon.SetDesaturated then b.Icon:SetDesaturated(true) end
       if b.Icon and b.Icon.SetVertexColor then b.Icon:SetVertexColor(0.6, 0.6, 0.6) end
     end
@@ -531,7 +546,14 @@ local function hideOwned()
   -- Someone else's menu has just come into it (another NPC right-clicked mid-talk): leave
   -- it open, since hiding it would close their menu too.
   local ok, npc = pcall(_G.UnitExists, "npc")
-  if ok and npc then
+  -- Not when that someone opened a vendor, trainer or flight map instead: no menu of theirs
+  -- comes into DialogueUI's window then, and it would stay up over their window.
+  local service = false
+  for _, k in ipairs({ "merchant", "trainer", "taxi", "bank", "stable", "auction" }) do
+    local w = C.BlizzardFrame(k)
+    if w and w:IsShown() then service = true end
+  end
+  if ok and npc and not service then
     -- Their menu, not our old page (which DialogueUI may already have laid out for it).
     lastText = nil
     V.Refresh()

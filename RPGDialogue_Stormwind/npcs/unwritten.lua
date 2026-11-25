@@ -43,7 +43,7 @@ P:NPC {
       },
     },
     gulch = {
-      lines = { { id = "g_default", text = "The Warsong clan holds a lumber camp at the gulch, and they strip the forest bare to feed their war. We take their banner and carry it home, and they try to take ours, and every flag returned is a grove spared for another day." } },
+      lines = { { id = "gulch_default", text = "The Warsong clan holds a lumber camp at the gulch, and they strip the forest bare to feed their war. We take their banner and carry it home, and they try to take ours, and every flag returned is a grove spared for another day." } },
       choices = {
         { text = "Why not simply drive them out?", next = "drive" },
         { text = "Something else.", next = "BACK" },
@@ -223,7 +223,7 @@ P:NPC {
       },
     },
     grim = {
-      lines = { { id = "g_default", text = "It is, an' the generals stare at it for hours an' move the soldiers about like the flags. I tell them what's on it, an' they decide what tae do about it, an' that's the part I'm glad isn't mine." } },
+      lines = { { id = "grim_default", text = "It is, an' the generals stare at it for hours an' move the soldiers about like the flags. I tell them what's on it, an' they decide what tae do about it, an' that's the part I'm glad isn't mine." } },
       choices = {
         { text = "Stormwind should send the army to clear it all.", next = "BACK", reply = "With what army? Half of it's still on Lordaeron's bones. Still, I like yer nerve.", fx = { align = { order = 1 } } },
         { text = "The people will have to save themselves.", next = "BACK", reply = "That's what Westfall said, an' look how that's gone. Mind, they're not wrong.", fx = { align = { order = -1 } } },
@@ -401,7 +401,7 @@ P:NPC {
       },
     },
     greatfather = {
-      lines = { { id = "g_default", text = "He's in Ironforge, sittin' by the big tree, handin' out presents and smilin' at everybody, and he's on our books for the season. Head on over and say hello, it's practically a tradition, which is great for business." } },
+      lines = { { id = "greatfather_default", text = "He's in Ironforge, sittin' by the big tree, handin' out presents and smilin' at everybody, and he's on our books for the season. Head on over and say hello, it's practically a tradition, which is great for business." } },
       choices = { { text = "I'll pay him a visit. Something else.", next = "BACK" } },
     },
     guchie = {
@@ -570,7 +570,7 @@ P:NPC {
       },
     },
     gate = {
-      lines = { { id = "g_default", text = "Because this is where he'll come in, if he comes in, and I want to be the first face he sees. The guards laugh at me, but they let me stand here, and that's enough." } },
+      lines = { { id = "gate_default", text = "Because this is where he'll come in, if he comes in, and I want to be the first face he sees. The guards laugh at me, but they let me stand here, and that's enough." } },
       choices = { { text = "That's loyalty. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     gone = {

@@ -195,8 +195,8 @@ P:NPC {
     ruins = {
       lines = { { id = "r_default", text = "It was a city of the Highborne once, proud and full of magic. Their pride brought the Sundering, and the snow covered what was left." } },
       choices = {
-        { text = "The Highborne got what they deserved.", next = "BACK", reply = "Perhaps. But their children did not.", fx = { align = { mercy = -1 } } },
-        { text = "Even the proud deserve to be mourned.", next = "BACK", reply = "Yes. That is why I return.", fx = { align = { mercy = 1 } } },
+        { text = "The Highborne got what they deserved.", next = "BACK", reply = "Perhaps. But their children did not.", fx = { align = { light = -1 } } },
+        { text = "Even the proud deserve to be mourned.", next = "BACK", reply = "Yes. That is why I return.", fx = { align = { light = 1 } } },
         { text = "What became of their children?", next = "children" },
       },
     },
@@ -216,7 +216,7 @@ P:NPC {
       choices = { { text = "Thank you. Something else.", next = "BACK" } },
     },
     honor = {
-      lines = { { id = "h2_default", text = "Then I accept, and I give you this coin. May the moon light your path through the snow.", fx = { offer = TODO_QUEST("Brightspear the Elder") } } },
+      lines = { { id = "h2_default", text = "Then I accept, and I give you this coin. May the moon light your path through the snow." } },
       choices = { { text = "Thank you, Elder Brightspear.", next = "BACK" } },
     },
     highborne = {

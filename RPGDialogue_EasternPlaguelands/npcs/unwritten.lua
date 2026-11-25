@@ -287,11 +287,11 @@ P:NPC {
       },
     },
     task = {
-      lines = { { id = "ta_default", text = "Earn the Dawn's high regard, and bring me the coin they ask. Then I will grant you passage through the citadel's wards, and pray you are strong enough for what is beyond them.", fx = { offer = TODO_QUEST("The Dread Citadel - Naxxramas") } } },
+      lines = { { id = "ta_default", text = "Earn the Dawn's high regard, and bring me the coin they ask. Then I will grant you passage through the citadel's wards, and pray you are strong enough for what is beyond them." } },
       choices = { { text = "I'll come back when I'm ready.", next = "BACK" } },
     },
     frostfire = {
-      lines = { { id = "f_default", text = "The citadel's guardians wear garments woven with frost and flame together, and the Brotherhood has learned to remake them. Bring me what the necropolis yields and I will show you the equation that binds the two.", fx = { offer = TODO_QUEST("The Elemental Equation") } } },
+      lines = { { id = "f_default", text = "The citadel's guardians wear garments woven with frost and flame together, and the Brotherhood has learned to remake them. Bring me what the necropolis yields and I will show you the equation that binds the two." } },
       choices = { { text = "Fire and frost in one weave? I'll bring them.", next = "BACK" } },
     },
   },
@@ -335,7 +335,7 @@ P:NPC {
       },
     },
     echoes = {
-      lines = { { id = "e_default", text = "The Scourge are stronger than they have been since Lordaeron fell, and they strike far from these lands now. Go out and cut them down wherever they gather, and bring me proof. Every one you kill is a raid that never comes.", fx = { offer = TODO_QUEST("Echoes of War") } } },
+      lines = { { id = "e_default", text = "The Scourge are stronger than they have been since Lordaeron fell, and they strike far from these lands now. Go out and cut them down wherever they gather, and bring me proof. Every one you kill is a raid that never comes." } },
       choices = {
         { text = "Why are they stronger now?", next = "stronger" },
         { text = "I'll go hunting.", next = "BACK" },
@@ -344,8 +344,8 @@ P:NPC {
     stronger = {
       lines = { { id = "s_default", text = "Because Kel'Thuzad has his citadel back, and with it the full strength of his necromancy. Scourge activity has grown tenfold, and there are reports from as far away as Kalimdor." } },
       choices = {
-        { text = "Then we strike the citadel itself, and soon.", next = "BACK", reply = "Soon, but not blindly. We will lose the best we have if we rush.", fx = { align = { mercy = -1 } } },
-        { text = "First we protect the villages he threatens.", next = "BACK", reply = "Aye. A soldier who forgets the people he guards is only a man with a sword.", fx = { align = { mercy = 1 } } },
+        { text = "Then we strike the citadel itself, and soon.", next = "BACK", reply = "Soon, but not blindly. We will lose the best we have if we rush.", fx = { align = { light = -1 } } },
+        { text = "First we protect the villages he threatens.", next = "BACK", reply = "Aye. A soldier who forgets the people he guards is only a man with a sword.", fx = { align = { light = 1 } } },
       },
     },
     war = {
@@ -389,8 +389,8 @@ P:NPC {
       narr = "For a moment his stern face softens.",
       lines = { { id = "lo_default", text = "Then you know what was taken from us. Every town between here and the Thondroril was full of good people once, and the Scourge wears their faces now. Fight for them, and you fight for your own blood." } },
       choices = {
-        { text = "I will see it reclaimed one day.", next = "BACK", reply = "Hold to that. Hope is a weapon too, though it is a heavy one.", fx = { align = { mercy = 1 } } },
-        { text = "I'll see it burned clean first.", next = "BACK", reply = "Fire may come to that, but remember there were homes in those ruins.", fx = { align = { mercy = -1 } } },
+        { text = "I will see it reclaimed one day.", next = "BACK", reply = "Hold to that. Hope is a weapon too, though it is a heavy one.", fx = { align = { light = 1 } } },
+        { text = "I'll see it burned clean first.", next = "BACK", reply = "Fire may come to that, but remember there were homes in those ruins.", fx = { align = { light = -1 } } },
       },
     },
     redemption = {
@@ -502,8 +502,8 @@ P:NPC {
     here = {
       lines = { { id = "he_default", text = "Because the living who come here need hope more than any. An elder in a garden reminds no one of anything; an elder in the blight reminds them the world was not always like this." } },
       choices = {
-        { text = "This land is lost. Better to burn it clean.", next = "BACK", reply = "Fire is quick, and the healing after it is slow. I have seen both.", fx = { align = { mercy = -1 } } },
-        { text = "Then it can be healed, one day.", next = "BACK", reply = "One day. The elders measure in long days.", fx = { align = { mercy = 1 } } },
+        { text = "This land is lost. Better to burn it clean.", next = "BACK", reply = "Fire is quick, and the healing after it is slow. I have seen both.", fx = { align = { light = -1 } } },
+        { text = "Then it can be healed, one day.", next = "BACK", reply = "One day. The elders measure in long days.", fx = { align = { light = 1 } } },
       },
     },
     festival = {
@@ -519,7 +519,7 @@ P:NPC {
     },
     honor = {
       narr = "He bows his head, and the air around him cools like a summer evening.",
-      lines = { { id = "ho_default", text = "Then I accept, gladly. Take this coin, and carry my blessing with you through the dark lands.", fx = { offer = TODO_QUEST("Windrun the Elder") } } },
+      lines = { { id = "ho_default", text = "Then I accept, gladly. Take this coin, and carry my blessing with you through the dark lands." } },
       choices = { { text = "Thank you, Elder Windrun.", next = "BACK" } },
     },
     elune = {
@@ -576,7 +576,7 @@ P:NPC {
       },
     },
     task = {
-      lines = { { id = "ta_default", text = "Go to the towers and raise the Horde's banner over them. When we hold them, our defenses are stronger, and the Scourge dies faster for it.", fx = { offer = TODO_QUEST("Bolstering Our Defenses") } } },
+      lines = { { id = "ta_default", text = "Go to the towers and raise the Horde's banner over them. When we hold them, our defenses are stronger, and the Scourge dies faster for it." } },
       choices = {
         { text = "And if the Alliance holds them already?", next = "rivals" },
         { text = "It will be done.", next = "BACK" },
@@ -645,7 +645,7 @@ P:NPC {
       },
     },
     task = {
-      lines = { { id = "t_default", text = "Take the towers. Crown Guard, Eastwall, Northpass and Plaguewood. Raise our banners and hold them long enough to set up proper outposts.", fx = { offer = TODO_QUEST("Establishing New Outposts") } } },
+      lines = { { id = "t_default", text = "Take the towers. Crown Guard, Eastwall, Northpass and Plaguewood. Raise our banners and hold them long enough to set up proper outposts." } },
       choices = { { text = "Consider them taken.", next = "BACK" } },
     },
     gormok = {
@@ -701,8 +701,8 @@ P:NPC {
     free = {
       lines = { { id = "f_default", text = "No. The poison's in my blood, and the cage is the least of it. Don't waste the strength trying." } },
       choices = {
-        { text = "I won't leave you to die here.", next = "BACK", reply = "Kind, and foolish. Fight the master of this place instead; that is how you help me.", fx = { align = { mercy = 1 } } },
-        { text = "Then your knowledge is what matters now.", next = "BACK", reply = "Hard, but right. Let's not waste it.", fx = { align = { mercy = -1 } } },
+        { text = "I won't leave you to die here.", next = "BACK", reply = "Kind, and foolish. Fight the master of this place instead; that is how you help me.", fx = { align = { light = 1 } } },
+        { text = "Then your knowledge is what matters now.", next = "BACK", reply = "Hard, but right. Let's not waste it.", fx = { align = { light = -1 } } },
       },
     },
     teach = {
@@ -783,7 +783,7 @@ P:NPC {
       choices = { { text = "I'm not laughing. Something else.", next = "BACK" } },
     },
     offer = {
-      lines = { { id = "o_default", text = "Good. Here's one for dense weightstones; every sword in this chapel needs sharpening twice a day.", fx = { offer = TODO_QUEST("Craftsman's Writ - Dense Weightstone") } } },
+      lines = { { id = "o_default", text = "Good. Here's one for dense weightstones; every sword in this chapel needs sharpening twice a day." } },
       choices = { { text = "I'll be back with them.", next = "BACK" } },
     },
     need = {
@@ -850,8 +850,8 @@ P:NPC {
     trust = {
       lines = { { id = "t_default", text = "The cures are scarce, and they go to those who've fought beside us. Harsh, but there's only so much to go round." } },
       choices = {
-        { text = "Healing should go to anyone who needs it.", next = "BACK", reply = "In a better world, aye. This one's not.", fx = { align = { mercy = 1 } } },
-        { text = "Fair. Those who fight should come first.", next = "BACK", reply = "That's how the Dawn sees it.", fx = { align = { mercy = -1 } } },
+        { text = "Healing should go to anyone who needs it.", next = "BACK", reply = "In a better world, aye. This one's not.", fx = { align = { light = 1 } } },
+        { text = "Fair. Those who fight should come first.", next = "BACK", reply = "That's how the Dawn sees it.", fx = { align = { light = -1 } } },
       },
     },
   },
@@ -894,8 +894,8 @@ P:NPC {
     avenge = {
       lines = { { id = "a_default", text = "Do that. But don't go alone, whatever you think of yourself." } },
       choices = {
-        { text = "The Scourge must pay for every soldier lost.", next = "BACK", reply = "They will, sooner or later.", fx = { align = { mercy = -1 } } },
-        { text = "I'll do it for the living, not for vengeance.", next = "BACK", reply = "That's a better reason, maybe.", fx = { align = { mercy = 1 } } },
+        { text = "The Scourge must pay for every soldier lost.", next = "BACK", reply = "They will, sooner or later.", fx = { align = { light = -1 } } },
+        { text = "I'll do it for the living, not for vengeance.", next = "BACK", reply = "That's a better reason, maybe.", fx = { align = { light = 1 } } },
       },
     },
     help = {

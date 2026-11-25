@@ -23,7 +23,7 @@ commands.kin = function() if ns.Kin then ns.Kin.Print() end end
 commands.version = function() ns.Print(L.VERSION_SHORT:format(ns.VERSION)) end
 
 commands.dev = function(args)
-  local on = args[1] ~= "off"
+  local on = (args[1] or ""):lower() ~= "off"
   if args[1] == nil then on = not ns.db.settings.dev end
   ns.db.settings.dev = on
   ns.Print(on and L.DEV_ON or L.DEV_OFF)
@@ -35,7 +35,7 @@ commands.capture = function(args)
 end
 
 commands.autocapture = function(args)
-  local on = args[1] ~= "off"
+  local on = (args[1] or ""):lower() ~= "off"
   if args[1] == nil then on = not ns.db.settings.autoCapture end
   ns.db.settings.autoCapture = on
   ns.Print(on and L.AUTOCAPTURE_ON or L.AUTOCAPTURE_OFF)

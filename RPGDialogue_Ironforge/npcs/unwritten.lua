@@ -226,7 +226,7 @@ P:NPC {
       lines = { { id = "skin_default", text = "They do, because I've a touch of soot in the blood from my mother's side, and Ironforge has long memories. I've served the King all my life, but I've stopped waitin' for every dwarf to believe it." } },
       choices = {
         { text = "A dwarf's deeds matter more than his blood.", next = "BACK", reply = "If only more folk below thought as you do.", fx = { align = { honor = 1 } } },
-        { text = "After the War of the Three Hammers, can you blame them?", next = "BACK", reply = "No, I cannae, and that's the bitter part of it.", fx = { align = { honor = -1 } } },
+        { text = "After the War of the Three Hammers, I can't blame them.", next = "BACK", reply = "Nor can I, and that's the bitter part of it.", fx = { align = { honor = -1 } } },
         { text = "One more thing, then.", next = "BACK" },
       },
     },
@@ -2134,7 +2134,7 @@ P:NPC {
   },
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" }, text = "A dwarf of Ironforge, the oldest friends of the Feast! Your grandfathers kept Winter Veil when the mountain was young." },
-    { id = "n_young", cat = "level", when = { level = { max = 15 } }, text = "Oh, so young and already out in the cold world, and I'll wager you've been very brave this year." },
+    { id = "n_young", cat = "level", when = { maxLevel = 15 }, text = "Oh, so young and already out in the cold world, and I'll wager you've been very brave this year." },
   },
   start = "hello",
   nodes = {

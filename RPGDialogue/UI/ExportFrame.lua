@@ -38,7 +38,13 @@ local function create()
   frame.edit:SetFontObject(GameFontHighlightSmall)
   frame.edit:SetShadowOffset(0, 0)
   frame.edit:SetScript("OnEscapePressed", function() frame:Hide() end)
-  frame.edit:SetScript("OnTextChanged", function() if mode == "import" then checked = nil; X.Refresh() end end)
+  frame.edit:SetScript("OnTextChanged", function(_, userInput)
+    if mode ~= "import" then return end
+    -- Edited after a check (or a failed one): the old verdict no longer applies.
+    if userInput then frame.hint:SetText(L.IMPORT_HINT) end
+    checked = nil
+    X.Refresh()
+  end)
   frame.scroll:SetScrollChild(frame.edit)
   frame.action = Theme.Button(frame, "", 140, 22)
   frame.action:SetScript("OnClick", function() X.Action() end)

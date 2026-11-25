@@ -140,9 +140,11 @@ end
 function Theme.SetFont(fs, kind, size)
   local path, scale = Theme.FontPath(kind == "name" and "name" or "body")
   size = math.floor((size or Theme.TextSize()) * (scale or 1) + 0.5)
-  fs:SetFont(path, size, "")
-  -- A font file that failed to load leaves the string with no font at all; fall back.
-  if not fs:GetFont() then fs:SetFont(C.GlobalString("STANDARD_TEXT_FONT") or "Fonts\\FRIZQT__.TTF", size, "") end
+  -- A font file that failed to load leaves the string with no font at all (or, on clients
+  -- where SetFont reports failure, with its old font at its old size); fall back.
+  if fs:SetFont(path, size, "") == false or not fs:GetFont() then
+    fs:SetFont(C.GlobalString("STANDARD_TEXT_FONT") or "Fonts\\FRIZQT__.TTF", size, "")
+  end
   if not fs:GetFont() then fs:SetFontObject("GameFontHighlight") end
   Theme.Shadow(fs, false)
 end

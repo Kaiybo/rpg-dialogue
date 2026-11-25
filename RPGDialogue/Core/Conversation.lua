@@ -253,7 +253,8 @@ function Conv.Start(kind, unit, interactionName)
       s.blizz = frame
       if s.view == "dui" then
         -- Already in DialogueUI's window, which the game's menu now fills: it's theirs.
-        ns.UI.DUIView.Adopt()
+        -- A vendor's or trainer's window never fills it: the window stays ours to close.
+        if kind ~= "service" then ns.UI.DUIView.Adopt() end
       elseif frame and ns.db.settings.fadeDefault then
         C.SetFaded(frame, true)
         s.faded = true
@@ -264,7 +265,7 @@ function Conv.Start(kind, unit, interactionName)
     -- A quest was just accepted, declined or handed in from the box and the game reopened
     -- the NPC's menu: back to the conversation where it was, with their options refreshed,
     -- not a fresh greeting (the visit used to end, then start over, then close).
-    if s.questAnswered and kind == "gossip" and s.mode == "full" and not s.menuOnly and s.nodeDef and s.lastView then
+    if s.questAnswered and (kind == "gossip" or (kind == "quest" and Conv.questStage == "greeting")) and s.mode == "full" and not s.menuOnly and s.nodeDef and s.lastView then
       s.questAnswered, s.page, s.following = nil, nil, nil
       if Conv.KeepPages(s) then s.following = true end
       adoptWindow(s)
@@ -432,7 +433,11 @@ function Conv.OpenFull(reason)
   -- A talk-key or right-click conversation goes there too, opening the window itself, as
   -- long as DialogueUI isn't busy with someone else's page.
   local duiWin = C.DialogueUIFrame()
-  if s.kind ~= "talk" and ns.Integrations.InsideDialogueUI() and ns.UI.DUIView.Available() then
+  -- Chosen afresh (a visit opened again after a vendor keeps no stale "dui"). A service
+  -- window (vendor, trainer...) never comes into DialogueUI's window: the box, over it.
+  local wasDui = s.view == "dui"
+  s.view = nil
+  if (s.kind == "gossip" or s.kind == "quest") and ns.Integrations.InsideDialogueUI() and ns.UI.DUIView.Available() then
     s.view = "dui"
   elseif s.kind == "talk" and ns.Integrations.InsideDialogueUI() and ns.UI.DUIView.Available()
       and duiWin and not duiWin:IsShown() then
@@ -443,6 +448,7 @@ function Conv.OpenFull(reason)
     s.faded = true
     ns.UI.Blocker.Cover(frame)
   end
+  if wasDui and s.view ~= "dui" then ns.UI.DUIView.Release() end
   -- Snapshot the states live reactions watch, so a change after this moment is seen.
   for _, k in ipairs(Conv.LIVE_KEYS) do local _ = s.ctx[k] end
   local start = (s.info.def and s.info.def.start) or "hello"
@@ -458,6 +464,8 @@ function Conv.OnOtherWindowShown(frame)
   if s.view == "dui" then ns.UI.DUIView.Refresh(); return end
   if not ns.UI.Dialogue.IsShown() then return end
   if s.faded and s.blizz == frame then return end
+  -- The window faded before (the game's own) is not left invisible for its next opening.
+  if s.faded and s.blizz then C.SetFaded(s.blizz, false); s.faded = false end
   s.blizz = frame
   if ns.db.settings.fadeDefault then
     C.SetFaded(frame, true)
@@ -1396,7 +1404,8 @@ end
 
 function Conv.Ask(topic)
   local s = Conv.session
-  if not s or s.mode ~= "full" then return end
+  -- Not on one of the game's pages: an answer there replaced its Accept/Complete rows.
+  if not s or s.mode ~= "full" or s.page then return end
   if topic == "knows" then Conv.AskKnows(); return end
   if topic == "whereis" and ns.Directions then Conv.AskWhere(); return end
   -- Disposition gates (0.85.0): Cold or worse, they keep to small talk; secrets and personal
@@ -1685,6 +1694,8 @@ function Conv.TalkToTarget(silent)
   Conv.Start("talk", "target")
   s = Conv.session
   if s and s.kind == "talk" then
+    -- Pressed again on the same person: the visit goes on, so stop its old watcher first.
+    if s.ticker then s.ticker:Cancel() end
     s.ticker = C.NewTicker(0.5, function()
       local cur = Conv.session
       if cur ~= s or s.ended then return end
@@ -2059,6 +2070,8 @@ function Conv.ShowGamePage(kind)
   adoptWindow(s)
   s.rewardChoice = nil
   s.page = kind == "gossip" and "gossip" or questStage
+  -- No asking on the game's pages (the box hides its Ask button): close the list too.
+  if ns.UI.AskAbout then ns.UI.AskAbout.Hide() end
   local text, entries, subtitle, spoken = buildPage(s, kind)
   s.choiceEntries = entries
   -- Item names the game hasn't sent yet show as "..." and are filled in when they come.

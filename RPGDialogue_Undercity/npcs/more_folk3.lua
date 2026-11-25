@@ -298,7 +298,7 @@ P:NPC {
     },
     fight = {
       big = true,
-      lines = { { id = "fight_1", text = "No. I'd just been sworn to the Brill militia when the sickness came, and I never drew my sword. Now I hand armour to people going to the Bulwark, and I stay here with a rag. Sometimes I think I ought to put a suit on and go. Should I?" } },
+      lines = { { id = "fight_1", key = true, text = "No. I'd just been sworn to the Brill militia when the sickness came, and I never drew my sword. Now I hand armour to people going to the Bulwark, and I stay here with a rag. Sometimes I think I ought to put a suit on and go. Should I?" } },
       choices = {
         { text = "Yes. A man should test himself once.", next = "BACK", reply = "I think so too. I've a suit set by, in my size. I just haven't told Mr. Ellingson.", fx = { align = { order = -1 }, trait = { brave = 1 } } },
         { text = "No. Your post is here, and it matters.", next = "BACK", reply = "That's what he says. It's easier to hear from a stranger, somehow.", fx = { align = { order = 1 } } },
@@ -649,7 +649,7 @@ P:NPC {
       },
     },
     bartlett = {
-      lines = { { id = "bartlett_1", text = "Daniel Bartlett, yes, across the ring. We sell much the same. He's a gloomy soul and he's certain every crate will be the last. I buy from him when I'm short and he buys from me, and each of us is sure the other overcharges." } },
+      lines = { { id = "bartlett_1", key = true, text = "Daniel Bartlett, yes, across the ring. We sell much the same. He's a gloomy soul and he's certain every crate will be the last. I buy from him when I'm short and he buys from me, and each of us is sure the other overcharges." } },
       choices = {
         { text = "Do you?", next = "BACK", reply = "Of course. So does he. It comes out even." },
         { text = "Another matter.", next = "BACK" },
@@ -1876,7 +1876,7 @@ P:NPC {
       },
     },
     seven = {
-      lines = { { id = "seven_1", text = "Seven of us, and one hall's worth of goods between us, so it doesn't matter whose stand you use. Yarly's the quiet one, Epitwee's the quick one, and Naxxremis frightens people. I'm the loud one, in case that had escaped you." } },
+      lines = { { id = "seven_1", key = true, text = "Seven of us, and one hall's worth of goods between us, so it doesn't matter whose stand you use. Yarly's the quiet one, Epitwee's the quick one, and Naxxremis frightens people. I'm the loud one, in case that had escaped you." } },
       choices = {
         { text = "Why does Naxxremis frighten people?", next = "seven2" },
         { text = "It hadn't.", next = "BACK", reply = "Good! Then the voice still carries." },
@@ -1988,7 +1988,7 @@ P:NPC {
     },
     others = {
       big = true,
-      lines = { { id = "others_1", text = "Cain talks. Yarly thinks. Leeka chats with the customers as if they were guests. I've timed them. I clear half again as many lots as any of them. They say I'm rude. I say I'm respecting the customer's time. Which is it?" } },
+      lines = { { id = "others_1", key = true, text = "Cain talks. Yarly thinks. Leeka chats with the customers as if they were guests. I've timed them. I clear half again as many lots as any of them. They say I'm rude. I say I'm respecting the customer's time. Which is it?" } },
       choices = {
         { text = "Respect. Time is the one thing worth saving.", next = "BACK", reply = "Precisely. You may come to the front of my queue.", fx = { align = { order = 1 } } },
         { text = "Rude. People aren't lots to be cleared.", next = "BACK", reply = "Hm. That's Leeka's line. She clears fewer lots.", fx = { align = { order = -1 } } },

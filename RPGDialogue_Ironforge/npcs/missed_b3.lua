@@ -280,7 +280,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gimble = {
-      lines = { { id = "g_default", text = "He thinks half o' Ironforge is after his formulas, an' he may be right about a quarter o' it. He's a fine teacher once he's sure ye're no' a spy, which in my case took about two months. Tilli downstairs is easier, an' she sells me my rods." } },
+      lines = { { id = "gimble_default", text = "He thinks half o' Ironforge is after his formulas, an' he may be right about a quarter o' it. He's a fine teacher once he's sure ye're no' a spy, which in my case took about two months. Tilli downstairs is easier, an' she sells me my rods." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

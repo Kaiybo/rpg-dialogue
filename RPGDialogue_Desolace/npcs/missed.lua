@@ -44,7 +44,7 @@ P:NPC {
       choices = {
         { text = "How did you end up in a cage?", next = "how" },
         { text = "What do the Maraudine want with you?", next = "want" },
-        { text = "Your brother is sick with worry.", next = "brother", when = { heardLine = "hornizz_brimbuzzle.s_default" } },
+        { text = "Your brother is sick with worry.", next = "brother", when = { heardLine = "hornizz.sister_d" } },
         { text = "What's the plan once you're out?", next = "plan" },
         { text = "Hold on. I'll get you out.", next = "END", fx = { affinity = 1 } },
       },

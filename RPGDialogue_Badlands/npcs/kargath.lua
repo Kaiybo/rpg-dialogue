@@ -47,7 +47,7 @@ P:NPC {
   nodes = {
     flirt = {
       lines = {
-        { id = "fl_default", text = "Staring? I'm admiring, which is a different thing, and a warrior should admire strength wherever he finds it. You climbed my tower without losing your breath, so if you'd share a drink by the fire when the watch changes, I'd count it an honor." },
+        { id = "flirt_default", text = "Staring? I'm admiring, which is a different thing, and a warrior should admire strength wherever he finds it. You climbed my tower without losing your breath, so if you'd share a drink by the fire when the watch changes, I'd count it an honor." },
         { id = "fl_orc", when = { race = "Orc" }, text = "Staring? I'm admiring, and any orc should know the difference. You've the shoulders of a Frostwolf and the eyes of a Warsong, so if you'd share a drink by the fire when the watch changes, I'd count it an honor." },
       },
       choices = {
@@ -670,7 +670,7 @@ P:NPC {
     },
     gossip_lunk = {
       lines = {
-        { id = "gl_default", text = "Darling, his first name is Lunk, Warlord Lunk Goretooth, and he struts up and down that tower like a peacock with tusks. I'd never have him, but I'd never let anyone else make fun of him either." },
+        { id = "gl_default", key = true, text = "Darling, his first name is Lunk, Warlord Lunk Goretooth, and he struts up and down that tower like a peacock with tusks. I'd never have him, but I'd never let anyone else make fun of him either." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
@@ -720,7 +720,7 @@ P:NPC {
 
     forsaken = {
       lines = {
-        { id = "fo_default", text = "Beautifully, darling, as long as you remember that they mean well and smell of it. The Warlord saves me the warmest seat by the fire, as if I could feel it, and that's sweeter than anything the Undercity ever did for me." },
+        { id = "fo_default", key = true, text = "Beautifully, darling, as long as you remember that they mean well and smell of it. The Warlord saves me the warmest seat by the fire, as if I could feel it, and that's sweeter than anything the Undercity ever did for me." },
       },
       choices = {
         { text = "And what do the orcs really make of you, Hierophant?", next = "op_forsaken" },
@@ -914,9 +914,9 @@ P:NPC {
           text = "Shadowmage Vivian Lagrave, of the Kargath Expeditionary Force. I study the things in the mountain that the Dark Irons would rather we didn't, which is thrilling work, though mostly dust." },
         { id = "h_element", tags = { "news" }, when = { questActive = TODO_QUEST("The Last Element") },
           text = "The Dark Irons put something in their golems to make them move, called Essence of the Elements, and I want ten. I have projects of my own that could use a heartbeat." },
-        { id = "h_recipe", when = { any = { { questActive = TODO_QUEST("Vivian Lagrave") }, { questActive = TODO_QUEST("Lost Thunderbrew Recipe") } } },
+        { id = "h_recipe", key = true, when = { any = { { questActive = TODO_QUEST("Vivian Lagrave") }, { questActive = TODO_QUEST("Lost Thunderbrew Recipe") } } },
           text = "There's a Thunderbrew recipe lost somewhere in the Depths, and I want it, for research. Entirely for research!" },
-        { id = "h_tablet", when = { any = { { questActive = TODO_QUEST("Vivian Lagrave and the Darkstone Tablet") }, { questActive = TODO_QUEST("The Darkstone Tablet") } } },
+        { id = "h_tablet", key = true, when = { any = { { questActive = TODO_QUEST("Vivian Lagrave and the Darkstone Tablet") }, { questActive = TODO_QUEST("The Darkstone Tablet") } } },
           text = "The Darkstone Tablet holds the secret recipes of a dwarf alchemist who's been dead for ages, and it's somewhere in Blackrock Spire. Bring it to me carefully, because I mean to read every scratch on it!" },
         { id = "h_element_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Last Element"), days = 3 } },
           text = "Your essences went off to the Undercity by courier this morning, all of them in one crate. I do hope you spent your payment on something frivolous; it's what I'd do." },
@@ -1221,11 +1221,11 @@ P:NPC {
           text = "A priest. Good, because my scouts come back cut up, and they'd rather be patched by you than by the alchemist upstairs." },
         { id = "h_default", key = true,
           text = "Lexlort, Grandmaster of the Warlord's scouts. The Expeditionary Force needs eyes on the Spire, and I'm the eyes, but sometimes I need hands that don't shake when the blood starts." },
-        { id = "h_grark", tags = { "news" }, when = { questActive = TODO_QUEST("Grark Lorkrub") },
+        { id = "h_grark", key = true, tags = { "news" }, when = { questActive = TODO_QUEST("Grark Lorkrub") },
           text = "Grark Lorkrub sold our plans to the Blackrock, and an orc who sells his own clan has no honor left to lose. He's hiding under their wing in the Burning Steppes, so put him in thorium shackles and walk him to the Searing Gorge, where my men will be waiting." },
         { id = "h_predicament", when = { questActive = TODO_QUEST("Precarious Predicament") },
           text = "You've got Grark moving, so keep him close through the mountain. If he runs, he dies, and what he knows dies with him." },
-        { id = "h_bijou", when = { questActive = TODO_QUEST("Operative Bijou") },
+        { id = "h_bijou", key = true, when = { questActive = TODO_QUEST("Operative Bijou") },
           text = "Bijou, one of my operatives, went into Blackrock Spire and hasn't come out. Bring her back alive, and don't let her talk you into anything on the way." },
         { id = "h_report", tags = { "news" }, when = { questRecent = { TODO_QUEST("Bijou's Reconnaissance Report"), days = 3 } },
           text = "Bijou's reports are good, which annoys me more than if they'd been worthless. She's wriggled out of trouble again, and the K.E.F. is the better for it." },

@@ -367,7 +367,7 @@ P:NPC {
     },
     folk_talonaxe = {
       lines = {
-        { id = "ft_default", text = "Talonaxe has a good heart under all that grumblin', an' he loves those birds more than his own beard. He's short wi' my Howin, but he's short wi' everyone, so we don't take it tae heart." },
+        { id = "ft_default", key = true, text = "Talonaxe has a good heart under all that grumblin', an' he loves those birds more than his own beard. He's short wi' my Howin, but he's short wi' everyone, so we don't take it tae heart." },
       },
       choices = {
         { text = "Grumbling men are often the softest.", next = "BACK", fx = { affinity = 1 } },

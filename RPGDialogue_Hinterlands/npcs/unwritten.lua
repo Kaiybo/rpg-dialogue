@@ -139,8 +139,8 @@ P:NPC {
     vilebranch = {
       lines = { { id = "v_default", text = "Dey be our cousins once, and now dey sacrifice to dark loa in Jintha'Alor. Da Revantusk left dem, and dey ain't forgiven us." } },
       choices = {
-        { text = "They should be wiped out.", next = "BACK", reply = "Plenty here agree. Da drum be beatin' for war soon enough.", fx = { align = { mercy = -1 } } },
-        { text = "Maybe some of them could still be saved.", next = "BACK", reply = "Maybe, mon. But I not be holdin' my breath.", fx = { align = { mercy = 1 } } },
+        { text = "They should be wiped out.", next = "BACK", reply = "Plenty here agree. Da drum be beatin' for war soon enough.", fx = { align = { light = -1 } } },
+        { text = "Maybe some of them could still be saved.", next = "BACK", reply = "Maybe, mon. But I not be holdin' my breath.", fx = { align = { light = 1 } } },
       },
     },
   },

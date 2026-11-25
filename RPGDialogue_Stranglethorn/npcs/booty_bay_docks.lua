@@ -66,7 +66,7 @@ P:NPC {
     },
     xhcast = {
       big = true,
-      lines = { { id = "xhcast_default", text = "Down by the Vile Reef the naga have been stirring, and some mornings my hook comes up with weed on it that glows a faint green. I've fished these waters all my life and never seen that before, so I throw it back and fish somewhere else." } },
+      lines = { { id = "xhcast_default", key = true, text = "Down by the Vile Reef the naga have been stirring, and some mornings my hook comes up with weed on it that glows a faint green. I've fished these waters all my life and never seen that before, so I throw it back and fish somewhere else." } },
       choices = {
         { text = "I'll go and see what's stirring, for the town's sake.", next = "BACK", reply = "Good of you, and the town won't thank you, so I will. Mind the reef at low tide, though, because the naga don't wait for introductions.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "If the naga have treasure down there, I'm interested.", next = "BACK", reply = "Treasure, is it? The naga keep plenty, but they keep it with their teeth, so bring a strong line and a stronger stomach.", fx = { align = { honor = -1 } } },

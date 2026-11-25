@@ -342,9 +342,8 @@ P:NPC {
       },
     },
     moonglade = {
-      lines = { { id = "mg_default", text = "To Moonglade, in the north, where the Cenarion Circle gathers and the kaldorei have kept the old ways longer than our tribes have had names. Nara Wildmane sends our young ones there when they're ready, and they come home very quiet." } },
+      lines = { { id = "mg_default", text = "To Moonglade, in the north, where the Cenarion Circle gathers and the kaldorei have kept the old ways longer than our tribes have had names. Nara Wildmane sends our young ones there when they're ready, and they come home very quiet.", fx = { learn = { "cenarion_circle" } } } },
       choices = { { text = "Something else.", next = "BACK" } },
-      learn = { "cenarion_circle" },
     },
     kaldorei = {
       big = true,
@@ -500,12 +499,11 @@ P:NPC {
       },
     },
     moonglade = {
-      lines = { { id = "mg_default", text = "Because that's where the Cenarion Circle meets, kaldorei and tauren both, and a young druid learns there's more to the craft than Mulgore. They come back changed and quieter, and usually wanting to tell me everything at once." } },
+      lines = { { id = "mg_default", text = "Because that's where the Cenarion Circle meets, kaldorei and tauren both, and a young druid learns there's more to the craft than Mulgore. They come back changed and quieter, and usually wanting to tell me everything at once.", fx = { learn = { "cenarion_circle" } } } },
       choices = {
         { text = "Have you been there yourself?", next = "moon_go" },
         { text = "Something else.", next = "BACK" },
       },
-      learn = { "cenarion_circle" },
     },
     moon_go = {
       lines = { { id = "mo_default", text = "Twice, and I ran most of the way, which Sheal says was showing off. The glade is beautiful and terribly still, and after a day there I couldn't wait to get back to grass I could run on." } },

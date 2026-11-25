@@ -171,7 +171,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gizmo = {
-      lines = { { id = "g_default", text = "Bring them over and I'll trade you Faire tickets for each one that whirrs. Rinling don't pay for things that just sit there looking sad." } },
+      lines = { { id = "gizmo_default", text = "Bring them over and I'll trade you Faire tickets for each one that whirrs. Rinling don't pay for things that just sit there looking sad." } },
       choices = { { text = "Deal.", next = "BACK", fx = { affinity = 1 } } },
     },
   },

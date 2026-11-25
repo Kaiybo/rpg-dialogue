@@ -2417,7 +2417,7 @@ P:NPC {
       },
     },
     rand = {
-      lines = { { id = "ra_default", text = "We did, and within a day of each other, which I'm told hardly ever happens. I woke first and I sat by him until he stirred, because I'd decided that if he was coming back, the first thing he saw was going to be someone he knew." } },
+      lines = { { id = "ra_default", key = true, text = "We did, and within a day of each other, which I'm told hardly ever happens. I woke first and I sat by him until he stirred, because I'd decided that if he was coming back, the first thing he saw was going to be someone he knew." } },
       choices = {
         { text = "And if he hadn't woken?", next = "rand2" },
         { text = "Something else.", next = "BACK" },
@@ -2688,7 +2688,7 @@ P:NPC {
       },
     },
     hin2 = {
-      lines = { { id = "hn2_default", text = "My brother Nez'raz works the Grom'gol tower, catchin' Hin's ship at the jungle end. So anythin' Hin does wrong on that route, I hear about it by the next crossing, and anythin' I do wrong, well, family don't talk. It's a real nice arrangement." } },
+      lines = { { id = "hn2_default", key = true, text = "My brother Nez'raz works the Grom'gol tower, catchin' Hin's ship at the jungle end. So anythin' Hin does wrong on that route, I hear about it by the next crossing, and anythin' I do wrong, well, family don't talk. It's a real nice arrangement." } },
       choices = {
         { text = "Nice for one of you.", next = "BACK", reply = "For the one that counts, pal. That's business." },
         { text = "Something else.", next = "BACK" },

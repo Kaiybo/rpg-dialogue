@@ -20,3 +20,4 @@ WTF/
 
 # Captured Blizzard text (tools/export_reference.py) is writing reference only and never goes in git.
 reference/
+luac.out

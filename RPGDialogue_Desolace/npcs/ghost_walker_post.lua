@@ -5,7 +5,7 @@ local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 -- Gurda Wildmane: tauren shaman who sets the centaur clans against each other.
 P:NPC {
-  key = "gurda", id = TODO_NPC("Gurda Wildmane"), name = "Gurda Wildmane",
+  key = "gurda_wildmane", id = TODO_NPC("Gurda Wildmane"), name = "Gurda Wildmane",
   bible = "bibles/ghost_walker_post.md", role = "questgiver", tier = "quest",
   communities = { "ghost_walker" }, temper = { "shrewd", "solemn" }, values = { "cunning", "devout" },
   notices = { "race", "class", "rep" },

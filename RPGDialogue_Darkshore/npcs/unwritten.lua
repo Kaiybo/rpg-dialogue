@@ -225,8 +225,8 @@ P:NPC {
     omen = {
       lines = { { id = "o_default", text = "A great beast of the old wars, cursed and driven beneath Moonglade's lake. Each festival the fireworks stir him, and brave souls drive him back down." } },
       choices = {
-        { text = "I would fight him gladly.", next = "BACK", reply = "Then bring friends and bright rockets.", fx = { align = { valor = 1 } } },
-        { text = "Some sleeping beasts are best left sleeping.", next = "BACK", reply = "Wise, perhaps. Yet tradition is tradition.", fx = { align = { valor = -1 } } },
+        { text = "I would fight him gladly.", next = "BACK", reply = "Then bring friends and bright rockets.", fx = { align = { honor = 1 } } },
+        { text = "Some sleeping beasts are best left sleeping.", next = "BACK", reply = "Wise, perhaps. Yet tradition is tradition.", fx = { align = { honor = -1 } } },
       },
     },
     troubled = {

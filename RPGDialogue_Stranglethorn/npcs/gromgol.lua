@@ -215,7 +215,7 @@ P:NPC {
     },
     grom_cenarius = {
       lines = {
-        { id = "gc_default", text = "Because he killed Cenarius, their forest god, when the elves came at our woodcutters in Ashenvale, and he did it with Mannoroth's strength in his arms. Some grunts call that a shame, but I call it the first blow the Horde ever struck for its own survival in Kalimdor, and I'd strike it again." },
+        { id = "gc_default", key = true, text = "Because he killed Cenarius, their forest god, when the elves came at our woodcutters in Ashenvale, and he did it with Mannoroth's strength in his arms. Some grunts call that a shame, but I call it the first blow the Horde ever struck for its own survival in Kalimdor, and I'd strike it again." },
       },
       choices = {
         { text = "Grom did what he had to. So would I.", next = "BACK", reply = "Then you'd have fit in the Warsong, and you'll fit here. The elves can hate us for it as long as they like, because we're still standing.", fx = { align = { light = -1 }, opinion = { grom = "hero", night_elves = "hate" } } },

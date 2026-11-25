@@ -606,7 +606,7 @@ P:NPC {
       },
     },
     good = {
-      lines = { { id = "g_default", text = "Dinnae say that where he can hear ye, his head barely fits his helm as it is. Aye, he's good, an' I'd want nae other rifle beside mine in a fight, but I'll shave my beard before I tell him so." } },
+      lines = { { id = "good_default", text = "Dinnae say that where he can hear ye, his head barely fits his helm as it is. Aye, he's good, an' I'd want nae other rifle beside mine in a fight, but I'll shave my beard before I tell him so." } },
       choices = { { text = "Your secret's safe. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     shot = {

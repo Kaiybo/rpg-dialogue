@@ -282,7 +282,7 @@ P:NPC {
       },
       choices = {
         { text = "Fair terms. My imp will sit still, or suffer.", next = "BACK", reply = "Sittin' still is all I ask, chum, and you're a reasonable warlock. The flyers will thank you, and so will my insurance.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "Pay in advance? You don't trust anybody, do you?", next = "BACK", reply = "Trust? Chum, trust is free and burned flyers are expensive. Pay first, fly second, and everybody lands happy.", fx = { align = { order = -1 } } },
+        { text = "Pay in advance? You clearly don't trust anybody.", next = "BACK", reply = "Trust? Chum, trust is free and burned flyers are expensive. Pay first, fly second, and everybody lands happy.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

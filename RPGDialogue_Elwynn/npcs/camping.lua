@@ -165,12 +165,12 @@ P:NPC {
     },
     camp_trade = {
       lines = {
-        { id = "ct_default", text = "Ask the trainers in Goldshire. Michelle Belle at the inn knows kits, Lee Brown knows fish, and Helene and Adele out by the lake know hides." },
-        { id = "ct_lw", when = { profession = "Leatherworking" },
+        { id = "ct_default", key = true, text = "Ask the trainers in Goldshire. Michelle Belle at the inn knows kits, Lee Brown knows fish, and Helene and Adele out by the lake know hides." },
+        { id = "ct_lw", key = true, when = { profession = "Leatherworking" },
           text = "A tent, you lucky thing. Adele Fielder by the lake will show you. Rest beside a tent and you wake up feeling twice as clever." },
-        { id = "ct_fish", when = { profession = "Fishing" },
+        { id = "ct_fish", key = true, when = { profession = "Fishing" },
           text = "A fish bowl, and don't laugh, because a happy camp's a strong camp. Lee Brown on the lake pier will teach you." },
-        { id = "ct_aid", when = { profession = "First Aid" },
+        { id = "ct_aid", key = true, when = { profession = "First Aid" },
           text = "A first aid kit. Michelle Belle upstairs at the inn will show you. Somebody always needs one by the second night." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "camping" } } } },

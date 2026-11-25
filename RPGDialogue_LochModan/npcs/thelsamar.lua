@@ -1512,7 +1512,7 @@ P:NPC {
       },
       choices = {
         { text = "Your dwarves deserved that chance. I'll learn caution.", next = "BACK", reply = "Good. Caution's no' cowardice, whatever the young ones say over their ale.", fx = { affinity = 1, align = { order = 1 } } },
-        { text = "If something brings me back, why bother being careful?", next = "BACK", reply = "Because one day it won't, an' ye'll no' get a warnin' first. Mind that, {class}.", fx = { align = { order = -1 } } },
+        { text = "If something brings me back, I see no point being careful.", next = "BACK", reply = "Aye, until one day it won't, an' ye'll no' get a warnin' first. Mind that, {class}.", fx = { align = { order = -1 } } },
         { text = "Something else, Captain.", next = "BACK" },
       },
     },

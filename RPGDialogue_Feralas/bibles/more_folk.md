@@ -1,4 +1,4 @@
-# More of Feralas  (keys: xylinnia, harklane, antarius, jadenvis, loorana, tarhus, shyrka, jannos, troyas, runethorn, rockbiter, kylanna, brannock, mardrack, hahrana, cawind, bronk, thyssiana)
+# More of Feralas  (keys: xylinnia, harklane, antarius, jadenvis, loorana, tarhus, shyrka, jannos_lighthoof, troyas, runethorn, rockbiter, kylanna_windwhisper, brannock, mardrack, hahrana, cawind, bronk, thyssiana)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Xylinnia_Starshine (night elf woman, Enchanting Trainer, Feathermoon Stronghold)

@@ -1073,7 +1073,7 @@ P:NPC {
       },
     },
     lamb_noble = {
-      lines = { { id = "ln_default", text = "Then a lord with an unpaid bar tab finds out where we are and calls for an inquiry, as Lord Wishock has lately. Zardeth is keeping him busy, and I'd advise you not to ask him how." } },
+      lines = { { id = "ln_default", key = true, text = "Then a lord with an unpaid bar tab finds out where we are and calls for an inquiry, as Lord Wishock has lately. Zardeth is keeping him busy, and I'd advise you not to ask him how." } },
       choices = {
         { text = "I won't ask.", next = "BACK", reply = "That's wise, because questions in this cellar have a way of being answered in person.", fx = { align = { honor = -1 }, affinity = 1 } },
         { text = "Blackmail, then.", next = "BACK", reply = "Such an ugly word. I prefer to call it the slow persuasion of a man with too many debts.", fx = { affinity = -1, align = { honor = 1 } } },

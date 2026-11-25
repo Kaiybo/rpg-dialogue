@@ -102,8 +102,8 @@ P:NPC {
     council = {
       lines = { { id = "c_default", text = "Warlocks who serve the Burning Legion, the same who once raised the Horde for war. They hide in the ruins of Jaedenar and call more demons to them." } },
       choices = {
-        { text = "They must be destroyed, every one.", next = "BACK", reply = "Then go with strength, and with friends.", fx = { align = { valor = 1 } } },
-        { text = "Better to avoid them entirely.", next = "BACK", reply = "Perhaps. But they will not avoid you.", fx = { align = { valor = -1 } } },
+        { text = "They must be destroyed, every one.", next = "BACK", reply = "Then go with strength, and with friends.", fx = { align = { honor = 1 } } },
+        { text = "Better to avoid them entirely.", next = "BACK", reply = "Perhaps. But they will not avoid you.", fx = { align = { honor = -1 } } },
       },
     },
     why = {

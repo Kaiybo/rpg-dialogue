@@ -94,7 +94,7 @@ local function create()
   panel.close:SetScript("OnClick", function() panel:Hide() end)
   panel.search = CreateFrame("EditBox", nil, panel, C.Template("editbox"))
   panel.search:SetAutoFocus(false)
-  panel.search:SetScript("OnTextChanged", function() offset = 0; refresh() end)
+  panel.search:SetScript("OnTextChanged", function() offset, selected = 0, nil; refresh() end)
   panel.search:SetScript("OnEscapePressed", function(self) self:ClearFocus() end)
 
   panel.rows = {}
@@ -153,7 +153,7 @@ local function create()
 
   panel.rule = Theme.Divider(panel)
   panel.archive = Theme.Button(panel, "", WOOD_WIDTH - 28, 22)
-  panel.archive:SetScript("OnClick", function() showArchive = not showArchive; offset = 0; refresh() end)
+  panel.archive:SetScript("OnClick", function() showArchive = not showArchive; offset, selected = 0, nil; refresh() end)
 
   panel:EnableMouseWheel(true)
   panel:SetScript("OnMouseWheel", function(_, delta)

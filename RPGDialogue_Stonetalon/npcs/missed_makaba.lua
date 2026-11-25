@@ -41,7 +41,7 @@ P:NPC {
       choices = {
         { text = "Tell me what happened here.", next = "attack" },
         { text = "Who are the Grimtotem?", next = "grimtotem" },
-        { text = "Tell me about your daughter.", next = "kaya", when = { questNotDone = TODO_QUEST("Kaya's Alive") } },
+        { text = "Tell me about your daughter.", next = "kaya", when = { ["not"] = { questDone = TODO_QUEST("Kaya's Alive") } } },
         { text = "Kaya is safe, Makaba. How is she?", next = "home", when = { questDone = TODO_QUEST("Kaya's Alive") } },
         { text = "Let me help you answer them.", next = "BUSINESS" },
         { text = "You shouldn't stay here alone.", next = "alone" },

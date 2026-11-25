@@ -399,7 +399,7 @@ P:NPC {
     centaur = { { id = "tp_centaur", text = "The Kolkar have been pushing in from the west, and Lar Prowltusk, the Darkspear scout near Sen'jin, watches them for me. If they come over the ridge in force, Razor Hill will meet them, and they won't like the meeting." } },
     theramore = { { id = "tp_theramore", text = "The humans' fortress is across the water to the south, and Lady Proudmoore keeps her soldiers on her side of it. That's the kind of peace I can respect, as long as it lasts." } },
     forsaken = {
-      { id = "tp_forsaken", when = { race = "Undead" }, text = "You're one of the Dark Lady's dead, and the Warchief says you're Horde. That's good enough for me, so keep your hands clean in my town." },
+      { id = "tp_forsaken", when = { race = "Scourge" }, text = "You're one of the Dark Lady's dead, and the Warchief says you're Horde. That's good enough for me, so keep your hands clean in my town." },
       { id = "tp_forsaken2", text = "The Warchief brought the dead of Lordaeron into the Horde, and some of my grunts don't like it. I tell them what I tell anyone: keep your eyes open and your mouth shut." },
     },
     _none = { { id = "tp_none", text = "Not now. Ask Orgnil, or the innkeeper, and leave me to my reports." } },

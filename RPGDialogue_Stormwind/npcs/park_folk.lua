@@ -599,7 +599,7 @@ P:NPC {
     },
 
     kelly = {
-      lines = { { id = "ke_default", text = "We agree on plenty, so long as nobody asks Kelly to do any work. She's the youngest, and she spends her days learning elf words from Shailiea and mooning about Darnassus, while I spend mine making sure there's bread on the table." } },
+      lines = { { id = "ke_default", key = true, text = "We agree on plenty, so long as nobody asks Kelly to do any work. She's the youngest, and she spends her days learning elf words from Shailiea and mooning about Darnassus, while I spend mine making sure there's bread on the table." } },
       choices = {
         { text = "What does Kelly want to do?", next = "kelly_dream" },
         { text = "Something else.", next = "BACK" },
@@ -684,7 +684,7 @@ P:NPC {
       },
     },
     park_elves = {
-      lines = { { id = "pe_default", text = "Better than most. Nara Meideros tends anyone who's taken sick, and Shylamiir sells the cheapest peacebloom in the city, though she makes you feel like a thief for buying it. It's Shailiea I'd watch; she's filling Kelly's head with forests." } },
+      lines = { { id = "pe_default", key = true, text = "Better than most. Nara Meideros tends anyone who's taken sick, and Shylamiir sells the cheapest peacebloom in the city, though she makes you feel like a thief for buying it. It's Shailiea I'd watch; she's filling Kelly's head with forests." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     feralas_been = {

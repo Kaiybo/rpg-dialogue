@@ -611,7 +611,7 @@ P:NPC {
         { id = "h_dd_venture", when = { killed = { name = "Venture", min = 30 } },
           text = "The saws have gone quieter in Windshear Crag, and I'm told it's your doing. Seedlings won't take where the shredders still roll, so every goblin you stop is a tree I may yet see growing." },
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken carrying the Light. I coax green shoots out of burned ground, and I'd love to know whether the Light can help." },
-        { id = "h_default", text = "I'm Tammra Windfield, and I tend what grows on Sun Rock and try to bring back what doesn't. Every mountain can heal, given time and stubbornness." },
+        { id = "h_default", key = true, text = "I'm Tammra Windfield, and I tend what grows on Sun Rock and try to bring back what doesn't. Every mountain can heal, given time and stubbornness." },
         { id = "h_kaya", tags = { "news" }, when = { questActive = TODO_QUEST("Kaya's Alive") },
           text = "Kaya's alive? My niece, alive! Oh, Earth Mother be thanked, for after the Grimtotem fell on Camp Aparaje we'd all thought her lost." },
         { id = "h_rebirth", when = { questActive = TODO_QUEST("Cycle of Rebirth") },
@@ -1011,7 +1011,7 @@ P:NPC {
     },
     master = {
       lines = {
-        { id = "ma_default", text = "My master, who is none of your concern. Would that I could go back to Jaedenar and feel magic flow freely again, but I'm not allowed to return until my work here is done." },
+        { id = "ma_default", key = true, text = "My master, who is none of your concern. Would that I could go back to Jaedenar and feel magic flow freely again, but I'm not allowed to return until my work here is done." },
       },
       choices = {
         { text = "And the Horde doesn't mind your master?", next = "BACK", fx = { trait = { skeptical = 1 } } },

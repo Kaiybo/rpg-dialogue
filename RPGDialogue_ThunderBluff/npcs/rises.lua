@@ -23,7 +23,7 @@ P:NPC {
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" },
       text = "A tauren who comes down here willingly? Your elders mostly cross the pools to avoid me." },
-    { id = "n_undead", cat = "race", when = { race = "Undead" },
+    { id = "n_undead", cat = "race", when = { race = "Scourge" },
       text = "Ah, a fellow citizen of the Undercity. It's pleasant to talk to someone who doesn't flinch." },
     { id = "n_lock_shards", cat = "lock_shards", when = { class = "WARLOCK", carrying = { id = 6265, min = 15 } },
       text = "Ah, soul shards, and a good many of them, by the cold coming off your pack. If I had my laboratory instead of a tent on a mesa, I'd be trying very hard to talk you out of a few for study." },
@@ -190,7 +190,7 @@ P:NPC {
         { text = "Why are the Forsaken in Thunder Bluff?", next = "why" },
         { text = "What do you want serpentbloom for?", next = "serpent" },
         { text = "I'd guess the tauren don't know what to make of you.", next = "tauren" },
-        { text = "What does the Society really study?", next = "society", when = { race = "Undead" } },
+        { text = "What does the Society really study?", next = "society", when = { race = "Scourge" } },
         { text = "The spirits of the Pools must trouble you, Zamah.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Serpentbloom has other uses, I'd imagine.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the tauren mind mages walking their sacred pools?", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -298,7 +298,7 @@ P:NPC {
     _none = { { id = "tp_none", text = "I'm afraid that falls outside the Society's research, and therefore outside my interest." } },
     forsaken = {
       { id = "tp_forsaken", text = "The Forsaken are free, and the Society means to keep us so. Our research is for the good of all our people, and I hope the tauren will come to see that." },
-      { id = "tp_forsaken2", when = { race = "Undead" }, text = "A fellow citizen, how nice. Do try not to frighten the tauren, as they frighten so easily, and it makes my work so much harder." },
+      { id = "tp_forsaken2", when = { race = "Scourge" }, text = "A fellow citizen, how nice. Do try not to frighten the tauren, as they frighten so easily, and it makes my work so much harder." },
     },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady is our queen and our saviour, and the Society serves her in all things. I would never question her plans, and I would never let anyone else question them either." } },
     scourge = { { id = "tp_scourge", text = "The Scourge are our enemies, and the Society is learning how to destroy them. We study plague, which is the Scourge's weapon, and so we must understand it better than they do." } },

@@ -235,7 +235,7 @@ P:NPC {
           text = "Keeper Bel'varil, assistant to Magus Voidglare. The wizards of Dalaran control elementals with tokens and bracers, and the Magus would like to know how, so I fetch them and he frowns at them." },
         { id = "h_tokens_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Stone Tokens"), days = 3 } },
           text = "Those tokens will do nicely. Their magic's faded, but it's best the Magus's first experiments are on inert specimens, for reasons I'd rather not explain to the Deathguard again." },
-        { id = "h_bracers_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Bracers of Binding"), days = 3 } },
+        { id = "h_bracers_done", key = true, tags = { "news" }, when = { questRecent = { TODO_QUEST("Bracers of Binding"), days = 3 } },
           text = "You found them. I trust the elementals you took these bracers from were amenable? That was a joke, I think; death has quite robbed me of my timing." },
         { id = "h_mage", when = { class = "MAGE", faction = "Horde" },
           text = "A mage! Don't mind me if I treat you as a reference book. The Magus certainly will." },

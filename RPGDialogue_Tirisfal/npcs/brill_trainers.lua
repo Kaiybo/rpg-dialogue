@@ -306,7 +306,7 @@ P:NPC {
       lines = { { id = "mo_default", text = "An orc, in my tavern, learning my fire! Rupert will be beside himself, because he thinks every orc with a spell is secretly one of his. Are you?" } },
       choices = {
         { text = "No. I've seen what that path did to my people.", next = "BACK", reply = "Then you're wiser than half the Horde's elders gave you credit for. Sit down, and mind the tablecloth.", fx = { affinity = 1, align = { light = 1 } } },
-        { text = "Who's to say what I'll become, in time?", next = "BACK", reply = "That's exactly what Rupert's students say. I'd rather you didn't, but I'll teach you anyway.", fx = { align = { light = -1 } } },
+        { text = "Nobody can say what I'll become, in time.", next = "BACK", reply = "That's exactly what Rupert's students say. I'd rather you didn't, but I'll teach you anyway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

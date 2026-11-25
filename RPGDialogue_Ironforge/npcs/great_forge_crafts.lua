@@ -749,7 +749,7 @@ P:NPC {
 
     emrul = {
       lines = {
-        { id = "em_default", text = "That's my brother Emrul, an' he sells the spices an' recipes I teach wi', at prices I'd call criminal if he werenae family. We've shared this shop for years an' argued in it every day." },
+        { id = "em_default", key = true, text = "That's my brother Emrul, an' he sells the spices an' recipes I teach wi', at prices I'd call criminal if he werenae family. We've shared this shop for years an' argued in it every day." },
       },
       choices = {
         { text = "You two must argue all day long.", next = "emrul_argue" },

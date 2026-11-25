@@ -107,7 +107,7 @@ P:NPC {
       },
     },
     rayan = {
-      lines = { { id = "ra_default", text = "My fellow student, and the most careful elf I've ever met, which makes him wonderful to travel with and maddening to argue with. If you want the dull facts, ask him; if you want the interesting ones, ask me." } },
+      lines = { { id = "ra_default", key = true, text = "My fellow student, and the most careful elf I've ever met, which makes him wonderful to travel with and maddening to argue with. If you want the dull facts, ask him; if you want the interesting ones, ask me." } },
       choices = {
         { text = "What do the two of you argue about?", next = "rayan_argue" },
         { text = "Something else.", next = "BACK" },

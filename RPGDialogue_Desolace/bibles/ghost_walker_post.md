@@ -1,4 +1,4 @@
-# Ghost Walker Post  (keys: gurda, harnor, kireena)
+# Ghost Walker Post  (keys: gurda_wildmane, harnor, kireena)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Ghost_Walker_Post (read 2026-11-17: NPC list; Gurda Wildmane leader; Harnor <Food & Drink>, Kireena <Trade Goods>)

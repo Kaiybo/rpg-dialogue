@@ -100,25 +100,22 @@ end
 -- race+class combos (50). Long-tail states (before, done, later) stay eligible for weeks,
 -- so they weigh less (45/40) and a combo line can win over them (DESIGN.md §3.3).
 ---------------------------------------------------------------------------
-def("questBefore", 45, "hinge", nil, function(ctx, v, env)
-  local st = Cond.QuestState(v, ctx, env)
-  return st == "before", "quest " .. show(v) .. " is " .. tostring(st or "unresolved")
-end)
-
-def("questActive", 60, "hinge", nil, function(ctx, v, env)
-  local st = Cond.QuestState(v, ctx, env)
-  return st == "active" or st == "ready", "quest " .. show(v) .. " is " .. tostring(st or "unresolved")
-end)
-
-def("questReady", 60, "hinge", nil, function(ctx, v, env)
-  local st = Cond.QuestState(v, ctx, env)
-  return st == "ready", "quest " .. show(v) .. " is " .. tostring(st or "unresolved")
-end)
-
-def("questDone", 40, "hinge", nil, function(ctx, v, env)
-  local st = Cond.QuestState(v, ctx, env)
-  return st == "done" or st == "recent", "quest " .. show(v) .. " is " .. tostring(st or "unresolved")
-end)
+-- Q, or a list of them (any of): questActive = { TODO_QUEST("A"), TODO_QUEST("B") }.
+local function questStateIs(states, weightKey)
+  def(weightKey[1], weightKey[2], "hinge", nil, function(ctx, v, env)
+    local refs = (type(v) == "table" and v.todo == nil and v[1] ~= nil) and v or { v }
+    local st
+    for _, ref in ipairs(refs) do
+      st = Cond.QuestState(ref, ctx, env)
+      if states[st or ""] then return true, "quest " .. show(ref) .. " is " .. st end
+    end
+    return false, "quest " .. show(v) .. " is " .. tostring(st or "unresolved")
+  end)
+end
+questStateIs({ before = true }, { "questBefore", 45 })
+questStateIs({ active = true, ready = true }, { "questActive", 60 })
+questStateIs({ ready = true }, { "questReady", 60 })
+questStateIs({ done = true, recent = true }, { "questDone", 40 })
 
 -- { Q, left = { min, max } }: objectives still outstanding (sum of need - have).
 def("questObjective", 60, "hinge", nil, function(ctx, v, env)
@@ -408,7 +405,17 @@ def("trait", 30, "hinge", "trait", function(ctx, v)
 end)
 
 -- { topic = , stance = }
+-- Also { <topic> = <stance or list>, ... } (every pair must hold), as some packs write it.
 def("opinion", 30, "hinge", "opinion", function(ctx, v)
+  if type(v) == "table" and v.topic == nil and v[1] == nil then
+    for topic, want in pairs(v) do
+      local o = ns.char.opinions[topic]
+      if not (o and o.stance ~= nil and (want == true or matches(o.stance, want))) then
+        return false, "opinion " .. tostring(topic) .. " = " .. tostring(o and o.stance)
+      end
+    end
+    return true, "opinion " .. show(v)
+  end
   local o = ns.char.opinions[v.topic or v[1]]
   local stance = o and o.stance
   return stance ~= nil and (v.stance == nil or matches(stance, v.stance)), "opinion " .. show(v.topic or v[1]) .. " = " .. tostring(stance)
@@ -747,6 +754,25 @@ def("drunk", 15, "hinge", nil, function(ctx, v)
   return inRange(d, v), "drunk " .. d
 end)
 
+-- Your health, as a share of the maximum (0..1): health = { max = 0.5 } (hurt), { min = 0.9 },
+-- or a number (minimum). `hp` is the same condition. Spoof with health=0.3.
+local function healthShare(ctx)
+  local s = ctx.spoofed and ctx.spoofed.health
+  if type(s) == "number" then return s end
+  local C = ns.Compat
+  local cur = C and tonumber(C.Call("UnitHealth", "player"))
+  local max = C and tonumber(C.Call("UnitHealthMax", "player"))
+  if not cur or not max or max <= 0 then return nil end
+  return cur / max
+end
+for _, key in ipairs({ "health", "hp" }) do
+  def(key, 15, "hinge", nil, function(ctx, v)
+    local h = healthShare(ctx)
+    if not h then return false, "health unknown" end
+    return inRange(h, v), ("health %.2f"):format(h)
+  end)
+end
+
 -- { max = 0.25 } (ratio 0..1)
 def("durability", 15, "hinge", nil, function(ctx, v)
   local d = ctx.durability
@@ -768,7 +794,12 @@ def("pet", 15, "hinge", nil, function(ctx, v)
   if v == true then return true, "has pet" end
   if v.family and not matches(p.family, v.family) then return false, "pet family " .. tostring(p.family) end
   if v.type and not matches(p.type, v.type) then return false, "pet type " .. tostring(p.type) end
-  if v.named and p.name ~= v.named then return false, "pet name " .. tostring(p.name) end
+  -- named = true: the pet has a name of its own ({pet} has something to say); a string: that name.
+  if v.named == true then
+    if type(p.name) ~= "string" or p.name == "" then return false, "pet has no name" end
+  elseif v.named == false then
+    if type(p.name) == "string" and p.name ~= "" then return false, "pet is named " .. p.name end
+  elseif v.named and p.name ~= v.named then return false, "pet name " .. tostring(p.name) end
   return true, "pet " .. tostring(p.family)
 end)
 
@@ -780,13 +811,18 @@ def("rep", 15, "hinge", nil, function(ctx, v)
   return inRange(standing, v), "standing " .. standing
 end)
 
--- { name = "Mining", min = 75 }
+-- "Mining" | { "Herbalism", "Alchemy" } (any of) | { name = "Mining" or a list, min = 75, max = }
 def("profession", 15, "hinge", nil, function(ctx, v)
-  local name = type(v) == "string" and v or (v.name or v[1])
-  local skill = (ctx.professions or {})[name]
-  if not skill then return false, "no " .. tostring(name) end
-  if type(v) == "table" and not inRange(skill, v) then return false, name .. " " .. skill end
-  return true, name .. " " .. skill
+  local names, range = v, nil
+  if type(v) == "table" and v[1] == nil then names, range = v.name, v end
+  local have = ctx.professions or {}
+  local last
+  for _, name in ipairs(U.AsList(names)) do
+    local skill = have[name]
+    if skill and (not range or inRange(skill, range)) then return true, name .. " " .. skill end
+    last = name .. " " .. tostring(skill or "none")
+  end
+  return false, "profession: " .. tostring(last or show(v))
 end)
 
 -- reputation = { faction = "Stormwind", min = "exalted" } (or max; standings by name or 1-8).
@@ -1004,6 +1040,18 @@ local evalAll
 -- Returns pass, score, parts (list of "key+weight"), failReason
 local function evalKey(key, v, ctx, env)
   if key == "all" then
+    -- `all` is a list of when tables (DESIGN.md §2; Conv.IdentityTag reads it the same way),
+    -- or a single when table.
+    if type(v) == "table" and v[1] ~= nil then
+      local score, parts = 0, {}
+      for _, sub in ipairs(v) do
+        local p, s, ps, why = evalAll(sub, ctx, env)
+        if not p then return false, 0, {}, why end
+        score = score + s
+        for i = 1, #ps do parts[#parts + 1] = ps[i] end
+      end
+      return true, score, parts
+    end
     return evalAll(v, ctx, env)
   elseif key == "any" then
     local best, bestParts
@@ -1055,9 +1103,9 @@ function Cond.Systems(when, out)
   out = out or {}
   if type(when) ~= "table" then return out end
   for key, v in pairs(when) do
-    if key == "all" or key == "not" then
+    if key == "not" or (key == "all" and type(v) == "table" and v[1] == nil) then
       Cond.Systems(v, out)
-    elseif key == "any" then
+    elseif key == "any" or key == "all" then
       for _, sub in ipairs(v) do Cond.Systems(sub, out) end
     else
       local d = Cond.defs[key]
@@ -1072,7 +1120,12 @@ function Cond.Hinges(when)
   local n = 0
   if type(when) ~= "table" then return 0 end
   for key, v in pairs(when) do
-    if key == "all" then n = n + Cond.Hinges(v)
+    if key == "all" then
+      if type(v) == "table" and v[1] ~= nil then
+        for _, sub in ipairs(v) do n = n + Cond.Hinges(sub) end
+      else
+        n = n + Cond.Hinges(v)
+      end
     elseif key == "any" then
       local best = 0
       for _, sub in ipairs(v) do best = math.max(best, Cond.Hinges(sub)) end

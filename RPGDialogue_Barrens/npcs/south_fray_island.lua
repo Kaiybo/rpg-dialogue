@@ -143,7 +143,7 @@ P:NPC {
       },
       choices = {
         { text = "Rage chosen and controlled is a weapon like any other.", next = "BACK", reply = "That's it exactly. Now go and prove you can put it down again.", fx = { align = { order = 1 } } },
-        { text = "If the rage wins the fight, why put it down?", next = "BACK", reply = "Because one day the fight will end and the rage won't, and then you're the thing someone else has to stop.", fx = { align = { order = -1 } } },
+        { text = "If the rage wins the fight, I see no reason to put it down.", next = "BACK", reply = "Because one day the fight will end and the rage won't, and then you're the thing someone else has to stop.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

@@ -18,7 +18,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "It's a beautiful day, is it not?" },
     { id = "g_back", when = { metBefore = true }, text = "You again, small one. Have you come to admire the day with me?" },
-    { id = "g_night", when = { time = "night" }, text = "A beautiful night, is it not? The marsh sings louder in the dark." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "A beautiful night, is it not? The marsh sings louder in the dark." },
   },
 
   notice = {

@@ -49,7 +49,7 @@ P:NPC {
       },
     },
     ghoul = {
-      lines = { { id = "g_default", text = "Only the one they keep chained for us in the yard, and I studied it so long that it nearly had my arm. Alyssa finished it and has mentioned the fact every day since." } },
+      lines = { { id = "ghoul_default", text = "Only the one they keep chained for us in the yard, and I studied it so long that it nearly had my arm. Alyssa finished it and has mentioned the fact every day since." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     life = {

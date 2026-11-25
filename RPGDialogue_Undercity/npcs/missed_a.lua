@@ -328,7 +328,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gather = {
-      lines = { { id = "g_default", text = "Herbs, if you've the knack, since nothing else sells so surely in this city. Failing that, bring ore or hides, because the War Quarter and the Rogues' Quarter never have enough of either." } },
+      lines = { { id = "gather_default", text = "Herbs, if you've the knack, since nothing else sells so surely in this city. Failing that, bring ore or hides, because the War Quarter and the Rogues' Quarter never have enough of either." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     source = {

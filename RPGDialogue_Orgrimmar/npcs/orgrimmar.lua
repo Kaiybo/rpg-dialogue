@@ -863,7 +863,7 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "The Scourge is a plague that walks, and it serves a master who would see every living thing on Azeroth kneel. We fought its makers once on Hyjal, beside humans and night elves, and I have not forgotten how close we came to losing." } },
     forsaken = {
       { id = "tp_forsaken", text = "The Forsaken came to us outcast and hunted, and the tauren spoke for them in council. I gave them a place in the Horde because they had nowhere else, though I watch Sylvanas and her apothecaries more closely than I would like to admit." },
-      { id = "tp_forsaken2", when = { race = "Undead" }, text = "You are one of Sylvanas's people, and you are welcome in my city as long as you honour the Horde. Prove the doubters wrong, and you will find no warchief more loyal to you than I am." },
+      { id = "tp_forsaken2", when = { race = "Scourge" }, text = "You are one of Sylvanas's people, and you are welcome in my city as long as you honour the Horde. Prove the doubters wrong, and you will find no warchief more loyal to you than I am." },
     },
     sylvanas = { { id = "tp_sylvanas", text = "Sylvanas Windrunner broke free of the Lich King's will by her own strength, and I respect that. But she keeps her own counsel, and her Royal Apothecary Society keeps even more of it." } },
     cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is my friend and my elder, and his counsel has saved me from my own temper more than once. When the centaur hounded his people, the Horde stood with them, and the tauren have stood with us ever since." } },

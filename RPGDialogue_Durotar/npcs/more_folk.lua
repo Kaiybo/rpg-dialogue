@@ -582,7 +582,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Meat and drink, west of the inn, just like the sign says. If you're hungry, you're in the right place." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still got all your fingers? Good, keep it that way." },
-    { id = "g_morning", when = { timeOfDay = "morning" }, text = "You're early. The boar came in at dawn and it's still warm, so you'll not get fresher in Durotar." },
+    { id = "g_morning", when = { timeOfDay = "dawn" }, text = "You're early. The boar came in at dawn and it's still warm, so you'll not get fresher in Durotar." },
     { id = "g_away", when = { away = 14 }, text = "Haven't seen you in a while. I'd assumed the Barrens ate you, and it's the other way round, I hope." },
   },
   notice = {

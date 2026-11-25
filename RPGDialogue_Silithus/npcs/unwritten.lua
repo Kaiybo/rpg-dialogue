@@ -679,8 +679,8 @@ P:NPC {
       narr = "She looks south, toward the walls of Ahn'Qiraj shimmering in the heat.",
       lines = { { id = "w_default", text = "The qiraji and their swarms, in the War of the Shifting Sands. We sealed them behind a great wall and thought it would last forever. Nothing does." } },
       choices = {
-        { text = "Then they must be destroyed this time.", next = "BACK", reply = "Yes. Do not stop halfway as we did.", fx = { align = { mercy = -1 } } },
-        { text = "Sealing them saved many lives back then.", next = "BACK", reply = "It did, and cost many. Both are true.", fx = { align = { mercy = 1 } } },
+        { text = "Then they must be destroyed this time.", next = "BACK", reply = "Yes. Do not stop halfway as we did.", fx = { align = { light = -1 } } },
+        { text = "Sealing them saved many lives back then.", next = "BACK", reply = "It did, and cost many. Both are true.", fx = { align = { light = 1 } } },
       },
     },
     festival = {
@@ -695,7 +695,7 @@ P:NPC {
       choices = { { text = "I'll find them. Something else.", next = "BACK" } },
     },
     honor = {
-      lines = { { id = "h2_default", text = "I accept your honor, and gladly. Take this coin, and remember that even in the desert, the ancestors walk with you.", fx = { offer = TODO_QUEST("Bladesing the Elder") } } },
+      lines = { { id = "h2_default", text = "I accept your honor, and gladly. Take this coin, and remember that even in the desert, the ancestors walk with you." } },
       choices = { { text = "Thank you, Elder Bladesing.", next = "BACK" } },
     },
     sentinel = {
@@ -758,11 +758,11 @@ P:NPC {
       choices = { { text = "Then we stop them. Something else.", next = "BACK" } },
     },
     gorchuk = {
-      lines = { { id = "g_default", text = "Da warlord who leads da war effort here in Orgrimmar. A hard orc and a fair one, and he remember every name dat bring supplies." } },
+      lines = { { id = "gorchuk_default", text = "Da warlord who leads da war effort here in Orgrimmar. A hard orc and a fair one, and he remember every name dat bring supplies." } },
       choices = { { text = "I'll speak to him. Something else.", next = "BACK" } },
     },
     task = {
-      lines = { { id = "t_default", text = "Den gather what I ask and bring it here to Orgrimmar. Every crate be one more soldier fed when da gates open.", fx = { offer = TODO_QUEST("The Horde Needs Your Help!") } } },
+      lines = { { id = "t_default", text = "Den gather what I ask and bring it here to Orgrimmar. Every crate be one more soldier fed when da gates open." } },
       choices = { { text = "I'll bring what you need.", next = "BACK" } },
     },
   },
@@ -805,7 +805,7 @@ P:NPC {
       },
     },
     gates = {
-      lines = { { id = "g_default", text = "They will, when someone strikes the gong with the scepter. Then the bugs come out, and we kill them. Simple." } },
+      lines = { { id = "gates_default", text = "They will, when someone strikes the gong with the scepter. Then the bugs come out, and we kill them. Simple." } },
       choices = {
         { text = "What scepter?", next = "scepter" },
         { text = "Something else.", next = "BACK" },
@@ -848,8 +848,8 @@ P:NPC {
     seen = {
       lines = { { id = "s_default", text = "More of them than ever, and bigger. They're breeding, and something deeper in the hive is driving them." } },
       choices = {
-        { text = "Then we should burn the hive.", next = "BACK", reply = "If only we could. The Circle wants it watched first.", fx = { align = { mercy = -1 } } },
-        { text = "Patience. Learn first, strike later.", next = "BACK", reply = "That's the Circle's wisdom, and mine too.", fx = { align = { mercy = 1 } } },
+        { text = "Then we should burn the hive.", next = "BACK", reply = "If only we could. The Circle wants it watched first.", fx = { align = { light = -1 } } },
+        { text = "Patience. Learn first, strike later.", next = "BACK", reply = "That's the Circle's wisdom, and mine too.", fx = { align = { light = 1 } } },
       },
     },
     report = {

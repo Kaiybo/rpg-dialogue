@@ -672,7 +672,7 @@ P:NPC {
     },
     game = {
       lines = {
-        { id = "ga_default", text = "It's very simple: you step off the ledge, then walk on the air to slow your fall and see how far forward you can float. The rules are whatever I say they are, and the best score is landing on Rorian's toes." },
+        { id = "ga_default", key = true, text = "It's very simple: you step off the ledge, then walk on the air to slow your fall and see how far forward you can float. The rules are whatever I say they are, and the best score is landing on Rorian's toes." },
       },
       choices = {
         { text = "Rorian will be angry about this.", next = "game_rorian" },
@@ -710,7 +710,7 @@ P:NPC {
     },
     halaan = {
       lines = {
-        { id = "ha_default", text = "Because he's a stuffy old wretch who stares at the anchor pylon all day as if it's going to say something. Somebody has to keep him from turning into a statue, and the job didn't pay, so I volunteered." },
+        { id = "ha_default", key = true, text = "Because he's a stuffy old wretch who stares at the anchor pylon all day as if it's going to say something. Somebody has to keep him from turning into a statue, and the job didn't pay, so I volunteered." },
       },
       choices = {
         { text = "What's he looking at?", next = "halaan_pylon" },

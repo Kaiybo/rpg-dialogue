@@ -39,7 +39,7 @@ P:NPC {
       },
     },
     gate = {
-      lines = { { id = "g_default", text = "Because those who survived within have no reason left to trust what walks up from the south. I cannot blame them, having walked up from the south myself and seen what else is on the road." } },
+      lines = { { id = "gate_default", text = "Because those who survived within have no reason left to trust what walks up from the south. I cannot blame them, having walked up from the south myself and seen what else is on the road." } },
       choices = {
         { text = "Have you called to them?", next = "called" },
         { text = "Another matter.", next = "BACK" },

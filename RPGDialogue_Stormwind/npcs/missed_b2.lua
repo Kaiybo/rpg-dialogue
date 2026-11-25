@@ -182,7 +182,7 @@ P:NPC {
       },
     },
     greeting = {
-      lines = { { id = "g_default", text = "Nearly everything. One who bows to a stranger will listen to a teacher, and one who salutes will stand in a line, and one who cannot be troubled to do either will be a danger to whoever fights beside him." } },
+      lines = { { id = "greeting_default", text = "Nearly everything. One who bows to a stranger will listen to a teacher, and one who salutes will stand in a line, and one who cannot be troubled to do either will be a danger to whoever fights beside him." } },
       choices = {
         { text = "And one who shows off his muscles?", next = "flex" },
         { text = "Something else.", next = "BACK" },

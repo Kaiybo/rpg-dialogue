@@ -166,7 +166,7 @@ P:NPC {
       },
     },
     gryan = {
-      lines = { { id = "g_default", text = "Gryan Stoutmantle, in the tower at the top of the hill. He fought for Stormwind once, and when Stormwind forgot Westfall, he didn't." } },
+      lines = { { id = "gryan_default", text = "Gryan Stoutmantle, in the tower at the top of the hill. He fought for Stormwind once, and when Stormwind forgot Westfall, he didn't." } },
       choices = { { text = "I'll pay him a visit. Something else.", next = "BACK" } },
     },
   },

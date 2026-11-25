@@ -53,13 +53,16 @@ end
 
 function Towns.Soften(now)
   for _, rec in pairs(ns.char.towns) do
-    local weeks = math.floor((now - (rec.softenedAt or rec.t or now)) / 604800)
+    -- Absence counts from the later of the last softening and the last change in standing.
+    local base = math.max(rec.softenedAt or 0, rec.t or 0)
+    if base == 0 then base = now end
+    local weeks = math.floor((now - base) / 604800)
     if weeks > 0 then
       local v = rec.value or 0
       local step = weeks * Towns.SOFTEN_PER_WEEK
       if v > Towns.SOFTEN_FLOOR then rec.value = math.max(Towns.SOFTEN_FLOOR, v - step)
       elseif v < -Towns.SOFTEN_FLOOR then rec.value = math.min(-Towns.SOFTEN_FLOOR, v + step) end
-      rec.softenedAt = now
+      rec.softenedAt = base + weeks * 604800
     end
   end
 end

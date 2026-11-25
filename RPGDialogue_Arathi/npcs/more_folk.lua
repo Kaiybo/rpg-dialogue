@@ -102,7 +102,7 @@ P:NPC {
     },
     ships_naga = {
       lines = {
-        { id = "sn_default", text = "Lolo thinks so too! Lolo saw scaly ones with many arms down in the water that night, and Lolo told the captain, and the captain said Lolo had been drinking. Lolo had not been drinking, not very much." },
+        { id = "sn_default", key = true, text = "Lolo thinks so too! Lolo saw scaly ones with many arms down in the water that night, and Lolo told the captain, and the captain said Lolo had been drinking. Lolo had not been drinking, not very much." },
       },
       choices = {
         { text = "Naga. You saw naga, Lolo.", next = "ships_believe" },

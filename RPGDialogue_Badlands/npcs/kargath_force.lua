@@ -669,7 +669,7 @@ P:NPC {
     },
     protect_amakkar = {
       lines = {
-        { id = "pa_default", text = "An initiate, quick with a knife and quicker with his mouth. He'll be a good fighter if he lives, and he'll live if I'm in front of him." },
+        { id = "pa_default", key = true, text = "An initiate, quick with a knife and quicker with his mouth. He'll be a good fighter if he lives, and he'll live if I'm in front of him." },
       },
       choices = {
         { text = "The young need someone to shield them.", next = "BACK", reply = "They do, and Amakkar needs it more than most. He'll learn, if I keep him alive long enough.", fx = { align = { order = 1 } } },

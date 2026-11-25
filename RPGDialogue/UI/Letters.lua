@@ -20,6 +20,7 @@ local INK = {
 }
 
 local tab, panel, tabID
+local restoreTitle   -- defined with the tab code below
 local reading, pageNo, replying = nil, 1, false
 local MAX_OPTS = 5
 
@@ -104,6 +105,9 @@ local function create()
   panel:SetFrameLevel(_G.MailFrame:GetFrameLevel() + 5)
   panel:EnableMouse(true)
   panel:Hide()
+  -- Leaving the tab (Inbox, Send Mail, closing the mailbox) gives the window its title back,
+  -- unless the game has already set one of its own.
+  panel:SetScript("OnHide", function() pcall(restoreTitle) end)
   region()
 
   -- Paper: the game's letter stationery, over a parchment fill in case it's missing.
@@ -377,8 +381,28 @@ end
 ---------------------------------------------------------------------------
 -- The tab
 ---------------------------------------------------------------------------
+-- The mail window's title text, to put the game's own title back when the tab is left.
+local savedTitle
+local function titleString()
+  local mail = _G.MailFrame
+  if mail.GetTitleText then
+    local ok, fs = pcall(mail.GetTitleText, mail)
+    if ok and type(fs) == "table" and fs.GetText then return fs end
+  end
+  local fs = _G.MailFrameTitleText or mail.TitleText
+  return type(fs) == "table" and fs.GetText and fs or nil
+end
+
+function restoreTitle()
+  local fs = titleString()
+  if fs and savedTitle and fs:GetText() == L.LETTERS_TITLE then fs:SetText(savedTitle) end
+end
+
 local function setTitle(text)
   local mail = _G.MailFrame
+  local fs = titleString()
+  local was = fs and fs:GetText()
+  if was and was ~= L.LETTERS_TITLE then savedTitle = was end
   if mail.SetTitle then mail:SetTitle(text)
   elseif _G.MailFrameTitleText then _G.MailFrameTitleText:SetText(text)
   elseif mail.TitleText then mail.TitleText:SetText(text) end

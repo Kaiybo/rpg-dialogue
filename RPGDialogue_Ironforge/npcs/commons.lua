@@ -412,7 +412,7 @@ P:NPC {
 
     titans = {
       lines = {
-        { id = "ti_default", text = "An old work on the titans, the makers the Explorers' League keeps findin' traces of in Uldaman an' elsewhere. There was a copy in the Monastery library in Tirisfal, an' as far as I know, it's still there." },
+        { id = "ti_default", key = true, text = "An old work on the titans, the makers the Explorers' League keeps findin' traces of in Uldaman an' elsewhere. There was a copy in the Monastery library in Tirisfal, an' as far as I know, it's still there." },
       },
       choices = {
         { text = "Why does Ironforge want it?", next = "titans_why" },

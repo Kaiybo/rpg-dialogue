@@ -450,7 +450,7 @@ P:NPC {
       },
     },
     wearers2 = {
-      lines = { { id = "we2_default", text = "It did for the first century. Now I go and stand at the back of his lessons, and when he holds up my seam I learn something as well. He is usually right, which is the truly annoying part." } },
+      lines = { { id = "we2_default", key = true, text = "It did for the first century. Now I go and stand at the back of his lessons, and when he holds up my seam I learn something as well. He is usually right, which is the truly annoying part." } },
       choices = {
         { text = "A craftswoman who still listens is a rare thing.", next = "BACK", reply = "You are kind. I would rather be corrected than be comfortable and wrong.", fx = { align = { honor = 1 } } },
         { text = "I'd tell him to mind his own needle.", next = "BACK", reply = "I have composed that speech many times, and it is very fine. I never give it.", fx = { align = { honor = -1 } } },

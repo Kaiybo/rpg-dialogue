@@ -90,7 +90,7 @@ P:NPC {
       lines = { { id = "si_default", text = "Sure I do, 'cause the Steamwheedle way is everybody's money spends the same, and a war's just a lotta customers in two colours. You got a problem with that, or you want some bandages?" } },
       choices = {
         { text = "Arming both sides of a war isn't honest trade.", next = "BACK", reply = "Honest? Pal, honest is when the bandages actually stop the bleedin', and mine do, so you can take your moral ledger somewhere it'll balance and leave the rest of us to make a livin'.", fx = { affinity = -1, align = { honor = 1 } } },
-        { text = "Smart. Coin never picks a side, does it?", next = "BACK", reply = "Now there's a valued customer if ever I saw one, and I'm writin' that down, so next time the shootin' starts you come see Gabbi before the other guy does.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Smart. Coin never picks a side.", next = "BACK", reply = "Now there's a valued customer if ever I saw one, and I'm writin' that down, so next time the shootin' starts you come see Gabbi before the other guy does.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK", fx = { learn = { "steamwheedle" } } },
       },
     },

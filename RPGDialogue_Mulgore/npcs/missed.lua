@@ -120,7 +120,7 @@ P:NPC {
       },
     },
     road_who = {
-      lines = { { id = "rw_default", text = "Baine Bloodhoof, the chieftain's son, has the keeping of the village, and he always has work for willing hands. Brave Rockhorn walks the south side of it, and you may tell him that Lightninghorn's road is quiet." } },
+      lines = { { id = "rw_default", key = true, text = "Baine Bloodhoof, the chieftain's son, has the keeping of the village, and he always has work for willing hands. Brave Rockhorn walks the south side of it, and you may tell him that Lightninghorn's road is quiet." } },
       choices = { { text = "I'll tell him. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     pace = {
@@ -812,7 +812,7 @@ P:NPC {
       },
     },
     inn_magrin = {
-      lines = { { id = "im_default", text = "He sits, and he listens, and he knows more about who has passed through Bloodhoof than I do, though I am the one standing at the door. Ask him yourself, for he is friendlier than he looks." } },
+      lines = { { id = "im_default", key = true, text = "He sits, and he listens, and he knows more about who has passed through Bloodhoof than I do, though I am the one standing at the door. Ask him yourself, for he is friendlier than he looks." } },
       choices = { { text = "I may do that. Something else.", next = "BACK" } },
     },
     wrestle = {

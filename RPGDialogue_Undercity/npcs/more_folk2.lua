@@ -188,7 +188,7 @@ P:NPC {
       },
     },
     scorch = {
-      lines = { { id = "scorch_1", text = "Is there? Oh, that one. That was a fire oil that wanted more patience than I had on the day, and I maintain the recipe was sound and the flask was at fault. Algernon sold me the flask, and he has never apologised for it." } },
+      lines = { { id = "scorch_1", key = true, text = "Is there? Oh, that one. That was a fire oil that wanted more patience than I had on the day, and I maintain the recipe was sound and the flask was at fault. Algernon sold me the flask, and he has never apologised for it." } },
       choices = {
         { text = "Does Algernon ever say anything at all?", next = "scorch2" },
         { text = "Let me ask about something else.", next = "BACK" },

@@ -327,14 +327,14 @@ P:NPC {
       choices = { { text = "Fair point. Something else.", next = "BACK" } },
     },
     recipe = {
-      lines = { { id = "re_default", text = "It takes vulture, goretusk snout, murloc eyes and okra to thicken the broth. It's Verna's recipe, and she wrote it out for me herself, so don't tell her I add salt." } },
+      lines = { { id = "re_default", key = true, text = "It takes vulture, goretusk snout, murloc eyes and okra to thicken the broth. It's Verna's recipe, and she wrote it out for me herself, so don't tell her I add salt." } },
       choices = {
         { text = "Verna's? I thought it was yours.", next = "recipe_verna" },
         { text = "Something else.", next = "BACK" },
       },
     },
     recipe_verna = {
-      lines = { { id = "rv_default", text = "Hers, start to finish. She wanted it to stay in Westfall when they go. She was born for the city, whatever she tells you, and Elwynn will be the making of her." } },
+      lines = { { id = "rv_default", key = true, text = "Hers, start to finish. She wanted it to stay in Westfall when they go. She was born for the city, whatever she tells you, and Elwynn will be the making of her." } },
       choices = {
         { text = "I'm not sure Verna wants to leave.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "You'll miss her.", next = "furlbrows_miss" },

@@ -539,7 +539,7 @@ P:NPC {
       },
     },
     capital_last = {
-      lines = { { id = "cl_default", fx = { learn = { "arthas" } }, text = "New liveries for the prince's homecoming, because the whole court was to line the road and cheer him in from Northrend. We finished the last of them the night before, and the pages wore them at the gate when he came through." } },
+      lines = { { id = "cl_default", key = true, fx = { learn = { "arthas" } }, text = "New liveries for the prince's homecoming, because the whole court was to line the road and cheer him in from Northrend. We finished the last of them the night before, and the pages wore them at the gate when he came through." } },
       choices = {
         { text = "That must be a hard thing to remember.", next = "capital_pride" },
         { text = "Something else.", next = "BACK" },
@@ -683,7 +683,7 @@ P:NPC {
       },
     },
     study3 = {
-      lines = { { id = "sy3_default", text = "I've no idea how it ends, and it's the great sorrow of my death. Jorah Annison, the cartographer, has read my half four times and has three theories. If you ever find the rest of The Shepherdess of Darrowmere, bring it here before you bring it anywhere." } },
+      lines = { { id = "sy3_default", key = true, text = "I've no idea how it ends, and it's the great sorrow of my death. Jorah Annison, the cartographer, has read my half four times and has three theories. If you ever find the rest of The Shepherdess of Darrowmere, bring it here before you bring it anywhere." } },
       choices = {
         { text = "I'll keep an eye out for it.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },

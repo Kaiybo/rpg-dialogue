@@ -878,7 +878,7 @@ P:NPC {
 -- Jannos Lighthoof (Camp Mojache, druid trainer)
 ---------------------------------------------------------------------------
 P:NPC {
-  key = "jannos", id = TODO_NPC("Jannos Lighthoof"), name = "Jannos Lighthoof", title = "Druid Trainer",
+  key = "jannos_lighthoof", id = TODO_NPC("Jannos Lighthoof"), name = "Jannos Lighthoof", title = "Druid Trainer",
   bible = "bibles/more_folk.md", role = "trainer", tier = "service",
   communities = { "mojache" }, temper = { "calm", "gentle" }, values = { "nature", "wise" },
   notices = { "form", "class" },
@@ -1549,7 +1549,7 @@ P:NPC {
 -- Kylanna Windwhisper (Feathermoon, master alchemy trainer)
 ---------------------------------------------------------------------------
 P:NPC {
-  key = "kylanna", id = TODO_NPC("Kylanna Windwhisper"), name = "Kylanna Windwhisper", title = "Master Alchemist",
+  key = "kylanna_windwhisper", id = TODO_NPC("Kylanna Windwhisper"), name = "Kylanna Windwhisper", title = "Master Alchemist",
   bible = "bibles/more_folk.md", role = "trainer", tier = "service",
   communities = { "feathermoon" }, temper = { "exacting", "calm" }, values = { "craft", "careful" },
   notices = { "craft", "class" , "race" },

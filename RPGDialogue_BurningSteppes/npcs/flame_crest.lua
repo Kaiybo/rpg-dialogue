@@ -215,7 +215,7 @@ P:NPC {
       },
     },
     st3 = {
-      lines = { { id = "st3_default", text = "Me, against fifty orcs? I'm no fool, whatever the Marshal says. My old pappy always said that discretion is the better part of a biscuit, or some such, and I took his meanin', so I tucked myself behind a slag heap an' held me breath." } },
+      lines = { { id = "st3_default", key = true, text = "Me, against fifty orcs? I'm no fool, whatever the Marshal says. My old pappy always said that discretion is the better part of a biscuit, or some such, and I took his meanin', so I tucked myself behind a slag heap an' held me breath." } },
       choices = {
         { text = "You hid.", next = "st4", fx = { affinity = -1 } },
         { text = "That makes no sense, John. Keep going.", next = "st4", fx = { trait = { witty = 1 } } },
@@ -1152,7 +1152,7 @@ P:NPC {
     },
 
     ribbly = {
-      lines = { { id = "r_default", text = "My little brother, and a drain on the family books since the day he could walk. He took our money and wasted it on one scheme after another, and his last scheme must have been the worst of the lot, because it worked on a baron." } },
+      lines = { { id = "r_default", key = true, text = "My little brother, and a drain on the family books since the day he could walk. He took our money and wasted it on one scheme after another, and his last scheme must have been the worst of the lot, because it worked on a baron." } },
       choices = {
         { text = "What did he do?", next = "ribbly_bounty" },
         { text = "That's harsh, about your own brother.", next = "ribbly_family" },

@@ -1388,7 +1388,7 @@ P:NPC {
     },
     sister = {
       lines = {
-        { id = "sister_d", text = "Melizza. Smartest Brimbuzzle there ever was, and she went to make a deal with the Maraudine down in the Valley of Spears, and they put her in a cage instead. I been savin' every copper from the plasm to buy her out, and they won't even name a price." },
+        { id = "sister_d", key = true, text = "Melizza. Smartest Brimbuzzle there ever was, and she went to make a deal with the Maraudine down in the Valley of Spears, and they put her in a cage instead. I been savin' every copper from the plasm to buy her out, and they won't even name a price." },
       },
       choices = {
         { text = "Has anyone tried to free her?", next = "sister_free" },

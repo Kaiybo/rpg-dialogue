@@ -81,6 +81,9 @@ local function clean(v)
   return v
 end
 
+-- Older clients answer yes/no questions with 1/nil instead of true/false.
+local function truthy(v) return v == true or v == 1 end
+
 ---------------------------------------------------------------------------
 -- Probe: which APIs does this client have? (/rpgd probe)
 ---------------------------------------------------------------------------
@@ -170,19 +173,56 @@ function C.Print(msg)
   end
 end
 
+-- Without C_Timer: an OnUpdate frame runs the timers when they're due (never at once, so a
+-- timer that schedules itself again can't recurse), and a ticker keeps ticking until cancelled.
+local fallbackTimers, fallbackFrame = {}, nil
+local function fallbackTimer(seconds, fn, repeating)
+  if not fallbackFrame then
+    local create = resolve("CreateFrame")
+    local ok, f = false, nil
+    if type(create) == "function" then ok, f = pcall(create, "Frame") end
+    if not ok or type(f) ~= "table" or not pcall(f.SetScript, f, "OnUpdate", function()
+      local now, due = C.Clock(), {}
+      for i = #fallbackTimers, 1, -1 do
+        local t = fallbackTimers[i]
+        if t.cancelled then
+          table.remove(fallbackTimers, i)
+        elseif now >= t.at then
+          due[#due + 1] = t
+          if t.every then t.at = now + t.every else table.remove(fallbackTimers, i) end
+        end
+      end
+      for i = #due, 1, -1 do
+        if not due[i].cancelled then pcall(due[i].fn, due[i].handle) end
+      end
+    end) then
+      return nil
+    end
+    fallbackFrame = f
+  end
+  local t = { at = C.Clock() + (tonumber(seconds) or 0), fn = fn, every = repeating and math.max(0.01, tonumber(seconds) or 0) or nil }
+  t.handle = {
+    Cancel = function() t.cancelled = true end,
+    IsCancelled = function() return t.cancelled == true end,
+  }
+  fallbackTimers[#fallbackTimers + 1] = t
+  return t.handle
+end
+
 function C.After(seconds, fn)
   local after = resolve("C_Timer.After")
-  if after then after(seconds, fn) else fn() end
+  if after then after(seconds, fn)
+  elseif not fallbackTimer(seconds, fn, false) then fn() end
 end
 
 function C.NewTicker(seconds, fn)
   local ticker = resolve("C_Timer.NewTicker")
   if ticker then return ticker(seconds, fn) end
-  return { Cancel = function() end }
+  return fallbackTimer(seconds, fn, true) or { Cancel = function() end, IsCancelled = function() return true end }
 end
 
 function C.InCombat()
-  return call("InCombatLockdown") == true
+  return truthy(call("InCombatLockdown"))
 end
 
 function C.Build()
@@ -242,8 +282,8 @@ end
 
 function C.IsAddOnLoaded(name)
   local loadedOrLoading, loaded = call({ "C_AddOns.IsAddOnLoaded", "IsAddOnLoaded" }, name)
-  if loaded ~= nil then return loaded == true end
-  return loadedOrLoading == true
+  if loaded ~= nil then return truthy(loaded) end
+  return truthy(loadedOrLoading)
 end
 
 ---------------------------------------------------------------------------
@@ -268,7 +308,7 @@ function C.GamePadButtons(frame, on)
   end
 end
 
-function C.ShiftDown() return call("IsShiftKeyDown") == true end
+function C.ShiftDown() return truthy(call("IsShiftKeyDown")) end
 
 -- A vertical or horizontal color gradient on a texture (modern ColorMixin form, then the
 -- older one, then a flat average). c1 is the bottom (or left) color, c2 the top (or right).
@@ -539,7 +579,13 @@ end
 -- Is the addon enabled for this character? (Disabled packs must not be loaded.)
 function C.IsAddOnEnabled(name)
   local playerName = call("UnitName", "player")
-  local state = call({ "C_AddOns.GetAddOnEnableState", "GetAddOnEnableState" }, name, playerName)
+  -- C_AddOns takes (addon, character); the old global took (character, addon).
+  local state
+  if resolve("C_AddOns.GetAddOnEnableState") then
+    state = call("C_AddOns.GetAddOnEnableState", name, playerName)
+  else
+    state = call("GetAddOnEnableState", playerName, name)
+  end
   if state == nil then return true end
   if type(state) == "boolean" then return state end
   return state > 0
@@ -562,12 +608,12 @@ end
 -- Units
 ---------------------------------------------------------------------------
 function C.GUID(unit) return clean(call("UnitGUID", unit)) end
-function C.Exists(unit) return call("UnitExists", unit) == true end
-function C.IsPlayer(unit) return call("UnitIsPlayer", unit) == true end
-function C.IsGhost() return call("UnitIsGhost", "player") == true end
-function C.IsDead() return call("UnitIsDeadOrGhost", "player") == true end
+function C.Exists(unit) return truthy(call("UnitExists", unit)) end
+function C.IsPlayer(unit) return truthy(call("UnitIsPlayer", unit)) end
+function C.IsGhost() return truthy(call("UnitIsGhost", "player")) end
+function C.IsDead() return truthy(call("UnitIsDeadOrGhost", "player")) end
 -- A dead NPC (a corpse lying in the world, like the Night Elf Courier) has nothing to say.
-function C.UnitDead(unit) return call("UnitIsDead", unit) == true end
+function C.UnitDead(unit) return truthy(call("UnitIsDead", unit)) end
 function C.Classification(unit) return clean(call("UnitClassification", unit)) end
 function C.Reaction(unit, other) return clean(call("UnitReaction", unit, other or "player")) end
 function C.Family(unit) return clean(call("UnitCreatureFamily", unit)) end
@@ -575,7 +621,7 @@ function C.CreatureType(unit) return clean(call("UnitCreatureType", unit)) end
 -- The player's own pet (a warlock's bound demon, a hunter's beast).
 function C.IsMyPet(unit)
   if not unit or not C.Exists("pet") then return false end
-  return call("UnitIsUnit", unit, "pet") == true
+  return truthy(call("UnitIsUnit", unit, "pet"))
 end
 function C.Faction(unit) return clean(call("UnitFactionGroup", unit or "player")) end
 
@@ -590,7 +636,7 @@ function C.Level(unit)
 end
 
 function C.IsFriendly(unit)
-  return call("UnitIsFriend", "player", unit) == true
+  return truthy(call("UnitIsFriend", "player", unit))
 end
 
 -- Returns localized name, file token ("Human", "Scourge", ...), race ID.
@@ -801,13 +847,13 @@ function C.MapPosition()
   return mapID
 end
 
-function C.IsResting() return call("IsResting") == true end
-function C.IsMounted() return call("IsMounted") == true end
-function C.IsStealthed() return call("IsStealthed") == true end
+function C.IsResting() return truthy(call("IsResting")) end
+function C.IsMounted() return truthy(call("IsMounted")) end
+function C.IsStealthed() return truthy(call("IsStealthed")) end
 
 function C.InInstance()
   local inInstance, kind = call("IsInInstance")
-  return inInstance == true, kind
+  return truthy(inInstance), kind
 end
 
 function C.FormID()
@@ -872,7 +918,7 @@ function C.QuestState(questID)
   if done then return "done" end
   local idx = logIndexFor(questID)
   if idx and idx > 0 then
-    if call("C_QuestLog.ReadyForTurnIn", questID) or call("C_QuestLog.IsComplete", questID) then
+    if call("C_QuestLog.ReadyForTurnIn", questID) or call({ "C_QuestLog.IsComplete", "IsQuestComplete" }, questID) then
       return "ready"
     end
     return "active"
@@ -892,18 +938,21 @@ function C.QuestObjectives(questID)
     return out
   end
   local idx = logIndexFor(questID)
-  if not idx then return out end
+  if not idx or idx == 0 then return out end
   for i = 1, 10 do
     local text, _, finished = call("GetQuestLogLeaderBoard", i, idx)
     if not text then break end
     local have, need = text:match("(%d+)%s*/%s*(%d+)")
-    out[#out + 1] = { text = text, done = finished == true, have = tonumber(have) or 0, need = tonumber(need) or 0 }
+    out[#out + 1] = { text = text, done = finished == true or finished == 1, have = tonumber(have) or 0, need = tonumber(need) or 0 }
   end
   return out
 end
 
 function C.QuestTitle(questID)
-  return call("C_QuestLog.GetTitleForQuestID", questID)
+  -- Classic Era's C_QuestLog.GetQuestInfo(questID) also returns just the title.
+  local title = call({ "C_QuestLog.GetTitleForQuestID", "C_QuestLog.GetQuestInfo" }, questID)
+  if type(title) == "string" then return title end
+  return nil
 end
 
 -- title -> questID for everything currently in the quest log.
@@ -939,7 +988,8 @@ function C.GossipOptions()
   if type(list) == "table" then
     for i = 1, #list do
       local o = list[i]
-      out[#out + 1] = { id = o.gossipOptionID, name = o.name, icon = o.icon, only = o.selectOptionWhenOnlyOption == true }
+      -- Early C_GossipInfo (Classic 1.13-1.14) had no option IDs and selected by index.
+      out[#out + 1] = { id = o.gossipOptionID or i, name = o.name, icon = o.icon, only = o.selectOptionWhenOnlyOption == true }
     end
     return out
   end
@@ -991,7 +1041,7 @@ function C.GreetingQuests()
   local out = {}
   for i = 1, call("GetNumActiveQuests") or 0 do
     local title, complete = call("GetActiveTitle", i)
-    if title then out[#out + 1] = { title = clean(title), index = i, active = true, complete = complete == true } end
+    if title then out[#out + 1] = { title = clean(title), index = i, active = true, complete = truthy(complete) } end
   end
   for i = 1, call("GetNumAvailableQuests") or 0 do
     local title = call("GetAvailableTitle", i)
@@ -1082,16 +1132,16 @@ function C.QuestPageInfo()
     rewardMoney = tonumber(call("GetRewardMoney")) or 0,
     rewardXP = tonumber(call("GetRewardXP")) or 0,
     cost = tonumber(call("GetQuestMoneyToGet")) or 0,
-    completable = call("IsQuestCompletable") == true,
-    auto = call("QuestGetAutoAccept") == true,
-    pvp = call("QuestFlagsPVP") == true,
+    completable = truthy(call("IsQuestCompletable")),
+    auto = truthy(call("QuestGetAutoAccept")),
+    pvp = truthy(call("QuestFlagsPVP")),
   }
 end
 
 -- "Accept", "continue" (hand in items), "reward" (with a choice index or 0), "decline".
 function C.QuestAnswer(action, choice)
   if action == "accept" then
-    if call("QuestGetAutoAccept") == true then return call("AcknowledgeAutoAcceptQuest") end
+    if truthy(call("QuestGetAutoAccept")) then return call("AcknowledgeAutoAcceptQuest") end
     return call("AcceptQuest")
   elseif action == "continue" then
     return call("CompleteQuest")
@@ -1175,7 +1225,7 @@ function C.InRange(unit)
   if not resolve("CheckInteractDistance") then return nil end
   local ok, inRange = pcall(resolve("CheckInteractDistance"), unit, 3)
   if not ok or C.IsSecret(inRange) then return nil end
-  return inRange == true
+  return truthy(inRange)
 end
 
 function C.BindLocation()

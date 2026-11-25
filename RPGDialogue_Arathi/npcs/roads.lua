@@ -213,7 +213,7 @@ P:NPC {
     },
     courier_plan = {
       lines = {
-        { id = "cp_default", text = "Kinelory wants to, and Kinelory is braver than Kinelory is sensible. Walk with her when she goes for the courier, and I'll write the report afterwards in letters Phin can actually read." },
+        { id = "cp_default", key = true, text = "Kinelory wants to, and Kinelory is braver than Kinelory is sensible. Walk with her when she goes for the courier, and I'll write the report afterwards in letters Phin can actually read." },
       },
       choices = {
         { text = "What do you make of the Forsaken, Quae?", next = "opn_forsaken" },

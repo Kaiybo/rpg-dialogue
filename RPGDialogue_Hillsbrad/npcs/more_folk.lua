@@ -250,7 +250,7 @@ P:NPC {
       },
     },
     town2 = {
-      lines = { { id = "tn2_default", text = "A very good one, and wasted on uniform patches. He can cut a shadoweave robe that would turn heads in the Undercity, and instead he lets out deathguards' collars. I've told him he should go back, and he says the town needs him more than the city does." } },
+      lines = { { id = "tn2_default", key = true, text = "A very good one, and wasted on uniform patches. He can cut a shadoweave robe that would turn heads in the Undercity, and instead he lets out deathguards' collars. I've told him he should go back, and he says the town needs him more than the city does." } },
       choices = {
         { text = "He's probably right.", next = "BACK", reply = "He is. I resent it, on his behalf, since he won't." },
         { text = "Something else.", next = "BACK" },
@@ -1541,7 +1541,7 @@ P:NPC {
       },
     },
     silence2 = {
-      lines = { { id = "silence2_1", text = "With Simone Cantrell, at times, in the garden, about nothing. She is of the elder kindred and has patience for long pauses. It is a strange friendship, given our peoples. We have agreed not to mention the past ten thousand years, and it has served us well." } },
+      lines = { { id = "silence2_1", key = true, text = "With Simone Cantrell, at times, in the garden, about nothing. She is of the elder kindred and has patience for long pauses. It is a strange friendship, given our peoples. We have agreed not to mention the past ten thousand years, and it has served us well." } },
       choices = {
         { text = "A quiet friendship is still a friendship.", next = "BACK", reply = "It is the only sort I have ever kept.", fx = { affinity = 1 } },
         { text = "Silence can be its own kind of lie.", next = "BACK", reply = "It can. I try to keep mine to the honest sort." },
@@ -1806,7 +1806,7 @@ P:NPC {
       },
     },
     try = {
-      lines = { { id = "try_1", text = "Ready? Go. Don't rake it, feel it. There's the first. Second. You're rushing the third, it's a spool. There! Nineteen seconds. That's respectable. That's better than respectable, that's faster than Carlo, and I'm absolutely going to tell him." } },
+      lines = { { id = "try_1", key = true, text = "Ready? Go. Don't rake it, feel it. There's the first. Second. You're rushing the third, it's a spool. There! Nineteen seconds. That's respectable. That's better than respectable, that's faster than Carlo, and I'm absolutely going to tell him." } },
       choices = {
         { text = "Tell him gently. He's an assassin.", next = "BACK", reply = "Good point. I'll tell him from behind something." },
         { text = "Let me ask about something else.", next = "BACK" },
@@ -2726,7 +2726,7 @@ P:NPC {
       },
     },
     town = {
-      lines = { { id = "town_1", text = "Shay keeps the inn and waters nothing, I'll say that for him. Craig Hewitt farms dead dirt and is the nearest thing to a happy man we have. Tara Coldgaze watches the south road and hasn't blinked since spring. And Shara Blazen sweeps a church. We're a lively crowd." } },
+      lines = { { id = "town_1", key = true, text = "Shay keeps the inn and waters nothing, I'll say that for him. Craig Hewitt farms dead dirt and is the nearest thing to a happy man we have. Tara Coldgaze watches the south road and hasn't blinked since spring. And Shara Blazen sweeps a church. We're a lively crowd." } },
       choices = {
         { text = "And the apothecary?", next = "BACK", reply = "Lydon. I stay upwind of Lydon. That's my whole opinion." },
         { text = "Something else.", next = "BACK" },

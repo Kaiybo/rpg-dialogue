@@ -18,7 +18,10 @@ function Errands.Met(def)
   local need = def.need or {}
   if need.visit then
     local t = ns.char.places and ns.char.places[need.visit]
-    local taken = rec(def.id) and rec(def.id).taken or 0
+    local r = rec(def.id)
+    -- places[] keeps only the first visit; a visit after taking the errand is r.visited.
+    if r and r.visited then return true, need.visit end
+    local taken = r and r.taken or 0
     return t ~= nil and t >= taken, need.visit
   end
   if need.item then
@@ -70,6 +73,7 @@ function Errands.Act(id, action, env)
     return def.offer
   elseif action == "complete" then
     local r = ns.char.errands[id]
+    if not r or r.done then return nil end
     r.done = now
     if def.reward then ns.Effects.Apply(def.reward, env) end
     if def.journal then ns.Effects.Journal(def.journal, env.ctx or {}, env) end
@@ -92,3 +96,14 @@ function Errands.Describe()
   return out
 end
 
+
+-- Being somewhere an open errand sends you (Trackers fires this on every subzone change).
+ns.Listen("PLACE_VISITED", function(sub)
+  if not ns.char or not ns.char.errands or not ns.Data or not ns.Data.errands then return end
+  for id, r in pairs(ns.char.errands) do
+    local def = ns.Data.errands[id]
+    if type(r) == "table" and not r.done and not r.visited and def and def.need and def.need.visit == sub then
+      r.visited = C.Now()
+    end
+  end
+end)

@@ -424,7 +424,7 @@ P:NPC {
     },
     giveback = {
       lines = {
-        { id = "g_default", text = "I will, I will, I'm not keeping her! I don't even like dolls, and this one's got a funny eye. I just want Donna to say I'm faster first." },
+        { id = "giveback_default", text = "I will, I will, I'm not keeping her! I don't even like dolls, and this one's got a funny eye. I just want Donna to say I'm faster first." },
         { id = "g_guardian", when = { class = { "PALADIN", "PRIEST" } }, text = "You sound like the brothers at the Cathedral, and they already told me twice. I'll give her back, I promise, as soon as Donna says I'm faster." },
       },
       choices = { { text = "See that you do. Something else.", next = "BACK" } },

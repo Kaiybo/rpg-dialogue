@@ -189,7 +189,7 @@ P:NPC {
       },
     },
     greed = {
-      lines = { { id = "g_default", text = "Greed, ambition, call it what you like. Nearly being digested does give a man time to reconsider his career, though I suspect I'll be back at it within the week." } },
+      lines = { { id = "greed_default", text = "Greed, ambition, call it what you like. Nearly being digested does give a man time to reconsider his career, though I suspect I'll be back at it within the week." } },
       choices = {
         { text = "A craftsman should chase the impossible.", next = "BACK", reply = "Exactly what I told myself on the way in! Then again, I'd thank you not to say it too loudly near any more beasts.", fx = { align = { order = -1 } } },
         { text = "Know your limits and you'll live longer.", next = "BACK", reply = "Sensible, and probably right. I'll go for smaller game for a while, maybe something that doesn't eat skinners.", fx = { align = { order = 1 } } },

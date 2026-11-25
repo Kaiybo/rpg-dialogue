@@ -241,7 +241,7 @@ P:NPC {
     },
     daryl_scar = {
       lines = {
-        { id = "dsc_default", text = "A bear called Ol' Sooty gave him that, north in the caves, when he went after it alone tae prove himself. Ask Daryl an' ye'll hear a different story every time, but ask Vyrin an' ye'll hear the true one." },
+        { id = "dsc_default", key = true, text = "A bear called Ol' Sooty gave him that, north in the caves, when he went after it alone tae prove himself. Ask Daryl an' ye'll hear a different story every time, but ask Vyrin an' ye'll hear the true one." },
       },
       choices = {
         { text = "The boy needs humbling, Marek.", next = "BACK", reply = "Humbled, aye, but no' broken. Ol' Sooty did the first part, an' I'll leave the second tae time.", fx = { align = { light = -1 } } },

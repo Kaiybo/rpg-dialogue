@@ -276,7 +276,7 @@ P:NPC {
       choices = { { text = "Some habits outlast death. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     graveyard = {
-      lines = { { id = "g_default", text = "It is, and a busy one, which is more than most villages in Lordaeron can say now. The dead here keep shop, brew potions and pour ale, so you may judge for yourself whether that is better or worse." } },
+      lines = { { id = "graveyard_default", text = "It is, and a busy one, which is more than most villages in Lordaeron can say now. The dead here keep shop, brew potions and pour ale, so you may judge for yourself whether that is better or worse." } },
       choices = { { text = "Better, I think. Something else.", next = "BACK" } },
     },
   },

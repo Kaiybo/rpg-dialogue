@@ -783,7 +783,7 @@ P:NPC {
     },
     forsaken = {
       { id = "tp_forsaken", text = "Hamuul believes the Forsaken may yet be healed, and so we spoke for them when they asked to join the Horde. I pray he is right, because the alternative is a grief I do not wish to imagine." },
-      { id = "tp_forsaken2", when = { race = "Undead" }, text = "You are welcome on my bluff, and I hope you find some peace here. Hamuul works for your people's healing, and I watch over it with him." },
+      { id = "tp_forsaken2", when = { race = "Scourge" }, text = "You are welcome on my bluff, and I hope you find some peace here. Hamuul works for your people's healing, and I watch over it with him." },
     },
     sylvanas = { { id = "tp_sylvanas", text = "The Dark Lady keeps her own counsel, and I have never been certain of her heart. We brought her people into the Horde because they suffered, and I hope she remembers that." } },
     centaur = { { id = "tp_centaur", text = "The centaur hunted my people across these plains for generations, and many of our elders died fighting them. With Thrall's help we drove them from Mulgore, and I mean that they never return." } },

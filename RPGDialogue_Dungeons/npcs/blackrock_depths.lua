@@ -709,7 +709,7 @@ P:NPC {
       lines = { { id = "co_default", text = "Some died on the road, some died in here, and the marshal they kept apart from the rest of us. He found out something about Onyxia and the court in Stormwind, and the Dark Irons wanted it out of him badly." } },
       choices = {
         { text = "Then Stormwind must hear what he knows.", next = "BACK", reply = "That's what I've been telling the walls for months. Glad someone finally answered.", fx = { align = { order = 1 } } },
-        { text = "Stormwind left you to rot. Why bother?", next = "BACK", reply = "Fair point, but I'd rather prove them wrong than prove them right.", fx = { align = { order = -1 } } },
+        { text = "Stormwind left you to rot. I wouldn't bother.", next = "BACK", reply = "Fair point, but I'd rather prove them wrong than prove them right.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

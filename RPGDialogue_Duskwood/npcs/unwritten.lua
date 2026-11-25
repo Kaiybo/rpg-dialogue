@@ -187,7 +187,7 @@ P:NPC {
       },
     },
     grove = {
-      lines = { { id = "g_default", text = "Green dragons, sleeping or something like it, and the trees there glow like nothing natural should. The night elves say it's a holy place, and I'll take their word for it from a good long way off.", fx = { learn = { "green_dragons" } } } },
+      lines = { { id = "grove_default", text = "Green dragons, sleeping or something like it, and the trees there glow like nothing natural should. The night elves say it's a holy place, and I'll take their word for it from a good long way off.", fx = { learn = { "green_dragons" } } } },
       choices = {
         { text = "Holy places deserve respect, not fear.", next = "BACK", reply = "Then you go and respect it. I'll stand here and fear it.", fx = { align = { light = 1 } } },
         { text = "Dragons are dragons. Kill them before they wake.", next = "BACK", reply = "You first, friend. I've seen what one sneeze from those beasts does.", fx = { align = { light = -1 } } },

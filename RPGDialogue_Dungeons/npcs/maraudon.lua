@@ -53,7 +53,7 @@ P:NPC {
       lines = { { id = "t_default", text = "She is the princess of the earth, and her grief became rage. She buried my father deep and keeps his spirit with her. Her corruption seeps into the land, and that is why Desolace withers above you." } },
       choices = {
         { text = "Then she must be destroyed.", next = "BACK", reply = "Perhaps it is the only way. But remember that she loved him once, and that even ending her is a sorrow.", fx = { align = { light = -1 } } },
-        { text = "Can her grief be eased instead?", next = "BACK", reply = "You have a kind heart. I tried, in my own way, and it made me into something cursed. Be careful where kindness leads you here.", fx = { align = { light = 1 } } },
+        { text = "Surely her grief could be eased instead.", next = "BACK", reply = "You have a kind heart. I tried, in my own way, and it made me into something cursed. Be careful where kindness leads you here.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

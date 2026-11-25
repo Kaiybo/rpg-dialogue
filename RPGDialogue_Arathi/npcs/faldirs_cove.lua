@@ -432,7 +432,7 @@ P:NPC {
 
     dwarf = {
       lines = {
-        { id = "dw_default", text = "A bet in a Booty Bay tavern that no dwarf could keep a deck. I won it, an' then I had tae keep the deck, for the goblins never let ye off a bet." },
+        { id = "dw_default", key = true, text = "A bet in a Booty Bay tavern that no dwarf could keep a deck. I won it, an' then I had tae keep the deck, for the goblins never let ye off a bet." },
       },
       choices = {
         { text = "That's a fine story, Captain.", next = "BACK", fx = { affinity = 2 } },

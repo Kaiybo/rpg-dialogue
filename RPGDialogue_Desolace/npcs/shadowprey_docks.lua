@@ -110,7 +110,7 @@ P:NPC {
 
     bubbles = {
       lines = {
-        { id = "bu_default", text = "If you be huntin' naga, you'll need all de help you can get. Deep in de water dere be bubbly fissures, cracks in de sea floor dat breathe out air, and if you swim up close you can breathe from de bubbles and keep fightin'." },
+        { id = "bu_default", key = true, text = "If you be huntin' naga, you'll need all de help you can get. Deep in de water dere be bubbly fissures, cracks in de sea floor dat breathe out air, and if you swim up close you can breathe from de bubbles and keep fightin'." },
       },
       choices = {
         { text = "How did you learn that?", next = "bubbles_learn" },

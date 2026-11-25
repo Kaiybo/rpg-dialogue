@@ -300,7 +300,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true,
           text = "I am Kal, and I teach the young druids of Dolanaar what they're ready to learn. Those who aren't druids I simply wish well, and that is a lesson too." },
-        { id = "h_druid", when = { class = "DRUID", level = { min = 10 } },
+        { id = "h_druid", when = { class = "DRUID", minLevel = 10 },
           text = "Mathrengyl Bearwalker has put out word that he wishes to speak with you. Your training as a druid is about to take on a new life, and he will train you himself, in the Cenarion Enclave of Darnassus, on the second floor of the Arch Druid's tree." },
         { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("Heeding the Call") },
           text = "Mathrengyl awaits you in the Enclave. Don't keep him waiting; he's the Arch Druid's own assistant, and his patience is long but not endless." },

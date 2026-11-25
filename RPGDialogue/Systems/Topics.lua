@@ -94,7 +94,8 @@ function Topics.Filter(list, text)
 end
 
 function Topics.CategoryName(cat)
-  return L["TOPIC_CAT_" .. tostring(cat):upper()] or cat
+  -- rawget: L falls back to the key itself, which would show "TOPIC_CAT_X" for a new category.
+  return rawget(L, "TOPIC_CAT_" .. tostring(cat):upper()) or cat
 end
 
 -- Rows for the list: the "ask anyone" topics, then each category under a header, in the

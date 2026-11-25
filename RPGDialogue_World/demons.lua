@@ -801,7 +801,7 @@ P:NPC {
   },
   topics = {
     scholomance = { { id = "t_sch", text = "A dreadful school, full of dreadful students, and the laboratory bench is the only thing in it I'd recommend." } },
-    dire_maul = { { id = "t_dm", text = "The pedestal where the ritual works is the only reason to come here, unless you happen to like ogres." } },
+    dire_maul = { { id = "tp_dm", text = "The pedestal where the ritual works is the only reason to come here, unless you happen to like ogres." } },
     _none = { { id = "t_none", text = "I'm afraid I don't know, friend; I spend most of my life in a jar." } },
   },
 }

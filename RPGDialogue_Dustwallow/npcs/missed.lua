@@ -425,7 +425,7 @@ P:NPC {
       },
     },
     guard = {
-      lines = { { id = "g_default", text = "Straw targets, mostly, and thank the Light for that. Guard Lasiter's at the butts from morning to dusk, and he goes through more of my arrows than the rest of the garrison put together." } },
+      lines = { { id = "guard_default", text = "Straw targets, mostly, and thank the Light for that. Guard Lasiter's at the butts from morning to dusk, and he goes through more of my arrows than the rest of the garrison put together." } },
       choices = {
         { text = "Is he any good?", next = "lasiter" },
         { text = "Something else.", next = "BACK" },

@@ -15,7 +15,7 @@ local RACES = {
 local BOOLS = {
   mounted = true, stealthed = true, ghost = true, nearlyNaked = true, resting = true, capital = true,
   atInn = true, camping = true, resSick = true, hardcore = true, inInstance = true, npcElite = true,
-  metBefore = true,
+  metBefore = true, persuade = true,
 }
 
 local NUMBERS = {
@@ -23,6 +23,8 @@ local NUMBERS = {
   deaths = true, timesTalked = true, daysSince = true, affinity = true, light = true, order = true,
   honor = true, taint = true, insanity = true, npcID = true, townStanding = true,
   away = true, levelsSince = true,
+  -- read as numbers by Disposition.For, Engine ackChance, Conditions objectiveLeft/killed/rep
+  disposition = true, ackChance = true, objectiveLeft = true, killed = true, rep = true,
 }
 
 local SETS = { debuffTypes = true, auras = true, holiday = true, outOfPlace = true }
@@ -56,6 +58,12 @@ function Spoof.Parse(token)
     return key, { family = raw, name = "Spot" }
   end
   if BOOLS[key] then return key, toBool(raw) end
+  -- prejudiced = true / false / overcome (Conditions `prejudice`)
+  if key == "prejudiced" then
+    local l = raw:lower()
+    if l == "overcome" then return key, l end
+    return key, toBool(raw)
+  end
   if NUMBERS[key] then
     local n = tonumber(raw)
     if not n then return nil end

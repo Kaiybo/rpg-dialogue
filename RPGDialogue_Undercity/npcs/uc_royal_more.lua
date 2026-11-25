@@ -205,7 +205,7 @@ P:NPC {
       },
     },
     readers = {
-      lines = { { id = "rd_default", text = "Fewer than you'd hope. Salazar Bloch sells books in the Trade Quarter and won't lend, Parqual Fintallas knows more history than any page I own, and a mage called Faith Duggins lent me half a novel that has ruined my peace entirely." } },
+      lines = { { id = "rd_default", key = true, text = "Fewer than you'd hope. Salazar Bloch sells books in the Trade Quarter and won't lend, Parqual Fintallas knows more history than any page I own, and a mage called Faith Duggins lent me half a novel that has ruined my peace entirely." } },
       choices = {
         { text = "The Shepherdess of Darrowmere?", next = "readers2", when = { heardLine = "uc_faith_duggins.sy3_default" } },
         { text = "Why ruined?", next = "readers2" },

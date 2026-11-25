@@ -53,7 +53,7 @@ P:NPC {
       },
     },
     goblins = {
-      lines = { { id = "g_default", text = "Smokywood Pastures came up from the south with their carts, and overnight the feast was a thing ye buy. They've a fellow in a red suit handin' out their wares as if he were Greatfather Winter himself, and the bairns cannae tell the difference." } },
+      lines = { { id = "goblins_default", text = "Smokywood Pastures came up from the south with their carts, and overnight the feast was a thing ye buy. They've a fellow in a red suit handin' out their wares as if he were Greatfather Winter himself, and the bairns cannae tell the difference." } },
       choices = {
         { text = "Who is Greatfather Winter?", next = "reason" },
         { text = "Something else.", next = "BACK" },
@@ -220,7 +220,7 @@ P:NPC {
       },
     },
     good = {
-      lines = { { id = "g_default", text = "One of the best at this forge, though I'd never say it where he could hear. I've watched him draw a bar into a blade in a single heat, and I mean to do the same before my beard reaches my belt." } },
+      lines = { { id = "good_default", text = "One of the best at this forge, though I'd never say it where he could hear. I've watched him draw a bar into a blade in a single heat, and I mean to do the same before my beard reaches my belt." } },
       choices = { { text = "You'll get there, Groum. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     nails = {

@@ -703,7 +703,7 @@ P:NPC {
           text = "I went up to the keep and sat with Demar. We didn't talk about Fern, not really; we drank to her, alive or not, and that's the first time in years." },
         { id = "h_soured", when = { thread = { id = "farholde_lost", state = "soured" } },
           text = "Don't. Whatever it is, I've heard it." },
-        { id = "h_tessa", when = { metBefore = true }, text = "I wrote Tessa a letter, tore it up and wrote another, and that one's in the stew, I think. Don't eat the stew." },
+        { id = "h_tessa", key = true, when = { metBefore = true }, text = "I wrote Tessa a letter, tore it up and wrote another, and that one's in the stew, I think. Don't eat the stew." },
         { id = "h_apaladin", when = { class = "PALADIN" }, text = "A paladin. Sir Howard, who led our charge at the siege, was one of you, and the last thing I need tonight is reminding of him, so sit if you're sitting." },
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter. If that animal drinks out of my mug, you're buying the next one." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "You've got the walk. Fern Crimsonleaf, our old agent, had that walk, so don't do it in here, please; it makes me look up." },

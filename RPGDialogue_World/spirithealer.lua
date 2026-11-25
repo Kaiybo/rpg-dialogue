@@ -421,7 +421,7 @@ P:Pool {
     ---------------------------------------------------------------------------
     price = {
       lines = {
-        { id = "pr_default", key = true,
+        { id = "prc_default", key = true,
           text = "Because you are taking the short road, and the short road takes a toll. Your armor comes back worn, as if it walked the whole way without you, and your body wakes weak for a while, because it is ashamed of having been left behind, and it sulks." },
         { id = "pr_young", priority = 10, when = { maxLevel = 9 },
           text = "For you it costs very little yet, because your body is young and forgives quickly. That will change, so do not grow used to my kindness." },
@@ -437,7 +437,7 @@ P:Pool {
     },
     price_who = {
       lines = {
-        { id = "pw_default",
+        { id = "pcw_default",
           text = "The same ones who permitted me, I think, though the instructions do not say so. I only know that I have never once been allowed to send anyone back whole, and at the start I asked the silence why, every single time." },
       },
       choices = {
@@ -538,7 +538,7 @@ P:Pool {
     },
     fa_grom = {
       lines = {
-        { id = "fg_default",
+        { id = "fag_default",
           text = "He came up the hill clean, and I had never seen an orc arrive clean before; the demon's blood had always come with them, like mud on their boots. He laughed the whole way up, and would not tell me why, except that he had won." },
         { id = "fg_orc", priority = 10, when = { race = "Orc" },
           text = "Your people still argue over him, I know, so I will tell you only what I saw: he arrived free, and he was prouder of that than of anything he ever killed." },
@@ -1465,7 +1465,7 @@ P:Pool {
     },
     c_warlock = {
       lines = {
-        { id = "wl_default",
+        { id = "cwl_default",
           text = "No, and I am grateful for it. When one of your servants falls, it goes home to the Nether, howling, and it never climbs this hill. But I can smell them on you, every time you arrive, and the others in the gray drift away from you while you stand here." },
       },
       choices = {
@@ -1535,7 +1535,7 @@ P:Pool {
     },
     c_druid = {
       lines = {
-        { id = "dr_default",
+        { id = "cdr_default",
           text = "If he does, he has never said so to me. Your Emerald Dream lies close to here, closer than any other place I know; on quiet nights I can hear it breathing, like a forest asleep on the other side of a wall." },
       },
       choices = {
@@ -1605,7 +1605,7 @@ P:Pool {
     },
     r_dwarf = {
       lines = {
-        { id = "dw_default",
+        { id = "rdw_default",
           text = "Your people believe so, and I have never seen a dwarf argue with me about where they were going. They only come up, set their jaw, and wait to be sent back, as though dying were an errand that took longer than it should." },
       },
       choices = {
@@ -1615,7 +1615,7 @@ P:Pool {
     },
     r_dwarf2 = {
       lines = {
-        { id = "dw2_default",
+        { id = "rdw2_default",
           text = "They walk down the far side of the hill, toward something that sounds like a forge at a great distance. I have never followed them, but every one of them was smiling before they reached the bottom, and that tells me enough." },
       },
       choices = {

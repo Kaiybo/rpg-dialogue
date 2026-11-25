@@ -22,7 +22,7 @@ P:NPC {
     { id = "g_default", text = "Welcome. Sit anywhere ye like, but don't be blockin' our way." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Yer stool's where ye left it, more or less." },
     { id = "g_drunk", when = { drunk = true }, text = "Ye've had plenty already, by the walk on ye. Sit down before ye fall down, an' I'll bring water." },
-    { id = "g_night", when = { time = "night" }, text = "Late for the road, this. Come in out o' the damp an' mind the step." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "Late for the road, this. Come in out o' the damp an' mind the step." },
   },
 
   notice = {

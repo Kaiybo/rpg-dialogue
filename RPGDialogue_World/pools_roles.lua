@@ -931,7 +931,7 @@ P:Pool {
     },
     gossip = {
       lines = {
-        { id = "g_camp", when = { resting = false }, text = "Every traveller stops for water, and most of them talk while they drink. I hear which roads are bad and which camps are nervous, and nobody minds me listening, because I'm only the one with the bottles." },
+        { id = "gs_camp", when = { resting = false }, text = "Every traveller stops for water, and most of them talk while they drink. I hear which roads are bad and which camps are nervous, and nobody minds me listening, because I'm only the one with the bottles." },
         { id = "g_default", text = "Mostly who owes whom, whose cart lost a wheel, and which guard sleeps through the night watch. Folk don't tell a bartender secrets, they just forget I'm standing here, which comes to the same thing." },
         { id = "g_alliance", when = { faction = "Alliance" }, text = "The caravan drivers say King Varian still hasn't come home, and Lord Bolvar is ruling as regent in his place. Folk are uneasy, and uneasy folk drink." },
         { id = "g_horde", when = { faction = "Horde" }, text = "The caravan drivers say the centaur are bolder on the Barrens roads than they've been in years, and nobody's riding out alone. Good for my trade, I suppose, since frightened folk drink." },
@@ -2298,7 +2298,7 @@ P:Pool {
       text = "Send your succubus to wait in the hall. She distracts my other students, and she knows perfectly well that she does." },
     { id = "n_felhunter", cat = "pet", when = { pet = { family = "Felhunter" } },
       text = "Your felhunter is sniffing at my wards. They need the testing, but call it back before it eats one." },
-    { id = "n_human", cat = "class", when = { race = "Human", class = "WARLOCK" },
+    { id = "n_human2", cat = "class", when = { race = "Human", class = "WARLOCK" },
       text = "A human warlock, and a bold one to walk in here in daylight. Half the nobles on the hill would hang you in public and ask you a favour in private, so mind which half you're talking to." },
     { id = "n_taint", cat = "dark", when = { taint = { min = 60 } },
       text = "There's fel on you thick enough to smell, like hot iron and burnt hair. I've seen students go that colour before, and I've buried most of them." },
@@ -2404,7 +2404,7 @@ P:Pool {
     shards_harvest = {
       narr = "The trainer turns a small violet stone over in one hand, then sets it down very carefully.",
       lines = {
-        { id = "sh_default", text = "Every shard is the last of something that died under your hand while you were drinking from it, pulled out and set in stone. You'll spend them on the greater summonings and on healthstones and soulstones, and you'll never have quite enough, so take them when the killing's easy." },
+        { id = "shv_default", text = "Every shard is the last of something that died under your hand while you were drinking from it, pulled out and set in stone. You'll spend them on the greater summonings and on healthstones and soulstones, and you'll never have quite enough, so take them when the killing's easy." },
         { id = "sh_undead", when = { race = "Scourge" }, text = "You'll find the harvest easier than the living do, I expect, since you know better than most what a soul is worth once it's loose. Every shard is the last of something you killed, set in stone, and you'll spend them faster than you'd like." },
       },
       choices = {
@@ -2722,7 +2722,7 @@ P:Pool {
     -- The demon at the player's side.
     pet = {
       lines = {
-        { id = "pe_default", text = "Of course it has; they always do. Listen well, {pet}, because your master's lessons are your lessons too, and the first one is that you serve until you're told otherwise." },
+        { id = "pet_default", text = "Of course it has; they always do. Listen well, {pet}, because your master's lessons are your lessons too, and the first one is that you serve until you're told otherwise." },
         { id = "pe_imp", when = { pet = { family = "Imp" } }, text = "Of course it has, because imps eavesdrop the way other creatures breathe. Listen, {pet}: the books on that shelf are warded, and the last imp who touched one is still a smudge on the ceiling." },
         { id = "pe_void", when = { pet = { family = "Voidwalker" } }, text = "Of course it has, though it hasn't the faintest idea what we're saying. Stand there and be still, {pet}, as you do so well, and keep your master between you and my candles." },
         { id = "pe_succ", when = { pet = { family = "Succubus" } }, text = "Of course she has, and she's enjoying it far too much. Hear me, {pet}: your master is my student, and if you ever try your tricks on my students, I will know." },
@@ -2799,7 +2799,7 @@ P:Pool {
       },
     },
     heritage_orc = {
-      lines = { { id = "ho_default", text = "It nearly did, and it took Grom Hellscream's death to break the curse that came with it. The blood is gone from the Horde, but the memory of it isn't, and an orc at this trade carries that memory into every grimoire opened." } },
+      lines = { { id = "hor_default", text = "It nearly did, and it took Grom Hellscream's death to break the curse that came with it. The blood is gone from the Horde, but the memory of it isn't, and an orc at this trade carries that memory into every grimoire opened." } },
       choices = { { text = "Then I'll carry it well.", next = "BACK", reply = "Carry it like a scar, not a banner. Something else?" } },
     },
   },
@@ -4721,7 +4721,7 @@ P:Pool {
       },
     },
     w_arms = {
-      lines = { { id = "wa_default", text = "Arms is the old soldier's road: a big weapon in both hands, Sweeping Strikes to cut through a crowd, and at the very end Mortal Strike, which leaves a wound that healing struggles to close. Take it if you mean to bring down whatever's in front of you, especially if there's a priest behind it." } },
+      lines = { { id = "wam_default", text = "Arms is the old soldier's road: a big weapon in both hands, Sweeping Strikes to cut through a crowd, and at the very end Mortal Strike, which leaves a wound that healing struggles to close. Take it if you mean to bring down whatever's in front of you, especially if there's a priest behind it." } },
       choices = {
         { text = "Tell me about another road.", next = "w_talents" },
         { text = "Something else.", next = "BACK" },
@@ -5698,7 +5698,10 @@ P:Pool {
     { id = "n_lock_pact", cat = "lock_pact", when = { aura = { 6307, 7804, 7805, 11766, 11767 } },
       text = "Your blood's running hot; I can see it in your face. That's no battle-fever, that's an imp's pact, and I've heard what demon blood did to the Horde." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "I can smell you, so come out." } },
+  react = {
+    { id = "r_stealth", on = "stealth", text = "I can smell you, so come out." },
+    { id = "r_lock_armor", on = "aura", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } }, text = "You call demon skin onto yourself in front of a grunt? Do that again near the wolf pens and I'll let the wolves decide what you are." },
+  },
   lines = {
     { id = "l_default", text = "If you're looking for a fight, there are better places than my post. Ask anyone." },
     { id = "l_warrior", when = { class = "WARRIOR" }, text = "Good, another warrior. If trouble comes through this gate, you'll stand with us." },
@@ -5706,7 +5709,6 @@ P:Pool {
     { id = "l_shaman", when = { class = "SHAMAN" }, text = "The spirits are restless past the camp, shaman. The scouts say the wind's been wrong all week." },
     { id = "l_hunter", when = { class = "HUNTER" }, text = "Hunters bring the best news, since you go where the scouts don't. Seen anything moving out there?" },
     { id = "l_mage", when = { class = "MAGE" }, text = "Keep the fire in your hands and out of the supply tents, mage." },
-    { id = "r_lock_armor", on = "aura", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } }, text = "You call demon skin onto yourself in front of a grunt? Do that again near the wolf pens and I'll let the wolves decide what you are." },
   },
   -- 0.71.0: a conversation tree shared by every Horde guard: orc grunts, troll and tauren
   -- braves and Forsaken Deathguard alike, so it speaks for the Horde, not one people.
@@ -6510,14 +6512,16 @@ P:Pool {
     { id = "n_lock_firestone", cat = "lock_stones", when = { class = "WARLOCK", carrying = { 5522, 13602, 13603, 1254, 13699, 13700, 13701 } },
       text = "That's a firestone ye've got on ye. The smiths at the Great Forge say it makes a blade burn, an' they say it like a curse." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "Sneakin' about under the mountain? Out wi' ye, where I can see." } },
+  react = {
+    { id = "r_stealth", on = "stealth", text = "Sneakin' about under the mountain? Out wi' ye, where I can see." },
+    { id = "r_lock_armor", on = "aura", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } }, text = "Did ye just pull demon skin round yerself, in front o' the King's own guard? Ye've more nerve than sense, an' I'm watchin' ye now." },
+  },
   lines = {
     { id = "l_default", text = "Great Forge in the middle, King Magni up in the throne room, the tram to Stormwind down the Tinker Town way. Ye'll not get lost, it's a circle." },
     { id = "l_warrior", when = { class = "WARRIOR" }, text = "Hall of Arms for the fightin' trades, through the Military Ward. Ye'll hear it afore ye find it." },
     { id = "l_rogue", when = { class = "ROGUE" }, text = "Keep yer hands where the mountain can see them. We've a long memory under here, and short tempers." },
     { id = "l_magni", text = "King Magni holds court in the High Seat, an' he's a fair king if ye bring him an honest matter. Bring him a dishonest one an' ye'll learn how loud a throne room echoes." },
     { id = "l_dark_iron", text = "If ye see a Dark Iron anywhere near the gates, ye shout, an' ye shout loud. We've not forgotten what Thaurissan's lot did to this mountain." },
-    { id = "r_lock_armor", on = "aura", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } }, text = "Did ye just pull demon skin round yerself, in front o' the King's own guard? Ye've more nerve than sense, an' I'm watchin' ye now." },
   },
   choices = { { text = "Thanks.", next = "END" } },
   topics = {
@@ -6883,14 +6887,16 @@ P:Pool {
     { id = "n_lock_taint", cat = "lock_taint", when = { class = "WARLOCK", taint = { min = 30 } },
       text = "You smell of the fel, the old smell that hung over Zin-Azshari before the sea took it. Our elders taught us that smell, stranger, so that we would never forget it." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "The Sentinels own every dark corner in this city. Step out where I can see you." } },
+  react = {
+    { id = "r_stealth", on = "stealth", text = "The Sentinels own every dark corner in this city. Step out where I can see you." },
+    { id = "r_lock_armor", on = "aura", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } }, text = "You call a demon's skin onto yourself beneath the World Tree? My glaive is drawn, and it will stay drawn until you leave." },
+  },
   lines = {
     { id = "l_default", text = "The Temple of the Moon for the priestesses, the Cenarion Enclave for the druids. Walk softly; this tree is young." },
     { id = "l_warrior", when = { race = "NightElf", class = "WARRIOR" }, text = "Our warriors train on the Warrior's Terrace. The Sentinels will want to measure you, so be ready." },
     { id = "l_hunter", when = { class = "HUNTER" }, text = "Hunters gather at the Cenarion Enclave with the druids. Keep your companion close on the bridges." },
     { id = "l_tree", text = "Teldrassil is young yet, and the Sentinels guard her the way you would guard a sapling in a storm. Walk gently on her branches, and she will hold you." },
     { id = "l_tyrande", text = "The High Priestess keeps the Temple of the Moon, and her word is law beneath these boughs. If you seek an audience, the priestesses will tell you whether you may have one." },
-    { id = "r_lock_armor", on = "aura", when = { class = "WARLOCK", aura = { 687, 696, 706, 1086, 11733, 11734, 11735 } }, text = "You call a demon's skin onto yourself beneath the World Tree? My glaive is drawn, and it will stay drawn until you leave." },
   },
   choices = { { text = "Thank you, Sentinel.", next = "END" } },
   tier = "service",
@@ -7100,13 +7106,15 @@ P:Pool {
     { id = "n_lock_soulstone", cat = "lock_soulstone", when = { aura = { 20707, 20762, 20763, 20764, 20765 } },
       text = "Bound your soul in a stone, have you? Some of us would have given a great deal for that kind of choice the day the plague came, so use it well." },
   },
-  react = { { id = "r_stealth", on = "stealth", text = "We see better in the dark than you think, so out." } },
+  react = {
+    { id = "r_stealth", on = "stealth", text = "We see better in the dark than you think, so out." },
+    { id = "r_lock_soulstone", on = "aura", when = { aura = { 20707, 20762, 20763, 20764, 20765 } }, text = "A soulstone, down here? It hardly matters in the Undercity, friend. Most of us came back without one." },
+  },
   lines = {
     { id = "l_default", text = "The Apothecarium, the Magic Quarter, the War Quarter and the Rogues' Quarter, all in a ring around the Trade Quarter. The Banshee Queen keeps the Royal Quarter, and you don't." },
     { id = "l_shaman", when = { class = "SHAMAN" }, text = "Shamans don't come down here much. The elements are a long way from the Undercity, and they seem to like it that way." },
     { id = "l_lady", text = "The Dark Lady gave us our wills back, and we stand guard so no one takes them again. That's all the reason a Deathguard needs, and a better one than the living ever gave me." },
     { id = "l_scarlet", text = "The Scarlet Crusade would burn this whole city with us in it, and they'd sing hymns while they did. Keep that in mind when the living tell you we're the monsters." },
-    { id = "r_lock_soulstone", on = "aura", when = { aura = { 20707, 20762, 20763, 20764, 20765 } }, text = "A soulstone, down here? It hardly matters in the Undercity, friend. Most of us came back without one." },
   },
   choices = { { text = "Understood.", next = "END" } },
   topics = {

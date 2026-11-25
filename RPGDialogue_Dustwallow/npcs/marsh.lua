@@ -67,7 +67,7 @@ P:NPC {
       lines = { { id = "tbti_default", text = "Velratha, a hydromancer of the sand trolls, has a tiara of mine down in Zul'Farrak, the Tiara of the Deep, which I made for working the sea, and she came by it through a bad bargain I'd rather not discuss. I'd sooner it sat on my shelf than on a troll's head, for everyone's sake." } },
       choices = {
         { text = "I'll bring it back to you, Tabetha.", next = "BACK", reply = "Bless you, dear, and bring a priest along too, because Velratha fights dirty and so do her friends.", fx = { affinity = 1, align = { honor = 1 } } },
-        { text = "What's it worth to you, exactly?", next = "BACK", reply = "A good deal, dear, and you'll be paid in what I have, which is mostly shoulder pads and gratitude.", fx = { align = { honor = -1 } } },
+        { text = "First I'll want to know what it's worth to you.", next = "BACK", reply = "A good deal, dear, and you'll be paid in what I have, which is mostly shoulder pads and gratitude.", fx = { align = { honor = -1 } } },
         { text = "Something else, Tabetha.", next = "BACK" },
       },
     },

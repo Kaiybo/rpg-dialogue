@@ -942,7 +942,7 @@ P:NPC {
     },
     device = {
       lines = {
-        { id = "d_default", text = "A way to see far things close! Cog drew it and I'm only the hands: lenses, tubes, and a mount that doesn't wobble, and the wobbling is the hard part." },
+        { id = "d_default", key = true, text = "A way to see far things close! Cog drew it and I'm only the hands: lenses, tubes, and a mount that doesn't wobble, and the wobbling is the hard part." },
       },
       choices = {
         { text = "I'll keep an eye out for parts.", next = "BACK", fx = { affinity = 1 } },

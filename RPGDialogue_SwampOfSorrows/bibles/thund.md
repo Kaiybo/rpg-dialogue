@@ -1,4 +1,4 @@
-# Corporal Thund Splithoof  (key: thund)
+# Corporal Thund Splithoof  (key: thund_splithoof)
 
 ## Sources
 - https://warcraft.wiki.gg/wiki/Corporal_Thund_Splithoof (read: tauren ghost by the entrance to the Blasted Lands in the Swamp of Sorrows; visible after The Stones That Bind Us; gives a chest with the Shard of the Splithooves; speculated member of the Fallen Hero's group; removed 4.0.3a)

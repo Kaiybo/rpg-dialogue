@@ -482,7 +482,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     goblins = {
-      lines = { { id = "g_default", text = "Sloppy work, very loud, surprisingly fast. I'd never admit it, so you never heard me say that last part." } },
+      lines = { { id = "goblins_default", text = "Sloppy work, very loud, surprisingly fast. I'd never admit it, so you never heard me say that last part." } },
       choices = { { text = "Heard nothing.", next = "BACK" } },
     },
   },
@@ -518,7 +518,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gnomes = {
-      lines = { { id = "g_default", text = "They measure everything twice and still lose. We measure nothing, and sometimes we win. That's the goblin way." } },
+      lines = { { id = "gnomes_default", text = "They measure everything twice and still lose. We measure nothing, and sometimes we win. That's the goblin way." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -554,7 +554,7 @@ P:NPC {
       },
     },
     grow = {
-      lines = { { id = "g_default", text = "Not yet, and perhaps not for an age. But the earth remembers, and with the right seeds and the right patience, the flats may bloom again." } },
+      lines = { { id = "grow_default", text = "Not yet, and perhaps not for an age. But the earth remembers, and with the right seeds and the right patience, the flats may bloom again." } },
       choices = {
         { text = "Nature heals itself in time.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Nature needs a guiding hand.", next = "BACK", fx = { align = { order = 1 } } },

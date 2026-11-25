@@ -388,7 +388,7 @@ P:NPC {
       },
     },
     grill = {
-      lines = { { id = "g_default", text = "Whatever the Faire's hunters bring, and the frogs, when there are frogs. The little ones like them crisp, and so do I, though my clan back home would laugh to see it." } },
+      lines = { { id = "grill_default", text = "Whatever the Faire's hunters bring, and the frogs, when there are frogs. The little ones like them crisp, and so do I, though my clan back home would laugh to see it." } },
       choices = { { text = "I'll take your word for it. Something else.", next = "BACK" } },
     },
   },

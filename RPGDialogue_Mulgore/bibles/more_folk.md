@@ -44,7 +44,7 @@ Anything after Year 1; no Cataclysm Mulgore; nothing about the Skyborne beyond B
 ### Authored, not canon
 Harb's grey cow and the grass fire; Chaw's crooked straps; Pyall's mother's pot; the Darkmanes as traders between the herds; Wunna's knotted cord.
 
-## Added later (keys: kawnie, marjak, varia, bronk, reban, moorat, kennah, vira, yonn, harn)
+## Added later (keys: kawnie, marjak, varia, bronk_steelrage, reban, moorat, kennah, vira, yonn, harn)
 
 ### Sources
 - warcraft.wiki.gg (Classic and Forever parts only): Kawnie Softbreeze <General Goods>, Marjak Keenblade <Weaponsmith>, Varia Hardhide <Leather Armor Merchant>, Bronk Steelrage <Armorer & Shieldcrafter> (Camp Narache; the last three share the armory tent; Bronk is of the Steelrage tribe). Reban Freerunner <Pet Trainer>, Moorat Longstride <General Goods> (other Longstrides exist elsewhere), Kennah Hawkseye <Gunsmith>, Vira Younghoof <Bandage Trainer> (Forever: ends Camping 101: First Aid, the First Aid Kit), Yonn Deepcut <Skinning Trainer> (Forever: ends Camping 101: Skinning, the Camp Chair), Harn Longcast <Fishing Supplies> (near the bridge leading north out of Bloodhoof Village).

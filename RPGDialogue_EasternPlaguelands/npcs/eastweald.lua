@@ -210,7 +210,7 @@ P:NPC {
     story = {
       big = true,
       lines = {
-        { id = "s_default", text = "There was an orc, Eitrigg, living alone in the hills near Hearthglen, and he saved my life. When my people came to kill him, I stood between them, and for that they stripped me of my order and my lands and named me traitor. My wife told my son I'd died. Perhaps that was a kindness." },
+        { id = "s_default", key = true, text = "There was an orc, Eitrigg, living alone in the hills near Hearthglen, and he saved my life. When my people came to kill him, I stood between them, and for that they stripped me of my order and my lands and named me traitor. My wife told my son I'd died. Perhaps that was a kindness." },
       },
       choices = {
         { text = "You don't seem to regret it.", next = "regret" },

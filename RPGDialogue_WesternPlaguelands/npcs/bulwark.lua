@@ -818,7 +818,7 @@ P:NPC {
       big = true,
       lines = { { id = "xhpriest_default", text = "One did, once, and she was very kind about it, but it turns out the Light doesn't care for dead joints, and the shadow just makes them ache in a more interesting way. I've decided the knee is a scholarly matter now, and I take notes on it every morning, which is more than most priests do for their patients." } },
       choices = {
-        { text = "Let me try anyway. What's the worst that happens to a dead knee?", next = "BACK", reply = "Very kind of you, and I'll write down whatever happens. Science thanks you, and so does my knee.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Let me try anyway. A dead knee hasn't much left to lose.", next = "BACK", reply = "Very kind of you, and I'll write down whatever happens. Science thanks you, and so does my knee.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Keep your notes, Apothecary. Shadow's no friend to bone.", next = "BACK", reply = "Quite right, quite right, and I'll keep my notes. The knee remains a scholarly matter.", fx = { align = { light = -1 } } },
         { text = "Something else, Apothecary.", next = "BACK" },
       },

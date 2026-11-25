@@ -40,14 +40,22 @@ end
 function Effects.Drift(now)
   local a = ns.char.align
   local last = a.driftAt or now
+  -- Taint keeps its own clock: measured from driftAt (which only moves in whole weeks), a
+  -- player who talks to someone every week would never see a 10-day step and never decay.
+  local taintLast = a.taintAt or last
+  local taintDecay = math.floor((now - taintLast) / 864000)
+  if taintDecay > 0 then
+    a.taint = math.max(0, (a.taint or 0) - taintDecay)
+    a.taintAt = taintLast + taintDecay * 864000
+  else
+    a.taintAt = taintLast
+  end
   local weeks = math.floor((now - last) / 604800)
   if weeks <= 0 then a.driftAt = a.driftAt or now; return end
   for _, axis in ipairs({ "light", "order", "honor" }) do
     local v = a[axis] or 0
     if v > 20 then a[axis] = math.max(20, v - weeks) elseif v < -20 then a[axis] = math.min(-20, v + weeks) end
   end
-  local taintDecay = math.floor((now - last) / 864000)
-  if taintDecay > 0 then a.taint = math.max(0, (a.taint or 0) - taintDecay) end
   a.driftAt = last + weeks * 604800
 end
 
@@ -153,13 +161,22 @@ function Effects.Apply(fx, env)
       c.opinions[topic] = rec
     end
   end
+  -- flag / npcFlag: { set = .., clear = .. }, or a bare id or list of ids (= set), as letter
+  -- replies write it (`npcFlag = "nt_rod_saved"`); indexing the string form found nothing.
+  local function setClear(v)
+    if type(v) ~= "table" or (v.set == nil and v.clear == nil) then return { set = v } end
+    return v
+  end
   if fx.flag then
-    for _, f in ipairs(U.AsList(fx.flag.set)) do c.flags[f] = now end
-    for _, f in ipairs(U.AsList(fx.flag.clear)) do c.flags[f] = nil end
+    local f = setClear(fx.flag)
+    for _, id in ipairs(U.AsList(f.set)) do c.flags[id] = now end
+    for _, id in ipairs(U.AsList(f.clear)) do c.flags[id] = nil end
   end
   if fx.npcFlag and env.mem then
-    for _, f in ipairs(U.AsList(fx.npcFlag.set)) do env.mem.flags[f] = now end
-    for _, f in ipairs(U.AsList(fx.npcFlag.clear)) do env.mem.flags[f] = nil end
+    local f = setClear(fx.npcFlag)
+    env.mem.flags = env.mem.flags or {}
+    for _, id in ipairs(U.AsList(f.set)) do env.mem.flags[id] = now end
+    for _, id in ipairs(U.AsList(f.clear)) do env.mem.flags[id] = nil end
   end
   if fx.claim then
     local id = type(fx.claim) == "table" and fx.claim.id or fx.claim

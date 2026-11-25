@@ -51,7 +51,7 @@ P:NPC {
       choices = { { text = "May they all come home. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     gardens = {
-      lines = { { id = "g_default", text = "They lie around the Temple of the Moon like a held breath. Voloren sells fishing lines by the water and Talaelar sells what is caught, and otherwise there is little but the lake and the light on it, which is how the Sisters wish it to be." } },
+      lines = { { id = "gardens_default", text = "They lie around the Temple of the Moon like a held breath. Voloren sells fishing lines by the water and Talaelar sells what is caught, and otherwise there is little but the lake and the light on it, which is how the Sisters wish it to be." } },
       choices = { { text = "A peaceful place. Something else.", next = "BACK" } },
     },
   },
@@ -585,7 +585,7 @@ P:NPC {
       },
     },
     gaps = {
-      lines = { { id = "g_default", text = "They can, if they are willing to look and to report honestly. An adventurer crosses three territories in the time that a patrol holds one, and what you notice in passing may be the warning that some outpost has waited a season to hear.", fx = { learn = { "sentinels" } } } },
+      lines = { { id = "gaps_default", text = "They can, if they are willing to look and to report honestly. An adventurer crosses three territories in the time that a patrol holds one, and what you notice in passing may be the warning that some outpost has waited a season to hear.", fx = { learn = { "sentinels" } } } },
       choices = {
         { text = "What makes a report worth hearing?", next = "report" },
         { text = "Something else.", next = "BACK" },

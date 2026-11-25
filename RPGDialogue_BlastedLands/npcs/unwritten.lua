@@ -298,8 +298,8 @@ P:NPC {
     portal = {
       lines = { { id = "p_default", text = "Nothing, for now, but the Kirin Tor sent mages here to watch it all the same. The demons in the south of the Blasted Lands are proof enough that something stirs." } },
       choices = {
-        { text = "Then the keep must be held at all costs.", next = "BACK", reply = "Quite! That's why we work double shifts.", fx = { align = { valor = 1 } } },
-        { text = "Sounds like a good place to leave quickly.", next = "BACK", reply = "Ha! I've thought the same, believe me.", fx = { align = { valor = -1 } } },
+        { text = "Then the keep must be held at all costs.", next = "BACK", reply = "Quite! That's why we work double shifts.", fx = { align = { honor = 1 } } },
+        { text = "Sounds like a good place to leave quickly.", next = "BACK", reply = "Ha! I've thought the same, believe me.", fx = { align = { honor = -1 } } },
       },
     },
     gnomes = {

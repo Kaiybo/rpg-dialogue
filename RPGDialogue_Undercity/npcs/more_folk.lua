@@ -360,7 +360,7 @@ P:NPC {
       },
     },
     knives2 = {
-      lines = { { id = "k2_default", text = "I hone them myself, but the steel comes from Charles Seaton, who sells blades just along the canal. He sells them to cut-throats as well, and I've asked him to keep mine on a separate shelf, which he finds funnier than I do." } },
+      lines = { { id = "k2_default", key = true, text = "I hone them myself, but the steel comes from Charles Seaton, who sells blades just along the canal. He sells them to cut-throats as well, and I've asked him to keep mine on a separate shelf, which he finds funnier than I do." } },
       choices = {
         { text = "A skinner among assassins must feel odd.", next = "quarter" },
         { text = "Something else.", next = "BACK" },
@@ -863,7 +863,7 @@ P:NPC {
       },
     },
     makers2 = {
-      lines = { { id = "m2_default", text = "Especially the students' work! Dan Golthas sent me a satchel last month with the strap sewn on the inside, and I've kept it under the counter ever since. I show it to anyone who's having a worse day than mine." } },
+      lines = { { id = "m2_default", key = true, text = "Especially the students' work! Dan Golthas sent me a satchel last month with the strap sewn on the inside, and I've kept it under the counter ever since. I show it to anyone who's having a worse day than mine." } },
       choices = {
         { text = "Show me, then.", next = "BACK", reply = "There, you see? You can't even get your hand in. Marvellous. It cheers me every time.", fx = { trait = { witty = 1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1489,7 +1489,7 @@ P:NPC {
       },
     },
     others = {
-      lines = { { id = "o_default", text = "Tawny Grisette sells mushrooms in the Trade Quarter, and hers are prettier than mine, I'll admit. Innkeeper Norman keeps a table for the living, and Jeremiah Payson sells cockroaches under the bridge, which I'm told are pets and not supper." } },
+      lines = { { id = "o_default", key = true, text = "Tawny Grisette sells mushrooms in the Trade Quarter, and hers are prettier than mine, I'll admit. Innkeeper Norman keeps a table for the living, and Jeremiah Payson sells cockroaches under the bridge, which I'm told are pets and not supper." } },
       choices = {
         { text = "You don't mind the competition?", next = "others2" },
         { text = "Something else.", next = "BACK" },
@@ -2356,7 +2356,7 @@ P:NPC {
       lines = { { id = "mc_default", text = "You pictured the mark as it looked to you on the day you first arrived, tired and hurried, with the floor seeming to tilt. Picture it as it is: level, cold, scrubbed, and eleven paces from the eastern arch, because a portal wants exactness and not feeling." } },
       choices = {
         { text = "I'll practise until it opens true.", next = "BACK", reply = "Good. Come back and open one onto my mark, and I shall measure it.", fx = { align = { order = 1 } } },
-        { text = "Crooked will do. They arrived, didn't they?", next = "BACK", reply = "They arrived on a slant, and one of them arrived in the canal. Exactness is not a vanity.", fx = { align = { order = -1 } } },
+        { text = "Crooked will do. They arrived, and that's what matters.", next = "BACK", reply = "They arrived on a slant, and one of them arrived in the canal. Exactness is not a vanity.", fx = { align = { order = -1 } } },
         { text = "I tested it on a rat first.", next = "BACK", reply = "A rat. How very sensible, and how very Forsaken of you, whatever you are.", fx = { trait = { cautious = 1 } } },
       },
     },
@@ -2758,7 +2758,7 @@ P:NPC {
       },
     },
     taste2 = {
-      lines = { { id = "t2_default", text = "By weight, to the grain. I kept my mother's recipes in my head, and when I woke I wrote out every one with the salt measured, before I could forget. They're on that shelf, and I'd go back into a burning house for them." } },
+      lines = { { id = "t2_default", key = true, text = "By weight, to the grain. I kept my mother's recipes in my head, and when I woke I wrote out every one with the salt measured, before I could forget. They're on that shelf, and I'd go back into a burning house for them." } },
       choices = {
         { text = "That's a real inheritance.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } },
         { text = "Something else.", next = "BACK" },

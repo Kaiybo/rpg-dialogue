@@ -690,12 +690,11 @@ P:NPC {
       },
     },
     grim = {
-      lines = { { id = "gr_default", text = "Grimtotem hoofprints near the Stonetalon trail, a dozen of them, moving by night and keeping off the roads. Our own people don't walk like that unless they don't want to be seen." } },
+      lines = { { id = "gr_default", text = "Grimtotem hoofprints near the Stonetalon trail, a dozen of them, moving by night and keeping off the roads. Our own people don't walk like that unless they don't want to be seen.", fx = { learn = { "grimtotem" } } } },
       choices = {
         { text = "What are the Grimtotem after?", next = "grim_more" },
         { text = "Something else.", next = "BACK" },
       },
-      learn = { "grimtotem" },
     },
     grim_more = {
       lines = { { id = "gm_default", text = "Magatha would call them simple traditionalists, and I'd say traditionalists don't hide their tracks. I told Cairne's guards what I saw, and that's as far as a tracker's duty goes, though I'll keep watching the ground." } },

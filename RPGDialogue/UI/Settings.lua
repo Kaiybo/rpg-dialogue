@@ -18,6 +18,9 @@ local function s() return ns.db.settings end
 local function refreshUI()
   UI.Dialogue.Restyle()
   if UI.AskAbout.IsShown() then UI.AskAbout.Style() end
+  -- An open journal takes the new look, fonts and sizes now, not on its next opening.
+  local J = ns.Journal
+  if J and J.IsShown and J.IsShown() and not J.IsPicking() then J.Show(nil, true) end
 end
 
 local LEFT, CONTROL_X, WIDTH, BUTTON_W = 16, 330, 640, 280
@@ -175,15 +178,21 @@ local function fontPicker(label, key, kind)
   sample:SetJustifyH("LEFT")
   if sample.SetWordWrap then sample:SetWordWrap(false) end
   local function show()
-    local cur = s()[key]
+    -- Fonts other addons share can arrive after this panel was built (and the "Aa" panel
+    -- may have picked one of them), so the list is read again each time.
+    choices = UI.Theme.FontChoices(kind)
+    local cur = s()[key] or UI.Theme.DEFAULT_FONT[kind]
+    b:SetText(tostring(cur))
     for _, c in ipairs(choices) do if c.id == cur then b:SetText(c.label) end end
     UI.Theme.SetFont(sample, kind, 15)
     sample:SetText(kind == "name" and "Melika Isenstrider" or L.FONT_PREVIEW)
     sample:SetTextColor(0.9, 0.85, 0.7)
   end
   b:SetScript("OnClick", function()
+    choices = UI.Theme.FontChoices(kind)
+    local cur = s()[key] or UI.Theme.DEFAULT_FONT[kind]
     local idx = 0
-    for i, c in ipairs(choices) do if c.id == s()[key] then idx = i end end
+    for i, c in ipairs(choices) do if c.id == cur then idx = i end end
     s()[key] = choices[idx % #choices + 1].id
     show()
     refreshUI()

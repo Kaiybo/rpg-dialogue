@@ -575,7 +575,7 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "The Scourge took Lordaeron, and the Church there fell with it, and I still pray for the priests who stayed to the end. I can't say their names without weeping, so I say them very quietly." } },
     forsaken = {
       { id = "tp_forsaken", text = "The Forsaken claim to have broken free of the Scourge, and some among the Church say they're beyond the Light's reach. I'm not so sure, though I'd not say it too loudly in council." },
-      { id = "tp_forsaken2", when = { race = "Undead" }, text = "You walk here in the Light's own house, and the Light hasn't struck you down, which teaches me something I'm still trying to understand. Be at peace while you're here, whatever you were and whatever you are." },
+      { id = "tp_forsaken2", when = { race = "Scourge" }, text = "You walk here in the Light's own house, and the Light hasn't struck you down, which teaches me something I'm still trying to understand. Be at peace while you're here, whatever you were and whatever you are." },
     },
     stratholme = { { id = "tp_stratholme", text = "Stratholme's people were the Church's faithful, and they died in the prince's purge or worse. I've asked the Light many times what they did to earn that, and I've had no answer I could bear." } },
     silver_hand = { { id = "tp_silver_hand", text = "The Silver Hand was the Church's sword in the world, and Uther was its heart. The order's scattered now, but the Light it carried isn't, and I see it in every young paladin who kneels here." } },
@@ -2232,7 +2232,7 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "The Scourge is a plague on the living and a mockery of the dead, and the Scarlet Crusade will burn it from Lordaeron or die in the trying. Every soul that stands aside is one more for the Lich King's army." } },
     forsaken = {
       { id = "tp_forsaken", text = "The Forsaken are the Scourge with better manners, and nothing more. They walk, they speak, they claim to be free, and each rotting one of them belongs in a pyre." },
-      { id = "tp_forsaken2", when = { race = "Undead" }, text = "You dare walk in this Cathedral, corpse? The Crusade would put you to the torch on the steps, and I'd say the prayers myself." },
+      { id = "tp_forsaken2", when = { race = "Scourge" }, text = "You dare walk in this Cathedral, corpse? The Crusade would put you to the torch on the steps, and I'd say the prayers myself." },
     },
     sylvanas = { { id = "tp_sylvanas", text = "Sylvanas Windrunner was a hero once, and the Scourge made her a monster, and now she calls herself a queen. The Crusade will see her crowned in fire, if the Light grants us strength." } },
     stratholme = { { id = "tp_stratholme", text = "Stratholme was the first to fall to the plague, and its people died screaming while the prince did what he thought was right. The Crusade holds the city now, part of it, and we'll take the rest." } },

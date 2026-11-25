@@ -492,7 +492,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     grom = {
-      lines = { { id = "g_default", text = "I followed the Warsong banner when Hellscream carried it, and I followed it when he died for it at Demon Fall Canyon. He freed us of the blood curse with his own life, and I will not let the elves have the ground he died on." } },
+      lines = { { id = "grom_default", text = "I followed the Warsong banner when Hellscream carried it, and I followed it when he died for it at Demon Fall Canyon. He freed us of the blood curse with his own life, and I will not let the elves have the ground he died on." } },
       choices = {
         { text = "He drank that curse in the first place.", next = "grom_end" },
         { text = "His sacrifice will be remembered.", next = "grom_end", fx = { affinity = 1 } },
@@ -815,8 +815,8 @@ P:NPC {
     answer = {
       lines = { { id = "a_default", text = "Not in words, but the rain comes when the land needs it, and the calves grow strong. That is answer enough for an old elf who does not need to be spoken to." } },
       choices = {
-        { text = "Faith like that is a strength.", next = "BACK", fx = { align = { faith = 1 } } },
-        { text = "Rain falls whether we pray or not.", next = "BACK", fx = { align = { faith = -1 } } },
+        { text = "Faith like that is a strength.", next = "BACK", fx = { align = { light = 1 } } },
+        { text = "Rain falls whether we pray or not.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
