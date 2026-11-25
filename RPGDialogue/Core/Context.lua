@@ -280,7 +280,13 @@ function Ctx.Refresh(ctx, keys)
   for _, k in ipairs(keys) do
     if not ctx.spoofed[k] then
       rawset(ctx, k, nil)
-      if k == "auras" or k == "debuffTypes" or k == "resSick" then rawset(ctx, "_auras", nil) end
+      if k == "auras" or k == "debuffTypes" or k == "resSick" then
+        rawset(ctx, "_auras", nil)
+        -- Fields built from the aura scan go stale with it.
+        for _, d in ipairs({ "auras", "debuffTypes", "resSick", "camping" }) do
+          if not ctx.spoofed[d] then rawset(ctx, d, nil) end
+        end
+      end
     end
   end
 end

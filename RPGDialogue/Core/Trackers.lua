@@ -60,6 +60,11 @@ local function timerRanOut(name)
   local m = mirror[name]
   if not m then return false end
   if m.stopped then return C.Clock() - m.stopped < 2 end
+  -- Still running: it has run out only once its time (value, in ms) has passed. Killed by a
+  -- murloc with breath to spare is not drowning.
+  if type(m.value) == "number" and type(m.started) == "number" then
+    return C.Clock() - m.started >= m.value / 1000 - 1
+  end
   return true
 end
 
@@ -284,6 +289,9 @@ end
 
 ns.On("ZONE_CHANGED_NEW_AREA", zoneChanged)
 ns.On("ZONE_CHANGED", zoneChanged)
+-- Walking into a building (an inn, a town hall) changes the subzone with this event only:
+-- without it, home-inn visits and errands that send you indoors were never noticed.
+ns.On("ZONE_CHANGED_INDOORS", zoneChanged)
 
 ---------------------------------------------------------------------------
 -- Home inn (hearthstone)

@@ -91,6 +91,11 @@ local function indexNPC(def)
       if v.id then indexList(v.replies, def.key .. ".view_" .. topic .. "." .. v.id, def.key, "view") end
     end
   end
+  -- Their own answers to the shared views (DESIGN.md: "scored as their own"). Unindexed, they
+  -- were tracked as "own#1"... and shared their fade with every other NPC's.
+  for viewId, list in pairs(def.viewReplies or {}) do
+    indexList(list, def.key .. ".viewreply_" .. tostring(viewId), def.key, "view")
+  end
 end
 
 local function warn(pack, msg)
@@ -102,22 +107,45 @@ end
 -- Registration (called from pack files through the pack handle)
 ---------------------------------------------------------------------------
 local function mergeNPC(old, new, pack)
-  if new.override and (pack.priority or 0) >= (old._priority or 0) then return new end
-  for _, field in ipairs({ "greetings", "notice", "react" }) do
+  local prio = pack.priority or 0
+  if new.override and prio >= (old._priority or 0) then return new end
+  -- An override from a higher-priority pack replaced this NPC entirely: lower-priority
+  -- packs loaded after it add nothing (DESIGN.md: "Two packs, same NPC").
+  if old.override and prio < (old._priority or 0) then
+    old._packs[#old._packs + 1] = pack.id
+    return old
+  end
+  -- Every line list pools (DESIGN.md: "they merge"), barks and what slips out included.
+  for _, field in ipairs({ "greetings", "notice", "react", "barks", "blurts", "confides" }) do
     if new[field] then
       old[field] = old[field] or {}
       for _, l in ipairs(new[field]) do old[field][#old[field] + 1] = l end
     end
   end
+  for _, field in ipairs({ "views", "viewReplies" }) do
+    for k, list in pairs(new[field] or {}) do
+      old[field] = old[field] or {}
+      old[field][k] = old[field][k] or {}
+      for _, l in ipairs(list) do old[field][k][#old[field][k] + 1] = l end
+    end
+  end
+  if type(new.id) == "number" and type(old.id) ~= "number" then old.id = new.id end
+  -- Same node id in both: the higher priority wins, judged against the pack that wrote the
+  -- node in place (not the first pack's priority, so a third pack can't undo the second).
   old.nodes = old.nodes or {}
   for id, node in pairs(new.nodes or {}) do
-    if not old.nodes[id] or (pack.priority or 0) > (old._priority or 0) then old.nodes[id] = node end
+    local cur = old.nodes[id]
+    if not cur or prio > (cur._prio or 0) then
+      node._prio = prio
+      old.nodes[id] = node
+    end
   end
+  if prio > (old._priority or 0) then old._priority = prio end
   if new.persuade then
     old.persuade = old.persuade or {}
     for action, byResult in pairs(new.persuade) do
       old.persuade[action] = old.persuade[action] or {}
-      for result, list in pairs(byResult) do
+      for result, list in pairs(type(byResult) == "table" and byResult or {}) do
         local into = old.persuade[action][result] or {}
         old.persuade[action][result] = into
         for _, l in ipairs(list) do into[#into + 1] = l end
@@ -143,6 +171,9 @@ function kinds.NPC(pack, def)
   def._priority = pack.priority or 0
   def._packs = { pack.id }
   def.start = def.start or "hello"
+  for _, node in pairs(def.nodes or {}) do
+    if type(node) == "table" then node._prio = def._priority end
+  end
   local existing = Data.npcs[def.key]
   local merged = existing and mergeNPC(existing, def, pack) or def
   Data.npcs[def.key] = merged
@@ -153,7 +184,15 @@ function kinds.NPC(pack, def)
     pack.todos = (pack.todos or 0) + 1
   end
   local name = def.name or (U.IsTodo(def.id) and def.id.name)
-  if name then Data.byName[U.Norm(name)] = def.key end
+  if name then
+    -- Name matching only serves TODO ids (FindNPC): a namesake with a real ID must not take
+    -- the slot from one still waiting for its ID.
+    local n = U.Norm(name)
+    local prev = Data.byName[n] and Data.npcs[Data.byName[n]]
+    if not (prev and prev.key ~= def.key and type(prev.id) ~= "number" and type(merged.id) == "number") then
+      Data.byName[n] = def.key
+    end
+  end
 end
 
 function kinds.Pool(pack, def)
@@ -173,6 +212,7 @@ function kinds.Pool(pack, def)
   for nodeId, node in pairs(def.nodes or {}) do
     node._id = nodeId
     indexList(node.lines, prefix, prefix, "line")
+    indexList(node.again, prefix, prefix, "again")
   end
   if def.nodes then def.start = def.start or "hello" end
   Data.pools[#Data.pools + 1] = def
@@ -324,6 +364,8 @@ function API:RegisterPack(meta)
   local pack = newHandle(meta)
   if existing then
     for k, v in pairs(existing) do if pack[k] == nil then pack[k] = v end end
+    -- Data files that ran before pack.lua counted into the placeholder: keep their tallies.
+    pack.counts, pack.warnings = existing.counts or pack.counts, existing.warnings or pack.warnings
   end
   if (meta.format or 1) > Packs.FORMAT then
     pack.refused = ("needs data format %d, this version of RPG Dialogue reads up to %d"):format(meta.format, Packs.FORMAT)

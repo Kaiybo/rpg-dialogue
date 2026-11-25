@@ -70,7 +70,10 @@ function Engine.Gather(slot, info, ctx, nodeId)
   local out = {}
   local def = info.def
   local own = Engine.BASE.own
-  local isStart = (nodeId == nil) or (def and nodeId == def.start) or info.pooled
+  -- A pooled NPC with no tree speaks only an assembled opening; one speaking through a pool's
+  -- own tree (spirit healers, bound demons) is past the start on every other node, so other
+  -- pools' and generic lines must not compete there.
+  local isStart = (nodeId == nil) or (def and nodeId == def.start) or (info.pooled and not (def and def.nodes))
   if slot == "line" then
     if def and def.nodes and def.nodes[nodeId] then add(out, def.nodes[nodeId].lines, own, "own") end
     if not isStart then return out end
