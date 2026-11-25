@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.34.0 (2026-11-25): More to Say
+- Thin conversations deepened: more topics, a longer thread, and a reply only some characters get.
+
 ## 1.33.0 (2026-11-24): Fewer Words, Same Voice
 - NPC speeches over 60 words were trimmed so they fit the dialogue box; nothing they say was lost.
 

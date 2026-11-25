@@ -551,6 +551,7 @@ P:NPC {
       choices = {
         { text = "What trouble is there in Elwynn?", next = "trouble" },
         { text = "Can you give me directions?", next = "BUSINESS" },
+        { text = "Quiet posting, this road.", next = "posting" },
         { text = "Carry on, soldier.", next = "END" },
       },
     },
@@ -560,6 +561,10 @@ P:NPC {
         { text = "Stormwind should send more soldiers.", next = "thin" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    posting = {
+      lines = { { id = "po_default", text = "Quiet by day, maybe. At night the wolves come down from the hills and the Defias move their stolen goods past Goldshire, so I'll take a dull afternoon and be grateful for it." } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
     },
     thin = {
       lines = { { id = "th_default", text = "Maybe, but the nobles in the city have their own ideas about where the crown's gold goes, and it isn't into my boots. I do my duty, and I don't ask the House of Nobles for anything." } },

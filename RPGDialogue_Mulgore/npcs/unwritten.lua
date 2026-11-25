@@ -644,6 +644,8 @@ P:NPC {
       choices = {
         { text = "What is the wisdom of the Rites?", next = "wisdom" },
         { text = "Do the dead grieve as we do?", next = "grieve" },
+        { text = "These red stones feel older than anything in Mulgore.", next = "redrocks" },
+        { text = "My grandmother is buried here. Does she hear me?", next = "kin", when = { race = "Tauren" } },
         { text = "Rest well, ancestor.", next = "END" },
       },
     },
@@ -652,8 +654,29 @@ P:NPC {
       choices = {
         { text = "Then I will take only what I need.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The strong take what they must to survive.", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "Why must I walk the Rites at all?", next = "rites" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    rites = {
+      lines = { { id = "ri_default", text = "Because a young tauren must learn the land before he can call himself its child. Elder Bloodhoof's people walk the Rites of Strength, Vision and Wisdom, and each one asks a different kind of courage." } },
+      choices = { { text = "Then I will finish them. Something else.", next = "BACK" } },
+    },
+    redrocks = {
+      lines = { { id = "rr_default", text = "They are, child. Our people raised them when we first came to these plains, and we have laid our dead beneath them ever since. The centaur and the quilboar never dared to trouble this place." } },
+      choices = {
+        { text = "The centaur are still out there, though.", next = "centaur" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    centaur = {
+      lines = { { id = "ce_default", text = "They are, and the Venture Company's machines bite at the plains as well. Cairne will not let Mulgore fall, but every generation must guard it again, as we did in ours." } },
+      choices = { { text = "Something else, ancestor.", next = "BACK" } },
+    },
+    kin = {
+      narr = "The light of the spirit dims, then brightens, like a smile.",
+      lines = { { id = "ki_default", text = "She hears you, and she is proud of what she hears. Sing her name here at dusk, and the wind will carry it to her." } },
+      choices = { { text = "I will. Thank you, ancestor.", next = "BACK" } },
     },
     grieve = {
       lines = { { id = "g_default2", text = "We remember, which is gentler than grief. When the living sing our names at the Red Rocks, we hear them, and the sound is like rain after a long summer." } },

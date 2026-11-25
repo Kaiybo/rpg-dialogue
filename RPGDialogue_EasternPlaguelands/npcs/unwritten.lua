@@ -329,6 +329,8 @@ P:NPC {
         { text = "You fought in the Third War?", next = "war" },
         { text = "What of the Scarlet Crusade?", next = "scarlet" },
         { text = "Is there armor for a paladin of the Brotherhood?", next = "redemption", when = { class = "PALADIN" } },
+        { text = "This chapel has held when everything around it fell.", next = "chapel" },
+        { text = "My family came from Lordaeron, Commander.", next = "lordaeron", when = { race = "Human" } },
         { text = "Farewell, Commander.", next = "END" },
       },
     },
@@ -363,6 +365,32 @@ P:NPC {
       choices = {
         { text = "We need every sword, even theirs.", next = "BACK", reply = "That is my thinking, and I pray I am right.", fx = { align = { order = 1 } } },
         { text = "They murder the innocent. I won't fight beside them.", next = "BACK", reply = "Nor would I trust them with my back. But I will talk, while talking serves.", fx = { align = { order = -1 } } },
+      },
+    },
+    chapel = {
+      lines = { { id = "ch_default", text = "It has, and not by luck. Light's Hope stands on hallowed ground, where the Scourge's power falters. The Argent Dawn kept the faith here when there was little else left to keep." } },
+      choices = {
+        { text = "Who commands the Dawn here, besides you?", next = "dawn" },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    dawn = {
+      lines = { { id = "da_default", text = "The Argent Dawn answers to its own council, and Mograine's old soldiers are few. Here at the chapel the quartermasters and Archmage Dosantos keep the work moving while I keep the soldiers standing." } },
+      choices = {
+        { text = "What does Dosantos study?", next = "dosantos" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dosantos = {
+      lines = { { id = "do_default", text = "Naxxramas itself: its wards, its quarters and the masters within them. She tells me what we will face, and I decide how many of my people I am willing to send to face it." } },
+      choices = { { text = "A hard thing to decide. Something else.", next = "BACK" } },
+    },
+    lordaeron = {
+      narr = "For a moment his stern face softens.",
+      lines = { { id = "lo_default", text = "Then you know what was taken from us. Every town between here and the Thondroril was full of good people once, and the Scourge wears their faces now. Fight for them, and you fight for your own blood." } },
+      choices = {
+        { text = "I will see it reclaimed one day.", next = "BACK", reply = "Hold to that. Hope is a weapon too, though it is a heavy one.", fx = { align = { mercy = 1 } } },
+        { text = "I'll see it burned clean first.", next = "BACK", reply = "Fire may come to that, but remember there were homes in those ruins.", fx = { align = { mercy = -1 } } },
       },
     },
     redemption = {

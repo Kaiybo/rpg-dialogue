@@ -667,8 +667,20 @@ P:NPC {
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "Why fireworks, of all things?", next = "why" },
+        { text = "What are the little red envelopes for?", next = "envelopes" },
         { text = "Goodbye.", next = "END" },
       },
+    },
+    envelopes = {
+      lines = { { id = "en_default", text = "Those are for giving, friend, not keeping. You tuck a gift inside and hand it to someone you're glad of, and the luck of the new year goes with it. I sell a great many to Sentinels, oddly enough." } },
+      choices = {
+        { text = "Where do the coins of ancestry come from?", next = "coins" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    coins = {
+      lines = { { id = "co_default", text = "From the elders, of course! Find their spirits across the world, honour them, and each one gives you a coin. Bring those to me and you'll find I have very fine things indeed." } },
+      choices = { { text = "Then I'd better start looking.", next = "BACK" } },
     },
     why = {
       lines = { { id = "wh_default", text = "The druids say the lights keep Omen asleep under the lake. Personally, I think people simply like explosions." } },

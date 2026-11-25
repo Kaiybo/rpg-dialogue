@@ -116,7 +116,19 @@ P:NPC {
       choices = {
         { text = "Then it should be protected.", next = "BACK", reply = "Yes. Let the gnomes and goblins tread lightly.", fx = { align = { order = 1 } } },
         { text = "Wild places are meant to be explored.", next = "BACK", reply = "Explore, then. But listen while you walk.", fx = { align = { order = -1 } } },
+        { text = "Titans shaped this crater?", next = "titans" },
       },
+    },
+    titans = {
+      lines = { { id = "ti_default", text = "So the old stories say, little one. The gnomes at Marshal's Refuge chase the crystals here, and the ones who study the Ruins speak of keepers and great machines. I only know that the earth here still feels newly made." } },
+      choices = {
+        { text = "What of the great beasts, the devilsaurs?", next = "beasts" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    beasts = {
+      lines = { { id = "be_default", text = "They are the land's oldest hunters, and they fear nothing. A wise hunter honours them from a distance, and a foolish one becomes their supper. Choose which you wish to be." } },
+      choices = { { text = "From a distance, I think. Something else.", next = "BACK" } },
     },
     festival = {
       lines = { { id = "f_default", text = "The turning of the year, when the elders are remembered. Find us and honor us, and you carry our blessing in a coin of ancestry." } },

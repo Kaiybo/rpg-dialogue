@@ -608,7 +608,12 @@ P:NPC {
       choices = {
         { text = "Then they must be stopped.", next = "BACK", reply = "Stopped, yes. I hope not destroyed.", fx = { align = { mercy = -1 } } },
         { text = "Perhaps they can be called home again.", next = "BACK", reply = "That is my prayer, every year I return.", fx = { align = { mercy = 1 } } },
+        { text = "Who is this Magatha?", next = "magatha" },
       },
+    },
+    magatha = {
+      lines = { { id = "ma_default", text = "Magatha Grimtotem, the clan's matriarch, who sits among the elders of Thunder Bluff and smiles at Cairne while her people sharpen their spears. She is patient, and patience in a hateful heart is a dangerous thing." } },
+      choices = { { text = "I will remember that name. Something else.", next = "BACK" } },
     },
     festival = {
       lines = { { id = "f_default", text = "The turning of the year, when the elders walk among the living again. Honor us, and we give you a coin of ancestry." } },

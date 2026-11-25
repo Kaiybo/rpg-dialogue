@@ -2,6 +2,11 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.111.0 (2026-11-25): More to Say
+No new files; a /reload is enough.
+- **Fifteen thin conversations deepened.** Eligor Dawnbringer, Xiggs Fuselighter, Arko'narin, "Plucky" Johnson, the Ironforge and Stormwind guards, the Lunar Festival vendor, the Shen'dralar Provisioner, the Mulgore ancestral spirit and six Lunar Festival elders now have more to talk about, longer threads, and replies for certain races and classes.
+- **"Plucky" Johnson** no longer has a duplicate, shallower copy in Thousand Needles.
+
 ## 0.110.0 (2026-11-24): Plain Speaking
 No new files; a /reload is enough.
 - **Shared talk trimmed.** 61 rumour threads, role chatter, spirit healer and bound-demon lines in the World pack ran past 60 words; each is now 60 or fewer, same facts and accents. Letters keep their length.

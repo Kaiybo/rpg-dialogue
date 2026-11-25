@@ -243,6 +243,8 @@ P:NPC {
       choices = {
         { text = "What brings a dwarf pilot this far?", next = "why" },
         { text = "Is flying that thing safe?", next = "safe" },
+        { text = "You keep glancing at the trees, Xiggs.", next = "satyrs" },
+        { text = "A fellow son of Khaz Modan! How fares the mountain?", next = "kin", when = { race = "Dwarf" } },
         { text = "Safe flight, Xiggs.", next = "END" },
       },
     },
@@ -251,8 +253,35 @@ P:NPC {
       choices = {
         { text = "Better the Alliance study it than leave it to rot.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Some ruins should be left buried.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What exactly are they hoping to find?", next = "find" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    find = {
+      lines = { { id = "fi_default", text = "Highborne writings, mostly, and anything that still hums with the old magic. The Explorers' League wants it catalogued, and the mages in Stormwind want it locked away, so I fly the maps and let them argue." } },
+      choices = {
+        { text = "Who draws the maps, then?", next = "maps" },
+        { text = "Something else, Xiggs.", next = "BACK" },
+      },
+    },
+    maps = {
+      lines = { { id = "ma_default", text = "I do, from the air, with a pencil in my teeth and one hand on the stick. Half the coast's not on any chart in Ironforge yet, and the half that is, I drew wrong the first time." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    satyrs = {
+      lines = { { id = "sa_default", text = "Aye, and with good reason. The satyrs and the Highborne ghosts in those woods don't care for engines, and the blue dragons over the cliffs care for them even less. I land quick and leave quicker." } },
+      choices = {
+        { text = "Dragons? Should I worry?", next = "dragons" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dragons = {
+      lines = { { id = "dr_default", text = "Only if you go poking about their shore, east past the ruins. They've never come after me, but I've seen one take a wyvern clean out of the sky, and I'd rather not learn how they feel about gyrocopters." } },
+      choices = { { text = "I'll keep my distance. Something else.", next = "BACK" } },
+    },
+    kin = {
+      lines = { { id = "ki_default", text = "Ha! Loud and smoky as ever, lad, and the Thunder Brew still flows. I miss the forges something fierce out here, but don't tell anyone I said so." } },
+      choices = { { text = "Your secret's safe. Something else.", next = "BACK" } },
     },
     safe = {
       lines = { { id = "s_default", text = "Safer than walking through Azshara, lad, I'll promise you that much. The worst I've had is a fire in the engine and a soft landing in a lake." } },

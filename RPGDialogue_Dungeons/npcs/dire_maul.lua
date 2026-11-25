@@ -449,8 +449,20 @@ P:NPC {
       choices = {
         { text = "Too few?", next = "few" },
         { text = "Let me see your goods.", next = "BUSINESS" },
+        { text = "Who are these lorekeepers?", next = "lorekeepers" },
         { text = "Farewell.", next = "END" },
       },
+    },
+    lorekeepers = {
+      lines = { { id = "lk_default", text = "Lorekeeper Lydros and his like keep the library of Eldre'Thalas, and they decide which outsiders are useful. If they speak well of you, so will I, and my prices will say so." } },
+      choices = {
+        { text = "What do they want from outsiders?", next = "want" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    want = {
+      lines = { { id = "wa_default", text = "Books, mostly, and the strength to fetch them from places we can no longer reach. The library was once whole, and they mean to make it so again before there is no one left to read it." } },
+      choices = { { text = "Something else, then.", next = "BACK" } },
     },
     few = {
       lines = { { id = "f_default", text = "The pylons take their due, and so does the prince's demon. Every season there are fewer of us at the tables, and no one speaks of the empty chairs." } },
