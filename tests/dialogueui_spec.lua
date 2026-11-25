@@ -268,7 +268,7 @@ describe("Inside DialogueUI's window (default)", function()
     ok(dui, "its window stayed hidden")
   end)
 
-  it("lists every topic a page at a time, and stays on the list after an answer", function()
+  it("lists topics by kind, a page at a time, and stays on the list after an answer", function()
     local ns, dui = bootInside()
     ns.Data.topics.knows = { id = "knows", name = "What do you know?", category = "anyone", standard = true, order = 0 }
     for i = 1, 12 do
@@ -282,8 +282,12 @@ describe("Inside DialogueUI's window (default)", function()
     ok(ask, "Ask about with the count: " .. names(dui))
     dui.buttons[ask].onClickFunc(dui.buttons[ask])
     contains(names(dui), "What do you know?")
-    contains(names(dui), "More topics (page 2 of 2)")
+    contains(names(dui), "People (12)", "the rest folded into a row per kind")
     contains(names(dui), "Back")
+    local cat
+    for i, b in ipairs(dui.buttons) do if b.name:find("People (12)", 1, true) then cat = i end end
+    dui.buttons[cat].onClickFunc(dui.buttons[cat])
+    contains(names(dui), "More topics (page 2 of 2)")
     local more
     for i, b in ipairs(dui.buttons) do if b.name:find("More topics", 1, true) then more = i end end
     dui.buttons[more].onClickFunc(dui.buttons[more])
