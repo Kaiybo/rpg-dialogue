@@ -900,7 +900,7 @@ P:Pool { id = "fondness_innkeeper", role = "innkeeper", askOnly = true, topics =
     { id = "f1", text = "Tell folk where you rest your head. A good word from you fills more beds than any sign." },
   },
   friendship = {
-    { id = "fr1", text = "Friend? Your first drink of every night is on the house from now on. That's how much." },
+    { id = "fr1", text = "Friend? You're the guest I'm gladdest to see walk through that door, and I don't say that to many." },
   },
   never_told = {
     { id = "n1", text = "I watered the ale for a whole winter once, to keep this place open. I've felt guilty about it since." },
@@ -927,10 +927,10 @@ local function tradeFondness() return {
     { id = "h1", text = "A shop of my own in a big city, with my name above the door in gold letters." },
   },
   favor = {
-    { id = "f1", text = "Send your friends my way. Tell them you know me, and I'll treat them right." },
+    { id = "f1", text = "Send your friends my way, and tell them I'm honest. A good name is worth more than stock." },
   },
   friendship = {
-    { id = "fr1", text = "A friend, and for a friend I've always got a fair price. A truly fair one, mind." },
+    { id = "fr1", text = "A friend, and a rare one. Most folk see the counter between us, but you've always looked past it." },
   },
   never_told = {
     { id = "n1", text = "I never wanted this trade. I wanted to paint. My father wanted coin, so here I am." },
