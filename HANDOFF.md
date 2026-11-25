@@ -8,7 +8,8 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Wants quick, efficient sessions: no constant re-validation; follow `CLAUDE.md`'s checks.
 - Uses DialogueUI. Tests in game and sends screenshots.
 
-## State (0.110.0)
+## State (0.111.0)
+- 0.111.0 "More to Say" (user: "keep building out the addon, build a release and merge"): the 15 NPCs below the coverage.py depth standard deepened (all now meet it); duplicate service-tier `tn_plucky_johnson` removed. Core 0.111.0, 14 packs minor-bumped. No new files. Only `luac -p` run. Unsure: Moonstrike places the Barov heirs "among the Forsaken" and "at Southshore". Next: in-game check; letters still long (by design unless the user says otherwise).
 - 0.110.0 "Plain Speaking" (user: "keep building out the addon, build a release and merge"): 61 World spoken lines (threads, pools_roles, spirithealer, bound demons) tightened to 60 words or fewer; letters left long on purpose. Core 0.110.0, World 1.57.0. No new files. Only `luac -p` run. Next: in-game check; coverage.py shows ~15 NPCs just under the depth standard (major 119/120, quest 1322/1332, service 2178/2182).
 - 0.109.0 "Fewer Words, Same Voice" (user: "keep building out the addon. Build a release and merge"): ~270 NPC lines over 60 words in 43 zone packs tightened to 60 or fewer by 3 parallel agents. Core 0.109.0, 43 packs minor-bumped. No new files. Only `luac -p` run. Next: World pack still has ~700 strings over 60 words (many are letters, which may be fine long); in-game check of 0.108.x.
 - 0.108.1 "A Line Drawn" (user: "build a release"): the reply divider now shows in every conversation (above "Get on with it" when the game lists no options, e.g. single-service vendors and talk-key visits) and in DialogueUI's window (PR #250). Core only. No new files. Only `luac -p` run; nothing seen in game. Next: in-game check of the line on DialogueUI's parchment/dark theme, plus the 0.108.0 tests.

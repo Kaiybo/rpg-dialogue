@@ -197,7 +197,19 @@ P:NPC {
       choices = {
         { text = "The Highborne got what they deserved.", next = "BACK", reply = "Perhaps. But their children did not.", fx = { align = { mercy = -1 } } },
         { text = "Even the proud deserve to be mourned.", next = "BACK", reply = "Yes. That is why I return.", fx = { align = { mercy = 1 } } },
+        { text = "What became of their children?", next = "children" },
       },
+    },
+    children = {
+      lines = { { id = "ch_default", text = "Some died in the cold, and some walked south and learned humility among us. Many of the Kaldorei you know have Highborne blood, child, though few will admit it." } },
+      choices = {
+        { text = "Does that shame them?", next = "shame" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shame = {
+      lines = { { id = "sh_default", text = "It should not. Shame belongs to the choice, not the blood, and those children chose the moon and the forest. That is why I honour them here." } },
+      choices = { { text = "I understand. Something else.", next = "BACK" } },
     },
     festival = {
       lines = { { id = "f_default", text = "The new year, when the elders walk among the living. Find us, honor us, and you carry a coin of ancestry as a token of our blessing." } },

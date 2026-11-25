@@ -430,6 +430,7 @@ P:NPC {
         { text = "Why stand in such a cursed place?", next = "why" },
         { text = "I come to honour you, elder.", next = "honour", when = { questActive = TODO_QUEST("Meadowrun the Elder") } },
         { text = "Can this land ever heal?", next = "heal" },
+        { text = "I see you're a Kaldorei, like me. Why come so far east?", next = "kaldorei", when = { race = "NightElf" } },
         { text = "Elune keep you, elder.", next = "END" },
       },
     },
@@ -453,7 +454,18 @@ P:NPC {
     },
     heal = {
       lines = { { id = "he_default", text = "Elune is patient, and the land has healed deeper wounds than this. But it will take many lifetimes, and those who fight the Scourge must win first." } },
-      choices = { { text = "Then I'll fight. Something else.", next = "BACK" } },
+      choices = {
+        { text = "Who is fighting the Scourge here?", next = "fighters" },
+        { text = "Then I'll fight. Something else.", next = "BACK" },
+      },
+    },
+    fighters = {
+      lines = { { id = "fi_default", text = "The Argent Dawn holds Chillwind Camp to the south, and at Felstone and Dalson's farm the brave and the desperate still plant what little will grow. They do not all trust one another, but they all fight." } },
+      choices = { { text = "Then I'll join them. Something else.", next = "BACK" } },
+    },
+    kaldorei = {
+      lines = { { id = "ka_default", text = "Because grief is grief, whatever land it falls on. We lost Hyjal's forests to the same Legion that sent the Scourge here, and I would not have these people mourn alone." } },
+      choices = { { text = "Ishnu-alah, elder. Something else.", next = "BACK" } },
     },
   },
   topics = {
@@ -496,6 +508,7 @@ P:NPC {
         { text = "Why does your spirit linger here, of all places?", next = "why" },
         { text = "What is the Lunar Festival?", next = "festival" },
         { text = "What happens inside Scholomance?", next = "school" },
+        { text = "A priest of the Light can't abide that school.", next = "priest", when = { class = "PRIEST" } },
         { text = "Elune-adore, Elder.", next = "END" },
       },
     },
@@ -510,11 +523,27 @@ P:NPC {
       lines = { { id = "fe_default", text = "The druids remember the night Omen was defeated at Moonglade, and all the peoples are asked to honour their elders. In the festival season, those who seek us out are given coins of ancestry, so the memory is passed on." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    barov = {
+      lines = { { id = "ba_default", text = "Lord Alexei Barov and his kin, nobles of Lordaeron who gave their keep at Caer Darrow to the Cult for the promise of unlife. Two of his children squabble over his lands still, one among the Forsaken and one at Southshore, as if anything were left to inherit." } },
+      choices = {
+        { text = "And the Barovs themselves?", next = "barovs2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    barovs2 = {
+      lines = { { id = "b2_default", text = "They walk the school's halls as servants of the Cult, bound to the bargain they made. Greed is a chain, young one, and it does not unlock at death." } },
+      choices = { { text = "A grim lesson. Something else.", next = "BACK" } },
+    },
+    priest = {
+      lines = { { id = "pr_default", text = "Nor can I, though my goddess is Elune and yours is the Light. They twist the line between life and death, and every healer who walks near that place feels it like a wound." } },
+      choices = { { text = "Then I will mend what I can. Something else.", next = "BACK" } },
+    },
     school = {
       lines = { { id = "sc_default", text = "The Barov family gave their own keep to the Cult, and the Cult made it a school of death. The students practise on the living and the dead alike. I hear them at night, and I grieve." } },
       choices = {
         { text = "It should be burned to the ground.", next = "BACK", reply = "Fire cleanses, but it does not remember. Take care what you burn.", fx = { align = { light = 1 } } },
         { text = "Knowledge is knowledge, even dark knowledge.", next = "BACK", reply = "So said the Highborne, once. I remember how that ended.", fx = { align = { light = -1 } } },
+        { text = "Who are the Barovs?", next = "barov" },
         { text = "Something else.", next = "BACK" },
       },
     },

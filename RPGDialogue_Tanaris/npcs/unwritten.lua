@@ -445,7 +445,18 @@ P:NPC {
     },
     name = {
       lines = { { id = "n_default", text = "I earned it young, when my temper was hotter than this sand. Age has cooled me, but the name stayed, as names do." } },
-      choices = { { text = "Names outlast us all. Something else.", next = "BACK" } },
+      choices = {
+        { text = "What made your temper so hot?", next = "temper" },
+        { text = "Names outlast us all. Something else.", next = "BACK" },
+      },
+    },
+    temper = {
+      lines = { { id = "te_default", text = "The centaur, mostly, when they raided our herds in the years we wandered. I wanted to fight every one of them, and the elders taught me that a herd needs a shepherd more than it needs a storm." } },
+      choices = {
+        { text = "Sometimes a storm is what the herd needs.", next = "BACK", reply = "Sometimes, child. But storms do not choose where they fall.", fx = { align = { mercy = -1 } } },
+        { text = "The shepherd's way is the wiser one.", next = "BACK", reply = "It took me a long life to learn it. Learn it faster.", fx = { align = { mercy = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = {

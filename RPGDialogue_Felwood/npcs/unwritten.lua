@@ -159,6 +159,7 @@ P:NPC {
         { text = "Tell me about Trey.", next = "trey" },
         { text = "Who is Rakaiah?", next = "rakaiah" },
         { text = "Where will you go now?", next = "home" },
+        { text = "I carry the Light, as Trey did.", next = "light", when = { class = "PALADIN" } },
         { text = "I'll go back in.", next = "END" },
       },
     },
@@ -167,8 +168,24 @@ P:NPC {
       choices = {
         { text = "He deserves a proper burial.", next = "BACK", reply = "He does. Bring back what's left of him, and Jessir will see to the rest.", fx = { align = { light = 1 } } },
         { text = "The living matter more than bones.", next = "BACK", reply = "Then do it for me, if not for him. I'm still living.", fx = { align = { light = -1 } } },
+        { text = "What were you two scouting in Jaedenar?", next = "jaedenar" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    jaedenar = {
+      lines = { { id = "ja_default", text = "The Shadow Council's hold, and how deep it runs. Satyrs, felguard and cultists, all of them feeding the corruption that's killing Felwood. We got further than anyone, and look what it bought us." } },
+      choices = {
+        { text = "What did you see down there?", next = "shadowhold" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shadowhold = {
+      lines = { { id = "sh_default", text = "Cages, altars and a great deal of blood. They're calling something up from the dark, or trying to, and the Sentinels need to know before it answers." } },
+      choices = { { text = "Then Darnassus will hear it. Something else.", next = "BACK" } },
+    },
+    light = {
+      lines = { { id = "li_default", text = "Then you know what he was. Trey used to say the Light didn't care whether you prayed to it or to Elune, so long as you stood up when it counted. Stand up for him down there." } },
+      choices = { { text = "I will. Something else.", next = "BACK" } },
     },
     rakaiah = {
       lines = { { id = "ra_default", text = "A satyr-loving warlock who thinks pain is a form of conversation. She cut Trey down and kept his weapon like a trophy. I want her dead, and I'm not ashamed to say it." } },

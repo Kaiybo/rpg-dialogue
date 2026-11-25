@@ -1,5 +1,8 @@
 # RPG Dialogue: Dungeons changelog
 
+## 1.4.0 (2026-11-25): More to Say
+- Thin conversations deepened: more topics, a longer thread, and a reply only some characters get.
+
 ## 1.3.0 (2026-11-24): Old Grudges
 - Major NPCs answer for a grudge you hold against them (or they against you), and let things slip when angry.
 - Overlong speeches tightened.

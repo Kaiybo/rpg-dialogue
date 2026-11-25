@@ -2218,6 +2218,7 @@ P:NPC {
       choices = {
         { text = "I need directions.", next = "BUSINESS" },
         { text = "Any trouble in Dun Morogh?", next = "trouble" },
+        { text = "You lot look proud of your king.", next = "magni" },
         { text = "Thank you, guard.", next = "END" },
       },
     },
@@ -2227,6 +2228,10 @@ P:NPC {
         { text = "The Dark Irons are your kin, aren't they?", next = "darkiron" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    magni = {
+      lines = { { id = "mg_default", text = "Proud as stone, aye! King Magni holds court in the High Seat, and he's a dwarf who'll share an ale with a miner and a war with an army. His brother Muradin went north to Northrend and never came home, and the king still feels it." } },
+      choices = { { text = "Long may he reign. Something else.", next = "BACK" } },
     },
     darkiron = {
       lines = { { id = "d_default", text = "Kin by blood, aye, but not by anythin' that matters since Thaurissan's war tore Khaz Modan in half. They burned our lands with fire elementals, and we've nae forgotten it." } },

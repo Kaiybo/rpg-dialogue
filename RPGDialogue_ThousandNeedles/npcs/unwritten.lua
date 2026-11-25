@@ -566,46 +566,6 @@ P:NPC {
     },
   },
 }
-
----------------------------------------------------------------------------
--- "Plucky" Johnson: Mad Magus Tirth's apprentice, hiding as a chicken.
----------------------------------------------------------------------------
-P:NPC {
-  key = "tn_plucky_johnson", id = TODO_NPC("\"Plucky\" Johnson"), name = "\"Plucky\" Johnson", gender = "male",
-  role = "citizen", tier = "service",
-  communities = { "mirage_raceway" }, temper = { "nervous" }, values = { "survival" },
-  impression = {
-    first = "A chicken pecks at the dust near the raceway, which is odd enough. Odder still, it keeps glancing over its shoulder like a man expecting to be followed.",
-    third = "{name} met \"Plucky\" Johnson, a polymorphed apprentice hiding as a chicken.",
-  },
-  greetings = {
-    { id = "g_default", text = "Bawk. Bawk? Oh, it's you. Keep your voice down." },
-  },
-  start = "hello",
-  nodes = {
-    hello = {
-      lines = {
-        { id = "h_default", text = "Bawk. I mean, I'm a chicken, obviously, and certainly not Mad Magus Tirth's runaway apprentice. Please don't tell him where I am." },
-        { id = "h_mage", when = { class = "MAGE" }, text = "A mage! Bawk! Please, I beg you, don't turn me back. It's very peaceful being a chicken." },
-      },
-      again = { { id = "h_again", text = "Bawk. Anything else? Quickly." } },
-      choices = {
-        { text = "Why hide as a chicken?", next = "why" },
-        { text = "Does Tirth know you're here?", next = "tirth" },
-        { text = "Bawk to you too.", next = "END" },
-      },
-    },
-    why = {
-      lines = { { id = "w_default", text = "Because Tirth makes his apprentices test every spell first, and I've been set on fire seven times. A chicken eats bugs and naps, and nobody sets it on fire." } },
-      choices = { { text = "Fair point.", next = "BACK" } },
-    },
-    tirth = {
-      lines = { { id = "t_default", text = "If he did, he would have come by now, bawk. He's busy writing a book, I think, and nobody reads it." } },
-      choices = { { text = "Something else.", next = "BACK" } },
-    },
-  },
-}
-
 -- Elder Morningdew: an ancestor spirit honoured during the Lunar Festival. She appears in Thousand Needles, among the salt and the strange goblin racing.
 P:NPC {
   key = "tn_elder_morningdew", id = 15604, name = "Elder Morningdew", gender = "female",
@@ -760,6 +720,8 @@ P:NPC {
       choices = {
         { text = "Why hide from your own master?", next = "tirth" },
         { text = "Can you turn yourself back?", next = "back" },
+        { text = "The racing crowd seems fond of you.", next = "raceway" },
+        { text = "I know that polymorph. I could undo it for you.", next = "mage", when = { class = "MAGE" } },
         { text = "Don't worry. Your secret is safe.", next = "END" },
       },
     },
@@ -768,8 +730,21 @@ P:NPC {
       choices = {
         { text = "You owe him an apology and an honest day's work.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "No one should serve a master they fear.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What exactly did you break?", next = "broke" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    broke = {
+      lines = { { id = "br_default", text = "A crystal focus, a very old mirror, and then, bawk, the leg of his favourite chair, which he took worst of all. He shouted a word I didn't know, and I decided I didn't want to learn it up close." } },
+      choices = { { text = "A wise decision. Something else.", next = "BACK" } },
+    },
+    raceway = {
+      lines = { { id = "ra_default", text = "Fond enough to share their crumbs, bawk. The goblins think I'm lucky, so they rub my head before every race, and the gnomes keep trying to measure me for some reason. It beats lugging reagents up a tower." } },
+      choices = { { text = "Something else, Plucky.", next = "BACK" } },
+    },
+    mage = {
+      lines = { { id = "mg_default", text = "Please don't! Bawk! I mean, thank you, truly, but I did it to myself on purpose, and if I'm a man again the Magus will find me by supper. Let me be a chicken a while longer." } },
+      choices = { { text = "As you wish. Something else.", next = "BACK" } },
     },
     back = {
       lines = { { id = "b_default", text = "In theory, yes. In practice, I've grown rather good at being a chicken, and the goblins here feed me for free. Bawk. I may stay a little longer." } },
