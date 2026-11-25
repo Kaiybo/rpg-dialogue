@@ -828,3 +828,386 @@ P:NPC {
     _none = { { id = "tp_none", text = "I wouldn't know. If it isn't bleeding, it isn't my business." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Anathamaas Aetherwind: mage trainer of the High Order in Valanaar. (Wiki:
+-- trainer, High Order.) Courteous, lofty, sure magic is the isle's future.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "zep_anathamaas", id = TODO_NPC("Anathamaas Aetherwind"), name = "Anathamaas Aetherwind", title = "Mage Trainer",
+  role = "trainer", tier = "service",
+  communities = { "zephras_isle" }, temper = { "proud", "measured" }, values = { "knowledge", "ambition" },
+  notices = { "class", "race" },
+
+  impression = {
+    first = "He speaks as if every sentence were a lecture he had polished in advance.",
+    third = "{name} met Anathamaas Aetherwind, who trains mages for the High Order in Valanaar.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Winds' tidings. If you have come to learn, you have come to the right hall." },
+    { id = "g_mage", when = { class = "MAGE" }, text = "Ah, a student. Good, the High Order can never have too many." },
+  },
+
+  notice = {
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
+      text = "A Windshaper's pupil, by the look of you. You needn't glare; I hold nothing against you, only against your teachers' habit of begging." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Anathamaas Aetherwind of the High Order, and I teach the arcane to those with the wit for it. Our forebears were Highborne, and I see no reason their children should forget what they knew." },
+      },
+      again = {
+        { id = "h_again", text = "Another question? Good. Questions are the beginning of mastery." },
+        { id = "h_again2", text = "Go on. I have time for a curious mind." },
+      },
+      choices = {
+        { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
+        { text = "What does the High Order want?", next = "order" },
+        { text = "You don't think much of the Windshapers.", next = "windshapers" },
+        { text = "Where do I start with the arcane?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Winds be with you, Anathamaas.", next = "END" },
+      },
+    },
+    order = {
+      lines = { { id = "or_default", text = "Knowledge and power, which are the same thing seen from two sides. The ley lines still run beneath Zephras, and if we learn to read them properly, we need never again wait on a spirit's favour to keep this isle in the sky." } },
+      choices = {
+        { text = "And if the magic is what's failing?", next = "order2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    order2 = {
+      big = true,
+      lines = { { id = "o2_default", text = "Then it must be mended by those who understand it, not by those who pray at it. Falorne Fallwind would put it more sharply, but I find most people come round to us once the pylons start to flicker." } },
+      choices = {
+        { text = "You're right. Mastery beats begging.", next = "BACK", reply = "Well said. You may yet find a place in the High Order.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "That's the same pride that ruined the Highborne.", next = "BACK", reply = "You've been listening to Ventaari. Pride ruined them, yes, but ignorance would have ruined them faster.", fx = { affinity = -1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    windshapers = {
+      lines = { { id = "ws_default", text = "I think a great deal of them, as people. It is their notion that we owe the spirits a debt that I cannot abide, since the spirits left us of their own accord and we survived without them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xmage = {
+      lines = { { id = "xm_default", text = "With patience and a quiet room. The arcane rewards precision and punishes haste, and I have seen more than one eager student singe their own eyebrows trying to skip a lesson." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "That is outside my study. The library of the High Order may serve you better than I can." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Halavuul Cragwind: mining trainer, Valanaar. (Wiki: trainer, sells picks.)
+-- Earthy for a Skyborne: worries about digging into an island that floats.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "zep_halavuul", id = TODO_NPC("Halavuul Cragwind"), name = "Halavuul Cragwind", title = "Mining Trainer",
+  role = "trainer", tier = "service",
+  communities = { "zephras_isle" }, temper = { "dry", "careful" }, values = { "craft", "prudence" },
+  notices = { "craft", "race" },
+
+  impression = {
+    first = "There's rock dust in the creases of his hands that no washing will ever get out.",
+    third = "{name} met Halavuul Cragwind, who teaches mining in Valanaar.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Gale's greetings. You'll want a pick, I expect, and a lesson in where not to swing it." },
+  },
+
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf! I've heard your people dig whole cities out of mountains. Mind you don't try it here, because this mountain is floating." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Halavuul Cragwind, and I teach mining, which is an odd trade for a people who live in the sky. Still, there's copper in Zephras and tools need making, so somebody has to know how to get it out." },
+      },
+      again = { { id = "h_again", text = "What else? Mind the dust." } },
+      choices = {
+        { text = "Teach me to mine.", next = "BUSINESS" },
+        { text = "Is it safe to dig into a floating isle?", next = "safe" },
+        { text = "Do you ever find windstones?", next = "stones" },
+        { text = "Winds be with you.", next = "END" },
+      },
+    },
+    safe = {
+      lines = { { id = "sa_default", text = "Safe enough, if you keep to the surface seams and don't go tunnelling toward the underside. I'll tell you plainly that I don't know what holds us up, and neither does anyone else, so I'd rather not find out by cracking it." } },
+      choices = {
+        { text = "The High Order says it's the ley lines.", next = "safe2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    safe2 = {
+      big = true,
+      lines = { { id = "s2_default", text = "They say a great many things, and the Windshapers say the opposite. I'm a miner, so I trust what I can hold, though I'll admit I'd like to know who's right before the isle decides for us." } },
+      choices = {
+        { text = "Dig carefully, but dig. The isle needs the ore.", next = "BACK", reply = "That's my own rule, near enough. Keep to it and you'll do well.", fx = { align = { order = 1 } } },
+        { text = "Better to leave the rock alone until we understand it.", next = "BACK", reply = "A cautious answer, and not a foolish one. My apprentices never like it, though.", fx = { align = { order = -1 }, trait = { cautious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stones = {
+      lines = { { id = "st_default", text = "Now and again, and every time I do, half of Valanaar wants it. If you're lucky enough to dig one up, think hard before you trade it away." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "If it isn't in the rock, I don't know it." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Eltheen Nightbreeze: rogue trainer in the Hall of Arms. (Wiki: trainer;
+-- may be related to Earthbinder Galandria Nightbreeze, left unsaid.)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "zep_eltheen", id = TODO_NPC("Eltheen Nightbreeze"), name = "Eltheen Nightbreeze", title = "Rogue Trainer",
+  role = "trainer", tier = "service",
+  communities = { "zephras_isle" }, temper = { "wry", "watchful" }, values = { "cunning", "loyal" },
+  notices = { "class" },
+
+  impression = {
+    first = "She was leaning against the wall behind you before you noticed she'd moved.",
+    third = "{name} met Eltheen Nightbreeze, who trains rogues in Valanaar's Hall of Arms.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Gale's greetings. You walk loudly, you know." },
+    { id = "g_rogue", when = { class = "ROGUE" }, text = "There you are. I wondered when you'd find your way back." },
+  },
+
+  notice = {
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE" },
+      text = "Better. You stopped at the door and checked the room before you came in, and that's half of what I teach." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Eltheen Nightbreeze. I teach the quiet arts here, which the elders tolerate because the Al'Aketh don't fight fairly and somebody on our side had better know how not to either." },
+      },
+      again = { { id = "h_again", text = "Something else? Say it softly." } },
+      choices = {
+        { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
+        { text = "What do you teach, exactly?", next = "teach" },
+        { text = "What use is a rogue to the isle?", next = "use" },
+        { text = "Winds be with you, Eltheen.", next = "END" },
+      },
+    },
+    teach = {
+      lines = { { id = "te_default", text = "How to move without being heard, how to open what's locked, and where to put a blade so that one is enough. Seena teaches you to stand your ground, and I teach you to never need to." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    use = {
+      lines = { { id = "us_default", text = "The cult hides in ruins and caves, and the bandits off the fallen places know every goat path on the isle. A peacekeeper in bright armor can't get near them, but one of mine can, and comes back with names." } },
+      choices = {
+        { text = "That sounds a lot like spying on our own people.", next = "use2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    use2 = {
+      big = true,
+      lines = { { id = "u2_default", text = "Sometimes it is, and I won't pretend otherwise. Some of those bandits were farmers a year ago, and whether you treat them as criminals or as people who lost everything is a choice I make every day." } },
+      choices = {
+        { text = "The law has to hold, or the isle falls apart.", next = "BACK", reply = "The constables would like you. I'm not sure I do, but you're not wrong.", fx = { align = { order = 1 } } },
+        { text = "Give them a way back. They're still shen'dorei.", next = "BACK", reply = "That's what I tell myself in the dark. It's good to hear it said in daylight.", fx = { align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "I know a great many things, but not that. Odd, isn't it?" } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Belarysa Moonveil: upstairs in the Hall of Arms. (Wiki: location only.)
+-- Kept light: a resident who watches the hall's comings and goings.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "zep_belarysa", id = TODO_NPC("Belarysa Moonveil"), name = "Belarysa Moonveil",
+  role = "citizen", tier = "service",
+  communities = { "zephras_isle" }, temper = { "calm", "observant" }, values = { "duty" },
+  notices = { "class" },
+
+  impression = {
+    first = "She sits by the upstairs rail of the Hall of Arms, watching the floor below.",
+    third = "{name} met Belarysa Moonveil, who keeps to the upper floor of Valanaar's Hall of Arms.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Gale's greetings. It's quieter up here than down there, which is why I stay." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Belarysa Moonveil. From up here you can see every trainer in the hall and every student who thinks they aren't being watched, and I find it more instructive than any lesson." },
+      },
+      again = { { id = "h_again", text = "Anything else? I'm not going anywhere." } },
+      choices = {
+        { text = "What have you seen from up here?", next = "seen" },
+        { text = "Why not train down there yourself?", next = "why" },
+        { text = "I'll leave you to your watching.", next = "END" },
+      },
+    },
+    seen = {
+      lines = { { id = "se_default", text = "That Seena's students flinch less every week, that Quel'ana hears more than he sees, and that Eltheen is never quite where you last looked for her. And I've seen a good many young ones come through, more each season, all of them in a hurry." } },
+      choices = {
+        { text = "The isle needs them in a hurry.", next = "BACK", reply = "Perhaps. I only hope it gives them time to learn first.", fx = { align = { order = 1 } } },
+        { text = "They should take their time.", next = "BACK", reply = "So I'd tell them, if any of them looked up.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = { { id = "wh_default", text = "I've had my share of training, thank you, and my share of what comes after it. Up here I can rest my knees and still feel useful, which is more than most people my age can say." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "I couldn't say. Ask one of the trainers; they love being asked things." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Culli Springwind: a resident of Valanaar. (Wiki: location only.) Kept to
+-- town talk: the market, the skydocks, the news.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "zep_culli", id = TODO_NPC("Culli Springwind"), name = "Culli Springwind",
+  role = "citizen", tier = "service",
+  communities = { "zephras_isle" }, temper = { "chatty", "warm" }, values = { "family" },
+  notices = { "race" },
+
+  impression = {
+    first = "She greets you as though you'd been neighbours for years.",
+    third = "{name} met Culli Springwind, a talkative resident of Valanaar.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Gale's greetings, dear! Isn't it a fine breeze today?" },
+    { id = "g_outsider", when = { ["not"] = { race = "Skyborne" } }, text = "Oh, a traveler from below! Come here and let me have a proper look at you." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Culli Springwind, and I've lived in Valanaar all my life, so if you want to know who's who or where anything is, you've asked the right woman. I hear everything eventually, usually twice." },
+      },
+      again = { { id = "h_again", text = "What else would you like to know, dear?" } },
+      choices = {
+        { text = "What's the news in Valanaar?", next = "news" },
+        { text = "Where do the skycutters go?", next = "docks" },
+        { text = "Good day, Culli.", next = "END" },
+      },
+    },
+    news = {
+      lines = { { id = "ne_default", text = "The pylons are flickering again, the orders are bickering again, and someone saw cultists on the road to the shrine. It's the same news every week, only a little louder each time." } },
+      choices = {
+        { text = "Who do you think is right, the orders?", next = "news2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    news2 = {
+      big = true,
+      lines = { { id = "n2_default", text = "I think they're both too proud to share a table, and the rest of us pay for it. My husband sides with the High Order and I side with the Windshapers, and we've managed to stay married, so it can be done." } },
+      choices = {
+        { text = "The High Order. We have to stand on our own.", next = "BACK", reply = "You and my husband would get on. Don't tell him I said so.", fx = { align = { order = 1 } } },
+        { text = "The Windshapers. We owe the spirits more respect.", next = "BACK", reply = "Thank you! I'll quote you at supper.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    docks = {
+      lines = { { id = "do_default", text = "From the skydocks at the southern tip, east to Dalaran and west to Mulgore. My nephew went west, and he writes that the tauren are very kind and very large and that the bread is terrible." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "I haven't heard about that yet, but give me a day." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Emerii Tallgust: leatherworker, sells skinning supplies from his home in
+-- Valanaar. (Wiki: vendor.) Proud of his curing; Jolee buys from him.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "zep_emerii", id = TODO_NPC("Emerii Tallgust"), name = "Emerii Tallgust", title = "Leatherworker",
+  role = "vendor", tier = "service",
+  communities = { "zephras_isle" }, temper = { "fussy", "proud" }, values = { "craft" },
+  notices = { "craft", "class" },
+
+  impression = {
+    first = "His home smells of salt and tanning oil, and he apologises for neither.",
+    third = "{name} met Emerii Tallgust, a leatherworker who sells skinning supplies from his home in Valanaar.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Gale's greetings. Wipe your feet; the hides are drying." },
+  },
+
+  notice = {
+    { id = "n_skin", cat = "craft", when = { profession = { "Skinning" } },
+      text = "You skin, I see. Then you know a ragged cut ruins a hide, so please tell me you've stopped making them." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter. If you bring me clean hides, we'll get along very well." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Emerii Tallgust. I work leather and sell what you'll need to skin, knives, salt and thread, from my own front room, because the market stalls let the wind at everything." },
+      },
+      again = { { id = "h_again", text = "Something else? Mind the racks." } },
+      choices = {
+        { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "What's the secret to good leather?", next = "secret" },
+        { text = "Jolee Brightmeadows buys from you, doesn't she?", next = "jolee" },
+        { text = "Good day, Emerii.", next = "END" },
+      },
+    },
+    secret = {
+      lines = { { id = "se_default", text = "Salt, patience and a clean cut, in that order. Most people rush the salting because they want to see the finished thing, and then they wonder why it cracks before the season's out." } },
+      choices = {
+        { text = "Where do the best hides come from?", next = "hides" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hides = {
+      big = true,
+      lines = { { id = "hi_default", text = "From the beasts that have turned wild lately, more's the pity, since they're strong and well fed. The Rangers bring them in by the cartload, and I can't decide whether to be grateful or ashamed that business is so good." } },
+      choices = {
+        { text = "Be grateful. Nothing should go to waste.", next = "BACK", reply = "That's the sensible view, and I'll try to hold it. Thank you.", fx = { align = { order = 1 } } },
+        { text = "Be ashamed. Those beasts were peaceful once.", next = "BACK", reply = "They were. I still remember the vuldren eating out of children's hands.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jolee = {
+      lines = { { id = "jo_default", text = "She does, and she complains about my prices every time, and then she buys the lot. She's the best seamstress in Thendal, so I let her complain." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "No idea. Ask me about hides." } },
+  },
+}

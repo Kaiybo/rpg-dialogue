@@ -1624,3 +1624,46 @@ P:NPC {
     _none = { { id = "tp_none", text = "I'm afraid that isn't a banking matter, and the bank has kept to banking for a very long time." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Temple Highguard: the night elf guards of the Temple of the Moon. Generic.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "dar_temple_highguard", id = TODO_NPC("Temple Highguard"), name = "Temple Highguard",
+  role = "guard", tier = "service",
+  communities = { "darnassus" }, temper = { "solemn", "watchful" }, values = { "duty", "Elune" },
+  impression = {
+    first = "A tall Sentinel of the Temple, armored in silver, standing very still beneath the moonwell's light.",
+    third = "{name} spoke with a Temple Highguard keeping watch in the Temple of the Moon.",
+  },
+  greetings = {
+    { id = "g_default", text = "Elune-adore. You stand in the Temple of the Moon, so walk softly and speak low." },
+    { id = "g_back", when = { metBefore = true }, text = "Ishnu-alah. You return to the Temple; Elune notices those who do." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am of the Highguard, and we keep the Temple of the Moon for the Sisterhood of Elune and for High Priestess Tyrande. No one comes to harm beneath this roof while we stand watch." },
+      },
+      again = { { id = "h_again", text = "Is there more? Ask it quietly." } },
+      choices = {
+        { text = "What do you guard here?", next = "guard" },
+        { text = "Who may enter the Temple?", next = "enter" },
+        { text = "Elune guide you, Highguard.", next = "END" },
+      },
+    },
+    guard = {
+      lines = { { id = "gu_default", text = "The moonwell, the priestesses, and the High Priestess herself, when she walks among us. The Temple is the heart of our people, and a heart is worth guarding closely." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    enter = {
+      lines = { { id = "en_default", text = "Any who come in peace, of any people, for Elune turns no one away. Those who bring trouble with them find that we are less forgiving than she is." } },
+      choices = {
+        { text = "As it should be. Holy places need strong guards.", next = "BACK", reply = "Then we understand one another.", fx = { align = { order = 1 } } },
+        { text = "Elune's mercy shouldn't need a glaive behind it.", next = "BACK", reply = "Perhaps not. But mercy is easier to give when the doors are safe.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+}
