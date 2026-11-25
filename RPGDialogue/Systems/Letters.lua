@@ -90,7 +90,8 @@ function Letters.RollRandom(now, force)
   if not force then
     if now - (c.lettersRandomAt or 0) < Letters.RANDOM_GAP then return nil end
     if now - (c.lettersLastAt or 0) < Letters.RANDOM_GAP / 2 then return nil end
-    for _, r in pairs(store()) do if not r.arrived then return nil end end -- one is still on its way
+    -- One is still on its way (a letter whose pack is off can't arrive, so it doesn't count).
+    for id, r in pairs(store()) do if not r.arrived and Letters.Def(id) then return nil end end
     if math.random() >= Letters.RANDOM_CHANCE then return nil end
   end
   local s, pool, total = store(), {}, 0

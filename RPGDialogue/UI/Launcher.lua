@@ -53,6 +53,7 @@ local function minimapButton()
     end)
   end)
   b:SetScript("OnDragStop", function(self) self:SetScript("OnUpdate", nil) end)
+  b:SetScript("OnHide", function(self) self:SetScript("OnUpdate", nil) end)
   b:SetScript("OnClick", function(_, button) onClick(button) end)
   b:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_LEFT")
@@ -89,12 +90,12 @@ function Launcher.Book()
   hl:SetAllPoints()
   hl:SetColorTexture(1, 1, 1, 0.2)
   local pos = ns.db.settings.pos.journalButton
-  if pos then book:SetPoint(pos[1], UIParent, pos[1], pos[2], pos[3]) else book:SetPoint("RIGHT", UIParent, "RIGHT", -60, 120) end
+  if pos then book:SetPoint(pos[1], UIParent, pos[4] or pos[1], pos[2], pos[3]) else book:SetPoint("RIGHT", UIParent, "RIGHT", -60, 120) end
   book:SetScript("OnDragStart", book.StartMoving)
   book:SetScript("OnDragStop", function(self)
     self:StopMovingOrSizing()
-    local point, _, _, x, y = self:GetPoint()
-    ns.db.settings.pos.journalButton = { point, x, y }
+    local point, _, relPoint, x, y = self:GetPoint()
+    ns.db.settings.pos.journalButton = { point, x, y, relPoint }
   end)
   book:SetScript("OnClick", function(_, button) onClick(button) end)
   book:SetScript("OnEnter", function(self)

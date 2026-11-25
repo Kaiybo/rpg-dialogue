@@ -689,6 +689,10 @@ local function create()
     end
   end)
   frame:SetScript("OnHide", function() C.GamePadButtons(frame, false) end)
+  -- SetPropagateKeyboardInput is restricted in combat: let every key through before it starts
+  -- (a page switch or Escape just before combat would otherwise keep swallowing keys).
+  frame:RegisterEvent("PLAYER_REGEN_DISABLED")
+  frame:SetScript("OnEvent", function(self) self:SetPropagateKeyboardInput(true) end)
 
   frame.title = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
   frame.title:SetDrawLayer("OVERLAY", 7)
@@ -1321,7 +1325,7 @@ end
 function J.OnKey(self, key)
   local handled = false
   if C.InCombat() then
-    handled = false
+    return
   elseif picking and key == "ESCAPE" then
     handled = true
     J.CloseOrigins()

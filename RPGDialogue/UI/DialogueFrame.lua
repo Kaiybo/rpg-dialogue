@@ -394,9 +394,13 @@ local function create()
   frame.keys:SetPropagateKeyboardInput(true)
   frame.keys:SetScript("OnKeyDown", function(self, key) D.OnKey(self, key) end)
   C.SetGamePadHandler(frame.keys, function(self, button) D.OnPad(self, button) end)
+  -- Restricted in combat: let every key through before combat starts.
+  frame.keys:RegisterEvent("PLAYER_REGEN_DISABLED")
+  frame.keys:SetScript("OnEvent", function(self) self:SetPropagateKeyboardInput(true) end)
   frame:SetScript("OnHide", function()
     if autoTimer then autoTimer.cancelled = true end
     C.GamePadButtons(frame.keys, false)
+    if UI.TextOptions then UI.TextOptions.Hide() end
   end)
 end
 
@@ -1108,6 +1112,8 @@ end
 
 -- Auto-advance: when the only real option is one choice, take it after a delay.
 function D.StartAutoAdvance()
+  -- A timer from an earlier page must not take a choice on this one.
+  if autoTimer then autoTimer.cancelled = true; autoTimer = nil end
   if not settings().autoAdvance or not view then return end
   if #(view.choices or {}) ~= 1 or view.choices[1].locked then return end
   local token = { cancelled = false }

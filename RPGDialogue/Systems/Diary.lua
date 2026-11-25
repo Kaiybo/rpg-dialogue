@@ -49,7 +49,7 @@ function Diary.Deed(id)
     tpl = who and { first = L.DIARY_FIRST_DEATH_BY:format(who), third = L.DIARY_FIRST_DEATH_BY_3:format(who) }
       or { first = L.DIARY_FIRST_DEATH, third = L.DIARY_FIRST_DEATH_3 }
   elseif kind == "level" then
-    tpl = { first = L["DIARY_LEVEL_" .. arg] or L.DIARY_LEVEL:format(arg), third = L.DIARY_LEVEL_3:format(arg) }
+    tpl = { first = rawget(L, "DIARY_LEVEL_" .. arg) or L.DIARY_LEVEL, third = L.DIARY_LEVEL_3:format(arg) }
   elseif kind == "dungeon" then
     tpl = { first = L.DIARY_DUNGEON:format(arg), third = L.DIARY_DUNGEON_3:format(arg) }
   elseif kind == "cleared" then
