@@ -1269,3 +1269,132 @@ P:NPC {
     _none = { { id = "tp_none", text = "I don't know, and I've no time to find out. Ask a master; they've time for everything except teaching me." } },
   },
 }
+
+-- Captain Truman: a Forsaken in the Ruins of Lordaeron who served Grand Marshal Othmar Garithos and still
+-- awaits his return, not knowing that Garithos is dead, nor that he is dead himself. Gives Abominable Creatures (Alliance).
+P:NPC {
+  key = "uc_captain_truman", id = TODO_NPC("Captain Truman"), name = "Captain Truman", title = "Captain", gender = "male",
+  role = "questgiver", tier = "quest",
+  temper = { "stern", "bitter" }, values = { "loyal", "duty" },
+  notices = { "race" },
+  impression = {
+    first = "He stands at attention in rusted Alliance plate, and he does not seem to notice that his face is mostly bone.",
+    third = "{name} met Captain Truman in the Ruins of Lordaeron, who still waits at his post for Grand Marshal Garithos.",
+  },
+  greetings = {
+    { id = "g_default", text = "What do you want? Can't you see there is a war to be won?" },
+    { id = "g_back", when = { metBefore = true }, text = "You again. Any word of the Grand Marshal, or have you only come to waste my time?" },
+    { id = "g_human", when = { race = "Human" }, text = "A soldier of Lordaeron, or near enough! Stand straight, man, the Grand Marshal could return at any moment." },
+  },
+  notice = {
+    { id = "n_nonhuman", cat = "race", when = { race = { "Dwarf", "Gnome", "NightElf" } },
+      text = "Oh, a {race}. What are you doing in our glorious city? These ruins are already crawling with inhuman filth as it is." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      narr = "He holds his sword in a salute, and the leather of the grip has rotted to threads.",
+      lines = {
+        { id = "h_default", key = true, text = "My master has already charged into the fray and has ordered me to hold this post, and hold it I shall. It has been quite some time, I'll grant you, but the Grand Marshal is not a man to forget his officers." },
+        { id = "h_active", when = { questActive = P.TODO_QUEST("Abominable Creatures") },
+          text = "You're still alive? Hmph, well, what is it? Have you found my lord yet?" },
+        { id = "h_done", when = { questDone = P.TODO_QUEST("Abominable Creatures") },
+          text = "Get that thing's memory out of my sight. It was not him, do you hear me, it cannot have been him." },
+      },
+      again = {
+        { id = "h_again", text = "Well? Out with it, I have a post to keep." },
+        { id = "h_again2", text = "Anything else, or will you finally go and be useful?" },
+      },
+      choices = {
+        { text = "What happened to you?", next = "happened" },
+        { text = "Who is your master?", next = "garithos" },
+        { text = "Have you looked at your own hands, Captain?", next = "hands" },
+        { text = "The Grand Marshal isn't coming back.", next = "dead", when = { questDone = P.TODO_QUEST("Abominable Creatures") } },
+        { text = "I'll leave you to your post.", next = "END" },
+      },
+    },
+    happened = {
+      lines = { { id = "w_default", text = "Watch your tone. When Arthas betrayed us, those of us still loyal to the Crown took up arms to fend off his unholy Scourge, and we held when the rest of Lordaeron broke." } },
+      choices = {
+        { text = "And after that?", next = "alliance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    alliance = {
+      lines = { { id = "a_default", text = "Our glorious commander allied with the Banshee Queen, Sylvanas Windrunner, to purge the undead filth from our homeland. I haven't heard from him since, and so I await his return, dutifully, as a soldier should." } },
+      choices = {
+        { text = "Trusting the Banshee Queen was a mistake.", next = "BACK", reply = "Mind your tongue! The Grand Marshal knew exactly what he was doing, and he'd have had her head the moment the war was won.", fx = { align = { order = -1 } } },
+        { text = "Then your loyalty does you credit, Captain.", next = "BACK", reply = "Of course it does, and I'll thank you to remember it when you report back to your own commander.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    garithos = {
+      lines = { { id = "g_default", text = "Grand Marshal Othmar Garithos, the tallest, most statuesque hero you've ever laid eyes on, and you'll know him the moment you see him. He went into the ruins to finish the fight, and he ordered me to stay." } },
+      choices = {
+        { text = "I could go and find him for you.", next = "quest" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    quest = {
+      lines = { { id = "q_default", text = "I doubt you'd survive ten minutes in combat, but if it keeps your simple mind busy, then by all means, go and seek him out. Tell him Captain Truman holds the line, and awaits his orders." } },
+      choices = { { text = "I'll find him. Something else.", next = "BACK" } },
+    },
+    hands = {
+      lines = { { id = "h2_default", text = "What about them? A soldier's hands are scarred, and mine have been at war a long time, and I'll not have some {race} sneer at them." } },
+      narr = "He does not look down.",
+      choices = { { text = "Never mind, Captain. Something else.", next = "BACK" } },
+    },
+    dead = {
+      big = true,
+      lines = { { id = "d_default", text = "That was a monstrosity, sewn together out of the dead, and you dare tell me it was my lord? He'll come back, he must come back, because if he doesn't, then what in the Light's name have I been waiting for?" } },
+      choices = {
+        { text = "You deserve the truth, Captain, however hard it is.", next = "BACK", reply = "Truth! Get out, and take your truth with you.", fx = { align = { honor = 1 } } },
+        { text = "Perhaps I was mistaken. Keep your post.", next = "BACK", reply = "Yes, you were, and I will, so go and make yourself useful elsewhere.", fx = { align = { honor = -1 } } },
+      },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I don't know and I don't care, because my only concern is the Grand Marshal's return." } },
+  },
+}
+
+-- Deelio: a Forsaken woman who walks the Magic Quarter of the Undercity. The wiki gives nothing else.
+P:NPC {
+  key = "uc_deelio", id = TODO_NPC("Deelio"), name = "Deelio", gender = "female",
+  role = "citizen", tier = "service",
+  temper = { "dry", "cold" }, values = { "curious" },
+  impression = {
+    first = "She walks the Magic Quarter's ring as if she has somewhere to be and never gets there.",
+    third = "{name} spoke with Deelio, a Forsaken who walks the Magic Quarter of the Undercity.",
+  },
+  greetings = {
+    { id = "g_default", text = "Walk with me if you want to talk, because I don't stop." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. I've been round twice since we last spoke, if you're counting." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "I walk the Magic Quarter, round and round, because standing still down here makes me feel like I'm back in the ground. The mages don't mind, and the warlocks are too busy with their imps to notice." } },
+      again = { { id = "h_again", text = "More? Keep up, then." } },
+      choices = {
+        { text = "Why not leave the Undercity for a while?", next = "leave" },
+        { text = "What do you see on your walks?", next = "see" },
+        { text = "I'll let you walk on.", next = "END" },
+      },
+    },
+    leave = {
+      lines = { { id = "l_default", text = "And go where, Brill? It's all fields and Scarlets and that wretched inn, so I'd rather keep my circle down here where the Deathguard are thick on the ground." } },
+      choices = {
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
+    see = {
+      lines = { { id = "s_default", text = "Apprentices burning their sleeves, a warlock arguing with a voidwalker, and the same mage counting her reagents three times over. It's better than the canals, at any rate, where all you see is the green stuff and whatever falls in." } },
+      choices = { { text = "I'll keep my sleeves clear. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "No idea. Ask someone who stands still long enough to learn things." } },
+  },
+}

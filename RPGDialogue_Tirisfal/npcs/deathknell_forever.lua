@@ -585,3 +585,152 @@ P:NPC {
     _none = { { id = "tp_none", text = "That's not something you'll find in a rock, friend, so I wouldn't know." } },
   },
 }
+
+-- Frightened Paladin: a newly risen Forsaken paladin who fled into the hills west of Deathknell
+-- and cannot bear what she has become. Aramis Hammerhand sends risen paladins to find her (Coming to Terms).
+P:NPC {
+  key = "tf_frightened_paladin", id = TODO_NPC("Frightened Paladin"), name = "Frightened Paladin", gender = "female",
+  bible = "bibles/deathknell_forever.md", role = "citizen", tier = "quest",
+  communities = { "deathknell" }, temper = { "anxious", "hostile" }, values = { "faith" },
+  notices = { "race", "class" },
+  impression = {
+    first = "She holds her mace out in both hands, as if she were warding off a ghoul.",
+    third = "{name} found the frightened paladin in the hills west of Deathknell, who would rather die than be Forsaken.",
+  },
+  greetings = {
+    { id = "g_default", text = "Get away from me, monster! Don't come any closer!" },
+  },
+  notice = {
+    { id = "n_pal", cat = "class", when = { class = "PALADIN", race = "Scourge" },
+      text = "You wear the Light's colours over rotten skin, and you think that makes you one of us. It makes you a mockery of everything we swore." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      narr = "Her armour is too big for what is left of her, and it rattles when she backs away.",
+      lines = {
+        { id = "h_default", key = true, text = "Get away from me, monster! I've seen what's down in that chapel, and I won't let you drag me back to it." },
+        { id = "h_quest", when = { questActive = TODO_QUEST("Coming to Terms") },
+          text = "Hammerhand sent you, didn't he? I heard him calling after me, all kindness and prayers, as if the Light could ever look at what we are." },
+      },
+      again = {
+        { id = "h_again", text = "Why are you still here? Say it and go." },
+        { id = "h_again2", text = "Stay back, I said! What else could you possibly want?" },
+      },
+      choices = {
+        { text = "You've been raised, and the Light still answers you.", next = "raised" },
+        { text = "What do you remember, before you woke?", next = "before" },
+        { text = "Who did you serve in life?", next = "served" },
+        { text = "I'll leave you be.", next = "END" },
+      },
+    },
+    raised = {
+      lines = { { id = "r_default", text = "Raised? I was dragged out of a grave by the Dark Lady's servants, and you call that a second chance. I swore an oath to burn creatures like us, and I kept it, right up until I became one." } },
+      choices = {
+        { text = "The Light answers us still. That must mean something.", next = "plea" },
+        { text = "Then you know what has to happen now.", next = "plea" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plea = {
+      big = true,
+      lines = { { id = "p_default", text = "No! No, no, no, this can't be what I am. I would rather be dead than Forsaken, and if you won't let me be, I'll make you do it." } },
+      choices = {
+        { text = "Come with me. We'll face this together, sister.", next = "END", reply = "<She raises her weapon, shaking, and lunges at you.>", fx = { align = { light = 1 } } },
+        { text = "If that's your choice, I'll grant you a clean end.", next = "END", reply = "<She raises her weapon with a cry and charges.>", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before = {
+      lines = { { id = "b_default", text = "Smoke, and a field full of the dead walking, and my own sword feeling heavier with every swing. Then nothing, and then a cold stone floor and a voice telling me to rise, and I did, Light forgive me, I did." } },
+      choices = { { text = "That wasn't your fault. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    served = {
+      lines = { { id = "s_default", text = "The Silver Hand, as squire to a knight of Lordaeron, and I was nearly made a paladin myself before the plague came. I don't know if my knight still lives, and I hope to the Light he never sees me now." } },
+      choices = { { text = "I'm sorry. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I don't care! Leave me alone!" } },
+  },
+}
+
+-- Deathguard Veteran: the guards at Deathknell's entrance.
+P:NPC {
+  key = "tf_deathguard_veteran", id = TODO_NPC("Deathguard Veteran"), name = "Deathguard Veteran", gender = "male",
+  bible = "bibles/deathknell_forever.md", role = "guard", tier = "service",
+  communities = { "deathknell" }, temper = { "cold", "dry" }, values = { "duty" },
+  impression = {
+    first = "He has the patience of a man who has stood at this gate for a very long time.",
+    third = "{name} spoke with a Deathguard Veteran at the entrance to Deathknell.",
+  },
+  greetings = {
+    { id = "g_default", text = "Newly risen, are you? Inside is the safe side of this gate, and outside is not, so keep that straight." },
+    { id = "g_back", when = { metBefore = true }, text = "Still walking, I see. That's more than most manage their first week." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "I've held Deathknell's gate since the Dark Lady took it back from the Scourge, and I've watched a great many fresh corpses walk out of it. The mindless wander the fields, and the Scarlet Crusade comes over the hills when they feel bold, so mind both." } },
+      again = { { id = "h_again", text = "Anything else? I'll be here." } },
+      choices = {
+        { text = "What's out there, past the gate?", next = "out" },
+        { text = "Are the Scarlets really that close?", next = "scarlet" },
+        { text = "Carry on, Deathguard.", next = "END" },
+      },
+    },
+    out = {
+      lines = { { id = "o_default", text = "The mindless, mostly, who woke without their wits, and the Night Web spiders in the hollow, and the old graves past them. Shadow Priest Sarvis sets the newly risen to clearing it, and you'd do well to go to him if you haven't." } },
+      choices = { { text = "I'll find him. Something else.", next = "BACK" } },
+    },
+    scarlet = {
+      lines = { { id = "s_default", text = "Close enough that I've had their arrows in my shield, and they come burning everything they think is ours. They'd put Deathknell to the torch tomorrow if they thought they could hold it." } },
+      choices = {
+        { text = "Let them come. They'll find us ready.", next = "BACK", reply = "That's the spirit the Deathguard likes, so keep it till you're strong enough to back it up.", fx = { align = { order = 1 } } },
+        { text = "Then maybe we should strike them first.", next = "BACK", reply = "Bold, and not wrong, but you'll want some flesh on those bones before you try it.", fx = { align = { order = -1 } } },
+      },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I watch a gate, risen one. Ask in the chapel." } },
+  },
+}
+
+-- Injured Deathguard: kneeling in Deathknell, too broken to stand his post.
+P:NPC {
+  key = "tf_injured_deathguard", id = TODO_NPC("Injured Deathguard"), name = "Injured Deathguard", gender = "male",
+  bible = "bibles/deathknell_forever.md", role = "guard", tier = "service",
+  communities = { "deathknell" }, temper = { "weary", "dry" }, values = { "duty" },
+  impression = {
+    first = "He kneels with one hand on the ground, holding himself together in more than one sense.",
+    third = "{name} spoke with an injured Deathguard kneeling in Deathknell.",
+  },
+  greetings = {
+    { id = "g_default", text = "Don't mind me, I'm only resting, and I'll be back on my feet once someone sews my leg on properly." },
+    { id = "g_back", when = { metBefore = true }, text = "Still kneeling, as you see. The stitches are taking their time." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      narr = "One of his greaves lies on the ground beside him, and so, you notice, does part of the leg.",
+      lines = { { id = "h_default", key = true, text = "The Scarlets caught our patrol on the road west of here, and I came off worse than I'd like to admit. The good news about being dead is that it hurts less than it should, and the bad news is that I mend slower than a living man." } },
+      again = { { id = "h_again", text = "Something more? I'm not going anywhere, as you can see." } },
+      choices = {
+        { text = "Will you heal?", next = "heal" },
+        { text = "You took it well, for a man in pieces.", next = "joke" },
+        { text = "Rest easy, Deathguard.", next = "END" },
+      },
+    },
+    heal = {
+      lines = { { id = "he_default", text = "The Apothecaries say so, and they've a thread and a needle for most things. I've seen worse put back together, though I'd rather not tell you which parts of which men." } },
+      choices = { { text = "Then I'll wish you a quick mending. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    joke = {
+      lines = { { id = "j_default", text = "Ha, that's the trick of it, friend, because you learn to laugh about these things or you don't last. If a Crusader ever takes your arm, pick it up and carry it home, because it's easier to sew than to grow." } },
+      choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I don't know, friend, and I've other things on my mind, like my leg." } },
+  },
+}

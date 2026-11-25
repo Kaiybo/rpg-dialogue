@@ -908,3 +908,34 @@ P:NPC {
     _none = { { id = "tp_none", text = "Not my line of work, dearie, but I'll keep an ear open, and ears cost nothing." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Quadcopter (D.E.L.T.A): small flying drones that lead travellers to the Half-Buried Mech on
+-- Land's End Beach ("Beach Bot"). Mechanical barks only.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "tan_quadcopter", id = TODO_NPC("Quadcopter"), name = "Quadcopter", title = "D.E.L.T.A",
+  role = "citizen", tier = "service", temper = { "precise" }, values = { "duty" },
+  impression = {
+    first = "A buzzing little drone over the dunes that keeps trying to lead people south to Land's End Beach.",
+    third = "{name} met a D.E.L.T.A quadcopter, a flying drone that guides travellers to a buried mech on Land's End Beach.",
+  },
+  greetings = {
+    { id = "g_default", text = "*The quadcopter's four rotors whine as it drops to eye level. A lens whirs, focuses on you, and blinks green.* Beep. Organic located. Please follow." },
+    { id = "g_quest", when = { questDone = TODO_QUEST("Beach Bot") }, text = "*The quadcopter blinks its lens twice, chirps a happy little tone, and spins once in the air.* Unit recovered. Thank you, organic." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*It points itself toward the shore and wobbles there, insisting.* Distress beacon detected at Land's End Beach. Assistance required. Please follow." },
+      },
+      again = { { id = "a_again", text = "*Whirr.* Please follow. Please follow." },
+      },
+      choices = {
+        { text = "What's at Land's End Beach?", next = "BACK", reply = "*Click, click.* Damaged unit, partially buried in sand. Recovery requires hands. You have hands." },
+        { text = "Lead the way, little machine.", next = "END", reply = "*The rotors rise to a happy pitch, and it darts off toward the sea.* Affirmative. Follow." },
+      },
+    },
+  },
+}

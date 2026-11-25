@@ -509,3 +509,630 @@ P:NPC {
     _none = { { id = "tp_none", text = "I don't know, friend. I've been up a tree; the news hasn't reached me." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Durotar Supply and Logistics: the Forever supply camp outside the Crossroads.
+-- Crafters who sell patterns to those in good standing with the camp, a kodo handler,
+-- two off-duty pack kodo, and the Steamwheedle goblins who handle the auctions and the mail.
+---------------------------------------------------------------------------
+
+-- Aza'bek: jungle troll chef; feeds the camp and the caravans.
+P:NPC {
+  key = "azabek", id = TODO_NPC("Aza'bek"), name = "Aza'bek", title = "Chef", gender = "female",
+  role = "vendor", tier = "service",
+  communities = { "crossroads" }, temper = { "jolly" }, values = { "generous" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "She tastes everything twice and laughs at anyone who winces at the pepper.",
+    third = "{name} met Aza'bek, the jungle troll who cooks for the Durotar Supply and Logistics camp outside the Crossroads.",
+  },
+  greetings = {
+    { id = "g_default", text = "Come in close, {g:mon|sister}, de pot be on and nobody leave my fire hungry." },
+    { id = "g_back", when = { metBefore = true }, text = "You be back! Either de stew be good or you got nowhere else to eat, and I be happy either way." },
+  },
+  notice = {
+    { id = "n_cook", cat = "craft", when = { profession = "Cooking" },
+      text = "You smell like woodsmoke and onions, so you be a cook too. Sit down, and tell me what you put in your stew." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear at my fire! You know what real pepper taste like, so you can tell dese orcs dey be crying for nothin'." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", key = true, text = "Aza'bek, and I cook for de whole camp, from de crafters to de kodo drivers who come in off de road with dust in deir teeth. De Supply and Logistics feed de caravans, and somebody got to feed de Supply and Logistics, ya?" },
+      },
+      again = {
+        { id = "h_again", text = "What else you want, while de pot be bubbling?" },
+        { id = "h_again2", text = "Go on, I be listening with one ear and stirring with de other." },
+      },
+      choices = {
+        { text = "What's in the pot today?", next = "pot" },
+        { text = "What is this camp, exactly?", next = "camp" },
+        { text = "You're a long way from the jungle.", next = "jungle" },
+        { text = "Let me see what you're selling.", next = "BUSINESS" },
+        { text = "I'll come back hungry.", next = "END" },
+      },
+    },
+    pot = {
+      lines = { { id = "p_default", text = "Zhevra, plainstrider, a little kodo dat Okamache swear died of old age, and enough pepper to make a grunt see his ancestors. De orcs complain every night and dey finish it every night, so I know I be doin' it right." } },
+      choices = {
+        { text = "Do you cook for the tauren too?", next = "tauren" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tauren = {
+      lines = { { id = "t_default", text = "Pawani eat only de greens and de bread when kodo be in de pot, and I don't blame her, because dose beasts carry everything we own. So I keep a second pot for her, and she pay me in good leather aprons." } },
+      choices = {
+        { text = "Then cook what the tauren can eat, and spare the kodo.", next = "BACK", reply = "Dat be a kind thought, and maybe I try it one night. De orcs will riot, but dey riot every night anyway.", fx = { align = { honor = 1 } } },
+        { text = "Meat's meat. A kodo that dies old should feed the camp.", next = "BACK", reply = "Dat be what I tell myself, mon, and de stew agree with me. Just don't say it where Okamache can hear you.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camp = {
+      lines = { { id = "c_default", text = "De Durotar Supply and Logistics, and dey move everything de Horde need from Orgrimmar down de road and out to every camp in de Barrens. De crafters here sell deir best patterns only to folk who help de camp, so if you want de good stuff, you got to earn it first." } },
+      choices = {
+        { text = "Who should I talk to here?", next = "who" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    who = {
+      lines = { { id = "w_default", text = "Gor'mak at de anvil, Jim'bek wid his needles, and Pawani wid her hides. De Forsaken lady wid de bottles, Durelle, be smarter dan all of us, and de sky-elf, Beneris, be very polite and never eat my food, which I take personal." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    jungle = {
+      lines = { { id = "j_default", text = "I be from de Echo Isles, mon, where de fish jump in de pot by demselves. De Barrens be dry and flat and full of bones, but de pay be steady, and here nobody try to put a spear in me while I cook." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I don't know dat, mon, but I know de stew be ready in an hour." } },
+  },
+}
+
+-- Beneris: Skyborne (Windshaper) enchanter; new to the Horde, polite and careful.
+P:NPC {
+  key = "beneris", id = TODO_NPC("Beneris"), name = "Beneris", title = "Enchanter", gender = "male",
+  role = "vendor", tier = "service",
+  communities = { "crossroads" }, temper = { "calm" }, values = { "curious" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "He speaks softly, and his eyes keep drifting to the sky as if he's listening for something.",
+    third = "{name} met Beneris, a Skyborne enchanter at the Durotar Supply and Logistics camp outside the Crossroads.",
+  },
+  greetings = {
+    { id = "g_default", text = "Well met, traveller. The wind is quiet today, which suits my work, if not my mood." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. I hope the road was kind, or at least not unkind." },
+  },
+  notice = {
+    { id = "n_ench", cat = "craft", when = { profession = "Enchanting" },
+      text = "You carry dust and shards like an enchanter does, in every pocket at once. Then we speak the same language, whatever our tongues." },
+    { id = "n_sky", cat = "race", when = { race = "Skyborne" },
+      text = "One of our own, this far from Camp Gev'rek. The Barrens has little wind to speak of, but it is good to see a familiar face under it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", key = true, text = "I am Beneris, and I sell the formulae the camp trusts me with to those who have helped it. Thunder Bluff vouched for my people, so I came where the Horde had need of an enchanter, and here, it seems, is where the need was." },
+      },
+      again = {
+        { id = "h_again", text = "Is there something more you wished to ask?" },
+        { id = "h_again2", text = "Go on. I am in no hurry, and neither is the dust." },
+      },
+      choices = {
+        { text = "Who are your people?", next = "people" },
+        { text = "How does an enchanter serve a supply camp?", next = "work" },
+        { text = "You keep looking at the sky.", next = "sky" },
+        { text = "Show me your formulae.", next = "BUSINESS" },
+        { text = "Farewell, Beneris.", next = "END" },
+      },
+    },
+    people = {
+      lines = { { id = "p_default", text = "We are the Skyborne, and the Windshapers among us came to the Horde through the Earthen Ring. We owe a debt to the spirits of the wind, and they have gone quiet, so we came down to a world our ancestors left a very long time ago." } },
+      choices = {
+        { text = "The Horde is glad to have you.", next = "BACK", reply = "That is generous, and more than some of the grunts have said. I will try to earn it.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Strangers from the sky should prove themselves before they're trusted.", next = "BACK", reply = "That is fair, and it is what I would say in your place. I am trying, one enchanted bracer at a time.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    work = {
+      lines = { { id = "w_default", text = "Every blade and boot that leaves this camp goes to someone who will fight with it, and a little enchantment can be the difference between a wound and a grave. Gor'mak makes the steel, and I make it remember it was meant to protect someone." } },
+      choices = {
+        { text = "What does Gor'mak think of you?", next = "gormak" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gormak = {
+      lines = { { id = "g_default", text = "He thinks I am too thin and too quiet, and he says so every morning. But he brings me his best work before anyone else's, so I believe that is how an orc says he is pleased." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    sky = {
+      lines = { { id = "s_default", text = "Do I? It is a habit, I think, from a lifetime of listening for the wind to speak. Here it only carries dust and the smell of Aza'bek's pepper, but I have not quite stopped listening." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I am afraid I know little of that. I am still learning this world's names." } },
+  },
+}
+
+-- Apothecary Durelle: Forsaken alchemist of the Royal Apothecary Society, lent to the camp.
+P:NPC {
+  key = "apothecary_durelle", id = TODO_NPC("Apothecary Durelle"), name = "Apothecary Durelle", title = "Alchemist", gender = "female",
+  role = "vendor", tier = "service",
+  communities = { "crossroads" }, temper = { "cold" }, values = { "clever" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "She measures you with the same flat look she gives her reagents.",
+    third = "{name} met Apothecary Durelle, a Forsaken alchemist of the Royal Apothecary Society working at the Durotar Supply and Logistics camp.",
+  },
+  greetings = {
+    { id = "g_default", text = "Mind the bench. Some of these bottles are medicine, and some are very much not." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, and still breathing, I see. The Barrens hasn't finished with you yet." },
+  },
+  notice = {
+    { id = "n_alch", cat = "craft", when = { profession = { "Alchemy", "Herbalism" } },
+      text = "Herb stains under the nails. Good, then you'll know not to touch anything on this table without asking." },
+    { id = "n_undead", cat = "race", when = { race = "Scourge" },
+      text = "One of the Dark Lady's own, out here in the sun. We both look worse for it, but at least we don't sweat." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", key = true, text = "Apothecary Durelle, of the Royal Apothecary Society, lent to this dusty camp to keep the Horde's caravans in elixirs. The recipes I sell are good ones, and I sell them only to those the camp has learned to trust." },
+      },
+      again = {
+        { id = "h_again", text = "Something else? Be quick, the distillate won't wait." },
+        { id = "h_again2", text = "Go on, then. I have all the time in the world, unfortunately." },
+      },
+      choices = {
+        { text = "Why would the Society send you here?", next = "society" },
+        { text = "What do the caravans need most?", next = "caravans" },
+        { text = "You don't seem to like the living much.", next = "living" },
+        { text = "Show me your recipes.", next = "BUSINESS" },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    society = {
+      lines = { { id = "s_default", text = "The Dark Lady keeps her promises to the Horde, and this is one of them, in a bottle. The Barrens also grows a few roots that don't grow in Tirisfal, and I am not too proud to study them while I'm here." } },
+      choices = {
+        { text = "The Forsaken should share their craft freely with the Horde.", next = "BACK", reply = "Freely? Nothing is free, but I sell at a fair price, and that is generous enough for one of us.", fx = { align = { order = 1 } } },
+        { text = "I'd keep the best recipes for Undercity, myself.", next = "BACK", reply = "So would most of the Society, and so we do. What I sell here is good, not best, and the orcs needn't know the difference.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    caravans = {
+      lines = { { id = "c_default", text = "Antivenom, chiefly, because every snake and scorpid between here and Ratchet seems to want a bite of a kodo driver. After that, healing draughts, and after that, something to keep the grunts awake on the night watch." } },
+      choices = {
+        { text = "Does Aza'bek's cooking count as poison?", next = "azabek" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    azabek = {
+      lines = { { id = "a_default", text = "I have tested it, out of professional curiosity, and it isn't, though the pepper would strip rust. I have no sense of taste left, so she gives me a double helping to watch me not react, and we are both entertained." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    living = {
+      lines = { { id = "l_default", text = "I like them well enough, as customers. I was one of them once, in a house in Lordaeron with a garden, and I don't miss it as much as you would expect, which is the most honest thing I'll tell you today." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I don't know, and I don't intend to find out. Was there anything else?" } },
+  },
+}
+
+-- Gor'mak: orc blacksmith of the camp (not the Thunder Bluff Gor'mak).
+P:NPC {
+  key = "gormak_dsl", id = TODO_NPC("Gor'mak"), name = "Gor'mak", title = "Blacksmith", gender = "male",
+  role = "blacksmith", tier = "service",
+  communities = { "crossroads" }, temper = { "gruff" }, values = { "proud" },
+  notices = { "craft", "class" },
+  impression = {
+    first = "He doesn't stop hammering to talk, and he doesn't need to.",
+    third = "{name} met Gor'mak, the orc blacksmith at the Durotar Supply and Logistics camp outside the Crossroads.",
+  },
+  greetings = {
+    { id = "g_default", text = "Stand back from the sparks, unless you want a new scar to brag about." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. Is that blade still holding its edge, or did you come to tell me it broke?" },
+  },
+  notice = {
+    { id = "n_bs", cat = "craft", when = { profession = "Blacksmithing" },
+      text = "Those are smith's hands. Good, then you'll understand why I don't give my plans to just anyone." },
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "A warrior, and your armour's been hit hard and patched badly. Come back when you're ready to let a real smith look at it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", key = true, text = "Gor'mak. I make the steel that goes out of this camp on the backs of kodo, to every grunt from the Crossroads to Camp Taurajo. My plans go to those who've helped the camp, because I won't have my work made badly by strangers." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Speak up over the hammer." },
+        { id = "h_again2", text = "Still here. Ask, then." },
+      },
+      choices = {
+        { text = "Where did you learn your trade?", next = "past" },
+        { text = "Why guard your plans so closely?", next = "plans" },
+        { text = "The enchanter says you're fond of him.", next = "beneris" },
+        { text = "Let me see your plans.", next = "BUSINESS" },
+        { text = "I'll go.", next = "END" },
+      },
+    },
+    past = {
+      lines = { { id = "p_default", text = "In the camps, under human guards, mending their chains because they'd let no orc near a real forge. When Thrall broke us out I swore I'd never make another chain, and I've kept that oath, so now I make the things that keep chains off us." } },
+      choices = {
+        { text = "Then forge well, and let no orc wear chains again.", next = "BACK", reply = "That's the oath, and every blade I make is a piece of it. Lok'tar.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The humans earned what's coming from your steel.", next = "BACK", reply = "Some of them did, and some are dead already. The Warchief says peace, and I make steel either way.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    plans = {
+      lines = { { id = "pl_default", text = "Because a bad smith with a good plan still makes a bad sword, and a grunt dies holding it. Help the camp, haul its loads and guard its roads, and I'll know you're the kind who finishes what they start." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    beneris = {
+      lines = { { id = "b_default", text = "Fond? He's thin as a reed and talks to the sky. But he puts a light on my steel that makes it hold, and he never wastes my time, so I give him my best work first." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Don't know. Ask someone who isn't busy." } },
+  },
+}
+
+-- Jim'bek: jungle troll tailor; vain about his cloth, cheerful.
+P:NPC {
+  key = "jimbek", id = TODO_NPC("Jim'bek"), name = "Jim'bek", title = "Tailor", gender = "male",
+  role = "vendor", tier = "service",
+  communities = { "crossroads" }, temper = { "jolly" }, values = { "proud" },
+  notices = { "craft", "race" },
+  impression = {
+    first = "He looks your clothes over before he looks at your face.",
+    third = "{name} met Jim'bek, the jungle troll tailor at the Durotar Supply and Logistics camp outside the Crossroads.",
+  },
+  greetings = {
+    { id = "g_default", text = "Ah, look at dat stitching on you, mon. We can do better, ya, much better." },
+    { id = "g_back", when = { metBefore = true }, text = "Back to Jim'bek! You finally decide to dress like you mean it?" },
+  },
+  notice = {
+    { id = "n_tailor", cat = "craft", when = { profession = "Tailoring" },
+      text = "Needle calluses on de thumb! A tailor, and you still wearing dat? Shame on you, mon." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear cousin! You tell Aza'bek her pepper burn holes in my cloth, and she don't believe me." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", key = true, text = "Jim'bek, tailor to de Horde's finest, or at least to de ones who stop by dis camp. My patterns be fire and shadow and moonlight, and I sell dem to de folk who help de camp, because good cloth be wasted on bad friends." },
+      },
+      again = {
+        { id = "h_again", text = "What else, mon? Jim'bek got time and thread." },
+        { id = "h_again2", text = "Go on, ask. I be sewing while you talk." },
+      },
+      choices = {
+        { text = "Fire and shadow? In cloth?", next = "patterns" },
+        { text = "Where did you learn to sew?", next = "learn" },
+        { text = "Let me see your patterns.", next = "BUSINESS" },
+        { text = "I'll be going.", next = "END" },
+      },
+    },
+    patterns = {
+      lines = { { id = "p_default", text = "Ya, mon, de flame patterns hold a little fire in de weave, and de black ones drink de light. A mage wear my work and every spell come out a little hotter, and dat be worth more dan any plate armour." } },
+      choices = {
+        { text = "Fine cloth should go to whoever needs it, not whoever earns it.", next = "BACK", reply = "Ha! You be soft-hearted, mon, and I like dat. But de camp make de rules, not Jim'bek.", fx = { align = { order = -1 } } },
+        { text = "Right. Make them earn it.", next = "BACK", reply = "Dat be de way. A cloak you earn, you take care of.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    learn = {
+      lines = { { id = "l_default", text = "My mother sew nets on de Echo Isles, and nets be just cloth with big holes. I sew smaller holes, and den no holes, and den Orgrimmar start payin' me, and here I be." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Dat I don't know, mon, but I know your hem be crooked." } },
+  },
+}
+
+-- Okamache: tauren kodo handler; keeps the camp's pack kodo.
+P:NPC {
+  key = "okamache", id = TODO_NPC("Okamache"), name = "Okamache", title = "Kodo Handler", gender = "male",
+  role = "vendor", tier = "service",
+  communities = { "crossroads" }, temper = { "calm" }, values = { "kind" },
+  notices = { "race", "class" },
+  impression = {
+    first = "He talks to the kodo more gently than he talks to you, and you don't mind.",
+    third = "{name} met Okamache, the tauren who handles the pack kodo of the Durotar Supply and Logistics camp.",
+  },
+  greetings = {
+    { id = "g_default", text = "Walk slowly near the kodo, friend. They are tired, and they remember rudeness." },
+    { id = "g_back", when = { metBefore = true }, text = "Welcome back. The herd is well, and I hope you are too." },
+  },
+  notice = {
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "Sister of the plains, or brother. You will understand why I don't let the orcs shout at my kodo." },
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter, with a beast at your side. Then you know a creature works best for someone it trusts." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", key = true, text = "I am Okamache, and I keep the kodo that carry this camp's goods down the long roads. Every crate of steel and cloth you see here went out on a kodo's back, and came back with a kodo grumbling under it." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you know, friend?" },
+        { id = "h_again2", text = "Ask. The kodo are resting, and so am I." },
+      },
+      choices = {
+        { text = "Those two over there look idle.", next = "offduty" },
+        { text = "Is it hard work for them?", next = "hard" },
+        { text = "What do you sell?", next = "BUSINESS" },
+        { text = "Walk with the Earth Mother.", next = "END" },
+      },
+    },
+    offduty = {
+      lines = { { id = "o_default", text = "They have earned their rest, and I will not let anyone load them until it is over. The orcs grumble that a kodo standing still is a waste, but a kodo worked to death carries nothing at all." } },
+      choices = {
+        { text = "Good. A beast that's rested serves longer.", next = "BACK", reply = "You understand. The Earth Mother made them patient, not endless.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "The Horde needs those loads moved now, though.", next = "BACK", reply = "The Horde always needs something now. The kodo will move it tomorrow, and the day after that, because I let them rest today.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hard = {
+      lines = { { id = "h2_default", text = "The road is hot and the Barrens has thieves, quilboar and centaur both, who would rather take a load than carry one. A kodo does not fear them, but it does not like them, and I like them even less." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I do not know, friend. Ask the kodo; they hear more than you'd think." } },
+  },
+}
+
+-- Pawani: tauren leatherworker; practical, warm.
+P:NPC {
+  key = "pawani", id = TODO_NPC("Pawani"), name = "Pawani", title = "Leatherworker", gender = "female",
+  role = "vendor", tier = "service",
+  communities = { "crossroads" }, temper = { "calm" }, values = { "honest" },
+  notices = { "craft", "class" },
+  impression = {
+    first = "Her hands never stop working the hide, even while she looks you in the eye.",
+    third = "{name} met Pawani, the tauren leatherworker at the Durotar Supply and Logistics camp outside the Crossroads.",
+  },
+  greetings = {
+    { id = "g_default", text = "May the eternal sun shine upon you. Mind the drying racks; they lean." },
+    { id = "g_back", when = { metBefore = true }, text = "You've come back, and your boots still hold. Good, I hoped they would." },
+  },
+  notice = {
+    { id = "n_lw", cat = "craft", when = { profession = { "Leatherworking", "Skinning" } },
+      text = "You skin cleanly, I can tell by the hides on your pack. Not many outsiders bother to honour the beast that way." },
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "A druid. You must forgive the racks, then; I take only what the hunters bring me, and I waste none of it." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", key = true, text = "I am Pawani, and I work the hides the hunters bring into this camp, so that the Horde's scouts have something to wear besides dust. My best patterns I keep for those who have helped the camp; the rest of my work I share with anyone." },
+      },
+      again = {
+        { id = "h_again", text = "What else would you ask, traveller?" },
+        { id = "h_again2", text = "Ask, then. The hide won't mind waiting." },
+      },
+      choices = {
+        { text = "Whose hides do you work?", next = "hides" },
+        { text = "Aza'bek says you won't eat her kodo stew.", next = "stew" },
+        { text = "Show me your patterns.", next = "BUSINESS" },
+        { text = "Earth Mother keep you.", next = "END" },
+      },
+    },
+    hides = {
+      lines = { { id = "hi_default", text = "Zhevra, thunder lizard and plainstrider, mostly, and the odd raptor when the hunters are brave. Every hide was a life, so I say a word for each before the blade goes in, and I make sure none of it is wasted." } },
+      choices = {
+        { text = "That's the right way to treat the hunt.", next = "BACK", reply = "It is the only way I know. Thank you for seeing it.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "A hide is a hide. The beast doesn't care anymore.", next = "BACK", reply = "Perhaps not, but I do, and the hide is better for it. Careless hands make careless leather.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stew = {
+      lines = { { id = "s_default", text = "She speaks the truth. The kodo have carried my people since the first tauren walked the plains, and I cannot eat one, even an old one. Aza'bek keeps a pot of greens for me, and I make her aprons, and that is a fair trade between friends." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "That I cannot answer, traveller. Ask the wind; it travels farther than I do." } },
+  },
+}
+
+-- Off-Duty Pack Kodo: a pair of resting kodo. Short.
+P:NPC {
+  key = "offduty_pack_kodo", id = TODO_NPC("Off-Duty Pack Kodo"), name = "Off-Duty Pack Kodo",
+  role = "creature", tier = "service",
+  communities = { "crossroads" },
+  greetings = {
+    { id = "g_default", text = "The kodo chews slowly and regards you with deep, unbothered patience." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "The kodo lets out a long, rumbling sigh and shifts its weight off one sore foot. There are pale marks on its back where the pack straps sit, and it clearly has no plans to wear them today." },
+      },
+      choices = {
+        { text = "Scratch it behind the horn.", next = "scratch" },
+        { text = "Leave it to its rest.", next = "END" },
+      },
+    },
+    scratch = {
+      lines = { { id = "s_default", text = "The kodo leans its enormous head into your hand until you nearly fall over, then rumbles contentedly. Across the camp, Okamache looks up, sees what you're doing and nods." } },
+      choices = { { text = "Good kodo.", next = "END", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "The kodo blinks at you, chews, and says nothing at all." } },
+  },
+}
+
+-- Auctioneer Quickcoin (Crossroads): Booty Bay auctioneer, guarded by Bruisers; also at Three Corners.
+P:NPC {
+  key = "quickcoin_xroads", id = TODO_NPC("Auctioneer Quickcoin"), name = "Auctioneer Quickcoin", gender = "male",
+  role = "vendor", tier = "service",
+  communities = { "crossroads" }, temper = { "greedy" }, values = { "clever" },
+  notices = { "race" },
+  impression = {
+    first = "He talks fast enough that you check your coin purse afterward.",
+    third = "{name} met Auctioneer Quickcoin, the goblin who runs auctions at the Durotar Supply and Logistics camp and at Three Corners in Redridge.",
+  },
+  greetings = {
+    { id = "g_default", text = "Buyin' or sellin', friend? Either way the house takes a little, and the house is me." },
+    { id = "g_back", when = { metBefore = true }, text = "My favourite customer, or my fourth favourite, which is still very good, pal." },
+  },
+  notice = {
+    { id = "n_goblin", cat = "race", when = { race = "Goblin" },
+      text = "A fellow businessman! Don't even think about undercuttin' me, sweetheart, I know all the tricks because I invented half of 'em." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", key = true, text = "Quickcoin, auctioneer, Booty Bay licensed and bonded, and the two big fellas behind me are Bruisers, so let's all keep it friendly. I run the bids here for the Horde and up at Three Corners in Redridge for the other lot, and coin's the same color in both places." },
+      },
+      again = {
+        { id = "h_again", text = "What else, pal? Time is money, and you're spendin' mine." },
+        { id = "h_again2", text = "Go on, go on, I'm listenin' and countin' at the same time." },
+      },
+      choices = {
+        { text = "You sell to the Alliance too?", next = "both" },
+        { text = "Why set up out here, of all places?", next = "why" },
+        { text = "Let's see the auctions.", next = "BUSINESS" },
+        { text = "Not today.", next = "END" },
+      },
+    },
+    both = {
+      lines = { { id = "b_default", text = "Sure I do, the Cartel's neutral, and neutral means everybody's money spends. The Bruisers make sure nobody settles their war on my counter, and the fee's the same no matter what color your tabard is." } },
+      choices = {
+        { text = "Profiting from both sides of a war is low, goblin.", next = "BACK", reply = "Low? It's a business model, pal, and it keeps the swords sharp on both sides. Nobody's complainin' when they win the bid.", fx = { align = { honor = 1 } } },
+        { text = "Smart. Gold doesn't care who carried it.", next = "BACK", reply = "Now you're talkin' my language, friend! I'd hire you, if I paid anybody.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Because the Supply and Logistics folks move a mountain of goods through here, and goods that move need prices. Everybody's comin' up from Ratchet and down from Orgrimmar anyway, so I'm just standin' where the money walks past." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Don't know, don't care, unless there's a percentage in it." } },
+  },
+}
+
+-- Steamwheedle Courier (Crossroads): Cartel mail-runner for the camp; also at Three Corners.
+P:NPC {
+  key = "sw_courier_xroads", id = TODO_NPC("Steamwheedle Courier"), name = "Steamwheedle Courier", gender = "male",
+  role = "worker", tier = "service",
+  communities = { "crossroads" }, temper = { "harried" }, values = { "diligent" },
+  greetings = {
+    { id = "g_default", text = "Mail's in, mail's out, sign here, no, there, the other there, thanks, pal." },
+    { id = "g_back", when = { metBefore = true }, text = "You again! Got somethin' to send, or are ya just makin' me nervous?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", key = true, text = "Steamwheedle Courier, and I carry the camp's letters and parcels for a reasonable fee, which is to say a fee. Your post goes out to anybody's mailbox, and if a parcel blows up on the way, that's covered in the small print, so read the small print." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? I got a bag full of somebody's socks to deliver." },
+      },
+      choices = {
+        { text = "Does the mail ever blow up?", next = "boom" },
+        { text = "I'll send something.", next = "BUSINESS" },
+        { text = "Never mind.", next = "END" },
+      },
+    },
+    boom = {
+      lines = { { id = "b_default", text = "Only the gnome stuff, mostly, and one time a crate of somebody's fireworks that my cousin was sittin' on. He's fine, his eyebrows came back, and the sender got billed for the eyebrows." } },
+      choices = {
+        { text = "Then charge them extra. Danger costs.", next = "BACK", reply = "Hazard surcharge, now that's a smart idea, friend! I'll pitch it to the boss and take the credit.", fx = { align = { order = -1 } } },
+        { text = "The rules are the rules. Deliver it like any parcel.", next = "BACK", reply = "That's the Cartel way, sure, and the Cartel pays my wages. Fine, fine, but I'm holdin' it at arm's length.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "No idea, pal, I just carry the bags. Ask the auctioneer, he knows everything with a price on it." } },
+  },
+}
+
+-- Fizzlefuse: goblin "Opportunist Engineer" at the Durotar Supply and Logistics camp outside the Crossroads (Forever).
+-- Sells engineering parts, flux and ammunition. (His Season of Discovery spell at New Avalon is not used.)
+P:NPC {
+  key = "bar_fizzlefuse", id = TODO_NPC("Fizzlefuse"), name = "Fizzlefuse", title = "Opportunist Engineer", gender = "male",
+  role = "vendor", tier = "service",
+  temper = { "brash", "eager" }, values = { "practical", "greedy" },
+  notices = { "craft" },
+  impression = {
+    first = "A goblin with singed eyebrows and a toolbelt that clanks every time he gestures, which is constantly.",
+    third = "{name} met Fizzlefuse, a goblin engineer selling parts and ammunition at the supply camp outside the Crossroads.",
+  },
+  greetings = {
+    { id = "g_default", text = "Yo, what do you need? Tubes, powder, shells, flux, I got it all, and most of it hasn't even blown up yet." },
+    { id = "g_back", when = { metBefore = true }, text = "Hey, a repeat customer! I love repeat customers, pal, because they've already learned not to haggle." },
+  },
+  notice = {
+    { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
+      text = "Whoa, whoa, you're an engineer? Then you know what a bronze framework's worth out here, and you know I'm practically giving 'em away." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Fizzlefuse, opportunist engineer, and the opportunity right now is the Barrens, buddy, because every grunt on this road needs bullets and every tinkerer needs parts. I set up next to the supply camp so the Crossroads crowd could find me, and the margins have been beautiful." },
+        { id = "h_hunter", when = { class = "HUNTER" }, text = "A hunter! Oh, I've been waiting for you, pal, because I've got thorium shells and searing arrows, and nobody out here sells 'em cheaper, or at least nobody I've met yet." },
+      },
+      again = {
+        { id = "h_again", text = "What else, friend? Talk's free, but my stock ain't." },
+        { id = "h_again2", text = "Anything more? Clock's ticking, and that clock cost me twelve silver." },
+      },
+      choices = {
+        { text = "Why set up out here, of all places?", next = "why" },
+        { text = "Do you sell to the Alliance too?", next = "both" },
+        { text = "You look like something blew up near you recently.", next = "eyebrows" },
+        { text = "I'll take a look at your goods later.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Because the Crossroads is the middle of everything, chum, and things in the middle get shot at, and things that get shot at need ammunition. The Horde pays on time, mostly, and the supply camp keeps the raiders off my crates." } },
+      choices = { { text = "Sounds like a sound investment. Something else.", next = "BACK" } },
+    },
+    both = {
+      lines = { { id = "b_default", text = "Listen, listen, I'm a goblin of Booty Bay, and a bullet doesn't care who fires it, so neither do I. Out here, though, the customers are all green or grey or horned, and I'm not about to walk to Northwatch to drum up trade." } },
+      choices = {
+        { text = "Selling to both sides is just good business.", next = "BACK", reply = "See, you get it! Neutrality's the most profitable position on any map, pal.", fx = { align = { order = -1 } } },
+        { text = "A man should know which side he stands on.", next = "BACK", reply = "I stand on the side with the money, sweetheart, and today that's yours, so let's not spoil it.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    eyebrows = {
+      lines = { { id = "e_default", text = "Ha! That was a coarse blasting powder batch with a little too much enthusiasm in it, and the eyebrows'll grow back, mostly. My cousin lost both of his and a hat, so I'm calling it a good day." } },
+      choices = { { text = "I'll buy my powder somewhere safer. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "No idea, pal, but if you find out and it's worth money, I'll buy the information." } },
+  },
+}

@@ -468,3 +468,389 @@ P:NPC {
     _none = { { id = "tp_none", text = "That's beyond my street, I'm afraid, and I've four hundred and twelve stones to mind already. Try the Citadel." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- The cats (and one corgi) of Forever's Dalaran. Animals don't speak, so every line is what the
+-- animal does, written as narration in asterisks (as the bound felhunter pool does). Each one
+-- takes its character from the place it keeps. Owners aren't named on the wiki, so none are named here.
+---------------------------------------------------------------------------
+local function Critter(t)
+  t.role = t.role or "citizen"
+  t.tier = t.tier or "service"
+  t.start = "hello"
+  P:NPC(t)
+end
+
+-- Butterscotch: walks the whole town and stops at the greenhouse in the Magus Commerce Exchange.
+Critter {
+  key = "dal_cat_butterscotch", id = TODO_NPC("Butterscotch"), name = "Butterscotch", gender = "female",
+  temper = { "easygoing" }, values = { "curious" },
+  impression = {
+    first = "A ginger cat who treats the whole city as one long walk, with a rest stop among the greenhouse ferns.",
+    third = "{name} met Butterscotch, a ginger house cat who strolls the length of Dalaran.",
+  },
+  greetings = {
+    { id = "g_default", text = "*A ginger cat trots past at a purposeful pace, stops, and looks back over her shoulder as if you might be worth the detour.*" },
+    { id = "g_back", when = { metBefore = true }, text = "*Butterscotch changes course without breaking stride and loops once around your ankles, then carries on as if she meant to all along.*" },
+  },
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Butterscotch sits in the middle of the path and washes one paw, while the people of Dalaran step politely around her.*" },
+        { id = "h_rain", when = { timeOfDay = "night" }, text = "*Butterscotch is curled under a fern in the greenhouse, with damp earth on her whiskers and one eye open on you.*" },
+      },
+      again = { { id = "a_again", text = "*Butterscotch is still here, though her tail says she has somewhere to be.*" } },
+      choices = {
+        { text = "Hello, Butterscotch. Where are you off to today?", next = "BACK", reply = "*She answers with a short chirp and pointedly looks toward the Magus Commerce Exchange, where the greenhouse is warm and full of things to sniff.*" },
+        { text = "Crouch down and offer her a hand to sniff.", next = "BACK", reply = "*She sniffs your knuckles thoroughly, reads every road you've walked today, and bumps her head into your palm to say the report is acceptable.*" },
+        { text = "Walk alongside her for a little while.", next = "END", reply = "*She allows it for exactly one street, then slips under a merchant's cart and leaves you to find your own way.*" },
+      },
+    },
+  },
+}
+
+-- Frankie: keeps the shop at Wands and Wonder.
+Critter {
+  key = "dal_cat_frankie", id = TODO_NPC("Frankie"), name = "Frankie", gender = "male",
+  temper = { "wry" }, values = { "proud" },
+  impression = {
+    first = "A shop cat at Wands and Wonder who watches every wand on the shelf as if it might be a mouse.",
+    third = "{name} met Frankie, the cat who keeps an eye on the stock at Wands and Wonder.",
+  },
+  greetings = {
+    { id = "g_default", text = "*A tabby tom lies stretched along a shelf of wands, with his tail hanging down and swaying like a pendulum.*" },
+    { id = "g_mage", when = { class = "MAGE" }, text = "*Frankie flattens his ears at the faint crackle of arcane on your fingers, then decides you're only another customer and closes his eyes.*" },
+  },
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Frankie bats lazily at the tassel of a wand on the shelf below him, and it rolls an inch and lets off a tiny violet spark.*" },
+      },
+      again = { { id = "a_again", text = "*Frankie's tail keeps swaying, slow as a clock.*" } },
+      choices = {
+        { text = "Careful with that. Those wands aren't toys.", next = "BACK", reply = "*Frankie holds your eye, reaches out one paw, and nudges the wand another inch toward the edge, very deliberately.*" },
+        { text = "Scratch him behind the ears.", next = "BACK", reply = "*He leans into your fingers and purrs, a low rumble that makes the glass cases hum along with him.*" },
+        { text = "Pick up a wand and wave it for him.", next = "END", reply = "*Frankie lunges at the tip with both front paws, misses, and then pretends very hard that he was only stretching.*" },
+      },
+    },
+  },
+}
+
+-- Haido: lies on the counter at A Hero's Welcome.
+Critter {
+  key = "dal_cat_haido", id = TODO_NPC("Haido"), name = "Haido",
+  temper = { "formal" }, values = { "dutiful" },
+  impression = {
+    first = "A cat who lies on the counter at A Hero's Welcome like the innkeeper's own clerk.",
+    third = "{name} met Haido, the cat on the counter at A Hero's Welcome.",
+  },
+  greetings = {
+    { id = "g_default", text = "*A sleek black-and-white cat lies square across the counter of A Hero's Welcome, paws tucked in, watching the door like a doorman.*" },
+    { id = "g_back", when = { metBefore = true }, text = "*Haido lifts his chin a fraction as you come in, which is as much of a welcome as anyone gets.*" },
+  },
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Haido does not move from the counter. He simply looks at you, then at the ledger beneath his elbow, then back at you, waiting.*" },
+      },
+      again = { { id = "a_again", text = "*Haido has not shifted an inch from the ledger.*" } },
+      choices = {
+        { text = "I'd like a room, if you're taking bookings.", next = "BACK", reply = "*Haido slowly lays one paw on the open ledger, exactly over the line where you'd sign, and leaves it there.*" },
+        { text = "Stroke him from head to tail.", next = "BACK", reply = "*He accepts one stroke, flicks his tail once to say that's quite enough, and goes back to watching the door.*" },
+        { text = "Set a coin on the counter beside him.", next = "END", reply = "*Haido sniffs the coin, finds it is not fish, and pushes it off the counter onto the floor.*" },
+      },
+    },
+  },
+}
+
+-- Kocha: lives in the basement of A Hero's Welcome.
+Critter {
+  key = "dal_cat_kocha", id = TODO_NPC("Kocha"), name = "Kocha",
+  temper = { "nervous" }, values = { "cautious" },
+  impression = {
+    first = "A shy cat who keeps to the cellar of A Hero's Welcome among the barrels and the dark.",
+    third = "{name} met Kocha, the shy cellar cat of A Hero's Welcome.",
+  },
+  greetings = {
+    { id = "g_default", text = "*Two round eyes catch the lamplight from behind a stack of barrels in the cellar, and they do not blink.*" },
+    { id = "g_back", when = { metBefore = true }, text = "*Kocha remembers you. She edges halfway out from behind the barrels before she loses her nerve.*" },
+  },
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Kocha stays pressed into the shadow between two casks, with only the tip of her nose and her whiskers showing.*" },
+      },
+      again = { { id = "a_again", text = "*Kocha is still behind the barrels, still watching.*" } },
+      choices = {
+        { text = "Sit down on the cellar floor and wait quietly.", next = "BACK", reply = "*After a long while, Kocha creeps out, touches her nose to the toe of your boot, and dashes back to safety.*" },
+        { text = "Hold out a scrap of cheese from the kitchen.", next = "BACK", reply = "*She stretches her neck as far as it will go without moving her feet, and steals the cheese with great delicacy.*" },
+        { text = "It's all right. Nobody's going to hurt you down here.", next = "END", reply = "*Kocha's ears turn toward your voice, and for the first time she lets you see her whole face before she slips away.*" },
+      },
+    },
+  },
+}
+
+-- Lulu and Pancakes: sit together in the Dalaran Charter.
+Critter {
+  key = "dal_cat_lulu", id = TODO_NPC("Lulu"), name = "Lulu", gender = "female",
+  temper = { "cheerful" }, values = { "loyal" },
+  impression = {
+    first = "One of a pair of cats in the Dalaran Charter, and plainly the one in charge of the pair.",
+    third = "{name} met Lulu, who sits with Pancakes in the Dalaran Charter.",
+  },
+  greetings = {
+    { id = "g_default", text = "*A small grey cat sits beside a plump orange one in the Dalaran Charter, and she gets up to greet you first.*" },
+  },
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Lulu winds once around your legs, trots back to Pancakes, and washes his ear for him whether he likes it or not.*" },
+      },
+      again = { { id = "a_again", text = "*Lulu is back at Pancakes's side, keeping him tidy.*" } },
+      choices = {
+        { text = "Are you two always together?", next = "BACK", reply = "*Lulu sits down so close to Pancakes that they become one shape, which seems to be the answer.*" },
+        { text = "Pet Lulu, then Pancakes, so nobody's left out.", next = "BACK", reply = "*Lulu purrs for both of them, since Pancakes has fallen asleep halfway through his turn.*" },
+        { text = "Leave the two of them in peace.", next = "END", reply = "*Lulu blinks slowly at you, the polite way a cat says goodbye.*" },
+      },
+    },
+  },
+}
+
+Critter {
+  key = "dal_cat_pancakes", id = TODO_NPC("Pancakes"), name = "Pancakes", gender = "male",
+  temper = { "easygoing" }, values = { "comfort" },
+  impression = {
+    first = "A round, sleepy orange cat in the Dalaran Charter, who lets Lulu do the worrying.",
+    third = "{name} met Pancakes, who sits with Lulu in the Dalaran Charter.",
+  },
+  greetings = {
+    { id = "g_default", text = "*A very round orange cat lies beside Lulu in the Dalaran Charter, flattened out like his name.*" },
+  },
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Pancakes opens one eye, sees that you are not carrying a plate, and closes it again.*" },
+        { id = "h_food", when = { profession = "Cooking" }, text = "*Pancakes smells the kitchen on your hands, and both of his eyes come open at once.*" },
+      },
+      again = { { id = "a_again", text = "*Pancakes has gone back to sleep.*" } },
+      choices = {
+        { text = "Rub his round belly.", next = "BACK", reply = "*He allows it, rolls over to offer more belly, and Lulu gives you a look as if you are spoiling him.*" },
+        { text = "Offer him a corner of sweet roll.", next = "BACK", reply = "*Pancakes eats it in one gulp, licks your fingers for crumbs, and lies back down looking pleased with the world.*" },
+        { text = "You're well named, aren't you?", next = "END", reply = "*Pancakes spreads himself out even flatter, as though to prove the point.*" },
+      },
+    },
+  },
+}
+
+-- Misifus: the other cat in the Dalaran Charter, an aloof one.
+Critter {
+  key = "dal_cat_misifus", id = TODO_NPC("Misifus"), name = "Misifus", gender = "male",
+  temper = { "sly" }, values = { "independent" },
+  impression = {
+    first = "A lean alley-wise tom in the Dalaran Charter who keeps clear of Lulu and Pancakes.",
+    third = "{name} met Misifus, a lean tom of the Dalaran Charter.",
+  },
+  greetings = {
+    { id = "g_default", text = "*A lean tom with a notched ear sits on a high ledge of the Charter, well apart from the other cats, and watches you climb toward him.*" },
+  },
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Misifus looks you up and down with yellow eyes, judges you, and leaves the verdict unspoken.*" },
+      },
+      again = { { id = "a_again", text = "*Misifus is still on his ledge, still judging.*" } },
+      choices = {
+        { text = "What happened to your ear, old soldier?", next = "BACK", reply = "*Misifus turns his head so the notched ear faces you, quite proudly, and says nothing about the other fellow.*" },
+        { text = "Reach up slowly to pet him.", next = "BACK", reply = "*He lets your fingers come within an inch, then leans away by exactly that inch, and keeps it there.*" },
+        { text = "Toss him a bit of jerky.", next = "END", reply = "*He catches it out of the air, turns his back on you, and eats it facing the wall.*" },
+      },
+    },
+  },
+}
+
+-- Miss Mojo: the grande dame of A Hero's Welcome.
+Critter {
+  key = "dal_cat_miss_mojo", id = TODO_NPC("Miss Mojo"), name = "Miss Mojo", gender = "female",
+  temper = { "haughty" }, values = { "proud" },
+  impression = {
+    first = "A long-haired cat at A Hero's Welcome who sits by the hearth like visiting royalty.",
+    third = "{name} met Miss Mojo, the grand long-haired cat of A Hero's Welcome.",
+  },
+  greetings = {
+    { id = "g_default", text = "*A long-haired white cat occupies the best chair by the hearth in A Hero's Welcome, and nobody has dared ask her to move.*" },
+  },
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Miss Mojo arranges her plume of a tail over her paws and regards you as a duchess regards a delivery boy.*" },
+      },
+      again = { { id = "a_again", text = "*Miss Mojo has not looked at you again, which is its own kind of attention.*" } },
+      choices = {
+        { text = "Good evening, Miss Mojo. Lovely chair you have.", next = "BACK", reply = "*She inclines her head by the smallest degree, as if the compliment were overdue but acceptable.*" },
+        { text = "Brush the dust off her fur with your hand.", next = "BACK", reply = "*She permits two strokes, then turns and washes the place you touched, very thoroughly.*" },
+        { text = "Mind if I share the fire?", next = "END", reply = "*Miss Mojo spreads herself across the whole chair and closes her eyes, which means you may have the floor.*" },
+      },
+    },
+  },
+}
+
+-- Munchies: chases a prairie dog in front of the Violet Citadel.
+Critter {
+  key = "dal_cat_munchies", id = TODO_NPC("Munchies"), name = "Munchies",
+  temper = { "excitable" }, values = { "hunt" },
+  impression = {
+    first = "A young cat forever chasing a prairie dog across the lawn before the Violet Citadel, and never catching it.",
+    third = "{name} met Munchies, the cat who chases a prairie dog outside the Violet Citadel.",
+  },
+  greetings = {
+    { id = "g_default", text = "*A gangly young cat tears past your boots after a prairie dog, skids on the flagstones, and goes sprawling.*" },
+    { id = "g_back", when = { metBefore = true }, text = "*Munchies is mid-pounce again, and the prairie dog is, once again, somewhere else.*" },
+  },
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Munchies crouches low in the grass before the Citadel, rear end wiggling, eyes locked on a prairie dog that is plainly not afraid of him.*" },
+      },
+      again = { { id = "a_again", text = "*Munchies is still wiggling, still not pouncing.*" } },
+      choices = {
+        { text = "Go on, then. You'll catch it this time.", next = "BACK", reply = "*Munchies leaps, the prairie dog steps aside, and the cat sails into a flowerbed. He emerges covered in petals and dignity.*" },
+        { text = "Scoop him up before the guards see.", next = "BACK", reply = "*He goes limp as a sack in your arms, purring hard, with his eyes still fixed on the prairie dog.*" },
+        { text = "Leave the poor prairie dog alone, Munchies.", next = "END", reply = "*Munchies looks at you, then at the prairie dog, and the prairie dog looks back at you both, chewing.*" },
+      },
+    },
+  },
+}
+
+-- Princess Nana: upstairs in the bedroom of A Hero's Welcome.
+Critter {
+  key = "dal_cat_princess_nana", id = TODO_NPC("Princess Nana"), name = "Princess Nana", gender = "female",
+  temper = { "fussy" }, values = { "comfort" },
+  impression = {
+    first = "A fluffy cat who has claimed the softest bed upstairs at A Hero's Welcome for her own.",
+    third = "{name} met Princess Nana, who rules the upstairs bedroom of A Hero's Welcome.",
+  },
+  greetings = {
+    { id = "g_default", text = "*A fluffy calico lies in the exact centre of the bed upstairs, on the good pillow, as if the room were let in her name.*" },
+  },
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Princess Nana kneads the pillow slowly, claws in and out, and gives you a look that asks what you're doing in her room.*" },
+      },
+      again = { { id = "a_again", text = "*Princess Nana is still kneading the pillow, now with clear resentment.*" } },
+      choices = {
+        { text = "I think this was supposed to be my room.", next = "BACK", reply = "*Princess Nana yawns enormously and does not move a single whisker.*" },
+        { text = "Scratch under her chin.", next = "BACK", reply = "*She tilts her head up, half-closes her eyes, and purrs like a little kettle, so long as you keep scratching.*" },
+        { text = "Fine, Your Highness. I'll sleep on the floor.", next = "END", reply = "*She curls up tighter on the pillow, satisfied that the matter of the bed is settled.*" },
+      },
+    },
+  },
+}
+
+-- Solus: the cat in the Agronomical Apothecary.
+Critter {
+  key = "dal_cat_solus", id = TODO_NPC("Solus"), name = "Solus",
+  temper = { "calm" }, values = { "comfort" },
+  impression = {
+    first = "A golden cat who lives among the herbs of the Agronomical Apothecary and smells faintly of mint.",
+    third = "{name} met Solus, the cat of the Agronomical Apothecary.",
+  },
+  greetings = {
+    { id = "g_default", text = "*A golden cat dozes in a patch of sunlight between the pots of the Agronomical Apothecary, smelling of crushed mint.*" },
+    { id = "g_herb", when = { profession = "Herbalism" }, text = "*Solus lifts his head and sniffs at your herb pouch with a connoisseur's interest.*" },
+  },
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Solus rolls onto his back in the sunlight among the herb pots and stretches until his whole body trembles.*" },
+      },
+      again = { { id = "a_again", text = "*Solus has moved six inches to follow the sun.*" } },
+      choices = {
+        { text = "Have you been chewing the peacebloom again?", next = "BACK", reply = "*Solus licks his lips, which are faintly green, and looks innocent.*" },
+        { text = "Rub his warm, sunny belly.", next = "BACK", reply = "*He grabs your wrist with all four paws, kicks it twice, and then licks it to show there were no hard feelings.*" },
+        { text = "Share the sunbeam with him a while.", next = "END", reply = "*Solus shifts over just enough to make room, and you both sit there doing nothing in particular.*" },
+      },
+    },
+  },
+}
+
+-- Syrah: upstairs at One More Glass.
+Critter {
+  key = "dal_cat_syrah", id = TODO_NPC("Syrah"), name = "Syrah", gender = "female",
+  temper = { "warm" }, values = { "comfort" },
+  impression = {
+    first = "A dark red-brown cat named like a wine, who lives upstairs above the bar at One More Glass.",
+    third = "{name} met Syrah, the cat upstairs at One More Glass.",
+  },
+  greetings = {
+    { id = "g_default", text = "*A cat the colour of dark wine lies along the upstairs rail of One More Glass, listening to the clink of glasses below.*" },
+    { id = "g_drunk", when = { drunk = true }, text = "*Syrah sniffs the air as you come up the stairs, sneezes, and gives you the long look of a cat who has seen many customers in your state.*" },
+  },
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Syrah blinks at you slowly, the drowsy, contented look of someone who keeps late hours above a wine bar.*" },
+      },
+      again = { { id = "a_again", text = "*Syrah's tail drapes over the rail and ticks lazily in time with the music below.*" } },
+      choices = {
+        { text = "Do you know all the regulars by now?", next = "BACK", reply = "*Syrah looks down over the rail at the room, then back at you, as though she could tell you stories but won't.*" },
+        { text = "Stroke her soft, dark fur.", next = "BACK", reply = "*She stretches into your hand and rolls over on the rail, with a carelessness that makes you grab for her.*" },
+        { text = "Let's not tell the barkeep I came up here.", next = "END", reply = "*Syrah closes her eyes. Whatever she sees up here stays up here.*" },
+      },
+    },
+  },
+}
+
+-- Tailypo: asleep in the back yard of A Hero's Welcome.
+Critter {
+  key = "dal_cat_tailypo", id = TODO_NPC("Tailypo"), name = "Tailypo",
+  temper = { "easygoing" }, values = { "comfort" },
+  impression = {
+    first = "A cat with an enormous bushy tail who sleeps in the back yard of A Hero's Welcome and has never been seen awake.",
+    third = "{name} met Tailypo, the sleeping cat in the yard behind A Hero's Welcome.",
+  },
+  greetings = {
+    { id = "g_default", text = "*In the yard behind A Hero's Welcome, a cat lies asleep in a heap, wrapped twice round in the largest tail you have ever seen on a cat.*" },
+  },
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Tailypo is asleep. One paw twitches, perhaps at a dream of mice, and the great tail curls a little tighter.*" },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "*Even at night Tailypo is asleep, though his ears swivel toward the sounds of the street like two little lanterns.*" },
+      },
+      again = { { id = "a_again", text = "*Tailypo is still asleep. Of course he is.*" } },
+      choices = {
+        { text = "Whisper his name.", next = "BACK", reply = "*The tip of the great tail rises, waves once at you, and settles again. The rest of the cat does not wake up.*" },
+        { text = "Pet that enormous tail.", next = "BACK", reply = "*It is soft as a fox's brush. Tailypo sighs in his sleep and wraps it over his nose.*" },
+        { text = "Tiptoe away and let him sleep.", next = "END", reply = "*Tailypo snores, very faintly, and does not notice you were ever there.*" },
+      },
+    },
+  },
+}
+
+-- Milo: a corgi in the Dalaran Exchange.
+Critter {
+  key = "dal_dog_milo", id = TODO_NPC("Milo"), name = "Milo", gender = "male",
+  temper = { "eager", "cheerful" }, values = { "loyal" },
+  impression = {
+    first = "A corgi in the Dalaran Exchange, short of leg and long of enthusiasm, the only dog among the city's cats.",
+    third = "{name} met Milo, the corgi of the Dalaran Exchange.",
+  },
+  greetings = {
+    { id = "g_default", text = "*A corgi comes bounding across the Exchange on stubby legs, ears up, his whole back half wagging along with his tail.*" },
+    { id = "g_back", when = { metBefore = true }, text = "*Milo spots you from across the Exchange and yips, then runs at you so fast his back legs try to overtake his front ones.*" },
+  },
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Milo sits at your feet, very nearly still, quivering with the effort of being a good boy.*" },
+      },
+      again = { { id = "a_again", text = "*Milo is still sitting, still quivering, still good.*" } },
+      choices = {
+        { text = "Who's a good boy? Is it you?", next = "BACK", reply = "*It is him. Milo spins around twice to make sure you know, then sits again.*" },
+        { text = "Give him a scratch along his back.", next = "BACK", reply = "*One hind leg starts thumping on the floor of the Exchange, and the merchants nearby pretend not to smile.*" },
+        { text = "Toss him a bit of bread.", next = "END", reply = "*Milo catches it, swallows it without chewing, and looks up at you as if you are the finest person in Dalaran.*" },
+      },
+    },
+  },
+}

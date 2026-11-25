@@ -838,3 +838,264 @@ P:NPC {
     _none = { { id = "tp_none", text = "I know steel, friend, and not much else. Ask in the grove." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Jolee Brightmeadows: cloth and leather armor, Thendal Village. Sells the
+-- young their first proper clothes for the road. (Wiki: vendor only.)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "zep_jolee", id = TODO_NPC("Jolee Brightmeadows"), name = "Jolee Brightmeadows", title = "Cloth & Leather Armor",
+  role = "vendor", tier = "service",
+  communities = { "zephras_isle" }, temper = { "cheerful", "practical" }, values = { "craft", "kind" },
+  notices = { "class", "race" },
+
+  impression = {
+    first = "She sizes you up for a jerkin before you've said a word.",
+    third = "{name} met Jolee Brightmeadows, who sells cloth and leather armor in Thendal Village.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Gale's greetings! Come in out of the wind and let me look at what you're wearing." },
+    { id = "g_again", when = { metBefore = true }, text = "Back again, {name}? Don't tell me you've torn it already." },
+  },
+
+  notice = {
+    { id = "n_young", cat = "race", when = { race = "Skyborne", maxLevel = 3 },
+      text = "Still in your coming-of-age clothes, I see. They're lovely, and they'll last about one afternoon in the grove." },
+    { id = "n_mage", cat = "class", when = { class = "MAGE" },
+      text = "A mage! The High Order folk always want the finest cloth, and then they set the hems alight practising." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Jolee Brightmeadows, and I keep the young of Thendal in cloth and leather. Nothing grand, but it's stitched to take a fall, and on this isle you'll take a few." },
+        { id = "h_outsider", when = { ["not"] = { race = "Skyborne" } },
+          text = "Oh, you're from below the clouds! I've never fitted anyone your shape before, so forgive me if I stare at your shoulders. Jolee Brightmeadows, cloth and leather." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? I can talk and stitch at once." },
+        { id = "h_again2", text = "Go on, ask. The needle doesn't mind." },
+      },
+      choices = {
+        { text = "Show me what you have.", next = "BUSINESS" },
+        { text = "Where does your leather come from?", next = "leather" },
+        { text = "Business must be good, with so many coming of age.", next = "trade" },
+        { text = "I'm a mage. What should I wear?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Winds be with you, Jolee.", next = "END" },
+      },
+    },
+    leather = {
+      lines = { { id = "le_default", text = "From the hunters and the Rangers, mostly, and from Emerii Tallgust in Valanaar when they can't keep up. He cures it beautifully, but he charges in windstones, and windstones are dear these days." } },
+      choices = {
+        { text = "Why are windstones so dear?", next = "stones" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stones = {
+      big = true,
+      lines = { { id = "st_default", text = "Everyone wants them for everything, from lamps to the pylons, and nobody's finding new ones fast enough. Some say we should save every stone for the pylons and trade in coin instead, and some say that's the elders' worry and not a tailor's." } },
+      choices = {
+        { text = "Save the stones for the pylons. The isle comes first.", next = "BACK", reply = "You sound like an elder already. You may be right, though my purse doesn't like it.", fx = { align = { order = 1 } } },
+        { text = "Folk need to trade. Let them spend what they find.", next = "BACK", reply = "That's what I say over supper, and my sister says I'll sink us all. Maybe we're both right.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trade = {
+      lines = { { id = "tr_default", text = "It is, and it isn't. More young ones need clothes, but more of them are going below the clouds on the skycutters, and they don't come back to have their hems let down." } },
+      choices = {
+        { text = "That must be hard to watch.", next = "trade2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trade2 = {
+      lines = { { id = "t2_default", text = "I try not to think of it like that. I'd rather think that somewhere in Dalaran or Mulgore there's a shen'dorei walking about in a jerkin I stitched, telling strangers where it was made." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xmage = {
+      lines = { { id = "xm_default", text = "Cloth, and plenty of it, because leather fights you when you move your hands. Anathamaas Aetherwind in Valanaar will teach you the spells, but I'd rather you came to me before you go, so you don't look like a vagrant in front of the High Order." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    windstones = { { id = "tp_stones", text = "I'll take them, gladly, but I'll take coin too. Everyone should, the way things are." } },
+    _none = { { id = "tp_none", text = "I couldn't say. If it isn't cloth or leather, I'm not much use to you." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Fevrath Skyhammer: armorer and shieldcrafter, Thendal Village. (Wiki:
+-- vendor only.) Plain, proud of good shields.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "zep_fevrath", id = TODO_NPC("Fevrath Skyhammer"), name = "Fevrath Skyhammer", title = "Armorer & Shieldcrafter",
+  role = "vendor", tier = "service",
+  communities = { "zephras_isle" }, temper = { "gruff", "steady" }, values = { "craft", "duty" },
+  notices = { "class" },
+
+  impression = {
+    first = "He raps a knuckle on every shield he talks about, as if to prove it.",
+    third = "{name} met Fevrath Skyhammer, the armorer and shieldcrafter of Thendal Village.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Gale's greetings. Mail, plate or a shield? I've all three, and none of them are pretty." },
+    { id = "g_again", when = { metBefore = true }, text = "Back, are you? Let's see the dents, then." },
+  },
+
+  notice = {
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "A warrior. Good, because half the young ones who come in here want something light and shiny, and you look like you want something that works." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Fevrath Skyhammer. I make armor and shields for anyone in Thendal who means to stand between the village and whatever's coming for it, and lately that's more people than it used to be." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Speak up over the hammer." },
+        { id = "h_again2", text = "Ask, if you must. I'll keep working." },
+      },
+      choices = {
+        { text = "Let me see your wares.", next = "BUSINESS" },
+        { text = "What makes a good shield?", next = "shield" },
+        { text = "Who's buying armor these days?", next = "buyers" },
+        { text = "I need something that takes a beating.", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "Winds be with you, Fevrath.", next = "END" },
+      },
+    },
+    shield = {
+      lines = { { id = "sh_default", text = "Weight in the right place, a rim that won't split, and straps you trust with your life, because you'll be trusting them with exactly that. Seena Skybreaker in Valanaar sends her warriors to me for shields, and I take that as the best praise there is." } },
+      choices = {
+        { text = "And a bad one?", next = "shield2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shield2 = {
+      lines = { { id = "s2_default", text = "Anything made to be looked at instead of hit. The High Order folk sometimes ask me to work little sigils into the face, and I do it, but I tell them each time that a vuldren won't stop to read it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    buyers = {
+      big = true,
+      lines = { { id = "bu_default", text = "Rangers, peacekeepers, and young ones going out after the Al'Aketh with more courage than sense. I'd sooner arm a child than send them out bare, but I'd sooner still nobody needed arming at all." } },
+      choices = {
+        { text = "Arm them well. Thendal has to defend itself.", next = "BACK", reply = "That's the sense of it, and I'll keep hammering. I only wish I liked it more.", fx = { align = { order = 1 } } },
+        { text = "Then talk them out of going. Fighting isn't the answer.", next = "BACK", reply = "I try, and they nod, and then they buy a shield anyway. Talk to them yourself, if you think you'd do better.", fx = { align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarrior = {
+      lines = { { id = "xw_default", text = "Then take mail over leather and a shield over a second blade, and come back to me before the straps go, not after. I've stitched up a few warriors who waited too long, and I'd rather mend the gear than the person." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "Couldn't tell you. Ask me about rivets." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Haal and Meeri: two Skyborne children atop the tree in Thendal Village,
+-- watching a spirit. (Wiki: that's all.) Short, childlike, excited.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "zep_haal", id = TODO_NPC("Haal"), name = "Haal",
+  role = "child", tier = "service",
+  communities = { "zephras_isle" }, temper = { "curious", "bold" }, values = { "family" },
+  notices = { "race" },
+
+  impression = {
+    first = "A small boy perched high in the tree, staring at something you can barely see.",
+    third = "{name} met Haal, a child of Thendal Village watching a spirit from the treetop with Meeri.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Shh! You'll scare it off, and Meeri will never let me hear the end of it." },
+    { id = "g_again", when = { metBefore = true }, text = "It's still here! Come and look, but quietly." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      narr = "He doesn't take his eyes off the shimmer in the air beyond the branches.",
+      lines = {
+        { id = "h_default", key = true, text = "I'm Haal, and that's a spirit, a real one, right there where the air goes all wobbly. Everyone says the spirits left before I was born, but this one didn't, or it came back, and we saw it first." },
+      },
+      again = { { id = "h_again", text = "What? I'm watching, but you can still ask things." } },
+      choices = {
+        { text = "What kind of spirit is it?", next = "kind" },
+        { text = "Do your parents know you're up here?", next = "parents" },
+        { text = "Be careful up there, Haal.", next = "END" },
+      },
+    },
+    kind = {
+      lines = { { id = "ki_default", text = "A wind one, I think, because it moves when there's no breeze. Meeri says it's lonely, and I say it's just shy, and we're going to keep watching till one of us is right." } },
+      choices = {
+        { text = "Maybe it's come back to stay.", next = "BACK", reply = "That's what I said! Wait till I tell Windshaper Boro.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    parents = {
+      lines = { { id = "pa_default", text = "They know we climb, they just don't know how high, so please don't tell them. Anyway, Meeri's littler than me and she got up first." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "I don't know. Ask a grown-up, they know everything boring." } },
+  },
+}
+
+P:NPC {
+  key = "zep_meeri", id = TODO_NPC("Meeri"), name = "Meeri",
+  role = "child", tier = "service",
+  communities = { "zephras_isle" }, temper = { "gentle", "dreamy" }, values = { "kind" },
+  notices = { "race" },
+
+  impression = {
+    first = "A tiny girl in the treetop, whispering to the empty air.",
+    third = "{name} met Meeri, a little girl of Thendal Village who watches a spirit from the treetop with Haal.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Hello. Please whisper, because it doesn't like loud voices." },
+    { id = "g_outsider", when = { ["not"] = { race = "Skyborne" } }, text = "Oh! You're not one of us. Did you come to see the spirit too?" },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I'm Meeri. The spirit comes every day when the sun is on the leaves, and I tell it things, because Grandmother says the spirits went away because nobody talked to them anymore." },
+      },
+      again = { { id = "h_again", text = "Do you want to say something to it? It's listening, I think." } },
+      choices = {
+        { text = "What do you tell it?", next = "tell" },
+        { text = "Why did the spirits go away?", next = "why" },
+        { text = "I'll leave you two to it.", next = "END" },
+      },
+    },
+    tell = {
+      lines = { { id = "te_default", text = "Everything, like who came of age, and that Haal fell out of the tree last week, and that we're sorry. Grandmother says saying sorry is the most important part." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    why = {
+      big = true,
+      lines = { { id = "wh_default", text = "Grandmother says our people asked them for too much and never gave anything back. Haal says the spirits were just being mean, and we argue about it every single day." } },
+      choices = {
+        { text = "Your grandmother's right. We owe them an apology.", next = "BACK", reply = "Then you can say sorry too! It will like that, I think.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Haal has a point. They left you on your own.", next = "BACK", reply = "Don't tell him that, he'll be unbearable.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "I don't know that one. I could ask the spirit, but it doesn't answer much." } },
+  },
+}

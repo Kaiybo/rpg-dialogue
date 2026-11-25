@@ -140,3 +140,104 @@ P:NPC {
     _none = { { id = "tp_none", text = "Not my post, not my business. Try the town hall." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- The Azeroth Commerce Authority camp at Three Corners (Forever): the same Steamwheedle
+-- goblins who also work the Durotar Supply and Logistics camp outside the Crossroads.
+---------------------------------------------------------------------------
+
+-- Auctioneer Quickcoin (Three Corners): Booty Bay auctioneer with two Bruisers.
+P:NPC {
+  key = "quickcoin_threecorners", id = TODO_NPC("Auctioneer Quickcoin"), name = "Auctioneer Quickcoin", gender = "male",
+  role = "vendor", tier = "service",
+  temper = { "greedy" }, values = { "clever" },
+  notices = { "race" },
+  impression = {
+    first = "He talks fast enough that you check your coin purse afterward.",
+    third = "{name} met Auctioneer Quickcoin, the goblin who runs auctions for the Azeroth Commerce Authority at Three Corners.",
+  },
+  greetings = {
+    { id = "g_default", text = "Step right up, friend, bids open, fees modest, and the Bruisers don't bite unless you do." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for more, pal? I like a customer with a habit." },
+  },
+  notice = {
+    { id = "n_goblin", cat = "race", when = { race = "Goblin" },
+      text = "Another goblin this far from the coast? Don't go settin' up a stall next to mine, sweetheart, I'll know." },
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A dwarf! You folks always know what ore's worth, which makes you the worst kind of customer and the best kind of seller." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", key = true, text = "Quickcoin, auctioneer, Booty Bay licensed and bonded, workin' the Azeroth Commerce Authority's stall here at Three Corners. Everything comin' down the road from Lakeshire, Darkshire and Stormwind goes past this crossroads, so I figured, why not take a little off the top on its way through?" },
+      },
+      again = {
+        { id = "h_again", text = "What else, pal? The bids won't place themselves." },
+        { id = "h_again2", text = "Go on, I can talk and count at the same time." },
+      },
+      choices = {
+        { text = "Why Three Corners?", next = "why" },
+        { text = "Isn't it dangerous out here, with the gnolls?", next = "gnolls" },
+        { text = "Let's see the auctions.", next = "BUSINESS" },
+        { text = "Not today.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Three roads, friend, three roads full of folks with things to sell and no time to haul 'em to Stormwind. Guard Parker keeps the gnolls honest, more or less, and the Commerce Authority pays my stall fees, so it's practically a charity, if you squint." } },
+      choices = {
+        { text = "So you take a cut from Lakeshire's hard times.", next = "BACK", reply = "Hard times need good prices, pal, and I'm the only one offerin' any prices at all. You're welcome, Lakeshire.", fx = { align = { honor = 1 } } },
+        { text = "Sound business. Somebody ought to profit out here.", next = "BACK", reply = "Exactly what I keep tellin' the Bruisers! Finally, somebody with vision.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gnolls = {
+      lines = { { id = "g2_default", text = "Sure it is, which is why I pay those two big fellas, and why my fees have a little line for gnoll-related overhead. Redridge gnolls can't read a contract anyway, so they're terrible customers." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Don't know, don't care, unless there's a percentage in it." } },
+  },
+}
+
+-- Steamwheedle Courier (Three Corners): Cartel mail-runner for the Commerce Authority camp.
+P:NPC {
+  key = "sw_courier_threecorners", id = TODO_NPC("Steamwheedle Courier"), name = "Steamwheedle Courier", gender = "male",
+  role = "worker", tier = "service",
+  temper = { "harried" }, values = { "diligent" },
+  greetings = {
+    { id = "g_default", text = "Mail! Parcels! Letters to your sweetheart in Goldshire, no questions asked, small fee." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, it's you. Send somethin' or move along, pal, I got a schedule." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", key = true, text = "Steamwheedle Courier, contracted to the Azeroth Commerce Authority, which means I carry their mail and anybody else's who pays. Your letter gets to any mailbox in the kingdom, and the gnolls only got one bag off me this month, which is a personal record." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? This bag's not gettin' any lighter." },
+      },
+      choices = {
+        { text = "The gnolls steal the mail?", next = "gnolls" },
+        { text = "I'll send something.", next = "BUSINESS" },
+        { text = "Never mind.", next = "END" },
+      },
+    },
+    gnolls = {
+      lines = { { id = "g_default", text = "They took one bag, couldn't read a word of it, and ate the seed packets somebody was sendin' to a farm in Elwynn. The sender wants a refund, and I told 'em to take it up with the Redridge Gnolls, care of the hills." },
+      },
+      choices = {
+        { text = "Refund the farmer. It's only fair.", next = "BACK", reply = "Fair? Fair ain't in the small print, pal. But fine, I'll ask the boss, and he'll say no.", fx = { align = { honor = 1 } } },
+        { text = "The small print says no refunds. Good for you.", next = "BACK", reply = "That's what I said! Read the small print, folks, it's there for a reason, and the reason is me.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "No idea, pal, I just carry the bags. Ask the auctioneer, he's got an opinion on everything with a price." } },
+  },
+}

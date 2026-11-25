@@ -1320,3 +1320,113 @@ P:NPC {
     _none = { { id = "tp_none", text = "Never saw it, and I'd have noticed. Probably." } },
   },
 }
+
+-- Vigilant Deathguard: guards at the zeppelin landing south of Brill.
+P:NPC {
+  key = "tf_vigilant_deathguard", id = TODO_NPC("Vigilant Deathguard"), name = "Vigilant Deathguard", gender = "male",
+  role = "guard", tier = "service",
+  temper = { "cold", "sharp" }, values = { "duty" },
+  impression = {
+    first = "His eyes never stop moving between the sky and the road.",
+    third = "{name} spoke with a Vigilant Deathguard at the zeppelin landing south of Brill.",
+  },
+  greetings = {
+    { id = "g_default", text = "State your business at the landing, and keep clear of the ropes when the zeppelin comes in." },
+    { id = "g_back", when = { metBefore = true }, text = "Back for another flight? The goblins will be thrilled, or at least your coin will thrill them." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", key = true, text = "The zeppelins are the Horde's lifeline between Tirisfal and Durotar, and that makes this tower a target for every Scarlet with a torch. I watch the road, the sky and the goblins, though not necessarily in that order." } },
+      again = { { id = "h_again", text = "Anything else? Be quick, because there's a ship due." } },
+      choices = {
+        { text = "Why watch the goblins?", next = "goblins" },
+        { text = "Where do the zeppelins go?", next = "where" },
+        { text = "I'll be on my way.", next = "END" },
+      },
+    },
+    goblins = {
+      lines = { { id = "g1_default", text = "Because they'll sell a seat to anyone with gold, and I'd rather not find out the hard way who bought one. They've been honest enough with us so far, and I intend to keep it that way by watching." } },
+      choices = {
+        { text = "A goblin's loyalty is only as good as the pay.", next = "BACK", reply = "Exactly so, and the Dark Lady pays well, which is the only reason I sleep at all.", fx = { align = { order = 1 } } },
+        { text = "They've earned some trust by now, surely.", next = "BACK", reply = "Trust is for the living, friend, and I'm not one of those any more.", fx = { align = { order = -1 } } },
+      },
+    },
+    where = {
+      lines = { { id = "w_default", text = "One flight carries you to Orgrimmar in Durotar, and the other goes to Grom'gol in Stranglethorn, if you've a taste for jungle and trolls. Mind the steps on the way up, because the goblins never fixed the loose one." } },
+      choices = { { text = "Thanks. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I watch a tower, not the world. Ask in Brill." } },
+  },
+}
+
+-- Knight of Mourning: a human ghost bound by an oath to the mushroom ring in the Whispering Forest.
+P:NPC {
+  key = "tf_knight_of_mourning", id = TODO_NPC("Knight of Mourning"), name = "Knight of Mourning", gender = "male",
+  role = "spirit", tier = "service",
+  temper = { "grave", "formal" }, values = { "honor", "loyal" },
+  notices = { "race", "class" },
+  impression = {
+    first = "He is grey and translucent, and he stands at the mushroom ring like a sentry who was never relieved.",
+    third = "{name} met the Knight of Mourning, a ghost bound by his oath to the mushroom ring in the Whispering Forest.",
+  },
+  greetings = {
+    { id = "g_default", text = "My oath binds me to this place. What brings you here, to this Light-forsaken place?" },
+    { id = "g_back", when = { metBefore = true }, text = "You return, traveller, and I am still here, as I must be." },
+  },
+  notice = {
+    { id = "n_forsaken", cat = "race", when = { race = "Scourge" },
+      text = "You are dead and yet you walk with your own will, which I did not think possible. I envy you that, a little, and I pity you a great deal." },
+    { id = "n_pal", cat = "class", when = { class = "PALADIN" },
+      text = "You carry the Light, I can feel it from here, warm as a hearth I can no longer sit beside." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      narr = "The faerie lights over the mushroom ring pass straight through him.",
+      lines = {
+        { id = "h_default", key = true, text = "My oath binds me to this place, and so I keep watch here, though I can no longer remember who asked it of me. What brings you to this Light-forsaken place, traveller?" },
+      },
+      again = {
+        { id = "h_again", text = "Is there more? Time weighs little on me, so ask what you will." },
+        { id = "h_again2", text = "Speak, then. The ring is quiet, and I would welcome a voice." },
+      },
+      choices = {
+        { text = "What oath binds you here?", next = "oath" },
+        { text = "Why call this place Light-forsaken?", next = "forsaken" },
+        { text = "You've kept watch a long time, by the look of you.", next = "long" },
+        { text = "I'll leave you to your vigil.", next = "END" },
+      },
+    },
+    oath = {
+      lines = { { id = "o_default", text = "To guard, and to wait, and not to leave until I am released. I remember the kneeling and the words, but the face of the one who heard them has gone from me, and that is the cruellest part." } },
+      choices = {
+        { text = "Who could release you?", next = "release" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    release = {
+      big = true,
+      lines = { { id = "r_default", text = "Only the one I swore to, I think, or the Light itself, and neither has come. Tell me truly, traveller, would you keep an oath to the dead?" } },
+      choices = {
+        { text = "An oath is an oath, whoever made it and whoever's left.", next = "BACK", reply = "Then you understand me, and I am glad of it, though I would not wish my vigil on you.", fx = { align = { honor = 1 } } },
+        { text = "No. The dead can't hold you to anything.", next = "BACK", reply = "Perhaps not, but I cannot unswear it, and so here I remain.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forsaken = {
+      lines = { { id = "f_default", text = "The plague came through these woods, and the dead walked over the graves of the faithful, and the Light did not stop them. The forest still sings, I will grant you, but the song has a hollow sound to it now." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    long = {
+      lines = { { id = "l_default", text = "Long enough that the mushrooms have grown up around my feet, and the faerie dragons no longer bother to hide from me. I count the seasons by the leaves, though I have lost the count more than once." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I know only this ring and my oath, traveller, and little of the world beyond it now." } },
+  },
+}

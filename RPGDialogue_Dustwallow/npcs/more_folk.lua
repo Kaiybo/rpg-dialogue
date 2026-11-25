@@ -1969,3 +1969,96 @@ P:NPC {
     _none = { { id = "tp_none", text = "That is not my concern. Ask Krog, for he is paid to know such things." } },
   },
 }
+
+-- Sully "The Pickle" McLeary: a dwarf SI:7 agent, rifleman and fixer of other people's machines, sent to
+-- Dustwallow on a vital mission at Alcaz Prison (Forever). He won't say what the mission is. Quests not captured yet.
+P:NPC {
+  key = "dw_sully_mcleary", id = TODO_NPC("Sully \"The Pickle\" McLeary"), name = "Sully \"The Pickle\" McLeary", title = "SI:7", gender = "male",
+  role = "scout", tier = "quest",
+  temper = { "hearty", "sly" }, values = { "loyal", "practical" },
+  notices = { "race", "class", "craft" },
+  impression = {
+    first = "A dwarf with a rifle across his knees and a pocketful of screws, who goes quiet the moment you mention Alcaz.",
+    third = "{name} met Sully \"The Pickle\" McLeary, an SI:7 dwarf in Dustwallow Marsh on some business at Alcaz Prison he won't explain.",
+  },
+  greetings = {
+    { id = "g_default", text = "Keep yer voice down, would ye? I'm no' here, officially, an' I'd like tae keep it that way." },
+    { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again. Still no' here, mind, but I'll make an exception." },
+    { id = "g_horde", when = { faction = "Horde" }, text = "Keep walkin', and keep yer hands where I can see them, for I've a rifle an' nae patience." },
+  },
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "A fellow son o' Khaz Modan, out in this muck! Ye'll understand, then, why I'd trade my rifle for one dry pair o' boots." },
+    { id = "n_rogue", cat = "class", when = { class = "ROGUE", faction = "Alliance" },
+      text = "Ye walk like one o' Shaw's lot. Dinnae tell me who sent ye, an' I'll no' tell ye who sent me." },
+    { id = "n_eng", cat = "craft", when = { profession = "Engineering" },
+      text = "Is that a blasting-powder burn on yer glove? Ha! Ye're an engineer, then, an' a proper one, by the scorch." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      narr = "He has a half-mended gnomish gadget open on his knee, and he closes it as you approach.",
+      lines = {
+        { id = "h_default", key = true, text = "Sully McLeary, of the Stormwind lads who dinnae officially exist, an' I'm out here on a wee errand for king an' country. It concerns Alcaz, and that's as much as ye'll get out o' me without a great deal of ale." },
+        { id = "h_dwarf", when = { race = "Dwarf" }, text = "Sully McLeary, lad, SI:7, an' it's a rare treat tae hear a proper accent in this swamp. I'm here on business out at Alcaz, an' it's the kind o' business I cannae talk about, even tae kin." },
+      },
+      again = {
+        { id = "h_again", text = "What else, then? Quick, before the mosquitoes carry me off." },
+        { id = "h_again2", text = "Ask away, though I'll no' promise tae answer." },
+      },
+      choices = {
+        { text = "What's at Alcaz Prison?", next = "alcaz" },
+        { text = "Why do they call you \"The Pickle\"?", next = "pickle" },
+        { text = "SI:7 sends a dwarf? I thought they were all humans.", next = "si7" },
+        { text = "That gadget on your knee is gnomish.", next = "gadget" },
+        { text = "I'll leave you to your errand.", next = "END" },
+      },
+    },
+    alcaz = {
+      lines = { { id = "a_default", text = "A prison, on an island, in a swamp, which is three good reasons tae stay away from it. What's inside it is the Crown's business, an' I'd thank ye tae forget ye asked, for yer own sake as much as mine." } },
+      choices = {
+        { text = "Secrets keep soldiers alive. I won't pry.", next = "BACK", reply = "Good on ye. If more folk thought like that, my job would be a great deal shorter.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Secrets in a prison usually mean someone's hiding something ugly.", next = "BACK", reply = "Aye, sometimes they do, an' sometimes the ugly thing's what's locked up. Either way, I'm no' sayin'.", fx = { align = { order = -1 } } },
+        { text = "Does Theramore know you're here?", next = "theramore" },
+      },
+    },
+    theramore = {
+      lines = { { id = "t_default", text = "Lady Proudmoore's people know what they need tae know, an' they've been decent hosts, which is more than I can say for the crocolisks. Theramore's a fine wee town, though it smells o' fish an' wet wool." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    pickle = {
+      lines = { { id = "p_default", text = "Ha! Because I'm forever in one, {g:lad|lass}, or so Shaw's lot say, an' because I once kept a jar o' them in my pack through a whole job an' fed half a garrison with it. I was a cook before I was a spy, an' I've never seen why a man cannae be both." } },
+      choices = {
+        { text = "A cook and a spy? Sounds like a fine cover.", next = "cook" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cook = {
+      lines = { { id = "c_default", text = "The best, for naebody suspects the man with the ladle. Ye'd be amazed what an officer tells ye when ye've just handed him a hot bowl o' stew on a cold night." } },
+      choices = { { text = "I'll remember that trick. Something else.", next = "BACK" } },
+    },
+    si7 = {
+      lines = { { id = "s_default", text = "Mostly, aye, but they need someone who can fix a rifle an' a cannon an' a gnome's flyin' contraption without readin' the manual, an' that's me. Shaw sends me wherever somethin's broken an' somethin' else needs watchin'." } },
+      choices = {
+        { text = "Who is Shaw?", next = "shaw" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shaw = {
+      lines = { { id = "sh_default", text = "Mathias Shaw, an' if ye've no' met him, ye've probably walked past him in Old Town without noticin'. That's rather the point of him, an' it's why I'll say nae more." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gadget = {
+      lines = { { id = "g_default", text = "Aye, a gnome built it, an' a gnome would've built it twice as complicated as it needed tae be. I've taken out four springs an' it works better than it ever did, though I'll no' tell the gnome." } },
+      choices = {
+        { text = "Simple beats clever every time.", next = "BACK", reply = "Spoken like a dwarf, an' I'll drink tae it, when I've somethin' tae drink.", fx = { align = { order = 1 } } },
+        { text = "The gnomes might know something you don't.", next = "BACK", reply = "Aye, they might, an' they'd tell ye at great length, too. Still, my way, it doesnae explode.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "Couldnae tell ye, even if I knew, an' I'm no' sayin' I do." } },
+  },
+}

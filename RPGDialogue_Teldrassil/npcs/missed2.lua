@@ -312,3 +312,103 @@ P:NPC {
     _none = { { id = "ly_none", text = "Ask me again when we're out of this hollow, and I'll answer anything you like." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Sentinel Eralya Leafshadow: a runner for the Council of the Forest, still in
+-- training, ambushed by harpies on the road to the Oracle Tree and dying of
+-- a festering wound. (Quests: The Lost Runner, Not Dead Yet, Easing Suffering;
+-- Byancie in Dolanaar makes the salve.) Speaks in pain, but whole sentences.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "eralya_leafshadow", id = TODO_NPC("Sentinel Eralya Leafshadow"), name = "Sentinel Eralya Leafshadow", title = "Sentinels",
+  role = "soldier", tier = "quest",
+  communities = { "teldrassil" }, temper = { "brave", "frightened" }, values = { "duty", "Elune" },
+  notices = { "class", "race" },
+
+  impression = {
+    first = "A young Sentinel slumped against a tree by the road, her wound dark and wrongly coloured.",
+    third = "{name} found Sentinel Eralya Leafshadow, a Council runner left dying on the road to the Oracle Glade.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Elune's grace, someone came. I was beginning to think no one would." },
+    { id = "g_eased", when = { questDone = TODO_QUEST("Easing Suffering") }, text = "You came back. The pain is quieter now, thanks to you." },
+  },
+
+  notice = {
+    { id = "n_priest", cat = "class", when = { class = "PRIEST" },
+      text = "You carry Elune's light, I think. Would you say a word to her for me, if I can't find the breath?" },
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "A druid. Then you will feel it, the foulness in this wound, the same sickness that is in the forest." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      narr = "She presses a hand to her side, and it comes away dark.",
+      lines = {
+        { id = "h_default", key = true, text = "I am Eralya Leafshadow, of the Sentinels, and I was carrying the Oracle Tree's message to Darnassus when the harpies came down on us. My sisters scattered, and I could not run any further than this." },
+        { id = "h_active", when = { questActive = TODO_QUEST("Not Dead Yet") },
+          text = "Please, go to Byancie in Dolanaar, because she will know what to do. I can hold on a little longer, I think, if I know someone is going." },
+        { id = "h_salve", when = { questActive = TODO_QUEST("Easing Suffering") },
+          text = "Is that the salve? Byancie's work, I would know the smell of it anywhere. Please, quickly, before I lose my nerve." },
+        { id = "h_eased", tags = { "news" }, when = { questDone = TODO_QUEST("Easing Suffering") },
+          text = "The salve has cooled the wound, and I can breathe again without crying out. I will not pretend that means I am mending, but it means I am not afraid, and that is a great gift." },
+      },
+      again = {
+        { id = "h_again", text = "Stay a moment longer, if you can. It is easier when someone is here." },
+        { id = "h_again2", text = "Ask what you like. Talking keeps me awake." },
+      },
+      choices = {
+        { text = "What happened here?", next = "ambush" },
+        { text = "What message were you carrying?", next = "message" },
+        { text = "That wound looks wrong. What is it?", next = "wound" },
+        { text = "Were you alone?", next = "sisters" },
+        { text = "I'll bring help from Dolanaar.", next = "END" },
+      },
+    },
+    ambush = {
+      lines = { { id = "am_default", text = "We were on the road west of the glade when they fell on us from the branches, more harpies than I have ever seen together. They used to keep to their roosts, but these were frenzied, and they fought as if something were driving them." } },
+      choices = {
+        { text = "Something driving them? Like what?", next = "ambush2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ambush2 = {
+      lines = { { id = "a2_default", text = "The same foulness that has turned the furbolgs and soured the water in the lower woods, I think. The druids speak of it in low voices, and now it is in me, so perhaps I will learn its name before they do." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    message = {
+      lines = { { id = "me_default", text = "The Oracle Tree speaks to our elders, and the Council sends runners to carry its words to Darnassus. It was my first turn alone on the long road, and I was so proud to be trusted with it." } },
+      choices = {
+        { text = "Can I carry the message for you?", next = "message2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    message2 = {
+      big = true,
+      lines = { { id = "m2_default", text = "It is not written down; it was given to me to remember, and the harpies have shaken it half out of my head. Tell the Council a runner fell, and that the road to the Oracle Glade is not safe, and that is the part that matters most now." } },
+      choices = {
+        { text = "I'll tell them. The Council must know at once.", next = "BACK", reply = "Thank you. Then I have not failed entirely, and the next runner will go armed.", fx = { affinity = 2, align = { order = 1 } } },
+        { text = "Forget the Council. You matter more right now.", next = "BACK", reply = "That is kind, and very foolish, and I will remember it as long as I have.", fx = { affinity = 2, align = { order = -1 }, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wound = {
+      lines = { { id = "wo_default", text = "A harpy's talon, but it should have closed by now, and instead it is spreading, black at the edges and hot to the touch. Byancie in Dolanaar knows salves better than anyone, so if anyone can slow it, she can." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    sisters = {
+      lines = { { id = "si_default", text = "No, there were others with me, and I do not know where they are now. I pray they reached the Oracle Glade, or Dolanaar, or anywhere that is not this road." } },
+      choices = {
+        { text = "They'll be safe. Sentinels are hard to kill.", next = "BACK", reply = "You sound like my instructors. I hope you are all right.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    harpies = { { id = "tp_harp", text = "They are sick, like the rest of the forest, and sickness makes them cruel." } },
+    _none = { { id = "tp_none", text = "Forgive me, I can't think about that now. Ask me again if I am still here." } },
+  },
+}

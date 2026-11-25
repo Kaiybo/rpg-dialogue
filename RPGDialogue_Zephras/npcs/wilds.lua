@@ -444,3 +444,165 @@ P:NPC {
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. I know fires and roads and not much else." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Genn Fairweather: stablemaster and riding trainer at Fairweather Stables.
+-- (Wiki: teaches riding, sells galestriders; quests Learning to Ride, Swift
+-- as the Wind, Your First Riding Galestrider; kin Fenn and Tenn Fairweather.)
+---------------------------------------------------------------------------
+P:NPC {
+  key = "zep_genn", id = TODO_NPC("Genn Fairweather"), name = "Genn Fairweather", title = "Stablemaster and Riding Trainer",
+  role = "stablemaster", tier = "quest",
+  communities = { "zephras_isle" }, temper = { "easygoing", "proud" }, values = { "family", "craft" },
+  notices = { "class", "race" },
+
+  impression = {
+    first = "He talks about his galestriders the way other men talk about their children.",
+    third = "{name} met Genn Fairweather, who keeps Fairweather Stables and teaches riding on Zephras.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Gale's greetings, and welcome to Fairweather Stables! Mind the young ones, they nip." },
+    { id = "g_again", when = { metBefore = true }, text = "Back again, {name}! The galestriders remember you, I'm sure of it." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Learning to Ride") }, text = "Ready for your lesson? Sit tall, and don't grip with your knees." },
+  },
+
+  notice = {
+    { id = "n_hunter", cat = "class", when = { class = "HUNTER" },
+      text = "A hunter, so you'll have a beast of your own. Keep it clear of the paddock, because my galestriders spook at anything that growls." },
+    { id = "n_tauren", cat = "race", when = { race = "Tauren" },
+      text = "Winds above, I'll need my sturdiest galestrider for you, friend, and possibly two." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Genn Fairweather, and these are the Fairweather Stables, three generations of us raising galestriders on the best grass on the isle. If you want to learn to ride, there's no better teacher on Zephras, and I'll say that to anyone's face." },
+        { id = "h_done", tags = { "news" }, when = { questDone = TODO_QUEST("Your First Riding Galestrider") },
+          text = "There's my rider! How's your galestrider taking to you? Be patient with it, because they decide whom they trust, and it takes a little while." },
+      },
+      again = {
+        { id = "h_again", text = "What else can I tell you? I could talk galestriders till sunset." },
+        { id = "h_again2", text = "Ask away, I'm only mucking out." },
+      },
+      choices = {
+        { text = "Teach me to ride.", next = "BUSINESS" },
+        { text = "What exactly is a galestrider?", next = "galestrider" },
+        { text = "Three generations? Tell me about the family.", next = "family" },
+        { text = "Which galestrider should I choose?", next = "choose" },
+        { text = "These beasts look well kept, despite the hard times.", next = "times" },
+        { text = "I ride a beast of my own. Any advice?", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Winds be with you, Genn.", next = "END" },
+      },
+    },
+    galestrider = {
+      lines = { { id = "ga_default", text = "The finest mount there is, swift and sure-footed and light as the wind they're named for. They were bred here when the spirits still walked Zephras, or so my grandfather said, and they've never been happy anywhere the air is still." } },
+      choices = {
+        { text = "Can they fly?", next = "galestrider2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    galestrider2 = {
+      lines = { { id = "g2_default", text = "No, though you'd swear they're trying when they hit a full gallop. I've had more than one rider swear they left the ground, and I never correct them, because it's good for business." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    family = {
+      lines = { { id = "fa_default", text = "Fenn and Tenn are my kin, and between the three of us we've got the feeding, the breaking and the shouting covered. I'll leave you to guess which of those I do." } },
+      choices = {
+        { text = "The shouting, surely.", next = "family2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    family2 = {
+      lines = { { id = "f2_default", text = "Ha! You'd think so, but I'm the soft one. The shouting's for whichever of them let a gate swing open, and somehow it's never me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    choose = {
+      lines = { { id = "ch_default", text = "Empyrean if you like to be looked at, Stormy if you like a bit of spirit, and Umber if you want one that will still be standing when the others have bolted. When you've some coin behind you, the swift ones are worth every windstone." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    times = {
+      big = true,
+      lines = { { id = "ti_default", text = "They are, and it costs me. Feed's dearer every season, and some of the young ones I raise end up carrying riders off the isle for good, which breaks my heart a little each time." } },
+      choices = {
+        { text = "Then keep the best ones here. Zephras needs them.", next = "BACK", reply = "Spoken like a true islander. I'll think on it, though my purse won't like it.", fx = { align = { order = 1 } } },
+        { text = "Let them go. They'll carry our people somewhere new.", next = "BACK", reply = "That's a kinder way to see it, and I'll try. Winds carry them.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunter = {
+      lines = { { id = "xh_default", text = "Ride upwind of it when you can, and let the galestrider get a good long sniff before you ask it to share a road. They're brave beasts, but they've long memories for anything with teeth." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "Couldn't tell you, friend. If it hasn't got four hooves, I'm the wrong man to ask." } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Baelann Swiftcurrent: fisher on Zephras Isle. (Wiki: vendor, exact spot
+-- not given.) Patient, wry; fishes streams that run off the island's edge.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "zep_baelann", id = TODO_NPC("Baelann Swiftcurrent"), name = "Baelann Swiftcurrent", title = "Fisher",
+  role = "vendor", tier = "service",
+  communities = { "zephras_isle" }, temper = { "patient", "dry" }, values = { "craft", "prudence" },
+  notices = { "craft" },
+
+  impression = {
+    first = "He doesn't look up from his line, but he answers you all the same.",
+    third = "{name} met Baelann Swiftcurrent, a fisher of Zephras Isle.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Gale's greetings. Keep your voice down, the fish are listening." },
+  },
+
+  notice = {
+    { id = "n_fish", cat = "craft", when = { profession = { "Fishing" } },
+      text = "You've a fisher's patience about you. Good, because it's the only bait that never runs out." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "Baelann Swiftcurrent. I fish, and I sell what a fisher needs, and if you're willing to sit still and say nothing for an hour, I'll show you how it's done." },
+      },
+      again = { { id = "h_again", text = "Something more? Quietly, now." } },
+      choices = {
+        { text = "Show me your wares.", next = "BUSINESS" },
+        { text = "Where do the fish even come from, up here?", next = "fish" },
+        { text = "Fishing seems a peaceful life.", next = "peace" },
+        { text = "Good fishing, Baelann.", next = "END" },
+      },
+    },
+    fish = {
+      lines = { { id = "fi_default", text = "The same place we do, I expect, carried up with the isle long ago. The streams run clear off the edges, and the fish that stay in them are the clever ones, so you need to be cleverer." } },
+      choices = {
+        { text = "What happens to the ones that go over?", next = "fish2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    fish2 = {
+      lines = { { id = "f2_default", text = "They see the world below the clouds before any of us do. I like to think a few of them land somewhere pleasant, though I've never been brave enough to follow and find out." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    peace = {
+      big = true,
+      lines = { { id = "pe_default", text = "It is, and that's why I keep at it. Everyone else is choosing between the orders or chasing cultists, and I'd rather sit by the water and feed my neighbours, though some call that hiding." } },
+      choices = {
+        { text = "Feeding people is its own duty. Keep at it.", next = "BACK", reply = "Thank you. I'll tell that to the next peacekeeper who sneers at my rod.", fx = { align = { order = 1 } } },
+        { text = "It is hiding, and the isle needs every hand.", next = "BACK", reply = "Maybe so. But hungry hands don't fight well either.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "Couldn't say. The water doesn't gossip." } },
+  },
+}

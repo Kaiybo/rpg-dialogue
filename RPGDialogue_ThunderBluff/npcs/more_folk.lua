@@ -5794,3 +5794,203 @@ P:NPC {
     _none = { { id = "tp_none", text = "I neither know nor care. Ask one of the tauren, who will at least be pleasant about not knowing." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Eylah Sunhorn, Sun Priest of An'she, who sends newcomers to scatter incense from Hunter Rise
+-- (Traditions of the Bluff, Forever). Then Edine Sharphorn the barber, Boramu who sells tailoring
+-- patterns in the Thunder Bluff Armorers, and Arrgrah Stonewall.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "eylah_sunhorn", id = TODO_NPC("Eylah Sunhorn"), name = "Eylah Sunhorn", title = "Sun Priest of An'she",
+  gender = "female", role = "priest", tier = "quest",
+  communities = { "thunder_bluff" }, temper = { "warm" }, values = { "devout", "tradition" },
+  notices = { "race", "class" },
+  impression = {
+    first = "A tauren priestess in sun-gold robes, smelling faintly of cedar smoke, who greets every passer-by as though they had been expected.",
+    third = "{name} met Eylah Sunhorn, a Sun Priest of An'she in Thunder Bluff, who taught the tradition of scattering incense to the winds.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Blessings of An'she, friend. The sun is generous today, and so, I hope, are you." },
+    { id = "g_night", when = { timeOfDay = "night" }, text = "An'she has gone to rest and left the sky to Mu'sha, but I keep his blessings ready for whoever comes by in the dark." },
+    { id = "g_active", when = { questActive = TODO_QUEST("Traditions of the Bluff") }, text = "Have you gathered everything? Nida's herbs, Nata's cedar, Mahu's sinew and Naal's flint, and then off the south cliff of Hunter Rise." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Traditions of the Bluff") }, text = "I saw the smoke go out over the plains from the south cliff. Whatever you asked for, the winds carried it well." },
+  },
+
+  notice = {
+    { id = "n_notauren", cat = "race", when = { ["not"] = { race = "Tauren" } },
+      text = "Not all who honor our traditions are tauren, and I think the Earth Mother is pleased when a guest takes the trouble." },
+    { id = "n_priest", cat = "class", when = { class = "PRIEST" },
+      text = "A priest! Of the Light, I suppose, but the sun shines on your path as well as mine." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "I am Eylah Sunhorn, and I serve An'she, the eye of the Earth Mother that watches us by day. We tauren have a tradition of scattering incense to the winds, and I like to teach it to anyone willing to learn." },
+        { id = "h_before", when = { questBefore = TODO_QUEST("Traditions of the Bluff") }, text = "You'll need to make the incense yourself, which is half the blessing. Herbs from Nida, cedar from Nata, sinew thread from Mahu on the middle rise, and ceremonial flint and tinder from Naal on the upper rise." },
+      },
+      again = {
+        { id = "h_again", text = "What else, friend? The sun is still high, and so is my patience." },
+        { id = "h_again2", text = "Ask me anything. An'she sees all of it anyway." },
+      },
+      choices = {
+        { text = "Why scatter incense to the winds?", next = "incense" },
+        { text = "Who is An'she?", next = "anshe" },
+        { text = "Why from Hunter Rise?", next = "cliff" },
+        { text = "Traditions are only habits with good stories.", next = "habit" },
+        { text = "What would you have me do?", next = "BUSINESS" },
+        { text = "May the eternal sun shine upon you.", next = "END" },
+      },
+    },
+    incense = {
+      lines = { { id = "i_default", text = "There are many occasions for it. You might ask the Earth Mother to watch over someone, or bless a hunt, or celebrate something good, or seek guidance from the ancestors, and the wind takes the smoke wherever it is needed." } },
+      choices = {
+        { text = "And if I don't know what to ask for?", next = "incense2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    incense2 = {
+      lines = { { id = "i2_default", text = "Then you ask for nothing and simply give thanks, which is the oldest prayer there is. Or it could be something else entirely, something you won't tell even me, and the winds will keep your secret." } },
+      choices = {
+        { text = "I'll ask the winds to watch over the Horde.", next = "BACK", reply = "A large thing to ask, but the winds are large too. I think they will hear you.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "I'll ask for myself. The Horde can pray its own prayers.", next = "BACK", reply = "Honest, at least, and honesty is welcome on the cliff. An'she has never minded a selfish prayer said truthfully.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    anshe = {
+      lines = { { id = "a_default", text = "The Earth Mother's right eye is the sun, An'she, and her left is the moon, Mu'sha. By day An'she watches us and warms the grass the kodo eat, and so we sun priests thank him for every good thing that grows." } },
+      choices = {
+        { text = "The Forsaken paladin below says the sun is the Light.", next = "alodan" },
+        { text = "Something else.", next = "BACK", fx = { learn = { "an_she" } } },
+      },
+    },
+    alodan = {
+      lines = { { id = "al_default", text = "Alodan says many hopeful things, and I like him for it. I don't know whether An'she and his Light are the same, but I know the sun shines on the Pools of Vision as gladly as on the Elder Rise, and that is enough for me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cliff = {
+      lines = { { id = "c_default", text = "The south-facing cliff catches the winds that come up from the Barrens and carries them over all of Mulgore. You'll find a mat and incense already waiting at the ceremonial site, so you only need to bring your own and your prayer." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    habit = {
+      lines = { { id = "hb_default", text = "Perhaps they are, but a habit kept by a whole people for a thousand years starts to become something more. When the young burn incense where their grandparents did, they are not alone on that cliff." } },
+      choices = {
+        { text = "Then the old ways are worth keeping.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The young should make their own traditions.", next = "BACK", reply = "They will, whether I like it or not. I only hope they make them with incense and not with axes.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    background = { { id = "tp_bg", text = "I have served An'she since I was a calf, and I have never once tired of the morning." } },
+    advice = { { id = "tp_ad", text = "Give thanks for something every day, even a small thing. It's harder to be bitter when your mouth is busy with gratitude." } },
+    an_she = { { id = "tp_anshe", text = "An'she is the sun, the Earth Mother's right eye, and everything that grows owes him a debt." } },
+    _none = { { id = "tp_none", text = "That is beyond what An'she has shown me, friend. The elders on the Elder Rise may know." } },
+  },
+}
+
+P:NPC {
+  key = "edine_sharphorn", id = TODO_NPC("Edine Sharphorn"), name = "Edine Sharphorn", title = "Barber",
+  gender = "female", role = "vendor", tier = "service",
+  communities = { "thunder_bluff" }, temper = { "cheerful" }, values = { "craft" },
+  impression = {
+    first = "A tauren with shears tucked behind one horn and a chair ready, who looks at your hair the way a hunter looks at tracks.",
+    third = "{name} visited Edine Sharphorn's barbershop in Thunder Bluff.",
+  },
+  greetings = {
+    { id = "g_default", text = "Welcome to my barbershop! We offer cuts, colorings, and more, so have a seat and we'll get to work." },
+    { id = "g_scourge", when = { race = "Scourge" }, text = "Welcome! Don't look so surprised; I can modify undead features too, and I'm careful with what's left." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I groom manes and beards, braid in beads, do piercings, and reshape tusks and horns for anyone who asks. A tauren's mane tells the herd who they are before they say a word, so I like to get it right." } },
+      again = { { id = "h_again", text = "Anything else, or shall we start on that mane?" } },
+      choices = {
+        { text = "What does a mane tell the herd?", next = "mane" },
+        { text = "Who's your hardest customer?", next = "hard" },
+        { text = "Let's get to work.", next = "BUSINESS" },
+        { text = "Maybe another day.", next = "END" },
+      },
+    },
+    mane = {
+      lines = { { id = "m_default", text = "Braids for the hunts you've made, beads for the people who love you, and a clean horn means you've nothing to prove. Some young braves come in wanting braids for hunts they haven't made yet, and I send them back out to the plains." } },
+      choices = {
+        { text = "Good. Honors should be earned.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Let them wear what they like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hard = {
+      lines = { { id = "hd_default", text = "The Forsaken from the Pools of Vision, without question, because there's never as much to work with as they'd like. Though the trolls are a close second, since every one of them wants their hair taller than the last." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I hear every rumor in this chair, friend, but not that one. Sit down and maybe it'll come to me." } } },
+}
+
+P:NPC {
+  key = "boramu", id = TODO_NPC("Boramu"), name = "Boramu", title = "Tailoring Recipes",
+  gender = "male", role = "vendor", tier = "service",
+  communities = { "thunder_bluff" }, temper = { "calm" }, values = { "craft" },
+  impression = {
+    first = "A tauren among the shields and mail of the Thunder Bluff Armorers, a stack of folded patterns at his elbow and a needle stuck in his vest.",
+    third = "{name} bought patterns from Boramu in the Thunder Bluff Armorers.",
+  },
+  greetings = {
+    { id = "g_default", text = "Patterns, friend, for cloth and stitching. The armor's for the others in this shop; I deal in softer things." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "I keep tailoring recipes for anyone who works cloth, tucked in among the armorers so the warriors remember someone has to make what goes under the plate. Look through them, and take what you can use." } },
+      again = { { id = "h_again", text = "Anything else? The patterns don't run away." } },
+      choices = {
+        { text = "Why sell patterns in an armor shop?", next = "why" },
+        { text = "Show me your patterns.", next = "BUSINESS" },
+        { text = "Farewell.", next = "END" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Because nobody wears mail against bare hide twice, {class}. The armorers sell the steel, I sell the patterns for the padding, and Mahu on the middle rise sells the thread, so a warrior walks out with everything but the courage." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "I know stitches, not stories, friend. Ask at the inn." } } },
+}
+
+P:NPC {
+  key = "arrgrah_stonewall", id = TODO_NPC("Arrgrah Stonewall"), name = "Arrgrah Stonewall", gender = "male",
+  role = "citizen", tier = "service",
+  communities = { "thunder_bluff" }, temper = { "gruff" }, values = { "duty" },
+  impression = {
+    first = "A massive, slow-spoken tauren standing as still as the name he carries, who watches you a long moment before he nods.",
+    third = "{name} spoke with Arrgrah Stonewall in Thunder Bluff.",
+  },
+  greetings = {
+    { id = "g_default", text = "Hm. Greetings, {class}. Say what you came to say, and I'll listen." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "My family has always been the kind that stands where it is put, and they named us for it. I stand in Thunder Bluff now, and I find the city moves around me well enough." } },
+      again = { { id = "h_again", text = "More? I'm still here." } },
+      choices = {
+        { text = "Doesn't standing still grow tiresome?", next = "still" },
+        { text = "Earth Mother keep you.", next = "END" },
+      },
+    },
+    still = {
+      lines = { { id = "s_default", text = "The mesa has stood still for longer than any of us, and nobody calls it tired. A tauren who can't stand still can't wait for the kodo, and one who can't wait for the kodo goes hungry." } },
+      choices = {
+        { text = "Patience is a strength. You're right.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Sometimes you have to move first.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Don't know. Ask someone who walks around more than I do." } } },
+}

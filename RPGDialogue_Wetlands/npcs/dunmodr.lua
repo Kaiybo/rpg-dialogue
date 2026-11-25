@@ -255,3 +255,35 @@ P:NPC {
     scourge = { { id = "tp_scourge", text = "There are dead men walkin' in Lordaeron, I hear, an' the Span's the only dry road south for them. That's another reason we cannae let it fall." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Captive Fire Elemental: bound by the Dark Iron dwarves at Dun Modr; the player leads it out
+-- during "Spark of Freedom" (Roggo Harlbarrow, missed2.lua). It speaks only in crackle and heat,
+-- so its lines are narration in asterisks.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "wl_captive_fire_elemental", id = TODO_NPC("Captive Fire Elemental"), name = "Captive Fire Elemental",
+  role = "citizen", tier = "quest", temper = { "fierce" }, values = { "freedom" },
+  impression = {
+    first = "A fire elemental the Dark Irons have chained at Dun Modr, guttering low in its bonds.",
+    third = "{name} met a captive fire elemental, chained by the Dark Iron dwarves at Dun Modr.",
+  },
+  greetings = {
+    { id = "g_default", text = "*The chained fire elemental gutters low and blue at your approach, then flares up red, as if it cannot decide whether you are another jailer.*" },
+    { id = "g_quest", when = { questActive = TODO_QUEST("Spark of Freedom") }, text = "*The elemental leans toward you against its chains, and the heat of it presses on your face like an open forge.*" },
+    { id = "g_done", when = { questDone = TODO_QUEST("Spark of Freedom") }, text = "*Only a scorched ring on the stones remains where the fire elemental was chained, still warm to the touch.*" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*The fire within it roars and hisses in a voice like a bellows, with no words in it, only want.*" },
+      },
+      again = { { id = "a_again", text = "*The elemental crackles impatiently in its bonds.*" } },
+      choices = {
+        { text = "The Dark Irons won't hold you much longer.", next = "BACK", reply = "*Its flames leap high and white, and the chains glow cherry-red where they bind it.*" },
+        { text = "Stay close and follow me. We're leaving.", next = "END", reply = "*The elemental drifts after you, scorching the grass with every step it takes toward the marsh.*" },
+      },
+    },
+  },
+}

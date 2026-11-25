@@ -1738,3 +1738,142 @@ P:NPC {
     _none = { { id = "tp_none", text = "Couldn't say. If it isn't a door, a stair or a leaking roof in this keep, it's beyond me." } },
   },
 }
+
+-- Bandarion Keep Paladin: the elite Forsaken paladins who hold the keep's walls.
+P:NPC {
+  key = "bk_keep_paladin", id = TODO_NPC("Bandarion Keep Paladin"), name = "Bandarion Keep Paladin", gender = "male",
+  bible = "bibles/bandarion_keep.md", role = "guard", tier = "service",
+  communities = { "bandarion_keep" }, temper = { "grave", "dry" }, values = { "duty", "faith" },
+  notices = { "class" },
+  impression = {
+    first = "His plate is old Lordaeron work, polished until the dents shine.",
+    third = "{name} spoke with one of the Forsaken paladins who guard the walls of Bandarion Keep.",
+  },
+  greetings = {
+    { id = "g_default", text = "Walk in the Light, or at least walk carefully. This keep is held by the Light's own dead, and we keep a sharp watch." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. The walls are still standing, if that was your question." },
+    { id = "g_paladin", when = { class = "PALADIN", race = "Scourge" }, text = "A brother of the order, risen like the rest of us. The Light welcomes you home, whatever the Apothecaries mutter." },
+  },
+  notice = {
+    { id = "n_living_pal", cat = "class", when = { class = "PALADIN", race = { "Human", "Dwarf" } },
+      text = "A living paladin of the Alliance, at our gate. You'll forgive me if I keep my hand near my hammer while we talk." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      narr = "He leans on a warhammer whose head has been reforged more than once.",
+      lines = {
+        { id = "h_default", key = true, text = "I keep the walls of Bandarion Keep, as my brothers and sisters do. The Scarlet Crusade calls us abominations for wielding the Light, and they'd be glad to prove it at the point of a sword." },
+        { id = "h_horde", when = { faction = "Horde", race = { "Orc", "Troll", "Tauren" } }, text = "A friend of the Horde, then, and welcome enough. Our order is small, so we keep the walls ourselves and leave the Deathguard to the roads." },
+      },
+      again = {
+        { id = "h_again", text = "Something more? I'll be standing here either way." },
+        { id = "h_again2", text = "Ask, then. The Crusade gives me little else to do but wait." },
+      },
+      choices = {
+        { text = "How does the Light answer the dead?", next = "light" },
+        { text = "Who are you watching for?", next = "watch" },
+        { text = "I'll leave you to the wall.", next = "END" },
+      },
+    },
+    light = {
+      lines = { { id = "l_default", text = "It burns, at first, like a fire held too close, and then it steadies, and you remember why you served it in the first place. Some of us never get past the burning, and Hilda says those ones are better off in the ground." } },
+      choices = {
+        { text = "The Light doesn't turn away from anyone who seeks it.", next = "BACK", reply = "That's what I've come to believe, and I've the burns to show for the believing.", fx = { align = { light = 1 } } },
+        { text = "Maybe it burns because it wants you gone.", next = "BACK", reply = "Maybe so, but it still comes when I call it, and that's more than the Crusade can say for their own.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    watch = {
+      lines = { { id = "w_default", text = "Scarlets, mostly, from their outposts on the coast, and the odd mindless wretch wandering up from the fields. The murlocs along the lake are a nuisance, but they've never once tried the gate." } },
+      choices = { { text = "Then I'll keep an eye out on the road. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I guard a wall, friend, and that doesn't take much knowing. Ask Breton or Danitha inside." } },
+  },
+}
+
+-- Paladin Trainee: three Forsaken recruits drilling at the dummies under Hilda the Breaker.
+P:NPC {
+  key = "bk_paladin_trainee", id = TODO_NPC("Paladin Trainee"), name = "Paladin Trainee", gender = "male",
+  bible = "bibles/bandarion_keep.md", role = "apprentice", tier = "service",
+  communities = { "bandarion_keep" }, temper = { "anxious", "eager" }, values = { "faith", "duty" },
+  notices = { "class" },
+  impression = {
+    first = "He hits the dummy as if it might complain to Hilda about him.",
+    third = "{name} spoke with one of the trainee paladins drilling under Hilda the Breaker at Bandarion Keep.",
+  },
+  greetings = {
+    { id = "g_default", text = "Sorry, I can't stop long, or Hilda will notice and I'll be on dummy duty till midnight." },
+    { id = "g_back", when = { metBefore = true }, text = "Oh, you again! I've only been knocked down twice today, which is a record for me." },
+  },
+  notice = {
+    { id = "n_pal", cat = "class", when = { class = "PALADIN", race = "Scourge" },
+      text = "You're one of us! Did your hands smoke the first time you called the Light, or was it only mine that did?" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true, text = "We're the new ones, the three of us, and Hilda the Breaker has us at these dummies from dawn until she gets bored, which she never does. I was a squire in Lordaeron once, though I don't remember much of it except the smell of horses." },
+      },
+      again = {
+        { id = "h_again", text = "Quickly, please, before she looks this way." },
+        { id = "h_again2", text = "Anything else? My arm's grateful for the rest, at least." },
+      },
+      choices = {
+        { text = "What is Hilda like as a teacher?", next = "hilda" },
+        { text = "Why take up the Light again, after dying?", next = "why" },
+        { text = "Back to your drill, then.", next = "END" },
+      },
+    },
+    hilda = {
+      lines = { { id = "hi_default", text = "Loud, and right far more often than I'd like, and she's never told any of us why they call her the Breaker. One of the others thinks it's about shields, and I'm hoping very much that it's about shields." } },
+      choices = {
+        { text = "A hard teacher makes a hard fighter.", next = "BACK", reply = "That's what she says, almost word for word, so I suppose you'd get along with her.", fx = { align = { order = 1 } } },
+        { text = "Fear makes a poor teacher, whatever she thinks.", next = "BACK", reply = "Don't let her hear you say that, please, because she'll make us all prove you wrong.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    why = {
+      lines = { { id = "w_default", text = "Because it still answered when I called it, and nobody expected that, least of all me. If the Light hasn't given up on the dead, then I don't see why I should." } },
+      choices = { { text = "Keep at it, then. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "I'm only a trainee, so I don't know much yet. Ask Hilda, if you're brave." } },
+  },
+}
+
+-- Risen Warhorse: a dead charger kept at Bandarion Keep. It does not talk.
+P:NPC {
+  key = "bk_risen_warhorse", id = TODO_NPC("Risen Warhorse"), name = "Risen Warhorse",
+  bible = "bibles/bandarion_keep.md", role = "citizen", tier = "service",
+  communities = { "bandarion_keep" }, temper = { "cold" }, values = { "loyal" },
+  impression = {
+    first = "Its ribs show through the barding, but it stands as steady as any living charger.",
+    third = "{name} met one of the risen warhorses of Bandarion Keep, which still carries its old barding.",
+  },
+  greetings = {
+    { id = "g_default", text = "<The dead horse turns one clouded eye on you and snorts a puff of cold air.>" },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      narr = "Tatters of a Lordaeron caparison still hang from its flanks.",
+      lines = { { id = "h_default", text = "<The warhorse stamps a bare hoof on the stones and waits, as if for a rider who isn't coming.>" } },
+      choices = {
+        { text = "Easy there. Good horse.", next = "pat" },
+        { text = "Leave it be.", next = "END" },
+      },
+    },
+    pat = {
+      lines = { { id = "p_default", text = "<It lowers its head and lets you touch its neck, which is cold and still under your hand.>" } },
+      choices = { { text = "Leave it be.", next = "END", fx = { affinity = 1 } } },
+    },
+  },
+  topics = {
+    _none = { { id = "tp_none", text = "<The horse flicks a ragged ear and looks away.>" } },
+  },
+}

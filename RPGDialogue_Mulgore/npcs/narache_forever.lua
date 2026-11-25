@@ -571,3 +571,39 @@ P:NPC {
     _none = { { id = "tp_none", text = "I do not know. Ask Karne; he enjoys questions more than I do." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Mesa Brave: the guards at the entrance to Red Cloud Mesa. Light entry.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "mesa_brave", id = TODO_NPC("Mesa Brave"), name = "Mesa Brave",
+  role = "guard", tier = "service",
+  communities = { "narache" }, temper = { "calm" }, values = { "duty" },
+  impression = {
+    first = "A tauren brave with a long spear planted in the red dust, watching the path up onto Red Cloud Mesa.",
+    third = "{name} spoke with a brave guarding the way onto Red Cloud Mesa.",
+  },
+  greetings = {
+    { id = "g_default", text = "Walk in peace, {class}. The young ones of Camp Narache are beyond me, and I keep the path safe for them." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "We braves watch the way up onto Red Cloud Mesa, so the Bristleback and the wolves bother the camp no more than the elders intend. The trials of the young are meant to be hard, but not that hard." } },
+      again = { { id = "h_again", text = "Anything else? I can talk and watch at once." } },
+      choices = {
+        { text = "Is the mesa dangerous?", next = "danger" },
+        { text = "Earth Mother keep watch with you.", next = "END" },
+      },
+    },
+    danger = {
+      lines = { { id = "d_default", text = "The quilboar in Brambleblade Ravine grow bolder every season, and the prairie wolves are always hungry. Grull Hawkwind sends the young against them, and we make sure the young come back." } },
+      choices = {
+        { text = "Let the young face it alone. That's the trial.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Good. The herd guards its calves.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Ask Grull Hawkwind in the camp, friend; I only watch the path." } } },
+}

@@ -2240,3 +2240,40 @@ P:NPC {
     burning_legion = { { id = "tp_burning_legion", text = "The demons made us strong, and then they made us weak. I don't miss the strength, but I miss feeling like I knew what I was for." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Enraged Orgrimmar Grunt: the hot-blooded grunts posted in Grommash Hold (Forever). The wiki
+-- gives only their Enrage; written as guards who keep their fury for the Warchief's enemies.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "enraged_org_grunt", id = TODO_NPC("Enraged Orgrimmar Grunt"), name = "Enraged Orgrimmar Grunt",
+  role = "guard", tier = "service",
+  communities = { "orgrimmar" }, temper = { "fierce" }, values = { "honor", "duty" },
+  impression = {
+    first = "A grunt in Grommash Hold breathing hard through his tusks, knuckles white on his axe, as if the fight he wants is always one breath away.",
+    third = "{name} spoke with one of the fierce grunts who guard Grommash Hold.",
+  },
+  greetings = {
+    { id = "g_default", text = "You stand in Grommash Hold, before the Warchief's seat. Speak carefully, {class}." },
+  },
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = { { id = "h_default", text = "We guard the hold and the Warchief inside it, and we keep our blood hot so that no enemy reaches him while we draw breath. The rage is ours, not the demons'; we chose it, and we point it where Thrall tells us." } },
+      again = { { id = "h_again", text = "What else? Make it quick; my axe grows restless." } },
+      choices = {
+        { text = "Why keep your blood so hot?", next = "rage" },
+        { text = "Lok'tar ogar.", next = "END" },
+      },
+    },
+    rage = {
+      lines = { { id = "r_default", text = "Because an assassin moves fast, and a calm grunt dies wondering what happened. Grom carried that fire to Mannoroth's heart and freed us all; we carry a little of it for him, here in his hall." } },
+      choices = {
+        { text = "Fury like that is what makes the Horde strong.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Rage nearly destroyed our people. Mind it well.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = { _none = { { id = "tp_none", text = "Not my concern. I guard the Warchief; ask someone with time to talk." } } },
+}
