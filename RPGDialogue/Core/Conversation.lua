@@ -251,7 +251,10 @@ function Conv.Start(kind, unit, interactionName)
       if s.ticker then s.ticker:Cancel(); s.ticker = nil end
       local frame = Conv.BlizzardFrame(s)
       s.blizz = frame
-      if frame and ns.db.settings.fadeDefault then
+      if s.view == "dui" then
+        -- Already in DialogueUI's window, which the game's menu now fills: it's theirs.
+        ns.UI.DUIView.Adopt()
+      elseif frame and ns.db.settings.fadeDefault then
         C.SetFaded(frame, true)
         s.faded = true
         ns.UI.Blocker.Cover(frame)
@@ -272,6 +275,16 @@ function Conv.Start(kind, unit, interactionName)
       return
     end
     s.questAnswered = nil
+    -- The same, inside DialogueUI: a quest picked from the conversation, then its menu again.
+    if s.duiQuest and kind == "gossip" and s.view == "dui" and not s.menuOnly and s.nodeDef and s.lastView then
+      s.duiQuest = nil
+      s.mode = "full"
+      local v = s.lastView
+      v.choices = Conv.BuildChoices(s.nodeDef, s.node == ((s.info.def and s.info.def.start) or "hello"))
+      v.said = nil
+      present(s, v)
+      return
+    end
     -- An option picked in the box led to the game's next page: show it in the box too.
     -- A vendor, trainer, flight map or bank opens its own window as usual.
     if s.mode == "full" and s.following then
@@ -413,8 +426,15 @@ function Conv.OpenFull(reason)
   local frame = Conv.BlizzardFrame(s)
   s.blizz = frame
   -- With DialogueUI (default), the conversation is drawn inside its window instead.
+  -- A talk-key or right-click conversation goes there too, opening the window itself, as
+  -- long as DialogueUI isn't busy with someone else's page.
+  local duiWin = C.DialogueUIFrame()
   if s.kind ~= "talk" and ns.Integrations.InsideDialogueUI() and ns.UI.DUIView.Available() then
     s.view = "dui"
+  elseif s.kind == "talk" and ns.Integrations.InsideDialogueUI() and ns.UI.DUIView.Available()
+      and duiWin and not duiWin:IsShown() then
+    s.view = "dui"
+    ns.UI.DUIView.Own()
   elseif frame and ns.db.settings.fadeDefault then
     C.SetFaded(frame, true)
     s.faded = true
@@ -615,6 +635,12 @@ function Conv.Business(hint)
     if #Conv.GameOptions(s, true) == 0 then return Conv.End() end
   end
   Conv.ShowGamePage(kind)
+end
+
+-- DialogueUI's window, opened by us for a talk-key visit, was closed (Goodbye, Escape).
+function Conv.OnWindowClosed()
+  local s = Conv.session
+  if s and not s.ended and s.view == "dui" then Conv.Finish() end
 end
 
 -- The box's close button, Escape and the gamepad's B: the visit ends, as in the game.
@@ -1048,9 +1074,11 @@ function Conv.Choose(index)
       s.following = true
       if g.kind == "reveal" then Conv.ShowGamePage("quest"); return end
     elseif s.view == "dui" then
-      -- Inside DialogueUI: its own pages take over from here.
+      -- Inside DialogueUI: its own pages take over from here. A quest's page comes back to
+      -- the conversation when the NPC's menu returns (accepted, declined, handed in).
       ns.UI.DUIView.Release()
       s.mode = "business"
+      if g.kind == "gossipQuest" or g.kind == "greetingQuest" then s.duiQuest = true end
     else
       -- Hand over to the game's window first, then pick the option there.
       Conv.HandOver()
@@ -2028,7 +2056,13 @@ end
 
 local function onClose() C.After(0.2, Conv.CheckClosed) end
 ns.On("GOSSIP_CLOSED", onClose)
-ns.On("QUEST_FINISHED", onClose)
+ns.On("QUEST_FINISHED", function()
+  -- A quest picked from the conversation in DialogueUI was answered there: wait for the
+  -- NPC's menu as after an answer in the box.
+  local s = Conv.session
+  if s and s.duiQuest then s.questAnswered = C.Now() end
+  onClose()
+end)
 ns.On("PLAYER_INTERACTION_MANAGER_FRAME_HIDE", onClose)
 
 ns.On("PLAYER_REGEN_DISABLED", function()

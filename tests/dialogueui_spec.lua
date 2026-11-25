@@ -301,3 +301,60 @@ describe("Inside DialogueUI's window (default)", function()
     eq(dui:GetAlpha(), 0)
   end)
 end)
+
+describe("Talk key with DialogueUI", function()
+  it("opens DialogueUI's window itself, and closing it ends the visit", function()
+    local ns, dui = bootInside()
+    Mock.state.units.target = { guid = "Creature-0-1-0-1-9002-AB", name = "Deputy Willem", level = 10 }
+    ns.Conversation.TalkToTarget()
+    local s = ns.Conversation.session
+    eq(s.kind, "talk")
+    eq(s.view, "dui")
+    eq(dui:IsShown(), true, "its window, opened by us")
+    eq(ns.UI.Dialogue.IsShown(), false, "no box of ours")
+    contains(names(dui), "Get on with it")
+    dui:Hide()
+    eq(ns.Conversation.session, nil, "Goodbye or Escape in its window ends the visit")
+  end)
+
+  it("closes the window it opened when the visit ends", function()
+    local ns, dui = bootInside()
+    Mock.state.units.target = { guid = "Creature-0-1-0-1-9002-AB", name = "Deputy Willem", level = 10 }
+    ns.Conversation.TalkToTarget()
+    ns.Conversation.Business()
+    eq(ns.Conversation.session, nil)
+    eq(dui:IsShown(), false, "nothing left open")
+  end)
+
+  it("uses the box when DialogueUI's window is busy", function()
+    local ns, dui = bootInside()
+    dui:Show()
+    Mock.state.units.target = { guid = "Creature-0-1-0-1-9002-AB", name = "Deputy Willem", level = 10 }
+    ns.Conversation.TalkToTarget()
+    eq(ns.Conversation.session.view, nil)
+    eq(ns.UI.Dialogue.IsShown(), true)
+  end)
+end)
+
+describe("Quests from the conversation in DialogueUI", function()
+  it("comes back to the conversation when the NPC's menu returns after the quest", function()
+    local ns, dui = bootInside()
+    Mock.state.gossipAvailable = { { title = "Kobold Camp Cleanup", questID = 9007 } }
+    visit(dui, "Marshal McBride")
+    local pick
+    for i, b in ipairs(dui.buttons) do if (b.name or ""):find("Kobold Camp Cleanup", 1, true) then pick = i end end
+    ok(pick, "the quest is among our rows: " .. names(dui))
+    dui.buttons[pick].onClickFunc(dui.buttons[pick])
+    eq(ns.Conversation.session.mode, "business", "DialogueUI's quest page takes over")
+    -- Accepted in DialogueUI's window; the game sends the NPC's menu again.
+    Mock.Fire("QUEST_FINISHED")
+    Mock.state.gossipAvailable = {}
+    Mock.Fire("GOSSIP_SHOW")
+    Mock.RunTimers()
+    local s = ns.Conversation.session
+    ok(s, "the visit carries on")
+    eq(s.mode, "full", "back in the conversation")
+    dui:HandleGossip()
+    contains(names(dui), "Get on with it", "our page again, not DialogueUI's plain menu")
+  end)
+end)

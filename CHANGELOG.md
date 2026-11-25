@@ -5,6 +5,8 @@ All notable changes to RPG Dialogue. The core and each content pack get their ow
 ## Unreleased
 - **DialogueUI: replies you can't click, fixed.** DialogueUI's swipe-to-scroll could swallow clicks on our replies; each reply now answers a click even then.
 - **DialogueUI: looks like DialogueUI.** Its own icons on vendor, trainer and quest rows, blue for Ask about..., red for Persuade, greyed locked replies; muted text and the divider follow its dark theme; no number keys shown while you play on a gamepad; the NPC's name before their words when DialogueUI's "NPC name on page" is on.
+- **DialogueUI: the talk key and right-click open in its window too.** Townsfolk, guards and anyone without a menu of their own now talk inside DialogueUI's window instead of our box (unless that window is already busy). Its Goodbye and Escape end the visit.
+- **DialogueUI: back to the conversation after a quest.** Pick a quest from the conversation, accept or decline it on DialogueUI's quest page, and you return to where you were talking, as in our own box.
 - **DialogueUI: nothing lost from the box.** Your last reply ("You: ...") and the NPC's disposition now show at the top of the page, as in our own box.
 
 ## 0.111.0 (2026-11-25): More to Say

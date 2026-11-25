@@ -29,6 +29,9 @@ local TALK_ICON = 132053    -- the gossip speech bubble
 local MAX_TOPICS = 7       -- topics per page of the Ask list (plus More, Back)
 
 local installed, broken = false, false
+-- A talk-key or right-click conversation (no game menu behind it): we showed DialogueUI's
+-- window ourselves, so we hide it at the end, and its closing (Goodbye, Escape) ends ours.
+local owned, hidingSelf = false, false
 local page                  -- { text, choices, canAsk, asking }
 local lastView              -- the last page asked for, to move it to the box if needed
 local rows = {}             -- what each option button does, from the last layout
@@ -136,6 +139,13 @@ local function install(f)
         return original(self, ...)
       end
     end
+  end
+  if type(f.HookScript) == "function" then
+    f:HookScript("OnHide", function()
+      if not owned or hidingSelf then return end
+      owned, page = false, nil
+      if ns.Conversation.OnWindowClosed then ns.Conversation.OnWindowClosed() end
+    end)
   end
   installed = true
   return true
@@ -343,8 +353,12 @@ end
 -- "Name: what they say", when DialogueUI's own "NPC name on page" option is on.
 local function withName(text)
   if not text or text == "" or not duiSetting("ShowNPCNameOnPage") then return text end
-  local ok, name = pcall(_G.UnitName, "npc")
-  if not ok or type(name) ~= "string" or name == "" then return text end
+  local name = lastView and lastView.name
+  if type(name) ~= "string" or name == "" then
+    local ok, n = pcall(_G.UnitName, "npc")
+    name = ok and n or nil
+  end
+  if type(name) ~= "string" or name == "" then return text end
   return name .. ": " .. text
 end
 
@@ -373,6 +387,11 @@ function V.Show(v)
   page = { body = v.text, narr = v.narr, said = v.said, disp = v.disposition,
     choices = v.choices, canAsk = v.canAsk, tone = v.tone }
   local f = window()
+  if not f:IsShown() and owned then
+    -- Opened by us: no camera move or hidden UI (those come with the game's interaction).
+    local ok = pcall(f.Show, f)
+    if ok and has(f, "PlayIntroAnimation") then pcall(f.PlayIntroAnimation, f) end
+  end
   if f:IsShown() then
     V.Refresh()
   else
@@ -437,14 +456,37 @@ function V.ShowReaction(text)
 end
 
 -- Back to DialogueUI's own page.
+-- Hide the window we opened, without that counting as the player closing it.
+local function hideOwned()
+  owned, page = false, nil
+  local f = window()
+  if f and f:IsShown() then
+    hidingSelf = true
+    pcall(f.Hide, f)
+    hidingSelf = false
+  end
+end
+
 function V.Hide()
+  if owned then return hideOwned() end
   if not page then return end
   page = nil
   V.Refresh()
 end
 
 -- Forget the page without laying anything out (the game's next page is coming anyway).
-function V.Release() page = nil end
+-- A window we opened ourselves has no game page coming: it closes.
+function V.Release()
+  if owned then return hideOwned() end
+  page = nil
+end
+
+-- The next Show opens DialogueUI's window itself (talk key, right-click: no game menu).
+function V.Own() owned = true end
+-- The game's own menu arrived after all (gossip after a right-click): the window is the
+-- game's now, and closes with the interaction as usual.
+function V.Adopt() owned = false end
+function V.Owned() return owned end
 
 function V.IsShown()
   local f = window()
