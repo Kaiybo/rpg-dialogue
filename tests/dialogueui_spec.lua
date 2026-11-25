@@ -146,6 +146,7 @@ local function fakeWindow(opts)
   f.GetChildren = function() return keys end
   f.handler = "HandleGossip"
   f.HandleGossip = function(self) log.native = log.native + 1; self.text = "native gossip"; return true end
+  f.HandleQuestProgress = function(self) log.native = log.native + 1; self.text = "native quest page"; return true end
   f.ReleaseAllObjects = function(self) self.buttons = {}; log.layouts = log.layouts + 1 end
   f.UseQuestLayout = function() end
   f.FormatParagraph = function(self, y, text)
@@ -449,5 +450,40 @@ describe("What do you know? in DialogueUI", function()
     ok(names(dui):find("^1%. Named"), "the named topics come first: " .. names(dui))
     contains(names(dui), "Named 3")
     contains(names(dui), "Back")
+  end)
+end)
+
+describe("A quest-only NPC in DialogueUI (the game opens the quest page at once)", function()
+  local function openQuestPage(dui)
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-197-AB", name = "Marshal McBride", level = 20, reaction = 5 }
+    Mock.state.questFrame = { questID = 9001, title = "A Threat Within", progress = "Is it done?", completable = true }
+    dui.handler = "HandleQuestProgress"
+    Mock.Fire("QUEST_PROGRESS")
+    Mock.RunTimers()
+    dui:HandleQuestProgress()
+    dui:Show()
+  end
+
+  it("Hand in uncovers DialogueUI's own quest page", function()
+    local ns, dui = bootInside()
+    openQuestPage(dui)
+    eq(ns.Conversation.session.view, "dui")
+    local pick
+    for i, b in ipairs(dui.buttons) do if (b.name or ""):find("A Threat Within", 1, true) then pick = i end end
+    ok(pick, "the hand-in row: " .. names(dui))
+    dui.buttons[pick].onClickFunc(dui.buttons[pick])
+    eq(dui.text, "native quest page", "its quest page, not our conversation")
+    eq(ns.Conversation.session.mode, "business")
+  end)
+
+  it("doesn't cover the quest page again when the game restarts the visit", function()
+    local ns, dui = bootInside()
+    openQuestPage(dui)
+    ns.Conversation.Business()
+    eq(dui.text, "native quest page")
+    ns.Conversation.Finish()
+    openQuestPage(dui)
+    eq(ns.Conversation.session.mode, "none", "no new conversation over the page just handed over")
+    eq(dui.text, "native quest page")
   end)
 end)

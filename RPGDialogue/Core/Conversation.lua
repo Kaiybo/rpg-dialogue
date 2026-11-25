@@ -368,6 +368,7 @@ function Conv.DecideFull(s, mode)
   local settings = ns.db.settings
   if s.kind == "talk" then return true, "talk" end
   if C.InCombat() then return false, "combat" end
+  if Conv.JustHandedOver(s.guid) then return nil, "just handed over to the game's page" end
   if mode == "stepback" then return false, "another dialogue addon is in charge" end
   if settings.openMode == "full" then return true, "setting: always full" end
   local first = (s.mem.times or 0) == 0
@@ -501,9 +502,24 @@ end
 
 -- Hand the visit to the game's own window (already open underneath): a vendor, trainer,
 -- flight map or bank, DialogueUI, combat, or a page the box can't answer.
+-- The last visit handed to the game's own page. The game can end and restart the
+-- interaction around a quest page (a quest-only NPC, a hand-in), which would open the
+-- conversation again on top of the page just handed over; for a short while it doesn't.
+local lastHandover
+Conv.HANDOVER_GRACE = 20
+-- Inside DialogueUI only: that's where the game's page sits under our page and the
+-- restart showed. In the box, talking again right after a vendor still opens the talk.
+function Conv.NoteHandover(s)
+  if s and s.guid and s.view == "dui" then lastHandover = { guid = s.guid, t = C.Now() } end
+end
+function Conv.JustHandedOver(guid)
+  return lastHandover ~= nil and lastHandover.guid == guid and C.Now() - lastHandover.t < Conv.HANDOVER_GRACE
+end
+
 function Conv.HandOver()
   local s = Conv.session
   if not s then return end
+  Conv.NoteHandover(s)
   s.following = nil
   View(s).Hide()
   if ns.UI.AskAbout then ns.UI.AskAbout.Hide() end
@@ -1075,9 +1091,18 @@ function Conv.Choose(index)
       -- Stay in the box: the game's next page (gossip, quest) is shown here when it comes.
       s.following = true
       if g.kind == "reveal" then Conv.ShowGamePage("quest"); return end
+    elseif s.view == "dui" and g.kind == "reveal" then
+      -- A quest-only NPC (no menu): the game opened their quest's page straight away and
+      -- our conversation covers it in DialogueUI's window. Uncover it: DialogueUI lays its
+      -- own quest page out again.
+      Conv.NoteHandover(s)
+      s.mode = "business"
+      ns.UI.DUIView.Hide()
+      return
     elseif s.view == "dui" then
       -- Inside DialogueUI: its own pages take over from here. A quest's page comes back to
       -- the conversation when the NPC's menu returns (accepted, declined, handed in).
+      Conv.NoteHandover(s)
       ns.UI.DUIView.Release()
       s.mode = "business"
       if g.kind == "gossipQuest" or g.kind == "greetingQuest" then s.duiQuest = true end
