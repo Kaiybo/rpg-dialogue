@@ -487,3 +487,32 @@ describe("A quest-only NPC in DialogueUI (the game opens the quest page at once)
     eq(dui.text, "native quest page")
   end)
 end)
+
+describe("Right-clicking a quest-giver with nothing left to give", function()
+  it("talks once no menu comes", function()
+    local ns, dui = bootInside()
+    local guid = "Creature-0-1-0-1-9002-AB"
+    Mock.state.units.target = { guid = guid, name = "Deputy Willem", level = 10 }
+    ns.db.capture.npcs[9002] = { name = "Deputy Willem", interacts = true, gossip = true }
+    ns.Conversation.RightClicked(guid)
+    eq(ns.Conversation.session, nil, "first a moment for the game's menu")
+    Mock.RunTimers()
+    local s = ns.Conversation.session
+    ok(s, "no menu came: the conversation opens")
+    eq(s.kind, "talk")
+    eq(dui:IsShown(), true, "in DialogueUI's window")
+  end)
+end)
+
+describe("Talking again right after handing over in DialogueUI", function()
+  it("a menu NPC talks again on the next visit", function()
+    local ns, dui = bootInside()
+    visit(dui, "Marshal McBride")
+    ns.Conversation.Business()
+    ns.Conversation.Finish()
+    dui:Hide()
+    ns.db.settings.openMode = "full"
+    visit(dui, "Marshal McBride")
+    eq(ns.Conversation.session.mode, "full", "not held back by the hand-over just before")
+  end)
+end)
