@@ -8,7 +8,7 @@ ns.Pacing = Pacing
 -- every = N: at most once per N conversations. seconds = S: at most once per S seconds.
 -- chance = p: extra roll. big = true: always allowed inside a `big` node.
 Pacing.BUDGETS = {
-  alignment = { every = 5, big = true },
+  alignment = { every = 2, big = true },   -- 0.115.0: was every 5
   taint = { seconds = 172800, chance = 0.25 },
   origin = { every = 4 },
   trait = { every = 3 },

@@ -6,8 +6,8 @@
 --     * what they value against who you've shown yourself to be
 --       (the NPC's `values` against your dominant traits):           +8 each, -8 for the opposite
 --     * their temper (warm, jovial, gentle +5; gruff, cold -5)
---     * your alignment, when they value it (lawful/dutiful and Order,
---       devout/pious and Light, honest and Honor):                    +-5
+--     * your alignment (0.115.0), on every axis their values (or role) care about,
+--       either way (Disp.VALUE_AXES, ROLE_AXES):                     +-3/6/9/12 at 15/30/50/75
 --     * a hostile or unfriendly unit reaction:                        -10
 --     * their rivals (`rivals` on the NPC, 0.55.0): your affinity with each
 --       rival x3 against you (to -15), or, if you've crossed the rival,
@@ -247,6 +247,47 @@ end
 
 -- info: the conversation's NPC info (def, communities...); mem: their memory record.
 -- Returns the value and a list of reasons ({ text, delta }) for /rpgd why and the tooltip.
+-- Alignment (0.115.0). What someone values ties them to an axis, one way or the other:
+-- +1 when they want you toward Light / Order / Honor, -1 when they want you the other way.
+Disp.VALUE_AXES = {
+  lawful = { "order", 1 }, dutiful = { "order", 1 }, duty = { "order", 1 }, order = { "order", 1 },
+  loyal = { "order", 1 }, discipline = { "order", 1 }, law = { "order", 1 }, tradition = { "order", 1 },
+  freedom = { "order", -1 }, free = { "order", -1 }, wild = { "order", -1 }, independence = { "order", -1 },
+  devout = { "light", 1 }, pious = { "light", 1 }, light = { "light", 1 }, faith = { "light", 1 },
+  mercy = { "light", 1 }, compassion = { "light", 1 }, kind = { "light", 1 }, holy = { "light", 1 },
+  shadow = { "light", -1 }, power = { "light", -1 }, ruthless = { "light", -1 }, forbidden = { "light", -1 },
+  honest = { "honor", 1 }, honorable = { "honor", 1 }, honor = { "honor", 1 }, brave = { "honor", 1 },
+  courage = { "honor", 1 }, strength = { "honor", 1 }, truth = { "honor", 1 },
+  cunning = { "honor", -1 }, profit = { "honor", -1 }, guile = { "honor", -1 }, secrets = { "honor", -1 },
+}
+-- People who value nothing on an axis still have their role's view of it.
+Disp.ROLE_AXES = {
+  guard = { order = 1 }, soldier = { order = 1, honor = 1 }, militia = { order = 1 },
+  priest = { light = 1 }, honor = { honor = 1 }, banker = { order = 1 }, clerk = { order = 1 },
+  noble = { order = 1 }, trainer = { honor = 1 },
+}
+-- An NPC def may set `alignment = { light = 1, order = -1 }` to say outright what it wants.
+function Disp.AxesFor(def, role)
+  local out, seen = {}, false
+  for _, v in ipairs((def and def.values) or {}) do
+    local a = Disp.VALUE_AXES[v]
+    if a and out[a[1]] == nil then out[a[1]] = a[2]; seen = true end
+  end
+  if type(def and def.alignment) == "table" then
+    for axis, dir in pairs(def.alignment) do out[axis] = dir; seen = true end
+  end
+  if not seen and Disp.ROLE_AXES[role or ""] then
+    for axis, dir in pairs(Disp.ROLE_AXES[role]) do out[axis] = dir end
+  end
+  return out
+end
+-- How much one axis is worth: nothing near the middle, up to 12 at the far ends.
+function Disp.AlignWeight(a)
+  local m = math.abs(a)
+  local w = (m >= 75 and 12) or (m >= 50 and 9) or (m >= 30 and 6) or (m >= 15 and 3) or 0
+  return a < 0 and -w or w
+end
+
 function Disp.Compute(info, mem, ctx)
   local v, why = 50, {}
   local function add(d, reason)
@@ -272,19 +313,14 @@ function Disp.Compute(info, mem, ctx)
   for _, t in ipairs(def and def.temper or {}) do
     if Disp.COLD_TEMPER[t] then add(-5, "temper " .. t); break end
   end
+  -- Where you stand (0.115.0): every axis they care about, either way, scaled by how far
+  -- you lean (Disp.AlignWeight). What they value says which axes and which way; people who
+  -- value nothing on an axis get their role's (Disp.ROLE_AXES).
   local align = ns.char.align or {}
-  local function byAxis(axis, keys)
-    for _, k in ipairs(keys) do
-      if values[k] then
-        local a = align[axis] or 0
-        if a >= 20 then add(5, k .. " / " .. axis) elseif a <= -20 then add(-5, k .. " / " .. axis) end
-        return
-      end
-    end
+  for axis, dir in pairs(Disp.AxesFor(def, info and info.role)) do
+    local w = Disp.AlignWeight(align[axis] or 0) * dir
+    if w ~= 0 then add(w, "align:" .. axis .. (w > 0 and ":with" or ":against")) end
   end
-  byAxis("order", { "lawful", "dutiful" })
-  byAxis("light", { "devout", "pious" })
-  byAxis("honor", { "honest" })
   for _, r in ipairs(Disp.Rivals(def)) do
     local rm = ns.char.npc and ns.char.npc[r]
     local ra = rm and rm.affinity or 0
@@ -322,6 +358,7 @@ function Disp.Grudges(info, mem, ctx)
         elseif reason:find("^rival:") then g = "rival"
         elseif reason:find("^tone:") then g = "tone"
         elseif reason:find("^temper ") then g = "temper"
+        elseif reason:find("^align:") then g = "alignment"
         else g = "values" end
       end
       out[g] = true
@@ -349,6 +386,7 @@ function Disp.Fondness(info, mem, ctx)
         elseif reason:find("^rivalfoe:") then g = "rival"
         elseif reason:find("^tone:") then g = "tone"
         elseif reason:find("^temper ") then g = "temper"
+        elseif reason:find("^align:") then g = "alignment"
         else g = "values" end
       end
       out[g] = true

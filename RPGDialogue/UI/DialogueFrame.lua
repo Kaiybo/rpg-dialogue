@@ -989,6 +989,9 @@ function D.DispositionTooltip(owner)
       text = L.DISP_WHY_DISLIKES:format(key:sub(10))
     elseif key:find("^temper ") then
       text = L.DISP_WHY_TEMPER
+    elseif key:find("^align:") then
+      local axis = key:match("^align:(%a+)")
+      text = L["DISP_WHY_ALIGN_" .. (axis or ""):upper()] or L.DISP_WHY_ALIGN
     else
       text = L.DISP_WHY_ALIGN
     end

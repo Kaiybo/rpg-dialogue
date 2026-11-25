@@ -418,8 +418,17 @@ function Engine.PickAgain(info, nodeId, ctx, env)
 end
 
 -- Special reply options: success comes from who the player is, never dice.
+-- Disposition decides the extremes (0.115.0): someone Devoted to you (90+) is won over by
+-- any Persuade or Deceive, and someone Hostile (below 20) believes nothing you say.
+-- Intimidate is left alone: fear works on people who hate you.
+Engine.CHECK_DEVOTED, Engine.CHECK_HOSTILE = 90, 20
 function Engine.CheckChoice(choice, ctx, env)
   local check = choice.check
+  if (choice.tag == "Persuade" or choice.tag == "Deceive") and ns.Disposition and env and env.info then
+    local d = ns.Disposition.For(env, ctx)
+    if d >= Engine.CHECK_DEVOTED then return true end
+    if d < Engine.CHECK_HOSTILE then return false end
+  end
   if check and check.pass then
     local pass = Cond.Eval(check.pass, ctx, env)
     return pass == true

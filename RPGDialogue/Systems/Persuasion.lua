@@ -15,7 +15,8 @@
 --
 -- An outcome is a disposition modifier (`mem.persuadeMod = { v, t }`) that fades toward
 -- nothing by DECAY_PER_DAY a day, capped at +-MOD_MAX. No bribes (an addon can't take gold),
--- and no alignment: this is how you handle a person, not who you are.
+-- Alignment (0.115.0) counts a little: praise lands better from someone whose stand they
+-- share, a fighter respects a taunt from the honorable, and the shadow-touched frighten.
 local _, ns = ...
 
 local C = ns.Compat
@@ -119,7 +120,17 @@ function Pers.Score(action, info, mem, ctx, now)
   local _, prejudice = 0, 0
   if ns.Disposition then _, prejudice = ns.Disposition.Prejudice(info and info.def, mem, ctx) end
 
+  local align = ns.char and ns.char.align or {}
+  local shared = 0
+  if ns.Disposition and ns.Disposition.AxesFor then
+    for axis, dir in pairs(ns.Disposition.AxesFor(info and info.def, info and info.role)) do
+      shared = shared + ns.Disposition.AlignWeight(align[axis] or 0) * dir
+    end
+  end
+  local alignNote = shared >= 6 and 1 or (shared <= -6 and -1 or 0)
+
   if action == "admire" then
+    add(alignNote, "alignment")
     add(bestOf(temper, ADMIRE_LIKES), "temper")
     add(bestOf(temper, ADMIRE_HATES), "temper")
     if traits.charming then add(2, "charming") end
@@ -153,6 +164,7 @@ function Pers.Score(action, info, mem, ctx, now)
     if traits.witty then add(1, "witty") end
     if traits.cautious then add(-1, "cautious") end
     if class == "WARRIOR" then add(1, "class") end
+    if (align.honor or 0) >= 30 and respect then add(1, "alignment") end
     if power == "above" or power == "far_above" then add(1, "power")
     elseif power == "far_below" then add(-1, "power") end
   elseif action == "intimidate" then
@@ -167,6 +179,7 @@ function Pers.Score(action, info, mem, ctx, now)
     if race == "Orc" or race == "Tauren" or race == "Scourge" or race == "Undead" then add(1, "race") end
     if traits.cruel then add(1, "cruel") end
     if traits.stern then add(1, "stern") end
+    if (align.light or 0) <= -30 then add(1, "alignment") end
     if traits.kind then add(-1, "kind") end
   end
   add(Pers.Mood(info and (info.key or info.npcID or info.name), now), "mood")
