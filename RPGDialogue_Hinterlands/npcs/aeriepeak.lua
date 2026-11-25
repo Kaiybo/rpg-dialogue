@@ -475,6 +475,47 @@ P:NPC {
     },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think ye're a grand sort, {name}, an' I dinnae say that tae just anyone who climbs up tae the Peak! Ye've the look o' someone who's no' afraid o' the sky." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "Ye've put more Vilebranch in the ground than half my riders, an' ye never once asked fer a gryphon in return. That's the Wildhammer way, an' I like it!" },
+      { id = "rg_dwarf", when = { race = "Dwarf" }, text = "Ye're a dwarf, an' a good one, whatever mountain ye were born under. I'll drink tae that, an' tae ye, any night o' the week." },
+      { id = "rg_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "Ye keep yer word an' ye fight fair, an' that's the whole o' what a Wildhammer asks o' anyone. Kurdran would have liked ye, {g:lad|lass}, an' that's high praise." },
+      { id = "rg_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "Ye're a sly one, I'll grant ye, an' I dinnae trust sly folk easy. But ye've done right by the Peak, so I'll keep one eye on ye an' the other on my ale." },
+    },
+    confide = {
+      { id = "cf_1", text = "Every night at the bar I drink one tae Kurdran an' the riders who went through the Dark Portal an' never came back. Nobody asks why, an' I've never told 'em." },
+      { id = "cf_2", text = "I was a rider long before I was a Thane, an' I'd go back tae it in a heartbeat. Thanin' is mostly listenin' tae folk complain about feed prices." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust any rider in Aerie Peak wi' yer life, for they'd trust ye wi' theirs. Trust Talonaxe wi' the gryphons an' Fraggar wi' the spirits, an' ye'll no' go far wrong." },
+      { id = "tr_2", text = "Trust the elves at Quel'Danil tae hunt trolls an' no' much else. They're proud folk, an' they think the Hinterlands belong tae them by right o' bein' old." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch Jintha'Alor, where the Vilebranch keep their altars an' their prisoners. Ye'll be climbin' through the whole tribe if ye mean tae reach the top." },
+      { id = "wo_2", text = "Watch the Seradane, where the green dragons have gone strange o' late. My riders give it a wide berth, an' so should ye, {g:lad|lass}." },
+      { id = "wo_3", text = "Watch the Revantusk on the coast, who've kept tae their side o' the hills so far. I'd no' wager my beard they'll keep doin' it." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the Vilebranch an' the Witherbark will stop fightin' each other an' come fer the Peak together. I've seen trolls do it before, an' it wasnae pretty." },
+      { id = "wy_2", text = "That the young riders think the Wildhammer are a story from the Second War an' no' a living clan. I worry they'll forget what we fought fer, an' why." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope tae see every troll tribe in the Hinterlands driven back intae the dark, an' my riders flyin' over a land at peace. Then I'll drink fer a month!" },
+      { id = "hp_2", text = "I hope tae see a Wildhammer flag over Grim Batol again some day, though I know it's a fool's hope. A dwarf can dream, cannae he?" },
+    },
+    favor = {
+      { id = "fv_1", text = "Put a few Vilebranch in the ground fer me, an' bring me word o' what they're up tae at Jintha'Alor. My riders cannae get close enough tae see." },
+      { id = "fv_2", text = "Drink one tae Kurdran fer me, if ever ye're at a bar wi' an empty glass. It's a wee thing, but it means somethin' tae me." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Friend? Aye, {g:lad|lass}, an' more than that! Ye're Wildhammer in all but blood, an' that's the highest honour I can give." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After everythin' ye've done fer Aerie Peak? Ye're a friend o' the Wildhammer fer life, an' every rider in this hall knows it." },
+      { id = "fr_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "Ye're honest an' brave, an' ye fight fair. That's all a Wildhammer asks o' a friend, an' ye've given it in spades." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When Kurdran went through the Portal, I asked tae go wi' him, an' he told me the Peak needed me more. Some nights I think he was wrong, an' I've never told a soul." },
+      { id = "nt_2", text = "I've a fear o' heights, believe it or no', when I'm no' on a gryphon. Put me on a ladder an' I'll shake like a leaf, an' I'll thank ye tae keep that tae yerself." },
+    },
     _gated = {
       { id = "gt1", text = "That's Wildhammer business, an' I dinnae hand it tae folk I've no' shared a fight or a keg wi'. Stick about, an' we'll see." },
       { id = "gt2", text = "Aye, I know, an' I'm no' tellin' ye yet. Ye'll have tae prove ye're a friend o' the Peak afore I open my mouth on that." },
@@ -510,6 +551,11 @@ P:NPC {
       { id = "sp_1", text = "I think ye'd fall off a gryphon in a stiff breeze, an' I'd no' send a rider tae catch ye." },
       { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think Ironforge grew ye in a cellar, away from the sky. It shows." },
     },
+  },
+  confides = {
+    { id = "cnf_1", text = "The Vilebranch change their altar guards at moonrise, an' fer a wee while the lower stair at Jintha'Alor has fewer spears on it." },
+    { id = "cnf_2", text = "Our gryphons willnae fly over the Seradane, so if a beast balks under ye anywhere in the south, turn back, fer it smells somethin' ye cannae." },
+    { id = "cnf_3", text = "The high elves at Quel'Danil Lodge track troll war parties better than my riders do, an' their lookouts see the Vilebranch comin' a full day afore we do." },
   },
   blurts = {
     { id = "bl_1", text = "The Vilebranch keep their prisoners at the top o' Jintha'Alor, past the altars. If ye mean tae free anyone, ye'll be climbin' through the whole tribe." },

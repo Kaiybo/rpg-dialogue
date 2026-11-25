@@ -310,12 +310,60 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The cellars beneath Shadowvale run much deeper than the Deathguard think, and Hilda believes something of the Scourge is still waking down there." },
+    { id = "cnf_2", text = "Leonid of the Argent Dawn has offered more than once to take this whole order east to Light's Hope, and I've turned him down every time." },
+    { id = "cnf_3", text = "The murlocs at the lake below the keep will trade fish for scraps of iron, and they've warned us of Crusade patrols more than once." },
+  },
   blurts = {
     { id = "bl1", text = "The Crusade means to burn the zeppelin tower outside Brill, and they're bold enough to try it. If you're any friend to the Forsaken at all, warn the Deathguard before I have to." },
     { id = "bl2", text = "The Solliden farmers have thrown in with the Crusade at their outpost, and they feed the zealots from their own fields. That's where Bareth was taken, and they mean to try him for the crime of existing." },
     { id = "bl3", text = "The Dark Lady all but openly sneers at this keep, and half her court would be glad to see us gone. I never put that in my letters." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're a good soul, {name}, whatever else the plague did to you, and I've learned not to say that lightly. Most who climb these stairs want something from us, and you've given more than you've taken." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've done right by this keep when nobody was watching and nobody would have thanked you. That's divinity, whether or not you'd call it that." },
+      { id = "rg_paladin", when = { class = "PALADIN" }, text = "You carry the Light in hands that it burns, and you haven't put it down. I know what that costs, {g:brother|sister}, better than anyone in Tirisfal." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "There's Light in you, and you haven't turned it into a torch to burn people with. After the Crusade, that's the thing I most hoped to see again." },
+      { id = "rg_al_dark", when = { alignment = { axis = "light", max = -30 } }, text = "You walk closer to the shadow than I'd like, and I won't pretend otherwise. Still, you've been kind to us, and I'd sooner judge you by that than by what you pray to." },
+    },
+    confide = {
+      { id = "cf_1", text = "In life the Light came to me as easily as breathing, and I never once thanked it. Now every prayer costs me, and I think I've finally learned what it was worth." },
+      { id = "cf_2", text = "I argued with Garek the week before he fell, over something so small I can't remember it now. I named this keep for him partly out of love and partly, I think, to apologise." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Hilda, however she barks, because she'd carry any of us off a battlefield on her back. Trust Jorin's counts and Breton's heart, and you won't go far wrong here." },
+      { id = "tr_2", text = "Trust the Argent Dawn more than you'd expect to. Leonid has never once lied to me, even when the truth would have been unkind." },
+      { id = "tr_court", when = { race = "Scourge" }, text = "In the Undercity, trust very few of the Dark Lady's court where we're concerned. They'd see this order ended, and they're patient about it." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Tarnished in Shadowvale, who still look like knights from a distance. By the time you're close enough to see their eyes, they've already drawn." },
+      { id = "wo_2", text = "Watch the Solliden fields after dusk, because the farmers there feed the Crusade and keep watch for it. A Forsaken caught on their land doesn't come back." },
+      { id = "wo_3", text = "Watch your temper in Brill, if you wear the Light. The Deathguard there remember the Crusade's paladins, and they don't always stop to ask which kind you are." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the Dark Lady will one day decide we're more trouble than we're worth. I build every wall here as though this season might be our last, and I pray I'm wrong." },
+      { id = "wy_2", text = "The young ones who come to us, still flinching from the Light. I worry I'm asking them to bear a pain that will break them before it makes them stronger." },
+      { id = "wy_3", text = "I worry about the first Tarnished I tried to save. I lost two brothers bringing him in, and he turned on us anyway, and I still don't know if I was wrong to try." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope that one day a Forsaken in Brill watches a paladin walk by and thinks nothing strange of it. That would be enough for me." },
+      { id = "hp_2", text = "I hope Bareth comes home, and that he still believes the Light is worth it when he does. He's young, and the Crusade will try very hard to teach him otherwise." },
+    },
+    favor = {
+      { id = "fv_1", text = "Do one kind thing for a Forsaken in Brill who doesn't expect it, and don't tell them it came from us. That's how hearts change, slowly and quietly." },
+      { id = "fv_2", text = "If you pass Shadowvale, put the Tarnished down cleanly, with no cruelty in it. They were our brothers once, and they deserve that much from someone." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I count you a friend, {name}, and in this keep that's not a small word. We've too few of them to spend them carelessly." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After everything you've done for this keep? You're one of us in all but oath, and if you ever wanted to take that oath, I'd stand beside you while you did." },
+      { id = "fr_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "We walk the same road, you and I, with the same burn in our hands. Yes, you're my friend, and I'd say so in front of the Dark Lady herself." },
+    },
+    never_told = {
+      { id = "nt_1", text = "Some mornings I wake and, just for a moment, I'm in my mother's house in Andorhal and none of it has happened yet. Then the Light stings when I pray, and I remember." },
+      { id = "nt_2", text = "When I found Cormack at his own grave, I nearly left him there, because I was afraid of what he'd become. I'm ashamed of that, and he's never known." },
+    },
     grievance = {
       { id = "gv1", text = "I try to see the good in everyone who climbs to this keep, and with you I've had to try very hard. If I'm honest, I'm tired of trying." },
       { id = "gv_values", when = { grudge = "values" }, text = "You treat being strong as leave to be cruel, and I've seen where that road ends. It ends in Scarlet red, with the Light in the hand and hatred in the heart." },

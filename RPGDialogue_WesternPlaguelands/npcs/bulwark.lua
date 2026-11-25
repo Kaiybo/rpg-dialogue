@@ -354,12 +354,59 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Scourge always tests the wall just before dawn, so the Deathguard double the watch for the last hour of the night." },
+    { id = "cnf_2", text = "Alexi Barov has been quietly selling his family's old Caer Darrow papers to anyone who'll pay, and some of them are forgeries." },
+    { id = "cnf_3", text = "There's an old cellar under the Bulwark's south tower where the living defenders hid their last stores, and some of the casks are still good." },
+  },
   blurts = {
     { id = "bl1", text = "The lich in Andorhal is Araj the Summoner, and the dead in that town rise at his word. Kill him and take what he carries, and the whole west breathes easier." },
     { id = "bl2", text = "Alexi Barov plays the loyal Forsaken on my wall, but his family sold Caer Darrow to the Cult of the Damned. He wants the deeds back, and so does his brother at Chillwind." },
     { id = "bl3", text = "Vandis and Dithers can sour the plague cauldrons on the farms, but the Cult sets a cauldron lord over each one, and he carries the key. Kill the keeper first, or you'll get nowhere near the cauldron." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're still standing at dawn more often than most, {name}, and that's the only measure that counts on this wall. I've stopped expecting to lose you, which is as warm as I get." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've gone past the wall for me and come back with what I asked, every time. The Deathguard have started saving you a place on the parapet, and they don't do that for politicians." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You say what you mean and leave the flourishes in the Undercity, where they belong. Out here that's a kindness, and I notice it." },
+      { id = "rg_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You understand that winning matters more than winning prettily. The Crusade could learn from you, and so could half the Dark Lady's court." },
+      { id = "rg_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You fight fair, which out here is a luxury, and you've somehow survived it. I'll not argue with results, though I'd sleep easier if you cheated a little." },
+    },
+    confide = {
+      { id = "cf_1", text = "The court sends me letters about protocol while the Scourge sends me ghouls by the hundred. I answer the ghouls first and the letters never, and so far nobody's noticed." },
+      { id = "cf_2", text = "I set the Crusade and the Scourge on each other whenever I can manage it. Every zealot who dies at Hearthglen's gate is one I don't have to spend a soldier on." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Deathguard on the wall, who've held it every night without one complaint worth hearing. Trust Vandis with the cauldrons and Dithers with anything that bubbles." },
+      { id = "tr_2", text = "Trust Alexi Barov to want his family's deeds back more than anything else in this world. Everything he does makes sense once you remember that." },
+      { id = "tr_living", when = { faction = "Horde" }, text = "Trust the orcs who stand beside my Deathguard, because they eat like wolves and fight like them too. A hungry ally tells you plainly what he wants." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the plague cauldrons on the farms, and kill their keepers before you go near them. The air around those things will rot you faster than any ghoul." },
+      { id = "wo_2", text = "Watch Andorhal, where Araj raises the dead faster than we can burn them. Never go in with fewer friends than you'd want at your funeral." },
+      { id = "wo_3", text = "Watch the Scarlet riders from Hearthglen, who'd sooner burn a Forsaken than a Scourge. They patrol the north road in pairs, and one of the pair always runs for help." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the Undercity will forget this wall exists until the night it falls. I've asked for more soldiers three times, and the court sent me a herald." },
+      { id = "wy_2", text = "That Kel'Thuzad will turn west in earnest one day. We hold against what he sends us now, but he isn't sending us his best, not yet." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Andorhal burned clean and the west handed back to the Dark Lady field by field. After that, I'd like one quiet night on this wall." },
+      { id = "hp_2", text = "I hope to outlast every courtier who ever sneered at the Bulwark, and then to send them a polite letter about it." },
+    },
+    favor = {
+      { id = "fv_1", text = "Burn whatever you kill out there, and tell me what you saw before you burn it. Every scrap of news from past the wall is worth more than a dead ghoul." },
+      { id = "fv_2", text = "If you go to the Undercity, tell anyone who'll listen that the Bulwark still holds, and that it won't hold forever on promises." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I don't make friends on this wall, because the wall takes them. You've lasted, though, and I've started counting on you, which is as close as I come." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've held this wall beside my Deathguard and bled with them. That's a friend, by the only measure I keep." },
+      { id = "fr_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You think like a tactician and you don't waste time on glory. If I'm to call anyone friend, it ought to be someone who'd win the war rather than die gloriously in it." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I was a merchant's clerk in Lordaeron before the plague, and I'd never held a sword. Everything I know about war, I learned on this wall after I died." },
+      { id = "nt_2", text = "The survivors who held the Bulwark before us were still alive when I first came here, and I couldn't save them. I keep their names in a drawer in my desk, and I read them on the bad nights." },
+    },
     grievance = {
       { id = "gv1", text = "You cost me time, and time on this wall is counted in the living who can still be saved. I don't waste it on people who don't pull their weight." },
       { id = "gv_tone_p", when = { grudge = "tone", tone = "polite" }, text = "You dress up every request like a courtier in the Royal Quarter. This is the Bulwark, and out here we say what we mean or we die." },

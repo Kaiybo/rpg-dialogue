@@ -405,6 +405,47 @@ P:NPC {
     },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you be good people, {name}, and de Revantusk don't say dat to many outsiders. You fight for us when you don't have to, and I see it." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've killed Vilebranch for me and brought back what I asked, mon. My people speak your name around de fires now, and dat be no small thing." },
+      { id = "rg_troll", when = { race = "Troll" }, text = "You be troll, and you remember what dat means, mon. De Revantusk be your family whenever you need one." },
+      { id = "rg_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You keep your word, and you fight straight, mon. Dat be rare in de Hinterlands, where everybody got a knife behind de back." },
+      { id = "rg_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You be a sly one, and I know dat look well, mon. Sly be useful against de Vilebranch, so long as you never turn it on my people." },
+    },
+    confide = {
+      { id = "cf_1", text = "I stand a double watch at midnight, every night, because dat be de hour dey took my mate. My people think I be checkin' de walls, and I let dem think it." },
+      { id = "cf_2", text = "When de Horde was put in de camps after de Second War, de Revantusk were too few to free dem. I still carry dat shame, mon, and I fight for Thrall to pay it back." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Huntsman Markhor, who be patient as a stalking cat and never miss. Trust Yayo'jin wit' de spirits, and Lard to keep de peace in de inn." },
+      { id = "tr_2", text = "Trust de Horde, mon, because dey took us in when nobody else would. Don't trust any troll from Jintha'Alor, no matter what dey tell you." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch Jintha'Alor, where de Vilebranch keep dere cages and dere altars. Dey like dere meat fresh, mon, and dey don't wait for you to wake up." },
+      { id = "wo_2", text = "Watch de elves at Quel'Danil Lodge, who hunt trolls in de hills like deer. Dey don't ask which tribe you be before dey shoot." },
+      { id = "wo_3", text = "Watch de sky over de hills, where de Wildhammer fly. Dey shoot my people for sport, and dey won't stop to ask if you be Horde or not." },
+    },
+    worries = {
+      { id = "wy_1", text = "My mate, mon, sittin' in a Vilebranch cage at de top of Jintha'Alor. Every night I wonder if dis be de night dey decide to feed him to dere gods." },
+      { id = "wy_2", text = "Dat de Revantusk be too few to hold dis beach if de Vilebranch come for us in force. De Horde be far away, and de Wildhammer be close." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see my mate walk free from Jintha'Alor and come home to dis beach. After dat, I hope to burn every Vilebranch altar in de Hinterlands." },
+      { id = "hp_2", text = "I hope de Revantusk grow strong enough dat no troll tribe ever call us weaklings again. We kept faith wit' de Horde, mon, and dat should count for somethin'." },
+    },
+    favor = {
+      { id = "fv_1", text = "Kill Vilebranch, mon, and bring me word of what dey do at Jintha'Alor. Every scrap of news bring me closer to gettin' my mate back." },
+      { id = "fv_2", text = "Tell Vol'jin dat de Revantusk still keep faith, if ever you be in Orgrimmar. He sent word when my mate was taken, and I want him to know I remember." },
+    },
+    friendship = {
+      { id = "fr_1", text = "You be my friend, {name}, and more dan dat, you be family to de Revantusk. Dat be de highest word we got, mon." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After all you done for dis village? You be Revantusk now, whatever blood you were born wit', and every troll on dis beach know it." },
+      { id = "fr_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You keep your word and you fight straight, mon, and dat be all a troll ask of a friend. You got mine, and you got my people's." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I was de one who sent my mate to scout Jintha'Alor, mon, de night dey took him. My people think he went on his own, and I never told dem different." },
+      { id = "nt_2", text = "Some nights I dream of de old Amani days, when de forest trolls were strong and nobody called us weak. Den I wake and remember why we left all dat behind." },
+    },
     _gated = {
       { id = "gt1", text = "That be Revantusk business, and ya haven't earned a share of it. Do right by the village first, and then ask me." },
       { id = "gt2", text = "I know it, and I'm not tellin' a stranger. Come back when my people speak well of ya." },
@@ -433,6 +474,11 @@ P:NPC {
       { id = "sp_1", text = "I think you be a coward with a big mouth, mon. Even de Vilebranch got more spine." },
       { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think de dwarves send you to count my spears. Go back and tell dem we got plenty." },
     },
+  },
+  confides = {
+    { id = "cnf_1", text = "My spies at Jintha'Alor say de Vilebranch move dere prisoners at dawn, when de priests be busy wit' dere rituals and de guards be fewer." },
+    { id = "cnf_2", text = "De Witherbark at Shadra'Alor be at war wit' de Vilebranch, and dey kill each other more often dan dey kill us." },
+    { id = "cnf_3", text = "Lard keeps de peace in de inn by knowin' every secret in de village, so if you need to know somethin', buy him a fish." },
   },
   blurts = {
     { id = "bl_1", text = "De Vilebranch keep dere cages at de top of Jintha'Alor, mon, and dat be where my mate sit. You want to hurt dem, hurt dem dere." },

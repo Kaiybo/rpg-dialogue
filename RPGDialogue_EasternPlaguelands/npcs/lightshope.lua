@@ -395,6 +395,47 @@ P:NPC {
     },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're someone who stands when it counts, and that's all the Dawn has ever asked of anyone. You've earned a place at this chapel." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've brought more scourgestones to this chapel than most of my own paladins, and you've never once asked what you'd get for it. That's the Dawn's way, and I'm glad to see it." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You speak with courtesy, which is rare out here and rarer still from those who've seen the Plaguelands. It reminds me of the Hand, before it forgot itself." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "The Light is strong in you, and you don't wear it like a Scarlet banner. That's what the Silver Hand was meant to be, before it turned." },
+      { id = "rg_al_dark", when = { alignment = { axis = "light", max = -30 } }, text = "You walk closer to the shadow than I'm comfortable with, and I won't pretend otherwise. Still, the Dawn takes anyone who'll stand, and you've stood." },
+    },
+    confide = {
+      { id = "cf_1", text = "I walk the chapel at dawn every morning, the one quiet hour before the Scourge wakes. It's the only time I let myself remember who I was before the plague." },
+      { id = "cf_2", text = "I didn't give audiences to outsiders for years, because I didn't trust what the plague had made of the world. I've learned to trust deeds instead, and it's served the Dawn better." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Argent Dawn, whoever they once served, because they've all chosen this fight. Trust Pureheart and Leonid, who left the Hand with me rather than turn Scarlet." },
+      { id = "tr_2", text = "Trust the Forsaken and the orcs who fight beside us as far as their deeds go. The plague made no distinction, and neither do I." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Plaguewood to the northwest, where the very trees have turned. My riders go in by threes, and they don't always come out again." },
+      { id = "wo_2", text = "Watch the ground at Terrordale, where the dead lie shallow and rise if you linger. Keep moving, and keep to the road." },
+      { id = "wo_3", text = "Watch Naxxramas in the sky, and never stand beneath its shadow longer than you must. We don't know what it sees, and I'd rather not find out." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the Dawn will be torn apart by politics before the Scourge ever reaches us. Stormwind and the Horde both want to claim us, and I want neither of them to." },
+      { id = "wy_2", text = "That I'll make the wrong choice about Stratholme and spend my people's lives on a gate that won't fall. I think about it every morning on my walk." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see the Dawn grow strong enough to do more than watch Naxxramas. One day, I want us to bring it down." },
+      { id = "hp_2", text = "I hope the Silver Hand can be reborn one day, as Uther meant it, with mercy at its heart. I've stopped expecting it, but I haven't stopped hoping." },
+    },
+    favor = {
+      { id = "fv_1", text = "Bring scourgestones to the quartermaster and stand with the Dawn whenever you can. Every one of the dead you put down is a raid that never reaches this chapel." },
+      { id = "fv_2", text = "If you go to Tyr's Hand, look for any Scarlet who still remembers what the Hand was meant to be. I'd welcome them back, if they'd come." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I count you a friend, and I don't say that easily. You've stood with the Dawn when it cost you, and that's the measure I keep." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After everything you've done for this chapel? You're a friend of the Dawn and of mine, for as long as either of us stands." },
+      { id = "fr_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "We walk the same Light, you and I, and you carry it with humility. That makes you a friend, and more than that, a brother in the faith." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I nearly stayed with the Crusade when the Hand turned. I'd friends there, and I believed in what they said, until I watched them burn a farmer at Hearthglen for hiding his plagued daughter." },
+      { id = "nt_2", text = "I still pray for Arthas some nights, because Uther taught me to pray for the lost. I've never told anyone at this chapel, because they'd think I'd gone mad." },
+    },
     knows = {
       { id = "tp_knows", text = "The Dawn's riders cover the whole Eastweald, and a fair part of what they hear reaches this chapel. These are the matters I can speak to with some authority." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've earned plain answers from me, and I don't give many. Ask me about any of these and I'll hold nothing back that the Dawn can spare." },
@@ -432,6 +473,11 @@ P:NPC {
       { id = "sp_1", text = "I think you're here for the rewards, and the dead can smell that. Don't expect me to mourn you." },
       { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think your craft is how all this began, and I'll thank you to keep it away from my chapel." },
     },
+  },
+  confides = {
+    { id = "cnf_1", text = "The Dawn's riders have found an old Silver Hand cache in the hills near Tyr's Hand, and the Crusade doesn't know it's there." },
+    { id = "cnf_2", text = "Lord Raymond George, who led the Dawn before me, lies beneath the chapel floor, and I still bring my hardest choices to his stone." },
+    { id = "cnf_3", text = "Corin's Crossing is weakest at noon, when the Scourge rotate their patrols, and that's the best time to strike." },
   },
   blurts = {
     { id = "bl_1", text = "Corin's Crossing is where the Scourge gather before they march on the chapel. If you mean to thin them, that's where it counts." },

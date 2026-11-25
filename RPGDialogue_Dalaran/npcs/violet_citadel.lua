@@ -431,11 +431,57 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "There's a less public way into the Citadel through the sewers, and the guards on that door are fewer and far less attentive." },
+    { id = "cnf_2", text = "Celindra hasn't truly slept since the city fell, so if you ever see her ward-lights go dark at night, fetch a guard at once." },
+    { id = "cnf_3", text = "The Horde's magi at Tarren Mill have been studying our ley lines from across the lake, and I've decided to let them, for now." },
+  },
   blurts = {
     { id = "bl1", text = "Kel'Thuzad sat on the Council of Six, and some of what he carried out of our vaults has never been found. The council would much prefer that nobody knew it." },
     { id = "bl2", text = "The wards around the city are thinner than we let on. Half the Kirin Tor are off chasing the books the Scourge stole, and the rest of us hold the barrier together with stubbornness." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're a good friend to this city, {name}, and I don't say that lightly in a place full of people who'd rather not need friends. I'm glad I bent the rules for you." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You did the work when the council would have let the city crack, and you did it carefully. I've told them so, and I enjoyed watching their faces when I did." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You speak with courtesy, which Dalaran runs on and which most outsiders forget at the gate. It does an old archmage good to be addressed properly." },
+      { id = "rg_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You respect the rules and you keep your word, which makes you easier to defend in council than most. I've a soft spot for people who make my work simpler." },
+      { id = "rg_al_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You break rules when they get in your way, and I can hardly scold you for it, since I did the same to save this city. Do try not to break the ones holding the ceiling up." },
+    },
+    confide = {
+      { id = "cf_1", text = "The dome wasn't a shield, whatever the council says. It was where we hid while the world needed us, and I've never quite forgiven us for it." },
+      { id = "cf_2", text = "I'd defy the council again, if the city needed it, and they know it. That's why they watch me so carefully, and why I let them." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Celindra with the wards and with the truth, though she'll deliver both briskly. She was Antonidas's friend, and she's never once lied to me." },
+      { id = "tr_2", text = "Trust the guards to hold their posts, and trust the shopkeepers to overcharge you. Don't trust anyone on the council who smiles at you without a reason." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch anything in the Citadel that hums, and especially anything that hums politely. Those are the dangerous ones." },
+      { id = "wo_2", text = "Watch the Syndicate in the Alterac hills, who'd sell a Kirin Tor apprentice to the highest bidder. They've tried it more than once." },
+      { id = "wo_3", text = "Watch the ley lines around the city, which haven't been quite right since the disruption. If the air tastes of copper, step back." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the wards will fail before we've finished rebuilding behind them. We hold the barrier together with stubbornness and too few magi, and stubbornness wears thin." },
+      { id = "wy_2", text = "That the council will remember the shame of Kel'Thuzad better than its lessons. We hid things once, and the hiding helped the Scourge." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Dalaran open its gates to the world again, without a barrier between us and everyone who needs us. That's what the Kirin Tor were meant for." },
+      { id = "hp_2", text = "I hope to see the library with a roof on it again. It sounds like a small thing, but you'd be amazed how much rain an archmage can endure." },
+    },
+    favor = {
+      { id = "fv_1", text = "Bring back anything from our vaults that you find in the wrong hands. Kel'Thuzad carried a great deal out of this city, and not all of it has been found." },
+      { id = "fv_2", text = "Speak well of the Kirin Tor when you're out in the world. We've hidden too long, and people have forgotten we were ever on their side." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I count you a friend, {name}, and in Dalaran that's a word we've learned to spend carefully. You've earned it, and I'm glad to spend it on you." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After everything you've done for this city? You're a friend of the Kirin Tor and of mine, and the council can say what it likes about it." },
+      { id = "fr_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You keep your word and you respect what this city stands for. That makes you a friend, and in my experience, a rare one." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I sat beside Kel'Thuzad in council for years and never once suspected him. I've told the others I had doubts, and that's a lie I've told so often I nearly believe it." },
+      { id = "nt_2", text = "When Arthas broke through our gates, I ran to save the apprentices, and I saved some of them. Antonidas stood his ground instead, and I've never told anyone how much I wish I'd stayed with him." },
+    },
     grievance = {
       { id = "gv1", text = "You've been a poor guest of the Violet Citadel, and I took a risk letting outsiders in at all. I'm beginning to regret it." },
       { id = "gv_tone", when = { grudge = "tone" }, text = "You speak to an archmage of the Kirin Tor as if she kept a tavern. Some of my colleagues would turn you into something small for that, and I'm tempted to let them." },
@@ -772,11 +818,56 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The wards over the eastern rooftops are the weakest in the city, and I check them twice a night because of it." },
+    { id = "cnf_2", text = "The apprentices who sweep the Citadel at night hear more council business than the council realises, and they're terrible gossips." },
+    { id = "cnf_3", text = "The Purple Parlor holds a portal that hasn't been used since the city fell, and I'm the only one who still knows how to open it." },
+  },
   blurts = {
     { id = "bl1", text = "Some of the worst books from our vaults turned up in Scholomance, in the Barov family's own library, after the Cult of the Damned had them. Nobody upstairs will say how they got there." },
     { id = "bl2", text = "The Kirin Tor have pulled more of their magi back behind the barrier than we admit to Stormwind. We cannot spare them, and we will not say so." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're competent, which is the highest praise I have to give and the rarest. Antonidas would have liked you, I think." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You brought back what I asked and you didn't break anything on the way. I've noticed, and I don't notice much that isn't a ward." },
+      { id = "rg_mage", when = { class = "MAGE" }, text = "You've a disciplined mind, and you use it carefully. That's what Antonidas looked for in his students, and you'd have passed." },
+      { id = "rg_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You respect rules and the limits of your craft, which in magic is the difference between a scholar and a crater. I approve, and I don't approve of much." },
+      { id = "rg_al_dark", when = { alignment = { axis = "light", max = -30 } }, text = "There's something dark about you that I don't care for, and I won't pretend otherwise. Still, you've done good work here, so I'll keep a ward up and my opinions to myself." },
+    },
+    confide = {
+      { id = "cf_1", text = "I check the Purple Parlor every night before I sleep, and a hundred small wards over the broken rooftops. I tell the others it's routine, and it isn't." },
+      { id = "cf_2", text = "I set my own work aside after Antonidas died, and I haven't picked it up since. I tell people I'm too busy with the wards, and that's partly true." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Modera, who bent the council's rules to save this city and would do it again. She's the best of us, though she'd never say so." },
+      { id = "tr_2", text = "Trust the wards to hold, as long as someone's watching them. Don't trust anyone who tells you the city is safe, because it isn't." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the parlors in the upper Citadel, where the disruption began. The wards there are still thin, and things leak through." },
+      { id = "wo_2", text = "Watch anyone who offers to sell you a book from our vaults. Most are forgeries, and the ones that aren't are worse." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the wards will fail while I'm asleep. I don't sleep much, as a result, and it shows in my temper." },
+      { id = "wy_2", text = "That we're rebuilding the city exactly as it was, with all the same mistakes. Antonidas would have told us to build it better, and nobody's listening." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see a day when I can lower the wards and not lie awake wondering what's coming through. I'd sleep for a week." },
+      { id = "hp_2", text = "I hope to take up my own research again some day, the work I set aside when Antonidas died. I'll know the city is truly safe when I can." },
+    },
+    favor = {
+      { id = "fv_1", text = "Bring back any forbidden texts you find out there, and don't read them on the way. That's the only favour I'll ask." },
+      { id = "fv_2", text = "If you see anything strange in the ley lines around the city, tell me before you tell anyone else. I'd rather hear it first." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Friend? Yes, I suppose you are, which surprises me. I haven't made a new one since Antonidas, and I'd stopped expecting to." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After everything you've done for this city? You're a friend of mine, and I don't have many left, so don't make me regret it." },
+      { id = "fr_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You respect what this city stands for, and you've never once tried to cut a corner on my wards. That's a friend, by my measure." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I was meant to be at Antonidas's side when Arthas came, and I was late. I've never told anyone why, because the reason was so small I can't bear to say it." },
+      { id = "nt_2", text = "I still have the last letter Antonidas wrote me, unopened. I'm afraid of what it says, and more afraid of what it doesn't." },
+    },
     grievance = {
       { id = "gv1", text = "You've worn out what little patience I had for you, and I never had much. Antonidas was the patient one." },
       { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "I watched Archimonde reduce this city to rubble, and you call his kind to you like pets. I'll not hear another word on it." },

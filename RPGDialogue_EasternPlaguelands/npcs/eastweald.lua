@@ -352,6 +352,47 @@ P:NPC {
     },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you've a good heart, friend, and you've kept it in a land that's done its best to take it from you. That's worth more than any title I ever held." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've sat by this river with an old exile and helped him when nobody else would. I don't forget kindness, because I've had so little of it these last years." },
+      { id = "rg_orc", when = { race = "Orc" }, text = "You remind me of Eitrigg a little, in the way you carry yourself. He was the best friend I ever made, and it cost me everything, and I'd make him again." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "The Light is in you, and you carry it gently, the way Uther meant it to be carried. I'd almost forgotten what that looks like." },
+      { id = "rg_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You bend your word when it suits you, and I've seen where that road leads. Still, you've been kind to me, so I'll hope you find your way back to plain dealing." },
+    },
+    confide = {
+      { id = "cf_1", text = "The fish in this river never bite, and I've stopped minding. I don't come here to catch anything, only to sit somewhere the plague hasn't quite reached." },
+      { id = "cf_2", text = "I still have my old tabard of the Silver Hand, folded in a chest in the cottage. I take it out sometimes and put it away again, and I couldn't tell you why." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Argent Dawn at the chapel, who fight the Scourge without asking who you were. They've a few old knights among them who still remember what the Hand was meant to be." },
+      { id = "tr_2", text = "Trust anyone who shows mercy when it would be easier not to. That's the only test I've ever found that doesn't lie." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Crusade's riders from Hearthglen and Tyr's Hand, who'd hang me if they found me and you for knowing me. Don't speak my name where they can hear." },
+      { id = "wo_2", text = "Watch the plague in the water and the grain, friend. It's in everything here, and it doesn't always kill you quickly." },
+      { id = "wo_3", text = "Watch your own heart most of all. I've seen good men turn hard in this land, and they never noticed the moment it happened." },
+    },
+    worries = {
+      { id = "wy_1", text = "My son, every night. Taelan serves the Crusade at Hearthglen, and I fear what Isillien has taught him to believe about mercy, and about me." },
+      { id = "wy_2", text = "I worry that I'll die out here by this river and my son will never know I still love him. That frightens me more than anything the Scourge could do." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Taelan one more time and have him look at me without hatred. I'd give whatever the Light has left me for that." },
+      { id = "hp_2", text = "I hope that one day orcs and men will sit by a river like this one and fish together without anyone being hanged for it. Eitrigg and I did it once, and it was the best day of my life." },
+    },
+    favor = {
+      { id = "fv_1", text = "Show mercy to someone who doesn't deserve it, and see what comes of it. I can't promise it'll go well, but it's what the Light asks." },
+      { id = "fv_2", text = "If you ever pass through Hearthglen, look at my son for me and tell me how he seems. I don't ask you to speak to him, only to look." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I count you a friend, and I've not had many since the trial. You've brought an old man more comfort than you know." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After everything you've done for me? You're the truest friend I've had since Eitrigg, and I don't say that lightly, for he was the truest friend I ever had." },
+      { id = "fr_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "We walk the same Light, you and I, and you carry it with mercy. That makes you my friend, and more than that, my brother in the faith." },
+    },
+    never_told = {
+      { id = "nt_1", text = "On the day of my trial, I looked for Taelan in the crowd, and he wasn't there. I've told myself ever since that his mother kept him home, but I've never known for certain." },
+      { id = "nt_2", text = "When they stripped me of the Light, I felt it go, like a candle blown out in a cold room. It came back, slowly, out here by the river, but I've never told anyone it was gone at all." },
+    },
     knows = {
       { id = "tp_knows", text = "I've been out of the world a long while, but an old knight remembers more than he lets on. Ask me about any of these and I'll tell you what I can." },
       { id = "tp_knows_warm", when = { disposition = { min = 70 } }, text = "You've sat by this river with me often enough to ask me anything. These I can speak to, and I'll speak plainly, for it's the only way I still know how." },
@@ -392,6 +433,11 @@ P:NPC {
       { id = "sp_1", text = "I think you've a hard heart, friend, and the Plaguelands have plenty of those already. I hope you find a softer one." },
       { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think you'd have stood with the lords at my trial and said nothing. Most men did." },
     },
+  },
+  confides = {
+    { id = "cnf_1", text = "The Crusade at Hearthglen changes its riders on the north road at dusk, and for a little while nobody is watching the path down to the river." },
+    { id = "cnf_2", text = "The old bridge over the Thondroril is rotten through in the middle, so cross at the ford below it instead." },
+    { id = "cnf_3", text = "There's an old Silver Hand shrine hidden in the hills above the Thondroril, and the Scourge have never found it." },
   },
   blurts = {
     { id = "bl_1", text = "My son Taelan commands at Hearthglen under the Crusade's banner. Grand Inquisitor Isillien keeps him close, and I fear what that man has taught him to believe." },
@@ -677,6 +723,47 @@ P:NPC {
     },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're adequate, which from me is a considerable compliment. Most who come to Marris Stead fail to reach even that." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've done the work I set you, and done it well, without complaint. My lady would approve, and her approval is the only measure I keep." },
+      { id = "rg_hunter", when = { class = "HUNTER" }, text = "You know how to track and how to wait, which few of the living ever learn properly. My lady trained me to it, and I can see someone trained you well." },
+      { id = "rg_al_dark", when = { alignment = { axis = "light", max = -30 } }, text = "You don't flinch from the dark work, and you don't pretend the Light will save this land. That's the beginning of wisdom, in Lordaeron." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "You still carry the Light about with you, like a lantern in a graveyard. It's a foolish thing to bring to Marris Stead, but you've been useful, so I'll overlook it." },
+    },
+    confide = {
+      { id = "cf_1", text = "This was my family's farm before the plague, and I was born in the house behind me. I mean to take it back myself, every field of it, and I've told my lady I want no help." },
+      { id = "cf_2", text = "My lady trained me when I was alive, the only human she ever named a Ranger Lord. Some of her old rangers never forgave her for it, and I never forgave them." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust my lady above all things, as I do. Everyone else in Lordaeron is either a tool or an obstacle, and you'll learn to tell them apart." },
+      { id = "tr_2", text = "Trust the Forsaken who hold the Bulwark, who know the Scourge as well as I do. The Argent Dawn mean well, which is not quite the same as being useful." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the plaguebats over the fields, which carry the sickness on their wings. Don't let one bite you, however small it looks." },
+      { id = "wo_2", text = "Watch the Scarlet Crusade at Tyr's Hand, who would burn my lady's champion if they could. They send patrols past Marris Stead, and I've buried several of them." },
+      { id = "wo_3", text = "Watch Stratholme, where Rivendare holds the dead behind the ziggurats. The walls are thick with them, and they don't tire." },
+    },
+    worries = {
+      { id = "wy_1", text = "That my lady will need me and I'll be too far away to answer. I serve her before anything else, and distance is the one enemy I can't shoot." },
+      { id = "wy_2", text = "That this land is too far gone to save, and I'm taking back a graveyard. I don't permit myself to think it often." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Marris Stead cleansed and my family's fields free of the plague. Then I'll offer the land to my lady, as I've offered her everything else." },
+      { id = "hp_2", text = "I hope to stand beside my lady when Arthas falls and watch her take her vengeance. I'd ask for nothing more than to be there." },
+    },
+    favor = {
+      { id = "fv_1", text = "Kill plaguebats and plaguehounds in these fields, and bring me proof. Every one you kill is one more acre of Marris Stead that's mine again." },
+      { id = "fv_2", text = "If you go to the Undercity, tell my lady her champion holds his ground. She knows it, but I'd like her to hear it from someone other than me." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I don't keep friends, only allies and enemies. If I did keep friends, you'd be the first I'd name, and I doubt you understand how unusual that is." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've done more for Marris Stead than anyone since I died. I count you an ally, and from me that's warmer than most people's friendship." },
+      { id = "fr_al_dark", when = { alignment = { axis = "light", max = -30 } }, text = "You walk the dark roads I walk, and you've never once flinched. That's the only kind of friend I've any use for." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When I died, I died here, in this house, defending it from the Scourge. I woke as one of them, and the first thing I did with my freedom was come home." },
+      { id = "nt_2", text = "I wasn't the best of my lady's rangers in life, whatever the songs say. She named me Ranger Lord because I wouldn't stop trying, and I've never stopped since." },
+    },
     knows = {
       { id = "tp_knows", text = "I know these fields and the vermin crawling over them better than any living soul. Ask about these, and be brief about it." },
       { id = "tp_knows_cold", when = { disposition = { max = 34 } }, text = "I owe you nothing, so you'll get the short list. Ask about these, or leave my land." },
@@ -707,6 +794,11 @@ P:NPC {
       { id = "sp_1", text = "I think you are a tool with a poor edge, and I would not waste the oil to sharpen you." },
       { id = "sp_prej", when = { grudge = { worst = "prejudice" } }, text = "I think the Amani made a better enemy than you will ever make an ally. At least they were honest about their hatred." },
     },
+  },
+  confides = {
+    { id = "cnf_1", text = "The Scarlet patrols from Tyr's Hand always pass the Marris Stead at noon, when they think the dead are sleepiest." },
+    { id = "cnf_2", text = "Darrowshire's ghosts walk the ruins south of here every night, and they mean no harm to anyone who leaves them be." },
+    { id = "cnf_3", text = "The plaguebats roost in the ruined barn behind this house, and they leave at dusk, so the barn is empty until dawn." },
   },
   blurts = {
     { id = "bl_1", text = "Baron Rivendare holds the Scourge half of Stratholme from the heart of the city, behind the ziggurats. Kill the three masters of the ziggurats, and the way to him opens." },

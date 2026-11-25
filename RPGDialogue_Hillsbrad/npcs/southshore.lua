@@ -640,6 +640,48 @@ P:NPC {
     },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're good people, {name}, and I've known enough of both kinds to tell. Southshore's better for having you about, and I'll say so to anyone." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've done right by this town more times than I can count, and never once asked for a parade. That's the sort that built Southshore, back when it was a fishing village and a prayer." },
+      { id = "rg_town", when = { fondness = "town" }, text = "The farmers speak well of you, and so do the fishermen, and those two don't agree on the weather. That's good enough for me." },
+      { id = "rg_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You keep the peace and you keep your word, and that's the whole of what a marshal asks. I'd pin a badge on you if Stormwind ever sent me any." },
+      { id = "rg_al_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You've a wild streak in you, and that makes an old marshal nervous. Still, you've done good here, so I'll keep one eye on you and the other on the road." },
+    },
+    confide = {
+      { id = "cf_1", text = "I was headman here when Lothar's boats came in from Stormwind, and I stood on the beach and watched them come. Half the families in Southshore are the children of those refugees, and they don't remember it." },
+      { id = "cf_2", text = "Stormwind sent three men and a cook when Lordaeron's refugees came south, and I've never forgiven them for it. I don't say so in front of Farren, because he's one of theirs and he's trying." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Lieutenant Farren, whatever he grumbles about, because he'd stand on that wall alone if he had to. Trust the old knights who live quiet here, and trust the fishermen about the weather." },
+      { id = "tr_2", text = "Trust Maleb with the town's paperwork and nothing else, since he's a politician through and through. I'm not saying he's dishonest, only that he's always running for something." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the hill road to Tarren Mill after dark, because the dead don't sleep and neither do their poisoners. Something's always moving up there." },
+      { id = "wo_2", text = "Watch for the Syndicate along the Alterac foothills. They wear fine clothes and cut throats, and they'll smile at you while they do it." },
+      { id = "wo_3", text = "Watch the Crushridge ogres coming down out of the mountains. They're getting bolder every season, and their next stop is my front door." },
+    },
+    worries = {
+      { id = "wy_1", text = "That Southshore goes the way of Tarren Mill. I knew folk up there, and we fished the same river, and now they're the ones poisoning our fields." },
+      { id = "wy_2", text = "I worry Stormwind's forgotten us entirely. I've sent riders three times, and the only answer was a lieutenant who'd sooner be anywhere else." },
+      { id = "wy_3", text = "I'm getting old, and there's nobody ready to take this wall when I'm done with it. I worry about that more than any ogre." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see the Hillsbrad farms planted right across the valley again, with no poison in the wells and no dead in the fields." },
+      { id = "hp_2", text = "I hope one day a boy can grow up in Southshore without ever learning to bar a door at night. I never had that, and I'd like someone to." },
+    },
+    favor = {
+      { id = "fv_1", text = "Look in on the farmers in Hillsbrad Fields when you pass, and help them where you can. They're the ones who'll break first if anyone does." },
+      { id = "fv_2", text = "If you go up into the Alterac hills, bring me word of what the Syndicate's doing at Durnholde. I've no scouts to spare, and I'd like to know before they come down." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Friend? Aye, I'd say so, and I don't hand that out like Maleb hands out promises. You've stood with this town, and that makes you one of ours." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After everything you've done for Southshore? You're a friend of this town for as long as I'm marshal of it, and I mean to be marshal a good while yet." },
+      { id = "fr_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You're honest and you're brave, and you don't make promises you won't keep. I've only ever had a handful of friends like that, and I'm glad to count you among them." },
+    },
+    never_told = {
+      { id = "nt_1", text = "It's me with the lantern by the stables at night, not the stable boy. I watch the hill road until dawn, most nights, and the town thinks I'm seeing to the horses." },
+      { id = "nt_2", text = "When I was a boy, I hid in a cellar while orcs burned Hillsbrad, and I didn't come out to help anyone. I became a marshal so I'd never have to hide again." },
+    },
     kaldorei = { { id = "tp_kaldorei", text = "Allies now, and I'll keep faith with that. I only remember that the elves who bled for Lordaeron came from Quel'Thalas, and none of them were purple." } },
     _gated = {
       { id = "gt1", text = "That's the town's business, and I don't know you well enough to share it. Do right by Southshore and ask me again." },
@@ -678,6 +720,11 @@ P:NPC {
       { id = "sp_1", text = "I think you're more trouble than this town can afford, and we've precious little left to spend." },
       { id = "sp_enemy", when = { grudge = "enemy" }, text = "I think you'd poison the well yourself if Tarren Mill asked you to. Prove me wrong somewhere far from here." },
     },
+  },
+  confides = {
+    { id = "cnf_1", text = "The Syndicate pays a fisherman in Southshore to tell them when the militia rides out, and I've a fair idea which one it is." },
+    { id = "cnf_2", text = "The old knights of the Silver Hand who live quiet in this town still keep their armour oiled, and they'd ride out if the wall fell." },
+    { id = "cnf_3", text = "There's a path up the cliffs behind the Southshore inn that comes out above the Tarren Mill road, and only the old-timers know it's there." },
   },
   blurts = {
     { id = "bl_1", text = "The Syndicate are Alterac's old nobles playing at thieves, and they hold Durnholde's ruins east of town. Lord Perenolde's kin are behind them, whatever the Crown pretends." },

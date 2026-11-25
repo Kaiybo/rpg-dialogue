@@ -540,11 +540,57 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Syndicate's cutthroats at Northfold Manor change their watch at dawn, and that's the hour my scouts go in." },
+    { id = "cnf_2", text = "There's an old Arathor watchtower on the ridge east of camp that the ogres have never found, and my sentries use it to watch the keep." },
+    { id = "cnf_3", text = "The old supply cellars beneath Refuge Pointe's ridge still hold dry stores from the Second War, and only my officers know where the door is." },
+  },
   blurts = {
     { id = "bl1", text = "The Syndicate's cutthroats bed down in Northfold Manor on the northern road, and their masters have crept into the upper halls of Stromgarde itself." },
     { id = "bl2", text = "The Witherbark trolls in the southeastern hills raid Hammerfall as often as they raid us, and Drum Fel will never admit how badly they hurt him." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're a soldier, {name}, whatever you call yourself, and Stromgarde has always known what to do with soldiers. You've earned your place at my fire." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've fought for Refuge Pointe when the pay was poor and the odds were worse. My sentries say your name with respect, and they don't say anyone's that way lightly." },
+      { id = "rg_tone", when = { fondness = "tone" }, text = "You speak plainly and you don't waste my time, which is more than I can say for Stormwind's letters. I like that in a soldier." },
+      { id = "rg_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You keep your word, and in these highlands that's rarer than an unburned farmhouse. Stromgarde was built by people like you." },
+      { id = "rg_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You've a crooked streak in you, and I've seen it. I'll take your sword gladly, but I'll be counting my patrol routes after you leave." },
+    },
+    confide = {
+      { id = "cf_1", text = "I count the tents every morning before the sentries wake. We lose more each season than Stromgarde sends, and I tell the soldiers otherwise." },
+      { id = "cf_2", text = "I write every letter to the families myself, every one, because a captain ought to. Some nights there are more letters than there are candles to write them by." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the dwarves who come down from the Thandol Span, because they've never once failed to answer when Stromgarde called. Trust my sentries, too, because they've stayed when every sensible soul has gone south." },
+      { id = "tr_2", text = "Trust nobody who comes up the northern road with fine boots and an easy smile. The Syndicate sends its cutthroats dressed as merchants, and I've buried the soldiers who believed them." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch Northfold Manor and the northern road, where the Syndicate's cutthroats bed down. They're better armed than they appear, and they don't fight fair." },
+      { id = "wo_2", text = "Watch the Witherbark in the southeastern hills, who fight from the trees and take their dead with them. You'll seldom see more than one of them at a time, and that's what makes them dangerous." },
+      { id = "wo_3", text = "Watch the Boulderfist ogres in the ruins of Stromgarde. They're slow to anger and very quick to kill once they've started." },
+    },
+    worries = {
+      { id = "wy_1", text = "That I'll lose Refuge Pointe before I ever see the inside of Stromgarde Keep again. I tell the soldiers we'll hold as long as it takes, and I don't know how long that is." },
+      { id = "wy_2", text = "That the families back home will stop waiting for their soldiers to come back. Without them, there's nothing left to fight for but stones." },
+    },
+    hopes = {
+      { id = "hp_1", text = "To raise Stromgarde's banner over the keep again and hand it back to a kingdom that still has people in it. That's all I've wanted since the day it fell." },
+      { id = "hp_2", text = "I hope to see Arathor's old fields ploughed again from Refuge Pointe to the Thandol Span. My grandfather farmed there, and I'd like to see wheat where he did." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you take Stromgarde badges off the Syndicate's dead, bring them here. They belonged to my soldiers, and their families deserve to have them back." },
+      { id = "fv_2", text = "Speak for Stromgarde when you're in Ironforge or Stormwind, and tell them we're still here. Nobody marched for us when we needed it, and we need it now." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I count you a friend, {name}, and I don't say that to many who pass through. You've stood with what's left of my kingdom, and that's enough for me." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After everything you've done for Refuge Pointe? You're Stromgarde's friend for as long as there's a Stromgarde to speak of, and longer than that if I have a say." },
+      { id = "fr_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You're honest, you're brave, and you've never broken your word to me. That's a friend, by any measure Stromgarde ever kept." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When the keep fell, I was ordered to hold the gate, and I held it until there was nothing left to hold. I've never told anyone that I wept when we retreated, because a captain doesn't." },
+      { id = "nt_2", text = "Some nights I don't know whether I'm fighting to take back Stromgarde or only because I don't know how to stop. I've never said that aloud, and I'd ask you not to repeat it." },
+    },
     grievance = {
       { id = "gv1", text = "My problem is that I've a kingdom to take back, and you've given me nothing but trouble. Stromgarde can't afford trouble, and neither can I." },
       { id = "gv_prejud", when = { grudge = { worst = "prejudice" } }, text = "You walk like the Syndicate walks, and men in boots like yours cut down three of my lookouts this season. I'll not apologise for remembering it." },
@@ -564,7 +610,7 @@ P:NPC {
     kaldorei = { { id = "tp_kaldorei", text = "Not the elves Stromgarde remembers. The quel'dorei kept faith with Arathor for two thousand years, and the kaldorei have had a year to show us what they're worth." } },
     _gated = {
       { id = "gt1", text = "That's the camp's business, and I don't share it with people I haven't seen under arms. Prove yourself to Refuge Pointe first." },
-      { id = "gt2", text = "I know well enough, and I'm keeping it to myself for now. A captain doesn't talk freely to someone he's only just met." },
+      { id = "gt2", text = "I know well enough, and I'm keeping it to myself for now. A captain doesn't talk freely to a stranger she's only just met." },
     },
     knows = {
       { id = "tp_knows", text = "My scouts report everything they see in the highlands, and I listen to all of it. Ask, and keep it short." },
@@ -933,11 +979,57 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Witherbark trolls carry their wounded back to the old troll ruins in the southeast hills, so the ones you wound are never truly gone." },
+    { id = "cnf_2", text = "The Boulderfist lords in Stromgarde's ruins trade with the Syndicate for steel, so every dead Syndicate courier means fewer ogre blades at my walls." },
+    { id = "cnf_3", text = "Korin reads the auguries every morning, and when she will not tell me what she saw, I double the watch on the walls." },
+  },
   blurts = {
     { id = "bl1", text = "Refuge Pointe is thinner than it looks. Stromgarde has more tents than soldiers there, and the Syndicate pick off its lookouts every week." },
     { id = "bl2", text = "The Boulderfist ogres have crawled into the ruins of Stromgarde, and nothing pleases me more than watching the humans bleed against them for it." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you are a strong {class}, and you fight for the Horde without asking what it pays. Hammerfall needs more like you." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have bled against the Witherbark and the Boulderfist for Hammerfall, and my grunts speak your name with respect. That is worth more than any medal." },
+      { id = "rg_orc", when = { race = "Orc" }, text = "You are of my blood, and you carry yourself like an orc who remembers the camps. Hammerfall is your home whenever you need it." },
+      { id = "rg_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You fight with honor and you keep your word, as the Warchief taught us. Doomhammer would have been proud to have you in his ranks." },
+      { id = "rg_al_cunning", when = { alignment = { axis = "honor", max = -30 } }, text = "You fight like a rogue, and I don't care for that. Still, you've done much for Hammerfall, and I will not spit on that." },
+    },
+    confide = {
+      { id = "cf_1", text = "I beat Or'Kalar in single combat, years ago, and he has never forgiven me for it. Sometimes I think every ogre in these highlands knows my name because of that one fight." },
+      { id = "cf_2", text = "I was a grunt in this camp when it was still a camp, with human guards on the walls and our people in chains. I sleep in the room where the warden slept, and I chose it on purpose." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Korin, my mate, who sees further than I do and says less. Trust Gor'mul and any grunt who has bled on these walls." },
+      { id = "tr_2", text = "Trust the Forsaken from Tarren Mill to fight, and nothing more than that. They are allies, but they smile at the wrong things." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Witherbark, who fight from the trees and strike from above. Look up before you look ahead in the southeastern hills." },
+      { id = "wo_2", text = "Watch the Boulderfist in Stromgarde's ruins, who would use an orc for food and his armor for bedding. They are slow, but they hit like a falling wall." },
+      { id = "wo_3", text = "Watch the humans at Refuge Pointe, who keep their swords sharp and their tempers sharper. There is no war between us now, but there could be by morning." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the Witherbark and the Boulderfist will put their quarrels aside and come for Hammerfall together. If they do, these walls will not hold, and I know it." },
+      { id = "wy_2", text = "That Korin hides things from me to keep me from rushing into a fight. She is usually right to, and I hate that she is usually right." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Hammerfall grow into the strongest Horde city in the east, with markets and forges and children who have never seen a chain." },
+      { id = "hp_2", text = "I hope to clear these highlands of ogres and trolls before my arms grow too weak to swing an axe. After that, I will rest, and not before." },
+    },
+    favor = {
+      { id = "fv_1", text = "Kill Witherbark and Boulderfist in Hammerfall's name, and come back to tell me of it. My grunts need to hear that the enemy can be beaten." },
+      { id = "fv_2", text = "Speak well of Hammerfall in Orgrimmar, if you are ever before the Warchief. Tell him we hold, and that we could hold better with more warriors." },
+    },
+    friendship = {
+      { id = "fr_1", text = "You are my friend, {name}, and I don't say that to many who come through Hammerfall's gates. Lok'tar, and may your axe stay sharp." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You have fought beside my grunts and bled on my walls. That makes you blood to me, and an orc does not say that lightly." },
+      { id = "fr_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You keep your word and you fight with honor, and that is all I ask of a friend. You have mine, and you have Hammerfall's." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I did things in the Second War that I am not proud of, before the camps. I have never told Korin all of it, and I never will." },
+      { id = "nt_2", text = "When Doomhammer broke this camp open, I was too frightened to run out with the others, and I hid in the barracks until it was over. I have spent my life making up for that night." },
+    },
     grievance = {
       { id = "gv1", text = "You've made yourself a nuisance in Hammerfall, and I've no patience for nuisances while there are ogres left in the highlands." },
       { id = "gv_enemy", when = { grudge = "enemy" }, text = "You're Alliance, standing inside walls your people built to cage mine. I've not forgotten who held the keys." },

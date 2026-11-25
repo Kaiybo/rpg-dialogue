@@ -399,6 +399,46 @@ P:NPC {
     },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you stand where you are needed, and you do not ask how many of you there are. The Brotherhood respects that above all things." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You have brought me proof from the field more times than I can count, and you never once asked for a reward. That is how a soldier of the Light behaves." },
+      { id = "rg_paladin", when = { class = "PALADIN" }, text = "You are a brother of the Light, and you carry it as Mograine did, steadily and without fear. I am glad to have you in this chapel." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "The Light is strong in you, and it shows in how you fight and how you speak. The Brotherhood could use a hundred more like you." },
+      { id = "rg_al_dark", when = { alignment = { axis = "light", max = -30 } }, text = "There is a shadow on you, and I will not pretend I do not see it. Still, you fight the Scourge, and the Brotherhood takes any blade that does." },
+    },
+    confide = {
+      { id = "cf_1", text = "I was at Mograine's side when this land still had living towns in it. I have never told the young ones how many of his men I buried myself." },
+      { id = "cf_2", text = "I do not sleep well near Naxxramas, though I tell the Brotherhood I sleep like a stone. A commander must look rested, even when he is not." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Archmage Dosantos about the citadel, because she has studied it longer than anyone here. Trust the quartermasters with your tokens and your name." },
+      { id = "tr_2", text = "Trust any soldier who has stood a watch beside the Brotherhood. We are few, and we know each other by the scars we share." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the citadel's shadow, and never linger beneath it. The necromancers inside see further than you would think." },
+      { id = "wo_2", text = "Watch for the Scourge raiding far from these lands, in towns that thought themselves safe. They strike where they are least expected now." },
+    },
+    worries = {
+      { id = "wy_1", text = "That we will rush the citadel before we are ready, and lose the best we have at its gate. I hold the Brotherhood back, and some of them hate me for it." },
+      { id = "wy_2", text = "The face that my scouts swear they saw among Kel'Thuzad's death knights. I pray they are wrong, and I fear they are not." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Naxxramas fall from the sky and the Brotherhood standing in its ruins. Mograine would have wanted to see that." },
+      { id = "hp_2", text = "I hope to see this land green again, with towns and fields and people in them. That is what the Light is for, in the end." },
+    },
+    favor = {
+      { id = "fv_1", text = "Go out and cut down the Scourge wherever they gather, and bring me proof. Every one you kill is a raid that never comes." },
+      { id = "fv_2", text = "Speak to Dosantos before you go into the citadel, and listen to what she tells you. I would rather not bury you." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I count you a friend, and I do not say that to many. You have stood with the Brotherhood, and that makes you one of us." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After everything you have done for this chapel? You are a brother of the Light in all but oath, and the Brotherhood knows it." },
+      { id = "fr_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "We share the same Light, you and I, and you carry it as a soldier should. I would stand beside you at the citadel's gate." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When Mograine fell, I was not there, because I had been ordered elsewhere and I obeyed. I have wondered every day since whether I could have stopped it." },
+      { id = "nt_2", text = "I knew the man my scouts saw among the death knights. He was my squire once, and I taught him to hold a hammer." },
+    },
     background = { { id = "tp_bg", text = "A paladin of Lordaeron, a veteran of the Third War, and now the Dawn's commander at the citadel's door." } },
     _none = { { id = "tp_none", text = "I could not say. Ask Archmage Dosantos; she knows more than I do of most things." } },
     grievance = {
@@ -414,6 +454,12 @@ P:NPC {
       { id = "sp_1", text = "I think you would break before the citadel's gate, and I will not send the Brotherhood after you when you do." },
       { id = "sp_val", when = { grudge = { worst = "values" } }, text = "I think Mograine would have turned you away at the door. I am kinder than he was, and I am considering it." },
     },
+  },
+  alignment = { light = 1 },
+  confides = {
+    { id = "cnf_1", text = "Each quarter of Naxxramas has its own master, and Dosantos believes they must fall in a particular order for the inner hall to open." },
+    { id = "cnf_2", text = "The Brotherhood keeps a reserve of holy water in the chapel crypt, enough to consecrate a small field, for when the citadel comes down." },
+    { id = "cnf_3", text = "The Scourge raids have reached as far as Kalimdor, and the Dawn's riders there report to this chapel by griffon and wyvern both." },
   },
   blurts = {
     { id = "bl_1", text = "Kel'Thuzad keeps four death knights in his inner hall, and our scouts swear one of them bears a face I knew. I do not speak of it, and you will not either." },

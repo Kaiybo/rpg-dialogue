@@ -462,12 +462,59 @@ P:NPC {
       },
     },
   },
+  alignment = { light = -1 },
+  confides = {
+    { id = "cnf_1", text = "The old crypt beneath the Deathknell chapel connects to the catacombs, and Scourge stragglers still wander up through it some nights." },
+    { id = "cnf_2", text = "The Forgotten Shadow keeps a quiet list of the freshly risen who won't take to unlife, and the Deathguard are told to watch them closely." },
+    { id = "cnf_3", text = "Some of the Scarlet zealots near the graves are deserters who can't go back, and they'll trade what they know for a quick death." },
+  },
   blurts = {
     { id = "bl1", text = "Night Web's Hollow is crawling with spiders bigger than the Deathguard who tried to clear it. If you're sent there, take a torch and someone slower than you." },
     { id = "bl2", text = "The Scarlet Crusade has zealots skulking just past the edge of Deathknell, preaching at the dead who've only just risen. Kill them before they convince anyone foolish enough to listen." },
     { id = "bl3", text = "The dreadlord whispers in the Dark Lady's ear day and night, and the court pretends that's perfectly normal. I serve her, not him, and I'd thank you not to confuse the two." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're one of the few who walked out of Deathknell and actually made something of it. That's rarer than you'd think, and a good deal rarer than I'd hoped." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You keep turning up alive, or the nearest thing, and doing what's asked of you. In my line of work that's practically sainthood, though I'd never tell the Light so." },
+      { id = "rg_scourge", when = { race = "Scourge" }, text = "You climbed out of that grave and kept walking when plenty of others lay back down. I notice that sort of thing, and so does the Dark Lady." },
+      { id = "rg_al_dark", when = { alignment = { axis = "light", max = -30 } }, text = "You've let the shadow in without letting it eat you, which is the whole trick, and most never learn it. I'm almost proud, and I don't say that often." },
+      { id = "rg_al_light", when = { alignment = { axis = "light", min = 30 } }, text = "You still cling to the Light, which seems a bit like courting someone who keeps slapping you. Still, you've been decent to me, so I'll not hold it against you more than I must." },
+    },
+    confide = {
+      { id = "cf_1", text = "I was a priest of the Light in a parish south of here, and I was rather good at it. I preached that death was nothing to fear, and I find it funny now that I was right for all the wrong reasons." },
+      { id = "cf_2", text = "The chapel at Deathknell still has its old pews, and I've never moved them. I tell the Deathguard it's thrift, but I sat in one as a boy, and that's the truth of it." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Dark Lady and the Forgotten Shadow, in that order. Everyone else in the Undercity has an angle, and some of them have several." },
+      { id = "tr_2", text = "Trust Mordo to tell you exactly what's wrong with you, and trust Aramis to mean well, though he means well at a volume that rattles my teeth." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch Night Web's Hollow, where the spiders grow fat on careless recruits. Take a torch and someone slower than you, as I always say." },
+      { id = "wo_2", text = "Watch the zealots at the edge of Deathknell who preach at the newly risen. Some of our fresh dead are confused enough to listen, and they don't live long after." },
+      { id = "wo_3", text = "Watch the dreadlord in the Royal Quarter, and say nothing near him you wouldn't say to the Dark Lady's face. I don't trust anything that smiles with that many teeth." },
+    },
+    worries = {
+      { id = "wy_1", text = "That too many of the freshly risen wander off into the glades before I can get any sense into them. The Scourge picks them up again, and that's a waste I take personally." },
+      { id = "wy_2", text = "I worry, very occasionally, that the shadow listens more closely than I'd like. It's served me well so far, but so did the Light, until it didn't." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Deathknell empty one day, with no more graves opening and no more dead to wake. Then I'll find out whether I'm good at anything other than welcomes." },
+      { id = "hp_2", text = "I hope Arthas lives long enough to watch everything he built come apart. I'm not a forgiving man, and death hasn't improved me." },
+    },
+    favor = {
+      { id = "fv_1", text = "Go back to Deathknell now and then and tell the new ones that it gets easier. It's a lie, mostly, but they need to hear it from someone who isn't me." },
+      { id = "fv_2", text = "Bring down any Scarlet preacher you find near the graves. They're doing more harm with their sermons than the Scourge does with its claws." },
+    },
+    friendship = {
+      { id = "fr_1", text = "A friend? I suppose so, which surprises me more than it should. I'd ask you not to spread it about, since I have a reputation to keep." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "You've done more good for this place than most of the Deathguard. If I've a friend left in this world, it's you, and I'm quite annoyed about it." },
+      { id = "fr_al_dark", when = { alignment = { axis = "light", max = -30 } }, text = "You've walked into the shadow with your eyes open, and you came back still yourself. That's the sort of company I keep, when I keep any at all." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When I first woke, I prayed to the Light out of habit, and it burned me so badly I couldn't speak for a day. I never prayed to it again, and I've never admitted how much that hurt." },
+      { id = "nt_2", text = "I buried my own parish before the Scourge reached it, every soul in the plague's first week. I tell the young ones I don't remember their names, and that's a lie." },
+    },
     grievance = {
       { id = "gv1", text = "My problem with you? You've been tiresome, and death left me very little patience for the tiresome. That's all, and it's quite enough." },
       { id = "gv_values", when = { grudge = "values" }, text = "You've been handed a second life and seem determined to waste it. I find that personally offensive, as someone who also went to the trouble of dying." },

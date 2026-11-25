@@ -444,12 +444,58 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The weak point into Andorhal is the east road past Sorrow Hill, where the Scourge's lines are thinnest at dusk." },
+    { id = "cnf_2", text = "Arbington has nearly worked out how to forge a key to Scholomance, and he'll want a steady hand beside him when he tries it." },
+    { id = "cnf_3", text = "The ruined watchtowers around Andorhal still stand, and from the top of them you can see the lich's patrols long before they see you." },
+  },
   blurts = {
     { id = "bl1", text = "The lich Araj the Summoner commands Andorhal, and his skeletons will keep rising until he falls. Bring me proof he's dead, and I'll know the town can be taken." },
     { id = "bl2", text = "Weldon Barov is here for his family's deeds, not for Lordaeron, and his brother Alexi wants them just as badly at the Bulwark. The Barovs sold Caer Darrow to the Cult, and neither of them likes to be reminded of it." },
     { id = "bl3", text = "Kel'Thuzad's Cult runs a school of necromancy beneath Caer Darrow, out on Darrowmere Lake. I've lost two scouts trying to see inside, and I'll not send a third." },
   },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're a fine soldier, {name}, whether or not Stormwind ever pays you like one. Chillwind's better for having you through the gate." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "You've done more for this camp than half the regiment I asked for and never got. I've mentioned you in my reports to Stormwind, and I don't do that lightly." },
+      { id = "rg_paladin", when = { class = "PALADIN" }, text = "Shadowbreaker sends me good paladins, and you're one of the best of them. You hold the Light the way a soldier holds a shield, steady and without fuss." },
+      { id = "rg_al_order", when = { alignment = { axis = "order", min = 30 } }, text = "You follow orders, you finish the work and you come back to report it. That's the whole of soldiering, and you've got it down." },
+      { id = "rg_al_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You go your own way, and that makes a commander nervous. Still, you've done good out there, so I'll keep you on a long leash and hope you come back." },
+    },
+    confide = {
+      { id = "cf_1", text = "I kept a farm in Elwynn before I took a commission, and I still dream of it. When this is over, I mean to go back and never pick up a sword again." },
+      { id = "cf_2", text = "I hear Andorhal's bells at night, even though there's nobody left to ring them. MacDonnell says it's the wind, and I let her think I believe her." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust MacDonnell, who's the best second I could ask for and the bravest priest I've ever met. Trust Pureheart and the Argent Dawn to fight, whoever else they keep company with." },
+      { id = "tr_2", text = "Trust Weldon Barov to look after Weldon Barov. He's Stormwind's guest, not mine, and I'm careful what I say in front of him." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch Andorhal, where Araj raises the dead faster than my soldiers can put them down. Nobody goes in without my say-so or a very good reason." },
+      { id = "wo_2", text = "Watch the wells on the farms, which will kill you slower than a ghoul but kill you all the same. Bring your own water and drink nothing from the fields." },
+      { id = "wo_3", text = "Watch the Scarlet scouts from Hearthglen, who don't want our help and shoot at my people to prove it. Give them a wide berth if you can." },
+    },
+    worries = {
+      { id = "wy_1", text = "That the Scourge will come down from Andorhal in force before I've the soldiers to meet it. I asked for a regiment and got mercenaries, and I've stopped expecting better." },
+      { id = "wy_2", text = "That I'll write one letter too many and stop feeling it. A commander who stops feeling the letters has stopped being any use." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to stand in Andorhal's square with the lich dead and my soldiers around me, all of them. I'd settle for most of them." },
+      { id = "hp_2", text = "I hope to send every refugee who comes through this camp home to a farm that's clean again. That's what I came north for, whatever Stormwind thought." },
+    },
+    favor = {
+      { id = "fv_1", text = "Bring my soldiers home alive when you can, and bring me their names when you can't. I'll write the letters either way." },
+      { id = "fv_2", text = "If you're ever before Lord Bolvar in Stormwind, tell him Chillwind still holds and could do more with more. He knows it already, but it does no harm to hear it twice." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I count you a friend, {name}, and in this camp that means I'd trust you with my soldiers' lives. That's the highest thing I have to give." },
+      { id = "fr_earned", when = { fondness = { best = "earned" } }, text = "After everything you've done for Chillwind? You're as much a part of this camp as I am, and I'd write your letter home myself if it ever came to that." },
+      { id = "fr_al_honor", when = { alignment = { axis = "honor", min = 30 } }, text = "You're honest, you're brave and you keep your word to the soldiers who need it. A friend like that is worth more than a regiment." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I volunteered for this post, because I thought it would be glorious. I've never told my soldiers that, because there's nothing glorious about any of it." },
+      { id = "nt_2", text = "I lost my brother at Andorhal, the first time we tried to take it. I wrote his letter like all the others, and I've never told anyone here that he was mine." },
+    },
     grievance = {
       { id = "gv1", text = "I don't have room in this camp for soldiers I can't rely on, and I can't rely on you. That's the whole of my complaint, and it's enough." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "You call on the same dark the Cult used to bring Andorhal down, and you think I should trust you with my soldiers. I buried men who made that mistake." },
