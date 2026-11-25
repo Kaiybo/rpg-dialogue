@@ -1004,6 +1004,18 @@ local evalAll
 -- Returns pass, score, parts (list of "key+weight"), failReason
 local function evalKey(key, v, ctx, env)
   if key == "all" then
+    -- `all` is a list of when tables (DESIGN.md §2; Conv.IdentityTag reads it the same way),
+    -- or a single when table.
+    if type(v) == "table" and v[1] ~= nil then
+      local score, parts = 0, {}
+      for _, sub in ipairs(v) do
+        local p, s, ps, why = evalAll(sub, ctx, env)
+        if not p then return false, 0, {}, why end
+        score = score + s
+        for i = 1, #ps do parts[#parts + 1] = ps[i] end
+      end
+      return true, score, parts
+    end
     return evalAll(v, ctx, env)
   elseif key == "any" then
     local best, bestParts
@@ -1055,9 +1067,9 @@ function Cond.Systems(when, out)
   out = out or {}
   if type(when) ~= "table" then return out end
   for key, v in pairs(when) do
-    if key == "all" or key == "not" then
+    if key == "not" or (key == "all" and type(v) == "table" and v[1] == nil) then
       Cond.Systems(v, out)
-    elseif key == "any" then
+    elseif key == "any" or key == "all" then
       for _, sub in ipairs(v) do Cond.Systems(sub, out) end
     else
       local d = Cond.defs[key]
@@ -1072,7 +1084,12 @@ function Cond.Hinges(when)
   local n = 0
   if type(when) ~= "table" then return 0 end
   for key, v in pairs(when) do
-    if key == "all" then n = n + Cond.Hinges(v)
+    if key == "all" then
+      if type(v) == "table" and v[1] ~= nil then
+        for _, sub in ipairs(v) do n = n + Cond.Hinges(sub) end
+      else
+        n = n + Cond.Hinges(v)
+      end
     elseif key == "any" then
       local best = 0
       for _, sub in ipairs(v) do best = math.max(best, Cond.Hinges(sub)) end

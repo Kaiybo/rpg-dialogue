@@ -265,8 +265,10 @@ function SD.TrimJournal(journal, limit)
   if #journal <= limit then return 0 end
   local fold = #journal - limit + 1
   local first, last = journal[1], journal[fold]
+  -- An earlier summary at the top counts the entries it already folded, not as one.
+  local already = (type(first) == "table" and first.kind == "summary" and tonumber(first.folded)) or 1
   local summary = {
-    t = first and first.t or 0, t2 = last and last.t or 0, folded = fold,
+    t = first and first.t or 0, t2 = last and last.t or 0, folded = fold - 1 + already,
     kind = "summary",
   }
   local kept = { summary }
