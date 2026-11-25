@@ -286,7 +286,12 @@ local function build()
 
   -- Look and text: the things people change most (also from the box's "Aa" button).
   header(L.OPT_HEADER_TEXT)
-  cycle(L.OPT_LOOK, "look", { "game", "wood" }, { L.LOOK_GAME, L.LOOK_WOOD })
+  -- With DialogueUI: a third style, our windows on its own parchment (0.112.0).
+  if C.DialogueUILoaded() or s().look == "dialogueui" then
+    cycle(L.OPT_LOOK, "look", { "dialogueui", "game", "wood" }, { L.LOOK_DUI, L.LOOK_GAME, L.LOOK_WOOD })
+  else
+    cycle(L.OPT_LOOK, "look", { "game", "wood" }, { L.LOOK_GAME, L.LOOK_WOOD })
+  end
   if not UI.Theme.GameArt() then note(L.OPT_LOOK_MISSING) end
   slider(L.OPT_SCALE, "scale", 0.7, 1.5, 0.05, times)
   checkbox(L.OPT_LARGE_BOX, "largeBox")

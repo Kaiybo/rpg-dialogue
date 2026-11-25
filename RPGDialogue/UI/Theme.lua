@@ -30,8 +30,17 @@ end
 
 function Theme.Look()
   local s = ns.db and ns.db.settings
+  if s and s.look == "dialogueui" and C.DialogueUILoaded() then return "dui" end
   if (not s or s.look ~= "wood") and Theme.GameArt() then return "game" end
   return "wood"
+end
+
+-- The "dialogueui" look: our windows on DialogueUI's own parchment (its brown or dark
+-- theme, read from its saved settings), laid out as the wood look.
+function Theme.IsDUI() return Theme.Look() == "dui" end
+function Theme.DUIDark()
+  local db = _G.DialogueUI_DB
+  return type(db) == "table" and db.Theme == 2
 end
 
 function Theme.IsGame() return Theme.Look() == "game" end
@@ -214,9 +223,40 @@ local function gamePalette(dark)
   return p
 end
 
+-- DialogueUI's inks (its ThemeUtil colours): dark brown on its parchment; greys and pale
+-- gold on its dark theme.
+local duiCache = {}
+local function duiPalette(dark)
+  local key = dark and "dark" or "light"
+  if duiCache[key] then return duiCache[key] end
+  local p
+  if dark then
+    p = { text = { 0.7, 0.7, 0.7 }, name = { 1, 0.98, 0.8 }, title = { 1, 0.98, 0.8 }, subtitle = { 0.7, 0.7, 0.7 },
+          header = { 0.9, 0.9, 0.9 }, choice = { 0.796, 0.784, 0.584 }, hover = { 1, 0.98, 0.8 },
+          number = { 0.796, 0.784, 0.584 }, marker = { 1, 0.98, 0.8 }, topic = { 0.55, 0.80, 1 },
+          dim = { 0.55, 0.55, 0.55 }, locked = { 0.5, 0.5, 0.5 }, reaction = { 0.85, 0.9, 1 },
+          divider = { 1, 1, 1, 0.22 }, highlight = { 1, 1, 1, 0.08 }, accent = { 0.796, 0.784, 0.584, 0.9 },
+          wood = { 0.12, 0.12, 0.12, 1 }, woodLight = { 0.25, 0.25, 0.25, 1 }, trim = { 0.45, 0.42, 0.35, 1 },
+          button = { 0.16, 0.16, 0.16, 1 }, buttonText = { 1, 0.98, 0.8 }, buttonTextHover = { 1, 1, 1 },
+          buttonHover = { 1, 1, 1, 0.12 }, bg = { 0.1, 0.1, 0.1, 1 }, dark = true }
+  else
+    p = { text = { 0.19, 0.17, 0.13 }, name = { 0.416, 0.18, 0.165 }, title = { 0.19, 0.17, 0.13 },
+          subtitle = { 0.50, 0.36, 0.24 }, header = { 0.19, 0.17, 0.13 }, choice = { 0.19, 0.17, 0.13 },
+          hover = { 0.416, 0.18, 0.165 }, number = { 0.50, 0.36, 0.24 }, marker = { 0.416, 0.18, 0.165 },
+          topic = { 0.08, 0.20, 0.48 }, dim = { 0.50, 0.36, 0.24 }, locked = { 0.55, 0.47, 0.38 },
+          reaction = { 0.28, 0.17, 0.07 }, divider = { 0.42, 0.31, 0.20, 0.35 },
+          wood = { 0.30, 0.22, 0.14, 1 }, woodLight = { 0.50, 0.36, 0.24, 1 }, trim = { 0.50, 0.36, 0.24, 1 },
+          button = { 0.30, 0.22, 0.14, 1 }, buttonText = { 0.87, 0.86, 0.75 }, buttonTextHover = { 1, 0.97, 0.88 } }
+  end
+  setmetatable(p, { __index = Theme.PALETTES.parchment })
+  duiCache[key] = p
+  return p
+end
+
 function Theme.Palette()
   local s = ns.db and ns.db.settings
   local contrast = s and s.highContrast
+  if Theme.IsDUI() and not contrast then return duiPalette(Theme.DUIDark()) end
   if Theme.IsGame() then return gamePalette(contrast or C.QuestTextContrast() == 4) end
   return contrast and Theme.PALETTES.contrast or Theme.PALETTES.parchment
 end
@@ -375,10 +415,64 @@ function Theme.Decorate(f, thickness, opts)
   Theme.Recolor(f)
 end
 
+-- DialogueUI's parchment (Parchment.png, 1024 wide: top cap 0-256, a stretching middle
+-- 256-896, bottom cap 896-1152, as its own window cuts it). The paper fills about 74% of
+-- the image's width, so the image is drawn wider than the window and centred on it, the
+-- caps centred on its top and bottom edges.
+local DUI_ART = "Interface\\AddOns\\DialogueUI\\Art\\"
+local function duiFit(f)
+  local d = f.rpgdTex and f.rpgdTex.dui
+  if not d then return end
+  local w = f:GetWidth() or 0
+  if w <= 0 then return end
+  local tw = w / 0.736
+  local cap = 256 * tw / 1024
+  d.top:SetSize(tw, cap)
+  d.bottom:SetSize(tw, cap)
+  d.mid:SetShown(d.on and (f:GetHeight() or 0) > cap)
+end
+local function buildDUI(f)
+  local t = f.rpgdTex
+  if t.dui then return t.dui end
+  local d = {}
+  d.top = f:CreateTexture(nil, "BACKGROUND", nil, 1)
+  d.top:SetPoint("CENTER", f, "TOP", 0, 0)
+  d.top:SetTexCoord(0, 1, 0, 256 / 2048)
+  d.bottom = f:CreateTexture(nil, "BACKGROUND", nil, 1)
+  d.bottom:SetPoint("CENTER", f, "BOTTOM", 0, 0)
+  d.bottom:SetTexCoord(0, 1, 896 / 2048, 1152 / 2048)
+  d.mid = f:CreateTexture(nil, "BACKGROUND", nil, 0)
+  d.mid:SetPoint("TOPLEFT", d.top, "BOTTOMLEFT")
+  d.mid:SetPoint("BOTTOMRIGHT", d.bottom, "TOPRIGHT")
+  d.mid:SetTexCoord(0, 1, 256 / 2048, 896 / 2048)
+  t.dui = d
+  if type(f.HookScript) == "function" then f:HookScript("OnSizeChanged", duiFit) end
+  return d
+end
+
 -- Show the parts of the current look and color them. Every window's Style calls this.
 function Theme.Recolor(f)
   local t = f.rpgdTex
   if not t then return end
+  local dui = Theme.IsDUI() and not (ns.db and ns.db.settings.highContrast)
+  if t.dui or dui then
+    local d = buildDUI(f)
+    d.on = dui
+    local file = DUI_ART .. (Theme.DUIDark() and "Theme_Dark" or "Theme_Brown") .. "\\Parchment.png"
+    for _, k in ipairs({ "top", "mid", "bottom" }) do
+      if dui then d[k]:SetTexture(file) end
+      d[k]:SetShown(dui)
+    end
+    if dui then
+      duiFit(f)
+      showAll(t.wood, false)
+      if t.game then
+        showAll(t.game.regions, false)
+        if t.game.inset then t.game.inset:Hide() end
+      end
+      return
+    end
+  end
   local g = Theme.IsGame() and buildGame(f) or nil
   local game = g and true or false
   showAll(t.wood, not game)
