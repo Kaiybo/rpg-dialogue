@@ -146,6 +146,7 @@ local function fakeWindow(opts)
   f.GetChildren = function() return keys end
   f.handler = "HandleGossip"
   f.HandleGossip = function(self) log.native = log.native + 1; self.text = "native gossip"; return true end
+  f.HandleQuestProgress = function(self) log.native = log.native + 1; self.text = "native quest page"; return true end
   f.ReleaseAllObjects = function(self) self.buttons = {}; log.layouts = log.layouts + 1 end
   f.UseQuestLayout = function() end
   f.FormatParagraph = function(self, y, text)
@@ -395,5 +396,94 @@ describe("Handing in from the conversation in DialogueUI", function()
     dui.buttons[pick].onClickFunc(dui.buttons[pick])
     ok(called("SelectActiveQuest"), "the game is asked to open the quest")
     eq(dui.consumeClose, true, "DialogueUI told the menu's close is expected, so its window stays for the quest")
+  end)
+end)
+
+describe("DialogueUI edge cases", function()
+  it("leaves the window open when another NPC's menu arrives during a talk-key visit", function()
+    local ns, dui = bootInside()
+    Mock.state.units.target = { guid = "Creature-0-1-0-1-9002-AB", name = "Deputy Willem", level = 10 }
+    ns.Conversation.TalkToTarget()
+    eq(dui:IsShown(), true)
+    Mock.calls = {}
+    visit(dui, "Marshal McBride")
+    eq(dui:IsShown(), true, "not hidden under the new menu")
+    eq(ns.Conversation.session.view, "dui")
+    ok(not called("CloseGossip"), "their menu isn't closed")
+    contains(names(dui), "Get on with it")
+  end)
+
+  it("ignores old rows once the page is gone", function()
+    local ns, dui = bootInside()
+    visit(dui, "Marshal McBride")
+    local old = dui.buttons[1]
+    ns.UI.DUIView.Release()
+    local before = ns.Conversation.session.node
+    old.onClickFunc(old)
+    eq(ns.Conversation.session.node, before, "a stale row does nothing")
+  end)
+end)
+
+describe("DialogueUI resetting its own scripts", function()
+  it("still ends a talk-key visit when its window's OnHide script was replaced", function()
+    local ns, dui = bootInside()
+    Mock.state.units.target = { guid = "Creature-0-1-0-1-9002-AB", name = "Deputy Willem", level = 10 }
+    ns.Conversation.TalkToTarget()
+    eq(dui:IsShown(), true)
+    -- What DialogueUI does on every show: its own OnHide, set afresh (hooks gone).
+    dui:SetScript("OnHide", function() end)
+    dui:Hide()
+    eq(ns.Conversation.session, nil, "Goodbye or Escape still ends the visit")
+  end)
+end)
+
+describe("What do you know? in DialogueUI", function()
+  it("shows their lead-in, with the topics they named as rows first", function()
+    local ns, dui = bootInside()
+    for i = 1, 3 do
+      ns.Data.topics["n" .. i] = { id = "n" .. i, name = "Named " .. i, category = "places" }
+    end
+    visit(dui, "Marshal McBride")
+    ns.Engine.TopicsKnownBy = function() return { { id = "n1" }, { id = "n2" }, { id = "n3" } } end
+    ns.Conversation.Ask("knows")
+    ok(not (dui.text or ""):find("Named 1", 1, true), "no list of names in the text: " .. tostring(dui.text))
+    ok(names(dui):find("^1%. Named"), "the named topics come first: " .. names(dui))
+    contains(names(dui), "Named 3")
+    contains(names(dui), "Back")
+  end)
+end)
+
+describe("A quest-only NPC in DialogueUI (the game opens the quest page at once)", function()
+  local function openQuestPage(dui)
+    Mock.state.units.npc = { guid = "Creature-0-1-0-1-197-AB", name = "Marshal McBride", level = 20, reaction = 5 }
+    Mock.state.questFrame = { questID = 9001, title = "A Threat Within", progress = "Is it done?", completable = true }
+    dui.handler = "HandleQuestProgress"
+    Mock.Fire("QUEST_PROGRESS")
+    Mock.RunTimers()
+    dui:HandleQuestProgress()
+    dui:Show()
+  end
+
+  it("Hand in uncovers DialogueUI's own quest page", function()
+    local ns, dui = bootInside()
+    openQuestPage(dui)
+    eq(ns.Conversation.session.view, "dui")
+    local pick
+    for i, b in ipairs(dui.buttons) do if (b.name or ""):find("A Threat Within", 1, true) then pick = i end end
+    ok(pick, "the hand-in row: " .. names(dui))
+    dui.buttons[pick].onClickFunc(dui.buttons[pick])
+    eq(dui.text, "native quest page", "its quest page, not our conversation")
+    eq(ns.Conversation.session.mode, "business")
+  end)
+
+  it("doesn't cover the quest page again when the game restarts the visit", function()
+    local ns, dui = bootInside()
+    openQuestPage(dui)
+    ns.Conversation.Business()
+    eq(dui.text, "native quest page")
+    ns.Conversation.Finish()
+    openQuestPage(dui)
+    eq(ns.Conversation.session.mode, "none", "no new conversation over the page just handed over")
+    eq(dui.text, "native quest page")
   end)
 end)

@@ -368,6 +368,7 @@ function Conv.DecideFull(s, mode)
   local settings = ns.db.settings
   if s.kind == "talk" then return true, "talk" end
   if C.InCombat() then return false, "combat" end
+  if Conv.JustHandedOver(s.guid) then return nil, "just handed over to the game's page" end
   if mode == "stepback" then return false, "another dialogue addon is in charge" end
   if settings.openMode == "full" then return true, "setting: always full" end
   local first = (s.mem.times or 0) == 0
@@ -501,9 +502,24 @@ end
 
 -- Hand the visit to the game's own window (already open underneath): a vendor, trainer,
 -- flight map or bank, DialogueUI, combat, or a page the box can't answer.
+-- The last visit handed to the game's own page. The game can end and restart the
+-- interaction around a quest page (a quest-only NPC, a hand-in), which would open the
+-- conversation again on top of the page just handed over; for a short while it doesn't.
+local lastHandover
+Conv.HANDOVER_GRACE = 20
+-- Inside DialogueUI only: that's where the game's page sits under our page and the
+-- restart showed. In the box, talking again right after a vendor still opens the talk.
+function Conv.NoteHandover(s)
+  if s and s.guid and s.view == "dui" then lastHandover = { guid = s.guid, t = C.Now() } end
+end
+function Conv.JustHandedOver(guid)
+  return lastHandover ~= nil and lastHandover.guid == guid and C.Now() - lastHandover.t < Conv.HANDOVER_GRACE
+end
+
 function Conv.HandOver()
   local s = Conv.session
   if not s then return end
+  Conv.NoteHandover(s)
   s.following = nil
   View(s).Hide()
   if ns.UI.AskAbout then ns.UI.AskAbout.Hide() end
@@ -609,6 +625,8 @@ function Conv.Business(hint)
     if opt then
       if s.view == "dui" then
         ns.UI.DUIView.Release()
+        ns.UI.DUIView.BeforeGamePick("gossipOption")
+        ns.UI.DUIView.BeforeServiceWindow()
         s.mode = "business"
       elseif s.mode == "full" and Conv.KeepPages(s) and not Conv.OverOtherWindow() then
         s.following = true
@@ -1073,13 +1091,27 @@ function Conv.Choose(index)
       -- Stay in the box: the game's next page (gossip, quest) is shown here when it comes.
       s.following = true
       if g.kind == "reveal" then Conv.ShowGamePage("quest"); return end
+    elseif s.view == "dui" and g.kind == "reveal" then
+      -- A quest-only NPC (no menu): the game opened their quest's page straight away and
+      -- our conversation covers it in DialogueUI's window. Uncover it: DialogueUI lays its
+      -- own quest page out again.
+      Conv.NoteHandover(s)
+      s.mode = "business"
+      ns.UI.DUIView.Hide()
+      return
     elseif s.view == "dui" then
       -- Inside DialogueUI: its own pages take over from here. A quest's page comes back to
       -- the conversation when the NPC's menu returns (accepted, declined, handed in).
+      Conv.NoteHandover(s)
       ns.UI.DUIView.Release()
       s.mode = "business"
       if g.kind == "gossipQuest" or g.kind == "greetingQuest" then s.duiQuest = true end
       ns.UI.DUIView.BeforeGamePick(g.kind, g.active)
+      if g.kind == "gossipOption" then
+        for _, o in ipairs(C.GossipOptions()) do
+          if o.id == g.id and Conv.OptionKind(o) then ns.UI.DUIView.BeforeServiceWindow() end
+        end
+      end
     else
       -- Hand over to the game's window first, then pick the option there.
       Conv.HandOver()
@@ -1282,6 +1314,7 @@ function Conv.AskKnows()
     text = L.FALLBACK_LINE
   end
   local linked
+  local lead = text
   if #ids > 0 then
     ns.Effects.Apply({ learn = ids }, s.env)
     ns.Topics.MarkKnows(ids, s.memKey)
@@ -1291,7 +1324,13 @@ function Conv.AskKnows()
     linked = on and (text .. "\n\n" .. ns.Topics.LinkList(ids, hex)) or nil
     text = plain
   end
-  View(s).ShowAnswer(text, L.KNOWS_TITLE, linked)
+  if s.view == "dui" then
+    -- DialogueUI's window can't show links: their lead-in alone, and the topics they named
+    -- as rows to ask about, first in the list.
+    View(s).ShowAnswer(lead, L.KNOWS_TITLE, nil, nil, #ids > 0 and ids or nil)
+  else
+    View(s).ShowAnswer(text, L.KNOWS_TITLE, linked)
+  end
   if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
 end
 

@@ -2,7 +2,13 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
-## Unreleased
+## 0.113.0 (2026-11-25): Through the Right Door
+No new files; a /reload is enough.
+- **DialogueUI: "What do you know?" fits.** Their answer is just what they say; the topics they name are listed first as rows you can ask about, instead of a long plain list that pushed the replies off the page.
+- **DialogueUI: closing a talk-key conversation ends it.** Goodbye or Escape in DialogueUI's window now ends the visit (the talk key on the same person used to do nothing afterwards).
+- **DialogueUI: quests and shops from the conversation.** Cancel on the page of a quest you already have goes back to the conversation instead of closing everything; NPCs with several quests wait properly for their menu after you answer one; a vendor or trainer picked from the conversation opens with the game's UI showing, even with DialogueUI's "Hide UI" on.
+- **DialogueUI: fixes from a full pass.** Right-clicking someone with a menu while a talk-key conversation is open no longer closes their menu. Old replies left above a new page as history no longer do anything when clicked. The page no longer replays DialogueUI's fade-in and page sound each time it updates.
+- **DialogueUI: handing in to someone with only a quest works.** For people with no menu, just a quest (Nikova Raskol), the game opens the quest's page straight away and the conversation sits over it; "Hand in" now uncovers DialogueUI's quest page instead of doing nothing, and a conversation no longer reopens on top of the page you just handed over to.
 - **DialogueUI: handing in and taking quests from the conversation works.** Clicking "Hand in: ..." (or a new quest) on our page closed DialogueUI's window as the quest page opened, so nothing happened. It now opens the quest page as DialogueUI's own rows do.
 - **DialogueUI: a shorter Ask about... list.** The first list holds the "ask anyone" topics and what this person can tell you about; everything else you've heard of is folded into one row per kind (People, Places, Threats...), each with its own pages. No more thirteen pages of seven.
 - **DialogueUI: a tidier page.** The disposition now sits on the Persuade row ("Persuade... (they feel warm)") instead of heading every page, and the muted lines are easier to read on the brown parchment.

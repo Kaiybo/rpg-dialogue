@@ -39,6 +39,7 @@ local owned, hidingSelf = false, false
 local page                  -- { text, choices, canAsk, asking }
 local lastView              -- the last page asked for, to move it to the box if needed
 local rows = {}             -- what each option button does, from the last layout
+local lastText              -- the words of the last page laid out (for the fade-in)
 
 local function window() return C.DialogueUIFrame() end
 
@@ -135,6 +136,7 @@ local function install(f)
     if type(original) == "function" then
       f[name] = function(self, ...)
         resetButtons()
+        if not page then lastText = nil end
         if page then
           local ok, laidOut = pcall(V.Layout, self)
           if ok and laidOut then return true end
@@ -144,11 +146,21 @@ local function install(f)
       end
     end
   end
+  -- Its own closing (Goodbye, Escape) of a window we opened. DialogueUI sets its window's
+  -- OnHide script afresh on every show and clears it on every hide, which drops a
+  -- HookScript, so we hook its Hide method (Goodbye and Escape both go through HideUI ->
+  -- Hide) and add the OnHide hook again on each show, after its own reset.
+  local function closed()
+    if not owned or hidingSelf then return end
+    owned, page = false, nil
+    if ns.Conversation.OnWindowClosed then ns.Conversation.OnWindowClosed() end
+  end
+  local hook = _G.hooksecurefunc
+  if type(hook) == "function" then pcall(hook, f, "Hide", closed) end
   if type(f.HookScript) == "function" then
-    f:HookScript("OnHide", function()
-      if not owned or hidingSelf then return end
-      owned, page = false, nil
-      if ns.Conversation.OnWindowClosed then ns.Conversation.OnWindowClosed() end
+    f:HookScript("OnHide", closed)
+    f:HookScript("OnShow", function(self)
+      if type(self.HookScript) == "function" then self:HookScript("OnHide", closed) end
     end)
   end
   installed = true
@@ -232,8 +244,20 @@ local function buildRows(p)
     local cat = p.askCat
     if cat and not byCat[cat] then cat, p.askCat = nil, nil end
     if not cat then
+      -- Just after "What do you know?", the topics they named come first.
+      local named = {}
+      for _, id in ipairs(p.named or {}) do named[id] = true end
+      local shownFirst = {}
+      if p.named then
+        for _, t in ipairs(all) do
+          if named[t.id] then topicRow(t, #shownFirst == 0 and #out > 0); shownFirst[#shownFirst + 1] = t end
+        end
+      end
       for i, t in ipairs(std) do topicRow(t, i == 1 and #out > 0) end
-      for i, t in ipairs(knows) do topicRow(t, i == 1) end
+      local gap = true
+      for _, t in ipairs(knows) do
+        if not named[t.id] then topicRow(t, gap); gap = false end
+      end
       local first = true
       for _, c in ipairs(CAT_ORDER) do
         local list = byCat[c]
@@ -304,7 +328,11 @@ function V.Layout(f)
   local p = page
   f:ReleaseAllObjects()
   f:UseQuestLayout(false)
-  f.hasActiveGossipQuests, f.numAvailableQuests, f.keepGossipHistory = false, 0, false
+  -- How many quests they offer: DialogueUI waits longer after a quest is answered when
+  -- there are several (the game drops the interaction, then picks it up again).
+  local offered = 0
+  for _, q in ipairs(C.GossipQuests()) do if not q.active then offered = offered + 1 end end
+  f.hasActiveGossipQuests, f.numAvailableQuests, f.keepGossipHistory = false, offered, false
   local text = V.Compose(p)
   local offsetY, first, last = f:FormatParagraph(0, text ~= "" and text or " ")
   if not first then error("FormatParagraph returned nothing") end
@@ -358,11 +386,17 @@ function V.Layout(f)
   local top, bottom = first:GetTop(), last:GetBottom()
   f:SetScrollRange((top and bottom) and (top - bottom) or (offsetY + 40 * #rows))
   if has(f, "SetQuestTextRange") then f:SetQuestTextRange(nil) end
-  if has(f, "FadeInContentFrame") then f:FadeInContentFrame() end
+  -- Its fade-in (and page sound) only when the words changed: a refresh for a new
+  -- disposition, a page of topics or a tone used to replay both, often twice a click.
+  if has(f, "FadeInContentFrame") and (text ~= lastText or not f:IsShown()) then f:FadeInContentFrame() end
+  lastText = text
   return true
 end
 
+-- Only rows of the page on show: after a game option, DialogueUI keeps the old page above
+-- the next one as history, and its buttons must not act on a page that's gone.
 function V.Click(i)
+  if not page then return end
   local r = rows[i]
   if r and not r.locked then r.onClick() end
 end
@@ -420,6 +454,8 @@ function V.Show(v)
     -- Opened by us: no camera move or hidden UI (those come with the game's interaction).
     local ok = pcall(f.Show, f)
     if ok and has(f, "PlayIntroAnimation") then pcall(f.PlayIntroAnimation, f) end
+    -- Its settings re-lay the page through the handler it last used; give it ours.
+    if ok and not rawget(f, "handler") then f.handler = "HandleGossip" end
   end
   if f:IsShown() then
     V.Refresh()
@@ -438,7 +474,7 @@ end
 
 function V.SetChoices(choices)
   if not page then return end
-  page.choices, page.asking, page.persuading, page.askCat = choices, nil, nil, nil
+  page.choices, page.asking, page.persuading, page.askCat, page.named = choices, nil, nil, nil, nil
   if lastView then lastView.choices = choices end
   V.Refresh()
 end
@@ -470,9 +506,12 @@ end
 
 -- An answer keeps the topic list open (and its page), so the next question is one click.
 -- What you said to get it (Admire, Joke, Taunt, Intimidate; 0.86.0) goes ahead of it.
-function V.ShowAnswer(text, _, _, said)
+-- topicIds ("What do you know?"): the topics they named, listed first as rows to ask about.
+function V.ShowAnswer(text, _, _, said, topicIds)
   if not page then return end
   page.body, page.narr, page.said, page.reactions = text or "", nil, said, nil
+  page.named = topicIds
+  if topicIds then page.asking, page.askCat, page.askPage = true, nil, 0 end
   if lastView then lastView.text, lastView.narr, lastView.said = page.body, nil, said end
   V.Refresh()
 end
@@ -489,6 +528,15 @@ end
 local function hideOwned()
   owned, page = false, nil
   local f = window()
+  -- Someone else's menu has just come into it (another NPC right-clicked mid-talk): leave
+  -- it open, since hiding it would close their menu too.
+  local ok, npc = pcall(_G.UnitExists, "npc")
+  if ok and npc then
+    -- Their menu, not our old page (which DialogueUI may already have laid out for it).
+    lastText = nil
+    V.Refresh()
+    return
+  end
   if f and f:IsShown() then
     hidingSelf = true
     pcall(f.Hide, f)
@@ -497,6 +545,7 @@ local function hideOwned()
 end
 
 function V.Hide()
+  resetButtons()
   if owned then return hideOwned() end
   if not page then return end
   page = nil
@@ -519,10 +568,24 @@ function V.BeforeGamePick(kind, active)
   if not f then return end
   if kind == "gossipQuest" or kind == "greetingQuest" then
     if has(f, "SetConsumeGossipClose") then pcall(f.SetConsumeGossipClose, f, true) end
-    if not active and has(f, "MarkQuestIsFromGossip") then pcall(f.MarkQuestIsFromGossip, f, true) end
+    -- As its rows: every quest from the gossip menu, only new ones from a quest greeting
+    -- (so Cancel on a quest's page goes back to the menu rather than closing everything).
+    if (kind == "gossipQuest" or not active) and has(f, "MarkQuestIsFromGossip") then
+      pcall(f.MarkQuestIsFromGossip, f, true)
+    end
   elseif kind == "gossipOption" then
     if has(f, "SetConsumeGossipClose") then pcall(f.SetConsumeGossipClose, f, false) end
   end
+end
+
+-- A vendor, trainer or other window of the game's is about to open from our page. With
+-- DialogueUI's "Hide UI" on, the game's UI is hidden while its window is up; its own rows
+-- bring it back first ("some UI breaks if shown while UIParent is hidden"), so we do too.
+function V.BeforeServiceWindow()
+  local ui = _G.UIParent
+  if not ui then return end
+  if not ui:IsShown() and type(_G.SetUIVisibility) == "function" then pcall(_G.SetUIVisibility, true) end
+  if ui.GetAlpha and (ui:GetAlpha() or 1) < 1 then pcall(ui.SetAlpha, ui, 1) end
 end
 
 -- The next Show opens DialogueUI's window itself (talk key, right-click: no game menu).
