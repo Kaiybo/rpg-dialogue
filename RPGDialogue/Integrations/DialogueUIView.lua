@@ -189,7 +189,11 @@ function V.Broke(err)
   page = nil
   ns.Debug("DialogueUI view:", tostring(err))
   local v = lastView
-  C.After(0, function() ns.Conversation.FallbackToBox(v) end)
+  local sess = ns.Conversation.session
+  C.After(0, function()
+    -- Only for the visit that broke; a new NPC's visit must not get the old page.
+    if ns.Conversation.session == sess then ns.Conversation.FallbackToBox(v) end
+  end)
 end
 
 local function keyListener(f)

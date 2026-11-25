@@ -1685,6 +1685,8 @@ function Conv.TalkToTarget(silent)
   Conv.Start("talk", "target")
   s = Conv.session
   if s and s.kind == "talk" then
+    -- Pressed again on the same person: the visit goes on, so stop its old watcher first.
+    if s.ticker then s.ticker:Cancel() end
     s.ticker = C.NewTicker(0.5, function()
       local cur = Conv.session
       if cur ~= s or s.ended then return end
