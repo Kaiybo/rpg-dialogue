@@ -638,7 +638,57 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The Defias in the vineyards change their watch at sunset, and for a few minutes the shack by the vines is held by Padfoot alone. That's when I'd go, if I had anyone to send." },
+    { id = "cnf_2", text = "Brother Neals in the Abbey's bell tower can see the whole valley from his window, and he keeps a notebook of everything that moves. He'll show it to you if you ask him about the bells first." },
+    { id = "cnf_3", text = "There's an old shaft at the back of Echo Ridge that the miners sealed before the kobolds came. Somebody's opened it, and it wasn't the kobolds, because the timbers were cut clean." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're a good recruit, and I've had a great many of the other kind. You listen, you come back, and you report, which is the whole of the job." },
+      { id = "rg_2", text = "I think you'll do, recruit, which is high praise from me. Ask Deputy Willem; he's been waiting three years to hear me say it." },
+      { id = "rg_earned", when = { fondness = { best = "earned" } }, text = "You've done more for this valley than the last two drafts from Stormwind put together. I don't say that to flatter you; I say it because it's in my reports." },
+      { id = "rg_order", when = { alignment = { axis = "order", min = 30 } }, text = "You follow orders without needing them shouted, and you think about them first. That's the best kind of soldier there is." },
+      { id = "rg_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You've your own way of doing things, recruit, and I'd not have it in my ranks. But you've not lost a fight in this valley yet, so I'll keep my mouth shut." },
+    },
+    confide = {
+      { id = "cf_1", text = "I've asked Stormwind for more soldiers twice this season and been turned down twice. The recruits don't know, and I'd rather they didn't." },
+      { id = "cf_2", text = "The brothers in the Abbey think I'm hard on them because I don't believe in prayer. I do; I just believe in a locked gate more." },
+      { id = "cf_3", text = "Every recruit I've lost in this valley, I've written to their family myself. There are eleven letters this year, and I remember every name." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Deputy Willem; he's been with me since the Second War and he's never once given me a bad report. And trust Marshal Dughan in Goldshire, even if he thinks I'm jumpy." },
+      { id = "tr_2", text = "Trust the Brotherhood at the Abbey with your wounds and your soul, recruit, but not with your tactics. They're good men who've never had to hold a door." },
+      { id = "tr_3", text = "Trust anyone who's been in Echo Ridge Mine and come back sober. Folk who haven't seen the kobolds' work don't know what they're talking about." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the kobolds' candles, recruit; where the lights go out, there's a nest. Don't follow them into the dark." },
+      { id = "wo_2", text = "Watch the vineyards to the east and anyone in a red bandana. The Defias aren't just thieves, and they're closer to the Abbey than I like." },
+      { id = "wo_low", when = { maxLevel = 10 }, text = "Watch the wolves along the treeline, recruit. They look like nothing, and they've put more recruits on the brothers' tables than the kobolds have." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry the kobolds are digging for something they shouldn't find. Kobolds want candles and copper, and these ones are digging past both." },
+      { id = "wy_2", text = "I worry that I'll be the marshal who lost Northshire Abbey, recruit. It's stood since before the First War, and I'd hate to be the one it fell under." },
+      { id = "wy_3", text = "I worry about the recruits I send out and the ones I can't. Too few soldiers means every one I send goes alone, and alone is how they die." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see a full garrison here before I retire, recruit, every post manned and every patrol doubled. I'd sleep a whole night, for once." },
+      { id = "hp_2", text = "I hope some of the recruits I've trained go on to command, and remember to count before they charge. That's all I'd want for a legacy." },
+      { id = "hp_3", text = "I'd like to walk the valley one day without a sword on my hip. Just walk it, recruit, the way the brothers do, and see the river for what it is." },
+    },
+    favor = {
+      { id = "fv_1", text = "Come back now and then, recruit, and train the new ones a little. They'll listen to a veteran who's not their marshal more than they'll listen to me." },
+      { id = "fv_2", text = "If you're in Stormwind and anybody in the Keep asks how Northshire's holding, tell them the truth. I've run out of ways to say it politely." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, recruit, though I'll still call you recruit, because I call everyone that. With you, it's meant kindly." },
+      { id = "fr_2", text = "Aye, a friend, and I've few enough. Most of mine are on the Army's rolls, and too many of them on its memorial stones." },
+      { id = "fr_order", when = { alignment = { axis = "order", min = 40 } }, text = "A friend, and a soldier I'd trust with my flank. In my trade, there's no closer word than that." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I was offered a post in the Stormwind garrison, behind good walls, with a proper pension. I turned it down, because I didn't trust anyone else to hold this valley, and that's pride, recruit, not duty." },
+      { id = "nt_2", text = "I lost my first command in the Second War because I charged before I counted. That's why I tell every recruit to count first, and I've never told one of them why." },
+    },
     _gated = {
       { id = "gt1", text = "That's not for a recruit I've barely had time to judge. Do some work for the valley first, and then ask me." },
       { id = "gt2", text = "I'll not discuss that with you yet, recruit. I talk freely to soldiers I trust, and you've still that to earn." },

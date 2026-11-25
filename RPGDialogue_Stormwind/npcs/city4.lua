@@ -386,7 +386,57 @@ P:NPC {
     { id = "bl2", text = "Gryan Stoutmantle writes every week asking for soldiers to clear the Defias out of the Moonbrook mines. I have none to send, and I've begun to suspect the Keep likes it that way." },
     { id = "bl3", text = "The Blackrock in Redridge are bolder than the reports admit, and Lakeshire's walls wouldn't hold a real assault. Magistrate Solomon is right about that, and I can't say so publicly." },
   },
+  confides = {
+    { id = "cnf_1", text = "The patrols on the Westfall road are drawn from the city watch, not the Army, and they turn back at the Westbrook Garrison. Past it, you're on your own until Sentinel Hill." },
+    { id = "cnf_2", text = "The Blackrock in Redridge are being supplied from the Burning Steppes through the pass beyond Stonewatch. Cut that road and the orcs at Stonewatch would be hungry within a month." },
+    { id = "cnf_3", text = "The Army's muster rolls show four thousand men, and fewer than half of them could be put in the field tomorrow. The rest are guarding nobles' estates, by long arrangement with the House." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're a credit to the Alliance, {name}, and I say that having read the reports of a great many who weren't. You've conducted yourself as well as any officer under my command." },
+      { id = "rg_2", text = "I think you've done what my soldiers would have done, if the Keep had ever let me send them. That earns more of my respect than a medal could." },
+      { id = "rg_earned", when = { fondness = "earned" }, text = "Your name keeps turning up in letters from the provinces, and always next to the word thanks. I've learned to read those letters first." },
+      { id = "rg_order", when = { alignment = { axis = "order", min = 30 } }, text = "You respect the chain of command even when it fails you, which is the hardest discipline there is. I know, because I practise it every day." },
+      { id = "rg_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You go where you're needed without waiting for orders, and as a general I ought to disapprove. As a man who watches Westfall burn by letter, I find I envy you." },
+    },
+    confide = {
+      { id = "cf_1", text = "I keep every letter Gryan Stoutmantle sends me in a drawer of my desk, and there are more than fifty now. I answer each one, and each answer says the same thing, and I hate writing it." },
+      { id = "cf_2", text = "I proposed retaking the Stockade in a single afternoon, with a plan drawn to the last man. It came back from the Keep with one word written across it, and the word was patience." },
+      { id = "cf_3", text = "Some days I stand at the gate to the Valley of Heroes and count the statues of men I served beside. It's a soldier's habit, and not a cheerful one." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust the Regent, {name}; he's an honest man who hears too much bad counsel. Trust Gryan Stoutmantle and Magistrate Solomon, who've never once asked me for anything they didn't need." },
+      { id = "tr_2", text = "Trust Major Samuelson with any task and any secret. He's been at my side since the Second War, and he's never let a thing slip." },
+      { id = "tr_3", text = "Trust the soldiers on the walls before the officers in the Keep. The ones who stand watch know where the trouble is, while the others only know where the money goes." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Stockade riot; it's better armed than any rabble ought to be. Someone's supplying them from outside, and I'd like very much to know who." },
+      { id = "wo_2", text = "Watch the Blackrock in the mountains east of here. They're not raiders any more, {class}; they're an army waiting for a general, and I fear they'll find one." },
+      { id = "wo_3", text = "Watch the politics in the Keep as closely as you'd watch a flank. A soldier can be killed by an order as surely as by an orc." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that the next war will come before we've finished the last, and I'll be asked to win it with soldiers I've been forbidden to train. That's how Lordaeron fell." },
+      { id = "wy_2", text = "I worry for Lakeshire. The Blackrock could take it in a night, and I'd learn of it from a letter Solomon didn't live to sign." },
+      { id = "wy_3", text = "I worry that I've grown too good at obeying, {name}. A younger man would have marched on the Stockade without leave and been hanged a hero." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to march the Army west one day and clear Westfall from the Jangolode to the sea. I've had the plan drawn up for a year, and I keep it current." },
+      { id = "hp_2", text = "I hope to see the King ride back through this gate, and hand him the Army in better shape than he left it. I'm failing at the second part, but I haven't given up." },
+      { id = "hp_3", text = "I'd like to retire to a small house near Lakeshire, of all places, and fish the lake. I was stationed there as a young man, and it was the happiest year of my life." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you're riding west or east, look in on Sentinel Hill and Lakeshire and tell their commanders the Army hasn't forgotten them. It's a poor substitute for soldiers, but it's what I can give." },
+      { id = "fv_2", text = "Keep alive, {name}, and keep doing what my men can't. That's the only order I'd give you if I could." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}, and a general has few enough of those. Most people who seek me out want soldiers, and you've only ever given." },
+      { id = "fr_2", text = "Aye, and I'd count it an honour to serve beside you, if the Keep ever lets me serve anywhere but this gate. A friend in the field is worth a regiment." },
+      { id = "fr_order", when = { alignment = { axis = "order", min = 40 } }, text = "A friend and a comrade, for you keep faith with duty as I try to. There's no closer bond I know of between two soldiers." },
+    },
+    never_told = {
+      { id = "nt_1", text = "In the First War, I ran from the burning of Stormwind with the refugees, and I was not a child; I was a soldier. I've spent every year since trying to be the man who'd have stayed." },
+      { id = "nt_2", text = "I've drafted my resignation three times since the King was lost. Each time, I've remembered that whoever replaced me would obey the Keep even more readily, and torn it up." },
+    },
     grievance = {
       { id = "gv1", text = "I try to treat every visitor courteously, and I've treated you so. I'm afraid that courtesy is all you'll have from me now." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "I commanded men in the Second War who died screaming under warlock fire. You'll forgive me if I find your craft hard to overlook." },

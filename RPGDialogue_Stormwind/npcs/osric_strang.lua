@@ -385,7 +385,57 @@ P:NPC {
     { id = "bl2", text = "Anduin Lothar fell at the foot of Blackrock Spire, and the orcs are back in it now. Somebody ought to finish what he started, and the Keep won't." },
     { id = "bl3", text = "Quartermaster Lewis at Sentinel Hill keeps the Militia going on nothing, and he's down to his last crates. I send him plate when I can, and I don't charge him." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Defias buy their mail through a tinker who sets up by the Old Town fountain on market days. He pays in Westfall copper that's still got field dust on it, and that's how I know." },
+    { id = "cnf_2", text = "Quartermaster Lewis at Sentinel Hill will fit out anyone who stands with the Militia from the crates I send him. If you're headed west, go to him before you buy a stitch in the Trade District." },
+    { id = "cnf_3", text = "Dungar Longdrink at the gryphon roost will carry a parcel for anyone who's polite to his birds. Insult a gryphon in his hearing and your crate goes to Menethil by way of the sea." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're the sort who'd hold a line, and I don't say that of many. You look after your kit and you don't whine about the weight." },
+      { id = "rg_2", text = "I think you've got sense, which is rarer than courage, and you've got some of that too. The ones who come through my door with only courage, I fit for a coffin as much as a fight." },
+      { id = "rg_earned", when = { fondness = { best = "earned" } }, text = "You've done right by the Militia and right by me, and you never once asked for a discount for it. That's how I know you're honest." },
+      { id = "rg_order", when = { alignment = { axis = "order", min = 30 } }, text = "You keep your post and follow your orders, even the daft ones, and that's what wins wars. Lothar's men were like that, and they're the reason any of us are standing." },
+      { id = "rg_chaos", when = { alignment = { axis = "order", max = -30 } }, text = "You'd make a terrible soldier, {g:lad|lass}, for you'd never take an order you didn't like. But I've seen what you do with your freedom, and I can't fault it." },
+    },
+    confide = {
+      { id = "cf_1", text = "I keep my brother Edric's helm on the top shelf behind the counter, dented where the axe took him. Folk think it's for sale, and I let them ask, because it gives me a reason to say his name." },
+      { id = "cf_2", text = "I guarded a camp for three years after the Second War, and I'll tell you true, most of those orcs were too sick to fight anyone. It didn't change how I felt, but it changed how I slept." },
+      { id = "cf_3", text = "Half the plate I send Lewis at Sentinel Hill, I make at night after the shop's shut. My hands aren't what they were, and the night work's slow, but those lads need it more than any noble's son needs a fancy breastplate." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Gryan Stoutmantle and Quartermaster Lewis, for both of them have bled for Westfall and asked nothing for it. That's the best test there is." },
+      { id = "tr_2", text = "Trust any dwarf who fought in the Second War; they stood by us when nobody else would. The night elves, I'll trust when they've stood by somebody." },
+      { id = "tr_3", text = "Not the other smiths in Old Town, not with your coin and not with your secrets. Half of them would fit out the Defias in the morning and the guard in the afternoon." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for cheap mail in the market, {g:lad|lass}, the kind with the rings punched and not riveted. It'll stop a fist and nothing else, and I've seen men die finding that out." },
+      { id = "wo_2", text = "Watch the Blackrock in Redridge, for they're the same clan that sat in the Spire when Lothar fell. They're not raiders; they're the old Horde that never stopped." },
+      { id = "wo_3", text = "Watch your back in Westfall after dark. The Defias hit from the fields, never the road, so keep your shield on the side where the crops are tallest." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry about Lewis's lads in Westfall. They're farmers' sons in my plate, and every one that dies is a boy I measured for a breastplate." },
+      { id = "wy_2", text = "I worry I'm getting too old to hate the way I do, and that one day I'll forget why I started. Then I'll have nothing to show for Edric but a dented helm." },
+      { id = "wy_3", text = "I worry this city's forgotten what war costs. They built statues and moved on, and I'm still counting the men who didn't come home." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Blackrock Spire cleared one day, finished properly the way Lothar meant it. I'd close the shop for a week and drink to it with every old soldier left in Old Town." },
+      { id = "hp_2", text = "I hope Westfall grows wheat again in my lifetime, and the Militia can go home to their farms and hang my plate on the barn wall. That'd be the best use it could have." },
+      { id = "hp_3", text = "I'd like to take on an apprentice who cares about the work, someone who'll still be riveting mail after I'm gone. I've not found one yet." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you're passing Sentinel Hill, carry word to Lewis that another crate's coming, and tell him not to pay me for it or I'll be insulted." },
+      { id = "fv_2", text = "If you ever stand at the foot of Blackrock Spire, say Anduin Lothar's name there for me. Somebody ought to, and I'm too old to walk that far." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Aye, I do, and I don't count many. Most of the friends I had are under a statue or under the ground, so you've some big boots to fill." },
+      { id = "fr_2", text = "You're a friend, {g:lad|lass}, and a comrade, which is better. I'd fit you out for any war you cared to fight, and I'd stand beside you in it if these knees would let me." },
+      { id = "fr_order", when = { alignment = { axis = "order", min = 40 } }, text = "Friend and fellow soldier, the both of them. You keep faith with your duty, and an old sergeant can't ask for better than that." },
+    },
+    never_told = {
+      { id = "nt_1", text = "When Stormwind burned in the First War, I ran, and Edric stayed to hold the gate. I tell folk we stood together, and we didn't, and I've worn that lie longer than any armour." },
+      { id = "nt_2", text = "There was an orc child in the camp I guarded who used to watch me work on my mail. I gave him a scrap of chain once to play with, and I've never told a soul, because I don't know what it means about me." },
+    },
     grievance = {
       { id = "gv1", text = "I've sold plate to men I wouldn't share a pint with, and you're one of them. Your coin's good, and that's the end of it." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "Your kind sat in your trees through two wars while we bled for the whole world. I'll sell you steel, but I'll not pretend to like you." },

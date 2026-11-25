@@ -356,7 +356,57 @@ P:NPC {
     { id = "bl1", text = "The warlocks of this city meet in the cellar under the Slaughtered Lamb in the Mage Quarter, and the guards know perfectly well. I've sold them parchment, Light forgive me." },
     { id = "bl2", text = "I left Dalaran because a Kirin Tor magister wanted copies of books he had no business reading. I didn't make them, and I wasn't welcome after that." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Royal Library lets anyone read its public shelves, but Milton Sheaf keeps the good histories behind his desk for people who ask politely and twice. Ask him about the Second War rolls and watch him light up." },
+    { id = "cnf_2", text = "The man who sells cheap scrolls by the canal bridge copies mine badly and seals them with candle wax, and half of them do nothing at all when read. Buy from him only if you enjoy disappointment." },
+    { id = "cnf_3", text = "The Slaughtered Lamb's cellar has a second stair that comes up behind the tavern, into the alley by the Mage Quarter's wall. I've seen robed folk use it at midnight, and none of them ever look happy." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're a careful reader, {name}, which is the highest compliment I know how to pay. You take things in properly instead of skimming for the exciting bits." },
+      { id = "rg_2", text = "I think you're good company, the sort I'd invite to supper with Milton if I were brave enough to subject you to him. He'd like you, and he'd lecture you for three hours." },
+      { id = "rg_tone", when = { fondness = "tone", tone = "polite" }, text = "You're gentle with old men and old paper, and you'd be amazed how rare that is. I've had customers handle my scrolls like dishrags." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "There's a steadiness in you that I associate with the Cathedral's better priests. I find I can write more neatly when you're in the shop, which is absurd, but true." },
+      { id = "rg_shadow", when = { alignment = { axis = "light", max = -30 } }, text = "I like you, though I'll admit you smell faintly of the Lamb's cellar some days. I'll say no more about it, because you've never once asked me to copy anything I shouldn't." },
+    },
+    confide = {
+      { id = "cf_1", text = "I keep an unsealed master copy of every scroll I've ever sold, locked behind the counter. If the shop ever burned, that box is the only thing I'd carry out, and possibly the cat." },
+      { id = "cf_2", text = "My apprentice Wenna writes the most crooked letters I've ever seen, but her seals are perfect, and a scroll lives or dies by its seal. I've never told her she's better at it than I am." },
+      { id = "cf_3", text = "I came south from Dalaran just after the Second War meaning to stay two years, and here I am. I still keep my travelling case packed under the bed, though I couldn't tell you what for." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Milton Sheaf with any fact and any book, though not with your afternoon. He has never once told me something untrue, even when I wanted him to." },
+      { id = "tr_2", text = "Trust Mazen up at the Academy; he frets, but he's honest to the bone and keeps dangerous books out of dangerous hands. Some of the magisters, I'd trust less." },
+      { id = "tr_3", text = "Trust anyone who apologises to a book when they drop it. I've never been wrong about that sort yet." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for anyone selling enchanted texts cheap in the Mage Quarter. A real one costs a scribe weeks, so a cheap one is either false or stolen, and the stolen ones sometimes bite." },
+      { id = "wo_2", text = "Watch the Slaughtered Lamb, {name}. I seal my own door with a scroll every night because of what's in that cellar, and I'm not a nervous man by nature." },
+      { id = "wo_mage", when = { class = "MAGE" }, text = "If a magister ever asks you to fetch a book from Dalaran's sealed stacks, refuse. I did, once, and it cost me a career, but it was still the right answer." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry my eyes are going, {name}. Copying is fine work, and lately the letters swim a bit by candlelight, and I haven't told Wenna." },
+      { id = "wy_2", text = "I worry that the Academy will close its doors to common folk, the way Dalaran did. Learning locked away goes sour, and I've seen what it turns into." },
+      { id = "wy_3", text = "I worry I've sold scrolls of Strength to men who went off to die in Westfall feeling brave for an hour. A scroll can't make anyone clever, and I wish it could." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see Dalaran open its gates again and let an old scribe walk the Violet Citadel's stacks one more time. I'd only want an afternoon." },
+      { id = "hp_2", text = "I hope Wenna takes over the shop one day and does it better than I did. She will, too, once she learns to write in a straight line." },
+      { id = "hp_3", text = "I'd like to write a book of my own, one that doesn't crumble when it's read. I've started it four times, and I keep getting distracted by orders." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you find an old book in your travels, don't sell it to a junk merchant; bring it here and let me look. Most are worthless, but now and then one is priceless." },
+      { id = "fv_2", text = "Look in on Milton Sheaf at the Library if you pass, and tell him Adair sends his regards and still maintains he's wrong about the Second War dates. It'll make his week." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, {name}, and I don't have many. I have Milton, who argues, and Wenna, who's paid, and the cat, who's indifferent, and now you." },
+      { id = "fr_2", text = "Of course I do. Friends are like good parchment, slow to come by and worth looking after properly, and I mean to look after this one." },
+      { id = "fr_light", when = { alignment = { axis = "light", min = 40 } }, text = "A friend, and a good one, the sort the Light would approve of, if it bothered with scribes. I've written your name in the margin of my prayer book, which I don't do lightly." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I did make one copy of that forbidden book in Dalaran, for myself, before I refused the magister. I burned it on the road south, unread, and I've never known whether that was wisdom or cowardice." },
+      { id = "nt_2", text = "The dockhand in my Strength scroll story lifted one barrel, not a cart, and then he dropped it on his foot. I've told it the grand way so often that you're the first to hear the truth." },
+    },
     grievance = {
       { id = "gv1", text = "I copy every scroll by hand, and I don't care to copy them for you. I'm sorry, but that's the plain truth of it." },
       { id = "gv_tone", when = { grudge = "tone" }, text = "You snapped at me as if I were a servant slow with your boots. I'm a scribe, and I take my time because the ink demands it." },

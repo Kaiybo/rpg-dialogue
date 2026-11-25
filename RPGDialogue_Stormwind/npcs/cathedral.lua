@@ -499,7 +499,57 @@ P:NPC {
     { id = "bl2", text = "The Cathedral feeds more of Westfall's families than the House of Nobles knows, and we pay for it out of the offering plates. If the nobles ever asked, I would have to lie to them." },
     { id = "bl3", text = "I still pray for the priests who stayed in Lordaeron when the plague came, and I have heard some of them walk again among the Forsaken. I do not know what the Light makes of that, and I am afraid to ask it." },
   },
+  confides = {
+    { id = "cnf_1", text = "The side door of the Cathedral by the orphanage is never barred, by my order, so that anyone in trouble may come in at any hour. The guards know it, and most of them pretend they don't." },
+    { id = "cnf_2", text = "Brother Crowley's letters to the Scarlet Monastery go out with the Westfall grain carts on the first of every month. Whatever the Crusade knows of Stormwind, it learns from him." },
+    { id = "cnf_3", text = "Some of the poorest families in the Canals will not come to the Cathedral because a noble's steward sits in our front pews counting heads. The orphanage kitchen will feed them at its back door without asking anyone's name." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you have a good heart, child, and a restless one, which is not a fault. The Light has always had a fondness for those who cannot sit still while others suffer." },
+      { id = "rg_2", text = "I think of you when I pray at first light, and I'm glad of it. There are faces I bring before the Light out of duty, and yours is not one of them." },
+      { id = "rg_earned", when = { fondness = { best = "earned" } }, text = "You've helped this city's poor when no one was watching, and they told me before you ever did. That is the kind of goodness I trust most." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "When you walk into this house, the candles seem to burn a little steadier. I know that's an old man's fancy, but I've stood here long enough to trust my fancies about the Light." },
+      { id = "rg_shadow", when = { alignment = { axis = "light", max = -30 } }, text = "I am fond of you, child, and that is why I worry, for there is a shadow you keep near you. The Light has not let go of you, whatever you may think." },
+    },
+    confide = {
+      { id = "cf_1", text = "I was a poor student at Northshire, you know, and would rather have been fishing in the stream below the Abbey. Archbishop Faol caught me at it once and sat down beside me, and that was my first real lesson." },
+      { id = "cf_2", text = "The Cathedral's coffers are nearly empty, for we have given more to Westfall than the House of Nobles ever has. If the roof leaks this winter, I'll be praying under a bucket." },
+      { id = "cf_3", text = "Not every priest in this house still feels the Light when they pray. Some lost it at Andorhal or Stratholme, and they keep the candles lit because it's what they have left." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust High Priestess Laurena, who will tell you the truth even when it shames the Church. And trust Bolvar, who prays every morning as honestly as any novice." },
+      { id = "tr_2", text = "Trust the sisters who work in the orphanage and the Canals, for they have nothing to gain and everything to give. The ones in fine robes, I'd leave to their own consciences." },
+      { id = "tr_3", text = "Trust what people do when they think no one is watching, child, more than what they say before an altar. I've heard a great many pretty confessions in my time." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Beware the Scarlet Crusade's preachers, however kindly they speak. They will tell you the Light demands fire, and the Light has never asked anyone to burn a child." },
+      { id = "wo_2", text = "Be careful of the cellar under the Slaughtered Lamb in the Mage Quarter. What is summoned there is bound, they tell me, but nothing so hungry stays bound forever." },
+      { id = "wo_3", text = "Mind your own weariness, child. More good souls are lost to exhaustion and bitterness than to any blade, and the Scourge knows it very well." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry for the Church, which grows rich in marble and poor in mercy. The Cathedral is very grand, and I'm not sure the Light was ever meant to live in so grand a house." },
+      { id = "wy_2", text = "I worry for the priests of Lordaeron who walk among the Forsaken now. I don't know whether to pray for their rest or for their souls, and I have never been so lost in prayer." },
+      { id = "wy_3", text = "I am growing old, child, and I worry about who will hold this house after me. The young ones are faithful, but faith without patience turns hard very quickly." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see the orphanage empty one day, because every child has a home and not because we've run out of room. That is the miracle I pray for most." },
+      { id = "hp_2", text = "I hope the Church remembers Alonsus Faol, who gave everything away and was never poorer for it. If we lose that, we'll have marble and no Light." },
+      { id = "hp_3", text = "I hope to retire to Northshire and sit by the stream where I first learned to pray. I'd like to fish badly again, and not be blessed for it." },
+    },
+    favor = {
+      { id = "fv_1", text = "Visit the orphanage when you can, child, and tell the children what you've seen. They need heroes they can touch, not only statues in the Valley." },
+      { id = "fv_2", text = "If you pass through Westfall, find the families the Militia shelters and see what they lack. Bring me word, and the Cathedral will do what it can, quietly." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, child, and gladly. An archbishop is father to many and friend to very few, so you'll forgive me if I treasure it." },
+      { id = "fr_2", text = "With all my heart. The Light gives us friends so that we can see a little of itself in another face, and I have seen it in yours." },
+      { id = "fr_light", when = { alignment = { axis = "light", min = 40 } }, text = "A friend, and a fellow servant of the Light, which is the dearest kind. When I am gone, I would like to think you'll keep a candle lit for this old man." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I was given this mitre because better men than I died in Lordaeron, and I have never forgotten it. Every morning I put it on for them, and every night I ask whether I've worn it well enough." },
+      { id = "nt_2", text = "The sister who tends the side-chapel candles lost her prayer at Andorhal, and it was I who sent her north. She believes the Church chose her, and I have never had the courage to tell her the choice was mine." },
+    },
     grievance = {
       { id = "gv1", text = "The Light asks me to love everyone, child, and I am trying very hard with you. I confess I am not succeeding as well as I should." },
       { id = "gv_prej", when = { grudge = "prejudice" }, text = "The Light's mercy is wide, but I will not bless the darkness you carry. Archbishop Faol taught me that mercy and approval are not the same thing." },

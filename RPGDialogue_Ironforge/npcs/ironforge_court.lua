@@ -673,7 +673,57 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "A handful of gnomes still hold a scrubbed little corner just inside Gnomeregan, the Clean Zone, and they'll trade news with anyone who gets that far alive. Tell them you come from me; it lowers the odds of being shot at by roughly half." },
+    { id = "cnf_2", text = "Some of the refugees in Tinker Town still carry the radiation, and it shows as a faint green glow on their skin at night. High Priest Rohan treats them quietly, and if you see one, please don't make a fuss." },
+    { id = "cnf_3", text = "The Deeprun Tram has a rat problem that's been reported to the proper authorities, three times. If you hear squeaking in the dark between the platforms, it's not the machinery, and it's best not to stop and look." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're terrifically reliable, which in my experience is about ninety percent of what makes a person worth knowing! The other ten percent is a sense of humour, and you've got that too." },
+      { id = "rg_2", text = "I think you've done more for my people than any number of committees, and I've chaired a great many committees. You actually go and fix things, which is the whole point of engineering, really." },
+      { id = "rg_earned", when = { fondness = { best = "earned" } }, text = "You've helped the refugees in Tinker Town when nobody asked you to, and every one of them has mentioned it to me. That's the best data I could have, and it all points the same way." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "There's a sort of warmth about you, like a well-tuned boiler humming along just right, and I suspect that's the Light the dwarven priests keep talking about. I've been trying to measure it for years, without much luck." },
+      { id = "rg_honor", when = { alignment = { axis = "honor", max = -30 } }, text = "You've a crafty way of bending the rules, I've noticed, and I'm not one to judge, considering whom I once trusted. Just keep bending them in the right direction, would you?" },
+    },
+    confide = {
+      { id = "cf_1", text = "I keep spare parts in my trophy case, behind all the awards, because I'm forever running out of sprockets. Nobody's noticed in years, or if they have, they're too polite to say." },
+      { id = "cf_2", text = "Thermaplugg gave me these lenses, you know, mithril-rimmed, as a gift when we were friends. I've thought about replacing them a hundred times, and I can't, because I'd have to admit he's really gone." },
+      { id = "cf_3", text = "The Ironforge Senate turned down my request for the Reserve when the troggs first rose, and that's partly why I approved the flush. I don't blame them, not really, but I do wonder what would have happened." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust King Magni, absolutely; he took in an entire city of refugees without so much as a cost estimate. And trust High Priest Rohan with anything, he's kinder than any machine I've ever built." },
+      { id = "tr_2", text = "Trust the gnomes in Tinker Town, each and every one; they've lost everything and they're still tinkering. Trust Magellas and the Explorers' League to tell you the truth about old stones, even if it takes a while." },
+      { id = "tr_3", text = "Be careful with any gnome who seems too eager to go back to Gnomeregan right away. Some of Thermaplugg's people walk among us still, and they're very convincing." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the troggs, of course, but watch the leper gnomes even more carefully. Some of them were my friends, and they'll still talk like it right up until they stab you." },
+      { id = "wo_2", text = "Watch out for anything in Gnomeregan with a big red button on it, and absolutely do not press it, no matter how inviting it looks. I designed a lot of those, and I know what they do." },
+      { id = "wo_3", text = "Watch the Dark Iron too, {name}; they've been sniffing around Gnomeregan's old schematics, and a Dark Iron with gnomish engineering is a frightful prospect, about eighty percent frightful by my estimate." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry I'll never get my people home, and that their children will grow up thinking Tinker Town is all a gnome can expect. That would be the real catastrophe, much worse than the radiation." },
+      { id = "wy_2", text = "I worry that every day I spend leading from Ironforge, the gnomes trust me a little less. I made the decision that cost them their home, and I'd understand if they stopped trusting me altogether." },
+      { id = "wy_3", text = "I worry about the ones I left behind, {name}, the ones who didn't make it to the tram. I read the survivors' list every night looking for a name I missed, and I never find one." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to retake Gnomeregan and clean every last bit of radiation from its halls, and then I'd like to throw the biggest party in gnomish history. There'd be fireworks, and very few of them would explode in the wrong place." },
+      { id = "hp_2", text = "I hope to build something that helps people instead of hurting them, something truly brilliant. The tram was a start, but I've plans for a great deal more, once we have our workshops back." },
+      { id = "hp_3", text = "I'd like to see Thermaplugg face justice, though I'm not sure I'd want to be there for it. Some things are better done by someone who doesn't still remember him laughing." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you go into Gnomeregan, bring back any working schematics you find, however scorched. Every one is a piece of our history, and some of them might even be useful." },
+      { id = "fv_2", text = "Look in on Tinker Town when you can, and talk with the young gnomes there. They need to see that the world beyond the tram platform still has room for them." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Of course I do! You're one of my very best friends, and I've done the calculations twice to be certain. The margin of error is practically nil." },
+      { id = "fr_2", text = "A friend, and more than that, a trusted colleague, which from a gnome is about the highest honour there is. I'd let you hold my wrench, and I don't let anyone hold my wrench." },
+      { id = "fr_light", when = { alignment = { axis = "light", min = 40 } }, text = "A friend, and a bright spot in a rather dark year, if you'll forgive the sentiment. Rohan says the Light brings people together who need each other, and I'm starting to believe him." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I knew, {name}. Somewhere deep down, before the flush, I knew Thermaplugg was too eager, and I approved it anyway because I couldn't bear to think my oldest friend would lie to me." },
+      { id = "nt_2", text = "Some nights I go down to the tram platform where the survivors came through, and I just stand there. I'm not sure what I'm waiting for, perhaps a late arrival, perhaps a forgiveness I don't deserve." },
+    },
     _gated = {
       { id = "gt1", text = "I'd rather not go into that with someone I've only just met, if it's all the same to you. Some things I keep in the locked drawer, and you haven't got the key yet." },
       { id = "gt2", text = "That's a subject I'm careful with, and I don't know you well enough to be careless. Ask me again when we've a little more history between us." },

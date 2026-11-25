@@ -449,7 +449,57 @@ P:NPC {
     { id = "bl2", text = "Somebody's been paying the Stockade guards, and the riot didn't start by accident. The money came from a house in the Keep, not from Westfall." },
     { id = "bl3", text = "Lady Prestor's file is the thinnest in this building, and nobody can tell me where she was before Alterac. I find that more interesting than anything in it." },
   },
+  confides = {
+    { id = "cnf_1", text = "The Pig and Whistle in Old Town is where the Defias recruit in Stormwind, and the barman takes their coin to look the other way. My people drink there too, so mind what you say at the bar." },
+    { id = "cnf_2", text = "The canal boats that run past the Mage Quarter at night aren't all fishermen. One in three carries something for the Defias, and the rest carry it for someone else." },
+    { id = "cnf_3", text = "Lord Lescovar keeps his private papers in the Keep's garden house, not in his rooms. He thinks that's clever, and it nearly is." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "Your file is thick, and for once I enjoy reading it. That's about the highest praise I give anyone." },
+      { id = "rg_2", text = "I think you're useful, {name}, and I think you're honest, and I very rarely find both in the same person. I'd sooner keep you alive than recruit you." },
+      { id = "rg_earned", when = { fondness = { best = "earned" } }, text = "You've done this city favours you never reported, and my people noticed every one of them. You'd be surprised how much I know about the good you do." },
+      { id = "rg_honor", when = { alignment = { axis = "honor", max = -30 } }, text = "You know when to tell the truth and when to tell a better story. In my line of work, that's a talent, and you've got it." },
+      { id = "rg_honor2", when = { alignment = { axis = "honor", min = 30 } }, text = "You keep your word even when it costs you, which makes you terrible at my trade and very good company. I find I don't mind." },
+    },
+    confide = {
+      { id = "cf_1", text = "SI:7 has fewer agents than the Defias have masks, and most of mine are watching the Keep, not Westfall. I'll leave you to wonder why that is." },
+      { id = "cf_2", text = "I learned my trade in the alleys of Old Town long before SI:7 had my name on a door, and the old instincts never left. I still sit facing the door in my own office." },
+      { id = "cf_3", text = "Half of what reaches the Regent's desk has been read before he sees it, and I don't mean by me. I've been trying to learn whose hands it passes through, and the trail goes cold at the top of the stairs." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Bolvar's intentions and General Jonathan's reports. Trust nobody's advice to either of them until you know where it came from." },
+      { id = "tr_2", text = "Renzik will do what he's paid to do and nothing he isn't, which is a kind of honesty. Elling Trias sells cheese and sees everything, and you can trust him with your life." },
+      { id = "tr_3", text = "In this city? Trust no one entirely, {name}, and trust the nobles least of all. That's not cynicism; it's my professional opinion." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for red bandanas in crowds, and for anyone who knows your name before you've given it. The Defias keep lists, and you're on one now." },
+      { id = "wo_2", text = "Watch the Stockade guards; someone's paying them, and they're not paying them to keep the rioters in. If you ever go in there, go in with friends." },
+      { id = "wo_3", text = "Watch the Syndicate if you travel north to the Alterac hills. They're nobles who lost their lands and kept their manners, and that's the most dangerous kind of thief." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry that I'm three steps behind something I can't see, and that by the time I see it, it'll already be sitting on the throne. That's not a figure of speech." },
+      { id = "wy_2", text = "I worry about my agents in Westfall. Two haven't reported in a month, and the only way I'll learn what happened is if someone finds them in a ditch." },
+      { id = "wy_3", text = "I worry the King's disappearance was planned in this city, by people I shake hands with. I've no proof, and the absence of proof is starting to look like proof itself." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to find the King, {name}, or at least to find out who lost him. Either one would let me sleep a full night." },
+      { id = "hp_2", text = "I hope to close the Defias file for good one day, and then file it somewhere dusty. A spymaster's dream is to be bored." },
+      { id = "hp_3", text = "I'd like SI:7 to be what it was meant to be, the crown's quiet eyes and not some noble's private errand boys. That's a long way off." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you hear a name in Westfall that keeps coming up, bring it to me before you bring it to anyone else. Names are the only currency I really trade in." },
+      { id = "fv_2", text = "Keep your eyes open at court when you're there, and tell me who talks to Lady Prestor's clerks. I can't put my own people close to her without being noticed." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I don't have friends, {name}; I have assets and suspects. You're the only one I've ever moved out of both columns, and I haven't decided what to call the new one." },
+      { id = "fr_2", text = "I'd trust you with my name and my life, and in my trade those are the same thing. Make of that what you like." },
+      { id = "fr_order", when = { alignment = { axis = "order", min = 40 } }, text = "Aye, a friend, and one who serves the crown the way it ought to be served. There are precious few of us left, and we'd best keep together." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I keep a list of every agent I've lost since I took this post, and I read it before I sign anyone new. It's longer than anyone in the Keep would believe, and nobody else has ever seen it." },
+      { id = "nt_2", text = "I once let a Defias courier go because he was fifteen and crying, and he was found in the canal a week later. I've never decided whether I killed him by letting him go." },
+    },
     grievance = {
       { id = "gv1", text = "I have a file on you. It used to be thin, and now it isn't, and nothing in it is flattering." },
       { id = "gv_wronged", when = { grudge = "wronged" }, text = "You spoke to me in my own building as though SI:7 were a club for pickpockets. I let it pass then, and I wrote it down." },

@@ -1301,7 +1301,57 @@ P:NPC {
     { id = "bl2", text = "The Defias asked me to join once, and the fellow who asked me drinks in the Pig and Whistle every night. I've never told the guards which one he is." },
     { id = "bl3", text = "There's a farmhouse near Moonbrook where the Defias keep their stores, friend, and I know because it used to be my neighbour's. I'd go and look myself if I were braver." },
   },
+  confides = {
+    { id = "cnf_1", text = "Allison at the Gilded Rose puts the burnt loaf ends out by the back step at closing time, and she never minds who takes them. If you're ever down on your luck in this city, that's where supper is." },
+    { id = "cnf_2", text = "The red-scarf men come round the Old Town arches on the nights the Pig and Whistle closes early. They ask who's been seen coming and going from the Keep, and they pay best for news of soldiers." },
+    { id = "cnf_3", text = "There's a fine-cloaked gentleman who smells of old books and lavender who meets a man in black by the canal after midnight, and money changes hands. He wears more rings than a lord ought to need, and he goes back toward the Keep." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you've a generous face, friend, and I tell everybody that, I'll admit, but with you I happen to mean it. You stop, and you listen, and that's worth more than any copper." },
+      { id = "rg_2", text = "I think you'd have made a fine farmer, friend, and I don't say that lightly. You've got the patience for a slow crop and the back for a hard season." },
+      { id = "rg_earned", when = { fondness = { best = "earned" } }, text = "You've been kinder to an old man on a step than most folk are to their own mothers, friend. I've told the Duchess about you, and she's a cat who doesn't impress easy." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "There's a bit of the Light about you, friend, like the glow off a harvest moon. The priest who blessed my eyes had the same look, and I've never forgotten it." },
+      { id = "rg_shadow", when = { alignment = { axis = "light", max = -30 } }, text = "You've got a dark edge to you, friend, like a field after the burn. But I've seen good wheat come up out of burnt ground, and I've not given up on you." },
+    },
+    confide = {
+      { id = "cf_1", text = "I'm not blind, friend, and never was, though I'll thank you not to shout it down the Trade District. The squint's an act, and it pays better than honest begging by a good three coppers a day." },
+      { id = "cf_2", text = "I've only got nine toes, on account of a Goldshire carthorse outside the Lion's Pride, the very day I went courting my Elsie. She married me anyway, which tells you all you need about her judgement and her heart." },
+      { id = "cf_3", text = "The orphans steal my hat every Monday and bring it back with something in it, a bun or a button or a copper. They think I don't know it's them, and I'd sooner lose the other nine toes than spoil it." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Allison at the Gilded Rose, friend, and the priests at the Cathedral, who'll give a man soup without a sermon on the side. That's rarer than you'd think." },
+      { id = "tr_2", text = "Trust Gryan Stoutmantle down at Sentinel Hill, for he's the only one who ever stood up for the farmers when it counted. The nobles who own the land, you can trust to send a bill." },
+      { id = "tr_3", text = "Trust the beggars of Old Town, odd as that sounds, because we see everything and nobody pays us to lie. Except the red-scarf men, and the lads who take their copper, you can tell by their new boots." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch for the red-scarf men, friend, the ones who ask questions in the Old Town after dark. They're Defias, every one, and they remember a face." },
+      { id = "wo_2", text = "Watch the farmhouses round Moonbrook if you go to Westfall. Half of them look empty and aren't, and the other half look lived in and are full of folk you'd rather not meet." },
+      { id = "wo_3", text = "Watch your purse in the Trade District, friend, and I say that as a man who's been offered a share by the cutpurses more than once. I've always said no, mind." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry about my Elsie in Lakeshire, friend, with the orcs so bold in Redridge these days. She's in a better house than I could give her, but it's a house on the wrong side of the mountains." },
+      { id = "wy_2", text = "I worry I've been on this step so long I've forgotten how to plant a field. Six years is a long fallow for a farmer, and I'm not sure the soil in me's still good." },
+      { id = "wy_3", text = "I worry about the Duchess, friend, for she's an old cat and the canal's cold of a winter. I give her the best of the burnt bread, and she still looks at me like it's my fault." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to farm again, friend, a little patch anywhere with good dirt and a gate that shuts. I'd grow pumpkins, and I'd win a ribbon at the Goldshire fair, and then I'd send for Elsie." },
+      { id = "hp_2", text = "I hope the Militia clears Westfall, so some other farmer gets his acres back even if I never do. That would be enough, nearly." },
+      { id = "hp_3", text = "I'd like to see the Darkmoon Faire from the inside just once, with a copper to spend on a roasted nut. It's a small dream, friend, but I've had bigger ones cost me more." },
+    },
+    favor = {
+      { id = "fv_1", text = "If you're ever in Lakeshire, friend, look in on a woman called Elsie McNabb at her sister's house, and tell her you saw Topper and he looked well. Lie a little if you must." },
+      { id = "fv_2", text = "If you pass the old farms south of Sentinel Hill, see whether anyone's planted pumpkins on the forty acres. Just look, friend, and tell me, and I'll know whether to laugh or cry." },
+    },
+    friendship = {
+      { id = "fr_1", text = "I do, friend, and you're the only one I've made since I came to this step who never once paid me to be. That makes you priceless, by a beggar's reckoning." },
+      { id = "fr_2", text = "Friend? You're near enough family, and I'd give you the dry end of my bridge on a wet night. That's the best I've got, and it's yours." },
+      { id = "fr_light", when = { alignment = { axis = "light", min = 40 } }, text = "A friend, and a blessing, the way the old priest was. You'll be in my prayers, friend, and they're not much, but they're honest." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I write Elsie a letter every Winter Veil and I've never posted one, six now, all saying I'm doing well. They're in a tin under the arch, and you're the only living soul who knows." },
+      { id = "nt_2", text = "When I drove off from the farm, I left the gate open, friend, and I didn't say goodbye to the Saldeans or the Furlbrows. I've told every other part of that story, but never that one." },
+    },
     grievance = {
       { id = "gv1", text = "Even a beggar has his pride, friend, and you've walked all over mine. I'll not hold my hand out to you again." },
       { id = "gv_wronged", when = { grudge = "wronged" }, text = "You laughed at an old farmer under a bridge, and you did it loud enough for the whole canal to hear. I've had my farm taken, but I'll not have my dignity taken too." },

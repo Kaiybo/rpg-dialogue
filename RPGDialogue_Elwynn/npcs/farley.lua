@@ -496,7 +496,57 @@ P:NPC {
       },
     },
   },
+  confides = {
+    { id = "cnf_1", text = "The folk who rent my cellar come and go by the back stair after the common room's shut, and they keep to themselves. I'd not go down there uninvited, friend, and I own the place." },
+    { id = "cnf_2", text = "Remy Two Times buys his gold dust from riders who won't give their names, and he pays them more than it's worth. Whatever he's really buying, it isn't dust." },
+    { id = "cnf_3", text = "William Pestle's potions are as good as anything in Stormwind and half the walk, and he'll mix you something special if you ask kindly. He won't tell you what's in it, mind." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "I think you're the kind of guest an innkeeper dreams about, friend: you pay, you're polite, and you bring back better stories than you take away. Dobbins thinks so too, and he doesn't like anyone." },
+      { id = "rg_2", text = "I think you've got a good heart and a sensible head, which is a rare pairing in this common room after dark. You'd fit right in among the regulars, if you ever stopped adventuring long enough." },
+      { id = "rg_town", when = { fondness = "town" }, text = "Everyone in Goldshire's been singing your praises at my bar, friend, and I mean everyone, even old Pestle. When the whole town agrees on something, I take notice." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "There's something bright about you, friend, like the first fire of the evening when the room's still cold. Folk sit a little closer when you come in, and I've noticed it." },
+      { id = "rg_shadow", when = { alignment = { axis = "light", max = -30 } }, text = "You've a shadow about you, friend, a bit like my cellar tenants, and I'll not pretend I haven't noticed. But you've always been decent to me and mine, and that's what I judge a guest by." },
+    },
+    confide = {
+      { id = "cf_1", text = "The Lion's Pride has been in my family since the first King Llane's day, and I'm the first Farley who's ever had to borrow to keep it open. Verina doesn't know how much, and I'd like to keep it that way." },
+      { id = "cf_2", text = "Remy owes me eleven months of tab, and I've never once asked him for it. His stories fill the common room better than any bard I could hire, and he knows it, the rascal." },
+      { id = "cf_3", text = "Falkhaan Isenstrider and I swore an oath as boys to open an inn together in Lordaeron. He took up the sword instead, and I took up the tap, and we still argue about which of us broke it." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust Marshal Dughan, friend; he's dry as old bread, but he's honest and he cares for this town more than he'll ever say. And trust Falkhaan with your life, because I have." },
+      { id = "tr_2", text = "Trust Dobbins behind the bar to water nothing and remember everything. Remy, now, I'd trust to tell you a story, but not to tell you a true one." },
+      { id = "tr_3", text = "Trust the regulars who pay their tabs on time, friend, for there's no surer sign of an honest heart. The ones with long tabs and fine boots, keep an eye on." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the Westfall road at night, friend. Half my guests from that way arrive with lighter purses than they set out with, and the other half don't arrive." },
+      { id = "wo_2", text = "Watch your belongings in the common room on a busy night. I run an honest house, but I can't vouch for every honest house's guests." },
+      { id = "wo_3", text = "Watch out for Hogger, friend, whatever the young bloods say. I've buried two of my regulars who thought they'd make their name on him." },
+    },
+    worries = {
+      { id = "wy_1", text = "I worry about my brother Frandis, friend, who went north with the caravans and never came back after the plague. Everyone tells me he's dead, and I've never been able to set a place at the table without setting one for him." },
+      { id = "wy_2", text = "I worry about Anna, my daughter, who wants to see the world and keeps looking at the road the way I used to. I'd never stop her, but I'd never sleep either." },
+      { id = "wy_3", text = "I worry that there'll be a fight in my common room that I can't stop, between the farmers and the Defias sympathisers. There's more of them drinking here than folk realise." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to hand the Lion's Pride to Anna one day, if she wants it, with the roof sound and the cellar empty of tenants. That'd make me the happiest Farley in four generations." },
+      { id = "hp_2", text = "I hope Frandis walks through that door one evening and asks for an ale like nothing happened. I'd give him one, and then I'd give him an earful." },
+      { id = "hp_3", text = "I'd like a Winter Veil with every room full and nobody fighting, friend, and the Maclures and Stonefields sharing a table. A man can dream." },
+    },
+    favor = {
+      { id = "fv_1", text = "If your road ever takes you north toward Lordaeron, ask after a caravan guard named Frandis Farley. Just ask, friend, and tell me what you hear, good or bad." },
+      { id = "fv_2", text = "Tell folk on the road that the Lion's Pride is still the best inn between Stormwind and Lakeshire. A good word from a traveller fills more beds than any sign I could paint." },
+    },
+    friendship = {
+      { id = "fr_1", text = "Friend? You're practically a regular, and in this inn that's closer than family. I'd fight Dobbins for you, and he's bigger than he looks." },
+      { id = "fr_2", text = "Of course I do, friend. Falkhaan's my oldest friend and you're my newest, and I'd not trade either one." },
+      { id = "fr_light", when = { alignment = { axis = "light", min = 40 } }, text = "A friend, and a good one, the sort my old mother would've said the Light sent along on purpose. I'll raise a glass to you every feast night." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I was the one who told the Stormwind folk my cellar was free to rent. I needed the coin that winter, friend, and I've never told Verina who those tenants really are." },
+      { id = "nt_2", text = "I keep a letter for Frandis behind the bar, written the week we heard about the plague, and I've added a line to it every year since. I don't know what I'll do with it, but I can't stop." },
+    },
     _gated = {
       { id = "gt1", text = "That's not a story I tell to folk I've only just poured for. Come back a few evenings and we'll see." },
       { id = "gt2", text = "Ah, I'd rather keep that one behind the bar for now, friend. Some things I only share with regulars." },

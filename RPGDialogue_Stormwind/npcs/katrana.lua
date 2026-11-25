@@ -447,7 +447,57 @@ P:NPC {
     { id = "bl2", text = "Dear Bolvar signs whatever I put before him at the end of a long council, when he's tired. I find late afternoons are the most productive part of the day." },
     { id = "bl3", text = "Half the petitions from Lakeshire never reach the Regent's desk, darling. I read them first, and most of them find their way into my fire." },
   },
+  confides = {
+    { id = "cnf_1", text = "Lord Lescovar thinks his little meetings in the garden are a secret, darling, and they were, until he started wearing his best rings to them. A man who dresses for treason will hang in his finery." },
+    { id = "cnf_2", text = "The House of Nobles votes as its three oldest families vote, and those families vote as their creditors tell them. If you ever want anything from the House, little one, begin by learning who holds their notes." },
+    { id = "cnf_3", text = "General Jonathan keeps a plan to retake the Stockade in his desk, drawn to the last man, and it will never leave that desk. Do give him my sympathies; he works so very hard at it." },
+  },
   topics = {
+    regard = {
+      { id = "rg_1", text = "What do I make of you? I think you're strong, darling, and the strong are the only people in this kingdom who interest me in the least." },
+      { id = "rg_2", text = "I think you're rather more than the usual sort who wanders into the Keep with mud on their boots. I've been watching you, little one, and I so rarely trouble to watch anyone." },
+      { id = "rg_power", when = { minLevel = 50 }, text = "You've grown remarkably formidable, haven't you? Most heroes are spent by now, and you seem to be only beginning, which I find quite fascinating." },
+      { id = "rg_honor", when = { alignment = { axis = "honor", max = -30 } }, text = "You know that the truth is merely the first draft of a story, darling, to be improved upon. We understand one another, I think, better than either of us would say at council." },
+      { id = "rg_light", when = { alignment = { axis = "light", min = 30 } }, text = "You're one of the Light's earnest little lanterns, aren't you? It's terribly sweet, and I find I can forgive it in you, which surprises me more than it should you." },
+    },
+    confide = {
+      { id = "cf_1", text = "The court believes I came to Stormwind from Alterac with a title and very little else. The title, at least, is quite real, and the rest is no one's business." },
+      { id = "cf_2", text = "Dear Bolvar has not made a decision of his own since the spring, little one. He believes he has, of course, and I'd never dream of correcting him." },
+      { id = "cf_3", text = "The boy watches me at council, very quietly, when he thinks I don't notice. He's cleverer than his father, which is a pity for him, and I've begun to find it rather tiresome." },
+    },
+    trust = {
+      { id = "tr_1", text = "Trust me, darling, of course. Everyone in this Keep does, sooner or later, and they're all so much happier for it." },
+      { id = "tr_2", text = "Trust no one who speaks of duty, little one, for duty is only ambition that's ashamed of itself. The honestly greedy are far more reliable." },
+      { id = "tr_3", text = "Not Mathias Shaw, whatever he tells you. A spymaster serves whoever pays him the most attention, and lately he pays a great deal of it to me." },
+    },
+    watchout = {
+      { id = "wo_1", text = "Watch the provinces, darling; Westfall and Redridge are full of people who'd like to be heroes, and heroes so often get in the way. Do try not to become one of their causes." },
+      { id = "wo_2", text = "Be careful whom you're seen with in the Keep. A word in the right ear can close every door in Stormwind, and I'd hate to see it happen to you by accident." },
+      { id = "wo_3", text = "Mind the mountains east of Redridge, little one. The orcs in Blackrock Mountain answer to cleverer masters than anyone in this Keep imagines, or so I'm told." },
+    },
+    worries = {
+      { id = "wy_1", text = "Worries? Only that the boy grows up too quickly and learns to ask questions I'd prefer to answer later. Children are so inconvenient once they start noticing things." },
+      { id = "wy_2", text = "I worry that Stormwind will recover before it's quite ready to be useful, darling. A kingdom should be mended carefully, and by the right hands." },
+      { id = "wy_3", text = "I worry, a little, that dear Bolvar is starting to sleep less and think more. I've suggested a tonic, and he's been very grateful." },
+    },
+    hopes = {
+      { id = "hp_1", text = "I hope to see this kingdom bend its knee to the right sort of ruler, little one, someone with vision and appetite. It has had quite enough of gentle men." },
+      { id = "hp_2", text = "I hope to see my house restored to the standing it deserves, little one; there was talk of a throne in Alterac once. We have waited a very long time, and we are not a patient house." },
+      { id = "hp_3", text = "I hope you grow stronger still, darling, strong enough to be truly worth my attention. I do so hate to waste an investment." },
+    },
+    favor = {
+      { id = "fv_1", text = "Stay out of the Stockade's affairs, darling, and the Westfall business, and let those of us at court manage what we understand. That would please me very much." },
+      { id = "fv_2", text = "Bring me news of anyone in the provinces who's raising more than a militia, little one. I like to know who's ambitious before they know it themselves." },
+    },
+    friendship = {
+      { id = "fr_1", text = "A friend? What a charming, sentimental sort of word. Let's say I would be sorry to see you ruined, darling, and leave it at that." },
+      { id = "fr_2", text = "I count you as something rarer than a friend, little one; I count you as interesting. Friends are easy to come by, and so very easy to lose." },
+      { id = "fr_honor", when = { alignment = { axis = "honor", max = -40 } }, text = "More than a friend, darling; an ally who understands how the world truly works. We could do great things together, you and I, if you were ever ready." },
+    },
+    never_told = {
+      { id = "nt_1", text = "I despise this city, little one, every damp stone of it, and every chattering lord. I smile at them all and dream of the day I needn't." },
+      { id = "nt_2", text = "I have never once been afraid of anyone in this Keep, darling, not the Regent, not the Archbishop, not the King's own guard. I find that very restful, and I find it tells me a great deal about them." },
+    },
     grievance = {
       { id = "gv1", text = "My problem, darling? I have none; I simply find you tiresome. One does tire of things, and then one puts them away." },
       { id = "gv_rival", when = { grudge = "rival" }, text = "You've been listening to Baros Alexston and his tiresome masons, little one. People who keep that sort of company tend to find the Keep's doors rather heavy." },
