@@ -38,23 +38,87 @@ local function window() return C.DialogueUIFrame() end
 -- Methods copied in by DialogueUI's mixin are fields of the window itself.
 local function has(f, name) return type(rawget(f, name)) == "function" end
 
--- The faint rule between the NPC's replies and the game's options (or "Get on with it"
--- when no game options are listed), as in the box. One texture per option button we've
--- drawn on; DialogueUI reuses its buttons, so every layout hides them all first.
-local RULE_COLOR = { 0.55, 0.46, 0.36, 0.45 }
-local ruleTex = {}
-local function hideRules()
+-- DialogueUI's saved settings (a global table), read-only: its theme, input device and
+-- "NPC name on page" option, so our pages look like its own.
+local function duiSetting(key)
+  local db = _G.DialogueUI_DB
+  if type(db) == "table" then return db[key] end
+  return nil
+end
+local function darkTheme() return duiSetting("Theme") == 2 end
+local function usingGamePad()
+  local d = duiSetting("InputDevice")
+  return d ~= nil and d ~= 1
+end
+
+-- Muted ink for narration and "You said", on the parchment and on the dark theme.
+local function dimColor() return darkTheme() and "|cffa49a8c" or "|cff8c7b67" end
+
+-- DialogueUI's own icons, so our rows wear the same art as its gossip and quest rows.
+local ICON_PATH = "Interface\\AddOns\\DialogueUI\\Art\\Icons\\"
+local QUEST_ICONS = {
+  available = ICON_PATH .. "AvailableQuest.png",
+  complete = ICON_PATH .. "CompleteQuest.png",
+  incomplete = ICON_PATH .. "IncompleteQuest.png",
+}
+local ROW_ICONS = {
+  ask = ICON_PATH .. "Gossip-Blue.png",
+  persuade = ICON_PATH .. "Gossip-Red.png",
+  nav = ICON_PATH .. "Gossip.png",
+}
+
+-- Option buttons are DialogueUI's, pooled and reused for its own pages. Everything we add
+-- to one (the rule above it, a greyed icon, our row number) is undone before every layout,
+-- ours or DialogueUI's.
+local ruleTex, touched = {}, {}
+local function resetButtons()
   for _, t in pairs(ruleTex) do t:Hide() end
+  for b in pairs(touched) do
+    b.rpgdRow = nil
+    if b.Icon and b.Icon.SetDesaturated then b.Icon:SetDesaturated(false) end
+    if b.Icon and b.Icon.SetVertexColor then b.Icon:SetVertexColor(1, 1, 1) end
+  end
 end
 local function ruleFor(b)
   local t = ruleTex[b]
   if not t then
     t = b:CreateTexture(nil, "ARTWORK")
     t:SetHeight(1)
-    t:SetColorTexture(RULE_COLOR[1], RULE_COLOR[2], RULE_COLOR[3], RULE_COLOR[4])
     ruleTex[b] = t
   end
+  -- A brown rule on the parchment, a pale one on the dark theme.
+  if darkTheme() then t:SetColorTexture(0.85, 0.85, 0.85, 0.22)
+  else t:SetColorTexture(0.55, 0.46, 0.36, 0.45) end
   return t
+end
+
+-- Clicks. DialogueUI's buttons call onClickFunc from their OnClick, but its swipe-to-scroll
+-- (on by default) swallows a click it takes for the end of a drag, and on some setups that
+-- left every one of our replies dead. So each button we use also gets a hook of its own
+-- (installed once, idle unless the button holds one of our rows): if the click reached the
+-- button but not our row, and the mouse didn't really move, the row is picked anyway.
+local GetCursorPosition = _G.GetCursorPosition
+local function cursorY()
+  if type(GetCursorPosition) ~= "function" then return 0 end
+  local _, y = GetCursorPosition()
+  return y or 0
+end
+local hooked = setmetatable({}, { __mode = "k" })
+local function hookButton(b)
+  if hooked[b] or type(b.HookScript) ~= "function" then return end
+  hooked[b] = true
+  b:HookScript("OnMouseDown", function(self, button)
+    if self.rpgdRow and button == "LeftButton" then self.rpgdDownY, self.rpgdFired = cursorY(), false end
+  end)
+  b:HookScript("OnClick", function(self, button)
+    local i = self.rpgdRow
+    if not i or button ~= "LeftButton" or self.rpgdFired then return end
+    local down = self.rpgdDownY
+    self.rpgdDownY = nil
+    if down and math.abs(cursorY() - down) > 12 then return end
+    self.rpgdFired = true
+    V.Click(i)
+  end)
 end
 
 local function install(f)
@@ -63,7 +127,7 @@ local function install(f)
     local original = rawget(f, name)
     if type(original) == "function" then
       f[name] = function(self, ...)
-        hideRules()
+        resetButtons()
         if page then
           local ok, laidOut = pcall(V.Layout, self)
           if ok and laidOut then return true end
@@ -114,10 +178,10 @@ local function buildRows(p)
       local st = state[action]
       local name = L["PERSUADE_" .. action:upper()]
       local usable = st ~= nil and st.usable
-      out[#out + 1] = { text = usable and name or (name .. " (" .. L.PERSUADE_TRIED .. ")"), locked = not usable,
+      out[#out + 1] = { text = usable and name or (name .. " (" .. L.PERSUADE_TRIED .. ")"), locked = not usable, kind = "persuade",
         onClick = function() page.persuading = nil; Conv.Persuade(action) end }
     end
-    out[#out + 1] = { text = L.DUI_BACK, gap = true, onClick = function() page.persuading = nil; V.Refresh() end }
+    out[#out + 1] = { text = L.DUI_BACK, gap = true, kind = "nav", onClick = function() page.persuading = nil; V.Refresh() end }
     return out
   end
   if p.asking then
@@ -153,14 +217,14 @@ local function buildRows(p)
       out[#out + 1] = { text = t.name .. suffix, onClick = function() Conv.Ask(id) end }
     end
     if pg + 1 < pages then
-      out[#out + 1] = { text = L.DUI_MORE:format(pg + 2, pages), gap = true,
+      out[#out + 1] = { text = L.DUI_MORE:format(pg + 2, pages), gap = true, kind = "nav",
         onClick = function() page.askPage = pg + 1; V.Refresh() end }
     end
     if pg > 0 then
-      out[#out + 1] = { text = L.DUI_PREV, gap = pg + 1 >= pages,
+      out[#out + 1] = { text = L.DUI_PREV, gap = pg + 1 >= pages, kind = "nav",
         onClick = function() page.askPage = pg - 1; V.Refresh() end }
     end
-    out[#out + 1] = { text = L.DUI_BACK, gap = true, onClick = function() page.asking = nil; page.askPage = nil; V.Refresh() end }
+    out[#out + 1] = { text = L.DUI_BACK, gap = true, kind = "nav", onClick = function() page.asking = nil; page.askPage = nil; V.Refresh() end }
     return out
   end
   local nChoices, anyGame = #(p.choices or {}), false
@@ -175,11 +239,11 @@ local function buildRows(p)
   local firstAfter = #out + 1
   if p.canAsk then
     local n = ns.Topics.Count()
-    out[#out + 1] = { text = n > 0 and L.DUI_ASK_N:format(n) or L.DUI_ASK, gap = true,
+    out[#out + 1] = { text = n > 0 and L.DUI_ASK_N:format(n) or L.DUI_ASK, gap = true, kind = "ask",
       onClick = function() page.asking = true; page.askPage = 0; V.Refresh() end }
   end
   if ns.Persuasion and Conv.PersuadeState() then
-    out[#out + 1] = { text = L.DUI_PERSUADE, gap = not p.canAsk,
+    out[#out + 1] = { text = L.DUI_PERSUADE, gap = not p.canAsk, kind = "persuade",
       onClick = function() page.persuading = true; V.Refresh() end }
   end
   out[#out + 1] = { text = L.GET_ON_WITH_IT, gap = not p.canAsk and not Conv.PersuadeState(),
@@ -204,20 +268,41 @@ function V.Layout(f)
   f:ReleaseAllObjects()
   f:UseQuestLayout(false)
   f.hasActiveGossipQuests, f.numAvailableQuests, f.keepGossipHistory = false, 0, false
-  local offsetY, first, last = f:FormatParagraph(0, (p.text and p.text ~= "") and p.text or " ")
+  local text = V.Compose(p)
+  local offsetY, first, last = f:FormatParagraph(0, text ~= "" and text or " ")
   if not first then error("FormatParagraph returned nothing") end
-  local keys = keyListener(f)
+  -- Number keys, as on DialogueUI's own pages (it shows none while a gamepad is in use).
+  local keys = (not usingGamePad()) and keyListener(f) or nil
   rows = buildRows(p)
   for i, r in ipairs(rows) do
     local b = f:AcquireOptionButton()
     local hotkey = (keys and i <= 9) and keys:SetIndexedAction(i, b) or nil
-    b:SetGossip({ gossipOptionID = 0, orderIndex = 0, flags = 0, icon = TALK_ICON, name = r.text }, hotkey)
-    if r.icon and b.Icon then
-      if r.icon.atlas then b.Icon:SetAtlas(r.icon.atlas) else b.Icon:SetTexture(r.icon.file) end
+    -- A game icon id (vendor, trainer...) goes in as the option's icon, so DialogueUI swaps
+    -- in its own art for it, as on its own gossip page.
+    local icon = r.icon
+    local iconID = (type(icon) == "table" and type(icon.file) == "number") and icon.file or TALK_ICON
+    b:SetGossip({ gossipOptionID = 0, orderIndex = 0, flags = 0, icon = iconID, name = r.text }, hotkey)
+    if b.Icon then
+      local art = (type(icon) == "table" and icon.quest and QUEST_ICONS[icon.quest]) or (r.kind and ROW_ICONS[r.kind])
+      if art then
+        b.Icon:SetTexture(art)
+      elseif type(icon) == "table" and iconID == TALK_ICON then
+        if icon.atlas then b.Icon:SetAtlas(icon.atlas) elseif icon.file then b.Icon:SetTexture(icon.file) end
+      end
     end
     b.shouldShowUIOnClick = false
-    b.onClickFunc = function() V.Click(i) end
-    if r.locked and b.Disable then b:Disable() end
+    b.onClickFunc = function(self)
+      if self then self.rpgdFired = true end
+      V.Click(i)
+    end
+    b.rpgdRow = i
+    touched[b] = true
+    hookButton(b)
+    if r.locked then
+      if b.Disable then b:Disable() end
+      if b.Icon and b.Icon.SetDesaturated then b.Icon:SetDesaturated(true) end
+      if b.Icon and b.Icon.SetVertexColor then b.Icon:SetVertexColor(0.6, 0.6, 0.6) end
+    end
     b:SetPoint("TOPLEFT", last, "BOTTOMLEFT", 0, (i == 1 or r.gap) and -SPACING or 0)
     if r.rule and i > 1 and ns.db.settings.gameDivider ~= false and b.CreateTexture then
       local t = ruleFor(b)
@@ -255,8 +340,29 @@ function V.Refresh()
   pcall(f[handler], f, true)
 end
 
--- A muted grey-brown that reads on DialogueUI's parchment and its dark theme alike.
-local NARR_COLOR = "|cff8c7b67"
+-- "Name: what they say", when DialogueUI's own "NPC name on page" option is on.
+local function withName(text)
+  if not text or text == "" or not duiSetting("ShowNPCNameOnPage") then return text end
+  local ok, name = pcall(_G.UnitName, "npc")
+  if not ok or type(name) ~= "string" or name == "" then return text end
+  return name .. ": " .. text
+end
+
+-- The page's text, put together at layout time from its parts, so the box can take the
+-- same parts over unchanged if it has to: the NPC's disposition, what you just said, the
+-- narration, then their words (with their name, if DialogueUI shows names) and any
+-- reactions after them. The extras are in muted ink, the NPC's words in DialogueUI's own.
+local function compose(p)
+  local dim, out = dimColor(), {}
+  if p.disp and p.disp.name then out[#out + 1] = dim .. L.DISP_LABEL:format(p.disp.name) .. "|r" end
+  if p.said and p.said ~= "" then out[#out + 1] = dim .. L.YOU_SAID:format(p.said) .. "|r" end
+  if p.narr and p.narr ~= "" then out[#out + 1] = dim .. p.narr .. "|r" end
+  local body = withName(p.body)
+  if body and body ~= "" then out[#out + 1] = body end
+  for _, r in ipairs(p.reactions or {}) do out[#out + 1] = r end
+  return table.concat(out, "\n\n")
+end
+V.Compose = compose
 
 ---------------------------------------------------------------------------
 -- The same calls as the box (UI/DialogueFrame.lua)
@@ -264,10 +370,8 @@ local NARR_COLOR = "|cff8c7b67"
 function V.Show(v)
   if not V.Available() then return false end
   lastView = v
-  -- Narration (0.85.0): its own paragraph ahead of their words, in a muted colour.
-  local text = v.text
-  if v.narr and v.narr ~= "" then text = NARR_COLOR .. v.narr .. "|r\n\n" .. (text or "") end
-  page = { text = text, choices = v.choices, canAsk = v.canAsk, tone = v.tone }
+  page = { body = v.text, narr = v.narr, said = v.said, disp = v.disposition,
+    choices = v.choices, canAsk = v.canAsk, tone = v.tone }
   local f = window()
   if f:IsShown() then
     V.Refresh()
@@ -299,6 +403,14 @@ function V.SetTone(tone)
   V.Refresh()
 end
 
+-- How they feel about you now (the box's "Disposition:" corner), as the page's first line.
+function V.SetDisposition(d)
+  if lastView then lastView.disposition = d end
+  if not page then return end
+  page.disp = d
+  V.Refresh()
+end
+
 -- After an answer, what the player can say back (0.82.0): the replies change, and while
 -- the topic list is open the views are listed above it.
 function V.ShowViews(choices)
@@ -309,18 +421,18 @@ function V.ShowViews(choices)
 end
 
 -- An answer keeps the topic list open (and its page), so the next question is one click.
+-- What you said to get it (Admire, Joke, Taunt, Intimidate; 0.86.0) goes ahead of it.
 function V.ShowAnswer(text, _, _, said)
   if not page then return end
-  page.text = text or ""
-  -- What you said to get it (Admire, Joke, Taunt, Intimidate; 0.86.0), ahead of their words.
-  if said and said ~= "" then page.text = "|cff8c7b67" .. L.YOU_SAID:format(said) .. "|r\n\n" .. page.text end
-  if lastView then lastView.text = page.text; lastView.narr = nil end
+  page.body, page.narr, page.said, page.reactions = text or "", nil, said, nil
+  if lastView then lastView.text, lastView.narr, lastView.said = page.body, nil, said end
   V.Refresh()
 end
 
 function V.ShowReaction(text)
-  if not page then return end
-  page.text = (page.text or "") .. "\n\n" .. text
+  if not page or not text or text == "" then return end
+  page.reactions = page.reactions or {}
+  page.reactions[#page.reactions + 1] = text
   V.Refresh()
 end
 

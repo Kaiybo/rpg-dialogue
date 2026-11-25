@@ -2,6 +2,11 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## Unreleased
+- **DialogueUI: replies you can't click, fixed.** DialogueUI's swipe-to-scroll could swallow clicks on our replies; each reply now answers a click even then.
+- **DialogueUI: looks like DialogueUI.** Its own icons on vendor, trainer and quest rows, blue for Ask about..., red for Persuade, greyed locked replies; muted text and the divider follow its dark theme; no number keys shown while you play on a gamepad; the NPC's name before their words when DialogueUI's "NPC name on page" is on.
+- **DialogueUI: nothing lost from the box.** Your last reply ("You: ...") and the NPC's disposition now show at the top of the page, as in our own box.
+
 ## 0.111.0 (2026-11-25): More to Say
 No new files; a /reload is enough.
 - **Fifteen thin conversations deepened.** Eligor Dawnbringer, Xiggs Fuselighter, Arko'narin, "Plucky" Johnson, the Ironforge and Stormwind guards, the Lunar Festival vendor, the Shen'dralar Provisioner, the Mulgore ancestral spirit and six Lunar Festival elders now have more to talk about, longer threads, and replies for certain races and classes.

@@ -381,6 +381,13 @@ end
 -- The icon the game's gossip window shows for a quest: { atlas = name } or { file = path,
 -- desaturate = bool }. Asks the game's own helper first (campaign, daily, legendary...).
 function C.QuestIcon(q)
+  local icon = C.QuestIconAsset(q)
+  -- Which kind of marker it is, for windows with their own art (DialogueUI).
+  icon.quest = (not q.active and "available") or (q.complete and "complete") or "incomplete"
+  return icon
+end
+
+function C.QuestIconAsset(q)
   if q.questID then
     local path = q.active and "QuestUtil.GetQuestIconActiveForQuestID" or "QuestUtil.GetQuestIconOfferForQuestID"
     local fn = resolve(path)
