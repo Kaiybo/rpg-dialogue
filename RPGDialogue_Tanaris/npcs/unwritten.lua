@@ -109,7 +109,7 @@ P:NPC {
       },
     },
     gormarok = {
-      lines = { { id = "g_default", text = "Big, even for an ogre, and he wears his victims' gear like trophies. I've seen my cousin's goggles on his belt, and I want them back." } },
+      lines = { { id = "gormarok_default", text = "Big, even for an ogre, and he wears his victims' gear like trophies. I've seen my cousin's goggles on his belt, and I want them back." } },
       choices = {
         { text = "I'll bring the goggles back.", next = "BACK", when = { questBefore = TODO_QUEST("The Dunemaul Compound") }, fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
@@ -388,7 +388,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     gates = {
-      lines = { { id = "g_default", text = "Uldum. Access is restricted. This record is not authorized to open the gates, only to speak of them." } },
+      lines = { { id = "gates_default", text = "Uldum. Access is restricted. This record is not authorized to open the gates, only to speak of them." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -497,7 +497,7 @@ P:NPC {
       },
     },
     gates = {
-      lines = { { id = "g_default", text = "That's the question, isn't it? The goblins say a lost city, the trolls say a curse, an' the statues say nothin' at all, the stony beggars. I'd wager it's titan work, an' old as the world." } },
+      lines = { { id = "gates_default", text = "That's the question, isn't it? The goblins say a lost city, the trolls say a curse, an' the statues say nothin' at all, the stony beggars. I'd wager it's titan work, an' old as the world." } },
       choices = {
         { text = "Titan work? How can you tell?", next = "titans" },
         { text = "Something else.", next = "BACK" },

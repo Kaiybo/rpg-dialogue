@@ -44,7 +44,7 @@ P:NPC {
   start = "hello",
   nodes = {
     flirt = {
-      lines = { { id = "fl_default", text = "Eyeing you? I've been sizing you up, which is a pirate's habit and an archmage's daughter's bad manners all at once. You look like you could hold a deck in a storm, and I've a weakness for that, so tell me plainly whether I'm wasting my rum." } },
+      lines = { { id = "flirt_default", text = "Eyeing you? I've been sizing you up, which is a pirate's habit and an archmage's daughter's bad manners all at once. You look like you could hold a deck in a storm, and I've a weakness for that, so tell me plainly whether I'm wasting my rum." } },
       choices = {
         { text = "You're not wasting it. Pour me one.", next = "flirt_warm", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "flirt_warm" } } } },
         { text = "Does your father know you flirt with mages?", next = "flirt_mage", when = { class = "MAGE" } },
@@ -177,7 +177,7 @@ P:NPC {
 
     family = {
       lines = {
-        { id = "fm_default", text = "Fine, since you asked so nicely. My father is Ansirem Runeweaver, archmage of Dalaran and one of the Six who sit over the Kirin Tor, and I was meant to spend my life copying his notes in a tower that smells of candle wax." },
+        { id = "fm_default", key = true, text = "Fine, since you asked so nicely. My father is Ansirem Runeweaver, archmage of Dalaran and one of the Six who sit over the Kirin Tor, and I was meant to spend my life copying his notes in a tower that smells of candle wax." },
         { id = "fm_key", when = { questActive = TODO_QUEST("Ansirem's Key") },
           text = "You know already, since you carried his letter here. Ansirem Runeweaver, archmage of Dalaran, one of the Six, and the only man alive who still writes to me as though I were twelve." },
       },

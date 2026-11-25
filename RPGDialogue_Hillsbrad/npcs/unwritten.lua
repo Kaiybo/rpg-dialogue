@@ -526,7 +526,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     guests = {
-      lines = { { id = "g_default", text = "They leave quickly, or they don't leave. Most choose the first option, and I recommend it." } },
+      lines = { { id = "guests_default", text = "They leave quickly, or they don't leave. Most choose the first option, and I recommend it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -636,7 +636,7 @@ P:NPC {
       },
     },
     greench = {
-      lines = { { id = "g_default", text = "The Abominable Greench, a big ugly brute who hates Winter Veil more than a dwarf hates a dry keg. He lives up in Growless Cave with all the stolen treats, and he don't share." } },
+      lines = { { id = "greench_default", text = "The Abominable Greench, a big ugly brute who hates Winter Veil more than a dwarf hates a dry keg. He lives up in Growless Cave with all the stolen treats, and he don't share." } },
       choices = {
         { text = "I'll handle the Greench.", next = "handle" },
         { text = "Something else.", next = "BACK" },

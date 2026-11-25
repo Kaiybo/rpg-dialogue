@@ -41,7 +41,7 @@ P:NPC {
         { id = "h_w20", when = { class = "WARRIOR", minLevel = 20 }, text = "You've grown past Brill, and the trainers in the Undercity's War Quarter can give you more than I can. Still, it does an old drillmaster good to see one of his corpses come back walking." },
         { id = "h_warrior", when = { class = "WARRIOR", race = "Scourge" },
           text = "Another one of ours with a blade. Plenty of you woke with your old drills still in your arms, and my job is to remind your arms what they knew." },
-        { id = "h_ready", when = { class = "WARRIOR", questBefore = TODO_QUEST("Speak with Dillinger") },
+        { id = "h_ready", key = true, when = { class = "WARRIOR", questBefore = TODO_QUEST("Speak with Dillinger") },
           text = "You're coming along. Deathguard Dillinger at the west end of town has a task that wants a warrior, and I think you might be ready for it." },
         { id = "h_ulag", tags = { "news" }, when = { questDone = TODO_QUEST("Ulag the Cleaver") },
           text = "Dillinger tells me Ulag the Cleaver is dead and you're the one who did it. I said you'd do, and I'm glad I wasn't wrong in front of him." },

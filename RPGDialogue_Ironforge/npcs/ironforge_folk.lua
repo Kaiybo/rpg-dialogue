@@ -205,7 +205,7 @@ P:NPC {
     },
     tiza = {
       lines = {
-        { id = "tz_default", text = "Tiza's one o' our most respected. She gives the young ones the Tome o' Divinity, then sends 'em tae help someone who cannae repay it, an' her husband Muiredon tests the rest." },
+        { id = "tz_default", key = true, text = "Tiza's one o' our most respected. She gives the young ones the Tome o' Divinity, then sends 'em tae help someone who cannae repay it, an' her husband Muiredon tests the rest." },
       },
       choices = {
         { text = "How does he test them?", next = "tiza_muiredon" },

@@ -554,7 +554,7 @@ P:NPC {
     thrall = { { id = "tp_thrall", text = "Thrall came to my father's aid when the centaur were hounding us across the Barrens, and he asked nothing in return. The tauren repay that kind of debt with a long memory, and we joined his Horde gladly." } },
     forsaken = {
       { id = "tp_forsaken", text = "My father and Hamuul spoke for the Forsaken when they asked to join the Horde, because Hamuul believes their curse might be lifted. I hope he is right, though I find their apothecaries hard to like." },
-      { id = "tp_forsaken2", when = { race = "Undead" }, text = "You are welcome in Bloodhoof, and I mean that, whatever looks the farmers give you. Their fear is old, and it will fade faster if you are patient with it." },
+      { id = "tp_forsaken2", when = { race = "Scourge" }, text = "You are welcome in Bloodhoof, and I mean that, whatever looks the farmers give you. Their fear is old, and it will fade faster if you are patient with it." },
     },
     centaur = { { id = "tp_centaur", text = "The centaur drove us from one grazing land to the next for generations, until we came here. Some of the young braves still dream of revenge, and I tell them a herd that has its home should guard it, not go looking for old fights." } },
     quilboar = { { id = "tp_quilboar", text = "The Bristleback have pushed north from the Barrens into the south of Mulgore, and they have killed our elders at Narache. I would talk with them if they would let me, but so far they have only answered with spears." } },

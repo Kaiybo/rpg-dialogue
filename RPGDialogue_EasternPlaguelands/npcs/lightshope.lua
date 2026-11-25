@@ -622,7 +622,7 @@ P:NPC {
           text = "A druid. I was told your kind can feel the sickness in the earth, and I wonder whether you feel it in me too, for I am made of the same plague." },
         { id = "h_default", key = true,
           text = "Leonid Barthalomew. I died in the Scourging and rose a mindless thing, until the Banshee Queen freed my mind, and I gave it to the Argent Dawn. My undeath is a sickness, but it is also a weapon, and I mean to use it." },
-        { id = "h_ras", when = { metBefore = true },
+        { id = "h_ras", key = true, when = { metBefore = true },
           text = "I was in Stratholme when Ras Frostwhisper became what he is. I remember his face as it changed. I'd like very much for him to stop." },
         { id = "h_sacrifice", when = { metBefore = true },
           text = "They call me Revered, though I'd rather they didn't. I only did what anyone would, if they'd already lost everything else." },

@@ -107,7 +107,7 @@ P:NPC {
       },
     },
     grow = {
-      lines = { { id = "g_default", text = "Tough things, with roots that go down a long way looking for water. We haul every bucket up from the Southfury ourselves, and Rokar makes me pour it at dusk so the sun doesn't drink it before the roots do." } },
+      lines = { { id = "grow_default", text = "Tough things, with roots that go down a long way looking for water. We haul every bucket up from the Southfury ourselves, and Rokar makes me pour it at dusk so the sun doesn't drink it before the roots do." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     grunt = {
@@ -174,7 +174,7 @@ P:NPC {
       },
     },
     grom = {
-      lines = { { id = "g_default", text = "Many, but Grom Hellscream before all of them. He was the first of us to drink the demon's blood and the one who ended the curse, when he stood alone against Mannoroth in the canyon and killed him." } },
+      lines = { { id = "grom_default", text = "Many, but Grom Hellscream before all of them. He was the first of us to drink the demon's blood and the one who ended the curse, when he stood alone against Mannoroth in the canyon and killed him." } },
       choices = {
         { text = "The first to fall and the one who freed you?", next = "grom2" },
         { text = "Where is his monument?", next = "monument" },

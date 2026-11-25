@@ -18,7 +18,7 @@ P:Pool {
       text = "You've been out in the wastes, by the look of that armor. Strumner's forge is inside, and he's the only one who'll mend it this side of Darkshire." },
     { id = "n_priest", cat = "class", when = { class = "PRIEST" },
       text = "A priest! The clerics could use you in the barracks; the last ogre raid left more wounded than they've got hands for." },
-    { id = "n_horde", cat = "race", when = { race = { "Orc", "Troll", "Tauren", "Undead" } },
+    { id = "n_horde", cat = "race", when = { race = { "Orc", "Troll", "Tauren", "Scourge" } },
       text = "Horde, inside Nethergarde. Mind yourself, keep your hands where we can see them, and remember there's a truce out here because the demons don't care which side you're on." },
   },
   react = { { id = "r_stealth", on = "stealth", text = "Something's moving by the gate, and in this place that's usually bad news. Show yourself." } },

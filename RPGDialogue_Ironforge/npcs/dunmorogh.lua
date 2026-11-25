@@ -188,7 +188,7 @@ P:NPC {
     },
     safe_mostly = {
       lines = {
-        { id = "sm_default", text = "Mostly. Kharanos had a troll at the door once, and they still toast the gnome who saw it off; ask Innkeeper Belm at the Thunderbrew." },
+        { id = "sm_default", key = true, text = "Mostly. Kharanos had a troll at the door once, and they still toast the gnome who saw it off; ask Innkeeper Belm at the Thunderbrew." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
@@ -388,7 +388,7 @@ P:NPC {
     },
     mail = {
       lines = {
-        { id = "ma_default", text = "Through the pass, when the troggs allow it. Most of it's fer Talin by the lake, an' half o' Talin's is fer Grelin up by the troll caves. Don't ask me why; I'm a postman, no' a miracle worker." },
+        { id = "ma_default", key = true, text = "Through the pass, when the troggs allow it. Most of it's fer Talin by the lake, an' half o' Talin's is fer Grelin up by the troll caves. Don't ask me why; I'm a postman, no' a miracle worker." },
       },
       choices = {
         { text = "Who's Talin?", next = "mail_talin" },

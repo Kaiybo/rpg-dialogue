@@ -108,7 +108,7 @@ P:NPC {
       lines = { { id = "d_default", text = "Orcs who rode red dragons in the Second War, and who haven't forgotten it. They hold Grim Batol and the ruins of Dun Modr, and they raid the road whenever they feel brave." } },
       choices = {
         { text = "They should be driven out entirely.", next = "BACK", fx = { align = { order = 1 } } },
-        { text = "Then why not let them have the hills?", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "Then let them have the hills.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

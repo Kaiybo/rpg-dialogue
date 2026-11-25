@@ -4,7 +4,7 @@ local P = RPGDialogueAPI:Pack("rpgd.swampofsorrows")
 local TODO_NPC, TODO_QUEST = P.TODO_NPC, P.TODO_QUEST
 
 P:NPC {
-  key = "thund", id = TODO_NPC("Corporal Thund Splithoof"), name = "Corporal Thund Splithoof",
+  key = "thund_splithoof", id = TODO_NPC("Corporal Thund Splithoof"), name = "Corporal Thund Splithoof",
   bible = "bibles/thund.md", role = "soldier", tier = "quest",
   communities = { "swamp_of_sorrows" }, temper = { "calm", "gentle" }, values = { "loyal", "generous" },
   notices = { "race", "class" },

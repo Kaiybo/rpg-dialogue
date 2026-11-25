@@ -2182,7 +2182,7 @@ P:NPC {
 -- Bronk Steelrage: armorer and shieldcrafter in the armory tent at Camp Narache.
 ---------------------------------------------------------------------------
 P:NPC {
-  key = "bronk", id = TODO_NPC("Bronk Steelrage"), name = "Bronk Steelrage", title = "Armorer & Shieldcrafter",
+  key = "bronk_steelrage", id = TODO_NPC("Bronk Steelrage"), name = "Bronk Steelrage", title = "Armorer & Shieldcrafter",
   bible = "bibles/more_folk.md", role = "vendor", tier = "service",
   communities = { "narache" }, temper = { "booming", "earnest" }, values = { "protection", "craft" },
   notices = { "kit", "class", "craft" },

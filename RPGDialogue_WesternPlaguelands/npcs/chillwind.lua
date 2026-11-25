@@ -863,7 +863,7 @@ P:NPC {
         { id = "xw_default", text = "Is it, now? I'll take any hand that turns the Scourge's poison back on them, but don't mistake us for the same sort: I ask the Light for strength, and I've a feeling you ask something else entirely. Bring me the samples, and keep whatever rides in that satchel well away from my jars." },
       },
       choices = {
-        { text = "The dead fall either way, Priestess. Does it matter how?", next = "BACK", reply = "They do, and I'll grant you that much. Just keep whatever you carry away from my cauldrons.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "The dead fall either way, Priestess. How hardly matters.", next = "BACK", reply = "They do, and I'll grant you that much. Just keep whatever you carry away from my cauldrons.", fx = { affinity = -1, align = { light = -1 } } },
         { text = "Understood. What I carry stays well away from your jars.", next = "BACK", reply = "Thank you, and keep it there. I'll not have anything sniffing at the counter agent.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },

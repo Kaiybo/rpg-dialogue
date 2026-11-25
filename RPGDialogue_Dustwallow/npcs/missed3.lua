@@ -116,7 +116,7 @@ P:NPC {
       choices = { { text = "The crocolisk, then. Something else.", next = "BACK" } },
     },
     goose = {
-      lines = { { id = "g_default", text = "It was a goose! It had a beak, and it had feet, and it made a noise before Ogg'marr caught it. If it also had a few more legs than a goose, that is extra meat and Logok should say thank you." } },
+      lines = { { id = "goose_default", text = "It was a goose! It had a beak, and it had feet, and it made a noise before Ogg'marr caught it. If it also had a few more legs than a goose, that is extra meat and Logok should say thank you." } },
       choices = { { text = "I'll tell him to be grateful. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
     most = {

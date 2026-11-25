@@ -33,7 +33,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Melor Stonehoof. At times we hunt for food, at times for honor, and at times to earn the Earth Mother's teachings, and I set the young of Thunder Bluff on all three. Some hunts are none of those, though, like the one for the hyena Steelsnap in Thousand Needles." },
-        { id = "h_sergra", when = { questActive = TODO_QUEST("Sergra Darkthorn") },
+        { id = "h_sergra", key = true, when = { questActive = TODO_QUEST("Sergra Darkthorn") },
           text = "Your path leads to the Barrens, and Sergra Darkthorn at the Crossroads will be your first guide there. The beasts of the Barrens are strong-willed and fierce, and you will learn much from them." },
         { id = "h_sends", when = { questActive = TODO_QUEST("Melor Sends Word") },
           text = "So, {name}, you have come. Now, are you prepared to journey through distant lands? Then listen." },

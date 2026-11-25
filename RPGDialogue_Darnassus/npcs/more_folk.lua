@@ -297,7 +297,7 @@ P:NPC {
       },
     },
     rivals2 = {
-      lines = { { id = "rv2_default", text = "We keep each other sharp, which isn't quite the same. Telonis thinks I rush my finishing, I think he coddles his apprentices, and Eladriel thinks neither of us could skin a hare without her. We're all three right, and the leather's better for it." } },
+      lines = { { id = "rv2_default", key = true, text = "We keep each other sharp, which isn't quite the same. Telonis thinks I rush my finishing, I think he coddles his apprentices, and Eladriel thinks neither of us could skin a hare without her. We're all three right, and the leather's better for it." } },
       choices = { { text = "A terrace full of critics. Something else.", next = "BACK", fx = { trait = { witty = 1 } } } },
     },
     xskin = {
@@ -1075,7 +1075,7 @@ P:NPC {
     },
 
     lake = {
-      lines = { { id = "la_default", text = "Only a little, and only where the priestesses can't see me from the steps. The Sisters say the lake is for reflection, and I reflect very carefully on where they're standing before I cast." } },
+      lines = { { id = "la_default", key = true, text = "Only a little, and only where the priestesses can't see me from the steps. The Sisters say the lake is for reflection, and I reflect very carefully on where they're standing before I cast." } },
       choices = {
         { text = "Some things should be left sacred.", next = "BACK", reply = "And they are, mostly. I only take what I need, and I thank Elune for every one.", fx = { align = { order = 1 } } },
         { text = "A lake full of fish is meant to be fished.", next = "BACK", reply = "My thinking exactly, though I'd not say it on the Temple steps.", fx = { align = { order = -1 } } },

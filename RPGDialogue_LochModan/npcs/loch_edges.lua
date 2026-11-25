@@ -88,7 +88,7 @@ P:NPC {
     },
     khara_help = {
       lines = {
-        { id = "kh2_default", text = "I tried, once, an' I sold a lure for half what she paid for it. She's banned me from the counter ever since, an' I cannae say I'm sorry." },
+        { id = "kh2_default", key = true, text = "I tried, once, an' I sold a lure for half what she paid for it. She's banned me from the counter ever since, an' I cannae say I'm sorry." },
       },
       choices = {
         { text = "Everyone should stick to what they're good at.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
@@ -268,7 +268,7 @@ P:NPC {
 
     gate = {
       lines = {
-        { id = "gt_default", text = "I will NOT open that gate! Ye can ask me in Common, Dwarvish or Thalassian, an' the answer's the same in all three." },
+        { id = "gt_default", key = true, text = "I will NOT open that gate! Ye can ask me in Common, Dwarvish or Thalassian, an' the answer's the same in all three." },
         { id = "gt_again", when = { heardLine = "lm_pebblebitty.gt_default" },
           text = "Did ye think the answer would change if ye asked again? I've stood here longer than ye've been askin', an' I'll stand here longer still." },
       },

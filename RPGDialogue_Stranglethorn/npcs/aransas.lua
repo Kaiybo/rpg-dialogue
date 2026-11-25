@@ -72,7 +72,7 @@ P:NPC {
         { text = "How's Mathers settling back in?", next = "q_after", when = { questDone = Q_REWARD } },
         { text = "Does a human captain mind Horde coin?", next = "k_horde", when = { faction = "Horde" } },
         { text = "Another Stormwind face, this far south. You're a long way from home.", next = "k_human", when = { race = "Human" } },
-        { text = "Does my face frighten your crew, Captain?", next = "k_undead", when = { race = "Undead" } },
+        { text = "Does my face frighten your crew, Captain?", next = "k_undead", when = { race = "Scourge" } },
         { text = "My people knew these waters long before your Bay.", next = "k_troll", when = { race = "Troll" } },
         { text = "Your ship could use a few gnomish improvements.", next = "k_gnome", when = { race = "Gnome" } },
         { text = "How do sailors fare in a boarding fight?", next = "xwar", when = { class = "WARRIOR" } },

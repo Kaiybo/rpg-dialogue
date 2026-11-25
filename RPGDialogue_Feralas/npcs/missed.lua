@@ -301,7 +301,7 @@ P:NPC {
       },
     },
     glass = {
-      lines = { { id = "g_default", text = "With moss, patience, and a strict word to every hippogryph rider who carries a crate for me. The sea crossing breaks one vial in ten whatever I do, and I have made my peace with the other nine." } },
+      lines = { { id = "glass_default", text = "With moss, patience, and a strict word to every hippogryph rider who carries a crate for me. The sea crossing breaks one vial in ten whatever I do, and I have made my peace with the other nine." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     kylanna = {

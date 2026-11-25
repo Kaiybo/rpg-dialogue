@@ -149,7 +149,7 @@ P:NPC {
       },
     },
     good = {
-      lines = { { id = "g_default", text = "It has to be colourful or shiny, and not too small, or it falls off the string. This red one is nice, but I only need a few more, so now I'm being picky." } },
+      lines = { { id = "good_default", text = "It has to be colourful or shiny, and not too small, or it falls off the string. This red one is nice, but I only need a few more, so now I'm being picky." } },
       choices = {
         { text = "Who will wear the necklace?", next = "wear" },
         { text = "Something else.", next = "BACK" },

@@ -126,7 +126,7 @@ P:NPC {
           text = "Still, I'm honest enough to say the results are real, and there's a part of me that wants to see the recipe. That part of me doesn't get to make the decisions, mind." },
       },
       choices = {
-        { text = "If it keeps soldiers alive, who cares how?", next = "BACK", fx = { align = { light = -1 } } },
+        { text = "If it keeps soldiers alive, I don't care how.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "You're right to be wary. Blood magic has a price.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "Something else, Nina.", next = "BACK" },
       },

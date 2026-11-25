@@ -371,7 +371,7 @@ P:NPC {
       choices = { { text = "Fairly said. Something else.", next = "BACK" } },
     },
     guards = {
-      lines = { { id = "g_default", text = "They walk through twice a day, lookin' straight ahead, and they're glad to be out again. It's an arrangement that suits both sides, for they've nae wish to see anythin' and we've nae wish to be seen." } },
+      lines = { { id = "guards_default", text = "They walk through twice a day, lookin' straight ahead, and they're glad to be out again. It's an arrangement that suits both sides, for they've nae wish to see anythin' and we've nae wish to be seen." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

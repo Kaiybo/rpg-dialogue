@@ -216,7 +216,7 @@ P:NPC {
       choices = { { text = "Thank you. Something else.", next = "BACK" } },
     },
     honor = {
-      lines = { { id = "h2_default", text = "Then I accept, and I give you this coin. May the moon light your path through the snow.", fx = { offer = TODO_QUEST("Brightspear the Elder") } } },
+      lines = { { id = "h2_default", text = "Then I accept, and I give you this coin. May the moon light your path through the snow." } },
       choices = { { text = "Thank you, Elder Brightspear.", next = "BACK" } },
     },
     highborne = {

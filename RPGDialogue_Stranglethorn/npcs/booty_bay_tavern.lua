@@ -225,7 +225,7 @@ P:NPC {
       },
     },
     g_elril = {
-      lines = { { id = "ge_default", text = "That's Elril Everlight, and if you're about to ask whether she's a paladin, every drunk in the Bay has asked already and none of them got a straight answer. She pays in coin, speaks softly and stands guard over nothing in particular, which in this town makes her the most respectable soul on the walkway." } },
+      lines = { { id = "ge_default", key = true, text = "That's Elril Everlight, and if you're about to ask whether she's a paladin, every drunk in the Bay has asked already and none of them got a straight answer. She pays in coin, speaks softly and stands guard over nothing in particular, which in this town makes her the most respectable soul on the walkway." } },
       choices = {
         { text = "Night elves don't take up the Light, do they?", next = "g_elril_pala" },
         { text = "Something else.", next = "BACK" },
@@ -317,8 +317,8 @@ P:NPC {
     },
     trade_poison = {
       lines = {
-        { id = "trp_default", text = "Poisons are why half my students come to me, because this jungle grows things that would make a Westfall apothecary weep with joy. Learn to brew your own and never buy from a goblin on the docks, since they water them down and you'll find out exactly when you can least afford it." },
-        { id = "trp_vet", when = { minLevel = 25 }, text = "You've the basics already, so learn the jungle next: there are vines up past Grom'gol whose sap will put a raptor down mid-leap. Brew your own, always, and never buy from a goblin on the docks, since they water everything." },
+        { id = "trp_default", key = true, text = "Poisons are why half my students come to me, because this jungle grows things that would make a Westfall apothecary weep with joy. Learn to brew your own and never buy from a goblin on the docks, since they water them down and you'll find out exactly when you can least afford it." },
+        { id = "trp_vet", key = true, when = { minLevel = 25 }, text = "You've the basics already, so learn the jungle next: there are vines up past Grom'gol whose sap will put a raptor down mid-leap. Brew your own, always, and never buy from a goblin on the docks, since they water everything." },
       },
       choices = {
         { text = "Who taught you poisons?", next = "trade_poison_who" },

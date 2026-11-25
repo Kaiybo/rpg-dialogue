@@ -714,7 +714,7 @@ P:NPC {
         { id = "h_default", text = "Brother Sarno, at your service! I keep the door, which mostly means I say hello to everyone in Stormwind at least once. Is this your first time in the Cathedral?" },
         { id = "h_quest", tags = { "news" }, when = { questActive = TODO_QUEST("Tinkmaster Overspark") },
           text = "Tinkmaster Overspark is in Tinker Town, in Ironforge, and he's beside himself over Techbot. Do go and see him; I've been worrying about that little machine all week." },
-        { id = "h_quest_before", when = { questBefore = TODO_QUEST("Tinkmaster Overspark"), minLevel = 20 },
+        { id = "h_quest_before", key = true, when = { questBefore = TODO_QUEST("Tinkmaster Overspark"), minLevel = 20 },
           text = "I've had sad news from Ironforge, of all places. Tinkmaster Overspark writes that his Techbot has gone wrong, and I remember it as such a kind, helpful thing." },
         { id = "h_human", when = { race = "Human" },
           text = "A Stormwind face! You'd be surprised how many folk born in this city have never once stepped inside, so I'm doubly glad to see you." },

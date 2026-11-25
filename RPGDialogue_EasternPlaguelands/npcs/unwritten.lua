@@ -287,11 +287,11 @@ P:NPC {
       },
     },
     task = {
-      lines = { { id = "ta_default", text = "Earn the Dawn's high regard, and bring me the coin they ask. Then I will grant you passage through the citadel's wards, and pray you are strong enough for what is beyond them.", fx = { offer = TODO_QUEST("The Dread Citadel - Naxxramas") } } },
+      lines = { { id = "ta_default", text = "Earn the Dawn's high regard, and bring me the coin they ask. Then I will grant you passage through the citadel's wards, and pray you are strong enough for what is beyond them." } },
       choices = { { text = "I'll come back when I'm ready.", next = "BACK" } },
     },
     frostfire = {
-      lines = { { id = "f_default", text = "The citadel's guardians wear garments woven with frost and flame together, and the Brotherhood has learned to remake them. Bring me what the necropolis yields and I will show you the equation that binds the two.", fx = { offer = TODO_QUEST("The Elemental Equation") } } },
+      lines = { { id = "f_default", text = "The citadel's guardians wear garments woven with frost and flame together, and the Brotherhood has learned to remake them. Bring me what the necropolis yields and I will show you the equation that binds the two." } },
       choices = { { text = "Fire and frost in one weave? I'll bring them.", next = "BACK" } },
     },
   },
@@ -335,7 +335,7 @@ P:NPC {
       },
     },
     echoes = {
-      lines = { { id = "e_default", text = "The Scourge are stronger than they have been since Lordaeron fell, and they strike far from these lands now. Go out and cut them down wherever they gather, and bring me proof. Every one you kill is a raid that never comes.", fx = { offer = TODO_QUEST("Echoes of War") } } },
+      lines = { { id = "e_default", text = "The Scourge are stronger than they have been since Lordaeron fell, and they strike far from these lands now. Go out and cut them down wherever they gather, and bring me proof. Every one you kill is a raid that never comes." } },
       choices = {
         { text = "Why are they stronger now?", next = "stronger" },
         { text = "I'll go hunting.", next = "BACK" },
@@ -519,7 +519,7 @@ P:NPC {
     },
     honor = {
       narr = "He bows his head, and the air around him cools like a summer evening.",
-      lines = { { id = "ho_default", text = "Then I accept, gladly. Take this coin, and carry my blessing with you through the dark lands.", fx = { offer = TODO_QUEST("Windrun the Elder") } } },
+      lines = { { id = "ho_default", text = "Then I accept, gladly. Take this coin, and carry my blessing with you through the dark lands." } },
       choices = { { text = "Thank you, Elder Windrun.", next = "BACK" } },
     },
     elune = {
@@ -576,7 +576,7 @@ P:NPC {
       },
     },
     task = {
-      lines = { { id = "ta_default", text = "Go to the towers and raise the Horde's banner over them. When we hold them, our defenses are stronger, and the Scourge dies faster for it.", fx = { offer = TODO_QUEST("Bolstering Our Defenses") } } },
+      lines = { { id = "ta_default", text = "Go to the towers and raise the Horde's banner over them. When we hold them, our defenses are stronger, and the Scourge dies faster for it." } },
       choices = {
         { text = "And if the Alliance holds them already?", next = "rivals" },
         { text = "It will be done.", next = "BACK" },
@@ -645,7 +645,7 @@ P:NPC {
       },
     },
     task = {
-      lines = { { id = "t_default", text = "Take the towers. Crown Guard, Eastwall, Northpass and Plaguewood. Raise our banners and hold them long enough to set up proper outposts.", fx = { offer = TODO_QUEST("Establishing New Outposts") } } },
+      lines = { { id = "t_default", text = "Take the towers. Crown Guard, Eastwall, Northpass and Plaguewood. Raise our banners and hold them long enough to set up proper outposts." } },
       choices = { { text = "Consider them taken.", next = "BACK" } },
     },
     gormok = {
@@ -783,7 +783,7 @@ P:NPC {
       choices = { { text = "I'm not laughing. Something else.", next = "BACK" } },
     },
     offer = {
-      lines = { { id = "o_default", text = "Good. Here's one for dense weightstones; every sword in this chapel needs sharpening twice a day.", fx = { offer = TODO_QUEST("Craftsman's Writ - Dense Weightstone") } } },
+      lines = { { id = "o_default", text = "Good. Here's one for dense weightstones; every sword in this chapel needs sharpening twice a day." } },
       choices = { { text = "I'll be back with them.", next = "BACK" } },
     },
     need = {

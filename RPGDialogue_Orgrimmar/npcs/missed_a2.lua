@@ -130,7 +130,7 @@ P:NPC {
     grand = {
       lines = {
         { id = "g_warrior", when = { class = "WARRIOR" }, text = "Now and then, for a warrior who has earned it, and I enjoy those days. But you of all people know that the weapon you trust is the one that has never surprised you." },
-        { id = "g_default", text = "Now and then I do, when a champion asks and brings the metal for it. Then I go back to the plain axes, and I find I have not missed anything." },
+        { id = "grand_default", text = "Now and then I do, when a champion asks and brings the metal for it. Then I go back to the plain axes, and I find I have not missed anything." },
       },
       choices = { { text = "Another matter.", next = "BACK" } },
     },

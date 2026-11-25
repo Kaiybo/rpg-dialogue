@@ -395,7 +395,7 @@ P:NPC {
 
     drakk = {
       big = true,
-      lines = { { id = "dk_default", text = "He makes the wonders, an' I make sure he's got the salt tae make them, an' I get none o' the stories told about me. He's a fine craftsman an' a terrible man for payin' on time." } },
+      lines = { { id = "dk_default", key = true, text = "He makes the wonders, an' I make sure he's got the salt tae make them, an' I get none o' the stories told about me. He's a fine craftsman an' a terrible man for payin' on time." } },
       choices = {
         { text = "Charge him interest. Business is business.", next = "BACK", reply = "Interest, is it? He'd faint. Still, it's a thought, an' I'll keep it in my back pocket.", fx = { align = { honor = -1 } } },
         { text = "Friends shouldn't count every copper between them.", next = "BACK", reply = "Aye, that's the way o' it, an' I'd no' change it. He'd do the same for me, eventually.", fx = { affinity = 1, align = { honor = 1 } } },

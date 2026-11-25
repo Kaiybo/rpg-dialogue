@@ -474,7 +474,7 @@ P:NPC {
     threat = {
       lines = { { id = "t_default", text = "The orcs of Splintertree and the Warsong camps cut ever closer with their axes and their goblin machines. Worse, I hear the Horde has put a price on my own head, as though a keeper were a wolf in a pasture." } },
       choices = {
-        { text = "The Horde will regret it.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "The Horde will regret it.", next = "BACK" },
         { text = "Perhaps you could make terms with them.", next = "terms" },
         { text = "Something else.", next = "BACK" },
       },

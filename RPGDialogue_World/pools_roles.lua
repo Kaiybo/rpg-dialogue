@@ -931,7 +931,7 @@ P:Pool {
     },
     gossip = {
       lines = {
-        { id = "g_camp", when = { resting = false }, text = "Every traveller stops for water, and most of them talk while they drink. I hear which roads are bad and which camps are nervous, and nobody minds me listening, because I'm only the one with the bottles." },
+        { id = "gs_camp", when = { resting = false }, text = "Every traveller stops for water, and most of them talk while they drink. I hear which roads are bad and which camps are nervous, and nobody minds me listening, because I'm only the one with the bottles." },
         { id = "g_default", text = "Mostly who owes whom, whose cart lost a wheel, and which guard sleeps through the night watch. Folk don't tell a bartender secrets, they just forget I'm standing here, which comes to the same thing." },
         { id = "g_alliance", when = { faction = "Alliance" }, text = "The caravan drivers say King Varian still hasn't come home, and Lord Bolvar is ruling as regent in his place. Folk are uneasy, and uneasy folk drink." },
         { id = "g_horde", when = { faction = "Horde" }, text = "The caravan drivers say the centaur are bolder on the Barrens roads than they've been in years, and nobody's riding out alone. Good for my trade, I suppose, since frightened folk drink." },
@@ -2298,7 +2298,7 @@ P:Pool {
       text = "Send your succubus to wait in the hall. She distracts my other students, and she knows perfectly well that she does." },
     { id = "n_felhunter", cat = "pet", when = { pet = { family = "Felhunter" } },
       text = "Your felhunter is sniffing at my wards. They need the testing, but call it back before it eats one." },
-    { id = "n_human", cat = "class", when = { race = "Human", class = "WARLOCK" },
+    { id = "n_human2", cat = "class", when = { race = "Human", class = "WARLOCK" },
       text = "A human warlock, and a bold one to walk in here in daylight. Half the nobles on the hill would hang you in public and ask you a favour in private, so mind which half you're talking to." },
     { id = "n_taint", cat = "dark", when = { taint = { min = 60 } },
       text = "There's fel on you thick enough to smell, like hot iron and burnt hair. I've seen students go that colour before, and I've buried most of them." },
@@ -2404,7 +2404,7 @@ P:Pool {
     shards_harvest = {
       narr = "The trainer turns a small violet stone over in one hand, then sets it down very carefully.",
       lines = {
-        { id = "sh_default", text = "Every shard is the last of something that died under your hand while you were drinking from it, pulled out and set in stone. You'll spend them on the greater summonings and on healthstones and soulstones, and you'll never have quite enough, so take them when the killing's easy." },
+        { id = "shv_default", text = "Every shard is the last of something that died under your hand while you were drinking from it, pulled out and set in stone. You'll spend them on the greater summonings and on healthstones and soulstones, and you'll never have quite enough, so take them when the killing's easy." },
         { id = "sh_undead", when = { race = "Scourge" }, text = "You'll find the harvest easier than the living do, I expect, since you know better than most what a soul is worth once it's loose. Every shard is the last of something you killed, set in stone, and you'll spend them faster than you'd like." },
       },
       choices = {
@@ -2722,7 +2722,7 @@ P:Pool {
     -- The demon at the player's side.
     pet = {
       lines = {
-        { id = "pe_default", text = "Of course it has; they always do. Listen well, {pet}, because your master's lessons are your lessons too, and the first one is that you serve until you're told otherwise." },
+        { id = "pet_default", text = "Of course it has; they always do. Listen well, {pet}, because your master's lessons are your lessons too, and the first one is that you serve until you're told otherwise." },
         { id = "pe_imp", when = { pet = { family = "Imp" } }, text = "Of course it has, because imps eavesdrop the way other creatures breathe. Listen, {pet}: the books on that shelf are warded, and the last imp who touched one is still a smudge on the ceiling." },
         { id = "pe_void", when = { pet = { family = "Voidwalker" } }, text = "Of course it has, though it hasn't the faintest idea what we're saying. Stand there and be still, {pet}, as you do so well, and keep your master between you and my candles." },
         { id = "pe_succ", when = { pet = { family = "Succubus" } }, text = "Of course she has, and she's enjoying it far too much. Hear me, {pet}: your master is my student, and if you ever try your tricks on my students, I will know." },
@@ -2799,7 +2799,7 @@ P:Pool {
       },
     },
     heritage_orc = {
-      lines = { { id = "ho_default", text = "It nearly did, and it took Grom Hellscream's death to break the curse that came with it. The blood is gone from the Horde, but the memory of it isn't, and an orc at this trade carries that memory into every grimoire opened." } },
+      lines = { { id = "hor_default", text = "It nearly did, and it took Grom Hellscream's death to break the curse that came with it. The blood is gone from the Horde, but the memory of it isn't, and an orc at this trade carries that memory into every grimoire opened." } },
       choices = { { text = "Then I'll carry it well.", next = "BACK", reply = "Carry it like a scar, not a banner. Something else?" } },
     },
   },
@@ -4721,7 +4721,7 @@ P:Pool {
       },
     },
     w_arms = {
-      lines = { { id = "wa_default", text = "Arms is the old soldier's road: a big weapon in both hands, Sweeping Strikes to cut through a crowd, and at the very end Mortal Strike, which leaves a wound that healing struggles to close. Take it if you mean to bring down whatever's in front of you, especially if there's a priest behind it." } },
+      lines = { { id = "wam_default", text = "Arms is the old soldier's road: a big weapon in both hands, Sweeping Strikes to cut through a crowd, and at the very end Mortal Strike, which leaves a wound that healing struggles to close. Take it if you mean to bring down whatever's in front of you, especially if there's a priest behind it." } },
       choices = {
         { text = "Tell me about another road.", next = "w_talents" },
         { text = "Something else.", next = "BACK" },

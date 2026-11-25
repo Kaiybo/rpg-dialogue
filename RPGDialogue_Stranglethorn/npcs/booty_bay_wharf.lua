@@ -260,7 +260,7 @@ P:NPC {
           text = "A dwarf on my dock! Your lot eat a surprisin' amount of fish for mountain folk, chum, and you always want it fried in somethin' that'd stop a goblin's heart." },
         { id = "h_tauren", when = { race = "Tauren" },
           text = "A tauren, buying fish? Don't laugh, chum, plenty of you do, though you always look sorry for 'em first, which I find real touching." },
-        { id = "h_morning", when = { timeOfDay = "morning" },
+        { id = "h_morning", when = { timeOfDay = "dawn" },
           text = "Mornin', chum, and you're just in time, because the boats came in an hour ago and the gulls haven't had the good ones yet. Look sharp, they're circling." },
       },
       again = {

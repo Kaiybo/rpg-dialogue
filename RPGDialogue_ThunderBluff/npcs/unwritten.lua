@@ -151,7 +151,7 @@ P:NPC {
       },
     },
     guard = {
-      lines = { { id = "g_default", text = "Nobody threatens them today. The Bloodhoof smile at us, but a smile is not the same as trust, and Magatha taught us to remember that." } },
+      lines = { { id = "guard_default", text = "Nobody threatens them today. The Bloodhoof smile at us, but a smile is not the same as trust, and Magatha taught us to remember that." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     tribe = {
@@ -300,7 +300,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     green = {
-      lines = { { id = "g_default", text = "Nobody is too green to carry a bundle of linen. The war needs hands before it needs heroes, and every bundle counts." } },
+      lines = { { id = "green_default", text = "Nobody is too green to carry a bundle of linen. The war needs hands before it needs heroes, and every bundle counts." } },
       choices = { { text = "Then I'll carry what I can.", next = "BACK", fx = { affinity = 1 } } },
     },
   },

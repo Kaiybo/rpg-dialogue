@@ -325,7 +325,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     groum = {
-      lines = { { id = "g_default", text = "He's embarrassed an' proud by turns, the way I was when he was the one makin' crooked nails. He checks my work when he thinks I'm no' lookin', an' I let him, for a father can learn from his son if he's the sense tae keep quiet about it." } },
+      lines = { { id = "groum_default", text = "He's embarrassed an' proud by turns, the way I was when he was the one makin' crooked nails. He checks my work when he thinks I'm no' lookin', an' I let him, for a father can learn from his son if he's the sense tae keep quiet about it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

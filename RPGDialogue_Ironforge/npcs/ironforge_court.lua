@@ -2040,7 +2040,7 @@ P:NPC {
       big = true,
       lines = { { id = "prej_default", text = "I trust what I can count. Ironforge bled through the Second War while your people slept in their forests and never sent a single archer, and now Darnassus wants dwarven rifles at Auberdine and calls it friendship." } },
       choices = {
-        { text = "We never knew your war existed. We're here now, aren't we?", next = "prej_a", fx = { align = { honor = 1 } } },
+        { text = "We never knew your war existed. We're here now, and that counts.", next = "prej_a", fx = { align = { honor = 1 } } },
         { text = "You're right. Darnassus owes Ironforge more than polite words.", next = "prej_b", fx = { align = { honor = -1 } } },
         { text = "What would earn your trust, Senator?", next = "prej_calm", fx = { affinity = 1 } },
         { text = "Let's speak of something else.", next = "BACK" },

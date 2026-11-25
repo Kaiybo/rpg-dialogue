@@ -695,7 +695,7 @@ P:NPC {
       choices = { { text = "I'll find them. Something else.", next = "BACK" } },
     },
     honor = {
-      lines = { { id = "h2_default", text = "I accept your honor, and gladly. Take this coin, and remember that even in the desert, the ancestors walk with you.", fx = { offer = TODO_QUEST("Bladesing the Elder") } } },
+      lines = { { id = "h2_default", text = "I accept your honor, and gladly. Take this coin, and remember that even in the desert, the ancestors walk with you." } },
       choices = { { text = "Thank you, Elder Bladesing.", next = "BACK" } },
     },
     sentinel = {
@@ -758,11 +758,11 @@ P:NPC {
       choices = { { text = "Then we stop them. Something else.", next = "BACK" } },
     },
     gorchuk = {
-      lines = { { id = "g_default", text = "Da warlord who leads da war effort here in Orgrimmar. A hard orc and a fair one, and he remember every name dat bring supplies." } },
+      lines = { { id = "gorchuk_default", text = "Da warlord who leads da war effort here in Orgrimmar. A hard orc and a fair one, and he remember every name dat bring supplies." } },
       choices = { { text = "I'll speak to him. Something else.", next = "BACK" } },
     },
     task = {
-      lines = { { id = "t_default", text = "Den gather what I ask and bring it here to Orgrimmar. Every crate be one more soldier fed when da gates open.", fx = { offer = TODO_QUEST("The Horde Needs Your Help!") } } },
+      lines = { { id = "t_default", text = "Den gather what I ask and bring it here to Orgrimmar. Every crate be one more soldier fed when da gates open." } },
       choices = { { text = "I'll bring what you need.", next = "BACK" } },
     },
   },
@@ -805,7 +805,7 @@ P:NPC {
       },
     },
     gates = {
-      lines = { { id = "g_default", text = "They will, when someone strikes the gong with the scepter. Then the bugs come out, and we kill them. Simple." } },
+      lines = { { id = "gates_default", text = "They will, when someone strikes the gong with the scepter. Then the bugs come out, and we kill them. Simple." } },
       choices = {
         { text = "What scepter?", next = "scepter" },
         { text = "Something else.", next = "BACK" },

@@ -135,7 +135,7 @@ P:NPC {
       choices = { { text = "I'll find you all. Something else.", next = "BACK" } },
     },
     honor = {
-      lines = { { id = "h2_default", text = "I accept your honor gladly, little one. Take this coin, and walk with the strength of the ancestors.", fx = { offer = TODO_QUEST("Thunderhorn the Elder") } } },
+      lines = { { id = "h2_default", text = "I accept your honor gladly, little one. Take this coin, and walk with the strength of the ancestors." } },
       choices = { { text = "Thank you, Elder Thunderhorn.", next = "BACK" } },
     },
     earthmother = {

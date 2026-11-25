@@ -1253,7 +1253,7 @@ P:NPC {
     },
     sigils_torgan = {
       lines = {
-        { id = "st_default", text = "Galen break the sigil of Thoradin into eleven bits and hand them to his defenders, clever boy. Bring the bits to Tor'gan, our shaman here, and he put it back together while you look away." },
+        { id = "st_default", key = true, text = "Galen break the sigil of Thoradin into eleven bits and hand them to his defenders, clever boy. Bring the bits to Tor'gan, our shaman here, and he put it back together while you look away." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },

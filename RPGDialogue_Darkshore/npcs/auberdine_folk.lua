@@ -281,7 +281,7 @@ P:NPC {
     },
 
     argos = {
-      lines = { { id = "ar_default", text = "My brother Argos went to Stormwind to find help among the humans, because he says the adventurers there will go anywhere for the right word. He was always the one who talked and I was always the one who read." } },
+      lines = { { id = "ar_default", key = true, text = "My brother Argos went to Stormwind to find help among the humans, because he says the adventurers there will go anywhere for the right word. He was always the one who talked and I was always the one who read." } },
       choices = {
         { text = "Do you miss him?", next = "argos_miss" },
         { text = "Something else.", next = "BACK" },

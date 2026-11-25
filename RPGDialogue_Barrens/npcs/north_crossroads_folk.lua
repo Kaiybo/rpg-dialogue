@@ -884,7 +884,7 @@ P:NPC {
       lines = { { id = "rs_default", text = "Sure, and I tip my hat to every grunt I pass, which is my contribution to the war effort. But a levy's a levy, pal, and I never paid for anything I could get by standin' a little further down the road." } },
       choices = {
         { text = "If the Horde guards the road, you should pay your share.", next = "BACK", reply = "My share? Pal, I tip the hat and I don't cause trouble, which is more than the Kolkar can say. You want me payin' levies, you'll have to catch me standin' still first.", fx = { affinity = -1, align = { order = 1 } } },
-        { text = "Smart. Why pay for walls you don't sleep behind?", next = "BACK", reply = "Exactly, friend, and I'd hire you for my accounts department if I had one. Walls are for folks who plan on stayin' put.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Smart. No sense paying for walls you don't sleep behind.", next = "BACK", reply = "Exactly, friend, and I'd hire you for my accounts department if I had one. Walls are for folks who plan on stayin' put.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

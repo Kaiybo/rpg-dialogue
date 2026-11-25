@@ -620,7 +620,7 @@ P:NPC {
       choices = { { text = "I see. Something else.", next = "BACK" } },
     },
     honor = {
-      lines = { { id = "h2_default", text = "Then take this coin, and my blessing. Carry the old ways with you, and do not let them turn to hatred as my kin did.", fx = { offer = TODO_QUEST("Grimtotem the Elder") } } },
+      lines = { { id = "h2_default", text = "Then take this coin, and my blessing. Carry the old ways with you, and do not let them turn to hatred as my kin did." } },
       choices = { { text = "Thank you, Elder Grimtotem.", next = "BACK" } },
     },
     blame = {

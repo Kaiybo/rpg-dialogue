@@ -784,7 +784,7 @@ P:NPC {
       lines = { { id = "pi_default", text = "They foul my nets, they steal my catch and they ruin my sleep, and the bruisers only care when it happens on the docks. Out on the water a goblin's on his own, pal, and fish money's thin money, so I can't hire help." } },
       choices = {
         { text = "The bruisers should protect everyone, not just the docks.", next = "BACK", reply = "You tell the bruisers that, pal, and see how far you get past their invoice. Everybody wants protection, and nobody wants to pay for the water part.", fx = { align = { order = 1 } } },
-        { text = "Then sink their boats yourself. Who's going to stop you?", next = "BACK", reply = "Me? With what, pal, a fishing pole and harsh language? Those pirates have cannons and I've got a leaky dinghy, so I'll keep my complaints to the docks.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Then sink their boats yourself. Nobody's going to stop you.", next = "BACK", reply = "Me? With what, pal, a fishing pole and harsh language? Those pirates have cannons and I've got a leaky dinghy, so I'll keep my complaints to the docks.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },

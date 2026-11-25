@@ -790,7 +790,7 @@ P:NPC {
     },
     who = {
       lines = {
-        { id = "w_default", text = "Elling, I mean... Stormwind, I report to Stormwind. Forget that first word, would you, I've lost a lot of blood." },
+        { id = "w_default", key = true, text = "Elling, I mean... Stormwind, I report to Stormwind. Forget that first word, would you, I've lost a lot of blood." },
       },
       choices = {
         { text = "Forgotten.", next = "BACK", fx = { affinity = 2, trait = { discreet = 1 } } },

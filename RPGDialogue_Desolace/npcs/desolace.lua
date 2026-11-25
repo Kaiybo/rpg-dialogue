@@ -1252,7 +1252,7 @@ P:NPC {
         { id = "h_op_crusade", tags = { "news" }, when = { gossip = { topic = "scarlet_crusade", stance = "distrust" } },
           text = "Brother Anton's been sitting alone by the fire since you spoke with him. Don't take it to heart; he needed to hear it from someone." },
         { id = "h_dust", when = { metBefore = true }, text = "Desolace dust gets into everything: the bread, the beds, my hair. I've stopped fighting it, and now I just sweep while I talk." },
-        { id = "h_night", when = { timeOfDay = "night" }, text = "The centaur drums carry a long way at night. You stop hearing them after a week, though I haven't stopped yet." },
+        { id = "h_night", key = true, when = { timeOfDay = "night" }, text = "The centaur drums carry a long way at night. You stop hearing them after a week, though I haven't stopped yet." },
         { id = "h_druidcl", when = { class = "DRUID" },
           text = "A druid, come down to Desolace. Most of your kind take one look at the dust and go straight back to Feralas, and I can't say I blame them." },
         { id = "h_roguecl", when = { class = "ROGUE" }, text = "Walk as softly as you like, but my floorboards have learned every trick, and they'll tell me if you come down for a midnight snack. Sit, and I'll bring you something all the same." },

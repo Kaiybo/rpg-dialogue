@@ -335,7 +335,7 @@ P:NPC {
     },
     grave = {
       lines = {
-        { id = "g_default", text = "It's his, our son's, though there's nothing beneath it. I needed somewhere to kneel, and Edward needed to keep searching, so he goes to the ruins and I come here, and between the two of us I suppose we've covered both." },
+        { id = "grave_default", text = "It's his, our son's, though there's nothing beneath it. I needed somewhere to kneel, and Edward needed to keep searching, so he goes to the ruins and I come here, and between the two of us I suppose we've covered both." },
       },
       choices = {
         { text = "That's a sad sort of balance.", next = "BACK", fx = { affinity = 1 } },

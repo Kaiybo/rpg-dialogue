@@ -252,7 +252,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     grow = {
-      lines = { { id = "g_default", text = "Pumpkins, oddly enough, and nightshade, and whatever the apothecaries plant to see if it kills things. A farmer could weep at what's become of this soil, if farmers could still weep." } },
+      lines = { { id = "grow_default", text = "Pumpkins, oddly enough, and nightshade, and whatever the apothecaries plant to see if it kills things. A farmer could weep at what's become of this soil, if farmers could still weep." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },

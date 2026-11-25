@@ -51,7 +51,7 @@ P:NPC {
       choices = { { text = "Fair enough. Something else.", next = "BACK" } },
     },
     gil = {
-      lines = { { id = "g_default", text = "He's asked whether we're there yet since the Trade District, and he'll ask again at the canal. Once we arrive he forgets all of it, because Charys keeps a rabbit called Fizzles and Gil has a whole story about him." } },
+      lines = { { id = "gil_default", text = "He's asked whether we're there yet since the Trade District, and he'll ask again at the canal. Once we arrive he forgets all of it, because Charys keeps a rabbit called Fizzles and Gil has a whole story about him." } },
       choices = { { text = "I'd like to hear that story. Something else.", next = "BACK", reply = "Then ask Paige, because she tells it better than he does." } },
     },
     walk = {

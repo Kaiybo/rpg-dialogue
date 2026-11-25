@@ -85,7 +85,7 @@ P:NPC {
       choices = { { text = "I'll keep an eye out. Something else.", next = "BACK" } },
     },
     gordok = {
-      lines = { { id = "g_default", text = "Plenty, since they talk in front of me like I'm furniture. The big thing is, whoever kills the king is the king, no paperwork, no appeals, and the rest of 'em line up to pay tribute to the new boss like nothin' happened." } },
+      lines = { { id = "gordok_default", text = "Plenty, since they talk in front of me like I'm furniture. The big thing is, whoever kills the king is the king, no paperwork, no appeals, and the rest of 'em line up to pay tribute to the new boss like nothin' happened." } },
       choices = {
         { text = "So the guards I leave alive would serve me?", next = "tribute" },
         { text = "How do I deal with a guard without killing him?", next = "slipkik" },

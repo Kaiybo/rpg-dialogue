@@ -153,7 +153,7 @@ P:NPC {
       },
     },
     gulch = {
-      lines = { { id = "g_default", text = "A valley in Ashenvale, where Grom Hellscream's clan cut the forest and the Sentinels came to make them pay. Now we steal each other's flags and carry them home, and the side with the most wins the day." } },
+      lines = { { id = "gulch_default", text = "A valley in Ashenvale, where Grom Hellscream's clan cut the forest and the Sentinels came to make them pay. Now we steal each other's flags and carry them home, and the side with the most wins the day." } },
       choices = {
         { text = "The elves are defending their forest.", next = "BACK", reply = "Aye, and we're feeding our people. Both of us are right, so we fight about it.", fx = { align = { honor = 1 } } },
         { text = "Then we take the forest and their flag.", next = "BACK", reply = "Lok'tar! That's the spirit the Outriders need.", fx = { align = { honor = -1 } } },
@@ -322,7 +322,7 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
     greatfather = {
-      lines = { { id = "g_default", text = "The jolly fella in Orgrimmar with the beard and the presents, and the best mascot Smokywood ever signed. The dwarves call him something else on their side, but the cookies cost the same." } },
+      lines = { { id = "greatfather_default", text = "The jolly fella in Orgrimmar with the beard and the presents, and the best mascot Smokywood ever signed. The dwarves call him something else on their side, but the cookies cost the same." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
@@ -542,7 +542,7 @@ P:NPC {
       },
     },
     good = {
-      lines = { { id = "g_default", text = "Two colours, one emblem, and restraint. Lordaeron's old houses understood that, and their banners could be read across a battlefield, but every guild now wants six colours and a dragon." } },
+      lines = { { id = "good_default", text = "Two colours, one emblem, and restraint. Lordaeron's old houses understood that, and their banners could be read across a battlefield, but every guild now wants six colours and a dragon." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     light = {

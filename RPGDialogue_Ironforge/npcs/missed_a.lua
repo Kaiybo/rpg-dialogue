@@ -261,7 +261,7 @@ P:NPC {
       choices = { { text = "I'll watch the trees. Something else.", next = "BACK" } },
     },
     goblins = {
-      lines = { { id = "g_default", text = "They pay me in fliers and the joy of the thing, and I'd do it for less. A goblin will sell ye yer own boots, I know it well, but they run a straight contest because a crooked one would draw nae anglers the week after." } },
+      lines = { { id = "goblins_default", text = "They pay me in fliers and the joy of the thing, and I'd do it for less. A goblin will sell ye yer own boots, I know it well, but they run a straight contest because a crooked one would draw nae anglers the week after." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
     dwarves = {
