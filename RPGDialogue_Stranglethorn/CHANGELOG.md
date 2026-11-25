@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.47.0 (2026-11-25): Friends, Foes and Fools
+- Major characters answer the new friendly topics and grievances in their own voice.
+
 ## 1.46.0 (2026-11-24): Fewer Words, Same Voice
 - NPC speeches over 60 words were trimmed so they fit the dialogue box; nothing they say was lost.
 

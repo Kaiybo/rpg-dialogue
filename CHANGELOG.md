@@ -2,7 +2,11 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
-## Unreleased
+## 0.114.0 (2026-11-25): Friends, Foes and Fools
+- **When they like you.** Nine new things to ask people who are Warm, Friendly or Devoted toward you: what they make of you, something most folk don't know, who to trust, what to watch out for, their worries and hopes, a favor, what your friendship means, and something they've never told anyone. Every major character answers in their own voice.
+- **When they don't.** Grievances, amends and spite now sound like the person you're talking to, not a stock answer, across every pack.
+- **Alignment and disposition matter more.** Your Light, Order and Honor stand moves people on every value they care about, either way; someone Devoted to you can be talked round, someone Hostile can't. Alignment lines come up more often.
+- **Funnier jokes, and far more of them.** The flat ones are rewritten, and there are about 340 new ones: about your race and class, your faction, the place you're standing in, the person's trade (innkeepers, guards, bankers, trainers, spirit healers and more), and twenty famous characters who answer the joke itself. People also have new ways to laugh or groan.
 - **Right-click talks again after you've handed in their quests.** Anyone who once opened a quest or menu for you was taken to always have one, so once their quests were done a right-click did nothing. Now, if no menu comes, they talk.
 - **DialogueUI: no silent spell after a hand-in.** The pause that stops a conversation reopening over a quest page now lasts three seconds and only applies to that quest page, so people talk again straight away on your next visit.
 - **DialogueUI: back to the conversation after a quest from a quest list.** People who show a list of quests instead of a menu now bring you back to the conversation after you take or hand in one, as menu NPCs do.

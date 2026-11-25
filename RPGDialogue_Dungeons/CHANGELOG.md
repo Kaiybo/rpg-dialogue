@@ -1,5 +1,8 @@
 # RPG Dialogue: Dungeons changelog
 
+## 1.5.0 (2026-11-25): Friends, Foes and Fools
+- Major characters answer the new friendly topics and grievances in their own voice.
+
 ## 1.4.0 (2026-11-25): More to Say
 - Thin conversations deepened: more topics, a longer thread, and a reply only some characters get.
 

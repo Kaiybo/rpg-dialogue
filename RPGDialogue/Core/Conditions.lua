@@ -541,7 +541,7 @@ end)
 
 -- Grudge (0.90.0, Disposition.Grudges): what's turning this person against you, a word or a
 -- list (any one matches): wronged, town, values, temper, rival, prejudice, tone, persuade,
--- enemy, alignment (0.115.0). { worst = "word" } matches only the reason that costs you most. false: no grudge.
+-- enemy, alignment (0.114.0). { worst = "word" } matches only the reason that costs you most. false: no grudge.
 -- Spoof with grudge=wronged.
 def("grudge", 25, "hinge", nil, function(ctx, v, env)
   local set, worst = {}, nil
