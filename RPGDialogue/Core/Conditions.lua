@@ -541,7 +541,7 @@ end)
 
 -- Grudge (0.90.0, Disposition.Grudges): what's turning this person against you, a word or a
 -- list (any one matches): wronged, town, values, temper, rival, prejudice, tone, persuade,
--- enemy. { worst = "word" } matches only the reason that costs you most. false: no grudge.
+-- enemy, alignment (0.115.0). { worst = "word" } matches only the reason that costs you most. false: no grudge.
 -- Spoof with grudge=wronged.
 def("grudge", 25, "hinge", nil, function(ctx, v, env)
   local set, worst = {}, nil
@@ -556,7 +556,7 @@ def("grudge", 25, "hinge", nil, function(ctx, v, env)
 end)
 
 -- Fondness (0.114.0, Disposition.Fondness): what's warming this person to you, a word or a
--- list (any one matches): earned, town, values, temper, rival, tone, persuade.
+-- list (any one matches): earned, town, values, temper, rival, tone, persuade, alignment.
 -- { best = "word" } matches only the reason that helps you most. false: nothing does.
 -- Spoof with fondness=earned.
 def("fondness", 25, "hinge", nil, function(ctx, v, env)
