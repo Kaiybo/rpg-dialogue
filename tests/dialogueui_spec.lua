@@ -358,3 +358,21 @@ describe("Quests from the conversation in DialogueUI", function()
     contains(names(dui), "Get on with it", "our page again, not DialogueUI's plain menu")
   end)
 end)
+
+describe("Our windows in DialogueUI's style", function()
+  it("switches once to DialogueUI's parchment, following its theme", function()
+    local ns, dui = boot()
+    eq(ns.db.settings.look, "dialogueui", "set once on login")
+    eq(ns.UI.Theme.Look(), "dui")
+    talk("Marshal McBride")
+    local d = ns.UI.Dialogue.Frame().rpgdTex.dui
+    ok(d and d.top:IsShown(), "its parchment behind our box")
+    contains(d.top:GetTexture(), "Theme_Brown")
+    eq(ns.UI.Theme.Palette().dark, nil)
+    _G.DialogueUI_DB = { Theme = 2 }
+    ok(ns.UI.Theme.Palette().dark, "its dark theme, dark ink")
+    _G.DialogueUI_DB = nil
+    ns.db.settings.look = "wood"
+    eq(ns.UI.Theme.Look(), "wood", "and can be switched back")
+  end)
+end)

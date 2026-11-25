@@ -2,7 +2,9 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
-## Unreleased
+## 0.112.0 (2026-11-25): One Parchment
+No new files; a /reload is enough.
+- **DialogueUI: our own windows wear its parchment.** With DialogueUI loaded, the box (when it still opens), Ask about..., the journal and the compact bar use DialogueUI's parchment and ink, brown or dark to follow its theme. Switched on once for you; change it under Window style.
 - **DialogueUI: replies you can't click, fixed.** DialogueUI's swipe-to-scroll could swallow clicks on our replies; each reply now answers a click even then.
 - **DialogueUI: looks like DialogueUI.** Its own icons on vendor, trainer and quest rows, blue for Ask about..., red for Persuade, greyed locked replies; muted text and the divider follow its dark theme; no number keys shown while you play on a gamepad; the NPC's name before their words when DialogueUI's "NPC name on page" is on.
 - **DialogueUI: the talk key and right-click open in its window too.** Townsfolk, guards and anyone without a menu of their own now talk inside DialogueUI's window instead of our box (unless that window is already busy). Its Goodbye and Escape end the visit.

@@ -41,6 +41,13 @@ end
 ns.OnLogin(function()
   local other = I.DialogueAddonLoaded()
   if not other then return end
+  -- Once, with DialogueUI: our windows take its parchment (Window style), so the box that
+  -- still opens now and then (its window busy, a fallback) matches it. Switchable back.
+  local st = ns.db.settings
+  if other == "DialogueUI" and not st.lookDuiOffered then
+    st.lookDuiOffered = true
+    if st.look == "game" then st.look = "dialogueui" end
+  end
   local told = ns.db.settings.toldAboutOther
   if told == other .. (I.InsideDialogueUI() and ":inside" or "") or (other ~= "DialogueUI" and told == other) then return end
   local mode = I.Mode()
