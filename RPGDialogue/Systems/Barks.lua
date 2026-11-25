@@ -44,7 +44,7 @@ function Barks.Try(unit, force)
   local key = ns.Memory.Key(info)
   if not force and lastByNpc[key] and now - lastByNpc[key] < Barks.NPC_SECONDS then return false end
   local env = ns.Engine.NewEnv(info, ctx, ns.Memory.Get(key) or {})
-  if not force and env.rng.next() > Barks.CHANCE then return false end
+  if not force and math.random() > Barks.CHANCE then return false end  -- env.rng is seeded per NPC per day: same roll all day
   local w = ns.Engine.PickBark(info, ctx, env)
   if not w then return false end
   ns.Memory.MarkSeen(w.gid, w.line)

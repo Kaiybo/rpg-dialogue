@@ -253,8 +253,21 @@ function SD.TrimSeen(seen, limit)
   local n = U.Count(seen)
   if n <= limit then return 0 end
   local list = {}
-  for id, rec in pairs(seen) do list[#list + 1] = { id = id, t = type(rec) == "table" and rec.t or 0 } end
-  table.sort(list, function(a, b) return a.t < b.t end)
+  -- "once" lines (and noticing moments, once by default) live only in seen: trimming them
+  -- would let them repeat, so they go last (only when the packs are loaded and known).
+  local lines = ns.Data and ns.Data.lines
+  local function keep(id)
+    local rec = lines and lines[id]
+    if not rec or type(rec.line) ~= "table" then return false end
+    return rec.line.once or (rec.slot == "notice" and not rec.line.repeatable) or false
+  end
+  for id, rec in pairs(seen) do
+    list[#list + 1] = { id = id, t = type(rec) == "table" and rec.t or 0, keep = keep(id) }
+  end
+  table.sort(list, function(a, b)
+    if a.keep ~= b.keep then return not a.keep end
+    return a.t < b.t
+  end)
   local remove = n - limit
   for i = 1, remove do seen[list[i].id] = nil end
   return remove
