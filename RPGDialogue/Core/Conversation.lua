@@ -1289,6 +1289,7 @@ function Conv.AskKnows()
     text = L.FALLBACK_LINE
   end
   local linked
+  local lead = text
   if #ids > 0 then
     ns.Effects.Apply({ learn = ids }, s.env)
     ns.Topics.MarkKnows(ids, s.memKey)
@@ -1298,7 +1299,13 @@ function Conv.AskKnows()
     linked = on and (text .. "\n\n" .. ns.Topics.LinkList(ids, hex)) or nil
     text = plain
   end
-  View(s).ShowAnswer(text, L.KNOWS_TITLE, linked)
+  if s.view == "dui" then
+    -- DialogueUI's window can't show links: their lead-in alone, and the topics they named
+    -- as rows to ask about, first in the list.
+    View(s).ShowAnswer(lead, L.KNOWS_TITLE, nil, nil, #ids > 0 and ids or nil)
+  else
+    View(s).ShowAnswer(text, L.KNOWS_TITLE, linked)
+  end
   if ns.UI.AskAbout and ns.UI.AskAbout.Refresh then ns.UI.AskAbout.Refresh() end
 end
 

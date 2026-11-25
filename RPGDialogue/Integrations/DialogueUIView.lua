@@ -244,8 +244,20 @@ local function buildRows(p)
     local cat = p.askCat
     if cat and not byCat[cat] then cat, p.askCat = nil, nil end
     if not cat then
+      -- Just after "What do you know?", the topics they named come first.
+      local named = {}
+      for _, id in ipairs(p.named or {}) do named[id] = true end
+      local shownFirst = {}
+      if p.named then
+        for _, t in ipairs(all) do
+          if named[t.id] then topicRow(t, #shownFirst == 0 and #out > 0); shownFirst[#shownFirst + 1] = t end
+        end
+      end
       for i, t in ipairs(std) do topicRow(t, i == 1 and #out > 0) end
-      for i, t in ipairs(knows) do topicRow(t, i == 1) end
+      local gap = true
+      for _, t in ipairs(knows) do
+        if not named[t.id] then topicRow(t, gap); gap = false end
+      end
       local first = true
       for _, c in ipairs(CAT_ORDER) do
         local list = byCat[c]
@@ -462,7 +474,7 @@ end
 
 function V.SetChoices(choices)
   if not page then return end
-  page.choices, page.asking, page.persuading, page.askCat = choices, nil, nil, nil
+  page.choices, page.asking, page.persuading, page.askCat, page.named = choices, nil, nil, nil, nil
   if lastView then lastView.choices = choices end
   V.Refresh()
 end
@@ -494,9 +506,12 @@ end
 
 -- An answer keeps the topic list open (and its page), so the next question is one click.
 -- What you said to get it (Admire, Joke, Taunt, Intimidate; 0.86.0) goes ahead of it.
-function V.ShowAnswer(text, _, _, said)
+-- topicIds ("What do you know?"): the topics they named, listed first as rows to ask about.
+function V.ShowAnswer(text, _, _, said, topicIds)
   if not page then return end
   page.body, page.narr, page.said, page.reactions = text or "", nil, said, nil
+  page.named = topicIds
+  if topicIds then page.asking, page.askCat, page.askPage = true, nil, 0 end
   if lastView then lastView.text, lastView.narr, lastView.said = page.body, nil, said end
   V.Refresh()
 end

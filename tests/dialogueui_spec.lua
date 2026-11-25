@@ -435,3 +435,19 @@ describe("DialogueUI resetting its own scripts", function()
     eq(ns.Conversation.session, nil, "Goodbye or Escape still ends the visit")
   end)
 end)
+
+describe("What do you know? in DialogueUI", function()
+  it("shows their lead-in, with the topics they named as rows first", function()
+    local ns, dui = bootInside()
+    for i = 1, 3 do
+      ns.Data.topics["n" .. i] = { id = "n" .. i, name = "Named " .. i, category = "places" }
+    end
+    visit(dui, "Marshal McBride")
+    ns.Engine.TopicsKnownBy = function() return { { id = "n1" }, { id = "n2" }, { id = "n3" } } end
+    ns.Conversation.Ask("knows")
+    ok(not (dui.text or ""):find("Named 1", 1, true), "no list of names in the text: " .. tostring(dui.text))
+    ok(names(dui):find("^1%. Named"), "the named topics come first: " .. names(dui))
+    contains(names(dui), "Named 3")
+    contains(names(dui), "Back")
+  end)
+end)
