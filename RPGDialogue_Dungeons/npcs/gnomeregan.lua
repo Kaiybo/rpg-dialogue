@@ -108,8 +108,8 @@ P:NPC {
     yfamily = {
       narr = "He pats his pockets, as though his family might be in one of them.",
       lines = {
-        { id = "yfa_default", text = "A wife, I'm nearly sure, called Wizzle or Fizzle, with lovely spectacles. She was on the evening shift. Do you think she got out? I'd like to think she got out and is cross with me for being late." },
-        { id = "yfa_gnome", when = { race = "Gnome" }, text = "A wife, Wizzle or Fizzle, with lovely spectacles, on the evening shift. You're from Tinker Town, you said? Could you ask about her? I'd like to think she's there, and cross with me for being late." },
+        { id = "yfa_default", text = "A wife, I'm nearly sure, called Nibbly or Nobbly, with lovely spectacles. She was on the evening shift. Do you think she got out? I'd like to think she got out and is cross with me for being late." },
+        { id = "yfa_gnome", when = { race = "Gnome" }, text = "A wife, Nibbly or Nobbly, with lovely spectacles, on the evening shift. You're from Tinker Town, you said? Could you ask about her? I'd like to think she's there, and cross with me for being late." },
       },
       choices = {
         { text = "I'll ask in Tinker Town for her.", next = "BACK", reply = "Oh, would you? Tell her I'm coming, eventually, once I find the stairs." , fx = { affinity = 1 } },

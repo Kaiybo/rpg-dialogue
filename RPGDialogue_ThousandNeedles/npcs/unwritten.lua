@@ -1137,7 +1137,7 @@ P:NPC {
     yname = {
       narr = "He wipes his hand on his overalls and offers it, then thinks better of the grease.",
       lines = {
-        { id = "yn_default", text = "Fizzlecog, Pindle Fizzlecog, third bolt-sorter, first class! Nobody asks, because the sign just says pit crewman, and I've been meaning to paint my name on it but there's always a gasket that needs me more." },
+        { id = "yn_default", text = "Fizzlecog, Tobble Fizzlecog, third bolt-sorter, first class! Nobody asks, because the sign just says pit crewman, and I've been meaning to paint my name on it but there's always a gasket that needs me more." },
         { id = "yn_gnome", when = { race = "Gnome" }, text = "Fizzlecog, third bolt-sorter, first class! You're the first gnome in weeks to ask. Were you in Tinker Town after the fall? Maybe we queued for soup together, everyone did." },
       },
       choices = { { text = "Good to meet you, Fizzlecog. Something else.", next = "BACK" } },

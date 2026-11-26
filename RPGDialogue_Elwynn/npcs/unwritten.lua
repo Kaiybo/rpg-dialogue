@@ -617,7 +617,7 @@ P:NPC {
   },
   topics = {
     mulgore = { { id = "yt_mulgore", text = "The grass of Mulgore is gold at sunset, and the kodo graze to the horizon. I see it when I close my eyes." } },
-    cooking = { { id = "yt_cook", text = "Good food needs a slow fire, a patient hand and someone hungry to eat it. The last is easiest to find." } },
+    cooking = { { id = "yt_cooking", text = "Good food needs a slow fire, a patient hand and someone hungry to eat it. The last is easiest to find." } },
     background = { { id = "tp_bg", text = "I am of the Thunderhorn clan, from the plains of Mulgore. I left to see the world, and the world is mostly hungry." } },
     darkmoon_faire = { { id = "tp_dmf", text = "It is a strange herd, but a kind one, and it has room for a tauren with a grill." } },
     _none = { { id = "tp_none", text = "That I do not know, friend. The winds have not carried it to my grill." } },
