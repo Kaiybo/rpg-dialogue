@@ -37,6 +37,9 @@ P:NPC {
         { text = "Which of Justin's stories don't you believe?", next = "stories" },
         { text = "Are there really crocolisks in the canals?", next = "crocs" },
         { text = "Do you ever catch anything?", next = "catch" },
+        { text = "What would you do if Justin's stories were true?", next = "x_true" },
+        { text = "You should believe your friends, Brandon.", next = "x_stance" },
+        { text = "I'm a mage. Ask me what's true.", next = "x_mage", when = { class = "MAGE" } },
         { text = "Good fishing, Brandon.", next = "END" },
       },
     },
@@ -58,6 +61,31 @@ P:NPC {
     catch = {
       lines = { { id = "ca_default", text = "Little ones, sometimes, and we throw them back because my mum won't cook anything out of the canal. Roman caught a hat once, and he wore it all day even though it was wet." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_true = {
+      lines = {
+        { id = "x_true_l0", text = "I'd want to see the raven wizard most, because then I'd know for certain. Only if he's real, he might not want to be seen, and then I'd never know at all." },
+      },
+      choices = {
+        { text = "That's a clever worry. Something else.", next = "BACK" },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "My dad says believe what you see and half of what you hear. Justin says that's no way to make friends." },
+      },
+      choices = {
+        { text = "Trust your friends, even when the story's tall.", next = "BACK", reply = "All right, but only the stories that don't have thirty-six orcs.", fx = { align = { order = -1 } } },
+        { text = "Your dad's right. Ask for proof.", next = "BACK", reply = "That's what I keep saying, and Justin keeps saying I'm no fun.", fx = { align = { order = 1 } } },
+      },
+    },
+    x_mage = {
+      lines = {
+        { id = "x_mage_l0", text = "Then can a wizard turn into a raven, really? Don't laugh, I've got to know before Justin asks me again." },
+      },
+      choices = {
+        { text = "Some can, and stranger things besides. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
   },
   topics = {
@@ -100,6 +128,9 @@ P:NPC {
         { text = "Crocolisks, in the canal?", next = "crocs" },
         { text = "Tell me about Lothar and the orcs.", next = "lothar" },
         { text = "Your friend Brandon doesn't seem convinced.", next = "brandon" },
+        { text = "What does your cousin in the guard really do?", next = "x_cousin" },
+        { text = "A good story's worth more than a true one.", next = "x_stance" },
+        { text = "I'm a guard's friend. Tell me a real secret.", next = "x_rogue", when = { class = "ROGUE" } },
         { text = "Keep fishing, Justin.", next = "END" },
       },
     },
@@ -121,6 +152,31 @@ P:NPC {
     brandon = {
       lines = { { id = "b_default", text = "Brandon never believes anything, not even the one about the old wizard who could turn into a raven. He'll be sorry when a crocolisk comes up and I'm the only one who's ready for it." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_cousin = {
+      lines = {
+        { id = "x_cousin_l0", text = "He stands at the gate by the Valley of Heroes and checks wagons for Defias, and once he found a whole barrel of swords under the turnips. He says the farmer cried, which I think means he was guilty." },
+      },
+      choices = {
+        { text = "Or frightened. Something else.", next = "BACK" },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "My cousin says a good story is how you get people to listen, and then you tell them the true part. Roman says I never get to the true part." },
+      },
+      choices = {
+        { text = "Tell it big. People remember the big ones.", next = "BACK", reply = "That's what I say! Roman, did you hear that?", fx = { align = { honor = -1 } } },
+        { text = "Stick to the truth, Justin, or nobody will trust you.", next = "BACK", reply = "Oh. Well, I'll try, only the true ones are shorter.", fx = { align = { honor = 1 } } },
+      },
+    },
+    x_rogue = {
+      lines = {
+        { id = "x_rogue_l0", text = "A real one? The guards change at the Trade District gate when the Cathedral bells ring, and for a minute nobody's looking. I shouldn't have told you that." },
+      },
+      choices = {
+        { text = "I'll forget I heard it. Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -161,6 +217,9 @@ P:NPC {
         { text = "What are you delivering?", next = "delivery" },
         { text = "Tell me about your family.", next = "family" },
         { text = "You have the look of a man headed for cheese.", next = "cheese" },
+        { text = "Why are folk buying sturdy clothes, do you think?", next = "x_why" },
+        { text = "What does Rema think of the Defias trouble?", next = "x_rema" },
+        { text = "Your wife's stitching is said to be fine work.", next = "x_tailor", when = { profession = "Tailoring" } },
         { text = "Good day, Corbett.", next = "END" },
       },
     },
@@ -183,9 +242,53 @@ P:NPC {
       lines = { { id = "c_default", text = "You've found me out! Elling Trias makes a bleu that's fresh every morning, and his Elaine always asks after the shop. A wheel of that and a quiet walk home is all the luxury I need." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_why = {
+      lines = {
+        { id = "x_why_l0", text = "Because the roads aren't safe, friend, and a farmer from Westfall who comes to market wants a coat that'll turn a knife. I've seen men buy a padded jerkin and wear it under their Sunday best." },
+      },
+      choices = {
+        { text = "Is it that bad out there?", next = "x_why2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_why2 = {
+      lines = {
+        { id = "x_why2_l0", text = "My cousin at Sentinel Hill writes that it's worse every month, and the Westfall People's Militia is farmers with pitchforks. Rema sends him a parcel every season, and I carry it to the post with my heart in my throat." },
+      },
+      choices = {
+        { text = "Does he think it will get better?", next = "x_why3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_why3 = {
+      lines = {
+        { id = "x_why3_l0", text = "He thinks it'll get better when someone finds out who's paying the Defias, because masks and swords cost money. I said that's the sort of thing adventurers do, and he laughed." },
+      },
+      choices = {
+        { text = "Maybe I'll be one of them. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_rema = {
+      lines = {
+        { id = "x_rema_l0", text = "She says the stonemasons were robbed, and she says it loud enough that I hush her in the shop. I say a debt doesn't make a man a bandit, and we leave it there over supper." },
+      },
+      choices = {
+        { text = "Rema's right. The nobles brought this on themselves.", next = "BACK", reply = "Don't tell her you said so, or I'll never hear the end of it.", fx = { align = { order = -1 } } },
+        { text = "You're right, Corbett. No grievance excuses banditry.", next = "BACK", reply = "Thank you, friend, though I'll keep it to myself at home.", fx = { align = { order = 1 } } },
+      },
+    },
+    x_tailor = {
+      lines = {
+        { id = "x_tailor_l0", text = "It is, and she'll be glad to hear a fellow needle says so. Ask her about linings if you're ever in the shop, because she can talk about them for an hour." },
+      },
+      choices = {
+        { text = "I may well. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I married a tailor and I've carried her parcels ever since, and I've never regretted a step of it. We've had the shop by the bridge since the canals were dug anew." } },
+    rumors = { { id = "tp_rumors_x", text = "Folk say the Defias have friends in the city, and Rema says so does everybody, if you pay them." } },
     _none = { { id = "tp_none", text = "I'm not sure, friend. Rema hears more than I do, since half the Trade District's wives sit in her fitting room." } },
   },
 }
@@ -224,6 +327,9 @@ P:NPC {
         { text = "I heard you shouting about free drinks.", next = "free" },
         { text = "Why do you do this?", next = "why" },
         { text = "What's good at the Blue Recluse?", next = "good" },
+        { text = "How long have you been walking these lawns?", next = "x_long" },
+        { text = "Stretching the truth is harmless if it fills a tavern.", next = "x_stance" },
+        { text = "Do mages drink at the Recluse?", next = "x_mage", when = { class = "MAGE" } },
         { text = "Perhaps later, Erich.", next = "END" },
       },
     },
@@ -245,6 +351,49 @@ P:NPC {
     good = {
       lines = { { id = "g_default2", text = "Angus Stern's kitchen, first and last, for the man cooks as if the King were coming. After that I'd point you to Joachim's wines, and to a corner seat where you can hear mages argue about things that might set the roof alight." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_long = {
+      lines = {
+        { id = "x_long_l0", text = "Since my brother Steven took the lease on the Blue Recluse, and that's going on six years. I tried working the counter, but I talk too much to pour straight, so he gave me the lawns instead." },
+      },
+      choices = {
+        { text = "Was that a kindness or a punishment?", next = "x_long2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_long2 = {
+      lines = {
+        { id = "x_long2_l0", text = "Both, friend, and he'd say so himself. But I've brought in more custom than any sign, and when the archmages pass me by I count it as practice for the next one." },
+      },
+      choices = {
+        { text = "Has an archmage ever stopped?", next = "x_long3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_long3 = {
+      lines = {
+        { id = "x_long3_l0", text = "Once, and he turned my hat into a fish, which I took as a review. I wore it for an hour until it wore off, and three apprentices followed me in to see what would happen next." },
+      },
+      choices = {
+        { text = "Good business, in the end. Something else.", next = "BACK" },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "Harmless? I like to think so, though Joachim reckons each free drink I promise costs him a customer's good temper." },
+      },
+      choices = {
+        { text = "Your promises bring people in. Where's the harm?", next = "BACK", reply = "That's what I tell him, and he never listens.", fx = { align = { honor = -1 } } },
+        { text = "You shouldn't promise what isn't yours to give.", next = "BACK", reply = "Ah, a stern one, and my brother would like you.", fx = { align = { honor = 1 } } },
+      },
+    },
+    x_mage = {
+      lines = {
+        { id = "x_mage_l0", text = "They do, and they leave the strangest tips, a frost-glazed copper, a candle that won't go out. Steven keeps them all in a jar behind the bar." },
+      },
+      choices = {
+        { text = "I'll add something to the jar. Something else.", next = "BACK" },
+      },
     },
   },
   topics = {

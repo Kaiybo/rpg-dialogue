@@ -41,6 +41,9 @@ P:NPC {
         { text = "What sort of books do you keep here?", next = "books" },
         { text = "You look like a man who's lost his hat.", next = "hat" },
         { text = "What is Mazen like to work for?", next = "mazen" },
+        { text = "Who decides what goes on the red folios' shelf?", next = "x_red" },
+        { text = "Some knowledge is better left unwritten.", next = "x_stance" },
+        { text = "I've read a few old books myself, as a priest.", next = "x_priest", when = { class = "PRIEST" } },
         { text = "I'll leave you to your shelves.", next = "END" },
       },
     },
@@ -75,9 +78,53 @@ P:NPC {
       lines = { { id = "m_default", text = "He's patient, and he forgets where he's put his spectacles four times a day, and he knows more than any three archmages I've met. He forgave me for the Essays before I'd finished confessing, which made me feel a good deal worse." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_red = {
+      lines = {
+        { id = "x_red_l0", text = "Master Mazen does, and he locks that shelf with a key he wears round his neck. They're the Dalaran copies on summoning and the darker schools, kept so that someone will recognise the signs if they ever come back." },
+      },
+      choices = {
+        { text = "Come back? Who would summon such things?", next = "x_red2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_red2 = {
+      lines = {
+        { id = "x_red2_l0", text = "Nobody in Stormwind, I'd hope, though Master Mazen says the guards found a circle meeting under the Slaughtered Lamb last spring. He asked me to keep a list of anyone who requests those folios, and I do, though it makes me feel like a spy." },
+      },
+      choices = {
+        { text = "Has anyone asked lately?", next = "x_red3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_red3 = {
+      lines = {
+        { id = "x_red3_l0", text = "One gentleman in a very good coat, twice, and he grew quite cross when I said no. I wrote his name down, and I've told the Master, and I sleep a little worse for it." },
+      },
+      choices = {
+        { text = "You did right to tell him. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "Some people say so, and some of them are clergy. I think a thing forgotten is a thing that can surprise you, and I would rather be bored by a catalogue than surprised by a demon." },
+      },
+      choices = {
+        { text = "A library should keep everything, however dangerous.", next = "BACK", reply = "Master Mazen would agree with you, though he'd still lock the shelf.", fx = { align = { order = -1 } } },
+        { text = "Dangerous books belong under lock and the Church's eye.", next = "BACK", reply = "That's the rule we keep, and I think it's a fair one.", fx = { align = { order = 1 } } },
+      },
+    },
+    x_priest = {
+      lines = {
+        { id = "x_priest_l0", text = "Then you'll know the Cathedral keeps its own library, and a better-guarded one than ours. Their archivist and Master Mazen trade copies by the cartload, and argue about the bindings." },
+      },
+      choices = {
+        { text = "I'll ask after your copies there. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I came to the Academy as a boy to learn spells, and found I liked the books better than the casting. Master Mazen took me on, and I've been up these stairs ever since." } },
+    rumors = { { id = "tp_rumors_x", text = "They say a man in a good coat has been asking at every library in the city for the same old summoning texts. I only hope he's a scholar." } },
     _none = { { id = "tp_none", text = "I don't know, I'm afraid, but if it's written down anywhere, Master Mazen will know which shelf." } },
   },
 }
@@ -114,6 +161,9 @@ P:NPC {
         { text = "Have you ever caught anything?", next = "crab" },
         { text = "Billy says you can't fish.", next = "billy" },
         { text = "Why fish here, if there's nothing to catch?", next = "why" },
+        { text = "Billy says he's going to catch a crocolisk.", next = "x_croc" },
+        { text = "Fibbing is all right if it's a good story.", next = "x_stance" },
+        { text = "I'm a hunter. I could teach you to read the water.", next = "x_hunt", when = { class = "HUNTER" } },
         { text = "Good luck, Adam.", next = "END" },
       },
     },
@@ -135,6 +185,31 @@ P:NPC {
     why = {
       lines = { { id = "w_default", text = "Because my dad says the harbor's too deep for boys, and the lake's all the way out past Goldshire. Anyway, it's nice here, and sometimes the cheese man's wife gives us the broken bits." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_croc = {
+      lines = {
+        { id = "x_croc_l0", text = "He says that every single day, and he hasn't even got a hook big enough. If he caught one it would pull him in, and then I'd have to tell his mum, and I'm not doing that." },
+      },
+      choices = {
+        { text = "You're a good friend to him. Something else.", next = "BACK" },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "My mum says a fib is a fib even if it's a fun one. Billy's dad says stories are how people keep warm in winter." },
+      },
+      choices = {
+        { text = "A lie's a lie, Adam. Your mum's right.", next = "BACK", reply = "I knew it! I'm going to tell Billy you said so.", fx = { align = { honor = 1 } } },
+        { text = "Billy's stories don't hurt anybody.", next = "BACK", reply = "I suppose, only he doesn't have to look so pleased about it.", fx = { align = { honor = -1 } } },
+      },
+    },
+    x_hunt = {
+      lines = {
+        { id = "x_hunt_l0", text = "Really? Then where are the fish, because I've counted the ripples and there's hardly any. If you tell me, I won't tell Billy, and that's a promise." },
+      },
+      choices = {
+        { text = "Under the bridge's shadow, where it's cool. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
   },
   topics = {
@@ -179,6 +254,9 @@ P:NPC {
         { text = "Where did the two of you fight?", next = "war" },
         { text = "How did a dwarf end up in Stormwind?", next = "stormwind" },
         { text = "You two never seem to stop talking.", next = "christoph" },
+        { text = "What do you make of the Defias on the roads?", next = "x_defias" },
+        { text = "Tell me about Danath Trollbane.", next = "x_danath" },
+        { text = "Ironforge sent ye south too, then?", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Enjoy your ale, Aedis.", next = "END" },
       },
     },
@@ -208,9 +286,53 @@ P:NPC {
       lines = { { id = "wr_default", text = "He swears it was himself that started the brawl in Lordaeron, when the whole regiment knows it was me. Ask Reese at the Pig and Whistle, for he's heard both tellings so often he could settle it in his sleep." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_danath = {
+      lines = {
+        { id = "x_danath_l0", text = "Finest commander I ever served under, human or dwarf, and he never once asked a man tae do what he'd no' do first. When the Portal opened again, he went through it wi' Khadgar and the rest, and nobody's seen him since." },
+      },
+      choices = {
+        { text = "Do you think he's alive?", next = "x_danath2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_danath2 = {
+      lines = {
+        { id = "x_danath2_l0", text = "Christoph says no, quiet-like, and I say aye, loud-like, an' that's the whole argument. A man like Danath doesnae die where nobody can see it, or I'll no' believe it till I'm shown the grave." },
+      },
+      choices = {
+        { text = "What would you say to him, if he came back?", next = "x_danath3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_danath3 = {
+      lines = {
+        { id = "x_danath3_l0", text = "That he owes me three silver from a wager at Nethergarde, and that the lads he left behind did him proud. Then I'd buy him an ale, because I'm no' a man tae hold a debt over a hero." },
+      },
+      choices = {
+        { text = "He'd be glad of both. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_defias = {
+      lines = {
+        { id = "x_defias_l0", text = "Stonemasons, the lot o' them, that the nobles cheated o' their pay, an' now they rob farmers that never cheated anybody. I've sympathy for a man unpaid, but none for a man wi' a mask." },
+      },
+      choices = {
+        { text = "They were wronged first. The nobles share the blame.", next = "BACK", reply = "Aye, maybe so, but blame's no' a licence tae burn Westfall.", fx = { align = { order = -1 } } },
+        { text = "A thief is a thief. Hang the lot of them.", next = "BACK", reply = "Ye've a soldier's way o' seeing it, an' I'll no' argue.", fx = { align = { order = 1 } } },
+      },
+    },
+    x_dwarf = {
+      lines = {
+        { id = "x_dwarf_l0", text = "Aye, lad, an' half o' Dun Morogh wi' me in those days. Some went home after, but I'd found a friend and a tavern I liked, an' a dwarf's no' a fool tae leave both." },
+      },
+      choices = {
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "Born under the mountain and soldiering since my beard was red. These days I walk, I drink and I remember, and that's work enough for an old dwarf." } },
+    rumors = { { id = "tp_rumors_x", text = "They say the Blackrock clan's thick in the Burning Steppes again, an' I'd wager good silver Redridge will feel it before the year's out." } },
     _none = { { id = "tp_none", text = "That's past my knowing, {g:lad|lass}. Ask me about a battle, and I'll no' disappoint ye." } },
   },
 }
@@ -247,6 +369,9 @@ P:NPC {
         { text = "Aedis says he started the brawl in Lordaeron.", next = "brawl" },
         { text = "Do you miss soldiering?", next = "miss" },
         { text = "The city has changed since your day, I'd guess.", next = "city" },
+        { text = "Aedis says Danath is still alive.", next = "x_danath" },
+        { text = "Old soldiers are owed more than this city gives them.", next = "x_stance" },
+        { text = "You'd have made a fine paladin, I think.", next = "x_pal", when = { class = "PALADIN" } },
         { text = "Good health to you both.", next = "END" },
       },
     },
@@ -276,10 +401,54 @@ P:NPC {
       lines = { { id = "c_default", text = "It's all new stone, friend, because the orcs left us nothing but the foundations. I helped carry rubble out of Old Town when we came home, and the Pig and Whistle was one of the first roofs to go back up." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_danath = {
+      lines = {
+        { id = "x_danath_l0", text = "He says it every night, and I let him, because it costs me nothing. I watched the Portal close, and I knew what it meant, but a man may keep one hope in his pocket if it warms him." },
+      },
+      choices = {
+        { text = "And what do you hope for?", next = "x_danath2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_danath2 = {
+      lines = {
+        { id = "x_danath2_l0", text = "Only that the young ones on the roads now have better captains than we had at the start. We learned at the Black Morass, mostly by burying the men who learned slower." },
+      },
+      choices = {
+        { text = "Did you lose many there?", next = "x_danath3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_danath3 = {
+      lines = {
+        { id = "x_danath3_l0", text = "Enough that I stopped learning their names, and that's the part I'm least proud of. Aedis remembers every one, and that's why I let him do the talking." },
+      },
+      choices = {
+        { text = "He remembers for both of you. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "Owed? Perhaps. We were paid in coin when we were paid at all, and the kingdom has its hands full with new wars. I'd rather it fed the farmers in Westfall than me." },
+      },
+      choices = {
+        { text = "The crown should look after those who bled for it.", next = "BACK", reply = "Kind of you, and I'll tell Aedis, who'll make a speech of it.", fx = { align = { honor = 1 } } },
+        { text = "Sellswords chose the coin. They've no further claim.", next = "BACK", reply = "Hard, but not wrong, and I said much the same when I was young.", fx = { align = { honor = -1 } } },
+      },
+    },
+    x_pal = {
+      lines = {
+        { id = "x_pal_l0", text = "A kind thought, but the Light never once spoke to me, not even at the Morass when I begged it to. I'll leave that work to you and the Cathedral's men." },
+      },
+      choices = {
+        { text = "It may yet. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I sold my sword through the Second War and came home with most of my limbs. Aedis and I have been walking to the same tavern ever since." } },
     defias = { { id = "tp_defias", text = "The men who rebuilt this city and were never paid for it. I'll not excuse what they've become, but I remember what they were." } },
+    advice = { { id = "tp_advice_x", text = "Never walk into a fight you can't walk out of, and if you must, make sure the dwarf goes first." } },
     _none = { { id = "tp_none", text = "I couldn't tell you, friend. Aedis will have an opinion, though, and he'll give it to you whether it's right or not." } },
   },
 }
@@ -318,6 +487,9 @@ P:NPC {
         { text = "What has Miss Danna taught you today?", next = "lesson" },
         { text = "Which statue is your favourite?", next = "statue" },
         { text = "You seem to be the one asking the questions.", next = "questions" },
+        { text = "Do you want to be a ranger, then?", next = "x_ranger" },
+        { text = "Being brave is better than being clever.", next = "x_stance" },
+        { text = "I'm an elf too, you know.", next = "x_elf", when = { race = "NightElf" } },
         { text = "Mind your teacher, Andi.", next = "END" },
       },
     },
@@ -339,6 +511,31 @@ P:NPC {
     questions = {
       lines = { { id = "q_default", text = "Miss Danna says a question is how you get cleverer, so I ask lots. Jimmy says I ask so many that we never get to the sweet shop, and that's a little bit true." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_ranger = {
+      lines = {
+        { id = "x_ranger_l0", text = "Yes, or a teacher like Miss Danna, only with a bow, so the boys would listen. Is that allowed? I don't see why it shouldn't be." },
+      },
+      choices = {
+        { text = "I don't see why not either. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "Geoff says that, but Miss Danna says the clever ones are the ones who get to be old. I can't decide which, so I'm going to be both." },
+      },
+      choices = {
+        { text = "Brave is better. Someone has to go first.", next = "BACK", reply = "That's what Geoff says, only he's never gone first at anything.", fx = { align = { honor = 1 } } },
+        { text = "Clever is better. Brave people get hurt.", next = "BACK", reply = "I knew it! I'm telling Geoff right now.", fx = { align = { honor = -1 } } },
+      },
+    },
+    x_elf = {
+      lines = {
+        { id = "x_elf_l0", text = "You're not the same sort of elf as the statue, are you, because your ears are longer and you're sort of purple. Miss Danna says your people live in a tree as big as a mountain, and I don't believe her." },
+      },
+      choices = {
+        { text = "She's telling the truth. Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -379,6 +576,9 @@ P:NPC {
         { text = "Why the Stockade?", next = "stockade" },
         { text = "What do you want to be when you're grown?", next = "grown" },
         { text = "A stick isn't much of a sword.", next = "stick" },
+        { text = "Show me how you'd fight an orc.", next = "x_fight" },
+        { text = "Fighting isn't the only way to be a hero.", next = "x_stance" },
+        { text = "I'm a warrior. That stick needs a better grip.", next = "x_war", when = { class = "WARRIOR" } },
         { text = "Keep up with your class, Geoff.", next = "END" },
       },
     },
@@ -400,6 +600,31 @@ P:NPC {
     stick = {
       lines = { { id = "st_default", text = "It's a practice sword, and that's different. The guards by the gate practise with wooden ones too, I've seen them, so there." } },
       choices = { { text = "So they do. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    x_fight = {
+      lines = {
+        { id = "x_fight_l0", text = "Like this, chop, chop, and then a spin, and then you shout For the Alliance so they know who did it. Jimmy plays the orc, but he always falls down too soon." },
+      },
+      choices = {
+        { text = "Very fierce. Something else.", next = "BACK" },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "That's what Miss Danna says, and she means reading. I think heroes should be allowed to fight and read, as long as the fighting comes first." },
+      },
+      choices = {
+        { text = "Heroes protect people. Fighting is just part of it.", next = "BACK", reply = "Oh. Then I'll protect Jimmy, because he needs it.", fx = { align = { light = 1 } } },
+        { text = "Heroes win. That's all that matters.", next = "BACK", reply = "That's what I said! Wait till I tell Andi.", fx = { align = { light = -1 } } },
+      },
+    },
+    x_war = {
+      lines = {
+        { id = "x_war_l0", text = "A real warrior! Show me, show me, is it like this, with both hands? Don't let Miss Danna see, she took my last stick." },
+      },
+      choices = {
+        { text = "Both hands, thumbs round. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
   },
   topics = {
@@ -441,6 +666,9 @@ P:NPC {
         { text = "Which bakery is the best?", next = "bakery" },
         { text = "Do you like the school walks?", next = "walks" },
         { text = "Your friends look to be leaving you behind.", next = "behind" },
+        { text = "If you had a whole silver, what would you buy?", next = "x_silver" },
+        { text = "You should share your treats with the others.", next = "x_stance" },
+        { text = "Gnomes like sweets too, you know.", next = "x_gnome", when = { race = "Gnome" } },
         { text = "Run along, Jimmy.", next = "END" },
       },
     },
@@ -462,6 +690,31 @@ P:NPC {
     behind = {
       lines = { { id = "bh_default", text = "They always wait at the corner, because Miss Danna counts us. Andi's asking a question anyhow, so I've got ages yet." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_silver = {
+      lines = {
+        { id = "x_silver_l0", text = "A whole silver? I'd buy a pie, a big one with meat in it, and then a sweet bun for after, and then I'd still have some left for tomorrow. Is a silver a lot? It sounds like a lot." },
+      },
+      choices = {
+        { text = "It's quite a lot for pie. Something else.", next = "BACK" },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "I do share, mostly, only Geoff eats his half and then wants my half too. Andi says that's not fair, and Andi's usually right." },
+      },
+      choices = {
+        { text = "Sharing is right, even when it isn't fair.", next = "BACK", reply = "All right, but only with Andi, because she shares back.", fx = { align = { light = 1 } } },
+        { text = "Keep what's yours, Jimmy. Geoff can buy his own.", next = "BACK", reply = "Yes! I'm going to tell him you said so.", fx = { align = { light = -1 } } },
+      },
+    },
+    x_gnome = {
+      lines = {
+        { id = "x_gnome_l0", text = "There's a gnome by the canal who sells candy to the orphans, and he's got a sum for exactly how much sugar makes you happy. I want to be an orphan for one day, just to try it." },
+      },
+      choices = {
+        { text = "Better not wish for that. Something else.", next = "BACK" },
+      },
     },
   },
   topics = {

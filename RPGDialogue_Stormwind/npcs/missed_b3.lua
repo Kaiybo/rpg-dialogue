@@ -38,6 +38,9 @@ P:NPC {
         { text = "What do you teach them at the Keep?", next = "keep" },
         { text = "Do they listen?", next = "listen" },
         { text = "Which of the sights do they like best?", next = "best" },
+        { text = "How did you come to teach?", next = "x_teach" },
+        { text = "Children shouldn't hear about the wars so young.", next = "x_stance" },
+        { text = "I'm a priest. The Cathedral is a fine stop.", next = "x_priest", when = { class = "PRIEST" } },
         { text = "I won't keep your class, Miss Danna.", next = "END" },
       },
     },
@@ -63,9 +66,53 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_teach = {
+      lines = {
+        { id = "x_teach_l0", text = "My own teacher died in the First War, when the Horde came over the hills to Goldshire. I was ten, and I decided someone ought to remember what she knew." },
+      },
+      choices = {
+        { text = "You were in the First War?", next = "x_teach2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_teach2 = {
+      lines = {
+        { id = "x_teach2_l0", text = "As a child, yes, and we fled to Lordaeron on the refugee ships when the old city fell. I learned my letters in a camp in Southshore, from a priest who wrote them in the sand." },
+      },
+      choices = {
+        { text = "And you came back.", next = "x_teach3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_teach3 = {
+      lines = {
+        { id = "x_teach3_l0", text = "With the first families who rebuilt, yes, and I opened a schoolroom before the city had a roof on it. These children have never known Stormwind without walls, and I mean them to know why they matter." },
+      },
+      choices = {
+        { text = "They're lucky to have you. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "Some parents say so, and I do understand them. But the children see soldiers on every street and hear of Westfall at supper, and they need words for what they see." },
+      },
+      choices = {
+        { text = "Teach them the truth. They'll need it.", next = "BACK", reply = "Gently, yes, but truthfully. That's my aim.", fx = { align = { light = -1 } } },
+        { text = "Let them be children a while longer.", next = "BACK", reply = "I try to do both, and some days I manage it.", fx = { align = { light = 1 } } },
+      },
+    },
+    x_priest = {
+      lines = {
+        { id = "x_priest_l0", text = "It's their favourite stop, because Brother Kristoff lets them ring the small bell. If you see us there, tell them something about the Light, because they'll listen to you before me." },
+      },
+      choices = {
+        { text = "I'll be glad to. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I have taught Stormwind's children their letters and their history for many years, and I walk them round the city every season." } },
+    advice = { { id = "tp_advice_x", text = "Answer a child's question honestly, and you'll find you have to know a great deal more than you thought." } },
     _none = { { id = "tp_none", text = "I am afraid that is outside my lessons. The royal library would be the place to enquire." } },
   },
 }
@@ -101,6 +148,8 @@ P:NPC {
       choices = {
         { text = "Why does Twain keep poking you?", next = "poke" },
         { text = "You don't like the tour?", next = "tour" },
+        { text = "What will you write about for Miss Danna?", next = "x_write" },
+        { text = "You should tell Twain to stop, yourself.", next = "x_stance" },
         { text = "Chin up, Mikey. It's nearly over.", next = "END" },
       },
     },
@@ -118,6 +167,23 @@ P:NPC {
     tour = {
       lines = { { id = "t_default", text = "The statues are good, because one of them has a huge hammer, and the Keep's all right. But she talks at every single one, and my feet hurt, and we never go anywhere with food." } },
       choices = { { text = "Heroes get sore feet too. Something else.", next = "BACK", reply = "Do they? Nobody puts that in the history books." } },
+    },
+    x_write = {
+      lines = {
+        { id = "x_write_l0", text = "The hammer statue, because it's the biggest, and I'll say he hit a dragon with it. Miss Danna will say that's not true, but she said write what we liked." },
+      },
+      choices = {
+        { text = "Clever. Something else.", next = "BACK" },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "I did tell him, and he said make me. He's taller than me, only a bit." },
+      },
+      choices = {
+        { text = "Stand up to him, Mikey. Bullies back down.", next = "BACK", reply = "All right, but if he pokes me again I'm telling you.", fx = { align = { honor = 1 } } },
+        { text = "Just stay out of his way.", next = "BACK", reply = "That's what I've been doing, and it isn't working.", fx = { align = { honor = -1 } } },
+      },
     },
   },
   topics = {
@@ -158,6 +224,9 @@ P:NPC {
         { text = "Which heroes are you choosing between?", next = "heroes" },
         { text = "What have you liked best so far?", next = "best" },
         { text = "You ask a lot of questions, Pat.", next = "questions" },
+        { text = "What would you ask a real hero?", next = "x_ask" },
+        { text = "Heroes who never came back aren't worth a report.", next = "x_stance" },
+        { text = "I've been to Ironforge. The gryphon riders are real.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Good luck with your report.", next = "END" },
       },
     },
@@ -182,6 +251,31 @@ P:NPC {
     questions = {
       lines = { { id = "q_default", text = "Miss Danna says that too, but she always answers them. I think if you don't ask, you just have to believe whatever Twain tells you, and Twain makes things up." } },
       choices = { { text = "Keep asking, then. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    x_ask = {
+      lines = {
+        { id = "x_ask_l0", text = "Whether they were scared, because everyone says heroes aren't scared, and I don't believe it. I'd be scared, and I'd still go." },
+      },
+      choices = {
+        { text = "That's what makes a hero. Something else.", next = "BACK" },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "Miss Danna says they're worth more, because they stopped the Horde from coming back. Twain says they're just lost." },
+      },
+      choices = {
+        { text = "They gave everything. Write about them.", next = "BACK", reply = "That's what I'm going to do!", fx = { align = { honor = 1 } } },
+        { text = "Choose someone who won and came home.", next = "BACK", reply = "Like who? Oh, I'll have to think.", fx = { align = { honor = -1 } } },
+      },
+    },
+    x_dwarf = {
+      lines = {
+        { id = "x_dwarf_l0", text = "You have? Did you see the gryphons, like the one Kurdran rode, and do they bite? Tell me quickly before Miss Danna moves us on." },
+      },
+      choices = {
+        { text = "They don't bite friends. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
   },
   topics = {
@@ -222,6 +316,8 @@ P:NPC {
         { text = "Why the Mage Tower?", next = "tower" },
         { text = "The Keep is worth seeing too.", next = "keep" },
         { text = "I've been inside. It's a long climb.", next = "inside", when = { class = "MAGE" } },
+        { text = "What would you do first, as a mage?", next = "x_first" },
+        { text = "Magic is dangerous. Maybe pick something else.", next = "x_stance" },
         { text = "I hope you see it one day, Steven.", next = "END" },
       },
     },
@@ -243,6 +339,23 @@ P:NPC {
     inside = {
       lines = { { id = "i_default", text = "You've been in! Then the door's real, isn't it, and my cousin wasn't fibbing? I'm going to tell Twain, and he'll have to say sorry." } },
       choices = { { text = "It's real enough. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    x_first = {
+      lines = {
+        { id = "x_first_l0", text = "Make my porridge warm, and then make it snow in the garden in summer, and then turn Twain into something quiet. Not a sheep, he'd like that too much." },
+      },
+      choices = {
+        { text = "Sound plans. Something else.", next = "BACK" },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "Everybody says that, but they don't say why, and the mages all seem fine. Mostly fine. One had no eyebrows." },
+      },
+      choices = {
+        { text = "Study hard and it's the best calling there is.", next = "BACK", reply = "I will! I'll study harder than Pat even.", fx = { align = { order = -1 } } },
+        { text = "Listen to the grown-ups. They know the danger.", next = "BACK", reply = "Oh. All right, but I'm still going to try.", fx = { align = { order = 1 } } },
+      },
     },
   },
   topics = {
@@ -283,6 +396,8 @@ P:NPC {
         { text = "Why do you keep poking Mikey?", next = "poke" },
         { text = "So why do you think you have to learn it?", next = "learn" },
         { text = "No, you can't hold it.", next = "hold" },
+        { text = "What do you want to be, really?", next = "x_be" },
+        { text = "Picking on Mikey isn't fair.", next = "x_stance" },
         { text = "Behave yourself, Twain.", next = "END" },
       },
     },
@@ -304,6 +419,23 @@ P:NPC {
     hold = {
       lines = { { id = "ho_default", text = "Everybody says that. One day I'll have my own, and it'll be bigger than yours, and I won't let anybody hold it either." } },
       choices = { { text = "That's fair. Something else.", next = "BACK" } },
+    },
+    x_be = {
+      lines = {
+        { id = "x_be_l0", text = "A sailor, on a ship to Booty Bay, where Justin's cousin says there are pirates and goblins and sharks. Nobody makes you learn about old buildings on a ship." },
+      },
+      choices = {
+        { text = "They make you learn knots. Something else.", next = "BACK" },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "It's only a stick, and he squeaks! Anyway he'd poke me if he had a stick first." },
+      },
+      choices = {
+        { text = "Being bigger doesn't make it right. Stop it.", next = "BACK", reply = "Fine. I'll stop for now, but only because you said.", fx = { align = { light = 1 } } },
+        { text = "Better him than you, I suppose.", next = "BACK", reply = "That's what I said! See, the {class} gets it.", fx = { align = { light = -1 } } },
+      },
     },
   },
   topics = {
@@ -344,6 +476,9 @@ P:NPC {
         { text = "What are you hoping to catch?", next = "catch" },
         { text = "What sort of stories does Justin tell?", next = "stories" },
         { text = "I've heard there are crocolisks in the canals.", next = "crocs" },
+        { text = "What's the biggest thing you've seen in the canal?", next = "x_big" },
+        { text = "Justin's stories are just harmless fun.", next = "x_stance" },
+        { text = "Rangers like me know crocolisks. Want to know the signs?", next = "x_hunt", when = { class = "HUNTER" } },
         { text = "Good luck with the fish.", next = "END" },
       },
     },
@@ -368,6 +503,40 @@ P:NPC {
     crocs = {
       lines = { { id = "cr_default", text = "That's what Brandon says! I said why would there be crocolisks in a canal, and he said somebody's pet got too big and they tipped it in. I don't believe him, but I'm not putting my feet in." } },
       choices = { { text = "That seems wise either way. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    x_big = {
+      lines = {
+        { id = "x_big_l0", text = "A boot, a whole one, with no foot in it, thank the Light. And once a sort of shadow under the water that went past the bridge and didn't come back." },
+      },
+      choices = {
+        { text = "What do you think it was?", next = "x_big2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_big2 = {
+      lines = {
+        { id = "x_big2_l0", text = "A big fish, or Justin's crocolisk, or a log like Brandon says, only logs don't turn round. I haven't told them because Justin would never stop." },
+      },
+      choices = {
+        { text = "Your secret's safe. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "My mum says too many stories make you jumpy, and I am a bit jumpy. Maybe that's Justin's fault." },
+      },
+      choices = {
+        { text = "They're only stories. Enjoy them.", next = "BACK", reply = "I'll try, but I'm still watching the water.", fx = { align = { order = -1 } } },
+        { text = "Ask Justin for proof every time.", next = "BACK", reply = "I will! He'll hate that.", fx = { align = { order = 1 } } },
+      },
+    },
+    x_hunt = {
+      lines = {
+        { id = "x_hunt_l0", text = "Yes, please! Is it bubbles, or a smell, or ripples that go the wrong way? Tell me, and I'll keep a proper watch." },
+      },
+      choices = {
+        { text = "Ripples against the current. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
   },
   topics = {
@@ -408,6 +577,8 @@ P:NPC {
         { text = "Why did you take her doll?", next = "why" },
         { text = "Give the doll back, William.", next = "giveback" },
         { text = "She looks faster than you think.", next = "faster" },
+        { text = "Do you like Donna, then?", next = "x_like" },
+        { text = "Stealing's stealing, William, even for a game.", next = "x_stance" },
         { text = "Run, then. She's coming.", next = "END" },
       },
     },
@@ -432,6 +603,23 @@ P:NPC {
     faster = {
       lines = { { id = "f_default", text = "She is not! Well, she is on the straight bits, but I'm better at corners, and Stormwind's nearly all corners. Don't tell her about the corners." } },
       choices = { { text = "Your secret's safe. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    x_like = {
+      lines = {
+        { id = "x_like_l0", text = "No! Well, she's all right, for a girl who runs like a horse. Don't tell her I said that, or don't tell her the horse part." },
+      },
+      choices = {
+        { text = "I won't. Something else.", next = "BACK" },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "It's not stealing if I'm going to give it back, is it? I'm only borrowing her at a run." },
+      },
+      choices = {
+        { text = "Give it back now and say sorry.", next = "BACK", reply = "Oh, fine, but she has to say I'm fast first.", fx = { align = { honor = 1 } } },
+        { text = "Make her work for it. It's a fair race.", next = "BACK", reply = "That's what I think! Got to go!", fx = { align = { honor = -1 } } },
+      },
     },
   },
   topics = {
@@ -474,6 +662,9 @@ P:NPC {
         { text = "What do you make here?", next = "make" },
         { text = "How does this forge compare to Ironforge?", next = "ironforge" },
         { text = "Stormshot sounds like a gunner's name.", next = "name" },
+        { text = "Who do ye sell the gun barrels to?", next = "x_who" },
+        { text = "Dwarves should arm the humans for free, as allies.", next = "x_stance" },
+        { text = "Ironforge sends its best, eh?", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Keep your fire hot, Morgg.", next = "END" },
       },
     },
@@ -499,9 +690,53 @@ P:NPC {
       lines = { { id = "n_default", text = "It is one, aye. My kin were riflemen as far back as there've been rifles, an' I'm the one who decided he'd rather make the things than point them. Somebody has tae, or the rest o' them would be throwin' rocks." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_who = {
+      lines = {
+        { id = "x_who_l0", text = "The Stormwind rifle companies, mostly, an' a few hunters wi' more sense than coin. The army's slow tae pay, but they pay, an' they've ne'er sent one back." },
+      },
+      choices = {
+        { text = "Is there much demand now?", next = "x_who2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_who2 = {
+      lines = {
+        { id = "x_who2_l0", text = "More than I can bore, wi' Redridge burnin' an' the Westfall roads full o' masks. I've an apprentice comin' down from Kharanos next month, an' he'd better have strong arms." },
+      },
+      choices = {
+        { text = "Will Ironforge send more smiths?", next = "x_who3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_who3 = {
+      lines = {
+        { id = "x_who3_l0", text = "If King Magni asks it, aye, an' he's no' one tae let an ally go short. Dwarves remember who stood wi' us against the Horde." },
+      },
+      choices = {
+        { text = "Good to hear. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "Free? Ha! Ye'd have me feed my forge on gratitude. Magni sent us tae help, aye, but iron costs coin even in Ironforge." },
+      },
+      choices = {
+        { text = "An ally gives what's needed, and settles later.", next = "BACK", reply = "A generous thought, an' my purse thanks ye for keepin' it tae yerself.", fx = { align = { light = 1 } } },
+        { text = "Fair work deserves fair coin. Charge them.", next = "BACK", reply = "Spoken like a proper dwarf, whatever ye are.", fx = { align = { light = -1 } } },
+      },
+    },
+    x_dwarf = {
+      lines = {
+        { id = "x_dwarf_l0", text = "Aye, the best that would come, {g:lad|lass}, an' the rest are drinkin' in the Stonefire. Ye'll find yer kin by the forge-smoke in this district." },
+      },
+      choices = {
+        { text = "I'll look them up. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I'm Ironforge born an' Ironforge trained, an' I'll go home when the humans can make their own barrels." } },
+    rumors = { { id = "tp_rumors_x", text = "They say the Dark Irons are stirrin' in the Burning Steppes, an' I'd no' be surprised if they're sellin' arms tae the Blackrock." } },
     _none = { { id = "tp_none", text = "I kinna tell ye that, {g:lad|lass}. Ask at the tavern; a dwarf'll know, or say he does." } },
   },
 }

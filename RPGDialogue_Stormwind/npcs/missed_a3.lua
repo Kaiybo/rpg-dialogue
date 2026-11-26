@@ -41,6 +41,9 @@ P:NPC {
         { text = "That sounds like the easiest job in the family.", next = "easy" },
         { text = "Who drinks at the Pig and Whistle?", next = "who" },
         { text = "How long has the tavern stood here?", next = "long" },
+        { text = "What's the hardest thing about the family trade?", next = "x_hard" },
+        { text = "Soldiers drink too much and talk too freely.", next = "x_stance" },
+        { text = "Do dwarves drink you dry in here?", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "I'll find a seat, David.", next = "END" },
       },
     },
@@ -62,6 +65,49 @@ P:NPC {
     long = {
       lines = { { id = "l_default", text = "Since Old Town was put back together after the war, and it was one of the first doors to open. Folk needed walls and they needed bread, but my family reckoned they needed a place to sit together just as badly." } },
       choices = { { text = "Your family reckoned right. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    x_hard = {
+      lines = {
+        { id = "x_hard_l0", text = "The nights the regulars don't come in, because in Old Town that means something happened on the roads. We keep their tankards on the hooks until we're sure, and sometimes we're sure for a long time before we take them down." },
+      },
+      choices = {
+        { text = "How many tankards are on the hooks now?", next = "x_hard2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_hard2 = {
+      lines = {
+        { id = "x_hard2_l0", text = "Eleven, and three of those are from Redridge since the spring. Reese won't let anyone touch them, and I don't blame her." },
+      },
+      choices = {
+        { text = "Who were they?", next = "x_hard3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_hard3 = {
+      lines = {
+        { id = "x_hard3_l0", text = "Lads from the Lakeshire garrison, mostly, who used to argue about whose turn it was to pay. If you're ever headed that way, tell Magistrate Solomon the Pig and Whistle remembers them." },
+      },
+      choices = {
+        { text = "I will. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "They do talk, and half of what they say is about where they're posted, which I suppose ought to worry somebody. Reese says a tavern that repeats nothing is a tavern that stays open." },
+      },
+      choices = {
+        { text = "A tavern should keep its secrets.", next = "BACK", reply = "That's Reese's rule, and we keep to it.", fx = { align = { order = -1 } } },
+        { text = "Loose talk should go to the guard, for the kingdom's sake.", next = "BACK", reply = "Maybe, but then nobody would drink here, and I'd be out of a job.", fx = { align = { order = 1 } } },
+      },
+    },
+    x_dwarf = {
+      lines = {
+        { id = "x_dwarf_l0", text = "Only on the nights Aedis is buying, and he buys more than he can afford. We put a mark against his name and quietly wipe it off at year's end." },
+      },
+      choices = {
+        { text = "That's decent of you. Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -102,6 +148,8 @@ P:NPC {
         { text = "Why did he take your doll?", next = "why" },
         { text = "What will you do when you catch him?", next = "catch" },
         { text = "Tell me about Betsy.", next = "betsy" },
+        { text = "Who taught you to run so fast?", next = "x_fast" },
+        { text = "Maybe you should let William play with Betsy.", next = "x_stance" },
         { text = "Run, Donna, he went that way.", next = "END" },
       },
     },
@@ -123,6 +171,23 @@ P:NPC {
     betsy = {
       lines = { { id = "b_default", text = "She's got yellow wool hair and a blue dress my gran sewed, and one of her eyes is a button because the first one fell off. She doesn't like being run with, it makes her dizzy." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_fast = {
+      lines = {
+        { id = "x_fast_l0", text = "Nobody, I just do it, because I've got three big brothers and they never wait. William thinks he's fast, but he's got to stop for breath at every fountain." },
+      },
+      choices = {
+        { text = "Then you'll catch him soon. Something else.", next = "BACK" },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "Let him? He'd hold her upside down and call her a soldier! Only he did ask nicely, once, before he grabbed." },
+      },
+      choices = {
+        { text = "Sharing would be the kind thing to do.", next = "BACK", reply = "Maybe, if he says sorry first, and properly.", fx = { align = { light = 1 } } },
+        { text = "She's yours. Don't let anyone take what's yours.", next = "BACK", reply = "That's right, and I'm going to get her back right now!", fx = { align = { light = -1 } } },
+      },
     },
   },
   topics = {
@@ -165,6 +230,9 @@ P:NPC {
         { text = "How bad is it in the north?", next = "north" },
         { text = "Why is a field marshal posted at the city gate?", next = "gate" },
         { text = "I've fought the Blackrock orcs myself.", next = "fought", when = { minLevel = 20 } },
+        { text = "What happened at Stonewatch Keep?", next = "x_keep" },
+        { text = "The nobles should fund the army before their own houses.", next = "x_stance" },
+        { text = "Paladin of the Silver Hand, Marshal. Use me where you need me.", next = "x_pal", when = { class = "PALADIN" } },
         { text = "I'll take no more of your time, Marshal.", next = "END" },
       },
     },
@@ -190,10 +258,54 @@ P:NPC {
         { text = "Fierce, but no better than raiders.", next = "BACK", reply = "Perhaps where you stood. I hope you're right, and I'll not plan on it." },
       },
     },
+    x_keep = {
+      lines = {
+        { id = "x_keep_l0", text = "The Blackrock came down from the mountains in force and took it while the garrison was half its strength. The survivors fell back to Lakeshire, and now the orcs look down on the town from the walls we built." },
+      },
+      choices = {
+        { text = "Can it be retaken?", next = "x_keep2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_keep2 = {
+      lines = {
+        { id = "x_keep2_l0", text = "With three companies and good siege engines, in a season. I have neither, so I send what reports I can to Lakeshire and ask adventurers to thin the orcs from the hills." },
+      },
+      choices = {
+        { text = "Who leads the orcs there?", next = "x_keep3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_keep3 = {
+      lines = {
+        { id = "x_keep3_l0", text = "A warlord named Gath'Ilzogg, and an orc called Tharil'zun who takes his orders and enjoys them. Both have prices on their heads at Lakeshire, and I would pay them myself if the treasury didn't." },
+      },
+      choices = {
+        { text = "Then I'll go and collect. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "You'll find that sentiment welcome in barracks and unwelcome in the House of Nobles. I serve the crown, and I will not speak against its council in a public square." },
+      },
+      choices = {
+        { text = "The nobles are starving the army. Someone must say it.", next = "BACK", reply = "Someone may. Not an officer in uniform, at a city gate.", fx = { align = { order = -1 } } },
+        { text = "The council governs. A soldier makes do with what she's given.", next = "BACK", reply = "That is the oath I swore, and I keep it, even when it costs us.", fx = { align = { order = 1 } } },
+      },
+    },
+    x_pal = {
+      lines = {
+        { id = "x_pal_l0", text = "Then go to Redridge, and go to Lakeshire's church first, because their people need to see the Light standing with them. Morale is worth a company of footmen there." },
+      },
+      choices = {
+        { text = "I'll go. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I earned this rank in the field, and I've no intention of keeping it from behind a desk. That is all you need know of me." } },
     blackrock = { { id = "tp_blackrock", text = "The Blackrock clan never surrendered after the Second War. They hold the Spire, and they are patient." } },
+    advice = { { id = "tp_advice_x", text = "Know the ground before the enemy does, and never fight uphill against an orc if you can avoid it." } },
     _none = { { id = "tp_none", text = "That is not my command, and I'll not speculate. Ask at the Keep." } },
   },
 }
@@ -232,6 +344,8 @@ P:NPC {
         { text = "Where are you all going?", next = "where" },
         { text = "Who is Fizzles?", next = "fizzles" },
         { text = "Your sister doesn't seem to mind the walk.", next = "paige" },
+        { text = "Could a wizard really be turned into a rabbit?", next = "x_rabbit" },
+        { text = "You should listen to your mum, Gil.", next = "x_stance" },
         { text = "Not far now, Gil.", next = "END" },
       },
     },
@@ -253,6 +367,23 @@ P:NPC {
     paige = {
       lines = { { id = "p_default", text = "That's because she gets to look in the dress shops on the way, and I don't get anything. When I'm big I'm going to live right next door to wherever I'm going." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_rabbit = {
+      lines = {
+        { id = "x_rabbit_l0", text = "Yes, because I heard a man at the shop say there's a spell that turns people into sheep, and a rabbit's nearly a sheep only smaller. So it's true, and Paige believes me, and Mum just smiles." },
+      },
+      choices = {
+        { text = "You've thought it through. Something else.", next = "BACK" },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "I do listen, only she says we're nearly there every time, and we never are. Is that a fib if a grown-up says it?" },
+      },
+      choices = {
+        { text = "Grown-ups say that to help. It's not a fib.", next = "BACK", reply = "Oh. Then I'll stop asking, nearly.", fx = { align = { honor = -1 } } },
+        { text = "A fib's a fib, even from a grown-up.", next = "BACK", reply = "I knew it! Mum, the {class} says you fibbed!", fx = { align = { honor = 1 } } },
+      },
     },
   },
   topics = {
@@ -295,6 +426,9 @@ P:NPC {
         { text = "What do you want it to do?", next = "what" },
         { text = "Do your teachers know about this?", next = "teachers" },
         { text = "I'd start with something small that works.", next = "advice", when = { class = { "MAGE", "WARLOCK", "PRIEST", "DRUID", "SHAMAN" } } },
+        { text = "What would you name the spell?", next = "x_name" },
+        { text = "Some magic shouldn't be invented at all.", next = "x_stance" },
+        { text = "I'm a mage. Want some advice from outside the Sanctum?", next = "x_mage", when = { class = "MAGE" } },
         { text = "Good luck with it, Janey.", next = "END" },
       },
     },
@@ -321,6 +455,49 @@ P:NPC {
     advice = {
       lines = { { id = "a_default", text = "That's what Suzanne says, and she'll be unbearable now that someone who's actually cast in the field agrees with her. You're probably both right, though I did so want it to be grand." } },
       choices = { { text = "Grand can come second. Something else.", next = "BACK" } },
+    },
+    x_name = {
+      lines = {
+        { id = "x_name_l0", text = "Anship's Aquatic Something, because I thought of it first, only Lisan says she thought of it first and Suzanne says names come last. We spent a whole afternoon on the name and nothing else." },
+      },
+      choices = {
+        { text = "Who did think of it first?", next = "x_name2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_name2 = {
+      lines = {
+        { id = "x_name2_l0", text = "Suzanne, actually, but she doesn't want her name on it, which makes it worse somehow. She says she'd rather people used it than knew who made it." },
+      },
+      choices = {
+        { text = "That's generous of her.", next = "x_name3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_name3 = {
+      lines = {
+        { id = "x_name3_l0", text = "It is, and I'm going to put her name on it anyway, in big letters, and she'll have to live with it. Don't tell her." },
+      },
+      choices = {
+        { text = "Your secret's safe. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "Our teachers say that about all sorts of things, and then they go and invent them anyway. Dalaran taught a whole generation that caution is how you keep your eyebrows." },
+      },
+      choices = {
+        { text = "Curiosity is how magic moves forward. Keep at it.", next = "BACK", reply = "That's what I keep telling Lisan!", fx = { align = { order = -1 } } },
+        { text = "Listen to your teachers. Rules exist for good reasons.", next = "BACK", reply = "Lisan would like you, and I'll grant she's usually right.", fx = { align = { order = 1 } } },
+      },
+    },
+    x_mage = {
+      lines = {
+        { id = "x_mage_l0", text = "Yes, please, but say it to all three of us, or they'll say I made it up. Is it about water? It had better be about water." },
+      },
+      choices = {
+        { text = "Start with frost. Ice is water you can hold. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
   },
   topics = {
