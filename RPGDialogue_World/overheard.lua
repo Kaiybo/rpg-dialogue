@@ -465,3 +465,339 @@ P:Exchange { id = "ex_rx_hallow", a = { role = "citizen" }, b = { role = "citize
     { who = "a", text = "The children have been running through the streets in masks all evening, and one of them stole my hat." },
     { who = "b", text = "That's the spirit of the season. Just be thankful it was only your hat." },
   } }
+
+P:Exchange { id = "ex_sw_guard_rain", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Stormwind City" },
+  lines = {
+    { who = "a", text = "Third day of rain and the canals are up to the second step, so the Mage Quarter will be complaining about wet hems again." },
+    { who = "b", text = "Let them conjure an umbrella. I've been standing in this puddle since the morning bell and nobody's offered me one." },
+  } }
+
+P:Exchange { id = "ex_sw_vendor_romance", a = { role = "vendor" }, b = { role = "citizen" }, when = { zone = "Stormwind City" },
+  lines = {
+    { who = "b", text = "The baker's girl has walked past your stall four times today, and I don't think she's after the turnips." },
+    { who = "a", text = "Hush, she'll hear you. I've been working up the nerve to ask her to the cathedral fair since spring." },
+  } }
+
+P:Exchange { id = "ex_sw_inn_onyxia", a = { role = "innkeeper" }, b = { role = "citizen" }, when = { zone = "Stormwind City" },
+  lines = {
+    { who = "b", text = "They say Lady Prestor turned down three suitors this month alone, and one of them was a duke from Lordaeron." },
+    { who = "a", text = "A lady with that much of the regent's favour can afford to be choosy, I suppose. Another ale, or are you going courting yourself?" },
+  } }
+
+P:Exchange { id = "ex_sw_trainer_mages", a = { role = "trainer" }, b = { role = "trainer" }, when = { zone = "Stormwind City" },
+  lines = {
+    { who = "a", text = "One of my apprentices set fire to his own eyebrows practicing a fireball, and then asked whether it counted as a passing mark." },
+    { who = "b", text = "Did it hit the target? If it did, I'd pass him and buy him a mirror." },
+  } }
+
+P:Exchange { id = "ex_sw_child_dragon", a = { role = "child" }, b = { role = "citizen" }, when = { zone = "Stormwind City" },
+  lines = {
+    { who = "a", text = "Tommy says there's a black dragon living in the keep disguised as a lady, and that's why it's always so cold in there." },
+    { who = "b", text = "Tommy says a great many things, and you'll get us both thrown in the Stockade repeating them. Come along." },
+  } }
+
+P:Exchange { id = "ex_sw_guard_dusk", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Stormwind City", timeOfDay = "dusk" },
+  lines = {
+    { who = "a", text = "Lamplighters are late again, and the old town's going dark before the shops have even shut." },
+    { who = "b", text = "SI:7 likes it dark, I've heard. Makes it easier for them to watch the rest of us." },
+  } }
+
+P:Exchange { id = "ex_sw_guard_dawn", a = { role = "guard" }, b = { role = "citizen" }, when = { zone = "Stormwind City", timeOfDay = "dawn" },
+  lines = {
+    { who = "b", text = "Morning, sergeant. You look like you've been standing there since yesterday." },
+    { who = "a", text = "I have, and my relief is in the Pig and Whistle sleeping off last night. Mind how you go on the bridge; it's slick." },
+  } }
+
+P:Exchange { id = "ex_if_guard_weather", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Ironforge" },
+  lines = {
+    { who = "a", text = "Snow's piled so high outside the gates that a gryphon rider came down in a drift and we only found him by his swearin'." },
+    { who = "b", text = "That'll be Dun Morogh in a mild winter, then. Bring the poor lad a mug before his beard freezes solid." },
+  } }
+
+P:Exchange { id = "ex_if_vendor_romance", a = { role = "vendor" }, b = { role = "citizen" }, when = { zone = "Ironforge" },
+  lines = {
+    { who = "b", text = "Ye've been polishin' the same tankard for half an hour, and the lass from the Commons has smiled at ye twice." },
+    { who = "a", text = "Aye, well, a dwarf's got tae work up to these things slow, like a good seam o' ore. I'll speak to her by the Feast o' Winter Veil." },
+  } }
+
+P:Exchange { id = "ex_if_inn_wager", a = { role = "innkeeper" }, b = { role = "citizen" }, when = { zone = "Ironforge" },
+  lines = {
+    { who = "b", text = "I'll wager ye a silver I can drink more o' that Dark Iron stout than any gnome in Tinker Town." },
+    { who = "a", text = "Ye'd win, lad, but the gnome would build a machine tae drink for him, and then ye'd lose. I've seen it happen." },
+  } }
+
+P:Exchange { id = "ex_if_trainer_hunters", a = { role = "trainer" }, b = { role = "trainer" }, when = { zone = "Ironforge" },
+  lines = {
+    { who = "a", text = "Young hunter brought a bear cub in here askin' if it could stay in his room at the Stonefire Tavern." },
+    { who = "b", text = "Ye said no, I hope? The last bear tae sleep in a tavern ate the innkeeper's beard right off his chin." },
+  } }
+
+P:Exchange { id = "ex_if_guard_night", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Ironforge", timeOfDay = "night" },
+  lines = {
+    { who = "a", text = "Ye cannae tell night from day in here, but the Great Forge burns lower and the snorin' from the Commons gets louder." },
+    { who = "b", text = "That's how I tell it, too. Quiet as a crypt, apart from Thurgan's belly rumblin'." },
+  } }
+
+P:Exchange { id = "ex_if_gnome_tinker", a = { role = "citizen" }, b = { role = "citizen" }, when = { zone = "Ironforge", subzone = "Tinker Town" },
+  lines = {
+    { who = "a", text = "My new clockwork chicken laid an egg this morning, which I was quite proud of until the egg exploded." },
+    { who = "b", text = "Exploded eggs are still eggs, technically, so I'd file it under partial success and adjust the pressure valve by eleven percent." },
+  } }
+
+P:Exchange { id = "ex_da_guard_night", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Darnassus", timeOfDay = "night" },
+  lines = {
+    { who = "a", text = "The moon is full over the Temple Gardens tonight. On such nights I feel Elune's gaze upon all of us." },
+    { who = "b", text = "And upon the young dwarf asleep beneath the moonwell, I suspect. Shall we wake him, or let the goddess handle it?" },
+  } }
+
+P:Exchange { id = "ex_da_vendor_rain", a = { role = "vendor" }, b = { role = "citizen" }, when = { zone = "Darnassus" },
+  lines = {
+    { who = "a", text = "The rains on Teldrassil have been heavy this season, and the leaves in the Craftsmen's Terrace are slick as glass." },
+    { who = "b", text = "The tree drinks deeply, at least. Perhaps it grows faster for the wet, though Fandral says it needs no help." },
+  } }
+
+P:Exchange { id = "ex_da_inn_romance", a = { role = "innkeeper" }, b = { role = "citizen" }, when = { zone = "Darnassus" },
+  lines = {
+    { who = "b", text = "She has watched him from across the terrace for three hundred years, and still she has not spoken to him." },
+    { who = "a", text = "Then she has time yet. Still, I would tell her not to wait for the next age of the world." },
+  } }
+
+P:Exchange { id = "ex_da_trainers_warriors", a = { role = "trainer" }, b = { role = "trainer" }, when = { zone = "Darnassus" },
+  lines = {
+    { who = "a", text = "The humans in Stormwind train with heavy swords and shout as they swing. Our recruits find it very strange." },
+    { who = "b", text = "The humans have short lives and loud ones. A Sentinel strikes once, in silence, and that is enough." },
+  } }
+
+P:Exchange { id = "ex_da_child_owl", a = { role = "child" }, b = { role = "citizen" }, when = { zone = "Darnassus" },
+  lines = {
+    { who = "a", text = "The owl from the Cenarion Enclave keeps landing on my window and staring, and I think it wants my bread." },
+    { who = "b", text = "Perhaps it is a druid in owl form, little one, so mind your manners and share the bread." },
+  } }
+
+P:Exchange { id = "ex_og_guard_heat", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Orgrimmar" },
+  lines = {
+    { who = "a", text = "The sun beats down on the Drag so hard that I could cook a boar on my own shoulder plate." },
+    { who = "b", text = "Then do it and share. My stomach has been growling since dawn, and the trolls ate the last of the meat." },
+  } }
+
+P:Exchange { id = "ex_og_vendor_prices", a = { role = "vendor" }, b = { role = "citizen" }, when = { zone = "Orgrimmar" },
+  lines = {
+    { who = "b", text = "Two silver for a kodo hide? The tauren in Mulgore sell them for half that." },
+    { who = "a", text = "Then walk to Mulgore, and come back when the centaur have taken your boots. My price is fair for a hide that arrives." },
+  } }
+
+P:Exchange { id = "ex_og_inn_romance", a = { role = "innkeeper" }, b = { role = "citizen" }, when = { zone = "Orgrimmar" },
+  lines = {
+    { who = "b", text = "Gruk has courted that she-orc from the Cleft of Shadow for a month, and she has thrown three axes at him." },
+    { who = "a", text = "Three axes and he still lives? Then she is aiming to miss, and he should keep courting." },
+  } }
+
+P:Exchange { id = "ex_og_troll_jokes", a = { role = "guard" }, b = { role = "citizen" }, when = { zone = "Orgrimmar" },
+  lines = {
+    { who = "b", text = "De orc grunts be laughing at me hair again, mon, but dey never laugh at me spear, ya see." },
+    { who = "a", text = "Grow it shorter, troll, and we will find something else to laugh at. Your ears, perhaps." },
+  } }
+
+P:Exchange { id = "ex_og_trainer_warriors", a = { role = "trainer" }, b = { role = "trainer" }, when = { zone = "Orgrimmar" },
+  lines = {
+    { who = "a", text = "The new grunts swing their axes like peons swing picks, all shoulder and no feet." },
+    { who = "b", text = "They will learn their feet when a centaur tries to take them. Pain is a faster teacher than either of us." },
+  } }
+
+P:Exchange { id = "ex_og_grunt_night", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Orgrimmar", timeOfDay = "night" },
+  lines = {
+    { who = "a", text = "The drums in the Valley of Spirits beat all night again. The trolls must be speaking to their loa." },
+    { who = "b", text = "Let them speak. As long as the loa do not answer loudly enough to wake me, I have no quarrel with them." },
+  } }
+
+P:Exchange { id = "ex_og_peon_whine", a = { role = "peon" }, b = { role = "peon" }, when = { zone = "Orgrimmar" },
+  lines = {
+    { who = "a", text = "Me work all day, carry stone up hill, and boss say me lazy." },
+    { who = "b", text = "Me too. Me think boss lazy, but me no say it, because boss very big." },
+  } }
+
+P:Exchange { id = "ex_tb_guard_wind", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Thunder Bluff" },
+  lines = {
+    { who = "a", text = "The wind is strong on the bluffs today. A goblin's hat blew off the Spirit Rise, and he chased it nearly to the edge." },
+    { who = "b", text = "He would have chased it over, I think, if it had cost him more than two silver." },
+  } }
+
+P:Exchange { id = "ex_tb_vendor_rain", a = { role = "vendor" }, b = { role = "citizen" }, when = { zone = "Thunder Bluff" },
+  lines = {
+    { who = "b", text = "The rain came at last last night. I stood out in it like a calf and let it run down my horns." },
+    { who = "a", text = "The Earth Mother is generous when she chooses to be. The plains will be green by the next moon." },
+  } }
+
+P:Exchange { id = "ex_tb_inn_romance", a = { role = "innkeeper" }, b = { role = "citizen" }, when = { zone = "Thunder Bluff" },
+  lines = {
+    { who = "b", text = "My son carved a totem for the daughter of the Runetotem weaver, and he cannot stop looking at it." },
+    { who = "a", text = "Then he should give it to her before the wind takes it from him. Young hearts are easily blown off course." },
+  } }
+
+P:Exchange { id = "ex_tb_trainers_hunters", a = { role = "trainer" }, b = { role = "trainer" }, when = { zone = "Thunder Bluff" },
+  lines = {
+    { who = "a", text = "A troll hunter brought a raptor up the lift today, and the kodo-keepers were very unhappy about it." },
+    { who = "b", text = "The raptor was unhappy too, I think. The lift sways, and it does not care for heights." },
+  } }
+
+P:Exchange { id = "ex_tb_guard_night", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Thunder Bluff", timeOfDay = "night" },
+  lines = {
+    { who = "a", text = "Mu'sha watches over us tonight. The stars are so close up here that I think I could touch them." },
+    { who = "b", text = "Do not try, my friend. Last time you reached for the stars, you nearly walked off the Hunter Rise." },
+  } }
+
+P:Exchange { id = "ex_tb_child_wolf", a = { role = "child" }, b = { role = "citizen" }, when = { zone = "Thunder Bluff" },
+  lines = {
+    { who = "a", text = "The orc grunt let me pet his wolf, and it licked my nose and smelled like old meat." },
+    { who = "b", text = "Then you made a friend, little one. Wash your face before your grandmother sees it." },
+  } }
+
+P:Exchange { id = "ex_uc_guard_weather", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Undercity" },
+  lines = {
+    { who = "a", text = "Raining in Tirisfal again, I hear, which means the topside will smell like wet corpses for a week." },
+    { who = "b", text = "It always smells like wet corpses. The rain simply wakes the smell up, the same as the rest of us." },
+  } }
+
+P:Exchange { id = "ex_uc_vendor_prices", a = { role = "vendor" }, b = { role = "citizen" }, when = { zone = "Undercity" },
+  lines = {
+    { who = "b", text = "You raised the price of embalming fluid again. Do you realise some of us depend on it?" },
+    { who = "a", text = "That is exactly why I raised it. Death has made me practical, if nothing else." },
+  } }
+
+P:Exchange { id = "ex_uc_inn_romance", a = { role = "innkeeper" }, b = { role = "citizen" }, when = { zone = "Undercity" },
+  lines = {
+    { who = "b", text = "That banshee by the Royal Quarter has been giving me looks for a week, or possibly she just has no eyes left to give looks with." },
+    { who = "a", text = "Either way, it is more affection than most of us get down here. Buy her a drink she cannot swallow." },
+  } }
+
+P:Exchange { id = "ex_uc_trainer_mages", a = { role = "trainer" }, b = { role = "trainer" }, when = { zone = "Undercity" },
+  lines = {
+    { who = "a", text = "My apprentice asked why we bother learning frost spells when we feel no cold ourselves." },
+    { who = "b", text = "Because the living still do, and the Scarlets in particular feel it beautifully. Tell him to keep practicing." },
+  } }
+
+P:Exchange { id = "ex_uc_guard_night", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Undercity", timeOfDay = "night" },
+  lines = {
+    { who = "a", text = "It is night above, I suppose, though down here the sewers glow the same green they always have." },
+    { who = "b", text = "Night was for sleeping, when we slept. Now it is only a good time for hunting the living." },
+  } }
+
+P:Exchange { id = "ex_uc_guard_notice", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Undercity" },
+  lines = {
+    { who = "a", text = "That {race} walks through the Trade Quarter as if they own it." },
+    { who = "b", text = "They do not own it, but they are welcome to visit. The Dark Lady watches over you, {class}." },
+  } }
+
+P:Exchange { id = "ex_bb_guard_night", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Stranglethorn Vale", subzone = "Booty Bay", timeOfDay = "night" },
+  lines = {
+    { who = "a", text = "Bloodsail lanterns out on the water again, pal, sittin' there like they're waitin' for somethin'." },
+    { who = "b", text = "Let 'em wait. We got cannons, we got bouncers, and we got Baron Revilgaz's temper, which is the scariest of the three." },
+  } }
+
+P:Exchange { id = "ex_bb_vendor_romance", a = { role = "vendor" }, b = { role = "citizen" }, when = { zone = "Stranglethorn Vale", subzone = "Booty Bay" },
+  lines = {
+    { who = "b", text = "You're sweet on the barmaid at the Salty Sailor, ain't ya? I seen you drop your prices every time she walks by." },
+    { who = "a", text = "Hey, a discount's an investment, chum, and I'm in it for the long-term return." },
+  } }
+
+P:Exchange { id = "ex_gz_guard_night", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Tanaris", subzone = "Gadgetzan", timeOfDay = "night" },
+  lines = {
+    { who = "a", text = "Desert gets cold at night, and nobody warns ya. I'm sellin' blankets tomorrow at triple price, I swear it." },
+    { who = "b", text = "Good, 'cause I'll buy one off ya now at double, and then we both win." },
+  } }
+
+P:Exchange { id = "ex_gz_inn_arena", a = { role = "innkeeper" }, b = { role = "citizen" }, when = { zone = "Tanaris", subzone = "Gadgetzan" },
+  lines = {
+    { who = "b", text = "Heard there's a new fight over in the Steamwheedle Port bettin' pits, two ogres and a very angry turtle." },
+    { who = "a", text = "My money's on the turtle, sweetheart. Turtles always win, because nobody ever bets on 'em." },
+  } }
+
+P:Exchange { id = "ex_ra_inn_romance", a = { role = "innkeeper" }, b = { role = "citizen" }, when = { zone = "The Barrens", subzone = "Ratchet" },
+  lines = {
+    { who = "b", text = "There's a troll and a human makin' eyes at each other across the dock, and I think there's gonna be either a fight or a weddin'." },
+    { who = "a", text = "Either way, I'm sellin' drinks to the crowd. Love and war are good for business, buddy." },
+  } }
+
+P:Exchange { id = "ex_el_vendor_cold", a = { role = "vendor" }, b = { role = "citizen" }, when = { zone = "Winterspring", subzone = "Everlook" },
+  lines = {
+    { who = "a", text = "Ran out of frost oil this morning, and every mage in Winterspring is beggin' me for some." },
+    { who = "b", text = "Mages, beggin' for cold? In Winterspring? Sparks and sprockets, I've heard everything now." },
+  } }
+
+P:Exchange { id = "ex_al_elwynn_wolves", a = { role = "citizen" }, b = { role = "citizen" }, when = { zone = "Elwynn Forest", faction = "Alliance" },
+  lines = {
+    { who = "a", text = "The wolves came right up to the Maclure farm last night and took two chickens out of the coop." },
+    { who = "b", text = "The Maclures and the Stonefields will blame each other for it by supper, you mark my words." },
+  } }
+
+P:Exchange { id = "ex_al_westfall_hunger", a = { role = "citizen" }, b = { role = "citizen" }, when = { zone = "Westfall", faction = "Alliance" },
+  lines = {
+    { who = "a", text = "There's folk in Sentinel Hill eating grass soup now, and Gryan Stoutmantle can't feed them all on his own." },
+    { who = "b", text = "And they wonder why the young men join the Defias. A full belly makes a loyal subject, and an empty one makes a thief." },
+  } }
+
+P:Exchange { id = "ex_al_redridge_night", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Redridge Mountains", faction = "Alliance", timeOfDay = "night" },
+  lines = {
+    { who = "a", text = "Gnolls laughing out past the Three Corners all night again, and I swear one of them was imitating my wife." },
+    { who = "b", text = "Was it a good imitation? Because I've met your wife, and that gnoll had better watch himself." },
+  } }
+
+P:Exchange { id = "ex_al_duskwood_night", a = { role = "citizen" }, b = { role = "citizen" }, when = { zone = "Duskwood", faction = "Alliance", timeOfDay = "night" },
+  lines = {
+    { who = "a", text = "Don't walk past the old cemetery after dark, my lad. The dead there don't rest like they used to." },
+    { who = "b", text = "They never rested in Duskwood, did they? Nothing here rests, not even the trees." },
+  } }
+
+P:Exchange { id = "ex_al_loch_ale", a = { role = "innkeeper" }, b = { role = "citizen" }, when = { zone = "Loch Modan", faction = "Alliance" },
+  lines = {
+    { who = "b", text = "The Thelsamar boar sausages are the best in all o' Khaz Modan, and I'll fight any dwarf who says otherwise." },
+    { who = "a", text = "Nobody's arguin', lad. Sit down before ye knock over the mustard." },
+  } }
+
+P:Exchange { id = "ex_ho_durotar_peon", a = { role = "peon" }, b = { role = "peon" }, when = { zone = "Durotar", faction = "Horde" },
+  lines = {
+    { who = "a", text = "Me hear Warchief Thrall very nice to peons." },
+    { who = "b", text = "Me hear that too, but Warchief never come check, so boss still yell." },
+  } }
+
+P:Exchange { id = "ex_ho_barrens_night", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "The Barrens", faction = "Horde", timeOfDay = "night" },
+  lines = {
+    { who = "a", text = "The lions roar all night out on the plains. It makes the young grunts nervous." },
+    { who = "b", text = "Good. A nervous grunt stays awake, and an awake grunt stays alive." },
+  } }
+
+P:Exchange { id = "ex_ho_mulgore_rain", a = { role = "citizen" }, b = { role = "citizen" }, when = { zone = "Mulgore", faction = "Horde" },
+  lines = {
+    { who = "a", text = "The plainstriders have been running in circles all morning. My grandfather says it means a storm is coming." },
+    { who = "b", text = "Your grandfather said that last week as well, and the sky stayed clear as a newborn's eye." },
+  } }
+
+P:Exchange { id = "ex_ho_tirisfal_rot", a = { role = "citizen" }, b = { role = "citizen" }, when = { zone = "Tirisfal Glades", faction = "Horde" },
+  lines = {
+    { who = "a", text = "My left hand fell off while I was harvesting pumpkins, and now I cannot find it anywhere." },
+    { who = "b", text = "Check the pumpkin patch, and check it before the farmer bakes it into a pie." },
+  } }
+
+P:Exchange { id = "ex_rx_mage_sw", a = { role = "citizen" }, b = { role = "citizen" }, when = { zone = "Stormwind City", class = "MAGE" },
+  lines = {
+    { who = "a", text = "One of the Kirin Tor walked past and my cat's tail went straight up, as if it could smell the arcane on them." },
+    { who = "b", text = "Cats know things. I'd keep it away from the Mage Quarter, or it'll come home a sheep." },
+  } }
+
+P:Exchange { id = "ex_rx_rogue_uc", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Undercity", class = "ROGUE" },
+  lines = {
+    { who = "a", text = "Count your coins. A {class} just walked by, and I am fairly sure I had more of them a moment ago." },
+    { who = "b", text = "You are dead, and you are worried about coins? It is the principle of the thing, I suppose." },
+  } }
+
+P:Exchange { id = "ex_rx_hunter_tb", a = { role = "citizen" }, b = { role = "citizen" }, when = { zone = "Thunder Bluff", class = "HUNTER" },
+  lines = {
+    { who = "a", text = "That hunter's beast walks as proudly as its master. You can tell they hunt together often." },
+    { who = "b", text = "The bond between hunter and beast is a sacred thing. The Earth Mother smiles on it." },
+  } }
+
+P:Exchange { id = "ex_rx_ghost_town", a = { role = "guard" }, b = { role = "guard" }, when = { ghost = true },
+  lines = {
+    { who = "a", text = "Did you hear something just now? Like a whisper on the wind, but there's no wind at all." },
+    { who = "b", text = "I heard it, and I'd rather not think about it. Keep your eyes forward and your mind on your post." },
+  } }
