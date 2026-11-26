@@ -95,6 +95,10 @@ P:NPC {
       choices = {
         { text = "What happened to the Molsens?", next = "molsens" },
         { text = "Why walk to an empty farm?", next = "why" },
+        { text = "Did you know the Molsens well?", next = "xknew" },
+        { text = "Have you ever found anyone at the farm?", next = "xfound" },
+        { text = "What do you see on your walks?", next = "xsee" },
+        { text = "I'm a hunter. I could track who's out there.", next = "BACK", when = { class = "HUNTER" }, reply = "Would you? Then follow the road out and tell me what you find. I'd sleep better knowing whose tracks those are." },
         { text = "Safe walking, Korelor.", next = "END" },
       },
     },
@@ -116,8 +120,35 @@ P:NPC {
       lines = { { id = "w_default", text = "Because if the Brotherhood thinks nobody's watching, they'll push their camps right up to the hill. Every time I walk out there, I'm telling them we haven't given up, and they hate that." } },
       choices = { { text = "Then keep walking. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    xknew = {
+      lines = {
+        { id = "xxknew_0", text = "Old Farmer Molsen hired me for the harvest when I was a lad. He paid fair and fed us well. Last I saw him, he was heading for Stormwind with his family and a wagon." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfound = {
+      lines = {
+        { id = "xxfound_0", text = "Twice. Once a family of refugees sheltering in the barn, and once a Defias scout who ran when he saw me. I let him go. Some say I should've chased him. What would you have done?" },
+      },
+      choices = {
+        { text = "Chase him down. Scouts bring raids.", next = "BACK", reply = "Aye, maybe. Next time I'll have a horse and a friend.", fx = { align = { honor = -1 } } },
+        { text = "You did right. Don't throw your life away.", next = "BACK", reply = "That's what I told myself. Glad to hear someone agree.", fx = { align = { honor = 1 } } },
+      },
+    },
+    xsee = {
+      lines = {
+        { id = "xxsee_0", text = "Dust devils, crows, harvest golems wandering empty fields. Sometimes a candle in a window of an empty farmhouse, which I don't care to think about." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    molsen_farm = { { id = "tp_xmolsen_farm", text = "Empty now, but I walk out there anyway." } },
+    defias = { { id = "tp_xdefias", text = "Bandits on our own land. I'll not forget that." } },
     background = { { id = "tp_bg", text = "Farmhand most of my life. Joined the militia when there weren't any farms left to work." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask Gryan, up at the tower." } },
   },
@@ -148,6 +179,10 @@ P:NPC {
       choices = {
         { text = "Why would the Defias burn a mill?", next = "burn" },
         { text = "How do the refugees here get by?", next = "refugees" },
+        { text = "What was Moonbrook like before?", next = "xmoonbrook" },
+        { text = "Has anyone tried to burn the mill?", next = "xtried" },
+        { text = "How do you handle the long nights?", next = "xnights" },
+        { text = "I'm a paladin. Can I help defend the mill?", next = "BACK", when = { class = "PALADIN" }, reply = "Help would be welcome. Walk the mill with me at dusk, and if you hear anything, give me a shout and a bit of Light." },
         { text = "Good day, Protector.", next = "END" },
       },
     },
@@ -169,8 +204,44 @@ P:NPC {
       lines = { { id = "gryan_default", text = "Gryan Stoutmantle, in the tower at the top of the hill. He fought for Stormwind once, and when Stormwind forgot Westfall, he didn't." } },
       choices = { { text = "I'll pay him a visit. Something else.", next = "BACK" } },
     },
+    xmoonbrook = {
+      lines = {
+        { id = "xxmoonbrook_0", text = "A bright little town with a mill by the river and a market every week. My father ground flour for half of Westfall. Now it's the Brotherhood's town, and the mill wheel's still." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtried = {
+      lines = {
+        { id = "xxtried_0", text = "Twice. The first time we caught them with torches by the back door. The second time they came by the river, and we only noticed because the ducks went quiet." },
+      },
+      choices = {
+        { text = "What happened to the ones you caught?", next = "xcaught" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcaught = {
+      lines = {
+        { id = "xxcaught_0", text = "Stoutmantle sent them to Stormwind for trial. Some of the militia wanted them hanged on the spot. I'm not sure who was right. What do you think?" },
+      },
+      choices = {
+        { text = "Trial is right. We're not bandits ourselves.", next = "BACK", reply = "That's what Stoutmantle said, and I trust him.", fx = { align = { order = 1 } } },
+        { text = "Hang them. Stormwind won't punish them properly.", next = "BACK", reply = "Some days I agree with you. Some days I don't.", fx = { align = { order = -1 } } },
+      },
+    },
+    xnights = {
+      lines = {
+        { id = "xxnights_0", text = "I count the mill's sails as they turn, and I think of my father. He'd want me to keep it running for him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    moonbrook = { { id = "tp_xmoonbrook", text = "My home, before the Brotherhood came. I'll go back someday." } },
+    gryan_stoutmantle = { { id = "tp_xgryan_stoutmantle", text = "The best man in Westfall. Without him, we'd have nothing." } },
     background = { { id = "tp_bg", text = "Grew up a miller's daughter in Moonbrook, before the Brotherhood came. Now I guard someone else's mill." } },
     _none = { { id = "tp_none", text = "I'm sorry, I don't know. Try Stoutmantle, or the scouts." } },
   },
@@ -201,6 +272,10 @@ P:NPC {
       choices = {
         { text = "Why guard lumber?", next = "lumber" },
         { text = "Where does the wood come from?", next = "source" },
+        { text = "What's your best woodpile joke?", next = "xjoke" },
+        { text = "Do you miss carpentry?", next = "xmiss" },
+        { text = "Has the woodpile ever been attacked?", next = "xattack" },
+        { text = "A dwarf could teach you a thing about stacking.", next = "BACK", when = { race = "Dwarf" }, reply = "Ha! Then show me. I've been stacking it the Moonbrook way, and Stoutmantle says it leans." },
         { text = "Good luck with the pile.", next = "END" },
       },
     },
@@ -222,8 +297,44 @@ P:NPC {
       lines = { { id = "so_default", text = "Whatever we can cut down the coast and drag up here without getting robbed on the way. Westfall's never had much forest, so every log's precious, and I count them twice a day." } },
       choices = { { text = "That's dedication. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    xjoke = {
+      lines = {
+        { id = "xxjoke_0", text = "Why is the woodpile the safest place on the hill? Because nothing ever gets past the planks. My wife didn't laugh either." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmiss = {
+      lines = {
+        { id = "xxmiss_0", text = "Every day. I made chairs and cradles in Moonbrook. Now I watch planks I'll never carve, and that's a strange sort of grief for a carpenter." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xattack = {
+      lines = {
+        { id = "xxattack_0", text = "Once, a Defias raid at midnight. They took a cartload and left a note thanking us for the timber. The note was well written, which tells you something about who they were." },
+      },
+      choices = {
+        { text = "What does it tell you?", next = "xmasons" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmasons = {
+      lines = {
+        { id = "xxmasons_0", text = "Some of them were Stormwind masons once, cheated of their pay. Some on the hill say we should talk to them, try to bring them home. Others say they're past saving. Which is it?" },
+      },
+      choices = {
+        { text = "Try to bring them home. They're our own.", next = "BACK", reply = "Aye. I'd like to think some could come back.", fx = { align = { light = 1 } } },
+        { text = "They chose banditry. They're past saving now.", next = "BACK", reply = "Maybe so. But I'll still hope for a few.", fx = { align = { light = -1 } } },
+      },
+    },
   },
   topics = {
+    moonbrook = { { id = "tp_xmoonbrook", text = "My old workshop's there, if it's still standing." } },
+    deadmines = { { id = "tp_xdeadmines", text = "Where my timber goes when it gets stolen, they say." } },
     background = { { id = "tp_bg", text = "I was a carpenter in Moonbrook. Now I'm a guard for the wood I'd rather be working." } },
     _none = { { id = "tp_none", text = "No idea, friend. I just watch the wood." } },
   },
@@ -319,6 +430,10 @@ P:NPC {
       choices = {
         { text = "What happened to the farms?", next = "farms" },
         { text = "Do the Defias bother you?", next = "defias" },
+        { text = "Where do you find trees in Westfall?", next = "xtrees" },
+        { text = "Do you know Gryan Stoutmantle?", next = "xgryan" },
+        { text = "What did you do before this?", next = "xbefore" },
+        { text = "I'm from Stormwind. We haven't forgotten you.", next = "BACK", when = { race = "Human" }, reply = "Kind of you to say. I'll believe it when the king sends something besides tax collectors, but kind all the same." },
         { text = "Good luck with the work.", next = "END" },
       },
     },
@@ -340,6 +455,44 @@ P:NPC {
         { text = "Stormwind earned every bit of that anger.", next = "BACK", reply = "Careful who hears you say it, but you're not wrong.", fx = { align = { order = -1 } } },
       },
     },
+    xtrees = {
+      lines = {
+        { id = "xxtrees_0", text = "Down by the coast, and up along the Elwynn border where the oaks still grow thick. It's a long haul, and the gnolls in the hills don't make it any shorter." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgryan = {
+      lines = {
+        { id = "xxgryan_0", text = "Everyone knows Stoutmantle. He came back to Westfall when the king forgot it, and he built the militia out of farmers and fools like me. I'd follow him into the Deadmines." },
+      },
+      choices = {
+        { text = "Would you join the militia?", next = "xjoin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xjoin = {
+      lines = {
+        { id = "xxjoin_0", text = "I've thought on it. Some say a man's duty is to his family first. Others say Westfall needs every spear now. Which would you choose?" },
+      },
+      choices = {
+        { text = "Join the militia. Westfall needs you.", next = "BACK", reply = "Aye. Maybe I'll swap the axe for a spear one day.", fx = { align = { order = 1 } } },
+        { text = "Look after your family first.", next = "BACK", reply = "That's what my wife says, and she's usually right.", fx = { align = { order = -1 } } },
+      },
+    },
+    xbefore = {
+      lines = {
+        { id = "xxbefore_0", text = "I built barns and fences for the farms near Moonbrook. Nice work, good pay, until there weren't any barns left that the Defias hadn't burned." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask up at Sentinel Hill, they've got the news out here." } } },
+  topics = {
+    defias = { { id = "tp_xdefias", text = "Bandits, mostly, though some were decent men once." } },
+    sentinel_hill = { { id = "tp_xsentinel_hill", text = "The only safe place left in Westfall, and that's because of my timber." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask up at Sentinel Hill, they've got the news out here." } },
+  },
 }

@@ -32,6 +32,11 @@ P:NPC {
       choices = {
         { text = "Does the inn give you much trouble?", next = "trouble" },
         { text = "How long until your watch ends?", next = "watch" },
+        { text = "What's the best ale at the Stoutlager?", next = "xale" },
+        { text = "Where did the garrison march off to?", next = "xfront" },
+        { text = "What's the worst trouble you've had at this door?", next = "xworst" },
+        { text = "A dwarf on watch with no ale. That's cruel.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "I'm a paladin. Don't you take a cup on duty?", next = "xpaladin", when = { class = "PALADIN" } },
         { text = "I'll raise one to you inside.", next = "END" },
       },
     },
@@ -50,8 +55,43 @@ P:NPC {
       lines = { { id = "w_default", text = "Too long, {g:lad|lass}, an' longer since half the garrison marched off tae the Alliance front. We stand double watches now, an' the ale's flat by the time I get tae it." } },
       choices = { { text = "That's a hard thing. Something else.", next = "BACK" } },
     },
+    xale = {
+      narr = "He closes his eyes and breathes in through his nose, slowly.",
+      lines = { { id = "xal_default", text = "The Thelsamar Blood Sausage pairs wi' the dark, an' the dark is the best brown ale this side o' Dun Morogh. Hearthstove brews it himsel', an' he'll tell ye it's the loch water that makes it, though I think it's the stubbornness." } },
+      choices = {
+        { text = "Better than Thunderbrew?", next = "xthunder" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xthunder = {
+      lines = { { id = "xth_default", text = "Och, dinnae start that here, or ye'll have the whole inn on its feet. Thunderbrew's fine for Kharanos folk, but a Loch Modan dwarf drinks Loch Modan ale, an' that's the end o' it." } },
+      choices = {
+        { text = "Thunderbrew is the king of ales. Everyone knows it.", next = "BACK", reply = "Then mind ye say that well outside the door, for I'll no' stop the brawl.", fx = { align = { order = -1 } } },
+        { text = "A town should drink its own. You're right.", next = "BACK", reply = "Spoken like a sensible soul. I'll tell Hearthstove ye said so.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfront = {
+      lines = { { id = "xfr_default", text = "Some went tae Arathi tae help the League, an' some tae the Wetlands where the Dragonmaw are pressin' Menethil. The rest of us hold Thelsamar wi' half the rifles an' twice the hours." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xworst = {
+      lines = { { id = "xwo_default", text = "A Dark Iron spy, sat in the corner an' bought rounds for the dam workers till one o' them talked too much. I caught him wi' a map o' the Stonewrought in his boot, an' the Captain still owes me a pint for it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdwarf = {
+      lines = { { id = "xdw_default", text = "Cruel, aye, ye understand! Ye'll drink the first one for me, an' slowly, so I can hear it through the window." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xpaladin = {
+      lines = { { id = "xpa_default", text = "Never on watch, an' I'll swear it on the Light if ye like. After watch, though, I'll take two, an' the Light can look the other way for a wee while." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    stoutlager = { { id = "xtp_stout", text = "The finest inn in the loch country, an' I can only look at it. Go in, have one, an' think o' me." } },
+    dark_iron = { { id = "xtp_di", text = "They send spies intae the inn now an' then. I've caught one, an' I'm watchin' for the next." } },
+   
     background = { { id = "tp_bg", text = "I've been a Mountaineer fifteen years, an' on this door for more o' them than I'd like." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye. Ask inside, for somebody at the bar'll have an opinion, right or wrong." } },
   },
@@ -141,6 +181,10 @@ P:NPC {
       choices = {
         { text = "What are you watching the sky for?", next = "sky" },
         { text = "You'd rather be flying, I think.", next = "fly" },
+        { text = "Who is Thorgrum?", next = "xthorgrum" },
+        { text = "Where would you fly first?", next = "xwhere" },
+        { text = "Have you ever seen a Wildhammer flyer?", next = "xwild" },
+        { text = "I'm a dwarf. I've flown with Thorgrum's birds.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Clear skies, Mountaineer.", next = "END" },
       },
     },
@@ -159,8 +203,39 @@ P:NPC {
       lines = { { id = "f_default", text = "Is it that plain? I asked Thorgrum tae take me on at the roost, an' he said his birds prefer a dwarf who doesnae talk so much. I'm workin' on it, as ye can hear." } },
       choices = { { text = "Keep at it. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    xthorgrum = {
+      lines = { { id = "xtg_default", text = "Thorgrum Borrelson, the gryphon master by the inn, an' the gruffest dwarf in Thelsamar. He loves his birds more than his own kin, an' I cannae say I blame him." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xwhere = {
+      narr = "He points over the loch toward the distant ridges.",
+      lines = { { id = "xwh_default", text = "Over the dam an' up tae the Wetlands, then all the way tae Aerie Peak tae see how the Wildhammer do it. They say the Wildhammer fly wi'out saddles, an' they throw their hammers from the sky." } },
+      choices = {
+        { text = "The Wildhammer have it right. Freedom over rules.", next = "BACK", reply = "Aye! Ye see it too. Don't tell the Captain, he'd have me on double watch.", fx = { align = { order = -1 } } },
+        { text = "Your post is here. Duty first.", next = "BACK", reply = "Aye, aye, I know it, an' I'll keep it. My head can wander even if my boots cannae.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwild = {
+      lines = { { id = "xwi_default", text = "Once, when I was a lad, a Wildhammer came down over the loch on a great grey gryphon, tattoos an' all, an' landed right in the market square. He bought a keg, tied it on, an' flew off again, an' I've wanted tae be him ever since." } },
+      choices = {
+        { text = "Do Bronzebeards and Wildhammers get along?", next = "xalong" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xalong = {
+      lines = { { id = "xag_default", text = "Well enough, these days, though there's old grudges from the War o' the Three Hammers. The Wildhammer think we've gone soft under the mountain, an' we think they've gone daft in the wind." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdwarf = {
+      lines = { { id = "xdw_default", text = "Have ye now? Then tell me everythin', what the loch looks like from up there, an' does the stomach drop, an' does it ever stop droppin'." } },
+      choices = { { text = "It never stops. Something else.", next = "BACK", reply = "Ha! I knew it. That's half the fun, I'd wager." } },
+    },
   },
   topics = {
+    aerie_peak = { { id = "xtp_aerie", text = "The Wildhammer roost, far up in the Hinterlands. I'll see it one day, I swear." } },
+    gryphons = { { id = "xtp_gry", text = "Finest creatures in Khaz Modan. Thorgrum's lot are proud, an' they've every right tae be." } },
+   
     background = { { id = "tp_bg", text = "I'm a Mountaineer wi' my feet on the ground an' my head elsewhere. The Captain's told me so more than once." } },
     _none = { { id = "tp_none", text = "I dinnae know, friend. Ask Thorgrum, for the gryphon riders hear news from everywhere." } },
   },
@@ -487,6 +562,10 @@ P:NPC {
       choices = {
         { text = "What comes out of the water?", next = "water" },
         { text = "You'd rather be fishing than guarding.", next = "fish" },
+        { text = "What's the best catch in the loch?", next = "xcatch" },
+        { text = "Do you ever worry about the dam?", next = "xdam" },
+        { text = "Patience is a good trait in a guard.", next = "xpatience" },
+        { text = "I'm a druid. The loch has a calm spirit.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Calm waters, Mountaineer.", next = "END" },
       },
     },
@@ -505,8 +584,39 @@ P:NPC {
       lines = { { id = "f_default", text = "Wouldn't any dwarf wi' sense? Warg Deepwater sits on the western bank all day wi' a line in, an' naebody calls it idleness because he calls it teachin'." } },
       choices = { { text = "You sound envious. Something else.", next = "BACK", reply = "Aye, a wee bit, an' I'll admit it. Go on, then." } },
     },
+    xcatch = {
+      narr = "He holds his hands apart, then thinks better of it and moves them closer.",
+      lines = { { id = "xca_default", text = "Loch frenzy, when they're runnin', though they bite back, an' there's a big old lunker under the dam that naebody's landed. Warg swears he hooked him once an' lost his whole rod tae it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdam = {
+      lines = { { id = "xda_default", text = "The Stonewrought's held since before my grandfather, but the Dark Irons have been at it, sneakin' about the base. If it went, the whole valley would be one long loch, an' I'd be fishin' from my rooftop." } },
+      choices = {
+        { text = "The Mountaineers should strike the Dark Irons first.", next = "xstrike" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xstrike = {
+      lines = { { id = "xst_default", text = "That's what Captain Rugelfuss would like, aye, an' I'd go if he asked. But a hasty dwarf makes more trouble than he stops, an' the dam's engineer keeps sayin' it's sound." } },
+      choices = {
+        { text = "Strike now, before they strike first.", next = "BACK", reply = "Bold words. I'll pass them on, though slowly, as is my way.", fx = { align = { honor = -1 } } },
+        { text = "Wait and watch. Patience wins the long fight.", next = "BACK", reply = "A dwarf after my own heart. The loch teaches the same.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpatience = {
+      lines = { { id = "xpa_default", text = "Kind o' ye tae say, though the Captain calls it slowness. I'd say it's both, an' the difference is just whether trouble comes or not." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdruid = {
+      lines = { { id = "xdr_default", text = "Does it, now? I've felt somethin' like that on still mornings, when the mist's on the water. I'd no' have known what tae call it, but ye've the better word." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    stonewrought_dam = { { id = "xtp_dam", text = "It holds the loch back, an' it's been holdin' since long before me. Dinnae let the Dark Irons near it." } },
+    fishing = { { id = "xtp_fish", text = "Dusk, reeds, western bank. That's all the wisdom I've got, an' it's served me well." } },
+   
     background = { { id = "tp_bg", text = "I'm a Mountaineer by trade an' a fisherman by nature. The lochside watch lets me be a bit o' both." } },
     _none = { { id = "tp_none", text = "I couldnae tell ye. It'll come tae me in an hour or two, maybe, if ye're still about." } },
   },
@@ -778,6 +888,10 @@ P:NPC {
       choices = {
         { text = "Why such a short patrol?", next = "short" },
         { text = "Does anything ever happen on it?", next = "happen" },
+        { text = "What do you think about on your walk?", next = "xthink" },
+        { text = "Who's Mountaineer Flint?", next = "xflint" },
+        { text = "Would you rather have a longer patrol?", next = "xlonger" },
+        { text = "I'm a hunter. I'd find six hundred paces dull.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Enjoy the walk, Stenn.", next = "END" },
       },
     },
@@ -796,8 +910,32 @@ P:NPC {
       lines = { { id = "ha_default", text = "A bear came down tae the road in the spring an' looked at me, an' I looked at it, an' we both decided we'd somewhere else tae be. That's the year's excitement, an' I'm glad of it, for a dull patrol means a safe town." } },
       choices = { { text = "That's the right way to see it. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    xthink = {
+      narr = "He counts under his breath as he walks, then loses his place and starts again.",
+      lines = { { id = "xth_default", text = "Mostly the count, for if I lose it I've tae start over, an' that's a long walk back. Sometimes I think about the troggs in the north hills, an' sometimes about my supper." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xflint = {
+      lines = { { id = "xfl_default", text = "My opposite on the long road, a fine Mountaineer an' a terrible winner at cards. He's seen troggs an' Dark Irons an' once a bear wearin' a pot for a helmet, so he says." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xlonger = {
+      lines = { { id = "xlo_default", text = "Some days I would, aye, out tae Algaz an' the pass where the real work is. Other days I think the town needs one Mountaineer who's always close enough tae hear it shout." } },
+      choices = {
+        { text = "Ask for the long road. Prove yourself.", next = "BACK", reply = "Maybe I will. Flint will laugh, but maybe I will.", fx = { align = { order = -1 } } },
+        { text = "Stay close. A town needs its near guard.", next = "BACK", reply = "Aye, that's how the Captain sees it too. I'll keep my six hundred.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunter = {
+      lines = { { id = "xhu_default", text = "Dull, aye, but every stone on this road has a name now, an' I know which rabbits live under which. Ye'd be surprised what ye notice when ye walk the same path a thousand times." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    thelsamar = { { id = "xtp_thel", text = "My town, an' a good one. I see more o' its north edge than anyone alive." } },
+    troggs = { { id = "xtp_trogg", text = "They stay in the north hills, mostly. If one comes down my road, I'll be the first tae know." } },
+   
     background = { { id = "tp_bg", text = "I'm the Mountaineer wi' the shortest walk in Khaz Modan. Somebody has tae be." } },
     _none = { { id = "tp_none", text = "I couldnae say. News has tae come tae me, for I dinnae get far enough tae fetch it." } },
   },

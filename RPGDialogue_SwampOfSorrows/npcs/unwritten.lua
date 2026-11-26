@@ -29,6 +29,10 @@ P:NPC {
         { text = "You held Stonard through the internment?", next = "held" },
         { text = "What's the worst thing in this swamp?", next = "swamp" },
         { text = "Do you miss the battle days?", next = "battle" },
+        { text = "What was it like hiding in the swamp?", next = "xhide" },
+        { text = "What do you think of Thrall?", next = "xthrall" },
+        { text = "How do you feel about the humans now?", next = "xhumans" },
+        { text = "Lok'tar, brother. I'm an orc too.", next = "BACK", when = { race = "Orc" }, reply = "Lok'tar! You walk where our fathers marched. Do not forget it, and do not forget what it cost." },
         { text = "Lok'tar.", next = "END" },
       },
     },
@@ -48,8 +52,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhide = {
+      lines = {
+        { id = "xxhide_0", text = "Hungry and wet, every day for years. We could see the camps' fires from the ridge, and some of us went down to them because a cage was drier than the swamp." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xthrall = {
+      lines = {
+        { id = "xxthrall_0", text = "A warchief who never drank demon blood, and you can see it in his eyes. He leads us toward something new. Some of the old ones do not like it, but they follow." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhumans = {
+      lines = {
+        { id = "xxhumans_0", text = "Nethergarde is south, full of humans and their mages. They watch us, and we watch them. Some grunts want to burn it. I say we have burned enough. Which way would you go?" },
+      },
+      choices = {
+        { text = "Leave Nethergarde alone. The Horde has a new path.", next = "BACK", reply = "Thrall would say the same. I suppose I agree.", fx = { align = { order = 1 } } },
+        { text = "Burn it. The humans built the camps.", next = "BACK", reply = "There are nights I want that too. Then I remember the Broken.", fx = { align = { order = -1 } } },
+      },
+    },
   },
   topics = {
+    thrall = { { id = "tp_xthrall", text = "The warchief. He freed us, and Stonard is loyal." } },
+    nethergarde = { { id = "tp_xnethergarde", text = "A human keep by the Dark Portal. We watch it closely." } },
     background = { { id = "tp_bg", text = "I am an orc of Stonard, and I have known this swamp longer than I knew freedom." } },
     _none = { { id = "tp_none", text = "Ask the Warlord's people. I only guard walls and wring out my boots." } },
   },
@@ -82,6 +113,10 @@ P:NPC {
         { text = "What's good hunting around here?", next = "game" },
         { text = "Where shouldn't I go?", next = "danger" },
         { text = "Those crocolisk hides would make fine armor.", next = "hides" },
+        { text = "What's the hardest beast to catch?", next = "xhardest" },
+        { text = "How do you cook a frog?", next = "xfrog" },
+        { text = "Do you ever hunt with others?", next = "xothers" },
+        { text = "Tauren hunt too. Any advice for a kodo-sized hunter?", next = "BACK", when = { race = "Tauren" }, reply = "Spread your weight, walk slow and never fight a crocolisk in the water. Even an Earth Mother's child sinks in this mud." },
         { text = "Good hunting.", next = "END" },
       },
     },
@@ -101,8 +136,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhardest = {
+      lines = {
+        { id = "xxhardest_0", text = "The great crocolisk called Sorrowmaw, if he is real. I have seen his wake, and that is all, and I have no wish to see more." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfrog = {
+      lines = {
+        { id = "xxfrog_0", text = "Skin it, salt it, spit it and pray. It tastes of mud no matter what, but the grunts eat it and do not complain twice." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xothers = {
+      lines = {
+        { id = "xxothers_0", text = "Sometimes with the trolls from the camp near the road, though they hunt for other reasons. Some hunt for food, some hunt for sport. What do you hunt for?" },
+      },
+      choices = {
+        { text = "For food, and for need. Nothing more.", next = "BACK", reply = "Good. Then the swamp will feed you.", fx = { align = { light = 1 } } },
+        { text = "For the thrill of it. A hunt is a test.", next = "BACK", reply = "Hm. Thrills fill no bellies, but I understand the pull.", fx = { align = { light = -1 } } },
+      },
+    },
   },
   topics = {
+    crocolisks = { { id = "tp_xcrocolisks", text = "Tasty and dangerous. Hunt them from the shore, not in the water." } },
+    misty_valley = { { id = "tp_xmisty_valley", text = "The lost ones live there. Do not hunt in that valley." } },
     background = { { id = "tp_bg", text = "I am a hunter of Stonard, and the swamp is my larder and my enemy both." } },
     _none = { { id = "tp_none", text = "I know tracks and teeth, not that. Ask in the great hall." } },
   },
@@ -135,6 +197,10 @@ P:NPC {
         { text = "What sleeps under the temple?", next = "temple" },
         { text = "How did shamanism return to the orcs?", next = "return" },
         { text = "I don't believe in spirits.", next = "doubt" },
+        { text = "Which spirits answer you here?", next = "xspirits" },
+        { text = "Can the swamp be healed?", next = "xheal" },
+        { text = "Do you know the Atal'ai's prayers?", next = "xatal" },
+        { text = "I am a shaman too. Teach me the waters here.", next = "BACK", when = { class = "SHAMAN" }, reply = "Listen first, speak later. The water here speaks in a low voice, and it is frightened. Do not frighten it more." },
         { text = "Farewell, shaman.", next = "END" },
       },
     },
@@ -154,8 +220,35 @@ P:NPC {
       lines = { { id = "d_default", text = "The rain falls on you whether you believe in it or not. Stand in the swamp for a night and listen, and then tell me again what you do not believe." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xspirits = {
+      lines = {
+        { id = "xxspirits_0", text = "Water most, and earth a little, where the roots hold the mud. Fire hardly ever answers here, because the rain smothers it. Air comes only in storms, and it is angry." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xheal = {
+      lines = {
+        { id = "xxheal_0", text = "Perhaps, if the temple's servants were driven out. The water is sick because of what they feed it. Some say the Horde should march on it, and some say it is not ours to fight. What say you?" },
+      },
+      choices = {
+        { text = "March on it. The water cannot wait.", next = "BACK", reply = "Brave words. I hope you mean them when the time comes.", fx = { align = { order = 1 } } },
+        { text = "Let the trolls answer for their own temple.", next = "BACK", reply = "The water will not wait for the trolls, friend.", fx = { align = { order = -1 } } },
+      },
+    },
+    xatal = {
+      lines = {
+        { id = "xxatal_0", text = "Enough to know they call on Hakkar, and enough to stop listening. Words like those leave a taste in the mouth." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    hakkar = { { id = "tp_xhakkar", text = "The blood god of the trolls. The water around the temple stinks of him." } },
+    thrall = { { id = "tp_xthrall", text = "The warchief brought us back to the spirits. I owe him everything." } },
     background = { { id = "tp_bg", text = "I am a shaman of the Horde, and the waters of this swamp have been my teachers for many years." } },
     _none = { { id = "tp_none", text = "The spirits are silent on that, and so am I." } },
   },
@@ -188,6 +281,10 @@ P:NPC {
         { text = "What's south, toward the Blasted Lands?", next = "south" },
         { text = "And west, toward Deadwind Pass?", next = "west" },
         { text = "Have you ever seen Stormwind?", next = "stormwind" },
+        { text = "What's the strangest thing you've found?", next = "xstrange" },
+        { text = "Have you met the Broken?", next = "xbroken" },
+        { text = "Why do you keep walking?", next = "xwhy" },
+        { text = "I'm a Darkspear, and I'll look at those carvings.", next = "BACK", when = { race = "Troll" }, reply = "Ha! Thank you, troll. Bring back a drawing, and I will buy you a drink of whatever the swamp hasn't spoiled." },
         { text = "Safe travels.", next = "END" },
       },
     },
@@ -207,8 +304,44 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xstrange = {
+      lines = {
+        { id = "xxstrange_0", text = "A dwarf, alone, in Deadwind Pass, writing in a book and muttering about ley lines. He saw me and ran so fast I never learned his name. I still wonder what he wanted there." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbroken = {
+      lines = {
+        { id = "xxbroken_0", text = "A few, at the Harborage. Their skin is grey and their eyes are tired, and they flinch when we pass. Some of the grunts call them weak. I call them a warning." },
+      },
+      choices = {
+        { text = "A warning of what?", next = "xwarn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarn = {
+      lines = {
+        { id = "xxwarn_0", text = "Of what the old Horde was. We did that to them, with demon blood in our veins. Some of my brothers say we should help them now. Others say it is not our business. What do you say?" },
+      },
+      choices = {
+        { text = "Help them. That debt is yours to pay.", next = "BACK", reply = "Maybe. Ruag would call it soft, but I would call it right.", fx = { align = { honor = 1 } } },
+        { text = "The past is past. Look after Stonard.", next = "BACK", reply = "That is what the commander says. I am not sure I agree.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xwhy = {
+      lines = {
+        { id = "xxwhy_0", text = "Because when I stop, I remember the camps. Walking keeps me free, even in a swamp." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    deadwind_pass = { { id = "tp_xdeadwind_pass", text = "A dead, quiet pass with a tower nobody goes near. Including me." } },
+    harborage = { { id = "tp_xharborage", text = "Where the Broken hide. Leave them in peace, if you pass." } },
     background = { { id = "tp_bg", text = "I'm an explorer for Stonard, and I've worn out more boots than I can count." } },
     _none = { { id = "tp_none", text = "Never walked that way, and never heard of it. Ask me again after my next trip." } },
   },
@@ -241,6 +374,10 @@ P:NPC {
         { text = "An orc mapmaker? That's unusual.", next = "orc" },
         { text = "What's the hardest place to map?", next = "hard" },
         { text = "Why does Stonard need maps at all?", next = "why" },
+        { text = "Can I see one of your maps?", next = "xmap" },
+        { text = "Who was the old raider who taught you?", next = "xraider" },
+        { text = "Do scouts ever lie to you?", next = "xlie" },
+        { text = "I'm a gnome, and I adore a good map.", next = "BACK", when = { race = "Gnome" }, reply = "Hmph. Then look, but do not touch, and do not tell me how a gnome would draw it better." },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -260,8 +397,44 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xmap = {
+      lines = {
+        { id = "xxmap_0", text = "Look here, Stonard in the middle, the Misty Reed shore to the east and this blot of water is the Pool of Tears. The blank bits are where I am still waiting for scouts who come back." },
+      },
+      choices = {
+        { text = "How long do you wait?", next = "xwait" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwait = {
+      lines = {
+        { id = "xxwait_0", text = "A season, sometimes two. Then I draw a skull and move on. Ruag says I should send grunts out to finish the map whatever it costs. I say a map isn't worth that many lives. What do you think?" },
+      },
+      choices = {
+        { text = "Finish the map. Knowledge saves more lives later.", next = "BACK", reply = "Ruag would agree with you. Grimly, but he would.", fx = { align = { honor = -1 } } },
+        { text = "No map is worth a grunt's life.", next = "BACK", reply = "Thank you. Tell that to the commander, will you?", fx = { align = { honor = 1 } } },
+      },
+    },
+    xraider = {
+      lines = {
+        { id = "xxraider_0", text = "Old Grug the Ink, they called him. He drew in blood and charcoal during the Second War, and his maps were so good the humans burned them on sight. He died in a camp, and I carry on." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlie = {
+      lines = {
+        { id = "xxlie_0", text = "All the time, to make themselves sound braver. I have a rule, now. Any monster described as twice the size of a kodo, I draw at half that." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    pool_of_tears = { { id = "tp_xpool_of_tears", text = "The blankest spot on my maps, and I would like to keep it that way." } },
+    stonard = { { id = "tp_xstonard", text = "A fortress on a map that keeps changing under it." } },
     background = { { id = "tp_bg", text = "I'm Stonard's mapmaker, and I know this swamp better on paper than most do on foot." } },
     _none = { { id = "tp_none", text = "It isn't on any of my maps, so I cannot help you." } },
   },
@@ -294,6 +467,10 @@ P:NPC {
         { text = "How do you tell firm ground from mire?", next = "ground" },
         { text = "Which road out is safest?", next = "roads" },
         { text = "I can find my own way.", next = "own" },
+        { text = "What's the worst place you've led someone?", next = "xworst" },
+        { text = "Who taught you the swamp?", next = "xtaught" },
+        { text = "Do you ever lead Alliance travellers?", next = "xalliance" },
+        { text = "I'm a hunter. My pet doesn't mind mud.", next = "BACK", when = { class = "HUNTER" }, reply = "Your pet doesn't mind mud until it swallows it. Keep it close and on firm ground, friend." },
         { text = "Thanks, wayfinder.", next = "END" },
       },
     },
@@ -313,8 +490,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xworst = {
+      lines = {
+        { id = "xxworst_0", text = "A goblin trader wanted the short way to the Blasted Lands. I told him there was none, and he paid me double to find one. We found the Pool of Tears instead, and I found the long way home." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtaught = {
+      lines = {
+        { id = "xxtaught_0", text = "My mother, who hid in this swamp through the camp years. She learned every firm path because a wrong step meant death, and she taught me every one before I could walk properly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xalliance = {
+      lines = {
+        { id = "xxalliance_0", text = "Never. But I have seen them lost, near the road to Duskwood. Some say leave them to the swamp, and some say a lost traveller is a traveller, whatever banner. Which way do you lean?" },
+      },
+      choices = {
+        { text = "Help them out. Mud cares nothing for banners.", next = "BACK", reply = "My mother would agree. Quietly, of course.", fx = { align = { honor = 1 } } },
+        { text = "Leave them to it. They're the enemy.", next = "BACK", reply = "Aye. That is what the commander would say.", fx = { align = { honor = -1 } } },
+      },
+    },
   },
   topics = {
+    pool_of_tears = { { id = "tp_xpool_of_tears", text = "Not a place to lead anyone, unless you mean them harm." } },
+    stonard = { { id = "tp_xstonard", text = "My home. Built on the only dry ground for miles." } },
     background = { { id = "tp_bg", text = "I'm a wayfinder of Stonard, born to this swamp, and I have not lost a traveller yet." } },
     _none = { { id = "tp_none", text = "I know paths, not that. Ask at the inn." } },
   },
@@ -342,6 +546,10 @@ P:NPC {
       choices = {
         { text = "What happened to your people?", next = "people" },
         { text = "What do you wait for?", next = "wait" },
+        { text = "What was Draenor like before?", next = "xdraenor" },
+        { text = "Who leads your people here?", next = "xleader" },
+        { text = "Do you ever think of going home?", next = "xhome" },
+        { text = "I am an orc, and I am sorry.", next = "BACK", when = { race = "Orc" }, reply = "Sorry. It is a small word for what was done. But I have never heard an orc say it before, and I will remember that you did." },
         { text = "I'll leave you in peace.", next = "END" },
       },
     },
@@ -363,8 +571,44 @@ P:NPC {
       lines = { { id = "w_default", text = "For the end of our exile, or the end of ourselves, whichever comes first. The swamp is quiet, at least, and the trolls of the temple do not trouble us here." } },
       choices = { { text = "I hope it's the former. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    xdraenor = {
+      lines = {
+        { id = "xxdraenor_0", text = "Green, and wide, with cities of crystal and great forests where the talbuks ran. We were a people of priests and scholars, and we believed the Light would protect us." },
+      },
+      choices = {
+        { text = "Did it protect you?", next = "xlight" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlight = {
+      lines = {
+        { id = "xxlight_0", text = "Some of us still believe it did, because we live. Others say the Light abandoned us, and now they do not pray at all. What do you think, stranger?" },
+      },
+      choices = {
+        { text = "The Light never left you. You're still here.", next = "BACK", reply = "I would like to believe that. Perhaps, with time, I will.", fx = { align = { light = 1 } } },
+        { text = "Gods and Light both fail. Trust yourself instead.", next = "BACK", reply = "A hard answer. Many of my people have come to share it.", fx = { align = { light = -1 } } },
+      },
+    },
+    xleader = {
+      lines = {
+        { id = "xxleader_0", text = "Magtoor speaks for us at the Harborage, if anyone does. He is patient and old, and he keeps us from scattering into the swamp to die alone." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhome = {
+      lines = {
+        { id = "xxhome_0", text = "There is no home, stranger. The Dark Portal is broken and Draenor is torn apart, or so we were told by the last who came through. We are the last of what was." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    draenor = { { id = "tp_xdraenor", text = "My lost world. I see it in my dreams, and then I wake in the swamp." } },
+    orcs = { { id = "tp_xorcs", text = "I try to see them as they are now. Some days I succeed." } },
     background = { { id = "tp_bg", text = "I am of the Broken. Once, that meant something else." } },
     _none = { { id = "tp_none", text = "I do not know, stranger. The mist keeps its own counsel, and so do I." } },
   },

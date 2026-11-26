@@ -509,6 +509,9 @@ P:NPC {
       choices = {
         { text = "What hurts them, down below?", next = "below" },
         { text = "You look like you haven't slept.", next = "tired" },
+        { text = "What creatures do you tend?", next = "xcreatures" },
+        { text = "Who taught you healing?", next = "xteach" },
+        { text = "A fellow druid offers aid.", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll leave you to your work.", next = "END" },
       },
     },
@@ -530,8 +533,45 @@ P:NPC {
       lines = { { id = "t_default", text = "Sleep comes to me rarely these days, and when it does I dream of smoke. When the valleys heal, perhaps I will rest, but not before." } },
       choices = { { text = "Take care of yourself, too. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    xcreatures = {
+      lines = {
+        { id = "x_xcreatures", text = "Deer with singed hides, wolves with broken legs, a hawk that cannot fly for smoke in its lungs. The Venture Company's fires drive them up the mountain faster than I can mend them." },
+      },
+      choices = {
+        { text = "Should the Venture Company be stopped?", next = "xstop" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xstop = {
+      lines = {
+        { id = "x_xstop", text = "Stopped, yes, but some of the Circle want war on them, and some want only to heal what they break. I am a healer, so I choose healing, but I understand the others." },
+      },
+      choices = {
+        { text = "Fight them. Healing alone won't save the forest.", next = "BACK", reply = "Perhaps you are right. My hands are tired of mending.", fx = { align = { order = -1 } } },
+        { text = "Heal. War only brings more fire.", next = "BACK", reply = "Thank you. Sometimes I need to hear it.", fx = { align = { order = 1 } } },
+      },
+    },
+    xteach = {
+      narr = "She strokes the head of a sleeping fawn without looking down.",
+      lines = {
+        { id = "x_xteach", text = "An old druid of Moonglade, who told me that every creature has a name, even if it does not tell you. I still believe her, though some of these creatures are very quiet." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      lines = {
+        { id = "x_xdruid", text = "Then you know the weight of this work. Stay a while, if you can, and help me carry it." },
+      },
+      choices = {
+        { text = "I'll help where I can.", next = "BACK", reply = "Elune bless you, friend.", fx = { affinity = 1 } },
+      },
+    },
   },
   topics = {
+    venture_company = { { id = "tp_xventure_company", text = "The Venture Company burns and cuts and never looks back. I see what they leave behind." } },
+    stonetalon_peak = { { id = "tp_xstonetalon_peak", text = "Stonetalon Peak is a sanctuary for the wounded. I hope it stays so." } },
     background = { { id = "tp_bg", text = "A druid of the Circle and a keeper of hurt things. There is no grander title for it." } },
     _none = { { id = "tp_none", text = "I am sorry, traveller, but my mind is on my charges. Ask the botanists." } },
   },
@@ -559,6 +599,9 @@ P:NPC {
       choices = {
         { text = "Who threatens the forest here?", next = "threat" },
         { text = "Tell me of Cenarius.", next = "cenarius" },
+        { text = "How long have you guarded these woods?", next = "xlong" },
+        { text = "Do you trust mortals?", next = "xtrust" },
+        { text = "I'm a night elf. Do you remember us?", next = "xelf", when = { race = "NightElf" } },
         { text = "I'll go gently through your woods.", next = "END" },
       },
     },
@@ -580,8 +623,44 @@ P:NPC {
       lines = { { id = "s_default", text = "The druids say he walks the Emerald Dream still, though no dryad of these woods has felt him near. We keep faith with him all the same, as daughters do." } },
       choices = { { text = "Then he is lucky in his daughters. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    xlong = {
+      narr = "She lifts a hoof, then sets it down without a sound.",
+      lines = {
+        { id = "x_xlong", text = "Since the trees by the lake were seedlings, which to you would be forever. I have seen centaur and goblins and harpies come and go, and I am still here." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtrust = {
+      lines = {
+        { id = "x_xtrust", text = "Some, a few, those who walk softly and take only what they need. Most mortals take, and cut, and leave, and I have learned to watch them closely." },
+      },
+      choices = {
+        { text = "Are we all the same?", next = "xsame" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsame = {
+      lines = {
+        { id = "x_xsame", text = "No, but the forest cannot tell the difference between a careless axe and a cruel one. I must guard against both, even if it seems unkind." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xelf = {
+      lines = {
+        { id = "x_xelf", text = "Of course, child of Elune. Your druids walked these woods once, and they were gentle, though they have grown fewer since." },
+      },
+      choices = {
+        { text = "I'll honour that.", next = "BACK", reply = "Then the forest will honour you.", fx = { affinity = 1 } },
+      },
+    },
   },
   topics = {
+    mirkfallon = { { id = "tp_xmirkfallon", text = "Mirkfallon Lake is the heart of these woods. I will not let it be poisoned." } },
+    cenarius = { { id = "tp_xcenarius", text = "Cenarius is our father, and we keep his woods as he would wish." } },
     background = { { id = "tp_bg", text = "I am a dryad of Mirkfallon. The lake and the trees are all the history I need." } },
     _none = { { id = "tp_none", text = "That is a mortal's concern, not a dryad's." } },
   },

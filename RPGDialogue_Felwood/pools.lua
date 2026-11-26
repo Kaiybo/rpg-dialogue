@@ -18,10 +18,17 @@ P:Pool {
   },
   react = { { id = "r_form", on = "form", when = { form = { "bear", "cat", "travel" } }, text = "Careful in that shape, because the corrupted beasts here look a lot like you, and we shoot first." } },
   lines = {
+    { id = "l_x1", text = "The Emerald Circle druids at Talonbranch Glade may share the cleansing work, but they don't share their tea. Not with us, anyway." },
+    { id = "l_x2", text = "I've seen a deer walk out of the woods with eyes like green coals. I let it go. Some things you don't want to know the taste of." },
+    { id = "l_x3", when = { race = "Orc" }, text = "Orc, you of all people know what fel does to a land. Look around, and remember why we turned from it." },
+
     { id = "l_default", text = "Demons poisoned this forest in the war, and the poison stayed when they left. So do we, for now." },
   },
   choices = { { text = "Stay safe.", next = "END", fx = { standing = { bloodvenom_post = 1 } } } },
   topics = {
+    felwood = { { id = "t_xfelwood", text = "Ashenvale's twin, once. The demons made it sick, and it stays sick out of spite." } },
+    jaedenar = { { id = "t_xjaedenar", text = "Shadow Council and their pets, down south. Stay clear unless you've an army." } },
+
     cenarion_circle = { { id = "t_circle", text = "The druids at the sanctuary think they can heal this place. I hope they're right. I'd hate to be standing here for nothing." } },
     _none = { { id = "t_none", text = "Ask Trull; he's the one who sends people into the trees." } },
   },

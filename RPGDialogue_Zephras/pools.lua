@@ -71,6 +71,10 @@ P:Pool {
       text = "No more for you, I think. The wind's bad enough without you swaying in it." },
   },
   lines = {
+    { id = "l_x1", text = "The wind changes every hour on this isle, and the old folk swear they can tell the time by it. I just tell the time by when the bread runs out." },
+    { id = "l_x2", text = "Since the spirits left, people come to the fire earlier and stay later. I don't mind. A crowded common room is warmer than an empty one." },
+    { id = "l_x3", when = { race = "Skyborne" }, text = "Your grandmother's people built this inn, I'd wager, same as mine. Sit, cousin, and tell me who you're related to." },
+
     { id = "l_default", text = "A good fire, warm bread, and a blanket someone's grandmother wove. The bread's yesterday's, but the wind hasn't stolen it yet, which makes it a good day on this isle." },
     { id = "l_feathers", text = "If you want hippogryph feathers for your hair, ask about; somebody always has a few to spare, and on this isle a feather in the hair is practically required." },
     { id = "l_food", text = "Try the gustberry pie, or a bit of skycheddar if you're brave. Stormapples, too, from the Windfield Orchard down in the lowlands." },
@@ -78,6 +82,8 @@ P:Pool {
   },
   choices = { { text = "A room, please.", next = "BUSINESS" }, { text = "Just warming up.", next = "END" } },
   topics = {
+    spirits = { { id = "t_xspirits", text = "The wind spirits that left us. Folk still leave a cup out for them on the windowsill, just in case." } },
+
     windstones = { { id = "t_stones", text = "Windstones or coin, either will buy you a bed, though I'll admit I like the stones better." } },
     _none = { { id = "t_none", text = "I hear a lot by this fire, but not that." } },
   },
@@ -96,12 +102,17 @@ P:Pool {
       text = "Mainland coin! I'll take it, but you'd do better with windstones up here, since they're our power and our purse both." },
   },
   lines = {
+    { id = "l_x1", text = "A good cloak here is weighted at the hem, or the wind will have it off your shoulders before you reach the end of the street." },
+    { id = "l_x2", text = "Mainland merchants laugh at our prices until they try to ship anything up here. Then they stop laughing and start paying." },
+
     { id = "l_default", text = "Cloth, mostly. Our weavers try to make it move the way the wind does, and since the spirits left, I think it comforts people to wear it." },
     { id = "l_luminarian", text = "Every blade and breastplate on this isle is made in Luminarian's style, more or less. He was the greatest of the magesmiths, and nobody's improved on him yet." },
     { id = "l_stones", text = "Windstones are worth more every season, now that the island's magic is fading. I'd hold on to any you find." },
   },
   choices = { { text = "Show me.", next = "BUSINESS" } },
   topics = {
+    luminarian = { { id = "t_xlumin", text = "The great magesmith. Half the patterns I sell still carry his marks, whether the smith knows it or not." } },
+
     windstones = { { id = "t_stones", text = "Raw wind, packed into a stone. It lights the lamps and pays the bills, for now." } },
     _none = { { id = "t_none", text = "If it isn't for sale, I couldn't tell you about it." } },
   },

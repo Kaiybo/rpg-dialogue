@@ -86,6 +86,10 @@ P:NPC {
       choices = {
         { text = "Whom have you executed?", next = "traitors" },
         { text = "What do you know of the Dark Irons below?", next = "darkiron" },
+        { text = "How did you become executioner?", next = "xbecome" },
+        { text = "Have you ever spared a traitor?", next = "xspare" },
+        { text = "What is Kargath to you?", next = "xkargath" },
+        { text = "I'm a warrior. Is your axe ever heavy?", next = "BACK", when = { class = "WARRIOR" }, reply = "Always heavy. A warrior who forgets the weight of his axe is no warrior. Remember that, when you swing yours." },
         { text = "Lok'tar.", next = "END", when = { faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
@@ -105,6 +109,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xbecome = {
+      lines = {
+        { id = "xxbecome_0", text = "The warlord asked who among us could swing true and never miss. I said nothing, and the others pointed at me. I have not missed since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xspare = {
+      lines = {
+        { id = "xxspare_0", text = "Once. A young grunt, caught carrying a Blackrock message he could not read. Some said I should have killed him anyway. What would you have done?" },
+      },
+      choices = {
+        { text = "Spare him. He didn't know the message.", next = "BACK", reply = "That is what I decided. He serves well now.", fx = { align = { order = -1 } } },
+        { text = "Kill him. Ignorance excuses nothing.", next = "BACK", reply = "Hard words. I have heard them before, from the warlord.", fx = { align = { order = 1 } } },
+      },
+    },
+    xkargath = {
+      lines = {
+        { id = "xxkargath_0", text = "A stronghold in a wasteland, named for a chieftain of the old Horde. We hold it against the Dark Irons and the Blackrock both, and we remember who betrayed us." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I am an executioner, not a scholar. Ask someone with softer hands." } } },
+  topics = {
+    dark_irons = { { id = "tp_xdark_irons", text = "They live below the mountain and serve a fire lord. They will answer for it." } },
+    blackrock = { { id = "tp_xblackrock", text = "Orcs who chose the dragon over the Horde." } },
+    _none = { { id = "tp_none", text = "I am an executioner, not a scholar. Ask someone with softer hands." } },
+  },
 }

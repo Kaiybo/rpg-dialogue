@@ -97,6 +97,9 @@ P:NPC {
       lines = { { id = "h_default", text = "Kosco Copperpinch, Smokywood Pastures, Hammerfall branch, which is a very small branch with very big customers. Orcs eat more than any race I've ever sold to, which is great for business and terrible for my inventory." } },
       again = { { id = "h_again", text = "What else, buddy?" }, { id = "h_again2", text = "Go on, the meter's not runnin'." } },
       choices = {
+        { text = "What do orcs order most?", next = "xorder" },
+        { text = "Who robs the supply wagons?", next = "xrob" },
+        { text = "A goblin feeding Hammerfall. Does Orgrimmar know?", next = "xorg", when = { faction = "Horde" } },
         { text = "Why sell in Hammerfall?", next = "why" },
         { text = "What's Smokywood Pastures doing here?", next = "company" },
         { text = "Farewell.", next = "END" },
@@ -123,8 +126,54 @@ P:NPC {
         { text = "One more thing, then.", next = "BACK" },
       },
     },
+    xorder = {
+      lines = {
+        { id = "xo1", text = "Meat, pal, meat with a side of meat, and the bones to chew after. I tried sellin' a nice fruit tart once, and a grunt looked at me like I'd insulted his mother, so the tarts went to the wolves." },
+      },
+      choices = {
+        { text = "And the trolls?", next = "xtroll" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xtroll = {
+      lines = {
+        { id = "xt1", text = "Darkspear trolls want fish and somethin' spicy, and they pay in shells half the time, which I accept at a very reasonable exchange rate, very reasonable for me, that is." },
+        { id = "xt2", when = { race = "Troll" }, text = "Hey, mon! Got some dried Echo Isles fish just for you, special price, practically robbery on my part." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrob = {
+      lines = {
+        { id = "xr1", text = "Stromgarde's patrols, mostly, who call it seizing enemy supplies, and the Syndicate, who don't bother callin' it anything. Lost a whole wagon of ale last month, and the drivers came back in their underwear." },
+      },
+      choices = {
+        { text = "Stromgarde's at war with the Horde. Fair game.", next = "xfair" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfair = {
+      lines = {
+        { id = "xf1", text = "Fair game, sure, if you're a soldier. I'm a businessman, buddy, and nobody declared war on cheese. Every wagon they take is money outta my pocket and stew outta some grunt's belly." },
+      },
+      choices = {
+        { text = "War's war. Everything's a target, even cheese.", next = "BACK", reply = "Ugh, you sound like my insurance broker.", fx = { align = { honor = -1 } } },
+        { text = "Merchants should be left alone, on both sides.", next = "BACK", reply = "Finally, a reasonable customer! Tell Stromgarde that.", fx = { align = { honor = 1 } } },
+      },
+    },
+    xorg = {
+      lines = {
+        { id = "xog1", text = "Orgrimmar knows I pay my taxes, which is all Orgrimmar wants to know. Long as the grunts are fed and the Cartel's happy, nobody asks how a goblin got a stall in a fortress." },
+      },
+      choices = {
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    stromgarde = { { id = "xtp_sg", text = "They ride out of the ruins and steal my sausages. Very unprofessional." } },
+    syndicate = { { id = "xtp_sy", text = "Bandits with family crests. They still don't pay for what they take." } },
     _none = { { id = "tp_none", text = "Never heard of it, but if you find it, I'll sell it." } },
   },
 }
@@ -148,6 +197,9 @@ P:NPC {
       lines = { { id = "h_default", text = "Targot Jinglepocket, Smokywood Pastures, Refuge Pointe branch, which has been burned down twice this year. The soldiers here pay on time, though, which is more than I can say for the ogres." } },
       again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "Talk fast, I gotta restock before the next raid." } },
       choices = {
+        { text = "Who burned Refuge Pointe down?", next = "xburn" },
+        { text = "How do the soldiers here pay?", next = "xpay" },
+        { text = "What about the ogres?", next = "xogres" },
         { text = "Are you related to Wulmort Jinglepocket?", next = "wulmort" },
         { text = "You've been burned down twice?", next = "burned" },
         { text = "Farewell.", next = "END" },
@@ -174,8 +226,53 @@ P:NPC {
         { text = "One more thing, then.", next = "BACK" },
       },
     },
+    xburn = {
+      lines = {
+        { id = "xb1", text = "First time, Syndicate torches in the night, all very dramatic. Second time was a cook fire, and the cook was me, and I'd prefer we didn't discuss it further, friend." },
+      },
+      choices = {
+        { text = "Why rebuild here at all?", next = "xwhy" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xwhy = {
+      lines = {
+        { id = "xw1", text = "Because soldiers get hungry and a hungry soldier's got coin and nowhere else to spend it. Refuge Pointe's a terrible place to live, but it's a beautiful place to run a monopoly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpay = {
+      lines = {
+        { id = "xp1", text = "On the dot, every payday, 'cause Stromgarde still pays its people, which surprised me, since they lost their whole kingdom. Lord Galen's got coffers somewhere, and I don't ask where." },
+      },
+      choices = {
+        { text = "Do you think Stromgarde will retake the keep?", next = "xretake" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xretake = {
+      lines = {
+        { id = "xr1", text = "They talk about it over every drink I serve, and the louder they talk, the more they drink, which is good for me. Between you and me, the Syndicate and the ogres are dug in deep, pal." },
+      },
+      choices = {
+        { text = "They'll take it back. Stromgarde doesn't quit.", next = "BACK", reply = "Hey, I'll drink to that, and so will they, at two silver a mug.", fx = { align = { order = 1 } } },
+        { text = "Stromgarde's finished. They should move south.", next = "BACK", reply = "Shh! Not so loud. I need these customers right where they are.", fx = { align = { order = -1 } } },
+      },
+    },
+    xogres = {
+      lines = {
+        { id = "xo1", text = "Boulderfist ogres come down from the hills, and they don't understand money, which is the scariest thing about 'em. You can't bribe somethin' that wants to eat you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    stromgarde = { { id = "xtp_sg", text = "Proud folks with no castle. They tip better than you'd think." } },
+    ogres = { { id = "xtp_og", text = "Two heads, no wallets. Worst customers on the continent." } },
     _none = { { id = "tp_none", text = "Never heard of it, friend, and I hear about everything." } },
   },
 }
@@ -199,6 +296,10 @@ P:NPC {
       lines = { { id = "h_default", text = "I guard Hammerfall, where Orgrim Doomhammer once held the human prisons and the orcs broke free. We hold this place now, and no human will take it from us again." } },
       again = { { id = "h_again", text = "Speak." }, { id = "h_again2", text = "What else?" } },
       choices = {
+        { text = "Did you live in the camps yourself?", next = "xcamp" },
+        { text = "What do you think of the humans now?", next = "xhumans" },
+        { text = "I'm a human. Am I welcome here?", next = "xhuman", when = { race = "Human" } },
+        { text = "I'm an orc too. Tell me of Doomhammer.", next = "xdoom", when = { race = "Orc" } },
         { text = "What happened here?", next = "history" },
         { text = "Who threatens Hammerfall?", next = "threats" },
         { text = "Farewell.", next = "END" },
@@ -225,8 +326,52 @@ P:NPC {
         { text = "One more thing, then.", next = "BACK" },
       },
     },
+    xcamp = {
+      lines = {
+        { id = "xc1", text = "I did, for years, behind the stockade that stood where you stand now. We ate what they threw us and forgot how to fight, and some forgot how to be orcs at all." },
+      },
+      choices = {
+        { text = "How did it end?", next = "xend" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xend = {
+      lines = {
+        { id = "xe1", text = "Thrall came with Grom and Doomhammer, and the gates broke, and a sickness lifted from us that no shaman had a name for. I picked up an axe that day and I have not put it down since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhumans = {
+      lines = {
+        { id = "xh1", text = "Stromgarde sends its men against these walls every season, as if they could put us back in our cages. Thrall says not all humans are jailers, and I try to believe him, but I remember the whips." },
+      },
+      choices = {
+        { text = "Remember the whips. Never trust them again.", next = "BACK", reply = "You speak the truth that sits in every orc's belly here.", fx = { align = { honor = -1 } } },
+        { text = "Thrall is right. Not every human held a whip.", next = "BACK", reply = "Perhaps. I will believe it when Stromgarde stops coming.", fx = { align = { honor = 1 } } },
+      },
+    },
+    xhuman = {
+      lines = {
+        { id = "xhu1", text = "Welcome is a strong word, {class}. You may pass because Thrall says the Horde is more than vengeance, but you will walk slowly, and you will not touch the walls." },
+      },
+      choices = {
+        { text = "I understand. Something else.", next = "BACK" },
+      },
+    },
+    xdoom = {
+      lines = {
+        { id = "xd1", text = "Orgrim Doomhammer was Warchief before Thrall, and he broke these camps open with his own hammer. He fell at the last of them, and Thrall took up his armor, and his hammer still goes to war in our Warchief's hands." },
+      },
+      choices = {
+        { text = "Lok'tar ogar.", next = "BACK", reply = "Lok'tar, brother. Hold your head high here." },
+      },
+    },
   },
   topics = {
+    doomhammer = { { id = "xtp_dh", text = "The Warchief who broke our chains. This fortress bears his name." } },
+    stromgarde = { { id = "xtp_sg", text = "Their kings built these cages. We will not go back into them." } },
     _none = { { id = "tp_none", text = "I know nothing of that. Ask Drum Fel, if you must." } },
   },
 }
@@ -250,6 +395,9 @@ P:NPC {
       lines = { { id = "h_default", text = "I guard Refuge Pointe for Stromgarde, and for the people who still call this land home. There aren't many of us left, but we hold the hill." } },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Ask away, friend." } },
       choices = {
+        { text = "How long have you served Stromgarde?", next = "xserve" },
+        { text = "What are the orcs at Hammerfall like?", next = "xorcs" },
+        { text = "I'm a dwarf. Ironforge sends its regards.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Who attacks Refuge Pointe?", next = "threats" },
         { text = "Is Stromgarde lost?", next = "stromgarde" },
         { text = "Farewell.", next = "END" },
@@ -276,8 +424,44 @@ P:NPC {
         { text = "One more thing, then.", next = "BACK" },
       },
     },
+    xserve = {
+      lines = {
+        { id = "xs1", text = "Since before the Third War, when Stromgarde was a kingdom and Thoras Trollbane sat in the keep. Now his son leads us from a hill of tents, and I serve him all the same." },
+      },
+      choices = {
+        { text = "What happened to King Trollbane?", next = "xking" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xking = {
+      lines = {
+        { id = "xk1", text = "Murdered in his own hall, and not by any orc, though the Syndicate would like folk to believe that. Lord Galen means to take back the keep his father lost, and I mean to be there when he does." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xorcs = {
+      lines = {
+        { id = "xo1", text = "Our kings built that camp to hold them after the Second War, and now they hold it against us. I'd call it justice if I weren't the one standing on the wrong side of their walls." },
+      },
+      choices = {
+        { text = "Burn Hammerfall to the ground, then.", next = "BACK", reply = "Aye, and we'd lose half our men doing it. Someday, maybe.", fx = { align = { honor = -1 } } },
+        { text = "You caged them. Can you blame them for hating you?", next = "BACK", reply = "No, I suppose I can't. Doesn't mean I'll lower my spear.", fx = { align = { honor = 1 } } },
+      },
+    },
+    xdwarf = {
+      lines = {
+        { id = "xd1", text = "Then we'll thank Ironforge for the regards and ask for rifles next time. Your kin stood with Stromgarde against the Horde once, and we've not forgotten it." },
+      },
+      choices = {
+        { text = "Neither have we. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    trollbane = { { id = "xtp_tb", text = "The Trollbanes have held Stromgarde since Thoradin. A tent doesn't change that." } },
+    syndicate = { { id = "xtp_sy", text = "Alterac's traitors, squatting in our keep. We'll root them out." } },
     _none = { { id = "tp_none", text = "I don't know about that, friend. Ask the Commander." } },
   },
 }
@@ -378,6 +562,9 @@ P:NPC {
       lines = { { id = "h_default", text = "Fardel Dabyrie, and this is my mother's farm, and that lump over there is my brother Marcel. We keep our heads down and our fields planted, which is more than most can say in Arathi these days." } },
       again = { { id = "h_again", text = "Something else on your mind, friend?" } },
       choices = {
+        { text = "What's your mother like?", next = "xmother" },
+        { text = "Do you and Marcel get along?", next = "xmarcel" },
+        { text = "Have you ever thought of leaving?", next = "xleave" },
         { text = "Why keep a militia on a farm?", next = "militia" },
         { text = "Folk say your family has sticky fingers.", next = "thieves" },
         { text = "I'll be going.", next = "END" },
@@ -402,8 +589,44 @@ P:NPC {
       lines = { { id = "g2_default", text = "My mother says I was born grinning, and she ought to know. Now, unless you're accusing me of something, I'd mind my own business, friend." } },
       choices = { { text = "I'll take your word for it.", next = "BACK" } },
     },
+    xmother = {
+      lines = {
+        { id = "xm1", text = "Kenata Dabyrie is the hardest woman in Arathi, and that includes the trolls. She buried my father, kept the farm through two wars, and still serves supper hot to the militia every night." },
+      },
+      choices = {
+        { text = "She sounds formidable.", next = "BACK", reply = "Formidable's the kind word. Marcel calls her the Sergeant, but never to her face." },
+      },
+    },
+    xmarcel = {
+      lines = {
+        { id = "xma1", text = "Marcel thinks being born first makes him the head of the family, and Mother thinks Marcel thinks too much. We argue over the plough and the fences and whose turn it is with the cows, and that's brotherhood." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xleave = {
+      lines = {
+        { id = "xl1", text = "Every week, stranger, usually when the drums start up in the hills. But my grandfather broke this ground, and I'll be the last Dabyrie to leave it, or the first to die on it." },
+      },
+      choices = {
+        { text = "Would Refuge Pointe protect you?", next = "xrefuge" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrefuge = {
+      lines = {
+        { id = "xr1", text = "Refuge Pointe can barely protect itself. Their soldiers ride past now and then, wave, and ride on, and once they helped themselves to a sack of our grain on the way." },
+      },
+      choices = {
+        { text = "A farm needs its own sword. Good on you.", next = "BACK", reply = "That's what I keep telling the militia, between their naps.", fx = { align = { order = -1 } } },
+        { text = "You should stand with Stromgarde, together.", next = "BACK", reply = "Maybe, if Stromgarde ever stands still long enough to be stood with.", fx = { align = { order = 1 } } },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Never heard of it, and I'd rather not. Ask Marcel, he knows less than me." } } },
+  topics = {
+    stromgarde = { { id = "xtp_sg", text = "Proud lords on a hill. We grow their bread and they forget our names." } },
+    trolls = { { id = "xtp_tr", text = "Witherbark. They come at night with drums, and the dogs know before we do." } }, _none = { { id = "tp_none", text = "Never heard of it, and I'd rather not. Ask Marcel, he knows less than me." } } },
 }
 
 P:NPC {
@@ -424,6 +647,9 @@ P:NPC {
       lines = { { id = "h_default", text = "I'm Marcel, the elder brother, though Fardel would tell you otherwise. Mother runs the farm, I run the fields, and Fardel runs his mouth." } },
       again = { { id = "h_again", text = "What else? I've fences to mend." } },
       choices = {
+        { text = "Your brother says you're the lump.", next = "xlump" },
+        { text = "What do you grow out here?", next = "xgrow" },
+        { text = "I'm a farmer's child myself.", next = "xfarm", when = { race = "Human" } },
         { text = "Hard times for farming here?", next = "hard" },
         { text = "Tell me about your mother.", next = "mother" },
         { text = "I'll leave you to your fences.", next = "END" },
@@ -447,8 +673,44 @@ P:NPC {
       lines = { { id = "m_default", text = "Kenata's tougher than either of us, and she'd tell you so. She kept this farm going through the Second War with nothing but a hoe and her temper." } },
       choices = { { text = "She sounds formidable.", next = "BACK" } },
     },
+    xlump = {
+      lines = {
+        { id = "xl1", text = "Does he now? The lump got up two hours before him this morning and mended the north fence while Fardel was still snoring. You can tell him I said so, and tell him slowly, so he understands." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgrow = {
+      lines = {
+        { id = "xg1", text = "Wheat in the low field, turnips, cabbages, and a few rows of potatoes Mother won't let anyone touch. The soil's good, if you can keep the trolls off it." },
+      },
+      choices = {
+        { text = "Do you sell to Refuge Pointe?", next = "xsell" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xsell = {
+      lines = {
+        { id = "xs1", text = "When they pay. Lately they pay in promises, and promises don't buy seed. A Smokywood goblin up there offered us a fair price once, and I nearly died of shock." },
+      },
+      choices = {
+        { text = "Charge them what you're owed. No credit.", next = "BACK", reply = "My thinking exactly, though Mother calls it unneighbourly.", fx = { align = { honor = -1 } } },
+        { text = "They're fighting for you. Give them credit.", next = "BACK", reply = "Hmph. Maybe. I'll think on it, which is more than Fardel would do.", fx = { align = { honor = 1 } } },
+      },
+    },
+    xfarm = {
+      lines = {
+        { id = "xf1", text = "Are you? Then you know a field doesn't care who's king or who's at war. It wants weeding either way, and so does mine, if you're stopping long." },
+      },
+      choices = {
+        { text = "I'm not stopping that long.", next = "BACK", reply = "Of course you aren't. Nobody ever is." },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Don't know, don't care. Ask at Refuge Pointe." } } },
+  topics = {
+    syndicate = { { id = "xtp_sy", text = "They took our horse two years back. I'd know that horse anywhere." } },
+    kenata = { { id = "xtp_ke", text = "Mother. She runs this farm, and the rest of us just think we do." } }, _none = { { id = "tp_none", text = "Don't know, don't care. Ask at Refuge Pointe." } } },
 }
 
 P:NPC {
@@ -469,6 +731,9 @@ P:NPC {
       lines = { { id = "h_default", text = "I guard the farm for the Dabyries, which mostly means standing here and hoping nothing comes over the hill. The pay's poor, but Kenata feeds us well." } },
       again = { { id = "h_again", text = "Something else? I'm meant to be watching." } },
       choices = {
+        { text = "Have you ever had to fight?", next = "xfight" },
+        { text = "Who hired you?", next = "xhired" },
+        { text = "Seen anything strange lately?", next = "xstrange" },
         { text = "What comes over the hill?", next = "hill" },
         { text = "Were you a soldier before?", next = "before" },
         { text = "I'll let you keep watch.", next = "END" },
@@ -492,8 +757,44 @@ P:NPC {
       lines = { { id = "v_default", text = "He leads what's left of Stromgarde's cavalry, and he rides past every few days to show the flag. Seeing his banner on the road does wonders for a fellow's nerves." } },
       choices = { { text = "Good to know.", next = "BACK" } },
     },
+    xfight = {
+      lines = {
+        { id = "xf1", text = "Twice, and I'd rather not make it three. A Witherbark troll came at the barn with a spear and I hit it with a shovel, which surprised us both, I think." },
+      },
+      choices = {
+        { text = "What happened then?", next = "xthen" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xthen = {
+      lines = {
+        { id = "xt1", text = "It ran, and I sat down in the hay and shook for an hour. Kenata gave me an extra helping of stew that night and said I'd earned it, which is the only medal I've ever got." },
+      },
+      choices = {
+        { text = "A shovel's a fine weapon.", next = "BACK", reply = "Better than the rusty sword they gave me, that's for certain." },
+      },
+    },
+    xhired = {
+      lines = {
+        { id = "xh1", text = "Kenata Dabyrie, the old woman who runs the farm. Stromgarde was meant to post soldiers out here, but they never did, so she hired a handful of us from Refuge Pointe and the farms round about." },
+      },
+      choices = {
+        { text = "Stromgarde should have sent proper soldiers.", next = "BACK", reply = "Aye, they should, and I'd have gone home to my mother.", fx = { align = { order = 1 } } },
+        { text = "Hired guards are better than distant lords.", next = "BACK", reply = "Well, we're cheaper, anyway, and the food's better.", fx = { align = { order = -1 } } },
+      },
+    },
+    xstrange = {
+      lines = {
+        { id = "xs1", text = "Lights up on the hills toward the trolls' camps, and once a hooded man asking after the road to Stromgarde. He didn't buy any turnips either, so I reckoned he was Syndicate." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Don't ask me, I just hold the spear. Ask Fardel." } } },
+  topics = {
+    trolls = { { id = "xtp_tr", text = "Witherbark. Big tusks, bad tempers, and they don't like shovels." } },
+    kenata = { { id = "xtp_ke", text = "She pays us in stew and coin, in that order of quality." } }, _none = { { id = "tp_none", text = "Don't ask me, I just hold the spear. Ask Fardel." } } },
 }
 
 ---------------------------------------------------------------------------
@@ -517,6 +818,9 @@ P:NPC {
       lines = { { id = "h_default", text = "We hunt the trolls in Stromgarde's ruins, so that one day the keep might be whole again. It's slow work, and the Syndicate doesn't make it easier." } },
       again = { { id = "h_again", text = "What else? Make it quick." } },
       choices = {
+        { text = "How many trolls are in the ruins?", next = "xmany" },
+        { text = "Who leads you?", next = "xlead" },
+        { text = "Trolls are my people. Speak carefully.", next = "xtroll", when = { race = "Troll" } },
         { text = "Why the torch?", next = "torch" },
         { text = "Can Stromgarde be retaken?", next = "retake" },
         { text = "Good hunting.", next = "END" },
@@ -540,8 +844,44 @@ P:NPC {
         { text = "Hold fast. The Alliance will come.", next = "BACK", fx = { align = { order = 1 } } },
       },
     },
+    xmany = {
+      lines = {
+        { id = "xm1", text = "Too many to count and more every month, Witherbark and some others from the hills. They creep into the lower keep at night and the Syndicate holds the upper towers, and we hold a broken wall in between." },
+      },
+      choices = {
+        { text = "Why not wait for reinforcements?", next = "xwait" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xwait = {
+      lines = {
+        { id = "xw1", text = "From whom? Lordaeron is gone, Gilneas shut its gates, and Stormwind is a long way south. Stromgarde fights its own battles, as it always has." },
+      },
+      choices = {
+        { text = "Then Stromgarde will retake its keep alone.", next = "BACK", reply = "That's the spirit of Thoradin, friend. We'll do it or die trying.", fx = { align = { order = 1 } } },
+        { text = "Alone, you'll all die in those ruins.", next = "BACK", reply = "Maybe so. Better that than living in tents forever.", fx = { align = { order = -1 } } },
+      },
+    },
+    xlead = {
+      lines = {
+        { id = "xl1", text = "Lord Galen Trollbane commands from Refuge Pointe, though he's sworn to sit in his father's throne again. Out here it's our sergeants, and they lead from the front, which is why we keep needing new ones." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtroll = {
+      lines = {
+        { id = "xt1", text = "Darkspear, are you? Your lot isn't the Amani, I know, and I've no quarrel with you. But these Witherbark are kin to the Amani, and they'd eat you as quick as me." },
+      },
+      choices = {
+        { text = "I know. Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "No idea. Ask at Refuge Pointe, they've got the maps." } } },
+  topics = {
+    trolls = { { id = "xtp_tr", text = "Burn them, or they get up again. My father taught me that." } },
+    thoradin = { { id = "xtp_th", text = "The first king of Arathor. He united men to beat the trolls, and we're still at it." } }, _none = { { id = "tp_none", text = "No idea. Ask at Refuge Pointe, they've got the maps." } } },
 }
 
 ---------------------------------------------------------------------------
@@ -565,6 +905,9 @@ P:NPC {
       lines = { { id = "h_default", text = "I farm, {g:lad|lass}, plain and simple. Ironforge cannae eat stone, so some of us come out where the soil's soft and grow what the mountain cannae." } },
       again = { { id = "h_again", text = "Somethin' else? The cabbages willnae mind." } },
       choices = {
+        { text = "Do you miss Ironforge?", next = "xmiss" },
+        { text = "What do you grow here?", next = "xgrow" },
+        { text = "Fellow dwarf here. Farming suits you?", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Why so far from anyone?", next = "far" },
         { text = "A dwarf farmer? That's unusual.", next = "unusual" },
         { text = "I'll let you work.", next = "END" },
@@ -585,8 +928,44 @@ P:NPC {
       lines = { { id = "u_default", text = "Not as much as ye'd think! Plenty of us farm the lowlands round Dun Morogh, and there's a fine farm down in the Wetlands too. Every dwarf needs bread with his ale." } },
       choices = { { text = "Fair point.", next = "BACK" } },
     },
+    xmiss = {
+      lines = {
+        { id = "xm1", text = "The ale, aye, and the noise o' the Great Forge, and my cousin's terrible singing at the Stonefire. But a dwarf can only spend so many years under the mountain before he wants tae see the sky." },
+      },
+      choices = {
+        { text = "What did your clan think?", next = "xclan" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xclan = {
+      lines = {
+        { id = "xc1", text = "My father said no Bronzebeard ever pulled a turnip, an' I told him somebody had tae feed the miners. He still writes once a year tae ask if I've come tae my senses." },
+      },
+      choices = {
+        { text = "A dwarf belongs under the mountain.", next = "BACK", reply = "Aye, that's what my father says, an' he's never once been right about me.", fx = { align = { order = 1 } } },
+        { text = "Good on you. Follow your own road.", next = "BACK", reply = "Ha! I like ye, {g:lad|lass}. Ye can stay for supper.", fx = { align = { order = -1 } } },
+      },
+    },
+    xgrow = {
+      lines = {
+        { id = "xg1", text = "Barley, mostly, for the brewers back home, an' a fine crop o' hops. Every keg in Thunderbrew has a wee bit o' Arathi in it, an' nobody in Ironforge knows it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = {
+        { id = "xd1", text = "Suits me better than mining ever did, an' I've all my fingers still, which is more than most miners can say. Ye'll find the soil here's soft as a feather bed after Dun Morogh." },
+      },
+      choices = {
+        { text = "Maybe I'll try it someday.", next = "BACK", reply = "Do! Bring a strong back an' a stronger thirst." },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Couldnae tell ye. Ask me about cabbages instead." } } },
+  topics = {
+    ironforge = { { id = "xtp_if", text = "Home, though I like it best when it's far away." } },
+    thunderbrew = { { id = "xtp_tb", text = "My barley's in their ale. Don't tell them, they'll want a discount." } }, _none = { { id = "tp_none", text = "Couldnae tell ye. Ask me about cabbages instead." } } },
 }
 
 ---------------------------------------------------------------------------
@@ -613,6 +992,10 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Talk if you must. It takes my mind off the leg." } },
       choices = {
+        { text = "How did you get hurt?", next = "xhurt" },
+        { text = "Who's the doctor here?", next = "xdoc" },
+        { text = "I'm a healer. Let me look.", next = "xheal", when = { class = "PRIEST" } },
+        { text = "I'm a shaman. I can mend wounds.", next = "xheal", when = { class = "SHAMAN" } },
         { text = "Who did this to you?", next = "who" },
         { text = "Do you need anything?", next = "need" },
         { text = "Hold on, soldier.", next = "END" },
@@ -630,5 +1013,43 @@ P:NPC {
       lines = { { id = "ne_default", text = "Clean bandages and a strong drink, in that order. And if you see the doctor, tell him I've been patient, which is a lie he'll enjoy." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xhurt = {
+      lines = {
+        { id = "xh1", text = "Syndicate crossbow from a ridge above the road to Stromgarde. I never saw the man, only the flash of his cloak and then the bolt in my leg." },
+      },
+      choices = {
+        { text = "Did your patrol get him?", next = "xgot" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xgot = {
+      lines = {
+        { id = "xg1", text = "No, and he'll be back on that ridge tomorrow. The Syndicate fight like cowards, from cover and in the dark, and we lose good warriors to men we never see." },
+      },
+      choices = {
+        { text = "Fight them the same way. Ambush the ambushers.", next = "BACK", reply = "Hah. You'd make a good scout. The captains won't like it.", fx = { align = { honor = -1 } } },
+        { text = "Meet them openly. Don't sink to their level.", next = "BACK", reply = "Honor gets you shot from a ridge, but I'll take it.", fx = { align = { honor = 1 } } },
+      },
+    },
+    xdoc = {
+      lines = {
+        { id = "xd1", text = "Doctor Gregory Victor tends the wounded, and he's more patient than I am, which isn't hard. He talks the whole time he works, so at least you're not bored while he digs out the bolt." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xheal = {
+      lines = {
+        { id = "xhe1", text = "Then lay your hands on and stop talking about it. The leg first, if you please, and I'll owe you a drink when I can walk to the tavern." },
+      },
+      choices = {
+        { text = "Hold still.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    syndicate = { { id = "xtp_sy", text = "Cowards with crossbows. Find them and I'll walk again just to thank you." } },
+    stromgarde = { { id = "xtp_sg", text = "Humans who won't stop coming. I'll give them that much." } },
   },
 }

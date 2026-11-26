@@ -101,6 +101,9 @@ P:NPC {
       choices = {
         { text = "Tell me about the Dragonmaw.", next = "dragonmaw" },
         { text = "You and Rharen don't get along?", next = "rharen" },
+        { text = "Why guard this pass?", next = "xpass" },
+        { text = "What's the worst Dragonmaw raid you've seen?", next = "xraid" },
+        { text = "I'm a dwarf. I'll stand a watch with you.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Hold the pass. Farewell.", next = "END" },
       },
     },
@@ -123,8 +126,35 @@ P:NPC {
       lines = { { id = "a_default", text = "Whose turn it is on watch, whose turn it is to cook, and who drank the last of the stout. He'll tell ye it was me, and he'll be lying." } },
       choices = { { text = "I'll keep out of it.", next = "BACK" } },
     },
+    xpass = {
+      narr = "He slaps the rough stone of the gate with a gloved hand.",
+      lines = { { id = "xpa_default", text = "Because if the Dragonmaw take Dun Algaz, they cut Ironforge off from Menethil and every ship to Kalimdor. There's not much glory in a tunnel, but there's a great deal of importance." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xraid = {
+      lines = { { id = "xra_default", text = "Last spring, fifty of them came down from the hills at night, with wolves and torches. Rharen and I held the gate till dawn, and when the sun came up there were thirty fewer, and we'd both lost our hats." } },
+      choices = {
+        { text = "Do the Dragonmaw still have dragons?", next = "xdragons" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdragons = {
+      lines = { { id = "xdg_default", text = "Some say they keep a red or two at Grim Batol still, chained up and broken. I've seen nothing, mind, but I listen for wings every night." } },
+      choices = {
+        { text = "Then free the dragons, and break the Dragonmaw.", next = "BACK", reply = "Free a red dragon? Ye've more nerve than sense, friend.", fx = { align = { light = 1 } } },
+        { text = "Kill any dragon that comes near. Simple as that.", next = "BACK", reply = "Aye, that's how I'd see it too, if I had the rifle for it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = { { id = "xdw_default", text = "Would ye? Then take Rharen's spot, and I'll finally get some peace. Mind, he'll tell ye I asked for it, and I didn't." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "No idea, {g:lad|lass}. Ask in Menethil." } } },
+  topics = {
+    dragonmaw = { { id = "xtp_dmaw", text = "Orcs from the Second War, still lurking in Grim Batol. They'll not take this pass while I stand." } },
+    rharen = { { id = "xtp_rhar", text = "My partner, and the loudest dwarf in Khaz Modan. Don't tell him I said he's good in a fight." } },
+    _none = { { id = "tp_none", text = "No idea, {g:lad|lass}. Ask in Menethil." } } },
 }
 
 P:NPC {
@@ -150,6 +180,10 @@ P:NPC {
       choices = {
         { text = "What's the road north like?", next = "north" },
         { text = "Grugelm says you drank the last stout.", next = "stout" },
+        { text = "How long have you guarded Dun Algaz?", next = "xlong" },
+        { text = "Do you think the Dragonmaw will come again?", next = "xdmaw" },
+        { text = "What's in the tunnel behind you?", next = "xtunnel" },
+        { text = "I'm a dwarf. Pour me one of that stout.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Take care, mountaineer.", next = "END" },
       },
     },
@@ -171,8 +205,32 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlong = {
+      lines = { { id = "xlo_default", text = "Six years, three months and a good many days, and Grugelm's been here for every one of 'em. We came out together from Ironforge, and we'll go home together, or not at all." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdmaw = {
+      narr = "He grins, but his hand drifts to the stock of his rifle.",
+      lines = { { id = "xdm_default", text = "Oh, aye, they always come back, like weeds and tax collectors. But every time, we send fewer of them home, and one day there'll be none left to come." } },
+      choices = {
+        { text = "March on Grim Batol and end them.", next = "BACK", reply = "Grand idea, and I'll bring the stout. Grugelm can bring his scowl.", fx = { align = { order = -1 } } },
+        { text = "Hold the pass. That's the job.", next = "BACK", reply = "Aye, that's the job, and we do it well. No need to go lookin' for trouble.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtunnel = {
+      lines = { { id = "xtu_default", text = "The road through the mountain to Loch Modan, dark and damp and full of echoes. Grugelm swears he heard a ghost in there once, but I think it was his own snoring." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdwarf = {
+      lines = { { id = "xdw_default", text = "Ha! Now there's a proper dwarf. There's a keg in the guardhouse, half full, and if Grugelm asks, ye never saw it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Cannae help ye there, friend. Ask Grugelm, if ye dare." } } },
+  topics = {
+    grugelm = { { id = "xtp_grug", text = "Old grump, best friend, worst cook. Don't tell him the middle part." } },
+    menethil = { { id = "xtp_meneth", text = "Down the north road, a harbour sinkin' slowly into the bog. Good ships, mind." } },
+    _none = { { id = "tp_none", text = "Cannae help ye there, friend. Ask Grugelm, if ye dare." } } },
 }
 
 ---------------------------------------------------------------------------
@@ -198,6 +256,10 @@ P:NPC {
       choices = {
         { text = "What's Theramore like?", next = "theramore" },
         { text = "Is the crossing dangerous?", next = "danger" },
+        { text = "Who's your captain?", next = "xcaptain" },
+        { text = "What's Menethil like for a sailor?", next = "xmenethil" },
+        { text = "Do you carry Horde passengers?", next = "xhorde" },
+        { text = "I'm a night elf. Do you sail to Auberdine?", next = "xelf", when = { race = "NightElf" } },
         { text = "Fair winds.", next = "END" },
       },
     },
@@ -219,8 +281,32 @@ P:NPC {
         { text = "I'll heed the warning.", next = "BACK", fx = { align = { order = 1 } } },
       },
     },
+    xcaptain = {
+      lines = { { id = "xca_default", text = "Fair-minded, quick with a curse and quicker with a rope. He's sailed the Great Sea since before the Second War, and he says the sea's calmer than any city he's ever been in." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xmenethil = {
+      narr = "He laughs and waves a hand at the half-sunk docks around him.",
+      lines = { { id = "xme_default", text = "Wet, and sinking a little more every year, but the taverns are warm and the fish is fresh. The Dragonmaw keep the Mountaineers busy inland, so the docks are the safest place in the Wetlands." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhorde = {
+      lines = { { id = "xho_default", text = "Not a chance, friend. The Maiden's Virtue's an Alliance ship, and Lady Proudmoore may talk peace with the orcs, but the captain hasn't heard about it." } },
+      choices = {
+        { text = "Peace with the orcs is the right course.", next = "BACK", reply = "Maybe so, but tell it to the lads who lost family in the Second War.", fx = { align = { honor = 1 } } },
+        { text = "Good. Orcs shouldn't set foot on our ships.", next = "BACK", reply = "That's how most of the crew sees it, and the captain too.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xelf = {
+      lines = { { id = "xel_default", text = "Not us, but the Bravery does, out of the other pier, to Auberdine on Darkshore. Your folk are good passengers, quiet and polite, though they look at the sea like it owes them something." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Couldn't say, friend. I just sail where they point me." } } },
+  topics = {
+    theramore = { { id = "xtp_thera", text = "Lady Proudmoore's city, across the sea. We sail there and back, rain or shine." } },
+    menethil = { { id = "xtp_meneth", text = "Our home port, more or less. It's wet, but it's ours." } },
+    _none = { { id = "tp_none", text = "Couldn't say, friend. I just sail where they point me." } } },
 }
 
 ---------------------------------------------------------------------------
@@ -246,10 +332,17 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Aman. I was set to watch over what lies beneath, long before your kingdoms raised their walls. I do not speak of what I guard, so do not ask it." },
       },
-      again = { { id = "h_again", text = "Speak, then. The earth has patience, and so do I." } },
+      again = {
+        { id = "h_again", text = "Speak, then. The earth has patience, and so do I." },
+        { id = "xh_again2", text = "The stones are listening, small one. Ask, if you must." },
+      },
       choices = {
         { text = "Who set you to watch?", next = "who" },
         { text = "The dwarves are digging everywhere. Does that trouble you?", next = "dig" },
+        { text = "How long have you stood here?", next = "xlong" },
+        { text = "What do you make of Ironband's diggers?", next = "xdiggers" },
+        { text = "What are you, exactly?", next = "xwhat" },
+        { text = "My people seek our origins in the stone.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -265,5 +358,38 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlong = {
+      narr = "The light within the shape dims and brightens, slowly, like a breath.",
+      lines = { { id = "xlo_default", text = "Long enough to see the mountains wear down by a hand's width. Your kind count in summers, but I count in the slow turning of stone, and to me you are a spark that has only just struck." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdiggers = {
+      lines = { { id = "xdi_default", text = "They are eager, and loud, and they think the earth will give its secrets to whoever brings the biggest pick. The earth is not so generous, small one, and it does not like to be hurried." } },
+      choices = {
+        { text = "Then should they stop digging?", next = "xstop" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xstop = {
+      lines = { { id = "xst_default", text = "I do not tell them to stop, because they would not hear me. I tell you instead, and you may carry it or not, as you choose." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xwhat = {
+      lines = { { id = "xwa_default", text = "A watcher, set in place, and that is all you need to know. A name is a small thing to give, and I have given it, so do not ask for more." } },
+      choices = {
+        { text = "Answers should be given freely, to all who ask.", next = "BACK", reply = "Then you would make a poor guardian, and an honest friend.", fx = { align = { order = -1 } } },
+        { text = "A guardian keeps its silence. I respect that.", next = "BACK", reply = "You see the shape of things, small one. That is rare.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = { { id = "xdw_default", text = "And the stone remembers your people more kindly than you think. Dig carefully, child of the mountain, for not everything beneath you wishes to be found." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    explorers_league = { { id = "xtp_league", text = "Eager diggers with lamps and maps. They seek what their own stone has not told them." } },
+    wetlands = { { id = "xtp_wet", text = "The waters rose here long ago, and they will fall again. The stone does not mind." } },
+    _none = { { id = "xtp_none", text = "That is not a thing the stones have told me, small one." } },
   },
 }

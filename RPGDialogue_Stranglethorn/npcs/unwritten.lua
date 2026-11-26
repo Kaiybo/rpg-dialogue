@@ -93,6 +93,10 @@ P:NPC {
         { text = "How did you lose your sight?", next = "sight" },
         { text = "What sort of things come out of Zul'Gurub?", next = "relics" },
         { text = "You can't really know an object by touch.", next = "touch" },
+        { text = "How did you come to keep relics?", next = "xblind" },
+        { text = "Why sell relics instead of keeping them?", next = "xsell" },
+        { text = "Are you a priest yourself?", next = "xpriest" },
+        { text = "I am a troll too, though Darkspear.", next = "BACK", when = { race = "Troll" }, reply = "Darkspear. Yes, I smell de sea on you, and de islands. Your tribe has wandered far from de old ways, but your hands still remember dem." },
         { text = "Let me see what you have.", next = "END" },
       },
     },
@@ -112,8 +116,62 @@ P:NPC {
       lines = { { id = "t_default", text = "Put somethin' in my hand and test me, then. De old carvers left their marks deep, and a finger finds what de eye skips over." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xblind = {
+      lines = {
+        { id = "xxblind_0", text = "After de idol took my eyes, de elders gave me to de relic-keepers, because a man who cannot see learns to listen to what he holds. Dey were right about dat too." },
+      },
+      choices = {
+        { text = "What do the relics tell you?", next = "xlisten" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlisten = {
+      lines = {
+        { id = "xxlisten_0", text = "Who made dem, and for which loa, and how much blood dey drank. A Gurubashi coin is warm when it was paid to Hakkar's priests. I do not like to hold dose ones long." },
+      },
+      choices = {
+        { text = "Should such things be destroyed?", next = "xdestroy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdestroy = {
+      lines = {
+        { id = "xxdestroy_0", text = "Some of my brothers say every Hakkari relic should be thrown into de sea. I say dey should be kept and studied, so we know de enemy's hand when we see it again. Which way do you lean?" },
+      },
+      choices = {
+        { text = "Keep them. Knowledge is a weapon too.", next = "BACK", reply = "Spoken like a relic-keeper. Maybe you will be one, someday.", fx = { align = { light = -1 } } },
+        { text = "Destroy them. Some things are too foul to keep.", next = "BACK", reply = "Hm. Dere is wisdom in fear, sometimes. I will think on it.", fx = { align = { light = 1 } } },
+      },
+    },
+    xsell = {
+      lines = {
+        { id = "xxsell_0", text = "De coins and bijous you bring me buy favour with de tribe, and favour buys de armour Rin'wosho keeps. A relic in de hands of an ally is better dan one in a Gurubashi temple." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpriest = {
+      lines = {
+        { id = "xxpriest_0", text = "No, I serve de priests, which is a quieter thing. Dey speak to de loa, and I tell dem what de Gurubashi hands have made. Between us, we know de shape of what waits in Zul'Gurub." },
+      },
+      choices = {
+        { text = "What waits there?", next = "xzg" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xzg = {
+      lines = {
+        { id = "xxzg_0", text = "Hakkar's high priests, each bound to a loa dey have twisted, and de Soulflayer himself behind dem. You will need many friends to go in dere, and good luck to come out." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    hakkar = { { id = "tp_xhakkar", text = "De Soulflayer. I have held his priests' coins, and dey burn cold. Dat is all I need to know of him." } },
+    zulgurub = { { id = "tp_xzulgurub", text = "De old Gurubashi capital. My fingers know its stones better dan I would like." } },
     background = { { id = "tp_bg", text = "I am a Zandalar, blind since my youth, and a trader of old things." } },
     _none = { { id = "tp_none", text = "Dat, I cannot tell you by touch or by ear, stranger." } },
   },
@@ -146,6 +204,10 @@ P:NPC {
         { text = "How do I earn the tribe's trust?", next = "trust" },
         { text = "Where do the Zandalar come from?", next = "home" },
         { text = "So it's a bribe to fight your war.", next = "bribe" },
+        { text = "How do the Zandalar judge an outsider?", next = "xjudge" },
+        { text = "What is Yojamba Isle to you?", next = "xisle" },
+        { text = "Why do the Zandalar need outsiders at all?", next = "xneed" },
+        { text = "I am a troll. Do I earn favour faster?", next = "BACK", when = { race = "Troll" }, reply = "Ha! You earn it de same as anybody, by blood and work. But I will admit, it is good to see a troll on dis side of de fight." },
         { text = "Show me your goods.", next = "END" },
       },
     },
@@ -165,8 +227,44 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xjudge = {
+      lines = {
+        { id = "xxjudge_0", text = "By what dey bring back from Zul'Gurub, mostly. Coins, bijous, de heads of priests. Every one tells me a little more about who you are and how hard you fight." },
+      },
+      choices = {
+        { text = "And if someone brings nothing?", next = "xnothing" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnothing = {
+      lines = {
+        { id = "xxnothing_0", text = "Den dey get nothing. De Zandalar do not give gifts to de idle. Some of my brothers say we should arm anyone willing to fight Hakkar, even before dey prove demselves. What do you say?" },
+      },
+      choices = {
+        { text = "Arm them early. The danger is too great to wait.", next = "BACK", reply = "Hm. Dat is de soft way, but maybe de quick one too.", fx = { align = { order = -1 } } },
+        { text = "Trust must be earned. Your way is right.", next = "BACK", reply = "Yes. A blade given too soon is a blade turned on you.", fx = { align = { order = 1 } } },
+      },
+    },
+    xisle = {
+      lines = {
+        { id = "xxisle_0", text = "A small island and a big camp, just across de water from Zul'Gurub. We chose it so we can watch de city and still sleep with de sea between us and de priests." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xneed = {
+      lines = {
+        { id = "xxneed_0", text = "Because de Gurubashi priests have bound demselves to loa we cannot fight alone. We are old and proud, but we are few here. Pride does not stop de Soulflayer." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    zandalar = { { id = "tp_xzandalar", text = "De first of all trolls. We remember what de others have forgotten." } },
+    hakkar = { { id = "tp_xhakkar", text = "De Soulflayer. Every chest I open is one more blade turned against him." } },
     background = { { id = "tp_bg", text = "I am de Zandalar's trader on Yojamba, and I keep de tribe's chests." } },
     _none = { { id = "tp_none", text = "Not my business, friend. Ask Molthor." } },
   },
@@ -199,6 +297,10 @@ P:NPC {
         { text = "Do Gurubashi spies really come here?", next = "spies" },
         { text = "You look like you've fought in the city.", next = "city" },
         { text = "Why should outsiders trust the Zandalar?", next = "trust" },
+        { text = "How long have you served on Yojamba?", next = "xlong" },
+        { text = "What do you do with a caught spy?", next = "xcaught" },
+        { text = "Are the Zandalar friendly to strangers?", next = "xstrangers" },
+        { text = "I'm a hunter. The jungle is my home too.", next = "BACK", when = { class = "HUNTER" }, reply = "Den you know de jungle has teeth everywhere, hunter. Keep your beast close on dis island, and do not let it chase de crabs." },
         { text = "I'll behave.", next = "END" },
       },
     },
@@ -218,8 +320,44 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlong = {
+      lines = {
+        { id = "xxlong_0", text = "Since de first canoes crossed from Zandalar, when de priests of Hakkar began to sing again. Long enough to know de face of every friend on dis isle." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcaught = {
+      lines = {
+        { id = "xxcaught_0", text = "We ask questions first, and we ask dem carefully. Some of my brothers want spies killed on sight, so de Gurubashi learn to fear dis place. What would you do with dem?" },
+      },
+      choices = {
+        { text = "Question them, then show mercy to the young.", next = "BACK", reply = "Mercy. Hm. Young spies grow up to be old ones, stranger.", fx = { align = { light = 1 } } },
+        { text = "Kill them on sight. Make the island feared.", next = "BACK", reply = "Fear keeps de beach quiet, yes. But it also keeps it empty.", fx = { align = { light = -1 } } },
+      },
+    },
+    xstrangers = {
+      lines = {
+        { id = "xxstrangers_0", text = "Friendly enough to de ones who fight Hakkar. De rest we watch. Dere is no shame in being watched, if you have nothing to hide." },
+      },
+      choices = {
+        { text = "What if I do have something to hide?", next = "xhide" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhide = {
+      lines = {
+        { id = "xxhide_0", text = "Den you will find de Zandalar have long memories and longer spears. I say dis as a friend." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    hakkar = { { id = "tp_xhakkar", text = "De blood god. My spear has drunk de blood of his servants many times." } },
+    zandalar = { { id = "tp_xzandalar", text = "De first and oldest of de troll peoples. Our island is far, but our reach is long." } },
     background = { { id = "tp_bg", text = "I am an enforcer of de Zandalar, sworn to guard dis camp." } },
     _none = { { id = "tp_none", text = "I guard, I do not gossip. Ask Molthor." } },
   },
@@ -252,6 +390,10 @@ P:NPC {
         { text = "Why shrink heads at all?", next = "why" },
         { text = "What do you know of the Hakkari priests?", next = "priests" },
         { text = "That's a barbaric practice.", next = "barbaric" },
+        { text = "How do you shrink a head?", next = "xhow" },
+        { text = "What kind of magic do you use?", next = "xmagic" },
+        { text = "Do you enjoy your work?", next = "xenjoy" },
+        { text = "I am a shaman. Are we kin in the craft?", next = "BACK", when = { class = "SHAMAN" }, reply = "Close cousins, maybe. You speak to de elements, and I speak to de dead dat are still a little bit listening." },
         { text = "I'll keep my head, thanks.", next = "END" },
       },
     },
@@ -271,8 +413,44 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhow = {
+      lines = {
+        { id = "xxhow_0", text = "Dat is a secret of de witch doctors, and you would not sleep well if I told you. I will say dat it takes salt, smoke and a great deal of patience." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmagic = {
+      lines = {
+        { id = "xxmagic_0", text = "Voodoo, de old kind. Hexes and wards and a few spirits who owe me favours. De Gurubashi spies fear dis camp more dan dey fear de enforcers' spears." },
+      },
+      choices = {
+        { text = "Is voodoo dark magic?", next = "xdark" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdark = {
+      lines = {
+        { id = "xxdark_0", text = "Some outsiders call it dark, and some trolls call it holy. Magic is a blade, and de hand decides what it cuts. Do you agree?" },
+      },
+      choices = {
+        { text = "Magic serves whoever wields it.", next = "BACK", reply = "Yes. Den you understand de heart of voodoo already.", fx = { align = { light = -1 } } },
+        { text = "Some magic is foul no matter who wields it.", next = "BACK", reply = "Hmph. Den you would hate Hakkar's priests even more dan I do.", fx = { align = { light = 1 } } },
+      },
+    },
+    xenjoy = {
+      lines = {
+        { id = "xxenjoy_0", text = "Every head on my belt is one less servant of Hakkar. I do not enjoy de killing, but I enjoy de quiet after it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    voodoo = { { id = "tp_xvoodoo", text = "De oldest magic of de trolls, and de most misunderstood." } },
+    hakkar = { { id = "tp_xhakkar", text = "His priests are clever, but deir heads shrink de same as anybody else's." } },
     background = { { id = "tp_bg", text = "I am a headshrinker of de Zandalar, keeper of de old voodoo." } },
     _none = { { id = "tp_none", text = "Even de heads do not know dat one, stranger." } },
   },
@@ -305,6 +483,10 @@ P:NPC {
         { text = "Why give away treasure at all?", next = "why" },
         { text = "What's in the chest?", next = "chest" },
         { text = "Pitting people against each other is cruel.", next = "cruel" },
+        { text = "Where does the treasure come from?", next = "xsource" },
+        { text = "How did you get into this line of work?", next = "xhistory" },
+        { text = "Do Horde and Alliance fight over your chests?", next = "xwar" },
+        { text = "I'm a warrior. Is there honour in the Arena?", next = "BACK", when = { class = "WARRIOR" }, reply = "Honour? Ha! There's blood and treasure and a lot of shouting. Take your honour in, by all means, but bring your shield too." },
         { text = "I'll be in the arena.", next = "END" },
       },
     },
@@ -324,8 +506,44 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xsource = {
+      lines = {
+        { id = "xxsource_0", text = "A gentleman never reveals his sources, friend! Shipwrecks, mostly, and a few deals with folk who'd rather not be named. The Arena gets the leftovers." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhistory = {
+      lines = {
+        { id = "xxhistory_0", text = "I was a pirate for years until I realised it was more fun to watch other people fight over treasure than to fight myself. Safer too, and the crowd loves it." },
+      },
+      choices = {
+        { text = "Why not just sell it?", next = "xsell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsell = {
+      lines = {
+        { id = "xxsell_0", text = "Where's the drama in that? A merchant earns coin, but a showman earns legend, and the Gurubashi Arena's the best stage in the jungle." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwar = {
+      lines = {
+        { id = "xxwar_0", text = "All the time, and that's half the show! Some say I'm stirring up the war for my own amusement. Others say I'm giving the brave a fair shot. What do you think?" },
+      },
+      choices = {
+        { text = "It's a fair shot for anyone brave enough.", next = "BACK", reply = "That's the spirit! The Arena rewards courage, and the occasional lucky fool.", fx = { align = { order = -1 } } },
+        { text = "You're making a spectacle of bloodshed.", next = "BACK", reply = "Spectacle? Absolutely! Bloodshed? Only for the clumsy.", fx = { align = { order = 1 } } },
+      },
+    },
   },
   topics = {
+    gurubashi_arena = { { id = "tp_xgurubashi_arena", text = "Best seat's on the rim, and the best prize is in the middle. Choose wisely." } },
+    booty_bay = { { id = "tp_xbooty_bay", text = "Fine town for a pirate with a reputation. Mind your purse there." } },
     background = { { id = "tp_bg", text = "I'm a goblin, a pirate, and the finest showman in Stranglethorn, arr." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, kid. Got a chest to drop." } },
   },
@@ -358,6 +576,10 @@ P:NPC {
         { text = "What does Shaky owe you?", next = "shaky" },
         { text = "How did you get the name Sea Wolf?", next = "name" },
         { text = "Hunting debtors seems a mean trade.", next = "mean" },
+        { text = "What did you do before hunting debtors?", next = "xsea" },
+        { text = "What does Shaky owe you, exactly?", next = "xowe" },
+        { text = "Do you ever forgive a debt?", next = "xforgive" },
+        { text = "Are you a sailor from Kul Tiras?", next = "BACK", when = { race = "Human" }, reply = "Kul Tiras, Stormwind, the bottom of the sea, I've called them all home at one time or another. These days it's Booty Bay, God help me." },
         { text = "I'll be off.", next = "END" },
       },
     },
@@ -377,8 +599,44 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xsea = {
+      lines = {
+        { id = "xxsea_0", text = "I sailed with the merchant fleets and later with men who didn't care much for flags. Twenty years on deck will put salt in your blood and a scowl on your face for good." },
+      },
+      choices = {
+        { text = "Why did you come ashore?", next = "xashore" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xashore = {
+      lines = {
+        { id = "xxashore_0", text = "Knees went, and the captain who owed me wages went down with his ship. I decided I'd rather collect money on land than lose it at sea." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xowe = {
+      lines = {
+        { id = "xxowe_0", text = "Enough to buy a small boat, which he did, and then lost it. He's been dodging me ever since, and I'm tired of watching him tremble on the docks every time I walk by." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xforgive = {
+      lines = {
+        { id = "xxforgive_0", text = "Once, for a friend who died before he could pay. Shaky's no friend, though. Some say a man who's lost everything should be let off. What's your view on it?" },
+      },
+      choices = {
+        { text = "A debt's a debt, Mackinley. Collect it.", next = "BACK", reply = "Aye, that's how the sea taught me, and the sea's never wrong.", fx = { align = { honor = 1 } } },
+        { text = "He's lost his ship already. Show some mercy.", next = "BACK", reply = "Mercy? Hmph. Maybe. When he's paid half, I'll think about mercy.", fx = { align = { honor = -1 } } },
+      },
+    },
   },
   topics = {
+    shaky_phillipe = { { id = "tp_xshaky_phillipe", text = "A coward and a debtor, but I'll admit he's a fine sailor when he's sober and calm." } },
+    booty_bay = { { id = "tp_xbooty_bay", text = "A goblin port that floats on other people's debts. Suits me fine." } },
     background = { { id = "tp_bg", text = "I'm an old sailor and gambler of Booty Bay, retired from the sea but not from collectin'." } },
     _none = { { id = "tp_none", text = "Never heard of it, matey. Ask at the Salty Sailor." } },
   },
@@ -411,6 +669,10 @@ P:NPC {
         { text = "What happened on that voyage?", next = "voyage" },
         { text = "MacKinley says you owe him money.", next = "debt" },
         { text = "You should face your fears.", next = "fear" },
+        { text = "What happened on that bad voyage?", next = "xvoyage2" },
+        { text = "Is there any way out of your debt?", next = "xout" },
+        { text = "Do you miss the sea?", next = "xmiss" },
+        { text = "I can tell a frightened man. You're safe now.", next = "BACK", when = { class = "PRIEST" }, reply = "Bless you. I'll take that, even from a stranger, because nobody else in this town says it." },
         { text = "Take care, Shaky.", next = "END" },
       },
     },
@@ -430,8 +692,53 @@ P:NPC {
       lines = { { id = "f_default", text = "Face them? I face them every single day, they're all over this town! Every creak on the dock is a Bloodsail, and every knock on the door is MacKinley's thugs." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xvoyage2 = {
+      lines = {
+        { id = "xxvoyage2_0", text = "A storm, a reef and a ship full of Bloodsail Buccaneers who thought we were carrying gold. We weren't. They didn't believe us until half the crew was over the side." },
+      },
+      choices = {
+        { text = "How did you survive?", next = "xsurvive" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsurvive = {
+      lines = {
+        { id = "xxsurvive_0", text = "I hid in a rum barrel for two days. Two days, friend, and I still can't smell rum without shaking. Some sailors call it cowardice. Maybe it was." },
+      },
+      choices = {
+        { text = "Was it cowardice?", next = "xcoward" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcoward = {
+      lines = {
+        { id = "xxcoward_0", text = "Some say a man ought to fight to the end, and others say living is the whole point. I've argued it with myself every night since. What do you say?" },
+      },
+      choices = {
+        { text = "Living isn't cowardice. You did what you had to.", next = "BACK", reply = "Thank you. I'll sleep a bit better tonight, I think.", fx = { align = { honor = -1 } } },
+        { text = "A sailor stands by his crew, whatever comes.", next = "BACK", reply = "Aye. That's what I tell myself, too, and it's why I can't sleep.", fx = { align = { honor = 1 } } },
+      },
+    },
+    xout = {
+      lines = {
+        { id = "xxout_0", text = "Pay Mackinley, I suppose, but I'd need a ship and a cargo and some luck for that. Or I could leave town, though then I'd never sail from Booty Bay again." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmiss = {
+      lines = {
+        { id = "xxmiss_0", text = "Every day. The sea was the only place I wasn't afraid, before. Now it's the place I'm most afraid of, and I miss it anyway. Funny, isn't it?" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    sea_wolf_mackinley = { { id = "tp_xsea_wolf_mackinley", text = "He means well, I think, in a frightening sort of way. Please don't tell him where I am." } },
+    bloodsail = { { id = "tp_xbloodsail", text = "Don't say that name too loud. They have friends in town." } },
     background = { { id = "tp_bg", text = "I was a sailor once, a brave one, believe it or not. Now I just try to get through each day." } },
     _none = { { id = "tp_none", text = "I don't know anything about that, honest! Please don't tell anyone I said so." } },
   },
@@ -681,6 +988,10 @@ P:NPC {
       choices = {
         { text = "Shouldn't a bruiser be keeping the peace?", next = "peace" },
         { text = "What are you celebrating, exactly?", next = "celebrate" },
+        { text = "How long have you worked for the Baron?", next = "xyears" },
+        { text = "What's the worst trouble you've stopped?", next = "xworst" },
+        { text = "Who's the toughest pirate in town?", next = "xpirates" },
+        { text = "Goblins and gnomes, eh? Any hard feelings?", next = "BACK", when = { race = "Gnome" }, reply = "Hard feelings? Nah, pal. You build rockets that go up, we build rockets that go boom. Different markets!" },
         { text = "You've had enough. I'm leaving.", next = "END" },
       },
     },
@@ -702,8 +1013,62 @@ P:NPC {
       lines = { { id = "c_default", text = "Everything! The fireworks, the free grog, the fact that nobody got eaten by a shark this week. In Booty Bay, that's a holiday all by itself." } },
       choices = { { text = "I'll drink to the sharks going hungry.", next = "BACK" } },
     },
+    xyears = {
+      lines = {
+        { id = "xxyears_0", text = "Eight years with the Blackwater Cartel, pal, and six of 'em on these docks. Before that I hauled crates in Undermine till my back went funny, so this is a step up." },
+      },
+      choices = {
+        { text = "What's the Blackwater Cartel to you?", next = "xcartel" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcartel = {
+      lines = {
+        { id = "xxcartel_0", text = "The Cartel's the Baron's outfit, and the Baron's the law in Booty Bay. You pay your docking fee, you keep your knives sheathed, and nobody gets thrown to the sharks. Simple!" },
+      },
+      choices = {
+        { text = "Does anyone ever get thrown to the sharks?", next = "xsharks" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsharks = {
+      lines = {
+        { id = "xxsharks_0", text = "Once a season, maybe, and only the ones who really earn it. Personally I think it keeps the sharks friendly and the visitors polite. Some folk say it's cruel. What d'you think?" },
+      },
+      choices = {
+        { text = "A port needs hard rules, or it falls apart.", next = "BACK", reply = "Exactly! See, you get it. Order, pal, with teeth.", fx = { align = { order = 1 } } },
+        { text = "Feeding folk to sharks is no kind of justice.", next = "BACK", reply = "Huh. Maybe. Don't say that too loud near the Baron, though.", fx = { align = { order = -1 } } },
+      },
+    },
+    xworst = {
+      lines = {
+        { id = "xxworst_0", text = "A pirate from the Bloodsail tried to light the dock on fire last spring. I tackled him into the water, then remembered I can't swim so good. The other bruisers had to fish us both out." },
+      },
+      choices = {
+        { text = "The Bloodsail come into town?", next = "xbloodsail" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbloodsail = {
+      lines = {
+        { id = "xxbloodsail_0", text = "Not openly, no. They hate the Baron for the tolls and he hates them for the raids. Every now and then one sneaks in with a cutlass and a grudge, and that's when I earn my pay." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpirates = {
+      lines = {
+        { id = "xxpirates_0", text = "Toughest? Me, obviously, when I'm sober. After me, maybe Fleet Master Firallon, but he's out on the water with the Bloodsail, and he's not invited to the festival." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    booty_bay = { { id = "tp_xbooty_bay", text = "Best town in the world, pal! Sharks, grog and fireworks. What more do you need?" } },
+    baron_revilgaz = { { id = "tp_xbaron_revilgaz", text = "The Baron's a fine boss. Pays on time and docks you for leaning. Mostly the second one." } },
     _none = { { id = "tp_none", text = "Huh? No idea, pal. Ask me again when I'm sober, which is tomorrow. Maybe." } },
   },
 }
@@ -729,6 +1094,10 @@ P:NPC {
       choices = {
         { text = "So you were a smuggler.", next = "smuggle" },
         { text = "How does a wizard end up a ghost?", next = "death" },
+        { text = "What were you smuggling, exactly?", next = "xcargo" },
+        { text = "Why haven't you moved on?", next = "xstay" },
+        { text = "Can I help you rest?", next = "xrest" },
+        { text = "A mage should know better than to cast underwater.", next = "BACK", when = { class = "MAGE" }, reply = "Oh, you're a wizard too? Then you know the first rule: never trust a scroll from a pirate. I learned that one late." },
         { text = "Rest easy, Gremnik.", next = "END" },
       },
     },
@@ -750,8 +1119,53 @@ P:NPC {
       lines = { { id = "w_default", text = "Oh, I've a list, and none of them would thank me for saying. This is Booty Bay, friend. You keep your mouth shut, even after it stops breathing." } },
       choices = { { text = "Fair enough. Something else.", next = "BACK" } },
     },
+    xcargo = {
+      lines = {
+        { id = "xxcargo_0", text = "Oh, the usual. Thorium from the mainland, silk from the elves, a crate of rare reagents for a certain mage who shan't be named. Nothing that ate anybody, mostly." },
+      },
+      choices = {
+        { text = "Mostly?", next = "xmostly" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmostly = {
+      lines = {
+        { id = "xxmostly_0", text = "There was a raptor egg once. Very valuable, very small, and then very large and very hungry. I don't talk about the raptor egg." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xstay = {
+      lines = {
+        { id = "xxstay_0", text = "Unfinished business, friend! I'm owed four hundred gold by a partner who's still walking about Booty Bay with my coin in his purse. A goblin can't rest with a debt open." },
+      },
+      choices = {
+        { text = "Would you forgive the debt to find peace?", next = "xforgive" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xforgive = {
+      lines = {
+        { id = "xxforgive_0", text = "Forgive it? You might as well ask a shark to give up teeth. Still, some ghosts tell me letting go is the only way out. What would you do in my place?" },
+      },
+      choices = {
+        { text = "Let it go, Gremnik. Gold won't follow you anywhere.", next = "BACK", reply = "Hmph. Spoken like someone who isn't owed four hundred gold. Still, I'll think on it.", fx = { align = { honor = 1 } } },
+        { text = "Haunt him till he pays every copper.", next = "BACK", reply = "Ha! Now that's a plan with some profit in it. I like you.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xrest = {
+      lines = {
+        { id = "xxrest_0", text = "Rest? I'd settle for a good chat and a bit of gossip, honestly. The living ignore me, and the other ghosts in this bay are terrible company. All moaning, no business sense." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    booty_bay = { { id = "tp_xbooty_bay", text = "Still the best port on the South Seas. I'd know, for I've drifted through every warehouse in it." } },
+    baron_revilgaz = { { id = "tp_xbaron_revilgaz", text = "The Baron never knew half of what came through his docks. That was rather the point." } },
     _none = { { id = "tp_none", text = "If I knew, I'd sell it to you. Since I don't, go ask a living goblin." } },
   },
 }
@@ -777,6 +1191,10 @@ P:NPC {
       choices = {
         { text = "What sort of rare goods?", next = "goods" },
         { text = "Why the bodyguards?", next = "guards" },
+        { text = "How did you build your reputation?", next = "xrep" },
+        { text = "What's the strangest thing you've sold?", next = "xodd" },
+        { text = "Do you trade with both Horde and Alliance?", next = "xsides" },
+        { text = "Do you deal with rogues often?", next = "BACK", when = { class = "ROGUE" }, reply = "Every day, friend, and the good ones never tell me their real name. I'd like to keep it that way with you, too." },
         { text = "Not today, Landro.", next = "END" },
       },
     },
@@ -798,8 +1216,53 @@ P:NPC {
       lines = { { id = "gd_default", text = "Because the rare and remarkable attract the rude and the stabby. The boys keep conversations polite, and they've never lost me a customer yet." } },
       choices = { { text = "They do look polite. Something else.", next = "BACK" } },
     },
+    xrep = {
+      lines = {
+        { id = "xxrep_0", text = "One deal at a time, and never once breaking a promise. A goblin who welshes on a deal in Booty Bay doesn't stay a goblin for long, he becomes shark bait with a mustache." },
+      },
+      choices = {
+        { text = "And the bodyguards?", next = "xguards" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xguards = {
+      lines = {
+        { id = "xxguards_0", text = "Insurance. Reputation keeps the honest folk honest, and these two keep the dishonest folk thinking hard about it. They're very good at the looking part." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xodd = {
+      lines = {
+        { id = "xxodd_0", text = "A set of playing cards from Darkmoon that tell your fortune if you shuffle them right. The buyer drew the Death card on the spot and left town that afternoon. I never did learn what happened." },
+      },
+      choices = {
+        { text = "Do you believe in fortunes?", next = "xfate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfate = {
+      lines = {
+        { id = "xxfate_0", text = "I believe in profit, friend. But I'll admit I've never shuffled that deck myself, which tells you something." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsides = {
+      lines = {
+        { id = "xxsides_0", text = "Booty Bay's neutral, and so's my purse. An orc's gold and a human's gold weigh exactly the same on my scale. Some folk think a merchant should pick a side in this war. Do you?" },
+      },
+      choices = {
+        { text = "A merchant should stay out of wars.", next = "BACK", reply = "A sound business mind. You'll do well around here.", fx = { align = { order = -1 } } },
+        { text = "Some causes are worth more than profit.", next = "BACK", reply = "Heh. Noble of you. Expensive, but noble.", fx = { align = { order = 1 } } },
+      },
+    },
   },
   topics = {
+    booty_bay = { { id = "tp_xbooty_bay", text = "Best market in the world, if you know who to ask. Usually that's me." } },
+    goblins = { { id = "tp_xgoblins", text = "We're a practical people. Steamwheedle keeps the ports open and the deals flowing." } },
     _none = { { id = "tp_none", text = "That's not my line, friend. But if you find something on it, bring it to Landro." } },
   },
 }
@@ -826,6 +1289,10 @@ P:NPC {
       choices = {
         { text = "Why do they call this the Rebel Camp?", next = "rebels" },
         { text = "Who are the Kurzen?", next = "kurzen" },
+        { text = "Where did you serve before this?", next = "xpast" },
+        { text = "How do you hold this camp?", next = "xhold" },
+        { text = "What do you think of Stormwind now?", next = "xstorm" },
+        { text = "Do you ever see Horde scouts here?", next = "BACK", when = { faction = "Horde" }, reply = "We see them, and they see us, and mostly we both decide the jungle's dangerous enough already. Don't make me regret that." },
         { text = "Stay sharp, soldier.", next = "END" },
       },
     },
@@ -847,8 +1314,44 @@ P:NPC {
       lines = { { id = "k_default", text = "Kurzen's men, the ones who stayed, hold the compound east of here. They've gone half wild, and they've jungle trolls fighting at their side now." } },
       choices = { { text = "I'll keep clear of the east. Something else.", next = "BACK" } },
     },
+    xpast = {
+      lines = {
+        { id = "xxpast_0", text = "Colonel Kurzen's company, sent from Stormwind to train the Stranglethorn natives. The colonel went strange in this heat, and the men who wouldn't follow him walked off with Sergeant Yohwa." },
+      },
+      choices = {
+        { text = "Strange how?", next = "xkurzen2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xkurzen2 = {
+      lines = {
+        { id = "xxkurzen2_0", text = "He started talking to shadows and taking orders from them, or so it looked to us. Folk say the shadow priests got into his head. I only know that the men who stayed with him aren't the men I trained beside." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhold = {
+      lines = {
+        { id = "xxhold_0", text = "Palisades, a good fire, and sleeping in shifts. We're short of arrows and shorter of medicine, so we trade with Booty Bay when we can spare a man for the walk." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xstorm = {
+      lines = {
+        { id = "xxstorm_0", text = "Stormwind calls us deserters, and maybe that's fair by the letter of it. But we didn't desert the kingdom, we deserted a madman. Was that right, or should we have stayed and obeyed?" },
+      },
+      choices = {
+        { text = "You did right. No oath binds you to madness.", next = "BACK", reply = "Thank you. Some nights I need to hear that more than I'd like.", fx = { align = { order = -1 } } },
+        { text = "An oath is an oath. You should have stayed.", next = "BACK", reply = "Then you'd have watched us turn into what Kurzen's men are now.", fx = { align = { order = 1 } } },
+      },
+    },
   },
   topics = {
+    kurzen = { { id = "tp_xkurzen", text = "The colonel was a good officer once. That's what makes it hard." } },
+    stormwind = { { id = "tp_xstormwind", text = "Home, once. I'd go back if they'd have me without a noose." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask Lieutenant Doren; he knows more than I do." } },
   },
 }
@@ -874,6 +1377,10 @@ P:NPC {
       choices = {
         { text = "Are these things safe?", next = "safe" },
         { text = "What happened to your eyebrows?", next = "brows" },
+        { text = "Where do you buy your powder?", next = "xpowder" },
+        { text = "What's your best firework?", next = "xbest" },
+        { text = "Have you ever had an accident?", next = "xaccident" },
+        { text = "A gnome would make these quieter.", next = "BACK", when = { race = "Gnome" }, reply = "Quieter? Why would anybody want quieter? Go build your silent rockets in Ironforge, pal, and leave the noise to the professionals." },
         { text = "I'll pass for now.", next = "END" },
       },
     },
@@ -895,8 +1402,44 @@ P:NPC {
       lines = { { id = "t_default", text = "It should be! My cousin skipped the testing once, and now the Steamwheedle won't let him near anything sharper than a spoon." } },
       choices = { { text = "Good to know. Something else.", next = "BACK" } },
     },
+    xpowder = {
+      lines = {
+        { id = "xxpowder_0", text = "Kezan blackpowder, imported at great expense and greater risk. You don't want to know what's in the blue rockets, and I don't want to remember either." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbest = {
+      lines = {
+        { id = "xxbest_0", text = "The Big Red Rocket. It goes up like a dragon and comes down like rain, and once it scared every bird out of Stranglethorn for an entire day." },
+      },
+      choices = {
+        { text = "Were the birds all right?", next = "xbirds" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbirds = {
+      lines = {
+        { id = "xxbirds_0", text = "They came back eventually. The Baron fined me for the noise. Some folk say a fireworks seller ought to be careful, and some say a good show's worth the risk. Which are you?" },
+      },
+      choices = {
+        { text = "A good show is worth a little risk.", next = "BACK", reply = "Exactly! The crowd agrees, and so does my purse.", fx = { align = { order = -1 } } },
+        { text = "Careful work keeps everyone's eyebrows on.", next = "BACK", reply = "Bah. You sound like the Baron. Still, fair point.", fx = { align = { order = 1 } } },
+      },
+    },
+    xaccident = {
+      lines = {
+        { id = "xxaccident_0", text = "Plenty. These eyebrows are on their third growth. But I've never lost a customer, only a few hats and a wagon or two." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    fireworks = { { id = "tp_xfireworks", text = "The finest in Booty Bay, and the loudest too." } },
+    booty_bay = { { id = "tp_xbooty_bay", text = "Best town in the world for a goblin with fire in his blood." } },
     _none = { { id = "tp_none", text = "No idea, pal! But I bet it'd look great with a rocket going off behind it." } },
   },
 }
@@ -925,6 +1468,9 @@ P:NPC {
       choices = {
         { text = "What is the Soulflayer?", next = "hakkar" },
         { text = "Why do the Zandalar fight other trolls?", next = "gurubashi" },
+        { text = "Who is Molthor?", next = "xmolthor" },
+        { text = "What happens if Hakkar wins?", next = "xwins" },
+        { text = "A Darkspear stands with you, brother.", next = "BACK", when = { race = "Troll" }, reply = "Den stand tall, Darkspear. De Zandalar remember every tribe dat answers when de blood god calls." },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -944,6 +1490,41 @@ P:NPC {
       choices = {
         { text = "Then I'll prove myself with deeds.", next = "BACK", reply = "Good. Deeds are de only words de Zandalar hear.", fx = { align = { honor = 1 } } },
         { text = "I fight for the reward, not your trust.", next = "BACK", reply = "Den you will be paid, and nothing more.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xmolthor = {
+      lines = {
+        { id = "xxmolthor_0", text = "Molthor is de Hand of Rastakhan, sent from Zandalar to gather de champions who will go into Zul'Gurub. When he speaks, de King speaks, so mind your words before him." },
+      },
+      choices = {
+        { text = "What is your duty?", next = "xduty" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xduty = {
+      lines = {
+        { id = "xxduty_0", text = "To keep his fire lit and his back guarded. Many Gurubashi would pay well for de Hand's head, and some of dem walk dis beach pretending to be traders." },
+      },
+      choices = {
+        { text = "How do you tell them apart?", next = "xspot" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xspot = {
+      lines = {
+        { id = "xxspot_0", text = "By de eyes, mostly. A trader looks at your goods, and a spy looks at your back. Some of my brothers would cut down any Gurubashi who comes close. I am not so quick. Who is right?" },
+      },
+      choices = {
+        { text = "Better to strike first than lose the Hand.", next = "BACK", reply = "Dat is de warrior's way. It is not always wrong.", fx = { align = { honor = -1 } } },
+        { text = "Strike only when you are sure. Honour demands it.", next = "BACK", reply = "Yes. De innocent Gurubashi are still our cousins.", fx = { align = { honor = 1 } } },
+      },
+    },
+    xwins = {
+      lines = {
+        { id = "xxwins_0", text = "Den de jungle will run red, and after de jungle, every shore of dis sea. Hakkar does not stop at one feast. Dat is why de Zandalar came, and why you should care." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

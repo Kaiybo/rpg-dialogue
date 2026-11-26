@@ -227,11 +227,19 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", key = true, text = "Tink Sprocketwhistle, engineering supplies, at your service and very much open for business, though business has been down roughly ninety-seven percent since the troggs moved in. Still, the Clean Zone is clean, mostly, and my stock is excellent." } },
-      again = { { id = "h_again", text = "What else can I do for you? Anything at all, really, I'm not busy." } },
+      again = {
+        { id = "h_again", text = "What else can I do for you? Anything at all, really, I'm not busy." },
+        { id = "xh_again2", text = "Back so soon? Wonderful, that makes three visits this month, which is a record!" },
+      },
       choices = {
         { text = "Why stay in Gnomeregan at all?", next = "stay" },
         { text = "What's the Clean Zone?", next = "clean" },
         { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "What's your best-selling item?", next = "xbest" },
+        { text = "What was Gnomeregan like before the fall?", next = "xbefore" },
+        { text = "Who else lives in the Clean Zone?", next = "xwho" },
+        { text = "I'm an engineer. What's worth buying here?", next = "xeng", when = { profession = "Engineering" } },
+        { text = "I grew up in Gnomeregan too.", next = "xgnome", when = { race = "Gnome" } },
         { text = "Good luck, Tink.", next = "END" },
       },
     },
@@ -247,8 +255,43 @@ P:NPC {
       lines = { { id = "c_default", text = "It's the one stretch of the city we've scrubbed free of radiation, more or less, and the holdouts defend it from the troggs and Thermaplugg's leper gnomes. If you start glowing, please don't do it near the merchandise." } },
       choices = { { text = "I'll try not to glow.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
     },
+    xbest = {
+      lines = { { id = "xbe_default", text = "Bronze tubes, by a mile, because every engineer always needs one more bronze tube. Second place goes to blasting powder, and third place goes to bandages, which I suspect are related to the second." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xbefore = {
+      narr = "Tink's hands go still on the counter for the first time since you arrived.",
+      lines = { { id = "xbf_default", text = "Bright, loud and full of wonderful smells, oil and hot copper and Mrs. Gearlock's cinnamon buns. My shop had a window onto the main concourse, and you could watch the trams go by all day." } },
+      choices = {
+        { text = "Do you think Mekkatorque can win it back?", next = "xmekka" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmekka = {
+      lines = { { id = "xme_default", text = "I think the High Tinker will try, and try again, and keep trying until he gets it right, because that's what gnomes do. The real question is whether there'll be anything left down here worth winning." } },
+      choices = {
+        { text = "Every gear is worth saving. Rebuild it all.", next = "BACK", reply = "Oh, I like you. I'll put you on the list for the grand reopening.", fx = { align = { order = 1 } } },
+        { text = "Better to start fresh somewhere new.", next = "BACK", reply = "Somewhere new? Heresy, but very practical heresy. I'll think about it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwho = {
+      lines = { { id = "xwh_default", text = "The holdouts, mostly, the medics and technicians who fix things and the ones with guns who shoot things. Ozzie Togglevolt comes and goes from Kharanos with plans for a radiation bomb, which is exactly as safe as it sounds." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xeng = {
+      lines = { { id = "xen_default", text = "Everything, obviously, but if you want my honest advice, stock up on the coloured fuses and the whirring bronze gizmos. Nobody in Ironforge keeps them in stock, because nobody in Ironforge appreciates good engineering." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xgnome = {
+      lines = { { id = "xgn_default", text = "Then you remember the trams and the singing pipes and the smell of the forge district! Oh, it's nice to talk to someone who misses it the right way." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Couldn't tell you, friend, though if you need a wrench for it, I've got eleven kinds." } } },
+  topics = {
+    gnomeregan = { { id = "xtp_gnomer", text = "Home, if somewhat glowing. We'll scrub it clean one wall at a time." } },
+    ozzie = { { id = "xtp_ozzie", text = "Ozzie Togglevolt has a plan to blow up the radiation, and I'm selling him the parts. What could possibly go wrong?" } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, friend, though if you need a wrench for it, I've got eleven kinds." } } },
 }
 
 ---------------------------------------------------------------------------
@@ -262,10 +305,18 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", key = true, text = "I patch up the holdouts who defend the Clean Zone, and lately I've been patching faster than they can get hurt again, which is a terrible ratio. The troggs come in waves and the radiation never stops." } },
-      again = { { id = "h_again", text = "Anything else? I've got bandages boiling." } },
+      again = {
+        { id = "h_again", text = "Anything else? I've got bandages boiling." },
+        { id = "xh_again2", text = "Still here? Then sit, and I'll check your pulse while you talk." },
+      },
       choices = {
         { text = "How bad is the radiation?", next = "rad" },
         { text = "Who are the holdouts?", next = "holdouts" },
+        { text = "Where do you get your supplies down here?", next = "xsupply" },
+        { text = "What's the worst wound you've treated?", next = "xworst" },
+        { text = "Do the irradiated ever recover?", next = "xcure" },
+        { text = "I'm a priest. Can I help with the wounded?", next = "xheal", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
+        { text = "I'm a gnome too. Gnomeregan was my home.", next = "xgnome", when = { race = "Gnome" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -281,8 +332,43 @@ P:NPC {
       lines = { { id = "h2_default", text = "Gnomes who refused to leave when Mekkatorque ordered the retreat, or who came back afterward because they couldn't stand to watch from Ironforge. We're stubborn folk, and stubborn is all that's keeping this corner of the city ours." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xsupply = {
+      lines = { { id = "xsu_default", text = "Some come down from Ironforge with brave volunteers, some I scavenge from the old infirmary, and the rest I improvise. You'd be amazed what a gnome can do with a spool of linen, a cleaning solvent and a very steady hand." } },
+      choices = {
+        { text = "Does Ironforge send enough help?", next = "xironforge" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xironforge = {
+      lines = { { id = "xir_default", text = "Never enough, though the dwarves have been kinder than we had any right to expect. Mekkatorque says the city's retaking is coming soon, and he's said it every month for a long while now." } },
+      choices = {
+        { text = "Mekkatorque will keep his word. Be patient.", next = "BACK", reply = "I try to be, truly. Patience is easier when the bandages aren't running low.", fx = { align = { order = 1 } } },
+        { text = "Don't wait for him. Act yourselves.", next = "BACK", reply = "We already are, in our way. Every holdout down here is someone who stopped waiting.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xworst = {
+      narr = "She pauses with a roll of gauze half wound around her wrist.",
+      lines = { { id = "xwo_default", text = "A technician who tried to reroute a coolant pipe by hand, during an attack, with a trogg chewing on his boot. He lived, and he fixed the pipe, and he still asks me every week whether his eyebrows will grow back." } },
+      choices = { { text = "Will they?", next = "BACK", reply = "Probably not, but I tell him to be patient, and it seems to cheer him up." }, { text = "Something else.", next = "BACK" } },
+    },
+    xcure = {
+      lines = { { id = "xcu_default", text = "Not the ones who've gone too far, the pale ones who follow Thermaplugg now. A light dose can be scrubbed out with rest and clean air, which is why I keep shouting at people to leave before they start to tingle." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xheal = {
+      lines = { { id = "xhe_default", text = "Oh, would you? The holdouts by the airlock took a beating this morning, and they'd be glad of a healer who doesn't smell of solvent. Just don't heal anyone mid-fight without asking, they startle easily." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xgnome = {
+      lines = { { id = "xgn_default", text = "Then welcome home, such as it is. Mind you get yourself checked when you leave, because home has a nasty way of getting into your bones down here." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I'm a medic, not a mechanic. Ask a technician, or better yet, ask Tink." } } },
+  topics = {
+    gnomeregan = { { id = "xtp_gnomer", text = "Our city, still, whatever Thermaplugg thinks. I'd like to see it with the lights back on one day." } },
+    thermaplugg = { { id = "xtp_therma", text = "He gave the advice that poisoned us all, and now he hides in the heart of the city. I'm a medic, but I'd make an exception." } },
+    _none = { { id = "tp_none", text = "I'm a medic, not a mechanic. Ask a technician, or better yet, ask Tink." } } },
 }
 
 ---------------------------------------------------------------------------
@@ -296,10 +382,17 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", key = true, text = "I keep the scrubbers, the lights and the turrets running so the Clean Zone stays clean. Every hour something breaks, and every hour I fix it, and the troggs chew through another cable just to spite me." } },
-      again = { { id = "h_again", text = "Make it quick, the third relay is sparking again." } },
+      again = {
+        { id = "h_again", text = "Make it quick, the third relay is sparking again." },
+        { id = "xh_again2", text = "Still here? Hand me that spanner while you're asking, then." },
+      },
       choices = {
         { text = "What happened to Gnomeregan?", next = "fall" },
         { text = "Can the city be saved?", next = "save" },
+        { text = "What's the hardest machine to keep running?", next = "xscrub" },
+        { text = "Tell me about Thermaplugg.", next = "xtherma" },
+        { text = "What are those turrets you keep up?", next = "xturret" },
+        { text = "I'm an engineer. Can I lend a hand?", next = "xeng", when = { profession = "Engineering" } },
         { text = "Carry on.", next = "END" },
       },
     },
@@ -315,6 +408,37 @@ P:NPC {
       lines = { { id = "s_default", text = "Not by fixing relays, sadly, though it keeps us alive while we wait. Thermaplugg sits in the heart of the city, and until someone brings him down, we're just holding the door." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xscrub = {
+      narr = "He wipes his hands on a rag that only makes them dirtier.",
+      lines = { { id = "xsc_default", text = "The air scrubbers, without a doubt, because they were built to clean steam, not radiation. I've rebuilt the main filter four times, and each time it lasts a little less long, which is a trend I don't enjoy charting." } },
+      choices = {
+        { text = "What happens if they fail?", next = "xfail" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfail = {
+      lines = { { id = "xfa_default", text = "Then the Clean Zone stops being clean, and we fall back to the surface and Gnomeregan belongs to the troggs and the lepers. So they won't fail, because I won't let them." } },
+      choices = {
+        { text = "Then you'll need to cut corners to keep them going.", next = "BACK", reply = "Corners, spare parts, sleep, whatever it takes. Safety codes are for cities that aren't on fire.", fx = { align = { order = -1 } } },
+        { text = "Do it by the book, or it'll fail worse.", next = "BACK", reply = "You sound like my old foreman, and you're probably right, which is irritating.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtherma = {
+      lines = { { id = "xth_default", text = "Sicco Thermaplugg was Mekkatorque's chief adviser, and he wanted to be High Tinker himself. When the troggs came he gave the advice that killed the city, and then he took the rubble for his throne." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xturret = {
+      lines = { { id = "xtu_default", text = "Salvaged from the city's old defences and rewired to tell a trogg from a gnome, most of the time. If one swivels toward you, stand very still and say something cheerful in Gnomish." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xeng = {
+      lines = { { id = "xen_default", text = "An actual engineer! Then go and look at the relay by the eastern door, and if you can tell me why it hums in B-flat, I'll name a spanner after you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Not my department. Unless it's wired, I don't know about it." } } },
+  topics = {
+    thermaplugg = { { id = "xtp_therma", text = "A traitor with good wiring. I hate admitting the second part." } },
+    mekkatorque = { { id = "xtp_mekka", text = "The High Tinker made a terrible call, but he's still the one gnome I'd follow back down here." } },
+    _none = { { id = "tp_none", text = "Not my department. Unless it's wired, I don't know about it." } } },
 }

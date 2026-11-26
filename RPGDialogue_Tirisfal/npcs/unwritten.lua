@@ -88,6 +88,10 @@ P:NPC {
       lines = { { id = "h_default", text = "Constance Brisboise, apprentice clothier, though the master I apprenticed under is two years dead and not the useful kind of dead. I sell robes and gloves that will keep the rain off, and very little else." } },
       again = { { id = "h_again", text = "Anything else? I've hems to finish." }, { id = "h_again2", text = "Go on, then." } },
       choices = {
+        { text = "What happened to your shop in the capital?", next = "xshop" },
+        { text = "Who buys robes in Brill?", next = "xbuyers" },
+        { text = "Do you still enjoy the work?", next = "xenjoy" },
+        { text = "I'm a mage. Do you sell robes for spellwork?", next = "xmage", when = { class = "MAGE" } },
         { text = "Who was your master?", next = "master" },
         { text = "Where do you find good cloth in Tirisfal?", next = "cloth" },
         { text = "Let me see your wares.", next = "BUSINESS" },
@@ -109,8 +113,52 @@ P:NPC {
       lines = { { id = "c_default", text = "Off the backs of Scarlets, mostly, since they're well dressed and careless with their lives. Linen from the old farms, wool when someone brings it, and I don't ask the Deathguard how they came by it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xshop = {
+      lines = {
+        { id = "xs1", text = "Burned, looted, or full of ghouls, depending on which day you visited after the city fell. I went back once, for my master's shears, and found them in the gutter, rusted shut." },
+      },
+      choices = {
+        { text = "Do you miss Lordaeron?", next = "xmiss" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xmiss = {
+      lines = {
+        { id = "xm1", text = "I miss the silk merchants from Dalaran and the noblewomen who paid in gold and never looked at the bill. I don't miss the noblewomen themselves, and they would hardly miss me as I am now." },
+      },
+      choices = {
+        { text = "The old kingdom deserved to fall.", next = "BACK", reply = "There's a sharp tongue. I might have liked you, before.", fx = { align = { order = -1 } } },
+        { text = "Lordaeron was worth something. It's worth remembering.", next = "BACK", reply = "It was, and I remember every stitch of it.", fx = { align = { order = 1 } } },
+      },
+    },
+    xbuyers = {
+      lines = {
+        { id = "xb1", text = "Deathguard, who need cloaks that hide the rot, and new risen who wake in their burial shrouds and want something with sleeves. Business is steady, because nobody in Brill is dying anymore, only falling apart." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xenjoy = {
+      lines = {
+        { id = "xe1", text = "My fingers are stiffer than they were, and I lose the feeling in them by noon, but the needle still goes where I tell it. A tailor who can't enjoy a straight seam has no business with a needle, living or dead." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xma2", text = "Spellwork, {g:he|she} says, as if a robe cared what you do in it. I'll sell you good linen and you'll set fire to it by the week's end, because every mage does." },
+      },
+      choices = {
+        { text = "I'll try to be careful.", next = "BACK", reply = "You won't, but I'll take your coin anyway." },
+      },
+    },
   },
   topics = {
+    lordaeron = { { id = "xtp_lo", text = "The capital had fine silk and finer customers. Now it has a sewer and a queen." } },
+    undercity = { { id = "xtp_uc", text = "The Dark Lady's court is down there. They prefer black, which is restful on the eyes." } },
     background = { { id = "tp_bg", text = "I was apprenticed in the capital. Now I'm an apprentice to nobody in particular." } },
     _none = { { id = "tp_none", text = "I sew, {class}. If it hasn't got a hem, I've no opinion on it." } },
   },
@@ -135,6 +183,9 @@ P:NPC {
       lines = { { id = "h_default", text = "Jamie Nore. I don't have a post, exactly; I make myself useful by knowing things before the people who ought to know them." } },
       again = { { id = "h_again", text = "What else would you like to hear?" }, { id = "h_again2", text = "Ask away, quietly." } },
       choices = {
+        { text = "What does the magistrate want?", next = "xmag" },
+        { text = "Who do you sell your news to?", next = "xsell" },
+        { text = "Tell me something about the Scarlets.", next = "xscar" },
         { text = { normal = "What's the news in Brill?", polite = "Might you share the news in Brill?", blunt = "What's going on in Brill?" }, next = "news" },
         { text = "You're a spy, then.", next = "spy" },
         { text = "Who pays for what you know?", next = "pay", when = { class = "ROGUE" } },
@@ -163,8 +214,53 @@ P:NPC {
       lines = { { id = "p_default", text = "Whoever asks politely and pays promptly, which in Brill means almost nobody. The Ravenholdt folk once sent a letter, but I burned it, because people who answer them tend to disappear." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xmag = {
+      lines = {
+        { id = "xm1", text = "Magistrate Sevren wants the Scarlets driven out of Tirisfal, the Scourge out of the fields, and the apothecaries out of his hair, in that order. He gets about one of the three on a good week." },
+      },
+      choices = {
+        { text = "And Executor Zygand?", next = "xzyg" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xzyg = {
+      lines = {
+        { id = "xz1", text = "Zygand wants the same things and thinks Sevren talks too much, and Sevren thinks Zygand thinks too little. They'd make a fine pair if either of them could stand the other." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsell = {
+      lines = {
+        { id = "xs1", text = "To whoever asks the right questions and pays for the answers, though I don't take coin from the Scarlets, before you ask. I've standards, few as they are, and those are the ones that survived the grave." },
+      },
+      choices = {
+        { text = "Selling secrets is a dangerous game.", next = "xgame" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgame = {
+      lines = {
+        { id = "xg1", text = "Everything's dangerous in Tirisfal. At least my game pays, and at least nobody's found me out yet, which is the same thing as being good at it." },
+      },
+      choices = {
+        { text = "Information should go to the Dark Lady first.", next = "BACK", reply = "How loyal of you. I'll mention it to her spymaster, if she has one.", fx = { align = { order = 1 } } },
+        { text = "Sell to the highest bidder. That's smart business.", next = "BACK", reply = "Now you sound like a goblin, and I mean that kindly.", fx = { align = { order = -1 } } },
+      },
+    },
+    xscar = {
+      lines = {
+        { id = "xsc1", text = "They've got a new man at the monastery who preaches the plague came from the sins of the north, and the farmers out by Solliden believe him. If Brill burns one night, look for a Scarlet with a torch and a very clean tabard." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    scarlet = { { id = "xtp_sc", text = "Zealots in red. They'd burn Brill and call it a cleansing." } },
+    apothecary = { { id = "xtp_ap", text = "Johaan buys corpses by the cartload. I don't ask what for, and I don't sell to him." } },
     background = { { id = "tp_bg", text = "I was a clerk's girl in Brill. I still read other people's letters, only now I don't apologise." } },
     _none = { { id = "tp_none", text = "Haven't heard a whisper of that. Give me a day or two." } },
   },
@@ -188,6 +284,9 @@ P:NPC {
       lines = { { id = "h_default", text = "Sahvan. The rest of the name I took after I woke, because the one I was born with belonged to a softer man." } },
       again = { { id = "h_again", text = "Anything else? We're nearly at the gate." } },
       choices = {
+        { text = "What was your wife's name?", next = "xname" },
+        { text = "Why walk so much?", next = "xwalkwhy" },
+        { text = "I lost someone to the Scourge too.", next = "xlost", when = { race = "Scourge" } },
         { text = "You stop at the same grave every time.", next = "grave" },
         { text = "Why do you walk the town like this?", next = "walk" },
         { text = "Farewell, Sahvan.", next = "END" },
@@ -211,8 +310,53 @@ P:NPC {
       lines = { { id = "w_default", text = "Because a man who stands still in Tirisfal starts to hear things. I walk the square, the inn, the stables and the yard, and the Deathguard have stopped asking me to stop." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xname = {
+      lines = {
+        { id = "xn1", text = "Elise. She kept bees behind our cottage near Brill, and she had a laugh you could hear across the river. I've not said her name aloud in a long while, so thank you for asking it." },
+      },
+      choices = {
+        { text = "Do you think she's still out there?", next = "xthere" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xthere = {
+      lines = {
+        { id = "xt1", text = "I think she's in the Plaguelands, in some rotting army under a banner of bone, and I think one day I'll find her. What I'll do then, I haven't decided." },
+      },
+      choices = {
+        { text = "Set her free. Put her down yourself.", next = "BACK", reply = "That's the kindness I've been telling myself I'm brave enough for.", fx = { align = { light = 1 } } },
+        { text = "She's Scourge now. Leave her to rot with them.", next = "BACK", reply = "Cold. And maybe wise. I'll think on it, while I walk.", fx = { align = { light = -1 } } },
+      },
+    },
+    xwalkwhy = {
+      lines = {
+        { id = "xw1", text = "Because when I stand still, I think, and thinking leads me back to the empty grave. Walking keeps the feet busy and the mind quiet, and I've worn out three pairs of boots this year." },
+      },
+      choices = {
+        { text = "Where do you walk to?", next = "xwhere" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwhere = {
+      lines = {
+        { id = "xwh1", text = "Out to the bridges at the Bulwark and back, and sometimes as far as the Plaguelands' edge, where the grass turns grey. The Deathguard know my face and let me pass." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlost = {
+      lines = {
+        { id = "xl1", text = "Then you know the hole it leaves, and that the hole doesn't close just because the heart stopped beating. Walk with me some time, if you like, and we needn't talk." },
+      },
+      choices = {
+        { text = "I'd like that.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    plaguelands = { { id = "xtp_pl", text = "Grey grass and walking dead. My wife is somewhere out there." } },
+    deathknell = { { id = "xtp_dk", text = "Where I woke. I didn't like it, but I don't suppose anyone does." } },
     _none = { { id = "tp_none", text = "I couldn't say. Ask someone who stands still long enough to learn things." } },
   },
 }
@@ -235,6 +379,9 @@ P:NPC {
       lines = { { id = "h_default", text = "Thomas Arlento. I farmed the land out past Agamand Mills when there was land worth farming, and now I hire on wherever the Deathguard need a strong back." } },
       again = { { id = "h_again", text = "Something else, {class}?" } },
       choices = {
+        { text = "What did you farm before?", next = "xfarm" },
+        { text = "What work do the Deathguard give you?", next = "xwork" },
+        { text = "Have you seen the Agamands since?", next = "xseen" },
         { text = "What happened to Agamand Mills?", next = "agamand" },
         { text = "Does anything grow in Tirisfal now?", next = "grow" },
         { text = "I'll let you get back to work.", next = "END" },
@@ -255,8 +402,44 @@ P:NPC {
       lines = { { id = "grow_default", text = "Pumpkins, oddly enough, and nightshade, and whatever the apothecaries plant to see if it kills things. A farmer could weep at what's become of this soil, if farmers could still weep." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xfarm = {
+      lines = {
+        { id = "xf1", text = "Barley and pumpkins, and a few pigs the Agamands didn't know about. Tirisfal soil was black and rich once, and you could grow a pumpkin the size of a cart if you were patient with it." },
+      },
+      choices = {
+        { text = "Can anything grow here now?", next = "xgrow" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xgrow = {
+      lines = {
+        { id = "xg1", text = "Weeds, and the odd sickly turnip, and whatever the apothecaries plant in their own plots, which I don't touch. The plague went into the earth along with everyone else." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwork = {
+      lines = {
+        { id = "xw1", text = "Hauling, digging, mending fences, whatever wants a strong back. I don't tire now, which the Deathguard appreciate, though I miss the feeling of a good day's ache at sundown." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xseen = {
+      lines = {
+        { id = "xs1", text = "Once, from the road. Old Nissa Agamand at the window of the mill, still in her Sunday dress, and her sons in the yard where they used to beat their farmhands. I turned around and walked home." },
+      },
+      choices = {
+        { text = "They deserve to be put down, every one.", next = "BACK", reply = "Aye, and I'd not shed a tear, though I'd not want to be the one doing it.", fx = { align = { honor = -1 } } },
+        { text = "Whatever they were, they were victims of the plague too.", next = "BACK", reply = "Victims, maybe. Cruel ones, before and after.", fx = { align = { honor = 1 } } },
+      },
+    },
   },
   topics = {
+    agamand = { { id = "xtp_ag", text = "They owned the land and everyone on it. Now they own nothing but their own rot." } },
+    deathguard = { { id = "xtp_dg", text = "They pay in coin and they don't make me sing while I dig, so I've no complaints." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. I know dirt and weather, and not much of either anymore." } },
   },
 }
@@ -282,6 +465,10 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else you need pointed at?" } },
       choices = {
+        { text = "What's the Gallows' End like?", next = "xinn" },
+        { text = "Why do you help newcomers?", next = "xwhy" },
+        { text = "Any advice for a new Forsaken?", next = "xnew", when = { race = "Scourge" } },
+        { text = "A living visitor. Am I safe here?", next = "xliving", when = { race = "Orc" } },
         { text = { normal = "Where should I go first?", polite = "Where would you suggest I go first?", blunt = "Where do I go?" }, next = "where" },
         { text = "Who's in charge here?", next = "charge" },
         { text = "I'll find my own way.", next = "END" },
@@ -302,8 +489,52 @@ P:NPC {
       lines = { { id = "c_default", text = "Executor Zygand keeps the Deathguard, and Magistrate Sevren keeps the town hall and the paperwork. Between the two of them, Brill is well defended and thoroughly filed." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xinn = {
+      lines = {
+        { id = "xi1", text = "Warm, if you count the fire, and loud, if you count the gossip. Renee keeps a decent cellar and doesn't ask what you did before you died, which is the best kind of innkeeper." },
+      },
+      choices = {
+        { text = "Who else is worth knowing in Brill?", next = "xwho" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xwho = {
+      lines = {
+        { id = "xw1", text = "Executor Zygand keeps the guard, and Magistrate Sevren hands out the work that needs doing. Apothecary Johaan is down in the cellar near the tavern, and if he offers you a drink, decline it politely." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwhy = {
+      lines = {
+        { id = "xwy1", text = "Because I woke in Deathknell myself, with dirt in my mouth and no notion of what I'd become, and the first person who spoke kindly to me was a Deathguard who'd been dead a week longer. I owe that debt forward. Some come up from the crypts angry and some come up weeping, and both kinds need to know where the inn is." },
+      },
+      choices = {
+        { text = "Kindness is wasted on the dead.", next = "BACK", reply = "Perhaps, but we have so little else to spend our time on.", fx = { align = { light = -1 } } },
+        { text = "Kindness is what keeps us from being Scourge.", next = "BACK", reply = "I think so too, and I'm glad you said it aloud.", fx = { align = { light = 1 } } },
+      },
+    },
+    xnew = {
+      lines = {
+        { id = "xn1", text = "Don't look into still water for the first few weeks, and don't go looking for your old family until you're ready for what you'll find. And bind yourself to the inn before you wander, because the spirit healers are far apart." },
+      },
+      choices = {
+        { text = "Thank you. Something else.", next = "BACK" },
+      },
+    },
+    xliving = {
+      lines = {
+        { id = "xl1", text = "Safe enough, so long as you stay out of the apothecaries' cellars. The Horde's our ally, and the Deathguard know it, even if some of them look at you as though you'd make a good experiment." },
+      },
+      choices = {
+        { text = "Good to know. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    brill = { { id = "xtp_br", text = "Our town. It was a human town once, and now it's a better one, or at least a quieter one." } },
+    scarlet = { { id = "xtp_sc", text = "The Scarlet Crusade burn our kind on sight. Stay off the roads near the monastery." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. Try the town hall; they keep records of everything." } },
   },
 }
@@ -333,6 +564,9 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? I'd rather talk with my eyes on the road, if it's all the same to you." } },
       choices = {
+        { text = "Why does the Dawn guard Tirisfal?", next = "xwhy" },
+        { text = "Do you trust the Forsaken?", next = "xtrust" },
+        { text = "I'm a paladin. I'd serve the Dawn.", next = "xpal", when = { class = "PALADIN" } },
         { text = "What is the Argent Dawn?", next = "dawn" },
         { text = "How bad is the plague out east?", next = "east" },
         { text = "How do you feel about the Forsaken?", next = "forsaken" },
@@ -355,6 +589,45 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xwhy = {
+      lines = {
+        { id = "xw1", text = "Because the plague doesn't stop at borders, and neither do the dead. If the Scourge breaks through here, Brill falls, and then the Undercity, and then whatever's left of the north is theirs." },
+      },
+      choices = {
+        { text = "Do the Forsaken want you here?", next = "xwant" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xwant = {
+      lines = {
+        { id = "xwa1", text = "They tolerate us, which is more than I expected. Their Deathguard and I stand watch a hundred paces apart and nod to each other at dawn, and that's as close to friendship as the north allows." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtrust = {
+      lines = {
+        { id = "xt1", text = "I trust any soldier who fights the Lich King, and I watch any soldier who brews plague in a cellar. The Forsaken are both, and so I trust them and watch them at once." },
+        { id = "xt2", when = { race = "Scourge" }, text = "No offence meant, friend. You've been honest with me, and I'll be honest with you in turn." },
+      },
+      choices = {
+        { text = "The Forsaken are allies against the Scourge. Trust them.", next = "BACK", reply = "Perhaps. The Dawn will judge them by their deeds.", fx = { align = { light = -1 } } },
+        { text = "The dead are the dead. Watch them closely.", next = "BACK", reply = "I do, and I'll keep doing it, Light forgive me.", fx = { align = { light = 1 } } },
+      },
+    },
+    xpal = {
+      lines = {
+        { id = "xp1", text = "Then go to Light's Hope Chapel in the east, and tell the Dawn you've come to fight. They'll test you, and send you into places no paladin should walk, and you'll go anyway." },
+      },
+      choices = {
+        { text = "I will. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    scourge = { { id = "xtp_sc", text = "The Lich King's army. It never sleeps and never stops." } },
+    lights_hope = { { id = "xtp_lh", text = "Our chapel in the east. The dead can't walk on its ground." } },
   },
 }
 
@@ -382,6 +655,9 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something more? The fire won't wait forever." } },
       choices = {
+        { text = "Who lights the Wicker Man?", next = "xlight" },
+        { text = "Does the Dark Lady attend?", next = "xlady" },
+        { text = "I'm a human. May I watch?", next = "xhuman", when = { race = "Human" } },
         { text = "Why burn a wicker man?", next = "why" },
         { text = "What do the living make of this?", next = "living" },
         { text = "I'll watch the burning, then.", next = "END" },
@@ -399,5 +675,43 @@ P:NPC {
       lines = { { id = "li_default", text = "They carve gourds and hand out sweets, and they think the feast is theirs. Let them. We know whose day it really is." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xlight = {
+      lines = {
+        { id = "xl1", text = "A champion of the Undercity, chosen for deeds against the Scourge or the Scarlets. They carry the torch from the city's gate, and we follow, and when it catches, the whole hill sings." },
+      },
+      choices = {
+        { text = "What do you sing?", next = "xsing" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xsing = {
+      lines = {
+        { id = "xs1", text = "Old songs of Lordaeron, with new words. The words are not kind to the living, and they are less kind to the Lich King." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlady = {
+      lines = {
+        { id = "xla1", text = "She has, and she may again, if the Scourge gives her a night's peace. Even the Banshee Queen remembers that she was once set free." },
+      },
+      choices = {
+        { text = "The Dark Lady freed you. She deserves your loyalty.", next = "BACK", reply = "She does, and she has it, every one of us.", fx = { align = { order = 1 } } },
+        { text = "You freed yourselves. Owe no one for it.", next = "BACK", reply = "Dangerous words, and true ones. Speak them quietly here.", fx = { align = { order = -1 } } },
+      },
+    },
+    xhuman = {
+      lines = {
+        { id = "xh1", text = "Watch, then, from the edge of the firelight. Your people burned ours for years and called it mercy, so you'll forgive us if we enjoy a fire of our own choosing." },
+      },
+      choices = {
+        { text = "I'll keep my distance.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    hallows_end = { { id = "xtp_he", text = "Our feast. The living borrowed it and filled it with sweets." } },
+    sylvanas = { { id = "xtp_sy", text = "The Dark Lady. She broke our chains first, and we broke the rest ourselves." } },
   },
 }

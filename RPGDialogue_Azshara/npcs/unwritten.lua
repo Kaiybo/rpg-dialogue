@@ -21,6 +21,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xsurvive = {
+      narr = "She looks down at her hands; they are still raw from rope and salt.",
+      lines = { { id = "xsurvive_default", text = "Patrick pulled me out of the water by my collar. I don't remember much after that, only the singing in the dark and the cold. I woke on the sand with a sailor's head in my lap, and I started praying." } },
+      choices = {
+        { text = "The singing?", next = "xsing" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsing = {
+      lines = { { id = "xsing_default", text = "The naga sing before they strike. Some of the sailors say it's how they call the waves. I only know I hear it in my sleep, and I wake with the Light already on my lips." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xlindros = {
+      lines = { { id = "xlindros_default", text = "He is cold, and frightened, and he hides the fear under rudeness. The sailors want him gone. I think a stranded camp can't afford to cast anyone out. What would you have me do?" } },
+      choices = {
+        { text = "Keep him close. Mercy keeps a camp together.", next = "BACK", reply = "Thank you. I'll ask him to help with the fires.", fx = { align = { light = 1 } } },
+        { text = "Watch him closely. He's hiding something dangerous.", next = "BACK", reply = "I'll watch him, then. Though I hate to.", fx = { align = { light = -1 } } },
+      },
+    },
+    xlearn = {
+      lines = { { id = "xlearn_default", text = "In the Cathedral of Light in Stormwind, under Bishop Farthing. I was a poor student of scripture and a good one of bandages, and he decided the Light could use both kinds." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xpriest = {
+      lines = { { id = "xpriest_default", text = "Oh, would you? The two by the rocks have fevers that won't break. Pray over them while I rest my eyes for an hour, and I'll owe you more than I can say." } },
+      choices = { { text = "Rest. I'll see to them.", next = "BACK", reply = "Bless you. I'll be right here." } },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Alexandra Blazen. I paid for passage on the Horizon Scout, and when the naga sank her, I found myself the only priestess on a beach full of drowned and wounded men." },
@@ -30,6 +58,11 @@ P:NPC {
         { id = "h_again2", text = "Go on. I can spare a moment." },
       },
       choices = {
+        { text = "How did you survive the wreck?", next = "xsurvive" },
+        { text = "What do you make of Lindros?", next = "xlindros" },
+        { text = "Where did you learn to heal?", next = "xlearn" },
+        { text = "I'm a priest. Let me help with the wounded.", next = "xpriest", when = { class = "PRIEST" } },
+
         { text = "Why did you come to Azshara?", next = "why" },
         { text = "How are the wounded?", next = "wounded" },
         { text = "Rest, Alexandra. I'll keep watch.", next = "END" },
@@ -55,6 +88,10 @@ P:NPC {
       choices = { { text = "Something else.", next = "BACK" } },
     },
   },
+  topics = {
+    patrick = { { id = "tp_xpatrick", text = "My oldest friend. He'd walk into the sea after me again, I think." } },
+    horizon_scout = { { id = "tp_xhorizon", text = "Our ship. She's on the bottom now, with half our supplies and two good sailors." } },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -74,6 +111,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xalex = {
+      narr = "His face softens for a moment before he looks back to the water.",
+      lines = { { id = "xalex_default", text = "Since we were children in Goldshire. She was always braver than me, and smarter. When she said she was going to Azshara, I didn't ask why. I just packed my armor." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhold = {
+      lines = { { id = "xhold_default", text = "A week, maybe two, if the naga don't come in force. The water's the problem, not the food. Ravencrest's old ruins have a spring, but getting there means crossing the beach." } },
+      choices = {
+        { text = "Should we risk the spring?", next = "xspring" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xspring = {
+      lines = { { id = "xspring_default", text = "I'd go myself, but then who guards the camp? Some say send the strongest sailors; others say we wait for rain and keep everyone together. You've seen the beach. What would you do?" } },
+      choices = {
+        { text = "Send a party. Waiting won't bring water.", next = "BACK", reply = "Then I'll ask for volunteers tonight.", fx = { align = { honor = 1 } } },
+        { text = "Keep everyone together. Splitting up invites slaughter.", next = "BACK", reply = "Wise, perhaps. I'll pray for rain.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xlindros = {
+      lines = { { id = "xlindros_default", text = "I trust him to save himself. Beyond that, I don't know. He knew where the ruins were before the captain did, and he won't tell us how. That bothers me more than the naga." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xpaladin = {
+      lines = { { id = "xpaladin_default", text = "Gladly, brother or sister of the Hand. Take the north end of the beach, and if you hear singing, call out. The Light shines a little brighter when there are two of us holding it." } },
+      choices = { { text = "I'll take the north end.", next = "BACK", reply = "Good. Light keep you." } },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Patrick Mills, paladin, at your service. Alexandra and I came aboard the Horizon Scout together, and now I keep watch so she can tend the wounded without looking over her shoulder." },
@@ -83,6 +148,11 @@ P:NPC {
         { id = "h_again2", text = "Speak, friend. I'll listen and watch at once." },
       },
       choices = {
+        { text = "How long have you known Alexandra?", next = "xalex" },
+        { text = "How long can the camp hold?", next = "xhold" },
+        { text = "Do you trust Lindros?", next = "xlindros" },
+        { text = "I'm a paladin too. Stand watch with me.", next = "xpaladin", when = { class = "PALADIN" } },
+
         { text = "What happened to the ship?", next = "wreck" },
         { text = "What brought a paladin to Azshara?", next = "why" },
         { text = "Farewell, Patrick.", next = "END" },
@@ -100,6 +170,10 @@ P:NPC {
       lines = { { id = "wy_default", text = "Duty, of a sort, and I'll leave it at that. I'll tell you this much: Lindros knew more about where we were going than any of us did." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  },
+  topics = {
+    alexandra = { { id = "tp_xalex", text = "She'll heal everyone but herself. Make her rest, if you can." } },
+    naga = { { id = "tp_xnaga", text = "They come with the tide. Keep your back to the trees and your eyes on the water." } },
   },
 }
 
@@ -120,6 +194,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xstudy = {
+      narr = "He straightens his salt-stained robe with a flick of irritation.",
+      lines = { { id = "xstudy_default", text = "Dalaran, before the Scourge made the Kirin Tor so very careful. I studied the theory of ancient magic, which is to say I studied what the elves wrote about their ancestors and then disagreed with them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xwreck = {
+      lines = { { id = "xwreck_default", text = "A small ward of air, held beneath the water for longer than I'd like to admit. I could have saved the trunk instead of myself. I chose myself, which tells you what I value." } },
+      choices = {
+        { text = "What was in the trunk?", next = "xtrunk" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtrunk = {
+      lines = { { id = "xtrunk_default", text = "Notes. Maps of ruins. A few instruments of my own design. Nothing anyone here would understand, and nothing they'd thank me for recovering. Leave it at that." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xnaga = {
+      lines = { { id = "xnaga_default", text = "That they were Highborne once, the Queen's own court, and the sea changed them. Their sorceresses still wield magic I'd give my right hand to study. Patrick thinks that's madness. Is it?" } },
+      choices = {
+        { text = "Some knowledge isn't worth the hand.", next = "BACK", reply = "Spoken like a paladin. How dull.", fx = { align = { order = 1 } } },
+        { text = "No. Understanding them may be our best defense.", next = "BACK", reply = "Finally, a mind that isn't asleep.", fx = { align = { order = -1 } } },
+      },
+    },
+    xmage = {
+      lines = { { id = "xmage_default", text = "The Highborne shaped the arcane before humans had words for it. Their ruins are libraries carved in stone. To a mage, walking past one is like walking past a book you're forbidden to open." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "My name is Lindros. I had business in Azshara, and the naga have delayed it considerably. That is all anyone in this camp needs to know." },
@@ -129,6 +231,11 @@ P:NPC {
         { id = "h_again2", text = "You're persistent. Go on." },
       },
       choices = {
+        { text = "Where did you study magic?", next = "xstudy" },
+        { text = "How did you survive the wreck?", next = "xwreck" },
+        { text = "What do you know of the naga?", next = "xnaga" },
+        { text = "Fellow mage, what draws you to these ruins?", next = "xmage", when = { class = "MAGE" } },
+
         { text = "What business does a mage have in Azshara?", next = "business" },
         { text = "The others don't trust you, you know.", next = "trust" },
         { text = "Fine. Keep your secrets.", next = "END" },
@@ -146,6 +253,10 @@ P:NPC {
       lines = { { id = "tr_default", text = "I know, and I do not care. I paid my fare like everyone else. If they need someone to blame for the wreck, they should look at the naga, not at me." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  },
+  topics = {
+    highborne = { { id = "tp_xhighborne", text = "The masters of the arcane. Arrogant, yes, but magnificent in their arrogance." } },
+    dalaran = { { id = "tp_xdalaran", text = "My alma mater. The Kirin Tor would not approve of this trip, so I didn't ask them." } },
   },
 }
 

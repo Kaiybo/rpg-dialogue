@@ -19,6 +19,38 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xcame = {
+      narr = "He runs a whetstone down a long blade without looking at it.",
+      lines = { { id = "xcame_default", text = "The Horde needed a smith who would not run from the stink. My tribe does not run. So I walked north from Mulgore, past the Barrens and through Ashenvale, and set my anvil here." } },
+      choices = {
+        { text = "Was it a hard road?", next = "xroad" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xroad = {
+      lines = { { id = "xroad_default", text = "No harder than any. I was ambushed twice, once by Sentinels and once by a bear with green fur and no reason left in it. I kept the bear's claws. The Sentinels I let go." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xweapon = {
+      lines = { { id = "xweapon_default", text = "Something heavy that does not need to be sharp to kill. The ooze here eats an edge in a week. A good mace does not care what it hits, and Felwood has many things that should be hit." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xforsaken = {
+      lines = { { id = "xforsaken_default", text = "The alchemist laughs too much and collects things that should be burned. But the Horde has made them allies, and an ally is an ally. Do you trust them?" } },
+      choices = {
+        { text = "They're Horde. That's enough for me.", next = "BACK", reply = "Then you are a better ally than I am. I will try to match you.", fx = { align = { order = 1 } } },
+        { text = "No. I watch them as I watch the demons.", next = "BACK", reply = "Quietly, then. Do not let the warchief's people hear you.", fx = { align = { order = -1 } } },
+      },
+    },
+    xwarrior = {
+      lines = { { id = "xwarrior_default", text = "Strike the corrupted things hard and early, before the poison spreads to you. And clean your weapon every night, even when you are tired. The blade that is cared for will care for you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xkin = {
+      lines = { { id = "xkin_default", text = "She has not much reach in this place, young one, but I carry her in my chest anyway. When you return to Mulgore, put your hands in the grass for me. I miss the feel of it." } },
+      choices = { { text = "I will, elder.", next = "BACK", reply = "Good. Now buy a weapon; you will need it." } },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Altsoba of the Ragetotem. I sell weapons to those who pass through Bloodvenom Post, and I keep them sharp, because in Felwood a dull blade is a death sentence." },
@@ -28,6 +60,12 @@ P:NPC {
         { id = "h_again2", text = "Speak. I am listening, though my hands are busy." },
       },
       choices = {
+        { text = "How did you come to Bloodvenom Post?", next = "xcame" },
+        { text = "Which weapon would you carry here?", next = "xweapon" },
+        { text = "What do you think of the Forsaken here?", next = "xforsaken" },
+        { text = "I am a warrior. Give me your counsel.", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "Earth Mother guard you as well, elder.", next = "xkin", when = { race = "Tauren" } },
+
         { text = "What makes Felwood so dangerous?", next = "danger" },
         { text = "The Ragetotem? I don't know that tribe.", next = "tribe" },
         { text = "Show me your weapons.", next = "BUSINESS" },
@@ -53,6 +91,10 @@ P:NPC {
       lines = { { id = "tr_default", text = "We are warriors, mostly, and few in number. My tribe taught me that a weapon is a promise you make to yourself, so I make my promises well." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  },
+  topics = {
+    ragetotem = { { id = "tp_xrage", text = "My tribe. Warriors first, smiths second, and talkers never." } },
+    bloodvenom_post = { { id = "tp_xpost", text = "A small fire in a sick wood. We keep it burning." } },
   },
 }
 
@@ -220,6 +262,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xcave = {
+      narr = "Your eyes slowly adjust to the gloom.",
+      lines = { { id = "xcave_default", text = "Scrapes on the stone show where something heavy was dragged deeper into the cave. Black ichor has dried on the rocks, and among it lies a broken arrow of jadefire make." } },
+      choices = {
+        { text = "Follow the drag marks.", next = "xdrag" },
+        { text = "Turn back to the body.", next = "BACK" },
+      },
+    },
+    xdrag = {
+      lines = { { id = "xdrag_default", text = "The marks end at a pool of foul water a few paces on. Whatever took his blade took it this way, and it was not human, by the size of the claws gouged into the edge." } },
+      choices = { { text = "Return to the body.", next = "BACK" } },
+    },
+    xarmor = {
+      lines = { { id = "xarmor_default", text = "His plate is dented in a dozen places, each one facing forward. He held his ground to the very end. The symbol of the Silver Hand on his chest has been scratched, deliberately, by something that hated it." } },
+      choices = {
+        { text = "Clean the symbol with your sleeve.", next = "BACK", reply = "The silver catches what little light there is. It seems right, somehow." },
+        { text = "Turn back to the body.", next = "BACK" },
+      },
+    },
+
     hello = {
       narr = "The torchlight catches a silver hand stitched on his tabard.",
       lines = {
@@ -227,6 +289,9 @@ P:NPC {
       },
       again = { { id = "h_again", text = "The remains lie still. There is nothing more to see." } },
       choices = {
+        { text = "Look around the cave.", next = "xcave" },
+        { text = "Examine his armor.", next = "xarmor" },
+
         { text = "Search the body.", next = "search" },
         { text = "Say a prayer over him.", next = "pray" },
         { text = "Leave him for now.", next = "END" },

@@ -309,10 +309,17 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "The banner is my charge, and I have not left this room since the fighting began. If the orcs reach it, they will have passed me first." },
       },
-      again = { { id = "h_again", text = "Anything else? My eyes stay on the doors." } },
+      again = {
+        { id = "h_again", text = "Anything else? My eyes stay on the doors." },
+        { id = "xh_again2", text = "You remain. Speak, then, but keep one eye on the doorway." },
+      },
       choices = {
         { text = "How do the orcs usually come?", next = "routes" },
         { text = "You must grow weary standing here.", next = "weary" },
+        { text = "Who commands the Silverwing Sentinels?", next = "xlead" },
+        { text = "Why do the orcs cut these woods?", next = "xorcs" },
+        { text = "What happens if the banner is taken?", next = "xtaken" },
+        { text = "Elune keep you, sister.", next = "xelf", when = { race = "NightElf" } },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -337,9 +344,33 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xlead = {
+      lines = { { id = "xle_default", text = "The Silverwing answer to the Sentinels, and the Sentinels answer to Tyrande Whisperwind. Her priestesses guide us, and her arrows have never missed an orc that deserved one." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xorcs = {
+      narr = "She does not turn her head, but her grip on her glaive tightens.",
+      lines = { { id = "xor_default", text = "For timber, they say, and to remind us that the forest is theirs for the taking. They killed Cenarius, and the Warsong under Hellscream were the ones who did it, so you will forgive me if I do not listen to their reasons." } },
+      choices = {
+        { text = "Then fight them until not one remains.", next = "BACK", reply = "That is the Sentinel's way. Elune watches, and so do I.", fx = { align = { honor = -1 } } },
+        { text = "Even orcs can change. Thrall seeks peace.", next = "BACK", reply = "Perhaps, but the Warsong do not, and they are the ones at our door.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtaken = {
+      lines = { { id = "xta_default", text = "Then I chase it, and every warden on the field with me, until it is ours again. A banner is not a piece of cloth, outsider, it is a promise to the forest." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xelf = {
+      lines = { { id = "xel_default", text = "And you, sister. Stand with me a while if you can, and let the orcs see two of us waiting for them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    ashenvale = { { id = "xtp_ash", text = "Our forest, and our charge. The orcs take it a tree at a time, and we take it back an arrow at a time." } },
+    warsong = { { id = "xtp_war", text = "The clan that killed Cenarius. We have not forgotten, and we will not forget." } },
+   
     advice = { { id = "tp_ad", text = "Never leave the banner room empty, not even for a moment." } },
     _none = { { id = "tp_none", text = "I keep the banner, and nothing else concerns me." } },
   },
@@ -366,10 +397,17 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I guard the Warsong banner, and the elves have taken it past me only when they came in numbers. When they come again, stand beside me and they will not take it at all." },
       },
-      again = { { id = "h_again", text = "What else? Keep your eyes on the doors while you ask." } },
+      again = {
+        { id = "h_again", text = "What else? Keep your eyes on the doors while you ask." },
+        { id = "xh_again2", text = "You are back. Good, there is always room by the banner for another axe." },
+      },
       choices = {
         { text = "How do the elves get in?", next = "routes" },
         { text = "You've seen many fights here, I'd guess.", next = "fights" },
+        { text = "Who leads the Warsong Outriders?", next = "xlead" },
+        { text = "Why fight the elves over this gulch?", next = "xwhy" },
+        { text = "What do you think of the Silverwing?", next = "xsilver" },
+        { text = "I'm an orc. The Warsong is my clan.", next = "xorc", when = { race = "Orc" } },
         { text = "I'll stand with you. Lok'tar.", next = "END" },
       },
     },
@@ -394,9 +432,33 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xlead = {
+      lines = { { id = "xle_default", text = "Grom's own clan rides under the Warsong banner still, though Grom himself died killing the demon Mannoroth. We honour him by holding what he took, and this gulch is part of it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xwhy = {
+      narr = "He spits on the sawdust floor and leans on the haft of his axe.",
+      lines = { { id = "xwh_default", text = "The Horde needs timber, and the forests of Ashenvale have it. The elves say every tree is sacred, and we say a Horde without lumber freezes, so here we are." } },
+      choices = {
+        { text = "The elves have the right of it. Some trees are sacred.", next = "BACK", reply = "Then you are standing in the wrong mill, {class}.", fx = { align = { order = -1 } } },
+        { text = "The Horde must survive. Cut what we need.", next = "BACK", reply = "Lok'tar! That is how a warrior speaks.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsilver = {
+      lines = { { id = "xsi_default", text = "They fight like ghosts, quiet and quick, and I respect it, though I would not say so in their hearing. They protect their trees the way we protect our banner." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xorc = {
+      lines = { { id = "xor_default", text = "Then you know Grom's war cry, and you know it means something here. Stand by the banner and roar it when the elves come, and they will remember the Warsong." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    grom = { { id = "xtp_grom", text = "Grom Hellscream freed us from the blood with his own death. Every Warsong fights in his name." } },
+    silverwing = { { id = "xtp_silver", text = "The elves' sentinels. Fast, quiet and stubborn, like the trees they guard." } },
+   
     advice = { { id = "tp_ad", text = "Keep someone in this room, always, or the elves will walk in and walk out laughing." } },
     _none = { { id = "tp_none", text = "Ask somebody who cares. I guard the banner." } },
   },

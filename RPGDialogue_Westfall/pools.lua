@@ -37,6 +37,10 @@ P:Pool {
 
 P:Pool {
   id = "guard_sentinel_hill", role = "guard", community = "sentinel_hill",
+  barks = {
+    { id = "b_xstew", text = "Salma's stew again. Nobody knows what's in it, and nobody's brave enough to ask." },
+    { id = "b_xwatch", text = "Smoke over Moonbrook again. The Brotherhood's cooking something, and it isn't supper." },
+  },
   greetings = {
     { id = "g_hill", text = "Welcome to Sentinel Hill. Mind the gryphons, they bite." },
     { id = "g_distrust", when = { townStanding = { town = "sentinel_hill", max = -20 } }, text = "Walk slowly. We've had thieves in borrowed cloaks before." },
@@ -47,10 +51,18 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "Sneaking up on Sentinel Hill? That's how folk get shot." } },
   lines = {
+    { id = "l_xfarm", text = "Most of us were farmers before the Brotherhood came. Now we hold spears instead of hoes, and the fields grow dust." },
+    { id = "l_xcrown", text = "Stormwind forgot Westfall, so Westfall remembers itself. That's what Gryan says, and he's right." },
     { id = "l_default", text = "Gryan's up in the tower and Captain Danuvin's by the map. Anything else, ask the quartermaster, and count your change after." },
   },
-  choices = { { text = "Thanks.", next = "END" } },
+  choices = {
+    { text = "Thanks.", next = "END" },
+    { text = "Stormwind should have sent you soldiers.", next = "END", reply = "Should have, aye. They didn't, so here we stand.", fx = { align = { order = -1 } } },
+    { text = "The king has wars to fight. Be patient.", next = "END", reply = "Patience doesn't feed a family, friend. But I'll try.", fx = { align = { order = 1 } } },
+  },
   topics = {
+    defias = { { id = "t_xdefias", text = "Bandits and turncoats. Some of them were our neighbours once, which makes it worse." } },
+    gryan_stoutmantle = { { id = "t_xgryan", text = "He built the militia out of nothing. I'd follow him anywhere." } },
     _none = { { id = "t_none", text = "Couldn't tell you that. Ask up in the tower." } },
   },
 }

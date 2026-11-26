@@ -20,6 +20,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xlong = {
+      narr = "He reels in a little line, considers it, and lets it out again.",
+      lines = { { id = "xlong_default", text = "Longer than most of Auberdine has stood, though that isn't saying much. I fished here when there were only tents on the hill and a single moonwell. The fish were the same, and so was I." } },
+      choices = {
+        { text = "Have you never wanted another life?", next = "xlife" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlife = {
+      lines = { { id = "xlife_default", text = "My sister went to the Sentinels and my brother to the druids. They both ask why I sit by the water while the world needs saving. I say somebody has to feed the people who save it." } },
+      choices = {
+        { text = "Feeding people is its own kind of service.", next = "BACK", reply = "Thank you. Tell my sister that, if you ever meet her.", fx = { align = { honor = -1 } } },
+        { text = "In times like these, everyone should take up arms.", next = "BACK", reply = "Perhaps. But I'd make a poor Sentinel and a worse corpse.", fx = { align = { honor = 1 } } },
+      },
+    },
+    xnaga = {
+      lines = { { id = "xnaga_default", text = "Further up the coast, near the Cliffspring. I've seen their wake in the water at dawn, and I pulled my line in very quickly. They didn't come ashore here, and I'd like to keep it that way." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xtip = {
+      lines = { { id = "xtip_default", text = "Cast where the waves break white and then wait twice as long as you think you should. And never fish in a hurry; the sea can always tell, and it laughs at you." } },
+      choices = { { text = "I'll remember that.", next = "BACK", reply = "Good. And mind your line on the rocks." } },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Heldan Galesong. I fish where the Long Wash meets the Twilight Shore, and I sell what I catch to anyone who walks this far down the beach, which isn't many." },
@@ -29,6 +53,10 @@ P:NPC {
         { id = "h_again2", text = "Ask away. I've nowhere to be." },
       },
       choices = {
+        { text = "How long have you fished this shore?", next = "xlong" },
+        { text = "Do you ever see the naga here?", next = "xnaga" },
+        { text = "Any tips for a fellow angler?", next = "xtip", when = { profession = "Fishing" } },
+
         { text = "Why fish out here, so far from Auberdine?", next = "far" },
         { text = "Ameth'Aran is just up the hill. Have you been?", next = "ruins" },
         { text = "Show me your catch.", next = "BUSINESS" },
@@ -54,6 +82,10 @@ P:NPC {
       lines = { { id = "ru_default", text = "Not since the ghosts started walking there. Ameth'Aran was a fine place once, they say, before the Highborne who lived there brought ruin on it. I keep to the beach." } },
       choices = { { text = "Wise of you. Something else.", next = "BACK" } },
     },
+  },
+  topics = {
+    fishing = { { id = "tp_xfish", text = "The only craft that rewards doing nothing well. I recommend it highly." } },
+    ameth_aran = { { id = "tp_xameth", text = "Haunted ruins up the hill. I hear the ghosts weeping some nights and fish louder." } },
   },
 }
 
@@ -142,6 +174,41 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xcame = {
+      narr = "She smooths her apron and glances shyly at the great trees.",
+      lines = { { id = "xcame_default", text = "My mother kept a bakery in Auberdine. When the druids started coming south to speak with the ancients, someone had to feed them, and I was the quiet daughter. The Grove suited me." } },
+      choices = {
+        { text = "Don't you miss the village?", next = "xmiss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmiss = {
+      lines = { { id = "xmiss_default", text = "Sometimes, at night, when the ancients are silent and I can't hear anything but my own breathing. Then dawn comes and the dew is fresh, and I remember why I stayed." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xonu = {
+      lines = { { id = "xonu_default", text = "The eldest ancient here, and the one who speaks for the rest. He has a voice like a slow river. He asked my name once, and it took him an afternoon. I was very honored." } },
+      choices = {
+        { text = "Does Onu trust outsiders?", next = "xtrust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtrust = {
+      lines = { { id = "xtrust_default", text = "He trusts those who help Darkshore. Some say the Grove should be closed to all but the kaldorei, so the ancients may rest. Others say we need every friend we can find. I can't decide." } },
+      choices = {
+        { text = "Open the Grove. Darkshore needs friends.", next = "BACK", reply = "Onu would agree, I think. He is very patient with strangers.", fx = { align = { order = -1 } } },
+        { text = "Keep it closed. The ancients deserve their peace.", next = "BACK", reply = "Perhaps. It would be quieter, at least.", fx = { align = { order = 1 } } },
+      },
+    },
+    xtravel = {
+      lines = { { id = "xtravel_default", text = "Not many. Some Sentinels, some druids, and now and then a dwarf from the Explorers' League who asks if the trees are edible. I tell them no, and I sell them bread." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdruid = {
+      lines = { { id = "xdruid_default", text = "Speak to Onu, please; he always has something for a druid. And eat something before you go. The druids who visit always forget, and then they faint in the middle of a ritual." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Tiyani. I keep food and drink for those who visit the Grove of the Ancients, and for the druids who forget to eat when they're talking to trees." },
@@ -151,6 +218,11 @@ P:NPC {
         { id = "h_again2", text = "Yes? I'm still here." },
       },
       choices = {
+        { text = "How did you come to the Grove?", next = "xcame" },
+        { text = "Who is Onu?", next = "xonu" },
+        { text = "Do many travelers come this far?", next = "xtravel" },
+        { text = "I'm a druid. Is there anything the Grove needs?", next = "xdruid", when = { class = "DRUID" } },
+
         { text = "Do the ancients really listen?", next = "ancients" },
         { text = "What do you sell?", next = "dew" },
         { text = "I'll buy something.", next = "BUSINESS" },
@@ -172,6 +244,9 @@ P:NPC {
       lines = { { id = "de_default", text = "Morning glory dew, gathered from the leaves at sunrise, and bread baked in the old way. It isn't much, but it's honest food." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  },
+  topics = {
+    onu = { { id = "tp_xonu", text = "The eldest ancient. Speak slowly to him, and listen even more slowly." } },
   },
 }
 
@@ -261,12 +336,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xcmd = {
+      narr = "She nods toward the moonwell at the heart of the village.",
+      lines = { { id = "xcmd_default", text = "Sentinel Glynda Nal'Shea keeps the watch, and Thundris Windweaver keeps the Cenarion work. Between them, Auberdine has more orders than it has Sentinels, which is how every outpost feels these days." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xshore = {
+      lines = { { id = "xshore_default", text = "The sea has been restless since the Sundering, and lately more so. Strange things wash up on the beaches, and the naga come further inland each season. Some of the elders say the deep is waking." } },
+      choices = {
+        { text = "What do you think is waking?", next = "xwake" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwake = {
+      lines = { { id = "xwake_default", text = "I do not know, and I do not like guessing at the sea. I would rather the priestesses studied it carefully than the Sentinels rushed into the water with glaives. Or would you rather we struck first?" } },
+      choices = {
+        { text = "Study it first. Rash blades start worse fights.", next = "BACK", reply = "That is my counsel too. Patience has kept this harbour alive.", fx = { align = { order = 1 } } },
+        { text = "Strike first, before it reaches the harbour.", next = "BACK", reply = "Bold. Glynda would like you, at least.", fx = { align = { order = -1 } } },
+      },
+    },
+    xboats = {
+      lines = { { id = "xboats_default", text = "West to Rut'theran Village below Teldrassil, and south across the sea to Menethil Harbor. The Menethil boat is late more often than not, so bring a book while you wait." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xkin = {
+      lines = { { id = "xkin_default", text = "That it was our home long before Teldrassil, and that our old cities lie in ruins along this coast. Walk through them with respect. The ghosts in Ameth'Aran still remember who they were." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdwarf = {
+      lines = { { id = "xdwarf_default", text = "Often. The Explorers' League has a camp up the coast, digging in our ruins with more enthusiasm than care. They mean well, and they always pay for their ale, which earns them a little patience." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Auberdine is the last safe harbour on this coast. The boats sail to Teldrassil and to Menethil from here, and we keep watch so they keep sailing." },
       },
       again = { { id = "h_again", text = "Is there more? I can answer while I watch." } },
       choices = {
+        { text = "Who commands the Sentinels here?", next = "xcmd" },
+        { text = "What happened to the Twilight Shore?", next = "xshore" },
+        { text = "Where do the boats go?", next = "xboats" },
+        { text = "I'm kaldorei. What should I know of Darkshore?", next = "xkin", when = { race = "NightElf" } },
+        { text = "I'm a dwarf. Do my kin come through here?", next = "xdwarf", when = { race = "Dwarf" } },
+
         { text = "What threatens Darkshore?", next = "threat" },
         { text = "What do you think of the human visitors?", next = "humans" },
         { text = "Farewell, Sentinel.", next = "END" },
@@ -284,5 +397,9 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+  },
+  topics = {
+    auberdine = { { id = "tp_xauberdine", text = "Our harbour and our home on this coast. Keep it peaceful while you are here." } },
+    naga = { { id = "tp_xnaga", text = "They come from the sea at night. Never sleep on the beach." } },
   },
 }

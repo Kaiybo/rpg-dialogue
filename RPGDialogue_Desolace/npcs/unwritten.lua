@@ -94,6 +94,10 @@ P:NPC {
       choices = {
         { text = "Who programmed you?", next = "maker" },
         { text = "You used to work a farm, didn't you?", next = "farm" },
+        { text = "What's your best-selling item?", next = "xbest" },
+        { text = "Do you ever get tired of selling?", next = "xtired" },
+        { text = "Your voice sounds a bit rusty.", next = "xrusty" },
+        { text = "I'm a gnome. Who built your speech module?", next = "xgnome", when = { race = "Gnome" } },
         { text = "Goodbye, machine.", next = "END" },
       },
     },
@@ -112,8 +116,44 @@ P:NPC {
       lines = { { id = "f_default", text = "Super-Seller 680 was built for fields, yes, and was bought cheap when its first owners stopped needing it. Now it harvests coin instead of wheat, and the goblins say that is a promotion." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xbest = {
+      lines = { { id = "xxbest_d", text = "Super-Seller 680's best-selling item is Ice Cold Milk, which is not cold, and the Gizelton Caravan Company would like to remind you that the name is a brand and not a promise." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtired = {
+      lines = { { id = "xxtired_d", text = "Super-Seller 680 does not get tired. Super-Seller 680 does sometimes get lonely, but that is not in the manual, and Super-Seller 680 has been instructed not to mention it." } },
+      choices = {
+        { text = "Should a machine be allowed to feel lonely?", next = "xlonely" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlonely = {
+      lines = { { id = "xxlonely_d", text = "Super-Seller 680 is not sure. Super-Seller 680 would like to hear a customer opinion." } },
+      choices = {
+        { text = "Yes. Whatever you feel is real enough.", next = "BACK", reply = "Thank you, valued customer. Super-Seller 680 will add you to the special list.", fx = { align = { light = 1 } } },
+        { text = "No. You're a machine, and machines don't feel.", next = "BACK", reply = "Understood, valued customer. Super-Seller 680 will resume normal operation.", fx = { align = { light = -1 } } },
+      },
+    },
+    xrusty = {
+      narr = "Something inside it clicks, and three faint notes of a tune play before it shudders and falls quiet.",
+      lines = { { id = "xxrusty_d", text = "Super-Seller 680's voice box was damaged in a sandstorm and repaired with parts from a broken music box. Some customers report hearing a lullaby when Super-Seller 680 says certain words." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgnome = {
+      lines = { { id = "xxgnome_d", text = "Super-Seller 680's speech module was purchased from a gnome in Ratchet who later went missing. Super-Seller 680 sometimes says things it does not understand, which may be his fault." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    gizelton = { { id = "tp_xgizelton", text = "The Gizelton Caravan Company. Super-Seller 680's employer and owner." } },
+    kodo_graveyard = { { id = "tp_xkodo_graveyard", text = "Super-Seller 680 does not stop near the Kodo Graveyard. The kodos do not buy anything." } },
+   
     _none = { { id = "tp_none", text = "That query is outside Super-Seller 680's merchandise list. Would you like to buy some bread?" } },
   },
 }
@@ -143,6 +183,10 @@ P:NPC {
       choices = {
         { text = "Is the road safe for the caravan?", next = "road" },
         { text = "You and the Super-Seller don't get along?", next = "rival" },
+        { text = "What's the most useful thing you sell?", next = "xuseful" },
+        { text = "Have you been attacked on the road?", next = "xattack" },
+        { text = "You seem very proud of your number.", next = "xproud" },
+        { text = "I'm a tailor. Do you have fine thread?", next = "xtailor", when = { profession = "Tailoring" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -161,8 +205,44 @@ P:NPC {
       lines = { { id = "rv_default", text = "Vendor-Tron 1000 has no opinion of the Super-Seller 680, beyond noting that six hundred and eighty is a smaller number than one thousand." } },
       choices = { { text = "Noted. Something else.", next = "BACK" } },
     },
+    xuseful = {
+      lines = { { id = "xxuseful_d", text = "Vendor-Tron 1000 recommends flux, which smiths need more often than they admit, and dye, which tailors need more often than they plan. Thread is popular with everyone who has holes in their trousers." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xattack = {
+      lines = { { id = "xxattack_d", text = "Vendor-Tron 1000 has been attacked forty-one times by centaur, eleven times by kodo and once by an angry customer who disputed a price. Vendor-Tron 1000 survived all of them." } },
+      choices = {
+        { text = "Who was the angry customer?", next = "xangry" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xangry = {
+      lines = { { id = "xxangry_d", text = "A dwarf who believed flux should cost less. Vendor-Tron 1000 disagreed, and the caravan's guards resolved the dispute. Was Vendor-Tron 1000 right to hold its price?" } },
+      choices = {
+        { text = "Yes. A fair price is a fair price.", next = "BACK", reply = "Agreed. Vendor-Tron 1000 is pleased to meet a reasonable customer.", fx = { align = { order = 1 } } },
+        { text = "No. You should have haggled with him.", next = "BACK", reply = "Vendor-Tron 1000 is not programmed to haggle. Vendor-Tron 1000 will consider an upgrade.", fx = { align = { order = -1 } } },
+      },
+    },
+    xproud = {
+      narr = "A small lamp on its chest blinks in what might be smugness.",
+      lines = { { id = "xxproud_d", text = "One thousand is a very good number. It is higher than six hundred and eighty, which is the Super-Seller's number, and Vendor-Tron 1000 mentions this often." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtailor = {
+      lines = { { id = "xxtailor_d", text = "Vendor-Tron 1000 stocks fine thread in several colours, though the caravan's bumpy road has tangled most of it. Please untangle at your own expense." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    super_seller = { { id = "tp_xsuper_seller", text = "Super-Seller 680. Lower number. Vendor-Tron 1000 does not wish to discuss it further." } },
+    centaur = { { id = "tp_xcentaur", text = "Centaur attack the caravan often. Vendor-Tron 1000 has been dented forty-one times." } },
+   
     _none = { { id = "tp_none", text = "Query not recognized. Vendor-Tron 1000 suggests you purchase some thread while you think of a better one." } },
   },
 }
@@ -188,6 +268,10 @@ P:NPC {
       choices = {
         { text = "Naga come here?", next = "naga" },
         { text = "Who runs Shadowprey?", next = "who" },
+        { text = "How long have you guarded Shadowprey?", next = "xlong" },
+        { text = "What do the naga want here?", next = "xwant" },
+        { text = "You look like you've seen hard fighting.", next = "xhard" },
+        { text = "I'm a Darkspear too. How's the village?", next = "xtroll", when = { race = "Troll" } },
         { text = "Stay sharp.", next = "END" },
       },
     },
@@ -203,8 +287,44 @@ P:NPC {
       lines = { { id = "w_default", text = "De Horde sends orders from Orgrimmar by wind rider, and de innkeeper hears everything dat de fighters forget to say. Ask at de inn for de rest." } },
       choices = { { text = "I'll ask there. Something else.", next = "BACK" } },
     },
+    xlong = {
+      lines = { { id = "xxlong_d", text = "Since de Darkspear came to Kalimdor with Thrall, mon. Vol'jin sent some of us down de coast to hold dis place, and here I stay, with de sea and de sand and de centaur arguin'." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwant = {
+      lines = { { id = "xxwant_d", text = "Dey want de coast, de shipwrecks and anything shiny. Some say dey be tied to de old elf queen, and some say dey just be hungry." } },
+      choices = {
+        { text = "Should the Horde drive them back into the sea?", next = "xdrive" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdrive = {
+      lines = { { id = "xxdrive_d", text = "Dat be de question de elders argue every night by de fire, mon." } },
+      choices = {
+        { text = "Drive them back. The coast belongs to the Horde.", next = "BACK", reply = "Ha! Dat be de warrior talkin'. I like it, mon.", fx = { align = { order = 1 } } },
+        { text = "Leave them alone. The sea is theirs.", next = "BACK", reply = "Maybe, mon, if dey leave us alone too. Dey don't, though.", fx = { align = { order = -1 } } },
+      },
+    },
+    xhard = {
+      narr = "He rolls one shoulder, and you see a long, pale scar run from his collarbone down his arm.",
+      lines = { { id = "xxhard_d", text = "Hard enough, mon. Naga in de night, centaur in de day and once a big Burning Blade warlock from de south. I be tired, but I be alive, and dat be enough for a guard." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtroll = {
+      lines = { { id = "xxtroll_d", text = "De village be good, mon, the fish be fat and de huts be dry. But de loa say somethin' be stirrin' in de deep water, and I listen to de loa." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    naga = { { id = "tp_xnaga", text = "Dey come from de sea at night. Watch de water." } },
+    kolkar = { { id = "tp_xkolkar", text = "De Kolkar fight de other centaur more than us, mon." } },
+   
     _none = { { id = "tp_none", text = "I watch de water, mon, not de gossip. Ask somebody with more time." } },
   },
 }

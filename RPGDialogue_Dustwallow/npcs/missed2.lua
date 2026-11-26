@@ -282,6 +282,10 @@ P:NPC {
       choices = {
         { text = "Who gives you the hardest bout?", next = "hardest" },
         { text = "Strength isn't everything in a fight.", next = "strength" },
+        { text = "Who's the strongest on the Blue Team?", next = "xblue" },
+        { text = "Have you ever lost a bout?", next = "xlost" },
+        { text = "Strength isn't everything in a fight.", next = "xnot" },
+        { text = "I'm a warrior too. Show me your stance.", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "Go flatten your Blue.", next = "END" },
       },
     },
@@ -300,8 +304,44 @@ P:NPC {
       lines = { { id = "s_default", text = "That's what the Captain says, and what Szigeti says, and what Lana says twice a day. I'll allow there might be something in it, but I notice none of them wants to stand in front of my swing." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xblue = {
+      lines = { { id = "xxblue_d", text = "Edward, if you ask the Blues, but he's just stubborn, not strong. He stands there like a wall and lets you hit him until your arms give out, which isn't the same as winning." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlost = {
+      narr = "He scowls at the far end of the yard, where Kahil is bouncing on his toes.",
+      lines = { { id = "xxlost_d", text = "Once, to Kahil, and only because he ran circles around me until I fell over my own feet. The Captain made me run laps for a week, and Lana still hasn't stopped laughing." } },
+      choices = {
+        { text = "Did you learn anything from it?", next = "xlearn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlearn = {
+      lines = { { id = "xxlearn_d", text = "I learned to keep my feet under me, and that Kahil gets tired if you make him wait. Tark says that's strategy, and I say it's common sense." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnot = {
+      lines = { { id = "xxnot_d", text = "That's what Tark says, and Lana, and the Captain, and every Blue I've ever knocked down. Go on, what wins a fight, then?" } },
+      choices = {
+        { text = "Discipline. Strength without discipline breaks in a long fight.", next = "BACK", reply = "Hmph. You sound like Captain Andrews. Maybe I'll listen this time.", fx = { align = { order = 1 } } },
+        { text = "Hit first and hit hardest. That's all there is.", next = "BACK", reply = "Ha! There, finally someone who talks sense in this yard.", fx = { align = { order = -1 } } },
+      },
+    },
+    xwarrior = {
+      lines = { { id = "xxwarrior_d", text = "Feet wide, weight low and swing from the hips, not the shoulders. Most of the young ones swing with their arms and wonder why they're tired in a minute, but you look like you know that already." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    blue_team = { { id = "tp_xblue_team", text = "Captain Thomas' lot. They're quick, but quick only gets you so far." } },
+    red_team = { { id = "tp_xred_team", text = "Red Team's the strong one. Ask anyone, except the Blues." } },
+   
     background = { { id = "tp_bg", text = "I hauled nets on the docks here before I enlisted. That's where the arms come from." } },
     _none = { { id = "tp_none", text = "No idea. Ask the Captain." } },
   },
@@ -338,6 +378,10 @@ P:NPC {
       choices = {
         { text = "What did happen with the mud?", next = "mud" },
         { text = "Does the sparring make better guards?", next = "better" },
+        { text = "How do you keep Jarad and Tark in line?", next = "xline" },
+        { text = "Has Red Team been winning lately?", next = "xmud2" },
+        { text = "You seem to watch the whole yard.", next = "xwatch" },
+        { text = "I'm a paladin. Do you fight with faith?", next = "xpaladin", when = { class = "PALADIN" } },
         { text = "Good fortune in the next bout.", next = "END" },
       },
     },
@@ -356,8 +400,44 @@ P:NPC {
       lines = { { id = "b_default", text = "It does, because straw doesn't feint and a comrade does. I'd rather take a bruise from Edward today than learn the same lesson from a raptor on the north road." } },
       choices = { { text = "Well put. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    xline = {
+      lines = { { id = "xxline_d", text = "I tell Jarad to swing and Tark to stop thinking, and then I fight whoever's left standing on the Blue side. It's not complicated, but it took me a year to learn." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmud2 = {
+      narr = "She nods toward a chalk-scrawled board nailed to the fence.",
+      lines = { { id = "xxmud2_d", text = "Seven bouts to five this month, and two of the Blues' wins were Kahil running Jarad in circles. The Captains keep a tally on a board by the barracks, and Captain Thomas rubs it out when he thinks nobody's looking." } },
+      choices = {
+        { text = "Does Captain Andrews know?", next = "xfall" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfall = {
+      lines = { { id = "xxfall_d", text = "He knows, and he chalks it back in every morning before drill. It's the closest thing to a war this yard has seen, and I think both of them enjoy it more than they'd admit." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwatch = {
+      lines = { { id = "xxwatch_d", text = "Somebody has to. The best fighter in a line isn't the one with the biggest swing, it's the one who notices the gap before it opens. Do you think a soldier's first duty is to her team or to herself?" } },
+      choices = {
+        { text = "To her team. A line holds or it breaks together.", next = "BACK", reply = "Exactly. You'd fit on Red Team, if Captain Andrews would have you.", fx = { align = { order = 1 } } },
+        { text = "To herself. A dead soldier helps no one.", next = "BACK", reply = "There's sense in that, and I've seen it save lives. But it's not how a line works.", fx = { align = { order = -1 } } },
+      },
+    },
+    xpaladin = {
+      lines = { { id = "xxpaladin_d", text = "With faith and a shield, and I'd rather have both. My mother prayed to the Light every morning in Lordaeron, and I still do, though it's quieter here." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    red_team = { { id = "tp_xred_team", text = "Jarad hits, Tark thinks, and I keep them alive. It works." } },
+    mud = { { id = "tp_xmud", text = "Don't mention the mud." } },
+   
     background = { { id = "tp_bg", text = "My mother was a marine of Kul Tiras, and I was carried off the ship here as a child. The Guard was always where I was going." } },
     _none = { { id = "tp_none", text = "I don't know. Captain Andrews might." } },
   },
@@ -528,6 +608,10 @@ P:NPC {
       choices = {
         { text = "Doesn't all that dodging wear you out?", next = "tired" },
         { text = "Tark says you always break right.", next = "right" },
+        { text = "What's your secret for winning?", next = "xsecret" },
+        { text = "Where did you learn to fight?", next = "xwhere" },
+        { text = "You never seem to stand still.", next = "xstill" },
+        { text = "I'm a rogue. Speed is my trade too.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Keep moving, Kahil.", next = "END" },
       },
     },
@@ -546,8 +630,51 @@ P:NPC {
       lines = { { id = "r_default", text = "Does he, now? Well, don't tell him he's correct, because I've been breaking right on purpose for a month so that I can go left when it counts." } },
       choices = { { text = "I never heard a thing. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    xsecret = {
+      lines = { { id = "xxsecret_d", text = "Never be where they swing. Jarad's got arms like tree trunks, but if I'm not in front of him, they're only waving at the air." } },
+      choices = {
+        { text = "What if they corner you?", next = "xcorner" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcorner = {
+      lines = { { id = "xxcorner_d", text = "Then I've made a mistake and I deserve the bruise. Narrisha says I'm reckless, and Edward says I'm lucky, and I say both of them are jealous." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwhere = {
+      narr = "He grins and does a quick hop backward, as if dodging the memory.",
+      lines = { { id = "xxwhere_d", text = "In Stormwind's alleys, ducking the city watch, if I'm honest. The Captain caught me stealing apples once and said I'd be better off running for the Guard than from it." } },
+      choices = {
+        { text = "Do you miss those days?", next = "xmiss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmiss = {
+      lines = { { id = "xxmiss_d", text = "A little, but I eat better now and nobody chases me. Was the Captain right to take a thief in, or should he have handed me to the watch?" } },
+      choices = {
+        { text = "He was right. Everyone deserves a second chance.", next = "BACK", reply = "That's what I tell myself every morning! Glad you agree.", fx = { align = { light = 1 } } },
+        { text = "A thief's a thief. You got lucky.", next = "BACK", reply = "Lucky, maybe, but lucky's still winning, isn't it?", fx = { align = { light = -1 } } },
+      },
+    },
+    xstill = {
+      lines = { { id = "xxstill_d", text = "Can't afford to. If I stop I'll stiffen, and if I stiffen Jarad will catch me, and if Jarad catches me I'll be eating soup through a straw for a week." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      lines = { { id = "xxrogue_d", text = "Then you know! Footwork wins every fight that matters. If you're ever around for a bout, I'd like to see how you move." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    red_team = { { id = "tp_xred_team", text = "Strong, slow and very proud of it. I like them anyway." } },
+    captain_thomas = { { id = "tp_xcaptain_thomas", text = "Captain Thomas took me off the street. I owe him more than bruises." } },
+   
     background = { { id = "tp_bg", text = "I was a runner for the citadel before I was old enough to enlist. I've never been any good at keeping still." } },
     _none = { { id = "tp_none", text = "Not a clue! Ask the Captain, he's got a slate for everything." } },
   },

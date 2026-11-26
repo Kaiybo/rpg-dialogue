@@ -282,8 +282,45 @@ P:NPC {
       again = { { id = "a_again", text = "*The elemental crackles impatiently in its bonds.*" } },
       choices = {
         { text = "The Dark Irons won't hold you much longer.", next = "BACK", reply = "*Its flames leap high and white, and the chains glow cherry-red where they bind it.*" },
+        { text = "Who chained you here?", next = "xwho" },
+        { text = "Do you understand me?", next = "xunderstand" },
+        { text = "What will you do when you're free?", next = "xfree" },
+        { text = "I'm a shaman. I hear the fire in you.", next = "xshaman", when = { class = "SHAMAN" } },
+        { text = "I'm a mage. Your fire is pure and wild.", next = "xmage", when = { class = "MAGE" } },
         { text = "Stay close and follow me. We're leaving.", next = "END", reply = "*The elemental drifts after you, scorching the grass with every step it takes toward the marsh.*" },
       },
+    },
+    xwho = {
+      narr = "The elemental twists toward the ruins of Dun Modr, and its flames flare a sullen red.",
+      lines = { { id = "xwh_default", text = "*It crackles low, and the chains rattle as it strains in the direction of the Dark Iron camp, scattering sparks across the stones.*" } },
+      choices = {
+        { text = "The Dark Irons, then. They bind fire for their forges.", next = "xbind" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbind = {
+      lines = { { id = "xbi_default", text = "*The flames gutter blue and thin, as if the very word chains has drawn the heat out of it, and then roar back angrier than before.*" } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xunderstand = {
+      lines = { { id = "xun_default", text = "*The elemental stills, and for a moment its fire burns steady and bright, like a lamp held up for you to see by.*" } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xfree = {
+      lines = { { id = "xfr_default", text = "*Its flames climb high and white, and the grass at its feet blackens and curls in a wide ring that it does not seem to notice.*" } },
+      choices = {
+        { text = "Burn the Dark Irons' camp to the ground.", next = "BACK", reply = "*The fire leaps with a sound like a forge-bellows laughing.*", fx = { align = { light = -1 } } },
+        { text = "Go home. Leave the marsh unscorched.", next = "BACK", reply = "*The flames settle, dimmer, and the elemental bows low against its chains.*", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xshaman = {
+      lines = { { id = "xsh_default", text = "*The elemental turns its whole burning face toward you, and the heat softens to the warmth of a hearth, as if it has found a voice it knows.*" } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xmage = {
+      lines = { { id = "xma_default", text = "*The flames recoil from you, wary and hissing, and the elemental draws back as far as its chains allow.*" } },
+      choices = { { text = "Something else.", next = "BACK" } },
     },
   },
 }

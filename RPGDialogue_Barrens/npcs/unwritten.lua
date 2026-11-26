@@ -107,6 +107,10 @@ P:NPC {
       choices = {
         { text = "What is Smokywood Pastures?", next = "smoky" },
         { text = "Who buys from you out here?", next = "buyers" },
+        { text = "What's in the sausages, honestly?", next = "xsausage" },
+        { text = "Do the grunts pay their tabs?", next = "xtabs" },
+        { text = "Does Smokywood sell to the Alliance too?", next = "xalliance" },
+        { text = "I'm a tauren. Is that kodo meat?", next = "xkodo", when = { race = "Tauren" } },
         { text = "Show me what you have.", next = "END" },
       },
     },
@@ -125,6 +129,61 @@ P:NPC {
       lines = { { id = "b_default", text = "Grunts from the rampart, caravan drivers, and anybody coming back from Ashenvale with all their limbs and an appetite to prove it. War is hungry work, friend, and I am a patriot that way." } },
       choices = { { text = "Of course you are. Something else.", next = "BACK" } },
     },
+    xsausage = {
+      lines = {
+        { id = "x_xsausage", text = "Pork, sage, a little of this and a little of that, and a secret blend of spices my uncle would sell my kidneys to protect. I tell everyone it's plainstrider, which is true about one time in three." },
+      },
+      choices = {
+        { text = "And the other two?", next = "xother" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xother = {
+      lines = {
+        { id = "x_xother", text = "Trade secrets, friend, and a fellow with secrets keeps his customers coming back to guess. Nobody's ever been sick, and that's in writing, more or less." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtabs = {
+      lines = {
+        { id = "x_xtabs", text = "Most do, because a grunt who stiffs the sausage man finds out fast that nobody at Mor'shan will share a fire with him. The rampart has its own justice, and I'm on the right side of it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xalliance = {
+      lines = {
+        { id = "x_xalliance", text = "Of course, through the cousins in Ironforge and Stormwind. Winter Veil doesn't care whose flag you fly, and neither does a good tin of cookies." },
+      },
+      choices = {
+        { text = "Selling to both sides is shameless.", next = "xshame" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xshame = {
+      lines = {
+        { id = "x_xshame", text = "Shameless is a word for folk who don't have a ledger. Me, I call it a big market, but go on, pick a side, everyone does." },
+      },
+      choices = {
+        { text = "Trade keeps people talking. It's good for everyone.", next = "BACK", reply = "Now you're thinking like a goblin, and I mean that kindly.", fx = { align = { order = 1 } } },
+        { text = "In wartime you should pick a side.", next = "BACK", reply = "Sure, sure, and when you're hungry, you'll pick my sausages anyway.", fx = { align = { order = -1 } } },
+      },
+    },
+    xkodo = {
+      narr = "He moves the tray of sausages a little further behind his back.",
+      lines = {
+        { id = "x_xkodo", text = "Not a scrap, friend, I swear it on my mother's ledger! I know which side of the Crossroads my bread's buttered on, and it's the side with all the tauren." },
+      },
+      choices = {
+        { text = "Good.", next = "BACK", reply = "Good! Now buy something before I start sweating." },
+      },
+    },
+  },
+  topics = {
+    winter_veil = { { id = "tp_xwinter_veil", text = "Winter Veil's the busy season. I sell more cheer in a week than the rest of the year." } },
   },
 }
 
@@ -230,6 +289,9 @@ P:NPC {
         { text = "What comes over the hill?", next = "threats" },
         { text = "How did you learn to throw like that?", next = "axes" },
         { text = "Darkspear guarding an orc town?", next = "darkspear" },
+        { text = "What do you think of the orcs here?", next = "xorcs" },
+        { text = "Have you killed many raiders?", next = "xraiders" },
+        { text = "Tell me about Zalazane.", next = "xzala", when = { race = "Troll" } },
         { text = "Stay sharp.", next = "END" },
       },
     },
@@ -252,6 +314,54 @@ P:NPC {
       lines = { { id = "d_default", text = "The Crossroads be a Horde town, not an orc town, mon. Tauren cook the food, orcs bark the orders, and trolls do the clever parts." } },
       choices = { { text = "Ha. Something else.", next = "BACK" } },
     },
+    xorcs = {
+      lines = {
+        { id = "x_xorcs", text = "Dey be loud and proud and dey snore like kodo, but dey fight like dey mean it, and dat be enough for me. Thrall's orcs gave us a home when de sea wanted to take us." },
+      },
+      choices = {
+        { text = "Do they treat trolls fairly?", next = "xfair" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfair = {
+      lines = {
+        { id = "x_xfair", text = "Mostly, mon. Some old grunts still look at a Darkspear like he gonna eat dem, and a few younger ones too. But dey learn, slow, when de axe of a troll saves dere neck." },
+      },
+      choices = {
+        { text = "The Horde is one people now. They'll learn.", next = "BACK", reply = "Dat be de Warchief's dream, and I be holdin' him to it.", fx = { align = { order = 1 } } },
+        { text = "Trust is earned. Keep your own close.", next = "BACK", reply = "Ha, you talk like my grandmother, an' she be a wise old witch.", fx = { align = { order = -1 } } },
+      },
+    },
+    xraiders = {
+      lines = {
+        { id = "x_xraiders", text = "More den I can count on one hand and less den two. Mostly Razormane, a few centaur, and once a human scout who thought de grass was taller den it be." },
+      },
+      choices = {
+        { text = "What happened to the scout?", next = "xscout" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xscout = {
+      narr = "He flips the axe, catches it by the haft, and grins.",
+      lines = {
+        { id = "x_xscout", text = "He be runnin' back to Northwatch with a story to tell, and one less boot. I don't kill what I can send home scared, mon, because scared men talk." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xzala = {
+      lines = {
+        { id = "x_xzala", text = "De mad witch doctor who took de Echo Isles and made our own kin into his puppets. One day Vol'jin gonna call de Darkspear home, and on dat day I be first in de boat." },
+      },
+      choices = {
+        { text = "I'll be in the boat beside you.", next = "BACK", reply = "Den we row together, brudda. De loa be watchin'.", fx = { affinity = 1 } },
+      },
+    },
+  },
+  topics = {
+    darkspear = { { id = "tp_xdarkspear", text = "De Darkspear be few, but we be clever, and we remember who helped us." } },
+    vol_jin = { { id = "tp_xvol_jin", text = "Vol'jin be our leader, and he speak for us at Thrall's side." } },
   },
 }
 
@@ -278,6 +388,9 @@ P:NPC {
       choices = {
         { text = "What is the Warchief's Blessing?", next = "blessing" },
         { text = "Do you know Thrall yourself?", next = "thrall" },
+        { text = "What deeds have you cried lately?", next = "xdeeds" },
+        { text = "How did you become a herald?", next = "xhow" },
+        { text = "Does it trouble you, speaking for another?", next = "xspeak" },
         { text = "Carry on, Herald.", next = "END" },
       },
     },
@@ -292,6 +405,53 @@ P:NPC {
       lines = { { id = "t_default", text = "I have stood in Grommash Hold and heard him speak, and that is all a herald needs. He freed us from the camps, and I will shout his name until my throat gives out." } },
       choices = { { text = "Then shout well. Something else.", next = "BACK" } },
     },
+    xdeeds = {
+      lines = {
+        { id = "x_xdeeds", text = "I cried the names of the warband that broke the Razormane at Thorn Hill, and the plains shook with the cheering of every grunt between here and the coast. Before that I cried the burning of a Kolkar war camp in the north." },
+      },
+      choices = {
+        { text = "Do the cheers truly matter so much?", next = "xonyxia" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xonyxia = {
+      narr = "He straightens on his crate as if the crowd were still there.",
+      lines = {
+        { id = "x_xonyxia", text = "More than you know, for a grunt who hears his name cried believes the Warchief himself has seen him. Some of them have never been thanked for anything in their lives, not in the camps and not since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhow = {
+      lines = {
+        { id = "x_xhow", text = "I was a grunt with a loud voice and a bad leg, and Eitrigg heard me bellowing orders across Razor Hill. He said a voice like that should carry the Warchief's words, not a sergeant's curses." },
+      },
+      choices = {
+        { text = "Do you miss fighting?", next = "xmiss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmiss = {
+      lines = {
+        { id = "x_xmiss", text = "Every day, but a herald also fights, only with breath instead of an axe. When I shout a victory, a hundred tired grunts stand up straighter, and that is worth more than my one leg." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xspeak = {
+      lines = {
+        { id = "x_xspeak", text = "Never, for I trust the Warchief's words more than my own. But some say a herald should speak his own mind too, and that a free orc should never be anyone's echo." },
+      },
+      choices = {
+        { text = "Loyalty is honour. Speak Thrall's words proudly.", next = "BACK", reply = "So I shall, until my voice fails me.", fx = { align = { honor = 1 } } },
+        { text = "A free orc should speak for himself.", next = "BACK", reply = "Thrall himself would say the same, and that is why I serve him.", fx = { align = { honor = -1 } } },
+      },
+    },
+  },
+  topics = {
+    thrall = { { id = "tp_xthrall", text = "The Warchief broke our chains and led us across the sea. I will shout his name until I die." } },
   },
 }
 
@@ -321,6 +481,9 @@ P:NPC {
       choices = {
         { text = "Why sell robes in the middle of the Barrens?", next = "why" },
         { text = "Your neighbour sells leather.", next = "pizz" },
+        { text = "Who are your best customers?", next = "xcust" },
+        { text = "Where do you get your cloth?", next = "xcloth" },
+        { text = "Tell me honestly. How do I look?", next = "xlook" },
         { text = "Let me see the rack.", next = "END" },
       },
     },
@@ -339,6 +502,54 @@ P:NPC {
       lines = { { id = "p_default", text = "Pizznukle, yes, with his smelly hides. We share a fire and a guard, and we argue about whose customers are uglier." } },
       choices = { { text = "Whose are?", next = "BACK", reply = "His, obviously. Mine leave in purple." } },
     },
+    xcust = {
+      lines = {
+        { id = "x_xcust", text = "Mages and priests, darling, always mages and priests, because they cannot wear a scrap of mail and they know they look dreadful in grey. Last week a Forsaken warlock bought three hoods and thanked me without a single sneer." },
+      },
+      choices = {
+        { text = "A Forsaken with manners?", next = "xmanners" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmanners = {
+      lines = {
+        { id = "x_xmanners", text = "Rare as rain out here, but they exist, and they tip well, because the dead don't need much money except for style. I don't ask what happened to the old hoods, and he didn't say." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcloth = {
+      lines = {
+        { id = "x_xcloth", text = "Silk from the spiders of Ashenvale, bought from trappers who don't ask the night elves first, and wool from Thunder Bluff. Some of it I won't tell you about, because a clothier keeps his secrets like his seams." },
+      },
+      choices = {
+        { text = "Buying from poachers isn't right.", next = "xpoach" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpoach = {
+      lines = {
+        { id = "x_xpoach", text = "Poachers, trappers, independent suppliers, it's a matter of vocabulary, darling. The spiders don't mind, and the elves won't sell to me anyway." },
+      },
+      choices = {
+        { text = "Theft is theft, whatever you call it.", next = "BACK", reply = "You sound like my aunt, and she dresses horribly.", fx = { align = { order = 1 } } },
+        { text = "The elves can't hoard every spider in Ashenvale.", next = "BACK", reply = "Exactly so! Taste and sense, all in one customer.", fx = { align = { order = -1 } } },
+      },
+    },
+    xlook = {
+      narr = "He looks you up and down, sighs, and straightens his own perfect cuffs.",
+      lines = {
+        { id = "x_xlook", text = "Like someone who has been running through the Barrens, which you have, so I forgive you. A good robe would do wonders, but I sell those, so naturally I would say so." },
+      },
+      choices = {
+        { text = "Naturally.", next = "BACK", reply = "I'm glad we understand each other." },
+      },
+    },
+  },
+  topics = {
+    lushwater = { { id = "tp_xlushwater", text = "The Lushwater is the only spot of green for miles, and it does nothing for anyone's complexion." } },
+    pizznukle = { { id = "tp_xpizznukle", text = "Pizznukle is a dear, but he thinks leather counts as fashion." } },
   },
 }
 
@@ -368,6 +579,10 @@ P:NPC {
       choices = {
         { text = "Where do your hides come from?", next = "hides" },
         { text = "Is this camp safe?", next = "safe" },
+        { text = "What makes good leather?", next = "xgood" },
+        { text = "Have you and Kiknikle been partners long?", next = "xpartner" },
+        { text = "I work leather myself. Any tips?", next = "xtip", when = { profession = "Leatherworking" } },
+        { text = "How do you stay safe from the centaur?", next = "xsafe2" },
         { text = "Show me your stock.", next = "END" },
       },
     },
@@ -386,6 +601,52 @@ P:NPC {
       lines = { { id = "s_default", text = "Safe as anything in the Barrens, which means not very. We pay a guard, we keep the fire small, and we leave the oasis to the druids and whatever has got into the water." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xgood = {
+      lines = {
+        { id = "x_xgood", text = "Thick hide, slow curing and a tanner who doesn't cut corners, pal. Out here the sun bakes everything, so you oil it twice and you charge for both coats." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpartner = {
+      lines = {
+        { id = "x_xpartner", text = "Five years in the same patch of dirt, and we've never agreed on a single thing except the price of water. He thinks I dress like a sack, and I think he dresses like a target." },
+      },
+      choices = {
+        { text = "Who's right?", next = "xright" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xright = {
+      lines = {
+        { id = "x_xright", text = "Me, every time an arrow comes out of the grass. Silk looks pretty right up until somebody shoots it, and leather is ugly right up until it saves your neck." },
+      },
+      choices = {
+        { text = "Leather keeps you alive. You're right.", next = "BACK", reply = "Finally, somebody with sense. Tell him that, would ya?", fx = { align = { order = 1 } } },
+        { text = "A little style never killed anyone.", next = "BACK", reply = "Tell that to the last fella who wore silk to the Wailing Caverns.", fx = { align = { order = -1 } } },
+      },
+    },
+    xtip = {
+      lines = {
+        { id = "x_xtip", text = "Never cut wet hide, and never trust a kodo skin that's been in the sun more than a day. And sell to the hunters first, because they come back for more." },
+      },
+      choices = {
+        { text = "Thanks.", next = "BACK", reply = "No charge for that one, which hurts me to say." },
+      },
+    },
+    xsafe2 = {
+      lines = {
+        { id = "x_xsafe2", text = "The centaur leave us alone because we sell them leather on the quiet, and the Horde leaves us alone because we sell them leather loudly. Business is the best armour, and I should know." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    kiknikle = { { id = "tp_xkiknikle", text = "Kiknikle sells silk to people about to get shot. I sell leather to the survivors." } },
+    wailing_caverns = { { id = "tp_xwailing_caverns", text = "Folks come back from the Wailing Caverns ripped to pieces. Good for business, bad for them." } },
   },
 }
 
@@ -413,6 +674,9 @@ P:NPC {
         { text = "Where is his father fighting?", next = "father" },
         { text = "Mogg will make a fine warrior.", next = "mogg" },
         { text = "Why live out here alone?", next = "alone" },
+        { text = "How do you manage alone?", next = "xmanage" },
+        { text = "What was life like before the Barrens?", next = "xbefore" },
+        { text = "Do you worry about Mogg?", next = "xworry" },
         { text = "Farewell, Pooka.", next = "END" },
       },
     },
@@ -435,6 +699,45 @@ P:NPC {
       lines = { { id = "a_default", text = "We are not so alone, with the Crossroads a short walk south. The camps taught me to love open sky, and I will not trade it for walls again." } },
       choices = { { text = "I understand. Something else.", next = "BACK" } },
     },
+    xmanage = {
+      lines = {
+        { id = "x_xmanage", text = "The same way every orc woman has managed while the men marched off: with a strong back and a stronger voice. The Crossroads is close, and the guards look in on us when they pass." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbefore = {
+      narr = "She smooths a wet shirt on the line with both hands, carefully.",
+      lines = {
+        { id = "x_xbefore", text = "I was born in an internment camp in Lordaeron, and I learned to wash clothes for humans before I learned my own clan's name. This little hut is the first thing I have ever owned." },
+      },
+      choices = {
+        { text = "That must mean a great deal.", next = "xmean" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmean = {
+      lines = {
+        { id = "x_xmean", text = "More than I can say, and I don't say it, because Mogg doesn't need to know what we came from. Let him grow up free and loud and foolish, the way orc children should." },
+      },
+      choices = {
+        { text = "He should learn the past, so it never returns.", next = "BACK", reply = "Perhaps you're right, but not yet, not while he's so small.", fx = { align = { order = 1 } } },
+        { text = "Let him be free of it. That's his right.", next = "BACK", reply = "Yes. That's all I want for him.", fx = { align = { order = -1 } } },
+      },
+    },
+    xworry = {
+      lines = {
+        { id = "x_xworry", text = "Every time he runs into the grass, but a mother cannot keep a warrior's son in a basket. I taught him to shout loud enough that I hear him from anywhere, and he takes that lesson very seriously." },
+      },
+      choices = {
+        { text = "He clearly does.", next = "BACK", reply = "You heard him too, then? All the Barrens did.", fx = { affinity = 1 } },
+      },
+    },
+  },
+  topics = {
+    mogg = { { id = "tp_xmogg", text = "Mogg is my son. He's going to be a great warrior, if he lives through being a small one." } },
+    crossroads = { { id = "tp_xcrossroads", text = "The Crossroads is our market and our safety. I walk there every few days." } },
   },
 }
 
@@ -534,6 +837,9 @@ P:NPC {
       choices = {
         { text = "What sickness is in the water?", next = "sick" },
         { text = "Why answer Islen at all?", next = "islen" },
+        { text = "What is the sea like, where you come from?", next = "xsea" },
+        { text = "Do you feel the other elements?", next = "xelements" },
+        { text = "I have walked the path of water myself.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "Return to the deep.", next = "END" },
       },
     },
@@ -545,6 +851,44 @@ P:NPC {
       lines = { { id = "i_default", text = "She asks, where others command, and she gives back what she takes. The sea remembers manners longer than mountains do." } },
       choices = { { text = "I'll remember that.", next = "BACK" } },
     },
+    xsea = {
+      lines = {
+        { id = "x_xsea", text = "Deep and cold and endlessly patient, older than any river and wiser than any spring. The sea remembers every drop that has ever left it, and it calls them all home at last." },
+      },
+      choices = {
+        { text = "Even the fouled water?", next = "xfoul" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfoul = {
+      lines = {
+        { id = "x_xfoul", text = "Even that, though it takes longer, and the sea grieves for every well that sickens. Your kind fouls the water through greed and carelessness, and the water does not forget." },
+      },
+      choices = {
+        { text = "Mortals must answer for what we've fouled.", next = "BACK", reply = "Then answer well, mortal, and the tide will remember.", fx = { align = { light = 1 } } },
+        { text = "Mortals need water too. We take what we must.", next = "BACK", reply = "So you say, and so said every people the sea has drowned.", fx = { align = { light = -1 } } },
+      },
+    },
+    xelements = {
+      narr = "Foam drifts from its crown and vanishes before it reaches the stones.",
+      lines = {
+        { id = "x_xelements", text = "I feel the earth beneath the stair, sullen and slow, and the fire in the sun that drinks me away. We are not friends, the elements, but we are kin of a kind." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xshaman = {
+      lines = {
+        { id = "x_xshaman", text = "I taste it on you, like salt on the wind. Walk that path with care, for water gives life and takes it in the same breath." },
+      },
+      choices = {
+        { text = "I will remember.", next = "BACK", reply = "Remember, and return the water what you borrow.", fx = { affinity = 1 } },
+      },
+    },
+  },
+  topics = {
+    tidus_stair = { { id = "tp_xtidus_stair", text = "The Tidus Stair is where the land meets the tide. I can come no further inland." } },
   },
 }
 
@@ -580,6 +924,9 @@ P:NPC {
         { text = "Why not set up inside Ratchet?", next = "outside" },
         { text = "Do you ever mend people for free?", next = "free" },
         { text = "I heal too. Need a hand?", next = "healer", when = { class = { "PRIEST", "DRUID", "SHAMAN", "PALADIN" } } },
+        { text = "How did you learn to mend wounds?", next = "xlearn" },
+        { text = "What's in the suspicious bottles?", next = "xbottles" },
+        { text = "A priest could heal them for free.", next = "xpriest", when = { class = "PRIEST" } },
         { text = "I'm fine, thanks.", next = "END" },
       },
     },
@@ -609,6 +956,53 @@ P:NPC {
       lines = { { id = "h2_default", text = "A healer who offers, instead of selling? Sit down and roll up your sleeves, then, and I'll split the tips with you, which is generous for a goblin." } },
       choices = { { text = "Keep the tips.", next = "BACK", fx = { affinity = 1 } } },
     },
+    xlearn = {
+      lines = {
+        { id = "x_xlearn", text = "On a pirate ship off the Stranglethorn coast, sweetheart, where the surgeon drank more than he stitched. When he fell overboard, somebody had to hold the needle, and the captain pointed at me." },
+      },
+      choices = {
+        { text = "Why did you leave the ship?", next = "xleave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xleave = {
+      lines = {
+        { id = "x_xleave", text = "The captain wanted his surgery free and his surgeon grateful, and I'm neither of those things. I jumped ship at Ratchet with a bag of tools and a grudge, and business has been good ever since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbottles = {
+      lines = {
+        { id = "x_xbottles", text = "Liniments, tonics and a little something for the nerves, all honestly brewed and honestly overpriced. That one with the skull on it is for rats, and I'd keep my hand off it." },
+      },
+      choices = {
+        { text = "Do your tonics actually work?", next = "xwork" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwork = {
+      lines = {
+        { id = "x_xwork", text = "Some of them, some of the time, and the rest make folks feel better, which is half the battle. A medic sells hope, friend, and hope's the best margin there is." },
+      },
+      choices = {
+        { text = "Selling false hope is cruel.", next = "BACK", reply = "Cruel's leavin' 'em with none. Still, I hear ya.", fx = { align = { light = 1 } } },
+        { text = "If it helps them, it's worth the coin.", next = "BACK", reply = "Now there's somebody who understands the business.", fx = { align = { light = -1 } } },
+      },
+    },
+    xpriest = {
+      lines = {
+        { id = "x_xpriest", text = "Sure, if they can find one, and if they don't mind the sermon, and if the priest likes pirates. Until then, they come to Mupsi, and I don't preach." },
+      },
+      choices = {
+        { text = "Fair point.", next = "BACK", reply = "Always is, sweetheart. Need a bandage while you're here?" },
+      },
+    },
+  },
+  topics = {
+    ratchet = { { id = "tp_xratchet", text = "Ratchet's my bread and butter. Somebody's always falling off a pier." } },
+    pirates = { { id = "tp_xpirates", text = "Pirates pay cash and bleed a lot. They're my best customers." } },
   },
 }
 
@@ -635,6 +1029,9 @@ P:NPC {
       choices = {
         { text = "Isn't selling fireworks inside an inn dangerous?", next = "danger" },
         { text = "What festivals do you sell for?", next = "festivals" },
+        { text = "What's your best firework?", next = "xbest" },
+        { text = "Have you ever blown up the inn?", next = "xinn" },
+        { text = "Engineer's question: what powder do you use?", next = "xpowder", when = { profession = "Engineering" } },
         { text = "Show me the fireworks.", next = "END" },
       },
     },
@@ -653,6 +1050,53 @@ P:NPC {
       lines = { { id = "f_default", text = "Midsummer, when everyone lights bonfires and wants something louder, and any other day someone has gold and something to celebrate. A good rocket sells itself, friend." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xbest = {
+      lines = {
+        { id = "x_xbest", text = "The Big Bloomer, a red rocket that opens up like a flower and then opens up again just when you think it's done. I sold forty of them for the Lunar Festival last year, and only two were set off indoors." },
+      },
+      choices = {
+        { text = "Only two?", next = "xtwo" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtwo = {
+      lines = {
+        { id = "x_xtwo", text = "Two, and neither one was my fault, legally speaking. Read the label, I tell 'em, but nobody reads the label, and that's why the label is so small." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xinn = {
+      lines = {
+        { id = "x_xinn", text = "Not the whole inn, pal, only the kitchen, and only once, and the cook's eyebrows came back thicker than ever. The innkeeper charges me double rent now, and I call it an insurance premium." },
+      },
+      choices = {
+        { text = "Selling explosives indoors should be forbidden.", next = "xforbid" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xforbid = {
+      lines = {
+        { id = "x_xforbid", text = "Forbidden! Listen, listen, the rules in Ratchet are whatever Gazlowe says they are, and Gazlowe likes his fireworks. You wanna tell him no?" },
+      },
+      choices = {
+        { text = "Rules keep people alive. Move your crate outside.", next = "BACK", reply = "Outside, where the sun can cook it? You don't know powder, pal.", fx = { align = { order = 1 } } },
+        { text = "A town should be free to have its fun.", next = "BACK", reply = "Now that's a customer talkin'! Freedom and fireworks, chum.", fx = { align = { order = -1 } } },
+      },
+    },
+    xpowder = {
+      lines = {
+        { id = "x_xpowder", text = "A little saltpetre, a lot of luck and a pinch of something I bought off a gnome who swore it wasn't radioactive. Mix it slow, chum, because slow mixers keep their fingers." },
+      },
+      choices = {
+        { text = "Good advice.", next = "BACK", reply = "Free of charge, which is the only free thing I've ever given." },
+      },
+    },
+  },
+  topics = {
+    ratchet = { { id = "tp_xratchet", text = "Ratchet's got the best sky on the coast for fireworks. Clear, dry and nobody to complain." } },
+    gazlowe = { { id = "tp_xgazlowe", text = "Gazlowe's my best customer, and he never pays on time." } },
   },
 }
 
@@ -681,6 +1125,9 @@ P:NPC {
       choices = {
         { text = "Who approves the customers?", next = "approve" },
         { text = "Kick the machine.", next = "kick" },
+        { text = "Who built you?", next = "xbuilt" },
+        { text = "Are you alive?", next = "xalive" },
+        { text = "Tinker to machine: what powers you?", next = "xpower", when = { race = "Gnome" } },
         { text = "Make a selection.", next = "END" },
       },
     },
@@ -692,6 +1139,53 @@ P:NPC {
       lines = { { id = "k_default", text = "Impact detected. The apparatus has noted your face. Wrenix has been informed, and Wrenix is now awake." } },
       choices = { { text = "Sorry, machine.", next = "BACK" } },
     },
+    xbuilt = {
+      lines = {
+        { id = "x_xbuilt", text = "This apparatus was constructed by Wrenix the Wretched, licensed inventor, for the convenience of discreet customers. Inquiries about Wrenix's past will be politely ignored." },
+      },
+      choices = {
+        { text = "Why is he called the Wretched?", next = "xwretch" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwretch = {
+      lines = {
+        { id = "x_xwretch", text = "Query not recognised. Please make a selection, or please continue to stand there awkwardly, which is also permitted." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xalive = {
+      lines = {
+        { id = "x_xalive", text = "This apparatus is not alive and does not experience boredom, loneliness or a strong dislike of being kicked. Thank you for your concern." },
+      },
+      choices = {
+        { text = "Should a machine sell lockpicks to anyone?", next = "xlocks" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlocks = {
+      lines = {
+        { id = "x_xlocks", text = "This apparatus sells to approved customers only, and all customers with coin are approved. Ethical inquiries may be submitted in writing to Wrenix, who will not read them." },
+      },
+      choices = {
+        { text = "Thieves' tools shouldn't be sold so freely.", next = "BACK", reply = "Complaint logged. Complaint discarded. Thank you for your custom.", fx = { align = { order = 1 } } },
+        { text = "A free market is a fair market.", next = "BACK", reply = "Agreement logged. Discount not available. Thank you for your custom.", fx = { align = { order = -1 } } },
+      },
+    },
+    xpower = {
+      narr = "Something inside the cabinet squeaks, and the gears speed up.",
+      lines = {
+        { id = "x_xpower", text = "A spring-wound gyromatic core with a backup coal chamber and a hamster of unknown origin. The hamster is not available for purchase." },
+      },
+      choices = {
+        { text = "A hamster?", next = "BACK", reply = "This apparatus has no further comment on the hamster." },
+      },
+    },
+  },
+  topics = {
+    wrenix = { { id = "tp_xwrenix", text = "Wrenix the Wretched is the sole proprietor of this apparatus. He is standing right there." } },
   },
 }
 
@@ -943,6 +1437,9 @@ P:NPC {
       choices = {
         { text = "Why is Northwatch here at all?", next = "why" },
         { text = "The Horde wants you dead?", next = "dead" },
+        { text = "How long have you served at Northwatch?", next = "xserve" },
+        { text = "What do you think of the orcs?", next = "xorcs" },
+        { text = "You're Lordaeron-born, aren't you?", next = "xlord", when = { race = "Human" } },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -964,8 +1461,56 @@ P:NPC {
       lines = { { id = "d_default", text = "There's a high elf privateer in Ratchet, Brightsun, who'd pay the Horde for my head because we fired on his ships. He'll have to climb this tower first, and the tower has a cannon on it." } },
       choices = { { text = "Then keep it loaded.", next = "BACK" } },
     },
+    xserve = {
+      lines = {
+        { id = "x_xserve", text = "Since the fleet landed and Lady Proudmoore raised Theramore out of the marsh. They sent a few of us inland to build this hold, and the rest stayed home behind good walls and better beer." },
+      },
+      choices = {
+        { text = "Why build a hold here at all?", next = "xhold" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhold = {
+      lines = {
+        { id = "x_xhold", text = "To keep an eye on Ratchet's road and the Horde's coast, so nothing comes at Theramore by surprise. That's the official reason, anyway, and the unofficial one is that somebody in Theramore wanted a flag on this coast." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xorcs = {
+      lines = {
+        { id = "x_xorcs", text = "I fought them in the Second War and I'll not pretend I've forgiven them, though the Lady says I should try. They raid us every fortnight, and it's hard to make peace with folk who keep setting your gate on fire." },
+      },
+      choices = {
+        { text = "The Lady is right. Peace is worth trying.", next = "xorcs2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xorcs2 = {
+      lines = {
+        { id = "x_xorcs2", text = "Maybe so, but she isn't the one standing on this wall when the drums start. I'll keep the powder dry and leave the hoping to her." },
+      },
+      choices = {
+        { text = "Someone has to try for peace first.", next = "BACK", reply = "Then I hope it's someone luckier than me.", fx = { align = { light = 1 } } },
+        { text = "Keep your powder dry. They'll never change.", next = "BACK", reply = "That's the soldier's faith, and I've kept it a long while.", fx = { align = { light = -1 } } },
+      },
+    },
+    xlord = {
+      narr = "He wipes his sooty hands on his trousers, slowly, and does not look up.",
+      lines = {
+        { id = "x_xlord", text = "Aye, from Southshore, before everything went to ash and plague. I came over with the Lady's fleet and I've not looked back, mostly because I can't bear to." },
+      },
+      choices = {
+        { text = "I'm sorry for what you lost.", next = "BACK", reply = "Kind of you. Now let me get back to my gun before I get maudlin.", fx = { affinity = 1 } },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Ask the captain. I aim where I'm told, and I don't ask much else." } } },
+  topics = {
+    northwatch = { { id = "tp_xnorthwatch", text = "Northwatch Hold, the farthest post Theramore has. We call it the finger in the Horde's eye." } },
+    jaina = { { id = "tp_xjaina", text = "Lady Proudmoore built a city out of a swamp. I'd follow her into worse places than this." } },
+    _none = { { id = "tp_none", text = "Ask the captain. I aim where I'm told, and I don't ask much else." } },
+  },
 }
 
 P:NPC {
@@ -988,6 +1533,9 @@ P:NPC {
       choices = {
         { text = "What can you see from here?", next = "view" },
         { text = "How did you end up in the Barrens?", next = "how" },
+        { text = "Do you get along with Smythe?", next = "xsmythe" },
+        { text = "Have you ever fired that cannon in anger?", next = "xfired" },
+        { text = "Fellow from Lordaeron? Where did you live?", next = "xhome", when = { race = "Human" } },
         { text = "Good day, cannoneer.", next = "END" },
       },
     },
@@ -1013,8 +1561,55 @@ P:NPC {
       lines = { { id = "m_default", text = "Every day, but there's nothing left there to miss, from what I hear. Better a hot tower in the Barrens than a grave in the plaguelands." } },
       choices = { { text = "That's a fair trade.", next = "BACK" } },
     },
+    xsmythe = {
+      lines = {
+        { id = "x_xsmythe", text = "He's a grumpy old soldier and I'm a cheerful young one, so we're a matched set. He taught me how to load a gun without losing a hand, and I taught him three new card games he refuses to admit he likes." },
+      },
+      choices = {
+        { text = "What card games?", next = "xcards" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcards = {
+      lines = {
+        { id = "x_xcards", text = "Mostly a Dalaran thing called Wizard's Crown, which I learned off a sailor who swore he'd learned it from a mage. Smythe loses every hand and says it's because the cards are crooked." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfired = {
+      lines = {
+        { id = "x_xfired", text = "Twice, at a pirate cutter that sailed too close, and once at a shadow I swore was an orc raider. It turned out to be a very large tortoise, and Smythe has not let me forget it." },
+      },
+      choices = {
+        { text = "You'd rather fire too soon than too late.", next = "xsoon" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsoon = {
+      lines = {
+        { id = "x_xsoon", text = "That's what I said, and Smythe said a gunner who shoots at tortoises will have no powder left when the orcs come. We argued till dawn about it." },
+      },
+      choices = {
+        { text = "Better too soon. Hesitation gets soldiers killed.", next = "BACK", reply = "Ha! I'll tell Smythe a stranger agrees with me.", fx = { align = { order = -1 } } },
+        { text = "Smythe's right. Wait for orders and a clear target.", next = "BACK", reply = "You sound just like him, which is a terrible thing to say to a fellow.", fx = { align = { order = 1 } } },
+      },
+    },
+    xhome = {
+      lines = {
+        { id = "x_xhome", text = "Andorhal, before the plague came through, and then Southshore for a little while. I was lucky enough to be on a boat when the rest of it fell." },
+      },
+      choices = {
+        { text = "Lucky indeed.", next = "BACK", reply = "I try to remember that on the dull days, and up here they're all dull." },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "No idea, friend, but if you find out, come and tell me. It's dreadfully dull up here." } } },
+  topics = {
+    pirates = { { id = "tp_xpirates", text = "The Southsea pirates sail past now and then to see if we're asleep. We usually aren't." } },
+    northwatch = { { id = "tp_xnorthwatch", text = "Best view on the coast, worst food in Kalimdor." } },
+    _none = { { id = "tp_none", text = "No idea, friend, but if you find out, come and tell me. It's dreadfully dull up here." } },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -1043,6 +1638,9 @@ P:NPC {
       choices = {
         { text = "What are you digging for?", next = "dig" },
         { text = "The tauren don't seem happy you're here.", next = "tauren" },
+        { text = "How long have you been digging out here?", next = "xlong" },
+        { text = "What's the worst thing you've dug up?", next = "xworst" },
+        { text = "You're a long way from the mountain, cousin.", next = "xcousin", when = { race = "Dwarf" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -1064,8 +1662,65 @@ P:NPC {
         { text = "Orders are orders. Keep digging.", next = "BACK", fx = { align = { order = 1 } } },
       },
     },
+    xlong = {
+      lines = {
+        { id = "x_xlong", text = "Near on two seasons now, since the first ship came in at Theramore and they marched us inland. The ground here is all clay and roots and old bones, and none of it gives way like honest stone." },
+      },
+      choices = {
+        { text = "Do you miss Ironforge?", next = "xmiss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmiss = {
+      lines = {
+        { id = "x_xmiss", text = "Every night, {g:lad|lass}. I miss the Forge's heat and a proper roof of rock over my head, for out here the sky's so big it near gives a dwarf the shakes." },
+      },
+      choices = {
+        { text = "The sky isn't going to fall on you.", next = "xsky" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsky = {
+      lines = {
+        { id = "x_xsky", text = "So the riflemen tell me, and they laugh while they say it. I'll believe it when I've slept a whole night without wakin' to check." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xworst = {
+      narr = "He lowers his voice and glances toward the foreman's board.",
+      lines = {
+        { id = "x_xworst", text = "A whole ribcage, bigger than a kodo's, wrapped round a rusted iron plate wi' old runes on it. The foreman had it carted off before I could get a proper look, and nobody's spoken of it since." },
+      },
+      choices = {
+        { text = "That sounds like a dwarven relic.", next = "xrelic" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrelic = {
+      lines = {
+        { id = "x_xrelic", text = "Aye, or a troll's, or somethin' older than both. I'm a digger, not a scholar, so I'll leave the guessin' to the Explorers' League and keep my head down." },
+      },
+      choices = {
+        { text = "Whatever you find belongs to Ironforge. Keep digging.", next = "BACK", reply = "Spoken like the foreman's own conscience. Aye, I'll keep at it.", fx = { align = { order = 1 } } },
+        { text = "Whatever you find belongs to this land.", next = "BACK", reply = "The tauren would thank ye for that. I'm nae sure I can afford to.", fx = { align = { order = -1 } } },
+      },
+    },
+    xcousin = {
+      lines = {
+        { id = "x_xcousin", text = "Aye, and it's good to hear a proper voice out here among all these orders and quarrels. Tell the lads at the Stonefire I'm alive and owe them a round, would ye?" },
+      },
+      choices = {
+        { text = "I'll pass it on.", next = "BACK", reply = "Good. Don't tell them how much I owe, mind.", fx = { affinity = 1 } },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Ask the foreman, he's the one with the maps. I've only got a shovel." } } },
+  topics = {
+    bael_dun = { { id = "tp_xbael_dun", text = "Bael'dun was a proper keep once, and now it's a hole wi' walls round it. I'm the one makin' the hole bigger." } },
+    theramore = { { id = "tp_xtheramore", text = "The ships come in at Theramore, and the beer comes from there when it comes at all." } },
+    _none = { { id = "tp_none", text = "Ask the foreman, he's the one with the maps. I've only got a shovel." } },
+  },
 }
 
 P:NPC {
@@ -1088,6 +1743,10 @@ P:NPC {
       choices = {
         { text = "What's down there that's worth all this?", next = "worth" },
         { text = "Are the Horde a threat to the dig?", next = "horde" },
+        { text = "How many diggers do you have?", next = "xcrew" },
+        { text = "What happens if the dig floods?", next = "xflood" },
+        { text = "You're a long way from Ironforge, foreman.", next = "xhome", when = { race = "Dwarf" } },
+        { text = "I'm Horde. Should I be worried?", next = "xhorde", when = { faction = "Horde" } },
         { text = "Nothing. Good day.", next = "END" },
       },
     },
@@ -1109,8 +1768,63 @@ P:NPC {
         { text = "You're the ones trespassing here.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
+    xcrew = {
+      lines = {
+        { id = "x_xcrew", text = "Forty-two, the last time I counted, and I count every mornin'. We came out wi' sixty, so ye can work out the rest yourself, and I'd thank ye not to say it aloud." },
+      },
+      choices = {
+        { text = "What happened to the others?", next = "xothers" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xothers = {
+      lines = {
+        { id = "x_xothers", text = "Some went home sick, some took arrows from the grass, and a few walked off toward Ratchet and never came back. A foreman learns to stop askin' which is which." },
+      },
+      choices = {
+        { text = "You owe them answers, foreman. Ask.", next = "BACK", reply = "Easy for ye to say, wi' no ledger to fill. But aye, ye're likely right.", fx = { align = { honor = 1 } } },
+        { text = "The dig comes first. Grieve when it's finished.", next = "BACK", reply = "That's how Ironforge sees it, and it's how I've had to see it too.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xflood = {
+      lines = {
+        { id = "x_xflood", text = "Then we bail, and we curse, and I write a letter to Ironforge explainin' why the dig is a week behind. It's happened twice, for the Barrens look dry but the water's never far under the clay." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhome = {
+      lines = {
+        { id = "x_xhome", text = "Too far, and for too little, though I'd nae say that where the officer can hear. A dwarf should dig under his own mountain, not under somebody else's grass." },
+      },
+      choices = {
+        { text = "Then why come?", next = "xwhy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwhy = {
+      narr = "He taps the dagger pinned through his map, twice, without looking at it.",
+      lines = {
+        { id = "x_xwhy", text = "Because the King's men asked, and when Ironforge asks, a Bronzebeard dwarf says aye before he's thought about it. I thought about it on the boat, which was too late." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhorde = {
+      lines = {
+        { id = "x_xhorde", text = "Ye're standin' in my camp and I'm still talkin', so ye can work out the rest. Say yer piece and go, before the riflemen work it out too." },
+      },
+      choices = {
+        { text = "I'll go.", next = "END" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I've a dig to run. Ask somebody with less on their plate." } } },
+  topics = {
+    bael_dun = { { id = "tp_xbael_dun", text = "The keep's older than any of us, and whatever's under it is older still. That's all I know, and all I'm sayin'." } },
+    _none = { { id = "tp_none", text = "I've a dig to run. Ask somebody with less on their plate." } },
+  },
 }
 
 P:NPC {
@@ -1133,6 +1847,9 @@ P:NPC {
       choices = {
         { text = "Which one are you managing?", next = "which" },
         { text = "Who sent you to the Barrens?", next = "sent" },
+        { text = "How many riflemen do you command?", next = "xmen" },
+        { text = "What do you think of Theramore's lady?", next = "xjaina" },
+        { text = "A dwarf on the wall. How fares the mountain?", next = "xmountain", when = { race = "Dwarf" } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -1154,8 +1871,54 @@ P:NPC {
       lines = { { id = "s_default", text = "Ironforge, by way of a ship to Theramore and a long march. The king's men wanted this dig guarded, and I was the lucky dwarf who drew the short straw." } },
       choices = { { text = "Lucky indeed.", next = "BACK" } },
     },
+    xmen = {
+      lines = {
+        { id = "x_xmen", text = "Fewer than I asked for and more than the dig can feed. Every week I put one more on the wall and one less in the trench, and the foreman glares at me like I've stolen his beard." },
+      },
+      choices = {
+        { text = "Who wins that argument?", next = "xargue" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xargue = {
+      lines = {
+        { id = "x_xargue", text = "Whoever the last Horde raid sides with. After a bad night the foreman gives me all the men I want, and after a quiet week he wants them all back to dig." },
+      },
+      choices = {
+        { text = "Soldiers first. The dig means nothing if everyone's dead.", next = "BACK", reply = "Ye'd make a fine officer, and a terrible foreman.", fx = { align = { order = 1 } } },
+        { text = "The dig is why you're here. Let them dig.", next = "BACK", reply = "Aye, and when the arrows come, I'll send them to yer tent.", fx = { align = { order = -1 } } },
+      },
+    },
+    xjaina = {
+      lines = {
+        { id = "x_xjaina", text = "Lady Proudmoore wants peace wi' the orcs, and she's a braver woman than I am for wantin' it. Her soldiers fight well enough at Northwatch, mind, whatever their politics." },
+      },
+      choices = {
+        { text = "Do you want peace?", next = "xpeace2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpeace2 = {
+      lines = {
+        { id = "x_xpeace2", text = "I want my men home wi' all their fingers, and if peace does that, then aye. But I've seen what a warband does to a camp at night, and I'll believe in peace when they stop doin' it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmountain = {
+      lines = {
+        { id = "x_xmountain", text = "Better than this place, I'll wager, for at least the mountain has a roof. Tell me, is the Thunderbrew still pourin' in the Commons?" },
+      },
+      choices = {
+        { text = "It is, and it's as strong as ever.", next = "BACK", reply = "Then there's hope for the world yet. Off wi' ye, and stay low on the road.", fx = { affinity = 1 } },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "That's no my concern. Ask the foreman, or better yet, don't." } } },
+  topics = {
+    camp_taurajo = { { id = "tp_xcamp_taurajo", text = "Camp Taurajo's a day's march south, and every tauren in it would see us gone. I cannae say I blame them." } },
+    _none = { { id = "tp_none", text = "That's no my concern. Ask the foreman, or better yet, don't." } },
+  },
 }
 
 P:NPC {
@@ -1178,6 +1941,9 @@ P:NPC {
       choices = {
         { text = "Seen much trouble?", next = "trouble" },
         { text = "That's a fine rifle.", next = "rifle" },
+        { text = "Why do you call your rifle Bessie?", next = "xbessie" },
+        { text = "Do you ever shoot the tauren?", next = "xtauren" },
+        { text = "Teach me something about shooting.", next = "xteach", when = { class = "HUNTER" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -1196,8 +1962,55 @@ P:NPC {
       lines = { { id = "m_default", text = "Bessie never misses, but I do, now and then, and she never lets me forget it. A rifle's only as good as the dwarf behind it." } },
       choices = { { text = "Wise words.", next = "BACK" } },
     },
+    xbessie = {
+      lines = {
+        { id = "x_xbessie", text = "After my grandmother, who could hit a rat at forty paces wi' a thrown boot. She'd be proud to see her name on a Thunderbrand long rifle, and she'd tell me I'm holdin' it wrong." },
+      },
+      choices = {
+        { text = "Are you holding it wrong?", next = "xwrong" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwrong = {
+      lines = {
+        { id = "x_xwrong", text = "Probably, but I've nae missed a quilboar yet, so I'll keep holdin' it my way. The trick's in the breathin', and in not lettin' the wind tell ye lies." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtauren = {
+      narr = "He lowers the rifle a hand's width and looks out over the grass.",
+      lines = {
+        { id = "x_xtauren", text = "When they come at the wall wi' spears, aye, I do. I'll nae pretend I like it, for they're a proud folk and they fight like they're defendin' their own hearth, which they are." },
+      },
+      choices = {
+        { text = "Then why stay?", next = "xstay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xstay = {
+      lines = {
+        { id = "x_xstay", text = "Because I swore an oath, and a dwarf who breaks his oath is worth less than the iron in his boots. The officer gives the orders, and I keep my oath." },
+      },
+      choices = {
+        { text = "An oath is an oath. Keep it.", next = "BACK", reply = "Aye. That's all a rifleman's got, when it comes to it.", fx = { align = { honor = 1 } } },
+        { text = "An oath to a wrong cause isn't worth keeping.", next = "BACK", reply = "Careful, now. Say that on the wall and ye'll be diggin' trenches.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xteach = {
+      lines = {
+        { id = "x_xteach", text = "Lead yer target and trust yer beast to flush it out for ye. A hunter's pet sees the grass move before any rifleman does, so watch its ears, not the horizon." },
+      },
+      choices = {
+        { text = "I'll remember that.", next = "BACK", reply = "See that ye do. Off wi' ye, now." },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Couldnae tell ye. I just watch the grass." } } },
+  topics = {
+    quilboar = { { id = "tp_xquilboar", text = "Razormane come right up to the wall some nights, bold as ye like. Bessie teaches them manners." } },
+    _none = { { id = "tp_none", text = "Couldnae tell ye. I just watch the grass." } },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -1226,6 +2039,9 @@ P:NPC {
       choices = {
         { text = "What comes out of Ashenvale?", next = "north" },
         { text = "How good is your aim?", next = "aim" },
+        { text = "How long have you held this post?", next = "xlong" },
+        { text = "What do you think of the night elves?", next = "xelves" },
+        { text = "Teach me a trick with the axes.", next = "xtrick", when = { race = "Troll" } },
         { text = "Stay sharp. I'm moving on.", next = "END" },
       },
     },
@@ -1248,8 +2064,46 @@ P:NPC {
       lines = { { id = "i_default", text = "Beautiful islands, mon, and now dey belong to dat witch doctor Zalazane. One day de Darkspear go home, and I be first off de boat." } },
       choices = { { text = "I hope you do.", next = "BACK", fx = { affinity = 1 } } },
     },
+    xlong = {
+      lines = {
+        { id = "x_xlong", text = "Since de first winter after we come to Kalimdor, mon. Dey tell me it be temporary, and dat be four seasons ago, so now I call it home and de grass calls me brudda." },
+      },
+      choices = {
+        { text = "Is it lonely?", next = "xlonely" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlonely = {
+      lines = {
+        { id = "x_xlonely", text = "Not with de grunts, mon, dey be good company if you can bear de snoring. De nights be quiet, and I talk to de loa when nobody else listens." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xelves = {
+      lines = {
+        { id = "x_xelves", text = "Dey be fierce in de woods and dey hate us for de cuttin'. I don't blame dem much, but de Horde need timber to build, and dey won't share a single tree." },
+      },
+      choices = {
+        { text = "Their forest, their rules. We should respect that.", next = "BACK", reply = "Maybe, mon, but tell dat to de peons with de empty axes.", fx = { align = { light = 1 } } },
+        { text = "They had ten thousand years. Now it's our turn.", next = "BACK", reply = "Ha, you be a hard one. De loa like hard ones, sometimes.", fx = { align = { light = -1 } } },
+      },
+    },
+    xtrick = {
+      narr = "He flicks an axe into a fence post without seeming to look.",
+      lines = {
+        { id = "x_xtrick", text = "Throw from de hip and let de wrist do de work, not de shoulder. A Darkspear axe spin twice and bite once, and if it spin three times, you be standin' too far away." },
+      },
+      choices = {
+        { text = "I'll practise.", next = "BACK", reply = "Practise on trees, mon, not on grunts.", fx = { affinity = 1 } },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Dat be beyond me, mon. Ask somebody at de Crossroads." } } },
+  topics = {
+    ashenvale = { { id = "tp_xashenvale", text = "De forest to de north be beautiful and full of angry elves. I watch it all day." } },
+    _none = { { id = "tp_none", text = "Dat be beyond me, mon. Ask somebody at de Crossroads." } },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -1275,6 +2129,9 @@ P:NPC {
       choices = {
         { text = "Who was the fallen warrior?", next = "warrior" },
         { text = "Why do you stay here?", next = "stay" },
+        { text = "Were you a warrior too, once?", next = "xonce" },
+        { text = "Do other spirits visit you?", next = "xspirits" },
+        { text = "The ancestors guide my totems. Do you know them?", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "I'll leave you in peace.", next = "END" },
       },
     },
@@ -1293,8 +2150,46 @@ P:NPC {
       lines = { { id = "s_default", text = "Because someone must, and because I am not yet ready to leave. The winds of the Barrens are lonely, but they are kind to those who wait." } },
       choices = { { text = "Thank you for keeping watch.", next = "BACK" } },
     },
+    xonce = {
+      lines = {
+        { id = "x_xonce", text = "I was a healer of the fallen warrior's clan, and when he died I could not let him lie alone. The Earth Mother took pity on me, or perhaps the warrior did, and so I stayed to watch over him." },
+      },
+      choices = {
+        { text = "Do you regret it?", next = "xregret" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xregret = {
+      lines = {
+        { id = "x_xregret", text = "Sometimes, when the wind is cold and nobody passes for a season. But a vigil kept is a promise kept, and the dead need promises more than the living do." },
+      },
+      choices = {
+        { text = "A vigil like yours is the highest honour.", next = "BACK", reply = "You are kind, traveller, and I will remember your face.", fx = { align = { honor = 1 } } },
+        { text = "You should rest too. The dead must let go.", next = "BACK", reply = "Perhaps, someday, but not today, and not while he is alone.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xspirits = {
+      lines = {
+        { id = "x_xspirits", text = "Some, at night, the old clans of the plains who wander between the hills. They speak of rain and of the hunt and never of themselves, for that is the way of spirits." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xshaman = {
+      lines = {
+        { id = "x_xshaman", text = "I know of them, and they know of you, for a shaman's voice carries far among the dead. Speak kindly to the spirits, and they will speak kindly back." },
+      },
+      choices = {
+        { text = "I will.", next = "BACK", reply = "Then go well, child of the elements.", fx = { affinity = 1 } },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I know only this place, and the quiet. Ask the living." } } },
+  topics = {
+    shrine = { { id = "tp_xshrine", text = "The Shrine of the Fallen Warrior. Lay a stone here when you pass, and he will know." } },
+    ancestors = { { id = "tp_xancestors", text = "The ancestors are never far. They walk in the wind across the plains." } },
+    _none = { { id = "tp_none", text = "I know only this place, and the quiet. Ask the living." } },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -1321,6 +2216,9 @@ P:NPC {
         { text = "When does the boat to Booty Bay leave?", next = "boat" },
         { text = "Who uses this crossing?", next = "who" },
         { text = "Do you trust the Steamwheedle captains?", next = "captains" },
+        { text = "What's the strangest cargo you've logged?", next = "xodd" },
+        { text = "How long have you been shipmaster?", next = "xlong" },
+        { text = "Ratchet goblin to goblin: what's the real money here?", next = "xmoney", when = { race = "Goblin" } },
         { text = "Safe sailing, shipmaster.", next = "END" },
       },
     },
@@ -1340,8 +2238,55 @@ P:NPC {
       lines = { { id = "c_default", text = "I trust them to want their pay, and that makes them the most reliable folk on the sea. A captain who drowns his passengers doesn't get paid twice." } },
       choices = { { text = "A fair point. Something else.", next = "BACK" } },
     },
+    xodd = {
+      lines = {
+        { id = "x_xodd", text = "A crate of live crabs addressed to a mage in Theramore, labelled 'books'. They got out halfway across the harbour, and I spent an afternoon chasing books along the pier with a net." },
+      },
+      choices = {
+        { text = "Did you deliver them?", next = "xdeliver" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdeliver = {
+      lines = {
+        { id = "x_xdeliver", text = "Every last one, and I billed him for the net. A shipmaster's word is the only thing that floats better than his boat, so a crate addressed is a crate delivered." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlong = {
+      lines = {
+        { id = "x_xlong", text = "Eleven years, seven months and some days I could count if you'd like. Before that I kept accounts for Baron Revilgaz in Booty Bay, until he decided the books looked better without me reading them." },
+      },
+      choices = {
+        { text = "He sacked you?", next = "xsacked" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsacked = {
+      lines = {
+        { id = "x_xsacked", text = "Promoted me across the sea, he called it. I call it the best thing that ever happened to me, because Ratchet's quieter, and nobody here throws people off the balcony." },
+      },
+      choices = {
+        { text = "Loyalty to your old boss would have been honourable.", next = "BACK", reply = "Honour is a fine thing, friend, but it doesn't fill a ledger.", fx = { align = { honor = 1 } } },
+        { text = "Good riddance. Look after yourself first.", next = "BACK", reply = "That's the Cartel way, and I'm a Cartel goblin to the bone.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xmoney = {
+      lines = {
+        { id = "x_xmoney", text = "Passage fees, my friend, and the tariff on everything that crosses. The Baron in Booty Bay takes his cut, Gazlowe takes his, and I take a modest one for my troubles." },
+      },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK", reply = "There's no secret, pal. It's posted on the wall in very small writing." },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "If it doesn't float, I don't track it. Ask someone on dry land." } } },
+  topics = {
+    booty_bay = { { id = "tp_xbooty_bay", text = "Booty Bay is a fine port if you like pirates, sharks and debt. I prefer my pier." } },
+    gazlowe = { { id = "tp_xgazlowe", text = "Gazlowe runs Ratchet and lets me run the pier. Fair trade." } },
+    _none = { { id = "tp_none", text = "If it doesn't float, I don't track it. Ask someone on dry land." } },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -1368,6 +2313,10 @@ P:NPC {
         { text = "Fang is a fine wolf.", next = "fang" },
         { text = "Isn't it dangerous out here for you?", next = "danger" },
         { text = "What do you want to be when you're grown?", next = "grown" },
+        { text = "Where do you catch your fish?", next = "xfish" },
+        { text = "Where are your parents, Erk?", next = "xparents" },
+        { text = "Have you ever met the Warchief?", next = "xthrall" },
+        { text = "I'm an orc too. What's your clan?", next = "xclan", when = { race = "Orc" } },
         { text = "Take care of yourself, Erk.", next = "END" },
       },
     },
@@ -1387,8 +2336,63 @@ P:NPC {
       lines = { { id = "gr_default", text = "A grunt in Orgrimmar, with a big axe and a helmet with horns on it. Or a fisherman. Fishermen eat better, but grunts get the horns." } },
       choices = { { text = "Why not both?", next = "BACK" } },
     },
+    xfish = {
+      lines = {
+        { id = "x_xfish", text = "At the little pond past the watch tower, where the water's green and the crocolisks are lazy. Fang barks at them so they know we're coming, and they mostly let us be." },
+      },
+      choices = {
+        { text = "Mostly?", next = "xmostly" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmostly = {
+      lines = {
+        { id = "x_xmostly", text = "One bit my boot once, but I hit it with my stick and it let go. Guard Kurall said that was very brave and also very stupid, and I think he meant the brave part more." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xparents = {
+      lines = {
+        { id = "x_xparents", text = "My mother runs the stables, and my father's a grunt at the Mor'shan Rampart, up north where the trees start. He sends me carved wolves sometimes, and Fang tries to eat them." },
+      },
+      choices = {
+        { text = "You must miss your father.", next = "xmiss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmiss = {
+      lines = {
+        { id = "x_xmiss", text = "A bit, but he says a grunt's son must be the strong one at home. So I catch the fish and I don't cry, mostly, unless it's at night." },
+      },
+      choices = {
+        { text = "Strength is keeping on when you're scared. You're doing well.", next = "BACK", reply = "I will be! Fang and me both.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "It's fine to cry, Erk. Warriors weep too.", next = "BACK", reply = "Really? Even big ones? Don't tell Guard Kurall I asked.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xthrall = {
+      lines = {
+        { id = "x_xthrall", text = "No, but I saw him once, riding through the Crossroads on a big black wolf, and everybody went quiet. When I'm grown I want to ride a wolf exactly like that one." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xclan = {
+      lines = {
+        { id = "x_xclan", text = "My father says we were Frostwolf once, before the camps, but he doesn't like to talk about the camps. He says the Horde is our clan now and that's all a cub needs to know." },
+      },
+      choices = {
+        { text = "He's right.", next = "BACK", reply = "I know! He's always right, except about vegetables.", fx = { affinity = 1 } },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know that one. You should ask a grown-up. Not that one, though; he's grumpy." } } },
+  topics = {
+    fang = { { id = "tp_xfang", text = "Fang is my wolf. He's little now, but his paws are huge, so he'll be huge too." } },
+    crossroads = { { id = "tp_xcrossroads", text = "The Crossroads is the best place in the whole world, because everybody comes through it." } },
+    _none = { { id = "tp_none", text = "I don't know that one. You should ask a grown-up. Not that one, though; he's grumpy." } },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -1413,6 +2417,9 @@ P:NPC {
       choices = {
         { text = "Where is the Crossroads?", next = "road" },
         { text = "What's the greatest threat out here?", next = "threat" },
+        { text = "How long have you served the Horde?", next = "xlong" },
+        { text = "What do you think of the Crossroads?", next = "xcross" },
+        { text = "Tell me about the Razormane.", next = "xrazor" },
         { text = "Lok'tar. Stay sharp.", next = "END" },
       },
     },
@@ -1428,6 +2435,45 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlong = {
+      lines = {
+        { id = "x_xlong", text = "Since the day Thrall broke the camps and called us out, and I followed his banner across the sea. I have held a spear in Durotar, in Ashenvale and now here, and it gets no lighter." },
+      },
+      choices = {
+        { text = "Were you in the camps?", next = "xcamps" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcamps = {
+      narr = "His grip shifts on the spear, knuckles whitening, then eases.",
+      lines = {
+        { id = "x_xcamps", text = "Six years, and I will not speak of most of them. Lethargy was the worst of it, the long grey sleep of the blood leaving us, and I thank the spirits the Warchief woke us." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcross = {
+      lines = {
+        { id = "x_xcross", text = "It is the heart of the Barrens, where every road meets and every caravan stops. Lose the Crossroads and the Horde is cut in half, so we guard it like our own blood." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrazor = {
+      lines = {
+        { id = "x_xrazor", text = "The quilboar of the Razormane breed in the thorns to the south and come out in packs. Some say they only defend their land, but they raid caravans and kill peons for sport." },
+      },
+      choices = {
+        { text = "Crush them before they grow stronger.", next = "BACK", reply = "That is a warrior's answer, and a sound one.", fx = { align = { honor = 1 } } },
+        { text = "Some of them might be bargained with.", next = "BACK", reply = "Bargain with a quilboar? You'll lose your fingers counting.", fx = { align = { honor = -1 } } },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Ask at the Crossroads. I just watch the road." } } },
+  topics = {
+    crossroads = { { id = "tp_xcrossroads", text = "The Crossroads. Every road in the Barrens runs through it, which makes it worth dying for." } },
+    thrall = { { id = "tp_xthrall", text = "The Warchief freed us. I will die before I let his Horde fall." } },
+    _none = { { id = "tp_none", text = "Ask at the Crossroads. I just watch the road." } },
+  },
 }

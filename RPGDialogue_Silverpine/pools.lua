@@ -4,6 +4,7 @@ local P = RPGDialogueAPI:Pack("rpgd.silverpine")
 P:Pool {
   id = "guard_sepulcher", role = "guard", community = "sepulcher",
   barks = {
+    { id = "xb_howl", text = "Howling again from the Keep. You'd think they'd tire of it, but worgen never tire of anything." },
     { id = "b_howl", text = "The worgen are howling in the south again. They dragged off a pack mule last night, and they'll be back for the saddle." },
     { id = "b_lights", text = "There are strange lights over Ambermill again, so Dalaran's mages are up to something." },
   },
@@ -19,10 +20,17 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "There's a shadow moving between the graves. Deathstalker or thief, show yourself." } },
   lines = {
+    { id = "xl_orc", when = { race = "Orc" }, text = "An orc in Silverpine. Keep to the road, and keep your axe close, because the worgen like living meat better than ours." },
+    { id = "xl_ambermill", text = "Dalaran's mages have dug in at Ambermill, and nobody can tell me what they're looking for, which means it's nothing good." },
     { id = "l_default", text = "Worgen to the south, the Scourge to the east, Dalaran's mages poking about in between. We hold the road for the Dark Lady." },
   },
-  choices = { { text = "For the Dark Lady.", next = "END", fx = { standing = { sepulcher = 1 } } } },
+  choices = {
+    { text = "What's out at Ambermill?", next = "END", reply = "Mages from Dalaran, poking at old stones. Dalar Dawnweaver wants them gone." },
+    { text = "I'll watch the woods.", next = "END", reply = "Watch the trees, too. The worgen climb." },
+    { text = "For the Dark Lady.", next = "END", fx = { standing = { sepulcher = 1 } } } },
   topics = {
+    dalaran = { { id = "xt_da", text = "Mages who think the whole world is theirs to study. They're in our woods now." } },
+    worgen = { { id = "xt_wo", text = "Wolf-men out of Shadowfang. Steel and fire, and don't let them close." } },
     knows = {
       { id = "t_kn1", text = "The Sepulcher gets reports from every corner of Silverpine, and most of them are bad. Here's what I can share." },
       { id = "t_kn_cold", when = { disposition = { max = 34 } }, text = "Ask your questions and go, because the forest is dangerous enough without distractions at the gate." },

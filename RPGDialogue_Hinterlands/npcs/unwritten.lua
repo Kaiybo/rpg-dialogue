@@ -27,11 +27,18 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I keep watch on the road tae Aerie Peak for Falstad an' the clan. The Witherbark an' Vilebranch trolls creep up through the forest, an' a good sentry spots them before they spot him." } },
-      again = { { id = "h_again", text = "Aye, what else?" } },
+      again = {
+        { id = "h_again", text = "Aye, what else?" },
+        { id = "xh_again2", text = "Still here? Then keep yer eyes on the treeline while we talk." },
+      },
       choices = {
         { text = "How often do the trolls attack?", next = "trolls" },
         { text = "Why do Wildhammer live up here?", next = "why" },
         { text = "Your tattoos are striking.", next = "tattoos" },
+        { text = "Who is Falstad?", next = "xfalstad" },
+        { text = "What's the worst troll tribe out here?", next = "xworst" },
+        { text = "Have you ever ridden a gryphon into battle?", next = "xgryphon" },
+        { text = "I'm a hunter. Gryphons must be fine beasts.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "I'll pass on.", next = "END" },
       },
     },
@@ -51,8 +58,32 @@ P:NPC {
       lines = { { id = "ta_default", text = "Every Wildhammer wears them, an' every mark means somethin', a battle, a hunt, a gryphon bonded. My grandson will have more than me, if he lives long enough." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xfalstad = {
+      lines = { { id = "xfa_default", text = "Falstad Wildhammer, our thane, an' the finest gryphon rider alive. He fought the Horde in the Second War, an' he'd fight it again in a heartbeat if it came up here." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xworst = {
+      narr = "He spits into the bushes and glares at the treeline.",
+      lines = { { id = "xwo_default", text = "The Vilebranch, by a long road, for they sacrifice their own tae the dark loa in Jintha'Alor. The Witherbark are savage, but at least they're honest about it." } },
+      choices = {
+        { text = "Then burn Jintha'Alor to the ground.", next = "BACK", reply = "Aye, an' I'll bring the torch. Falstad might even let me.", fx = { align = { light = -1 } } },
+        { text = "Free their prisoners first. Then fight.", next = "BACK", reply = "A good heart ye've got. Keep it, for the trolls don't have one.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgryphon = {
+      lines = { { id = "xgr_default", text = "Many times, an' there's nothin' like it. Ye dive out o' the clouds wi' a stormhammer in yer fist, an' the trolls look up just in time tae regret it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhunter = {
+      lines = { { id = "xhu_default", text = "The finest, an' they'll not be tamed by any but a Wildhammer. Ye can admire them from a distance, though, an' that's a kindness to yer fingers." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    falstad = { { id = "xtp_fal", text = "Our thane, the loudest, bravest dwarf in the Hinterlands. Ye'll hear him before ye see him." } },
+    vilebranch = { { id = "xtp_vile", text = "The worst o' the troll tribes, an' they'll get what's coming tae them." } },
+   
     background = { { id = "tp_bg", text = "I'm a Wildhammer o' Aerie Peak, an' I've guarded this road since I could hold a hammer." } },
     _none = { { id = "tp_none", text = "Cannae help ye there. Ask in the keep." } },
   },
@@ -76,11 +107,19 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "This is Homing Robot OOX-09, Hinterlands model, property of Oglethorpe Obnoticus of Booty Bay. My flight systems have failed, my homing beacon is compromised, and local troll activity is very, very high." } },
-      again = { { id = "h_again", text = "Bzzt. Additional query accepted." } },
+      again = {
+        { id = "h_again", text = "Bzzt. Additional query accepted." },
+        { id = "xh_again2", text = "Beep. Proximity of friendly entity is improving morale circuits." },
+      },
       choices = {
         { text = "What happened to you?", next = "crash" },
         { text = "Who is Oglethorpe Obnoticus?", next = "ogle" },
         { text = "You're a chicken. A robot chicken.", next = "chicken" },
+        { text = "What happened to the other robots?", next = "xothers" },
+        { text = "What do you know about the trolls here?", next = "xtrolls" },
+        { text = "Why does Oglethorpe build homing robots?", next = "xwhy" },
+        { text = "I'm a gnome. Let me check your wiring.", next = "xgnome", when = { race = "Gnome" } },
+        { text = "I'm an engineer. Your gyros look loose.", next = "xeng", when = { profession = "Engineering" } },
         { text = "Hang on, little robot.", next = "END" },
       },
     },
@@ -100,8 +139,36 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xothers = {
+      narr = "The robot's head swivels left and right, then droops slightly.",
+      lines = { { id = "xot_default", text = "OOX-17/TN crashed in Tanaris, and OOX-22/FE in Feralas. Their status is unknown, and my projections are not cheerful, though I am not programmed for cheer." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xtrolls = {
+      lines = { { id = "xtr_default", text = "The Vilebranch, Witherbark and Revantusk all inhabit the Hinterlands. Two out of three are hostile, and my threat assessment cannot tell them apart from a distance." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xwhy = {
+      lines = { { id = "xwh_default", text = "Oglethorpe says it is to prove the homing principle, and to survey uncharted lands. I believe it is also because he enjoys building chickens." } },
+      choices = {
+        { text = "Science is worth a few crashed chickens.", next = "BACK", reply = "Bzzt. Logic accepted, though this chicken does not agree.", fx = { align = { light = -1 } } },
+        { text = "He shouldn't send you out to crash.", next = "BACK", reply = "Beep! Affirmative. Please tell Oglethorpe this, emphatically.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgnome = {
+      lines = { { id = "xgn_default", text = "Gnomish technician detected! Diagnostic access granted. Please avoid the red wire, the blue wire and the slightly purple wire." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xeng = {
+      lines = { { id = "xen_default", text = "Bzzt. Gyroscopic stabilizer loose by four point two degrees. Thank you, engineer, your expertise is noted in my databanks." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    booty_bay = { { id = "xtp_bb", text = "Destination: Booty Bay, Stranglethorn Vale. Oglethorpe's workshop is there, along with my recharging station." } },
+    oglethorpe = { { id = "xtp_ogle", text = "My creator. Small, clever and fond of chickens. Very fond of chickens." } },
+   
     background = { { id = "tp_bg", text = "I am Homing Robot OOX-09/HL, built by Oglethorpe Obnoticus, currently grounded." } },
     _none = { { id = "tp_none", text = "Bzzt. Query not found in databanks." } },
   },
@@ -125,10 +192,18 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I be a drummer of da Revantusk. Da drum keep da village's heart beatin', and it remind da Vilebranch we still be here." } },
-      again = { { id = "h_again", text = "Still here, mon. Still drummin'." } },
+      again = {
+        { id = "h_again", text = "Still here, mon. Still drummin'." },
+        { id = "xh_again2", text = "Da drum don't stop, mon, but I can talk while it go." },
+      },
       choices = {
         { text = "What does the drum say?", next = "say" },
         { text = "Why do the Vilebranch matter?", next = "vilebranch" },
+        { text = "Who leads the Revantusk?", next = "xlead" },
+        { text = "Why did the Revantusk join the Horde?", next = "xhorde" },
+        { text = "What do you think of the Wildhammer?", next = "xwild" },
+        { text = "I'm a troll too. Teach me the rhythm.", next = "xtroll", when = { race = "Troll" } },
+        { text = "I'm a shaman. The drum calls the spirits.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "Keep drumming.", next = "END" },
       },
     },
@@ -143,8 +218,36 @@ P:NPC {
         { text = "Maybe some of them could still be saved.", next = "BACK", reply = "Maybe, mon. But I not be holdin' my breath.", fx = { align = { light = 1 } } },
       },
     },
+    xlead = {
+      lines = { { id = "xle_default", text = "Primal Torntusk, wise and fierce both. She brought us down to dis coast when we left da Vilebranch, and she keep us strong." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhorde = {
+      narr = "The drummer's hands slow, and the beat drops low and steady.",
+      lines = { { id = "xho_default", text = "Because da Vilebranch went too far with da dark loa, and we needed friends to stand against dem. Da Horde help us, and we help da Horde, and dat be a fair trade, mon." } },
+      choices = {
+        { text = "The Horde is strong together. You chose well.", next = "BACK", reply = "Ya, mon, da drum agree with you.", fx = { align = { order = 1 } } },
+        { text = "A tribe should stand on its own feet.", next = "BACK", reply = "Maybe, but standin' alone be a fast way to get eaten in dese hills.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwild = {
+      lines = { { id = "xwi_default", text = "Dey fly dem big birds over our village and shout at us, but dey don't attack. Dey hate da Vilebranch more than dey hate us, and dat be enough for now." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xtroll = {
+      lines = { { id = "xtr_default", text = "Ah, a cousin! Sit down, mon, and listen. One, two, and da third beat for da loa, dat be all you need to start." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xshaman = {
+      lines = { { id = "xsh_default", text = "Ya, it do, mon, and you can feel dem, can't you? Da earth and da sea, dey both like a good beat." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    vilebranch = { { id = "xtp_vile", text = "Our old kin, now gone dark in Jintha'Alor. Da drum warn dem to stay away." } },
+    revantusk = { { id = "xtp_rev", text = "My tribe, by da sea. We don't forget, and we don't forgive, but we do drum." } },
+   
     _none = { { id = "tp_none", text = "Ask Primal Torntusk, mon. I just drum." } },
   },
 }

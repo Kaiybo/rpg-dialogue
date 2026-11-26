@@ -20,10 +20,16 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "Hiding in Nighthaven? There's no need, and no point, for the wardens of this grove see through leaf and shadow alike." } },
   lines = {
+    { id = "l_x1", text = "The Stormrage Barrow Dens lie under the hill, where druids sleep in the Dream. If you hear snoring, keep walking, and don't wake anyone." },
+    { id = "l_x2", text = "I came here from Thunder Bluff, my sister came from Darnassus, and we both answer to Remulos. Make of that what you will." },
+    { id = "l_x3", when = { faction = "Horde" }, text = "Horde or not, you're a guest here. The Alliance druids by the lake will say the same, if you're polite first." },
+
     { id = "l_default", text = "We stop fights before they start. Orc, elf, tauren, human: nobody draws a blade in the Keeper's glade." },
   },
   choices = { { text = "I'll keep the peace.", next = "END", fx = { standing = { nighthaven = 1 } } } },
   topics = {
+    remulos = { { id = "t_xremulos", text = "Keeper Remulos guards the shrine by the lake. Speak softly near him; he's older than the hills." } },
+
     cenarion_circle = { { id = "t_circle", text = "Druids of every people, keeping the balance, and we're their wardens. Ask Rabine for the rest." } },
     _none = { { id = "t_none", text = "That's for the druids to say. Ask in the village." } },
   },

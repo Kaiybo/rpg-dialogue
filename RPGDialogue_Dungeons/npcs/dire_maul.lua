@@ -318,13 +318,19 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am Kildrath, a keeper of this library, and my charge is the lore of rogues, warriors and magi. Bring me the tomes that have scattered through these halls, and I will reward you with something of ours." },
       },
-      again = { { id = "h_again", text = "Is there anything more? I have shelving to do." } },
+      again = {
+        { id = "h_again", text = "Is there anything more? I have shelving to do." },
+        { id = "xh_again2", text = "Back again? Then I trust you have something to show me, or something worth asking." },
+      },
       choices = {
         { text = "What books are you looking for?", next = "books" },
         { text = "Why would the Shen'dralar trade with outsiders?", next = "trade" },
         { text = "I carry the Codex of Defense.", next = "warrior", when = { class = "WARRIOR" } },
         { text = "A study of Garona? I'd read that.", next = "rogue", when = { class = "ROGUE" } },
         { text = "The Arcanist's Cookbook is mine to return.", next = "mage", when = { class = "MAGE" } },
+        { text = "What was this library before the ogres came?", next = "xlib" },
+        { text = "Where do the ogres keep the books?", next = "xogre" },
+        { text = "Tell me about the pylons.", next = "xpylon" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -362,8 +368,35 @@ P:NPC {
       lines = { { id = "m_default", text = "The Cookbook is a frivolous title for a serious work on conjured sustenance. Even the Highborne had to eat, magus, and some of us ate very well indeed." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xlib = {
+      narr = "He runs a long finger along an empty shelf, and it comes away grey.",
+      lines = { { id = "xli_default", text = "The Athenaeum of Eldre'Thalas, the greatest library ever built east of the Well. Scholars came from every corner of the empire to read here, and now the gordok use our reading rooms as latrines." } },
+      choices = {
+        { text = "Could it be restored?", next = "xrestore" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrestore = {
+      lines = { { id = "xrs_default", text = "Perhaps, if the ogres were driven out and the satyrs burned from the gardens. But a library needs readers as well as books, and we grow fewer every season." } },
+      choices = {
+        { text = "Open it to outsiders, then. Let others read.", next = "BACK", reply = "Outsiders, in the Athenaeum, reading freely? You have a strange idea of restoration.", fx = { align = { order = -1 } } },
+        { text = "A library kept by its own keepers is safest.", next = "BACK", reply = "Just so. Better a small library well kept than a great one squandered.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xogre = {
+      lines = { { id = "xog_default", text = "Wherever an ogre puts things, which is to say anywhere at all. I have found tomes propping up tables, wedged under doors, and once, I regret to say, cooked into a stew." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xpylon = {
+      lines = { { id = "xpy_default", text = "The pylons bind the demon Immol'thar, whose power keeps the Shen'dralar alive. Lately they falter, and when they fail entirely, we will have to find another way to live, or else stop living." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "If it is not written down in this library, it is not my concern." } } },
+  topics = {
+    immolthar = { { id = "xtp_immol", text = "The demon beneath our feet, bound by the pylons. We do not speak of what it costs to keep him." } },
+    gordok = { { id = "xtp_gordok", text = "Ogres in the halls of the Highborne. If you want proof the world has a sense of humour, there it is." } },
+    _none = { { id = "tp_none", text = "If it is not written down in this library, it is not my concern." } } },
 }
 
 ---------------------------------------------------------------------------
@@ -377,10 +410,18 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", key = true, text = "I am Javon, and I keep the lore of priests, shamans and druids, though I confess some of it is shelved with a raised eyebrow. Bring me the lost tomes and the Shen'dralar will thank you properly." } },
-      again = { { id = "h_again", text = "Something further?" } },
+      again = {
+        { id = "h_again", text = "Something further?" },
+        { id = "xh_again2", text = "You return. Do lower your voice, though; the books have been through enough." },
+      },
       choices = {
         { text = "Which tomes are you missing?", next = "books" },
         { text = "You don't trust druids, do you?", next = "druids" },
+        { text = "Holy Bologna? Who wrote that?", next = "xbologna" },
+        { text = "How long have the Shen'dralar been here?", next = "xlong" },
+        { text = "What do you think of the prince?", next = "xprince" },
+        { text = "I'm a druid. I'd like to see the Dream volume.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "I'm a shaman. What's Frost Shock and You?", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -396,8 +437,43 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xbologna = {
+      narr = "Javon closes his eyes for a long moment, as though in pain.",
+      lines = { { id = "xbo_default", text = "A human priest of some talent and no taste, I suspect. The work itself is a sound treatise on the Light, and every time I shelve it, I pretend not to read the spine." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xlong = {
+      lines = { { id = "xlo_default", text = "Since the Sundering, give or take, which is longer than your kind has kept records. Eldre'Thalas was a great city once, and we have been shrinking inside it ever since, room by room." } },
+      choices = {
+        { text = "Why not leave and rejoin the other elves?", next = "xrejoin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrejoin = {
+      lines = { { id = "xre_default", text = "Because the kaldorei of Darnassus would remember who we are and what we did, and so would we. Some here say pride keeps us in these halls, and some say shame, and I have never been sure which." } },
+      choices = {
+        { text = "Pride. You should swallow it and go home.", next = "BACK", reply = "Bluntly put, and perhaps true. I will not repeat it to the prince.", fx = { align = { order = -1 } } },
+        { text = "You keep your vows to this place. That's honourable.", next = "BACK", reply = "Honourable, or merely stubborn. I suppose they look much the same from outside.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xprince = {
+      lines = { { id = "xpr_default", text = "Prince Tortheldrin is our lord, and I am a lorekeeper, so my opinion of him is shelved in a place I do not visit. Ask Lydros, if you must ask someone, for he is braver than I am." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdruid = {
+      lines = { { id = "xdr_default", text = "A druid, in my aisle. The volume is not mine to lend, but if you bring back the lost copy, you may read every page of it, and I will try very hard not to stand over your shoulder." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xshaman = {
+      lines = { { id = "xsh_default", text = "A practical manual on the spirits of the elements, written by an orc, I believe, with more enthusiasm than grammar. It is surprisingly good, and I tell no one I think so." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I could not say. Try the shelves, or better yet, try someone less busy." } } },
+  topics = {
+    eldre_thalas = { { id = "xtp_et", text = "Our city, which the outside world calls Dire Maul. I prefer the old name, and so would you, if you had seen it whole." } },
+    highborne = { { id = "xtp_hb", text = "We were the Highborne, once. Now we are librarians, and I am not certain it was a fall." } },
+    _none = { { id = "tp_none", text = "I could not say. Try the shelves, or better yet, try someone less busy." } } },
 }
 
 ---------------------------------------------------------------------------
@@ -411,10 +487,18 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", key = true, text = "I am Mykos, and the lore of paladins, warlocks and hunters falls to me. An odd company of subjects, I know, but the Shen'dralar collect everything." } },
-      again = { { id = "h_again", text = "What else can I tell you?" } },
+      again = {
+        { id = "h_again", text = "What else can I tell you?" },
+        { id = "xh_again2", text = "Ah, you again. I was hoping someone would come and interrupt my cataloguing." },
+      },
       choices = {
         { text = "Which tomes are you missing?", next = "books" },
         { text = "Warlock lore, here? Isn't that dangerous?", next = "warlock" },
+        { text = "The Greatest Race of Hunters? Which race?", next = "xhunters" },
+        { text = "You seem friendlier than the others.", next = "xfriendly" },
+        { text = "I'm a paladin. What does your tome say of the Light?", next = "xpaladin", when = { class = "PALADIN" } },
+        { text = "I'm a warlock. I'd like to read Harnessing Shadows.", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "I'm a hunter. Which race does the book favour?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -430,8 +514,43 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhunters = {
+      lines = { { id = "xhu_default", text = "The author never quite says, which is why every hunter who reads it assumes it means their own people. It is a very clever book, in that respect, and a very poor one in every other." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xfriendly = {
+      narr = "He laughs quietly and sets down a quill.",
+      lines = { { id = "xfr_default", text = "I have read too much to think we are better than everyone else, and that makes me poor company for the prince's court. Lydros calls it a weakness, and I call it the only thing that keeps me awake in this place." } },
+      choices = {
+        { text = "What would you do if you could leave?", next = "xleave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xleave = {
+      lines = { { id = "xle_default", text = "Walk in the sun, for one, and visit a library I had not already read cover to cover. But leaving means leaving the others, and some of them would not survive the walk without the demon's gift." } },
+      choices = {
+        { text = "Then stay for them. That's what duty means.", next = "BACK", reply = "Duty, yes. I have done my duty for a very long time.", fx = { align = { order = 1 } } },
+        { text = "Go anyway. You owe yourself that much.", next = "BACK", reply = "Perhaps I do. It is a dangerous thought, and I thank you for it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpaladin = {
+      lines = { { id = "xpa_default", text = "That the Light rewards those who swing it with conviction, which is a fair summary, though the author repeats it for three hundred pages. Your order would like it, I think, and so might your arms." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xwarlock = {
+      lines = { { id = "xwa_default", text = "You would, would you? Then read it carefully, and remember that my people wrote half of what is in it, and look at us now. The shadows keep very good accounts." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhunter = {
+      lines = { { id = "xht_default", text = "Yours, of course, or so you will say once you have read it. Bring me the copy and you may judge for yourself, though I warn you the chapter on boar tracking is very long." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "A fascinating question, but alas, not one my shelves can answer." } } },
+  topics = {
+    lydros = { { id = "xtp_lydros", text = "Our eldest lorekeeper, and the sharpest mind in the library. He frightens me a little, and I think he enjoys it." } },
+    shendralar = { { id = "xtp_shen", text = "What remains of the Highborne who kept the library after the Sundering. Fewer than you would think, and fewer every year." } },
+    _none = { { id = "tp_none", text = "A fascinating question, but alas, not one my shelves can answer." } } },
 }
 
 ---------------------------------------------------------------------------
@@ -445,11 +564,18 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", key = true, text = "I keep the Shen'dralar's stores, and lately I sell from them to those the lorekeepers favour. We are too few now to be proud about whom we trade with." } },
-      again = { { id = "h_again", text = "Anything else?" } },
+      again = {
+        { id = "h_again", text = "Anything else?" },
+        { id = "xh_again2", text = "You return. Something else, or are you merely browsing?" },
+      },
       choices = {
         { text = "Too few?", next = "few" },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Who are these lorekeepers?", next = "lorekeepers" },
+        { text = "Where do your provisions come from?", next = "xsource" },
+        { text = "Do the ogres trouble your stores?", next = "xogres" },
+        { text = "Is the demon's gift worth the cost?", next = "xdemon" },
+        { text = "I'm a night elf. We share a people, once.", next = "xkaldorei", when = { race = "NightElf" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -472,8 +598,39 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xsource = {
+      lines = { { id = "xso_default", text = "Some from the old gardens, where the satyrs have not yet trampled everything, and some brought in by outsiders who wish to stay in the lorekeepers' good graces. We are not proud, as I said." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xogres = {
+      narr = "She glances toward the east wing, where distant ogre voices carry.",
+      lines = { { id = "xog_default", text = "The gordok would eat the stores and the storekeeper if they could reach us. We keep our doors warded and our voices low, and we pay outsiders to thin their numbers, which seems to amuse the outsiders." } },
+      choices = {
+        { text = "Why not drive them out yourselves?", next = "xdrive" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdrive = {
+      lines = { { id = "xdr_default", text = "With what army? Our strength goes into the pylons and into staying alive. The ogres are a nuisance we can survive, while a war would finish us." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdemon = {
+      lines = { { id = "xde_default", text = "I am a provisioner, and I know what everything costs. The demon's gift keeps us alive, and some of us pay for it with more than coin, and I have stopped adding up the account." } },
+      choices = {
+        { text = "No life is worth that price.", next = "BACK", reply = "Easily said by someone with a life of her own to keep.", fx = { align = { light = 1 } } },
+        { text = "Survival comes first. Everything else after.", next = "BACK", reply = "That is the Shen'dralar creed, near enough, though we would never write it down.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xkaldorei = {
+      lines = { { id = "xka_default", text = "Once, yes, before your druids drove us out. You will find no welcome in the prince's hall, but I will sell to you at the same price as anyone, and perhaps that is a kind of welcome." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I sell provisions. Questions are the lorekeepers' business." } } },
+  topics = {
+    immolthar = { { id = "xtp_immol", text = "The prince's prisoner, and our larder, in a manner of speaking. I do not care for the manner." } },
+    gordok = { { id = "xtp_gordok", text = "Hungry, loud and in the east wing. I keep my stores warded against them." } },
+    _none = { { id = "tp_none", text = "I sell provisions. Questions are the lorekeepers' business." } } },
 }
 
 ---------------------------------------------------------------------------
@@ -487,10 +644,17 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", key = true, text = "I guard the Athenaeum for Prince Tortheldrin and the house of the Shen'dralar. Outsiders come and go now, and I watch every one of them." } },
-      again = { { id = "h_again", text = "Is there more you wish to say, outsider?" } },
+      again = {
+        { id = "h_again", text = "Is there more you wish to say, outsider?" },
+        { id = "xh_again2", text = "Speak quickly, outsider. I am watching the door as well as you." },
+      },
       choices = {
         { text = "Why so suspicious?", next = "wary" },
         { text = "Your prince feeds your people to a demon.", next = "prince" },
+        { text = "How long have you guarded this place?", next = "xlong" },
+        { text = "What threatens the Athenaeum most?", next = "xthreat" },
+        { text = "Do you trust the lorekeepers?", next = "xlore" },
+        { text = "A kaldorei standing guard for exiles.", next = "xkaldorei", when = { race = "NightElf" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -506,8 +670,39 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlong = {
+      lines = { { id = "xlo_default", text = "Longer than your grandfather's grandfather drew breath. I stood here when the library was full and the halls were lit, and I will stand here when the last lamp goes out." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xthreat = {
+      narr = "Her hand tightens on the haft of her glaive.",
+      lines = { { id = "xth_default", text = "The satyrs in the warped gardens, the ogres in the east, and the outsiders the lorekeepers let in. The first two I can fight, and the third I am ordered to tolerate." } },
+      choices = {
+        { text = "Outsiders are helping you. Be grateful.", next = "xgrateful" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgrateful = {
+      lines = { { id = "xgr_default", text = "Helping, and looting, and staring at our prince as if he were a beast in a cage. Gratitude is not a guard's duty, outsider, watchfulness is." } },
+      choices = {
+        { text = "Watchfulness is wise. Trust has to be earned.", next = "BACK", reply = "At last, an outsider who speaks sense. Do not make me regret hearing it.", fx = { align = { order = 1 } } },
+        { text = "Without outsiders, your house dies alone.", next = "BACK", reply = "Then it dies on its own terms, and not on yours.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlore = {
+      lines = { { id = "xlr_default", text = "I trust that they serve the prince, and that is enough. Lorekeeper Lydros would open every door to the outside if he could, and I am glad that he cannot." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xkaldorei = {
+      lines = { { id = "xka_default", text = "Exiles, you call us, as if your people's ten thousand years of sleeping in trees were not its own exile. We kept the old ways when you abandoned them, and I will not apologise for that." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Take your questions to the lorekeepers. I am not here to talk." } } },
+  topics = {
+    tortheldrin = { { id = "xtp_tort", text = "Prince Tortheldrin rules the Shen'dralar, and I serve him. That is all an outsider needs to know." } },
+    satyrs = { { id = "xtp_satyr", text = "Twisted things in our gardens, and the oldest shame of our people. I kill them gladly." } },
+    _none = { { id = "tp_none", text = "Take your questions to the lorekeepers. I am not here to talk." } } },
 }
 
 ---------------------------------------------------------------------------

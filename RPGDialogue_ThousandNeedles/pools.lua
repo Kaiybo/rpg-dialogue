@@ -20,9 +20,16 @@ P:Pool {
   react = { { id = "r_stealth", on = "stealth", text = "Something moved on the bridge. Show yourself, or swim the canyon, and there's no water in it." } },
   lines = {
     { id = "l_default", text = "We watch the canyons for the Galak and the pinnacle for the Grimtotem, as the Earth Mother would want. Both of them are watching us back." },
+    { id = "l_x_wind", text = "The wind up here never stops, and the elders say it carries the voices of the ancestors. Most days it only carries dust, but I listen anyway." },
+    { id = "l_x_tauren", when = { race = "Tauren" }, text = "It is good to see horns on the mesa, cousin. Freewind needs every tauren who can hold a spear and keep a level head." },
   },
-  choices = { { text = "Keep watching, Brave.", next = "END", fx = { standing = { freewind = 1 } } } },
+  choices = {
+    { text = "The Galak should be driven from the canyons.", next = "END", reply = "Many braves agree with you, and they sharpen their spears for it.", fx = { align = { light = -1 } } },
+    { text = "Hold the mesas, and leave the canyons in peace.", next = "END", reply = "The elders say the same. Patience is the tauren way.", fx = { align = { light = 1 } } },
+    { text = "Keep watching, Brave.", next = "END", fx = { standing = { freewind = 1 } } },
+  },
   topics = {
+    highperch = { { id = "t_x_highperch", text = "Highperch is where the wyverns nest. The hunters climb it to take eggs, and not all of them climb down." } },
     grimtotem = { { id = "t_grimtotem", text = "They're tauren, and they look at us like strangers. Don't walk alone near Darkcloud Pinnacle." } },
     mirage_raceway = { { id = "t_raceway", text = "Goblins and gnomes racing across the salt. When the wind drops you can hear the engines from here." } },
     _none = { { id = "t_none", text = "Ask the Cliffwatcher; he sees farther than any of us, almost as far as the hawks." } },

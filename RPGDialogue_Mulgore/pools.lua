@@ -47,9 +47,16 @@ P:Pool {
   react = { { id = "r_stealth", on = "stealth", text = "Who hides in the camp? If you're quilboar, you're a clever one." } },
   lines = {
     { id = "l_default", text = "The quilboar came out of the hills and took the Greatmother from us. We don't forget, and we don't let them forget either." },
+    { id = "l_x_young", text = "Every young tauren of Mulgore walks through Camp Narache before the plains take them. We guard them until they are ready to guard themselves." },
+    { id = "l_x_class", when = { class = "SHAMAN" }, text = "The young shaman come here to hear the earth for the first time. Listen well, and do not be afraid when it answers." },
   },
-  choices = { { text = "Earth Mother keep you.", next = "END", fx = { standing = { narache = 1 } } } },
+  choices = {
+    { text = "Hunt the quilboar back into the hills.", next = "END", reply = "So the hunters say, and so they do, every season.", fx = { align = { honor = 1 } } },
+    { text = "Guard the young, but don't hunt for vengeance.", next = "END", reply = "Wise words. Vengeance never filled a tauren's belly.", fx = { align = { honor = -1 } } },
+    { text = "Earth Mother keep you.", next = "END", fx = { standing = { narache = 1 } } },
+  },
   topics = {
+    bristleback = { { id = "t_x_bristle", text = "The Bristleback come down from the ridges in the dry months. Their scouts are clumsy, but their chiefs are not." } },
     knows = {
       { id = "t_kn1", text = "The camp is small, but the hunters come back with stories, and I hear every one. I can tell you about these." },
     },

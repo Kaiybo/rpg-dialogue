@@ -678,12 +678,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xcheese = {
+      lines = { { id = "xcheese_default", text = "*Toby sniffs the cheese with grave suspicion, then eats it in one bite, never once leaving the papers.*" } },
+      choices = {
+        { text = "Offer him another piece.", next = "xmore" },
+        { text = "That's all I have.", next = "BACK", reply = "*He stares at your empty hand as though you have betrayed a sacred trust.*" },
+      },
+    },
+    xmore = {
+      lines = { { id = "xmore_default", text = "*He takes the second piece more graciously, and then he licks one paw and sets it, very deliberately, on your sleeve.*" } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xread = {
+      lines = { { id = "xread_default", text = "*You lean in to read. Toby shifts a paw over the only interesting line and gazes at you, unblinking, until you lean away again.*" } },
+      choices = {
+        { text = "Fine. Some secrets belong to cats.", next = "BACK", reply = "*Toby closes his eyes in what can only be approval.*", fx = { align = { order = 1 } } },
+        { text = "Gently slide the paper out from under him.", next = "BACK", reply = "*Toby lets you, then sits on the next sheet instead, entirely unbothered.*", fx = { align = { order = -1 } } },
+      },
+    },
+    xguard = {
+      lines = { { id = "xguard_default", text = "*Toby looks toward the stairs, ears turned, then back at you. Whatever he is guarding, he clearly thinks you are not cleared to know.*" } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xlight = {
+      lines = { { id = "xlight_default", text = "*The little light dances across the desk. Toby watches it once around, decides it is beneath his dignity, and pretends to fall asleep.*" } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "*Toby tucks his paws beneath him on the papers and watches you with the solemn air of a clerk on duty.*" },
       },
       again = { { id = "a_again", text = "*Toby has not moved off the papers, and he plainly never will.*" } },
       choices = {
+        { text = "Offer him a scrap of cheese.", next = "xcheese" },
+        { text = "Read the paper he's sitting on.", next = "xread" },
+        { text = "Toby, are you guarding something?", next = "xguard" },
+        { text = "Cast a small light for him to chase.", next = "xlight", when = { class = "MAGE" } },
+
         { text = "I think somebody needs those papers, Toby.", next = "BACK", reply = "*Toby lies down on them more firmly, which settles the matter.*" },
         { text = "Pet his smooth grey head.", next = "BACK", reply = "*He pushes up into your hand with a small, rusty purr, still keeping one eye on the door.*" },
         { text = "Carry on, then. The papers are in good hands.", next = "END", reply = "*Toby gives you a slow blink, the nearest thing to a salute a cat will give.*" },
@@ -705,12 +737,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xstar = {
+      lines = { { id = "xstar_default", text = "*Tycho follows your finger, then looks back at you as if to say he found that star hours ago and has already named it.*" } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xsit = {
+      lines = { { id = "xsit_default", text = "*He allows you the corner of the sill. After a while his tail settles across your wrist, and the two of you watch the clouds drift together.*" } },
+      choices = {
+        { text = "Stay quiet and keep watching.", next = "xwatch" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwatch = {
+      lines = { { id = "xwatch_default", text = "*A falling star streaks across the dark. Tycho's ears snap forward, and he makes a small chirping sound, the most excited you have ever heard a cat sound.*" } },
+      choices = {
+        { text = "Make a wish on it.", next = "BACK", reply = "*Tycho blinks slowly at you, as if he made his wish first.*", fx = { align = { light = 1 } } },
+        { text = "Just a rock burning up, Tycho.", next = "BACK", reply = "*Tycho turns his back on you with withering contempt.*", fx = { align = { light = -1 } } },
+      },
+    },
+    xfood = {
+      lines = { { id = "xfood_default", text = "*At the word food, Tycho turns from the sky for the first time and looks at you with total attention. Then he looks pointedly at an empty dish on the floor.*" } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xarcane = {
+      lines = { { id = "xarcane_default", text = "*The glowing mote drifts up toward the window. Tycho bats at it once, misses, and then sits very still, pretending he meant to miss.*" } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "*Tycho glances at you, then back up at the sky, as if you had interrupted an important observation.*" },
       },
       again = { { id = "a_again", text = "*Tycho has gone back to watching the sky.*" } },
       choices = {
+        { text = "Point out a bright star to him.", next = "xstar" },
+        { text = "Sit beside him at the window.", next = "xsit" },
+        { text = "Does an astronomer feed you, Tycho?", next = "xfood" },
+        { text = "Show him a spark of arcane light.", next = "xarcane", when = { class = "MAGE" } },
+
         { text = "What are you looking at up there?", next = "BACK", reply = "*You follow his gaze upward and see only clouds, though Tycho's ears are pricked as if something up there were moving.*" },
         { text = "Stroke his back while he watches.", next = "BACK", reply = "*He arches into your hand without once taking his eyes off the sky.*" },
         { text = "Don't fall out of the window, now.", next = "END", reply = "*Tycho shifts his weight back an inch, purely to humour you.*" },

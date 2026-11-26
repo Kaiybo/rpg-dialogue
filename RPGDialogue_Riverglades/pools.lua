@@ -53,6 +53,10 @@ P:Pool {
       text = "You're a healer? Sit with me a while. Sister Rowland's got all of us, and only two hands." },
   },
   lines = {
+    { id = "l_x1", text = "The man in the next cot snores like a saw going through oak. I'd ask to be moved, but I can't stand up yet." },
+    { id = "l_x2", text = "My wife's in Lakeshire, I think. Tell her I'm mending, if you pass that way, and don't tell her how I look." },
+    { id = "l_x3", when = { class = "PRIEST" }, text = "A priest! Say something holy over me, please. It can't hurt, and the Sister's voice is getting hoarse." },
+
     { id = "l_default", text = "Sister Rowland says the fever will pass, though she says that to everyone. I believe her anyway." },
     { id = "l_bored", text = "Thirty days on this cot, and the bedbugs know me by name. I've counted the beams: forty-one, or forty-two if you count the cracked one." },
     { id = "l_story", when = { metBefore = true }, text = "You're back! Tell me something from outside, anything at all; lie, if you have to." },
@@ -62,6 +66,8 @@ P:Pool {
     { text = "Get well.", next = "END" },
   },
   topics = {
+    rowland = { { id = "t_xrowland", text = "Sister Rowland. She hasn't slept since the fever came, and she still smiles at every one of us." } },
+
     _none = { { id = "t_none", text = "I don't know much of anything lately. Ask Sister." } },
   },
 }
@@ -70,11 +76,17 @@ P:Pool {
   id = "worker_farholde", role = "worker", community = "farholde",
   greetings = { { id = "g_default", text = "Mind the mortar." } },
   lines = {
+    { id = "l_x1", text = "We're rebuilding what the Twilight burned. Every stone I set, I think of the fellow who set it the first time." },
+    { id = "l_x2", text = "Lunch is bread and onions again, and Bertrand calls that a feast. I'd like to see his idea of a famine." },
+    { id = "l_x3", when = { class = "WARRIOR" }, text = "You've got the shoulders for this work, friend. If you ever tire of fighting, Bertrand's always hiring." },
+
     { id = "l_default", text = "Bertrand, our master mason, wants this wall done by dusk. He wanted the last one done by dusk too, and that one fell on him." },
     { id = "l_dwarf", when = { race = "Dwarf" }, text = "You're a dwarf, so tell Bertrand these stones are laid straight. He won't believe me, but he'll believe one of his own." },
   },
   choices = { { text = "Back to work, then.", next = "END" } },
-  topics = { _none = { { id = "t_none", text = "I lay stone, friend. Ask somebody who does the talking." } } },
+  topics = {
+    bertrand = { { id = "t_xbertrand", text = "Our master mason. He shouts a lot, but he's never once left a wall crooked." } },
+ _none = { { id = "t_none", text = "I lay stone, friend. Ask somebody who does the talking." } } },
 }
 
 -- 1.10.0: the Horde side. Rog'mar and Bolder'ok aren't in RPGDialogue_World's town list, so their
@@ -152,6 +164,9 @@ P:Pool {
       text = "Big little one! You almost as big as an ogre, so Bolder'ok likes you already." },
   },
   lines = {
+    { id = "l_x1", text = "Bolder'ok watches the river. When the Twilight come in boats, Bolder'ok throws rocks. Rocks sink boats very good." },
+    { id = "l_x2", when = { faction = "Alliance" }, text = "You are not Horde, little one, but you did not hit Bolder'ok yet, so Bolder'ok will not hit you yet." },
+
     { id = "l_default", text = "Twilight say ogres must bleed on their altar stones, and Bolder'ok said no, so the Twilight threw Bolder'ok out. Now Bolder'ok watches for Twilight, and hits them." },
     { id = "l_mugg", when = { questDone = TODO_QUEST("Eye of Mugg") },
       text = "Mugg is dead, and little ones did it! Bolder'ok sang all night, and the singing was very loud and very bad." },
@@ -163,6 +178,8 @@ P:Pool {
     { text = "Goodbye.", next = "END" },
   },
   topics = {
+    rogmar = { { id = "t_xrogmar", text = "Rog'mar is orc town. Orcs there give axes, and ogres give hitting. It is a good trade." } },
+
     twilights_hammer = { { id = "t_hammer", text = "Liars! They say the sky will fall, and they make ogres bleed to help it." } },
     _none = { { id = "t_none", text = "Ogre does not know that. Ask Clugfist." } },
   },
@@ -175,10 +192,17 @@ P:Pool {
     { id = "g_fire", text = "Sit by the fire, little one, but not too close, because ogres roll over in their sleep." },
   },
   lines = {
+    { id = "l_x1", text = "Clugfist is the biggest, so Clugfist is boss. That is how ogres pick bosses, and it is faster than voting." },
+    { id = "l_x2", text = "Little one is small, but little ones are clever. Ogre likes clever, as long as clever brings meat." },
+    { id = "l_x3", when = { race = "Orc" }, text = "Orc! Orcs taught Bolder'ok to say no to the Twilight. Ogre remembers, and ogre is grateful." },
+
     { id = "l_default", text = "Bolder'ok is a good place. Nobody here makes speeches about the end of the world, and the meat is good." },
     { id = "l_orcs", text = "The orcs from Rog'mar bring axes and take ogres to fight the Twilight. It is a good trade, because ogres like fighting the Twilight." },
     { id = "l_humans", text = "The horse humans in the south do not like ogres. That is fair, because Twilight ogres burned their houses, but Bolder'ok ogres did not do it." },
   },
   choices = { { text = "Take care.", next = "END" } },
-  topics = { _none = { { id = "t_none", text = "Ogre does not know. Ogre knows meat, and fire, and hitting." } } },
+  topics = {
+    clugfist = { { id = "t_xclug", text = "Clugfist is boss. Clugfist hits hardest and yells loudest, so everybody listens." } },
+    twilights_hammer = { { id = "t_xhammer", text = "Bad people with bad robes. They want ogres to die for the sky. Ogre likes the sky where it is." } },
+ _none = { { id = "t_none", text = "Ogre does not know. Ogre knows meat, and fire, and hitting." } } },
 }

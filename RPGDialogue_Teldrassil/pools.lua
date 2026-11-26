@@ -19,10 +19,17 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "The leaves just told me where you are. Sentinels learn to listen to them, not to look for shadows." } },
   lines = {
+    { id = "l_x1", text = "The moonwell in Dolanaar is the heart of the village. Drink from it with respect; the priestesses notice who does not." },
+    { id = "l_x2", text = "Fel Rock to the east has gone foul. Something dark nests in that cave, and our novices come back pale from it." },
+    { id = "l_x3", when = { race = "NightElf" }, text = "You walk like someone born under these branches. Teldrassil is still young, sister or brother, so tend it gently." },
+
     { id = "l_default", text = "We watch the roads between Shadowglen and Darnassus. The forest is young, and not all that grows in it is healthy; some of it bites, and some of it just smells of rot." },
   },
   choices = { { text = "Elune keep you, Sentinel.", next = "END", fx = { standing = { dolanaar = 1 } } } },
   topics = {
+    teldrassil = { { id = "t_xteldrassil", text = "Our new World Tree. It grew quickly, and some say it grew too proud." } },
+    gnarlpine = { { id = "t_xgnarlpine", text = "Furbolgs who were our friends. Something has poisoned their minds, and we grieve while we fight them." } },
+
     cenarion_circle = { { id = "t_circle", text = "The druids of the Circle tend the tree and we guard it, which seems a fair division to me." } },
     _none = { { id = "t_none", text = "Ask in Dolanaar, where Tallonkai or Athridas will know. If they don't, the innkeeper will pretend to, and graciously." } },
   },

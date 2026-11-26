@@ -27,6 +27,10 @@ P:NPC {
       lines = { { id = "h_default", text = "I keep the peace in Caer Darrow, same as every day, though the town's been terribly quiet of late. The Barovs keep to the keep and the folk keep to their houses, and nobody tells a guardsman why." } },
       again = { { id = "h_again", text = "Anything else, traveller? I've my rounds to walk." } },
       choices = {
+        { text = "When did you last see Lord Barov?", next = "xbarov" },
+        { text = "What do you do when your shift ends?", next = "xshift" },
+        { text = "You are dead. Look at your hands.", next = "xhands" },
+        { text = "I'm a priest. I could help you rest.", next = "xrest", when = { class = "PRIEST" } },
         { text = "You know you're dead, don't you?", next = "dead" },
         { text = "What happened to the Barovs?", next = "barov" },
         { text = "Who lives in the keep now?", next = "keep" },
@@ -49,8 +53,53 @@ P:NPC {
       lines = { { id = "k_default", text = "The Barovs, of course, and their guests, though I've not seen a living servant go in or out for some time. There's a cold that comes off those walls at night that I don't like at all." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xbarov = {
+      lines = {
+        { id = "xb1", text = "Lord Alexei rides in from the keep every morning, or he did, until the morning he didn't. There were strange folk in robes with him in his last visits, scholars, he said, invited to teach in the keep." },
+      },
+      choices = {
+        { text = "Those scholars were the Cult of the Damned.", next = "xcult" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xcult = {
+      lines = {
+        { id = "xc1", text = "The what? Lord Barov would never... no, he'd not have let such people into Caer Darrow. You've got your facts muddled, friend, and I'll thank you not to slander the family." },
+      },
+      choices = {
+        { text = "The Barovs sold their people to the Scourge.", next = "BACK", reply = "That's a lie, and I'd strike you for it, if my arm would only move.", fx = { align = { honor = -1 } } },
+        { text = "Maybe the Barovs were deceived, like the rest.", next = "BACK", reply = "Deceived. Yes. That must be it, mustn't it?", fx = { align = { honor = 1 } } },
+      },
+    },
+    xshift = {
+      lines = {
+        { id = "xs1", text = "Home to my wife and a bowl of stew, same as always. Only it's been a long shift, now I think of it, and I can't recall the way home." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhands = {
+      narr = "He lifts his hands and stares through them at the cobbles beneath.",
+      lines = {
+        { id = "xh1", text = "Oh, Light, you're right, I can see the stones through my palms. How long has it been?" },
+      },
+      choices = {
+        { text = "Years. I'm sorry.", next = "BACK", reply = "Years. And still I keep the gate. Leave me to it, then, because I don't know what else to do." },
+      },
+    },
+    xrest = {
+      lines = {
+        { id = "xr1", text = "Rest? I'll rest when Lord Barov dismisses me, and not before, thank you. Though it's kind of you to offer, and I don't recall the last time someone was kind." },
+      },
+      choices = {
+        { text = "The offer stands.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    barov = { { id = "xtp_ba", text = "The Barov family rule Caer Darrow. Fine people, generous with the harvest." } },
+    scholomance = { { id = "xtp_sc", text = "Scholars in the keep? I've not been inside in some time, now that you ask." } },
     background = { { id = "tp_bg", text = "I'm a guardsman of Caer Darrow, sworn to Lord Barov." } },
     _none = { { id = "tp_none", text = "I couldn't say, traveller. Ask at the keep." } },
   },
@@ -80,6 +129,9 @@ P:NPC {
       lines = { { id = "h_default", text = "I man the cannons of Caer Darrow, and I watch the lake for raiders, as Lord Barov ordered. Nothing has come across the water in a very long time, but I keep watching, because those are my orders." } },
       again = { { id = "h_again", text = "What else? Make it quick, I'm on watch." } },
       choices = {
+        { text = "When did you last fire the cannon?", next = "xfire2" },
+        { text = "Who gives you your orders now?", next = "xorders" },
+        { text = "I'm a dwarf. That's a fine gun.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "What did you expect to come across the lake?", next = "lake" },
         { text = "The danger came from inside the walls.", next = "inside" },
         { text = "When did you last fire that cannon?", next = "fire" },
@@ -102,8 +154,44 @@ P:NPC {
       lines = { { id = "f_default", text = "The night the screaming started in the town, I think, though I can't remember what I was aiming at. It's all mist after that, and I've been standing here ever since." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xfire2 = {
+      lines = {
+        { id = "xf1", text = "At a troll raft in the Second War, and I sank it too, square amidships. Since then, salutes on Lord Barov's birthday, and nothing else, though I keep her loaded, just in case." },
+      },
+      choices = {
+        { text = "Do you still hear the town behind you?", next = "xtown" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xtown = {
+      lines = {
+        { id = "xt1", text = "I hear bells sometimes, and screaming, but always behind me, and when I turn round there's nothing. I've stopped turning round, because orders say to watch the lake." },
+      },
+      choices = {
+        { text = "You should turn around and face it.", next = "BACK", reply = "Face what? There's nothing there. There's never anything there.", fx = { align = { order = -1 } } },
+        { text = "Orders are orders. Watch the lake.", next = "BACK", reply = "Exactly so. A good soldier keeps to his post, whatever happens.", fx = { align = { order = 1 } } },
+      },
+    },
+    xorders = {
+      lines = {
+        { id = "xo1", text = "The sergeant, though I haven't seen him since the grey morning. Lord Barov before that, and the king before him, Light keep King Terenas on his throne." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = {
+        { id = "xd1", text = "She's Ironforge make, you've a good eye! Bought from your people before the Second War, and she's never misfired once, which is more than I can say for myself." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    terenas = { { id = "xtp_te", text = "Long live the king! He sent us these guns himself, or his quartermaster did." } },
+    lake = { { id = "xtp_lk", text = "Darrowmere. Calm as glass, always. Too calm, some days." } },
     background = { { id = "tp_bg", text = "I'm a cannoneer of Caer Darrow, and the guns are my charge." } },
     _none = { { id = "tp_none", text = "Don't know anything about that, friend. Just the guns." } },
   },
@@ -133,6 +221,9 @@ P:NPC {
       lines = { { id = "h_default", text = "I ride the patrol around Caer Darrow, the same circle as always, the shore, the gate, the keep and round again. My horse knows the way so well I could sleep in the saddle, and maybe I do." } },
       again = { { id = "h_again", text = "Anything else, traveller? My horse is restless." } },
       choices = {
+        { text = "What's your horse's name?", next = "xname" },
+        { text = "Who rides with you on patrol?", next = "xwho" },
+        { text = "I'm a paladin. Your horse is a spirit too.", next = "xpal", when = { class = "PALADIN" } },
         { text = "Your horse looks like a ghost too.", next = "horse" },
         { text = "Why ride in circles?", next = "circles" },
         { text = "Have you seen anything strange?", next = "strange" },
@@ -155,8 +246,45 @@ P:NPC {
       lines = { { id = "s_default", text = "Men in black robes, coming and going from the keep, and lights in the windows that aren't candles. Lord Barov told us to look the other way, and so we did." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xname = {
+      lines = {
+        { id = "xn1", text = "Bramble, on account of how she went through a hedge her first day and never looked back. She was a farm horse, really, too stubborn for the plough and just stubborn enough for soldiering." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwho = {
+      lines = {
+        { id = "xw1", text = "There were six of us once, riding the circle in pairs. The others stopped coming out, one by one, and the sergeant said they'd been taken sick, and then the sergeant stopped coming out too." },
+      },
+      choices = {
+        { text = "What do you think happened?", next = "xthink" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xthink = {
+      lines = {
+        { id = "xt1", text = "Sickness, like he said, from the grain. But a sick man doesn't stop being a man, and I've seen things in the keep's windows that don't move like men." },
+      },
+      choices = {
+        { text = "Ride out, and don't come back here.", next = "BACK", reply = "Leave my post? I couldn't, even if Bramble would carry me past the gate.", fx = { align = { honor = -1 } } },
+        { text = "Keep your patrol. Someone should watch.", next = "BACK", reply = "Aye, someone should. I suppose that's me.", fx = { align = { honor = 1 } } },
+      },
+    },
+    xpal = {
+      narr = "He reaches down to pat the mare's neck, and his hand passes through her mane like smoke.",
+      lines = {
+        { id = "xp1", text = "She's still warm to me, {class}. Don't tell me otherwise, please." },
+      },
+      choices = {
+        { text = "I won't.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    barov = { { id = "xtp_ba", text = "The family pays us and feeds the horses. Or they did." } },
+    bramble = { { id = "xtp_br", text = "My horse. Best mare in Caer Darrow." } },
     background = { { id = "tp_bg", text = "I'm a horseman of the Barov guard, and I've ridden this patrol longer than I can remember." } },
     _none = { { id = "tp_none", text = "I don't know, traveller. I only know the patrol." } },
   },
@@ -186,6 +314,9 @@ P:NPC {
       lines = { { id = "h_default", text = "I'm just on my way to the market, though I can't seem to find it, which is very silly in a town this small. Everyone's been so quiet lately, and nobody answers their door." } },
       again = { { id = "h_again", text = "Was there something else, stranger?" } },
       choices = {
+        { text = "What's your name?", next = "xname" },
+        { text = "Who are the Barovs to you?", next = "xbarov" },
+        { text = "You've been dead a long time.", next = "xdead" },
         { text = "What sickness was in the grain?", next = "grain" },
         { text = "Do you remember your family?", next = "family" },
         { text = "There is no market anymore.", next = "market" },
@@ -208,8 +339,44 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xname = {
+      lines = {
+        { id = "xn1", text = "Maudie, of the bakery by the bridge. Everyone knows my seed cakes, though now I come to think of it, I can't remember when I last lit the oven." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbarov = {
+      lines = {
+        { id = "xb1", text = "Lord Alexei and his lady, and their children, Alexei the younger and Weldon and the girl. They held a harvest festival every autumn and gave a loaf to every house, and we all loved them for it." },
+      },
+      choices = {
+        { text = "The Barovs traded your town to the Scourge.", next = "xtrade" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xtrade = {
+      lines = {
+        { id = "xt1", text = "No, no. They wouldn't. They gave us bread. They gave us the bread from the north, the good grain, as a gift." },
+      },
+      choices = {
+        { text = "They gave you plague. They knew what they did.", next = "BACK", reply = "<Her face crumples, and she turns away toward the empty market.>", fx = { align = { light = -1 } } },
+        { text = "I'm sure they didn't know.", next = "BACK", reply = "No. Of course they didn't. Thank you for saying so.", fx = { align = { light = 1 } } },
+      },
+    },
+    xdead = {
+      lines = {
+        { id = "xd1", text = "Don't be cruel, dear. I'm only a little tired, and the fog's very thick today, and it's been thick for so long." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    barov = { { id = "xtp_ba", text = "Good lords. They gave every house a loaf at harvest." } },
+    andorhal = { { id = "xtp_an", text = "The grain came from Andorhal. It was such fine flour." } },
     background = { { id = "tp_bg", text = "I've lived in Caer Darrow all my life, and I'll not leave it now." } },
     _none = { { id = "tp_none", text = "I'm sure I don't know, stranger. Ask the guardsman." } },
   },
@@ -373,6 +540,9 @@ P:NPC {
       lines = { { id = "h_default", text = "I am Lysta Bancroft, and I tend the captives of the War Quarter: humans, ghouls, the odd abomination. When Brother Malach calls, I bring one out for his pupils to fight." } },
       again = { { id = "h_again", text = "Anything else? My charges get restless if I leave them." } },
       choices = {
+        { text = "Who is Brother Malach?", next = "xmalach" },
+        { text = "Do the captives ever escape?", next = "xescape" },
+        { text = "You're living, aren't you? Why work here?", next = "xliving", when = { race = "Scourge" } },
         { text = "Where do the captives come from?", next = "captives" },
         { text = "Isn't that cruel?", next = "cruel" },
         { text = "I'll leave you to it.", next = "END" },
@@ -396,8 +566,44 @@ P:NPC {
         { text = "Cruelty makes us no better than them.", next = "BACK", reply = "We were never better than them, dear. Only more honest.", fx = { align = { order = 1 } } },
       },
     },
+    xmalach = {
+      lines = {
+        { id = "xm1", text = "A Forsaken who trains our warriors and believes every one of them should kill a living enemy before they're sent to the front. He says it settles the hands, and he's usually right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xescape = {
+      lines = {
+        { id = "xe1", text = "Once, a Scarlet scout picked his lock with a fish bone and got as far as the sewers. The bats found him before the guards did, and I've checked the cells twice a night since." },
+      },
+      choices = {
+        { text = "Do you feel anything for them?", next = "xfeel" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xfeel = {
+      lines = {
+        { id = "xf1", text = "For the ghouls, nothing; they were Scourge the moment they rose. For the Scarlets, I remember they'd burn me without a second thought, and that does wonders for the conscience." },
+      },
+      choices = {
+        { text = "Prisoners deserve better than to be sparring dummies.", next = "BACK", reply = "You'd better keep that sentiment far from Malach.", fx = { align = { honor = 1 } } },
+        { text = "They'd do worse to us. Let them bleed.", next = "BACK", reply = "Now you're talking like a Forsaken.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xliving = {
+      lines = {
+        { id = "xl1", text = "Living? Me? No, friend, I died in the Undercity sewers when it was still the capital's drain, and I woke up with a set of keys in my hand. I've been the jailer ever since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    scarlet = { { id = "xtp_sc", text = "Fanatics. They make good sparring partners, at least." } },
+    malach = { { id = "xtp_ma", text = "Brother Malach. He trains our warriors on whatever I bring him." } },
     background = { { id = "tp_bg", text = "A Lordaeron girl once, and now the keeper of the War Quarter's cages. A promotion, of sorts." } },
     _none = { { id = "tp_none", text = "I keep cages, not secrets. Ask Brother Malach." } },
   },

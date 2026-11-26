@@ -96,12 +96,17 @@ P:Pool {
       text = "You'll want a smith more than a trader, by the look of that armour, but I can at least sell you a bandage." },
   },
   lines = {
+    { id = "l_x1", text = "The Winterfall furbolgs raid the caravans for the food, and they leave the armour. Even they know what's worth stealing up here." },
+    { id = "l_x2", text = "Prices are high, I know. Walk the trail down to Everlook and back with a full pack, and then tell me what's fair." },
+
     { id = "l_default", text = "Everything up here came through the snow on somebody's back. You're not paying for the goods; you're paying for the walk." },
     { id = "l_lotus", when = { profession = { name = "Herbalism", min = 300 } }, text = "Herbalist, are you? They say there's a lotus on this mountain that only shows itself to the right kind of gloves. I've never seen one, and I've looked." },
     { id = "l_thorium", when = { profession = { name = "Mining", min = 275 } }, text = "If you've a pick, the thorium in these rocks is the richest I've heard of, and sometimes it comes up with a green crystal in it that I wouldn't hold for long." },
   },
   choices = { { text = "Let's see what you have.", next = "BUSINESS" } },
   topics = {
+    everlook = { { id = "t_xeverlook", text = "Where my stock comes from. Everlook's goblins never give a discount, so neither can I." } },
+
     trade = { { id = "t_trade", text = "Azzleby's caravans, when the Winterfall don't get to them first. Last month they ate a whole crate of candles, wicks and all, so prices go up." } },
     _none = { { id = "t_none", text = "I sell things, friend. Knowing things costs extra, and I don't stock it." } },
   },

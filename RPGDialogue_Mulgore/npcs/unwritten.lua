@@ -99,6 +99,9 @@ P:NPC {
       choices = {
         { text = "What does the earth want of a shaman?", next = "want" },
         { text = "Why are you so small?", next = "small" },
+        { text = "How old are you?", next = "xold" },
+        { text = "Do you remember the world before the tauren?", next = "xbefore" },
+        { text = "I call on the earth too.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "Return to the stone.", next = "END" },
       },
     },
@@ -110,6 +113,44 @@ P:NPC {
       lines = { { id = "s_default", text = "All mountains are small at first. You are small too, and still you came to test me." } },
       choices = { { text = "Fair point.", next = "BACK" } },
     },
+    xold = {
+      lines = {
+        { id = "x_xold", text = "As old as the mountain, and as young as this morning, for you called me this morning. Stone does not count years, only weight." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbefore = {
+      narr = "Pebbles slide off its shoulders and click softly against the ground.",
+      lines = {
+        { id = "x_xbefore", text = "I remember the world before it broke, when this was one land and the sea was far. The stone remembers the shaking, and it does not wish to shake again." },
+      },
+      choices = {
+        { text = "Could it break again?", next = "xbreak" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbreak = {
+      lines = {
+        { id = "x_xbreak", text = "Everything can break, little mortal, if it is pushed hard enough. Some of your kind dig deep and take much, and others leave the stone alone." },
+      },
+      choices = {
+        { text = "We should take only what we need from the earth.", next = "BACK", reply = "The stone hears you, and it is quieter for it.", fx = { align = { light = 1 } } },
+        { text = "The earth is there to be used.", next = "BACK", reply = "Then use it, and see what it remembers of you.", fx = { align = { light = -1 } } },
+      },
+    },
+    xshaman = {
+      lines = {
+        { id = "x_xshaman", text = "I know, and I feel it in you, a small warmth like a stone in summer sun. Speak to us with patience and we will answer, slowly, but surely." },
+      },
+      choices = {
+        { text = "I'll be patient.", next = "BACK", reply = "Good. Patience is the earth's only lesson.", fx = { affinity = 1 } },
+      },
+    },
+  },
+  topics = {
+    earth = { { id = "tp_xearth", text = "The earth is the mother of all things. I am only a small piece of her." } },
   },
 }
 
@@ -145,6 +186,9 @@ P:NPC {
         { text = "Why must I keep smiling?", next = "smile" },
         { text = "How did a troll join the Faire?", next = "faire" },
         { text = "I've brought you some gizmos.", next = "gizmo", when = { profession = "Engineering" } },
+        { text = "How long have you been with the Faire?", next = "xlong" },
+        { text = "What's the best prize you've seen?", next = "xprize" },
+        { text = "A Darkspear in the Faire? Where's home?", next = "xhome", when = { race = "Troll" } },
         { text = "Maybe later.", next = "END" },
       },
     },
@@ -174,6 +218,45 @@ P:NPC {
       lines = { { id = "gizmo_default", text = "Bring them over and I'll trade you Faire tickets for each one that whirrs. Rinling don't pay for things that just sit there looking sad." } },
       choices = { { text = "Deal.", next = "BACK", fx = { affinity = 1 } } },
     },
+    xlong = {
+      lines = {
+        { id = "x_xlong", text = "Six years, mon, since Silas Darkmoon found me cheatin' at dice on a dock in Booty Bay. He said a troll who cheats dat well should be runnin' de games instead of losin' dem." },
+      },
+      choices = {
+        { text = "Do you still cheat?", next = "xcheat" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcheat = {
+      lines = {
+        { id = "x_xcheat", text = "Never at me own gallery, mon, Silas would have me ears. But a little edge here and dere, dat be how de Faire stay alive on de road." },
+      },
+      choices = {
+        { text = "A fair game should be fair. No edges.", next = "BACK", reply = "You sound like Silas, and he be a very boring man about rules.", fx = { align = { honor = 1 } } },
+        { text = "A little edge never hurt anyone.", next = "BACK", reply = "Ha! You be a Faire person at heart, I see it.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xprize = {
+      narr = "He grins and spins a gear across his knuckles.",
+      lines = {
+        { id = "x_xprize", text = "A clockwork bird dat sang every song from Stormwind to Orgrimmar, made by a gnome who wanted to see if it would work. It did, too well, and it never stop singin' until somebody threw it in a lake." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhome = {
+      lines = {
+        { id = "x_xhome", text = "Echo Isles, mon, before Zalazane went mad. I left young, and now I live on de wagon, and home be wherever de tents go up." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    darkmoon_faire = { { id = "tp_xdarkmoon_faire", text = "De Darkmoon Faire go everywhere and stay nowhere. Dat suit a troll like me." } },
+    silas = { { id = "tp_xsilas", text = "Silas Darkmoon run de Faire. He know everyt'ing, and he say nothin'." } },
   },
 }
 
@@ -203,6 +286,9 @@ P:NPC {
       choices = {
         { text = "What's on the grill?", next = "food" },
         { text = "A tauren who travels with the Faire?", next = "travel" },
+        { text = "Tell me about your grandmother.", next = "xgran" },
+        { text = "What do you think of the Faire's folk?", next = "xfolk" },
+        { text = "Do you ever cook kodo?", next = "xkodo", when = { race = "Tauren" } },
         { text = "Give me something to eat.", next = "END" },
       },
     },
@@ -214,6 +300,53 @@ P:NPC {
       lines = { { id = "t_default", text = "The Thunderhorn have always followed the herds, so the Faire is only a herd with more tents. I see the world, I feed it, and I come home to Mulgore every season." } },
       choices = { { text = "A good life.", next = "BACK" } },
     },
+    xgran = {
+      lines = {
+        { id = "x_xgran", text = "She cooked for the whole Thunderhorn tribe when we still wandered the Barrens, over a fire built in a pit dug with her own hooves. Every dish I make is a memory of her hands." },
+      },
+      choices = {
+        { text = "Why didn't you stay in Mulgore?", next = "xstay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xstay = {
+      lines = {
+        { id = "x_xstay", text = "Because the world is big, and I wanted to see what everyone else eats. In Stormwind I ate fish pie, in Booty Bay I ate something I will not name, and I came home to plains bread." },
+      },
+      choices = {
+        { text = "Should tauren travel so far?", next = "xfar" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfar = {
+      lines = {
+        { id = "x_xfar", text = "My elders say a tauren belongs with the herd, and I should come home for good. I say the Earth Mother made the whole world, not only Mulgore." },
+      },
+      choices = {
+        { text = "The world is worth seeing. Keep travelling.", next = "BACK", reply = "My stomach and I both agree with you.", fx = { align = { order = -1 } } },
+        { text = "Your herd needs you. Come home someday.", next = "BACK", reply = "Someday, perhaps, when my hooves are tired.", fx = { align = { order = 1 } } },
+      },
+    },
+    xfolk = {
+      narr = "He flips a skewer with his bare fingers and doesn't flinch.",
+      lines = {
+        { id = "x_xfolk", text = "Strange and kind and a little crooked, like good bread. Silas pays fairly, the gnomes are clever, and the trolls make the Faire laugh." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xkodo = {
+      lines = {
+        { id = "x_xkodo", text = "Never, cousin, and I would not serve it to anyone. The kodo carried our tribes across the Barrens, and I will not repay them that way." },
+      },
+      choices = {
+        { text = "Good.", next = "BACK", reply = "Earth Mother bless you for asking." },
+      },
+    },
+  },
+  topics = {
+    darkmoon_faire = { { id = "tp_xdarkmoon_faire", text = "The Faire comes to Mulgore every few months. I cook twice as much when it does." } },
   },
 }
 
@@ -542,6 +675,9 @@ P:NPC {
       choices = {
         { text = "What's your work in the village?", next = "work" },
         { text = "The Stonetotem and the Grimtotem are different?", next = "names" },
+        { text = "Tell me about your family.", next = "xfam" },
+        { text = "What do you think of the Horde?", next = "xhorde" },
+        { text = "You must know the land well, cousin.", next = "xland", when = { race = "Tauren" } },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
     },
@@ -563,8 +699,54 @@ P:NPC {
       lines = { { id = "n_default", text = "Very different, {class}. A stonetotem is a carved post that marks our hunting grounds, and my line carved them; the Grimtotem are Magatha's people, who would sooner see the Horde gone. I have no love for them." } },
       choices = { { text = "I'll remember the difference. Something else.", next = "BACK" } },
     },
+    xfam = {
+      lines = {
+        { id = "x_xfam", text = "My mother weaves, my father hunts, and my sister has gone to Thunder Bluff to learn the ways of the Bluff's healers. I stayed, for Bloodhoof Village needs strong backs more than it needs another healer." },
+      },
+      choices = {
+        { text = "Do you envy her?", next = "xenvy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xenvy = {
+      lines = {
+        { id = "x_xenvy", text = "A little, when the wind smells of the city cookfires. But the Earth Mother puts each of us where we are needed, and I am needed here, carrying water and mending fences." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhorde = {
+      lines = {
+        { id = "x_xhorde", text = "The orcs helped us drive back the centaur and find this land, and Cairne calls them friends. I have met only a few, and they are loud and fierce, but they keep their word." },
+      },
+      choices = {
+        { text = "Should the tauren stay in the Horde?", next = "xstay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xstay = {
+      lines = {
+        { id = "x_xstay", text = "Some elders whisper that we owe the orcs nothing more and should keep to Mulgore. Others say the Horde is our family now, whatever its quarrels." },
+      },
+      choices = {
+        { text = "The Horde is family. Stand with it.", next = "BACK", reply = "Cairne would say the same, and I trust Cairne.", fx = { align = { order = 1 } } },
+        { text = "Mulgore first. The tauren must look after themselves.", next = "BACK", reply = "You speak like the old herders. Perhaps they are not wrong.", fx = { align = { order = -1 } } },
+      },
+    },
+    xland = {
+      narr = "He scrapes a hoof across the ground, slowly, the way a bull warns.",
+      lines = {
+        { id = "x_xland", text = "Every hill and stream of it, cousin, from the Red Rocks to the Venture camps. The Venture Company cuts our trees, and the gnolls dig in the hills, and I would see them both gone." },
+      },
+      choices = {
+        { text = "So would I.", next = "BACK", reply = "Then may we hunt them together, some day.", fx = { affinity = 1 } },
+      },
+    },
   },
   topics = {
+    bloodhoof_village = { { id = "tp_xbloodhoof_village", text = "Bloodhoof Village is my home. The finest place in the world, though I've seen little else." } },
+    grimtotem = { { id = "tp_xgrimtotem", text = "We Stonetotem have nothing to do with the Grimtotem. Say it plainly, please." } },
     _none = { { id = "tp_none", text = "I do not know that, {class}. Ask the elders, or ask the wind; the wind knows more than I do." } },
   },
 }
@@ -594,6 +776,9 @@ P:NPC {
       choices = {
         { text = "What do you do for the village?", next = "duty" },
         { text = "Tell me about this famous stomp.", next = "stomp" },
+        { text = "What's the hardest part of being a brave?", next = "xhard" },
+        { text = "What do you think of the Venture Company?", next = "xventure" },
+        { text = "I'm also young. Any advice?", next = "xyoung", when = { race = "Tauren" } },
         { text = "Farewell, Thontek.", next = "END" },
       },
     },
@@ -615,8 +800,45 @@ P:NPC {
       lines = { { id = "t_default", text = "Nobody taught me, {class}; every tauren is born with it, the way a kodo is born heavy. The trick is learning when to use it, and I am still working on that part." } },
       choices = { { text = "Keep working on it. Something else.", next = "BACK" } },
     },
+    xhard = {
+      lines = {
+        { id = "x_xhard", text = "Waiting. Everyone says a brave's duty is to stand ready, and I am very good at standing, but I am not good at waiting for anything to happen." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xventure = {
+      lines = {
+        { id = "x_xventure", text = "They cut down our trees and make machines that roar through the hills. Baine and the hunters drive them back, but they always return with more saws." },
+      },
+      choices = {
+        { text = "Should the tauren attack them?", next = "xattack" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xattack = {
+      lines = {
+        { id = "x_xattack", text = "I would charge them tomorrow if the elders let me. But Baine says that patience wins wars, and a calf who charges first is a calf who dies first." },
+      },
+      choices = {
+        { text = "Charge them. Show the goblins tauren strength.", next = "BACK", reply = "Yes! That's what I keep saying!", fx = { align = { honor = 1 } } },
+        { text = "The elders are right. Wait for the right time.", next = "BACK", reply = "You sound like the elders. I suppose I'll listen to you too.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xyoung = {
+      narr = "He stamps a hoof proudly, and the ground thuds.",
+      lines = {
+        { id = "x_xyoung", text = "Stomp loudly and listen quietly, that's what my mother says, though I am better at the first part. And never chase a swoop into the hills, because they are faster than they look." },
+      },
+      choices = {
+        { text = "Thanks.", next = "BACK", reply = "Walk with the Earth Mother, friend!", fx = { affinity = 1 } },
+      },
+    },
   },
   topics = {
+    bloodhoof_village = { { id = "tp_xbloodhoof_village", text = "Bloodhoof Village is where I was born and where I will die old." } },
+    venture_company = { { id = "tp_xventure_company", text = "The Venture Company cuts our trees. I would cut their saws." } },
     _none = { { id = "tp_none", text = "I have no idea, {class}, but if you find out, come and tell me. I like news." } },
   },
 }
@@ -646,6 +868,9 @@ P:NPC {
         { text = "Do the dead grieve as we do?", next = "grieve" },
         { text = "These red stones feel older than anything in Mulgore.", next = "redrocks" },
         { text = "My grandmother is buried here. Does she hear me?", next = "kin", when = { race = "Tauren" } },
+        { text = "What was your life as a hunter?", next = "xlife" },
+        { text = "Do you know my ancestors?", next = "xmine", when = { race = "Tauren" } },
+        { text = "Did you know Cairne's kin?", next = "xcairne" },
         { text = "Rest well, ancestor.", next = "END" },
       },
     },
@@ -682,6 +907,54 @@ P:NPC {
       lines = { { id = "g_default2", text = "We remember, which is gentler than grief. When the living sing our names at the Red Rocks, we hear them, and the sound is like rain after a long summer." } },
       choices = { { text = "I will remember that.", next = "BACK" } },
     },
+    xlife = {
+      lines = {
+        { id = "x_xlife", text = "I followed the great kodo herds from the Barrens to the foot of these mountains, before the tribes found rest in Mulgore. We were wanderers then, with the centaur at our heels, and every season was a flight." },
+      },
+      choices = {
+        { text = "Do you miss the wandering?", next = "xwander" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwander = {
+      narr = "The mist about its horns stirs, though there is no wind.",
+      lines = {
+        { id = "x_xwander", text = "The wind never misses the grass it has passed over, and neither do I. But I am glad the young ones have Mulgore, where the grass is green and the centaur are far away." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmine = {
+      lines = {
+        { id = "x_xmine", text = "All the ancestors know one another, little one, as all the stars share one sky. Yours walk near you more often than you think, especially when you are afraid." },
+      },
+      choices = {
+        { text = "Do they judge me?", next = "xjudge" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xjudge = {
+      lines = {
+        { id = "x_xjudge", text = "They watch, and they hope, and sometimes they grieve. Some elders say the dead should guide the living closely, and some say the young must find their own way." },
+      },
+      choices = {
+        { text = "I'll heed the ancestors' guidance.", next = "BACK", reply = "Then you will never walk alone, though you may walk slowly.", fx = { align = { order = 1 } } },
+        { text = "I'll find my own path.", next = "BACK", reply = "So did I, once. The ancestors forgave me, and they will forgive you.", fx = { align = { order = -1 } } },
+      },
+    },
+    xcairne = {
+      lines = {
+        { id = "x_xcairne", text = "Cairne Bloodhoof is a great chief, and he brought the tribes home. I hunted with his grandfather, long ago, and the grandson has the same steady eyes." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "That is a matter for the living. Ask in Bloodhoof Village." } } },
+  topics = {
+    cairne = { { id = "tp_xcairne", text = "Cairne led the tribes to Mulgore. The ancestors are proud of him." } },
+    red_rocks = { { id = "tp_xred_rocks", text = "The Red Rocks hold the bones of our honoured dead. Walk softly there." } },
+    _none = { { id = "tp_none", text = "That is a matter for the living. Ask in Bloodhoof Village." } },
+  },
 }
