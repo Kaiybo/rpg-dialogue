@@ -930,6 +930,9 @@ P:NPC {
         { text = "Orcs don't seem to like guns much.", next = "orcs" },
         { text = "I'd bet you sell guns to dwarves too.", next = "dwarves" },
         { text = "Show me the guns.", next = "BUSINESS" },
+        { text = "Does a gun shame the hunt?", next = "xhunt" },
+        { text = "What do the elders in Thunder Bluff say of your guns?", when = { race = "Tauren" }, next = "xelders" },
+        { text = "Could a warrior make use of a gun?", when = { class = "WARRIOR" }, next = "xwarrior" },
         { text = "Not today, Kaja.", next = "END" },
       },
     },
@@ -986,9 +989,55 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xhunt = {
+      lines = {
+        { id = "xhunt_default", text = "Some of the old hunters say so, friend, and they say it loudly at every fire. They say a hunter should be close enough to hear the beast breathe, but a gun reaches the wolf that is already running at your kodo." },
+      },
+      choices = {
+        { text = "A hunt is honoured by the hunter's skill, not the weapon.", next = "BACK", reply = "So I tell them, friend, and they grumble, and then they buy powder anyway.", fx = { align = { order = -1 } } },
+        { text = "The old ways should be kept. A bow is enough.", next = "BACK", reply = "Then keep your bow, and walk with the Earth Mother. I will not quarrel with you.", fx = { align = { order = 1 } } },
+        { text = "Who are these old hunters?", next = "xhunt_who" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunt_who = {
+      lines = {
+        { id = "xhunt_who_default", text = "Hunters of the Bloodhoof, mostly, who rode with Cairne across the Barrens when the centaur chased us. They remember every arrow they ever loosed, and they say a gun forgets for you." },
+      },
+      choices = {
+        { text = "They sound like hard folk to sell to.", next = "xhunt_sell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunt_sell = {
+      lines = {
+        { id = "xhunt_sell_default", text = "Hard, yes, but fair. One of them borrowed a rifle last spring to drive the Venture Company's men off his grazing land, and he brought it back clean and never said a word about it." },
+      },
+      choices = {
+        { text = "That says enough without words.", next = "BACK", fx = { learn = { "venture_company" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xelders = {
+      lines = {
+        { id = "xelders_default", text = "The elders say little, because Cairne says little, and Cairne has fought beside the orcs long enough to know what a goblin rifle does to a centaur. The young braves buy from me, and the old ones look the other way." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarrior = {
+      lines = {
+        { id = "xwarrior_default", text = "Many warriors carry one for the first shot, before the axe comes out. A rifle wakes the enemy up and draws him to you, and then you do the rest, which I am told is the warrior's favourite part." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     trade = { { id = "tp_trade", text = "Buy low, sell high, and never sell a gun to a customer who looks angry at you. That's my whole philosophy, and it's free." } },
+    ratchet = { { id = "tp_x_ratchet", text = "Ratchet is where I learned the thunder-stick, from goblins who blew up two workshops teaching me. They charge for lessons, and they charge more for the bandages." } },
     _none = { { id = "tp_none", text = "I do not know, friend, and if I did, the goblins would have taught me to charge for it. Buy some shot and ask me again." } },
   },
 }

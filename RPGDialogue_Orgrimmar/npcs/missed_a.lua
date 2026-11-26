@@ -38,6 +38,10 @@ P:NPC {
         { text = "What does an advisor do here?", next = "advise" },
         { text = "You don't look comfortable in Orgrimmar.", next = "heat" },
         { text = "What do the Forsaken want from this hall?", next = "want" },
+        { text = "What news from Lordaeron?", next = "xnews" },
+        { text = "You were a clerk once, I'd guess.", next = "xclerk" },
+        { text = "Do the orcs truly trust the Forsaken?", next = "xtrust" },
+        { text = "We of the Dark Lady endure, Advisor.", when = { race = "Scourge" }, next = "xkin" },
         { text = "I'll leave you to your despatches.", next = "END" },
       },
     },
@@ -66,10 +70,55 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xnews = {
+      lines = {
+        { id = "xnews_default", text = "The Scourge still hold the plaguelands to the east, and the Scarlet Crusade burns anything that moves in the west. The Dark Lady holds the middle, as ever, with a great many fewer soldiers than she would like." },
+      },
+      choices = {
+        { text = "Why doesn't the Horde send more help?", next = "xhelp" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhelp = {
+      lines = {
+        { id = "xhelp_default", text = "Because the Horde has centaur, quilboar, Alliance and its own cultists to fight on this side of the sea. I have written that sentence in eleven despatches, and the reply is always the same." },
+      },
+      choices = {
+        { text = "Then the Horde must keep its word, whatever it costs.", next = "BACK", reply = "A fine sentiment, {class}, and I shall quote you in my twelfth despatch.", fx = { align = { honor = 1 } } },
+        { text = "Every ally fends for itself first. That is sense.", next = "BACK", reply = "It is, and it is also why I write despatches instead of thanking anybody.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xclerk = {
+      lines = {
+        { id = "xclerk_default", text = "A clerk of the Lordaeron treasury, if you must know, counting the king's grain while the plague counted the king's subjects. My columns came out correct to the copper, and the kingdom did not." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtrust = {
+      lines = {
+        { id = "xtrust_default", text = "The Warchief trusts the Dark Lady, which is not quite the same thing as the orcs trusting me. They are polite, mostly, and they count their fingers after shaking my hand, which I find rather sensible." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xkin = {
+      lines = {
+        { id = "xkin_default", text = "We do, and we do it with considerably less complaint than the living, which I note in my reports whenever I can. Keep your wits, and keep to the shade." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I kept accounts for a living when I had a living, and I keep them still. Only the columns have changed, from grain to soldiers." } },
     scourge = { { id = "tp_sc", text = "The Lich King made us and lost us, and he would dearly like us back. That is all the strategy one needs to understand about Lordaeron." } },
+    forsaken = { { id = "tp_x_forsaken", text = "We are the Dark Lady's people and our own masters, and I should like the Horde to remember the second part as well as the first." } },
+    thrall = { { id = "tp_x_thrall", text = "A remarkable orc and a patient one. He reads my despatches, which puts him ahead of most living kings I knew." } },
     _none = { { id = "tp_none", text = "That is not a matter on which I have been asked to advise, and I do not offer opinions for nothing." } },
   },
 }
@@ -108,6 +157,9 @@ P:NPC {
         { text = "Show me what I've earned.", next = "BUSINESS" },
         { text = "How does a soldier earn this armor?", next = "earn" },
         { text = "A troll sergeant among all these orcs.", next = "troll" },
+        { text = "Have you seen the fields of war yourself?", next = "xfield" },
+        { text = "Can gold not buy armor here?", next = "xgold" },
+        { text = "Your armor wouldn't fit a tauren, would it?", when = { race = "Tauren" }, next = "xtauren" },
         { text = "Farewell, Sergeant.", next = "END" },
       },
     },
@@ -136,10 +188,47 @@ P:NPC {
       lines = { { id = "fl_default", text = "Under the arm and at the throat, every time, because a soldier wants to move and to breathe. I not telling you more than dat, mon, in case you ever stand on the wrong side of me." } },
       choices = { { text = "Fair enough. Something else.", next = "BACK" } },
     },
+    xfield = {
+      lines = {
+        { id = "xfield_default", text = "Warsong Gulch, mon, a time or two, before the Warchief made me keep the armor instead of wearing it. Out there the elves hide in the trees, and they shoot better than they fight." },
+      },
+      choices = {
+        { text = "What do you think of the elves?", next = "xelves" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xelves = {
+      lines = {
+        { id = "xelves_default", text = "The Sentinels be tough, and they got good reason to hate us after the Warsong took their trees. Some say we owe them nothing, and some say we owe them a little, at least." },
+      },
+      choices = {
+        { text = "Grom took what the Horde needed. No apology.", next = "BACK", reply = "Dat be the orc talking, mon. The Sentinels say the same about us, with arrows.", fx = { align = { light = -1 } } },
+        { text = "We should take only what we need from Ashenvale.", next = "BACK", reply = "Wise, mon. The forest got long memory, and so do de loa.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgold = {
+      lines = {
+        { id = "xgold_default", text = "Gold buys a shirt, mon. In this hall, armor be paid for in blood and nights without sleep, and the rank on your shoulder tells me how much you paid." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtauren = {
+      lines = {
+        { id = "xtauren_default", text = "Ha! The shoulders, no, I got to send for extra leather when the tauren come in. But I fit Sergeant Thunderhorn once, and he still talk to me, so I must have done well enough." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "Darkspear born, headhunter raised, and a sergeant of the Horde now. The loa got a strange sense of humor, mon." } },
     alterac = { { id = "tp_alt", text = "Cold enough to crack a tusk, they tell me, and the dwarves there fight like they own the mountain." } },
+    darkspear = { { id = "tp_x_darkspear", text = "Small tribe, sharp spears. We came to Kalimdor owing Thrall, and we pay what we owe, mon." } },
+    warsong = { { id = "tp_x_warsong", text = "The Warsong took Ashenvale's trees, and the elves still be angry about it. They fight good in the gulch." } },
     _none = { { id = "tp_none", text = "I keep armor, mon, not answers. Ask the advisor, because he got an opinion on everything." } },
   },
 }
@@ -176,6 +265,9 @@ P:NPC {
       choices = {
         { text = "What is this place?", next = "hall" },
         { text = "Guarding a hall must be dull work.", next = "dull" },
+        { text = "Who did you fight under?", next = "xwho" },
+        { text = "What earns an orc a place in this hall?", next = "xplace" },
+        { text = "I carry rank, grunt. Tell me of this hall.", when = { pvpRank = 6 }, next = "xofficer" },
         { text = "Carry on, grunt.", next = "END" },
       },
     },
@@ -194,9 +286,45 @@ P:NPC {
       lines = { { id = "d_default", text = "It is an honor, and I asked for it. Every orc I admire has walked through that door, and one day I mean to walk through it as something more than its guard." } },
       choices = { { text = "Lok'tar, Korf. You'll earn it.", next = "BACK", reply = "Lok'tar, {class}. I will remember that you said so.", fx = { affinity = 1 } } },
     },
+    xwho = {
+      lines = {
+        { id = "xwho_default", text = "Under Overlord Saurfang, for a short while, at the walls of Orgrimmar when the city was young. Then I was given this door, and I have not asked to leave it." },
+      },
+      choices = {
+        { text = "You don't miss the field?", next = "xmiss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmiss = {
+      lines = {
+        { id = "xmiss_default", text = "I miss it every morning. But somebody must stand here so the officers inside can plan, and I would rather it be an orc who knows what plans cost." },
+      },
+      choices = {
+        { text = "Duty to the post comes before glory.", next = "BACK", reply = "Lok'tar. You understand it better than most who walk past me.", fx = { align = { order = 1 } } },
+        { text = "An orc should seek his own glory.", next = "BACK", reply = "Then go and seek it, and come back with your name worth carving.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xplace = {
+      lines = {
+        { id = "xplace_default", text = "Blood spilled for the Horde in the fields of war, and rank won by deeds. Talk earns nothing here, and the officers can smell an orc who bought his story in a tavern." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xofficer = {
+      lines = {
+        { id = "xofficer_default", text = "It holds the Horde's champions and the gear they earned. You have walked further than most who pass this door, officer, and I am honoured to guard it for you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I was born in the camps and I learned the axe in Durotar. That is all there is to tell." } },
+    thrall = { { id = "tp_x_thrall", text = "The Warchief built this city and this hall. I guard what he built, and that is enough honour for any grunt." } },
     _none = { { id = "tp_none", text = "That is not my post and not my concern. Ask someone who is paid to talk." } },
   },
 }
@@ -234,6 +362,9 @@ P:NPC {
       choices = {
         { text = "You'd rather be at the front.", next = "front" },
         { text = "Has anyone ever caused trouble here?", next = "trouble" },
+        { text = "Tell me about yourself, Bek'rah.", next = "xself" },
+        { text = "Do you envy the officers?", next = "xenvy" },
+        { text = "I'm a warrior. Spar with me some time.", when = { class = "WARRIOR" }, next = "xspar" },
         { text = "Stand your post, grunt.", next = "END" },
       },
     },
@@ -252,10 +383,46 @@ P:NPC {
       lines = { { id = "t_default", text = "A goblin once tried to sell the Stone Guard a better axe than the ones he keeps. Zarg only looked at him, and the goblin remembered somewhere else he had to be." } },
       choices = { { text = "A wise goblin. Something else.", next = "BACK" } },
     },
+    xself = {
+      lines = {
+        { id = "xself_default", text = "I was born in the camps, so I have never seen the old clan lands, only fences and then freedom. Thrall gave me an axe and a city, and I mean to give him something back with them." },
+      },
+      choices = {
+        { text = "What do you mean to give him?", next = "xgive" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgive = {
+      lines = {
+        { id = "xgive_default", text = "A name on this hall's walls, of course. Every officer who walks past me was once a grunt at some door, and I keep telling myself that while I stand here." },
+      },
+      choices = {
+        { text = "Patience. Your time will come at the post.", next = "BACK", reply = "Patience! You sound like my captain, and he says it every day.", fx = { align = { order = 1 } } },
+        { text = "Ask to go to the front. Don't wait.", next = "BACK", reply = "I have asked, three times. Perhaps the fourth time I will ask louder.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xenvy = {
+      lines = {
+        { id = "xenvy_default", text = "Every day, and I am not ashamed of it! Envy is only hunger with a target, and a hungry orc fights harder than a full one." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xspar = {
+      lines = {
+        { id = "xspar_default", text = "Ha! When I am off my post, warrior, and not a moment before, or my captain will have my tusks. Find me in the Valley of Honor at dusk." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I came to Orgrimmar when the walls were still going up, and I carried stone before I carried an axe." } },
     warsong = { { id = "tp_ws", text = "Grom's clan, still cutting wood in the north. They do not ask leave of anyone, and I like them for it." } },
+    internment = { { id = "tp_x_internment", text = "I was born behind the fences. I do not remember much, only grey days and orcs who would not look up." } },
     _none = { { id = "tp_none", text = "I do not know, and I am not allowed to leave this door to find out!" } },
   },
 }
