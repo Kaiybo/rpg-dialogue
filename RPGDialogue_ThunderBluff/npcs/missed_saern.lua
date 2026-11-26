@@ -24,7 +24,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I am Saern Priderunner. My family carried word between the tribes on foot in the days before we had a city, and though the Bluff has made that work lighter, I have not forgotten how to run." } },
-      again = {
+      again = { { id = "h_again_x", text = "Ask, friend. I still have breath." },
         { id = "h_again", text = "What else would you ask?" },
         { id = "h_again2", text = "Speak, and I will hear you." },
       },
@@ -32,6 +32,10 @@ P:NPC {
         { text = "Your people ran between the tribes?", next = "ran" },
         { text = "What do you watch for from up here?", next = "watch" },
         { text = "Who should a young hunter seek on the Rise?", next = "seek" },
+        { text = "What was the longest run you made?", next = "x_run" },
+        { text = "The tribes should never have settled in one place.", next = "x_st" },
+        { text = "I'm a druid. I can run as a cheetah.", next = "x_dr", when = { class = "DRUID" } },
+        { text = "I'm tauren, and I'd like to run the paths.", next = "x_ta", when = { race = "Tauren" } },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
     },
@@ -54,8 +58,61 @@ P:NPC {
       lines = { { id = "s_default", text = "The Thunderhorns teach the hunter's path here, and the Ragetotems the warrior's. Go to them humbly, for they have forgotten more of the hunt than most will ever learn." } },
       choices = { { text = "Tell me something else.", next = "BACK" } },
     },
+    x_run = {
+      lines = {
+        { id = "xr1", text = "From Red Rocks to the Thousand Needles, carrying word that the centaur were massing. It took three days, and I did not stop except to drink, and I arrived in time." },
+      },
+      choices = {
+        { text = "What happened then?", next = "x_run2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_run2 = {
+      lines = {
+        { id = "xr2", text = "The tribes gathered, and Cairne led them, and the centaur were driven back. It was the first time I saw him fight, and the first time I believed we might have a home." },
+      },
+      choices = {
+        { text = "Do you still run?", next = "x_run3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_run3 = {
+      lines = {
+        { id = "xr3", text = "Every dawn, the old paths, though nobody needs a message carried now. My legs remember, and so do I. The Earth Mother gave us long legs and a long road, and I mean to use both." },
+      },
+      choices = {
+        { text = "A fine tradition. Something else.", next = "BACK" },
+      },
+    },
+    x_st = {
+      lines = {
+        { id = "xs1", text = "Some of the old ones say so, that we were made to wander. But I remember the centaur, and I know a city of stone and wood keeps our calves safe. What do you think?" },
+      },
+      choices = {
+        { text = "Safety matters more than wandering.", next = "BACK", reply = "So I believe, though my legs disagree.", fx = { align = { order = 1 } } },
+        { text = "A people who stop moving grow soft.", next = "BACK", reply = "Perhaps. I run every morning so I do not.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_dr = {
+      lines = {
+        { id = "xd1", text = "Then you are faster than I ever was, and I envy you. But a cheetah cannot carry a message in its mouth, so perhaps the old ways had something after all." },
+      },
+      choices = {
+        { text = "Perhaps they did. Something else.", next = "BACK" },
+      },
+    },
+    x_ta = {
+      lines = {
+        { id = "xt1", text = "Then meet me at the lift at dawn, and we will run to Bloodhoof Village and back. If you keep pace, I will teach you the old runner's songs." },
+      },
+      choices = {
+        { text = "I'll be there. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    cairne = { { id = "tp_cairne", text = "Cairne gave us a home that does not move. I run so I never forget what it was like before." } },
     background = { { id = "tp_bg", text = "I am of the Priderunners, who carried word between the tribes on foot. I keep the old running alive." } },
     _none = { { id = "tp_none", text = "The winds have not told me. Ask among the elders on Elder Rise." } },
   },

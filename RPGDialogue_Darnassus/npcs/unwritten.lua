@@ -26,7 +26,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Aethalas of the Silverwing Sentinels. I gather those willing to stand against the Warsong orcs in the gulch, where they fell our trees and call it lumber." },
         { id = "h_nelf", when = { race = "NightElf" }, text = "You are kaldorei, so you already know what Ashenvale is to us. The Warsong know only that it burns well." },
       },
-      again = {
+      again = { { id = "h_again_x", text = "Speak, {name}. The gulch is waiting." },
         { id = "h_again", text = "Something more? Ask it quickly; the Sentinels in the gulch can't wait on us." },
         { id = "h_again2", text = "Go on, {name}. I am listening." },
       },
@@ -34,6 +34,10 @@ P:NPC {
         { text = "What happens in Warsong Gulch?", next = "gulch" },
         { text = "You sound like you've lost friends there.", next = "lost" },
         { text = "Send me to the gulch.", next = "BUSINESS" },
+        { text = "Who commands the Silverwing Sentinels?", next = "x_ld" },
+        { text = "What should I know before I go?", next = "x_adv" },
+        { text = "I'm kaldorei, and I'll defend Ashenvale.", next = "x_ne", when = { race = "NightElf" } },
+        { text = "What use is a hunter in the gulch?", next = "x_hu", when = { class = "HUNTER" } },
         { text = "Farewell, Aethalas.", next = "END" },
       },
     },
@@ -59,6 +63,60 @@ P:NPC {
         { text = "Fair enough. Something else.", next = "BACK" },
       },
     },
+    x_ld = {
+      lines = {
+        { id = "xl1", text = "The Silverwing outposts answer to their own captains, and through them to the High Priestess. Our captains are harder than Ashenvale's winters, and every Sentinel who serves under them is glad of it." },
+      },
+      choices = {
+        { text = "And who leads the Warsong?", next = "x_ld2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_ld2 = {
+      lines = {
+        { id = "xl2", text = "The orcs of the Warsong clan, Grom Hellscream's people, who cut Ashenvale long before the gulch had a name. They fight as though their dead chieftain were watching, and perhaps in their minds he is." },
+      },
+      choices = {
+        { text = "Hellscream slew Cenarius, didn't he?", next = "x_ld3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_ld3 = {
+      lines = {
+        { id = "xl3", text = "He did, with demon blood in his veins, and the forest has not forgiven him for it. The orcs say he died to free them. We say he died, and that is enough for us." },
+      },
+      choices = {
+        { text = "A long grudge. Something else.", next = "BACK" },
+      },
+    },
+    x_adv = {
+      lines = {
+        { id = "xa1", text = "Guard the flag carrier above all, and never chase an orc into the open fields. The Warsong want you to follow them away from our base, and they are very patient about it." },
+      },
+      choices = {
+        { text = "I'll remember that. Something else.", next = "BACK" },
+      },
+    },
+    x_ne = {
+      lines = {
+        { id = "xn1", text = "Then you understand what we are fighting for, and you will not need speeches from me. Go to the gulch, {name}, and bring back their flag for the trees that cannot carry their own." },
+      },
+      choices = {
+        { text = "For the trees. Something else.", next = "BACK" },
+      },
+    },
+    x_hu = {
+      lines = {
+        { id = "xh1", text = "A great deal. Your eyes and your pet can see a flag carrier long before a warrior can reach him. Slow the orc, and let the Sentinels behind you do the rest." },
+      },
+      choices = {
+        { text = "I'll do that. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    warsong = { { id = "tp_ws", text = "The Warsong cut our trees and call it lumber. We call it murder, and we answer it in the gulch." } },
+    _none = { { id = "tp_none", text = "I know the gulch and little else these days, {name}. Ask a priestess about anything gentler." } },
   },
 }
 
@@ -83,7 +141,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Brogun Stoneshield, of the Stormpike Guard. Vanndar sent me all the way to this tree to find folk willin' to fight the Frostwolf clan in Alterac Valley, and I'll not go home empty-handed." },
       },
-      again = {
+      again = { { id = "h_again_x", text = "Aye, what else? I've nowhere to be but this tree." },
         { id = "h_again", text = "Aye, what else? I've nothin' but time and leaves here." },
         { id = "h_again2", text = "Go on, lad, speak up." },
       },
@@ -91,6 +149,10 @@ P:NPC {
         { text = "Why are the Stormpike fighting the Frostwolves?", next = "why" },
         { text = "You don't look happy among the trees.", next = "trees" },
         { text = "Send me to Alterac Valley.", next = "BUSINESS" },
+        { text = "How did you end up in Darnassus?", next = "x_how" },
+        { text = "I'm a Stormpike dwarf myself.", next = "x_dw", when = { race = "Dwarf" } },
+        { text = "Gnomes stand with the Stormpike too.", next = "x_gn", when = { race = "Gnome" } },
+        { text = "What's the worst of the Frostwolves?", next = "x_fw" },
         { text = "Farewell, Brogun.", next = "END" },
       },
     },
@@ -117,6 +179,60 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    x_how = {
+      lines = {
+        { id = "xh1", text = "On a ship from Menethil, sick as a hound the whole way, and then up a tree the size of Ironforge on a lift made of leaves. Vanndar wants every ally, and the elves have keen eyes for a fight." },
+      },
+      choices = {
+        { text = "Have any elves joined you?", next = "x_how2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_how2 = {
+      lines = {
+        { id = "xh2", text = "A fair few, aye, more than I'd have bet. The Sentinels fight like wildcats in the snow, though they complain of the cold worse than a gnome in a bathtub." },
+      },
+      choices = {
+        { text = "And the dwarves complain of the trees.", next = "x_how3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_how3 = {
+      lines = {
+        { id = "xh3", text = "Ha! Fair hit, lad. Aye, I'll stop grumbling about the trees once they stop dropping leaves in me ale. I don't expect that'll be soon." },
+      },
+      choices = {
+        { text = "Probably not. Something else.", next = "BACK" },
+      },
+    },
+    x_dw = {
+      lines = {
+        { id = "xd1", text = "Then you'll know Dun Baldar, and the wind off the glacier, and why we'll never give the valley up. Go and stand with your clan, and tell Vanndar Brogun sent ye." },
+      },
+      choices = {
+        { text = "I will. Something else.", next = "BACK" },
+      },
+    },
+    x_gn = {
+      lines = {
+        { id = "xg1", text = "Aye, and glad of it, though your lot keep building things that blow up the wrong way. Still, a gnome with a rifle on a wall is worth three on the ground. Tinker away, I say." },
+      },
+      choices = {
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
+    x_fw = {
+      lines = {
+        { id = "xf1", text = "Their wolves, and Drek'Thar's spells, and the way they come out of the snow at ye like they were born in it. Which they were, I suppose. I'll give them that much." },
+      },
+      choices = {
+        { text = "Grudging respect. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    magni = { { id = "tp_mag", text = "King Magni's a good king, and he lets Vanndar fight his own war. That's the best kind o' king." } },
+    _none = { { id = "tp_none", text = "Ach, no idea, lad. I'm a soldier, not an encyclopedia with a beard." } },
   },
 }
 
@@ -141,7 +257,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I'm Keras Wolfheart of the League of Arathor. We're fighting the Forsaken's Defilers for Arathi Basin, the farms, the mines and the mill that once fed all of Stromgarde." },
       },
-      again = {
+      again = { { id = "h_again_x", text = "Go on, I'm listening." },
         { id = "h_again", text = "Anything else, friend?" },
         { id = "h_again2", text = "Go ahead. I've time for one more question." },
       },
@@ -149,6 +265,10 @@ P:NPC {
         { text = "Who are the Defilers?", next = "defilers" },
         { text = "Why recruit in Darnassus, so far from Arathi?", next = "far" },
         { text = "Send me to Arathi Basin.", next = "BUSINESS" },
+        { text = "What's at stake in Arathi Basin?", next = "x_st2" },
+        { text = "You've a long way from home.", next = "x_home" },
+        { text = "I'm from Stormwind. Why should I care?", next = "x_hm", when = { race = "Human" } },
+        { text = "Ironforge remembers Stromgarde.", next = "x_ne", when = { race = "Dwarf" } },
         { text = "Farewell, Keras.", next = "END" },
       },
     },
@@ -168,6 +288,60 @@ P:NPC {
       lines = { { id = "fa_default", text = "Because the kaldorei know what it is to lose land to the Horde, and because Stromgarde can't win this alone. Every ally counts, no matter how far they live." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_st2 = {
+      lines = {
+        { id = "xs1", text = "The farms that fed Stromgarde, the mines, the lumber mill and the blacksmith's forge, all of it in the basin. Whoever holds it holds the bread and iron of the whole highlands." },
+      },
+      choices = {
+        { text = "Who held it before the war?", next = "x_st3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_st3 = {
+      lines = {
+        { id = "xs3", text = "The people of Stromgarde, under King Thoras Trollbane, until the Scourge and the trolls and the ogres broke them. Now the League of Arathor fights to reclaim what was theirs." },
+      },
+      choices = {
+        { text = "And the Defilers want it for the Forsaken.", next = "x_st4" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_st4 = {
+      lines = {
+        { id = "xs4", text = "For their apothecaries, I'd guess, and their plague. I don't mean to find out. I mean to see wheat growing there again, under living hands." },
+      },
+      choices = {
+        { text = "Then I hope you see it. Something else.", next = "BACK" },
+      },
+    },
+    x_home = {
+      lines = {
+        { id = "xh1", text = "I am. The elves here are kind enough, but they look at me like a lost child who'll grow old and die before they finish a conversation. I suppose they're right." },
+      },
+      choices = {
+        { text = "They mean no harm. Something else.", next = "BACK" },
+      },
+    },
+    x_hm = {
+      lines = {
+        { id = "xm1", text = "Because Arathor was humanity's first kingdom, friend, before Stormwind was even a fortress. If the Forsaken take the basin, they'll be at Stromgarde's walls next, and Menethil after that." },
+      },
+      choices = {
+        { text = "I'll think on it. Something else.", next = "BACK" },
+      },
+    },
+    x_ne = {
+      lines = {
+        { id = "xn1", text = "Aye, and Stromgarde remembers Ironforge. Trollbane's men and your clans held the line together in the Second War, and I'd say that's a debt worth paying in the basin." },
+      },
+      choices = {
+        { text = "Perhaps it is. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    forsaken = { { id = "tp_fs", text = "The Forsaken were our neighbours once. Now they're the Defilers, and they mean to keep the basin." } },
+    _none = { { id = "tp_none", text = "I don't know, friend. I'm a soldier, and soldiers mostly know where the enemy is." } },
   },
 }
 
@@ -193,13 +367,17 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Huntress Leafrunner. I walk the paths of Darnassus from the Cenarion Enclave to the Temple Gardens and back, and I see who comes and goes." },
         { id = "h_outsider", when = { race = { "Human", "Dwarf", "Gnome" } }, text = "Outsiders are more common here than they once were. Most of them stare up at the branches and walk into the lake." },
       },
-      again = {
+      again = { { id = "h_again_x", text = "What else have you noticed, {name}?" },
         { id = "h_again", text = "Anything more? I have a long round to finish." },
         { id = "h_again2", text = "Ask, then, while I'm standing still." },
       },
       choices = {
         { text = "What do you see on your rounds?", next = "rounds" },
         { text = "Darnassus seems too peaceful to need guarding.", next = "peace" },
+        { text = "Who walks the paths at night?", next = "x_night" },
+        { text = "You've seen many strangers here lately.", next = "x_str" },
+        { text = "I'm a druid of the Enclave.", next = "x_dr", when = { class = "DRUID" } },
+        { text = "I'm new to Darnassus.", next = "x_new", when = { race = "Human" } },
         { text = "Farewell, huntress.", next = "END" },
       },
     },
@@ -222,6 +400,62 @@ P:NPC {
       lines = { { id = "pe_default", text = "It seems so, and that is the point of guarding it. A quiet city is one whose guards are doing their work." } },
       choices = { { text = "Fair point. Something else.", next = "BACK" } },
     },
+    x_night = {
+      lines = {
+        { id = "xn1", text = "Priestesses going to the Temple, druids returning from the Enclave, and young lovers who think the Huntresses cannot see them. We can always see them, and we pretend we cannot." },
+      },
+      choices = {
+        { text = "Anyone stranger than that?", next = "x_night2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_night2 = {
+      lines = {
+        { id = "xn2", text = "Once, a gnome asleep in the Temple Gardens with a lantern still burning beside him. I put out the flame before I woke him, and he apologised to me in three languages." },
+      },
+      choices = {
+        { text = "What did you do with him?", next = "x_night3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_night3 = {
+      lines = {
+        { id = "xn3", text = "I walked him to the inn and told the keeper to hide his lantern. Fire is the one thing in Darnassus I will not forgive, however polite the one who carries it." },
+      },
+      choices = {
+        { text = "Wise. Something else.", next = "BACK" },
+      },
+    },
+    x_str = {
+      lines = {
+        { id = "xs1", text = "Many, yes. Humans, dwarves, and gnomes who get lost on the walkways and ask me the way to the bank three times in an hour. I do not mind, though some of the Sentinels do." },
+      },
+      choices = {
+        { text = "The world is coming to Darnassus.", next = "BACK", reply = "It is, and it does not take its boots off.", fx = { align = { order = -1 } } },
+        { text = "Too many strangers weaken a city.", next = "BACK", reply = "Perhaps, though not yet. Not while we watch.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_dr = {
+      lines = {
+        { id = "xd1", text = "Then you know the Archdruid better than I do. Tell him the paths are quiet, if he asks, and tell him I am glad of the shade, even if the elders whisper." },
+      },
+      choices = {
+        { text = "I'll tell him. Something else.", next = "BACK" },
+      },
+    },
+    x_new = {
+      lines = {
+        { id = "xw1", text = "Then welcome, and remember that the bank is in the Tradesmen's Terrace, the Temple is to the west, and the Enclave is to the east. Nobody believes me the first time, but it is true." },
+      },
+      choices = {
+        { text = "I'll remember. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    teldrassil = { { id = "tp_tel", text = "Teldrassil was grown without the dragons' blessing. I sleep under it all the same, and it has not let me fall." } },
+    _none = { { id = "tp_none", text = "I do not know, {name}. I only walk the paths and watch them." } },
   },
 }
 
@@ -459,11 +693,15 @@ P:NPC {
     hello = {
       narr = "The harbinger bows, horns low, and the lantern at his belt sways.",
       lines = { { id = "h_default", text = "I am a harbinger of the Lunar Festival, and I come to the great cities to remind their people that the elders are waiting. The druids of the Cenarion Circle keep the festival in Moonglade, and all who come in peace are welcome there." } },
-      again = { { id = "h_again", text = "Ask, friend. The moon will not set while we talk." } },
+      again = { { id = "h_again_x", text = "The moon is patient, and so am I. Ask, friend." }, { id = "h_again", text = "Ask, friend. The moon will not set while we talk." } },
       choices = {
         { text = "What is the Lunar Festival?", next = "festival" },
         { text = "Why does a tauren herald serve in Darnassus?", next = "tauren" },
         { text = "How do I reach Moonglade?", next = "travel" },
+        { text = "What tribe are you from?", next = "x_tribe" },
+        { text = "Tell me about Omen.", next = "x_omen" },
+        { text = "I'm tauren too, far from Mulgore.", next = "x_ta", when = { race = "Tauren" } },
+        { text = "Which elders should a kaldorei seek?", next = "x_ne", when = { race = "NightElf" } },
         { text = "Moonlight on your path, harbinger.", next = "END" },
       },
     },
@@ -500,8 +738,59 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    x_tribe = {
+      lines = {
+        { id = "xt1", text = "The Runetotem, the druids' tribe, who have studied with the kaldorei in Moonglade for longer than most of my people remember. Hamuul Runetotem is my teacher's teacher." },
+      },
+      choices = {
+        { text = "What did the kaldorei teach you?", next = "x_tribe2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_tribe2 = {
+      lines = {
+        { id = "xt2", text = "That the Earth Mother and the moon goddess are not so different, and that a green field and a great tree are tended in the same way. They taught us patience, and we taught them to laugh a little." },
+      },
+      choices = {
+        { text = "Did the elves need teaching?", next = "x_tribe3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_tribe3 = {
+      lines = {
+        { id = "xt3", text = "Ha! A little, my friend, only a little. They have lived so long that they forget how short a joke is, but Moonglade has softened even the sternest druid during the festival." },
+      },
+      choices = {
+        { text = "It sounds wonderful. Something else.", next = "BACK" },
+      },
+    },
+    x_omen = {
+      lines = {
+        { id = "xo1", text = "An ancient of war, driven mad by the demons long ago, who sleeps in Lake Elune'ara. Once a year he wakes, and the druids light the sky with fireworks to drive him back to sleep." },
+      },
+      choices = {
+        { text = "A strange custom. Something else.", next = "BACK" },
+      },
+    },
+    x_ta = {
+      lines = {
+        { id = "xa1", text = "Then you know the Earth Mother is everywhere, even in this great tree. Go to the elders of Mulgore and Thunder Bluff as well, and they will be glad to see a child of the plains honour them." },
+      },
+      choices = {
+        { text = "I will. Something else.", next = "BACK" },
+      },
+    },
+    x_ne = {
+      lines = {
+        { id = "xn1", text = "Your own, in Ashenvale and Teldrassil, and the old ones in Feralas and Winterspring. They wait under stones and among trees, and each has a blessing and a little coin for those who remember." },
+      },
+      choices = {
+        { text = "I'll find them. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    cenarion_circle = { { id = "tp_cc", text = "The Cenarion Circle keeps Moonglade, and they open its gates for the festival. Tauren and kaldorei sit there together, as they should." } },
     _none = { { id = "tp_none", text = "That is not my message to carry, friend. Mine is only the moon and the festival." } },
   },
 }
@@ -532,10 +821,14 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Hroom. I am an Ancient of Lore. I keep the old stories, the ones the kaldorei wrote before they wrote in ink. Ask, and I will remember, slowly." },
       },
-      again = { { id = "h_again", text = "Hmmm. Another question? Good. Questions are like rain; they keep an old tree from drying out." } },
+      again = { { id = "h_again_x", text = "Hmmm. More questions. Good. Ask, little one." }, { id = "h_again", text = "Hmmm. Another question? Good. Questions are like rain; they keep an old tree from drying out." } },
       choices = {
         { text = "What do you remember of the Well of Eternity?", next = "well" },
         { text = "What do you think of Teldrassil?", next = "teldrassil" },
+        { text = "What do you remember of the Highborne?", next = "x_hb" },
+        { text = "Do you remember Cenarius?", next = "x_cen" },
+        { text = "I am a druid. What should I learn?", next = "x_dr", when = { class = "DRUID" } },
+        { text = "Teach a kaldorei some old story.", next = "x_ne", when = { race = "NightElf" } },
         { text = "Thank you, Ancient.", next = "END" },
       },
     },
@@ -551,6 +844,60 @@ P:NPC {
       lines = { { id = "te_default", text = "Hroom. She is young, and she grew very fast. The Archdruid did not ask the dragons' blessing. I feel something in her roots that is not quite right. Hmmm. But I am old, and old trees worry." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_hb = {
+      lines = {
+        { id = "xh1", text = "Hroom. Fine robes, fine towers, and a queen who looked into the Well and saw only herself. They called the demons into the world, and the world has not yet forgotten." },
+      },
+      choices = {
+        { text = "Are any Highborne left?", next = "x_hb2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_hb2 = {
+      lines = {
+        { id = "xh2", text = "Hmmm. Some fled across the sea long ago, and some drowned with Zin-Azshari, and some... I do not know. The sea keeps its secrets better than I keep mine. Hroom." },
+      },
+      choices = {
+        { text = "Do the kaldorei still fear them?", next = "x_hb3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_hb3 = {
+      lines = {
+        { id = "xh3", text = "Hmmm. They fear the magic more than the people. That is why the druids forbid it, and why Darnassus has few mages. Wise, perhaps. Lonely, also. Hroom." },
+      },
+      choices = {
+        { text = "A hard choice. Something else.", next = "BACK" },
+      },
+    },
+    x_cen = {
+      lines = {
+        { id = "xc1", text = "Hroooom. Yes. Cenarius walked these forests as a god, son of Malorne, and the ancients were his friends. The orcs slew him in Ashenvale. The trees still weep there, if you listen." },
+      },
+      choices = {
+        { text = "I'll listen. Something else.", next = "BACK" },
+      },
+    },
+    x_dr = {
+      lines = {
+        { id = "xd1", text = "Hmmm. Learn patience, little druid. Learn to sleep without dreaming too long. Malfurion dreams, and the Emerald Dream is beautiful, but even beautiful things can be a trap. Hroom." },
+      },
+      choices = {
+        { text = "I'll be careful. Something else.", next = "BACK" },
+      },
+    },
+    x_ne = {
+      lines = {
+        { id = "xn1", text = "Hroom. Long ago, before the Well, the kaldorei sang to the moon every night, and Elune answered. She still does. You only forgot to sing loud enough. Hmmm." },
+      },
+      choices = {
+        { text = "I'll try. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    cenarius = { { id = "tp_cen", text = "Hroom. Cenarius was a friend. The orcs killed him. The forest remembers both of those things." } },
+    _none = { { id = "tp_none", text = "Hmmm. I do not know that one. Perhaps I knew it once, and the moss grew over it. Hroom." } },
   },
 }
 
@@ -576,10 +923,14 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I am of the Sentinels, sworn to Priestess Tyrande Whisperwind. We keep the peace in Darnassus, and we keep it quietly." },
       },
-      again = { { id = "h_again", text = "Anything more? I am on watch, but I can spare a moment." } },
+      again = { { id = "h_again_x", text = "Ask your question, traveller." }, { id = "h_again", text = "Anything more? I am on watch, but I can spare a moment." } },
       choices = {
         { text = "Who leads the kaldorei?", next = "leaders" },
         { text = "Why are the Sentinels all women?", next = "women" },
+        { text = "How does one become a Sentinel?", next = "x_bec" },
+        { text = "Where is the Cenarion Enclave?", next = "x_enc" },
+        { text = "I'm kaldorei. Should I join?", next = "x_ne", when = { race = "NightElf" } },
+        { text = "I'm a stranger here. What should I avoid?", next = "x_out", when = { faction = "Alliance" } },
         { text = "Farewell, Sentinel.", next = "END" },
       },
     },
@@ -595,6 +946,60 @@ P:NPC {
       lines = { { id = "wo_default", text = "For ten thousand years our men slept in the Dream as druids, and we kept watch while they did. Now the druids wake, but the watch is still ours." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_bec = {
+      lines = {
+        { id = "xb1", text = "A long apprenticeship on the Warrior's Terrace, followed by an oath to the High Priestess. We learn the glaive, the bow, and patience, and patience is the hardest of the three." },
+      },
+      choices = {
+        { text = "Why is patience hardest?", next = "x_bec2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_bec2 = {
+      lines = {
+        { id = "xb2", text = "Because a Sentinel may stand a hundred years without drawing her blade, and must still be ready on the hundred and first. Many leave before then. Those who remain are the ones the city trusts." },
+      },
+      choices = {
+        { text = "Have you drawn your blade?", next = "x_bec3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_bec3 = {
+      lines = {
+        { id = "xb3", text = "In Ashenvale, against the orcs, and in the gardens once against a satyr who should not have been there. I do not speak of either at length. A Sentinel guards her silence as well as her city." },
+      },
+      choices = {
+        { text = "I understand. Something else.", next = "BACK" },
+      },
+    },
+    x_enc = {
+      lines = {
+        { id = "xe1", text = "To the east, past the lake, where the druids keep their lodges. Ask for Mathrengyl Bearwalker if you have business there." },
+      },
+      choices = {
+        { text = "Thank you. Something else.", next = "BACK" },
+      },
+    },
+    x_ne = {
+      lines = {
+        { id = "xn1", text = "Only if you would give your whole heart to it. The Sentinels do not need the half-hearted. Speak to the captains on the Warrior's Terrace, and tell them what your heart tells you." },
+      },
+      choices = {
+        { text = "I will. Something else.", next = "BACK" },
+      },
+    },
+    x_out = {
+      lines = {
+        { id = "xo1", text = "Fire, axes, and loud voices in the Temple of the Moon. Otherwise you are welcome, as long as you remember whose city this is." },
+      },
+      choices = {
+        { text = "I'll remember. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    sentinels = { { id = "tp_sen", text = "We guard Darnassus, Ashenvale and the High Priestess. We guard them quietly, but we guard them all." } },
+    _none = { { id = "tp_none", text = "I do not know, traveller. Ask at the Temple or the Enclave." } },
   },
 }
 
@@ -620,10 +1025,14 @@ P:NPC {
         { id = "h_default", key = true, text = "I am an emissary of the Cenarion Circle. Each year, at the Lunar Festival, we call all peoples to Moonglade to honour their elders and remember the defeat of Omen." },
         { id = "h_q", when = { questActive = TODO_QUEST("The Lunar Festival") }, text = "Go to the moonlight at the city's edge and it will carry you to Moonglade. Find Valadar Starsong there; he'll tell you the rest." },
       },
-      again = { { id = "h_again", text = "Anything else about the festival? I could talk about it all night." } },
+      again = { { id = "h_again_x", text = "More questions? Good. The festival loves the curious." }, { id = "h_again", text = "Anything else about the festival? I could talk about it all night." } },
       choices = {
         { text = "Who was Omen?", next = "omen" },
         { text = "Why honour the elders?", next = "elders" },
+        { text = "How do I reach Moonglade?", next = "x_how" },
+        { text = "What happens at the festival?", next = "x_fest" },
+        { text = "I'm a druid. Should I go?", next = "x_dr", when = { class = "DRUID" } },
+        { text = "Do tauren come to the festival?", next = "x_ta", when = { faction = "Alliance" } },
         { text = "I'll go to Moonglade.", next = "END" },
       },
     },
@@ -639,6 +1048,60 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    x_how = {
+      lines = {
+        { id = "xh1", text = "Through the Timbermaw tunnels from Felwood, or by the druid's road if you are one of us. Some travellers simply follow the lights in the sky, which is less advisable but very pretty." },
+      },
+      choices = {
+        { text = "Are the Timbermaw friendly?", next = "x_how2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_how2 = {
+      lines = {
+        { id = "xh2", text = "To those who earn it, and they do not ask much, only that you stop killing their cousins. The festival brings many through their tunnels, and they grumble, but they let us pass." },
+      },
+      choices = {
+        { text = "And if they don't trust me?", next = "x_how3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_how3 = {
+      lines = {
+        { id = "xh3", text = "Then go carefully, and say Elune's name and Cenarius's if they stop you. The Timbermaw remember both, and they are kinder to the old names than to new faces." },
+      },
+      choices = {
+        { text = "I'll remember that. Something else.", next = "BACK" },
+      },
+    },
+    x_fest = {
+      lines = {
+        { id = "xf1", text = "Feasts, fireworks, gifts, and the honouring of elders. Everyone gathers at Nighthaven, Alliance and Horde both, and for those days we remember we were all children of the same world once." },
+      },
+      choices = {
+        { text = "A fine thought. Something else.", next = "BACK" },
+      },
+    },
+    x_dr = {
+      lines = {
+        { id = "xd1", text = "You must! Keeper Remulos will be there, and the druids of the Circle open their homes. And you can fly, which saves you a long walk through Felwood. Lucky." },
+      },
+      choices = {
+        { text = "I'll go. Something else.", next = "BACK" },
+      },
+    },
+    x_ta = {
+      lines = {
+        { id = "xt1", text = "They do, and many! The Runetotem have been friends of the Cenarion Circle for years. At the festival, we put down our swords and eat together, whatever the generals say." },
+      },
+      choices = {
+        { text = "I'm glad. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    cenarion_circle = { { id = "tp_cc", text = "The Circle keeps the festival, and the festival keeps us all a little kinder." } },
+    _none = { { id = "tp_none", text = "I don't know, I'm afraid. Ask me about the festival, though, and I'll talk all night." } },
   },
 }
 
@@ -663,11 +1126,15 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "I sell for the festival: rockets, clusters of fireworks, lanterns and festive clothing. You pay in coins of ancestry for the good things, and coin of the realm for the rest." },
       },
-      again = { { id = "h_again", text = "See anything you like? The rockets are very popular this year." } },
+      again = { { id = "h_again_x", text = "Back for more? I've plenty of rockets left." }, { id = "h_again", text = "See anything you like? The rockets are very popular this year." } },
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "Why fireworks, of all things?", next = "why" },
         { text = "What are the little red envelopes for?", next = "envelopes" },
+        { text = "What's your best firework?", next = "x_best" },
+        { text = "Isn't fire forbidden in Darnassus?", next = "x_fire" },
+        { text = "Got anything a gnome would love?", next = "x_gn", when = { race = "Gnome" } },
+        { text = "Fireworks? I'm an engineer.", next = "x_en", when = { profession = "Engineering" } },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -690,6 +1157,60 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    x_best = {
+      lines = {
+        { id = "xb1", text = "The cluster rocket, without a doubt. It goes up, it splits, it bursts in colours, and then everyone below says ooh, and I sell three more. It's the best kind of business." },
+      },
+      choices = {
+        { text = "Where do you get them?", next = "x_best2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_best2 = {
+      lines = {
+        { id = "xb2", text = "From a dwarf in Ironforge who makes them in the winter, and he gets the powder from a goblin, and the goblin gets it from somewhere I'd rather not ask about. It all works out." },
+      },
+      choices = {
+        { text = "Sounds a little dangerous.", next = "x_best3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_best3 = {
+      lines = {
+        { id = "xb3", text = "Only a little! I've lost an eyebrow, a hat, and a very good scarf, but never a customer. That's my rule, and I keep it." },
+      },
+      choices = {
+        { text = "A good rule. Something else.", next = "BACK" },
+      },
+    },
+    x_fire = {
+      lines = {
+        { id = "xf1", text = "It's frowned on, and that's why I sell them only in Moonglade and only to light the sky. The Sentinels watch me closely, and I watch my rockets even more closely." },
+      },
+      choices = {
+        { text = "Wise of you. Something else.", next = "BACK" },
+      },
+    },
+    x_gn = {
+      lines = {
+        { id = "xg1", text = "The festive rocket pack, which I'm told your people take apart to see how it works. Please don't do that in the shop. The last gnome who tried did set off half my stock." },
+      },
+      choices = {
+        { text = "I'll be careful. Something else.", next = "BACK" },
+      },
+    },
+    x_en = {
+      lines = {
+        { id = "xe1", text = "An engineer! Then you'll appreciate the craftsmanship, and maybe you'll stop pointing out the flaws. Everyone with a wrench tells me what's wrong with my rockets." },
+      },
+      choices = {
+        { text = "No promises. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    darkmoon_faire = { { id = "tp_dmf", text = "The Darkmoon Faire's got better fireworks than me, I'll admit, but they don't do the Lunar Festival, do they?" } },
+    _none = { { id = "tp_none", text = "No idea, friend. Ask me about rockets." } },
   },
 }
 
@@ -714,10 +1235,14 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Hmmm. I was called up from the wood not long ago. The druids say I am an ally, so I am being one. Hroom. It is my first job." },
       },
-      again = { { id = "h_again", text = "Hmmm? Is there more to talk about? I like talking. It is like rustling, but with meaning." } },
+      again = { { id = "h_again_x", text = "Hroom! More talking! I like this part." }, { id = "h_again", text = "Hmmm? Is there more to talk about? I like talking. It is like rustling, but with meaning." } },
       choices = {
         { text = "What is it like, being newly woken?", next = "woken" },
         { text = "Who should we fight?", next = "fight" },
+        { text = "Who woke you?", next = "x_who" },
+        { text = "What do you think of me?", next = "x_me" },
+        { text = "I'm a druid too.", next = "x_dr", when = { class = "DRUID" } },
+        { text = "Do you like night elves?", next = "x_ne", when = { race = "NightElf" } },
         { text = "Come on, little friend.", next = "END" },
       },
     },
@@ -733,5 +1258,59 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    x_who = {
+      lines = {
+        { id = "xw1", text = "Hmmm. A druid, with leaves in her hair and a soft voice. She sang to the old oak I was part of, and then I was standing, and then I was walking. Hroom. Very surprising." },
+      },
+      choices = {
+        { text = "Do you remember being an oak?", next = "x_who2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_who2 = {
+      lines = {
+        { id = "xw2", text = "Hmmm. A little. It was slow and warm, and rain felt very nice. Now rain feels nice too, but I have to stand still to enjoy it, and you keep walking. Hroom." },
+      },
+      choices = {
+        { text = "Would you go back?", next = "x_who3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_who3 = {
+      lines = {
+        { id = "xw3", text = "Hmmm... not yet. I want to see more things first. Maybe in a thousand years I will be an oak again, and I will remember walking. Hroom. That would be a good memory." },
+      },
+      choices = {
+        { text = "It would. Something else.", next = "BACK" },
+      },
+    },
+    x_me = {
+      lines = {
+        { id = "xm1", text = "Hroom! You are short, and fast, and you have very good boots. I like you. You are not cutting any trees, which is good, and you talk to me, which is better." },
+      },
+      choices = {
+        { text = "Thank you, I think. Something else.", next = "BACK" },
+      },
+    },
+    x_dr = {
+      lines = {
+        { id = "xd1", text = "Hmmm! Then you are like the one who woke me. Do you sing to trees too? Maybe you will wake one someday, and then I will have a little friend." },
+      },
+      choices = {
+        { text = "Maybe I will. Something else.", next = "BACK" },
+      },
+    },
+    x_ne = {
+      lines = {
+        { id = "xn1", text = "Hroom. Yes, very much. They are quiet, and they do not shout. The druids are the best ones. They talk to trees on purpose, and nobody laughs at them." },
+      },
+      choices = {
+        { text = "That's kind. Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    cenarion_circle = { { id = "tp_cc", text = "Hroom. The Circle druids are my friends. They woke me, and they tell me who to help." } },
+    _none = { { id = "tp_none", text = "Hmmm. I do not know that. I am very new. Ask an old tree. Hroom." } },
   },
 }

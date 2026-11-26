@@ -1118,11 +1118,14 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Malakai Cross, and I teach priests here because the Dark Lady wished the Forsaken to have a presence among our allies. The tauren tolerate us, and that is enough." },
         { id = "h_notpriest", when = { ["not"] = { class = "PRIEST" } }, text = "You're no priest. Then you've no business here, unless you're lost, and I'm not a guide." },
       },
-      again = { { id = "h_again", text = "Well? What else? The Dark Lady's work doesn't wait on the curious." } },
+      again = { { id = "h_again_x", text = "Ask, then, if you have more to ask." }, { id = "h_again", text = "Well? What else? The Dark Lady's work doesn't wait on the curious." } },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Why does the Dark Lady want you here?", next = "why" },
         { text = "What do you think of the Light?", next = "light" },
+        { text = "How do the tauren treat you here?", next = "x_ta" },
+        { text = "Do you remember your life before?", next = "x_life" },
+        { text = "I'm a priest of the Light, Cross.", next = "x_pr", when = { class = "PRIEST" } },
         { text = "Farewell, Malakai.", next = "END" },
       },
     },
@@ -1146,9 +1149,52 @@ P:NPC {
         { text = "A faith is judged by those who carry it.", next = "BACK", reply = "Exactly, and you can see what the Scarlet Crusade carries. A faith is a tool in a hand, and too many of those hands are covered in blood.", fx = { affinity = 1, align = { light = -1 } } },
       },
     },
+    x_ta = {
+      lines = {
+        { id = "xt1", text = "Politely, and from a careful distance. The tauren are a kind people, and kindness is harder to bear than scorn when it keeps one's eyes so carefully averted. The druids, at least, do not pretend we are anything but dead." },
+      },
+      choices = {
+        { text = "Do they fear you?", next = "x_ta2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_ta2 = {
+      lines = {
+        { id = "xt2", text = "Some do, and some pity us, which is worse. The Grimtotem would see us thrown from the cliffs, and Cairne keeps us here as a promise to Thrall. I do not ask whether he likes the promise." },
+      },
+      choices = {
+        { text = "Do you like being here?", next = "x_ta3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_ta3 = {
+      lines = {
+        { id = "xt3", text = "I like the quiet of the Pools of Vision and the absence of paladins. That is the best I can say of any place, now, and I mean it as praise." },
+      },
+      choices = {
+        { text = "High praise, then. Something else.", next = "BACK" },
+      },
+    },
+    x_life = {
+      lines = {
+        { id = "xl1", text = "I remember my name and my faith, and I remember both of them failing me when the plague came. Beyond that, I find the memories of a living man less useful than I once thought they would be." },
+      },
+      choices = {
+        { text = "A bitter memory. Something else.", next = "BACK" },
+      },
+    },
+    x_pr = {
+      lines = {
+        { id = "xp1", text = "Then you have chosen the Light, and I have chosen the shadow, and we will both heal a wounded Horde soldier just as well. I will not argue with your faith unless you start preaching it." },
+      },
+      choices = {
+        { text = "A fair truce. Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    sylvanas = { { id = "tp_syl", text = "The Dark Lady freed us from the Lich King's chains. Whatever else I believe, I believe that much." } },
     background = { { id = "tp_bg", text = "I serve the Dark Lady. That's all the story I need." } },
     advice = { { id = "tp_ad", text = "Trust no faith that has ever tried to burn you." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't care to. Ask a living fool; they have opinions on everything." } },
@@ -1228,11 +1274,14 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Father Cobb, and I keep the priests' lessons here with Miles and Malakai. I had a little parish in Lordaeron once, before the plague came through, and I suppose I still think of my students as a congregation." },
         { id = "h_notpriest", when = { ["not"] = { class = "PRIEST" } }, text = "You're not a priest, but that's no matter. Everyone needs a quiet word now and then, and I've plenty to spare." },
       },
-      again = { { id = "h_again", text = "Anything more, child? I've nowhere else to be, and no one left in Lordaeron waiting for me." } },
+      again = { { id = "h_again_x", text = "Go on, child. I'm listening, as well as I'm able." }, { id = "h_again", text = "Anything more, child? I've nowhere else to be, and no one left in Lordaeron waiting for me." } },
       choices = {
         { text = "Teach me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "Tell me about your parish.", next = "parish" },
         { text = "You must still pray, Father.", next = "pray" },
+        { text = "How did you come to Thunder Bluff?", next = "x_how" },
+        { text = "What do the tauren make of you?", next = "x_ta" },
+        { text = "I'm tauren, Father. Are you comfortable here?", next = "x_tt", when = { race = "Tauren" } },
         { text = "Farewell, Father.", next = "END" },
       },
     },
@@ -1258,9 +1307,52 @@ P:NPC {
         { text = "Hope is a luxury for the living.", next = "BACK", reply = "Perhaps it is, and I've heard it said in the caves more than once. But I was a priest before I was dead, and hope is the one thing I refused to bury.", fx = { align = { light = -1 } } },
       },
     },
+    x_how = {
+      lines = {
+        { id = "xh1", text = "On a zeppelin from Orgrimmar, which I'm told is how most dead men travel these days. The Dark Lady sent three of us to teach priests among her allies, and I asked for the quietest place she had." },
+      },
+      choices = {
+        { text = "Was it quiet?", next = "x_how2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_how2 = {
+      lines = {
+        { id = "xh2", text = "Quieter than Undercity, and with better air, though the wind on these bridges will carry off a dead man's hat if he lets it. I have lost two, and I am told one landed in a kodo's water trough." },
+      },
+      choices = {
+        { text = "Do you miss Lordaeron?", next = "x_how3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_how3 = {
+      lines = {
+        { id = "xh3", text = "I miss the chapel bells and the smell of bread on a feast morning. I don't miss the Scourge or the Crusade, and I don't miss being afraid of either. That's something, I suppose." },
+      },
+      choices = {
+        { text = "It is something. Something else.", next = "BACK" },
+      },
+    },
+    x_ta = {
+      lines = {
+        { id = "xt1", text = "They're patient with me, which I appreciate. A few of the young ones still stare, but the elders nod when I pass, and one shaman brings me tea, though I can't taste it. I drink it anyway." },
+      },
+      choices = {
+        { text = "That's kind of you both. Something else.", next = "BACK" },
+      },
+    },
+    x_tt = {
+      lines = {
+        { id = "xtt", text = "More than I deserve, child. Your people's Earth Mother has been gentle with a dead man from far away, and I pray she knows I'm grateful, though I don't know what prayers she hears." },
+      },
+      choices = {
+        { text = "She hears them, Father. Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    scourge = { { id = "tp_sc", text = "The Scourge took my parish and my life. I won't speak of them more than I must, child." } },
     background = { { id = "tp_bg", text = "A village priest, once. A teacher in a cave, now. It's not so different as you'd think." } },
     advice = { { id = "tp_ad", text = "Be gentle with the frightened, child. Fear makes people cruel." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know, child. Perhaps ask someone who gets out more, or someone still breathing." } },

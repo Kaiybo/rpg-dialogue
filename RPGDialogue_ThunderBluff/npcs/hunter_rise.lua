@@ -971,11 +971,14 @@ P:NPC {
         { id = "h_frost", when = { origin = "orc_frostwolf" },
           text = "You're Frostwolf born, aren't you? I can hear the mountains in your voice. Go home and fight for it, then, and take some tauren with you." },
       },
-      again = { { id = "h_again", text = "More questions? The snow won't wait, and neither will the Frostwolf." } },
+      again = { { id = "h_again_x", text = "Speak, {class}. The snow in Alterac will not melt while we talk." }, { id = "h_again", text = "More questions? The snow won't wait, and neither will the Frostwolf." } },
       choices = {
         { text = "Send me to Alterac.", next = "BUSINESS" },
         { text = "Why should tauren fight for the Frostwolf?", next = "why" },
         { text = "What's it like in the valley?", next = "valley" },
+        { text = "Why does a Ragetotem hate the snow?", next = "x_snow" },
+        { text = "I'm an orc. The Frostwolves are my kin.", next = "x_orc", when = { race = "Orc" } },
+        { text = "Do the Forsaken fight in Alterac?", next = "x_fs", when = { race = "Scourge" } },
         { text = "Farewell, Taim.", next = "END" },
       },
     },
@@ -1001,9 +1004,52 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    x_snow = {
+      lines = {
+        { id = "xs1", text = "Because the Earth Mother made my hooves for grass and sun, and the valley gives me only ice. I have fought on the plains of Mulgore and the Barrens, and nothing there ever froze my horns to my helm." },
+      },
+      choices = {
+        { text = "Then why do you send others there?", next = "x_snow2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_snow2 = {
+      lines = {
+        { id = "xs2", text = "Because Drek'Thar's Frostwolves sheltered Thrall when he was a hunted slave, and Thrall stood with us when the centaur would have scattered the tribes for good. A debt like that is paid in whatever weather it falls due." },
+      },
+      choices = {
+        { text = "Have you fought there yourself?", next = "x_snow3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_snow3 = {
+      lines = {
+        { id = "xs3", text = "Twice, and I came home with a dwarf's hammer-mark on my shoulder and a great respect for wolves. The Frostwolf riders fight as one beast, and I have seen nothing finer, even among my own Ragetotem." },
+      },
+      choices = {
+        { text = "I'll remember that. Something else.", next = "BACK" },
+      },
+    },
+    x_orc = {
+      lines = {
+        { id = "xo1", text = "Then you hardly need me to send you, for your blood calls you to the valley already. Go to Drek'Thar, and tell him the tauren of Thunder Bluff still remember what the Frostwolves did for Thrall." },
+      },
+      choices = {
+        { text = "I will. Something else.", next = "BACK" },
+      },
+    },
+    x_fs = {
+      lines = {
+        { id = "xf1", text = "They do, and the dwarves fear them more than they fear us, which I find strange. Your people do not feel the cold, and that alone makes you worth three tauren in Alterac's snow." },
+      },
+      choices = {
+        { text = "A rare advantage. Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    thrall = { { id = "tp_thrall", text = "Thrall gave us passage across the Barrens and a place in the Horde. The Frostwolves gave Thrall his name and his clan. We owe them both." } },
     background = { { id = "tp_bg", text = "Ragetotem, like Sark and Torm. They train fighters, and I send them somewhere to fight." } },
     advice = { { id = "tp_ad", text = "Take a thicker cloak than you think you need. Then take another one." } },
     alterac = { { id = "tp_av", text = "The Frostwolf valley, in the mountains north of Hillsbrad. The Stormpike want it, and they can't have it." } },
