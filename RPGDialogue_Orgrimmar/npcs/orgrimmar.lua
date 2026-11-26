@@ -2249,20 +2249,37 @@ P:NPC {
   key = "enraged_org_grunt", id = TODO_NPC("Enraged Orgrimmar Grunt"), name = "Enraged Orgrimmar Grunt",
   role = "guard", tier = "service",
   communities = { "orgrimmar" }, temper = { "fierce" }, values = { "honor", "duty" },
+  notices = { "race", "class" },
   impression = {
     first = "A grunt in Grommash Hold breathing hard through his tusks, knuckles white on his axe, as if the fight he wants is always one breath away.",
     third = "{name} spoke with one of the fierce grunts who guard Grommash Hold.",
   },
   greetings = {
     { id = "g_default", text = "You stand in Grommash Hold, before the Warchief's seat. Speak carefully, {class}." },
+    { id = "g_orc", when = { race = "Orc" }, text = "Blood of my blood, in Grom's hall. Speak, but keep your hand away from your weapon." },
+  },
+  notice = {
+    { id = "n_scourge", cat = "race", when = { race = "Scourge" },
+      text = "Forsaken. The Warchief calls you allies, and so I will, but I watch your hands all the same." },
+    { id = "n_warlock", cat = "class", when = { class = "WARLOCK" },
+      text = "Warlock. You stink of the same fire that chained us. Keep it far from the Warchief's seat." },
   },
   start = "hello",
   nodes = {
     hello = {
-      lines = { { id = "h_default", text = "We guard the hold and the Warchief inside it, and we keep our blood hot so that no enemy reaches him while we draw breath. The rage is ours, not the demons'; we chose it, and we point it where Thrall tells us." } },
-      again = { { id = "h_again", text = "What else? Make it quick; my axe grows restless." } },
+      lines = {
+        { id = "h_default", key = true, text = "We guard the hold and the Warchief inside it, and we keep our blood hot so that no enemy reaches him while we draw breath. The rage is ours, not the demons'; we chose it, and we point it where Thrall tells us." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Make it quick; my axe grows restless." },
+        { id = "h_again2", text = "More words? Fine, but keep them short." },
+      },
       choices = {
         { text = "Why keep your blood so hot?", next = "rage" },
+        { text = "Has anyone tried to reach the Warchief?", next = "threat" },
+        { text = "Were you in the internment camps?", next = "camps" },
+        { text = "What do you think of the warlocks in the Cleft?", next = "warlocks" },
+        { text = "I'm a warrior too. Teach me that fury.", next = "fury", when = { class = "WARRIOR" } },
         { text = "Lok'tar ogar.", next = "END" },
       },
     },
@@ -2271,9 +2288,41 @@ P:NPC {
       choices = {
         { text = "Fury like that is what makes the Horde strong.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Rage nearly destroyed our people. Mind it well.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Tell me of Grom and Mannoroth.", next = "grom" },
         { text = "Something else.", next = "BACK" },
       },
     },
+    grom = {
+      lines = { { id = "gr_default", text = "Grom drank the demon's blood a second time in Ashenvale, and the Warsong fell into madness with him. Thrall brought him back, and together they killed Mannoroth, and Grom died there with the chains broken. This hall bears his name, and we guard it as we guard the Warchief." } },
+      choices = { { text = "Lok'tar, Hellscream. Something else.", next = "BACK", fx = { learn = { "warsong" } } } },
+    },
+    threat = {
+      lines = { { id = "th_default", text = "The Burning Blade crawl in the Cleft of Shadow and in the hills of Durotar, and they would cut the Warchief's throat to bring the demons back. They have tried, and none of them left this city breathing." } },
+      choices = {
+        { text = "Hunt them down to the last cultist.", next = "BACK", reply = "Now you speak like a grunt! Bring me a Burning Blade dagger and I'll buy you a drink.", fx = { align = { honor = -1 }, learn = { "burning_blade" } } },
+        { text = "Some were orcs who lost their way. Pity them.", next = "BACK", reply = "Pity? Hah. Pity them after they are dead, and not a moment before.", fx = { align = { honor = 1 }, learn = { "burning_blade" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    camps = {
+      lines = {
+        { id = "ca_default", text = "Five years behind human walls, with the blood-sickness in my bones and nothing in my hands. I would sit in the mud and wish for a fight, any fight, and that is where this anger was born. Thrall freed it and gave it a purpose." },
+        { id = "ca_human", when = { race = "Scourge" }, text = "You were human once. Maybe one of you stood guard over me, five years behind those walls with the blood-sickness in my bones. Thrall freed us, and I do not forget who held the keys." },
+      },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "internment" } } } },
+    },
+    warlocks = {
+      lines = { { id = "wl_default", text = "The Warchief permits them, so I permit them. But they call on the same powers that poisoned our blood, and every time one walks past this hall I grip my axe a little tighter." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    fury = {
+      lines = { { id = "fu_default", text = "Fury is not taught, warrior, it is found, in the place where you are hurt and do not fall. Go to the Valley of Honor and let the trainers break you until you find it. Then come and tell me." } },
+      choices = { { text = "I will. Lok'tar!", next = "BACK", reply = "Lok'tar! Now go, before my axe decides you look like an enemy.", fx = { affinity = 1 } } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Not my concern. I guard the Warchief; ask someone with time to talk." } } },
+  topics = {
+    burning_blade = { { id = "tp_bb", text = "Demon-lovers. I would gladly take their heads myself." } },
+    thrall = { { id = "tp_thrall", text = "The Warchief freed us. My axe is his, and so is my blood." } },
+    _none = { { id = "tp_none", text = "Not my concern. I guard the Warchief; ask someone with time to talk." } },
+  },
 }

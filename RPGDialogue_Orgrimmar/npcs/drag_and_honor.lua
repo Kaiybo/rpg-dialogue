@@ -214,6 +214,7 @@ P:NPC {
   key = "mayhoa_skyhoof", id = TODO_NPC("Mayhoa Skyhoof"), name = "Mayhoa Skyhoof", title = "Girl with Puppies",
   gender = "female", role = "vendor", tier = "service",
   communities = { "orgrimmar" }, temper = { "cheerful" }, values = { "nature" },
+  notices = { "race", "class", "pet" },
   impression = {
     first = "A tauren calf wandering the Drag with a carrier full of prairie wolf pups, every one of them trying to climb out at once.",
     third = "{name} met Mayhoa Skyhoof, a tauren girl selling prairie wolf pups in Orgrimmar.",
@@ -222,22 +223,50 @@ P:NPC {
     { id = "g_default", text = "Do you want to see the puppies? They're prairie wolves from Mulgore, and they need good homes before they chew through my basket." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "You're from home! Do you want a puppy? They're Mulgore wolves, so they'll like you better than these orcs." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "You've got a pet already, so you'll know how to look after one of mine, won't you?" },
+    { id = "g_back", when = { metBefore = true }, text = "It's you again! I've only got four left now. Well, four and a half; one's very small." },
+  },
+  notice = {
+    { id = "n_scourge", cat = "race", when = { race = "Scourge" },
+      text = "The puppies are growling at you. Don't be sad; they growl at every Forsaken on the Drag, and at the bats." },
+    { id = "n_wolf", cat = "pet", when = { pet = { type = "Beast" } },
+      text = "Oh, look, {pet} wants to sniff them! Gently, gently. See, they're friends already." },
   },
   start = "hello",
   nodes = {
     hello = {
-      lines = { { id = "h_default", text = "I walk up and down the Drag and through the Valley of Honor all day, because the warriors there are the ones who pretend they don't want a puppy and then buy two. This one's the runt, but she's the bravest, and she bit a grunt yesterday." } },
-      again = { { id = "h_again", text = "Anything else? Hold still, he's chewing your boot." } },
+      lines = {
+        { id = "h_default", key = true, text = "I walk up and down the Drag and through the Valley of Honor all day, because the warriors there are the ones who pretend they don't want a puppy and then buy two. This one's the runt, but she's the bravest, and she bit a grunt yesterday." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? Hold still, he's chewing your boot." },
+        { id = "h_again2", text = "What else? Oh, don't mind that one, he only licks." },
+      },
       choices = {
         { text = "Where did you find wolf pups?", next = "where" },
         { text = "Isn't Orgrimmar a rough place for a calf?", next = "rough" },
+        { text = "Tell me about the runt.", next = "runt" },
+        { text = "Does your family know you're here?", next = "family" },
+        { text = "Who's bought one so far?", next = "buyers" },
+        { text = "How should I care for a wolf pup?", next = "care", when = { class = "HUNTER" } },
+        { text = "Orcs ride wolves, you know. Big ones.", next = "frostwolf", when = { race = "Orc" } },
         { text = "Let me see the puppies.", next = "BUSINESS" },
         { text = "Good luck finding them homes.", next = "END" },
       },
     },
     where = {
       lines = { { id = "w_default", text = "Their mother was hurt out on the plains near Bloodhoof, and the braves brought the pups in. My family said I could keep one if I found homes for the rest, so I came all the way to Orgrimmar because there are more people here to say yes." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What happened to the mother?", next = "mother" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mother = {
+      lines = { { id = "mo_default", text = "A Venture Company trap got her leg. The braves let her go after they took it off, and she ran away limping, and I cried for a whole day. I still think she's out there looking for them." } },
+      choices = {
+        { text = "Then the goblins should pay for it.", next = "BACK", reply = "That's what my uncle said! He said it a lot louder, though.", fx = { align = { honor = -1 } } },
+        { text = "She's free, and her pups are safe. That's enough.", next = "BACK", reply = "You think so? I like that. I'll tell the puppies tonight.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     rough = {
       lines = { { id = "r_default", text = "Everyone says that, but the orcs are nice when you have puppies. The big ones in the Valley of Honor go all soft, and one of them told me the Frostwolf clan rides wolves into battle, so it's practically a Horde tradition." } },
@@ -247,6 +276,42 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    runt = {
+      lines = { { id = "ru_default", text = "Her name is Little Thunder, and she's going to be my one, the one I keep. She bit the grunt because he poked the basket with his axe handle, and he laughed so hard he gave me a copper for her bravery." } },
+      choices = {
+        { text = "She'll make a fine wolf someday.", next = "runt2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    runt2 = {
+      lines = { { id = "ru2_default", text = "She will, and when I'm grown I'm going to be a hunter like the ones on Hunter Rise, and she'll walk beside me everywhere. Mother says I have to grow first, which is very unfair." } },
+      choices = { { text = "Growing goes faster than you think. Something else.", next = "BACK" } },
+    },
+    family = {
+      lines = { { id = "fa_default", text = "Of course they do! My uncle walked the caravan road through the Barrens with me and he's at the inn, probably, talking to the orcs about kodo. There are lots of Skyhoofs, so if you meet one in Mulgore, say Mayhoa sold you a puppy." } },
+      choices = { { text = "I'll do that. Something else.", next = "BACK" } },
+    },
+    buyers = {
+      lines = { { id = "bu_default", text = "A troll from Sen'jin who said he'd teach it to dance, and an orc warrior who pretended it was for his son but kissed it on the nose when he thought I wasn't looking. And a Forsaken lady who wanted one, but the puppy wouldn't stop growling at her." } },
+      choices = {
+        { text = "Poor Forsaken lady.", next = "BACK", reply = "I know! I gave her a scratch behind the puppy's ear instead, for free, and she almost smiled." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    care = {
+      lines = { { id = "ca_default", text = "You're asking me? You're the hunter! Well, my mother says feed them meat, not bread, let them run every day, and never yell, because a wolf remembers yelling longer than it remembers kindness." } },
+      choices = { { text = "Your mother sounds wise. Something else.", next = "BACK" } },
+    },
+    frostwolf = {
+      lines = { { id = "fw_default", text = "I know! Big as kodo, the grunt said, though I think he was teasing. Do you think one of mine could grow that big if I fed her enough?" } },
+      choices = {
+        { text = "If you feed her very well, maybe.", next = "BACK", reply = "Then I'm feeding her twice as much starting tonight!", fx = { affinity = 1 } },
+        { text = "No, but she'll be a good wolf anyway.", next = "BACK", reply = "That's all right. I like her the size she is, really." },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know! Ask somebody grown up. Do you want a puppy, though?" } } },
+  topics = {
+    venture_company = { { id = "tp_venture", text = "They hurt the puppies' mother with a trap. I don't like them at all." } },
+    _none = { { id = "tp_none", text = "I don't know! Ask somebody grown up. Do you want a puppy, though?" } },
+  },
 }

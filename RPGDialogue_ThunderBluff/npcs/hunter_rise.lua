@@ -1019,6 +1019,7 @@ P:NPC {
   key = "sky_earthtotem", id = TODO_NPC("Sky Earthtotem"), name = "Sky Earthtotem", gender = "male",
   role = "citizen", tier = "service",
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "tradition" },
+  notices = { "class", "race" },
   impression = {
     first = "A seasoned tauren hunter sitting in the Hunter's Hall, oiling a bowstring with the slow care of someone who has done it ten thousand times.",
     third = "{name} spoke with Sky Earthtotem in the Hunter's Hall on Hunter Rise.",
@@ -1026,15 +1027,34 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Sit, if you have the time. The Hunter's Hall was built for resting between hunts, and too few use it that way." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A fellow hunter, and your companion with you. Let {pet} lie by the fire; the hall has seen muddier paws." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece. Sit, and tell me which way the herds were moving." },
+  },
+  notice = {
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "A Darkspear. Your people hunt the jungle the way we hunt the grass, low and patient, and I have always respected that." },
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "You carry a warrior's weight on your shoulders. On the plains that much steel sings to every beast for a mile." },
   },
   start = "hello",
   nodes = {
     hello = {
-      lines = { { id = "h_default", text = "I have hunted Mulgore and the Barrens since before this city had bridges, and now I sit in the hall and tell the young ones where the game has gone. It is a good life for old knees." } },
-      again = { { id = "h_again", text = "What else? Ask before the young ones come back and want the fire." } },
+      lines = {
+        { id = "h_default", key = true, text = "I have hunted Mulgore and the Barrens since before this city had bridges, and now I sit in the hall and tell the young ones where the game has gone. It is a good life for old knees." },
+        { id = "h_young", when = { maxLevel = 15 }, text = "You have the look of someone fresh from Camp Narache. Listen well, and you'll come home from more hunts than you would otherwise." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Ask before the young ones come back and want the fire." },
+        { id = "h_again2", text = "Go on. My bowstring isn't going anywhere, and neither am I." },
+      },
       choices = {
         { text = "Where has the game gone?", next = "game" },
         { text = "What makes a good hunt?", next = "hunt" },
+        { text = "You remember the bluff before the bridges?", next = "old" },
+        { text = "You've hunted the Barrens too?", next = "barrens" },
+        { text = "That bowstring looks older than I am.", next = "string" },
+        { text = "Tell me about the other hunters on the rise.", next = "rise" },
+        { text = "What should a hunter's companion be taught first?", next = "companion", when = { class = "HUNTER" } },
+        { text = "Orcs hunt too. Do we do it wrong?", next = "orc", when = { race = { "Orc", "Troll" } } },
         { text = "Earth Mother guide your arrows.", next = "END" },
       },
     },
@@ -1043,6 +1063,22 @@ P:NPC {
       choices = {
         { text = "The Venture Company should be driven out by force.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Cairne will deal with them in his own time.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Why do the kodo walk farther?", next = "kodo" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kodo = {
+      lines = { { id = "ko_default", text = "Kodo go where it is quiet, and the goblins are never quiet. Their saws cut the trees and their machines drink the water, and a herd that once grazed below the bluff now crosses into the Barrens and does not come back." } },
+      choices = {
+        { text = "Where do they go?", next = "kodo2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kodo2 = {
+      lines = { { id = "ko2_default", text = "South, past the Crossroads, and the oldest of them walk on into Desolace to die among their ancestors' bones. I saw that place once, as a young bull, and I have never wanted to hunt kodo since." } },
+      choices = {
+        { text = "A hunter should not grow soft over his quarry.", next = "BACK", reply = "Perhaps not, but a hunter who feels nothing for his quarry is only a butcher with a long reach.", fx = { align = { light = -1 } } },
+        { text = "Some things should not be hunted at all.", next = "BACK", reply = "My father would have argued with you, and my grandfather would have agreed. I find I side with my grandfather more each year.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -1050,35 +1086,137 @@ P:NPC {
       lines = { { id = "hu_default", text = "Patience first, then a clean shot, and thanks to the beast before you touch it. A hunter who forgets the thanks will find, sooner or later, that the plains forget him." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    old = {
+      lines = { { id = "o_default", text = "Before the bridges we climbed by rope and ladder, and only the strong or the stubborn came up at all. When Cairne brought the tribes together and the orcs helped drive off the centaur, the city grew so fast I hardly recognized it." } },
+      choices = {
+        { text = "Do you miss the old way?", next = "old2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    old2 = {
+      big = true,
+      lines = { { id = "o2_default", text = "My knees do not, I promise you. But we were wanderers for a long age, following the herds, and some of us still feel the stone is too still beneath us. The Grimtotem say we have grown soft living alongside outsiders. What do you say?" } },
+      choices = {
+        { text = "The city and the Horde keep the tribes alive.", next = "BACK", reply = "That is Cairne's answer, and I think it is the true one, though it sits a little heavily on an old wanderer.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "The Grimtotem aren't wrong. Walls make a people forget.", next = "BACK", reply = "Careful who hears you say that on the bluff. Still, I have thought it myself on long nights, and I won't pretend otherwise.", fx = { align = { order = -1 }, learn = { "grimtotem" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    barrens = {
+      lines = { { id = "b_default", text = "Every summer of my youth, from the Crossroads down to Camp Taurajo, chasing zhevra and dodging centaur. The Barrens are honest country; everything there wants to eat you, and nothing pretends otherwise." } },
+      choices = {
+        { text = "The centaur are the worst of it.", next = "centaur" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    centaur = {
+      lines = { { id = "ce_default", text = "The Kolkar and the Galak have harried my people for generations, and they hunted us off these plains before the orcs came. I have killed centaur, and I took no joy in it, but I would do it again tomorrow to keep a camp safe." } },
+      choices = {
+        { text = "They should be driven from the Barrens entirely.", next = "BACK", reply = "Many say so. I only know the plains have never been empty of them, and I doubt they ever will be.", fx = { align = { honor = -1 } } },
+        { text = "Defend the camps, but don't hunt them for sport.", next = "BACK", reply = "That is a hunter's answer. A war that has no end is fought one camp at a time.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    string = {
+      lines = { { id = "st_default", text = "It is kodo sinew, twisted by my mate the winter we were joined, and I have restrung it more times than I can count without ever changing the knot she tied. A bowstring remembers who made it, the old hunters say." } },
+      choices = {
+        { text = "That's a fine thing to carry with you.", next = "BACK", reply = "It is, and it has never once broken in a hunt. She would say that was the knot, and I would say it was her.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rise = {
+      lines = { { id = "ri_default", text = "Urek talks, Holt shoots, and Kary finds anything that has ever left a track, and the three of them teach the young better than I ever could. Young Rown Leaftender wanders up here too, and spends more time looking at grass than at game." } },
+      choices = {
+        { text = "Is Rown a poor hunter, then?", next = "rown" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rown = {
+      lines = { { id = "rw_default", text = "No, he is a slow one, which is a different thing. He knows where every herb on the plains comes up after rain, and one day that will feed a camp when the arrows miss. I tell the others to stop laughing at him." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    companion = {
+      lines = { { id = "cp_default", text = "To lie still, before anything else. A beast that will hold quiet in the grass beside you is worth three that bite hard, and {pet} has the look of one who could learn it." } },
+      choices = { { text = "I'll practise with {pet}. Something else.", next = "BACK" } },
+    },
+    orc = {
+      lines = { { id = "or_default", text = "Not wrong, only hungry. Your people came to Durotar with little and hunted like it, and there is no shame in that. Now you have time to learn the slower way, and some of your hunters are learning it very well." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I only know the trails and the beasts on them, friend. Ask the elders for the rest." } } },
+  topics = {
+    kodo = { { id = "tp_kodo", text = "The great kodo are the oldest friends my people have. Hunt them only when you must, and never the old ones." } },
+    venture_company = { { id = "tp_venture", text = "Goblins with saws and no manners. They cut what the Earth Mother grew for a thousand years and sell it by the plank." } },
+    advice = { { id = "tp_ad", text = "Know where the wind is before you know where the beast is." } },
+    _none = { { id = "tp_none", text = "I only know the trails and the beasts on them, friend. Ask the elders for the rest." } },
+  },
 }
 
 P:NPC {
   key = "rown_leaftender", id = TODO_NPC("Rown Leaftender"), name = "Rown Leaftender", gender = "male",
   role = "citizen", tier = "service",
   communities = { "thunder_bluff" }, temper = { "eager" }, values = { "nature" },
+  notices = { "class" },
   impression = {
     first = "A young tauren on Hunter Rise with leaves still caught in his mane, plainly fresh in from the plains.",
     third = "{name} spoke with Rown Leaftender on Hunter Rise.",
   },
   greetings = {
     { id = "g_default", text = "Oh, hello! I'm only just back from the plains, so forgive the burrs, {class}." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back! I found peacebloom by the Winding Chasm this morning, if you're curious, and I know you are." },
+  },
+  notice = {
+    { id = "n_druid", cat = "class", when = { class = "DRUID" },
+      text = "You're one of the Cenarion folk, aren't you? I can always tell; you look at the ground the way I do." },
+    { id = "n_herbal", cat = "class", when = { class = "SHAMAN" },
+      text = "A shaman! Do the spirits ever tell you where the herbs are? I've always wanted to ask one." },
   },
   start = "hello",
   nodes = {
     hello = {
-      lines = { { id = "h_default", text = "I'm still learning the bow from the trainers here, though I confess I spend more time watching the grass grow than watching for game. My mother says I was named well, and she doesn't always mean it kindly." } },
-      again = { { id = "h_again", text = "Anything else? I'm in no rush, which is part of my trouble." } },
+      lines = {
+        { id = "h_default", key = true, text = "I'm still learning the bow from the trainers here, though I confess I spend more time watching the grass grow than watching for game. My mother says I was named well, and she doesn't always mean it kindly." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? I'm in no rush, which is part of my trouble." },
+        { id = "h_again2", text = "Ask away. Sky says patience is a hunter's first gift, and it's the only one I've got so far." },
+      },
       choices = {
         { text = "What do you watch for in the grass?", next = "grass" },
         { text = "A hunter has to learn to take a life.", next = "take" },
+        { text = "Your mother doesn't approve, then?", next = "mother" },
+        { text = "How are the trainers treating you?", next = "trainers" },
+        { text = "Have you thought of becoming a druid instead?", next = "druid" },
+        { text = "You've a burr stuck to your horn.", next = "burr" },
+        { text = "I'm a hunter. Want some advice?", next = "advice", when = { class = "HUNTER" } },
         { text = "Good luck with the bow.", next = "END" },
       },
     },
     grass = {
       lines = { { id = "gr_default", text = "Which herbs come up after the rain, which places the plainstriders nest, where the wolves have been. The trainers say it's wasted time, but I've never once come home without knowing where to find something." } },
-      choices = { { text = "Something else.", next = "BACK" } },
+      choices = {
+        { text = "What have you found lately?", next = "grass2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grass2 = {
+      lines = {
+        { id = "gr2_default", text = "Earthroot along the Red Rocks, and mageroyal thick by the lake where the Stonebull clan used to camp. And something odd: the grass near the Venture Company's camps is dying in rings, as if it were poisoned." },
+        { id = "gr2_herb", when = { profession = "Herbalism" }, text = "You gather too, don't you? Then you'll want to know the earthroot is thick along the Red Rocks right now. But the grass near the Venture Company's camps is dying in rings, as if poisoned." },
+      },
+      choices = {
+        { text = "Poisoned? Have you told anyone?", next = "grass3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grass3 = {
+      big = true,
+      lines = { { id = "gr3_default", text = "I told Kary, and she said goblins spill oil wherever they go, which is true. But I'm afraid if I keep quiet it'll spread, and if I say too much the elders will think I'm a calf crying wolf. What would you do?" } },
+      choices = {
+        { text = "Go to the elders. Better to be laughed at than silent.", next = "BACK", reply = "You're right. I'll take a handful of the dead grass with me so they can see it, and then they can laugh all they like.", fx = { affinity = 1, align = { order = 1 } } },
+        { text = "Don't wait on elders. Pull up their stakes yourself.", next = "BACK", reply = "Me? Against goblins with saws? Well, maybe I could pull up one or two stakes at night.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
     },
     take = {
       lines = { { id = "t_default", text = "I know it, and I can, when I have to. I only think the hunt should be the last thing a tauren learns, not the first, and some of the older hunters laugh at me for it." } },
@@ -1088,6 +1226,60 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    mother = {
+      lines = { { id = "mo_default", text = "She's a hunter, and her mother was, and they both brought home plainstrider every week of my childhood. I think she hoped I'd be the same, and instead I bring home flowers and tell her where the plainstriders are." } },
+      choices = {
+        { text = "Telling her where they are still feeds the family.", next = "mother2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mother2 = {
+      lines = { { id = "mo2_default", text = "That's what I keep saying! Last winter she followed my directions and brought home three in a day, and she didn't say a word about it, but she did put an extra bead in my mane." } },
+      choices = { { text = "That sounds like approval to me. Something else.", next = "BACK" } },
+    },
+    trainers = {
+      lines = { { id = "tr_default", text = "Holt is patient with me, which is kind, since I'm the worst shot on the rise. Kary says I'd track well if I didn't stop for every flower, and Urek just tells me stories about getting lost, which I think is his way of being encouraging." } },
+      choices = {
+        { text = "And Sky Earthtotem in the hall?", next = "sky" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sky = {
+      lines = { { id = "sk_default", text = "Sky is the only one who never laughs at me. He told me once that a slow hunter isn't a bad hunter, he's just one who hasn't found his reason yet, and I've been thinking about that ever since." } },
+      choices = { { text = "Sounds like wise counsel. Something else.", next = "BACK" } },
+    },
+    druid = {
+      lines = {
+        { id = "dr_default", text = "I've thought of it every day for a year. Turak Runetotem's people on the Elder Rise speak of the Cenarion Circle and Moonglade, and it sounds like everything I'm already doing, only with someone telling me it matters." },
+        { id = "dr_druid", when = { class = "DRUID" }, text = "You'd know better than me! Is it true you learn to hear what the land needs? Turak's people make it sound like everything I'm already doing, only with someone telling me it matters." },
+      },
+      choices = {
+        { text = "Then go to the Elder Rise and ask.", next = "druid2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    druid2 = {
+      lines = { { id = "dr2_default", text = "I will, I think, once I've learned the bow properly, so my mother can't say I gave up on it. A druid who can shoot can't hurt, can he?" } },
+      choices = {
+        { text = "Finish what you started first. That's wise.", next = "BACK", reply = "That's what I hoped someone would say. Thank you.", fx = { affinity = 1, learn = { "cenarion_circle" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    burr = {
+      lines = { { id = "bu_default", text = "Oh, Earth Mother, again? Thank you. That's swiftthistle, I think, and it sticks to everything, which is how it spreads; clever plant, really, if a little rude." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    advice = {
+      lines = { { id = "ad_default", text = "Yes, please! Everyone tells me to shoot faster, and nobody tells me how. How did you learn?" } },
+      choices = {
+        { text = "I watched my quarry until I knew it.", next = "BACK", reply = "Watching! I'm good at watching. Maybe I'm closer than I thought.", fx = { affinity = 1 } },
+        { text = "Practice until your arms ache. There's no shortcut.", next = "BACK", reply = "That sounds like Holt. Fine, fine, I'll go back to the targets." },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know about that, I'm afraid. Ask someone who spends less time looking at grass." } } },
+  topics = {
+    venture_company = { { id = "tp_venture", text = "The grass dies around their camps. I don't know why, but I don't like it." } },
+    advice = { { id = "tp_ad", text = "Look down sometimes. The ground tells you more than people think." } },
+    _none = { { id = "tp_none", text = "I don't know about that, I'm afraid. Ask someone who spends less time looking at grass." } },
+  },
 }

@@ -579,20 +579,36 @@ P:NPC {
   key = "mesa_brave", id = TODO_NPC("Mesa Brave"), name = "Mesa Brave",
   role = "guard", tier = "service",
   communities = { "narache" }, temper = { "calm" }, values = { "duty" },
+  notices = { "race", "level" },
   impression = {
     first = "A tauren brave with a long spear planted in the red dust, watching the path up onto Red Cloud Mesa.",
     third = "{name} spoke with a brave guarding the way onto Red Cloud Mesa.",
   },
   greetings = {
     { id = "g_default", text = "Walk in peace, {class}. The young ones of Camp Narache are beyond me, and I keep the path safe for them." },
+    { id = "g_nottauren", when = { ["not"] = { race = "Tauren" } }, text = "A guest on Red Cloud Mesa. The young of Camp Narache rarely see outsiders, so forgive them if they stare." },
+  },
+  notice = {
+    { id = "n_high", cat = "level", when = { minLevel = 20 },
+      text = "You have walked farther than this mesa, I can see. The young ones would ask you a hundred questions, if you let them." },
   },
   start = "hello",
   nodes = {
     hello = {
-      lines = { { id = "h_default", text = "We braves watch the way up onto Red Cloud Mesa, so the Bristleback and the wolves bother the camp no more than the elders intend. The trials of the young are meant to be hard, but not that hard." } },
-      again = { { id = "h_again", text = "Anything else? I can talk and watch at once." } },
+      lines = {
+        { id = "h_default", key = true, text = "We braves watch the way up onto Red Cloud Mesa, so the Bristleback and the wolves bother the camp no more than the elders intend. The trials of the young are meant to be hard, but not that hard." },
+        { id = "h_young", when = { race = "Tauren", maxLevel = 10 }, text = "You're one of Grull's young ones, aren't you? Keep your spear high and your eyes higher, and you'll come back from the ravine." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? I can talk and watch at once." },
+        { id = "h_again2", text = "Ask on. The wolves are quiet today." },
+      },
       choices = {
         { text = "Is the mesa dangerous?", next = "danger" },
+        { text = "Who leads Camp Narache?", next = "leaders" },
+        { text = "What is the trial of the young?", next = "trial" },
+        { text = "You must get bored up here.", next = "bored" },
+        { text = "I passed my trial here once.", next = "mine", when = { race = "Tauren", minLevel = 11 } },
         { text = "Earth Mother keep watch with you.", next = "END" },
       },
     },
@@ -601,9 +617,40 @@ P:NPC {
       choices = {
         { text = "Let the young face it alone. That's the trial.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Good. The herd guards its calves.", next = "BACK", fx = { align = { order = 1 } } },
+        { text = "Why are the quilboar so bold?", next = "quilboar" },
         { text = "Something else.", next = "BACK" },
       },
     },
+    quilboar = {
+      lines = { { id = "q_default", text = "The Bristleback come up out of the Barrens, pushed by their own chieftains, and they plant their thorns wherever they stop. Chief Hawkwind sends the young to hunt them, so they learn that an enemy is something you can face." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    leaders = {
+      lines = { { id = "l_default", text = "Chief Hawkwind, who was a great hunter before her hooves grew old, and Grull Hawkwind, her son, who sets the hunts. Seer Ravenfeather tends the spirits, and Brave Windfeather watches the high ground, and the rest of us do as we're told." } },
+      choices = {
+        { text = "And Cairne?", next = "cairne" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cairne = {
+      lines = { { id = "c_default", text = "The High Chieftain was a calf on this very mesa, they say, and every young one hopes the same of themselves. When they pass their trials, they walk down the road to Bloodhoof Village, and then up to the bluff, and they never forget where they began." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "cairne" } } } },
+    },
+    trial = {
+      lines = { { id = "t_default", text = "To hunt the plainstrider and the wolf, to drive back the quilboar, and to carry a message to Bloodhoof Village on your own hooves. A young tauren who does all of that has shown the herd they can walk alone, and that they will come home." } },
+      choices = { { text = "A good trial. Something else.", next = "BACK" } },
+    },
+    bored = {
+      lines = { { id = "b_default", text = "Some days, I admit it. But I was one of those calves once, and a brave watched this path for me, and I never even knew his name. I think of that, and the hours go by easier." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    mine = {
+      lines = { { id = "m_default", text = "Then you know what it is to walk down from here and feel the whole world open in front of you. Come back up when you are old, and stand where I stand, and you'll understand the other half of it." } },
+      choices = { { text = "I will. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Ask Grull Hawkwind in the camp, friend; I only watch the path." } } },
+  topics = {
+    quilboar = { { id = "tp_qb", text = "Bristleback, in the ravine. Keep your spear between you and their tusks." } },
+    _none = { { id = "tp_none", text = "Ask Grull Hawkwind in the camp, friend; I only watch the path." } },
+  },
 }
