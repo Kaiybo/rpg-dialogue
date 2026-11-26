@@ -376,7 +376,7 @@ P:Exchange { id = "ex_al_ashenvale_sentinels", a = { role = "guard" }, b = { rol
     { who = "b", text = "Then we will be quieter still. They hear nothing until our arrows find them." },
   } }
 
-P:Exchange { id = "ex_ho_durotar_quilboar", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Durotar", faction = "Horde" },
+P:Exchange { id = "ex_ho_durotar_burningblade", a = { role = "guard" }, b = { role = "guard" }, when = { zone = "Durotar", faction = "Horde" },
   lines = {
     { who = "a", text = "The Burning Blade cultists in Skull Rock keep summoning their little fire demons, as if we did not burn enough for that kind of power." },
     { who = "b", text = "Then we will burn them out. Shame is not something the Horde forgets, and neither are those who would bring it back." },

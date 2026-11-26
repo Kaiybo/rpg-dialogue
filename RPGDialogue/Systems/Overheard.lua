@@ -130,6 +130,16 @@ local function play(c, ctx, env)
   for _, info in ipairs({ c.a, c.b }) do
     s._by[ns.Memory.Key(info)] = c.def.id
   end
+  -- A named exchange is worth a diary line (or the exchange's own `journal = { first, third }`).
+  if named(c.def) and ns.Effects and ns.Effects.Journal then
+    local a, b = speakerName(c.a), speakerName(c.b)
+    local where = (ctx.subzone ~= nil and ctx.subzone ~= "" and ctx.subzone) or ctx.zone or "town"
+    local tpl = c.def.journal or {
+      first = ("I overheard %s and %s talking in %s."):format(a, b, where),
+      third = ("{name} overheard %s and %s in %s."):format(a, b, where),
+    }
+    pcall(ns.Effects.Journal, tpl, ctx, { now = now })
+  end
   local function line(i)
     local l = c.def.lines[i]
     if not l then playing = false; return end
