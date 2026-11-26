@@ -181,6 +181,11 @@ P:NPC {
         { text = "Why Three Corners?", next = "why" },
         { text = "Isn't it dangerous out here, with the gnolls?", next = "gnolls" },
         { text = "Let's see the auctions.", next = "BUSINESS" },
+        { text = "What's the Azeroth Commerce Authority, anyway?", next = "aca" },
+        { text = "What sells in Redridge?", next = "sells" },
+        { text = "Don't you work the Crossroads too?", next = "both" },
+        { text = "Lakeshire could use your gold more than you.", next = "lakeshire" },
+        { text = "I'm from Stormwind. Do you pay the king's taxes?", next = "taxes", when = { race = "Human" } },
         { text = "Not today.", next = "END" },
       },
     },
@@ -196,8 +201,49 @@ P:NPC {
       lines = { { id = "g2_default", text = "Sure it is, which is why I pay those two big fellas, and why my fees have a little line for gnoll-related overhead. Redridge gnolls can't read a contract anyway, so they're terrible customers." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    aca = {
+      lines = { { id = "ac_default", text = "Bunch of money folks who figured the roads between towns need markets, pal, and markets need auctioneers, and auctioneers need a cut. They pay the stall fees, I run the bids, and everybody pretends the paperwork makes sense." } },
+      choices = { { text = "Sounds like a sweet arrangement. Something else.", next = "BACK" } },
+    },
+    sells = {
+      lines = { { id = "se_default", text = "Gnoll paws for the bounty-hunters, iron from the hills, fish from Lake Everstill, and a frankly alarming number of murloc fins. Somebody in Stormwind makes soup out of 'em, and I don't ask, I just take the fee." } },
+      choices = {
+        { text = "Murloc fin soup?", next = "sells_soup" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sells_soup = {
+      lines = { { id = "ss_default", text = "Some cook in Old Town swears by it, buys the fins by the crate, and pays in good Stormwind silver. I tried a spoonful once, and let's just say my stomach filed a formal complaint with the Cartel." } },
+      choices = { { text = "I'll pass on the soup. Something else.", next = "BACK" } },
+    },
+    both = {
+      lines = { { id = "bo_default", text = "Sure I do, the Horde stall outside the Crossroads, and nobody here likes hearin' it. A goblin's got to be in two places at once if he's gonna be rich in either of 'em, pal." } },
+      choices = {
+        { text = "How do you manage both?", next = "both_how" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    both_how = {
+      lines = { { id = "bh_default", text = "Trade secret, sweetheart, and it involves a zeppelin, a boat, and a cousin who looks a lot like me in bad light. Don't tell the Commerce Authority, they think they're payin' for one of me." } },
+      choices = { { text = "Your secret's safe. Something else.", next = "BACK" } },
+    },
+    lakeshire = {
+      big = true,
+      lines = { { id = "la_default", text = "Whoa, whoa, Lakeshire's got its bridge problems and its gnoll problems, and I'm a businessman, not a charity. You think a fella in my line ought to give it away?" } },
+      choices = {
+        { text = "Yes. Folk here are struggling, and you're profiting.", next = "BACK", reply = "Ugh, a conscience. Fine, fine, I'll waive the fee on one bridge plank. One.", fx = { align = { light = 1 } } },
+        { text = "No. Charity makes poor business.", next = "BACK", reply = "Exactly! Charity's for priests, pal, and priests don't bid.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    taxes = {
+      lines = { { id = "ta_default", text = "Taxes? I'm Booty Bay licensed, pal, and the Cartel's got an understanding with your king's tax men. The understanding is that I don't understand them, and they don't understand me, and everybody stays friendly." } },
+      choices = { { text = "Very convenient. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    redridge = { { id = "tp_redridge", text = "Gnolls, fish, and folks who need a market. My kind of trouble, pal." } },
+    steamwheedle = { { id = "tp_sw", text = "Neutral, bonded and very well guarded. That's the Cartel, pal." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, unless there's a percentage in it." } },
   },
 }
@@ -224,6 +270,10 @@ P:NPC {
       choices = {
         { text = "The gnolls steal the mail?", next = "gnolls" },
         { text = "I'll send something.", next = "BUSINESS" },
+        { text = "What's the run like to Lakeshire?", next = "run" },
+        { text = "You look like you've been chased.", next = "chased" },
+        { text = "Do soldiers write home much from here?", next = "letters" },
+        { text = "Ever delivered to Darkshire?", next = "darkshire" },
         { text = "Never mind.", next = "END" },
       },
     },
@@ -236,8 +286,44 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    run = {
+      lines = { { id = "ru_default", text = "Up the road past the gnoll camps, over the bridge that's always half fixed, and into Lakeshire, where the mayor wants his mail before I've even got off the kodo. Then back again, and then again, until my feet file for retirement." } },
+      choices = { { text = "Sounds exhausting. Something else.", next = "BACK" } },
+    },
+    chased = {
+      lines = { { id = "ch_default", text = "Because I was, pal, by a gnoll with a club and a terrible sense of humour. He chased me halfway to the bridge, and then he stopped to eat a seed packet, which saved my life, so I owe that farmer in Elwynn a thank-you note." } },
+      choices = { { text = "Send it free of charge.", next = "BACK", reply = "Free? Ha! I'll knock off a copper, that's my best gratitude rate." } },
+    },
+    letters = {
+      lines = { { id = "le_default", text = "All the time. The guards up at Lakeshire write to mothers in Stormwind, and the mothers write back about eating proper meals. I deliver it all, and I gotta say, the mothers are right, those guards are skinny." } },
+      choices = {
+        { text = "Do you ever deliver bad news?", next = "letters_bad" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    letters_bad = {
+      lines = { { id = "lb_default", text = "Sometimes, yeah, when a guard don't come back from the hills and the captain writes to his folks. Those ones I deliver quick and I don't charge extra, and don't you tell the boss, 'cause that's comin' out of my own pocket." } },
+      choices = {
+        { text = "That's decent of you.", next = "letters_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    letters_stance = {
+      big = true,
+      lines = { { id = "ls_default", text = "Decent's bad for business, pal. You think a goblin's got any business bein' soft like that?" } },
+      choices = {
+        { text = "Yes. Some things are worth more than a fee.", next = "BACK", reply = "Yeah, yeah, don't spread it around. I got a reputation for bein' a jerk, and it took years.", fx = { align = { light = 1 } } },
+        { text = "No. Charge for the bad news too.", next = "BACK", reply = "Cold, pal, real cold. You'd make a great Cartel accountant.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    darkshire = {
+      lines = { { id = "da_default", text = "Once, and never again if I can help it, because the woods out there are full of things that ain't alive and ain't dead either. The Night Watch signed for the parcel with a hand that was shakin', and they're the ones who live there." } },
+      choices = { { text = "I'll keep that in mind. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    mail = { { id = "tp_mail", text = "It gets there, mostly. The gnolls take a cut now and then." } },
     _none = { { id = "tp_none", text = "No idea, pal, I just carry the bags. Ask the auctioneer, he's got an opinion on everything with a price." } },
   },
 }

@@ -1311,6 +1311,12 @@ P:NPC {
         { text = "Who is your master?", next = "garithos" },
         { text = "Have you looked at your own hands, Captain?", next = "hands" },
         { text = "The Grand Marshal isn't coming back.", next = "dead", when = { questDone = P.TODO_QUEST("Abominable Creatures") } },
+        { text = "Where are the rest of your men?", next = "men" },
+        { text = "These ruins belong to the Dark Lady now.", next = "lady" },
+        { text = "What was Lordaeron like, before the fall?", next = "before" },
+        { text = "I'm an orc, Captain. Of the Horde.", next = "orc", when = { race = "Orc" } },
+        { text = "Garithos hated elves, didn't he?", next = "elves", when = { race = "NightElf" } },
+        { text = "I serve the Light, Captain. As you once did.", next = "light", when = { class = "PALADIN" } },
         { text = "I'll leave you to your post.", next = "END" },
       },
     },
@@ -1353,8 +1359,60 @@ P:NPC {
         { text = "Perhaps I was mistaken. Keep your post.", next = "BACK", reply = "Yes, you were, and I will, so go and make yourself useful elsewhere.", fx = { align = { honor = -1 } } },
       },
     },
+    men = {
+      lines = { { id = "m_default", text = "Dispersed, on the Grand Marshal's orders, to hold the outer wards. They report to me less often than they ought, and I've half a mind to have the lot of them flogged when this is over." } },
+      choices = {
+        { text = "When did one last report to you?", next = "men_last" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    men_last = {
+      lines = { { id = "ml_default", text = "Sergeant Hollis, I believe, a fortnight ago, or perhaps it was longer. He said nothing, merely stood there, grey as ash, and wandered off toward the throne room without a salute." } },
+      choices = {
+        { text = "Captain, I think Hollis was already dead.", next = "men_truth" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    men_truth = {
+      big = true,
+      lines = { { id = "mt_default", text = "Dead? Nonsense, he was standing, and dead men don't stand unless they're Scourge, and Hollis was no traitor. <His jaw works soundlessly for a moment.> Are you trying to tell me something, {race}?" } },
+      choices = {
+        { text = "Only that you should look around you, Captain.", next = "BACK", reply = "I have looked, and I see a post that must be held. That is all a soldier needs to see.", fx = { align = { honor = 1 } } },
+        { text = "No, Captain. Nothing at all. Carry on.", next = "BACK", reply = "Then stop muttering riddles at an officer and go and do something useful.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lady = {
+      lines = { { id = "la_default", text = "The Dark Lady? Sylvanas is our ally, nothing more, and an ally of convenience at that, whatever her ghouls may believe. Once the Scourge is purged, the Grand Marshal will restore Lordaeron to her rightful king's heirs." } },
+      choices = { { text = "If you say so, Captain. Something else.", next = "BACK" } },
+    },
+    before = {
+      lines = { { id = "be_default", text = "The finest kingdom of men, with banners on every tower and the bells of the capital ringing at dawn. I was a lieutenant then, with a wife in the lower city and a pension promised, and I intend to collect it." } },
+      choices = {
+        { text = "Do you know what became of your wife?", next = "before_wife" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before_wife = {
+      lines = { { id = "bw_default", text = "She went south with the refugees when the plague came, as any sensible woman would, and I'll send for her once the city is secure. Don't look at me like that, {race}, she is perfectly well." } },
+      choices = { { text = "Of course she is. Something else.", next = "BACK" } },
+    },
+    orc = {
+      lines = { { id = "or_default", text = "An orc! Here, in the capital? I fought your kind in the Second War, and I'll do it again, so state your business before I have you clapped in irons. <He draws himself up, though no guard answers his call.>" } },
+      choices = { { text = "Calm yourself, Captain. Something else.", next = "BACK" } },
+    },
+    elves = {
+      lines = { { id = "el_default", text = "The Grand Marshal had no patience for elves of any colour, and nor have I, after what the high elves did to us at the end. Don't think your pointed ears will win you any favours at this post." } },
+      choices = { { text = "I wouldn't dream of it. Something else.", next = "BACK" } },
+    },
+    light = {
+      lines = { { id = "li_default", text = "As I still do, thank you very much, though I've not had time for chapel lately with the war on. When the Grand Marshal returns, we'll have the cathedral reconsecrated and the bells ringing again." } },
+      choices = { { text = "I'll pray it happens. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    garithos = { { id = "tp_garithos", text = "The finest commander Lordaeron ever produced, and he'll return any moment now." } },
+    sylvanas = { { id = "tp_sylvanas", text = "An ally. A temporary one, mark my words." } },
     _none = { { id = "tp_none", text = "I don't know and I don't care, because my only concern is the Grand Marshal's return." } },
   },
 }
@@ -1380,6 +1438,11 @@ P:NPC {
       choices = {
         { text = "Why not leave the Undercity for a while?", next = "leave" },
         { text = "What do you see on your walks?", next = "see" },
+        { text = "What were you, before the ground?", next = "life" },
+        { text = "You must know the mages here by now.", next = "mages" },
+        { text = "You walk like someone who's been buried alive.", next = "buried" },
+        { text = "Mind if I walk a circuit with you?", next = "walk" },
+        { text = "Do you ever take a lesson from the mages?", next = "lesson", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "I'll let you walk on.", next = "END" },
       },
     },
@@ -1393,8 +1456,57 @@ P:NPC {
       lines = { { id = "s_default", text = "Apprentices burning their sleeves, a warlock arguing with a voidwalker, and the same mage counting her reagents three times over. It's better than the canals, at any rate, where all you see is the green stuff and whatever falls in." } },
       choices = { { text = "I'll keep my sleeves clear. Something else.", next = "BACK" } },
     },
+    life = {
+      lines = { { id = "li_default", text = "A seamstress in the capital, with a shop two streets from the cathedral and a sign I painted myself. I walked these same stones then, above ground, though they were cleaner and nobody was trying to sell me a ghoul." } },
+      choices = {
+        { text = "Do you miss it?", next = "life_miss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    life_miss = {
+      lines = { { id = "lm_default", text = "I miss the sign, oddly enough, more than the customers. Everything else about being alive was mostly waiting for something, and now I can't wait still, so I walk." } },
+      choices = {
+        { text = "Some Forsaken say the living life is best forgotten.", next = "life_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    life_stance = {
+      big = true,
+      lines = { { id = "ls_default", text = "The Apothecaries say that, mostly, and they say it as if it were an order. Do you think we should forget, or remember?" } },
+      choices = {
+        { text = "Forget it. The living never did anything for us.", next = "BACK", reply = "Spoken like a good subject of the Dark Lady. I'll try, though the sign keeps coming back.", fx = { align = { order = 1 } } },
+        { text = "Remember. It's the only thing they can't take.", next = "BACK", reply = "Mm. That's a dangerous thing to say near the Royal Quarter, and I rather like you for it.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mages = {
+      lines = { { id = "ma_default", text = "By their tempers, if not their names. The warlocks keep their own corner and their own counsel, and the mages pretend not to notice the smell of sulphur, which is the politest thing anyone does down here." } },
+      choices = {
+        { text = "What do the warlocks get up to?", next = "warlocks" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    warlocks = {
+      lines = { { id = "wa_default", text = "Bargaining with things from the Twisting Nether, from what I overhear, and losing the odd apprentice to it. Last month an imp got loose and set fire to a robe display, and I'm the only one who laughed." } },
+      choices = { { text = "I'd have laughed too. Something else.", next = "BACK" } },
+    },
+    buried = {
+      lines = { { id = "bu_default", text = "Is it that obvious? I woke in a box under Brill churchyard and clawed my way out, and I've never cared for small rooms since, which is awkward in a city built entirely underground." } },
+      choices = { { text = "That is a little awkward. Something else.", next = "BACK" } },
+    },
+    walk = {
+      narr = "You fall in beside her. She doesn't slow down.",
+      lines = { { id = "wk_default", text = "Suit yourself, but keep up. That's the reagent vendor, that's where the apprentice set fire to himself, and that's where I'll pass you again in about four minutes." } },
+      choices = { { text = "<Walk a full circuit with her.>", next = "BACK", fx = { affinity = 1 } } },
+    },
+    lesson = {
+      lines = { { id = "le_default", text = "Me? I tried once, and the teacher said I had the attention span of a moth, which is unkind but not wrong. I'd rather watch you lot set yourselves alight than do it myself." } },
+      choices = { { text = "Wise choice. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    undercity = { { id = "tp_uc", text = "I walk one ring of it, round and round. That's all of it I need." } },
+    brill = { { id = "tp_brill", text = "Fields, Scarlets, and an inn I wouldn't haunt if you paid me." } },
     _none = { { id = "tp_none", text = "No idea. Ask someone who stands still long enough to learn things." } },
   },
 }

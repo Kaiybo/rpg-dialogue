@@ -1773,6 +1773,13 @@ P:NPC {
       choices = {
         { text = "How does the Light answer the dead?", next = "light" },
         { text = "Who are you watching for?", next = "watch" },
+        { text = "What were you, before you died?", next = "life" },
+        { text = "That hammer's been reforged more than once.", next = "hammer" },
+        { text = "Have you faced the Tarnished yourself?", next = "tarn" },
+        { text = "Does the Deathguard treat you as their own?", next = "dg" },
+        { text = "Living paladins would call you an abomination.", next = "living", when = { class = "PALADIN", race = { "Human", "Dwarf" } } },
+        { text = "The Apothecaries watch this keep closely, I hear.", next = "apoth", when = { race = "Scourge" } },
+        { text = "Do the Earth Mother's people have room for you?", next = "tauren", when = { race = "Tauren" } },
         { text = "I'll leave you to the wall.", next = "END" },
       },
     },
@@ -1788,8 +1795,95 @@ P:NPC {
       lines = { { id = "w_default", text = "Scarlets, mostly, from their outposts on the coast, and the odd mindless wretch wandering up from the fields. The murlocs along the lake are a nuisance, but they've never once tried the gate." } },
       choices = { { text = "Then I'll keep an eye out on the road. Something else.", next = "BACK" } },
     },
+    life = {
+      lines = { { id = "li_default", text = "A sergeant of the Silver Hand in Andorhal, which is a grand title for a man who mostly drilled farm lads with pitchforks. I held the Light then, too, though I never thought much about it until it was gone." } },
+      choices = {
+        { text = "Gone? You said it answers you now.", next = "life_fall" },
+        { text = "Andorhal was where the plague grain went out.", next = "life_grain" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    life_grain = {
+      lines = { { id = "lg_default", text = "It was, and I stood guard over the granaries while it went out, never knowing what I guarded. Kel'Thuzad's cultists thanked us for our diligence, I remember, and I thanked them back." } },
+      choices = {
+        { text = "You couldn't have known.", next = "life_fall", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    life_fall = {
+      lines = { { id = "lf_default", text = "It was gone the day the plague took me, and it stayed gone while the Lich King had my hands. I killed men I'd trained in that time, and I've no idea how many, because the Scourge doesn't keep a ledger." } },
+      choices = {
+        { text = "And when you woke, it came back?", next = "life_return" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    life_return = {
+      big = true,
+      lines = { { id = "lr_default", text = "Not at once, and not kindly. I prayed for a year in a cellar under Brill before it so much as warmed my palm, and when it did, I wept, if a dead man can be said to weep. Some say it came back to forgive me, and some say it came back to punish me." } },
+      choices = {
+        { text = "It came back because you never stopped deserving it.", next = "BACK", reply = "I'd like to believe that, and on good days I nearly do. Thank you, {class}.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "The Light owes nobody anything. You serve it anyway.", next = "BACK", reply = "That's a hard creed, but it's the one that gets me up the wall each night, so I'll not argue.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hammer = {
+      lines = { { id = "ha_default", text = "Three times, by Angus, and once by a Scarlet's skull, which did it no favours. The haft is the one I carried in life, and I'll not part with it while it holds together." } },
+      choices = {
+        { text = "Angus keeps the keep's steel, then?", next = "angus" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    angus = {
+      lines = { { id = "an_default", text = "He does, and he grumbles about every dent as if we put them there to spite him. Most of our plate is taken off dead Crusaders, so whatever you see shining on these walls was bought with someone else's blood." } },
+      choices = { { text = "Fitting, in its way. Something else.", next = "BACK" } },
+    },
+    tarn = {
+      lines = { { id = "ta_default", text = "Once, on the road to Shadowvale, and I wish I hadn't. He called on the Light in the same words I use and struck me with it, and for a moment I couldn't tell which of us the Light preferred." } },
+      choices = {
+        { text = "Did you kill him?", next = "tarn_end" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tarn_end = {
+      big = true,
+      lines = { { id = "te_default", text = "I did, and I buried him, which Hilda says was a waste of an afternoon. He'd been a knight of my own chapter, and I couldn't leave him for the crows, whatever he'd become." } },
+      choices = {
+        { text = "Burying him was right. He was your brother once.", next = "BACK", reply = "That's what I told myself with every spadeful. Danitha didn't scold me for it, at least.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Hilda's right. Traitors don't earn graves.", next = "BACK", reply = "Spoken like her, and maybe she's the wiser of us. I'd still do it again.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    dg = {
+      lines = {
+        { id = "dg_default", text = "The Deathguard on the road nod to us and keep their crossbows loaded, which is about as warm as Tirisfal gets. Garek Bandarion was one of them, and that buys us a little patience." },
+        { id = "dg_scourge", when = { race = "Scourge" }, text = "You'd know as well as I do. A Forsaken who prays is a Forsaken who's halfway to the Crusade, as far as Brill is concerned." },
+      },
+      choices = { { text = "Patience will have to do. Something else.", next = "BACK" } },
+    },
+    living = {
+      big = true,
+      lines = { { id = "lv_default", text = "They would, and some of them did, right before they lit the pyre under me. Tell me honestly, {g:brother|sister}, when you look at me, what do you see?" } },
+      choices = {
+        { text = "A paladin. The Light answers you, and that settles it.", next = "BACK", reply = "Then you're a rarer sort than the ones I met in life. Go carefully past the Deathguard; they won't be so generous with you.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "A corpse that the Light hasn't finished with yet.", next = "BACK", reply = "Honest, at least, and I've heard worse said with a torch behind it. Keep your hammer close, then, and I'll keep mine.", fx = { affinity = -1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    apoth = {
+      lines = { { id = "ap_default", text = "They send a man up the hill every few weeks to count us and sniff at our chapel, and Danitha gives him tea he can't drink. They think the Light is a sickness that might spread, and I've stopped trying to tell them it isn't catching." } },
+      choices = {
+        { text = "Maybe they fear it is catching.", next = "BACK", reply = "Then let them fear it. A Forsaken who finds the Light again is no threat to the Dark Lady." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tauren = {
+      lines = { { id = "tu_default", text = "I'm told your people pray to the sun and call it An'she, and I'd like to think the Light and your sun are cousins at least. Your folk have been kinder to the Forsaken than our own kin ever were, and I don't forget it." } },
+      choices = { { text = "The Earth Mother turns no one away. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    scarlet_crusade = { { id = "tp_crusade", text = "They burned my chapter's dead and called it mercy. Now I wear their plate and call it justice, and I'm not sure either of us is right." } },
+    andorhal = { { id = "tp_andorhal", text = "I was posted there in life, guarding the granaries. If you go, don't eat anything." } },
     _none = { { id = "tp_none", text = "I guard a wall, friend, and that doesn't take much knowing. Ask Breton or Danitha inside." } },
   },
 }
@@ -1825,6 +1919,12 @@ P:NPC {
       choices = {
         { text = "What is Hilda like as a teacher?", next = "hilda" },
         { text = "Why take up the Light again, after dying?", next = "why" },
+        { text = "You were a squire? Whose?", next = "squire" },
+        { text = "Who are the other two trainees?", next = "others" },
+        { text = "You're holding that mace too close to the head.", next = "grip" },
+        { text = "What happens once Hilda's done with you?", next = "after" },
+        { text = "I'm a paladin too. Want some advice?", next = "advice", when = { class = "PALADIN" } },
+        { text = "Does it hurt, calling the Light?", next = "hurt", when = { ["not"] = { class = "PALADIN" } } },
         { text = "Back to your drill, then.", next = "END" },
       },
     },
@@ -1840,8 +1940,70 @@ P:NPC {
       lines = { { id = "w_default", text = "Because it still answered when I called it, and nobody expected that, least of all me. If the Light hasn't given up on the dead, then I don't see why I should." } },
       choices = { { text = "Keep at it, then. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    squire = {
+      lines = { { id = "sq_default", text = "A knight's from somewhere near Hearthglen, though I can't for the life of me remember his name, which is a poor joke, I know. I remember polishing his boots and the way he laughed, and then nothing until I woke in a field with a hole in my side." } },
+      choices = {
+        { text = "Hearthglen belongs to the Scarlets now.", next = "squire_scarlet" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    squire_scarlet = {
+      lines = { { id = "ss_default", text = "I know, and that's the part that frightens me. If he lived, he's likely wearing red now, and one day I'll be on a wall and he'll be at the gate, and neither of us will know the other." } },
+      choices = {
+        { text = "And if you did know him?", next = "squire_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    squire_stance = {
+      big = true,
+      lines = { { id = "st_default", text = "I've lain awake over that one, if you can call it lying awake when you don't sleep. What would you do, if it were you?" } },
+      choices = {
+        { text = "Hold the wall. Whatever he was to you, he's the enemy now.", next = "BACK", reply = "That's what Hilda would say, and I suppose it's the right answer for a paladin of this keep.", fx = { align = { order = 1 } } },
+        { text = "Talk to him first. You owe him that much.", next = "BACK", reply = "I think I would, even if it got me killed again. It's good to hear someone else would too.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    others = {
+      lines = { { id = "ot_default", text = "One was a Crusader, like Cormack, and doesn't talk about it, and the other was a farmer's daughter from near Brill who hits harder than both of us. Hilda says she's the only one of us worth the bread we don't eat." } },
+      choices = { { text = "Then learn from the farmer's daughter. Something else.", next = "BACK" } },
+    },
+    grip = {
+      lines = { { id = "gr_default", text = "Am I? Oh, I am, aren't I. Hilda says my hands remember a broom better than a mace, and she isn't wrong, since I spent more of my squiring sweeping stables than swinging anything." } },
+      choices = {
+        { text = "Slide it back a hand's width and let the weight work.", next = "grip_try" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grip_try = {
+      lines = { { id = "gt_default", text = "<He shifts his grip and swings; the dummy's head spins half round.> Oh! Oh, that's much better, thank you, and please don't tell Hilda it wasn't my own idea." } },
+      choices = { { text = "Your secret's safe. Something else.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    after = {
+      lines = { { id = "af_default", text = "Then Danitha gives us a tabard and sends us out to do some good, which mostly means helping the Deathguard and putting down the Tarnished. I'd like to go to Brill and show them a paladin needn't be a Scarlet, if they'd let me." } },
+      choices = {
+        { text = "Brill won't make it easy for you.", next = "BACK", reply = "No, I don't expect it will, but Danitha says nothing worth doing has been easy since we died." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    advice = {
+      lines = {
+        { id = "ad_default", text = "Please! Anything, honestly, because Hilda's advice is mostly shouting. What's the one thing you wish someone had told you?" },
+        { id = "ad_living", when = { race = { "Human", "Dwarf" } }, text = "From a living paladin? I didn't think any of you would speak to us. Go on, then, what's the one thing you wish you'd been told?" },
+      },
+      choices = {
+        { text = "The Light answers faith, not fear. Stop fearing it.", next = "BACK", reply = "Faith, not fear. I'll try to remember that the next time my hands start smoking.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep your shield up. Faith won't stop a blade.", next = "BACK", reply = "Hilda says that too, only louder. Maybe there's something to it, then.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hurt = {
+      lines = { { id = "hu_default", text = "Like holding a hot coal, but from the inside. Hilda says that if it ever stops hurting, we should come and tell her straight away, and she wouldn't tell us why, which is somehow worse." } },
+      choices = { { text = "That does sound worse. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    hilda = { { id = "tp_hilda", text = "She's frightening and she's fair, and I'm still deciding which one matters more." } },
+    scarlet_crusade = { { id = "tp_crusade", text = "My old knight might be one of them now. I try not to think about it during drills." } },
     _none = { { id = "tp_none", text = "I'm only a trainee, so I don't know much yet. Ask Hilda, if you're brave." } },
   },
 }

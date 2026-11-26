@@ -621,6 +621,11 @@ P:NPC {
         { text = "You've been raised, and the Light still answers you.", next = "raised" },
         { text = "What do you remember, before you woke?", next = "before" },
         { text = "Who did you serve in life?", next = "served" },
+        { text = "Aramis Hammerhand is worried about you.", next = "aramis" },
+        { text = "Your armour doesn't fit you anymore.", next = "armour" },
+        { text = "What did you see in the chapel?", next = "chapel" },
+        { text = "I'm a paladin too, risen like you. Look at me.", next = "look", when = { class = "PALADIN" } },
+        { text = "The Shadow is a kinder master than the Light.", next = "shadow", when = { class = "PRIEST" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -647,10 +652,63 @@ P:NPC {
     },
     served = {
       lines = { { id = "s_default", text = "The Silver Hand, as squire to a knight of Lordaeron, and I was nearly made a paladin myself before the plague came. I don't know if my knight still lives, and I hope to the Light he never sees me now." } },
-      choices = { { text = "I'm sorry. Something else.", next = "BACK" } },
+      choices = {
+        { text = "What was your knight's name?", next = "knight" },
+        { text = "I'm sorry. Something else.", next = "BACK" },
+      },
+    },
+    knight = {
+      lines = { { id = "k_default", text = "I won't say it, not with this mouth. He used to tell me the Light was a lamp you carried for others, and I carried it, I swear I did, right up until the lamp went out." } },
+      choices = {
+        { text = "It didn't go out. It's still in you.", next = "knight_lamp" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    knight_lamp = {
+      lines = { { id = "kl_default", text = "<She looks down at her own hands as if they belonged to someone else.> It came when I prayed, the first night. I thought it had come to burn me clean, and I waited for it to finish, and it never did." } },
+      choices = {
+        { text = "Maybe it wasn't trying to burn you at all.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    aramis = {
+      lines = { { id = "ar_default", text = "Hammerhand! He prays over us in that chapel as if nothing were wrong, as if a dead man calling on the Light were the most natural thing in the world. He frightens me more than the ghouls do, because he isn't afraid at all." } },
+      choices = {
+        { text = "He found peace with what he is. So could you.", next = "aramis_peace" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    aramis_peace = {
+      lines = { { id = "ap_default", text = "Peace? He calls it peace, and I call it giving up. If I stop being afraid of what I am, then I've accepted it, and if I've accepted it, then the Crusade was right about all of us." } },
+      choices = {
+        { text = "The Crusade was never right about anything.", next = "BACK", reply = "You say that easily, but you never knelt beside them. They weren't all monsters, and that's the trouble." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    armour = {
+      lines = { { id = "am_default", text = "It was fitted to me when I had flesh to fill it. Every step, it rattles, and every rattle reminds me how little of me is left inside it, so don't you dare make light of it." } },
+      choices = { { text = "I wasn't mocking you. Something else.", next = "BACK" } },
+    },
+    chapel = {
+      lines = { { id = "ch_default", text = "Rows of us, laid out on stone, and those dark priests walking between the slabs and whispering until the bodies sat up. I watched a man I knew in Brill open his eyes and ask for his wife, and the priest told him she'd been burned." } },
+      choices = { { text = "That's a hard way to wake. Something else.", next = "BACK" } },
+    },
+    look = {
+      lines = { { id = "lo_default", text = "<She stares at your tabard, then your face, and her mace dips a little.> You call on it too? And it doesn't flinch away from you? Then tell me, how do you bear it?" } },
+      choices = {
+        { text = "By serving. The Light judges what we do, not what we are.", next = "BACK", reply = "What we do, not what we are. I want to believe that more than I've wanted anything.", fx = { affinity = 2, align = { light = 1 } } },
+        { text = "I don't ask the Light's opinion. I use it.", next = "BACK", reply = "That's blasphemy, and it's exactly what the Crusade said your kind would do. Stay away from me!", fx = { affinity = -2, align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    shadow = {
+      lines = { { id = "sh_default", text = "Kinder? It whispered to me in that chapel, all cold and patient, and I'd sooner have the Light burn me to ash than listen to it again. Keep your shadow, priest, and keep it far from me." } },
+      choices = { { text = "Suit yourself. Something else.", next = "BACK" } },
     },
   },
   topics = {
+    scarlet_crusade = { { id = "tp_crusade", text = "I knelt beside some of them in chapel, once. They'd burn me now and pray while they did it, and I'm not certain they'd be wrong." } },
+    aramis = { { id = "tp_aramis", text = "He's too calm. Nobody dead should be that calm." } },
     _none = { { id = "tp_none", text = "I don't care! Leave me alone!" } },
   },
 }
@@ -676,6 +734,10 @@ P:NPC {
       choices = {
         { text = "What's out there, past the gate?", next = "out" },
         { text = "Are the Scarlets really that close?", next = "scarlet" },
+        { text = "How long have you stood this gate?", next = "long" },
+        { text = "You don't seem to blink much.", next = "blink" },
+        { text = "What became of the mindless who wake here?", next = "mindless" },
+        { text = "I've come to Deathknell from the Horde lands.", next = "horde", when = { faction = "Horde", ["not"] = { race = "Scourge" } } },
         { text = "Carry on, Deathguard.", next = "END" },
       },
     },
@@ -688,10 +750,48 @@ P:NPC {
       choices = {
         { text = "Let them come. They'll find us ready.", next = "BACK", reply = "That's the spirit the Deathguard likes, so keep it till you're strong enough to back it up.", fx = { align = { order = 1 } } },
         { text = "Then maybe we should strike them first.", next = "BACK", reply = "Bold, and not wrong, but you'll want some flesh on those bones before you try it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
+    },
+    long = {
+      lines = { { id = "lo_default", text = "Since we took this village back from the Scourge, and I've counted the risen who came out past me since. I stopped counting the ones who didn't come back at around three hundred." } },
+      choices = {
+        { text = "Three hundred? What killed them?", next = "long_dead" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    long_dead = {
+      lines = { { id = "ld_default", text = "Overconfidence, mostly, dressed up as Scarlet arrows or spider bites. A fresh corpse thinks it can't die twice, and the world is very keen to correct that notion." } },
+      choices = {
+        { text = "And what keeps you going, after all that?", next = "long_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    long_why = {
+      big = true,
+      lines = { { id = "lw_default", text = "The Dark Lady gave me my will back, and I've decided to spend it standing here. Some call that duty and some call it a rut, so which do you call it?" } },
+      choices = {
+        { text = "Duty. Someone has to hold the gate.", next = "BACK", reply = "Spoken like a future Deathguard. Mind you don't end up holding a gate yourself.", fx = { align = { order = 1 } } },
+        { text = "A rut. You were freed to do more than this.", next = "BACK", reply = "Maybe so, but a free man can choose a rut, and I've chosen mine.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    blink = {
+      lines = { { id = "bl_default", text = "My eyelids went the way of my lips, a long while ago. It's a help on watch, and a terrible hindrance when the wind blows dust off the graves." } },
+      choices = { { text = "I'll take your word for it. Something else.", next = "BACK" } },
+    },
+    mindless = {
+      lines = { { id = "mi_default", text = "Some wake hollow, with nothing in their heads but hunger, and we turn them out into the fields. The newly risen are set to put them down, which is a cruel lesson, but it teaches you what you were spared." } },
+      choices = { { text = "That's a grim mercy. Something else.", next = "BACK" } },
+    },
+    horde = {
+      lines = { { id = "ho_default", text = "Have you, now? The Horde's own folk, come to see where the Forsaken are made. Mind you don't eat anything offered in Brill, and don't stare at the raising." } },
+      choices = { { text = "Good advice. Something else.", next = "BACK" } },
     },
   },
   topics = {
+    scarlet_crusade = { { id = "tp_crusade", text = "Bold when there's a dozen of them, and running when there's three. Shoot the one with the banner first." } },
+    sarvis = { { id = "tp_sarvis", text = "Shadow Priest Sarvis raised half the corpses who walk past this gate. Report to him if you've not done so." } },
     _none = { { id = "tp_none", text = "I watch a gate, risen one. Ask in the chapel." } },
   },
 }
@@ -718,6 +818,10 @@ P:NPC {
       choices = {
         { text = "Will you heal?", next = "heal" },
         { text = "You took it well, for a man in pieces.", next = "joke" },
+        { text = "Tell me about the ambush.", next = "ambush" },
+        { text = "What became of the rest of your patrol?", next = "patrol" },
+        { text = "I could patch that leg, if you'll hold still.", next = "patch", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "Want me to hunt the Scarlets who did this?", next = "revenge", when = { class = { "WARRIOR", "ROGUE", "HUNTER" } } },
         { text = "Rest easy, Deathguard.", next = "END" },
       },
     },
@@ -729,8 +833,47 @@ P:NPC {
       lines = { { id = "j_default", text = "Ha, that's the trick of it, friend, because you learn to laugh about these things or you don't last. If a Crusader ever takes your arm, pick it up and carry it home, because it's easier to sew than to grow." } },
       choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
     },
+    ambush = {
+      lines = { { id = "am_default", text = "Five of them in the trees by the road, with a priest behind calling the Light down on us like it was hail. I've never felt anything like it, friend, it was like being dropped in boiling oil." } },
+      choices = {
+        { text = "The Light hurts the Forsaken that badly?", next = "ambush_light" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ambush_light = {
+      lines = { { id = "al_default", text = "When it's thrown at you in hate, yes. Funny thing is, the paladins up at Bandarion Keep say it doesn't hurt them half so much when they call it themselves, though I've never fancied testing that." } },
+      choices = {
+        { text = "Would you trust those paladins at your back?", next = "ambush_trust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ambush_trust = {
+      big = true,
+      lines = { { id = "at_default", text = "After that priest? I'm not sure, and that's the honest answer. What do you think, should the Forsaken be letting dead men pray?" } },
+      choices = {
+        { text = "Any weapon against the Scarlets is a good weapon.", next = "BACK", reply = "That's a practical way of seeing it, and I'm a practical man, or what's left of one.", fx = { align = { light = 1 } } },
+        { text = "No. The Light has done nothing but burn us.", next = "BACK", reply = "Aye, that's my leg's opinion too. I'll keep it in mind next time I see a tabard.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    patrol = {
+      lines = { { id = "pa_default", text = "Two came back with me and one didn't, and we couldn't find enough of him to bring to the Apothecaries. The Scarlets burn what they kill, which is about the only thing they're thorough about." } },
+      choices = { { text = "I'm sorry for your loss. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    patch = {
+      lines = {
+        { id = "pt_default", text = "Kind of you, but your sort of mending tends to sting the dead, and I've had enough stinging for one week. A needle and a bit of embalming fluid will do me, thank you all the same." },
+        { id = "pt_scourge", when = { race = "Scourge", class = "PRIEST" }, text = "A shadow priest's hand would do me no harm, though I'd still rather wait for the needle. Thank you all the same." },
+      },
+      choices = { { text = "As you like. Something else.", next = "BACK" } },
+    },
+    revenge = {
+      lines = { { id = "rv_default", text = "Would I? I'd like it more than I can say, but the Deathguard doesn't hand out vengeance like sweets. Take whatever work Sarvis and the others give you, and if a Scarlet falls along the way, I'll consider us square." } },
+      choices = { { text = "Consider it done. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    scarlet_crusade = { { id = "tp_crusade", text = "They bring priests to an ambush now. Keep that in mind on the western road." } },
     _none = { { id = "tp_none", text = "I don't know, friend, and I've other things on my mind, like my leg." } },
   },
 }
