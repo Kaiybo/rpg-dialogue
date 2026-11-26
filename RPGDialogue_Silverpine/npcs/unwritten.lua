@@ -90,6 +90,9 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? I'm on watch, and the pines are never quiet for long." } },
       choices = {
+        { text = "What's it like holding the Sepulcher?", next = "xsep" },
+        { text = "Do you fear the worgen?", next = "xfear" },
+        { text = "I'm newly risen. Any advice for Silverpine?", next = "xnew", when = { race = "Scourge" } },
         { text = "What are the worgen?", next = "worgen" },
         { text = "What lies beyond the Greymane Wall?", next = "gilneas" },
         { text = "Why do you serve Sylvanas?", next = "serve" },
@@ -112,5 +115,52 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xsep = {
+      lines = {
+        { id = "xs1", text = "Damp, dark and quiet, which suits most of us. High Executor Hadrec keeps the place tight, and Dalar Dawnweaver keeps the books, and the rest of us keep the road between them and the worgen." },
+      },
+      choices = {
+        { text = "Who's Dalar Dawnweaver?", next = "xdalar" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xdalar = {
+      lines = {
+        { id = "xd1", text = "A mage, or he was, before he died. He's got his nose in Dalaran's business up at Ambermill, and I don't envy any mage who gets on his wrong side." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfear = {
+      lines = {
+        { id = "xf1", text = "Fear's a living thing, mostly, and I left most of it in the grave. But I've seen a worgen tear a Deathguard in two and keep coming, and I'll own that I walk faster past the Keep at night." },
+      },
+      choices = {
+        { text = "Burn the woods and smoke the worgen out.", next = "BACK", reply = "Tempting. We'd lose the Sepulcher's cover too, mind.", fx = { align = { order = -1 } } },
+        { text = "Hold the road, and let the worgen come to you.", next = "BACK", reply = "That's what Hadrec says, and Hadrec's usually right.", fx = { align = { order = 1 } } },
+      },
+    },
+    xnew = {
+      lines = {
+        { id = "xn1", text = "Stay on the road, keep away from Shadowfang, and don't trust anything that howls. If you see Pyrewood village at dusk, don't wait for night to see what the villagers turn into." },
+      },
+      choices = {
+        { text = "What happens at Pyrewood?", next = "xpyre" },
+        { text = "Thanks. Something else.", next = "BACK" },
+      },
+    },
+    xpyre = {
+      lines = {
+        { id = "xp1", text = "By day they're Gilneans farming the fields, and by night they're something else. Arugal's curse got into them, and they don't know it, or they won't say." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    arugal = { { id = "xtp_ar", text = "The mad wizard of Shadowfang. He called the worgen, and now they're everyone's problem." } },
+    hadrec = { { id = "xtp_ha", text = "High Executor Hadrec. He runs the Sepulcher like a tomb, which I suppose it is." } },
   },
 }
