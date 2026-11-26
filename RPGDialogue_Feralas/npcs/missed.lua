@@ -36,6 +36,8 @@ P:NPC {
         { id = "h_again2", text = "There was something more, I think." },
       },
       choices = {
+        { text = "How long have you kept this house?", next = "ybet_long" },
+        { text = "Do the naga remember Zin-Azshari?", next = "ybet_naga", when = { race = "NightElf" } },
         { text = "What do you watch the water for?", next = "water" },
         { text = "This is the druids' house, then.", next = "house" },
         { text = "You don't seem troubled by the naga.", next = "naga" },
@@ -71,8 +73,48 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ybet_long = {
+      lines = {
+        { id = "yybet_long_d", text = "Since the first timbers were raised, when Shandris brought the Sentinels across the water and claimed this island for the Kaldorei. I asked to come because I had lost my home in Ashenvale to the orcs' axes, and the sea felt cleaner than the forest did then." },
+      },
+      choices = {
+        { text = "What happened to your home?", next = "ybet_home" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybet_home = {
+      narr = "Bethan turns from the window for a moment, and her hands go still on the sill.",
+      lines = {
+        { id = "yybet_home_d", text = "A grove near Splintertree, where my family had lived since the Sundering. The Warsong cut it for their lumber camp, and I watched from the hills as the oldest tree came down. I have not been back, and I do not think I ever will." },
+      },
+      choices = {
+        { text = "Do you hate the orcs for it?", next = "ybet_hate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybet_hate = {
+      lines = {
+        { id = "yybet_hate_d", text = "I tried to, for many years, and found it only made me tired. The Sentinels say we must drive them out of Ashenvale, and the druids say the forest heals in its own time, and I stand between them watching the sea." },
+      },
+      choices = {
+        { text = "Let it go. Hatred heals nothing.", next = "BACK", reply = "Yes. That is what the sea has been teaching me, slowly.", fx = { align = { light = 1 } } },
+        { text = "The orcs must answer for it. Remember that.", next = "BACK", reply = "Perhaps they must. But I am not the one to make them answer.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybet_naga = {
+      lines = {
+        { id = "yybet_naga_v0", when = { class = "DRUID" }, text = "You feel it too, then, the old wrongness in them. They were Highborne once, and the Dream remembers what they did. They remember too, I think, and it has made them bitter beyond any healing." },
+        { id = "yybet_naga_d", text = "They must, though they will not speak of it. They were Highborne once, the queen's own court, and they went down with her city when the Well was destroyed. Whatever they are now, the sea has not been kind." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    feathermoon_stronghold = { { id = "tp_yfeathermoon_stronghold", text = "Our home on Sardor Isle. Shandris built it, and the Sentinels keep it." } },
+    quintis_jonespyre = { { id = "tp_yquintis_jonespyre", text = "He studies seeds and stones and forgets to eat. I remind him." } },
     background = { { id = "tp_bg", text = "I came to Feralas with the Sentinels when the stronghold was raised, and I have seen no reason to live anywhere else since." } },
     _none = { { id = "tp_none", text = "That has not washed up on my shore. Ask Quintis, or one of the General's officers." } },
   },
@@ -107,6 +149,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. The fish will wait, as they always do." },
       },
       choices = {
+        { text = "Did you fish before Feathermoon?", next = "ysav_before" },
+        { text = "I'm a fisher too. Settle the bait argument.", next = "ysav_fish", when = { profession = "Fishing" } },
         { text = "What does a fisher need for these waters?", next = "need" },
         { text = "You and Brannock work side by side.", next = "brannock" },
         { text = "Do the naga trouble your trade?", next = "naga" },
@@ -132,8 +176,47 @@ P:NPC {
       lines = { { id = "na_default", text = "They cut the nets we used to set off the northern point, and so we set no nets there now. It is a small loss beside what the Sentinels risk each night, and I do not complain of it where they can hear." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ysav_before = {
+      lines = {
+        { id = "yysav_before_d", text = "In Auberdine, on the Darkshore coast, where the water is cold and grey and the fish are slow. I came to Feralas because I had heard the fish here fought back, and I wanted to see if my old lines could hold." },
+      },
+      choices = {
+        { text = "Could they?", next = "ysav_hold" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysav_hold = {
+      narr = "Savanne holds up a coil of line, frayed in three places, and smiles thinly.",
+      lines = {
+        { id = "yysav_hold_d", text = "Not one of them lasted a week. The redgill here are vicious, and the naga's pets in the deep water are worse. I spent my first season learning to make new line from silk, and I have never been prouder of anything I have made." },
+      },
+      choices = {
+        { text = "What do the naga keep in the deep water?", next = "ysav_naga" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysav_naga = {
+      lines = {
+        { id = "yysav_naga_d", text = "Things with too many teeth and no eyes, by the look of what they leave on my hooks. The Sentinels want to drive the naga off the island entirely, but the naga were here before us, and I am not sure the sea is ours to claim." },
+      },
+      choices = {
+        { text = "Drive them off. The island is ours now.", next = "BACK", reply = "That is the General's answer, and I will not argue it. I only wonder.", fx = { align = { order = 1 } } },
+        { text = "Leave them be. The sea is theirs too.", next = "BACK", reply = "Yes, I think so. Brannock thinks so too, though he will not say it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysav_fish = {
+      lines = {
+        { id = "yysav_fish_d", text = "Then you know I am right. A bright lure for the yellowtail, and nightcrawlers only for the slow fish in the shallows. Brannock will tell you otherwise, but he is old and stubborn, and so am I." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    auberdine = { { id = "tp_yauberdine", text = "My old home on the Darkshore coast. The water is cold and the fish are slow." } },
+    fishing = { { id = "tp_yfishing", text = "Brannock is the finest fisher I know, and wrong about bait. Do not tell him I said so." } },
     background = { { id = "tp_bg", text = "I have kept fishers supplied since the stronghold was a row of tents. The trade is quiet, and I like it so." } },
     _none = { { id = "tp_none", text = "That is beyond my baskets, I fear. Ask at the inn; Shyria hears everything." } },
   },
@@ -170,6 +253,8 @@ P:NPC {
         { id = "h_again2", text = "Speak freely. Folding can wait." },
       },
       choices = {
+        { text = "What did you weave in Ashenvale?", next = "ydul_ash" },
+        { text = "My cloth needs your oils. Tell me how.", next = "ydul_tailor", when = { profession = "Tailoring" } },
         { text = "Who buys robes in a garrison?", next = "who" },
         { text = "How does cloth fare in this wet forest?", next = "wet" },
         { text = "Cloth won't turn an ogre's club.", next = "club" },
@@ -195,8 +280,47 @@ P:NPC {
       lines = { { id = "c_default", text = "No, it will not, and I would never tell you that it would. Those who wear my robes mean to end the argument before the club arrives, and the Gordunni have learned to their cost that some of them can." } },
       choices = { { text = "A fair answer. Something else.", next = "BACK" } },
     },
+    ydul_ash = {
+      lines = {
+        { id = "yydul_ash_d", text = "Robes for the priestesses at the Temple of the Moon, and banners for the Sentinels at Astranaar. My mother taught me the old patterns, the ones woven before the Sundering, and I carried them south in my head when I came." },
+      },
+      choices = {
+        { text = "What are the old patterns like?", next = "ydul_patterns" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydul_patterns = {
+      narr = "Dulciea draws a robe from the shelf and runs her thumb along a silver border, tracing a crescent woven into the hem.",
+      lines = {
+        { id = "yydul_patterns_d", text = "Crescents and stars and the shapes of leaves, each one with a meaning. The Highborne wove their own patterns too, grander and colder, and some of the young tailors want to bring those back because they are beautiful. I will not teach them." },
+      },
+      choices = {
+        { text = "Why won't you teach the Highborne patterns?", next = "ydul_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydul_why = {
+      lines = {
+        { id = "yydul_why_d", text = "Because beauty was the first step they took toward ruin, and we should not forget it. The young ones call me old-fashioned, and they are right, but I have seen what pride in beautiful things can do to a people." },
+      },
+      choices = {
+        { text = "You're right. Some beauty is dangerous.", next = "BACK", reply = "Thank you. I feel very old when I say it, and very sure.", fx = { align = { light = 1 } } },
+        { text = "A pattern is only a pattern. Teach them.", next = "BACK", reply = "Perhaps you are right, and I am frightened of thread. I will think on it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydul_tailor = {
+      lines = {
+        { id = "yydul_tailor_d", text = "A little moonleaf oil, cut with seawater and boiled down, then brushed into the weave before cutting. It keeps out the rot and the damp, and it gives the cloth a faint sheen that the priestesses like. Practise on linen first." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    temple_of_the_moon = { { id = "tp_ytemple_of_the_moon", text = "I wove robes for the priestesses there. They still wear my mother's patterns." } },
+    sentinels = { { id = "tp_ysentinels", text = "They wear mail, but they come to me for something soft to sleep in." } },
     background = { { id = "tp_bg", text = "I have worked cloth for a very long time, in Ashenvale first and then here. A garrison needs softness more than it knows." } },
     _none = { { id = "tp_none", text = "I cannot speak to that. My knowledge is in thread, and it ends where the thread does." } },
   },
@@ -233,6 +357,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. I am listening while I count." },
       },
       choices = {
+        { text = "What happens if the stores run out?", next = "yfar_out" },
+        { text = "Pratt McGrubben, you say?", next = "yfar_dwarf", when = { race = "Dwarf" } },
         { text = "What do travellers forget most?", next = "forget" },
         { text = "How do supplies reach an island?", next = "ships" },
         { text = "The Sentinels seem stretched thin.", next = "thin" },
@@ -258,8 +384,47 @@ P:NPC {
       lines = { { id = "t_default", text = "They are, and you are observant to see it. There are naga on our own island, ogres in the highlands and gnolls on the road, and only so many glaives to send against all three." } },
       choices = { { text = "Then they can use my help. Something else.", next = "BACK", reply = "They can, and they will say so less gracefully than I do. Speak with the General's officers.", fx = { affinity = 1 } } },
     },
+    yfar_out = {
+      lines = {
+        { id = "yyfar_out_d", text = "Then the patrols go short, and a short patrol is a careless one. I have seen it happen in Ashenvale when the roads were cut, and I lost a cousin because her water ran dry on the road to Astranaar. I count every skin twice because of her." },
+      },
+      choices = {
+        { text = "I'm sorry. What was her name?", next = "yfar_cousin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfar_cousin = {
+      narr = "Faralorn's hands pause over the ledger, and he does not look up.",
+      lines = {
+        { id = "yyfar_cousin_d", text = "Nyreth, a Sentinel of thirty years' service. She went out with a patrol to hunt orc scouts, and they were three days late returning because the stores had been miscounted. I was the one who miscounted them." },
+      },
+      choices = {
+        { text = "That must weigh on you.", next = "yfar_weigh" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfar_weigh = {
+      lines = {
+        { id = "yyfar_weigh_d", text = "It does, every day, though the General has never once mentioned it. Some of the younger Sentinels want me to send them out light, so they can move faster, and every time they ask I see Nyreth's face." },
+      },
+      choices = {
+        { text = "Send them full. Better slow than dead.", next = "BACK", reply = "Yes. That is what I will do, whatever they say.", fx = { align = { order = 1 } } },
+        { text = "Trust them. They know their own needs.", next = "BACK", reply = "Perhaps. But they are young, and the young always think they need less.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfar_dwarf = {
+      lines = {
+        { id = "yyfar_dwarf_d", text = "A dwarf who sells his wares here on the island, and the only one who argues prices with me as hard as I argue them back. He says the elves are too polite to haggle properly, and I have begun to agree with him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    feathermoon_stronghold = { { id = "tp_yfeathermoon_stronghold", text = "Every arrow and water skin on this island passes my counter first." } },
+    forgotten_coast = { { id = "tp_yforgotten_coast", text = "Where the boat comes from. It is late more often than I would like." } },
     background = { { id = "tp_bg", text = "I kept the stores for the Sentinels in Ashenvale before this, and I came south with General Feathermoon's expedition." } },
     _none = { { id = "tp_none", text = "That is not in my stores or my ledgers. Ask Ginro Hearthkindle, who reads every dispatch." } },
   },
@@ -294,6 +459,8 @@ P:NPC {
         { id = "h_again2", text = "Please, go on." },
       },
       choices = {
+        { text = "How did you come to follow Kylanna?", next = "ylog_follow" },
+        { text = "What vials does an alchemist need here?", next = "ylog_alch", when = { profession = "Alchemy" } },
         { text = "How do you keep glass whole out here?", next = "glass" },
         { text = "What is it like working beside Kylanna?", next = "kylanna" },
         { text = "Her students must break a great deal.", next = "students" },
@@ -319,8 +486,47 @@ P:NPC {
       lines = { { id = "s_default", text = "They do, and they are always so sorry about it. I tell them that every master began by dropping things, which is true, and it sends them back to the cauldron with a steadier hand." } },
       choices = { { text = "That's kindly done. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ylog_follow = {
+      lines = {
+        { id = "yylog_follow_d", text = "I sold her glass in Darnassus for many years, and when she said she was going to Feralas for the herbs that grow nowhere else, I asked if she would need glass there too. She said yes, and that was the end of my life in the city." },
+      },
+      choices = {
+        { text = "Do you regret it?", next = "ylog_regret" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylog_regret = {
+      narr = "Logannas lifts a vial to the light, turning it so that the dim sun shows a hairline crack you would never have seen.",
+      lines = {
+        { id = "yylog_regret_d", text = "Not at all, though the glass breaks twice as often and the ogres make the roads dangerous. I have grown fond of the island and the work, and I have begun to wonder whether I came for the herbs or for the alchemist." },
+      },
+      choices = {
+        { text = "For the alchemist, you mean?", next = "ylog_mean" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylog_mean = {
+      lines = {
+        { id = "yylog_mean_d", text = "I mean I admire her a great deal, and I have never said so. She would be embarrassed, and I would be embarrassed, and it would make the work awkward. I have decided it is better to say nothing and keep supplying the glass." },
+      },
+      choices = {
+        { text = "Tell her. You may never get another chance.", next = "BACK", reply = "Perhaps you are right. I will think about it, over a great deal of tea.", fx = { align = { honor = 1 } } },
+        { text = "Say nothing. The work matters more.", next = "BACK", reply = "Yes, the work. That is what I keep telling myself.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylog_alch = {
+      lines = {
+        { id = "yylog_alch_d", text = "Thin vials for the light work and heavy ones for anything with fire in it, and always more than you think. I keep a case of each behind the counter, and a third case for the students who have not yet learned to hold their hands still." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    kylanna_windwhisper = { { id = "tp_ykylanna_windwhisper", text = "The finest alchemist I know. I supply her glass, and say nothing more." } },
+    darnassus = { { id = "tp_ydarnassus", text = "Where I sold glass for years before I came south." } },
     background = { { id = "tp_bg", text = "I have supplied alchemists since I was young, and I followed Mistress Kylanna to Feralas when she came for the herbs." } },
     _none = { { id = "tp_none", text = "I would not know, I am sorry. My world is rather the size of this table." } },
   },
@@ -357,6 +563,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I am only watching the kettle." },
       },
       choices = {
+        { text = "How many wars have you cooked through?", next = "ymar_wars" },
+        { text = "A cook to a cook: what's the secret?", next = "ymar_cook", when = { profession = "Cooking" } },
         { text = "What does the island put on your table?", next = "table" },
         { text = "You're merrier than most of your kin.", next = "merry" },
         { text = "Does the garrison ever run short?", next = "short" },
@@ -382,8 +590,47 @@ P:NPC {
       lines = { { id = "sh_default", text = "Now and then, when storms keep the boat from the Forgotten Coast. Faralorn and I ration between us, and I thin the stew and thicken the conversation until the sails appear." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ymar_wars = {
+      lines = {
+        { id = "yymar_wars_d", text = "Three, if you count the Third War, and I do. I fed the Sentinels at Mount Hyjal when the Legion came, and I have never seen hunger like it, or courage like it. The soldiers who ate my stew that week did not all come back, and I remember their bowls." },
+      },
+      choices = {
+        { text = "Their bowls?", next = "ymar_bowls" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymar_bowls = {
+      narr = "Mardrack's ladle stops halfway to the pot, and for a moment he does not speak.",
+      lines = {
+        { id = "yymar_bowls_d", text = "Each soldier had her own, carved with her name, and when one did not come back the bowl went into a pile by the fire. By the end of the battle the pile was taller than me. I keep one of them still, though I have never told anyone whose." },
+      },
+      choices = {
+        { text = "Why do you keep it?", next = "ymar_keep" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymar_keep = {
+      lines = {
+        { id = "yymar_keep_d", text = "To remember that a full bowl is a small thing and a necessary one. Some of the younger Sentinels think a cook has no place in a war, and that I should hand my ladle to someone less merry, for laughter is unseemly in a garrison." },
+      },
+      choices = {
+        { text = "Keep laughing. A garrison needs warmth.", next = "BACK", reply = "Yes, I think so too. I will keep my ladle and my laugh both.", fx = { align = { light = 1 } } },
+        { text = "War is grim. Perhaps they have a point.", next = "BACK", reply = "Perhaps they do. But I have seen grim soldiers, and they did not last.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymar_cook = {
+      lines = {
+        { id = "yymar_cook_d", text = "A little salt and a great deal of patience, and never cook for a soldier the way you would cook for a feast. A feast is to be admired and a soldier's bowl is to be finished, and the two need different hands." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    mount_hyjal = { { id = "tp_ymount_hyjal", text = "I cooked there, in the war. I remember every bowl." } },
+    brannock = { { id = "tp_ybrannock", text = "He teaches fishing, and his students bring me the catch, small as it is." } },
     background = { { id = "tp_bg", text = "I have cooked for Sentinels since long before this stronghold. They march better for it, though none of them will say so." } },
     _none = { { id = "tp_none", text = "That I cannot tell you, friend. Ask me about supper instead, for there I am never wrong." } },
   },
@@ -419,6 +666,8 @@ P:NPC {
         { id = "h_again2", text = "Yes? I am listening, mostly." },
       },
       choices = {
+        { text = "How old are you, Marli?", next = "ymarl_old" },
+        { text = "My people remember the old days too.", next = "ymarl_elf", when = { race = "NightElf" } },
         { text = "What are the two of you watching?", next = "watch" },
         { text = "How does Kalin get up there?", next = "kalin" },
         { text = "Tell me about the Colossals themselves.", next = "stones" },
@@ -444,8 +693,47 @@ P:NPC {
       lines = { { id = "s_default", text = "They were standing here before the Sundering, and nobody now living can say who raised them or whether anyone did. On a clear dawn the tops catch the light before the forest wakes, and I never tire of it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ymarl_old = {
+      lines = {
+        { id = "yymarl_old_d", text = "Old enough to remember when these stones had a name, though I have forgotten what it was. I was a girl in Eldre'Thalas before the Sundering, and I remember the white towers and the scholars, but not much else, I am afraid." },
+      },
+      choices = {
+        { text = "You lived in Eldre'Thalas?", next = "ymarl_lived" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymarl_lived = {
+      narr = "Marli's eyes go far away, and she smiles at something you cannot see.",
+      lines = {
+        { id = "yymarl_lived_d", text = "My father kept a library there, a small one, of books about the stars. I remember the smell of the pages and the sound of his voice reading to me, and I remember that he did not come with us when we left. I have never known why." },
+      },
+      choices = {
+        { text = "Do you want to know why?", next = "ymarl_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymarl_why = {
+      lines = {
+        { id = "yymarl_why_d", text = "Sometimes I think I do, and sometimes I am glad I have forgotten. Kalin says the ogres hold the city now, and the old libraries are in ruins, but perhaps there is something left there with my father's name on it." },
+      },
+      choices = {
+        { text = "Some things are better left forgotten.", next = "BACK", reply = "Yes, perhaps. I will keep my memories as they are, faded and kind.", fx = { align = { light = 1 } } },
+        { text = "Seek the truth. Your father deserves remembering.", next = "BACK", reply = "You are brave to say so. If I find a way, I will look for his name.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymarl_elf = {
+      lines = {
+        { id = "yymarl_elf_d", text = "Then you will understand, I think, how the years blur together after a while. Ten thousand years is a long time to remember things, and I am afraid I have been letting some of them go." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    eldre_thalas = { { id = "tp_yeldre_thalas", text = "The city I was born in. The ogres call it Dire Maul now." } },
+    kalin_windflight = { { id = "tp_ykalin_windflight", text = "My partner on the watch. I always remember him in the end." } },
     background = { { id = "tp_bg", text = "Kalin and I have kept this watch a good while. He does the seeing and I do the remembering, which he says is the wrong way round." } },
     _none = { { id = "tp_none", text = "I am sure I knew that once. Ask me another day, when it has come back to me." } },
   },
@@ -480,6 +768,8 @@ P:NPC {
         { id = "h_again2", text = "Speak up, the wind takes half of every word." },
       },
       choices = {
+        { text = "How long since you last came down?", next = "ykal_down" },
+        { text = "A druid could fly you down, Kalin.", next = "ykal_druid", when = { class = "DRUID" } },
         { text = "What can you see from here?", next = "see" },
         { text = "Marli decides when you come down?", next = "marli" },
         { text = "It's a lonely post.", next = "lonely" },
@@ -505,8 +795,47 @@ P:NPC {
       lines = { { id = "l_default", text = "It is quiet, which is not the same thing. I have the wind, the hippogryphs and a view no king could buy, and I have learned to bring a second cloak and a third meal." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ykal_down = {
+      lines = {
+        { id = "yykal_down_d", text = "Nineteen days, by the notches on my staff, though Marli swears it was only twelve and she has forgotten seven of them. I do not mind as much as you would think, for the hippogryphs bring my bread and the wind brings everything else." },
+      },
+      choices = {
+        { text = "Doesn't it frighten you, being forgotten?", next = "ykal_forgot" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykal_forgot = {
+      narr = "Kalin looks down over the edge, at the small figure of Marli in her hollow far below.",
+      lines = {
+        { id = "yykal_forgot_d", text = "Not by Marli, no, for she always remembers in the end. What frightens me is the day she does not, because she will have gone somewhere I cannot follow, and I will still be up here counting ogres." },
+      },
+      choices = {
+        { text = "Have you told her this?", next = "ykal_told" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykal_told = {
+      lines = {
+        { id = "yykal_told_d", text = "I have tried, but she laughs and says she will outlive the stones themselves. She may be right, for she is older than me by a long way, but I have seen her forget her own name some mornings, and I do not think she knows." },
+      },
+      choices = {
+        { text = "Tell her plainly. She deserves to know.", next = "BACK", reply = "You are right. When she next brings me down, I will tell her.", fx = { align = { honor = 1 } } },
+        { text = "Let her be. Her peace is worth more.", next = "BACK", reply = "Perhaps that is the kinder way. I will keep watching, and keep quiet.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykal_druid = {
+      lines = {
+        { id = "yykal_druid_d", text = "I could, and I have been offered before, but I would only have to come back up again in the morning. The Sentinels need someone on this stone, and I have grown used to the climb, or rather, to waiting for it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    twin_colossals = { { id = "tp_ytwin_colossals", text = "The great stones where Marli and I keep watch. Nobody knows who raised them." } },
+    gordunni = { { id = "tp_ygordunni", text = "The ogres of the highlands. I count their fires every night." } },
     background = { { id = "tp_bg", text = "I have kept watches for the Sentinels in many places. This is the highest of them, and the hardest to leave." } },
     _none = { { id = "tp_none", text = "I see a great deal from here, but not that. Ask on the ground, where the gossip lives." } },
   },

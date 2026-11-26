@@ -1336,8 +1336,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A lookout on the walls of Lordaeron's capital. I watched the sky for gryphons and the road for orcs. Then the danger came walking through the front gate, and I was looking the wrong way. I don't look away from anything now." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yfalls = {
+      lines = { { id = "yfalls_x", text = "Then Tirisfal is cut off from Durotar, and the Horde has to trust the long road through the Barrens and the sea. The goblins say they'd rebuild in a week. I say a goblin's week is a month and a bill." } },
+      choices = {
+        { text = "Should the Forsaken build their own airships?", next = "yown" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yown = {
+      lines = { { id = "yown_x", text = "There's talk of it in the Undercity. The apothecaries want the secret of the goblin engines. Should we steal it, or keep paying the goblins and keep the peace?" } },
+      choices = {
+        { text = "Pay them. Bargains keep the Horde together.", next = "BACK", reply = "Aye, the Dark Lady would say the same, in public.", fx = { align = { honor = 1 } } },
+        { text = "Steal it. We can't depend on goblins forever.", next = "BACK", reply = "Hm. That's what the apothecaries say in private. Keep it to yourself.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
-      lines = { { id = "h_default", key = true, text = "The zeppelins are the Horde's lifeline between Tirisfal and Durotar, and that makes this tower a target for every Scarlet with a torch. I watch the road, the sky and the goblins, though not necessarily in that order." } },
+      lines = {
+        { id = "h_default", key = true, text = "The zeppelins are the Horde's lifeline between Tirisfal and Durotar, and that makes this tower a target for every Scarlet with a torch. I watch the road, the sky and the goblins, though not necessarily in that order." },
+        { id = "yh_troll", when = { race = "Troll" }, text = "A troll, off the zeppelin. Keep your knives sheathed near the tower, the goblins get nervous, and nervous goblins drop things." },
+      },
       again = { { id = "h_again", text = "Anything else? Be quick, because there's a ship due." } },
       choices = {
         { text = "Why watch the goblins?", next = "goblins" },
@@ -1346,6 +1368,8 @@ P:NPC {
         { text = "You keep glancing at the sky.", next = "sky" },
         { text = "What do you make of the Horde folk passing through?", next = "horde" },
         { text = "I've just come off the zeppelin from Durotar.", next = "durotar", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "Who were you before?", next = "ylife" },
+        { text = "What happens if the tower falls?", next = "yfalls" },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -1398,6 +1422,8 @@ P:NPC {
     },
   },
   topics = {
+    zeppelins = { { id = "ytp_zep", text = "The zeppelins come and go like great floating pumpkins. I watch every one." } },
+    durotar = { { id = "ytp_dur", text = "Durotar is red and hot, I'm told. I'd last about a day there." } },
     scarlet_crusade = { { id = "tp_crusade", text = "They hate the zeppelins almost as much as they hate us. Torches and oil, every time." } },
     goblins = { { id = "tp_goblins", text = "Honest so far, and well paid to stay that way. I keep an eye on them regardless." } },
     _none = { { id = "tp_none", text = "I watch a tower, not the world. Ask in Brill." } },

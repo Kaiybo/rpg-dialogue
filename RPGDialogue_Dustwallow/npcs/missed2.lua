@@ -27,6 +27,51 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yworst = {
+      lines = {
+        { id = "ybcombatmastercriton1", text = "A fisherman's son who dropped his sword eleven times on his first morning. He's a sergeant on the north wall now, and the best I ever trained, so don't you tell me who can't learn." },
+        { id = "ybcombatmastercriton2", when = { class = "WARRIOR" }, text = "Worse than you, if you can believe it. He's a sergeant now. Don't tell him I said that about either of you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylordaeron = {
+      lines = {
+        { id = "ycombatmastercriton1", text = "Hard and honest, till the end. We drilled for orcs and got the dead instead, and every lesson I'd taught was half wrong. I rebuilt the whole drill on the ship coming over, and I've been fixing it since." },
+      },
+      choices = {
+        { text = "What did you change?", next = "ychange" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ychange = {
+      lines = {
+        { id = "ycombatmastercriton2", text = "I teach them to stand when their friend falls, and not to look. That's the hardest lesson there is, because a dead friend may be standing again a minute later, and you've got to be ready." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yszigeti = {
+      lines = {
+        { id = "ycombatmastercriton3", text = "On swords, never. On soldiers, always. He wants them to think for themselves when the line breaks, and I want the line never to break. We argue about it over supper twice a week." },
+      },
+      choices = {
+        { text = "Who's right?", next = "yright" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yright = {
+      lines = {
+        { id = "ycombatmastercriton4", text = "Tell me, then, since you're standing there with an opinion on your face." },
+      },
+      choices = {
+        { text = "The line is everything. Hold it and live.", next = "BACK", reply = "Ha! I'll tell him a stranger agrees with me, and he'll smile that quiet smile and say nothing.", fx = { align = { order = 1 } } },
+        { text = "A soldier who thinks for himself survives the breaking.", next = "BACK", reply = "Szigeti would buy you a drink for that. Mind he doesn't make a duellist of you.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Combat Master Criton. They send me farm boys and sailors, and in a season I send the captains back something that can hold a line. The dummies don't complain, which is more than I can say for the recruits." },
@@ -39,6 +84,10 @@ P:NPC {
         { text = "What do you teach them first?", next = "first" },
         { text = "How are this year's recruits?", next = "recruits" },
         { text = "Who takes them after you?", next = "after" },
+        { text = "What was it like soldiering in Lordaeron?", next = "ylordaeron" },
+        { text = "Do you and Szigeti agree on much?", next = "yszigeti" },
+        { text = "Run me through your drill.", next = "BACK", when = { class = "WARRIOR" }, reply = "Shield up, feet wide, and take my count. Not bad. Not good, but not bad, and better than this lot by a mile." },
+        { text = "What's the worst recruit you ever had?", next = "yworst" },
         { text = "Carry on, Combat Master.", next = "END" },
       },
     },
@@ -63,6 +112,8 @@ P:NPC {
     },
   },
   topics = {
+    szigeti = { { id = "ycombatmastercriton5", text = "The quietest man on the island, and the most dangerous with a blade." } },
+    recruits = { { id = "ycombatmastercriton6", text = "Farm boys and fishermen's sons. I'll make soldiers of them yet." } },
     background = { { id = "tp_bg", text = "Sergeant of foot in Lordaeron's army, and then the Lady's. I've trained three kinds of soldier for three kinds of war." } },
     _none = { { id = "tp_none", text = "Not my yard, not my worry. Ask the officers inside." } },
   },
@@ -88,6 +139,51 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ychoose = {
+      lines = {
+        { id = "ybcombatmasterszigeti1", text = "My father was a fencing master in Lordaeron's capital, and he taught nobles to duel for honour. I learned it as a game. The war taught me it was not, and I have taught it differently since." },
+        { id = "ybcombatmasterszigeti2", when = { class = "ROGUE" }, text = "You would understand. A blade is a conversation. The sooner one stops talking, the better." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfamily = {
+      lines = {
+        { id = "ycombatmasterszigeti1", text = "A wife and a daughter, in Andorhal. I was on the walls of the capital when the plague came there. I have not learned what happened to them, and I have stopped asking anyone who might know." },
+      },
+      choices = {
+        { text = "I'm sorry.", next = "ysorry" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysorry = {
+      lines = {
+        { id = "ycombatmasterszigeti2", text = "Thank you. The recruits do not know this, and I would prefer they did not. They should think their teacher has nothing but the sword, so they do not wonder what they themselves might lose." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yteams = {
+      lines = {
+        { id = "ycombatmasterszigeti3", text = "Both are good, and both are too fond of the game. Andrews and Thomas wager on bouts, and the guards fight to win the wager instead of to stay alive. I have said so, and they have laughed." },
+      },
+      choices = {
+        { text = "Should the wagers stop?", next = "ywagers" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywagers = {
+      lines = {
+        { id = "ycombatmasterszigeti4", text = "I have been asked to decide whether to report it to Captain Vimes. It would end the game, and the game keeps them keen." },
+      },
+      choices = {
+        { text = "Report it. Training is not a game.", next = "BACK", reply = "Then I will, gently. Andrews will sulk for a week, and Thomas will make a list of reasons I was wrong.", fx = { align = { order = 1 } } },
+        { text = "Let it be. Keen soldiers train harder.", next = "BACK", reply = "Perhaps. I will watch, and if anyone is hurt for a cask of rum, I will not wait to ask you.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Szigeti. Criton teaches them to stand in a line, and I teach them what to do when the line has broken and it's one man against another. I hope they never need my half, though they usually do." },
@@ -100,6 +196,10 @@ P:NPC {
         { text = "You don't shout the way Criton does.", next = "quiet" },
         { text = "What mistake do recruits make most?", next = "mistake" },
         { text = "Would you show me that last counter?", next = "counter", when = { class = { "WARRIOR", "ROGUE", "PALADIN" } } },
+        { text = "Did you have a family in Lordaeron?", next = "yfamily" },
+        { text = "What do you think of the Red and Blue teams?", next = "yteams" },
+        { text = "My people fought the undead too.", next = "BACK", when = { race = "NightElf" }, reply = "I saw your sentinels at Hyjal only in the stories the Lady's guards told. If half of it is true, I'd learn a great deal from watching one of you." },
+        { text = "Why did you choose the sword?", next = "ychoose" },
         { text = "I'll stand clear. Good day.", next = "END" },
       },
     },
@@ -124,6 +224,9 @@ P:NPC {
     },
   },
   topics = {
+    lordaeron = { { id = "ybcombatmasterszigeti3", text = "My father taught fencing there. The city is gone now, and so is he." } },
+    andorhal = { { id = "ycombatmasterszigeti5", text = "I would rather not speak of Andorhal." } },
+    criton = { { id = "ycombatmasterszigeti6", text = "He shouts, and I don't. We want the same thing for them, though we argue about how." } },
     background = { { id = "tp_bg", text = "I was a swordsman in Lordaeron, and I'm one here. I've found it's the only trade that's always wanted." } },
     _none = { { id = "tp_none", text = "I don't know. I'd not guess at it." } },
   },
@@ -149,6 +252,51 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ycame = {
+      lines = {
+        { id = "ybcaptainandrews1", text = "On the third ship of the fleet, with forty soldiers and no orders but the Lady's. Thomas was on the same deck, seasick the whole way, and I've reminded him of it at every wager since." },
+        { id = "ybcaptainandrews2", when = { race = "Human" }, text = "You'd know the old kingdoms, then. We left Lordaeron with nothing but our swords, and we built this town with them, one plank at a time." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywager = {
+      lines = {
+        { id = "ycaptainandrews1", text = "A cask of Kul Tiras rum and the right to choose the patrol rota for a month. Thomas has the rum locked in his quarters already, which is very confident of him, and I mean to drink it in front of him." },
+      },
+      choices = {
+        { text = "What if you lose?", next = "ylose" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylose = {
+      lines = {
+        { id = "ycaptainandrews2", text = "Then I walk the dawn patrol through the bog for a month, and Thomas makes sure I know he's sleeping late. It's happened twice, and I'll not let it happen a third time." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysleep = {
+      lines = {
+        { id = "ycaptainandrews3", text = "I do. My Reds are young, and most of them have never seen a real enemy closer than a murloc. I trained men like them in Lordaeron, and I watched half of them go down at the first charge of the dead." },
+      },
+      choices = {
+        { text = "How do you prepare them for that?", next = "yprepare" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yprepare = {
+      lines = {
+        { id = "ycaptainandrews4", text = "Some say make the yard as hard as the battlefield, and break them now so the enemy can't. Others say teach them to trust each other first, and the steel will follow. I go back and forth on it." },
+      },
+      choices = {
+        { text = "Drill them hard. Discipline keeps soldiers alive.", next = "BACK", reply = "Aye, Criton would kiss you for that. I'll lean on them a little harder this week.", fx = { align = { order = 1 } } },
+        { text = "Trust first. Men fight for the man beside them.", next = "BACK", reply = "That's how I learned it, too. Thomas will say I'm soft, and Thomas can say what he likes.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Captain Andrews, Red Team. Jarad, Lana and Tark are mine, and we train against Thomas and his Blues until both sides can fight in their sleep. A guard who's only ever hit straw is no use to the Lady." },
@@ -161,6 +309,10 @@ P:NPC {
         { text = "Who's winning, Red or Blue?", next = "winning" },
         { text = "Tell me about your three.", next = "three" },
         { text = "Is all this sparring for a real threat?", next = "threat" },
+        { text = "What's the wager this season?", next = "ywager" },
+        { text = "Do you ever lose sleep over the real fight?", next = "ysleep" },
+        { text = "I'd spar with your Reds.", next = "BACK", when = { class = "WARRIOR" }, reply = "Would you? Then come by at dawn and take Jarad, and don't go easy, for he'll learn more from losing to you than winning against Edward." },
+        { text = "How did you come to Theramore?", next = "ycame" },
         { text = "Good luck to the Reds, Captain.", next = "END" },
       },
     },
@@ -185,6 +337,9 @@ P:NPC {
     },
   },
   topics = {
+    lordaeron = { { id = "ybcaptainandrews3", text = "I soldiered there before the fall. I don't like to talk about the end of it." } },
+    thomas = { { id = "ycaptainandrews5", text = "Captain Thomas keeps a slate and a grudge, and I've never seen him lose either." } },
+    red_team = { { id = "ycaptainandrews6", text = "Jarad, Lana and Tark, my three, and the best team in the yard whatever the slate says." } },
     background = { { id = "tp_bg", text = "I've been soldiering since before the Lady was grown. Lordaeron first, and Theramore for as long as she'll have me." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask Thomas, and then believe the opposite." } },
   },
@@ -210,6 +365,51 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ycame = {
+      lines = {
+        { id = "ybcaptainthomas1", text = "On the same ship as Andrews, and if he tells you I was seasick, he's exaggerating. I was mildly indisposed for eleven days, and I kept the ship's roster the entire time." },
+        { id = "ybcaptainthomas2", when = { race = "Human" }, text = "You'd know how it was, then. Lordaeron gone and the east in chaos. We came west because the Lady asked, and we stayed because she was right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytally = {
+      lines = {
+        { id = "ycaptainthomas1", text = "Every bout, every point, every touch, written in chalk and copied into a ledger each evening. Andrews says I'm a clerk with a sword, and I say his memory improves remarkably when he's losing." },
+      },
+      choices = {
+        { text = "Do you keep other ledgers?", next = "yledger" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yledger = {
+      lines = {
+        { id = "ycaptainthomas2", text = "One more, and it's not for wagers. I write down every guard who's left the island, by ship or by the marsh, and why, if I know it. The list's grown longer this year than I care to admit." },
+      },
+      choices = {
+        { text = "Why keep such a list?", next = "ylist" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylist = {
+      lines = {
+        { id = "ycaptainthomas3", text = "Because someone ought to remember them, deserters included. Some of the lads say a deserter's name should be struck from every record. I'm not sure I agree." },
+      },
+      choices = {
+        { text = "Strike them. A traitor's name shames the Guard.", next = "BACK", reply = "That's the regulation, and you'll find Vimes agrees. I'll keep my list private, then.", fx = { align = { order = 1 } } },
+        { text = "Keep them. Every name was a soldier once.", next = "BACK", reply = "Thank you. Some of those names trained in this yard, and I'll not pretend they didn't.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfar = {
+      lines = {
+        { id = "ycaptainthomas4", text = "Then I stop it, and the guard who pressed too hard runs the wall twice. We've had broken fingers and one broken nose, Jarad's, and Andrews claims that last one improved his looks." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Captain Thomas, Blue Team. Edward, Kahil and Narrisha train under me, and we meet Andrews' Reds in the yard most days. He believes in spirit and I believe in drill, and the slate will show you which wins more often." },
@@ -222,6 +422,10 @@ P:NPC {
         { text = "What does the slate say?", next = "slate" },
         { text = "Tell me about your three.", next = "three" },
         { text = "They say you saluted a little girl.", next = "sara" },
+        { text = "How do you keep the tally so precisely?", next = "ytally" },
+        { text = "What happens if a bout goes too far?", next = "yfar" },
+        { text = "Your Blues could use some Light-forged discipline.", next = "BACK", when = { class = "PALADIN" }, reply = "They could use any discipline at all on a hot afternoon. Come and show them how a paladin holds a line, and I'll put it on the slate." },
+        { text = "How did you come to Theramore?", next = "ycame" },
         { text = "Good luck to the Blues, Captain.", next = "END" },
       },
     },
@@ -246,6 +450,9 @@ P:NPC {
     },
   },
   topics = {
+    vimes = { { id = "ybcaptainthomas3", text = "Captain Vimes commands the Guard. A sound man, and a tired one." } },
+    andrews = { { id = "ycaptainthomas5", text = "Andrews is the best captain in the Guard after Vimes. I'll deny saying so." } },
+    blue_team = { { id = "ycaptainthomas6", text = "Edward, Kahil and Narrisha. Steady, quick and clever, and that's a team." } },
     background = { { id = "tp_bg", text = "I've served since I was a boy, in Lordaeron and here. I've found that most problems give way to a list and some patience." } },
     _none = { { id = "tp_none", text = "I've no figures on that. Ask at the citadel." } },
   },
@@ -463,6 +670,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ychange = {
+      lines = {
+        { id = "ybguardtark1", text = "I'd teach Jarad to wait, and Lana to take more risks. Neither of them would listen to me, mind, but they'd listen to the captain if I could make him think it was his idea." },
+        { id = "ybguardtark2", when = { class = "ROGUE" }, text = "You'd know about planting ideas. Any advice for making a captain think he thought of it first?" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yandrews = {
+      lines = {
+        { id = "ybguardtark3", text = "Loud, cheerful, stubborn, and the bravest man in the yard. He'd charge a dragon with a practice sword if the wager was right. That's what makes him a fine captain, and what keeps me awake at night." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yshipwright = {
+      lines = {
+        { id = "yguardtark1", text = "Apprenticed in the yards by the docks, building the fishing boats. I can tell you where a hull will fail by tapping it, and I can tell you where a guard will fail by watching him walk." },
+      },
+      choices = {
+        { text = "Why leave the yards?", next = "yleave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yleave = {
+      lines = {
+        { id = "yguardtark2", text = "My mother wanted it. She marched with the Admiral, and she said a son of hers would carry a sword, not a mallet. I've wondered since whether I chose the Guard or she chose it for me." },
+      },
+      choices = {
+        { text = "You serve your family's wishes. That's honor.", next = "BACK", reply = "Maybe. She was proud the day I took the oath, and that counts for something.", fx = { align = { honor = 1 } } },
+        { text = "Choose for yourself. Your life is yours.", next = "BACK", reply = "That's what Lana says too. Perhaps I'll go back to the yards one day.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm with Captain Andrews' Red Team. Jarad wins by hitting things and Lana wins by being sensible, and I try to win by knowing what the other fellow will do before he does." },
@@ -475,6 +718,10 @@ P:NPC {
         { text = "Does it work?", next = "work" },
         { text = "What have you worked out about the Blues?", next = "blues" },
         { text = "Do you resent Lady Proudmoore, as some Kul Tirans do?", next = "kt_jaina" },
+        { text = "You were a shipwright?", next = "yshipwright" },
+        { text = "You'd make a fine engineer.", next = "BACK", when = { profession = "Engineering" }, reply = "I've thought about it. Gears are only bouts that hold still. Maybe when I'm too old to spar." },
+        { text = "What would you change about the Reds?", next = "ychange" },
+        { text = "What do you think of Captain Andrews?", next = "yandrews" },
         { text = "I'll let you think.", next = "END" },
       },
     },
@@ -504,6 +751,9 @@ P:NPC {
     },
   },
   topics = {
+    andrews = { { id = "ybguardtark4", text = "The captain. He'd charge a dragon if the wager was right." } },
+    edward = { { id = "yguardtark3", text = "He drops his shoulder before he cuts left. Don't tell him I told you." } },
+    narrisha = { { id = "yguardtark4", text = "The only one I can't read. It's maddening." } },
     jaina = { { id = "tp_ktjaina", text = "I'd follow the Lady into the sea if she asked. My mother would follow her too, though she'd grumble the whole way." } },
     background = { { id = "tp_bg", text = "I was apprenticed to a shipwright before I enlisted. You learn to look twice at how a thing is put together." } },
     _none = { { id = "tp_none", text = "I haven't worked that one out. Try the citadel." } },
@@ -530,6 +780,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yoffduty = {
+      lines = {
+        { id = "ybguardedward1", text = "Kahil plays dice and loses, Narrisha reads, and I sleep. Somebody has to be rested for the next bout, and the others are much too clever to ever do it themselves." },
+        { id = "ybguardedward2", when = { race = "Dwarf" }, text = "Kahil would love a dwarf at the dice table. He'd lose all his pay, and maybe learn something." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ythomas = {
+      lines = {
+        { id = "ybguardedward3", text = "The best captain on the isle, and he'd say so too, with figures to back it up. He makes us run drills I hate, and I've never once lost a bout because of something he didn't prepare me for." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfather = {
+      lines = {
+        { id = "yguardedward1", text = "He was a quiet man who whistled on watch, and he died of a fever the first wet season, when we were still building the walls. They buried him under the north tower, and I take my watch there when I can." },
+      },
+      choices = {
+        { text = "Does it comfort you?", next = "ycomfort" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycomfort = {
+      lines = {
+        { id = "yguardedward2", text = "Most nights. Some nights I wonder if he'd have wanted me to go home to Kul Tiras instead, where he came from. My aunt writes that there's a place for me on her boat." },
+      },
+      choices = {
+        { text = "Stay. Your father gave his life to this place.", next = "BACK", reply = "That's what I keep telling myself. It's good to hear someone else say it.", fx = { align = { honor = 1 } } },
+        { text = "Go. Your father's people are your people too.", next = "BACK", reply = "Maybe one day. Not while Captain Thomas still needs a middle.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I serve under Captain Thomas, with Kahil and Narrisha. They do the clever part, and my part is to hold the middle and not fall down, which I'm told I'm good at." },
@@ -542,6 +828,10 @@ P:NPC {
         { text = "What's it like facing Jarad?", next = "jarad" },
         { text = "Why did you join the Guard?", next = "why" },
         { text = "Do the Kul Tiras marines still follow Lady Proudmoore?", next = "kt_jaina" },
+        { text = "What do you remember of your father?", next = "yfather" },
+        { text = "Shield to shield, then?", next = "BACK", when = { class = { "WARRIOR", "PALADIN" } }, reply = "Any time, if you can stand still long enough. Most people who spar with me get bored and walk around." },
+        { text = "What does the Blue Team do off duty?", next = "yoffduty" },
+        { text = "What do you think of Captain Thomas?", next = "ythomas" },
         { text = "Hold the middle, Edward.", next = "END" },
       },
     },
@@ -571,6 +861,9 @@ P:NPC {
     },
   },
   topics = {
+    thomas = { { id = "ybguardedward4", text = "Thomas keeps a slate of every bout. I'm on it more than I'd like." } },
+    father = { { id = "yguardedward3", text = "He's buried under the north tower. I take my watch there when I can." } },
+    jarad = { { id = "yguardedward4", text = "Strong, loud and honest. He only has the one swing, but it's a big one." } },
     jaina = { { id = "tp_ktjaina", text = "I came as one of the Admiral's marines, and I stayed as one of hers. I'm still not sure what that makes me." } },
     background = { { id = "tp_bg", text = "Theramore's the only home I remember. I mean to keep it as it is." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. Captain Thomas would." } },
@@ -700,6 +993,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yleave = {
+      lines = {
+        { id = "ybguardnarrisha1", text = "Sometimes, when the fog sits on the walls for a week. Then I think of my brother, and how he died for an argument about orcs, and I decide the best thing I can do is keep this place standing." },
+        { id = "ybguardnarrisha2", when = { race = "Human" }, text = "You came from the east, I'd guess. Do the old kingdoms still talk about us, or have they forgotten?" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydecide = {
+      lines = {
+        { id = "yguardnarrisha1", text = "I watch how they walk to the chalk line. A guard who swaggers will overreach, and one who looks at the floor will hold back. It's the same in the marsh, I imagine, and in a citadel full of politics." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylana = {
+      lines = {
+        { id = "yguardnarrisha2", text = "We grew up three houses apart and have competed in everything since we could walk. She enlisted the day after me to prove she could, and I've never let her forget I was first." },
+      },
+      choices = {
+        { text = "Do you get along?", next = "yalong" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yalong = {
+      lines = {
+        { id = "yguardnarrisha3", text = "She's my closest friend, and I'd die for her, and I'd still beat her in the yard if I could. That's the trouble: Andrews wants me to transfer to the Reds so we're on the same side." },
+      },
+      choices = {
+        { text = "Stay with the Blues. Loyalty to your team matters.", next = "BACK", reply = "That's what Thomas would say, and I think he's right. Lana will understand, eventually.", fx = { align = { honor = 1 } } },
+        { text = "Go to Lana. Friendship comes before any team.", next = "BACK", reply = "I'd like to. I just wish it didn't feel like leaving Edward and Kahil behind.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I serve on Captain Thomas' Blue Team with Edward and Kahil. I'm neither the strongest nor the fastest here, so I've made a habit of deciding how a bout will end before I step in." },
@@ -712,6 +1041,10 @@ P:NPC {
         { text = "Tark says he can't read you.", next = "tark" },
         { text = "What are you really training for?", next = "training" },
         { text = "What do you think of Lady Proudmoore?", next = "kt_jaina" },
+        { text = "How do you decide a bout before it starts?", next = "ydecide" },
+        { text = "What's between you and Lana?", next = "ylana" },
+        { text = "How would I fight you, then?", next = "BACK", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, reply = "Quickly, and from far away, I expect. I'd close the distance before your first spell, and if I failed, I'd lose. Shall we try it one day?" },
+        { text = "Do you ever think of leaving Theramore?", next = "yleave" },
         { text = "I'll watch from the other side.", next = "END" },
       },
     },
@@ -744,6 +1077,8 @@ P:NPC {
     },
   },
   topics = {
+    lana = { { id = "yguardnarrisha4", text = "My oldest friend and my favourite rival. Don't tell her the first part." } },
+    thomas = { { id = "yguardnarrisha5", text = "Captain Thomas thinks in lists. I think in bouts, and we get along." } },
     jaina = { { id = "tp_ktjaina", text = "I keep my oath to the Lady, but my brother sailed with the Admiral and never came home." } },
     background = { { id = "tp_bg", text = "I came across as a girl with the fleet. I enlisted the day I was old enough, and Lana enlisted the day after to spite me." } },
     _none = { { id = "tp_none", text = "I don't know, and I don't guess. Ask at the citadel." } },
@@ -770,6 +1105,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ybow = {
+      lines = {
+        { id = "ybguardlasiter1", text = "A longbow Farran made me, yew from Elwynn and string waxed every morning. It's a little heavy for me still, and I mean to grow into it before the day comes when I need it." },
+        { id = "ybguardlasiter2", when = { class = "HUNTER" }, text = "Look at the draw on that. You'll know the weight's more than I can manage. I'll grow into it, I suppose." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ynight = {
+      lines = {
+        { id = "yguardlasiter1", text = "Lights on the marsh, sometimes, and the murlocs coming up the rocks. Once, a great shadow over the water that blotted out the stars. I told the sergeant it was a cloud, and I didn't believe it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ystay = {
+      lines = {
+        { id = "yguardlasiter2", text = "The Lady's mages have offered me a place in the tower guard, which is safer and pays better. But the tower guard never looks over the wall, and that's where the danger comes from." },
+      },
+      choices = {
+        { text = "What will you choose?", next = "ychoose" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ychoose = {
+      lines = {
+        { id = "yguardlasiter3", text = "I'd ask your advice, if you've a mind to give it. I've asked Farran and he only says to do what I'd regret least." },
+      },
+      choices = {
+        { text = "Take the tower post. The Lady needs her best shots close.", next = "BACK", reply = "That's the sensible answer. I'll think on it, though the wall will miss me.", fx = { align = { order = 1 } } },
+        { text = "Stay on the wall. You belong where you're needed.", next = "BACK", reply = "That's what my gut says too. I'll tell the mages no, politely.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Guard Lasiter. The others spar and I shoot, from first light until Farran runs out of arrows to sell me. If something ever comes over that wall, I want it to have an arrow in it before it lands." },
@@ -782,6 +1153,10 @@ P:NPC {
         { text = "Don't you ever rest?", next = "rest" },
         { text = "Jensen Farran says you're the best shot here.", next = "best" },
         { text = "Your elbow drops as you loose.", next = "elbow", when = { class = "HUNTER" } },
+        { text = "What do you see from the wall at night?", next = "ynight" },
+        { text = "Do you mean to stay a guard?", next = "ystay" },
+        { text = "My people are fine archers. Any advice?", next = "BACK", when = { race = "NightElf" }, reply = "I've only heard of your sentinels, never seen them. If you'll loose a few at my straw, I'll learn more from watching you than a year of practice." },
+        { text = "What bow do you use?", next = "ybow" },
         { text = "I'll leave you to the target.", next = "END" },
       },
     },
@@ -806,6 +1181,9 @@ P:NPC {
     },
   },
   topics = {
+    elwynn = { { id = "ybguardlasiter3", text = "The best yew comes from Elwynn, Farran says. I've never been there." } },
+    farran = { { id = "yguardlasiter4", text = "Jensen Farran makes the best arrows on the island and tells me so every morning." } },
+    murlocs = { { id = "yguardlasiter5", text = "They come up the sea wall at night, and I've shot a few. I don't like to talk about it." } },
     background = { { id = "tp_bg", text = "I hunted duck on the marsh edge as a boy, for the family pot. The Guard gave me a better bow and a bigger reason." } },
     _none = { { id = "tp_none", text = "I couldn't say. I don't hear much out here but bowstrings." } },
   },
@@ -833,6 +1211,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yrest = {
+      lines = {
+        { id = "ybpained1", text = "When the Lady sleeps, I sit by her door and watch the stairs. It is rest enough. My people do not need as much sleep as yours, and the night is when I hear best." },
+        { id = "ybpained2", when = { race = "NightElf" }, text = "You know how it is, sister. The night is ours, and Elune watches with me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylong = {
+      lines = {
+        { id = "ypained1", text = "Since the Battle of Mount Hyjal, when the young races came west and fought beside us. She was very young, and very tired, and she did not once ask for thanks. I came to Theramore some time after." },
+      },
+      choices = {
+        { text = "Why did you leave your people?", next = "yleave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yleave = {
+      lines = {
+        { id = "ypained2", text = "That is my own affair, as I have said. I will say only that a debt to the Lady weighed more than a place among the sentinels, and that some of my sisters did not agree." },
+      },
+      choices = {
+        { text = "A debt must be paid. You were right to come.", next = "BACK", reply = "I believe so, though I have walked many nights wondering.", fx = { align = { honor = 1 } } },
+        { text = "Your people needed you more.", next = "BACK", reply = "Perhaps. Do not think I have not heard that voice before.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yguards = {
+      lines = {
+        { id = "ypained3", text = "Brave, and loud, and too fond of wagering on their sparring. Some of them watch me with suspicion, because I am not human. I do not hold it against them. Suspicion keeps a guard alive." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am called Pained. I stand where the Lady stands, and I see that those who come before her leave as peacefully as they arrived. That is all you need to know of my duties." },
@@ -845,6 +1259,10 @@ P:NPC {
         { text = "That's an unusual name.", next = "name" },
         { text = "Why does a night elf guard a human mage?", next = "why" },
         { text = "Is the Lady in danger?", next = "danger" },
+        { text = "Have you known the Lady long?", next = "ylong" },
+        { text = "What do you make of Theramore's guards?", next = "yguards" },
+        { text = "Do you miss Ashenvale, sister?", next = "BACK", when = { race = "NightElf" }, reply = "Every day, and I do not speak of it. Elune watches here as well, though she shows herself less among the stone walls." },
+        { text = "Do you ever rest?", next = "yrest" },
         { text = "I'll give you no trouble.", next = "END" },
       },
     },
@@ -869,6 +1287,8 @@ P:NPC {
     },
   },
   topics = {
+    hyjal = { { id = "ypained4", text = "Where the Lady stood with my people against the Burning Legion. I do not forget it." } },
+    jaina = { { id = "ypained5", text = "The Lady. I guard her, and that is all you need know." } },
     background = { { id = "tp_bg", text = "I was a warrior of my people for a very long time before I came here. The rest is my own affair." } },
     _none = { { id = "tp_none", text = "That is not mine to discuss. Ask the Lady, if she has time for you." } },
   },
@@ -897,6 +1317,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yhorde = {
+      lines = {
+        { id = "ycaptainwymor1", text = "Grunts from Brackenwall, now and then, and a tauren trader once who bowed to the tower before he passed. The Lady's peace holds on this road because both sides want it to, and I'd like to keep it that way." },
+      },
+      choices = {
+        { text = "Do your guards share that view?", next = "yguards" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yguards = {
+      lines = {
+        { id = "ycaptainwymor2", text = "Not all of them. A few lost brothers in the Admiral's fleet and they'd sooner shoot first. I've a choice to make about one of them, a good sentry with a bad temper." },
+      },
+      choices = {
+        { text = "What will you do?", next = "ychoose" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ychoose = {
+      lines = {
+        { id = "ycaptainwymor3", text = "He's never broken an order, but he talks of breaking it, and talk spreads. I could send him back to the citadel, or keep him where I can watch him." },
+      },
+      choices = {
+        { text = "Send him back. An angry sentry breaks a peace.", next = "BACK", reply = "That's my sense of it too. He'll hate me, but he'll be alive and so will the peace.", fx = { align = { order = 1 } } },
+        { text = "Keep him. He's earned the chance to cool off.", next = "BACK", reply = "You're kinder than I am. I'll give him the month, and I'll stand his watches with him.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysouth = {
+      lines = {
+        { id = "ycaptainwymor4", text = "The Wyrmbog, and the black dragons, and things that serve them. I don't send patrols past the bend in the causeway, and I'd advise you not to go alone. A few who went came back changed." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Captain Wymor, Sentry Point. Everything that comes to Theramore by land comes past this tower, and my orders are to know about it before the town does. Most days that's traders and raptors, and I can tell them apart at a mile." },
@@ -909,6 +1365,9 @@ P:NPC {
         { text = "What's the road north like?", next = "road" },
         { text = "What do you watch for most?", next = "watch" },
         { text = "It must be a thankless post.", next = "post" },
+        { text = "Do you ever see the Horde on this road?", next = "yhorde" },
+        { text = "What's south down the causeway?", next = "ysouth" },
+        { text = "I'm Horde. Am I welcome past your tower?", next = "BACK", when = { faction = "Horde" }, reply = "You're welcome to walk the road north, under the Lady's peace, and I'll keep to it as long as you do. Don't take it further than that." },
         { text = "Keep a sharp watch, Captain.", next = "END" },
       },
     },
@@ -933,6 +1392,8 @@ P:NPC {
     },
   },
   topics = {
+    sentry_point = { { id = "ycaptainwymor5", text = "My tower, my road. Nothing comes to Theramore by land without passing me first." } },
+    deserters = { { id = "ycaptainwymor6", text = "Men who know our passwords and our patrols. They worry me more than any ogre." } },
     background = { { id = "tp_bg", text = "I've served the Lady since the crossing. She asked for someone she could trust on the road, and I've been on it ever since." } },
     _none = { { id = "tp_none", text = "That hasn't come down my road. Ask in Theramore." } },
   },

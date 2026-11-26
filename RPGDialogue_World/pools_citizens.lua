@@ -50,6 +50,8 @@ P:Pool {
 P:Pool {
   id = "quiet", role = "quiet",
   greetings = {
+    { id = "yg0", text = "I've little to say, and less time to say it in." },
+    { id = "yg1", text = "Something you wanted, or are you just passing?" },
     { id = "g1", text = "Hm?" },
     { id = "g2", text = "Yes?" },
     { id = "g3", text = "Mm." },
@@ -57,6 +59,10 @@ P:Pool {
     { id = "xg5", when = { timeOfDay = "night" }, text = "It's late, and I'm in no mood for talk." },
   },
   lines = {
+    { id = "yl0", text = "I've nothing worth hearing, friend, so don't waste your breath asking." },
+    { id = "yl1", text = "Keep your questions for someone who wants them. I've work to finish." },
+    { id = "yl2", when = { timeOfDay = "night" }, text = "It's dark and I'm tired, and I've nothing to tell you that the morning won't." },
+    { id = "yl3", text = "There's not much to me, traveller. Whatever you're after, someone else has it." },
     { id = "l1", text = "I've nothing to say to you, traveler." },
     { id = "l2", text = "I have nothing for you. Go on your way." },
     { id = "l3", text = "There's nothing I can tell you." },
@@ -66,10 +72,15 @@ P:Pool {
     { id = "xl7", when = { metBefore = true }, text = "You again. I had nothing to say last time, and I've less now." },
   },
   choices = {
+    { text = "Fair enough. I'll leave you in peace.", next = "END", reply = "Good. That's the best thing anyone's said to me today.", fx = { align = { order = 1 } } },
+    { text = "Everyone has a story. What's yours?", next = "END", reply = "Not one I'm telling a stranger. Go on, now.", fx = { align = { order = -1 } } },
     { text = "Sorry to bother you.", next = "END", reply = "No bother. Just go on, now." },
     { text = "Never mind.", next = "END" },
   },
-  topics = { _none = { { id = "t_none", text = "I couldn't tell you." }, { id = "xt_none2", text = "Ask someone else, friend. I don't keep up with that sort of thing." } } },
+  topics = {
+    weather = { { id = "tp_yweather", text = "It'll rain or it won't. I've stopped caring which." } },
+    roads = { { id = "tp_yroads", text = "They go where they go. I keep off most of them." } },
+    _none = { { id = "t_none", text = "I couldn't tell you." }, { id = "xt_none2", text = "Ask someone else, friend. I don't keep up with that sort of thing." } } },
 }
 
 ---------------------------------------------------------------------------

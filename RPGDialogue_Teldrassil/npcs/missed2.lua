@@ -18,6 +18,7 @@ P:NPC {
     { id = "g_default", text = "Ishnu-alah, traveller. Sit a moment, if the road will allow it." },
     { id = "g_back", when = { metBefore = true }, text = "The road has brought you round again. I had wondered whether it would." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Elune is bright over Dolanaar tonight. It is a good hour to be awake, and a better one for talking." },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "A dwarf, in Dolanaar. You walk loudly, but kindly. Sit, if you like." },
   },
   notice = {
     { id = "n_outlander", cat = "race", when = { race = { "Human", "Dwarf", "Gnome" } },
@@ -25,6 +26,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    y_village = {
+      lines = {
+        { id = "y_y_village", text = "My village was called Saelanar, in the forests below Hyjal. It had a moonwell and a hundred houses and a grove of silver oaks. The Legion burned it in a single night, and I was one of nine who lived. I have never gone back." },
+      },
+      choices = {
+        { text = "Who were the other eight?", next = "y_eight" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_eight = {
+      lines = {
+        { id = "y_y_eight", text = "Some are in Darnassus, some in Ashenvale, and some gone to Elune. One became a druid and sleeps in the Dream, I am told. We do not meet. It would be too much like counting the dead." },
+        { id = "y_y_eight_v0", when = { class = "DRUID" }, text = "Some in Darnassus, some gone. One became a druid like you and sleeps in the Dream. Perhaps you will meet her there." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_tree = {
+      lines = {
+        { id = "y_y_tree", text = "I do not trust Teldrassil, if you want the truth. It grew too fast, and it grew without the blessing of the dragons. But I live on it, because there is nowhere else to live. That is a strange way to feel about your home." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_stance = {
+      lines = {
+        { id = "y_y_stance", text = "The young ones of Dolanaar want to go fight the Horde in Ashenvale. Their elders say they should stay and tend the tree. What would you tell them?" },
+      },
+      choices = {
+        { text = "Stay and tend their home. That is enough.", next = "BACK", reply = "That is what I would say, too. I am glad to hear it from another.", fx = { align = { honor = 1 } } },
+        { text = "Let them fight. The forests need defenders.", next = "BACK", reply = "Perhaps. I fought once, and I came home with nothing. But it was my choice.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Melarith, and I live here in Dolanaar, which is nearly all there is to say of me. I watch who comes down the road and who goes up it, and I find that is occupation enough for one who has already lived a long while." },
@@ -37,6 +74,10 @@ P:NPC {
         { text = "What have you seen on the road lately?", next = "road" },
         { text = "You do not seem troubled by much.", next = "calm" },
         { text = "Where were you before Teldrassil?", next = "before" },
+        { text = "Tell me about your old village.", next = "y_village" },
+        { text = "Do you trust Teldrassil?", next = "y_tree" },
+        { text = "Should the young go to war?", next = "y_stance" },
+        { text = "I'm kaldorei. Do you remember Hyjal?", next = "BACK", when = { race = "NightElf" }, reply = "I remember the fire. I try not to. Sit with me, kin, and let us talk of gentler things." },
         { text = "Rest well, Melarith.", next = "END" },
       },
     },
@@ -64,6 +105,8 @@ P:NPC {
     },
   },
   topics = {
+    hyjal = { { id = "tp_yhyjal", text = "Mount Hyjal. I lived below it, once. I do not speak of it often." } },
+    saelanar = { { id = "tp_ysaelanar", text = "My old village. It burned. Nine of us lived." } },
     background = { { id = "tp_bg", text = "I am old, and I have settled here. There is no more to it than that, and I am content." } },
     teldrassil = { { id = "tp_tel", text = "It is a fine tree to live upon. I only wish I could forget how quickly it grew." } },
     _none = { { id = "tp_none", text = "That has not come down the road to me yet. Ask at the inn, where the news sleeps." } },
@@ -83,6 +126,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Elune light your way, traveller. You are safe on this stretch, so long as we are on it." },
     { id = "g_back", when = { metBefore = true }, text = "Well met again, {class}. That makes twice I have counted you safely by." },
+    { id = "yg_0", when = { race = "Human" }, text = "A human, on the Darnassus road. You are a long way from your kingdoms. Stay on the stones; the forest is not kind to strangers." },
   },
   notice = {
     { id = "n_pet", cat = "pet", when = { pet = { type = "Beast" } },
@@ -90,6 +134,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    y_amara = {
+      lines = {
+        { id = "y_y_amara", text = "Moon Priestess Amara has walked this road for longer than I have been alive. She stops at every shrine and every moonwell, and she speaks to each of them as though they were old friends. Perhaps they are." },
+      },
+      choices = {
+        { text = "What does she pray for?", next = "y_pray" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_pray = {
+      lines = {
+        { id = "y_y_pray", text = "For the Gnarlpine, mostly. She believes their madness can be lifted, if Elune wills it. I am less certain. But I have learned not to argue with a Moon Priestess, especially one who has been right as often as Amara." },
+        { id = "y_y_pray_v0", when = { class = "PRIEST" }, text = "For the Gnarlpine, mostly. You are a priest; perhaps you share her hope. She believes their madness can be lifted, if Elune wills it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_saber = {
+      lines = {
+        { id = "y_y_saber", text = "My saber is Shalana. I raised her from a cub, when her mother was killed by a nightsaber hunter from the old forests. She is jealous, and lazy, and she will die for me. That is what I ask of her, and no more." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_stance = {
+      lines = {
+        { id = "y_y_stance", text = "Some Sentinels say the Gnarlpine should be driven from Teldrassil entirely. Amara says they can be healed. Which do you believe?" },
+      },
+      choices = {
+        { text = "They can be healed. Keep faith with Amara.", next = "BACK", reply = "Then I will keep faith too, as best I can.", fx = { align = { light = 1 } } },
+        { text = "Drive them out. The road must be safe.", next = "BACK", reply = "Perhaps. I fear you may be right, though Amara would not thank you for it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Huntress Yaeliura, and I ride with Moon Priestess Amara and Nhemai between Dolanaar and the gates of Darnassus. We see travellers through and send the Gnarlpine back into the trees, a dozen times a night." },
@@ -103,6 +183,9 @@ P:NPC {
         { text = "Your companion says very little.", next = "nhemai" },
         { text = "It must be dull, riding one road.", next = "dull" },
         { text = "Does a hunter's eye see this road differently?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Tell me about Moon Priestess Amara.", next = "y_amara" },
+        { text = "Tell me about your saber.", next = "y_saber" },
+        { text = "Can the Gnarlpine be saved?", next = "y_stance" },
         { text = "Safe riding, huntress.", next = "END" },
       },
     },
@@ -131,6 +214,8 @@ P:NPC {
     },
   },
   topics = {
+    amara = { { id = "tp_yamara", text = "Moon Priestess Amara. She has walked this road for centuries." } },
+    shalana = { { id = "tp_yshalana", text = "My saber. Jealous, lazy, and loyal to the end." } },
     background = { { id = "tp_bg", text = "I have served the Sentinels since I could draw a bow. The Moon Priestess asked for me by name, and I was proud to come." } },
     furbolgs = { { id = "tp_fur", text = "The Gnarlpine were our neighbours once. I take no joy in driving them off, but the road must stay open." } },
     _none = { { id = "tp_none", text = "I could not say, friend. Ask Moon Priestess Amara, who knows far more than her huntresses." } },

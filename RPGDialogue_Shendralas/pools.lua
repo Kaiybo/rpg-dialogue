@@ -7,6 +7,8 @@ P:Pool {
   barks = {
     { id = "b_temple", text = "The moon used to rest on that altar like a hand on a child's head." },
     { id = "b_bell", text = "Was that the temple bell? No, there has not been a bell here for a very long time." },
+      { id = "yshendr_b0", text = "Was that a footstep? No, only the wind in the broken columns." },
+    { id = "yshendr_b1", text = "The moon is high. The old temple glows faintly, if you look." },
   },
   greetings = {
     { id = "g_default", text = "Peace on you, stranger. Mind the broken stair; it was broken before your grandfathers were born." },
@@ -21,12 +23,18 @@ P:Pool {
     { id = "l_evenshade", when = { heardLine = "shd_evenshade.h_default" }, text = "You have spoken with Archmage Evenshade, then. He comes out of the city to grieve where we can see him, and I think it comforts him a little that someone does." },
     { id = "l_priest", when = { class = "PRIEST" }, text = "You pray, I can see it in how you hold your hands. The priestesses of this temple would have liked you, I think, whichever goddess you pray to." },
     { id = "l_forsaken", when = { race = "Scourge" }, text = "You are dead like us, and yet you are not like us at all; you carry yourself as if the world still owed you something. Perhaps it does." },
+      { id = "yshendr_l0", text = "Once there were gardens here, all along the colonnade. I can still smell the night-blooming flowers, though they turned to dust before your kingdoms were founded." },
+    { id = "yshendr_l1", when = { race = "NightElf" }, text = "You walk like the Kaldorei who left us, long ago. Do they speak of us, in their new forests? I would like to know if we are remembered." },
+    { id = "yshendr_l2", when = { class = "MAGE" }, text = "You carry the arcane like we once did. Be careful with it. We were careful, too, until we were not." },
   },
   choices = {
     { text = "Rest easy, spirit.", next = "END" },
     { text = "I'll leave you to your walk.", next = "END" },
-  },
+   { text = "Were the Highborne right to seek power?", next = "END", reply = "We thought so, once. Now I am not sure. Power kept us alive, and power is why we are dead.", fx = { align = { order = 1 } } }, { text = "The Highborne's pride doomed them.", next = "END", reply = "Perhaps it did. But pride is a hard thing to put down, even after ten thousand years.", fx = { align = { order = -1 } } } },
   topics = {
+    evenshade = { { id = "yshendr_tp_evenshade", text = "Archmage Evenshade walks out to grieve, sometimes. We watch him from the shadows, and he knows it." } },
+    centaur = { { id = "yshendr_tp_centaur", text = "The centaur in the valley are cruel and loud. They do not understand what they walk upon." } },
+
     highborne = { { id = "t_highborne", text = "We were the Highborne, once, and proud of it. I still catch myself smoothing a robe that rotted away ten thousand years ago." } },
     _none = { { id = "t_none", text = "I am sorry, stranger, I do not remember. So much is gone, and I am never sure which parts." } },
   },

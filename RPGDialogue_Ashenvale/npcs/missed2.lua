@@ -34,6 +34,8 @@ P:NPC {
         { id = "h_again2", text = "Speak. The axe is sharp enough for now." },
       },
       choices = {
+        { text = "Who is Ertog?", next = "yfah_ertog" },
+        { text = "I'm a warrior. Spar with me, Fahrak.", next = "yfah_spar", when = { class = "WARRIOR" } },
         { text = "You sound eager for a battle.", next = "eager" },
         { text = "What is there to fight around here?", next = "fight" },
         { text = "Guarding wagons is honest duty.", next = "duty" },
@@ -59,8 +61,47 @@ P:NPC {
       lines = { { id = "d_default", text = "It is, and I do it, and I do not have to like it. Mastok counts every wagon that comes through the gate, and the day one goes missing on my watch I will wish I had been bored." } },
       choices = { { text = "Then stay bored a while. Something else.", next = "BACK" } },
     },
+    yfah_ertog = {
+      lines = {
+        { id = "yyfah_ertog_d", text = "Ertog Ragetusk, who leads the raiders at this post, and who has more scars than I have years. He tells me to wait and to listen and to learn the forest, and I tell him I did not come here to learn trees." },
+      },
+      choices = {
+        { text = "What scars does he have?", next = "yfah_scars" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfah_scars = {
+      narr = "Fahrak runs his whetstone along the axe-edge once more, slowly.",
+      lines = {
+        { id = "yyfah_scars_d", text = "He fought at Hyjal, when the Legion came, and he carries a burn across his back from a demon's fire. He does not speak of it, but the older grunts say he carried three wounded warriors out of the burning trees that night, one after another." },
+      },
+      choices = {
+        { text = "Do you want scars like that?", next = "yfah_want" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfah_want = {
+      lines = {
+        { id = "yyfah_want_d", text = "I want to earn something like that, yes. My father died in the camps, never knowing freedom, and I owe him a deed worth telling. But Ertog says a deed is not earned by seeking it, and I do not understand what he means." },
+      },
+      choices = {
+        { text = "Ertog is right. Duty comes first, glory later.", next = "BACK", reply = "Hmph. You sound like him. Perhaps I will listen, this once.", fx = { align = { honor = 1 } } },
+        { text = "Seek the fight. Your father deserves a deed.", next = "BACK", reply = "Yes! That is what I say. Ertog will not like it, but he will see.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfah_spar = {
+      lines = {
+        { id = "yyfah_spar_d", text = "Ha! You want to spar with me? Good, for nobody at this post will, and my axe grows dull on logs. But not here, in front of Mastok, for he counts the wagons and would count our bruises too. Find me at the edge of camp." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    splintertree_post = { { id = "tp_ysplintertree_post", text = "The Horde's post in Ashenvale. I guard wagons here, and wait." } },
+    hyjal = { { id = "tp_yhyjal", text = "Where the old warriors fought. I was too young, and I will never forget it." } },
     background = { { id = "tp_bg", text = "Born in the camps and freed as a whelp. I have been trying to earn it ever since." } },
     warsong = { { id = "tp_war", text = "The clan that holds this forest. I would be prouder of it with an elf's glaive on my wall." } },
     _none = { { id = "tp_none", text = "I do not know and I do not care. Ask Ertog, who cares about everything." } },
@@ -97,6 +138,8 @@ P:NPC {
         { id = "h_again2", text = "Ask. I got the whole day and a good patch of shade." },
       },
       choices = {
+        { text = "What do you leave at the north gate?", next = "yfra_offering" },
+        { text = "You be a Darkspear too, mon. Talk to me.", next = "yfra_troll", when = { race = "Troll" } },
         { text = "What have the orcs stirred up?", next = "stirred" },
         { text = "How do the Darkspear find Ashenvale?", next = "ashenvale" },
         { text = "You do not seem busy.", next = "busy" },
@@ -127,8 +170,47 @@ P:NPC {
       lines = { { id = "sp_default", text = "Maybe, by somebody who asks nice and brings dem something. I leave a little offering by the north gate every night, and the ones near the post be quieter for it, but I am one troll with one bowl." } },
       choices = { { text = "I will leave one too. Something else.", next = "BACK" } },
     },
+    yfra_offering = {
+      lines = {
+        { id = "yyfra_offering_d", text = "A bit of bread, a bead or two, and a little rum when I can get it. De spirits don't need much, mon, only to know somebody be thinking about dem. Kuray'bin says I be wasting good rum, and he be right, but de saw crews sleep better." },
+      },
+      choices = {
+        { text = "Do the spirits answer you?", next = "yfra_answer" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfra_answer = {
+      narr = "Framnali taps the side of her head with one long finger and grins.",
+      lines = {
+        { id = "yyfra_answer_d", text = "Not in words, mon, but in dreams, sometimes. I dreamed last week of a great owl, white as bone, sitting on de stump of a tree near de east camp. It looked at me like it was waiting, and I woke up cold." },
+      },
+      choices = {
+        { text = "What do you think it means?", next = "yfra_means" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfra_means = {
+      lines = {
+        { id = "yyfra_means_d", text = "Dat de forest be angry, and dat it be watching. I could tell de overseers, and dey would laugh, or I could go out to de stump myself and leave something bigger. De loa don't like a troll who does nothing." },
+      },
+      choices = {
+        { text = "Tell the overseers. They need to know.", next = "BACK", reply = "Ya, dey need to. Dey won't listen, but I'll tell dem anyway.", fx = { align = { light = 1 } } },
+        { text = "Go to the stump. Deal with it yourself.", next = "BACK", reply = "Ha! Dat be de troll way, mon. I'll go tonight, quiet-like.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfra_troll = {
+      lines = {
+        { id = "yyfra_troll_d", text = "Ah, mon, it be good to talk to somebody who don't need everything explained. Dis forest be full of spirits, angry ones, and de orcs don't hear dem. We gotta keep our eyes open, you and me, for all of us." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    sen_jin_village = { { id = "tp_ysen_jin_village", text = "Home, mon. De sea and de sun and Vol'jin's voice." } },
+    ashenvale_spirits = { { id = "tp_yashenvale_spirits", text = "Dey be angry, and dey be watching. I leave dem offerings." } },
     background = { { id = "tp_bg", text = "I be Darkspear, from Sen'jin Village. I go where the tribe wants eyes." } },
     darkspear = { { id = "tp_dark", text = "My tribe, mon. Vol'jin leads us, and we stand with Thrall because he stood with us." } },
     _none = { { id = "tp_none", text = "I been watching, and I did not see dat. Ask Kuray'bin, he watches the other half." } },
@@ -165,6 +247,8 @@ P:NPC {
         { id = "h_again2", text = "Speak when you are ready. I am in no hurry." },
       },
       choices = {
+        { text = "Have you seen the druids of the Circle here?", next = "yhra_circle" },
+        { text = "I'm of the Shu'halo. Why stay among the stumps?", next = "yhra_tauren", when = { race = "Tauren" } },
         { text = "What troubles you about the forest?", next = "troubles" },
         { text = "You miss Mulgore.", next = "mulgore" },
         { text = "The Horde needs this lumber.", next = "lumber" },
@@ -195,8 +279,47 @@ P:NPC {
       lines = { { id = "d_default", text = "By walking behind the saw crews and coaxing the seedlings up where they have passed. It is slow, and the Warsong think it foolish, but Yama Snowhoof's brother came here to do the same, and I pray he is found." } },
       choices = { { text = "I will plant where I can. Something else.", next = "BACK" } },
     },
+    yhra_circle = {
+      lines = {
+        { id = "yyhra_circle_d", text = "Once, near the Raynewood, a druid of the kaldorei who was tending a fallen tree as I was. We looked at each other for a long time, and then she nodded and went on with her work, and so did I." },
+      },
+      choices = {
+        { text = "Did you speak?", next = "yhra_speak" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhra_speak = {
+      narr = "Har'alen's ears twitch, and he smiles faintly at some private memory.",
+      lines = {
+        { id = "yyhra_speak_d", text = "No, for we had no common tongue, and our peoples are at war. But I think we understood each other well enough. I have wondered since if there might be a way for the tauren and the kaldorei to tend this forest together." },
+      },
+      choices = {
+        { text = "Would the Horde allow that?", next = "yhra_allow" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhra_allow = {
+      lines = {
+        { id = "yyhra_allow_d", text = "The Warsong would not, for they see every elf as an enemy. Cairne might, for he is wise, and Thrall might, for he has always looked beyond the axe. But I am only a tauren with a seed pouch, and I am not sure I should even try." },
+      },
+      choices = {
+        { text = "Wait for Cairne. It's his choice to make.", next = "BACK", reply = "Yes. A herd follows its chieftain, and I will wait for his word.", fx = { align = { order = 1 } } },
+        { text = "Try it yourself. Someone has to begin.", next = "BACK", reply = "You speak boldly. Perhaps I will leave a seedling where she will find it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhra_tauren = {
+      lines = {
+        { id = "yyhra_tauren_d", text = "Because Cairne gave his word, and I am of the Bloodhoof. But also because someone must coax the seedlings up behind the saws, and the orcs will not. If I left, there would be only stumps, and no hope at all." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    cenarion_circle = { { id = "tp_ycenarion_circle", text = "The druids of the Circle. I have seen one of their kaldorei here, tending the trees." } },
+    splintertree_post = { { id = "tp_ysplintertree_post", text = "The Horde's post. I coax the seedlings up behind its saws." } },
     background = { { id = "tp_bg", text = "I am of the Bloodhoof, born beneath Thunder Bluff. I came because the herd was asked." } },
     cairne = { { id = "tp_cairne", text = "Our high chieftain, wise and strong. He bound us to the Horde, and I trust his reasons." } },
     _none = { { id = "tp_none", text = "The winds have not carried that to me. Ask Senani Thunderheart, who walks further than I." } },
@@ -234,6 +357,8 @@ P:NPC {
         { id = "h_again2", text = "Do go on. I have nothing but time, as you may imagine." },
       },
       choices = {
+        { text = "What did you lose in Lordaeron?", next = "yver_lost" },
+        { text = "You're among the Dark Lady's own here, sister.", next = "yver_forsaken", when = { race = "Scourge" } },
         { text = "What brings a Forsaken to Ashenvale?", next = "brings" },
         { text = "The orcs do not seem to trust you.", next = "trust" },
         { text = "What do you observe?", next = "observe" },
@@ -267,8 +392,47 @@ P:NPC {
       lines = { { id = "u_default", text = "Nothing in the Undercity misses anyone, which is among its comforts. I shall return when the Society recalls me, and until then I have this charming corner and the smell of boar stew." } },
       choices = { { text = "Endure it well, sister.", next = "BACK", fx = { affinity = 1 } } },
     },
+    yver_lost = {
+      lines = {
+        { id = "yyver_lost_d", text = "A house on the river near Lordamere Lake, a husband who painted, and a daughter who played the harp very badly. The plague took them all, and then it took me, and I rose in a field of grain with no memory of how I came there." },
+      },
+      choices = {
+        { text = "Do you remember them clearly?", next = "yver_remember" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yver_remember = {
+      narr = "Vera turns her cup slowly on the table, though there is nothing in it.",
+      lines = {
+        { id = "yyver_remember_d", text = "Clearly enough to know I loved them, and not clearly enough to feel it. That is the cruelest part of unlife, I think, more than the rot. I remember my daughter's harp, but not her face, and I have stopped trying." },
+      },
+      choices = {
+        { text = "Should you keep trying?", next = "yver_try" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yver_try = {
+      lines = {
+        { id = "yyver_try_d", text = "The Society says memories are a weakness, and that a Forsaken who clings to the past will never serve the Dark Lady well. Some of my colleagues have cut theirs away entirely, with alchemy, and they say they are happier." },
+      },
+      choices = {
+        { text = "Keep your memories. They are part of you.", next = "BACK", reply = "Perhaps. They are all I have left of them, after all.", fx = { align = { light = 1 } } },
+        { text = "Let them go. The past cannot help you now.", next = "BACK", reply = "That is the Society's view, and it is sensible. I am not sure I can.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yver_forsaken = {
+      lines = {
+        { id = "yyver_forsaken_d", text = "How refreshing to hear. The orcs mean well, I suppose, but they stare at me as though I might fall apart over supper. You and I know better. We fall apart slowly, and with a great deal more dignity." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    royal_apothecary_society = { { id = "tp_yroyal_apothecary_society", text = "I collect for them. What they do with it is their own affair." } },
+    lordamere_lake = { { id = "tp_ylordamere_lake", text = "My house was there, once, on the river. I do not go back." } },
     background = { { id = "tp_bg", text = "I had a life in Lordaeron once, and then the Plague. What I am now serves the Dark Lady, and that suffices." } },
     _none = { { id = "tp_none", text = "I have not observed that, and I do not speculate. Ask one of the living, who are so fond of talking." } },
   },
@@ -304,6 +468,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, friend. The fire has a while to burn yet." },
       },
       choices = {
+        { text = "How did you come north with the Horde?", next = "yfer_north" },
+        { text = "I'm a hunter. What do the birds tell you?", next = "yfer_hunter", when = { class = "HUNTER" } },
         { text = "What do you watch for out here?", next = "watch" },
         { text = "Gurda seems worried about her machine.", next = "gurda" },
         { text = "A tauren beside a shredder is a strange sight.", next = "strange" },
@@ -329,8 +495,47 @@ P:NPC {
       lines = { { id = "st_default", text = "It is, and I have not made my peace with the thing. It eats a tree in the time it takes me to greet one, and I have asked to be posted where I can at least see which groves it is pointed at." } },
       choices = { { text = "Someone should watch it. Something else.", next = "BACK" } },
     },
+    yfer_north = {
+      lines = {
+        { id = "yyfer_north_d", text = "With my brother, Garn, who wanted to see the forests of the north and fight beside the orcs. He was a warrior and I was a hunter, and we came up through the Barrens together with a Warsong caravan, four winters ago." },
+      },
+      choices = {
+        { text = "Where is your brother now?", next = "yfer_garn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfer_garn = {
+      narr = "Feran looks into the fire for a long time before answering, and the smoke drifts between you.",
+      lines = {
+        { id = "yyfer_garn_d", text = "He fell at Warsong Gulch two springs past, to a Sentinel arrow. I buried him under a great oak at the edge of the camp, because the orcs burn their dead and I could not bear to see him burned. They did not understand, but they let me." },
+      },
+      choices = {
+        { text = "Do you stay here because of him?", next = "yfer_stay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfer_stay = {
+      lines = {
+        { id = "yyfer_stay_d", text = "Partly, for I would not leave his tree to the saws. But the Warsong want to cut that grove next spring, and I have asked them to spare it. They say a single oak is nothing, and I say a single oak is everything to me." },
+      },
+      choices = {
+        { text = "Defend his tree. Your brother's rest matters.", next = "BACK", reply = "Yes. I will stand by it, if I must stand against the saws.", fx = { align = { honor = 1 } } },
+        { text = "Let it go. The Horde needs the wood.", next = "BACK", reply = "Perhaps. But I do not think I could watch it fall.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfer_hunter = {
+      lines = {
+        { id = "yyfer_hunter_d", text = "When they sing, the forest is empty of strangers. When they go silent, something is watching. When they scatter all at once, it is an elf, and she is close. Learn to listen, and the birds will be your best scouts." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    warsong_gulch = { { id = "tp_ywarsong_gulch", text = "Where my brother fell. I buried him under an oak there." } },
+    mulgore = { { id = "tp_ymulgore", text = "My home, where the birds sing differently. I miss it." } },
     background = { { id = "tp_bg", text = "I hunted the plains of Mulgore before I came north with the Horde. Watching is the half of hunting I was always best at." } },
     warsong = { { id = "tp_war", text = "A fierce clan, and loyal. I wish they loved the forest half as much as they love the fight." } },
     _none = { { id = "tp_none", text = "The birds have not told me. Ask at Splintertree, where there are more mouths than at this fire." } },
@@ -450,6 +655,8 @@ P:NPC {
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
+        { text = "What did you do in Lordaeron?", next = "ymrd_life" },
+        { text = "A fellow Forsaken asks: do you remember your name?", next = "ymrd_forsaken", when = { race = "Scourge" } },
         { text = "What are the apothecaries brewing?", next = "brewing" },
         { text = "What worse things come by night?", next = "night" },
         { text = "Darkslayer is a heavy title.", next = "title" },
@@ -478,8 +685,47 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ymrd_life = {
+      lines = {
+        { id = "yymrd_life_d", text = "I was a sergeant of the Lordaeron guard, posted at the gates of Andorhal, and I had a wife and a son. When the plague came through the granaries, I was ordered to hold the gates closed, and I held them while the town died inside." },
+      },
+      choices = {
+        { text = "Did your family survive?", next = "ymrd_family" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymrd_family = {
+      narr = "Mordenthal's hand tightens on the hilt of his blade, the bones of his knuckles showing through the grey skin.",
+      lines = {
+        { id = "yymrd_family_d", text = "No. They were inside, and when they rose, I was one of the guards sent to put them down again. I did it, because the Scourge made me, and I remember every moment of it. That is why I am called Darkslayer." },
+      },
+      choices = {
+        { text = "Do you want revenge on the Scourge?", next = "ymrd_revenge" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymrd_revenge = {
+      lines = {
+        { id = "yymrd_revenge_d", text = "I want more than revenge. I want the plague the apothecaries are brewing to burn through every walking corpse in Lordaeron. If it burns through other things as well, I do not think I would grieve." },
+      },
+      choices = {
+        { text = "Then let it burn. The Scourge must end.", next = "BACK", reply = "Yes. You understand. Few of the living do.", fx = { align = { light = -1 } } },
+        { text = "Not at any cost. The innocent must be spared.", next = "BACK", reply = "Innocent. A word for the living. I have forgotten what it means.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymrd_forsaken = {
+      lines = {
+        { id = "yymrd_forsaken_d", text = "I remember it, though I do not use it. Darkslayer is what I am now, and that is a name I earned. Keep your own, if it gives you comfort, but do not let it make you weak." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    andorhal = { { id = "tp_yandorhal", text = "I held its gates. I watched it die." } },
+    royal_apothecary_society = { { id = "tp_yroyal_apothecary_society", text = "They brew, and I guard. I do not ask questions." } },
     background = { { id = "tp_bg", text = "A soldier of Lordaeron once. Now a soldier of the Forsaken, and better at it." } },
     _none = { { id = "tp_none", text = "I guard a camp, and that is not part of it. Ask the apothecaries, if you can bear them." } },
   },

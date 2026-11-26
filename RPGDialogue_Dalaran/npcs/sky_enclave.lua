@@ -711,6 +711,8 @@ P:NPC {
       },
       again = { { id = "a_again", text = "*Toby has not moved off the papers, and he plainly never will.*" } },
       choices = {
+        { text = "Follow his gaze toward the stairs.", next = "ytob_stairs" },
+        { text = "Scratch him under the chin.", next = "ytob_chin" },
         { text = "Offer him a scrap of cheese.", next = "xcheese" },
         { text = "Read the paper he's sitting on.", next = "xread" },
         { text = "Toby, are you guarding something?", next = "xguard" },
@@ -721,6 +723,48 @@ P:NPC {
         { text = "Carry on, then. The papers are in good hands.", next = "END", reply = "*Toby gives you a slow blink, the nearest thing to a salute a cat will give.*" },
       },
     },
+    ytob_stairs = {
+      lines = {
+        { id = "yytob_stairs_d", text = "*At the top of the stairs a robed apprentice pauses, sees Toby, sighs very quietly, and goes back down without the papers. Toby watches him go with an air of quiet triumph.*" },
+      },
+      choices = {
+        { text = "Wait to see if the apprentice comes back.", next = "ytob_back" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytob_back = {
+      narr = "A door shuts somewhere below, and the apprentice's footsteps fade away down the hall.",
+      lines = {
+        { id = "yytob_back_d", text = "*He does not. Toby rearranges himself on the stack, kneading the topmost sheet with both front paws until it crinkles, and then settles with his chin resting on the wax seal.*" },
+      },
+      choices = {
+        { text = "Look at the seal under his chin.", next = "ytob_seal" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytob_seal = {
+      lines = {
+        { id = "yytob_seal_v0", when = { class = "MAGE" }, text = "*The seal bears the mark of the Kirin Tor, and a ward has been woven into the wax, so faint that only a mage would feel it. Toby's whiskers twitch whenever your hand comes near it, as though he feels it too.*" },
+        { id = "yytob_seal_d", text = "*The seal bears the violet eye of the Kirin Tor, pressed firmly into the wax. Toby lifts his chin, glances at you, and lays it down again a little more firmly than before.*" },
+      },
+      choices = {
+        { text = "Leave the seal alone. He's guarding it properly.", next = "BACK", reply = "*Toby blinks slowly at you, the highest honour a cat can bestow.*", fx = { align = { order = 1 } } },
+        { text = "Nudge his chin off the seal for a better look.", next = "BACK", reply = "*Toby flattens his ears, then puts his chin straight back where it was.*", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytob_chin = {
+      lines = {
+        { id = "yytob_chin_d", text = "*Toby tolerates it for exactly three strokes, then leans into your fingers despite himself, and a low purr rumbles out of him like a distant enchantment warming up.*" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    silver_enclave = { { id = "tp_ysilver_enclave", text = "*Toby twitches an ear at the name, as if to say this is his floor and you are visiting it.*" } },
+    kirin_tor = { { id = "tp_ykirin_tor", text = "*At the mention of the Kirin Tor, Toby settles more firmly on the papers, as if on their business.*" } },
   },
 }
 
@@ -770,6 +814,8 @@ P:NPC {
       },
       again = { { id = "a_again", text = "*Tycho has gone back to watching the sky.*" } },
       choices = {
+        { text = "Ask whose cat he is.", next = "ytyc_whose" },
+        { text = "Lean out and look up with him.", next = "ytyc_look" },
         { text = "Point out a bright star to him.", next = "xstar" },
         { text = "Sit beside him at the window.", next = "xsit" },
         { text = "Does an astronomer feed you, Tycho?", next = "xfood" },
@@ -780,5 +826,47 @@ P:NPC {
         { text = "Don't fall out of the window, now.", next = "END", reply = "*Tycho shifts his weight back an inch, purely to humour you.*" },
       },
     },
+    ytyc_whose = {
+      lines = {
+        { id = "yytyc_whose_d", text = "*Tycho does not answer, being a cat, but his collar does. A tiny brass tag reads, in very neat script, Property of the Observatory, and beneath it, in a different and much smaller hand, Please Do Not Feed.*" },
+      },
+      choices = {
+        { text = "Read the smaller words more closely.", next = "ytyc_small" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytyc_small = {
+      narr = "Tycho turns his head and gazes at you as though daring you to obey the tag.",
+      lines = {
+        { id = "yytyc_small_d", text = "*Someone has scratched a second line beneath, almost too small to see: He has already eaten. Do not believe him. Tycho looks up at you with enormous, mournful eyes, as though he has not eaten in a week.*" },
+      },
+      choices = {
+        { text = "He looks so hungry.", next = "ytyc_hungry" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytyc_hungry = {
+      lines = {
+        { id = "yytyc_hungry_v0", when = { race = "NightElf" }, text = "*Tycho looks at you with the solemn patience of something that has watched the stars for a very long time. You know that look. You have seen it on elves who remember the world before it broke.*" },
+        { id = "yytyc_hungry_d", text = "*Tycho stares at you, unblinking, as if he has all the time in the world and nowhere else to be. He seems to be weighing up whether you are a soft touch or a disciplinarian.*" },
+      },
+      choices = {
+        { text = "Obey the tag. No food, Tycho.", next = "BACK", reply = "*Tycho turns back to the stars with a flick of his tail, deeply offended.*", fx = { align = { order = 1 } } },
+        { text = "One tiny crumb won't hurt.", next = "BACK", reply = "*Tycho takes it delicately, then looks at you as though you have joined a conspiracy.*", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytyc_look = {
+      lines = {
+        { id = "yytyc_look_d", text = "*You lean out beside him. Far below, the violet spires of the city gleam in the starlight, and above, the stars wheel slowly over the mountains of Alterac. Tycho's whiskers brush your cheek, and he does not move away.*" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    observatory = { { id = "tp_yobservatory", text = "*At the word observatory, Tycho's ears prick up and he glances toward the stairs, then back at the sky.*" } },
+    stars = { { id = "tp_ystars", text = "*Tycho's eyes follow the stars as if he were counting them, and perhaps he is.*" } },
   },
 }

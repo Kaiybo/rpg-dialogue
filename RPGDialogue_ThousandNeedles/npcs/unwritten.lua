@@ -32,6 +32,8 @@ P:NPC {
         { text = "How long has the war party been out here?", next = "xlong" },
         { text = "What is Moktar Krin like?", next = "xmoktar" },
         { text = "Where did you fight before this?", next = "xwar", when = { race = "Orc" } },
+        { text = "What troubles you about the Grimtotem?", next = "ygrim" },
+        { text = "Tell me about your kodo.", next = "ykodo" },
         { text = "Good hunting.", next = "END" },
       },
     },
@@ -99,8 +101,26 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ygrim = {
+      narr = "He glances up toward the high mesas, where smoke rises thin against the sky.",
+      lines = {
+        { id = "ygr_default", text = "They are tauren, and they are Horde in name, but they look at us like a wolf looks at a lamb. They want the Needles for themselves. If they come down from the high places, the war party will fight them, and Thunder Bluff will not thank us." },
+        { id = "ygr_tauren", when = { race = "Tauren" }, text = "They are your people, tauren, but they look at us as wolves look at lambs. If they come down from the mesas, we will fight. I would rather your Cairne dealt with them before my axe has to." },
+      },
+      choices = {
+        { text = "Strike first, before they come down.", next = "BACK", reply = "Moktar would like that. Cairne would not.", fx = { align = { order = -1 } } },
+        { text = "Leave it to Thunder Bluff. It's their matter.", next = "BACK", reply = "Wise words. An orc does not meddle in tauren blood.", fx = { align = { order = 1 } } },
+      },
+    },
+    ykodo = {
+      lines = { { id = "yko_default", text = "His name is Grumbak, and he has carried meat for the war party for six seasons. He bites strangers and he bites my brother, so he has good judgment. When he dies, I will eat him, because that is respect." } },
+      choices = { { text = "That's one kind of respect. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    grimtotem = { { id = "yt_grim", text = "The Grimtotem watch us from Darkcloud Pinnacle. They are not friends, whatever banner they claim." } },
+    nagzehn = { { id = "yt_nag", text = "Nag'zehn is my brother. He thinks he leads. I let him think it." } },
+    _none = { { id = "yt_none", text = "I hunt. I do not know that. Ask Moktar, if he feels like talking, which he will not." } },
     moktar_krin = { { id = "tp_xmoktar_krin", text = "Moktar leads the war party. When he points, we hunt." } },
     ironstone_camp = { { id = "tp_xironstone_camp", text = "Ironstone Camp is ours for the season. The cookfire never goes out." } },
   },
@@ -132,6 +152,7 @@ P:NPC {
         { text = "Is your brother older or younger?", next = "xbrother" },
         { text = "What do you think of the tauren here?", next = "xtauren" },
         { text = "A hunter's advice for a fellow hunter?", next = "xhunt", when = { class = "HUNTER" } },
+        { text = "What do you see at night from the cliffs?", next = "ynight" },
         { text = "I'll keep quiet.", next = "END" },
       },
     },
@@ -190,8 +211,21 @@ P:NPC {
         { text = "Good advice.", next = "BACK", reply = "Hard won, too. Ask Tarkreu about his scar." },
       },
     },
+    ynight = {
+      narr = "He nods toward a dark ledge far across the canyon.",
+      lines = {
+        { id = "yni_default", text = "Fires on the Grimtotem mesa, more each night, and drums I do not like. Something is stirring up there. I told Moktar, and Moktar said keep watching, which is what Moktar says about everything. I have stopped sleeping well." },
+        { id = "yni_tauren", when = { race = "Tauren" }, text = "Fires on the Grimtotem mesa, more each night, and drums. You are tauren, so tell me, cousin, are those war drums? Moktar says keep watching. I have stopped sleeping well." },
+      },
+      choices = { { text = "I'll look into it. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    harpies = { { id = "yt_harp", text = "Harpies nest on the high ledges and scream at dawn. My arrows quiet a few each morning." } },
+    moktar = { { id = "yt_moktar", text = "Moktar Krin leads us. He speaks little, and when he points, we go." } },
+    wind_serpents = { { id = "yt_serp", text = "Wind serpents nest on the high ledges. Their breath crackles like a storm, so do not stand under one." } },
+    tarkreu = { { id = "yt_tark", text = "Tarkreu walks in shadows and talks to no one. I trust him with my back, and not with my supper." } },
+    _none = { { id = "yt_none", text = "I watch the sky, not the gossip. Ask my brother. He listens to everything and remembers half." } },
     bor_zehn = { { id = "tp_xbor_zehn", text = "My brother. He guards the fire and complains about the cold." } },
     grimtotem = { { id = "tp_xgrimtotem", text = "The Grimtotem watch us from the high mesas. I watch them back." } },
   },
@@ -227,6 +261,7 @@ P:NPC {
         { text = "How did you get that scar?", next = "xscar" },
         { text = "What have you seen of the Grimtotem?", next = "xgrim" },
         { text = "I walk in shadows too.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Where did you learn the shadows?", next = "ylearn" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -273,8 +308,20 @@ P:NPC {
         { text = "I'll remember.", next = "BACK", reply = "Do. And step lightly near the camp, or Bor'zehn will throw his axe." },
       },
     },
+    ylearn = {
+      lines = {
+        { id = "yle_default", text = "In the internment camps, as a cub. You learned to move without being seen, or the guards found you, and the guards were not kind. When the Warchief freed us, I kept the skill and lost the fear. Mostly." },
+        { id = "yle_orc", when = { race = "Orc" }, text = "In the camps, as a cub. You know of them, brother, or your parents did. Move unseen or be found, and the guards were not kind. The Warchief freed us. I kept the skill and lost most of the fear." },
+      },
+      choices = { { text = "A hard school. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    galak = { { id = "yt_galak", text = "The Galak centaur ride loud and track badly. I have walked through their camp twice, and they never knew." } },
+    camps = { { id = "yt_camps", text = "The camps taught me silence. Thrall taught me what to do with it." } },
+    cougars = { { id = "yt_cougar", text = "The cougars of the Needles hunt from above. Look up before you climb, or you will look up from the ground." } },
+    nagzehn = { { id = "yt_nag", text = "Nag'zehn laughs at my scar every night. I let him. Laughter is rare out here." } },
+    _none = { { id = "yt_none", text = "I know paths and shadows, not that. Ask someone louder." } },
     darkcloud_pinnacle = { { id = "tp_xdarkcloud_pinnacle", text = "Darkcloud Pinnacle is Grimtotem ground. Go there and you will not come back quietly." } },
     moktar_krin = { { id = "tp_xmoktar_krin", text = "Moktar trusts me to see what he cannot. I have not failed him yet." } },
   },
@@ -312,6 +359,8 @@ P:NPC {
         { text = "Tell me about the Great Lift.", next = "lift" },
         { text = "What does Freewind Post need?", next = "freewind" },
         { text = "Do the runners still honour the old paths?", next = "paths", when = { race = "Tauren" } },
+        { text = "Has the road ever nearly taken you?", next = "ynear" },
+        { text = "Who waits for you at home?", next = "yhome" },
         { text = "Safe running.", next = "END" },
       },
     },
@@ -345,6 +394,28 @@ P:NPC {
       lines = { { id = "p_default", text = "We do, those of us who remember them. My grandfather ran from Mulgore to the sea on paths no orc has ever seen, and I hope to show them to my own children." } },
       choices = { { text = "May they run them well.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ynear = {
+      narr = "He touches a long, pale scar along his flank without seeming to notice.",
+      lines = {
+        { id = "yne_default", text = "Once, below the lift, when three Galak riders came out of a dry gully. I ran until my hooves bled, and I carried the message the whole way, and the Cliffwatcher read it and said only, you are late. I laughed until I wept." },
+        { id = "yne_orc", when = { race = "Orc" }, text = "Once, when three Galak riders came out of a gully. An orc grunt on the Barrens road saw them and charged, alone, so I could run. I never learned his name. I honour your people for him." },
+      },
+      choices = { { text = "You earned that laugh. Something else.", next = "BACK" } },
+    },
+    yhome = {
+      lines = { { id = "yho_default", text = "A mate on the Bluff, and two calves who want to run messages too. I would rather they became weavers, who sit by fires and live long. But a runner runs, and I cannot tell them not to follow. Should I?" } },
+      choices = {
+        { text = "Let them run. It is their path.", next = "BACK", reply = "Yes. The wind does not ask permission, and neither will they.", fx = { align = { order = -1 } } },
+        { text = "Guide them to safer work. That's a father's duty.", next = "BACK", reply = "My mate says the same. Perhaps I will listen, this once.", fx = { align = { order = 1 } } },
+      },
+    },
+  },
+  topics = {
+    cliffwatcher = { { id = "yt_cliff", text = "Cliffwatcher Longhorn sees farther than any tauren alive, and still asks why I am late." } },
+    great_lift = { { id = "yt_lift", text = "The Great Lift joins the Barrens to the Needles. Its ropes are checked every dawn, and I thank the Earth Mother every crossing." } },
+    galak = { { id = "yt_galak", text = "The Galak centaur roam the canyons below. They are fast, but a tauren runner knows the ground better." } },
+    thunder_bluff = { { id = "yt_tb", text = "Thunder Bluff stands high on its mesas, and from its edge you can see half of Mulgore. I carry its word to Freewind." } },
+    _none = { { id = "yt_none", text = "I carry messages, traveller, not answers. Ask at Freewind, where the elders keep both." } },
   },
 }
 
@@ -381,6 +452,8 @@ P:NPC {
         { text = "Why live up here alone?", next = "alone" },
         { text = "What are the Needles like from up here?", next = "view" },
         { text = "I'm ready for the Call of Air.", next = "call", when = { class = "SHAMAN" } },
+        { text = "How did you become a shaman?", next = "ybecame" },
+        { text = "What does the wind tell you of the Grimtotem?", next = "ygrim" },
         { text = "I'll leave you to the wind.", next = "END" },
       },
     },
@@ -410,6 +483,28 @@ P:NPC {
       lines = { { id = "c_default", text = "Then hold your totem high and let the wind find it. Do not grip it, child, for the wind does not stay where it is held." } },
       choices = { { text = "I understand.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ybecame = {
+      lines = {
+        { id = "ybc_default", text = "As a calf I climbed the tallest rock in Mulgore during a storm, because I wanted to see where the thunder lived. My mother found me there at dawn, soaked and laughing, and the elders said the wind had chosen me. I think I chose it, and it was too polite to refuse." },
+        { id = "ybc_shaman", when = { class = "SHAMAN" }, text = "As a calf I climbed the tallest rock in Mulgore in a storm to see where the thunder lived. You have felt that pull too, I think, or you would not be here. The wind chooses, but we must climb." },
+      },
+      choices = { { text = "A fine beginning. Something else.", next = "BACK" } },
+    },
+    ygrim = {
+      narr = "She tilts her head, as though listening to something only she can hear.",
+      lines = { { id = "ygm_default", text = "It carries anger, and the smell of old blood magic. The Grimtotem say the Earth Mother gave the mesas to them alone. The braves wish to drive them out. The elders wish to wait. What would you do, child?" } },
+      choices = {
+        { text = "Drive them out before the anger spills over.", next = "BACK", reply = "The braves would cheer you. The wind is less certain.", fx = { align = { light = -1 } } },
+        { text = "Wait, and seek peace with them.", next = "BACK", reply = "Patience. Yes. The wind rewards those who wait.", fx = { align = { light = 1 } } },
+      },
+    },
+  },
+  topics = {
+    totems = { { id = "yt_totem", text = "A totem is a promise between a shaman and the elements. The air keeps its promises lightly, so you must keep yours firmly." } },
+    air = { { id = "yt_air", text = "The air holds every voice that has ever spoken. Listen long enough, and you will hear your own." } },
+    freewind = { { id = "yt_free", text = "Freewind Post is close enough for bread and far enough for silence. It suits me." } },
+    grimtotem = { { id = "yt_grim", text = "The Grimtotem have forgotten that the Earth Mother loves all her children. The wind has not forgotten." } },
+    _none = { { id = "yt_none", text = "The wind has not spoken of that. Perhaps it will, if you ask it yourself." } },
   },
 }
 
@@ -442,6 +537,7 @@ P:NPC {
         { text = "Tell me about your brothers.", next = "xbros" },
         { text = "What was Gnomeregan like?", next = "xgnomer" },
         { text = "Fellow gnome! Can I help the team?", next = "xhelp", when = { race = "Gnome" } },
+        { text = "What would you build, with unlimited funds?", next = "ydream" },
         { text = "Good luck in the race.", next = "END" },
       },
     },
@@ -500,8 +596,19 @@ P:NPC {
         { text = "I'll keep an eye out.", next = "BACK", reply = "Splendid! Percentage odds of victory just rose two points.", fx = { affinity = 1 } },
       },
     },
+    ydream = {
+      lines = {
+        { id = "ydr_default", text = "A car that flies! Well, a car that leaves the ground on purpose and comes back down on purpose, which is technically different from what ours already do. I've the blueprints in my boot, eighty-one pages, and Fizzle says the chance of success is four percent. Four percent is not zero!" },
+        { id = "ydr_eng", when = { profession = "Engineering" }, text = "A flying car, on purpose! You're an engineer, you'll appreciate this: eighty-one pages of blueprints, and Fizzle puts it at four percent. But four percent is a number, and numbers can be improved!" },
+      },
+      choices = { { text = "Four percent is a start. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    pozzik = { { id = "yt_pozzik", text = "Pozzik paints his car red and calls it new. I've measured it. It's my car, plus paint." } },
+    turtle = { { id = "yt_turtle", text = "The turtle ate a whole car! My paper on it is very thorough, and nobody has read it." } },
+    goblins = { { id = "yt_gob", text = "Goblins build with hope and hammers. Gnomes build with math and hope. The hope is the part that explodes." } },
+    _none = { { id = "yt_none", text = "No idea! But if you give me a minute and some parts, I'll build something that does." } },
     fizzle = { { id = "tp_xfizzle", text = "Fizzle is my brother, and the reason our car goes forward." } },
     gnomeregan = { { id = "tp_xgnomeregan", text = "We'll take Gnomeregan back one day, and I'll drive the first car through the gates." } },
   },
@@ -533,6 +640,7 @@ P:NPC {
         { text = "How did you become drag master?", next = "xhow" },
         { text = "Have the gnomes ever won?", next = "xwon" },
         { text = "I'm a gnome. Are we winning?", next = "xgnome", when = { race = "Gnome" } },
+        { text = "What happened to you in Gnomeregan?", next = "ygnomer" },
         { text = "I'll clear the track.", next = "END" },
       },
     },
@@ -588,8 +696,21 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ygnomer = {
+      narr = "He pockets the stopwatch for once, and his fingers keep moving against the fabric.",
+      lines = {
+        { id = "ygn_default", text = "I was a timekeeper for the great lift schedules, two hundred and six lifts to the second. When the alarms sounded I stayed to keep the evacuation lifts on time, and I did, every one of them, until there was nobody left to lift. Then I took the last one up myself." },
+        { id = "ygn_gnome", when = { race = "Gnome" }, text = "Lift scheduler, two hundred and six lifts to the second. You rode one up, I'd wager, in the evacuation. If it was on time, that was me. I stayed until nobody was left, then took the last one." },
+      },
+      choices = { { text = "That was brave of you. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    shimmering_flats = { { id = "yt_flats", text = "The flats are perfectly level for eleven miles, which makes them the only honest surface in Kalimdor." } },
+    rizzle = { { id = "yt_rizzle", text = "Rizzle Brassbolts builds our car. His tolerances are optimistic, and his optimism is intolerable." } },
+    kronkrider = { { id = "yt_kronk", text = "Race Master Kronkrider wears a sash and interprets rules. I wear a stopwatch and measure them." } },
+    goblins = { { id = "yt_gob", text = "The goblin team's times are suspiciously round. Nothing in nature is suspiciously round, except goblins." } },
+    _none = { { id = "yt_none", text = "That is outside my measurement, I'm afraid. Come back with something I can time." } },
     mirage_raceway = { { id = "tp_xmirage_raceway", text = "The Mirage Raceway is the finest test track in Kalimdor, salt flat and miles long." } },
     gnomeregan = { { id = "tp_xgnomeregan", text = "We lost Gnomeregan, but we still have speed. That is something." } },
   },
@@ -621,6 +742,7 @@ P:NPC {
         { text = "How did you get this job?", next = "xhow" },
         { text = "What's the worst crash you've seen?", next = "xcrash" },
         { text = "Who pays you?", next = "xpay" },
+        { text = "Does anyone ever get badly hurt?", next = "yhurt" },
         { text = "Enjoy the race.", next = "END" },
       },
     },
@@ -679,8 +801,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yhurt = {
+      narr = "He lowers the flag and looks out over the salt for a long moment.",
+      lines = {
+        { id = "yhu_default", text = "Two seasons back a goblin driver named Tixxie went into the north turn too hot and didn't come out. Both crews stopped work for a day, and the gnomes built her a little brass marker by the turn. Nobody talks about it, but everybody slows down there." },
+        { id = "yhu_goblin", when = { race = "Goblin" }, text = "Two seasons back a driver of yours, Tixxie, went into the north turn too hot. Both crews stopped for a day, and the gnomes built her a brass marker. Everybody slows there now, even Pozzik." },
+      },
+      choices = {
+        { text = "Should you ban the north turn?", next = "yban" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yban = {
+      lines = { { id = "yba_default", text = "The bookies say a race without danger draws no crowd, and no crowd means no raceway. Tixxie's crew say ban it, and I'm the one who has to decide. Well, what would you do?" } },
+      choices = {
+        { text = "Ban it. No crowd is worth a life.", next = "BACK", reply = "I'd like to. The bookies will scream, but I'd like to.", fx = { align = { light = 1 } } },
+        { text = "Keep it. The drivers know the risk.", next = "BACK", reply = "That's what Tixxie would've said, sure enough.", fx = { align = { light = -1 } } },
+      },
+    },
   },
   topics = {
+    tixxie = { { id = "yt_tixxie", text = "Tixxie's marker stands by the north turn. Drivers tap it for luck on the way past." } },
+    rules = { { id = "yt_rules", text = "Three rules: stay on the track, finish the race, no explosions before the line. I read them aloud every morning, to an empty pit." } },
+    steamwheedle = { { id = "yt_steam", text = "The Steamwheedle Cartel keeps the raceway going through the Gadgetzan bookies. They like their sport honest, more or less." } },
+    _none = { { id = "yt_none", text = "Not in the rulebook, friend, and if it isn't in the rulebook, I don't rule on it." } },
     mirage_raceway = { { id = "tp_xmirage_raceway", text = "The Mirage Raceway. Miles of flat salt and two crews who'd rather explode than lose." } },
     pozzik = { { id = "tp_xpozzik", text = "Pozzik drives for the goblins. Brave, fast and never once read the rules." } },
   },
@@ -711,6 +855,8 @@ P:NPC {
         { text = "What was life like before the race?", next = "xbefore" },
         { text = "What is your favourite meat?", next = "xmeat" },
         { text = "Do you like the goblins?", next = "xgob" },
+        { text = "What happens when a car crashes?", next = "ycrash" },
+        { text = "Can you say something quietly, Fobeed?", next = "yquiet" },
         { text = "Enjoy the race, Fobeed.", next = "END" },
       },
     },
@@ -765,8 +911,36 @@ P:NPC {
         { text = "You should cheer for everyone fairly.", next = "BACK", reply = "Hmm. Fobeed think about that. Fobeed still like goblins most.", fx = { align = { order = 1 } } },
       },
     },
+    ycrash = {
+      lines = {
+        { id = "ycr_default", text = "Fobeed shout BOOM very loud, so everyone know! Then pit crew run out, and Fobeed count how many crew come back. Usually all of them. Once one gnome stay on fire for long time, and Fobeed sad, but gnome okay now, and gnome have no hair." },
+        { id = "ycr_gnome", when = { race = "Gnome" }, text = "Fobeed shout BOOM so everyone know! Then little gnomes like you run out with buckets. Once one gnome stay on fire for long time, and Fobeed sad, but gnome okay now, just no hair." },
+      },
+      choices = {
+        { text = "Should the race be made safer?", next = "ysafe" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysafe = {
+      lines = { { id = "ysa_default", text = "Kronkrider say race should have more rules so less boom. Goblins say boom is what crowd come to see. Fobeed like boom, but Fobeed not like gnome on fire. What you think, small friend?" } },
+      choices = {
+        { text = "Less boom. Nobody should burn for a show.", next = "BACK", reply = "Fobeed tell Kronkrider. Kronkrider say Fobeed finally make sense.", fx = { align = { light = 1 } } },
+        { text = "More boom! The crowd wants it.", next = "BACK", reply = "MORE BOOM! Fobeed shout that next race.", fx = { align = { light = -1 } } },
+      },
+    },
+    yquiet = {
+      lines = {
+        { id = "yq_default", text = "Fobeed try. Fobeed... no. Fobeed cannot. Quiet hurt Fobeed's head, like putting big foot in little boot. Zuzubee say Fobeed whisper once in sleep, but Zuzubee lie a lot." },
+        { id = "yq_rogue", when = { class = "ROGUE" }, text = "You very quiet, sneaky friend. Fobeed try to be quiet like you. Fobeed... no, cannot. Quiet hurt Fobeed's head, like big foot in little boot." },
+      },
+      choices = { { text = "Never change, Fobeed. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    kronkrider = { { id = "yt_kronk", text = "Kronkrider wear sash and frown. Fobeed think sash very pretty. Fobeed not say so." } },
+    goblins = { { id = "yt_gob", text = "Goblins pay Fobeed meat. Goblins talk very fast, and Fobeed nod a lot." } },
+    dustwallow = { { id = "yt_dust", text = "Dustwallow is wet and smell like mud. Fobeed clan still there. Fobeed not go back." } },
+    _none = { { id = "yt_none", text = "Fobeed not know! Fobeed shout it anyway? No? Okay." } },
     zuzubee = { { id = "tp_xzuzubee", text = "Zuzubee shout for gnomes. Zuzubee is Fobeed's friend, and Fobeed's enemy, but mostly friend." } },
   },
 }
@@ -796,6 +970,8 @@ P:NPC {
         { text = "Where did you come from?", next = "xfrom" },
         { text = "Who is better, you or Fobeed?", next = "xfob" },
         { text = "Do the gnomes treat you well?", next = "xtreat" },
+        { text = "Do you ever miss Feralas?", next = "ymiss" },
+        { text = "What's the best race you ever saw?", next = "ybest" },
         { text = "Go gnomes.", next = "END" },
       },
     },
@@ -842,8 +1018,28 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ymiss = {
+      narr = "He takes off the shiny hat and turns it over in huge, careful hands.",
+      lines = {
+        { id = "ymi_default", text = "Zuzubee miss big trees and rain, a little. But in Feralas, big ogres push Zuzubee and say small one, go away. Here, gnomes say Zuzubee, please help, and Zuzubee help. Zuzubee think being needed is better than trees." },
+        { id = "ymi_nelf", when = { race = "NightElf" }, text = "You come from big tree lands too! Zuzubee miss rain, a little. But in Feralas big ogres push Zuzubee away. Here gnomes say Zuzubee, please help. Being needed is better than trees." },
+      },
+      choices = { { text = "Being needed is good. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    ybest = {
+      lines = {
+        { id = "ybs_default", text = "Gnome car and goblin car cross line same time, exactly! Zuzubee shout GNOMES and Fobeed shout GOBLINS, and Kronkrider say draw, and everybody angry and happy at once. Zuzubee hug Fobeed. Fobeed hug back, very hard, and Zuzubee ribs still sore." },
+        { id = "ybs_gnome", when = { race = "Gnome" }, text = "Gnome car and goblin car cross line same time! Zuzubee shout GNOMES so loud, small friend, your cousins fall over. Kronkrider say draw. Zuzubee hug Fobeed, and ribs still sore." },
+      },
+      choices = { { text = "That sounds wonderful. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    pozzik = { { id = "yt_pozzik", text = "Pozzik drive goblin car very fast and very on fire. Zuzubee cheer when Pozzik lose, but quietly." } },
+    kronkrider = { { id = "yt_kronk", text = "Kronkrider wave flag and read rules. Nobody listen, but Zuzubee clap for him anyway." } },
+    hat = { { id = "yt_hat", text = "Shiny hat make Zuzubee voice big as mountain. It smoke a little, but gnomes say that normal." } },
+    feralas = { { id = "yt_feralas", text = "Feralas has big trees, much rain and many ogres. Zuzubee not go back." } },
+    _none = { { id = "yt_none", text = "Zuzubee not know! Zuzubee ask gnomes. Gnomes know everything, except how to be tall." } },
     fobeed = { { id = "tp_xfobeed", text = "Fobeed shout for goblins. Fobeed wrong, but Fobeed is Zuzubee friend." } },
     gnomes = { { id = "tp_xgnomes", text = "Gnomes are tiny and clever. Zuzubee likes them very much." } },
   },
@@ -875,6 +1071,8 @@ P:NPC {
         { text = "Do you miss Gnomeregan?", next = "xgnomer" },
         { text = "I'm an engineer. Need a hand?", next = "xeng", when = { profession = "Engineering" } },
         { text = "What was your worst run?", next = "xworst" },
+        { text = "Is the race worth the danger?", next = "yworth" },
+        { text = "What's your name, anyway?", next = "yname" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -929,8 +1127,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yworth = {
+      lines = {
+        { id = "ywo_default", text = "Every crash teaches us something we can use back home, Rizzle says, fuel mixes and heat shielding and why you never put the steering behind the rocket. I like to think we're practising for the day we rebuild Gnomeregan, only faster." },
+        { id = "ywo_dwarf", when = { race = "Dwarf" }, text = "Every crash teaches us something for home, heat shielding and fuel mixes. Your Ironforge smiths sell us the plating, and they always ask if we've blown up yet, which I think is their idea of a joke." },
+      },
+      choices = { { text = "Faster's always better. Something else.", next = "BACK" } },
+    },
+    yname = {
+      narr = "He wipes his hand on his overalls and offers it, then thinks better of the grease.",
+      lines = {
+        { id = "yn_default", text = "Fizzlecog, Tobble Fizzlecog, third bolt-sorter, first class! Nobody asks, because the sign just says pit crewman, and I've been meaning to paint my name on it but there's always a gasket that needs me more." },
+        { id = "yn_gnome", when = { race = "Gnome" }, text = "Fizzlecog, third bolt-sorter, first class! You're the first gnome in weeks to ask. Were you in Tinker Town after the fall? Maybe we queued for soup together, everyone did." },
+      },
+      choices = { { text = "Good to meet you, Fizzlecog. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    mekkatorque = { { id = "yt_mekka", text = "The High Tinker sent a letter to the raceway once, wishing us luck. Rizzle had it framed, then it caught fire." } },
+    salt = { { id = "yt_salt", text = "Salt on the Shimmering Flats gets into every bearing. We clean them twice a run and still find grit." } },
+    goblins = { { id = "yt_gob", text = "The goblin pit crew uses twice the fuel and half the safety checks. I'd never say so where they could hear." } },
+    _none = { { id = "yt_none", text = "No idea, sorry, I've got a gasket in each hand." } },
     rizzle = { { id = "tp_xrizzle", text = "Rizzle Brassbolts is our chief engineer and the loudest optimist I know." } },
     tinker_town = { { id = "tp_xtinker_town", text = "Tinker Town is where most of us went after the fall. It's crowded, but it's ours." } },
   },
@@ -961,6 +1178,7 @@ P:NPC {
         { text = "Does Pozzik pay well?", next = "xpay" },
         { text = "Have you ever lost a race?", next = "xlost" },
         { text = "Goblin to goblin: is the race rigged?", next = "xrig", when = { race = "Goblin" } },
+        { text = "What did you do before the raceway?", next = "ybefore" },
         { text = "Enjoy your sandwich.", next = "END" },
       },
     },
@@ -1016,8 +1234,31 @@ P:NPC {
         { text = "I'll remember that.", next = "BACK", reply = "You didn't hear it from me, and I'll bill you if you did." },
       },
     },
+    ybefore = {
+      narr = "He tucks the sandwich into his overalls pocket, which seems to be where he keeps everything.",
+      lines = {
+        { id = "ybe_default", text = "Unloaded crates on the Ratchet docks for the Steamwheedle, pal, eighty-hour weeks and a boss who docked us for breathin' on his cargo. Then Pozzik comes by and says, kid, how'd you like to get paid to set things on fire, and I say, where do I sign." },
+        { id = "ybe_horde", when = { faction = "Horde" }, text = "Unloaded crates in Ratchet, pal, for a Steamwheedle boss who docked us for breathin'. You Horde types came through all the time. Then Pozzik offered me fire money, and I signed before he finished the sentence." },
+      },
+      choices = {
+        { text = "Do you ever think of going back?", next = "yback" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yback = {
+      lines = { { id = "yba_default", text = "My ma says a dock job's steady and a pit job's a funeral waitin' to happen. She ain't wrong, but steady don't pay bonuses for surviving. Should a guy take the safe paycheck or the big risk, friend?" } },
+      choices = {
+        { text = "Take the big risk. That's where profit is.", next = "BACK", reply = "Atta pal! You talk like a trade prince.", fx = { align = { honor = -1 } } },
+        { text = "Listen to your ma. Steady work is honest.", next = "BACK", reply = "Aw, don't say that. Now I gotta write her.", fx = { align = { honor = 1 } } },
+      },
+    },
   },
   topics = {
+    gnomes = { { id = "yt_gnomes", text = "The gnome crew measure twice, cut once, and lose anyway. I respect it, a little, on account." } },
+    mirage_raceway = { { id = "yt_mirage", text = "Mirage Raceway: the only track in Kalimdor where the crowd pays extra to sit farther back." } },
+    ratchet = { { id = "yt_ratchet", text = "Ratchet's a fine port if you like fish, fog and fines. I liked one of the three." } },
+    fuel = { { id = "yt_fuel", text = "Our fuel is proprietary, flammable, and very slightly alive. Don't ask follow-ups." } },
+    _none = { { id = "yt_none", text = "Dunno, pal, and I don't get paid to guess. Well, I don't get paid much at all." } },
     pozzik = { { id = "tp_xpozzik", text = "Pozzik's the boss and the driver. He's got more burn scars than eyebrows." } },
     gadgetzan = { { id = "tp_xgadgetzan", text = "The Gadgetzan bookies take bets on every race. They always win." } },
   },
@@ -1053,6 +1294,7 @@ P:NPC {
         { text = "Do you miss the forests?", next = "xmiss" },
         { text = "A druid could help you here.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the racers harm the flats?", next = "xraces2" },
+        { text = "Have you found any sign of life?", next = "ysign" },
         { text = "Good luck with your work.", next = "END" },
       },
     },
@@ -1110,8 +1352,20 @@ P:NPC {
         { text = "Perhaps I will.", next = "BACK", reply = "Elune light your way, then.", fx = { affinity = 1 } },
       },
     },
+    ysign = {
+      narr = "He opens his palm to show a tiny, grey-green sprout, cupped in a pinch of damp earth.",
+      lines = {
+        { id = "ysg_default", text = "This. One seedling, from a pod I found beneath the salt near the old shore cliffs. It has lived eleven days. If it lives to twelve, I shall write to the Circle, and they shall think me mad, and I shall be the happiest mad elf in Kalimdor." },
+        { id = "ysg_druid", when = { class = "DRUID" }, text = "This seedling, from a pod beneath the salt near the old cliffs. Eleven days alive. You can feel it, can't you, druid, how fiercely it wants to grow? Twelve days, and I write to the Circle." },
+      },
+      choices = { { text = "May it grow. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    druids = { { id = "yt_druid", text = "The druids of the Circle tend the wild. I tend this one stubborn sprout, which is a start." } },
+    goblins = { { id = "yt_gob", text = "The goblins have offered to buy my seedling, twice. I do not think they know what it is, only that I want it." } },
+    salt = { { id = "yt_salt", text = "Under the salt there is clay, and under the clay there are seeds. The earth forgets slowly." } },
+    _none = { { id = "yt_none", text = "I do not know, friend. My study is slower than most questions." } },
     shimmering_flats = { { id = "tp_xshimmering_flats", text = "The Shimmering Flats were a sea, once, I am almost certain. The salt remembers." } },
     cenarion_circle = { { id = "tp_xcenarion_circle", text = "The Circle tends the wild. I am only one of its slower students." } },
   },
@@ -1146,6 +1400,8 @@ P:NPC {
         { text = "What is the Lunar Festival, Elder?", next = "festival" },
         { text = "I have come to pay my respects.", next = "respects" },
         { text = "Elune keep you, Elder. My family also served the Goddess.", next = "kin", when = { race = "NightElf" } },
+        { text = "What did this land look like, back then?", next = "yland" },
+        { text = "Do the goblins disturb your rest?", next = "ygoblins" },
         { text = "Rest well, Elder.", next = "END" },
       },
     },
@@ -1185,8 +1441,26 @@ P:NPC {
       lines = { { id = "k_default", text = "Then we are sisters in the moonlight, whatever our years. Keep faith with her, and she will keep faith with you." } },
       choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
     },
+    yland = {
+      lines = {
+        { id = "yla_default", text = "There were reeds as tall as a Sentinel, and white herons, and the water was warm in the shallows. Children waded out to catch shrimp at dawn. I waded too, when the temple let me, and the dew lay so heavy on the grass that your hem was wet to the knee." },
+        { id = "yla_tauren", when = { race = "Tauren" }, text = "Reeds as tall as a Sentinel, white herons and warm shallows. Your people have tales of a time before the great mesas, I think, and the Earth Mother remembers it too. I waded there as a girl." },
+      },
+      choices = { { text = "It sounds beautiful. Something else.", next = "BACK" } },
+    },
+    ygoblins = {
+      narr = "An engine backfires on the flats, and she closes her eyes until the echo dies.",
+      lines = { { id = "ygo_default", text = "They race over the old seabed and never once wonder what lay beneath it. Some of my people would have them driven off, for the sake of what was. Others say the land belongs to the living now. What say you?" } },
+      choices = {
+        { text = "Let them race. The land is theirs now.", next = "BACK", reply = "Perhaps. The herons are long gone, and they do not mind the noise.", fx = { align = { order = -1 } } },
+        { text = "Some places deserve to be kept sacred.", next = "BACK", reply = "Then remember this place as I do, and it will be.", fx = { align = { order = 1 } } },
+      },
+    },
   },
   topics = {
+    elune = { { id = "yt_elune", text = "Elune's light falls on the salt as it once fell on the water. She does not mind the change as much as I do." } },
+    lunar_festival = { { id = "yt_lunar", text = "Once a year the elders are honoured, and once a year I remember this shore aloud." } },
+    shimmering_flats = { { id = "yt_flats", text = "The Shimmering Flats were the bottom of a sea when I was young. The salt still tastes of it." } },
     _none = { { id = "tp_none", text = "That is beyond my memory, traveller, which is a long way to go." } },
   },
 }

@@ -6,6 +6,8 @@ P:Pool {
   barks = {
     { id = "b_dust", text = "Dust on the Orgrimmar road. Could be a caravan, could be trouble, and usually it's both." },
     { id = "b_coast", text = "Kul Tiran sails off the coast again. Let them look; the Horde was born under harder eyes than theirs." },
+    { id = "yb_tiragarde", text = "The humans at Tiragarde are quiet today. That makes me nervous." },
+    { id = "yb_scorpid", text = "Another scorpid in my boot this morning. Durotar loves me." },
   },
   greetings = {
     { id = "g_xbhunt", when = { origin = "orc_blade_hunter" }, text = "Back from the canyons? Orgnil Soulscar says you've a nose for Burning Blade cultists, and I'll take that over another grunt with a loud axe." },
@@ -23,8 +25,15 @@ P:Pool {
   react = { { id = "r_stealth", on = "stealth", text = "Something's creeping around the barracks. Show yourself, or I'll find you with my axe." } },
   lines = {
     { id = "l_default", text = "We hold the crossroads for the Warchief. Quilboar come from the west, humans from the coast and cultists from the canyons, and the Horde holds anyway, as it always has." },
+    { id = "yl_quiet", text = "Razor Hill was the first town the Horde built on Kalimdor. We hold it for every orc who came after." },
+    { id = "yl_troll", when = { race = "Troll" }, text = "The Darkspear at Sen'jin hold the coast, and we hold the road. Good arrangement." },
+    { id = "yl_orc", when = { race = "Orc" }, text = "Welcome home, brother. You came up through the Valley, I can tell." },
   },
-  choices = { { text = "Lok'tar.", next = "END", fx = { standing = { razor_hill = 1 } } } },
+  choices = {
+    { text = "Lok'tar.", next = "END", fx = { standing = { razor_hill = 1 } } },
+    { text = "Tiragarde should be burned out.", next = "END", reply = "Gar'Thok would agree. Thrall wants peace, so we wait.", fx = { align = { order = -1 } } },
+    { text = "We should follow the Warchief and keep the peace.", next = "END", reply = "Good. Discipline wins more than rage.", fx = { align = { order = 1 } } },
+  },
   topics = {
     knows = {
       { id = "t_kn1", text = "Everything that comes up the road from the Barrens or in off the coast passes this gate first. Here's what I've heard of it." },
@@ -33,6 +42,8 @@ P:Pool {
     },
     burning_blade = { { id = "t_blade", text = "Orgnil Soulscar hunts the Burning Blade from the barracks here. Don't get in his way, and don't get in the cult's way either." } },
     _none = { { id = "t_none", text = "Ask Gar'Thok, in the barracks. He doesn't like questions, but he answers them, and he respects a grunt who asks to his face." } },
+    tiragarde = { { id = "ytp_tiragarde", text = "Tiragarde Keep is a human fort on our coast. Kul Tiras marines, stubborn as rocks." } },
+    valley_of_trials = { { id = "ytp_valley_of_trials", text = "The Valley of Trials is where our young learn to fight." } },
   },
 }
 

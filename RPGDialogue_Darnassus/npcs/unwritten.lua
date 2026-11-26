@@ -476,6 +476,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yafter = {
+      lines = {
+        { id = "ybdarmoonshadow1", text = "Return to Ashenvale, and walk the forest with my sister, and not count a single thing for a hundred years. That is my dream. I suspect the Sentinels will find more for me to count." },
+        { id = "ybdarmoonshadow2", when = { race = "NightElf" }, text = "You will know the feeling, sister. The watch never truly ends for our people." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yserved = {
+      lines = {
+        { id = "ydarmoonshadow1", text = "Nearly two thousand years, under three captains. I patrolled the borders of Ashenvale when the orcs first came, and I lost good sisters at Hyjal. Now I count bandages and copper bars, and I tell myself this is still service." },
+      },
+      choices = {
+        { text = "Do you miss the field?", next = "yfield" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfield = {
+      lines = {
+        { id = "ydarmoonshadow2", text = "Every day. But someone must make sure the army that marches has food and bandages. A battle can be lost in a supply line long before the first arrow flies." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfamily = {
+      lines = {
+        { id = "ydarmoonshadow3", text = "A sister, a Sentinel in Ashenvale at Astranaar, who writes me every season. She says the orcs at Splintertree cut more trees every year, and that she would like to see a few of them hanged. I tell her to be patient." },
+      },
+      choices = {
+        { text = "Be patient. Fighting the Horde now weakens the war effort.", next = "BACK", reply = "That is what I tell her. The qiraji are the greater threat.", fx = { align = { order = 1 } } },
+        { text = "Your sister is right. The Horde must answer for the trees.", next = "BACK", reply = "Perhaps. But not until the hive is sealed again.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Master Sergeant Moonshadow. Something stirs in the south of Silithus, and the Alliance is gathering supplies for whatever war comes of it. Darnassus will give its share, and more." },
@@ -491,6 +527,10 @@ P:NPC {
         { text = "Who decides where the supplies go?", next = "who" },
         { text = "I've brought something to give.", next = "BUSINESS" },
         { text = "A druid should be healing the land, not stockpiling for war.", next = "druid", when = { class = "DRUID" } },
+        { text = "How long have you served the Sentinels?", next = "yserved" },
+        { text = "Do you have family in Darnassus?", next = "yfamily" },
+        { text = "What do the priestesses think of this war?", next = "BACK", when = { race = "NightElf" }, reply = "They support it, mostly. High Priestess Tyrande remembers the War of the Shifting Sands, and she would not see it fought again unprepared." },
+        { text = "What will you do when the war is over?", next = "yafter" },
         { text = "Farewell, sergeant.", next = "END" },
       },
     },
@@ -529,6 +569,11 @@ P:NPC {
       choices = { { text = "Then I'll give what I can.", next = "BACK" } },
     },
   },
+  topics = {
+    fandral = { { id = "ydarmoonshadow4", text = "Arch Druid Fandral Staghelm. His son died in the last war in Silithus." } },
+    sister = { { id = "ydarmoonshadow5", text = "She guards Astranaar, and she would like to hang a few orcs." } },
+    qiraji = { { id = "ydarmoonshadow6", text = "The insects of Silithus. They nearly broke us once." } },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -548,6 +593,51 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yhardest = {
+      lines = {
+        { id = "ybdarselgorm1", text = "The quiet. Andorhal was always loud, with bells and carts and children. Here, the city whispers. I sleep badly in it, and I wake in the night thinking I've heard the dead walking. It's only the wind in the leaves." },
+        { id = "ybdarselgorm2", when = { race = "Human" }, text = "You'll know what I mean, coming from our kingdoms. A human city never sleeps. This one never wakes." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yjoin = {
+      lines = {
+        { id = "ydarselgorm1", text = "I was a priest in Andorhal before the plague. I watched my congregation die and rise again, and I swore that day I'd never stop fighting the thing that did it. The Dawn found me in a refugee camp in Hillsbrad." },
+      },
+      choices = {
+        { text = "Do you miss Lordaeron?", next = "ymiss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymiss = {
+      lines = {
+        { id = "ydarselgorm2", text = "Every day, and I hate it. I miss the fields, and the chapel, and the bells on feast days. But the land I miss is gone. What's there now isn't Lordaeron. It's a grave that walks." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykalimdor = {
+      lines = {
+        { id = "ydarselgorm3", text = "Beautiful, and strange, and very old. The trees here are older than my kingdom. I've learned more about the darkness in a year here than in ten in Lordaeron, because the kaldorei have fought it for ten thousand years." },
+      },
+      choices = {
+        { text = "What darkness?", next = "ydarkness" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydarkness = {
+      lines = {
+        { id = "ydarselgorm4", text = "The Twilight's Hammer, the satyrs, the corrupted furbolgs. Some say the Dawn should stay in Lordaeron and fight only the Scourge. Some say darkness anywhere is our concern." },
+      },
+      choices = {
+        { text = "Darkness anywhere is our concern. Stay vigilant.", next = "BACK", reply = "That's why I'm here. Thank you for understanding.", fx = { align = { light = 1 } } },
+        { text = "The Scourge is enough. Focus your strength.", next = "BACK", reply = "Perhaps. But the Scourge didn't come from nowhere.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Dawnwatcher Selgorm of the Argent Dawn. We fight the Scourge in Lordaeron, but we watch for every cult and darkness that would serve it, and some of them have crept into Kalimdor." },
@@ -562,6 +652,10 @@ P:NPC {
         { text = "What is the Argent Dawn?", next = "dawn" },
         { text = "A human in Darnassus must stand out.", next = "human" },
         { text = "The Light has no place among the kaldorei.", next = "light", when = { race = "NightElf" } },
+        { text = "How did you come to join the Argent Dawn?", next = "yjoin" },
+        { text = "What do you think of Kalimdor?", next = "ykalimdor" },
+        { text = "The Light is with you, Dawnwatcher.", next = "BACK", when = { class = { "PRIEST", "PALADIN" } }, reply = "And with you, friend. It's good to hear those words in this city. The kaldorei are kind, but they pray to the moon." },
+        { text = "What's the hardest thing about Darnassus?", next = "yhardest" },
         { text = "Farewell, Dawnwatcher.", next = "END" },
       },
     },
@@ -593,6 +687,11 @@ P:NPC {
       choices = { { text = "That I can accept.", next = "BACK" } },
     },
   },
+  topics = {
+    andorhal = { { id = "ydarselgorm5", text = "I was a priest there. My congregation died and rose again." } },
+    twilights_hammer = { { id = "ydarselgorm6", text = "A cult that worships something that sleeps. They are in Blackfathom Deeps." } },
+    kelris = { { id = "ydarselgorm7", text = "Lord Kelris. A night elf who leads the cult in the Deeps." } },
+  },
 }
 
 -- Elder Bladeswift: an ancestor spirit honoured during the Lunar Festival. He stands in Darnassus, near the Cenarion Enclave.
@@ -616,6 +715,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yazshara = {
+      lines = {
+        { id = "ydarnelderbladeswift1", text = "I saw her once, from far away, on the steps of her palace. She was the most beautiful thing in the world, and I would have died for her. Many of us would have. That is the danger of beauty, {class}." },
+        { id = "ydarnelderbladeswift2", when = { race = "NightElf" }, text = "You carry her people's blood, as all kaldorei do. Remember what we were, and what we chose to become." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yyoung = {
+      lines = {
+        { id = "ydarnelderbladeswift3", text = "That the watch never ends. That the forest does not remember your name, but it remembers what you guarded. And that a Sentinel who fights for glory will die young, and a Sentinel who fights for others will die old." },
+      },
+      choices = {
+        { text = "Do you have regrets?", next = "yregrets" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yregrets = {
+      lines = {
+        { id = "ydarnelderbladeswift4", text = "One. I did not stand with Malfurion when he first spoke against the Highborne. I waited, and watched, until I was sure. My brother did not wait, and he died for it. I have wondered since whether my caution was wisdom." },
+      },
+      choices = {
+        { text = "Your caution was wise. Rash action costs lives.", next = "BACK", reply = "Perhaps. My brother would say otherwise, if he could speak.", fx = { align = { order = 1 } } },
+        { text = "You should have stood with him. Courage cannot wait.", next = "BACK", reply = "Yes. That is what I have told myself every Lunar Festival since.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       narr = "His hand drifts to a glaive that is no longer there.",
       lines = { { id = "h_default", text = "I am Elder Bladeswift, and I stood watch beside the Sentinels long before Teldrassil was planted. Each year at the Lunar Festival my people honour me, and I come back to see that Darnassus is well watched." } },
@@ -625,6 +752,8 @@ P:NPC {
         { text = "What is the Lunar Festival, Elder?", next = "festival" },
         { text = "I have come to pay my respects.", next = "respects" },
         { text = "I fight with the blade too, Elder.", next = "kin", when = { class = "WARRIOR" } },
+        { text = "Do you remember Azshara?", next = "yazshara" },
+        { text = "What would you say to the young Sentinels?", next = "yyoung" },
         { text = "Rest well, Elder.", next = "END" },
       },
     },
@@ -666,6 +795,8 @@ P:NPC {
     },
   },
   topics = {
+    azshara = { { id = "ydarnelderbladeswift5", text = "The Queen. I would have died for her. That is the danger of beauty." } },
+    sentinels = { { id = "ydarnelderbladeswift6", text = "The watchers of the forest. I stood with them before Teldrassil was planted." } },
     _none = { { id = "tp_none", text = "That lies outside my watch, {class}. Ask the living about it." } },
   },
 }
@@ -1231,6 +1362,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ysafe = {
+      lines = {
+        { id = "ybdartreantally1", text = "Hroom. Stand in a sunny place, and grow very slowly, and let the birds live in my hair. That sounds very nice. But the druids say the forest is never all safe, so I will keep helping. Hroom." },
+        { id = "ybdartreantally2", when = { class = "DRUID" }, text = "Maybe you will stand beside me, when you are old. We could grow together. Hroom." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydarn = {
+      lines = {
+        { id = "ydartreantally1", text = "Hroom! It is a city in a tree, and the tree is very big and very old. I asked it how it feels, and it said it feels heavy. I think it means the people. I told it they are light, but it did not believe me." },
+        { id = "ydartreantally2", when = { race = "NightElf" }, text = "Hmmm. Your tree is tired, I think. Be kind to it. It holds you all up." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Hmmm. I was called up from the wood not long ago. The druids say I am an ally, so I am being one. Hroom. It is my first job." },
@@ -1243,6 +1392,8 @@ P:NPC {
         { text = "What do you think of me?", next = "x_me" },
         { text = "I'm a druid too.", next = "x_dr", when = { class = "DRUID" } },
         { text = "Do you like night elves?", next = "x_ne", when = { race = "NightElf" } },
+        { text = "Do you like Darnassus?", next = "ydarn" },
+        { text = "What will you do when the forest is safe?", next = "ysafe" },
         { text = "Come on, little friend.", next = "END" },
       },
     },
@@ -1310,6 +1461,7 @@ P:NPC {
     },
   },
   topics = {
+    teldrassil = { { id = "ydartreantally3", text = "The very big tree. It feels heavy, it says. Hroom." } },
     cenarion_circle = { { id = "tp_cc", text = "Hroom. The Circle druids are my friends. They woke me, and they tell me who to help." } },
     _none = { { id = "tp_none", text = "Hmmm. I do not know that. I am very new. Ask an old tree. Hroom." } },
   },

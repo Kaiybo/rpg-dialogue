@@ -35,6 +35,8 @@ P:NPC {
         { id = "h_again2", text = "Take your time. I always do." },
       },
       choices = {
+        { text = "Tell me about your mother.", next = "ywor_mother" },
+        { text = "Can you teach me about leatherwork?", next = "ywor_leather", when = { profession = "Leatherworking" } },
         { text = "Do you make all of this yourself?", next = "make" },
         { text = "What wears armor out fastest here?", next = "wear" },
         { text = "Light armor seems a risk against ogres.", next = "ogres" },
@@ -60,8 +62,47 @@ P:NPC {
       lines = { { id = "o_default", text = "Nothing I sell will stop a Gordunni club, and nothing the smiths sell will stop it either. Against an ogre the best armor is not being where the club lands, and for that you want to be light on your hooves." } },
       choices = { { text = "Well reasoned. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ywor_mother = {
+      lines = {
+        { id = "yywor_mother_d", text = "She stitched tents for the Bloodhoof when they wandered the plains, and she could sew a seam in the dark by feel. When the centaur raided our camps she would sew through the night, for the tribe needed shelter more than sleep." },
+      },
+      choices = {
+        { text = "What happened to her?", next = "ywor_happened" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywor_happened = {
+      narr = "Worb's broad fingers move along a seam on the nearest jerkin, as if checking that it holds.",
+      lines = {
+        { id = "yywor_happened_d", text = "She went to the Earth Mother in Mulgore, after Cairne brought the tribes together and the wandering ended. She lived to see a home with walls, and she told me the night before she died that she had never sewn a tent she was sorry to see taken down." },
+      },
+      choices = {
+        { text = "Do you still sew tents?", next = "ywor_tents" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywor_tents = {
+      lines = {
+        { id = "yywor_tents_d", text = "No, only armour, for the braves who go into the forest. Some of them want heavier pieces, more like the orcs wear, and Hahrana says we should give them what they ask. But a tauren is not an orc, and light armour moves with the forest." },
+      },
+      choices = {
+        { text = "Give them what they ask. They know their needs.", next = "BACK", reply = "Perhaps. Hahrana says so too. I will make a heavier piece, and see.", fx = { align = { order = 1 } } },
+        { text = "Keep the old way. Light armour suits tauren.", next = "BACK", reply = "Yes, I think so too. My mother would have said the same.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywor_leather = {
+      lines = {
+        { id = "yywor_leather_d", text = "Dry it by the fire every night, oil it once a week, and never cut against the grain of the hide. And always remember that the beast gave its life for this, so honour it with good work. Hahrana will teach you the rest, if you are patient." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    camp_mojache = { { id = "tp_ycamp_mojache", text = "Our camp in the forest. The damp is bad for leather, but the people are good." } },
+    hahrana_ironhide = { { id = "tp_yhahrana_ironhide", text = "A fair teacher, and a hard one. She passes only the best work." } },
     background = { { id = "tp_bg", text = "My mother stitched tents for the Bloodhoof when they wandered, and I stitch what the tribes wear now that they do not." } },
     _none = { { id = "tp_none", text = "I cannot say, friend. I know seams, and that one is past the edge of my cloth." } },
   },
@@ -99,6 +140,8 @@ P:NPC {
         { id = "h_again2", text = "What else would you draw out of an old bull?" },
       },
       choices = {
+        { text = "What was it like on the open plains?", next = "ysag_plains" },
+        { text = "My people came from the plains too, elder.", next = "ysag_tauren", when = { race = "Tauren" } },
         { text = "What do you remember that Mojache needs?", next = "remember" },
         { text = "This forest makes you uneasy.", next = "forest" },
         { text = "Tell me about the other sage, Korolusk.", next = "korolusk" },
@@ -131,8 +174,47 @@ P:NPC {
       lines = { { id = "k_default", text = "Korolusk reads what the elves wrote, where I only remember what our own people said. He is the younger and the sharper of us, and I let him believe that I have not noticed." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ysag_plains = {
+      lines = {
+        { id = "yysag_plains_d", text = "Hard, young one, harder than the braves know. We followed the kodo from grazing to grazing, and the centaur followed us, and many nights I slept with my spear in my hand. But the sky was wide, and the Earth Mother was close, and I miss it more than I can say." },
+      },
+      choices = {
+        { text = "Do you regret coming to Feralas?", next = "ysag_regret" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysag_regret = {
+      narr = "Sage Palerunner lifts his face toward the canopy, where only a few thin threads of sunlight come through.",
+      lines = {
+        { id = "yysag_regret_d", text = "I do not regret it, but I grieve it, which is a different thing. Cairne sent us here to watch the elves and the ogres, and to find a home in the green, and we have done so. But under these trees I cannot see An'she rise, and I wonder if the Earth Mother can see me." },
+      },
+      choices = {
+        { text = "Should the tauren leave Feralas, then?", next = "ysag_leave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysag_leave = {
+      lines = {
+        { id = "yysag_leave_d", text = "The young say no, for Camp Mojache is strong and the forest feeds us well. The old say yes, for we are a people of the plains and the trees press on us. I am old, but I am not sure the old are right." },
+      },
+      choices = {
+        { text = "Stay. Cairne sent you here for a reason.", next = "BACK", reply = "Yes, the chieftain sees further than I do. I will trust his eyes.", fx = { align = { order = 1 } } },
+        { text = "Go home. Your people belong on the plains.", next = "BACK", reply = "You speak as my heart speaks. But a heart is not a chieftain.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysag_tauren = {
+      lines = {
+        { id = "yysag_tauren_d", text = "Then you will understand the weight of the sky, young one, and how strange it is to live without it. Walk with the Earth Mother, and when you go home to Mulgore, stand in the open grass for an old bull who cannot." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    mulgore = { { id = "tp_ymulgore", text = "Our home on the plains. I will not see it again, I think." } },
+    dire_maul = { { id = "tp_ydire_maul", text = "The ogres hold it now. My dreams say there is more beneath it." } },
     background = { { id = "tp_bg", text = "I was born on the open plains, in the wandering years. I did not expect to end my days under trees, but the Earth Mother chooses the path." } },
     _none = { { id = "tp_none", text = "If I ever knew that, it has wandered off with my youth. Ask Korolusk, whose memory is still in its prime." } },
   },
@@ -169,6 +251,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I got nowhere to be." },
       },
       choices = {
+        { text = "What did you do on the Echo Isles?", next = "yori_isles" },
+        { text = "Darkspear to Darkspear, mon, why stay here?", next = "yori_troll", when = { race = "Troll" } },
         { text = "The forest reminds you of home?", next = "home" },
         { text = "How do you find living among tauren?", next = "tauren" },
         { text = "You watch people closely.", next = "watch" },
@@ -194,8 +278,47 @@ P:NPC {
       lines = { { id = "w_default", text = "Ha! You got good eyes yourself, to catch me at it. A troll who don't watch be a troll who gets eaten, and in dis forest I count ogres, gnolls and elves all wantin' a bite." } },
       choices = { { text = "Then we'll both keep watching. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    yori_isles = {
+      lines = {
+        { id = "yyori_isles_d", text = "I hunted de raptors and fished de reef with my uncle, before de sea witch came and de murlocs drove us out. Den we went to de Broken Isles, and den Thrall found us, and we been in Durotar since, most of us anyway." },
+      },
+      choices = {
+        { text = "What happened to your uncle?", next = "yori_uncle" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yori_uncle = {
+      narr = "Orik'ando turns a carved bone charm over in his long fingers.",
+      lines = {
+        { id = "yyori_uncle_d", text = "He stayed on de Echo Isles when Zalazane turned, mon, and Zalazane took him for one of his mindless ones. I don't know if he still be walkin' over there or if de loa took him home. Dat be part of why I came so far away." },
+      },
+      choices = {
+        { text = "Will you go back to help Vol'jin?", next = "yori_voljin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yori_voljin = {
+      lines = {
+        { id = "yyori_voljin_d", text = "Vol'jin be wantin' to take de isles back from Zalazane, and he need every spear. But I be afraid I'll see my uncle on de beach with dem empty eyes, and I don't know if I could put a spear in him. So I stay here, and I watch." },
+      },
+      choices = {
+        { text = "Go back. Your uncle deserves to be freed.", next = "BACK", reply = "Ya, you be right, mon. De spirits sayin' de same. I'll go soon.", fx = { align = { honor = 1 } } },
+        { text = "Stay. Nobody should have to face that.", next = "BACK", reply = "Dat be kind of you. I think de spirits will forgive me a while longer.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yori_troll = {
+      lines = {
+        { id = "yyori_troll_d", text = "De jungle, mon, and de quiet. Sen'jin be loud with de fighting talk, and de Echo Isles be full of Zalazane's madness, and here I can just hunt and sit with de tauren. But you know, I think de spirits be callin' me home soon." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    echo_isles = { { id = "tp_yecho_isles", text = "Home, before Zalazane. I don't go dere no more." } },
+    voljin = { { id = "tp_yvoljin", text = "De leader of de Darkspear. He need every spear, and I be hidin' in de jungle." } },
     background = { { id = "tp_bg", text = "Darkspear born, on de islands, before de sea witch and de long boat ride. I been a hunter since I could lift a spear." } },
     _none = { { id = "tp_none", text = "Dat I don't know, mon. Ask de tauren, but bring a blanket, 'cause de answer be long." } },
   },
@@ -232,6 +355,9 @@ P:NPC {
         { id = "h_again2", text = "Do go on. I have nothing but time, as you may imagine." },
       },
       choices = {
+        { text = "What were you before you died?", next = "ybla_before" },
+        { text = "The Dark Lady sends her regards.", next = "ybla_forsaken", when = { race = "Scourge" } },
+        { text = "You seem lonely, Blaise.", next = "ybla_tauren" },
         { text = "What brings the Forsaken to Feralas?", next = "why" },
         { text = "The tauren seem to treat you well.", next = "tauren" },
         { text = "You don't care for the forest.", next = "forest" },
@@ -257,8 +383,56 @@ P:NPC {
       lines = { { id = "f_default", text = "Everything here grows, without pause and without shame, and it grows on anything that stands still. I have picked moss off my own sleeve twice this week, and I assure you the forest was not invited." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ybla_before = {
+      lines = {
+        { id = "yybla_before_d", text = "A notary in Andorhal, if you can believe it, drafting contracts for grain merchants and wills for the dying. When the plague came through the granaries I drafted my own, and then I died before I could sign it, which was characteristically inefficient of me." },
+      },
+      choices = {
+        { text = "Do you miss that life?", next = "ybla_miss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybla_miss = {
+      narr = "Blaise turns his hat brim in thin grey fingers, studying it rather than you.",
+      lines = {
+        { id = "yybla_miss_d", text = "I miss the predictability of it. A man knew what he would eat, whom he would marry, and where he would be buried, and now I know none of those things, least of all the last. I had a wife, though I prefer not to discuss her." },
+      },
+      choices = {
+        { text = "What happened to your wife?", next = "ybla_wife" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybla_wife = {
+      lines = {
+        { id = "yybla_wife_d", text = "She lived, as it happens, and fled south to Stormwind with the refugees. I have a letter from her that a Horde courier found on a dead Alliance soldier, addressed to the man I was. I have not opened it, and I do not think I shall." },
+      },
+      choices = {
+        { text = "Open it. You deserve to know what she said.", next = "BACK", reply = "Do I? Perhaps. I shall consider it, when I am feeling morbid.", fx = { align = { light = 1 } } },
+        { text = "Burn it. That man is gone.", next = "BACK", reply = "That is the Forsaken answer, and the sensible one. I shall think about it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybla_forsaken = {
+      lines = {
+        { id = "yybla_forsaken_d", text = "How gracious of her to remember a clerk in the jungle. Tell her the ogres are many, the tauren are kind, and I am rotting at the usual rate. She will know what to do with that." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybla_tauren = {
+      lines = {
+        { id = "yybla_tauren_v0", when = { race = "Tauren" }, text = "Your people are unbearably kind, as I've said. Your chieftain here insists I join him for meals, though I eat nothing, and I sit there out of politeness while the whole camp looks at me with sympathy." },
+        { id = "yybla_tauren_d", text = "The tauren insist on blessing me, feeding me and asking after my health, and I have run out of ways to decline. I suspect they think I am lonely, and I am beginning to suspect they are right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    andorhal = { { id = "tp_yandorhal", text = "I drew up contracts there, once. Now it is a ruin full of skeletons, which suits it." } },
+    camp_mojache = { { id = "tp_ycamp_mojache", text = "A tauren camp of great kindness and greater dampness. I am the only dry thing in it." } },
     background = { { id = "tp_bg", text = "I had a life in Lordaeron, and then I had a grave, and now I have a posting. None of the three was my idea." } },
     _none = { { id = "tp_none", text = "I have not the faintest notion. Ask someone with a pulse and an interest." } },
   },
@@ -295,6 +469,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, go on, I'm listening with one ear." },
       },
       choices = {
+        { text = "What's the most money you've lost here?", next = "ygri_lost" },
+        { text = "You're a goblin too. Steamwheedle or Venture?", next = "ygri_goblin", when = { race = "Goblin" } },
         { text = "Who fights in this pit?", next = "fighters" },
         { text = "How does a goblin end up in Dire Maul?", next = "how" },
         { text = "You're taking bets, aren't you.", next = "bets" },
@@ -327,8 +503,47 @@ P:NPC {
       lines = { { id = "be_default", text = "Me? With who, the bats? I'd love to, sweetheart, but there's nobody down here with a purse and a pulse both, so for now I'm just keepin' the book in my head for the day the crowds show up." } },
       choices = { { text = "I'll believe that when I see it. Something else.", next = "BACK" } },
     },
+    ygri_lost = {
+      lines = {
+        { id = "yygri_lost_d", text = "Lost? Pal, I don't lose, I invest in learning experiences. But fine, fine, there was this one bout, a gnoll the size of a wheelbarrow against Mushgog, and I had my whole stake on the gnoll because he had this look in his eye, you know the look." },
+      },
+      choices = {
+        { text = "What happened to the gnoll?", next = "ygri_gnoll" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygri_gnoll = {
+      narr = "Griniblix pulls a much-folded betting slip out of his tunic and smooths it out on his knee, very gently.",
+      lines = {
+        { id = "yygri_gnoll_d", text = "Mushgog sat on him, friend, just sat on him, and that was the end of the gnoll and the end of my stake. I kept the slip to remind me that a look in the eye ain't collateral, and it cost me forty gold to learn it." },
+      },
+      choices = {
+        { text = "Do you ever feel bad for the fighters?", next = "ygri_bad" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygri_bad = {
+      lines = {
+        { id = "yygri_bad_d", text = "Feel bad? Listen, listen, I'm in the entertainment business, not the charity business. But I'll tell ya, between you and me, some of those brutes down there didn't ask to be there, and the ogres don't exactly hand out contracts. It keeps me up some nights, it does." },
+      },
+      choices = {
+        { text = "Then stop cheering. Don't profit from slaves.", next = "BACK", reply = "Whoa, slaves is a strong word, pal. But yeah, okay, you got a point. I'll think about it.", fx = { align = { light = 1 } } },
+        { text = "It's a fight pit. That's how it works.", next = "BACK", reply = "That's what I tell myself, friend. Every night, right before I don't sleep.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygri_goblin = {
+      lines = {
+        { id = "yygri_goblin_d", text = "Steamwheedle, pal, born and bred, same as my mother and her mother. Venture types are all scowls and lumber contracts, and they'd never sit in an ogre pit for the love of the show. I'm a man of culture, friend." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    dire_maul = { { id = "tp_ydire_maul", text = "Big ogre city, big fighting pit, big opportunities for a guy with a seat." } },
+    steamwheedle_cartel = { { id = "tp_ysteamwheedle_cartel", text = "Best trading company in the world, pal, and I'd say so even if they weren't payin' me." } },
     background = { { id = "tp_bg", text = "I've watched fights in Booty Bay and Gadgetzan, pal, and neither one's got a pit like this. No ropes, no rules and no refunds." } },
     _none = { { id = "tp_none", text = "No idea, friend, and it ain't on today's card. Ask me about the fights." } },
   },

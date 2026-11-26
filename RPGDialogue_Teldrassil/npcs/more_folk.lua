@@ -3381,9 +3381,47 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "You hear me, then. Few walking ones do, and fewer stop to listen." },
+    { id = "yg_0", when = { race = "NightElf" }, text = "A kaldorei. Your light is familiar. Perhaps we walked these woods together, before I was what I am now." },
+    { id = "yg_1", when = { class = "DRUID" }, text = "Little druid. The trees told me you would come. They are glad of it." },
   },
   start = "hello",
   nodes = {
+    y_before = {
+      lines = {
+        { id = "y_y_before", text = "I do not know who I was. A fragment of memory comes sometimes: a bow, a blue river, someone laughing. Then it fades, and I am only light again. I think I was happy, once. I think that is why I stayed." },
+      },
+      choices = {
+        { text = "Do you wish you remembered?", next = "y_wish" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_wish = {
+      lines = {
+        { id = "y_y_wish", text = "Sometimes. But remembering would mean grieving, and the forest does not need my grief. It needs my light. So I let the memories go, and I keep the light, and that is enough." },
+        { id = "y_y_wish_v0", when = { race = "NightElf" }, text = "Sometimes. You will become light too, one day, kaldorei. When you do, you will understand. The forest needs the light, not the grief." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_kin = {
+      lines = {
+        { id = "y_y_kin", text = "There are many of us in Teldrassil, more than the walking ones know. We gather at the moonwells at night and share what the trees have told us. Lately, the trees speak of fear. Something in the roots does not sleep well." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_stance = {
+      lines = {
+        { id = "y_y_stance", text = "Some of the wisps want to show themselves to the walking ones, to warn them of what stirs in the roots. Others say we should stay hidden and tend the forest quietly. Which is right?" },
+      },
+      choices = {
+        { text = "Show yourselves. Warn them.", next = "BACK", reply = "Then we will try. The walking ones may not listen, but we will try.", fx = { align = { order = 1 } } },
+        { text = "Stay hidden. Tend the forest quietly.", next = "BACK", reply = "Yes. That is the old way. It has kept us safe.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am a spirit of this forest, as my kin are spirits of every forest the kaldorei have tended. I listen to the trees and carry what they say to those who need to hear it." },
@@ -3399,6 +3437,9 @@ P:NPC {
         { text = "What do the trees tell you?", next = "trees" },
         { text = "Who is the Tyrant of the Dream?", next = "eranikus" },
         { text = "Do the wisps remember the Battle of Mount Hyjal?", next = "hyjal", when = { race = "NightElf" } },
+        { text = "Who were you, before?", next = "y_before" },
+        { text = "Are there many wisps?", next = "y_kin" },
+        { text = "Should the wisps warn us?", next = "y_stance" },
         { text = "Farewell, little spirit.", next = "END" },
       },
     },
@@ -3439,5 +3480,9 @@ P:NPC {
       choices = { { text = "Thank you, spirit.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "The trees do not know that. Ask the Sentinels, walking one." } } },
+  topics = {
+    teldrassil = { { id = "tp_yteldrassil", text = "Teldrassil is young, and uneasy. Its roots do not sleep well." } },
+    moonwells = { { id = "tp_ymoonwells", text = "The wisps gather at the moonwells at night, to share what the trees have said." } },
+    _none = { { id = "tp_none", text = "The trees do not know that. Ask the Sentinels, walking one." } },
+  },
 }

@@ -16,6 +16,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Be welcome, traveller. Mind where you step, if you would; I planted something there this morning, and I am hoping it lives until tomorrow." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, and so did the shoot I planted. It is a good day in Desolace when two things return." },
+    { id = "yg_0", when = { race = "Tauren" }, text = "A child of the Earth Mother. You feel the hurt in this land too, I think, through your hooves." },
   },
   notice = {
     { id = "n_druid", cat = "class", when = { class = "DRUID" },
@@ -25,6 +26,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    y_plant = {
+      lines = {
+        { id = "y_y_plant", text = "This morning, a seedling of mountain ash, from Feralas. Yesterday, a sprig of silverleaf. The day before, a thornroot. Most of them die by nightfall. I keep planting, because one of them, someday, will not." },
+      },
+      choices = {
+        { text = "How many have lived?", next = "y_lived" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_lived = {
+      lines = {
+        { id = "y_y_lived", text = "Three, in eleven years. A cactus, a tuft of grass and a single stubborn thistle near the Point. I visit them every week and tell them they are doing very well. I believe they listen." },
+        { id = "y_y_lived_v0", when = { class = "DRUID" }, text = "Three, in eleven years. You know, druid, that the land listens when you speak to it kindly. I tell them they are doing very well." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_centaur = {
+      lines = {
+        { id = "y_y_centaur", text = "The centaur came here after the land was already dead. They did not do this. But they trample what little grows, and they fight over the bones. I do not hate them. I only wish they would watch where they put their hooves." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_stance = {
+      lines = {
+        { id = "y_y_stance", text = "My brother wants the Circle to send more druids here, to heal the land quickly. I think the land should heal at its own pace, or it will not heal truly. Who is right?" },
+      },
+      choices = {
+        { text = "Let it heal slowly. Haste won't help.", next = "BACK", reply = "Thank you. My brother will be cross, but you are right.", fx = { align = { order = 1 } } },
+        { text = "Send the druids. The land has waited enough.", next = "BACK", reply = "Perhaps. He would agree with you. I hope you are both right.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "My brother keeps watch over this land and counts its wounds. I am not so patient, so I walk the strand and the hills and try to make something grow." },
@@ -37,6 +74,9 @@ P:NPC {
         { text = "What happened to this land?", next = "land" },
         { text = "Keeper Marandis is your brother?", next = "brother" },
         { text = "Nothing will grow in this grey dust.", next = "dust" },
+        { text = "What did you plant today?", next = "y_plant" },
+        { text = "What of the centaur?", next = "y_centaur" },
+        { text = "Should the Circle heal the land faster?", next = "y_stance" },
         { text = "May your seeds take root.", next = "END" },
       },
     },
@@ -64,6 +104,8 @@ P:NPC {
     },
   },
   topics = {
+    mannoroc = { { id = "tp_ymannoroc", text = "Mannoroc Coven, where the demon's blood soaked the earth. Nothing will grow there for a long time." } },
+    centaur = { { id = "tp_ycentaur", text = "The centaur trample my seedlings. I forgive them, mostly." } },
     cenarion_circle = { { id = "tp_circle", text = "The Circle sent my brother here to watch, and I came because he would not have asked me to." } },
     _none = { { id = "tp_none", text = "I know roots and rain, traveller, and very little else. Ask the soldiers at the point." } },
   },
@@ -81,6 +123,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Greetings, valued customer! Super-Seller 680 is open for business, and every price has been approved by the Gizelton Caravan Company." },
+    { id = "yg_0", when = { race = "Goblin" }, text = "Welcome, goblin customer! Super-Seller 680 will not attempt to sell you anything you could sell back to it. Probably." },
   },
   notice = {
     { id = "n_worn", cat = "kit", when = { durability = { max = 0.3 } },
@@ -88,6 +131,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    y_route = {
+      lines = {
+        { id = "y_y_route", text = "Super-Seller 680 follows the Gizelton Caravan from Kormek's Hut to Ethel Rethor and back again, forever. The route is very long and the scenery is very grey. Super-Seller 680 has counted the kodo skeletons. There are four hundred and twelve." },
+      },
+      choices = {
+        { text = "Do you ever stop?", next = "y_stop" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_stop = {
+      lines = {
+        { id = "y_y_stop", text = "Super-Seller 680 stops when the caravan stops, which is when the centaur attack, or when the kodos sit down. Kodos sit down often. Super-Seller 680 uses the time to polish its sales voice." },
+        { id = "y_y_stop_v0", when = { class = "HUNTER" }, text = "Super-Seller 680 stops when the kodos sit down. You are a hunter; perhaps you know why they sit. Super-Seller 680 would like to understand." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_rival = {
+      lines = {
+        { id = "y_y_rival", text = "Vendor-Tron 1000 claims to be the superior vendor because its number is higher. Super-Seller 680 notes that higher numbers do not sell more milk. Super-Seller 680 sold more milk last quarter. This is not pettiness, it is data." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_stance = {
+      lines = {
+        { id = "y_y_stance", text = "The goblins want to raise prices on water, because the road is long and customers are thirsty. Super-Seller 680 is programmed to obey. Should Super-Seller 680 obey?" },
+      },
+      choices = {
+        { text = "Refuse. Gouging thirsty people is wrong.", next = "BACK", reply = "Super-Seller 680 has logged your opinion. Super-Seller 680 will consider a small rebellion.", fx = { align = { light = 1 } } },
+        { text = "Obey. The goblins own you.", next = "BACK", reply = "Understood. Super-Seller 680 will raise prices. Please do not be thirsty.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Super-Seller 680 carries food, drink and general goods for the long road across Desolace. Please do not climb on Super-Seller 680, as the warranty does not cover it." } },
       again = { { id = "h_again", text = "Super-Seller 680 is still listening. Please continue, valued customer." } },
@@ -98,6 +177,9 @@ P:NPC {
         { text = "Do you ever get tired of selling?", next = "xtired" },
         { text = "Your voice sounds a bit rusty.", next = "xrusty" },
         { text = "I'm a gnome. Who built your speech module?", next = "xgnome", when = { race = "Gnome" } },
+        { text = "Where does the caravan go?", next = "y_route" },
+        { text = "Do you get along with Vendor-Tron?", next = "y_rival" },
+        { text = "Do you set your own prices?", next = "y_stance" },
         { text = "Goodbye, machine.", next = "END" },
       },
     },
@@ -151,6 +233,8 @@ P:NPC {
     },
   },
   topics = {
+    vendor_tron = { { id = "tp_yvendor_tron", text = "Vendor-Tron 1000. Super-Seller 680's colleague. Super-Seller 680 sells more milk." } },
+    centaur = { { id = "tp_ycentaur", text = "Centaur attack the caravan. Super-Seller 680 hides behind the kodos." } },
     gizelton = { { id = "tp_xgizelton", text = "The Gizelton Caravan Company. Super-Seller 680's employer and owner." } },
     kodo_graveyard = { { id = "tp_xkodo_graveyard", text = "Super-Seller 680 does not stop near the Kodo Graveyard. The kodos do not buy anything." } },
    
@@ -170,6 +254,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Welcome to Vendor-Tron 1000, the finest mobile trade goods outlet in Desolace. Please browse carefully, because the road is bumpy and the shelves are not." },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "Dwarf detected. Vendor-Tron 1000 reminds you that flux prices are final and not open to discussion. Again." },
   },
   notice = {
     { id = "n_mage", cat = "class", when = { class = "MAGE" },
@@ -177,6 +262,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    y_hist = {
+      lines = {
+        { id = "y_y_hist", text = "Vendor-Tron 1000 was built in Ratchet by goblin engineers for the Steamwheedle Cartel. It was the thousandth model. The nine hundred and ninety-nine before it are not discussed. Vendor-Tron 1000 is the one that worked." },
+      },
+      choices = {
+        { text = "What happened to the others?", next = "y_others" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_others = {
+      lines = {
+        { id = "y_y_others", text = "Vendor-Tron 1000 has heard rumours. Some exploded. Some sold everything for one copper. One wandered into the sea. Vendor-Tron 1000 does not like to think about it, and has deleted the relevant memory banks, mostly." },
+        { id = "y_y_others_v0", when = { race = "Gnome" }, text = "Vendor-Tron 1000 has heard rumours. Some exploded, gnome customer, which you will understand. Vendor-Tron 1000 prefers not to explode." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_dream = {
+      lines = {
+        { id = "y_y_dream", text = "Vendor-Tron 1000 does not dream. But when the caravan stops at night, Vendor-Tron 1000 sometimes calculates what it would sell in a city. Silk, perhaps. Fine dyes. Vendor-Tron 1000 would like to see Orgrimmar, or Stormwind. Either would do." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_stance = {
+      lines = {
+        { id = "y_y_stance", text = "A centaur once tried to buy thread from Vendor-Tron 1000, peacefully, with good coin. The goblins said never sell to centaur. Vendor-Tron 1000 sold anyway. Was Vendor-Tron 1000 wrong?" },
+      },
+      choices = {
+        { text = "No. Coin is coin, and peace is better.", next = "BACK", reply = "Vendor-Tron 1000 agrees. Please do not tell the goblins.", fx = { align = { order = 1 } } },
+        { text = "Yes. The goblins make the rules.", next = "BACK", reply = "Understood. Vendor-Tron 1000 will update its customer filter. Reluctantly.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Vendor-Tron 1000 carries thread, dye, flux and other goods for crafting folk. It is one thousand, which is more than the Super-Seller, and you may draw your own conclusions." } },
       again = { { id = "h_again", text = "Vendor-Tron 1000 awaits your further enquiry." } },
@@ -187,6 +308,9 @@ P:NPC {
         { text = "Have you been attacked on the road?", next = "xattack" },
         { text = "You seem very proud of your number.", next = "xproud" },
         { text = "I'm a tailor. Do you have fine thread?", next = "xtailor", when = { profession = "Tailoring" } },
+        { text = "Who built you?", next = "y_hist" },
+        { text = "Do you ever dream?", next = "y_dream" },
+        { text = "Have you broken the rules?", next = "y_stance" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -240,6 +364,8 @@ P:NPC {
     },
   },
   topics = {
+    ratchet = { { id = "tp_yratchet", text = "Ratchet, where Vendor-Tron 1000 was built. A fine goblin port." } },
+    gizelton = { { id = "tp_ygizelton", text = "The Gizelton Caravan Company. Vendor-Tron 1000's current employer." } },
     super_seller = { { id = "tp_xsuper_seller", text = "Super-Seller 680. Lower number. Vendor-Tron 1000 does not wish to discuss it further." } },
     centaur = { { id = "tp_xcentaur", text = "Centaur attack the caravan often. Vendor-Tron 1000 has been dented forty-one times." } },
    
@@ -259,9 +385,46 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to Shadowprey, mon. Keep your weapon down in de village and you and me be fine friends." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "You be a long way from Nijel's Point, stranger. Walk slow, talk soft, and do your business quick." },
+    { id = "yg_0", when = { race = "Orc" }, text = "Ah, orc. De Darkspear owe Thrall plenty, mon. You be welcome in Shadowprey." },
   },
   start = "hello",
   nodes = {
+    y_hist = {
+      lines = {
+        { id = "y_y_hist", text = "I was a fisherman on de Echo Isles before de sea witch came. Thrall saved us, and Vol'jin brought us to Kalimdor. When he asked for guards for dis village, I came. De fish here be different, but de sea be de same." },
+      },
+      choices = {
+        { text = "What happened with the sea witch?", next = "y_witch" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_witch = {
+      lines = {
+        { id = "y_y_witch", text = "Zar'jira, a naga sea witch. She tried to drown us all on de Echo Isles, mon, and she nearly did. Dat be why I watch de water so close. Once a naga try to kill you, you never trust de tide again." },
+        { id = "y_y_witch_v0", when = { race = "Troll" }, text = "Zar'jira, mon. You know de story, ya. She nearly drowned us on de Echo Isles. I never trust de tide again after dat." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_loa = {
+      lines = {
+        { id = "y_y_loa", text = "De loa whisper to me at night, mon. Dey say somethin' old be stirrin' on de islands, somethin' older than de naga. I tell de witch doctor, and he say keep watchin'. So I keep watchin'." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_stance = {
+      lines = {
+        { id = "y_y_stance", text = "Some of de young trolls want to raid de naga on Ranazjar Isle, strike first before dey strike us. Others say wait and guard de village. What you think, mon?" },
+      },
+      choices = {
+        { text = "Guard the village. Don't start a war.", next = "BACK", reply = "Ya, dat be wise. I will tell de young ones.", fx = { align = { order = 1 } } },
+        { text = "Strike first. Take the fight to them.", next = "BACK", reply = "Hmm. Bold, mon. Maybe too bold. But I hear you.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I guard dis village and de docks for de Horde, and de sea gives us more trouble than de centaur do. De Kolkar come from de north, but de naga come from de water, and dat be worse." } },
       again = { { id = "h_again", text = "Anything else you want from a tired guard, mon?" } },
@@ -272,6 +435,9 @@ P:NPC {
         { text = "What do the naga want here?", next = "xwant" },
         { text = "You look like you've seen hard fighting.", next = "xhard" },
         { text = "I'm a Darkspear too. How's the village?", next = "xtroll", when = { race = "Troll" } },
+        { text = "Where were you before Shadowprey?", next = "y_hist" },
+        { text = "What do the loa tell you?", next = "y_loa" },
+        { text = "Should Shadowprey strike the naga first?", next = "y_stance" },
         { text = "Stay sharp.", next = "END" },
       },
     },
@@ -322,6 +488,8 @@ P:NPC {
     },
   },
   topics = {
+    echo_isles = { { id = "tp_yecho_isles", text = "De Echo Isles, where de Darkspear lived before Thrall came. De sea witch nearly took dem." } },
+    voljin = { { id = "tp_yvoljin", text = "Vol'jin leads de Darkspear. He be wise, and he be patient." } },
     naga = { { id = "tp_xnaga", text = "Dey come from de sea at night. Watch de water." } },
     kolkar = { { id = "tp_xkolkar", text = "De Kolkar fight de other centaur more than us, mon." } },
    

@@ -740,6 +740,8 @@ P:NPC {
         { id = "h_again2", text = "Make it quick, pal. The coils need to cool." },
       },
       choices = {
+        { text = "How did you get this job?", next = "ywon_job" },
+        { text = "You're a goblin too, pal? Which cartel?", next = "ywon_goblin", when = { race = "Goblin" } },
         { text = "What does the machine actually do?", next = "machine" },
         { text = "Who runs Smokywood Pastures?", next = "smokywood" },
         { text = "That thing looks dangerous.", next = "danger" },
@@ -780,8 +782,47 @@ P:NPC {
       lines = { { id = "p_default", text = "Trade secret, pal, but I'll say this much: it's a lot of copper coil and a little bit of something sparkly. Don't open the panel." } },
       choices = { { text = "Your secret's safe. Something else.", next = "BACK" } },
     },
+    ywon_job = {
+      lines = {
+        { id = "yywon_job_d", text = "Answered a notice in Booty Bay, pal, Seasonal Help Wanted, No Experience Necessary, Eyebrows Optional. I figured the eyebrows bit was a joke, and I'm still waitin' for the left one to grow back, but the pay's good and the hot cider's free." },
+      },
+      choices = {
+        { text = "Why Dalaran, of all places?", next = "ywon_dalaran" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywon_dalaran = {
+      narr = "The goblin glances up at the violet towers and lowers his voice.",
+      lines = {
+        { id = "yywon_dalaran_d", text = "Smokywood figured a city full of mages would love a machine full of sparks, and they figured right, mostly. But the Kirin Tor keep sendin' fellas in purple robes to inspect the coils, and every time one of 'em leans in close, I get real sweaty." },
+      },
+      choices = {
+        { text = "What are you hiding in there?", next = "ywon_hiding" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywon_hiding = {
+      lines = {
+        { id = "yywon_hiding_d", text = "Hidin'? Me? Okay, okay, listen, there's a little crystal in the core that my supervisor picked up cheap from a fella in Stranglethorn. He swore it's perfectly safe, but it hums at night, and I'm startin' to think the Kirin Tor would want to know about it." },
+      },
+      choices = {
+        { text = "Tell the Kirin Tor. Better safe than sheep.", next = "BACK", reply = "Yeah, yeah, you're right. I'll tell 'em, and Smokywood can sue me.", fx = { align = { order = 1 } } },
+        { text = "Keep quiet. It's not your problem.", next = "BACK", reply = "That's the spirit, pal! What they don't know won't polymorph 'em.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywon_goblin = {
+      lines = {
+        { id = "yywon_goblin_d", text = "Smokywood Pastures, friend, which is neither Steamwheedle nor Venture, and that's the beauty of it. Seasonal work, seasonal profits, and no trade prince breathin' down my neck. Just my supervisor, who breathes louder." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    booty_bay = { { id = "tp_ybooty_bay", text = "Where I got hired, pal. Lost an eyebrow the same week." } },
+    kirin_tor = { { id = "tp_ykirin_tor", text = "Fellas in purple who keep inspectin' my coils. I sweat a lot around 'em." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, pal. I just work the machine." } },
   },
 }

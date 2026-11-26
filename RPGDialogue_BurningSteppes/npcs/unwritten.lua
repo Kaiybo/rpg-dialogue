@@ -33,6 +33,8 @@ P:NPC {
         { text = "Have the black dragons attacked you?", next = "xdragons" },
         { text = "What do you think of the Dark Irons?", next = "xdark" },
         { text = "I'm a dwarf too. How can I help?", next = "BACK", when = { race = "Dwarf" }, reply = "Bless ye, cousin. Bring water if ye can find it, an' a strong arm for the diggers. Every pair o' hands is worth a prayer out here." },
+        { text = "Have you lost anyone out here?", next = "ylost" },
+        { text = "Who do you pray for?", next = "ypray" },
         { text = "Light keep you.", next = "END" },
       },
     },
@@ -77,8 +79,39 @@ P:NPC {
         { text = "They chose Ragnaros. Let them burn with him.", next = "BACK", reply = "Aye, many would agree. I'll pray for them anyway.", fx = { align = { light = -1 } } },
       },
     },
+  
+    ylost = {
+      lines = {
+        { id = "yexpedi_ylost_d", text = "Two, this season. A digger crushed in a tunnel collapse, an' a young priest who went out alone tae help a wounded scout. The scout lived. The priest didnae. I buried him by the camp, under a cairn o' black stone." },
+      },
+      choices = {
+        { text = "Was it right for him to go alone?", next = "yright" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yright = {
+      lines = {
+        { id = "yexpedi_yright_d", text = "The expedition leader says nae, that he broke the rule an' paid for it. I say he did what a priest should do, an' the rule was wrong. We've argued about it every night since. Neither of us is winnin'." },
+      },
+      choices = {
+        { text = "The rule keeps priests alive. He broke it.", next = "BACK", reply = "Aye. The leader says the same. Maybe I'm only grievin'.", fx = { align = { order = 1 } } },
+        { text = "He did right. A priest goes where he's needed.", next = "BACK", reply = "Thank ye. I'll tell his mother that, when I write.", fx = { align = { order = -1 } } },
+      },
+    },
+    ypray = {
+      lines = {
+        { id = "yexpedi_ypray_d", text = "For the diggers, for the dead, an' for the Dark Irons, though I'll nae say that last one too loud. Every soul under the Light, even the ones who turned from it. Especially those, maybe." },
+        { id = "yexpedi_ypray_v0", when = { class = "PRIEST" }, text = "For the diggers, for the dead, an' for the Dark Irons, quietly. Ye're a priest yerself, so ye'll know. The ones who turned from the Light need it most." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    dracodar = { { id = "yexpedi_tp_dracodar", text = "Draco'dar's the most dangerous dig in the Steppes. We're here because the League says it's worth it." } },
+    morgans_vigil = { { id = "yexpedi_tp_morgans_vigil", text = "Morgan's Vigil holds the east of the Steppes. Good folk, though they're more soldiers than scholars." } },
+
     dark_irons = { { id = "tp_xdark_irons", text = "Our kin, lost to fire. I pray for them, though they'd laugh at it." } },
     explorers_league = { { id = "tp_xexplorers_league", text = "Fine folk, if a bit too eager to dig where they shouldnae." } },
     background = { { id = "tp_bg", text = "Ironforge raised me an' the Light called me, an' the expedition sent me somewhere hot." } },
@@ -116,6 +149,8 @@ P:NPC {
         { text = "What is the Lunar Festival, Elder?", next = "festival" },
         { text = "I have come to pay my respects.", next = "respects" },
         { text = "My people fought orcs here once, Elder.", next = "kin", when = { faction = "Alliance" } },
+        { text = "What was the strangest road you walked?", next = "yroad" },
+        { text = "Why see this place, of all places?", next = "ywhy" },
         { text = "Rest well, Elder.", next = "END" },
       },
     },
@@ -155,8 +190,39 @@ P:NPC {
       lines = { { id = "k_default", text = "Then your grandfathers and mine stood on opposite sides of more than one war. Tonight there are only the honoured dead, and the living who remember them." } },
       choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
     },
+  
+    yroad = {
+      lines = {
+        { id = "yelderd_yroad_d", text = "A road through the Searing Gorge, before it was searing, when the dwarves still mined it peacefully. I walked it with a dwarf trader who taught me a drinking song. I have forgotten the words, but I remember the tune." },
+        { id = "yelderd_yroad_v0", when = { race = "Dwarf" }, text = "A road through the Searing Gorge, before it burned, with a dwarf trader of your people. He taught me a drinking song. Perhaps you know it. I remember only the tune." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywhy = {
+      lines = {
+        { id = "yelderd_ywhy_d", text = "Because I saw it green, long ago, and I wanted to see what fire had made of it. It is terrible, child, but there is a strange beauty in it too. Some say a wanderer should only seek beautiful places. I seek true ones." },
+      },
+      choices = {
+        { text = "Is there beauty in ruin?", next = "yruin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yruin = {
+      lines = {
+        { id = "yelderd_yruin_d", text = "The young shaman say no, that the land weeps and should not be gazed upon. The old walkers say every place deserves to be seen, even broken ones. What do you say?" },
+      },
+      choices = {
+        { text = "Every place deserves to be seen and remembered.", next = "BACK", reply = "Then you are a walker at heart, child. I am glad to have met you.", fx = { align = { light = 1 } } },
+        { text = "The young shaman are right. Let it weep alone.", next = "BACK", reply = "Perhaps. But a wound that no one sees is a wound that never heals.", fx = { align = { light = -1 } } },
+      },
+    },
   },
   topics = {
+    steppes = { { id = "yelderd_tp_steppes", text = "The Burning Steppes were green once, with rivers. I remember them, and I mourn them." } },
+    wandering = { { id = "yelderd_tp_wandering", text = "A wanderer's heart is never satisfied, even in death. That is a gift, and a curse." } },
+
     _none = { { id = "tp_none", text = "I never walked that road, {class}. Perhaps you will." } },
   },
 }

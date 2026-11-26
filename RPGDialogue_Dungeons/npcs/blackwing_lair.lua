@@ -45,6 +45,8 @@ P:NPC {
         { text = "Why should we trust a dragon?", next = "trust" },
         { text = "Let me try to ease your pain.", next = "mend", when = { class = { "PRIEST", "PALADIN", "DRUID" } } },
         { text = "What would you have us do?", next = "fight" },
+        { text = "Tell me of the red flight, while you can.", next = "yred" },
+        { text = "What message should I carry to Alexstrasza?", next = "ymessage" },
       },
     },
     work = {
@@ -94,9 +96,27 @@ P:NPC {
         { text = "Not yet.", next = "BACK" },
       },
     },
+    yred = {
+      lines = {
+        { id = "yre_default", text = "We are the keepers of life, mortals, and our queen loves the young races more than you will ever know. When the orcs held her chained in Grim Batol, she still did not hate you. Remember that, when you think of dragons." },
+        { id = "yre_orc", when = { race = "Orc" }, text = "We keep life, orc, and our queen loves the young races, even yours, even after your Dragonmaw chained her in Grim Batol. She did not hate you then. Do not make her wrong now." },
+      },
+      choices = { { text = "I'll remember. Something else.", next = "BACK" } },
+    },
+    ymessage = {
+      narr = "His great chest heaves, and smoke curls from his nostrils in a long, ragged breath.",
+      lines = { { id = "yme_default", text = "Tell her I was not strong enough, and that I am sorry. Or tell her I died fighting him to the end, which is kinder but not true. Which would you tell a grieving queen, mortal?" } },
+      choices = {
+        { text = "The truth. She deserves it.", next = "BACK", reply = "Then tell her the truth, and tell her I loved her.", fx = { align = { order = 1 } } },
+        { text = "The kind story. Spare her grief.", next = "BACK", reply = "Perhaps. She will see through it, but she will thank you.", fx = { align = { order = -1 } } },
+      },
+    },
   },
 
   topics = {
+    alexstrasza = { { id = "yt_alex", text = "My queen, the Life-Binder. If I see her again, it will not be in this life." } },
+    nefarian = { { id = "yt_nef", text = "The black son. He laughs while he works. I hope you are the last thing he laughs at." } },
+    chromatic = { { id = "yt_chrom", text = "Chromatic dragons, stitched from every flight's blood. An abomination, and his proudest work." } },
     _none = { { id = "tp_none", text = "I have no time for that. The corruption rises, and soon I will not answer at all." } },
   },
 }

@@ -137,6 +137,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yhouse = {
+      lines = {
+        { id = "ymikeysw1", text = "It's in the Trade District, above my dad's shop, where he sells candles and lamp oil. It smells like wax all the time, and my mum says that's better than smelling like the canals, which is what Twain's house smells like." },
+        { id = "ymikeysw2", when = { race = "Gnome" }, text = "Dad says gnomes make the best lamps, ones that don't even need oil. Is that true? He'd want to know." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfriend = {
+      lines = {
+        { id = "ymikeysw3", text = "Steven, because he wants to be a mage and he tells me about the Mage Tower. He says when he's a mage he'll turn Twain into something quiet. I'd like that, but I'd want him to be a toad, not a sheep." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygrow = {
+      lines = {
+        { id = "ymikeysw4", text = "A guard, so I can tell people what to do. Then I'd tell Twain to stop poking people, and he'd have to, because guards are in charge. Dad says that's not what guards are for, though." },
+      },
+      choices = {
+        { text = "What are guards for?", next = "yguards" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yguards = {
+      lines = {
+        { id = "ymikeysw5", text = "Dad says they're for keeping everybody safe, even the ones who poke. I think the ones who poke should have to stand in the corner first. What do you think?" },
+      },
+      choices = {
+        { text = "Guards should punish rule-breakers. Fair is fair.", next = "BACK", reply = "That's right! I'm going to tell Dad you agreed with me.", fx = { align = { order = 1 } } },
+        { text = "Guards protect everyone, even the annoying ones.", next = "BACK", reply = "Hmm. That sounds like what Dad would say. I'll think about it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Mikey. We have to go and look at the Cathedral and the Keep and the statues, and then we have to write about them, which is the worst part." },
@@ -150,6 +186,9 @@ P:NPC {
         { text = "You don't like the tour?", next = "tour" },
         { text = "What will you write about for Miss Danna?", next = "x_write" },
         { text = "You should tell Twain to stop, yourself.", next = "x_stance" },
+        { text = "What's your house like?", next = "yhouse" },
+        { text = "Who's your best friend in class?", next = "yfriend" },
+        { text = "What will you be when you grow up?", next = "ygrow" },
         { text = "Chin up, Mikey. It's nearly over.", next = "END" },
       },
     },
@@ -187,6 +226,8 @@ P:NPC {
     },
   },
   topics = {
+    twain = { { id = "ymikeysw6", text = "He pokes me with a stick. He says it's funny. It's not." } },
+    steven = { { id = "ymikeysw7", text = "My best friend. He wants to be a mage." } },
     background = { { id = "tp_bg", text = "I'm in Miss Danna's class, and I'm the second fastest runner in it, when we're allowed to run." } },
     _none = { { id = "tp_none", text = "I don't know. We haven't done that one at school yet." } },
   },
@@ -304,6 +345,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yfamily = {
+      lines = {
+        { id = "ystevensw1", text = "My mum's a baker and my dad's a carpenter, and they don't know anything about magic. They say I'll grow out of it, but I won't. My cousin goes to the Mage Quarter every week, and he says there's a door there that goes nowhere." },
+        { id = "ystevensw2", when = { class = "MAGE" }, text = "Do you know my cousin Jerod? He's an apprentice in the Mage Quarter. Is he any good?" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yknow = {
+      lines = {
+        { id = "ystevensw3", text = "Only the ones in the Mage Quarter, and they're always busy. Once a mage made a light come out of his finger to read a map, and I followed him all the way to the canal before he noticed. He wasn't cross, he laughed." },
+      },
+      choices = {
+        { text = "Would your parents let you study?", next = "yparents" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yparents = {
+      lines = {
+        { id = "ystevensw4", text = "Mum says it costs too much, and Dad says I should learn a proper trade. Miss Danna says the mages take poor children if they're clever enough. Should I ask them myself?" },
+      },
+      choices = {
+        { text = "Ask your parents first, and respect their answer.", next = "BACK", reply = "All right. I'll ask at supper, when Dad's in a good mood.", fx = { align = { order = 1 } } },
+        { text = "Ask the mages. Your gift is yours to follow.", next = "BACK", reply = "I'm going to! Tomorrow, before school, if I'm brave.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Steven. We've seen the Cathedral and we're going to see the Keep and the statues, but the tower isn't on the list, and it's the only one I wanted." },
@@ -318,6 +387,8 @@ P:NPC {
         { text = "I've been inside. It's a long climb.", next = "inside", when = { class = "MAGE" } },
         { text = "What would you do first, as a mage?", next = "x_first" },
         { text = "Magic is dangerous. Maybe pick something else.", next = "x_stance" },
+        { text = "What's your family like?", next = "yfamily" },
+        { text = "Do you know any mages?", next = "yknow" },
         { text = "I hope you see it one day, Steven.", next = "END" },
       },
     },
@@ -359,6 +430,8 @@ P:NPC {
     },
   },
   topics = {
+    tower = { { id = "ystevensw5", text = "The Mage Tower glows at the top. I'm going to live there one day." } },
+    jerod = { { id = "ystevensw6", text = "My cousin, the apprentice. He says there's a door that goes nowhere." } },
     background = { { id = "tp_bg", text = "I'm in Miss Danna's class, and when I'm grown I'm going to live at the top of the tower." } },
     _none = { { id = "tp_none", text = "I don't know. Is it anything to do with mages?" } },
   },
@@ -384,6 +457,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ydad = {
+      lines = {
+        { id = "ytwainsw1", text = "He's a sailor on the trade ships, and he's gone for months at a time. When he's home he tells me about the pirates and the sea monsters, and then he leaves again. Mum says that's why I'm such a handful." },
+        { id = "ytwainsw2", when = { class = "ROGUE" }, text = "Dad says pirates are only sailors who stopped caring about rules. You look like you know about that." },
+      },
+      choices = {
+        { text = "Do you miss him?", next = "ymiss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymiss = {
+      lines = {
+        { id = "ytwainsw3", text = "Yes, but I won't say it to anyone at school. Mikey's dad is always home, and that's why I poke him, I think. Is that bad, poking someone because you're jealous?" },
+      },
+      choices = {
+        { text = "It's bad. Say sorry to Mikey.", next = "BACK", reply = "Fine. Maybe. I'll say it tomorrow, if I remember.", fx = { align = { light = 1 } } },
+        { text = "It's natural. Just find a better way to show it.", next = "BACK", reply = "Like what? Maybe I'll show him my dad's shark tooth instead.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybooty = {
+      lines = {
+        { id = "ytwainsw4", text = "It's a goblin town in Stranglethorn, and it's built in a mountain shaped like a skull. There are pirates and sharks, and goblins who sell everything. Justin's cousin says you can buy a parrot there that swears." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Twain. Miss Danna's making us look at old buildings all day, and I asked her why we have to learn this stuff anyway, and she just said we were going to the next one." },
@@ -398,6 +499,8 @@ P:NPC {
         { text = "No, you can't hold it.", next = "hold" },
         { text = "What do you want to be, really?", next = "x_be" },
         { text = "Picking on Mikey isn't fair.", next = "x_stance" },
+        { text = "What does your dad do?", next = "ydad" },
+        { text = "What do you know about Booty Bay?", next = "ybooty" },
         { text = "Behave yourself, Twain.", next = "END" },
       },
     },
@@ -439,6 +542,8 @@ P:NPC {
     },
   },
   topics = {
+    booty_bay = { { id = "ytwainsw5", text = "A goblin town where you can buy a parrot that swears. I'm going one day." } },
+    dad = { { id = "ytwainsw6", text = "He's a sailor on the trade ships. He brings me shark teeth." } },
     background = { { id = "tp_bg", text = "I'm in Miss Danna's class, and I've been sent to stand in the corner more times than anybody." } },
     _none = { { id = "tp_none", text = "Don't know. Ask Pat; she knows everything, and she'll tell you all of it." } },
   },
@@ -565,6 +670,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ygrown = {
+      lines = {
+        { id = "ywilliamsw1", text = "A runner for the king, with a message bag and a fast horse, and I'll be the fastest in the kingdom. Or a sailor, but I get seasick on the canal boats, so probably the runner." },
+        { id = "ywilliamsw2", when = { class = "HUNTER" }, text = "Or a hunter, with a fast cat! Do you think a cat would let me ride it? Probably not, but I'd ask nicely." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfamily = {
+      lines = {
+        { id = "ywilliamsw3", text = "My mum works at the Pig and Whistle, and I live with her above the tavern. My dad was a soldier, but he died in the war. Mum says he was fast too, and that's where I get it from." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm William, and I've got Donna's doll, and she wants it back, so I'm running. I've been past the Cathedral and Old Town and the dwarves' bit, and she hasn't caught me once." },
@@ -579,6 +701,9 @@ P:NPC {
         { text = "She looks faster than you think.", next = "faster" },
         { text = "Do you like Donna, then?", next = "x_like" },
         { text = "Stealing's stealing, William, even for a game.", next = "x_stance" },
+        { text = "What will you do when you're grown?", next = "ygrown" },
+        { text = "Want a tip on running corners?", next = "BACK", when = { class = "ROGUE" }, reply = "Yes! Quick, tell me, before she catches up. Oh, that's clever. I'm using that." },
+        { text = "What about your family?", next = "yfamily" },
         { text = "Run, then. She's coming.", next = "END" },
       },
     },
@@ -623,6 +748,8 @@ P:NPC {
     },
   },
   topics = {
+    donna = { { id = "ywilliamsw4", text = "She runs like a horse, but I'm better at corners." } },
+    betsy = { { id = "ywilliamsw5", text = "Donna's doll. I'm only borrowing her at a run." } },
     background = { { id = "tp_bg", text = "I'm William, and I'm the fastest in the Trade District, whatever Donna says." } },
     _none = { { id = "tp_none", text = "Don't know, can't stop to think about it!" } },
   },

@@ -256,6 +256,7 @@ P:NPC {
         { text = "The druids say Ysera watches over the Dream.", next = "dream", when = { class = "DRUID" } },
         { text = "My people were raised with tales of your kind.", next = "dream", when = { race = "NightElf" } },
         { text = "Do you have work for me?", next = "BUSINESS" },
+        { text = "What will you do when this war ends?", next = "yafter" },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -311,9 +312,21 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yafter = {
+      narr = "She looks away, toward the sand-choked doorway, for longer than she means to.",
+      lines = {
+        { id = "yaf_default", text = "Sleep, mortal, in the Dream where my kin wait, and try not to dream of this place. Some of us have begun to have bad dreams, and that has never happened before. I do not know what it means, and I would rather not learn it here." },
+        { id = "yaf_druid", when = { class = "DRUID" }, text = "Sleep in the Dream, druid, where my kin wait. You walk there too, at the edges. Have you felt it lately, a darkness in the corners? Some of us have. I do not know what it means." },
+      },
+      choices = { { text = "May your dreams be kind. Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    ysera = { { id = "yt_ysera", text = "Ysera the Dreamer, my Aspect. She watches the Emerald Dream, and she trusts very few to wake." } },
+    andorgos = { { id = "yt_andor", text = "Andorgos speaks in centuries. Listen to him when you have time, and to me when you don't." } },
+    qiraji = { { id = "yt_qiraji", text = "The qiraji are C'Thun's children, and they breed faster than we kill them. Do not hesitate." } },
+    skeram = { { id = "yt_skeram", text = "The Prophet Skeram splits himself in three. Find the real one, and kill it first." } },
     _none = { { id = "tp_none", text = "Ask Andorgos about that. He likes long answers." } },
   },
 }
@@ -355,6 +368,8 @@ P:NPC {
         { text = "You're a long way from the red flight.", next = "red" },
         { text = "Keep the qiraji off my pet and we'll get along.", next = "pet", when = { class = "HUNTER" } },
         { text = "Show me what you have.", next = "BUSINESS" },
+        { text = "What do you fear most in this temple?", next = "yfear" },
+        { text = "How long have you stood guard here?", next = "ylong" },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -403,9 +418,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yfear = {
+      narr = "His eyes, gold as a forge-coal, drift toward the deeper halls.",
+      lines = {
+        { id = "yf_default", text = "Not the qiraji, nor even C'Thun's whispers. I fear that we will win, and the world above will forget why this door had to be held. Mortals forget so quickly, and the next swarm will find them unready." },
+        { id = "yf_nelf", when = { race = "NightElf" }, text = "Not the qiraji, nor C'Thun. I fear the world will forget again. Your people fought the War of the Shifting Sands beside us, and how many of them remember it now, outside the Sentinels' oldest songs?" },
+      },
+      choices = {
+        { text = "Then the tale must be told.", next = "ytell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytell = {
+      lines = { { id = "ytl_default", text = "Some in the Brood would rather it be sealed in silence, so no fool ever comes looking for the Old God's power. Others say only memory keeps the world ready. Which is wiser, do you think, to tell or to hide?" } },
+      choices = {
+        { text = "Tell it. Ignorance invites the next swarm.", next = "BACK", reply = "Then tell it well, and tell it often.", fx = { align = { order = -1 } } },
+        { text = "Hide it. Some power must stay buried.", next = "BACK", reply = "Andorgos would agree with you. I am less certain.", fx = { align = { order = 1 } } },
+      },
+    },
+    ylong = {
+      lines = { { id = "yl_default", text = "Since Anachronos called for aid and the Scepter of the Shifting Sands was made whole again. To a dragon it has been a short watch, but this place makes every hour feel like a century, and the sand gets into my scales." } },
+      choices = { { text = "Hold fast, Kandrostrasz. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
 
   topics = {
+    alexstrasza = { { id = "yt_alex", text = "The Life-Binder is my queen. Her warmth reaches even here, if I close my eyes and remember." } },
+    cthun = { { id = "yt_cthun", text = "C'Thun stirs beneath us. Do not listen if it whispers to you, and it will whisper." } },
+    andorgos = { { id = "yt_andor", text = "Andorgos of the blue flight thinks this temple should be sealed forever. Some days I agree." } },
+    vethsera = { { id = "yt_veth", text = "Vethsera of the green flight is the gentlest of us, and the most afraid. She hides it well." } },
     _none = { { id = "tp_none", text = "I'm afraid I know little of that. My thoughts stay with the Temple." } },
   },
 }

@@ -34,6 +34,9 @@ P:NPC {
         { text = "What are the rules of this game?", next = "rules" },
         { text = "Where does the guard march to?", next = "march" },
         { text = "You take your post very seriously.", next = "serious" },
+        { text = "Who taught you to march like that?", next = "ytaught" },
+        { text = "Do the six of you ever quarrel?", next = "yquarrel" },
+        { text = "I served in the real guard once.", next = "yguard", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "March on, guardsman.", next = "END" },
       },
     },
@@ -56,8 +59,43 @@ P:NPC {
       lines = { { id = "s_default", text = "Somebody has to, because Dana wants to be king and Jose wants to look at beetles. When I'm grown I'm going to join the real guard at Goldshire, and Marshal Dughan won't have to tell me anything twice." } },
       choices = { { text = "He'll be lucky to have you. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ytaught = {
+      lines = {
+        { id = "yt_default", text = "Nobody taught me, I watched. The guards outside the Lion's Pride change over at sunset, and they stamp twice and turn, so I practised it behind the inn until I had it right. Marshal Dughan saw me once and nodded, and that counts." },
+        { id = "yt_human", when = { race = "Human" }, text = "I watched the Goldshire guards change over at sunset, the same as you must have seen a hundred times. They stamp twice and turn, and I practised it behind the inn until Marshal Dughan nodded at me." },
+      },
+      choices = {
+        { text = "Why do you want to be a guard so badly?", next = "ywhy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywhy = {
+      narr = "He loses his count and has to look at his boots to find it again.",
+      lines = { { id = "yw_default", text = "My father was in the King's army, and he went away when I was small and didn't come back. Mother says he kept his post right to the end, so I want to keep mine, even if it's only a corner of a game." } },
+      choices = {
+        { text = "Then you honour him every step.", next = "BACK", reply = "That's what I think too, but don't tell the others, please.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yquarrel = {
+      lines = { { id = "yq_default", text = "All the time, mostly about the rules. Dana says a guard ought to be allowed to leave her corner if she sees a wolf, and I say a guard who leaves her corner isn't guarding anything. Which of us is right, do you think?" } },
+      choices = {
+        { text = "You are. A post is a post.", next = "yquarrel2", reply = "I knew it! I'm going to tell her a grown-up said so.", fx = { align = { order = 1 } } },
+        { text = "Dana is. Sometimes you must break ranks.", next = "yquarrel2", reply = "Oh. Well, I suppose she does see the wolves first.", fx = { align = { order = -1 } } },
+      },
+    },
+    yquarrel2 = {
+      lines = { { id = "yq2_default", text = "Either way, we always make friends again by the Northshire gate, because Brother Neals won't give out grapes to children who are sulking. That's the real rule, and it works better than mine." } },
+      choices = { { text = "Grapes keep the peace. Something else.", next = "BACK" } },
+    },
+    yguard = {
+      lines = { { id = "yg_default", text = "Did you really? Then you can tell me if I'm doing it properly. I keep my eyes front and my shoulders back, and I never scratch my nose, even when it itches dreadfully, which is nearly always." } },
+      choices = { { text = "You'd pass inspection. Something else.", next = "BACK", reply = "I'm going to remember you said that forever.", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    dughan = { { id = "yt_dughan", text = "Marshal Dughan is the most important man in Goldshire, and he never slouches, not even when he sits down." } },
+    stormwind = { { id = "yt_sw", text = "The gate at Stormwind has a guard on each side, and I've counted the bricks between them. There are forty-one." } },
     background = { { id = "tp_bg", text = "I live in the big house at the north end of Goldshire, upstairs with the others. We march nearly every day." } },
     _none = { { id = "tp_none", text = "I don't know about that, and I've lost count now, so I'll have to start again from the last tree." } },
   },
@@ -92,6 +130,9 @@ P:NPC {
         { text = "How did you come to be king?", next = "king" },
         { text = "Where is Your Majesty bound?", next = "bound" },
         { text = "Stormwind already has a king, you know.", next = "anduin" },
+        { text = "What does a king worry about?", next = "yworry" },
+        { text = "What laws has the king made?", next = "ylaws" },
+        { text = "I'm a noble of Stormwind, you know.", next = "ynoble", when = { race = "Human" } },
         { text = "By your leave, Majesty.", next = "END" },
       },
     },
@@ -114,8 +155,43 @@ P:NPC {
       lines = { { id = "a_default", text = "I know, and he's a boy the same as me, which is why I thought of it. If he ever wants to come and march with us he can be king and I'll be the marshal, and I've already decided that." } },
       choices = { { text = "That's generous of you. Something else.", next = "BACK" } },
     },
+    yworry = {
+      narr = "He glances over his shoulder at the ring of children, then lowers his voice.",
+      lines = { { id = "ywo_default", text = "That one day the others won't want to play any more. Dana's getting bored of being a guard, and Aaron's going to join the real guard when he's older, and then I'll be a king with nobody around him at all." } },
+      choices = {
+        { text = "Then let Dana have a turn as king.", next = "yturn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yturn = {
+      lines = { { id = "ytu_default", text = "But if I let her, she might be better at it than me, and then everyone will want her to stay king. Should a king share his crown, or keep it?" } },
+      choices = {
+        { text = "Share it. A good king lets others lead.", next = "BACK", reply = "Hmm. Maybe on Sundays, then. Only on Sundays.", fx = { align = { order = -1 } } },
+        { text = "Keep it. A king must stay a king.", next = "BACK", reply = "That's what I thought! I'll tell Dana you said so.", fx = { align = { order = 1 } } },
+      },
+    },
+    ylaws = {
+      lines = {
+        { id = "yl_default", text = "Everyone has to wash before supper, nobody is allowed to be sent to bed early, and on market days the king gets the first sweet. Lisa says the second law isn't a proper law because nobody can make grown-ups obey it." },
+        { id = "yl_child", when = { race = "Gnome" }, text = "Everyone washes before supper, nobody is sent to bed early, and the king gets the first sweet. I'd make you the royal inventor, if you want it, because gnomes are the cleverest people in the whole kingdom." },
+      },
+      choices = {
+        { text = "Who enforces them?", next = "yenforce" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yenforce = {
+      lines = { { id = "ye_default", text = "Aaron does, mostly, because he likes rules better than anybody. He wrote them on a slate and hung it on our bedpost, but Jose rubbed half of it off with his sleeve while he was looking for a beetle." } },
+      choices = { { text = "A setback for the crown. Something else.", next = "BACK" } },
+    },
+    ynoble = {
+      lines = { { id = "yn_default", text = "Are you really? Then you must bow, because nobles bow to kings, but I'll bow back, because you're taller. That seems fair, and fair is the most important thing a king can be, Mother says." } },
+      choices = { { text = "Your Majesty. Something else.", next = "BACK", reply = "Thank you, my lord. You may go about your business.", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    anduin = { { id = "yt_anduin", text = "King Anduin is only a boy, like me. I think we'd get on, if he ever came to Goldshire." } },
+    goldshire = { { id = "yt_gold", text = "Goldshire is my kingdom, from the inn to the smithy, and the pond counts too." } },
     background = { { id = "tp_bg", text = "I live upstairs in the big house in Goldshire with the others. I'm in the middle because it was my game first." } },
     _none = { { id = "tp_none", text = "The king doesn't know about that. You could ask Lisa, because she knows everybody's business on this road." } },
   },
@@ -150,6 +226,9 @@ P:NPC {
         { text = "What have you spotted on the road?", next = "spotted" },
         { text = "Cameron says he's the king.", next = "king" },
         { text = "You've good eyes for a lookout.", next = "eyes" },
+        { text = "What's the scariest thing you've seen?", next = "yscary" },
+        { text = "What will you be when you grow up?", next = "ygrow" },
+        { text = "I'm an elf of Teldrassil, little lookout.", next = "yelf", when = { race = "NightElf" } },
         { text = "Keep watching, Dana.", next = "END" },
       },
     },
@@ -172,8 +251,43 @@ P:NPC {
       lines = { { id = "e_default", text = "Thank you! When we get to Stormwind I look up for the gryphons coming in over the walls, and I've counted nine in one afternoon. I want to ride one when I'm big enough to hold on." } },
       choices = { { text = "Hold on tight when you do. Something else.", next = "BACK" } },
     },
+    yscary = {
+      narr = "She stops scanning the trees for a moment and looks straight at you.",
+      lines = { { id = "ysc_default", text = "A man in a red mask, standing very still in the trees near the Jasperlode road, watching us go past. I didn't tell the others because they'd have run, and if you run, the wolves chase you, so I just kept walking and kept watching him." } },
+      choices = {
+        { text = "You should tell Marshal Dughan.", next = "ytell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytell = {
+      lines = { { id = "yte_default", text = "But then he'd stop us marching to Northshire, and the march is the best part of everybody's day. Should I tell him, even if it means the game stops?" } },
+      choices = {
+        { text = "Tell him. Safety matters more than games.", next = "BACK", reply = "All right. I'll tell him, but only about the man.", fx = { align = { order = 1 } } },
+        { text = "Keep watching yourself. You saw him first.", next = "BACK", reply = "I'll watch so hard he'll feel it, then.", fx = { align = { order = -1 } } },
+      },
+    },
+    ygrow = {
+      lines = {
+        { id = "yg_default", text = "A ranger, like the ones Mother says used to walk the borders of Lordaeron, the ones with the long bows who could see a deer at a mile. I practise on the gryphons, because if you can follow a gryphon you can follow anything." },
+        { id = "yg_hunter", when = { class = "HUNTER" }, text = "A hunter, like you! I practise on the gryphons over Stormwind, because if you can follow a gryphon you can follow anything. Will you tell me how you learned?" },
+      },
+      choices = {
+        { text = "Who could teach you?", next = "yteach" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yteach = {
+      lines = { { id = "ytc_default", text = "There's a hunter trainer in Goldshire's inn who looked at my sling and laughed, but not unkindly. He said come back when I'm taller than the bar, and I measure myself against it every week." } },
+      choices = { { text = "You'll be taller soon. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    yelf = {
+      lines = { { id = "ye_default", text = "From the giant tree over the sea? I've heard your Sentinels can see in the dark, so you'd be a much better lookout than me, but please don't tell Cameron, because he'll make you join the game." } },
+      choices = { { text = "Your secret is safe. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    hogger = { { id = "yt_hogger", text = "Hogger lives past the Stonefield farm. I've never seen him, but I've seen where the gnolls dragged things." } },
+    defias = { { id = "yt_defias", text = "The red masks hide in the woods by the Jasperlode road. I've seen one, and he saw me back." } },
     background = { { id = "tp_bg", text = "I live in Goldshire with the others, in the big house at the north end. I'm the lookout." } },
     _none = { { id = "tp_none", text = "I haven't seen anything like that, and I'd have seen it if it came down this road." } },
   },
@@ -208,6 +322,9 @@ P:NPC {
         { text = "Why not stay behind in Goldshire?", next = "stay" },
         { text = "What's the best part of the walk?", next = "best" },
         { text = "You look ready to drop, lad.", next = "drop" },
+        { text = "Who are your mother and father?", next = "yfamily" },
+        { text = "What would you rather do than walk?", next = "yrather" },
+        { text = "Want some food, lad? I'm a cook.", next = "ycook", when = { profession = "Cooking" } },
         { text = "Keep your chin up, John.", next = "END" },
       },
     },
@@ -230,8 +347,41 @@ P:NPC {
       lines = { { id = "d_default", text = "I am, but I shan't, because the last time I sat down in the road Aaron made a rule about it. It's named after me, he says, which is the only thing I've ever had named after me." } },
       choices = { { text = "That's fame of a sort. Something else.", next = "BACK" } },
     },
+    yfamily = {
+      narr = "He kicks a pebble ahead of him and watches it roll into the grass.",
+      lines = { { id = "yf_default", text = "My father carries sacks at the mill outside Stormwind, and Mother does washing for the inn. They're both tired all the time, which is probably where I get it from, so when I complain about my feet Mother says I come by it honestly." } },
+      choices = {
+        { text = "Do they mind you marching all day?", next = "ymind" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymind = {
+      lines = { { id = "ym_default", text = "Mother says it keeps me out from under her feet, and Father says it'll make a soldier of me. I don't want to be a soldier, I want to be a baker, but you can't say that to Aaron without him looking at you as if you'd fallen in a ditch." } },
+      choices = {
+        { text = "Be a baker. Follow your own heart.", next = "BACK", reply = "Really? Then I'll start with sticky buns, for you.", fx = { align = { order = -1 } } },
+        { text = "Listen to your father. Duty comes first.", next = "BACK", reply = "Oh. I suppose soldiers eat buns too, though.", fx = { align = { order = 1 } } },
+      },
+    },
+    yrather = {
+      lines = { { id = "yr_default", text = "Sit by the pond and watch the fish, or lie under the big tree by the Maclure farm and count clouds instead of steps. Clouds don't need counting, either, which is what makes them so restful." } },
+      choices = {
+        { text = "Why don't you, then?", next = "ywhy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywhy = {
+      lines = { { id = "ywh_default", text = "Because everybody would go without me, and then they'd talk about the walk at supper and I wouldn't know what they meant. It's worse to miss out on a thing than to be tired from it, I've found." } },
+      choices = { { text = "That's wise of you, John. Something else.", next = "BACK" } },
+    },
+    ycook = {
+      lines = { { id = "yc_default", text = "Do you mean it? I'd ever so like something, but Aaron says guards don't eat on the march. Could you leave it by the big house door, and I'll find it later? Nobody makes a rule about doors." } },
+      choices = { { text = "I'll think on it. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    hogger = { { id = "yt_hogger", text = "I don't want to meet Hogger, ever, and I've told Dana that if she goes looking for him, she's going without me." } },
+    farley = { { id = "yt_farley", text = "Innkeeper Farley's kitchen smells best on Wednesdays, when he does the pies. I've checked every day to be sure." } },
+    northshire = { { id = "yt_north", text = "Northshire is uphill all the way there, and somehow uphill on the way back too, which isn't fair." } },
     background = { { id = "tp_bg", text = "I live in Goldshire, upstairs in the big house, when I'm allowed to stay in it. Mostly I'm out here walking." } },
     _none = { { id = "tp_none", text = "I don't know anything about that, and I'm too tired to guess." } },
   },
@@ -266,6 +416,9 @@ P:NPC {
         { text = "What have you found today?", next = "found" },
         { text = "Aaron says you walk at the back.", next = "back" },
         { text = "You laugh a good deal, Jose.", next = "laugh" },
+        { text = "What's the rarest thing you've ever found?", next = "yrare" },
+        { text = "Do your parents mind the collection?", next = "yparents" },
+        { text = "I'm a gnome. We collect things too.", next = "ygnome", when = { race = "Gnome" } },
         { text = "Mind the beetles, Jose.", next = "END" },
       },
     },
@@ -288,8 +441,41 @@ P:NPC {
       lines = { { id = "l_default", text = "Everything's funny if you look at it properly, like John's face when the road goes uphill. He sighs like a great big bellows, and then I laugh, and then he sighs at me for laughing." } },
       choices = { { text = "Poor John. Something else.", next = "BACK" } },
     },
+    yrare = {
+      narr = "He lowers his voice and pats a pocket that clinks.",
+      lines = { { id = "yra_default", text = "A coin with a lion on it, only the lion's wrong, it's got a crown with spikes. I found it by the old graveyard near Northshire, and Aaron says it might be from Lordaeron, from before the war, from somebody who isn't alive any more." } },
+      choices = {
+        { text = "Maybe you should give it back to the graveyard.", next = "ycoin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycoin = {
+      lines = { { id = "yco_default", text = "Give it back? But nobody's looking after it there, and I'd look after it properly. Is it stealing if the person it belonged to isn't here any more?" } },
+      choices = {
+        { text = "Keep it safe. That honours them too.", next = "BACK", reply = "I will! I'll polish it every Sunday.", fx = { align = { honor = -1 } } },
+        { text = "Put it back. It belongs to the dead.", next = "BACK", reply = "Oh. All right, but I'm saying sorry to it first.", fx = { align = { honor = 1 } } },
+      },
+    },
+    yparents = {
+      lines = { { id = "ypa_default", text = "I live with my aunt in the big house, because my mother's in Stormwind sewing for a lady, and she sends for me in the winter. Auntie doesn't mind the box as long as it stays under the bed and nothing in it climbs out at night." } },
+      choices = {
+        { text = "Does anything climb out?", next = "yclimb" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yclimb = {
+      lines = { { id = "ycl_default", text = "Only once, a frog, and it was a very small frog, and it was Lisa who screamed, not Auntie. Cameron made a law about frogs after that, but I don't think it applies to toads, so I'm being careful about which I pick up." } },
+      choices = { { text = "A sound legal mind. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    ygnome = {
+      lines = { { id = "ygn_default", text = "Do you? What sort of things? Cogs and springs and little bits of brass? If you've got a spare cog I'd trade you my striped stone for it, and that's a very good trade, because the stripe goes all the way round." } },
+      choices = { { text = "A generous offer. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    hogger = { { id = "yt_hogger", text = "If somebody killed Hogger, I'd like one of his teeth for the box. Just a small one, I'm not greedy." } },
+    beetles = { { id = "yt_beetle", text = "The best beetles live under the logs by the Stonefield fence. The purple ones bite, but only a bit." } },
+    northshire = { { id = "yt_north", text = "Northshire has the best stones, round the back of the abbey where the monks don't sweep." } },
     background = { { id = "tp_bg", text = "I live in Goldshire with the others, and I've got the bed by the window, and the box under it." } },
     _none = { { id = "tp_none", text = "I don't know that one! Is it something you can find on the ground?" } },
   },
@@ -326,6 +512,9 @@ P:NPC {
         { text = "Who do you meet on the road?", next = "who" },
         { text = "What have people told you lately?", next = "told" },
         { text = "You must be the friendly one.", next = "friendly" },
+        { text = "What's the biggest secret you know?", next = "ysecret" },
+        { text = "Who looks after you all?", next = "ywho" },
+        { text = "I came over the sea from Darnassus.", next = "ydarn", when = { race = "NightElf" } },
         { text = "Goodbye, Lisa.", next = "END" },
       },
     },
@@ -348,8 +537,40 @@ P:NPC {
       lines = { { id = "f_default", text = "Somebody has to be, because Aaron's counting and Cameron's being grand and John's cross about his feet. If nobody waved, people would think we were a very strange lot of children." } },
       choices = { { text = "Nobody could think that. Something else.", next = "BACK" } },
     },
+    ysecret = {
+      narr = "She checks that Cameron isn't listening, then leans close.",
+      lines = { { id = "yse_default", text = "That the man who sells the wagon goods at the crossroads isn't from Elwynn at all, he's from Westfall, and he left because his farm was taken by the red masks. He told me not to tell anyone, but you aren't anyone, you're a hero." } },
+      choices = {
+        { text = "You shouldn't share what he told you.", next = "yshare" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yshare = {
+      lines = { { id = "ysh_default", text = "But if everybody knew, people would be kind to him, wouldn't they? Isn't it better to tell a sad secret so people can help?" } },
+      choices = {
+        { text = "A promise is a promise. Keep it.", next = "BACK", reply = "All right. I promise I'll keep it from now on.", fx = { align = { honor = 1 } } },
+        { text = "Telling it might help him. Tell kindly.", next = "BACK", reply = "That's what I think! I'll only tell the nice people.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ywho = {
+      lines = { { id = "ywh_default", text = "Missus Hargrove upstairs in the big house, mostly, and all the mothers take turns besides. When the six of us come home dusty she lines us up by the pump and scrubs us one at a time, and Cameron goes last because he's the king." } },
+      choices = {
+        { text = "Is she kind to you?", next = "ykind" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykind = {
+      lines = { { id = "yk_default", text = "Ever so kind, though she pretends she isn't. She lost her own boy to the fever two winters ago, so she says she's got six now to make up the number, and she's very strict about bedtimes." } },
+      choices = { { text = "You're lucky to have her. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    ydarn = {
+      lines = { { id = "yd_default", text = "Across the whole sea! Is it true your trees are so big you live inside them? Dana wants to go and see, but I want to go and say hello to everybody, because I bet nobody there has heard of Goldshire." } },
+      choices = { { text = "Some have, now. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    stormwind = { { id = "yt_sw", text = "The gate guards at Stormwind always ask for our report, and I always give it properly." } },
+    goldshire = { { id = "yt_gold", text = "Everybody in Goldshire waves at us, except the smith, who's always busy, and he still nods." } },
     background = { { id = "tp_bg", text = "I live in the big house in Goldshire with the others, and I walk on the right-hand corner at the back." } },
     _none = { { id = "tp_none", text = "Nobody's told me about that yet, but I'll ask at the gate when we get there." } },
   },
@@ -384,6 +605,9 @@ P:NPC {
         { text = "What do you three play at?", next = "play" },
         { text = "Bo told me you didn't believe him.", next = "believe" },
         { text = "I could show you something real.", next = "show", when = { class = { "MAGE", "WARLOCK", "PRIEST", "DRUID", "SHAMAN" } } },
+        { text = "What do you want to be when you're grown?", next = "ygrown" },
+        { text = "Have you ever seen a real Defias?", next = "ydefias" },
+        { text = "I'm a dwarf, lad, and quite real.", next = "ydwarf", when = { race = "Dwarf" } },
         { text = "Stay out of the smith's way.", next = "END" },
       },
     },
@@ -406,8 +630,40 @@ P:NPC {
       lines = { { id = "s_default", text = "Real magic? Go on, then, but do it small, because Argus threw a bucket of water at the last person who made sparks near his coal. I'll believe it when I've seen it." } },
       choices = { { text = "Small it is. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ygrown = {
+      lines = {
+        { id = "ygr_default", text = "A scholar, in the big library in Stormwind, where they write down everything that's true and nothing that isn't. I'd sort out all the stories Bo tells and put the true ones on one shelf and the rubbish on another." },
+        { id = "ygr_mage", when = { class = "MAGE" }, text = "A wizard, maybe, like you, because wizards have to know what's true or their spells go wrong. Or a scholar in the Stormwind library, sorting Bo's stories into true ones and rubbish." },
+      },
+      choices = {
+        { text = "Which shelf would be fuller?", next = "yshelf" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yshelf = {
+      lines = { { id = "ysh_default", text = "The rubbish shelf, easily, though I'll admit the bit about Hogger turned out truer than I thought. Bo says that proves everything he says is true, and I say it proves he got lucky once." } },
+      choices = { { text = "A fair verdict. Something else.", next = "BACK" } },
+    },
+    ydefias = {
+      narr = "He goes suddenly quiet and picks at the edge of the smithy's wall.",
+      lines = { { id = "yd_default", text = "My uncle joined them. He was a stonemason in Stormwind, and the nobles never paid the masons what they were owed, so he went to Westfall angry and never came back. Father says he's a thief now, and we aren't to say his name." } },
+      choices = {
+        { text = "The nobles wronged him. He had cause.", next = "yuncle", reply = "That's what I think too, only I can't say it at home.", fx = { align = { order = -1 } } },
+        { text = "Being cheated doesn't make thieving right.", next = "yuncle", reply = "No, I suppose it doesn't. Father says the same.", fx = { align = { order = 1 } } },
+      },
+    },
+    yuncle = {
+      lines = { { id = "yu_default", text = "That's why I always play the guard, and never the bandit if I can help it. If I'm a guard, maybe it means I won't turn out like him. That's not a silly thing to think, is it?" } },
+      choices = { { text = "Not silly at all. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    ydwarf = {
+      lines = { { id = "ydw_default", text = "You are, aren't you? Bo said dwarves can drink a whole barrel of ale and still walk straight, and I said that was rubbish. Don't tell me if it's true, though, because I'll never hear the end of it." } },
+      choices = { { text = "My lips are sealed. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    argus = { { id = "yt_argus", text = "Smith Argus pretends he doesn't see us behind the forge, but he leaves the side door open in winter so we're warm." } },
+    defias = { { id = "yt_defias", text = "The Defias are only angry masons who turned bad. That's the truth, whatever the songs say." } },
     background = { { id = "tp_bg", text = "I've always lived in Goldshire. We play behind the smithy most days, till somebody's mother calls." } },
     _none = { { id = "tp_none", text = "I don't know that, and I'm not going to pretend I do, like some people." } },
   },
@@ -442,6 +698,9 @@ P:NPC {
         { text = "Why does the smith shout at you?", next = "argus" },
         { text = "Bo says you laugh at his sword practice.", next = "bo" },
         { text = "I heard something about a lamb.", next = "lamb" },
+        { text = "Have you ever run farther than the pond?", next = "yfar" },
+        { text = "What are you afraid of?", next = "yafraid" },
+        { text = "I'm a rogue. I know about running.", next = "yrogue", when = { class = "ROGUE" } },
         { text = "Run along, Mark.", next = "END" },
       },
     },
@@ -464,8 +723,43 @@ P:NPC {
       lines = { { id = "l_default", text = "It followed me from the Maclure fence, honest, and I only wanted it to get warm by the forge. Argus said no more animals near the coals ever again, so now it's a rule, and it's my fault it's a rule." } },
       choices = { { text = "A warm lamb is a fair cause. Something else.", next = "BACK" } },
     },
+    yfar = {
+      lines = { { id = "yfa_default", text = "Once all the way to the Eastvale logging camp, to see if I could, and I could! But it was dark when I got back, and Mother was standing at the door with her arms folded, and that was the slowest walk home I've ever done." } },
+      choices = {
+        { text = "Was she very angry?", next = "yangry" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yangry = {
+      lines = { { id = "yan_default", text = "She wasn't angry, she was crying, which was worse. She said the woods are full of wolves and red masks now, and that I'm all she's got since Father went to fight the orcs. I still want to run to Stormwind one day, though. Should I?" } },
+      choices = {
+        { text = "Stay close. Your mother needs you.", next = "BACK", reply = "Yeah. I'll wait till I'm bigger, then.", fx = { align = { honor = 1 } } },
+        { text = "Run while you're young. Tell her first.", next = "BACK", reply = "I'll leave her a note! A big one.", fx = { align = { honor = -1 } } },
+      },
+    },
+    yafraid = {
+      narr = "He stops bouncing on his toes for the first time since you arrived.",
+      lines = { { id = "yaf_default", text = "Being slow, I suppose, because the slow ones get caught. Not in games, I mean really. When the gnolls took the Maclure sheep, the slow ones were the ones that went, and I've thought about that ever since." } },
+      choices = {
+        { text = "Speed isn't everything, Mark.", next = "yspeed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yspeed = {
+      lines = { { id = "ysp_default", text = "That's what Joshua says, that clever matters more than quick. But clever didn't save the sheep either, did it? I'll keep running, just in case." } },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+    yrogue = {
+      lines = {
+        { id = "yro_default", text = "You do? Then you know the trick is never to run in a straight line, because that's what the grown-ups expect. Go round the water trough, under the cart, and you're gone before they've turned." },
+        { id = "yro_halfling", when = { race = "Gnome" }, text = "You must be quick, being so small! The trick is never to run in a straight line, so go round the trough and under the cart, and you're gone before anyone's turned." },
+      },
+      choices = { { text = "I'll remember that. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    argus = { { id = "yt_argus", text = "Argus shouts the loudest of anyone in Goldshire, but he's never actually caught me." } },
+    pond = { { id = "yt_pond", text = "The pond by the road is the finish line, always. Everybody knows that." } },
     background = { { id = "tp_bg", text = "I live in Goldshire, and I play behind the smithy with Bo and Joshua. I'm the fast one." } },
     _none = { { id = "tp_none", text = "Don't know! Ask Joshua, he likes knowing things." } },
   },
@@ -500,6 +794,9 @@ P:NPC {
         { text = "What have you dug up so far?", next = "dug" },
         { text = "What does Clara say about the cabbages?", next = "clara" },
         { text = "What will you do with the treasure?", next = "treasure" },
+        { text = "Why do you think the treasure is here?", next = "ywhy" },
+        { text = "Where are your parents, Markus?", next = "yparents" },
+        { text = "I'm a miner. Want a tip?", next = "ytip", when = { profession = "Mining" } },
         { text = "Good digging, Markus.", next = "END" },
       },
     },
@@ -522,8 +819,43 @@ P:NPC {
       lines = { { id = "t_default", text = "Buy a real sword and a horse from the stables at Eastvale, and go and be an adventurer like you. I'd leave some for Clara as well, for a new fence, because the gnolls keep looking at ours." } },
       choices = { { text = "That's a good plan. Something else.", next = "BACK" } },
     },
+    ywhy = {
+      lines = { { id = "ywy_default", text = "Because Clara's grandfather was here before the orcs came, in the First War, and Clara says he buried the family silver so they wouldn't get it. Nobody ever found it again, because he forgot which row, and that's practically a treasure map." } },
+      choices = {
+        { text = "If you find it, it's Clara's, though.", next = "ysilver" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysilver = {
+      lines = { { id = "ysi_default", text = "But I'd be the one who found it, after all this digging. Shouldn't the finder get some, or is that greedy?" } },
+      choices = {
+        { text = "It's hers. Give it all back.", next = "BACK", reply = "All right. But she'd better let me hold it first.", fx = { align = { honor = 1 } } },
+        { text = "A finder's share is fair enough.", next = "BACK", reply = "That's what I'll tell her! Just a little share.", fx = { align = { honor = -1 } } },
+      },
+    },
+    yparents = {
+      narr = "His spoon stops halfway into the soil.",
+      lines = { { id = "ypa_default", text = "My dad went to Westfall to work a farm there, and then the farms went bad, and nobody's heard from him since the harvest. Clara's my mum's cousin, so I stay here, and I dig, because if I find the silver he won't have to work anywhere." } },
+      choices = {
+        { text = "Has anyone looked for him?", next = "ylooked" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylooked = {
+      lines = { { id = "ylo_default", text = "Clara wrote to Sentinel Hill, where the People's Militia is, and they wrote back that they'd keep an eye out. I think that means no, but I'm not supposed to say so, so I just dig faster instead." } },
+      choices = { { text = "Keep hoping, Markus. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    ytip = {
+      lines = {
+        { id = "yti_default", text = "A real miner's tip? Yes, please! Is it about where to dig, or how to dig, because I'm all right at the how, it's the where that's giving me trouble." },
+        { id = "yti_dwarf", when = { race = "Dwarf" }, text = "A real dwarf miner! Is it about where to dig or how? I'm all right at the how, but the where is giving me trouble, and dwarves always know the where." },
+      },
+      choices = { { text = "Dig near the old fence posts. Something else.", next = "BACK", reply = "Fence posts! Of course! Why didn't I think of that?" } },
+    },
   },
   topics = {
+    clara = { { id = "yt_clara", text = "Clara pretends to be cross about the cabbages, but she saves me the burnt ends of the bread, which are the best bits." } },
+    westfall = { { id = "yt_west", text = "Westfall is where my dad went. Everyone says it's gone bad there, but nobody says how." } },
     background = { { id = "tp_bg", text = "I live here on the farm with Clara. The garden's mine to play in, as long as I'm careful, and I'm nearly always careful." } },
     _none = { { id = "tp_none", text = "I don't know. Is it buried? I could look for it after this row." } },
   },
@@ -561,6 +893,9 @@ P:NPC {
         { text = "Why does Northshire need a welcomer?", next = "why" },
         { text = "What should a newcomer know?", next = "know" },
         { text = "I've seen the name Stilwell before.", next = "name", when = { minLevel = 10 } },
+        { text = "Who were you before you came here?", next = "ybefore" },
+        { text = "Does anything about the valley worry you?", next = "yworry" },
+        { text = "I'm not from Elwynn at all.", next = "yfar", when = { race = { "Dwarf", "Gnome", "NightElf" } } },
         { text = "Thank you for the welcome.", next = "END" },
       },
     },
@@ -583,8 +918,43 @@ P:NPC {
       lines = { { id = "n_default", text = "I shouldn't wonder, for there are Stilwells scattered right across the kingdom, and a stubborn lot we are. I'm the one who stayed in Elwynn, where the trees are green and the worst of our troubles carries a candle on its head." } },
       choices = { { text = "A wise choice. Something else.", next = "BACK" } },
     },
+    ybefore = {
+      lines = { { id = "ybe_default", text = "A schoolteacher's daughter from Goldshire, and then a schoolteacher myself, until the Defias trouble emptied half the classroom. The abbey needed someone to meet the recruits, and Brother Sammuel thought I'd the right sort of voice for it." } },
+      choices = {
+        { text = "Why did the classroom empty?", next = "yempty" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yempty = {
+      narr = "She smooths the front of her dress, slowly, twice.",
+      lines = { { id = "yem_default", text = "Families moved into Stormwind for the walls, or went east to Lakeshire, and a few of the older boys went to Westfall to join the masons' grievance. One of them was mine, a clever lad named Tobin, and I've wondered since whether I taught him to be angry." } },
+      choices = {
+        { text = "You taught him to think. That's no crime.", next = "BACK", reply = "Thank you, {name}. I shall try to believe that.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yworry = {
+      lines = { { id = "ywo_default", text = "That we send them out too soon. A recruit kills a few kobolds and the Marshal hands him a letter for Goldshire, and the next I hear, he's in Westfall facing men with real swords. Should we hold them longer, do you think, or trust them to grow?" } },
+      choices = {
+        { text = "Hold them longer. Training saves lives.", next = "yworry2", reply = "I'll say so to Marshal McBride, though he'll sigh at me.", fx = { align = { order = 1 } } },
+        { text = "Let them go. The road is the teacher.", next = "yworry2", reply = "Perhaps you're right. You came through it, after all.", fx = { align = { order = -1 } } },
+      },
+    },
+    yworry2 = {
+      lines = { { id = "yw2_default", text = "Either way, I say the same to every one of them as they leave: keep your boots dry, eat when you can, and write to your mother. It isn't much, but it's what I've got to give." } },
+      choices = { { text = "It's more than most give. Something else.", next = "BACK" } },
+    },
+    yfar = {
+      lines = {
+        { id = "yf_default", text = "So I see, and you're no less welcome for it. We've had a dwarf or two come up from Dun Morogh to study with the brothers, and a gnome who took the abbey bell apart to see how it rang. It still rings, mostly." },
+        { id = "yf_elf", when = { race = "NightElf" }, text = "So I see, and you're very welcome. You're the first of your people I've greeted at the abbey, and I hope you'll forgive me if I stare at Elwynn's oaks a little differently now." },
+      },
+      choices = { { text = "Thank you, Merissa. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    mcbride = { { id = "yt_mcb", text = "Marshal McBride is a good man with a loud voice, and he'd be lost without the brothers to soften it." } },
+    defias = { { id = "yt_def", text = "The Defias were masons once, and some were my pupils' fathers. I'd sooner not speak ill of all of them." } },
     background = { { id = "tp_bg", text = "I'm an Elwynn woman, and I greet those who come to the abbey to begin. It's small work, and I'm fond of it." } },
     _none = { { id = "tp_none", text = "I'm afraid that's beyond me, dear. One of the brothers in the library might know." } },
   },

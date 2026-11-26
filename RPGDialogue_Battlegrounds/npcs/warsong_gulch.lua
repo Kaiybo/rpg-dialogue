@@ -301,10 +301,39 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "This room holds the banner of Silverwing, {class}. Stand guard or move along, but do not linger idly." },
+    { id = "yg_0", when = { race = "NightElf" }, text = "Ishnu-alah, sister or brother. Stand with me, and Elune will guard our banner." },
   },
 
   start = "hello",
   nodes = {
+    y_hist = {
+      lines = {
+        { id = "y_y_hist", text = "I was a Sentinel in Ashenvale for four centuries before the Warsong came. I watched them cut the first tree, and I swore that day I would stop them. Shandris chose me to guard this banner, and I have not left it since." },
+      },
+      choices = {
+        { text = "Four centuries is a long time.", next = "y_long" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_long = {
+      lines = {
+        { id = "y_y_long", text = "For a kaldorei, it is a season. For an orc, it is a dozen lifetimes. I sometimes think that is why we cannot understand each other. They are always in a hurry, and we are always waiting." },
+        { id = "y_y_long_v0", when = { race = "Orc" }, text = "For you, orc, it is a dozen lifetimes. For me, a season. Perhaps that is why we cannot understand each other." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_peace = {
+      lines = {
+        { id = "y_y_peace", text = "Some Sentinels say we should seek terms with the Horde, so the forest can heal. Others say there can be no peace while a single axe swings. What do you think?" },
+      },
+      choices = {
+        { text = "Seek terms. The forest needs peace.", next = "BACK", reply = "Perhaps. But I have never seen an orc lay down his axe.", fx = { align = { order = 1 } } },
+        { text = "No peace while they cut the trees.", next = "BACK", reply = "Yes. That is what Shandris says, and I agree.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "The banner is my charge, and I have not left this room since the fighting began. If the orcs reach it, they will have passed me first." },
@@ -320,6 +349,9 @@ P:NPC {
         { text = "Why do the orcs cut these woods?", next = "xorcs" },
         { text = "What happens if the banner is taken?", next = "xtaken" },
         { text = "Elune keep you, sister.", next = "xelf", when = { race = "NightElf" } },
+        { text = "How long have you been a Sentinel?", next = "y_hist" },
+        { text = "Should we seek peace with the Horde?", next = "y_peace" },
+        { text = "Elune guide us, Warden.", next = "BACK", when = { race = "NightElf" }, reply = "And you. The banner is our pride; we will not let it go." },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -368,6 +400,7 @@ P:NPC {
   },
 
   topics = {
+    shandris = { { id = "tp_yshandris", text = "Shandris Feathermoon leads the Sentinels. She chose me for this post, and I will not fail her." } },
     ashenvale = { { id = "xtp_ash", text = "Our forest, and our charge. The orcs take it a tree at a time, and we take it back an arrow at a time." } },
     warsong = { { id = "xtp_war", text = "The clan that killed Cenarius. We have not forgotten, and we will not forget." } },
    
@@ -389,10 +422,39 @@ P:NPC {
 
   greetings = {
     { id = "g_default", text = "The banner stays here, {class}. If you are not here to guard it, you are in my way." },
+    { id = "yg_0", when = { race = "Tauren" }, text = "Tauren. Stand by the door; the elves will see your size and think twice." },
   },
 
   start = "hello",
   nodes = {
+    y_hist = {
+      lines = {
+        { id = "y_y_hist", text = "I was a lumberjack for the Warsong before I was a guard. I cut the trees the elves call holy, and I thought nothing of it. Now the elves come for our banner, and I think of the trees more than I used to." },
+      },
+      choices = {
+        { text = "Do you regret cutting them?", next = "y_regret" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_regret = {
+      lines = {
+        { id = "y_y_regret", text = "Regret is a strong word. The Horde needs wood, and Ashenvale has it. But when I see the elves' faces, I wonder whether we could have taken less, and asked first." },
+        { id = "y_y_regret_v0", when = { race = "NightElf" }, text = "You are an elf. I will not apologise for the Warsong, but I have wondered whether we could have taken less, and asked first." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_forest = {
+      lines = {
+        { id = "y_y_forest", text = "Some warriors want to cut the whole forest to the ground, so the elves have nothing left to fight for. Others say take what we need and no more. What do you say?" },
+      },
+      choices = {
+        { text = "Take only what we need.", next = "BACK", reply = "That is wise. Grom might not agree, but Thrall would.", fx = { align = { light = 1 } } },
+        { text = "Cut it all. Let them weep.", next = "BACK", reply = "Hm. That is the old Warsong way. I am not sure I still believe in it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I guard the Warsong banner, and the elves have taken it past me only when they came in numbers. When they come again, stand beside me and they will not take it at all." },
@@ -408,6 +470,9 @@ P:NPC {
         { text = "Why fight the elves over this gulch?", next = "xwhy" },
         { text = "What do you think of the Silverwing?", next = "xsilver" },
         { text = "I'm an orc. The Warsong is my clan.", next = "xorc", when = { race = "Orc" } },
+        { text = "Were you always a guard?", next = "y_hist" },
+        { text = "How much of the forest should we take?", next = "y_forest" },
+        { text = "Lok'tar. I'll guard the banner.", next = "BACK", when = { race = "Orc" }, reply = "Good. The banner is Grom's legacy. Do not let it fall." },
         { text = "I'll stand with you. Lok'tar.", next = "END" },
       },
     },
@@ -456,6 +521,7 @@ P:NPC {
   },
 
   topics = {
+    lumber = { { id = "tp_ylumber", text = "The mill is where we cut the trees. The elves hate it more than anything." } },
     grom = { { id = "xtp_grom", text = "Grom Hellscream freed us from the blood with his own death. Every Warsong fights in his name." } },
     silverwing = { { id = "xtp_silver", text = "The elves' sentinels. Fast, quiet and stubborn, like the trees they guard." } },
    

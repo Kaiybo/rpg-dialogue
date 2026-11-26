@@ -25,8 +25,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A Sentinel of Astranaar, under Shandris Feathermoon's command for a time. I fought the Warsong orcs in the forest. When word came of a human mage digging in Azshara, I asked to be the one who watched him. My captain did not refuse." } },
+      choices = {
+        { text = "You chose this post yourself?", next = "ychose" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ychose = {
+      lines = { { id = "ychose_x", text = "I did. My mother's mother was Highborne, though she renounced it. I carry that in my blood. Is it right to watch a stranger for the sins of my own ancestors?" } },
+      choices = {
+        { text = "Yes. Those who know the danger must guard against it.", next = "BACK", reply = "Then I will keep watching, and I will keep my grandmother's shame to myself.", fx = { align = { order = 1 } } },
+        { text = "No. He's not your grandmother. Give him a chance.", next = "BACK", reply = "Perhaps. I will try to see him, and not the past.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywoke = {
+      lines = { { id = "ywoke_x", text = "Then I would go up the tower stairs with my glaive, whatever Sanath said. I have told Nyrill as much. He did not seem surprised. I think he has wondered the same." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ynaga = {
+      lines = { { id = "ynaga_x", text = "From the cliff, yes. They were our kin once, the Queen's own court. When I see them coil in the shallows, I remember that the sea was not a punishment to them. It was a gift they chose." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "I am Coral Moongale. A human archmage has raised a tower on kaldorei ruins and fills it with Highborne relics, and I thought that someone of my people ought to be near enough to see what he does with them." } },
+      lines = {
+        { id = "h_default", text = "I am Coral Moongale. A human archmage has raised a tower on kaldorei ruins and fills it with Highborne relics, and I thought that someone of my people ought to be near enough to see what he does with them." },
+        { id = "yh_mage", when = { class = "MAGE" }, text = "A mage, on the cliff below the tower. You will forgive me if I watch your hands. I am Coral Moongale, and I watch everyone's hands near Xylem's door." },
+      },
       again = {
         { id = "h_again", text = "What more would you ask?" },
         { id = "h_again2", text = "Speak. The tower will keep while we talk." },
@@ -35,6 +61,9 @@ P:NPC {
         { text = "Do you think Xylem is dangerous?", next = "danger" },
         { text = "What was this coast, before?", next = "coast" },
         { text = "Why not go up and ask him yourself?", next = "ask" },
+        { text = "Who were you before you came here?", next = "ylife" },
+        { text = "What would you do if Xylem woke something?", next = "ywoke" },
+        { text = "Do you watch the naga too?", next = "ynaga" },
         { text = "Keep your watch well.", next = "END" },
       },
     },
@@ -59,6 +88,8 @@ P:NPC {
     },
   },
   topics = {
+    astranaar = { { id = "ytp_ast", text = "Astranaar is my home, and Ashenvale my forest. I will return when the archmage gives me reason to." } },
+    naga = { { id = "ytp_naga", text = "The naga were Highborne once. They chose the sea. Remember that." } },
     background = { { id = "tp_bg", text = "I came east from Ashenvale to see who had settled among our ruins. I have stayed longer than I meant to." } },
     highborne = { { id = "tp_hb", text = "Queen Azshara's favoured servants, whose magic called the Legion and drowned this coast." } },
     _none = { { id = "tp_none", text = "That I do not know. I watch one tower, and I see little beyond it." } },
@@ -85,8 +116,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "In Stormwind, at the Mage Quarter's little school, until my tutor said I'd learned all he could teach. He wrote a letter to the Archmage for me. I sometimes wonder whether that was praise or revenge." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ydrake = {
+      lines = { { id = "ydrake_x", text = "His name was Halden. He came back, mostly. He lost an arm and most of his nerve, and went home to Lakeshire. The Archmage sent a letter of condolence, which was three lines long. I've wondered if I'll be next." } },
+      choices = {
+        { text = "Then leave, before you are.", next = "yleave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yleave = {
+      lines = { { id = "yleave_x", text = "Leave? And give up the finest teacher in Kalimdor? It's tempting, some nights. What would you do in my place, stay and learn, or leave and live?" } },
+      choices = {
+        { text = "Stay. Great knowledge comes at great risk.", next = "BACK", reply = "Yes. That's what I tell myself. I'll finish my ward, then.", fx = { align = { order = 1 } } },
+        { text = "Leave. No teacher is worth your life.", next = "BACK", reply = "That's what Halden said, the night he left. I'll think on it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygood = {
+      lines = { { id = "ygood_x", text = "Good? He's brilliant, and he's never once lied to me. He also keeps a demon at the door. I think he's good the way a storm is good. It waters the fields and drowns the sheep, and it doesn't care which." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "I'm Nyrill, apprentice to Archmage Xylem. I copy his notes, I mind his circles, and I keep well away from anything he has told me not to touch, which is most of the tower." } },
+      lines = {
+        { id = "h_default", text = "I'm Nyrill, apprentice to Archmage Xylem. I copy his notes, I mind his circles, and I keep well away from anything he has told me not to touch, which is most of the tower." },
+        { id = "yh_human", when = { race = "Human" }, text = "Oh, another human. That's nice, honestly. Everyone else up here is either an elf, a demon or the Archmage. I'm Nyrill, his apprentice." },
+      },
       again = {
         { id = "h_again", text = "Was there something else? I've a ward to finish, but it can wait a moment." },
         { id = "h_again2", text = "Yes? Do ask, I'm glad of the company." },
@@ -95,6 +152,9 @@ P:NPC {
         { text = "What is it like, studying under Xylem?", next = "study" },
         { text = "What does the Archmage study out here?", next = "work" },
         { text = "He's said to lose apprentices.", next = "lose" },
+        { text = "Where did you study before?", next = "ylife" },
+        { text = "What happened to the apprentice who met the drake?", next = "ydrake" },
+        { text = "Do you think Xylem is a good man?", next = "ygood" },
         { text = "Good luck with your ward.", next = "END" },
       },
     },
@@ -119,6 +179,8 @@ P:NPC {
     },
   },
   topics = {
+    stormwind = { { id = "ytp_sw", text = "I studied in Stormwind before coming here. The food was better there." } },
+    xylem = { { id = "ytp_xylem", text = "The Archmage knows more than anyone alive about Highborne magic. He's also terrifying." } },
     background = { { id = "tp_bg", text = "I came to Azshara to learn from the Archmage. I've learned a great deal, mostly about copying." } },
     highborne = { { id = "tp_hb", text = "The mages of the old empire. Their wards are still standing in these ruins, and the Archmage wants to know why." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know, and I've learned not to guess where the Archmage might hear of it." } },

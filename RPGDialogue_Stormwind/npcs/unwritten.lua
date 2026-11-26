@@ -522,6 +522,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ybest = {
+      lines = {
+        { id = "ybswguchiejinglepocket1", text = "Winter Veil hats, sweetheart, the red ones with the white trim. Everybody wants one, and they fall apart by spring, so everybody wants another next year. That's what I call a sustainable product." },
+        { id = "ybswguchiejinglepocket2", when = { race = "Gnome" }, text = "Gnomes love the hats, they come down to the ears. I give the gnomes a discount, 'cause they always come back." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhome = {
+      lines = {
+        { id = "yswguchiejinglepocket1", text = "Once every few seasons, if the company pays for the zeppelin. My mother runs a pawnshop on the docks there, and she still asks when I'm gonna get a real job. I tell her this is a real job, and she laughs." },
+        { id = "yswguchiejinglepocket2", when = { faction = "Horde" }, text = "You're a long way from Orgrimmar, pal. Don't worry, we sell to everyone, so long as the coin's good." },
+      },
+      choices = {
+        { text = "Does she approve of Khole?", next = "ykhole" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykhole = {
+      lines = {
+        { id = "yswguchiejinglepocket3", text = "Khole's her favourite, the little rat. He sends her half his pay every season. I send her a nice card. She says I should share my margin, and I say margin's for reinvesting. What would you say?" },
+      },
+      choices = {
+        { text = "Send her the coin. Family comes first.", next = "BACK", reply = "Ugh, you sound like Khole. Fine, maybe I'll send a bit extra this year.", fx = { align = { honor = 1 } } },
+        { text = "Reinvest. A smart business builds a better future.", next = "BACK", reply = "Now that's goblin thinking! My mother would hate you, sweetheart.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Guchie Jinglepocket, and I sell the good stuff, while my cousin Khole over there sells the cheap stuff. You can tell the difference by the price, and the price is the point." } },
       again = {
@@ -534,6 +563,9 @@ P:NPC {
         { text = "Show me the good stuff.", next = "BUSINESS" },
         { text = "How's business compared to last Winter Veil?", next = "x_biz" },
         { text = "Gnomes love gadgets. Got any holiday toys?", next = "x_gnome", when = { race = "Gnome" } },
+        { text = "Do you ever go home to Undermine?", next = "yhome" },
+        { text = "You're far from Kezan, cousin.", next = "BACK", when = { race = "Goblin" }, reply = "Far from Kezan, close to customers, sweetheart. That's the goblin way, and you know it." },
+        { text = "What's your best seller?", next = "ybest" },
         { text = "Merry Winter Veil, Guchie.", next = "END" },
       },
     },
@@ -584,6 +616,9 @@ P:NPC {
     },
   },
   topics = {
+    hats = { { id = "ybswguchiejinglepocket3", text = "Red ones with white trim. Fall apart by spring. Best product I've ever had." } },
+    khole = { { id = "yswguchiejinglepocket4", text = "My cousin. He sells cheap and he sends Mum half his pay. The little rat." } },
+    undermine = { { id = "yswguchiejinglepocket5", text = "Home. My mother runs a pawnshop there and thinks I need a real job." } },
     background = { { id = "tp_bg", text = "Smokywood Pastures, senior saleswoman, three seasons runnin'. The Jinglepockets have been in holidays for generations." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, unless it's for sale. Is it for sale?" } },
   },
@@ -605,6 +640,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ybest = {
+      lines = {
+        { id = "ybswkholejinglepocket1", text = "Snowballs, chum, by the bag. Kids buy 'em to throw at each other, guards buy 'em to throw at the kids, an' nobles buy 'em to throw at each other when they think nobody's watchin'. I've seen a duke take one in the ear." },
+        { id = "ybswkholejinglepocket2", when = { class = "MAGE" }, text = "Don't you go makin' your own, pal. Frostbolt snowballs are bad for business." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymother = {
+      lines = {
+        { id = "yswkholejinglepocket1", text = "Half me pay, every season, an' don't tell Guchie I told you, 'cause she'll make it sound like I'm showing off. Mum raised the both of us after the zeppelin crash, an' she never complained once." },
+        { id = "yswkholejinglepocket2", when = { faction = "Horde" }, text = "Orcs understand family, pal. I've seen grunts send their pay home too. We're not so different, us an' you." },
+      },
+      choices = {
+        { text = "What zeppelin crash?", next = "ycrash" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycrash = {
+      lines = {
+        { id = "yswkholejinglepocket3", text = "Our dads ran a cargo line between Ratchet an' Booty Bay. One storm, one bad rivet, an' gone. Guchie says it was the company's fault, an' she should sue. I say leave it, 'cause the company gives us work." },
+      },
+      choices = {
+        { text = "Leave it. The company feeds your family now.", next = "BACK", reply = "That's what I say! Guchie calls me soft, but I'm practical.", fx = { align = { order = 1 } } },
+        { text = "Sue them. They owe your family.", next = "BACK", reply = "Huh. Maybe Guchie's right. Don't tell her I said that, either.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Khole Jinglepocket, at your service and on a very tight margin. Snowballs, candy, cookie dough, the works, and all cheap enough that you'll buy two and feel clever about it." } },
       again = {
@@ -617,6 +681,9 @@ P:NPC {
         { text = "Let me see the bargains.", next = "BUSINESS" },
         { text = "How do you keep your prices so low?", next = "x_low" },
         { text = "A goblin who sells cheap? Suspicious.", next = "x_rogue", when = { class = "ROGUE" } },
+        { text = "You send your mother money?", next = "ymother" },
+        { text = "Any work for a goblin in your line?", next = "BACK", when = { race = "Goblin" }, reply = "Sure, chum, if you can sell snow to an Ironforge dwarf. I'll put in a word with the boss, for a cut." },
+        { text = "What's your best seller?", next = "ybest" },
         { text = "Merry Winter Veil.", next = "END" },
       },
     },
@@ -667,6 +734,9 @@ P:NPC {
     },
   },
   topics = {
+    snowballs = { { id = "ybswkholejinglepocket3", text = "Best seller. Everybody throws 'em, even dukes." } },
+    guchie = { { id = "yswkholejinglepocket4", text = "My cousin. She's got the fancy stuff. I've got the customers." } },
+    mum = { { id = "yswkholejinglepocket5", text = "Raised us both. I send her half my pay, an' I'd send more if I could." } },
     background = { { id = "tp_bg", text = "Jinglepocket, born and bred, which means I was sellin' tinsel before I could walk." } },
     _none = { { id = "tp_none", text = "Never heard of it, pal. Ask Guchie, she thinks she knows everythin'." } },
   },
@@ -692,6 +762,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ydarian = {
+      lines = {
+        { id = "yswlilliansingh1", text = "Not anymore. He burned his hand badly two years ago, testing a new rocket, and he's never been the same with a fuse. So I do the festivals, and he does the books, and neither of us mentions it." },
+        { id = "yswlilliansingh2", when = { class = { "PRIEST", "PALADIN" } }, text = "If you could look at his hand, I'd be grateful. The scars still ache in the cold." },
+      },
+      choices = {
+        { text = "Should he try again?", next = "yagain" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yagain = {
+      lines = {
+        { id = "yswlilliansingh3", text = "He wants to, and I don't want him to. A firework's only beautiful from far away. Some say a craftsman should face his fear, and some say a burned hand is a sign to stop." },
+      },
+      choices = {
+        { text = "Let him try again. Courage heals more than salves.", next = "BACK", reply = "Maybe you're right. I'll stand three paces back, mind.", fx = { align = { light = 1 } } },
+        { text = "Keep him safe. Some risks aren't worth taking.", next = "BACK", reply = "Thank you. I'll tell him a stranger agreed with me, which he'll hate.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Lillian Singh. My cousin Darian sells fireworks all year in the Mage Quarter, and I take the stall out to the Trade District when the festivals bring the crowds." } },
       again = {
@@ -705,6 +795,7 @@ P:NPC {
         { text = "What's the best firework you've ever seen?", next = "x_best" },
         { text = "A mage could light those fuses from a distance.", next = "x_mage", when = { class = "MAGE" } },
         { text = "Gnomes made the first fireworks, didn't they?", next = "x_gnome", when = { race = "Gnome" } },
+        { text = "Does Darian ever take the stall out?", next = "ydarian" },
         { text = "Have a bright festival.", next = "END" },
       },
     },
@@ -763,6 +854,8 @@ P:NPC {
     },
   },
   topics = {
+    darian = { { id = "yswlilliansingh4", text = "My cousin. He sells fireworks in the Mage Quarter, and he burned his hand two years ago." } },
+    festival = { { id = "yswlilliansingh5", text = "The festival's the best time for fireworks. The sky goes red and gold." } },
     background = { { id = "tp_bg", text = "Born in Stormwind, and I've smelled of powder since I was six. The Singhs make the sky bright when the city needs it." } },
     _none = { { id = "tp_none", text = "I couldn't say. Ask Darian, he reads more than I do." } },
   },
@@ -788,6 +881,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ymiss = {
+      lines = {
+        { id = "yswemmithuesmails1", text = "The caramel pipes, of course, and the sound of the sugar presses. But most of all, my apprentice Fizzlecog, who stayed behind to save the recipes when the radiation came. I've not heard from him since." },
+        { id = "yswemmithuesmails2", when = { race = "Gnome" }, text = "You'll understand, then. Every one of us left someone behind. I keep a list, and I check it each time a new refugee comes up the tram." },
+      },
+      choices = {
+        { text = "Is there hope he lived?", next = "yhope" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhope = {
+      lines = {
+        { id = "yswemmithuesmails3", text = "The tinkers say some gnomes are still below, turned strange by the radiation. I've half a mind to go back and look, but it would mean leaving the orphans without their sweets." },
+      },
+      choices = {
+        { text = "Go and look. You owe him that.", next = "BACK", reply = "You're right, I suppose. I'll ask the tinkers if there's a way to go safely.", fx = { align = { light = 1 } } },
+        { text = "Stay. The orphans need you here.", next = "BACK", reply = "That's what I tell myself. Thank you for saying it aloud.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Emmithue Smails, confectioner, and formerly of Gnomeregan's own Sugar Works, back when Gnomeregan had sugar and works. Now I sell sweets to the orphans of Stormwind during Children's Week, and it is the best job in the world." } },
       again = {
@@ -800,6 +913,7 @@ P:NPC {
         { text = "Let me see the sweets.", next = "BUSINESS" },
         { text = "What's your perfect-sweet formula?", next = "x_formula" },
         { text = "Did you escape Gnomeregan with the others?", next = "x_gnome", when = { race = "Gnome" } },
+        { text = "What do you miss most from Gnomeregan?", next = "ymiss" },
         { text = "Good day, Emmithue.", next = "END" },
       },
     },
@@ -850,6 +964,8 @@ P:NPC {
     },
   },
   topics = {
+    gnomeregan = { { id = "yswemmithuesmails4", text = "My home once. Now it glows, and not in the nice way." } },
+    fizzlecog = { { id = "yswemmithuesmails5", text = "My apprentice. He stayed behind to save the recipes." } },
     background = { { id = "tp_bg", text = "Gnomeregan confectioner, Stormwind refugee, Children's Week sweet-seller. Not in that order of happiness." } },
     rumors = { { id = "tp_rumors_x", text = "The orphans say there's a shadowy man on the canals who gives them coppers to carry messages. I've told the matron, and she's told the guard." } },
     _none = { { id = "tp_none", text = "I haven't the faintest idea, but I'd guess it involves sugar somehow." } },
@@ -877,6 +993,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yserve = {
+      lines = {
+        { id = "yswsquirerowe1", text = "My father was his groom, and he died of a fever when I was ten. The marshal took me in, taught me letters and swordwork, and never once let me feel like a charity case. I owe him everything I am." },
+        { id = "yswsquirerowe2", when = { race = "Human" }, text = "You'll know how it is in Stormwind, for an orphan. The marshal gave me a home when nobody else would." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ynever = {
+      lines = {
+        { id = "yswsquirerowe3", text = "Then I'll keep waiting. Or I'll ride to Blackrock myself. The guards say a squire has no business going alone, and they're probably right. But someone should go." },
+      },
+      choices = {
+        { text = "Go. Loyalty means not waiting forever.", next = "BACK", reply = "You understand. I'll ask the guard captain for leave tomorrow.", fx = { align = { honor = 1 } } },
+        { text = "Wait. Your oath is to stand where he left you.", next = "BACK", reply = "Yes. He left me here, and here I'll stay. Thank you.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yprestor = {
+      lines = {
+        { id = "yswsquirerowe4", text = "Beautiful, clever, and everyone in the court does what she says. The marshal didn't trust her, but he never said why. I'd ask you to watch her, if you go to the keep, and tell me if she does anything strange." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm Squire Rowe, sworn to Marshal Reginald Windsor. He rode for Blackrock Mountain and never came home, but I keep his horse fed and his post watched, because a squire doesn't stop serving.", fx = { learn = { "windsor" } } } },
       again = {
@@ -888,6 +1031,10 @@ P:NPC {
         { text = "Why wait here, by the gate?", next = "gate" },
         { text = "He's been gone a long time, Rowe.", next = "gone" },
         { text = "The marshal lives. He's coming home.", next = "home", when = { questActive = TODO_QUEST("Stormwind Rendezvous") } },
+        { text = "How did you come to serve the marshal?", next = "yserve" },
+        { text = "What will you do if he never returns?", next = "ynever" },
+        { text = "I'd squire for a knight like that.", next = "BACK", when = { class = { "PALADIN", "WARRIOR" } }, reply = "Then you know what it means. If he comes back, I'll introduce you. He likes a straight back." },
+        { text = "What do you think of Lady Prestor?", next = "yprestor" },
         { text = "Keep the faith, squire.", next = "END" },
       },
     },
@@ -919,6 +1066,8 @@ P:NPC {
     },
   },
   topics = {
+    windsor = { { id = "yswsquirerowe5", text = "The finest knight in Stormwind. He'll come home." } },
+    blackrock = { { id = "yswsquirerowe6", text = "Where the marshal rode and never came back. A place of fire and dark iron." } },
     background = { { id = "tp_bg", text = "I've served the marshal since I was twelve. He taught me to ride, to fight and to keep my mouth shut in the keep." } },
     _none = { { id = "tp_none", text = "I don't know, I'm sorry. The marshal would have known." } },
   },
@@ -1124,6 +1273,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yfree = {
+      lines = {
+        { id = "ybswzggi1", text = "Burn everything! No, wait. First Zggi would find a warm place, and then sit, and then burn a few things, only small ones. Then Zggi would go home and tell everyone about the stupid humans and their candles." },
+        { id = "ybswzggi2", when = { class = "WARLOCK" }, text = "Do not get ideas, warlock. Zggi knows that look, and Zggi does not like it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yzardeth = {
+      lines = {
+        { id = "yswzggi1", text = "Reads, and mutters, and makes Zggi fetch things. Also he sells to the warlocks who come down the stairs, but he says they are all fools, and then he takes their coin. Zggi likes that part." },
+        { id = "yswzggi2", when = { class = "WARLOCK" }, text = "Zardeth says you are a fool too. Zggi does not disagree, but Zggi is being polite because you are listening." },
+      },
+      choices = {
+        { text = "Do you like Zardeth?", next = "ylike" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylike = {
+      lines = {
+        { id = "yswzggi3", text = "Like? Zggi is bound to him. Zggi does not like or not like. But he once gave Zggi a whole candle for being good, and Zggi kept it under the floor for a month. It was a very nice candle." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Zggi, servant of the great Zardeth, and keeper of his candles, his scrolls and his very bad temper. Speak, and make it worth my while." } },
       again = { { id = "h_again", text = "More questions? Zggi is getting bored, and bored imps set fires." } },
@@ -1133,6 +1309,8 @@ P:NPC {
         { text = "Zardeth never lets you light fires?", next = "x_fire" },
         { text = "Being a servant isn't so bad.", next = "x_stance" },
         { text = "I'm a warlock. Mind your tongue, imp.", next = "x_lock", when = { class = "WARLOCK" } },
+        { text = "What does Zardeth do all day?", next = "yzardeth" },
+        { text = "What would you do if you were free?", next = "yfree" },
         { text = "Never mind, imp.", next = "END" },
       },
     },
@@ -1189,6 +1367,9 @@ P:NPC {
     },
   },
   topics = {
+    home = { { id = "ybswzggi3", text = "Somewhere warmer, with more screaming. You would not like it." } },
+    zardeth = { { id = "yswzggi4", text = "The great Zardeth. He reads, and mutters, and makes Zggi fetch things." } },
+    candle = { { id = "yswzggi5", text = "Zggi once got a whole candle for being good. It was very nice." } },
     background = { { id = "tp_bg", text = "Zggi serves Zardeth. Zggi did not choose to." } },
     _none = { { id = "tp_none", text = "Zggi doesn't know and doesn't care. Go away." } },
   },
@@ -1210,6 +1391,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yscared = {
+      lines = {
+        { id = "ybswpriestesstyriona1", text = "Terribly. My hands shake in this robe, and I keep forgetting the words. But Tyrion says if we don't do something, nobody will, and the Defias will keep their friends in high places for good." },
+        { id = "ybswpriestesstyriona2", when = { class = "PRIEST" }, text = "You'll know the words, then. Could you teach me a proper blessing before we reach the garden?" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yname = {
+      lines = {
+        { id = "yswpriestesstyriona1", text = "I'd rather not say, not here. Tyrion calls me his priestess, and that's enough for now. I'm a maid in Lord Lescovar's house, if you must know, and I see things a maid shouldn't." },
+        { id = "yswpriestesstyriona2", when = { class = "ROGUE" }, text = "You'll understand. A maid can go anywhere and no one looks twice. It's almost like being invisible." },
+      },
+      choices = {
+        { text = "What have you seen?", next = "yseen" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yseen = {
+      lines = {
+        { id = "yswpriestesstyriona3", text = "Letters with no seals, and men with grey cloaks coming at night. If I go to the guard, they might not believe me, and Lord Lescovar would know who told. Tyrion says we should catch him in the act first." },
+      },
+      choices = {
+        { text = "Go to the guard. Let the law handle it.", next = "BACK", reply = "That's the right thing, I know. But the guard laughs at maids.", fx = { align = { order = 1 } } },
+        { text = "Catch him yourselves. The law won't help you.", next = "BACK", reply = "That's Tyrion's plan. I just hope it works.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Priestess Tyriona, of the Cathedral of Light, and I carry a message for Lord Lescovar. It is a very holy message, and I am not at all made of gears." } },
       again = { { id = "h_again", text = "Is there more? We must walk on, quietly and piously." } },
@@ -1219,6 +1429,8 @@ P:NPC {
         { text = "Who is Tyrion, really?", next = "x_tyrion" },
         { text = "A real priest would know your blessing is wrong.", next = "x_priest", when = { class = "PRIEST" } },
         { text = "I could help you watch the garden.", next = "x_rogue", when = { class = "ROGUE" } },
+        { text = "What's your real name?", next = "yname" },
+        { text = "Are you frightened?", next = "yscared" },
         { text = "Walk on, then.", next = "END" },
       },
     },
@@ -1277,6 +1489,8 @@ P:NPC {
     },
   },
   topics = {
+    tyrion = { { id = "yswpriestesstyriona4", text = "A squire at the keep, and my friend. He has a good eye." } },
+    lescovar = { { id = "yswpriestesstyriona5", text = "Lord Lescovar. I serve in his house. That's all I'll say." } },
     background = { { id = "tp_bg", text = "I am a priestess. That is all there is to me, really." } },
     _none = { { id = "tp_none", text = "The Light has not revealed that to me, citizen." } },
   },
@@ -1302,6 +1516,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ywar = {
+      lines = {
+        { id = "yswdukefoehammer1", text = "At the Thandol Span, an' later at Blackrock Spire, when we broke the Horde. I was a captain then, an' lost half me company in one charge. Magni made me a duke for the other half comin' home alive." },
+        { id = "yswdukefoehammer2", when = { race = "Dwarf" }, text = "Ye'll know the Span, then. Me grandfather built a piece o' it, an' I near died holdin' it. Funny how a bridge ties a family." },
+      },
+      choices = {
+        { text = "What do you remember most?", next = "yremember" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yremember = {
+      lines = {
+        { id = "yswdukefoehammer3", text = "The smell o' the dragons the orcs rode, an' the heat. Me beard's never grown right on the left side since. I don't talk much about the rest, an' ye'll forgive me for that." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfix = {
+      lines = {
+        { id = "yswdukefoehammer4", text = "Bind the kingdoms by oath again, as Terenas did. But the humans won't hear it, an' the elves have gone home. Some say the Alliance needs a strong king, an' some say every kingdom should fend for itself." },
+      },
+      choices = {
+        { text = "A strong king to bind them. Order wins wars.", next = "BACK", reply = "Aye, that's what I'd say if I were king. Thankfully, I'm not.", fx = { align = { order = 1 } } },
+        { text = "Every kingdom must choose freely. Forced loyalty breaks.", next = "BACK", reply = "There's sense in that, though I'd not say it too loud in Stormwind.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Duke August Foehammer, warrior o' Ironforge an' commander in the Might o' Kalimdor. I've come to Cenarion Hold because the Qiraji are stirrin' behind that wall, an' somebody has to be ready when it opens." } },
       again = { { id = "h_again", text = "Anythin' else? Out with it, then." }, { id = "h_again2", text = "Speak up, {g:lad|lass}. Me ears are full o' war drums." } },
@@ -1310,6 +1552,9 @@ P:NPC {
         { text = "What brings you to Silithus?", next = "why" },
         { text = "What news from Ironforge?", next = "ironforge", when = { race = "Dwarf" } },
         { text = "The Alliance seems divided these days.", next = "divided" },
+        { text = "You fought in the Second War?", next = "ywar" },
+        { text = "What would you do about the divisions?", next = "yfix" },
+        { text = "Any advice for a warrior?", next = "BACK", when = { class = "WARRIOR" }, reply = "Keep yer shield high, yer axe sharp, an' never trust a goblin wi' yer pay. That last one's the most important." },
         { text = "Farewell, Duke.", next = "END" },
       },
     },
@@ -1341,6 +1586,8 @@ P:NPC {
     },
   },
   topics = {
+    magni = { { id = "yswdukefoehammer5", text = "The King o' Ironforge. Gave me this title an' a headache." } },
+    thandol_span = { { id = "yswdukefoehammer6", text = "Where I near died holdin' a bridge. Me grandfather built a piece o' it." } },
     background = { { id = "tp_bg", text = "Dwarf, warrior, duke, an' veteran o' more wars than I care to count." } },
     _none = { { id = "tp_none", text = "How should I know? Ask a human; they love talkin'." } },
   },
@@ -1365,6 +1612,43 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ymiss = {
+      lines = {
+        { id = "ybswgrandadmiraljestereth1", text = "Every hour I spend in this keep. The smell of tar, the noise of gulls, the feel of a deck in a storm. Here I have paper and nobles, and neither of them can be trimmed to the wind." },
+        { id = "ybswgrandadmiraljestereth2", when = { class = { "WARRIOR", "HUNTER" } }, text = "You have the look of someone who would rather be out there too. Do not let them chain you to a desk." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysea = {
+      lines = {
+        { id = "yswgrandadmiraljestereth1", text = "In the harbours of Stormwind, before the First War, on a fishing boat out of the old port. When the orcs burned the city I took the last boat out to Lordaeron with refugees. That was my first command." },
+        { id = "yswgrandadmiraljestereth2", when = { race = "Human" }, text = "You may have had family on those boats. Many did. I remember every face." },
+      },
+      choices = {
+        { text = "What do you remember of it?", next = "yremember" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yremember = {
+      lines = {
+        { id = "yswgrandadmiraljestereth3", text = "A child who would not stop crying, and a mother who would not stop singing to her. We made landfall at Southshore after nine days, and every soul aboard was alive. It is the only thing I'm proud of." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yneed = {
+      lines = {
+        { id = "yswgrandadmiraljestereth4", text = "Ships, timber and sailors who will not desert to the Bloodsails for better pay. The nobles want the fleet to protect their trade, and the commons want it to protect their coasts. I cannot do both." },
+      },
+      choices = {
+        { text = "Protect the coasts. The people come first.", next = "BACK", reply = "I agree, but the nobles control the purse. We shall see.", fx = { align = { order = 1 } } },
+        { text = "Protect the trade. Gold builds the fleet.", next = "BACK", reply = "A practical answer, and one the House of Nobles would approve. Not one I like.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Grand Admiral Jes-Tereth, and I command Stormwind's fleet. Since Lordaeron fell and Kul Tiras withdrew, the Alliance's seas are largely ours to guard." } },
       again = { { id = "h_again", text = "Anything further? The harbour reports are waiting." }, { id = "h_again2", text = "Proceed. My time is the fleet's, so make it count." } },
@@ -1373,6 +1657,10 @@ P:NPC {
         { text = "What happened to Kul Tiras?", next = "kultiras" },
         { text = "I'd like to serve in the fleet.", next = "serve", when = { class = "WARRIOR" } },
         { text = "Commanding from a keep seems odd.", next = "keep" },
+        { text = "Where did you first go to sea?", next = "ysea" },
+        { text = "What does the fleet need most?", next = "yneed" },
+        { text = "I'd serve the fleet if called.", next = "BACK", when = { race = "Human" }, reply = "Then you'll be called, in time. Stormwind's coast is longer than it was, and its sailors fewer." },
+        { text = "Do you ever miss the sea?", next = "ymiss" },
         { text = "I'll take my leave, admiral.", next = "END" },
       },
     },
@@ -1404,6 +1692,8 @@ P:NPC {
     },
   },
   topics = {
+    bloodsail = { { id = "yswgrandadmiraljestereth5", text = "The Bloodsail Buccaneers. Pirates who prey on our merchants. We hang them when we catch them." } },
+    southshore = { { id = "yswgrandadmiraljestereth6", text = "Where I first made landfall with refugees. I remember every face." } },
     background = { { id = "tp_bg", text = "A sailor since childhood, an admiral by merit, and a reluctant courtier by necessity." } },
     _none = { { id = "tp_none", text = "That is outside my jurisdiction. Ask the harbour master." } },
   },
@@ -1425,6 +1715,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yoff = {
+      lines = {
+        { id = "ybswcaptaindirgehammer1", text = "Drink at the Pig an' Whistle an' argue wi' the human veterans about who won the Second War. They say Lothar, I say Ironforge's rifles, an' we both buy rounds till nobody remembers the question." },
+        { id = "ybswcaptaindirgehammer2", when = { race = "Dwarf" }, text = "Same as any dwarf, {g:lad|lass}. Ale an' argument. Ye'll join me one night, an' bring yer own tankard." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfriend = {
+      lines = {
+        { id = "yswcaptaindirgehammer1", text = "Brannoc Stoneheart, a rifleman from Dun Morogh, who could shoot the wings off a fly at a hundred paces. A Frostwolf axe found him in the snow while he was reloadin', and I carried him back to Dun Baldar on me own back." },
+      },
+      choices = {
+        { text = "Do you hate the Frostwolves for it?", next = "yhate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhate = {
+      lines = {
+        { id = "yswcaptaindirgehammer2", text = "Aye, some days. Other days I think they're defendin' their home, same as we'd defend ours. Brannoc would've said the same, curse him. What would ye say?" },
+      },
+      choices = {
+        { text = "They're defending their home. Honour that, even in battle.", next = "BACK", reply = "Aye, that's Brannoc talkin' through ye. I'll drink to him tonight.", fx = { align = { honor = 1 } } },
+        { text = "The Horde is the enemy. Show them no mercy.", next = "BACK", reply = "Aye, that's the soldier's creed. Brannoc'd have laughed at ye, but he'd have agreed.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Captain Dirgehammer, quartermaster o' the Alliance's best armour. I hand it out to those who've proven themselves in the battlegrounds, an' nobody else." } },
       again = { { id = "h_again", text = "Anythin' else? I've armour to polish." } },
@@ -1434,6 +1752,8 @@ P:NPC {
         { text = "How long did you fight in Alterac?", next = "x_av" },
         { text = "A dwarf runs the Alliance armoury? Proper.", next = "x_dw", when = { race = "Dwarf" } },
         { text = "I'm a paladin. Will your armour bear the Light?", next = "x_pal", when = { class = "PALADIN" } },
+        { text = "Who was the friend you lost?", next = "yfriend" },
+        { text = "What do you do when you're off duty?", next = "yoff" },
         { text = "Farewell, captain.", next = "END" },
       },
     },
@@ -1499,6 +1819,9 @@ P:NPC {
     },
   },
   topics = {
+    pig_and_whistle = { { id = "ybswcaptaindirgehammer3", text = "Best ale in the city, which isnae sayin' much. Still, it's where the veterans drink." } },
+    alterac = { { id = "yswcaptaindirgehammer3", text = "Snow an' blood an' Frostwolves. I left two toes and a friend there." } },
+    brannoc = { { id = "yswcaptaindirgehammer4", text = "Brannoc Stoneheart. The finest shot in Dun Morogh. I miss him." } },
     background = { { id = "tp_bg", text = "A soldier o' Ironforge an' quartermaster o' the Alliance. Simple as that." } },
     _none = { { id = "tp_none", text = "Not my business, {g:lad|lass}. Mine's armour." } },
   },
@@ -1523,6 +1846,43 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yvarian = {
+      lines = {
+        { id = "ybswstormwindcityguard1", text = "None that reaches a guard's ears. He went to a peace summit and never arrived, and the court says he'll return any day. They've been saying it for a long while now, and the boy king looks smaller every time I see him." },
+        { id = "ybswstormwindcityguard2", when = { race = "Human" }, text = "You'll have heard the same rumours I have, I expect. I don't believe half of them, and the other half I'd rather not." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yserved = {
+      lines = {
+        { id = "yswstormwindcityguard1", text = "Six years, since the walls were finished and the new guard was formed. I was a stonemason's apprentice before that, and I worked on these very walls. I've a few friends who went Defias after they weren't paid." },
+        { id = "yswstormwindcityguard2", when = { race = "Dwarf" }, text = "The dwarves helped build these walls too. Some of them didn't get paid either, and some went home angry." },
+      },
+      choices = {
+        { text = "Do you understand them?", next = "yunderstand" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yunderstand = {
+      lines = {
+        { id = "yswstormwindcityguard3", text = "I do, and I don't. They built the city and got nothing, and they had every right to be angry. But they kill farmers in Westfall now, and that's not right either." },
+      },
+      choices = {
+        { text = "They're outlaws now. The law must stop them.", next = "BACK", reply = "That's what I tell myself every morning when I put on this tabard.", fx = { align = { order = 1 } } },
+        { text = "They were wronged first. The nobles share the blame.", next = "BACK", reply = "Keep your voice down, but aye, I think so too.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yworst = {
+      lines = {
+        { id = "yswstormwindcityguard4", text = "Telling people no. No, you can't go in the keep. No, the king isn't seeing petitioners. No, we don't know when the regent will hear your case. You'd be surprised how many people hate a guard for saying no." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm with the Stormwind City Guard, and we keep order from the Trade District to the keep. Need directions to a trainer, the bank or the auction house, or is there something else on your mind?" } },
       again = { { id = "h_again", text = "Anything else? The square doesn't watch itself." } },
@@ -1532,6 +1892,10 @@ P:NPC {
         { text = "Who rules Stormwind now?", next = "rule" },
         { text = "Seen any trouble today?", next = "x_trouble" },
         { text = "I'm a dwarf. How do the guards treat my kin?", next = "x_dw", when = { race = "Dwarf" } },
+        { text = "How long have you served?", next = "yserved" },
+        { text = "What's the worst part of the job?", next = "yworst" },
+        { text = "Do you have family in the city?", next = "BACK", when = { race = "Human" }, reply = "A wife in Old Town and two boys who want to be guards. I tell them to be bakers. They don't listen." },
+        { text = "Is there any word of King Varian?", next = "yvarian" },
         { text = "Thank you, guard.", next = "END" },
       },
     },
@@ -1579,5 +1943,8 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Couldn't say, citizen. Try the Pig and Whistle, they gossip about everything there." } } },
+  topics = {
+    varian = { { id = "ybswstormwindcityguard3", text = "The king. Missing. The court says he'll be back. I hope they're right." } },
+    defias = { { id = "yswstormwindcityguard5", text = "The Defias Brotherhood. They were stonemasons once, some of them my friends." } },
+    walls = { { id = "yswstormwindcityguard6", text = "I helped build them. Six years ago, as an apprentice." } }, _none = { { id = "tp_none", text = "Couldn't say, citizen. Try the Pig and Whistle, they gossip about everything there." } } },
 }

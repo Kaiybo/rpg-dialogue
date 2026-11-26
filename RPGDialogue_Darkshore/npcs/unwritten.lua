@@ -17,9 +17,46 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Ishnu-alah. Mind the line, traveler; I've had one bite all morning and I'd hate to lose it." },
     { id = "g_fish", when = { profession = "Fishing" }, text = "A fellow angler! Sit, if you like. The sea doesn't mind company if it's quiet." },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "A dwarf! Your kind fish like they mine: loud and determined. Sit quietly, if you can manage it." },
   },
   start = "hello",
   nodes = {
+    y_sister = {
+      lines = {
+        { id = "y_y_sister", text = "My sister Thessiel is a Sentinel at Astranaar. She writes me every season, and every letter ends the same way: come fight, Heldan, the forest needs you. I write back about fish. She has never once laughed." },
+      },
+      choices = {
+        { text = "Do you think she's right?", next = "y_right" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_right = {
+      lines = {
+        { id = "y_y_right", text = "Some days. When I see the Blackwood furbolgs on the ridge, or the dead things in the surf, I think she might be. Then I catch a fish, and I feed a family in Auberdine, and I think I'm right too." },
+        { id = "y_y_right_v0", when = { class = "WARRIOR" }, text = "Some days. You're a warrior; you'd say she's right. But I feed families with my line, and I think that counts for something." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_strange = {
+      lines = {
+        { id = "y_y_strange", text = "Last month I pulled up a fish with three eyes and a mouth full of teeth. I threw it back, of course, then I went home and drank a great deal of moonberry wine. Whatever is wrong with the land has reached the sea." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_stance = {
+      lines = {
+        { id = "y_y_stance", text = "Some say the corrupted fish should be caught and burned, so the sickness doesn't spread. Others say leave them to the sea; it will heal itself. What do you think?" },
+      },
+      choices = {
+        { text = "Burn them. Stop the sickness spreading.", next = "BACK", reply = "Hm. It's a hard thing, but you might be right.", fx = { align = { light = 1 } } },
+        { text = "Leave them. The sea will heal in time.", next = "BACK", reply = "That's what I hope. I'll go on throwing them back.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xlong = {
       narr = "He reels in a little line, considers it, and lets it out again.",
       lines = { { id = "xlong_default", text = "Longer than most of Auberdine has stood, though that isn't saying much. I fished here when there were only tents on the hill and a single moonwell. The fish were the same, and so was I." } },
@@ -60,6 +97,10 @@ P:NPC {
         { text = "Why fish out here, so far from Auberdine?", next = "far" },
         { text = "Ameth'Aran is just up the hill. Have you been?", next = "ruins" },
         { text = "Show me your catch.", next = "BUSINESS" },
+        { text = "Tell me about your sister.", next = "y_sister" },
+        { text = "Caught anything strange lately?", next = "y_strange" },
+        { text = "What should be done with corrupted fish?", next = "y_stance" },
+        { text = "I'm a fisherman too.", next = "BACK", when = { profession = "Fishing" }, reply = "Then you know the hardest part is waiting. Sit, and let's wait together." },
         { text = "Good fishing, Heldan.", next = "END" },
       },
     },
@@ -84,6 +125,8 @@ P:NPC {
     },
   },
   topics = {
+    thessiel = { { id = "tp_ythessiel", text = "My sister. A Sentinel. She thinks fishing is a waste of a good bow arm." } },
+    moonberry = { { id = "tp_ymoonberry", text = "Moonberry wine, the best thing to drink after a three-eyed fish." } },
     fishing = { { id = "tp_xfish", text = "The only craft that rewards doing nothing well. I recommend it highly." } },
     ameth_aran = { { id = "tp_xameth", text = "Haunted ruins up the hill. I hear the ghosts weeping some nights and fish louder." } },
   },
@@ -104,9 +147,52 @@ P:NPC {
     { id = "g_default", text = "Another new face off the boat! Welcome to Kalimdor, or at least the damp edge of it." },
     { id = "g_flint", when = { questActive = TODO_QUEST("Fiora Longears") }, text = "Red Jack sent you, didn't he? I can always tell. He picks the ones with salt still in their hair." },
     { id = "g_astra", when = { questActive = TODO_QUEST("Journey to Astranaar") }, text = "Still here, {name}? Astranaar is south, through the forest, and it won't come to you." },
+    { id = "yg_0", when = { race = "NightElf" }, text = "Ishnu-alah, I think that's how you say it. Forgive my accent; I've only been on this coast a few years." },
+    { id = "yg_1", when = { race = "Dwarf" }, text = "A dwarf off the Menethil boat! Red Jack swears your people get seasick worse than anyone. Is it true?" },
   },
   start = "hello",
+  topics = {
+    red_jack = { { id = "tp_yred_jack", text = "Red Jack Flint. He talks too much and he's never once been wrong about a traveller." } },
+    queldorei = { { id = "tp_yqueldorei", text = "High elves are few on this coast. The kaldorei watch me as if I might bite." } },
+  },
+
   nodes = {
+    y_flint = {
+      lines = {
+        { id = "y_y_flint", text = "Red Jack Flint pulled me out of the water off Menethil when my ship went down in a storm. I owed him a life, and he asked me to help him send travellers the right way instead. I've been paying it back ever since." },
+      },
+      choices = {
+        { text = "What happened to your ship?", next = "y_ship" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_ship = {
+      lines = {
+        { id = "y_y_ship", text = "It was a small trader out of Southshore, carrying wine and silk. A storm took it apart in an hour. Three of us made it to shore. The other two went home, and I came here instead. I'm not entirely sure why." },
+        { id = "y_y_ship_v0", when = { race = "Human" }, text = "A little trader out of Southshore, carrying wine and silk. You'd know the kind. Three of us made it, and I'm the one who didn't go home." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_home = {
+      lines = {
+        { id = "y_y_home", text = "I left Quel'Thalas when the Scourge came through. My family stayed. I've had two letters in four years, and the last one said my brother had joined the rangers holding the forests south of Silvermoon. I don't know if he's alive." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_return = {
+      lines = {
+        { id = "y_y_return", text = "Sometimes I think I should go back and help rebuild. Other times I think there's nothing left to rebuild, and I'd only be another ghost. What would you do?" },
+      },
+      choices = {
+        { text = "Go home. Your people need you.", next = "BACK", reply = "You're right, I know. I'll go. Someday, when I'm brave enough.", fx = { align = { honor = 1 } } },
+        { text = "Make your own home here. That's no betrayal.", next = "BACK", reply = "Thank you. I needed to hear someone say that.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Fiora Longears, at your service. Red Jack Flint and I keep an eye out for travelers with promise, and when one comes across from Menethil, I point them toward where they'll do the most good." },
@@ -121,6 +207,10 @@ P:NPC {
         { text = "A high elf, this far from Quel'Thalas?", next = "quel" },
         { text = "How do you know Red Jack Flint?", next = "flint" },
         { text = "The night elves don't seem pleased to see you.", next = "kaldorei", when = { race = "NightElf" } },
+        { text = "How did you meet Red Jack?", next = "y_flint" },
+        { text = "Do you hear from home?", next = "y_home" },
+        { text = "Will you ever go back to Quel'Thalas?", next = "y_return" },
+        { text = "Is it true about Quel'Thalas?", next = "BACK", when = { class = "MAGE" }, reply = "The Sunwell's gone, if that's what you mean. A mage would feel the lack of it. I do, every day." },
         { text = "Goodbye, Fiora.", next = "END" },
       },
     },
@@ -171,9 +261,46 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to the Grove. Please speak softly; the ancients are listening." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Thirsty again? The dew is fresh this morning." },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "A dwarf, here? Please, quietly. The ancients do not like hammers, and you look as though you carry several." },
   },
   start = "hello",
   nodes = {
+    y_mother = {
+      lines = {
+        { id = "y_y_mother", text = "My mother still keeps her bakery in Auberdine. She sends a basket every week on the supply cart, with a note telling me to come home and marry a nice Sentinel. I send back the empty basket and a sprig of grove moss." },
+      },
+      choices = {
+        { text = "Will you go home?", next = "y_go" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_go = {
+      lines = {
+        { id = "y_y_go", text = "Not yet. The ancients are worried, and Onu speaks more than he used to, which means something is very wrong. While he worries, I want to be here, even if all I can do is keep the bread warm." },
+        { id = "y_y_go_v0", when = { class = "DRUID" }, text = "Not yet. You'll have felt it, druid. Onu speaks more than he used to. While he worries, I want to be here." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_secret = {
+      lines = {
+        { id = "y_y_secret", text = "Sometimes, at night, I hear the ancients humming. Not speaking, just humming, low and slow, like an old song. I have never told anyone. I think it is the oldest music in the world, and I think they do not know I can hear it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_stance = {
+      lines = {
+        { id = "y_y_stance", text = "Some of the druids want to wake more of the ancients and send them to fight the corruption. Onu says the ancients should rest. Who is right?" },
+      },
+      choices = {
+        { text = "Let the ancients rest. They've earned it.", next = "BACK", reply = "Onu would agree. I think I do too.", fx = { align = { order = 1 } } },
+        { text = "Wake them. Darkshore needs every defender.", next = "BACK", reply = "Perhaps. I hope Onu forgives us, if it comes to that.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xcame = {
       narr = "She smooths her apron and glances shyly at the great trees.",
       lines = { { id = "xcame_default", text = "My mother kept a bakery in Auberdine. When the druids started coming south to speak with the ancients, someone had to feed them, and I was the quiet daughter. The Grove suited me." } },
@@ -226,6 +353,9 @@ P:NPC {
         { text = "Do the ancients really listen?", next = "ancients" },
         { text = "What do you sell?", next = "dew" },
         { text = "I'll buy something.", next = "BUSINESS" },
+        { text = "Does your family write?", next = "y_mother" },
+        { text = "Do you have a secret?", next = "y_secret" },
+        { text = "Should the ancients fight?", next = "y_stance" },
         { text = "Farewell, Tiyani.", next = "END" },
       },
     },
@@ -246,6 +376,8 @@ P:NPC {
     },
   },
   topics = {
+    auberdine = { { id = "tp_yauberdine", text = "My mother's bakery is there, and most of my family. It's a good village, if a damp one." } },
+    ancients = { { id = "tp_yancients", text = "The ancients of the grove. Old, slow, and wiser than all of us." } },
     onu = { { id = "tp_xonu", text = "The eldest ancient. Speak slowly to him, and listen even more slowly." } },
   },
 }
@@ -333,9 +465,47 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Ishnu-alah. Welcome to Auberdine. Mind the docks; the boards are slick after rain." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. The shore has been quiet, which only makes me more careful." },
+    { id = "yg_0", when = { race = "Human" }, text = "Ishnu-alah, human. The Menethil boat brings your kind more often lately. Mind the slick boards." },
+    { id = "yg_1", when = { class = "HUNTER" }, text = "A hunter. Keep your beast off the pier, please; the fishermen have complained twice this week." },
   },
   start = "hello",
   nodes = {
+    y_hist = {
+      lines = {
+        { id = "y_y_hist", text = "I served at Feathermoon once, far to the south, before Glynda asked for Sentinels who knew the sea. I have stood on this pier for thirty years. That is not long, for one of us, but long enough to learn every plank by its creak." },
+      },
+      choices = {
+        { text = "Do you miss Feathermoon?", next = "y_miss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_miss = {
+      lines = {
+        { id = "y_y_miss", text = "I miss the warm rain and the colour of the water. Darkshore is grey and the sea is cold, but it was the first place my people landed after Hyjal, and someone ought to keep watch over it." },
+        { id = "y_y_miss_v0", when = { race = "NightElf" }, text = "I miss the warm rain, sister or brother, as you would. But Darkshore was where we landed after Hyjal, and someone ought to keep its watch." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_night = {
+      lines = {
+        { id = "y_y_night", text = "The night watch is the worst of it. Glynda doubled it after the Murkdeep raids, and now half of us sleep through the day like owls. I have not seen a sunrise in three weeks, and I am beginning to forget its colour." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_ruins = {
+      lines = {
+        { id = "y_y_ruins", text = "The Explorers' League digs in our old ruins along the coast, and Glynda lets them, because they are allies. Some of us think the past should stay buried. What would you do?" },
+      },
+      choices = {
+        { text = "Let them dig. Knowledge helps the Alliance.", next = "BACK", reply = "Perhaps. They are careful, at least. Mostly.", fx = { align = { order = 1 } } },
+        { text = "Send them away. Those ruins are kaldorei.", next = "BACK", reply = "I agree, though I would never say so to Glynda. Thank you.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xcmd = {
       narr = "She nods toward the moonwell at the heart of the village.",
       lines = { { id = "xcmd_default", text = "Sentinel Glynda Nal'Shea keeps the watch, and Thundris Windweaver keeps the Cenarion work. Between them, Auberdine has more orders than it has Sentinels, which is how every outpost feels these days." } },
@@ -382,6 +552,9 @@ P:NPC {
 
         { text = "What threatens Darkshore?", next = "threat" },
         { text = "What do you think of the human visitors?", next = "humans" },
+        { text = "Where did you serve before Auberdine?", next = "y_hist" },
+        { text = "How is the night watch?", next = "y_night" },
+        { text = "What of the League's digs in your ruins?", next = "y_ruins" },
         { text = "Farewell, Sentinel.", next = "END" },
       },
     },
@@ -399,6 +572,8 @@ P:NPC {
     },
   },
   topics = {
+    glynda = { { id = "tp_yglynda", text = "Sentinel Glynda Nal'Shea keeps the watch. She asks much and she gives more." } },
+    feathermoon = { { id = "tp_yfeathermoon", text = "Feathermoon Stronghold, far to the south in Feralas. I served there once." } },
     auberdine = { { id = "tp_xauberdine", text = "Our harbour and our home on this coast. Keep it peaceful while you are here." } },
     naga = { { id = "tp_xnaga", text = "They come from the sea at night. Never sleep on the beach." } },
   },

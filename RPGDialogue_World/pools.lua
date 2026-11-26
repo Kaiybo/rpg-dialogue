@@ -681,12 +681,22 @@ P:Pool {
 -- Trainers anywhere (named trainers override this).
 P:Pool {
   id = "trainer", role = "trainer",
+  topics = {
+    practice = { { id = "tp_ypractice", text = "Every skill takes practice. There's no shortcut, no matter what anyone tells you." } },
+    students = { { id = "tp_ystudents", text = "I've taught more of them than I can count. Most of them I remember. Some I wish I didn't." } },
+  },
   greetings = {
+    { id = "yg0", text = "Back for more, are you? Good. Let's see what you've forgotten since last time." },
+    { id = "yg1", when = { band = "Greenhorn" }, text = "You're green yet, but everyone is once. Stand up straight and pay attention." },
     { id = "g_ready", text = "Ready to learn something?" },
     { id = "g_away", when = { away = 7 }, text = "You've been away {away}. Let's see whether you've kept up your practice." },
     { id = "g_since", when = { levelsSince = 6 }, text = "You've come on a long way since I last taught you. Let's see what's left for me to show you." },
   },
   lines = {
+    { id = "yl0", text = "I trained under a master who made me repeat every lesson a hundred times. I hated it, and I still do it, every morning." },
+    { id = "yl1", text = "The ones who come back are the ones who practised. The ones who don't come back, I never see again, and I try not to think about it." },
+    { id = "yl2", when = { band = { "Veteran", "Champion" } }, text = "You've come a long way. I'm not sure there's much left for me to teach, but I'll teach what there is." },
+    { id = "yl3", text = "Some days I think I should be out there with my students, not standing in a hall. Then my knee reminds me why I'm not." },
     { id = "l_default", text = "Practice what I teach you, or don't come back for more." },
     { id = "xl_patience", text = "Every new skill costs a little coin and a great deal of practice, and only one of those is mine to give you." },
     { id = "xl_young", when = { band = { "Greenhorn", "Blooded" } }, text = "You're young yet, so learn the basics well, because everything later is built on them." },
@@ -694,6 +704,8 @@ P:Pool {
     { id = "xl_drill", text = "Don't just read the technique and walk away. Drill it until you could do it half asleep, because one day you'll have to." },
   },
   choices = {
+    { text = "A teacher's duty is to the student. You've done well.", next = "END", reply = "Kind of you to say. I'll keep doing it, as long as they keep coming.", fx = { align = { honor = 1 } } },
+    { text = "A teacher should be out fighting, not talking.", next = "END", reply = "Maybe. But someone has to teach the ones who'll do the fighting.", fx = { align = { honor = -1 } } },
     { text = "Train me.", next = "BUSINESS" },
     { text = "Talent matters more than practice.", next = "END", reply = "Talent gets you through the door, but practice keeps you alive once you're through it.", fx = { align = { order = -1 } } },
     { text = "Practice is everything. I'll drill every day.", next = "END", reply = "Good. Come back when you've worn out your boots doing it.", fx = { align = { order = 1 } } },

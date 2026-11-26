@@ -22,6 +22,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yfirst = {
+      lines = {
+        { id = "ybsosstonardorc1", text = "Only stories. My grandfather marched on Stormwind with Blackhand, and he spoke of it as the greatest day of his life. Then he would go quiet, and drink, and not speak again until morning." },
+        { id = "ybsosstonardorc2", when = { race = "Orc" }, text = "You will have heard such stories too. Every orc family has a grandfather who goes quiet." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfamily = {
+      lines = {
+        { id = "ysosstonardorc1", text = "A mate, and two young ones who have never seen Durotar. They think the whole world is a swamp, and when I tell them about the red earth and the sun, they laugh and say I am making it up." },
+        { id = "ysosstonardorc2", when = { race = "Orc" }, text = "You will have seen Durotar, then. Tell my young ones, if you see them. They will believe a stranger." },
+      },
+      choices = {
+        { text = "Will you take them there?", next = "ytake" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytake = {
+      lines = {
+        { id = "ysosstonardorc3", text = "One day. My mate says Stonard is home, and the young should grow where they were born. I say an orc should know Durotar." },
+      },
+      choices = {
+        { text = "Stay. Stonard is your home now.", next = "BACK", reply = "Perhaps you are right. The swamp is not so bad, when the frogs are quiet.", fx = { align = { order = 1 } } },
+        { text = "Go. They should see the homeland.", next = "BACK", reply = "Yes. I will save for the zeppelin, and take them before they are grown.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Stonard is the oldest Horde fortress on this side of the sea, built when the Horde first marched on Stormwind. We held it through the defeat and the camps, and we hold it now, even if the swamp tries to rot it out from under us." } },
       again = { { id = "h_again", text = "What else, then?" } },
@@ -33,6 +62,8 @@ P:NPC {
         { text = "What do you think of Thrall?", next = "xthrall" },
         { text = "How do you feel about the humans now?", next = "xhumans" },
         { text = "Lok'tar, brother. I'm an orc too.", next = "BACK", when = { race = "Orc" }, reply = "Lok'tar! You walk where our fathers marched. Do not forget it, and do not forget what it cost." },
+        { text = "Do you have family in Stonard?", next = "yfamily" },
+        { text = "What do you remember of the first Horde?", next = "yfirst" },
         { text = "Lok'tar.", next = "END" },
       },
     },
@@ -79,6 +110,7 @@ P:NPC {
     },
   },
   topics = {
+    durotar = { { id = "ysosstonardorc4", text = "The homeland. My young have never seen it." } },
     thrall = { { id = "tp_xthrall", text = "The warchief. He freed us, and Stonard is loyal." } },
     nethergarde = { { id = "tp_xnethergarde", text = "A human keep by the Dark Portal. We watch it closely." } },
     background = { { id = "tp_bg", text = "I am an orc of Stonard, and I have known this swamp longer than I knew freedom." } },
@@ -106,6 +138,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ytrolls = {
+      lines = {
+        { id = "ybsosstonardhunter1", text = "The Darkspear are good hunters, quiet and patient. The temple trolls are another kind. They hunt men, not beasts, and they give the hearts to the water. I do not hunt near the temple." },
+        { id = "ybsosstonardhunter2", when = { race = "Troll" }, text = "You are Darkspear, I think. Your people taught me the reed snare. I owe them for it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytaught = {
+      lines = {
+        { id = "ysosstonardhunter1", text = "My father, who hunted the forests of Ashenvale before the Horde was driven back. He said a hunter who wastes is no hunter, and he made me eat every part of my first kill, even the eyes." },
+        { id = "ysosstonardhunter2", when = { race = "Tauren" }, text = "Your people would understand. The tauren hunt as my father did, with respect for the beast." },
+      },
+      choices = {
+        { text = "Do you still follow his way?", next = "yway" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yway = {
+      lines = {
+        { id = "ysosstonardhunter3", text = "Always. Though here, some grunts hunt crocolisks just for the hides, and leave the meat to rot. I have shouted at them, and they laugh." },
+      },
+      choices = {
+        { text = "Shout louder. Waste dishonours the hunt.", next = "BACK", reply = "I will. And maybe I will hide their skinning knives.", fx = { align = { light = 1 } } },
+        { text = "Let them be. The swamp has plenty.", next = "BACK", reply = "Plenty, for now. Ask me again in ten years.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I hunt for the cookfires of Stonard, which means frogs, fish and crocolisk tail when the gods are kind. Nothing out here is fat, but everything out here has teeth." } },
       again = { { id = "h_again", text = "Speak, but quietly." } },
@@ -117,6 +178,8 @@ P:NPC {
         { text = "How do you cook a frog?", next = "xfrog" },
         { text = "Do you ever hunt with others?", next = "xothers" },
         { text = "Tauren hunt too. Any advice for a kodo-sized hunter?", next = "BACK", when = { race = "Tauren" }, reply = "Spread your weight, walk slow and never fight a crocolisk in the water. Even an Earth Mother's child sinks in this mud." },
+        { text = "Who taught you to hunt?", next = "ytaught" },
+        { text = "What do you think of the trolls near the road?", next = "ytrolls" },
         { text = "Good hunting.", next = "END" },
       },
     },
@@ -163,6 +226,7 @@ P:NPC {
     },
   },
   topics = {
+    sorrowmaw = { { id = "ysosstonardhunter4", text = "A great crocolisk, if he is real. I have seen his wake." } },
     crocolisks = { { id = "tp_xcrocolisks", text = "Tasty and dangerous. Hunt them from the shore, not in the water." } },
     misty_valley = { { id = "tp_xmisty_valley", text = "The lost ones live there. Do not hunt in that valley." } },
     background = { { id = "tp_bg", text = "I am a hunter of Stonard, and the swamp is my larder and my enemy both." } },
@@ -190,6 +254,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ytaught = {
+      lines = {
+        { id = "ysosstonardshaman1", text = "Drek'Thar, briefly, before he went north to the Frostwolves. He taught me to listen before I speak, and to speak only when the spirits are ready. I have been listening ever since." },
+        { id = "ysosstonardshaman2", when = { class = "SHAMAN" }, text = "You will know his name, perhaps. He is old now, and wise, and very tired." },
+      },
+      choices = {
+        { text = "Do you miss him?", next = "ymiss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymiss = {
+      lines = {
+        { id = "ysosstonardshaman3", text = "Yes. He would know what to do about the temple. I do not. I only know that something wakes beneath the water, and that the spirits are afraid." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I tend the spirits for Stonard, and in this swamp, the spirits of water outnumber all the rest. They are restless, because something old and wicked sleeps beneath the sunken temple." } },
       again = { { id = "h_again", text = "What else do you wish to know?" } },
@@ -201,6 +283,7 @@ P:NPC {
         { text = "Can the swamp be healed?", next = "xheal" },
         { text = "Do you know the Atal'ai's prayers?", next = "xatal" },
         { text = "I am a shaman too. Teach me the waters here.", next = "BACK", when = { class = "SHAMAN" }, reply = "Listen first, speak later. The water here speaks in a low voice, and it is frightened. Do not frighten it more." },
+        { text = "Who taught you the ways of the spirits?", next = "ytaught" },
         { text = "Farewell, shaman.", next = "END" },
       },
     },
@@ -247,6 +330,8 @@ P:NPC {
     },
   },
   topics = {
+    drekthar = { { id = "ysosstonardshaman4", text = "My teacher, for a time. He went north to the Frostwolves." } },
+    spirits = { { id = "ysosstonardshaman5", text = "Water most of all. They are restless here." } },
     hakkar = { { id = "tp_xhakkar", text = "The blood god of the trolls. The water around the temple stinks of him." } },
     thrall = { { id = "tp_xthrall", text = "The warchief brought us back to the spirits. I owe him everything." } },
     background = { { id = "tp_bg", text = "I am a shaman of the Horde, and the waters of this swamp have been my teachers for many years." } },
@@ -460,6 +545,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ystrange = {
+      lines = {
+        { id = "ybsosstonardwayfinder1", text = "A human boat, stuck in the mud a mile from any water, with a skeleton still holding the oars. No one knows how it got there. My mother says the swamp moves things when it's angry, and I've stopped arguing with her." },
+        { id = "ybsosstonardwayfinder2", when = { class = "SHAMAN" }, text = "The spirits might know how it got there. Ask them, if you're braver than me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymother = {
+      lines = {
+        { id = "ysosstonardwayfinder1", text = "Old now, and stubborn, and she still walks the swamp every morning to check the paths. She says the ground shifts after rain, and a wayfinder who doesn't check is a wayfinder who drowns." },
+        { id = "ysosstonardwayfinder2", when = { race = "Orc" }, text = "She would like you. She likes anyone who walks like they know where they're going." },
+      },
+      choices = {
+        { text = "Did she ever regret hiding?", next = "yregret" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yregret = {
+      lines = {
+        { id = "ysosstonardwayfinder3", text = "She says no. She says the camps would have killed her spirit. But some who went to the camps came out stronger, under Thrall. She wonders, sometimes, if she was a coward." },
+      },
+      choices = {
+        { text = "She survived free. That took courage.", next = "BACK", reply = "I'll tell her you said so. She'll pretend not to care.", fx = { align = { honor = 1 } } },
+        { text = "The camps tested others. She avoided the test.", next = "BACK", reply = "Hm. Don't say that to her face. She still carries an axe.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I know where the ground holds and where it swallows, and I lead the caravans and the new arrivals between Stonard and the roads. More grunts have been lost to the mire than to the trolls, and that is not a joke." } },
       again = { { id = "h_again", text = "What else do you need to know?" } },
@@ -471,6 +585,8 @@ P:NPC {
         { text = "Who taught you the swamp?", next = "xtaught" },
         { text = "Do you ever lead Alliance travellers?", next = "xalliance" },
         { text = "I'm a hunter. My pet doesn't mind mud.", next = "BACK", when = { class = "HUNTER" }, reply = "Your pet doesn't mind mud until it swallows it. Keep it close and on firm ground, friend." },
+        { text = "What's your mother like?", next = "ymother" },
+        { text = "What's the strangest thing you've found in the swamp?", next = "ystrange" },
         { text = "Thanks, wayfinder.", next = "END" },
       },
     },
@@ -517,6 +633,7 @@ P:NPC {
     },
   },
   topics = {
+    mother = { { id = "ysosstonardwayfinder4", text = "She hid in this swamp through the camp years." } },
     pool_of_tears = { { id = "tp_xpool_of_tears", text = "Not a place to lead anyone, unless you mean them harm." } },
     stonard = { { id = "tp_xstonard", text = "My home. Built on the only dry ground for miles." } },
     background = { { id = "tp_bg", text = "I'm a wayfinder of Stonard, born to this swamp, and I have not lost a traveller yet." } },
@@ -540,6 +657,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yportal = {
+      lines = {
+        { id = "ybsosbrokenexile1", text = "Fire, and noise, and the sky turning red. We fled through it because the orcs had already gone, and we thought the new world might be kinder. It was not, at first. The swamp was the first place that let us rest." },
+        { id = "ybsosbrokenexile2", when = { race = "Human" }, text = "Your people did not know what we were. Some shot at us, and some fed us. I remember both." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylive = {
+      lines = {
+        { id = "ysosbrokenexile1", text = "We fish, and we gather roots, and we trade with the few who will trade with us. The orcs of Stonard leave us be, and the humans of Nethergarde do not come this far. It is a small life, but it is a life." },
+        { id = "ysosbrokenexile2", when = { faction = "Horde" }, text = "Your Horde leaves us be. That is more mercy than we expected, and I do not know whether to be grateful or wary." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "We are the Broken, what remains of a proud people from a world called Draenor. We came through the Dark Portal long ago, and now we hide in this swamp and wait." } },
       again = { { id = "h_again", text = "Is there more you would ask, stranger?" } },
@@ -550,6 +685,9 @@ P:NPC {
         { text = "Who leads your people here?", next = "xleader" },
         { text = "Do you ever think of going home?", next = "xhome" },
         { text = "I am an orc, and I am sorry.", next = "BACK", when = { race = "Orc" }, reply = "Sorry. It is a small word for what was done. But I have never heard an orc say it before, and I will remember that you did." },
+        { text = "How do your people live in the swamp?", next = "ylive" },
+        { text = "Will you pray with me?", next = "BACK", when = { class = { "PRIEST", "PALADIN" } }, reply = "I would. It has been long since anyone asked. Kneel, and I will say the old words, if I still remember them." },
+        { text = "What do you remember of the Dark Portal?", next = "yportal" },
         { text = "I'll leave you in peace.", next = "END" },
       },
     },
@@ -607,6 +745,7 @@ P:NPC {
     },
   },
   topics = {
+    magtoor = { { id = "ysosbrokenexile3", text = "He speaks for us. He is patient and old." } },
     draenor = { { id = "tp_xdraenor", text = "My lost world. I see it in my dreams, and then I wake in the swamp." } },
     orcs = { { id = "tp_xorcs", text = "I try to see them as they are now. Some days I succeed." } },
     background = { { id = "tp_bg", text = "I am of the Broken. Once, that meant something else." } },

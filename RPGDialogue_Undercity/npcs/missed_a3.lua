@@ -25,9 +25,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "I kept the tax rolls for the parish of Brill, which is how I know half the names on the graveyard stones. I counted their sheep and their debts, and then I counted their dead, and then I joined them." } },
+      choices = {
+        { text = "Do you still keep accounts?", next = "yaccounts" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yaccounts = {
+      lines = { { id = "yaccounts_x", text = "Only of the recruits who don't come back. I keep a little list, with names and dates, and I read it before drill. Alyssa says it's morbid. I say somebody ought to remember them properly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yworry = {
+      lines = { { id = "yworry_x", text = "That I'll think when I ought to act, and someone will pay for it. Houser says trust your arm. I say an arm without a head is a ghoul. Which of us is right, do you suppose?" } },
+      choices = {
+        { text = "Houser. Discipline wins battles, not thinking.", next = "BACK", reply = "Discipline. Very well, I'll write that at the top of my list.", fx = { align = { order = 1 } } },
+        { text = "You. Thinking soldiers live longer.", next = "BACK", reply = "That's very kind, and I'll be certain not to repeat it to the sergeant.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhouser = {
+      lines = { { id = "yhouser_x", text = "Once. He told Alyssa that she'd do. She didn't speak for an hour afterwards, and I've never seen her hit the dummy harder. I am still waiting for my own verdict." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Eldin Partridge, recruit. Sergeant Houser is making soldiers of Alyssa, Travist and me, and he has told me that I'd be the best of the three if I would only stop thinking about it." },
+        { id = "yh_mage", when = { class = "MAGE" }, text = "A mage. You'll understand, I hope, that a sword stroke has its theory too, though Sergeant Houser denies it with real feeling." },
       },
       again = {
         { id = "h_again", text = "Was there more? He's still busy with Travist." },
@@ -38,6 +62,9 @@ P:NPC {
         { text = "You weren't a soldier in life.", next = "life" },
         { text = "How do you get on with Alyssa?", next = "alyssa" },
         { text = "Stop thinking and trust your arm.", next = "arm", when = { class = "WARRIOR" } },
+        { text = "What did you do in life?", next = "ylife" },
+        { text = "What worries you about the front?", next = "yworry" },
+        { text = "Does Houser ever praise anyone?", next = "yhouser" },
         { text = "Back to it, recruit.", next = "END" },
       },
     },
@@ -66,6 +93,8 @@ P:NPC {
     },
   },
   topics = {
+    brill = { { id = "ytp_brill", text = "I could tell you who owed what to whom in Brill, if any of them were still alive to collect." } },
+    sergeant_houser = { { id = "ytp_houser", text = "The sergeant is loud, correct and impossible to argue with, which is a dreadful combination." } },
     background = { { id = "tp_bg", text = "A parish clerk, and now a recruit. I've simply moved from recording the dead to joining them, and then to adding to them." } },
     _none = { { id = "tp_none", text = "I don't know, and I'd rather not guess, because I'd only end up arguing both sides of it." } },
   },
@@ -92,9 +121,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ymiss = {
+      lines = { { id = "ymiss_x", text = "The gears! The sound of them, all day and all night, tick, tock, clank. It's so quiet here, nobody hums. I've started humming myself, in the right pitch, and the apothecaries write it down." } },
+      choices = {
+        { text = "They write down your humming?", next = "yhum" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhum = {
+      lines = { { id = "yhum_x", text = "Everything I do, they write down! How long I sleep, what I eat, how green my skin goes under the lamp. I'm a very important measurement, they tell me. Nobody in Gnomeregan ever said that." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yafraid = {
+      lines = { { id = "yafraid_x", text = "No! Well, a little. A tiny bit. They're kind to me, and they feed me, and they ask about the radiation. Then sometimes they ask who else came out of Gnomeregan like me, and how many, and where. Should I tell them?" } },
+      choices = {
+        { text = "Tell them nothing. Protect the others.", next = "BACK", reply = "Nothing? Oh. Yes. I can do nothing. I'm quite good at it.", fx = { align = { light = 1 } } },
+        { text = "Tell them. Knowledge is worth the price.", next = "BACK", reply = "That's what they say! Exactly that! You must be very clever.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhome = {
+      lines = { { id = "yhome_x", text = "Home is full of troggs and radiation and Mekgineer Thermaplugg, who isn't nice at all. So I suppose I'm home now, in a way. It's damp, but nobody's tried to blow me up yet." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Ganoosh, and I live here now, with the tall dead people and their lovely bubbling vats. They wanted to know what the green air in Gnomeregan did to me, and I wanted somewhere to stand, so the arrangement suits everybody." },
+        { id = "yh_gnome", when = { race = "Gnome" }, text = "A gnome! A clean one! Oh, hello, hello, are you from the city, did you get out, did anyone get out? Never mind, don't answer, I'll cry." },
       },
       again = {
         { id = "h_again", text = "Yes, yes, what else? I'm between calculations, more or less." },
@@ -105,6 +158,9 @@ P:NPC {
         { text = "What do the apothecaries want with you?", next = "study" },
         { text = "You seem cheerful, considering.", next = "cheerful" },
         { text = "Do you remember who you were, before?", next = "before", when = { race = "Gnome" } },
+        { text = "What do you miss most about Gnomeregan?", next = "ymiss" },
+        { text = "Are you afraid of the apothecaries?", next = "yafraid" },
+        { text = "Would you go home, if you could?", next = "yhome" },
         { text = "Keep well, Ganoosh.", next = "END" },
       },
     },
@@ -133,6 +189,8 @@ P:NPC {
     },
   },
   topics = {
+    gnomeregan = { { id = "ytp_gnomer", text = "Gnomeregan was the greatest city in the world, and then it was the greenest. Tick, tock." } },
+    thermaplugg = { { id = "ytp_therm", text = "Thermaplugg pushed the button. I know he did. I saw his face." } },
     background = { { id = "tp_bg", text = "I was an engineer in Gnomeregan, on the third level, and then the air went green and so did I. That is my whole file, the tall ones tell me." } },
     _none = { { id = "tp_none", text = "I don't know! Isn't that marvellous? I'll add it to the list of things I mean to work out." } },
   },
@@ -235,9 +293,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "The Silverpine woods, from Pyrewood to the coast. Baron Silverlaine's game warden, if you can believe it, and I knew every badger's sett by name. Now the wolves out there walk on two legs at night." } },
+      choices = {
+        { text = "The worgen of Silverpine?", next = "yworgen" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yworgen = {
+      lines = { { id = "yworgen_x", text = "Something wrong came out of Shadowfang Keep, and the wolves aren't wolves any more. I've seen the prints, deep and clawed, walking on their hind legs. I'd hunt them myself if I trusted my old legs." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ylately = {
+      lines = { { id = "ylately_x", text = "A rogue in soft boots carrying something heavy, about an hour ago, toward Mennet's corner. Two Deathguard, drunk on something. And a living child, which is the one that bothers me." } },
+      choices = {
+        { text = "A living child? Down here?", next = "ychild" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ychild = {
+      lines = { { id = "ychild_x", text = "Small prints, bare, and fresh. They went toward the Apothecarium and they didn't come back. I've told nobody. Would you have me report it, or follow the track myself and see?" } },
+      choices = {
+        { text = "Report it. The city guards its own business.", next = "BACK", reply = "Aye. The city will deal with it, one way or another. I'll go now.", fx = { align = { order = 1 } } },
+        { text = "Follow it yourself. Don't trust the Society.", next = "BACK", reply = "That's what my gut said. I'll go quietly, and you never heard it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytrack = {
+      lines = { { id = "ytrack_x", text = "Now and then. Varimathras's people ask me where a man went, and I tell them. I try not to think about why they want to know." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gothard Winslow. I tracked game and lost travellers in the Tirisfal woods for thirty years, and there's nothing down here to track but people, so I keep my hand in with those." },
+        { id = "yh_hunter", when = { class = "HUNTER" }, text = "A hunter. You walk heel first, like a city man. Roll it toward the toe, or every beast in the wood will hear you coming." },
       },
       again = {
         { id = "h_again", text = "What else? Go on, I'm in no hurry." },
@@ -248,6 +337,9 @@ P:NPC {
         { text = "Why don't you track game any more?", next = "game" },
         { text = "Why keep to the Rogues' Quarter?", next = "quarter" },
         { text = "Teach me something about reading sign.", next = "sign", when = { class = "HUNTER" } },
+        { text = "Where did you hunt, in life?", next = "ylife" },
+        { text = "Who's passed here lately?", next = "ylately" },
+        { text = "Do you ever track for the Dark Lady?", next = "ytrack" },
         { text = "Good hunting, Winslow.", next = "END" },
       },
     },
@@ -276,6 +368,8 @@ P:NPC {
     },
   },
   topics = {
+    silverpine = { { id = "ytp_silver", text = "Silverpine was the best hunting in the kingdom. It's the worst now, for different reasons." } },
+    rogues_quarter = { { id = "ytp_rq", text = "Every rogue thinks he walks silent here. The floor disagrees." } },
     background = { { id = "tp_bg", text = "A woodsman of Tirisfal, back when it had green in it. I knew those woods by their tracks, and I'd not know them now." } },
     _none = { { id = "tp_none", text = "There's no trail to that one that I can find. Ask somebody who deals in talk and not in tracks." } },
   },
@@ -302,9 +396,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "I shot crows off my uncle's barley near Stratholme. Then I shot ghouls off the barley. Then I didn't shoot fast enough. Nicholas sold me my first rifle after I rose, and wouldn't take a copper for it." } },
+      choices = {
+        { text = "Why wouldn't he take payment?", next = "ypay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ypay = {
+      lines = { { id = "ypay_x", text = "Because he sold the rifle I carried in life too, and he thinks it failed me. It didn't. I failed it. I've spent every day since making sure that doesn't happen again. Nine. Ten." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ybest = {
+      lines = { { id = "ybest_x", text = "A Scarlet captain at two hundred paces, near the Monastery wall, as he raised his hand to burn a captured Forsaken. The Deathguard called it murder from cover. I called it a rescue. What would you call it?" } },
+      choices = {
+        { text = "A rescue. He was about to burn one of ours.", next = "BACK", reply = "Thank you. I'll count that one twice. Eleven.", fx = { align = { honor = -1 } } },
+        { text = "Murder, honestly. You never gave him a chance.", next = "BACK", reply = "Then I'm a murderer who saved a life. I can live with that. Eleven.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhunter = {
+      lines = { { id = "yhunter_x", text = "A rifle, every time. A bow wants a living arm's strength and I haven't got it any more. Powder doesn't care how dead you are, and that's the most honest thing in the Undercity." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Helena Atwood. I shoot here every day until Nicholas tells me that I've used up his profit in powder, and then I shoot a little longer, because he is family and can't very well stop me." },
+        { id = "yh_dwarf", when = { race = "Dwarf" }, text = "A dwarf, watching me shoot? I'll take any advice you've got, as long as it's quiet. Six. Seven." },
       },
       again = {
         { id = "h_again", text = "What else? I'm reloading, so you have about as long as that takes." },
@@ -315,6 +433,9 @@ P:NPC {
         { text = "Nicholas is the gun merchant?", next = "nicholas" },
         { text = "What are you practising for?", next = "purpose" },
         { text = "You're pulling right. Ease your grip.", next = "grip", when = { class = "HUNTER" } },
+        { text = "What did you do before you died?", next = "ylife" },
+        { text = "What's your best shot ever?", next = "ybest" },
+        { text = "I'm a hunter. Rifle or bow?", next = "yhunter", when = { class = "HUNTER" } },
         { text = "I'll let you shoot.", next = "END" },
       },
     },
@@ -343,6 +464,8 @@ P:NPC {
     },
   },
   topics = {
+    nicholas_atwood = { { id = "ytp_nick", text = "Nicholas sells guns in the War Quarter. He's my uncle's cousin, and the only family I've got left." } },
+    scarlet_monastery = { { id = "ytp_sm", text = "The Monastery walls make good targets. The men on them make better ones." } },
     background = { { id = "tp_bg", text = "An Atwood of Lordaeron, and we were gunsmiths to the gentry. I was meant to marry well and never touch the stock, and look how that turned out." } },
     _none = { { id = "tp_none", text = "I don't know. If it can't be shot at, I've not studied it." } },
   },
@@ -369,9 +492,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ywho = {
+      lines = { { id = "ywho_x", text = "Merchants in the Trade Quarter who lend to adventurers, mostly. Coin goes out to fools, I bring it back. The rogues leave me be because I'm good at it, and because I once taught one of them to count with broken fingers." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ylife = {
+      lines = { { id = "ylife_x", text = "I worked a dockside tavern in Southshore, breaking up fights. It turns out the skills carry over after death. The fists stay the same, only the knuckles show." } },
+      choices = {
+        { text = "Southshore? That's Alliance now.", next = "ysouth" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysouth = {
+      lines = { { id = "ysouth_x", text = "So it is. My old tavern still stands, I'm told, and the man who owned it still pours. I owe him wages. Strange thing to think about, that a debt can outlast you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yoff = {
+      lines = { { id = "yoff_x", text = "Once. A young warrior with nothing but a broken sword and a sister in the Bulwark. I paid his debt myself and told the merchant I'd beaten it out of him. Was that weakness, would you say?" } },
+      choices = {
+        { text = "No. That was the right thing to do.", next = "BACK", reply = "Keep it to yourself, then. I have a reputation to keep.", fx = { align = { light = 1 } } },
+        { text = "Yes. A collector who forgives stops collecting.", next = "BACK", reply = "Aye, that's what I'm afraid of. Never again, I tell myself.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Hepzibah Sedgewick. I walk from the Rogues' Quarter to the Trade Quarter and back again, and people who owe certain other people money tend to remember it when they see me coming." },
+        { id = "yh_rogue", when = { class = "ROGUE" }, text = "A rogue. You'll know the difference between a reminder and a warning, then. I deliver both." },
       },
       again = {
         { id = "h_again", text = "What else? Keep walking while you ask." },
@@ -382,6 +529,9 @@ P:NPC {
         { text = "You collect debts, then.", next = "debts" },
         { text = "What's the Trade Quarter to you?", next = "trade" },
         { text = "Daggers are quicker than fists, surely.", next = "daggers", when = { class = "ROGUE" } },
+        { text = "Who do you collect for?", next = "ywho" },
+        { text = "What did you do in life?", next = "ylife" },
+        { text = "Have you ever let someone off?", next = "yoff" },
         { text = "I'll walk my own way.", next = "END" },
       },
     },
@@ -410,6 +560,8 @@ P:NPC {
     },
   },
   topics = {
+    trade_quarter = { { id = "ytp_tq", text = "Half the Trade Quarter owes the other half. I keep the arithmetic honest." } },
+    southshore = { { id = "ytp_ss", text = "Southshore's tavern had the best fights. I'd go back for one more evening, if the Alliance would let me." } },
     background = { { id = "tp_bg", text = "I kept order in a dockside tavern, long ago. The work's the same, only the customers are harder to bruise." } },
     _none = { { id = "tp_none", text = "Not my business, and I've made it a rule to know only my own. Ask at the bank." } },
   },

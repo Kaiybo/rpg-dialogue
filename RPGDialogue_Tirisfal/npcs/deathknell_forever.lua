@@ -728,8 +728,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A gatekeeper at the capital, if you can believe it. I let Prince Arthas through on the day he came home. I opened the gate myself and cheered. I've been standing at gates ever since, trying to do it properly this time." } },
+      choices = {
+        { text = "You couldn't have known.", next = "yknown" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yknown = {
+      lines = { { id = "yknown_x", text = "Couldn't I? He came home with a cursed sword and a face like a winter grave. Every guard on that wall saw it. Should a gatekeeper obey his prince, or trust his own eyes?" } },
+      choices = {
+        { text = "Obey. You can't bar the prince from his own city.", next = "BACK", reply = "Aye. That's what I told myself. It's cold comfort.", fx = { align = { order = 1 } } },
+        { text = "Trust your eyes. Every gate needs a guard who thinks.", next = "BACK", reply = "I trust them now. Nobody passes this gate on a smile.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yleave = {
+      lines = { { id = "yleave_x", text = "Leave? Where would I go? Every road in Tirisfal leads back to a gate, and every gate needs a guard. I'll stand here till the Scarlets come, and then I'll stand here a little longer." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", key = true, text = "I've held Deathknell's gate since the Dark Lady took it back from the Scourge, and I've watched a great many fresh corpses walk out of it. The mindless wander the fields, and the Scarlet Crusade comes over the hills when they feel bold, so mind both." } },
+      lines = {
+        { id = "h_default", key = true, text = "I've held Deathknell's gate since the Dark Lady took it back from the Scourge, and I've watched a great many fresh corpses walk out of it. The mindless wander the fields, and the Scarlet Crusade comes over the hills when they feel bold, so mind both." },
+        { id = "yh_warrior", when = { class = "WARRIOR" }, text = "A warrior. Keep your shield up past the gate, and don't charge the first Scarlet you see. There are always two more behind him." },
+      },
       again = { { id = "h_again", text = "Anything else? I'll be here." } },
       choices = {
         { text = "What's out there, past the gate?", next = "out" },
@@ -738,6 +760,8 @@ P:NPC {
         { text = "You don't seem to blink much.", next = "blink" },
         { text = "What became of the mindless who wake here?", next = "mindless" },
         { text = "I've come to Deathknell from the Horde lands.", next = "horde", when = { faction = "Horde", ["not"] = { race = "Scourge" } } },
+        { text = "Who were you before you died?", next = "ylife" },
+        { text = "Do you ever want to leave this gate?", next = "yleave" },
         { text = "Carry on, Deathguard.", next = "END" },
       },
     },
@@ -790,6 +814,8 @@ P:NPC {
     },
   },
   topics = {
+    arthas = { { id = "ytp_arthas", text = "I opened the gate for him. Ask me no more about it." } },
+    the_gate = { { id = "ytp_gate", text = "Nothing passes this gate I haven't looked at twice." } },
     scarlet_crusade = { { id = "tp_crusade", text = "Bold when there's a dozen of them, and running when there's three. Shoot the one with the banner first." } },
     sarvis = { { id = "tp_sarvis", text = "Shadow Priest Sarvis raised half the corpses who walk past this gate. Report to him if you've not done so." } },
     _none = { { id = "tp_none", text = "I watch a gate, risen one. Ask in the chapel." } },
@@ -811,9 +837,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A stonemason, laying walls in Lordaeron. I know how a thing comes apart, and how to put it back. Shame I can't mortar myself. I've tried, mind. The apothecaries laughed." } },
+      choices = {
+        { text = "Who did this to you?", next = "ycaptain" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yscared = {
+      lines = { { id = "yscared_x", text = "That they'll decide I'm not worth mending. A Deathguard who can't stand is a body, and there are always more bodies in Deathknell. Should they waste the bandages on me, or let me go?" } },
+      choices = {
+        { text = "Mend you. Every Forsaken is worth saving.", next = "BACK", reply = "Thanks. I'll try to be worth it, then.", fx = { align = { light = 1 } } },
+        { text = "Let you go. The strong must come first.", next = "BACK", reply = "Hard words. True, maybe. I'll hold on a while longer, regardless.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycaptain = {
+      lines = { { id = "ycaptain_x", text = "The Scarlet who cut me had a red feather in his helm, and he laughed while he did it. If you see him near the Solliden farm, I'd take it kindly if you didn't laugh back." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       narr = "One of his greaves lies on the ground beside him, and so, you notice, does part of the leg.",
-      lines = { { id = "h_default", key = true, text = "The Scarlets caught our patrol on the road west of here, and I came off worse than I'd like to admit. The good news about being dead is that it hurts less than it should, and the bad news is that I mend slower than a living man." } },
+      lines = {
+        { id = "h_default", key = true, text = "The Scarlets caught our patrol on the road west of here, and I came off worse than I'd like to admit. The good news about being dead is that it hurts less than it should, and the bad news is that I mend slower than a living man." },
+        { id = "yh_priest", when = { class = "PRIEST" }, text = "A priest. Don't waste the Light on me, it stings. A bit of shadow mending, though, I'd not say no." },
+      },
       again = { { id = "h_again", text = "Something more? I'm not going anywhere, as you can see." } },
       choices = {
         { text = "Will you heal?", next = "heal" },
@@ -822,6 +870,8 @@ P:NPC {
         { text = "What became of the rest of your patrol?", next = "patrol" },
         { text = "I could patch that leg, if you'll hold still.", next = "patch", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "Want me to hunt the Scarlets who did this?", next = "revenge", when = { class = { "WARRIOR", "ROGUE", "HUNTER" } } },
+        { text = "Who were you before?", next = "ylife" },
+        { text = "What scares you about being hurt?", next = "yscared" },
         { text = "Rest easy, Deathguard.", next = "END" },
       },
     },
@@ -873,6 +923,8 @@ P:NPC {
     },
   },
   topics = {
+    deathknell = { { id = "ytp_dk", text = "Deathknell's where we start and, for some of us, where we finish." } },
+    stonework = { { id = "ytp_stone", text = "Good stone outlasts its mason. I've proved it twice now." } },
     scarlet_crusade = { { id = "tp_crusade", text = "They bring priests to an ambush now. Keep that in mind on the western road." } },
     _none = { { id = "tp_none", text = "I don't know, friend, and I've other things on my mind, like my leg." } },
   },

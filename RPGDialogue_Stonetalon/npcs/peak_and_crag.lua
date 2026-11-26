@@ -455,6 +455,11 @@ P:NPC {
       choices = {
         { text = "What are the goblins doing to the mountains?", next = "goblins" },
         { text = "What grows up here that's so precious?", next = "growth" },
+        { text = "How long have you studied the peak?", next = "ylong" },
+        { text = "What do you do with your samples?", next = "ysamples" },
+        { text = "Have you seen the Charred Vale?", next = "yvale" },
+        { text = "Do you ever lose hope?", next = "yhope2" },
+        { text = "A fellow druid. What can I do?", next = "ydruid", when = { class = "DRUID" } },
         { text = "Elune keep you, botanist.", next = "END" },
       },
     },
@@ -477,8 +482,52 @@ P:NPC {
       lines = { { id = "ho_default", text = "Everything stops in time, even goblins, and my people are very patient. Ten thousand years have taught us that a forest outlives those who cut it." } },
       choices = { { text = "I hope you're right. Something else.", next = "BACK" } },
     },
+    ylong = {
+      lines = {
+        { id = "yylong_d", text = "Forty years, which is not long, for my people. I came after the Third War, when the Circle sent druids to every wounded forest. Stonetalon was wounded worse than most." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysamples = {
+      lines = {
+        { id = "yysamples_d", text = "I press them in books and send them to Moonglade, and some I plant in the hidden glades so they will not be lost. Every seed is a memory of the mountain as it was." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yvale = {
+      lines = {
+        { id = "yyvale_d", text = "Once, and I wept. The earth was black, the streams were grey, and nothing sang. I collected ash to study, and the ash told me only that the trees were old, very old, and that they died quickly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhope2 = {
+      lines = {
+        { id = "yyhope2_d", text = "Often. Then I find a seedling in the burned ground, a little green thing pushing through the ash. Some druids say we must fight. I say we must plant. Both are needed, perhaps." },
+      },
+      choices = {
+        { text = "Plant. Growth outlasts any war.", next = "BACK", reply = "Yes. That is the old wisdom, and I trust it.", fx = { align = { light = 1 } } },
+        { text = "Fight. The goblins won't stop for seedlings.", next = "BACK", reply = "Perhaps you are right. But someone must still plant after.", fx = { align = { light = -1 } } },
+      },
+    },
+    ydruid = {
+      lines = {
+        { id = "yydruid_v0", when = { race = "Tauren" }, text = "Carry seeds, tauren druid, and plant them in burned ground. Speak to the soil as your people speak to the Earth Mother. The mountain will remember." },
+        { id = "yydruid_d", text = "Carry seeds wherever you go, and plant them where the ground has been burned. Speak to the soil, as Cenarius taught us. The mountain will remember those who help it heal." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    moonglade = { { id = "ytp_moonglade", text = "Moonglade is the heart of the Cenarion Circle. My samples go there to be studied." } },
+    venture_company = { { id = "ytp_venture_company", text = "The Venture Company cuts and burns and calls it business. I call it murder." } },
     background = { { id = "tp_bg", text = "A druid of the Cenarion Circle, set to study the peak. It is quiet work, and I am glad of it." } },
     _none = { { id = "tp_none", text = "I could not say, stranger. Ask the trees, and be patient for their answer." } },
   },
@@ -602,6 +651,8 @@ P:NPC {
         { text = "How long have you guarded these woods?", next = "xlong" },
         { text = "Do you trust mortals?", next = "xtrust" },
         { text = "I'm a night elf. Do you remember us?", next = "xelf", when = { race = "NightElf" } },
+        { text = "What do you do when the goblins come near?", next = "ygob" },
+        { text = "Do you have sisters?", next = "ysisters" },
         { text = "I'll go gently through your woods.", next = "END" },
       },
     },
@@ -657,8 +708,27 @@ P:NPC {
         { text = "I'll honour that.", next = "BACK", reply = "Then the forest will honour you.", fx = { affinity = 1 } },
       },
     },
+    ygob = {
+      lines = {
+        { id = "yygob_d", text = "I watch, and I warn, and when they come too close, the trees close their branches and the paths change. More than one goblin has walked in circles here until he gave up and went home." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysisters = {
+      lines = {
+        { id = "yysisters_v0", when = { class = "DRUID" }, text = "Many, druid, in every forest our father loved. Some have fallen to the goblins' fires. You feel the forest too. You know how cold their deaths are." },
+        { id = "yysisters_d", text = "Many, in every forest Cenarius loved. Some have fallen to the Venture Company's fires. I feel their deaths like a cold wind through my leaves." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    lake = { { id = "ytp_lake", text = "The Mirkfallon Lake is the heart of these woods. As long as it is clean, the trees will stand." } },
+    goblins = { { id = "ytp_goblins", text = "The goblins are a fire that walks. I do not hate them, but I will not let them pass." } },
     mirkfallon = { { id = "tp_xmirkfallon", text = "Mirkfallon Lake is the heart of these woods. I will not let it be poisoned." } },
     cenarius = { { id = "tp_xcenarius", text = "Cenarius is our father, and we keep his woods as he would wish." } },
     background = { { id = "tp_bg", text = "I am a dryad of Mirkfallon. The lake and the trees are all the history I need." } },

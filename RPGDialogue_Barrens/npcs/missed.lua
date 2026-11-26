@@ -414,6 +414,10 @@ P:NPC {
         { text = "What's wrong with the pigs?", next = "pigs" },
         { text = "How close do the Kolkar come?", next = "kolkar" },
         { text = "Regthar says you'd spare the centaur who run.", next = "spare" },
+        { text = "Why do you stay with Regthar?", next = "ystay" },
+        { text = "Which pig opens the gate?", next = "ypig" },
+        { text = "What do you think of the Kolkar khans?", next = "ykhans" },
+        { text = "What do the Darkspear here do for fun?", next = "ytroll" },
         { text = "Keep the door shut, Lanti'gah.", next = "END" },
       },
     },
@@ -436,8 +440,45 @@ P:NPC {
       lines = { { id = "s_default", text = "I said a beaten enemy who runs home tells the others what it cost, and a dead one tells nobody. Regthar calls that soft, but I spent my youth in a human camp, and I know what being beaten teaches you." } },
       choices = { { text = "It's a hard-won sort of soft. Something else.", next = "BACK" } },
     },
+    ystay = {
+      lines = {
+        { id = "yystay_d", text = "He saved my life in the camps, when a guard had his boot on my neck. Regthar broke the man's arm and never once mentioned it afterwards. So I sweep his bunker and let him shout." },
+      },
+      choices = {
+        { text = "That's a debt worth paying.", next = "BACK", reply = "It is, though I'd not say it within his hearing.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ypig = {
+      lines = {
+        { id = "yypig_d", text = "The spotted one, Grunta, and she's smarter than half the grunts. I've tried three locks and a rope, and every morning she's out among the stores, chewing the bread and looking proud." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykhans = {
+      lines = {
+        { id = "yykhans_d", text = "The khans of the Kolkar fight each other as much as us, and their warriors die for whichever khan is loudest. I'd talk to them, if Regthar let me. A centaur who isn't fighting us is one less spear at the door." },
+      },
+      choices = {
+        { text = "Talk to them. Peace is cheaper than war.", next = "BACK", reply = "Cheaper, aye, and quieter, which suits a sweeper.", fx = { align = { honor = 1 } } },
+        { text = "Centaur only understand strength.", next = "BACK", reply = "Regthar says the same, and he's got the scars to prove it.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ytroll = {
+      lines = {
+        { id = "yytroll_v0", when = { race = "Troll" }, text = "Laughing at Regthar behind his back, mostly, which you'll do too once you've met him. Your lot have the right idea, mon, as you'd say." },
+        { id = "yytroll_d", text = "Laughing at Regthar behind his back, mostly. You lot have the right idea about life, which is that it's short, so you might as well enjoy the joke." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    regthar = { { id = "ytp_regthar", text = "Regthar Deathgate is loud, proud and right more often than I'd like." } },
+    pigs = { { id = "ytp_pigs", text = "They are the curse of my life, and they taste wonderful." } },
     background = { { id = "tp_bg", text = "I hauled stone in a human camp for years, and now I haul it for Regthar in a burrow. The work is the same, but at least the master is my own." } },
     centaur = { { id = "tp_ce", text = "Kolkar, all hooves and pride. They hate us for being here, and they'd hate each other if we left." } },
     _none = { { id = "tp_none", text = "That hasn't come past my door, and everything comes past my door. Ask Regthar, if you like being shouted at." } },
@@ -475,6 +516,10 @@ P:NPC {
         { text = "Why does an ogre work for a goblin?", next = "why" },
         { text = "Have you ever had to fight for him?", next = "fight" },
         { text = "Where does an ogre come from, out here?", next = "from" },
+        { text = "Is Jorb happy, walking the road?", next = "yhappy" },
+        { text = "Do ogres ever come for you?", next = "yogres" },
+        { text = "Does little boss ever cheat people?", next = "ycheat" },
+        { text = "What do you do with thieves, Jorb?", next = "ysneaky" },
         { text = "Walk well, Jorb.", next = "END" },
       },
     },
@@ -497,8 +542,44 @@ P:NPC {
       lines = { { id = "fr_default", text = "Jorb came up from the hot sand in the south, where the goblins have a town with a wall around it. A goblin there told Jorb there was work on the Ratchet road, and Jorb walked until he found the cart." } },
       choices = { { text = "That's a long walk. Something else.", next = "BACK" } },
     },
+    yhappy = {
+      lines = {
+        { id = "yyhappy_d", text = "Jorb is happy when the road is long and the sun is soft. Jorb is sad when it rains, because little boss shouts at the wheels, and the wheels do not listen." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yogres = {
+      lines = {
+        { id = "yyogres_d", text = "Sometimes big ones from the south. They say Jorb is a goblin's dog. Jorb says Jorb eats better than them, and that makes them quiet and thinking." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycheat = {
+      lines = {
+        { id = "yycheat_d", text = "Little boss says nobody is cheated if nobody is sad after. Jorb does not know. A small one came back sad once and little boss gave him a coin. Jorb thinks that was good." },
+      },
+      choices = {
+        { text = "Fair dealing matters. You should tell him so.", next = "BACK", reply = "Jorb will say it slow, so little boss hears it.", fx = { align = { honor = 1 } } },
+        { text = "A trader's job is to make money, Jorb.", next = "BACK", reply = "Jorb hears this a lot. Jorb is not sure it is right.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ysneaky = {
+      lines = {
+        { id = "yysneaky_v0", when = { class = "ROGUE" }, text = "Jorb sees your hands, sneaky one. Jorb is slow to walk but fast to grab. Last sneaky one walks funny now." },
+        { id = "yysneaky_d", text = "Jorb sees all the hands. Jorb is slow to walk but fast to grab. One sneaky one tried, and now that one walks funny. Jorb was not sorry." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    lizzarik = { { id = "ytp_lizzarik", text = "Little boss is small and loud and never hits Jorb. Jorb likes little boss." } },
+    ratchet = { { id = "ytp_ratchet", text = "Ratchet has a lot of goblins and a lot of fish. Jorb likes the fish." } },
     background = { { id = "tp_bg", text = "Jorb was in the sand, and now Jorb is on the road. Jorb likes the road better because it has more shade and more meat." } },
     _none = { { id = "tp_none", text = "Jorb does not know that. Ask little boss, he knows everything and tells it fast." } },
   },
@@ -536,6 +617,10 @@ P:NPC {
         { text = "What happens to the shredder?", next = "shredder" },
         { text = "Where do the plans go now?", next = "plans" },
         { text = "A shredder's a fine machine. Who built yours?", next = "built", when = { profession = "Engineering" } },
+        { text = "What do they pour into the fen?", next = "ypour" },
+        { text = "Will the Venture Company come after you?", next = "yafter" },
+        { text = "What will you do now?", next = "ynext" },
+        { text = "Should I join the Venture Company?", next = "ygob" },
         { text = "Good luck, pilot.", next = "END" },
       },
     },
@@ -562,8 +647,44 @@ P:NPC {
       lines = { { id = "b_default", text = "Company shop, lowest bidder, and you could tell. I rebuilt the pressure valves myself on my own time, which the company called unauthorized modification, and which I called not blowing up." } },
       choices = { { text = "I'd have done the same. Something else.", next = "BACK" } },
     },
+    ypour = {
+      lines = {
+        { id = "yypour_d", text = "Sludge, pal, real sludge, from the drill pumps, all black and stinking. Fish float belly up for a mile, and the plants turn grey. The company calls it waste disposal. I call it a crime against the bottom line of the planet." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yafter = {
+      lines = {
+        { id = "yyafter_d", text = "Sure they will, they'll send a contract killer with a clipboard. That's why I'm going to Ratchet and then onto the first boat to anywhere. I'd rather be poor and breathing than rich and floating in the fen." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ynext = {
+      lines = {
+        { id = "yynext_d", text = "Find honest work, if there's such a thing. Maybe flying, maybe fixing, maybe running a little stall in Ratchet. Gazlowe might hire me, though he'll want a cut of my future." },
+      },
+      choices = {
+        { text = "You did right exposing them. Be proud.", next = "BACK", reply = "Proud? I'm alive and solvent. That's the same thing for a goblin.", fx = { align = { honor = 1 } } },
+        { text = "You sold secrets. That's just another kind of greed.", next = "BACK", reply = "Sure, pal, but it's greed with a conscience, and that's rare.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ygob = {
+      lines = {
+        { id = "yygob_v0", when = { race = "Goblin" }, text = "Goblin to goblin, pal, the Venture Company has the real money, sure. But they spend workers like coins, and one day you'd be the change." },
+        { id = "yygob_d", text = "Goblin to goblin? I know you, pal. You're thinking the Venture Company's the only outfit with real money, and you're right. But they spend people like coins, and someday they'll spend you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    sludge_fen = { { id = "ytp_sludge_fen", text = "The Sludge Fen used to be a pond. Now it's a crime scene with frogs." } },
+    sputtervalve = { { id = "ytp_sputtervalve", text = "Sputtervalve pays cash, asks questions, and keeps his mouth shut. Rare combination." } },
     background = { { id = "tp_bg", text = "Six years cutting timber for the Venture Company and nothing to show for it but a cough. I'm in business for myself now, as of about an hour ago." } },
     venture_company = { { id = "tp_vc", text = "Worst outfit I ever worked for, and I've worked for my uncle. They'd strip the Barrens to bedrock and bill the bedrock." } },
     _none = { { id = "tp_none", text = "No idea, pal, and I'm not sticking around to find out. Ask in Ratchet, everybody there knows somethin'." } },

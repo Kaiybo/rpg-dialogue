@@ -147,6 +147,7 @@ P:NPC {
         { text = "I've brewed a few things with Darkspear herbs myself.", next = "darkspear", when = { race = "Troll" } },
         { text = "A shaman knows a good root when he sees one.", next = "darkspear", when = { class = "SHAMAN" } },
         { text = "Can you teach me something?", next = "BUSINESS" },
+        { text = "Who are you cooking for, back home?", next = "yhome" },
         { text = "Stay safe, Henry.", next = "END" },
       },
     },
@@ -204,9 +205,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yhome = {
+      lines = {
+        { id = "yho_default", text = "Nobody in particular, which is the sad truth of a travelling cook. I've a sister in Theramore who married a quartermaster, and she writes that I ought to settle down and feed the garrison. I might, if I live through this." },
+        { id = "yho_horde", when = { faction = "Horde" }, text = "A sister in Theramore, married to an Alliance quartermaster, though I'll cook for anyone who's hungry, Horde included. Half my best recipes came from Sen'jin, after all. She says I ought to settle down." },
+      },
+      choices = {
+        { text = "Will you settle down?", next = "ysettle" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysettle = {
+      narr = "He tests the ropes again, wincing, and gives up with a sigh.",
+      lines = { { id = "yse_default", text = "A garrison kitchen is safe and steady, with no quilboar in it. But I'd never learn another recipe again, only salt pork and porridge for a thousand soldiers. Should a cook play it safe, or chase the next flavour?" } },
+      choices = {
+        { text = "Settle down. You've done enough wandering.", next = "BACK", reply = "My sister would kiss you for that. I may yet listen.", fx = { align = { order = 1 } } },
+        { text = "Chase the flavour. Life's too short for porridge.", next = "BACK", reply = "Ha! A kindred spirit. Untie me and I'll cook you something.", fx = { align = { order = -1 } } },
+      },
+    },
   },
 
   topics = {
+    ratchet = { { id = "yt_ratchet", text = "Ratchet's harbour smells of fish and goblin grease, and the sailors there will eat anything if you call it a delicacy." } },
+    goldthorn = { { id = "yt_gold", text = "Goldthorn grows in old thorny places. It tastes of honey and iron, and it'll put the life back in you." } },
+    quilboar = { { id = "yt_quil", text = "The quilboar of the Downs aren't like the ones in the Barrens. Half of them don't breathe any more." } },
+    amnennar = { { id = "yt_amn", text = "The guards whisper about Amnennar, the Coldbringer, down in the deepest tunnels. I'd rather not meet him." } },
     _none = { { id = "tp_none", text = "I'm afraid I only know about cooking, herbs, and how very much these ropes chafe." } },
   },
 }

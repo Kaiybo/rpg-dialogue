@@ -35,6 +35,10 @@ P:NPC {
       choices = {
         { text = "What's in the basket?", next = "basket" },
         { text = "What should a newcomer know about Razor Hill?", next = "town" },
+        { text = "How long have you welcomed newcomers?", next = "ylong" },
+        { text = "Where did the creatures come from?", next = "ycreatures" },
+        { text = "What do you think of the young ones?", next = "yyoung" },
+        { text = "I came through the Valley too.", next = "yorc", when = { race = "Orc" } },
         { text = "I'm glad of the welcome. Farewell.", next = "END" },
       },
     },
@@ -53,8 +57,45 @@ P:NPC {
       lines = { { id = "t_default", text = "Sleep at Grosk's inn, and listen to Gar'Thok even when he shouts. Don't go east to Tiragarde Keep alone either, because the humans there are Proudmoore's leftovers and they've nowhere to run, which makes them fight harder." } },
       choices = { { text = "Good counsel. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ylong = {
+      lines = {
+        { id = "yylong_d", text = "Since the first young ones came up from the Valley. Gar'Thok said somebody should, and he looked at me, and I didn't say no fast enough. I've never regretted it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycreatures = {
+      lines = {
+        { id = "yycreatures_d", text = "Some of them come from the goblins in Ratchet, and some from a strange old troll in Sen'jin who won't say where he found them. I ask no questions. They're small and they don't bite, mostly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yyoung = {
+      lines = {
+        { id = "yyyoung_d", text = "They're brave and loud and foolish, and some of them die too soon. I tell them to be careful, and they never listen. Some say we should send them out to fight young, to make them strong. Others say we should keep them home a little longer." },
+      },
+      choices = {
+        { text = "Send them out. They learn by fighting.", next = "BACK", reply = "That is Gar'Thok's view. He was young once too.", fx = { align = { honor = -1 } } },
+        { text = "Keep them home. Teach them first.", next = "BACK", reply = "I agree. Though they never listen to me.", fx = { align = { honor = 1 } } },
+      },
+    },
+    yorc = {
+      lines = {
+        { id = "yyorc_v0", when = { race = "Orc" }, text = "You came up through the Valley yourself, I think. You have the look. Welcome home, and come back if you need a meal or a friendly face." },
+        { id = "yyorc_d", text = "You came up through the Valley yourself, I think. You have the look. Welcome home, then, and come back if you need a meal or a friendly face." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    basket = { { id = "ytp_basket", text = "My basket holds the little ones. One of them bites, so I don't tell anyone which." } },
+    gar_thok = { { id = "ytp_gar_thok", text = "Gar'Thok gives orders and I give welcomes. We each do the job we're good at." } },
+    valley_of_trials = { { id = "ytp_valley_of_trials", text = "The Valley of Trials is where the young ones learn. I wish it taught them caution." } },
     background = { { id = "tp_bg", text = "I came to Durotar with the first wagons and I've been greeting the later ones ever since." } },
     _none = { { id = "tp_none", text = "Oh, I wouldn't know about that, {class}. Ask at the barracks, and smile when you do, because it confuses them." } },
   },
@@ -94,6 +135,10 @@ P:NPC {
       choices = {
         { text = "Who did that to you?", next = "who" },
         { text = "You should be in the barracks, not on the road.", next = "barracks" },
+        { text = "How many marines did you face?", next = "ymany" },
+        { text = "What will you do when you heal?", next = "yheal" },
+        { text = "Why not let others fight for a while?", next = "yrest" },
+        { text = "A troll priest sent me. Are you friends?", next = "ytaijin" },
         { text = "Hold fast, grunt.", next = "END" },
       },
     },
@@ -112,8 +157,44 @@ P:NPC {
       lines = { { id = "b_default", text = "Rawrk would wrap me up and Gar'Thok would put some whelp on my road, and by nightfall the humans would be at the gate. I'll go in when I'm relieved or when I fall over, and I don't plan on falling over." } },
       choices = { { text = "Then I hope you're relieved soon.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ymany = {
+      lines = {
+        { id = "yymany_d", text = "Six, maybe seven. I killed two before the third put a spear through my arm. The rest ran back to the keep. Humans are brave when there are more of them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yheal = {
+      lines = {
+        { id = "yyheal_d", text = "Go back, and finish what they started. Tiragarde is close, and it should not be there. Every day it stands, the humans think Durotar is theirs to take." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yrest = {
+      lines = {
+        { id = "yyrest_d", text = "Because if I rest, the humans win another day. A grunt doesn't rest while her blood is still warm. My father fought in the old Horde, and he never rested." },
+      },
+      choices = {
+        { text = "Then rest, and come back stronger.", next = "BACK", reply = "Maybe. But I'll only rest an hour.", fx = { align = { honor = -1 } } },
+        { text = "Your courage honours your father.", next = "BACK", reply = "Thank you. I will tell him so, when I see him again.", fx = { align = { honor = 1 } } },
+      },
+    },
+    ytaijin = {
+      lines = {
+        { id = "yytaijin_v0", when = { class = "PRIEST" }, text = "Tai'jin sent you? Then you're a priest, and she trusts you. Her hands are steady, and so should yours be. I'd trust her with my life, and I have." },
+        { id = "yytaijin_d", text = "Tai'jin is a good healer, for a troll. She talks too much, but her hands are steady. I'd trust her with my life, and I have." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    tiragarde_keep = { { id = "ytp_tiragarde_keep", text = "Tiragarde Keep is a human fort on our coast. It shouldn't be there." } },
+    razor_hill = { { id = "ytp_razor_hill", text = "Razor Hill is home. I'll defend it till I can't stand." } },
     background = { { id = "tp_bg", text = "I'm a grunt of Razor Hill, and that tells you everything about me worth knowing." } },
     _none = { { id = "tp_none", text = "I watch a road, {class}. Ask me about the road or ask someone else." } },
   },

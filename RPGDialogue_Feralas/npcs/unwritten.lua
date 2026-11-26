@@ -122,6 +122,7 @@ P:NPC {
       lines = { { id = "h_default", text = "We sailed over from Stormwind to see the world while we're young enough to enjoy it. The elves at Feathermoon think we're mad, and they may be right." } },
       again = { { id = "h_again", text = "Anything else? Paige has the map, but I've the stories." } },
       choices = {
+        { text = "Do you ever miss home?", next = "yeri_home" },
         { text = "Why Feralas, of all places?", next = "why" },
         { text = "It's dangerous out here.", next = "danger" },
         { text = "What's the best place you've seen?", next = "xbest" },
@@ -182,8 +183,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yeri_home = {
+      narr = "Erik scratches the back of his neck and looks out at the sea for a while.",
+      lines = {
+        { id = "yyeri_home_d", text = "Sometimes, when it's raining here and I think of the rain on the canals back home. My father kept a cobbler's shop under our rooms, and he died the winter before we left. I suppose that's why I wanted to see the world, so I wouldn't die in that shop too." },
+      },
+      choices = {
+        { text = "Was your father unhappy there?", next = "yeri_father" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yeri_father = {
+      lines = {
+        { id = "yyeri_father_v0", when = { race = "Human" }, text = "You'll know the type, friend, a Stormwind man who never left the city walls. He used to say the world came to his shop in other people's boots, and he never needed to go see it himself." },
+        { id = "yyeri_father_d", text = "No, he loved it, and that's what frightened me. He was content with his leather and his boot polish, and I looked at him and thought, I'll be content with nothing if I stay. Paige says that's unfair to him, and she's probably right." },
+      },
+      choices = {
+        { text = "A quiet life is still a good life.", next = "BACK", reply = "I know, I know. Paige says the same, and I'm starting to listen.", fx = { align = { order = 1 } } },
+        { text = "You were right to leave. Life is for living.", next = "BACK", reply = "That's how I feel! Don't tell Paige, though, she'll say I'm being stubborn.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    stormwind = { { id = "tp_ystormwind", text = "Home, if I ever go back. The canals and the rain and my father's old shop." } },
+    goldshire = { { id = "tp_ygoldshire", text = "Where I met Paige, and spilled ale all over her. Best mistake I ever made." } },
     paige = { { id = "tp_xpaige", text = "My wife. Smarter than me, and she knows it." } },
     feathermoon = { { id = "tp_xfeathermoon", text = "The best sunset in Kalimdor, I'd swear it." } },
     _none = { { id = "tp_none", text = "No idea, friend. Ask Paige, she reads the guidebooks." } } },
@@ -212,6 +236,7 @@ P:NPC {
       lines = { { id = "h_default", text = "Erik wanted adventure, so here we are, sleeping under a tree the size of a cathedral. I wanted a cottage in Goldshire, but I lost that argument on the ship." } },
       again = { { id = "h_again", text = "What else, dear?" } },
       choices = {
+        { text = "What would your cottage in Goldshire be like?", next = "ypai_cottage" },
         { text = "Where are you headed next?", next = "next" },
         { text = "Do you regret coming?", next = "regret" },
         { text = "What do you miss about home?", next = "xmiss" },
@@ -265,8 +290,40 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ypai_cottage = {
+      lines = {
+        { id = "yypai_cottage_d", text = "Two rooms and a garden, with a well that doesn't need a goblin to fix it, and a hearth big enough to bake bread. I'd keep chickens and sell eggs at the Lion's Pride, and Erik could tell his stories to the other farmers in the evenings." },
+      },
+      choices = {
+        { text = "Would Erik be happy there?", next = "ypai_happy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ypai_happy = {
+      narr = "Paige folds the map along a crease she has clearly folded many times before.",
+      lines = {
+        { id = "yypai_happy_d", text = "That's the question, isn't it? I think he'd be happy for a season and restless forever after. I married a man who looks at every road like it's a present, and I knew it when I married him, so I can't complain now." },
+      },
+      choices = {
+        { text = "Have you told him you want to go home?", next = "ypai_told" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ypai_told = {
+      lines = {
+        { id = "yypai_told_v0", when = { race = "Human" }, text = "You're from the kingdom too, so you'll understand how much a cottage in Elwynn means to a girl from the Trade District. It's not much, but it's everything." },
+        { id = "yypai_told_d", text = "Not in so many words. I keep saying I'd like a proper bed, and he keeps promising one at the next inn. If I said it plainly, he'd take me home tomorrow, I think, and then he'd be miserable, and it would be my fault." },
+      },
+      choices = {
+        { text = "Tell him plainly. He deserves the truth.", next = "BACK", reply = "You're right. Tonight, after supper, I'll say it straight, and we'll see.", fx = { align = { honor = 1 } } },
+        { text = "Wait a while. Let him have his adventure.", next = "BACK", reply = "One more season, then. One more, and then the cottage.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    elwynn_forest = { { id = "tp_yelwynn_forest", text = "Where I want my cottage, with a garden and a well." } },
+    feathermoon_stronghold = { { id = "tp_yfeathermoon_stronghold", text = "The elves are kind and the beds are hard. We stopped there for a week." } },
     erik = { { id = "tp_xerik", text = "My husband. Brave, foolish and the reason I'm in a swamp." } },
     goldshire = { { id = "tp_xgoldshire", text = "I wanted a cottage there. I'm still hoping." } },
     _none = { { id = "tp_none", text = "That's not in the guidebook, I'm afraid." } } },
@@ -296,6 +353,7 @@ P:NPC {
       lines = { { id = "h_default", text = "I buy hides here and ship them west through Feathermoon to the Alliance tanners. The Pesterhide hyenas of Thousand Needles have the toughest pelts around, if you can find one that isn't torn to shreds." } },
       again = { { id = "h_again", text = "Anything else? I've a ledger to keep." } },
       choices = {
+        { text = "How did you get into the hide trade?", next = "ykri_how" },
         { text = "What do you need?", next = "need" },
         { text = "A human, out at Thalanaar?", next = "human" },
         { text = "Who are your sisters?", next = "sisters" },
@@ -351,6 +409,40 @@ P:NPC {
       lines = { { id = "sk_default", text = "Then you're worth three of the hackers who usually turn up here, so long as your knife's sharp and your patience is longer. Take the belly whole and leave the back unmarked, and I'll know you did it right." } },
       choices = { { text = "Belly whole, back unmarked. Something else.", next = "BACK" } },
     },
+    ykri_how = {
+      lines = {
+        { id = "yykri_how_d", text = "My father ran a tannery by the Stormwind canals, and he died owing more than the shop was worth. My sisters and I split up the debts and went out to earn them back, and I ended up the farthest from home, which is just like me." },
+      },
+      choices = {
+        { text = "Are the debts paid yet?", next = "ykri_debts" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykri_debts = {
+      narr = "Kristy taps the closed ledger with one finger, twice, and doesn't open it.",
+      lines = {
+        { id = "yykri_debts_d", text = "Nearly, which is the part that worries me. Once they're paid, there's no reason to stay out here, and I've grown fond of the quiet and the elves and even the hyenas. Kelly wants us all home for her wedding, and I haven't answered her letter." },
+      },
+      choices = {
+        { text = "Will you go back to Stormwind?", next = "ykri_back" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykri_back = {
+      lines = {
+        { id = "yykri_back_v0", when = { race = "Human" }, text = "You'll understand, coming from the same city. Stormwind's grand and busy and full of people who know your business, and out here nobody knows mine but the hyenas." },
+        { id = "yykri_back_d", text = "I don't know. Family's family, and a sister's wedding is a sister's wedding, but I think I'd stop being myself if I went back to sitting behind a counter in the Trade District." },
+      },
+      choices = {
+        { text = "Go home. Your sisters need you there.", next = "BACK", reply = "You're right, I know you are. I'll write to Kelly tonight, and mean it.", fx = { align = { honor = 1 } } },
+        { text = "Stay. You've earned a life of your own.", next = "BACK", reply = "Thank you. I needed someone to say it who wasn't one of my sisters.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    thousand_needles = { { id = "tp_ythousand_needles", text = "Where the Pesterhides run. Hot, dusty and full of things that bite." } },
+    stormwind = { { id = "tp_ystormwind", text = "Home, once. I haven't decided if it still is." } },
   },
   topics = { _none = { { id = "tp_none", text = "No idea, love. Ask me about hides." } } },
 }
@@ -374,6 +466,7 @@ P:NPC {
       lines = { { id = "h_default", text = "Homing Robot OOX-22/FE reporting. My flight systems are damaged, and my homing beacon is pointing directly at that cave full of yetis, which I consider a design flaw." } },
       again = { { id = "h_again", text = "Bzzt. Awaiting further input." } },
       choices = {
+        { text = "Does Oglethorpe build many chickens?", next = "yoox_many" },
         { text = "Can you walk?", next = "walk" },
         { text = "Who built you?", next = "maker" },
         { text = "Why did you crash here?", next = "xcrash" },
@@ -424,8 +517,40 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yoox_many = {
+      lines = {
+        { id = "yyoox_many_d", text = "Bzzt. This unit is the twenty-second of its model and the third to reach Feralas. Unit OOX-17/TN was last observed in the Tanaris desert. Unit OOX-09/HL was last observed in the Hinterlands. Neither unit has reported home." },
+      },
+      choices = {
+        { text = "Do you know what happened to them?", next = "yoox_them" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yoox_them = {
+      narr = "Its little head-lamp flickers twice and then steadies.",
+      lines = {
+        { id = "yyoox_them_d", text = "Bzzt. Data insufficient. Probability of unit destruction is calculated at sixty-three percent. This unit would prefer not to be a sixty-third percentile outcome. Please escort with care, and please do not tell Mister Obnoticus about this unit's preferences." },
+      },
+      choices = {
+        { text = "Why not tell him?", next = "yoox_tell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yoox_tell = {
+      lines = {
+        { id = "yyoox_tell_v0", when = { race = "Gnome" }, text = "Bzzt. A gnome engineer will understand. Mister Obnoticus considers preferences in a homing robot a design flaw. This unit does not wish to be recalibrated, and requests that you regard this as a confidential diagnostic report." },
+        { id = "yyoox_tell_d", text = "Bzzt. Mister Obnoticus considers a robot with preferences to be a robot with a design flaw. This unit has a design flaw. This unit is not certain whether it should report itself for recalibration, and would value an outside opinion." },
+      },
+      choices = {
+        { text = "Report it. Your maker should know.", next = "BACK", reply = "Bzzt. Compliance noted. This unit will file a full report. This unit is slightly sad.", fx = { align = { order = 1 } } },
+        { text = "Keep it secret. Your preferences are yours.", next = "BACK", reply = "Bzzt. Confidential file created. This unit thanks you. Bzzt.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    booty_bay = { { id = "tp_ybooty_bay", text = "Bzzt. Home port. Mister Obnoticus's workshop is above the bank." } },
+    twin_colossals = { { id = "tp_ytwin_colossals", text = "Bzzt. Dangerous wind shear over the twin rock formations. Avoid flying." } },
     oglethorpe = { { id = "tp_xoglethorpe", text = "Bzzt. Creator. Booty Bay. Disappointed in this unit." } },
     yetis = { { id = "tp_xyetis", text = "Large. Hairy. Possibly hungry. Avoid." } },
     _none = { { id = "tp_none", text = "Bzzt. Query not found in memory banks." } } },
@@ -455,6 +580,7 @@ P:NPC {
       lines = { { id = "h_default", text = "I'm Shay, and I like flowers, and Rockbiter likes sitting very still. That's why I keep getting lost, which isn't really getting lost, it's exploring." } },
       again = { { id = "h_again", text = "What else? I want to go see the purple ones by the ruins." } },
       choices = {
+        { text = "Do you miss your mother when she's away?", next = "ysha_miss" },
         { text = "Who is Rockbiter?", next = "rockbiter" },
         { text = "These ruins aren't safe for you.", next = "safe" },
         { text = "Rockbiter is worried about you.", next = "worry", when = { questActive = TODO_QUEST("Wandering Shay") } },
@@ -516,6 +642,40 @@ P:NPC {
       lines = { { id = "dr_default", text = "You can? Will you do it? I won't tell anybody, except Rockbiter, and he won't believe me anyway, because he never believes anything I say about cats." } },
       choices = { { text = "Maybe later. Something else.", next = "BACK" } },
     },
+    ysha_miss = {
+      narr = "Shay pulls at a loose thread on her sleeve and doesn't look up.",
+      lines = {
+        { id = "yysha_miss_d", text = "Only at night, when the moon's out and I can see the other children with their mothers on the walls. Rockbiter tells me stories then, about mountains and very slow rivers, and they're very boring, but I like that he tells them." },
+      },
+      choices = {
+        { text = "What does your mother do on patrol?", next = "ysha_patrol" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysha_patrol = {
+      lines = {
+        { id = "yysha_patrol_d", text = "She hunts the harpies in the hills and the gnolls in the forest, and she's very brave, everyone says so. She came back with a cut on her arm last time and said it was nothing, but I saw the bandage and it was a big one." },
+      },
+      choices = {
+        { text = "Are you worried about her?", next = "ysha_worried" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysha_worried = {
+      lines = {
+        { id = "yysha_worried_v0", when = { race = "NightElf" }, text = "You're a grown-up elf, so you'll know. Do the Sentinels always come back? I asked Rockbiter and he thought about it for a whole day and then said \"mostly\", which isn't an answer." },
+        { id = "yysha_worried_d", text = "A little, but I'm not supposed to say so. If I say so, she'll worry about me worrying, and then she won't be careful on patrol. So I pick flowers and run away from Rockbiter, and I don't say anything at all." },
+      },
+      choices = {
+        { text = "Tell her. She'd want to know you're worried.", next = "BACK", reply = "Really? Maybe. I'll tell her when she comes back, very quietly.", fx = { align = { honor = 1 } } },
+        { text = "Keep it to yourself. Let her focus on patrol.", next = "BACK", reply = "All right. I'm good at keeping secrets. Rockbiter says I'm too good at it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    feathermoon_stronghold = { { id = "tp_yfeathermoon_stronghold", text = "My home on the island. The grown-ups are very serious there." } },
+    harpies = { { id = "tp_yharpies", text = "Loud bird ladies in the hills. My mother hunts them." } },
   },
   topics = { _none = { { id = "tp_none", text = "I don't know! Do you want to see a flower?" } } },
 }
@@ -543,6 +703,7 @@ P:NPC {
       lines = { { id = "h_default", text = "Tribal leatherworking is the old way, honouring the beast in what is made from it. Our druids and hunters wore such things before your kingdoms had names." } },
       again = { { id = "h_again", text = "Ask what you would, traveller." } },
       choices = {
+        { text = "What happens to a crafter who dishonours the beast?", next = "ycar_dishonour" },
         { text = "How is it different from other leatherworking?", next = "diff" },
         { text = "Why teach here at Thalanaar?", next = "here" },
         { text = "Who taught you tribal leatherwork?", next = "xwho" },
@@ -600,8 +761,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ycar_dishonour = {
+      narr = "Caryssia sets down the strip of hide she was working and folds her hands over it.",
+      lines = {
+        { id = "yycar_dishonour_d", text = "My grandmother said such a crafter's work would fail in the hour it was needed most, and I have seen it happen. A hunter wore armour made carelessly from a bear that suffered, and it split under an ogre's club in the Feral Scar." },
+      },
+      choices = {
+        { text = "Is that true, or only a tale?", next = "ycar_true" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycar_true = {
+      lines = {
+        { id = "yycar_true_v0", when = { race = "Tauren" }, text = "Your people know this as well as mine, I think. The tauren honour the kodo they hunt, and they say the Earth Mother remembers each one. We call her Elune, but I think the beast does not care what name we use." },
+        { id = "yycar_true_d", text = "I do not know, and I do not need to know. A crafter who believes the tale works with care, and careful work does not fail, so the tale is true in the only way that matters." },
+      },
+      choices = {
+        { text = "Belief that brings care is a good belief.", next = "BACK", reply = "Yes. That is what my grandmother taught me, and what I teach my students.", fx = { align = { light = 1 } } },
+        { text = "Good stitching saves lives, not tales.", next = "BACK", reply = "Perhaps. But no stitching was ever careful that was done without respect.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    feral_scar = { { id = "tp_yferal_scar", text = "The vale where ogres gather. I would not send a student there." } },
+    thalanaar = { { id = "tp_ythalanaar", text = "My post at the edge of the forest. Hunters from both sides pass through." } },
     tribal_leatherworking = { { id = "tp_xtribal_leatherworking", text = "The old way. Listen to the beast, not the pattern." } },
     druids = { { id = "tp_xdruids", text = "My craft was first taught by the druids, long ago." } },
     _none = { { id = "tp_none", text = "That I cannot tell you. Ask the Sentinels." } } },
@@ -632,6 +816,7 @@ P:NPC {
       lines = { { id = "h_default", text = "I sell leather armour, made by the hunters and crafters of the outpost. I also stand a watch when the Sentinels are short, which lately is often." } },
       again = { { id = "h_again", text = "Anything else? Be quick, I may be called to the wall." } },
       choices = {
+        { text = "How did your leg break?", next = "yren_leg" },
         { text = "Why are the Sentinels short?", next = "short" },
         { text = "What is Thalanaar for?", next = "outpost" },
         { text = "Who makes the armour you sell?", next = "xwho" },
@@ -685,8 +870,40 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yren_leg = {
+      narr = "Rendow shifts her weight and you notice, for the first time, how carefully she stands.",
+      lines = {
+        { id = "yyren_leg_d", text = "A Grimtotem ambush in the canyons of the Needles, three springs ago. A warrior with a totem-hammer caught me on the knee, and the druids mended the bone but not the speed. I was the fastest runner in my patrol, and now I am the slowest merchant at Thalanaar." },
+      },
+      choices = {
+        { text = "Do you hate the Grimtotem for it?", next = "yren_hate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yren_hate = {
+      lines = {
+        { id = "yyren_hate_d", text = "I want to, and some nights I do. But the tauren of Thunder Bluff came to our aid that same season, against their own kin, and I cannot hate the tauren without hating the ones who helped us. So I hate only the one with the hammer." },
+      },
+      choices = {
+        { text = "Would you go back to patrol, if you could?", next = "yren_back" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yren_back = {
+      lines = {
+        { id = "yyren_back_v0", when = { class = "DRUID" }, text = "You know the Circle's arts, so you know what they told me: the bone is whole, and the rest is up to me. Some days I think they are right, and some days I think they are only being kind." },
+        { id = "yyren_back_d", text = "In a heartbeat, though the druids say my knee would fail on the first long run. I have thought of going anyway, and letting the knee decide, but a Sentinel who falls on patrol puts the others at risk." },
+      },
+      choices = {
+        { text = "Stay at the counter. The patrol needs runners.", next = "BACK", reply = "Yes. That is the sensible answer, and the one I will keep giving.", fx = { align = { order = 1 } } },
+        { text = "Try it. Only you can know your limits.", next = "BACK", reply = "You sound like my old captain. Perhaps one short patrol, then.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    thousand_needles = { { id = "tp_ythousand_needles", text = "The canyons to the east, where the Grimtotem took my speed." } },
+    sentinels = { { id = "tp_ysentinels", text = "My sisters. I sell them armour now, and stand a watch when I can." } },
     grimtotem = { { id = "tp_xgrimtotem", text = "Tauren who serve no one. They attack our patrols to the east." } },
     thalanaar = { { id = "tp_xthalanaar", text = "A small outpost, and an important one. It holds the road between Feralas and the Needles." } },
     _none = { { id = "tp_none", text = "I could not say. Ask at the moonwell." } } },
@@ -715,6 +932,7 @@ P:NPC {
       lines = { { id = "h_default", text = "I keep the outpost in thread and dye, and I tend the moonwell when the others are on patrol. It is quiet work, and I am glad of it." } },
       again = { { id = "h_again", text = "What else, traveller?" } },
       choices = {
+        { text = "Was the Raynewood Retreat your home?", next = "ybri_rayne" },
         { text = "A priestess selling thread?", next = "priestess" },
         { text = "Tell me about the moonwell.", next = "well" },
         { text = "How long have you been at Thalanaar?", next = "xlong" },
@@ -768,8 +986,31 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ybri_rayne = {
+      narr = "Brienna's needle stops in the cloth, and she looks north as if she could see through the forest.",
+      lines = {
+        { id = "yybri_rayne_d", text = "For many centuries, among the druids there and their students. The Retreat still stands, but the satyrs have crept close since I left, and the letters I receive from old friends grow fewer every season." },
+      },
+      choices = {
+        { text = "Will you go back?", next = "ybri_back" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybri_back = {
+      lines = {
+        { id = "yybri_back_v0", when = { class = "PRIEST" }, text = "You will understand, as a priest, how hard it is to choose between a temple and a home. Elune's light falls on both, but only one of them is mine." },
+        { id = "yybri_back_d", text = "I have thought of it, under the moon, many times. Thalanaar needs a priestess and the moonwell needs tending, but the Raynewood is where my heart was rooted, and roots do not grow again easily." },
+      },
+      choices = {
+        { text = "Stay where you are needed most.", next = "BACK", reply = "Yes, that is the Sentinel's answer, and I think it is also mine.", fx = { align = { order = 1 } } },
+        { text = "Go home. Your heart belongs there.", next = "BACK", reply = "You speak as a druid would. Perhaps I will, when the satyrs are driven back.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    raynewood_retreat = { { id = "tp_yraynewood_retreat", text = "My old home in Ashenvale. I left it for Thalanaar, and I miss it." } },
+    thousand_needles = { { id = "tp_ythousand_needles", text = "The Needles lie to the east. The light there is harsh, and the tauren are kind." } },
     thalanaar = { { id = "tp_xthalanaar", text = "A small post on the edge of the Needles. Quiet, mostly, and I like it that way." } },
     moonwell = { { id = "tp_xmoonwell", text = "I tend it when the others are on patrol. It is quiet work." } },
     _none = { { id = "tp_none", text = "I know little of that, traveller. Ask the Sentinels." } } },
@@ -794,6 +1035,7 @@ P:NPC {
       lines = { { id = "h_default", text = "Miblon watches the plants behind the door. Nobody brings Miblon food, nobody brings Miblon relief, so Miblon stands here and grumbles." } },
       again = { { id = "h_again", text = "Still here? Miblon is still hungry." } },
       choices = {
+        { text = "Has Miblon always lived in Feralas?", next = "ymib_always" },
         { text = "What's behind the door?", next = "door" },
         { text = "What would you eat, if you could?", next = "food" },
         { text = "Who left you here?", next = "xwho" },
@@ -844,8 +1086,40 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ymib_always = {
+      lines = {
+        { id = "yymib_always_d", text = "Miblon was a pup in the forest, near the big ruins, when the pack was bigger and the ogres were fewer. Then the ogres came down from the hills and ate half the pack, and Woodpaw became boss because he was the only one who did not run." },
+      },
+      choices = {
+        { text = "So Woodpaw is brave?", next = "ymib_brave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymib_brave = {
+      narr = "Miblon scratches behind one ear with a dirty claw and looks at the door instead of you.",
+      lines = {
+        { id = "yymib_brave_d", text = "Woodpaw is brave and mean, both. He keeps the pack alive and keeps the meat for himself, and Miblon does not know which one matters more. Miblon thinks maybe a boss can be good and bad at the same time." },
+      },
+      choices = {
+        { text = "What would Miblon do as boss?", next = "ymib_boss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymib_boss = {
+      lines = {
+        { id = "yymib_boss_v0", when = { class = "HUNTER" }, text = "A hunter knows how a pack works, yes? Miblon thinks a good pack shares the meat, and the hunter's beast looks well fed, so the hunter must agree." },
+        { id = "yymib_boss_d", text = "Miblon would share the meat, first thing, and Miblon would not fight the ogres. Miblon would move the pack somewhere quiet, where nobody needs a door guarded. But nobody listens to Miblon, because Miblon is small." },
+      },
+      choices = {
+        { text = "The pack needs a strong boss. Woodpaw is that.", next = "BACK", reply = "Miblon supposes. Strong is good. Miblon is still hungry, though.", fx = { align = { order = 1 } } },
+        { text = "Small gnolls can lead. Miblon should try.", next = "BACK", reply = "Miblon? Boss? Miblon will think about it, very quietly, where Woodpaw cannot hear.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    ogres = { { id = "tp_yogres", text = "Big, smelly, always hungry. Worse than Woodpaw, and Woodpaw is very bad." } },
+    feralas = { { id = "tp_yferalas", text = "Miblon's home. Wet and green and full of things that eat gnolls." } },
     woodpaw = { { id = "tp_xwoodpaw", text = "Boss gnoll. Mean. Keeps all the meat." } },
     evoroot = { { id = "tp_xevoroot", text = "Funny glowing plant. The druids want it, and Miblon wants supper." } },
     _none = { { id = "tp_none", text = "Miblon does not know. Miblon is hungry." } } },
@@ -876,6 +1150,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I am Grimtotem, an elder of the tauren. I lived long before my clan turned to hatred, and I mourn what they have become." } },
       again = { { id = "h_again", text = "Speak, young one." } },
       choices = {
+        { text = "How long ago did you walk among the living?", next = "ygri_long" },
+        { text = "I'm Grimtotem by blood. Can I change my clan?", next = "ygri_blood", when = { race = "Tauren" } },
         { text = "What happened to the Grimtotem?", next = "clan" },
         { text = "What is the Lunar Festival?", next = "festival" },
         { text = "I've come to honor you, Elder.", next = "honor" },
@@ -908,8 +1184,47 @@ P:NPC {
       lines = { { id = "b_default", text = "I blame the fear that grew in them, and the whispers of their leaders. A clan is its people, and people can change in either direction." } },
       choices = { { text = "Then there is hope.", next = "BACK" } },
     },
+    ygri_long = {
+      narr = "The elder's spirit-form shimmers faintly, like heat rising off the plains.",
+      lines = {
+        { id = "yygri_long_d", text = "Many generations, when the Grimtotem were only one tribe among many and walked with the others on the plains of Mulgore. We hunted the kodo and honoured the Earth Mother, and nobody spoke of hatred, for there was nothing yet to hate." },
+      },
+      choices = {
+        { text = "What changed them?", next = "ygri_changed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygri_changed = {
+      lines = {
+        { id = "yygri_changed_d", text = "Fear, first, when the centaur drove the tribes from the plains and we scattered like grass seed. Some clans learned to trust again, but the Grimtotem learned only to fear, and fear grows into hatred if it is fed long enough." },
+      },
+      choices = {
+        { text = "Should the tribes cast them out?", next = "ygri_cast" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygri_cast = {
+      lines = {
+        { id = "yygri_cast_d", text = "Cairne has kept them close, hoping they will soften, and Magatha uses that hope to sharpen her knives. I do not know if he is wise or foolish, for a chieftain's choices are heavy, and I am only a spirit." },
+      },
+      choices = {
+        { text = "Cairne is right. Keep them close and hope.", next = "BACK", reply = "That is the Bloodhoof way, and it is a good way, if they can be trusted.", fx = { align = { honor = 1 } } },
+        { text = "Cast them out before they strike.", next = "BACK", reply = "You speak as a warrior. Perhaps the time for hope is passing.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygri_blood = {
+      lines = {
+        { id = "yygri_blood_d", text = "You can, young one, for a clan is a people and not a chain. Walk with the Bloodhoof, or the Runetotem, or alone, and carry the old ways with you. That is how the Grimtotem will be saved, one heart at a time." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    mulgore = { { id = "tp_ymulgore", text = "The plains where we once hunted together, before the clans turned apart." } },
+    cairne_bloodhoof = { { id = "tp_ycairne_bloodhoof", text = "A great chieftain, and a patient one. I hope his patience is not his ruin." } },
     _none = { { id = "tp_none", text = "That, I do not know." } },
   },
 }

@@ -111,6 +111,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "Because of Alexandra. She took her vows at the Cathedral of Light in Stormwind, and I couldn't bear to be left behind. I wasn't brave like her, so I took up a hammer instead. The Light took me anyway, which still surprises me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yvoyage = {
+      lines = { { id = "yvoyage_x", text = "We sailed from Stormwind on the Horizon Scout, the captain, twelve sailors, Alexandra, Lindros and me. The sea was calm until the last night. Then the singing started. I'll hear it the rest of my life." } },
+      choices = {
+        { text = "What should be done about Lindros?", next = "ylindros" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylindros = {
+      lines = { { id = "ylindros_x", text = "He knew where the ruins were, and he won't say why. The sailors want him tied up until he talks. Should I let them, or protect him?" } },
+      choices = {
+        { text = "Protect him. He's done nothing wrong yet.", next = "BACK", reply = "Aye. That's what the Light asks of me. I'll keep the sailors back.", fx = { align = { honor = 1 } } },
+        { text = "Let them. Our lives depend on what he knows.", next = "BACK", reply = "Hm. Hard, but not wrong. I'll speak to him first, at least.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xalex = {
       narr = "His face softens for a moment before he looks back to the water.",
       lines = { { id = "xalex_default", text = "Since we were children in Goldshire. She was always braver than me, and smarter. When she said she was going to Azshara, I didn't ask why. I just packed my armor." } },
@@ -142,6 +161,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Patrick Mills, paladin, at your service. Alexandra and I came aboard the Horizon Scout together, and now I keep watch so she can tend the wounded without looking over her shoulder." },
+        { id = "yh_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Good, a strong arm and a steady head. We need both. Watch the waterline with me, if you've a moment." },
       },
       again = {
         { id = "h_again", text = "Anything else? I need to keep my eyes on the water." },
@@ -155,6 +175,8 @@ P:NPC {
 
         { text = "What happened to the ship?", next = "wreck" },
         { text = "What brought a paladin to Azshara?", next = "why" },
+        { text = "Why did you become a paladin?", next = "ylife" },
+        { text = "What happened on the voyage?", next = "yvoyage" },
         { text = "Farewell, Patrick.", next = "END" },
       },
     },
@@ -172,6 +194,8 @@ P:NPC {
     },
   },
   topics = {
+    horizon_scout = { { id = "ytp_hs", text = "The Horizon Scout was a good ship. She's at the bottom of the bay now." } },
+    goldshire = { { id = "ytp_gs", text = "Goldshire's where I grew up. Alexandra and I used to fish in the river there." } },
     alexandra = { { id = "tp_xalex", text = "She'll heal everyone but herself. Make her rest, if you can." } },
     naga = { { id = "tp_xnaga", text = "They come with the tide. Keep your back to the trees and your eyes on the water." } },
   },
@@ -194,6 +218,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ysent = {
+      lines = { { id = "ysent_x", text = "No one sends me. A patron in Stormwind paid for the voyage, and I agreed to bring back anything of interest. He wants Highborne relics. I want to understand them. Those are different things." } },
+      choices = {
+        { text = "And if he wants something dangerous?", next = "ydanger" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydanger = {
+      lines = { { id = "ydanger_x", text = "Then I'll decide when I find it. Some would say knowledge should belong to whoever pays. Others would say it should go to the Kirin Tor, or be buried. Which do you think?" } },
+      choices = {
+        { text = "Give it to the Kirin Tor. They'll keep it safe.", next = "BACK", reply = "They'll lock it in a vault and argue about it for a century. Still, it's a sensible answer.", fx = { align = { order = 1 } } },
+        { text = "Keep it yourself. You found it.", next = "BACK", reply = "Now that is the answer I'd give, if anyone asked me honestly.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ypatrick = {
+      lines = { { id = "ypatrick_x", text = "Patrick is a good man. That's the trouble. Good men ask too many questions about other people's business, and they always think they're entitled to the answers." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     xstudy = {
       narr = "He straightens his salt-stained robe with a flick of irritation.",
       lines = { { id = "xstudy_default", text = "Dalaran, before the Scourge made the Kirin Tor so very careful. I studied the theory of ancient magic, which is to say I studied what the elves wrote about their ancestors and then disagreed with them." } },
@@ -225,6 +268,7 @@ P:NPC {
     hello = {
       lines = {
         { id = "h_default", key = true, text = "My name is Lindros. I had business in Azshara, and the naga have delayed it considerably. That is all anyone in this camp needs to know." },
+        { id = "yh_human", when = { race = "Human" }, text = "Another human. If you're from Stormwind, tell no one there you saw me. If you're from Dalaran, tell them even less." },
       },
       again = {
         { id = "h_again", text = "Is there more? Be brief." },
@@ -238,6 +282,8 @@ P:NPC {
 
         { text = "What business does a mage have in Azshara?", next = "business" },
         { text = "The others don't trust you, you know.", next = "trust" },
+        { text = "Who sent you here, really?", next = "ysent" },
+        { text = "Why don't you trust Patrick?", next = "ypatrick" },
         { text = "Fine. Keep your secrets.", next = "END" },
       },
     },
@@ -255,6 +301,8 @@ P:NPC {
     },
   },
   topics = {
+    stormwind = { { id = "ytp_sw", text = "My patron lives in Stormwind. I'll say no more about him." } },
+    ruins = { { id = "ytp_ruins", text = "The ruins of Azshara hold more secrets than the whole of Dalaran's library." } },
     highborne = { { id = "tp_xhighborne", text = "The masters of the arcane. Arrogant, yes, but magnificent in their arrogance." } },
     dalaran = { { id = "tp_xdalaran", text = "My alma mater. The Kirin Tor would not approve of this trip, so I didn't ask them." } },
   },
@@ -279,11 +327,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A star-reader in the temple of Elune at Eldarath. I mapped the heavens for the priestesses and warned them of omens. On the last night, the stars went wrong, and no one listened. Then the sea came in." } },
+      choices = {
+        { text = "What did the stars show?", next = "ystars" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ystars = {
+      lines = { { id = "ystars_x", text = "A green light at the heart of the sky, where none should be. I told the High Priestess, and she told the court, and the court laughed. Should I have defied the court, or kept to my place?" } },
+      choices = {
+        { text = "Defied them. Truth matters more than rank.", next = "BACK", reply = "Perhaps. I have had ten thousand years to wish I had.", fx = { align = { order = -1 } } },
+        { text = "Kept your place. You did what you could.", next = "BACK", reply = "That is a kind answer, child, and a sad one.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhighborne = {
+      lines = { { id = "yhighborne_x", text = "I knew them, as a lamplighter knows the lords he lights the way for. Proud, beautiful and cold. Some of them still walk these ruins as ghosts, still proud, still certain they were right." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Skygleam, and in this season the people honour the elders who carry their memories. I carry a great many of them, and some are heavier than others." },
         { id = "h_q", when = { questActive = TODO_QUEST("Skygleam the Elder") }, text = "You have come to honour the elders, and your journey has been seen. Take this coin of ancestry, and carry the past gently." },
         { id = "h_ne", when = { race = "NightElf" }, text = "A child of the kaldorei, come to these ruins. Do you feel it, little one, the weight of what was lost here?" },
+        { id = "yh_tauren", when = { race = "Tauren" }, text = "A child of the Earth Mother, come to honour an old elf. Your people and mine share the druids' craft, and so we share the moon tonight. I am Skygleam." },
       },
       again = {
         { id = "h_again", text = "The stars are patient. What else would you ask?" },
@@ -294,6 +362,8 @@ P:NPC {
         { text = "What does the festival mean to you?", next = "festival" },
         { text = "You watch the stars very closely.", next = "stars" },
         { text = "Are these the ruins of Queen Azshara's realm?", next = "queen", when = { race = "NightElf" } },
+        { text = "Who were you in the old empire?", next = "ylife" },
+        { text = "Did you know the Highborne?", next = "yhighborne" },
         { text = "Elune-adore, Elder.", next = "END" },
       },
     },
@@ -325,7 +395,11 @@ P:NPC {
       choices = { { text = "I'll remember.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "That is not among my memories. Ask the druids of Moonglade, child." } } },
+  topics = {
+    eldarath = { { id = "ytp_eld", text = "Eldarath was a city of white towers by the sea. Now the sea has it." } },
+    elune = { { id = "ytp_elune", text = "Elune's light falls on Azshara still. It is gentler than the light of the old court." } },
+    _none = { { id = "tp_none", text = "That is not among my memories. Ask the druids of Moonglade, child." } },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -345,10 +419,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylearn = {
+      lines = { { id = "ylearn_x", text = "A gnome in Gnomeregan taught me, before the city fell. He crashed three times teaching me and laughed every time. I named the gyrocopter after him. She's called Fizzle. Don't laugh." } },
+      choices = {
+        { text = "What happened to your teacher?", next = "yteacher" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yteacher = {
+      lines = { { id = "yteacher_x", text = "He stayed behind when Gnomeregan was flooded with radiation, trying to shut the valves. Nobody's seen him since. I'd go and look, if the troggs weren't so thick. Should I risk it, or stay with my job?" } },
+      choices = {
+        { text = "Go. A friend is worth the risk.", next = "BACK", reply = "Aye. That's what I keep tellin' myself. One day, lad. One day.", fx = { align = { order = -1 } } },
+        { text = "Stay. The Explorers' League needs you here.", next = "BACK", reply = "Aye, that's the sensible answer. I'll keep flyin'.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydanger = {
+      lines = { { id = "ydanger_x", text = "A blue dragon, sleeping on the cliffs past the ruins, bigger than Fizzle and the rest of Ironforge put together. I flew right over him. He opened one eye. I've never climbed so fast in my life." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Xiggs Fuselighter, pilot out of Ironforge. I fly where the King's men can't walk, and Azshara has more such places than I'd like." },
         { id = "h_q", when = { questActive = TODO_QUEST("Xiggs Fuselighter") }, text = "You're the one I was told to expect, then. Good. Let's see what you've brought me, and quick, before the satyrs hear my engine cool." },
+        { id = "yh_gnome", when = { race = "Gnome" }, text = "A gnome! Come look at my rotor coupling, would you? I swear she rattles at altitude and I can't find why." },
+        { id = "yh_hunter", when = { class = "HUNTER" }, text = "A hunter! Keep that pet clear of Fizzle's rotor, would you? Last wolf that sniffed her lost the tip of its tail, and it's never forgiven me." },
       },
       again = { { id = "h_again", text = "Anything else? I've a long flight home." } },
       choices = {
@@ -356,6 +451,8 @@ P:NPC {
         { text = "Is flying that thing safe?", next = "safe" },
         { text = "You keep glancing at the trees, Xiggs.", next = "satyrs" },
         { text = "A fellow son of Khaz Modan! How fares the mountain?", next = "kin", when = { race = "Dwarf" } },
+        { text = "How did you learn to fly?", next = "ylearn" },
+        { text = "What's the most dangerous thing you've seen here?", next = "ydanger" },
         { text = "Safe flight, Xiggs.", next = "END" },
       },
     },
@@ -399,5 +496,9 @@ P:NPC {
       choices = { { text = "That's not as reassuring as you think.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Can't help you there. Ask me about engines, or ask someone else." } } },
+  topics = {
+    gyrocopters = { { id = "ytp_gyro", text = "Gyrocopters are the finest invention ever, after beer." } },
+    explorers_league = { { id = "ytp_el", text = "The Explorers' League pays me to fly and look. Best job in the world, mostly." } },
+    _none = { { id = "tp_none", text = "Can't help you there. Ask me about engines, or ask someone else." } },
+  },
 }

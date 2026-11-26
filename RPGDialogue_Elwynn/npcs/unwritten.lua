@@ -37,6 +37,9 @@ P:NPC {
         { text = "How do you make a living out here?", next = "living" },
         { text = "It's quiet country. I'd not mind living here.", next = "quiet" },
         { text = "Is it safe, with children so near the woods?", next = "safe" },
+        { text = "What did you do before you married?", next = "yyoung" },
+        { text = "What keeps you up at night?", next = "ynight" },
+        { text = "I fought in Westfall against the Defias.", next = "ywestfall", when = { minLevel = 15 } },
         { text = "Good day to you, Rob.", next = "END" },
       },
     },
@@ -69,8 +72,43 @@ P:NPC {
       lines = { { id = "w_default", text = "I was a boy, and we ran for the city with what we could carry on our backs. When we came back there was only the chimney standing, so my father built the rest around it, and it's still the warmest part of the house." } },
       choices = { { text = "Then this place was hard won. Something else.", next = "BACK" } },
     },
+    yyoung = {
+      lines = {
+        { id = "yy_default", text = "I hauled stone for the masons rebuilding Stormwind, same as half the lads in Elwynn after the war. Good work, honest sweat, and then the money stopped coming and the masons went off angry. I came home to Kim and the garden, and I've not been sorry." },
+        { id = "yy_dwarf", when = { race = "Dwarf" }, text = "I hauled stone for the masons rebuilding Stormwind, and there were dwarves on that crew who could carry twice what I could. Then the money stopped and the masons went off angry, and I came home to Kim and the garden." },
+      },
+      choices = {
+        { text = "You knew the men who became the Defias?", next = "yknew" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yknew = {
+      narr = "He sets the fence post down and leans on it with both hands.",
+      lines = { { id = "yk_default", text = "I worked beside some of them. Decent men, most of them, cheated by the House of Nobles and too proud to beg. I don't hold with what they do now, the burning and the thieving, but I'll not pretend they had no cause at all." } },
+      choices = { { text = "That's an honest way to see it. Something else.", next = "BACK" } },
+    },
+    ynight = {
+      lines = { { id = "yn_default", text = "Bradford. He's only small, but he's already asking why the soldiers never come this far west, and why we pay for walls we can't sleep behind. I don't know what to tell him, so I tell him to eat his supper." } },
+      choices = {
+        { text = "What would you like to tell him?", next = "ytell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytell = {
+      lines = { { id = "yte_default", text = "That the world's fair, and it isn't, so I can't. Kim says teach him to work hard and keep his head down. I say teach him to stand up when he's wronged. Which would you teach a boy?" } },
+      choices = {
+        { text = "To stand up when he's wronged.", next = "BACK", reply = "Aye. I'll teach him that, then, and pray he's careful with it.", fx = { align = { honor = 1 } } },
+        { text = "To keep his head down and survive.", next = "BACK", reply = "Kim will be glad to hear a stranger agrees with her.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ywestfall = {
+      lines = { { id = "yw_default", text = "Did you, now? Then you've seen what's become of the farms there, and the men in red masks. If you meet a big fellow called Harlan with a scar through his eyebrow, he was my mate on the stone crew. Tell him Rob says come home." } },
+      choices = { { text = "If I see him, I'll tell him. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    defias = { { id = "yt_defias", text = "Some of the Defias were good men once. I hauled stone beside them, and I'll not hear them all called vermin." } },
+    goldshire = { { id = "yt_gold", text = "Goldshire's where I find odd work and Kim sells her eggs. It's a fair town, if you stay out of the inn's back rooms." } },
     background = { { id = "tp_bg", text = "Born in Elwynn and never left it but for the war. I've a wife, two children and a fence that needs mending." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask at the Lion's Pride; somebody there always claims to know." } },
   },
@@ -106,6 +144,9 @@ P:NPC {
         { text = "What's a day like for you?", next = "day" },
         { text = "Your children seem happy.", next = "children" },
         { text = "You sell at the Goldshire market?", next = "market" },
+        { text = "How did you meet Rob?", next = "ymet" },
+        { text = "What troubles you most these days?", next = "ytrouble" },
+        { text = "I'm a healer, if you ever need one.", next = "yhealer", when = { class = { "PRIEST", "PALADIN", "DRUID", "SHAMAN" } } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -134,8 +175,40 @@ P:NPC {
       lines = { { id = "m_default", text = "When there's anything over, which isn't often. Eggs and a few jars of preserves, mostly, and the Stonefields always outsell me on fruit, but Ma Stonefield's been at it longer than I've been alive." } },
       choices = { { text = "Then I'll buy your preserves first. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ymet = {
+      lines = { { id = "ym_default", text = "At the harvest dance in Goldshire, the year after the war. He'd come back from hauling stone with shoulders like an ox and two left feet, and he trod on mine four times before I agreed to marry him just to make him stop." } },
+      choices = {
+        { text = "Has he improved since?", next = "yimprove" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yimprove = {
+      lines = { { id = "yi_default", text = "At dancing? Not a step. At everything else that matters, yes, though I'll not tell him, because a man who's told he's doing well stops trying. You may tell him I said he's adequate." } },
+      choices = { { text = "I'll pass it on. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    ytrouble = {
+      narr = "She pins a sheet to the line with more force than it needs.",
+      lines = { { id = "ytr_default", text = "My sister in Goldshire keeps writing that we should move into the city, for the children. She says the Defias burned a farm two lanes over last spring. She isn't wrong, but this is our home, and I'll not be frightened off it." } },
+      choices = {
+        { text = "Your children's safety comes first.", next = "ytrouble2", reply = "I know, I know. Don't think I don't lie awake on it.", fx = { align = { order = 1 } } },
+        { text = "Stand your ground. It's your home.", next = "ytrouble2", reply = "That's what I tell her, and she calls me a mule.", fx = { align = { order = -1 } } },
+      },
+    },
+    ytrouble2 = {
+      lines = { { id = "ytr2_default", text = "We keep a bag packed by the door, in case, with bread and a blanket and the deed to the house. Rob doesn't know I check it every night, and I'll thank you not to tell him." } },
+      choices = { { text = "Your secret's safe. Something else.", next = "BACK" } },
+    },
+    yhealer = {
+      lines = {
+        { id = "yh_default", text = "That's kind, and I may take you up on it, for Bradford comes home with a new scrape every evening. The nearest real healer is up at Northshire, and the brothers are good, but it's a long walk with a crying child." },
+        { id = "yh_night", when = { timeOfDay = "night" }, text = "That's kind, and you'd be welcome at this hour more than most, for it's always after dark that Bradford finds something sharp. The brothers at Northshire are a long walk with a crying child." },
+      },
+      choices = { { text = "I'll stop by when I pass. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    stonefield = { { id = "yt_stone", text = "Ma Stonefield outsells me every market day, but she gave me my first jar of preserves, so I can't hold it against her." } },
+    ashley = { { id = "yt_ashley", text = "Ashley wants to be a knight this week. I'm letting her guard the hens, which is near enough." } },
     background = { { id = "tp_bg", text = "I grew up in Goldshire and married out to the west lane. It's not far, but you'd think it was Westfall, the way my sister carries on." } },
     _none = { { id = "tp_none", text = "I've no idea, and no time to wonder about it. Ask someone who isn't hanging washing." } },
   },
@@ -173,6 +246,9 @@ P:NPC {
         { text = "Have you ever seen a kobold?", next = "kobold" },
         { text = "What do you want to be when you're grown?", next = "grown" },
         { text = "Your brother looks busy.", next = "brother" },
+        { text = "Who's the bravest person you know?", next = "ybrave" },
+        { text = "What scares you, Ashley?", next = "yscare" },
+        { text = "Want to see the Light, little knight?", next = "ylight", when = { class = "PALADIN" } },
         { text = "Keep up the guard, Ashley.", next = "END" },
       },
     },
@@ -198,8 +274,43 @@ P:NPC {
       lines = { { id = "b_default", text = "He's looking for worms to give the hens, because he thinks they'll lay more eggs. Father says that isn't how it works, but Bradford doesn't listen to anybody, not even me." } },
       choices = { { text = "He sounds determined. Something else.", next = "BACK" } },
     },
+    ybrave = {
+      lines = { { id = "yb_default", text = "Father, because he ran all the way to Stormwind with Grandmother on his back when the orcs came, and he was only a boy. He doesn't like talking about it, but Mother told me, and I'm going to be brave like that." } },
+      choices = {
+        { text = "That's a fine thing to be proud of.", next = "yproud" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yproud = {
+      lines = { { id = "yp_default", text = "I am! I've got his old wooden sword from when he was little, and I practise on the woodpile every morning. The woodpile hasn't won yet, though it's very good at splinters." } },
+      choices = { { text = "Keep at it, Sir Ashley. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    yscare = {
+      narr = "She lowers her wooden sword a little and glances toward the trees.",
+      lines = { { id = "ys_default", text = "The wolves at night, when they howl near the fence. Bradford says if a wolf came I should hit it with my sword, but Mother says I should run inside and bar the door. A knight wouldn't run, would she?" } },
+      choices = {
+        { text = "A clever knight runs and lives.", next = "BACK", reply = "Oh. Then I'll be a clever knight, and run very fast.", fx = { align = { honor = -1 } } },
+        { text = "A knight stands, but only when she's grown.", next = "BACK", reply = "Then I'll stand when I'm grown, and run till then.", fx = { align = { honor = 1 } } },
+      },
+    },
+    ylight = {
+      lines = {
+        { id = "yl_default", text = "Oh, yes please! Just a little glow, so I can tell Bradford I saw it, and he'll be so cross he wasn't here. Can I touch it, or does it burn?" },
+        { id = "yl_dwarf", when = { race = "Dwarf" }, text = "Oh, yes please! I didn't know dwarves could be paladins! Just a little glow, so I can tell Bradford I saw a dwarf one, and he'll be so cross he missed it." },
+      },
+      choices = {
+        { text = "It doesn't burn. It feels warm.", next = "ywarm" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywarm = {
+      lines = { { id = "yw_default", text = "Warm like bread out of the oven? That's what I thought it would be. I'm going to be a paladin now, instead of a knight, and Mother will have to sew a whole different tabard." } },
+      choices = { { text = "She'll manage. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    bradford = { { id = "yt_brad", text = "Bradford is my little brother. He digs for worms, and he says they're his soldiers, which is silly." } },
+    stormwind = { { id = "yt_sw", text = "Stormwind has a castle, and knights, and a cathedral with a golden roof. I'm going to live there one day." } },
     background = { { id = "tp_bg", text = "I live here with Mother and Father and Bradford and the hens. One day I'll live in the castle." } },
     _none = { { id = "tp_none", text = "I don't know that one. You should ask Father, but he'll only say ask Mother." } },
   },
@@ -236,6 +347,9 @@ P:NPC {
         { text = "What's the trouble with the Maclures?", next = "maclures" },
         { text = "Business looks slow.", next = "slow" },
         { text = "Let's see the fruit.", next = "BUSINESS" },
+        { text = "What's the best fruit you grow?", next = "ybest" },
+        { text = "Does the farm have trouble with gnolls?", next = "ygnolls" },
+        { text = "I know a thing or two about cooking.", next = "ycook", when = { profession = "Cooking" } },
         { text = "Good day, Homer.", next = "END" },
       },
     },
@@ -261,8 +375,40 @@ P:NPC {
       lines = { { id = "s_default", text = "It is, with all the young ones gone off to fight in Westfall or join the guard. Folk passing on the road would sooner buy at Goldshire than walk up our lane, but the ones who walk up come back." } },
       choices = { { text = "I'll be one of those. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ybest = {
+      lines = { { id = "yb_default", text = "The late reds from Gramma's old tree, the one behind the barn. It's older than the farm, and Gramma swears her own grandmother planted it the year Stormwind's first walls went up, and you'll not taste sweeter in all Elwynn." } },
+      choices = {
+        { text = "Do you sell those?", next = "ysell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysell = {
+      lines = { { id = "ys_default", text = "Not a one, more's the pity. Gramma counts them every morning and keeps them for the family, and the year I sold a basket to a lord's steward she didn't speak to me till midwinter. I'll not make that mistake twice." } },
+      choices = { { text = "A wise salesman knows his limits. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    ygnolls = {
+      narr = "His jolly face goes still, and he looks off toward the southwest woods.",
+      lines = { { id = "yg_default", text = "That we do. Hogger's lot come up out of the woods and take what they please, and Ma's lost a cow and two pigs this season. She wants to hire swords and go burn them out. Gramma says we'd be fools to start a war we can't finish." } },
+      choices = {
+        { text = "Hire swords. Strike before they strike again.", next = "ygnolls2", reply = "Ma'll like you. She'll want you to be one of the swords.", fx = { align = { order = -1 } } },
+        { text = "Wait for the Marshal. Let the guard handle it.", next = "ygnolls2", reply = "That's Gramma's word, and Marshal Dughan's too.", fx = { align = { order = 1 } } },
+      },
+    },
+    ygnolls2 = {
+      lines = { { id = "yg2_default", text = "Either way, I keep a pitchfork by the fruit cart now, which isn't much good against a gnoll but makes me feel better. The Maclures have lost stock too, though they'd never say so to a Stonefield." } },
+      choices = { { text = "Maybe that's common ground. Something else.", next = "BACK" } },
+    },
+    ycook = {
+      lines = {
+        { id = "yc_default", text = "Then you'll want the bruised ones, cheap, for pies and preserves, since you're cooking them down anyway. Ma says never sell a cook the pretty fruit, because they'll only cut it up and the pretty's wasted." },
+        { id = "yc_dwarf", when = { race = "Dwarf" }, text = "A dwarf cook! Then you'll want the bruised ones cheap for pies, and Ma says dwarves make a fine apple ale, so take a sack of the sour ones home to Ironforge for brewing." },
+      },
+      choices = { { text = "Sound advice. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    hogger = { { id = "yt_hogger", text = "Hogger's the big gnoll in the southwest woods. He's taken more from Stonefield than the taxman, and that's saying something." } },
+    maclures = { { id = "yt_mac", text = "The Maclures farm just across the road. We don't speak, but we wave, which is a start." } },
     background = { { id = "tp_bg", text = "Born a Stonefield, raised a Stonefield, and I'll be buried in the orchard like the rest of them." } },
     _none = { { id = "tp_none", text = "Can't help you there. I know fruit and I know family, and that's about the size of it." } },
   },
@@ -301,6 +447,9 @@ P:NPC {
         { text = "What do the tickets buy?", next = "tickets" },
         { text = "A troll at a human fair is an odd sight.", next = "odd" },
         { text = "I've brought you a Copper Modulator.", next = "modulator", when = { questDone = TODO_QUEST("Copper Modulator") } },
+        { text = "How did a troll join the Faire?", next = "yjoin" },
+        { text = "Has your machine ever hurt anyone?", next = "yhurt" },
+        { text = "Are you Darkspear, cousin?", next = "ydark", when = { race = "Troll" } },
         { text = "Farewell, Rinling.", next = "END" },
       },
     },
@@ -330,8 +479,43 @@ P:NPC {
       lines = { { id = "md_default", text = "Ah, dat little modulator, it hums so nice in de machine. You keep bringin' parts like dat and Rinling might even let you see de thing work, one day." } },
       choices = { { text = "I'll hold you to that. Something else.", next = "BACK" } },
     },
+    yjoin = {
+      narr = "He spins a little brass widget on one long finger while he thinks.",
+      lines = { { id = "yj_default", text = "Rinling be leavin' de islands young, mon, with a head full of gears and no tribe dat wanted dem. De Faire wagons come through Stranglethorn, and Silas Darkmoon look at Rinling's first little whirligig and laugh so hard he hire me on de spot." } },
+      choices = {
+        { text = "Why didn't your tribe want you?", next = "ytribe" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytribe = {
+      lines = { { id = "ytr_default", text = "De elders say a troll should hunt and pray to de loa, not tinker with goblin toys. Maybe dey be right, maybe not, but de loa never sent Rinling a single gear, and de goblins sell dem cheap." } },
+      choices = { { text = "Your own path, then. Something else.", next = "BACK" } },
+    },
+    yhurt = {
+      lines = { { id = "yh_default", text = "Only de once, and only Rinling's eyebrows, and dey grow back. But Silas say if it blow up near de crowd, it be de end of Rinling's tent. So, do I make it safe and dull, or grand and dangerous? What you say, mon?" } },
+      choices = {
+        { text = "Make it safe. The crowd comes first.", next = "BACK", reply = "Safe. Hmph. Rinling will make it safe and still grand.", fx = { align = { order = 1 } } },
+        { text = "Make it grand. Crowds love danger.", next = "BACK", reply = "Ha! Dat's what Rinling wanted to hear, mon!", fx = { align = { order = -1 } } },
+      },
+    },
+    ydark = {
+      lines = {
+        { id = "yd_default", text = "Not Darkspear, no, but Rinling hear what Vol'jin's people did, comin' to Durotar with de orcs. Here at de Faire it don't matter much, cousin, Horde or Alliance, so long as de tickets be paid." },
+        { id = "yd_horde", when = { faction = "Horde" }, text = "Not Darkspear, but Rinling hear how Vol'jin brought de tribe to Durotar with Thrall's orcs. You be far from de Echo Isles, cousin, in de middle of human country. De Faire keep you safe here, mon." },
+      },
+      choices = {
+        { text = "Where are you from, then?", next = "yfrom" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfrom = {
+      lines = { { id = "yf_default", text = "A little village on de Stranglethorn coast dat don't have a name worth sayin', mon. De goblins of Booty Bay be de first to sell me tools, so Rinling always say he was raised by trolls and schooled by goblins." } },
+      choices = { { text = "That shows. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    silas = { { id = "yt_silas", text = "Silas Darkmoon be de boss of de Faire, mon. He laugh loud and pay fair, and Rinling like both." } },
+    engineering = { { id = "yt_eng", text = "Gears and springs be de same everywhere, mon. Dey don't care who holds de wrench." } },
     background = { { id = "tp_bg", text = "Rinling go where de Faire go, and de Faire go everywhere. Home be a tent, and de tent be wherever it stands." } },
     darkmoon_faire = { { id = "tp_dmf", text = "De best show in de world, mon, and it pays its trolls fair, which is more than I can say for most." } },
     _none = { { id = "tp_none", text = "Rinling don't know dat one, mon. Ask Sayge; he knows everythin', or he says he does." } },
@@ -370,6 +554,9 @@ P:NPC {
         { text = "A tauren this far into human lands?", next = "far" },
         { text = "What's on the grill today?", next = "grill" },
         { text = "Let me see what you're selling.", next = "BUSINESS" },
+        { text = "Why did you leave Mulgore?", next = "yleave" },
+        { text = "Who taught you to cook?", next = "ytaught" },
+        { text = "Earth Mother's blessing, brother.", next = "ycousin", when = { race = "Tauren" } },
         { text = "May your fire burn steady.", next = "END" },
       },
     },
@@ -391,8 +578,46 @@ P:NPC {
       lines = { { id = "grill_default", text = "Whatever the Faire's hunters bring, and the frogs, when there are frogs. The little ones like them crisp, and so do I, though my clan back home would laugh to see it." } },
       choices = { { text = "I'll take your word for it. Something else.", next = "BACK" } },
     },
+    yleave = {
+      narr = "He turns a skewer slowly over the coals and watches the fat drip.",
+      lines = { { id = "yl_default", text = "My father was a hunter, and his father, and I was meant to be one too. But I could never bring myself to love the kill, only the meal after it, and the elders said a tauren must follow his own wind. Mine blew east, with the Faire's wagons." } },
+      choices = {
+        { text = "Does your family miss you?", next = "ymiss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymiss = {
+      lines = { { id = "ym_default", text = "My mother sends word with every caravan that passes Thunder Bluff, and asks if I am fat yet. I am, a little. When the Faire turns toward Mulgore, I will cook for her, and she will tell me it is too salty." } },
+      choices = { { text = "Mothers are the same everywhere. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    ytaught = {
+      lines = {
+        { id = "yt_default", text = "An old Bloodhoof grandmother in Mulgore, who said that meat cooked in anger tastes of anger. I have tried to cook only in calm since, which is not easy at a Faire where a gnome sets something on fire every hour." },
+        { id = "yt_cook", when = { profession = "Cooking" }, text = "An old Bloodhoof grandmother, who said meat cooked in anger tastes of anger. You know this already, I think, for a cook learns it with burned fingers. Cook in calm, friend, and the fire will listen to you." },
+      },
+      choices = {
+        { text = "Is that true, about anger?", next = "yanger" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yanger = {
+      lines = { { id = "ya_default", text = "I believe it. Some here say a cook should sell to anyone who pays, even the ones who come only to sneer. Others say I should turn away those who mock my horns. What would you do, friend?" } },
+      choices = {
+        { text = "Feed them all. Hunger has no enemies.", next = "BACK", reply = "Yes. That is the way of my grill, and of the Earth Mother.", fx = { align = { light = 1 } } },
+        { text = "Turn away the mockers. Respect is earned.", next = "BACK", reply = "A hard answer. But I understand the heart behind it.", fx = { align = { light = -1 } } },
+      },
+    },
+    ycousin = {
+      lines = {
+        { id = "yc_default", text = "And to you, cousin, far from the grass of home. It warms me to see horns among all these round little heads. Sit, eat, and tell me how the herds fare on the plains." },
+        { id = "yc_druid", when = { class = "DRUID" }, text = "And to you, cousin, and a druid besides. Does Hamuul Runetotem still keep the Elder Rise? Sit, eat, and tell me how the herds fare on the plains." },
+      },
+      choices = { { text = "The herds are well. Something else.", next = "BACK", reply = "Good. Then the Earth Mother smiles, and so do I." } },
+    },
   },
   topics = {
+    mulgore = { { id = "yt_mulgore", text = "The grass of Mulgore is gold at sunset, and the kodo graze to the horizon. I see it when I close my eyes." } },
+    cooking = { { id = "yt_cooking", text = "Good food needs a slow fire, a patient hand and someone hungry to eat it. The last is easiest to find." } },
     background = { { id = "tp_bg", text = "I am of the Thunderhorn clan, from the plains of Mulgore. I left to see the world, and the world is mostly hungry." } },
     darkmoon_faire = { { id = "tp_dmf", text = "It is a strange herd, but a kind one, and it has room for a tauren with a grill." } },
     _none = { { id = "tp_none", text = "That I do not know, friend. The winds have not carried it to my grill." } },
@@ -433,6 +658,8 @@ P:NPC {
         { text = "A Forsaken with a travelling carnival?", next = "dead" },
         { text = "Do you truly never forget?", next = "forget" },
         { text = "I work leather myself. Can I help?", next = "lw", when = { profession = "Leatherworking" } },
+        { text = "What do you remember of Lordaeron's fall?", next = "yfall" },
+        { text = "Do you ever wish you could forget?", next = "ywish" },
         { text = "Enjoy the Faire, Chronos.", next = "END" },
       },
     },
@@ -473,8 +700,25 @@ P:NPC {
       lines = { { id = "lw_default", text = "You can, and gladly. Carnival boots and jerkins are plain enough work, and armour kits plainer still, but the Faire is always short of hands who can make them." } },
       choices = { { text = "Then I'll get stitching.", next = "BACK", fx = { affinity = 1 } } },
     },
+    yfall = {
+      narr = "His jaw, more wire than bone, works silently for a moment.",
+      lines = {
+        { id = "yf_default", text = "Everything, which is precisely the trouble. The grain carts stopped coming, then the grain came tainted, then the people who ate it stopped being people. I counted the dead in my ledger until I was one of them, and then I simply kept counting." },
+        { id = "yf_human", when = { race = "Human" }, text = "Everything. The tainted grain, the neighbours who ate it, the ledger I kept until I joined the column of the dead. Your kind ask me that more than anyone, as if I might tell them it wasn't so bad. It was worse." },
+      },
+      choices = { { text = "I'm sorry. Something else.", next = "BACK" } },
+    },
+    ywish = {
+      lines = { { id = "yw_default", text = "Every night, if the dead may be said to have nights. Some of my kind drink the Apothecaries' draughts to dull it. I could, and the ledgers would suffer for it. Should I keep the memories, or be free of them?" } },
+      choices = {
+        { text = "Keep them. Someone must remember.", next = "BACK", reply = "Then I shall, and I'll curse you a little for it.", fx = { align = { light = 1 } } },
+        { text = "Be free. You owe the dead nothing.", next = "BACK", reply = "A cold comfort, but comfort nonetheless. I'll think on it.", fx = { align = { light = -1 } } },
+      },
+    },
   },
   topics = {
+    lordaeron = { { id = "yt_lord", text = "I counted grain in Lordaeron's granaries for twelve years. I remember every sack, and which ones killed us." } },
+    silas = { { id = "yt_silas", text = "Silas Darkmoon hired a dead clerk without blinking. I've never quite worked out whether that was kindness or salesmanship." } },
     darkmoon_faire = { { id = "tp_dmf", text = "A travelling city of tents and tricks, and the only place in the world I've been welcomed since my death." } },
     _none = { { id = "tp_none", text = "Not a thing I've ever heard, and I'd know, believe me." } },
   },
@@ -509,6 +753,7 @@ P:NPC {
         { text = "Do you study magic yourself?", next = "xstudy" },
         { text = "What exactly hums in here?", next = "xhum" },
         { text = "I'm a mage too. May I see the library?", next = "BACK", when = { class = "MAGE" }, reply = "Oh, I'd love to say yes! But the archmage keeps the good books upstairs, and the stairs are warded. Perhaps if you ask him nicely?" },
+        { text = "Did you come here straight from Gnomeregan?", next = "yflight" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -564,8 +809,19 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yflight = {
+      narr = "He polishes his spectacles on his sleeve for rather longer than they need.",
+      lines = {
+        { id = "yfl_default", text = "By way of Ironforge, and then a cart, and then a very long walk. I left my sister in Tinker Town, because she wouldn't leave the others, and she writes that they're still counting who came out and who didn't." },
+        { id = "yfl_gnome", when = { race = "Gnome" }, text = "By way of Ironforge, like you, I expect, and then a very long walk. My sister stayed in Tinker Town to help count who came out. Did you lose anyone? You needn't say, I only wondered." },
+      },
+      choices = { { text = "I hope she's well. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    tower = { { id = "yt_tower", text = "The Tower of Azora has a hundred and nine steps, and I've dropped something on every one of them." } },
+    defias = { { id = "yt_def", text = "The scrying orb watches them in the pumpkin patch. They're very rude to the pumpkins." } },
+    ironforge = { { id = "yt_if", text = "Ironforge took us in when Gnomeregan fell, and the dwarves were kind, though everything there is far too tall." } },
     theocritus = { { id = "tp_xtheocritus", text = "The archmage. Clever, kind, and never, ever asleep." } },
     gnomeregan = { { id = "tp_xgnomeregan", text = "My home, once. I try not to think about it too often." } },
     _none = { { id = "tp_none", text = "I'm afraid that's not in any of the master's books, or at least not one I'm allowed to open." } },
@@ -598,6 +854,7 @@ P:NPC {
         { text = "What's the worst you've seen on this road?", next = "xworst" },
         { text = "Do you know Marshal Dughan?", next = "xdughan" },
         { text = "I'm a paladin. Need help keeping the peace?", next = "BACK", when = { class = "PALADIN" }, reply = "Always glad of a paladin on the road. The Light makes the wolves think twice, and the Defias three times." },
+        { text = "Do you have family in Elwynn?", next = "yfamily" },
         { text = "Carry on, soldier.", next = "END" },
       },
     },
@@ -653,8 +910,20 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yfamily = {
+      lines = {
+        { id = "yfa_default", text = "A wife in the Trade District and a boy who wants to be a guard like his father, Light help him. I see them once a fortnight, when the sergeant remembers to rotate us, and he usually doesn't." },
+        { id = "yfa_dwarf", when = { race = "Dwarf" }, text = "A wife in the Trade District and a boy who wants to be a guard. He's mad for dwarves, mind, ever since he saw the Ironforge envoys come through the gate, so if you're passing the city, say hello to him." },
+        { id = "yfa_night", when = { timeOfDay = "night" }, text = "A wife and boy in the city. On nights like this, when the wolves are loud, I'm glad they're behind the walls and not out here with me." },
+      },
+      choices = { { text = "May you see them soon. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    westfall = { { id = "yt_west", text = "Westfall's gone to the dogs and the Defias both. The People's Militia holds Sentinel Hill, and that's about all anyone holds." } },
+    hogger = { { id = "yt_hogger", text = "Hogger leads the Riverpaw gnolls southwest of Goldshire. There's a bounty on him, and a good few graves from them that tried." } },
+    murlocs = { { id = "yt_murloc", text = "Murlocs up along Crystal Lake and the shore by the Eastvale. Don't let the gurgling fool you; they bite." } },
+    fargodeep = { { id = "yt_fargo", text = "Fargodeep Mine's crawling with kobolds and worse. Don't go in alone, and don't take their candles." } },
     defias = { { id = "tp_xdefias", text = "Bandits in Elwynn and worse in Westfall. Mind your purse." } },
     goldshire = { { id = "tp_xgoldshire", text = "A fine town. Stop at the Lion's Pride for a rest." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, citizen. Ask at the Lion's Pride in Goldshire, someone there will know." } },

@@ -144,6 +144,9 @@ P:NPC {
         { text = "How can I be king? I'm not an ogre.", next = "king" },
         { text = "What does a king of the Gordok get?", next = "tribute" },
         { text = "How many kings have you served?", next = "many" },
+        { text = "Why didn't you ever want to be king?", next = "ynever" },
+        { text = "What happens to old kings?", next = "yold" },
+        { text = "A rogue appreciates a crafty ogre.", next = "BACK", when = { class = "ROGUE" }, reply = "Mizzle sees you, sneaky one. Mizzle likes sneaky. Sneaky lives longer than smashy." },
         { text = "Carry on, Mizzle.", next = "END" },
       },
     },
@@ -173,8 +176,39 @@ P:NPC {
       lines = { { id = "r_default", text = "Mizzle expects nothing and is surprised by nothing, king. But you are not staying to sit in the chair, Mizzle can see that, so most likely you just walk away, which is the only way a Gordok king ever got old." } },
       choices = { { text = "You are crafty. Something else.", next = "BACK" } },
     },
+  
+    ynever = {
+      lines = {
+        { id = "ythecra_ynever_d", text = "Because kings get smashed, boss! Every one. Mizzle watched his own father become king and get smashed in one moon. Mizzle decided to be the one who says 'you are king now' instead. Nobody smashes the one who says it." },
+        { id = "ythecra_ynever_v0", when = { race = { "Orc", "Troll" } }, text = "Because kings get smashed, boss! You are Horde, you know how it goes with chiefs. Mizzle decided to be the one who names the king, not the one who sits." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yold = {
+      lines = {
+        { id = "ythecra_yold_d", text = "They get smashed, mostly, and the new king takes their stuff. Some kings, Mizzle hides. One old king lives in a back room and counts rocks. He thinks he is still king. Mizzle lets him think so." },
+      },
+      choices = {
+        { text = "Why hide him?", next = "yhide" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhide = {
+      lines = {
+        { id = "ythecra_yhide_d", text = "Because he was nice to Mizzle once, a long time ago. Gordok law says smash the old king, always. But Mizzle thinks law is for ogres who cannot think. Is Mizzle wrong, boss?" },
+      },
+      choices = {
+        { text = "The law is the law. Old kings must go.", next = "BACK", reply = "Hmm. Maybe the king is right. Mizzle will think about it. Slowly.", fx = { align = { order = 1 } } },
+        { text = "You did right. Kindness is crafty too.", next = "BACK", reply = "Mizzle thinks so too! Do not tell the captains, boss.", fx = { align = { order = -1 } } },
+      },
+    },
   },
   topics = {
+    eldre_thalas = { { id = "ythecra_tp_eldre_thalas", text = "Eldre'Thalas is old elf city. Ogres live in it now. Mizzle thinks the elves are angry, but they are mostly dead." } },
+    tribute = { { id = "ythecra_tp_tribute", text = "Tribute is the best part of being king. Mizzle keeps it safe, mostly." } },
+
     background = { { id = "tp_bg", text = "Mizzle keeps the rules of the Gordok and counts the tribute. It is safer work than being king." } },
     gordok = { { id = "tp_gk", text = "Whoever kills the king is the king. That is the whole law, and Mizzle keeps it." } },
     _none = { { id = "tp_none", text = "Mizzle does not know that one, and Mizzle is not too proud to say so." } },

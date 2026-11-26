@@ -204,6 +204,8 @@ P:NPC {
         { text = "What do you think of the Wildhammer?", next = "xwild" },
         { text = "I'm a troll too. Teach me the rhythm.", next = "xtroll", when = { race = "Troll" } },
         { text = "I'm a shaman. The drum calls the spirits.", next = "xshaman", when = { class = "SHAMAN" } },
+        { text = "Who taught you to drum?", next = "y_taught" },
+        { text = "Does the drum ever go silent?", next = "y_silent" },
         { text = "Keep drumming.", next = "END" },
       },
     },
@@ -243,10 +245,26 @@ P:NPC {
       lines = { { id = "xsh_default", text = "Ya, it do, mon, and you can feel dem, can't you? Da earth and da sea, dey both like a good beat." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    y_taught = {
+      lines = {
+        { id = "y_taught_d", text = "My grandmother, mon, in Jintha'Alor, before we left. She beat da drum for da Vilebranch priests, and she taught me every rhythm but one. Da last one, da sacrifice beat, she refused to teach me." },
+        { id = "y_taught_tr", when = { race = "Troll" }, text = "My grandmother, cousin, in Jintha'Alor before da split. You know how da old ones teach. Every rhythm but da sacrifice beat, dat one she wouldn't give me." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_silent = {
+      lines = { { id = "y_silent_d", text = "Once, mon, when da Vilebranch raided and took two of our young ones up da hill. Torntusk stopped da drum for three days. Some say we should have gone up after dem, all of us, drums and spears." } },
+      choices = {
+        { text = "You should have gone after them.", next = "BACK", reply = "Ya, mon. Plenty here say so still.", fx = { align = { order = -1 } } },
+        { text = "Torntusk was right to wait.", next = "BACK", reply = "Maybe. She lose two, but she don't lose da village.", fx = { align = { order = 1 } } },
+      },
+    },
   },
   topics = {
     vilebranch = { { id = "xtp_vile", text = "Our old kin, now gone dark in Jintha'Alor. Da drum warn dem to stay away." } },
     revantusk = { { id = "xtp_rev", text = "My tribe, by da sea. We don't forget, and we don't forgive, but we do drum." } },
+    jintha_alor = { { id = "y_tp_ja", text = "Jintha'Alor be da Vilebranch city on da hill. Da drum there beat for dark loa now." } },
+    torntusk = { { id = "y_tp_tt", text = "Primal Torntusk lead us to da sea. Da drum beat for her first, always." } },
    
     _none = { { id = "tp_none", text = "Ask Primal Torntusk, mon. I just drum." } },
   },

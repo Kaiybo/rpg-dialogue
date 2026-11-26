@@ -28,6 +28,9 @@ P:NPC {
         { text = "How's crocolisk hunting?", next = "crocs" },
         { text = "This crossroads sees a lot of traffic.", next = "road" },
         { text = "Any tips for hunting crocolisks?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "How did you meet Sida?", next = "ymeet" },
+        { text = "Who buys your hides?", next = "ybuy" },
+        { text = "I'm a dwarf. Do you miss Ironforge?", next = "BACK", when = { race = "Dwarf" }, reply = "Some days. Mostly I miss the ale, an' the noise, an' Sida's cookin', though I'll nae say that last part tae her." },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -71,8 +74,38 @@ P:NPC {
         { text = "Back to what we were saying.", next = "BACK" },
       },
     },
+  
+    ymeet = {
+      lines = {
+        { id = "yeinars_ymeet_d", text = "At a feast in Thelsamar, twenty years back. She beat me at arm-wrestlin' in front o' the whole hall, an' I asked her tae marry me the same night. She said no, then aye a week later. She's been beatin' me at things since." },
+      },
+      choices = {
+        { text = "Will you go to Menethil?", next = "ygo" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygo = {
+      lines = {
+        { id = "yeinars_ygo_d", text = "Every mornin' I think it, an' every mornin' I check the traps instead. My granda would say a dwarf who backs down from an argument is nae a dwarf. My mam would say a dwarf who loses his wife over pride is a fool." },
+      },
+      choices = {
+        { text = "Go to her. Pride isn't worth a marriage.", next = "BACK", reply = "Aye. I'll walk the road at dawn, an' if I come back alone, I'll blame ye.", fx = { align = { honor = 1 } } },
+        { text = "Stand your ground. She'll come round.", next = "BACK", reply = "That's my granda talkin', an' he died alone. I'll think on it.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ybuy = {
+      lines = {
+        { id = "yeinars_ybuy_d", text = "The tanner Halloran in Menethil, mostly, an' a goblin trader who comes through twice a year. Halloran's fair. The goblin's a thief, but he pays in silver, an' silver doesnae care who's fair." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    sida = { { id = "yeinars_tp_sida", text = "Sida's in Menethil. If ye see her, dinnae tell her I'm thinkin' about her." } },
+    crocolisks = { { id = "yeinars_tp_crocolisks", text = "Crocolisks are all teeth an' bad temper. Their hides make the best boots in the marsh, though." } },
+
     _none = { { id = "tp_none", text = "Nae idea. Ask somebody in Menethil, since I'll not be goin' there." } },
   },
 }
@@ -104,6 +137,8 @@ P:NPC {
         { text = "Why guard this pass?", next = "xpass" },
         { text = "What's the worst Dragonmaw raid you've seen?", next = "xraid" },
         { text = "I'm a dwarf. I'll stand a watch with you.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "Do you have family back home?", next = "yfam" },
+        { text = "What do you do when it's quiet?", next = "yquiet" },
         { text = "Hold the pass. Farewell.", next = "END" },
       },
     },
@@ -150,8 +185,39 @@ P:NPC {
       lines = { { id = "xdw_default", text = "Would ye? Then take Rharen's spot, and I'll finally get some peace. Mind, he'll tell ye I asked for it, and I didn't." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  
+    yfam = {
+      lines = {
+        { id = "ymounta_yfam_d", text = "A sister in Kharanos, and a mother who writes every month to ask when I'll come home. I keep saying next season. Rharen's got nobody, which is why I think he likes it here so much." },
+        { id = "ymounta_yfam_v0", when = { race = "Dwarf" }, text = "A sister in Kharanos and a mam who writes monthly. Ye'll know the kind of letter, {g:lad|lass}, all love and nagging. Rharen's got nobody, which is why he likes it here." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yquiet = {
+      lines = {
+        { id = "ymounta_yquiet_d", text = "Whittle, mostly. I've carved a whole set of chessmen out of driftwood, though Rharen won't play because he says it's a game for gnomes. I think he's just afraid of losing." },
+      },
+      choices = {
+        { text = "Should Rharen go home?", next = "yrharen" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yrharen = {
+      lines = {
+        { id = "ymounta_yrharen_d", text = "The captain offered him leave last year, and he turned it down. He says the pass is home now. I say a dwarf without kin is a dwarf who needs to find some. He says I'm his kin, which is a terrible thing to hear from Rharen." },
+      },
+      choices = {
+        { text = "You are his kin. Stand by him here.", next = "BACK", reply = "Aye, I suppose I am. Don't tell him I said so, he'll be unbearable.", fx = { align = { honor = 1 } } },
+        { text = "He should go home and build a proper life.", next = "BACK", reply = "Maybe. I'll push him again. He'll grumble, and drink my stout.", fx = { align = { honor = -1 } } },
+      },
+    },
   },
   topics = {
+    dun_algaz = { { id = "ymounta_tp_dun_algaz", text = "Dun Algaz is the gate between the Wetlands and Loch Modan. If it falls, Ironforge loses the sea." } },
+    stout = { { id = "ymounta_tp_stout", text = "The stout's mine. Rharen will tell ye different, and he'll be lying." } },
+
     dragonmaw = { { id = "xtp_dmaw", text = "Orcs from the Second War, still lurking in Grim Batol. They'll not take this pass while I stand." } },
     rharen = { { id = "xtp_rhar", text = "My partner, and the loudest dwarf in Khaz Modan. Don't tell him I said he's good in a fight." } },
     _none = { { id = "tp_none", text = "No idea, {g:lad|lass}. Ask in Menethil." } } },
@@ -184,6 +250,9 @@ P:NPC {
         { text = "Do you think the Dragonmaw will come again?", next = "xdmaw" },
         { text = "What's in the tunnel behind you?", next = "xtunnel" },
         { text = "I'm a dwarf. Pour me one of that stout.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "Why don't you go home on leave?", next = "yleave" },
+        { text = "What do you like about this post?", next = "ylike" },
+        { text = "I'm a hunter. Any game near the pass?", next = "BACK", when = { class = "HUNTER" }, reply = "Raptors, all the way up the ridge, and the big crocs down by the river. Bring me a raptor steak and I'll owe ye." },
         { text = "Take care, mountaineer.", next = "END" },
       },
     },
@@ -226,8 +295,39 @@ P:NPC {
       lines = { { id = "xdw_default", text = "Ha! Now there's a proper dwarf. There's a keg in the guardhouse, half full, and if Grugelm asks, ye never saw it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  
+    yleave = {
+      lines = {
+        { id = "ymounta_yleave_d", text = "Home's here, friend. My folk are gone, every one, lost at Grim Batol in the Second War. Grugelm's the nearest thing I've got to a brother, though I'll deny I said it." },
+      },
+      choices = {
+        { text = "Do you want revenge on the Dragonmaw?", next = "yrevenge" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yrevenge = {
+      lines = {
+        { id = "ymounta_yrevenge_d", text = "Some nights, aye. I dream of marchin' on Grim Batol with a keg of powder. But Grugelm says that's how ye lose the last of what ye've got. Some say vengeance is a dwarf's right. Others say it's a dwarf's ruin." },
+      },
+      choices = {
+        { text = "Your family deserves vengeance.", next = "BACK", reply = "Aye. One day, when the King calls, I'll be first through the gate.", fx = { align = { honor = 1 } } },
+        { text = "Grugelm is right. Hold what you have left.", next = "BACK", reply = "He's always right, the old grump. Don't tell him that either.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ylike = {
+      lines = {
+        { id = "ymounta_ylike_d", text = "The view, the quiet nights, and Grugelm's face when I drink his stout. There's worse places to grow old, and I've seen most of them." },
+        { id = "ymounta_ylike_v0", when = { race = "Dwarf" }, text = "The view, the quiet, and Grugelm's face when I drink his stout. Ye're a dwarf, so ye'll understand. A good post and a good friend are worth more than a hall." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    grim_batol = { { id = "ymounta_tp_grim_batol", text = "Grim Batol's a cursed place. Even the Dragonmaw only hold it because nobody else wants it." } },
+    loch_modan = { { id = "ymounta_tp_loch_modan", text = "Loch Modan's through the tunnel, and Thelsamar's got a proper inn." } },
+
     grugelm = { { id = "xtp_grug", text = "Old grump, best friend, worst cook. Don't tell him the middle part." } },
     menethil = { { id = "xtp_meneth", text = "Down the north road, a harbour sinkin' slowly into the bog. Good ships, mind." } },
     _none = { { id = "tp_none", text = "Cannae help ye there, friend. Ask Grugelm, if ye dare." } } },
@@ -260,6 +360,8 @@ P:NPC {
         { text = "What's Menethil like for a sailor?", next = "xmenethil" },
         { text = "Do you carry Horde passengers?", next = "xhorde" },
         { text = "I'm a night elf. Do you sail to Auberdine?", next = "xelf", when = { race = "NightElf" } },
+        { text = "How long have you sailed?", next = "ylong" },
+        { text = "Do you miss anywhere?", next = "ymiss" },
         { text = "Fair winds.", next = "END" },
       },
     },
@@ -302,8 +404,48 @@ P:NPC {
       lines = { { id = "xel_default", text = "Not us, but the Bravery does, out of the other pier, to Auberdine on Darkshore. Your folk are good passengers, quiet and polite, though they look at the sea like it owes them something." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  
+    ylong = {
+      lines = {
+        { id = "ymaiden_ylong_d", text = "Since I was twelve, when my father put me on a fishing boat out of Southshore. I've sailed the Great Sea twice over since, and I've lost two ships and a good many friends to it." },
+      },
+      choices = {
+        { text = "What happened to the ships?", next = "yships" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yships = {
+      lines = {
+        { id = "ymaiden_yships_d", text = "One sank in a storm off Kul Tiras, and the other was boarded by pirates out of Booty Bay. I swam to shore from the first one. From the second, I bought my way out with my boots and a gold tooth." },
+      },
+      choices = {
+        { text = "Would you fight pirates next time?", next = "yfight" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfight = {
+      lines = {
+        { id = "ymaiden_yfight_d", text = "The captain says a crew that fights pirates is a crew that dies. Others say a crew that pays them only teaches them to come back. I've never decided." },
+      },
+      choices = {
+        { text = "Fight them. Paying pirates only feeds them.", next = "BACK", reply = "Brave words. I'll remember them next time, if I've the nerve.", fx = { align = { honor = 1 } } },
+        { text = "Pay and live. Ships can be replaced.", next = "BACK", reply = "Aye, that's how I see it most days. Boots are cheaper than graves.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ymiss = {
+      lines = {
+        { id = "ymaiden_ymiss_d", text = "Southshore, where I grew up. My mother still lives there, near the docks. I'd like to visit, but the road through Hillsbrad isn't safe anymore, with the Forsaken in the hills." },
+        { id = "ymaiden_ymiss_v0", when = { race = "Human" }, text = "Southshore, where I grew up. You'll know the place, maybe. My mother's still there, but the road through Hillsbrad isn't safe with the Forsaken about." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    southshore = { { id = "ymaiden_tp_southshore", text = "Southshore's a quiet fishing town, or was. Too close to the Forsaken now for comfort." } },
+    storms = { { id = "ymaiden_tp_storms", text = "The storms off the Wetlands coast come fast. Watch the sky to the west, and pray." } },
+
     theramore = { { id = "xtp_thera", text = "Lady Proudmoore's city, across the sea. We sail there and back, rain or shine." } },
     menethil = { { id = "xtp_meneth", text = "Our home port, more or less. It's wet, but it's ours." } },
     _none = { { id = "tp_none", text = "Couldn't say, friend. I just sail where they point me." } } },
@@ -343,6 +485,8 @@ P:NPC {
         { text = "What do you make of Ironband's diggers?", next = "xdiggers" },
         { text = "What are you, exactly?", next = "xwhat" },
         { text = "My people seek our origins in the stone.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "Do you ever grow weary of watching?", next = "yweary" },
+        { text = "Have others come asking before me?", next = "yothers" },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -386,8 +530,48 @@ P:NPC {
       lines = { { id = "xdw_default", text = "And the stone remembers your people more kindly than you think. Dig carefully, child of the mountain, for not everything beneath you wishes to be found." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  
+    yweary = {
+      lines = {
+        { id = "yaman_yweary_d", text = "Weariness is a thing of flesh. Stone does not tire; it only settles. But I have watched many small ones come and go, and I confess I remember some of them more fondly than stone should." },
+      },
+      choices = {
+        { text = "Who do you remember?", next = "ywho" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywho = {
+      lines = {
+        { id = "yaman_ywho_d", text = "A dwarf child who came here long ago, before your harbour was built, and sat beside me for a whole day without asking anything. Then she went home. I have wondered since whether she was the wisest of all of them." },
+        { id = "yaman_ywho_v0", when = { race = "Dwarf" }, text = "A child of your own people, long ago, who sat beside me a whole day and asked nothing. You have her look about you, small one, though that is likely only the stone in your blood." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yothers = {
+      lines = {
+        { id = "yaman_yothers_d", text = "Many. Treasure hunters, scholars of the League, a Dark Iron once who came by night with a lantern and a rope. I let them all pass, and I told none of them anything. Only the Dark Iron I sent away, for his intent was not knowledge." },
+      },
+      choices = {
+        { text = "Should you have stopped him for good?", next = "ystop" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ystop = {
+      lines = {
+        { id = "yaman_ystop_d", text = "Perhaps. A watcher may turn away, but he may not strike, or so I was made. Some guardians are made otherwise, and I have wondered if they are the wiser. You choose, small one, for you have the hands I lack." },
+      },
+      choices = {
+        { text = "A guardian should strike when the danger is plain.", next = "BACK", reply = "Then you would be a harder watcher than I am. Perhaps the world needs both.", fx = { align = { order = 1 } } },
+        { text = "Turning him away was enough. You kept your purpose.", next = "BACK", reply = "So I have told myself, for a long time. It is good to hear it from another.", fx = { align = { order = -1 } } },
+      },
+    },
   },
   topics = {
+    titans = { { id = "yaman_tp_titans", text = "The makers are not names for your tongue, small one. Leave them where they are." } },
+    stone = { { id = "yaman_tp_stone", text = "Stone remembers everything that has ever pressed upon it. That is why it is heavy." } },
+
     explorers_league = { { id = "xtp_league", text = "Eager diggers with lamps and maps. They seek what their own stone has not told them." } },
     wetlands = { { id = "xtp_wet", text = "The waters rose here long ago, and they will fall again. The stone does not mind." } },
     _none = { { id = "xtp_none", text = "That is not a thing the stones have told me, small one." } },

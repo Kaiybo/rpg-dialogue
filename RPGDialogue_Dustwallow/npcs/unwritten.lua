@@ -20,6 +20,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ycant = {
+      lines = {
+        { id = "ybdwumabartulm1", text = "Peacebloom that's fresh, and anything that wants sun. I grow a little in pots on the roof, and the guards laugh at me, but they're happy enough to buy the poultices." },
+        { id = "ybdwumabartulm2", when = { profession = "Herbalism" }, text = "If you find peacebloom on your travels, dry it before you bring it. I'll pay double for a good bundle." },
+      },
+      choices = {
+        { text = "Do you ever go into the marsh yourself?", next = "ymarsh2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymarsh2 = {
+      lines = {
+        { id = "ybdwumabartulm3", text = "Once a month, with a guard, to the riverbanks for liferoot. I saw a deserters' camp the last time, and I didn't report it, because one of them was the boy who used to carry my crates." },
+      },
+      choices = {
+        { text = "You should report it. They're bandits now.", next = "BACK", reply = "You're right, I know you are. It's just that I remember his face.", fx = { align = { order = 1 } } },
+        { text = "Leave him be. He's not hurt anyone yet.", next = "BACK", reply = "That's what I told myself. I hope we're both right.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylearn = {
+      lines = {
+        { id = "ydwumabartulm1", text = "Under an old herbalist in Southshore, who taught me that every root has two uses, one kind and one not. I came over with the fleet because the plague taught me which use mattered more." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I keep vials, solvents and the odd herb that doesn't grow here. Half the guard buys healing draughts from the alchemists I supply, so I like to think I've saved a few of them." } },
       again = { { id = "h_again", text = "Anything else? I've a batch of leaves to turn." } },
@@ -30,6 +58,8 @@ P:NPC {
         { text = "What's the rarest thing on your shelf?", next = "xrare" },
         { text = "Your shop smells of mint and swamp.", next = "xsmell" },
         { text = "I'm an alchemist. What should I brew here?", next = "xalch", when = { profession = "Alchemy" } },
+        { text = "Where did you learn your trade?", next = "ylearn" },
+        { text = "Is there anything you can't stock here?", next = "ycant" },
         { text = "Good day, Uma.", next = "END" },
       },
     },
@@ -83,6 +113,7 @@ P:NPC {
     },
   },
   topics = {
+    southshore = { { id = "ydwumabartulm2", text = "I learned my trade there, from a woman who could tell a root by the smell of the soil." } },
     liferoot = { { id = "tp_xliferoot", text = "Grows by the rivers in the marsh. Best quality I've seen anywhere." } },
     goldthorn = { { id = "tp_xgoldthorn", text = "I've a single sprig, and I'm saving it for something important." } },
     _none = { { id = "tp_none", text = "I couldn't say, dear. Ask me about roots and I'll talk all day." } } },
@@ -401,6 +432,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yhardest = {
+      lines = {
+        { id = "ybdwtimothyworthington1", text = "Silk, because it hates water, and leather, because it stinks of it. The worst job I ever had was a sentry's cloak that had been soaked for a week. I could smell the bog on my hands for a month." },
+        { id = "ybdwtimothyworthington2", when = { profession = "Tailoring" }, text = "You'll know already, then. Never cut silk on a damp day, and keep your shears oiled, or the marsh will eat them by the season's end." },
+      },
+      choices = {
+        { text = "Do you miss Dalaran?", next = "ydalaran" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydalaran = {
+      lines = {
+        { id = "ybdwtimothyworthington3", text = "I miss the dry air and the libraries. I don't miss the magi. When the Lady leaves the island, the town fills with whispers that she'll not come back, and I find myself thinking about what I'd do if Dalaran called her home." },
+      },
+      choices = {
+        { text = "Stay with Theramore. This is your home now.", next = "BACK", reply = "I believe it is. My needles have grown used to the damp, at least.", fx = { align = { order = 1 } } },
+        { text = "Follow the Lady wherever she goes.", next = "BACK", reply = "That's what my heart says too. Heaven help my seams, though.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I teach tailoring to anyone with steady hands and keep the officers' uniforms presentable. Mageweave is the cloth of the hour, if you can find it." } },
       again = { { id = "h_again", text = "Yes? Do mind the cloth on the bench." } },
@@ -411,6 +462,8 @@ P:NPC {
         { text = "Whose uniforms do you mend?", next = "xuniforms" },
         { text = "What would you make with the right cloth?", next = "xdream" },
         { text = "I'm a mage. Do you make robes for casters?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Will you teach me the Dalaran cut?", next = "BACK", when = { profession = "Tailoring" }, reply = "Gladly. Keep the bias true and never trim a hem before you've hung it, and you'll be ahead of most magi already." },
+        { text = "What's the hardest thing to sew in a swamp?", next = "yhardest" },
         { text = "Good day, Timothy.", next = "END" },
       },
     },
@@ -467,6 +520,8 @@ P:NPC {
     },
   },
   topics = {
+    silk = { { id = "ycdwtimothyworthington1", text = "Hates water, and so does my temper when I have to sew it here." } },
+    vimes = { { id = "ydwtimothyworthington1", text = "Captain Vimes keeps the most presentable coat on the isle, and he gets the most mud on it." } },
     dalaran = { { id = "tp_xdalaran", text = "I sewed robes there once. The magi were brilliant and very hard on the hems." } },
     mageweave = { { id = "tp_xmageweave", text = "Good cloth, soft and strong. Most of it comes off bandits and cultists, which I try not to think about." } },
     _none = { { id = "tp_none", text = "I'm sure I couldn't say. I keep to my needles." } } },
@@ -585,6 +640,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ybest = {
+      lines = {
+        { id = "ybdwtheramorelieutenant1", text = "Combat Master Criton would say whoever he trained last, and Captain Thomas would hand you a ledger. I'd say the sentries at Sentry Point, because Captain Wymor runs the only post that's never once been late with a report." },
+        { id = "ybdwtheramorelieutenant2", when = { class = { "WARRIOR", "PALADIN" } }, text = "You've the look of someone who'd make my rotation. Ask at the citadel and I'll pencil you in for the north wall." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yborder = {
+      lines = {
+        { id = "ydwtheramorelieutenant1", text = "Northwatch writes that the orcs are massing, and the orcs write that Northwatch is provoking them. The Lady reads both letters and sighs, and I file them. Somebody's lying, or nobody is and it's worse." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I keep the watch rotation and pass reports up to Captain Vimes. Between the deserters, the Horde scouts and the dragons, there's never a short report." } },
       again = { { id = "h_again", text = "Anything else? Keep it brief, please." } },
@@ -595,6 +667,8 @@ P:NPC {
         { text = "Tell me about the deserters.", next = "xdesert" },
         { text = "You look like you'd rather be in the field.", next = "xfield" },
         { text = "I'm a warrior. Do you need another blade?", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "What's the latest from the Barrens border?", next = "yborder", when = { faction = "Alliance" } },
+        { text = "Who's the best soldier on your rotation?", next = "ybest" },
         { text = "Carry on, lieutenant.", next = "END" },
       },
     },
@@ -655,6 +729,8 @@ P:NPC {
     },
   },
   topics = {
+    wymor = { { id = "ybdwtheramorelieutenant3", text = "Captain Wymor runs Sentry Point. Dry reports, never late." } },
+    northwatch = { { id = "ydwtheramorelieutenant2", text = "Admiral Proudmoore's old men hold Northwatch, and they don't take orders from the Lady." } },
     deserters = { { id = "tp_xdeserters", text = "Former soldiers who'd sooner rob our wagons than stand our walls. I trained some of them." } },
     vimes = { { id = "tp_xvimes", text = "Captain Garran Vimes runs the garrison. He's fair and he's tired, like the rest of us." } },
     _none = { { id = "tp_none", text = "That's not in my orders. Ask at the keep." } } },
@@ -676,6 +752,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yfamily = {
+      lines = {
+        { id = "ybdwtheramoresentry1", text = "A wife in the town, and a little girl who wants a raptor for a pet. I've told her raptors eat little girls, and she says that's only the bad ones. She'll go far, if the marsh lets her." },
+        { id = "ybdwtheramoresentry2", when = { pet = { type = "Beast" } }, text = "She'd love your animal. Bring it past the market one day, if you can, and keep it off the bread stall." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhome = {
+      lines = {
+        { id = "ydwtheramoresentry1", text = "Stratholme, though I don't say it much. I was a baker's boy, and I left the year before the plague reached the granaries. Every one of my family stayed." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I stand watch and I count what comes out of the marsh. Raptors, deserters, now and then a black dragon high up, and fog, always fog." } },
       again = { { id = "h_again", text = "Anything else? I'm meant to be watching, not chatting." } },
@@ -686,6 +779,8 @@ P:NPC {
         { text = "How do you stay awake out here?", next = "xawake" },
         { text = "Do raptors really come this close?", next = "xraptor" },
         { text = "I'm a hunter. I could help with those raptors.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Where are you from originally?", next = "yhome", when = { race = "Human" } },
+        { text = "Do you have family here?", next = "yfamily" },
         { text = "Stay dry.", next = "END" },
       },
     },
@@ -735,6 +830,9 @@ P:NPC {
     },
   },
   topics = {
+    dragons = { { id = "ycdwtheramoresentry1", text = "Black as coal against the clouds. They come up from the Wyrmbog and never land, thank the Light." } },
+    family = { { id = "ybdwtheramoresentry3", text = "A wife in town and a little girl who wants a raptor. Light help me." } },
+    stratholme = { { id = "ydwtheramoresentry2", text = "My home, once. I don't go there, even in my head." } },
     raptors = { { id = "tp_xraptors", text = "Clever, fast and always hungry. They stole my supper once." } },
     fog = { { id = "tp_xfog", text = "The fog comes off the marsh every evening, and you learn to listen instead of look." } },
     _none = { { id = "tp_none", text = "Couldn't say. Ask the lieutenant." } } },
@@ -867,6 +965,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ymortals = {
+      lines = {
+        { id = "ybdwemberstrife1", text = "You are fleeting, and you are numerous, and you mistake both for strength. Some of you walk in here wearing our amulets and lie to me with every breath. I let you, because I enjoy the show." },
+        { id = "ybdwemberstrife2", when = { race = "Dwarf" }, text = "A dwarf. Your kin dug too deep at Grim Batol, and my flight remembers who led the Dragonmaw there. We have long memories, and long patience." },
+        { id = "ybdwemberstrife3", when = { faction = "Horde" }, text = "The Horde once chained the red dragons. We blacks are not so easily held. Remember that, if your Warchief ever grows ambitious." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yserved = {
+      lines = {
+        { id = "ydwemberstrife1", text = "Longer than your kingdoms have kept records, mortal. I was old when Deathwing broke the world, and I chose his daughter over the wreck of his madness. She is cunning, and cunning outlives rage." },
+      },
+      choices = {
+        { text = "Is she loyal to her father?", next = "yfather" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfather = {
+      lines = {
+        { id = "ydwemberstrife2", text = "Loyalty is a mortal word. She serves the flight, and the flight serves itself, and her father is a storm that may yet return. You would do well to hope he does not." },
+      },
+      choices = {
+        { text = "Then we will be ready for him.", next = "BACK", reply = "Ready. How charming. The dwarves of Grim Batol were ready too.", fx = { align = { light = 1 } } },
+        { text = "A storm like that should be served, not fought.", next = "BACK", reply = "You learn quickly, little thing. Perhaps you will survive the lesson.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       big = true,
       lines = { { id = "h_default", text = "I am Emberstrife, and I serve Onyxia, daughter of Deathwing. Dragonspawn who would join her guard come to me, and I test them, and most of them do not come back out." } },
@@ -875,6 +1002,8 @@ P:NPC {
         { text = "What is the test?", next = "test" },
         { text = "Why does Onyxia need guards?", next = "onyxia" },
         { text = "Deathwing's brood will fall in time.", next = "defy" },
+        { text = "How long have you served Onyxia?", next = "yserved" },
+        { text = "What do you make of mortals who come here?", next = "ymortals" },
         { text = "I'll leave you to your den.", next = "END" },
       },
     },
@@ -910,6 +1039,9 @@ P:NPC {
     },
   },
   topics = {
+    grim_batol = { { id = "ybdwemberstrife4", text = "A fortress of the dwarves, and later of the Dragonmaw. It is cursed now, and rightly so." } },
+    onyxia = { { id = "ydwemberstrife3", text = "The daughter of Deathwing, and my mistress. Speak her name with care." } },
+    wyrmbog = { { id = "ydwemberstrife4", text = "My flight's nest. You walk on our land, whatever your maps say." } },
     black_dragonflight = { { id = "tp_black", text = "We are the eldest flight and the greatest, and the world will remember it." } },
     _none = { { id = "tp_none", text = "I do not answer the questions of insects. Ask something worth my breath." } },
   },

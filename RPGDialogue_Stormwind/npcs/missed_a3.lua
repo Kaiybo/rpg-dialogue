@@ -136,6 +136,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ybrothers = {
+      lines = {
+        { id = "ydonnastormwind1", text = "Tom works at the blacksmith's in the Trade District, Ned's a page at the keep, and Robbie wants to be a guard like Dad was. They never let me play their games, so I learned to run faster than all of them." },
+        { id = "ydonnastormwind2", when = { race = "Dwarf" }, text = "Tom says the dwarf smiths are the best in the city. Is that true? He wants to go to Ironforge one day." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylive = {
+      lines = {
+        { id = "ydonnastormwind3", text = "In Old Town, next to the barracks, where my dad used to be a guard before he got hurt in the war. He mends harnesses now, and he says I'm the fastest of all his children, and he's right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfriends = {
+      lines = {
+        { id = "ydonnastormwind4", text = "Friends? With William? He pulls my hair and steals my things. Mum says that's what boys do when they like you, but I think that's silly. Should I be friends with him?" },
+      },
+      choices = {
+        { text = "Give him a chance. Kindness makes friends.", next = "BACK", reply = "Fine. But only if he gives Betsy back first, and carries her properly.", fx = { align = { light = 1 } } },
+        { text = "Don't trust him. He took what's yours.", next = "BACK", reply = "That's what I think! I'm not being friends with a thief.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Donna, and William took my doll Betsy right out of my hands and ran off laughing. I've chased him past the Cathedral and round the whole Trade District, and I'm not stopping." },
@@ -150,6 +177,9 @@ P:NPC {
         { text = "Tell me about Betsy.", next = "betsy" },
         { text = "Who taught you to run so fast?", next = "x_fast" },
         { text = "Maybe you should let William play with Betsy.", next = "x_stance" },
+        { text = "Who are your three big brothers?", next = "ybrothers" },
+        { text = "Where do you live?", next = "ylive" },
+        { text = "What if William just wants to be friends?", next = "yfriends" },
         { text = "Run, Donna, he went that way.", next = "END" },
       },
     },
@@ -191,6 +221,8 @@ P:NPC {
     },
   },
   topics = {
+    william = { { id = "ydonnastormwind5", text = "He took Betsy. He's horrible, mostly." } },
+    betsy = { { id = "ydonnastormwind6", text = "My doll, with a button eye and a blue dress my gran sewed." } },
     background = { { id = "tp_bg", text = "I live in Stormwind, and I know all the short cuts. William knows them too, and that's the trouble." } },
     _none = { { id = "tp_none", text = "I don't know, and I haven't got time! Have you seen William or not?" } },
   },
@@ -332,6 +364,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ymum = {
+      lines = {
+        { id = "ygilchaddis1", text = "She's called Karlee, and she buys powders and herbs for her work. She makes medicines for the neighbours, and they pay her in eggs and bread, and sometimes coppers. She walks really fast because she's always busy." },
+        { id = "ygilchaddis2", when = { class = "PRIEST" }, text = "Mum says priests can heal people without powders. Is that true? It would save her a lot of walking." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybig = {
+      lines = {
+        { id = "ygilchaddis3", text = "A wizard, so I can turn back into a person if somebody turns me into a rabbit. And I'd turn Paige into a frog, but only for a little while, and only if she was being bossy." },
+      },
+      choices = {
+        { text = "That's a big responsibility, Gil.", next = "yresp" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yresp = {
+      lines = {
+        { id = "ygilchaddis4", text = "Mum says that too. She says magic isn't for playing, and wizards who play get turned into rabbits. I think magic should be fun, though, or why would anyone learn it?" },
+      },
+      choices = {
+        { text = "Magic needs care and discipline. Your mum is right.", next = "BACK", reply = "Oh. Then I'll be careful. Mostly.", fx = { align = { order = 1 } } },
+        { text = "Magic should be a joy. Learn it your way.", next = "BACK", reply = "Yes! I'm going to tell Paige you said so.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Gil, and that's my mum and my sister Paige, and we're going to a shop in the Mage Quarter that's miles and miles away. Mum says it's just round the corner, but she said that three corners ago." },
@@ -346,6 +406,9 @@ P:NPC {
         { text = "Your sister doesn't seem to mind the walk.", next = "paige" },
         { text = "Could a wizard really be turned into a rabbit?", next = "x_rabbit" },
         { text = "You should listen to your mum, Gil.", next = "x_stance" },
+        { text = "What's your mum like?", next = "ymum" },
+        { text = "What do you want to be when you're big?", next = "ybig" },
+        { text = "I could tell you about the Mage Quarter.", next = "BACK", when = { class = "MAGE" }, reply = "Really? Is there a door that goes nowhere? Paige says there isn't, but I heard one." },
         { text = "Not far now, Gil.", next = "END" },
       },
     },
@@ -387,6 +450,8 @@ P:NPC {
     },
   },
   topics = {
+    fizzles = { { id = "ygilchaddis5", text = "A rabbit, but really a wizard. I worked it out myself." } },
+    paige = { { id = "ygilchaddis6", text = "My sister. She likes the dress shops, and she's bossy." } },
     background = { { id = "tp_bg", text = "I'm Gil, and I live in Stormwind, a long way from everything. That's my mum, Karlee, and she walks really fast." } },
     _none = { { id = "tp_none", text = "I don't know. Is it on the way to the Mage Quarter?" } },
   },

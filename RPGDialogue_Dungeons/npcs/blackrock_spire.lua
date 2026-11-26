@@ -45,6 +45,7 @@ P:NPC {
         { text = "The orcs here once followed Blackhand. Now they serve dragons.", next = "orcs", when = { race = "Orc" } },
         { text = "I sense old magic about you, Vaelan.", next = "sense", when = { class = { "MAGE", "PRIEST", "DRUID" } } },
         { text = "What do you need from me?", next = "BUSINESS" },
+        { text = "What did the black flight do to yours?", next = "ywrong" },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -100,9 +101,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ywrong = {
+      narr = "Something old and hot moves behind his mortal eyes, then is gone.",
+      lines = {
+        { id = "ywr_default", text = "They took what was not theirs, mortal, eggs and lives both, and used them in a forge of flesh beneath this mountain. I will not say more, for the stones listen. I will say only that I have waited a long time for mortals strong enough to climb." },
+        { id = "ywr_priest", when = { class = "PRIEST" }, text = "They took eggs and lives, priest, and used them in a forge of flesh. You feel the grief on me, I think. Do not name what you sense. I have waited a long time for mortals strong enough to climb." },
+      },
+      choices = {
+        { text = "Then I'll climb for you.", next = "BACK", reply = "Not for me. For yourselves, and for all who live beneath this sky.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    rend = { { id = "yt_rend", text = "Rend Blackhand calls himself warchief, and wears his father's name like a borrowed cloak." } },
+    drakkisath = { { id = "yt_drakk", text = "General Drakkisath holds the upper Spire for his master. He is strong, but he is not the strongest thing up there." } },
+    blackrock = { { id = "yt_br", text = "This mountain has more masters than it has floors, and every one of them answers to fire or to a dragon." } },
+    seal = { { id = "yt_seal", text = "The Seal of Ascension opens Drakkisath's hall. Gather the lords' gemstones, and do not lose them." } },
+    nefarian = { { id = "yt_nef", text = "Lord Victor Nefarius, they call him at his table. Do not be fooled by the mortal face." } },
     _none = { { id = "tp_none", text = "That is no concern of the Spire, and so no concern of mine." } },
   },
 }

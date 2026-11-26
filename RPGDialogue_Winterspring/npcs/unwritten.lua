@@ -36,6 +36,10 @@ P:NPC {
         { text = "What is the crystal of Zin-Malor?", next = "crystal" },
         { text = "Why do you remain here?", next = "remain" },
         { text = "Your people destroyed the world. Why should I help you?", next = "hate", when = { race = "NightElf" } },
+        { text = "Did you have a name, once?", next = "yname" },
+        { text = "Do you remember the city before?", next = "ycity" },
+        { text = "What would free you?", next = "yfree" },
+        { text = "Is there anything left of the old magic here?", next = "ymagic", when = { class = "MAGE" } },
         { text = "Farewell, spirit.", next = "END" },
       },
     },
@@ -66,6 +70,45 @@ P:NPC {
       lines = { { id = "ha_default", text = "You should not, for my sake. Do it for the land, so that what was taken from it is not used again by someone worse." } },
       choices = { { text = "For the land, then.", next = "BACK" } },
     },
+    yname = {
+      lines = {
+        { id = "yyname_d", text = "I did, and it was a beautiful name, sung at court. I have forgotten it. The water took it with my breath, and I have spent ten thousand years trying to remember the sound." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycity = {
+      lines = {
+        { id = "yycity_d", text = "Towers of white stone above the lake, and gardens where the moonflowers bloomed all year. We held feasts that lasted a season. We thought it would never end. Every proud people thinks that." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfree = {
+      lines = {
+        { id = "yyfree_d", text = "Perhaps nothing. Perhaps the crystal, if it were cleansed. Perhaps forgiveness, though I do not deserve it. Some say a soul such as mine should simply be destroyed." },
+      },
+      choices = {
+        { text = "Even you can be redeemed.", next = "BACK", reply = "You are kind. I do not know if you are right.", fx = { align = { light = 1 } } },
+        { text = "Some sins cannot be forgiven.", next = "BACK", reply = "Yes. I have thought so myself, for ten thousand years.", fx = { align = { light = -1 } } },
+      },
+    },
+    ymagic = {
+      lines = {
+        { id = "yymagic_v0", when = { class = "MAGE" }, text = "Fragments, like glass in the ice. Do not touch them, child of Dalaran. That is how we began, with a little power and a great deal of curiosity." },
+        { id = "yymagic_d", text = "Fragments, like broken glass in the ice. Do not touch them, child of Dalaran. That is how we began, with a little power and a great deal of curiosity." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    azshara = { { id = "ytp_azshara", text = "Queen Azshara. We loved her, and she led us into ruin. I would love her still, if I let myself." } },
+    highborne = { { id = "ytp_highborne", text = "We were the Highborne. Now we are only the drowned." } },
+    sundering = { { id = "ytp_sundering", text = "The Sundering broke the world, and us with it." } },
   },
 }
 
@@ -130,6 +173,9 @@ P:NPC {
 
         { text = "Why not stay out with Jaron at the ruins?", next = "jaron" },
         { text = "What's a barrow den?", next = "barrow" },
+        { text = "Do you miss Ironforge?", next = "ymiss" },
+        { text = "Have you seen ghosts here?", next = "yghost" },
+        { text = "What's the best find you've made?", next = "ybest" },
         { text = "Farewell, Grum.", next = "END" },
       },
     },
@@ -145,8 +191,35 @@ P:NPC {
       lines = { { id = "ba_default", text = "Where the elf druids sleep, so they tell me, deep in their dreams. It's quiet, and it's warm, and the druids don't snore, which is more than I can say for Jaron." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ymiss = {
+      lines = {
+        { id = "yymiss_d", text = "Every night, aye, an' twice on cold ones. I miss the Forge, the ale, an' the noise of folk arguin' over nothin'. Out here it's just me an' the wind, an' the wind never loses an argument." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yghost = {
+      lines = {
+        { id = "yyghost_d", text = "A pale lady by the lake, weepin'. I didnae stay to ask her what for. Jaron says they're Highborne, the ones who drowned when the world broke. I say they're bad for sleep." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybest = {
+      lines = {
+        { id = "yybest_v0", when = { race = "Dwarf" }, text = "A silver comb wi' moonstones, from a drowned house. Dinnae tell the League, kinsman. I mean tae leave it by the water for the weepin' lady." },
+        { id = "yybest_d", text = "A wee silver comb wi' moonstones in it, from a drowned house by the lake. I'll nae sell it. Some night I'll leave it by the water for the weepin' lady, an' maybe she'll stop weepin'." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    kel_theril = { { id = "ytp_kel_theril", text = "Kel'Theril's the old ruins by the lake. Jaron's mad for them. I'm mad to be here at all." } },
+    ironforge = { { id = "ytp_ironforge", text = "Ironforge is warm, an' loud, an' a long way from here." } },
     jaron = { { id = "tp_xjaron", text = "Jaron Stoneshaper. Good dwarf, terrible sense. He'll freeze out there one of these days." } },
     everlook = { { id = "tp_xeverlook", text = "Goblin town. Good ale, bad prices, and a sense o' humour about it." } },
   },
@@ -212,6 +285,10 @@ P:NPC {
 
         { text = "Who runs Everlook?", next = "who" },
         { text = "Why would anyone trade in this cold?", next = "cold" },
+        { text = "What's the worst deal you've seen?", next = "yworst" },
+        { text = "Do you trust anyone in Everlook?", next = "ytrust" },
+        { text = "Does anyone ever catch you watching?", next = "ycaught" },
+        { text = "What's Everlook's real business?", next = "yreal" },
         { text = "See you around, Umaron.", next = "END" },
       },
     },
@@ -227,8 +304,43 @@ P:NPC {
       lines = { { id = "co_default", text = "Furs, pal. Frostsaber pelts, chimaera hides, and the stuff the Timbermaw trade for. Folks pay a fortune for 'em down south, and they're up here for the taking." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yworst = {
+      lines = {
+        { id = "yyworst_d", text = "A trader sold a crate of 'Timbermaw honey' to a dwarf, and it turned out to be frozen mud. The Timbermaw found out and stopped trading for a month. Cost the Cartel a fortune." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytrust = {
+      lines = {
+        { id = "yytrust_d", text = "Trust? Pal, I trust the ledger, and the ledger doesn't trust anybody. But Lunnix is close, and Gogo's close if you pay her first." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycaught = {
+      lines = {
+        { id = "yycaught_d", text = "All the time, pal. That's the trick. A goblin who watches openly is just nosy. A goblin who sneaks is a spy. I'm very, very nosy." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yreal = {
+      lines = {
+        { id = "yyreal_v0", when = { race = "Goblin" }, text = "You know it already, cousin. Furs, Timbermaw beads and anything dug out of the ice. It's a counting house with snow on the roof." },
+        { id = "yyreal_d", text = "Furs, pal, furs and Timbermaw trade and anything people dig out of the ice. Everybody thinks it's a little frontier town. It's a counting house with snow on the roof." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    cartel = { { id = "ytp_cartel", text = "The Steamwheedle Cartel keeps the peace in Everlook. Peace is profitable." } },
+    everlook = { { id = "ytp_everlook", text = "Everlook is a Steamwheedle town. Neutral ground, high prices, good profits." } },
     steamwheedle = { { id = "tp_xsteam", text = "The cartel. Everlook, Gadgetzan, Booty Bay and Ratchet. Neutral, profitable, and always watchin'." } },
     timbermaw = { { id = "tp_xtimbermaw", text = "Furbolgs who still have their wits. Good traders, if you've made friends first." } },
   },
@@ -263,6 +375,9 @@ P:NPC {
         { text = "What is the Lunar Festival?", next = "festival" },
         { text = "I've come to honor you, Elder.", next = "honor" },
         { text = "What were these ruins, Elder?", next = "highborne", when = { race = "NightElf" } },
+        { text = "Did you know the Highborne of Kel'Theril?", next = "yknew" },
+        { text = "Do you forgive them?", next = "yforgive" },
+        { text = "What would you have me remember?", next = "yremember" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -298,8 +413,37 @@ P:NPC {
       lines = { { id = "hb_default", text = "Homes and libraries of the Highborne, before Azshara's madness. Some of them still linger here as ghosts, weeping. Be kind to them if you can." } },
       choices = { { text = "I will, Elder.", next = "BACK" } },
     },
+    yknew = {
+      lines = {
+        { id = "yyknew_d", text = "Some of them, as one knows a neighbour across a river. They were brilliant and cruel and very beautiful, and they did not see the flood coming until it took them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yforgive = {
+      lines = {
+        { id = "yyforgive_d", text = "Forgiveness is not mine to give. They wronged the world, not me alone. But I can mourn them, and I do, for they were Kaldorei once, as I am, and they chose wrongly." },
+      },
+      choices = {
+        { text = "Mourning them is right. They were your people.", next = "BACK", reply = "Yes. The festival teaches that the dead are owed remembrance, all of them.", fx = { align = { light = 1 } } },
+        { text = "They chose their fate. Let them be forgotten.", next = "BACK", reply = "Some say so. But forgetting is how such things happen again.", fx = { align = { light = -1 } } },
+      },
+    },
+    yremember = {
+      lines = {
+        { id = "yyremember_v0", when = { race = "NightElf" }, text = "That pride without wisdom is a fire with no hearth. Our people learned it here at great cost. Remember it, child, for the Kaldorei forget too easily." },
+        { id = "yyremember_d", text = "That pride without wisdom is a fire with no hearth. Remember it when you are tempted to think yourself greater than those around you. We all are, sometimes." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    lunar_festival = { { id = "ytp_lunar_festival", text = "The Lunar Festival calls the elders home, if only for a night. I come every year." } },
+    kel_theril = { { id = "ytp_kel_theril", text = "Kel'Theril was a city of the Highborne, once. Now it is ice and memory." } },
+    elune = { { id = "ytp_elune", text = "Elune watches the living and the dead alike." } },
     _none = { { id = "tp_none", text = "I do not know, child." } },
   },
 }
@@ -363,6 +507,9 @@ P:NPC {
 
         { text = "What happened to this land?", next = "land" },
         { text = "What threatens Winterspring now?", next = "threat" },
+        { text = "Do you ever lose faith?", next = "yfaith" },
+        { text = "Who built these shrines?", next = "ybuilt" },
+        { text = "Do the furbolgs trouble you?", next = "yfurbolg" },
         { text = "Elune-adore, priestess.", next = "END" },
       },
     },
@@ -378,8 +525,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yfaith = {
+      lines = {
+        { id = "yyfaith_d", text = "On the longest nights, when the wind howls and the shrines stay buried, yes. Then I sing to Elune anyway, and in the morning the moon is still there. That is enough." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybuilt = {
+      lines = {
+        { id = "yybuilt_v0", when = { race = "NightElf" }, text = "Our foremothers, sister, before the Sundering. They built small shrines along the paths so no traveller walked far from Elune's light. We have forgotten most of them." },
+        { id = "yybuilt_d", text = "Priestesses of old, before the Sundering, when Winterspring was a green valley called by another name. They built small shrines along the paths, so travellers would never walk far from Elune's light." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfurbolg = {
+      lines = {
+        { id = "yyfurbolg_v0", when = { class = "DRUID" }, text = "The Timbermaw help me dig, druid. The Winterfall have gone mad with something foul in their drink. You will feel it in the land near their camps, a sickness." },
+        { id = "yyfurbolg_d", text = "The Timbermaw leave me in peace, and some of them have helped me dig. The Winterfall, though, have gone mad with something foul in their firewater. I pray for them as much as against them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    winterspring = { { id = "ytp_winterspring", text = "Winterspring was green once. Elune remembers, even if the snow does not." } },
     elune = { { id = "tp_xelune", text = "The Mother Moon. She watches even this frozen land, and so do I." } },
     frostsabers = { { id = "tp_xsabers", text = "Proud cats of the snow. The Sentinels prize them above all mounts." } },
   },

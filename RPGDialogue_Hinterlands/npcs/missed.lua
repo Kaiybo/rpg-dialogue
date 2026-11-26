@@ -38,6 +38,8 @@ P:NPC {
         { text = "How do you armor someone who flies?", next = "riders" },
         { text = "What does the armor have to stop out here?", next = "trolls" },
         { text = "Wildhammer smithing differs from Ironforge's?", next = "ironforge" },
+        { text = "How did you become an armorsmith?", next = "y_how" },
+        { text = "What's the worst armor you ever made?", next = "y_worst" },
         { text = "Show me your armor.", next = "END" },
       },
     },
@@ -60,9 +62,40 @@ P:NPC {
       lines = { { id = "i_default", text = "Our cousins under the mountain make it thick an' square, like themselves, an' it's grand work for standin' in a tunnel. We left the tunnels long ago, an' we forge for folk who mean tae move." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    y_how = {
+      lines = {
+        { id = "y_how_d", text = "My da was a rider, an' he fell off his gryphon over Grim Batol when the strap broke on his breastplate. I swore nae Wildhammer would fall for a bad strap again while I had a hammer." },
+        { id = "y_how_dw", when = { race = "Dwarf" }, text = "My da was a rider, an' a strap broke on his breastplate over Grim Batol. Ye'll ken the tale, maybe, for it's a common one. I swore nae rider would fall for a bad strap again." },
+      },
+      choices = {
+        { text = "Did he survive?", next = "y_survive" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_survive = {
+      lines = { { id = "y_survive_d", text = "His gryphon dived an' caught him, broke her own wing doin' it. He lived, she didnae fly again. He kept her by the fire till she passed, an' he never rode another." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_worst = {
+      lines = { { id = "y_worst_d", text = "A plate harness for a gryphon herself, ordered by a young rider who wanted his bird armored like a war horse. She couldnae get off the ground. I refused his coin, an' he went tae an Ironforge smith instead." },
+      },
+      choices = {
+        { text = "You should have made it as he asked.", next = "y_asked" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_asked = {
+      lines = { { id = "y_asked_d", text = "His coin, his bird, his choice, aye? But it was her life. D'ye think a smith should make what's ordered, or what's right?" } },
+      choices = {
+        { text = "What's right. The bird mattered more.", next = "BACK", reply = "Aye, that's my thinkin'. The bird's still alive, I hear.", fx = { align = { order = -1 } } },
+        { text = "What's ordered. It's his business.", next = "BACK", reply = "Hmph. Ye'd make a fine Ironforge smith, then.", fx = { align = { order = 1 } } },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I'm a Wildhammer o' Aerie Peak, an' I've hammered armor for the riders since my beard was short." } },
+    falstad = { { id = "y_tp_falstad", text = "Falstad Wildhammer leads us. He flies better than any dwarf alive an' drinks better too." } },
+    gryphons = { { id = "y_tp_gryph", text = "A gryphon's nae a mount, she's a partner. Armor her rider, never her." } },
     _none = { { id = "tp_none", text = "Cannae help ye there, {g:lad|lass}. Ask Falstad's folk in the keep." } },
   },
 }
@@ -101,6 +134,9 @@ P:NPC {
         { text = "What should I carry into the Hinterlands?", next = "carry" },
         { text = "How do supplies reach a mountaintop?", next = "supply" },
         { text = "What's life like at Aerie Peak?", next = "life" },
+        { text = "Have you always lived at the Peak?", next = "y_always" },
+        { text = "Has a traveller ever not come back?", next = "y_lost" },
+        { text = "What's in Wildhammer ale?", next = "y_ale" },
         { text = "Let me see your goods.", next = "END" },
       },
     },
@@ -123,9 +159,36 @@ P:NPC {
       lines = { { id = "l_default", text = "Windy, loud an' free, an' I'd nae trade it for all the halls of Ironforge. Ye wake tae gryphons cryin' an' ye sleep tae Falstad's lads singin', an' there's nae roof o' stone between ye an' the sky." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    y_always = {
+      lines = {
+        { id = "y_always_d", text = "Born in a nest-room wi' gryphon chicks squawkin' in the next stall, dearie. My mam kept the stores before me, an' her mam before her. There's been a Stonefist behind this counter since the Peak was built." },
+        { id = "y_always_dw", when = { race = "Dwarf" }, text = "Born here, cousin, wi' chicks squawkin' next door. Ye'll have yer own clan hall somewhere. Ours is this counter, an' a Stonefist's kept it since the Peak was built." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_lost = {
+      lines = { { id = "y_lost_d", text = "Too many. A young human mage last spring bought a fortnight's supplies an' went toward Jintha'Alor. A rider found his pack a week later, near the Vilebranch steps. I still keep his tab open." } },
+      choices = {
+        { text = "Should you warn travellers away?", next = "y_warn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_warn = {
+      lines = { { id = "y_warn_d", text = "I could refuse tae sell tae anyone headin' toward the troll cities. But folk would go anyway, wi' less food. Is it better tae sell an' warn, or refuse an' hope?" } },
+      choices = {
+        { text = "Refuse. Don't help them die.", next = "BACK", reply = "Aye, maybe I'll try that, for the young ones.", fx = { align = { light = 1 } } },
+        { text = "Sell and warn. Their choice.", next = "BACK", reply = "That's what my mam did. I'll keep on.", fx = { align = { light = -1 } } },
+      },
+    },
+    y_ale = {
+      lines = { { id = "y_ale_d", text = "Wildhammer ale's brewed wi' highland heather an' a wee bit o' thunder, so the old saying goes. It'll knock an Ironforge dwarf flat in two mugs. Visitors always think they'll manage three." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "Wildhammer born an' bred. I keep the Peak's stores, an' I keep its travellers fed." } },
+    aerie_peak = { { id = "y_tp_ap", text = "Aerie Peak's home, an' the best view in the world, if ye can stand the wind." } },
+    quel_danil = { { id = "y_tp_qd", text = "Quel'Danil's elves are fine folk, if a bit stiff. They pay their tabs, at least." } },
     _none = { { id = "tp_none", text = "I dinnae ken, dearie. Ask at the keep, they hear all the news the riders bring." } },
   },
 }
@@ -162,6 +225,8 @@ P:NPC {
         { text = "Why camp in the middle of troll country?", next = "why" },
         { text = "What are you building?", next = "building" },
         { text = "Do the trolls and wolves leave you alone?", next = "safe" },
+        { text = "Who is Gigget to you?", next = "y_gigget" },
+        { text = "Did you leave Gnomeregan in time?", next = "y_gnomer" },
         { text = "Let me see your parts.", next = "END" },
       },
     },
@@ -184,10 +249,33 @@ P:NPC {
       lines = { { id = "s_default", text = "Mostly! The elves at Quel'Danil keep the nearest trolls busy, and the wolves have learned that our camp occasionally goes bang. I'd put our survival odds at eighty-eight percent per month, which Gigget says I shouldn't say to customers." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    y_gigget = {
+      lines = {
+        { id = "y_gigget_d", text = "My cousin! Well, second cousin. Well, she married my cousin, and then the cousin went off to Booty Bay and Gigget stayed with me. She keeps the books and I keep the sparks, and between us we have one complete business." },
+        { id = "y_gigget_gn", when = { race = "Gnome" }, text = "My cousin, by marriage, which among gnomes is basically a binding contract! She keeps the books and I keep the sparks. You'll know the arrangement." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_gnomer = {
+      lines = { { id = "y_gnomer_d", text = "Just barely, carrying a crate of parts instead of my journals. I've wondered ever since whether I saved the wrong thing. Gigget says the parts kept us fed. My journals had forty years of ideas in them." } },
+      choices = {
+        { text = "Ideas can be rebuilt. You chose well.", next = "BACK", reply = "Gigget says the same! I'm starting to believe it.", fx = { align = { light = 1 } } },
+        { text = "You should go back for the journals.", next = "y_back" },
+      },
+    },
+    y_back = {
+      lines = { { id = "y_back_d", text = "Into the radiation and the troggs? Mekkatorque says the city will be retaken one day. Should I wait for him, or risk it on my own?" } },
+      choices = {
+        { text = "Go now. Those ideas are worth it.", next = "BACK", reply = "Oh dear, oh dear. Don't tell Gigget.", fx = { align = { order = -1 } } },
+        { text = "Wait for Mekkatorque.", next = "BACK", reply = "Sensible. Much less likely to melt.", fx = { align = { order = 1 } } },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I'm a Zipcoil, I sell parts, and I build things in the woods where it's safe to. Safe for other people, I mean." } },
     gnomeregan = { { id = "tp_gn", text = "We left with what we could carry, which in our case was mostly crates. I'd rather build than brood on it." } },
+    gigget = { { id = "y_tp_gigget", text = "Gigget knows where everything is. I know what everything does. It's a good partnership." } },
+    quel_danil = { { id = "y_tp_qd", text = "The elves at Quel'Danil buy my alarms. They're very polite about the occasional explosion." } },
     _none = { { id = "tp_none", text = "I've no idea! Ask Gigget, she keeps track of the things I don't." } },
   },
 }
@@ -228,6 +316,9 @@ P:NPC {
         { text = "What became of Quel'Thalas?", next = "quel" },
         { text = "Who threatens the lodge?", next = "threat" },
         { text = "How do you stand with the Wildhammer?", next = "dwarves" },
+        { text = "Did you lose anyone when Quel'Thalas fell?", next = "y_lost" },
+        { text = "What troubles you about the lodge?", next = "y_trouble" },
+        { text = "Tell me of the Highvale.", next = "y_highvale" },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -250,9 +341,36 @@ P:NPC {
       lines = { { id = "d_default", text = "As allies of long standing. The Wildhammer fought beside our rangers in the Second War, and when the rest of the Alliance grew cold toward us, the dwarves of Aerie Peak still sent gryphons to ask how we fared." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    y_lost = {
+      lines = {
+        { id = "y_lost_d", text = "My brother, a Farstrider who held the river crossings south of Silvermoon against the Scourge. He sent our mother a message the day before it fell, and asked her to plant a tree for him in the Highvale. I planted it myself." },
+        { id = "y_lost_dw", when = { race = "Dwarf" }, text = "My brother, a Farstrider who fell south of Silvermoon. Your Wildhammer cousins brought word of him to the lodge. I owe your people that kindness still. I planted a tree for him here." },
+      },
+      choices = { { text = "I am sorry.", next = "BACK" } },
+    },
+    y_trouble = {
+      lines = { { id = "y_trouble_d", text = "Some of the younger rangers wish to return north, to what remains of our homeland. Others say our duty is here, holding the Highvale. I am asked to choose who stays." } },
+      choices = {
+        { text = "Let them go home. Their kin need them.", next = "y_choose" },
+        { text = "Something more.", next = "BACK" },
+      },
+    },
+    y_choose = {
+      lines = { { id = "y_choose_d", text = "If I let them go, the lodge is thin against the trolls. If I hold them, I keep them from their kin forever. Which would you choose, stranger?" } },
+      choices = {
+        { text = "Hold them. The lodge must stand.", next = "BACK", reply = "Duty, then. It is the answer I feared.", fx = { align = { order = 1 } } },
+        { text = "Let them go. Kin comes first.", next = "BACK", reply = "Then I will open the gate, and pray we hold.", fx = { align = { order = -1 } } },
+      },
+    },
+    y_highvale = {
+      lines = { { id = "y_highvale_d", text = "The Highvale is a fragment of the old forests, and the lodge was built as a hunting retreat for the nobility. Now it is a refuge. The deer here still remember the old songs, if you listen." } },
+      choices = { { text = "Something more.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I am a ranger of the Highvale, and Quel'Danil is my charge." } },
+    farstriders = { { id = "y_tp_fs", text = "The Farstriders were our finest rangers. Few remain, and I am not among the best of them." } },
+    vilebranch = { { id = "y_tp_vb", text = "The Vilebranch hunt the hills north of here. We keep our arrows ready." } },
     _none = { { id = "tp_none", text = "I cannot tell you. We keep to our forest, and the world's news reaches us late." } },
   },
 }

@@ -93,6 +93,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Oh, hello! You swam all the way out here? You're not from Gadgetzan about the mooring fee, are you, because I've checked and this island isn't on their map." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! I've turned over since you were last here, so that's my day's work done." },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "A dwarf! Lovely! You won't make me talk about gears, will you? Dwarves only ever want to talk about gears, or beer." },
   },
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
@@ -102,6 +103,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    y_hist = {
+      lines = {
+        { id = "y_y_hist", text = "I spent eleven years in Gnomeregan calibrating pressure valves. Then Gnomeregan was lost, and I spent four more in Ironforge calibrating them all over again. One morning I realised I'd never seen the sea. So I came to see it." },
+      },
+      choices = {
+        { text = "Did you lose anyone in Gnomeregan?", next = "y_lost" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_lost = {
+      lines = {
+        { id = "y_y_lost", text = "A few. My supervisor, Mister Cogsworth, who used to hum while he worked. A friend from the boiler rooms. I try not to think about it. That's partly why I'm here; it's easier not to think about it in the sun." },
+        { id = "y_y_lost_v0", when = { race = "Gnome" }, text = "A few, as I expect you did. My supervisor, Mister Cogsworth, who hummed while he worked. It's easier not to think about it in the sun." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_visit = {
+      lines = {
+        { id = "y_y_visit", text = "A goblin from Gadgetzan came out once in a little rowboat, to tell me I owed a mooring fee for the island. I told him I hadn't moored anything, I'd swum. He went away very confused, and I've not seen him since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_back = {
+      lines = {
+        { id = "y_y_back", text = "Sometimes I think I ought to go back and help retake Gnomeregan. Other times I think I've done my share and deserve a holiday. What do you think?" },
+      },
+      choices = {
+        { text = "Go back. Your people need you.", next = "BACK", reply = "Oh, I know, I know. I'll go. Soon. After the tide turns. Or the next one.", fx = { align = { honor = 1 } } },
+        { text = "Rest. You've earned it.", next = "BACK", reply = "Thank you! That's what I keep telling myself. It's lovely to hear it from someone else.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm Winkey! I spent eleven years calibrating pressure valves, and then one morning I calculated that I had spent ninety-four percent of my life indoors, so I came to find the sunniest place on the map and lie down on it." } },
       again = {
@@ -112,6 +149,10 @@ P:NPC {
         { text = "Why this island?", next = "island" },
         { text = "Isn't it dangerous out here alone?", next = "danger" },
         { text = "Don't you miss your work?", next = "work" },
+        { text = "How did you end up here?", next = "y_hist" },
+        { text = "Has anyone else visited?", next = "y_visit" },
+        { text = "Will you ever go back to work?", next = "y_back" },
+        { text = "I'm an engineer myself.", next = "BACK", when = { profession = "Engineering" }, reply = "Oh dear. Please don't tell me what you're working on. I'll want to help, and then I'll be working." },
         { text = "Enjoy the sun, Winkey.", next = "END" },
       },
     },
@@ -136,6 +177,8 @@ P:NPC {
     },
   },
   topics = {
+    gnomeregan = { { id = "tp_ygnomeregan", text = "Gnomeregan. My old home. I try not to think about it, and I'm getting quite good at it." } },
+    gadgetzan = { { id = "tp_ygadgetzan", text = "Gadgetzan wants a mooring fee. I swam. That's not mooring." } },
     background = { { id = "tp_bg", text = "A valve calibrator from Gnomeregan, retired for the present. I'm on the first holiday of my life." } },
     _none = { { id = "tp_none", text = "I haven't the faintest idea, and isn't that lovely? I used to have to know everything." } },
   },

@@ -35,6 +35,9 @@ P:NPC {
         { text = "What does your son get up to?", next = "gimlok" },
         { text = "How did dwarves come to keep shop here?", next = "shop" },
         { text = "You sound like you miss the mountains.", next = "home" },
+        { text = "Where did you live before Menethil?", next = "ybefore" },
+        { text = "What will Gimlok be when he's grown?", next = "yfuture" },
+        { text = "Do you get trouble from the Dragonmaw here?", next = "ydmaw" },
         { text = "Good day, Derina.", next = "END" },
       },
     },
@@ -57,8 +60,47 @@ P:NPC {
       lines = { { id = "ho_default", text = "Aye, I do. I miss dry stockings an' a proper hearth cut from the rock, but trade's good an' the neighbours are kind, so I'll nae complain more than twice a day." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  
+    ybefore = {
+      lines = {
+        { id = "yderina_ybefore_d", text = "Dun Modr, before the Dark Irons came. We left with what we could carry an' a cart that lost a wheel on the road. Gruham fixed it wi' his belt, an' he's been holdin' his trousers up wi' rope ever since." },
+        { id = "yderina_ybefore_v0", when = { race = "Dwarf" }, text = "Dun Modr, before the Dark Irons. Ye'll have kin who lost homes the same way, I'd wager. Gruham fixed our cart wi' his belt, an' he's held his trousers up wi' rope ever since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfuture = {
+      lines = {
+        { id = "yderina_yfuture_d", text = "Gruham wants him tae have the shop. I want him tae have anythin' that keeps him on dry land. Gimlok wants tae be a sailor, which is the one thing a dwarf boy should never be. We'll see who wins." },
+      },
+      choices = {
+        { text = "Should you let him choose?", next = "ychoose" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ychoose = {
+      lines = {
+        { id = "yderina_ychoose_d", text = "That's the question, isn't it? My own mam chose for me, an' I never forgave her for it. But I've seen what the sea does, an' a dwarf in deep water is a dwarf at the bottom of it." },
+      },
+      choices = {
+        { text = "Keep him safe. A mother knows best.", next = "BACK", reply = "Aye, that's my heart talkin' too, though I'll need tae be cleverer than him.", fx = { align = { order = 1 } } },
+        { text = "Let him choose. It's his life to live.", next = "BACK", reply = "Ye sound like Gruham. Maybe ye're both right, an' I'm only frightened.", fx = { align = { order = -1 } } },
+      },
+    },
+    ydmaw = {
+      lines = {
+        { id = "yderina_ydmaw_d", text = "No' in the town, thank the Light, but the roads are another matter. Our supply wagons come down from Dun Algaz, an' twice this year they've been late because o' raids. Gruham worries, an' then I worry for both of us." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    gruham = { { id = "yderina_tp_gruham", text = "Gruham's a good husband an' a better shopkeeper. He'll sell ye a rope ye didnae know ye needed." } },
+    gimlok = { { id = "yderina_tp_gimlok", text = "Gimlok's somewhere he shouldnae be. If ye see him, send him home, an' tell him his mam means it." } },
+
     background = { { id = "tp_bg", text = "I'm a shopkeeper's wife an' a mother, an' both are full days' work in this town." } },
     _none = { { id = "tp_none", text = "I wouldnae know, dearie. Ask Gruham, he hears everythin' over that counter." } },
   },
@@ -94,6 +136,9 @@ P:NPC {
         { text = "What do you do with the crabs?", next = "crabs" },
         { text = "Who do you play with?", next = "play" },
         { text = "Your mother is looking for you.", next = "mam" },
+        { text = "What's your bravest adventure?", next = "ybrave" },
+        { text = "Are you scared of anything?", next = "yscared" },
+        { text = "What do you want to be when you're grown?", next = "ygrown" },
         { text = "Stay out of the water, Gimlok.", next = "END" },
       },
     },
@@ -116,8 +161,47 @@ P:NPC {
       lines = { { id = "m_default", text = "She's always lookin' for me, that's just how she is. I'll go home when I hear her the third time, because the third time is when she means it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  
+    ybrave = {
+      lines = {
+        { id = "ygimlok_ybrave_d", text = "I went under the pier at low tide an' found a murloc's egg! Well, it might've been a rock. But it was green an' it was round, an' I hid it under my bed till Mam found it an' screamed." },
+      },
+      choices = {
+        { text = "What did she do with it?", next = "yegg" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yegg = {
+      lines = {
+        { id = "ygimlok_yegg_d", text = "She threw it in the harbour. I cried a bit, but only a bit. Jesse says I should've kept it secret. Regina says Mam was right, because it might've hatched an' eaten me." },
+      },
+      choices = {
+        { text = "Your mam was right. Murlocs don't make good pets.", next = "BACK", reply = "Aye, that's what Da said too. I'll find a crab instead, they're safer.", fx = { align = { order = 1 } } },
+        { text = "Next time, keep it secret. Explorers need treasures.", next = "BACK", reply = "I will! I'll make a hidin' place even Mam cannae find.", fx = { align = { order = -1 } } },
+      },
+    },
+    yscared = {
+      lines = {
+        { id = "ygimlok_yscared_d", text = "The deep water past the pier, because Mam says dwarves sink. An' the ghost ships up the coast, because Jesse says they're full o' drowned sailors who come ashore at night lookin' for boys." },
+        { id = "ygimlok_yscared_v0", when = { race = "Dwarf" }, text = "The deep water, because we sink. Ye're a dwarf, so ye know. An' the ghost ships Jesse tells about, full o' drowned sailors lookin' for boys." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygrown = {
+      lines = {
+        { id = "ygimlok_ygrown_d", text = "A sailor, on the Maiden's Virtue, all the way to Theramore. Mam says no. Da says maybe. I say I'll learn tae swim first, an' then they cannae stop me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    magni = { { id = "ygimlok_tp_magni", text = "Magni's my crab. He's the king o' the crabs, an' he pinches harder than any of 'em." } },
+    jesse = { { id = "ygimlok_tp_jesse", text = "Jesse climbs the tower. I'll climb it too, when I'm taller." } },
+
     background = { { id = "tp_bg", text = "I'm Gimlok Rumdnul, an' my da's shop is the one wi' all the rope." } },
     _none = { { id = "tp_none", text = "I dinnae know that one. Ask my da, he knows everythin' that costs money." } },
   },

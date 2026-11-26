@@ -509,10 +509,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ydesert = {
+      lines = { { id = "ydesert_x", text = "Did he now? He's right. I ran from the Andorhal garrison to warn my mum about the grain. I got there three days too late. Edward covered for me, and I owe him every fight I'll ever win." } },
+      choices = {
+        { text = "Did you find your mother?", next = "ymum" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymum = {
+      lines = { { id = "ymum_x", text = "I found her walking the road with the others, eyes empty. I couldn't stop her. Someone else did, later. I don't know who, and I don't want to. Do you think a man should look for the one who put his mother down?" } },
+      choices = {
+        { text = "Yes. You deserve to know the truth.", next = "BACK", reply = "Maybe. Maybe one day. Not before the next bout, though.", fx = { align = { light = -1 } } },
+        { text = "No. Let her rest, and let it be.", next = "BACK", reply = "Aye. That's what Edward says. He's usually right.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ystop = {
+      lines = { { id = "ystop_x", text = "Stop? Ha! Dead men don't retire. But if I did, I'd find a quiet bit of Tirisfal and grow pumpkins. Nothing grows in Tirisfal, mind. I'd still try." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "I'm Tyler, and that's Edward, and between us we knock down whatever Brother Malach raises. It's meant to be training, though I'll admit it's the most alive I've felt since I stopped being it." },
+        { id = "yh_rogue", when = { class = "ROGUE" }, text = "A rogue, watching me. I like that. You see the feint before the crowd does, don't you?" },
       },
       again = {
         { id = "h_again", text = "What else? One eye on the gate while you ask, mind." },
@@ -523,6 +543,8 @@ P:NPC {
         { text = "How do you and Edward fight together?", next = "edward" },
         { text = "Do you hear the crowd down here?", next = "crowd" },
         { text = "How would you take an abomination?", next = "abom", when = { class = { "WARRIOR", "ROGUE", "HUNTER" } } },
+        { text = "Edward says you were a deserter.", next = "ydesert" },
+        { text = "What will you do when you stop fighting?", next = "ystop" },
         { text = "Fight well, Tyler.", next = "END" },
       },
     },
@@ -561,6 +583,8 @@ P:NPC {
     },
   },
   topics = {
+    edward = { { id = "ytp_edward", text = "Edward's the only man I'd trust at my back. He's earned it twice over." } },
+    andorhal = { { id = "ytp_and", text = "Andorhal's where it started. The grain. I can still smell it, some nights." } },
     background = { { id = "tp_bg", text = "I was a brawler in Lordaeron, the sort who got thrown out of taverns. Now I'm paid for it, in a manner of speaking, and nobody throws me anywhere but the abomination." } },
     _none = { { id = "tp_none", text = "No idea, friend, and no time to think about it. Ask me when the gate's shut." } },
   },
@@ -586,10 +610,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A clerk at the Scholomance, before it was the Scholomance. When it was still the Barov family's estate, I kept their household accounts. I saw strange men arrive in black robes and I wrote them down as guests." } },
+      choices = {
+        { text = "You saw the Cult of the Damned arrive?", next = "ycult" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycult = {
+      lines = { { id = "ycult_x", text = "I saw them, and I recorded them, and I said nothing to anyone. I tell myself I didn't know. I did know. Should a man be blamed for what he only wrote down?" } },
+      choices = {
+        { text = "Yes. Silence made you part of it.", next = "BACK", reply = "Yes. I suspected so. I'll write that down too.", fx = { align = { light = 1 } } },
+        { text = "No. A clerk's only duty is the ledger.", next = "BACK", reply = "That's very generous. I'm not sure I believe it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ynotes = {
+      lines = { { id = "ynotes_x", text = "A treatise, eventually, on how a demon bargains. Mistress Pruitt thinks I'll never finish it. Winifred thinks I'll never start. Adrian thinks I should simply summon an imp and ask it. All three are probably right." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ybehind = {
+      lines = { { id = "ybehind_x", text = "Because if anything goes wrong in the circle, the demon looks at the front row first. I've studied that very carefully. It's my most reliable finding to date." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Victor Bartholomew, student. Mistress Pruitt calls the demons up one at a time and tells us what each is good for, and I write it all down, because I've no power of my own yet and a notebook is what I have in its place." },
+        { id = "yh_warlock", when = { class = "WARLOCK" }, text = "A warlock. Could I ask you, very quickly, what the first summoning felt like? For my notes. You needn't answer. I'll understand." },
       },
       again = {
         { id = "h_again", text = "Yes? Quietly, if you would, she's started the next circle." },
@@ -600,6 +648,9 @@ P:NPC {
         { text = "Which demon unsettles you most?", next = "demon" },
         { text = "What are your classmates like?", next = "class" },
         { text = "It didn't hurt. It argued terms, like a lawyer with teeth.", next = "argued", when = { class = "WARLOCK" } },
+        { text = "What were you in life?", next = "ylife" },
+        { text = "What do you plan to do with your notes?", next = "ynotes" },
+        { text = "Why stand behind the others?", next = "ybehind" },
         { text = "Mind your notes, Victor.", next = "END" },
       },
     },
@@ -635,6 +686,8 @@ P:NPC {
     },
   },
   topics = {
+    scholomance = { { id = "ytp_scholo", text = "The Barovs' old estate. I kept its books, once. I don't like to think about what it keeps now." } },
+    jezelle_pruitt = { { id = "ytp_pruitt", text = "Mistress Pruitt is the most precise person I have ever met, and I've met clerks." } },
     background = { { id = "tp_bg", text = "I was a notary in Lordaeron and drew up other people's wills. I find the warlock's trade is the same work, with clients who bite." } },
     _none = { { id = "tp_none", text = "It isn't in my notes, and I shouldn't like to guess. Mistress Pruitt would know, once the lesson's over." } },
   },
@@ -660,10 +713,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A Kerwin, which in Lordaeron meant a family of scribes and dull clerics. I was the dullest of them, by design. I went to the cathedral every day and prayed for something interesting to happen. Something did." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ywant = {
+      lines = { { id = "ywant_x", text = "Power, plainly. Not Richard's kind, the slow kind, but enough that no Scourge and no Scarlet could ever bind me again. A demon on a leash is the surest freedom a Forsaken can buy. Don't you agree?" } },
+      choices = {
+        { text = "Yes. Power is the only real freedom.", next = "BACK", reply = "At last, someone sensible. I'll tell Adrian you said so.", fx = { align = { light = -1 } } },
+        { text = "No. A leash binds both ends.", next = "BACK", reply = "Richard says that. I hoped you'd be more original.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfail = {
+      lines = { { id = "yfail_x", text = "I worry that I'll succeed and find out Richard was right about everything. That's far worse than failing. Failing, at least, would be my own." } },
+      choices = {
+        { text = "Was there a pupil who failed before?", next = "ypupil" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ypupil = {
+      lines = { { id = "ypupil_x", text = "There's a scorch mark on the floor by the third pillar, and Mistress Pruitt walks around it. Adrian thinks it was an imp. I think it was a felhunter, by the shape. Nobody will tell us, and that's a lesson in itself." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Winifred Kerwin. I attend Mistress Pruitt's lessons with Adrian Bartlett and Victor Bartholomew, and I intend to be the first of us permitted to summon, which shouldn't be difficult, given the competition." },
+        { id = "yh_warlock", when = { class = "WARLOCK" }, text = "A warlock. Do you know my kinsman Richard? I trust you'll tell him I was at the front of the class today." },
       },
       again = {
         { id = "h_again", text = "Another question? Good, I like them." },
@@ -674,6 +751,9 @@ P:NPC {
         { text = "You're kin to Richard Kerwin?", next = "richard" },
         { text = "You're hard on your classmates.", next = "mates" },
         { text = "Which demon would you bind first, if you dared?", next = "first", when = { class = "WARLOCK" } },
+        { text = "Who were you in life?", next = "ylife" },
+        { text = "What do you want from your studies?", next = "ywant" },
+        { text = "Do you worry about failing?", next = "yfail" },
         { text = "Back to your lesson, then.", next = "END" },
       },
     },
@@ -709,6 +789,8 @@ P:NPC {
     },
   },
   topics = {
+    richard_kerwin = { { id = "ytp_rich", text = "Richard trains warlocks and disapproves of me. I find both admirable." } },
+    jezelle_pruitt = { { id = "ytp_pruitt", text = "Mistress Pruitt is the only teacher I've ever wanted to impress. Don't tell her." } },
     background = { { id = "tp_bg", text = "The Kerwins had a talent for the forbidden arts before the plague made them respectable. I mean to be better at them than any Kerwin yet, Richard included." } },
     _none = { { id = "tp_none", text = "I don't know, which annoys me. I shall look it up and know by tomorrow." } },
   },

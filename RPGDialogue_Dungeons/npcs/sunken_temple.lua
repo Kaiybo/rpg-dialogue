@@ -29,6 +29,8 @@ P:NPC {
         { text = "Why wait in this cursed temple?", next = "why" },
         { text = "I have come for your blessing, elder.", next = "blessing" },
         { text = "Elune be with you, elder.", next = "nelf", when = { race = "NightElf" } },
+        { text = "Do you remember the old kaldorei?", next = "yold" },
+        { text = "Does Hakkar's evil touch the festival?", next = "yhakkar" },
         { text = "Farewell, elder.", next = "END" },
       },
     },
@@ -59,6 +61,34 @@ P:NPC {
       lines = { { id = "n_default", text = "And with you, child. Remember the Sentinels and the druids when you leave this place, and remember that the moon watches over all of us, even here." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yold = {
+      lines = {
+        { id = "yo_default", text = "I remember the shores of the Well, and the songs we sang under the stars before the Sundering. I sang them myself, which is why they call me Starsong. Now I sing only once a year, and only for those brave enough to find me." },
+        { id = "yo_nelf", when = { race = "NightElf" }, text = "I remember the shores of the Well and the songs before the Sundering, child, songs your grandmother's grandmother learned from mine. Will you sing one with me, softly, so the Atal'ai do not hear?" },
+      },
+      choices = {
+        { text = "Why sing here, of all places?", next = "ysing" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysing = {
+      lines = { { id = "ys_default", text = "Because the green dragons who guard these halls are servants of Ysera, and I would remind them of the world they swore to protect. Some of them have begun to dream darkly. A song is a small thing, but they listen." } },
+      choices = { { text = "May they listen well. Something else.", next = "BACK" } },
+    },
+    yhakkar = {
+      narr = "The elder's glow tightens, drawing close around her like a shawl.",
+      lines = { { id = "yh_default", text = "It presses on me, here, like a hand on the chest. The Atal'ai would wake a god of blood, and some say the only answer is to slay every priest in these halls. Others say the dragons should be left to contain them. What would you choose?" } },
+      choices = {
+        { text = "Slay the priests. Hakkar must not rise.", next = "BACK", reply = "A hard choice, but perhaps a needed one.", fx = { align = { order = -1 } } },
+        { text = "Trust the dragons' watch. It has held.", next = "BACK", reply = "It has held, yes. I pray it holds a little longer.", fx = { align = { order = 1 } } },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "That is beyond an old spirit's knowledge, young one." } } },
+  topics = { _none = { { id = "tp_none", text = "That is beyond an old spirit's knowledge, young one." } } ,
+    lunar_festival = { { id = "yt_lunar", text = "Once each year the elders return, scattered across the world, to be honoured by those who seek them." } },
+    atalai = { { id = "yt_atal", text = "The Atal'ai sought to summon their blood god, and the dragons drowned their temple for it. They still have not learned." } },
+    elune = { { id = "yt_elune", text = "Elune's light falls even through the swamp water above us. I have watched it, every festival." } },
+    green_dragons = { { id = "yt_green", text = "Ysera's children guard this temple. They are troubled in their sleep, and I do not know why." } },
+  
+},
 }

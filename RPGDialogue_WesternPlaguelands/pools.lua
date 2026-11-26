@@ -43,6 +43,8 @@ P:Pool {
     { id = "xb_bridge", text = "The Scourge test the bridge every night, and every night we send them back in pieces. It's dull work, which is how I like it." },
     { id = "b_wall", text = "There's another one shambling at the wall, the third today, and they never learn, which is their whole problem." },
     { id = "b_living", text = "The living soldiers here snore all night long, and I can't say I missed snoring." },
+      { id = "ybulwar_b0", text = "Movement in the fog to the east. Again." },
+    { id = "ybulwar_b1", text = "The abominations are louder tonight. Something is stirring them." },
   },
   greetings = {
     { id = "g_wall", text = "This is the Bulwark, and past this gate everything wants you dead, even more than usual." },
@@ -58,12 +60,18 @@ P:Pool {
     { id = "xl_orc", when = { race = "Orc" }, text = "The Horde sends its warriors to the Bulwark at last. Good; we need living arms that don't fall off." },
     { id = "xl_east", text = "Past the wall is Lordaeron as the Scourge made it, and every step east the grass greys and the trees die a little more." },
     { id = "l_default", text = "We hold the wall so Tirisfal doesn't have to, and Brill sleeps easy because of us, not that anyone in Brill sleeps." },
+      { id = "ybulwar_l0", text = "The Scourge test the Bulwark every night. We hold, because the Dark Lady expects it, and because we have nowhere else to go." },
+    { id = "ybulwar_l1", when = { race = "Scourge" }, text = "Another of the Forsaken. Good. The Bulwark needs those who do not sleep." },
+    { id = "ybulwar_l2", when = { class = "PRIEST" }, text = "A priest? The Shadow or the Light, it doesn't matter here. The wounded need both." },
   },
   choices = {
     { text = "What lies beyond the wall?", next = "END", reply = "The Plaguelands. Andorhal, the dead fields, and nothing that loves you." },
     { text = "For the Dark Lady.", next = "END", reply = "For the Dark Lady. Keep your blade clean." },
-    { text = "For the Dark Lady.", next = "END", fx = { standing = { bulwark = 1 } } } },
+    { text = "For the Dark Lady.", next = "END", fx = { standing = { bulwark = 1 } } } , { text = "Hold the line. The Bulwark must not fall.", next = "END", reply = "It won't, while we stand.", fx = { align = { order = 1 } } }, { text = "Push into the plaguelands. Defence alone won't win.", next = "END", reply = "Bold words. Say them to the commander.", fx = { align = { order = -1 } } } },
   topics = {
+    bulwark = { { id = "ybulwar_tp_bulwark", text = "The Bulwark is the Forsaken's wall against the Scourge in the Plaguelands. It has never fallen, not yet." } },
+    scourge = { { id = "ybulwar_tp_scourge", text = "The Scourge never stop. They do not tire, they do not fear, and they do not forget." } },
+
     scourge = { { id = "xt_sc", text = "They come every night, and they never learn. Neither do we, but we're winning." } },
     dawn = { { id = "xt_ad", text = "The Argent Dawn has a camp at Chillwind, with the Alliance. They're useful, I'll admit." } },
     andorhal = { { id = "t_andorhal", text = "It's east of here and full of the dead, and not our kind of dead, either." } },

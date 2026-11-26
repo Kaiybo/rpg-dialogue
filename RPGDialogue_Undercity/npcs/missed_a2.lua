@@ -112,9 +112,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "Where did I live? Why does anyone ask that, here? Stratholme, since you insist, over a chandler's shop on the market road. I watched the square from my window for thirty years, and I never got out of the habit." } },
+      choices = {
+        { text = "Were you there when Stratholme fell?", next = "ystrat" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ystrat = {
+      lines = { { id = "ystrat_x", text = "Was I? I watched the prince's soldiers come through the gate, and I drew my shutters, and I don't remember much after. Have you ever wondered whether the ones who drew their shutters deserved what came next?" } },
+      choices = {
+        { text = "No. They were victims, nothing more.", next = "BACK", reply = "Kind of you. Do you say that because it's true, or because it's easier?", fx = { align = { light = 1 } } },
+        { text = "Perhaps. Doing nothing is a choice too.", next = "BACK", reply = "Hard words. I think them every night, so I can hardly argue.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yworst = {
+      lines = { { id = "yworst_x", text = "The worst? A cutpurse who robbed an apothecary, and was sent for by the Society the next morning. Nobody's seen him since. Do you see why I only watch, and never touch?" } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yspies = {
+      lines = { { id = "yspies_x", text = "Would I tell you if I did? Let's say that a man who watches the Rogues' Quarter all day finds his observations are sometimes worth a meal, and that the people who buy them prefer not to be named." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Cedric Stumpel, and that's as much as I give away for nothing. I walk this quarter because I like to know who else is walking it, and tonight that seems to be you." },
+        { id = "yh_rogue", when = { class = "ROGUE" }, text = "One of the trade, then. You walked in with your hand near your purse, which is wise in this quarter." },
       },
       again = {
         { id = "h_again", text = "Still here? Ask, then, and I'll see whether it's worth an answer." },
@@ -125,6 +149,9 @@ P:NPC {
         { text = "You watch people very closely.", next = "watch" },
         { text = "Who runs this quarter?", next = "runs" },
         { text = "Does Mennet Carkad have work for one of us?", next = "trade", when = { class = "ROGUE" } },
+        { text = "Where did you live before?", next = "ylife" },
+        { text = "What's the worst thing you've seen here?", next = "yworst" },
+        { text = "Do you work for the Dark Lady's spies?", next = "yspies" },
         { text = "Mind how you go, Cedric.", next = "END" },
       },
     },
@@ -153,6 +180,8 @@ P:NPC {
     },
   },
   topics = {
+    stratholme = { { id = "ytp_strat", text = "Stratholme? Who wants to know, and why? It burned. Leave it there." } },
+    rogues_quarter = { { id = "ytp_rq", text = "Every purse in this quarter has two owners, the one carrying it and the one watching it. Which are you?" } },
     background = { { id = "tp_bg", text = "I've been a good many things in a good many ports, and I answer for none of them now. Death wipes a slate very clean." } },
     _none = { { id = "tp_none", text = "I might know, and I might not. Either way, it isn't the kind of thing I say aloud." } },
   },
@@ -179,9 +208,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "I sold ribbons in a Lordaeron market and watched the tourney grounds every holiday. I knew every knight's colours and every flaw in their seat. Nobody ever asked my opinion then, either." } },
+      choices = {
+        { text = "What frightens you now?", next = "yworry" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yangela = {
+      lines = { { id = "yangela_x", text = "Angela trains real warriors and tells me to pick up a blade or hush. She doesn't understand that some of us are born to see a fight, not fight it. Every great general watched from a hill, didn't they?" } },
+      choices = {
+        { text = "Angela's right. Pick up a blade.", next = "ymalach" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymalach = {
+      lines = { { id = "ymalach_x", text = "He did offer, once, against a single Scarlet captive with a broken arm. I said no. I told myself it was because the fight was beneath me, but my hands were shaking and I think he saw it." } },
+      choices = {
+        { text = "Good. A crippled prisoner is no fair fight.", next = "BACK", reply = "That's what I told myself. Thank you for saying it aloud.", fx = { align = { honor = 1 } } },
+        { text = "A Scarlet is a Scarlet. You should've taken it.", next = "BACK", reply = "Maybe so. Angela would say the same, and I'd hate that you agreed with her.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yworry = {
+      lines = { { id = "yworry_x", text = "What frightens me is that I'll stand at this rail forever, being clever about other people's courage. The dead have a long time to regret things, and I'm building up quite a list." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Chloe Curthas. I come for the fighting, and I stay for the pleasure of telling Andrew Hartwell he has backed the wrong man again. Tyler is the better of the two, and anyone with eyes can see it." },
+        { id = "yh_warrior", when = { class = "WARRIOR" }, text = "A warrior. Finally, someone who might agree with me that Edward drops his guard on every third swing." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while they're resetting the sand." },
@@ -192,6 +248,9 @@ P:NPC {
         { text = "Curthas. You're related to the trainer?", next = "angela" },
         { text = "Have you ever fought down there yourself?", next = "fought" },
         { text = "Footwork wins fights. You're right.", next = "right", when = { class = "WARRIOR" } },
+        { text = "What did you do in life?", next = "ylife" },
+        { text = "Does Angela take you seriously?", next = "yangela" },
+        { text = "Would you fight if Malach let you?", next = "ymalach" },
         { text = "Enjoy the bout.", next = "END" },
       },
     },
@@ -220,6 +279,8 @@ P:NPC {
     },
   },
   topics = {
+    angela_curthas = { { id = "ytp_angela", text = "Angela's the warrior in the family. I'm the one who tells her what she did wrong." } },
+    the_pit = { { id = "ytp_pit", text = "The pit is the only honest place in the War Quarter. Everyone shows you exactly what they're worth." } },
     background = { { id = "tp_bg", text = "The Curthas family kept arms for the old kingdom, and Angela keeps them for the new one. I keep the commentary." } },
     _none = { { id = "tp_none", text = "I've no idea. Ask me about a fight, and I'll tell you who ought to have won it." } },
   },
@@ -246,9 +307,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A gentleman of leisure in Lordaeron, which is to say my father had money and I had opinions. I walked the capital's gardens every afternoon. Now I walk its cellars, and I find the company improved." } },
+      choices = {
+        { text = "Improved? How?", next = "yimproved" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yimproved = {
+      lines = { { id = "yimproved_x", text = "Nobody here pretends. In life every lord smiled and hated his neighbour. Down here a Forsaken tells you plainly that he'd sooner see you dissected. One knows where one stands, and I call that refreshing." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yworry = {
+      lines = { { id = "yworry_x", text = "Only that one day the Dark Lady will remember idle men like me and find us a use. I hear the Bulwark is always short of hands. Should a gentleman do his part, do you think, or keep his walk?" } },
+      choices = {
+        { text = "Do your part. Every Forsaken owes the city.", next = "BACK", reply = "How dreadfully civic. I'll consider it, on a day with fewer interesting people about.", fx = { align = { order = 1 } } },
+        { text = "Keep walking. Your unlife is your own.", next = "BACK", reply = "A sensible answer. I knew I liked you from the moment you stopped me.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yroyal = {
+      lines = { { id = "yroyal_x", text = "Grim, beautiful and entirely closed to people like me, which only makes me fonder of it. Reginald swears he's seen the Dark Lady pass on the bridge. Selina says nothing, which means she's seen her more than once." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Davitt Hickson. Selina Pickman, Reginald Grimsford and I take a turn through the Magic Quarter and the Trade Quarter each day, because one must do something with eternity, and we were none of us brought up to work." },
+        { id = "yh_tauren", when = { race = "Tauren" }, text = "A tauren, down in the city! Selina, look, they've let the mountains in. Forgive me, friend, but you are the most interesting thing on today's walk." },
       },
       again = {
         { id = "h_again", text = "What else shall we talk of? We've the whole ring ahead of us." },
@@ -259,6 +344,9 @@ P:NPC {
         { text = "Tell me about your companions.", next = "friends" },
         { text = "What's worth seeing on your round?", next = "sights" },
         { text = "What do you make of your living allies?", next = "allies", when = { ["not"] = { race = "Scourge" } } },
+        { text = "What were you in life?", next = "ylife" },
+        { text = "Does anything in the city worry you?", next = "yworry" },
+        { text = "What do you think of the Royal Quarter?", next = "yroyal" },
         { text = "Enjoy your walk.", next = "END" },
       },
     },
@@ -287,6 +375,8 @@ P:NPC {
     },
   },
   topics = {
+    selina_pickman = { { id = "ytp_selina", text = "Selina hears everything and repeats nothing. It's maddening and I adore her for it." } },
+    lordaeron = { { id = "ytp_lord", text = "The gardens above were lovely once. I walk the cellars now and pretend they're the same paths." } },
     background = { { id = "tp_bg", text = "I had a small estate and no occupation, in the old kingdom. I've lost the estate and kept the lack of occupation." } },
     _none = { { id = "tp_none", text = "I couldn't say, and I make it a rule never to look things up. Ask someone industrious." } },
   },
@@ -313,9 +403,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yfamily = {
+      lines = { { id = "yfamily_x", text = "The Killians worked the hills around Lordaeron for four generations. Brom teaches the pick now, and Sarah sells the tools. We all woke dead within a month of each other, which Sarah calls the family's last great coincidence." } },
+      choices = {
+        { text = "Do you still work together?", next = "ytogether" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytogether = {
+      lines = { { id = "ytogether_x", text = "Not really. Brom wants me back at the face, and I keep finding reasons not to go. A cave-in killed my partner the spring before the plague, and every time I hold a pick I hear the timber crack. Should a man go back to it?" } },
+      choices = {
+        { text = "Go back. Family needs you at the face.", next = "BACK", reply = "Brom would kiss you for saying that. I'll think on it, honestly.", fx = { align = { order = 1 } } },
+        { text = "No. You've earned the right to walk away.", next = "BACK", reply = "That's what Mattie says too. Maybe I'll start listening.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymattie = {
+      lines = { { id = "ymattie_x", text = "Mattie complains about the weather above as if she still feels it. She kept an inn by the Thondroril before the plague, and she can't stop counting the city's lanterns like they were rooms to let." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ymining = {
+      lines = { { id = "ymining_x", text = "Tin in the Silverpine hills, and copper wherever Tirisfal's rock shows grey. Mind the Scarlets near the old mines, and never trust a ceiling that drips. That's Killian wisdom, and it's cost us plenty." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Edrick Killian. That's Mattie Alred beside me, and we take the ring and the War Quarter at a walking pace every day. It keeps the joints from seizing, and it lets us see what the city is up to." },
+        { id = "yh_dwarf", when = { race = "Dwarf" }, text = "A dwarf in the Undercity? You'd appreciate these walls, I'd wager, though I'd not let the Deathguard catch you admiring them." },
       },
       again = {
         { id = "h_again", text = "What else, then? Keep up while you ask it." },
@@ -326,6 +440,9 @@ P:NPC {
         { text = "What's the city up to, then?", next = "city" },
         { text = "You look at these walls like a mason.", next = "walls" },
         { text = "Where's the good ore near here?", next = "ore", when = { profession = "Mining" } },
+        { text = "Tell me about your family.", next = "yfamily" },
+        { text = "What's Mattie Alred like?", next = "ymattie" },
+        { text = "I'm a miner. Any advice?", next = "ymining", when = { profession = "Mining" } },
         { text = "I'll let you walk.", next = "END" },
       },
     },
@@ -354,6 +471,8 @@ P:NPC {
     },
   },
   topics = {
+    brom_killian = { { id = "ytp_brom", text = "Brom teaches mining in the city. He'll tell you I'm wasted on walking, and he's probably right." } },
+    mattie_alred = { { id = "ytp_mattie", text = "Mattie's the best company in the city, provided you don't mind hearing about rain." } },
     background = { { id = "tp_bg", text = "A miner, and a miner's son. The family's still in the trade, and I'm still in the family, and that's the sum of it." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask Mattie, who hears more than I do, or says she does." } },
   },
@@ -380,9 +499,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ywhy = {
+      lines = { { id = "ywhy_x", text = "Because it keeps my hands steady. Out in the Plaguelands a man freezes, thinking of his old life. Down here there's only the gate and whatever comes through it, and I like that very much." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ylife = {
+      lines = { { id = "ylife_x", text = "A footman in Lordaeron's army, posted on the walls at Andorhal. Tyler was a deserter from the same garrison. I never told the captains, and he's never let me forget that he owes me." } },
+      choices = {
+        { text = "Why didn't you turn him in?", next = "yturnin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yturnin = {
+      lines = { { id = "yturnin_x", text = "Because he ran to warn his family about the grain, and the captains wouldn't listen. He was right, and I was a coward. You'd have reported him, wouldn't you?" } },
+      choices = {
+        { text = "Yes. An army can't stand on deserters.", next = "BACK", reply = "Then you'd have done your duty and Tyler would be ash. I'm glad I'm not you.", fx = { align = { order = 1 } } },
+        { text = "No. He was right to go to his kin.", next = "BACK", reply = "Aye. That's what I tell myself between bouts.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfear = {
+      lines = { { id = "yfear_x", text = "That Malach will send in someone I served with. A Scarlet, wearing the same face as a man I shared bread with. I don't know if I'd hold my sword steady. I'd like to think so." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Edward. Tyler and I hold the sand, and Brother Malach sends things in to see whether we still can. It's training, and it's a show for that lot at the rail, and I try to think of it only as the first." },
+        { id = "yh_warrior", when = { class = "WARRIOR" }, text = "Another warrior, watching. Good. Watch his left side, he always drops it." },
       },
       again = {
         { id = "h_again", text = "What else? Be quick about it." },
@@ -393,6 +536,9 @@ P:NPC {
         { text = "How do you and Tyler fight together?", next = "tyler" },
         { text = "What do you make of the crowd?", next = "crowd" },
         { text = "How do you bring down the abomination?", next = "abom", when = { class = { "WARRIOR", "ROGUE", "PALADIN" } } },
+        { text = "Why do you fight in the pit?", next = "ywhy" },
+        { text = "Who were you before?", next = "ylife" },
+        { text = "What do you fear most down there?", next = "yfear" },
         { text = "Watch the gate, Edward.", next = "END" },
       },
     },
@@ -421,6 +567,8 @@ P:NPC {
     },
   },
   topics = {
+    tyler = { { id = "ytp_tyler", text = "Tyler fights like a man with nothing to lose, which is half true." } },
+    brother_malach = { { id = "ytp_malach", text = "Malach pays in silver and sermons. I keep the silver." } },
     background = { { id = "tp_bg", text = "I carried a spear for Lordaeron, and I died holding it. They gave me a sword when I got up, and I've not been idle since." } },
     _none = { { id = "tp_none", text = "I don't know. I watch the gate, and that takes all the attention I have." } },
   },

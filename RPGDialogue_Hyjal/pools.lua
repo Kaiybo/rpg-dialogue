@@ -68,6 +68,8 @@ P:Pool {
       text = "Please, keep that darkness away from the saplings. They have had enough of shadow." },
   },
   lines = {
+    { id = "yl_nelf", when = { race = "NightElf" }, text = "Sister, brother, it's good to see one of us on the mountain. Every kaldorei hand that tends Hyjal brings Nordrassil a little closer to healing." },
+    { id = "yl_tauren", when = { race = "Tauren" }, text = "A tauren, on Hyjal. The Cenarion Circle welcomes your people's druids. The mountain doesn't care who tends it, only that it's tended." },
     { id = "l_default", text = "We're mending what the war broke, one slope at a time. My hands are so full of thorns I've stopped bothering to pick them out." },
     { id = "l_weeds", text = "The brambles drank the fel when it fell, and now they choke everything. Thylaen has the right idea: cut them out at the root." },
     { id = "l_gorge", text = "I never thought I'd see strangers walking up from Winterspring. The gorge was the Legion's for years, and now there's a path through it." },
@@ -76,10 +78,14 @@ P:Pool {
     { id = "l_owls", when = { faction = "Alliance", questBefore = TODO_QUEST("Feathers in Flight") }, text = "The fletcher's always short of feathers. The white owls nest in the valley to the south, and they shed plenty." },
   },
   choices = {
+    { text = "Burn the fel-tainted growth. Start the slopes fresh.", next = "END", reply = "Some of the younger druids say so. The elders say fire remembers the Legion too well.", fx = { align = { order = -1 } } },
+    { text = "Tend it slowly. The mountain heals at its own pace.", next = "END", reply = "That's the Circle's way, and the Ancients' way before it. Thank you.", fx = { align = { order = 1 } } },
     { text = "I'll help where I can.", next = "END", fx = { affinity = 1 } },
     { text = "Good luck with the work.", next = "END" },
   },
   topics = {
+    nordrassil = { { id = "yt_nord", text = "The World Tree rose from the Well's waters. It was wounded in the war, and the whole mountain feels it." } },
+    archimonde = { { id = "yt_archi", text = "The demon lord fell on these slopes, torn apart by the wisps of the ancestors. His bones are still in the earth somewhere." } },
     cenarion_circle = { { id = "t_cc", text = "The Circle sends who it can, though never as many as the mountain needs." } },
     malfurion = { { id = "t_malf", text = "He sleeps in the Dream, and the tree mends while he sleeps. That's what we're told, and I choose to believe it." } },
     _none = { { id = "t_none", text = "I only tend the growth. Ask one of the Talon; they see the whole mountain from above, as the Ancients once did." } },
@@ -96,6 +102,8 @@ P:Pool {
       text = "You'll want a smith more than a trader, by the look of that armour, but I can at least sell you a bandage." },
   },
   lines = {
+    { id = "yl_goblin", when = { faction = "Horde" }, text = "Horde, are you? Money's money on the mountain, and the druids don't ask whose coin it is. Neither do I, much." },
+    { id = "yl_dwarf", when = { race = "Dwarf" }, text = "A dwarf, up a mountain. You'll feel right at home in the cold. Buy a skin of something warm anyway, it's a long walk down." },
     { id = "l_x1", text = "The Winterfall furbolgs raid the caravans for the food, and they leave the armour. Even they know what's worth stealing up here." },
     { id = "l_x2", text = "Prices are high, I know. Walk the trail down to Everlook and back with a full pack, and then tell me what's fair." },
 
@@ -103,8 +111,14 @@ P:Pool {
     { id = "l_lotus", when = { profession = { name = "Herbalism", min = 300 } }, text = "Herbalist, are you? They say there's a lotus on this mountain that only shows itself to the right kind of gloves. I've never seen one, and I've looked." },
     { id = "l_thorium", when = { profession = { name = "Mining", min = 275 } }, text = "If you've a pick, the thorium in these rocks is the richest I've heard of, and sometimes it comes up with a green crystal in it that I wouldn't hold for long." },
   },
-  choices = { { text = "Let's see what you have.", next = "BUSINESS" } },
+  choices = {
+    { text = "Your prices are robbery, and you know it.", next = "END", reply = "Robbery is when you don't get the goods. You get the goods.", fx = { align = { honor = 1 } } },
+    { text = "Fair enough. Charge what the walk costs.", next = "END", reply = "Finally, a customer who understands logistics.", fx = { align = { honor = -1 } } },
+    { text = "Let's see what you have.", next = "BUSINESS" },
+  },
   topics = {
+    winterfall = { { id = "yt_wf", text = "The Winterfall furbolgs have gone sour, drinking something foul in their caves. They raid the caravans now. Mind the pass." } },
+    talon = { { id = "yt_talon", text = "The druids of the Talon buy feathers and fish. They're the best customers on the mountain, if you don't mind feathers." } },
     everlook = { { id = "t_xeverlook", text = "Where my stock comes from. Everlook's goblins never give a discount, so neither can I." } },
 
     trade = { { id = "t_trade", text = "Azzleby's caravans, when the Winterfall don't get to them first. Last month they ate a whole crate of candles, wicks and all, so prices go up." } },

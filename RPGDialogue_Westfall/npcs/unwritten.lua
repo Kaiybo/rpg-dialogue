@@ -34,6 +34,9 @@ P:NPC {
         { text = "What's the danger on this road?", next = "danger" },
         { text = "How are the Saldeans holding up?", next = "saldeans" },
         { text = "Those scarecrows give me the creeps.", next = "scarecrows" },
+        { text = "What happened to your farm?", next = "y_farm" },
+        { text = "Do you know any Defias by name?", next = "y_names" },
+        { text = "Who else walks your road?", next = "y_road" },
         { text = "Safe patrol, Protector.", next = "END" },
       },
     },
@@ -59,9 +62,37 @@ P:NPC {
       lines = { { id = "sc_default", text = "They should, because they walk. The Defias put some kind of machinery or magic in them, and they swing their scythes at anyone who gets close, so I knock one down every time I pass and there's always another.", fx = { learn = { "harvest_watchers" } } } },
       choices = { { text = "I'll knock down a few myself. Something else.", next = "BACK" } },
     },
+    y_farm = {
+      lines = {
+        { id = "y_farm_d", text = "The Brotherhood came at night and set the barn alight with my father's mule inside. My father tried to save the mule, and the roof came in. I joined the militia the next morning." },
+        { id = "y_farm_hu", when = { race = "Human" }, text = "Burned, at night, with my father inside trying to save the mule. You'll have heard stories like it if you're from these lands. I joined the militia the next morning." },
+      },
+      choices = { { text = "I'm sorry.", next = "BACK" } },
+    },
+    y_names = {
+      lines = { { id = "y_names_d", text = "One. Jory Harkness, who I danced with at the harvest fair when we were fifteen. He was there the night the barn burned. I've never told Stoutmantle. If I see Jory on this road, I don't know what I'll do." } },
+      choices = {
+        { text = "Bring him in. Let the law judge him.", next = "y_jory" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_jory = {
+      lines = { { id = "y_jory_d", text = "The law out here is a rope on Sentinel Hill. My spear would be quicker. Should a protector bring him in, or settle it herself?" } },
+      choices = {
+        { text = "Bring him in. That's what you swore.", next = "BACK", reply = "Aye. I'll try to remember that if I see his face.", fx = { align = { order = 1 } } },
+        { text = "Settle it. It's your father's blood.", next = "BACK", reply = "That's what I tell myself at night.", fx = { align = { order = -1 } } },
+      },
+    },
+    y_road = {
+      lines = { { id = "y_road_d", text = "Merchants who are lost, adventurers who are bored, and the Furlbrow family's dog, which follows me halfway every morning and then goes home. The dog's the only one I trust." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I worked a farm south of here till the Brotherhood burned it. Now I guard other people's farms, which is better than nothing." } },
+    saldean_farm = { { id = "y_tp_sf", text = "Saldean's farm is the last one on my road still standing. I mean to keep it that way." } },
+    gryan_stoutmantle = { { id = "y_tp_gs", text = "Gryan built the militia from nothing. I'd follow him into Moonbrook if he asked." } },
+    scarecrows = { { id = "y_tp_sc", text = "The scarecrows walk. Don't let anyone tell you they don't." } },
     _none = { { id = "tp_none", text = "No idea. Ask at the tower; Stoutmantle knows more than I do, or likes to think he does." } },
   },
 }
@@ -434,6 +465,8 @@ P:NPC {
         { text = "Do you know Gryan Stoutmantle?", next = "xgryan" },
         { text = "What did you do before this?", next = "xbefore" },
         { text = "I'm from Stormwind. We haven't forgotten you.", next = "BACK", when = { race = "Human" }, reply = "Kind of you to say. I'll believe it when the king sends something besides tax collectors, but kind all the same." },
+        { text = "Do you have family out here?", next = "y_family" },
+        { text = "Have the Defias ever asked you to join?", next = "y_asked" },
         { text = "Good luck with the work.", next = "END" },
       },
     },
@@ -489,10 +522,34 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    y_family = {
+      lines = {
+        { id = "y_family_d", text = "A wife and two girls in a shack near the Jangolode road. The eldest wants to go to Stormwind and be a seamstress. I tell her the city doesn't want Westfall folk, and I hate myself every time I say it." },
+        { id = "y_family_hu", when = { race = "Human" }, text = "A wife and two girls near the Jangolode road. You're from the city, maybe. My eldest wants to sew in Stormwind. Tell me true, would they take a Westfall girl?" },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_asked = {
+      lines = { { id = "y_asked_d", text = "Once. A fellow I built a barn for years back, wearing a red bandana now. He said the Brotherhood pays better than the militia and asks fewer questions. I told him to leave before I remembered who he was." } },
+      choices = {
+        { text = "Should you tell Stoutmantle his name?", next = "y_tell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_tell = {
+      lines = { { id = "y_tell_d", text = "He's got a family too, hiding out by Moonbrook. If I name him, the militia hangs him. If I don't, he robs somebody's farm next week. What would you do?" } },
+      choices = {
+        { text = "Name him. The farms need protecting.", next = "BACK", reply = "Aye. I'll walk up the hill tonight.", fx = { align = { order = 1 } } },
+        { text = "Keep quiet. His family needs him.", next = "BACK", reply = "That's how I feel too. Doesn't make it right.", fx = { align = { order = -1 } } },
+      },
+    },
   },
   topics = {
     defias = { { id = "tp_xdefias", text = "Bandits, mostly, though some were decent men once." } },
     sentinel_hill = { { id = "tp_xsentinel_hill", text = "The only safe place left in Westfall, and that's because of my timber." } },
+    moonbrook = { { id = "y_tp_mb", text = "Moonbrook was a fine town once. I built half its fences. Now the Defias sleep behind them." } },
+    stormwind = { { id = "y_tp_sw", text = "Stormwind's got fine walls. We built some of them, and they never paid the masons." } },
+    gnolls = { { id = "y_tp_gnoll", text = "Gnolls come up from the coast for my timber. They can't build anything, so I suspect they eat it." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask up at Sentinel Hill, they've got the news out here." } },
   },
 }

@@ -21,8 +21,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "Booty Bay, on the docks. My ma sold fish and my pa sold the fish my ma couldn't sell. I learned to shout prices before I learned to read. Smokywood hired me for my lungs, pal." } },
+      choices = {
+        { text = "Where does the snow on your cart come from?", next = "ysnow" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhard = {
+      lines = { { id = "yhard_x", text = "The calves with no coin. They stand there with their big eyes, and I'm supposed to send 'em off. Company rules say no freebies. Should I follow the rules, or slip 'em a cookie?" } },
+      choices = {
+        { text = "Slip them a cookie. It's Winter Veil.", next = "BACK", reply = "Shh! Don't tell Whulwert. He'll want a cut of my kindness.", fx = { align = { order = -1 } } },
+        { text = "Follow the rules. Business is business.", next = "BACK", reply = "Aw, you're no fun. You're right, though. Probably.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysnow = {
+      lines = { { id = "ysnow_x", text = "The company ships in a little snow, with a frost mage from Ratchet. It melts by midday, but the calves go wild for it. Best marketing money can buy." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Seersa Copperpinch, Smokywood Pastures. I sell the small things, the cookies and the candy and the wrapping paper, and Whulwert beside me sells the big ones." } },
+      lines = {
+        { id = "h_default", text = "Seersa Copperpinch, Smokywood Pastures. I sell the small things, the cookies and the candy and the wrapping paper, and Whulwert beside me sells the big ones." },
+        { id = "yh_troll", when = { race = "Troll" }, text = "Happy Winter Veil, mon! Ha, I been practising. A troll customer, finally! You lot love the candy canes. Seersa Copperpinch, Smokywood Pastures, at your service." },
+      },
       again = { { id = "h_again_x", text = "Back for more cookies? I knew it." }, { id = "h_again", text = "Anything else? The bell is getting tired." } },
       choices = {
         { text = "Do tauren even keep Winter Veil?", next = "tauren" },
@@ -31,6 +53,8 @@ P:NPC {
         { text = "I'm a goblin too.", next = "x_gb", when = { race = "Goblin" } },
         { text = "Do you sell to the Forsaken?", next = "x_fs", when = { race = "Scourge" } },
         { text = "How's business?", next = "x_biz" },
+        { text = "Where did you grow up?", next = "ylife" },
+        { text = "What's the hardest part of the job?", next = "yhard" },
         { text = "Let me see your treats.", next = "END" },
       },
     },
@@ -97,6 +121,8 @@ P:NPC {
     },
   },
   topics = {
+    booty_bay = { { id = "ytp_bb", text = "Booty Bay taught me everything. Shout loud, smile wide, count fast." } },
+    whulwert = { { id = "ytp_whul", text = "Whulwert's my cousin. He thinks he's classy. He's not." } },
     goblins = { { id = "tp_gob", text = "Goblins sell to everyone, pal. Cookies don't care who eats 'em." } },
     _none = { { id = "tp_none", text = "Couldn't say, friend. Ask me about cookies." } },
   },
@@ -119,8 +145,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "I started in Gadgetzan, selling silk to the Steamwheedle bosses. They taught me that a rich man pays for the feeling of paying, not the goods. That's the whole secret, pal. Don't tell anyone." } },
+      choices = {
+        { text = "What's your finest item?", next = "ybest" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yventure = {
+      lines = { { id = "yventure_x", text = "Worry? He's a foreman at a Venture camp in Stonetalon, and if the tauren ever find out, my business is done. He wants to visit for Winter Veil. Should I let him, or keep him away?" } },
+      choices = {
+        { text = "Keep him away. Your customers come first.", next = "BACK", reply = "Aye, business first. Sorry, cousin.", fx = { align = { honor = -1 } } },
+        { text = "Let him come. Family is family.", next = "BACK", reply = "Hah. You've a soft heart, pal. I'll think on it.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybest = {
+      lines = { { id = "ybest_x", text = "The ornate gift boxes, gold leaf and velvet, made in Booty Bay by a cousin with very steady hands. I sold one to a Grimtotem once. He used it to keep a skull in. Customers, eh?" } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Whulwert Copperpinch, Smokywood Pastures, purveyor of the finer things in festive life. Seersa sells the cookies, and I sell the gifts that people remember." } },
+      lines = {
+        { id = "h_default", text = "Whulwert Copperpinch, Smokywood Pastures, purveyor of the finer things in festive life. Seersa sells the cookies, and I sell the gifts that people remember." },
+        { id = "yh_tauren", when = { race = "Tauren" }, text = "Ah, a tauren of taste! Welcome to the quality end of the cart, friend. I've something in your size, extra room for the horns." },
+      },
       again = { { id = "h_again_x", text = "Still browsing? Good, good. The prices aren't going anywhere." }, { id = "h_again", text = "Something more, or shall I wrap something for you?" } },
       choices = {
         { text = "Why are your prices hidden?", next = "prices" },
@@ -129,6 +177,8 @@ P:NPC {
         { text = "You charge too much for holiday goods.", next = "x_st" },
         { text = "I'm a goblin. Don't try that on me.", next = "x_gb", when = { race = "Goblin" } },
         { text = "What would suit a tauren?", next = "x_ta", when = { race = "Tauren" } },
+        { text = "How did you get into fine goods?", next = "ylife" },
+        { text = "Does your Venture cousin worry you?", next = "yventure" },
         { text = "Show me your wares.", next = "END" },
       },
     },
@@ -194,6 +244,8 @@ P:NPC {
     },
   },
   topics = {
+    gadgetzan = { { id = "ytp_gz", text = "Gadgetzan taught me the finer points of selling. The sand taught me the rest." } },
+    seersa = { { id = "ytp_seersa", text = "Seersa sells cookies. I sell dreams. We're both very happy." } },
     venture_company = { { id = "tp_vc", text = "Don't talk to me about Venture. They're family, and they're terrible." } },
     _none = { { id = "tp_none", text = "No idea, pal. Ask me about gift-wrap." } },
   },
@@ -317,8 +369,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "In Stonetalon, among the high peaks, where the wind is so sharp it cuts the skin. My mother taught me to hunt and my father taught me to hate the Venture Company. Both lessons stayed." } },
+      choices = {
+        { text = "Why hate the goblins so much?", next = "yhate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhate = {
+      lines = { { id = "yhate_x", text = "They tore down the trees my grandfather prayed beneath. The Bloodhoof traded with them anyway. Should a tribe make peace with those who wounded the land, or fight them always?" } },
+      choices = {
+        { text = "Fight them. The land must be defended.", next = "BACK", reply = "Hmph. You are not as soft as you look.", fx = { align = { honor = 1 } } },
+        { text = "Trade. Peace serves the tribe better.", next = "BACK", reply = "That is Cairne's answer. It is not mine.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yleave = {
+      lines = { { id = "yleave_x", text = "Magatha's word, and nothing else. If she tells me to go, I go. If she tells me to stay, I stay until the bluffs crumble. That is what loyalty means to the Grimtotem." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "I am Gorm. I guard Magatha's lodges, though no one in this city would dare trouble them. It gives my hands something to do while the council talks." } },
+      lines = {
+        { id = "h_default", text = "I am Gorm. I guard Magatha's lodges, though no one in this city would dare trouble them. It gives my hands something to do while the council talks." },
+        { id = "yh_orc", when = { race = "Orc" }, text = "An orc. Thrall's people. You eat at Cairne's fire and call it home. Hmph. Speak, then." },
+      },
       again = { { id = "h_again_x", text = "Still here? Ask, then." }, { id = "h_again", text = "More questions? Ask, then." } },
       choices = {
         { text = "Why guard what nobody threatens?", next = "guard" },
@@ -327,6 +401,8 @@ P:NPC {
         { text = "Who made that club?", next = "x_club" },
         { text = "I'm tauren. Would you speak with me?", next = "x_ta", when = { race = "Tauren" } },
         { text = "I'm a warrior. Is that club good?", next = "x_wa", when = { class = "WARRIOR" } },
+        { text = "Where did you grow up?", next = "ylife" },
+        { text = "What would make you leave this post?", next = "yleave" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -393,6 +469,8 @@ P:NPC {
     },
   },
   topics = {
+    stonetalon = { { id = "ytp_st", text = "Stonetalon is where the Grimtotem are strong. The goblins have scarred it." } },
+    magatha = { { id = "ytp_mag", text = "Magatha is our elder. I guard her lodges, and I do not question her." } },
     grimtotem = { { id = "tp_grim", text = "We are the Grimtotem. We were here before Cairne's city, and we will be here after it." } },
     _none = { { id = "tp_none", text = "I don't know. Ask someone else." } },
   },
@@ -414,8 +492,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yafter = {
+      lines = { { id = "yafter_x", text = "North, always, to Orgrimmar and then over the sea to the eastern kingdoms. I follow the summer until it runs out, and then I spend the winter in Ratchet counting my coins and wishing for warmth." } },
+      choices = {
+        { text = "What's the best part of the festival here?", next = "ybest" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywrong = {
+      lines = { { id = "ywrong_x", text = "Once, when a young brave tried to steal a flame from the Alliance fires and brought the guards running back here. The elders scolded him, and the warriors cheered him. Should he have been punished, or praised?" } },
+      choices = {
+        { text = "Praised. Stealing their flames is the tradition.", next = "BACK", reply = "That's what the warriors said, loudly. The elders sighed.", fx = { align = { honor = -1 } } },
+        { text = "Punished. He brought danger to the festival.", next = "BACK", reply = "The elders thought so too. He spent a week carrying water.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybest = {
+      lines = { { id = "ybest_x", text = "The tauren dances, every time. The drums start low and the whole bluff shakes. I forget to sell anything for an hour, and nobody minds." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "The longest day calls for the brightest fires, and the brightest fires call for garlands and treats. I follow the festival wherever the bonfires burn." } },
+      lines = {
+        { id = "h_default", text = "The longest day calls for the brightest fires, and the brightest fires call for garlands and treats. I follow the festival wherever the bonfires burn." },
+        { id = "yh_scourge", when = { race = "Scourge" }, text = "Happy Midsummer! Oh, a Forsaken. Stand on this side of me, friend. The fire's hottest on the left." },
+      },
       again = { { id = "h_again_x", text = "More questions by the fire? Ask away!" }, { id = "h_again", text = "Anything else? The fire's not going out." } },
       choices = {
         { text = "What is the Midsummer festival for?", next = "festival" },
@@ -424,6 +524,8 @@ P:NPC {
         { text = "Fire is dangerous. Why celebrate it?", next = "x_st" },
         { text = "I'm tauren. Do we honour the sun?", next = "x_ta", when = { race = "Tauren" } },
         { text = "Do the Forsaken come to the fires?", next = "x_fs", when = { race = "Scourge" } },
+        { text = "Where do you go after the festival?", next = "yafter" },
+        { text = "Has the festival ever gone wrong?", next = "ywrong" },
         { text = "Show me your wares.", next = "END" },
       },
     },
@@ -489,6 +591,8 @@ P:NPC {
     },
   },
   topics = {
+    anshe = { { id = "ytp_anshe", text = "An'she is the sun, the Earth Mother's eye. At Midsummer, she watches longest." } },
+    ratchet = { { id = "ytp_ratchet", text = "I winter in Ratchet. It's warm, and the goblins don't ask questions." } },
     earth_mother = { { id = "tp_em", text = "The tauren say the sun is the Earth Mother's eye. On the longest day, she watches the longest." } },
     _none = { { id = "tp_none", text = "No idea, friend. Ask me about the fires." } },
   },
@@ -721,8 +825,30 @@ P:NPC {
   greetings = { { id = "g_default", text = "Peace be on your path, traveller. The bluffs are high; walk carefully near the edges." } },
   start = "hello",
   nodes = {
+    yfear = {
+      lines = { { id = "yfear_x", text = "Not the centaur, nor the Venture Company. I fear the enemy who is already on the bluffs, smiling at the High Chieftain's fire. A watcher looks outward, and danger often walks behind him." } },
+      choices = {
+        { text = "You mean the Grimtotem?", next = "ygrim" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygrim = {
+      lines = { { id = "ygrim_x", text = "I named no one, traveller. But Magatha's people come and go at strange hours, and I see it. Should I tell the High Chieftain, or trust his judgement and say nothing?" } },
+      choices = {
+        { text = "Tell him. A watcher's duty is to report.", next = "BACK", reply = "Then I will, at the next council, and he may laugh at me if he wishes.", fx = { align = { order = 1 } } },
+        { text = "Say nothing yet. Watch until you're sure.", next = "BACK", reply = "Patience. Yes. A Bluffwatcher has plenty of that.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yteacher = {
+      lines = { { id = "yteacher_x", text = "My grandfather, who watched for the Bloodhoof when the tribe still wandered. He told me the wind brings every secret eventually, if you stand still long enough to hear it. I am still standing." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "We watch the bridges and the lifts, and we watch the plains for the Grimtotem and the Venture Company. Cairne Bloodhoof asks for vigilance, and we give it gladly." } },
+      lines = {
+        { id = "h_default", text = "We watch the bridges and the lifts, and we watch the plains for the Grimtotem and the Venture Company. Cairne Bloodhoof asks for vigilance, and we give it gladly." },
+        { id = "yh_orc", when = { race = "Orc" }, text = "Lok'tar, friend of Thrall. We watch the bridges and the lifts, and the plains below for the Grimtotem and the Venture Company. Walk carefully near the edges." },
+      },
       again = { { id = "h_again_x", text = "Anything more, traveller?" }, { id = "h_again", text = "Is there more you need?" } },
       choices = {
         { text = "Do you trust the Grimtotem on the bluffs?", next = "grim" },
@@ -731,6 +857,8 @@ P:NPC {
         { text = "What do you see on the plains?", next = "x_see" },
         { text = "I'm tauren. Should I join you?", next = "x_ta", when = { race = "Tauren" } },
         { text = "I'm a stranger. Where should I go?", next = "x_str", when = { faction = "Horde" } },
+        { text = "What do you fear most, watching?", next = "yfear" },
+        { text = "Who taught you to watch?", next = "yteacher" },
         { text = "Walk with the Earthmother.", next = "END" },
       },
     },
@@ -798,6 +926,8 @@ P:NPC {
     },
   },
   topics = {
+    lifts = { { id = "ytp_lifts", text = "The lifts carry you up from the plains. Hold on tightly, and do not look down." } },
+    venture_company = { { id = "ytp_vc", text = "The Venture Company cuts at Mulgore's edges. We watch their dust trails." } },
     cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is our High Chieftain. We watch so that he may lead." } },
     _none = { { id = "tp_none", text = "I do not know, traveller. Ask at the lodges." } }, _none = { { id = "tp_none", text = "I cannot say. The elders on Elder Rise may know." } } },
 }
@@ -816,8 +946,30 @@ P:NPC {
   greetings = { { id = "g_default", text = "You stand before the guard of the High Chieftain. Speak with respect." } },
   start = "hello",
   nodes = {
+    yfamily = {
+      lines = { { id = "yfamily_x", text = "A mate on the Hunter Rise, and a son who wishes to be a guard as I am. I tell him to be a hunter instead. An Honor Guard gives his life away, and I would have my son keep his." } },
+      choices = {
+        { text = "Should he follow you, if he wishes it?", next = "yson" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yson = {
+      lines = { { id = "yson_x", text = "He asks me every season. Should a father forbid the path he chose himself, or let his son walk it?" } },
+      choices = {
+        { text = "Let him walk it. It's his choice to make.", next = "BACK", reply = "Then I will. The Earth Mother will watch over him, as she watched over me.", fx = { align = { order = -1 } } },
+        { text = "Forbid it. A father's word should guide him.", next = "BACK", reply = "Perhaps. But he is stubborn, as I was. We shall see.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycairne = {
+      lines = { { id = "ycairne_x", text = "Gentle. He laughs at the calves' games and tells old stories to anyone who sits by his fire. He grieves for those we lost to the centaur. He hides it well, but we see it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "We are sworn to Cairne Bloodhoof and to his house. Where he sits, we stand, and where he walks, we walk a step behind." } },
+      lines = {
+        { id = "h_default", text = "We are sworn to Cairne Bloodhoof and to his house. Where he sits, we stand, and where he walks, we walk a step behind." },
+        { id = "yh_troll", when = { race = "Troll" }, text = "A troll of the Darkspear. You stand before the guard of the High Chieftain. Speak with respect, and keep your voice low." },
+      },
       again = { { id = "h_again_x", text = "Ask, traveller. Speak respectfully." }, { id = "h_again", text = "What more do you ask?" } },
       choices = {
         { text = "What does it mean to be an Honor Guard?", next = "honor" },
@@ -826,6 +978,8 @@ P:NPC {
         { text = "Have you ever had to fight here?", next = "x_fight" },
         { text = "I'm tauren. Could I be a guard?", next = "x_ta", when = { race = "Tauren" } },
         { text = "I'm an orc. Cairne honours Thrall.", next = "x_orc", when = { race = "Orc" } },
+        { text = "Do you have family?", next = "yfamily" },
+        { text = "What is Cairne like, away from the council?", next = "ycairne" },
         { text = "I'll go in peace.", next = "END" },
       },
     },
@@ -893,6 +1047,8 @@ P:NPC {
     },
   },
   topics = {
+    bloodhoof = { { id = "ytp_bh", text = "The Bloodhoof tribe is Cairne's. We guard it with our lives." } },
+    centaur = { { id = "ytp_cent", text = "The centaur drove us from our lands for years. We remember." } },
     cairne = { { id = "tp_cairne", text = "Cairne Bloodhoof is our chieftain and our father. We would die for him without a moment's doubt." } },
     _none = { { id = "tp_none", text = "I do not know, traveller. Ask the elders." } }, _none = { { id = "tp_none", text = "That is not mine to answer." } } },
 }

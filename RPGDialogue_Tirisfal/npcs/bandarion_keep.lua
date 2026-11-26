@@ -2022,15 +2022,43 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yhooves = {
+      lines = { { id = "yhooves_x", text = "<The shoes are old Lordaeron iron, worn thin and never replaced. One has been nailed on recently, crooked, by someone who cared more than they knew.>" } },
+      choices = {
+        { text = "Someone here still tends it.", next = "ytend" },
+        { text = "Step back.", next = "BACK" },
+      },
+    },
+    ytend = {
+      lines = { { id = "ytend_x", text = "<A little pile of straw lies by the wall, swept into a bed the horse will never need. A curry comb hangs on a nail beside it, its bristles clogged with grey hair.>" } },
+      choices = { { text = "Step back.", next = "BACK" } },
+    },
+    yscars = {
+      lines = { { id = "yscars_x", text = "<Three long furrows run along its flank, the mark of claws, not blades. They never healed. The flesh around them is grey and dry, and the horse flinches when your shadow falls across them.>" } },
+      choices = { { text = "Step back.", next = "BACK" } },
+    },
+    ywhistle = {
+      lines = {
+        { id = "ywhistle_x", text = "<Its ears flick at the sound. For a moment it seems about to answer, then its head drops again and it stands as still as before.>" },
+        { id = "ywhistle_hunter", when = { class = "HUNTER" }, text = "<Its ears swivel toward you at once. It knows a handler's whistle, even now, and it waits for a command that you have no right to give.>" },
+      },
+      choices = { { text = "Step back.", next = "BACK" } },
+    },
     hello = {
       narr = "Tatters of a Lordaeron caparison still hang from its flanks.",
-      lines = { { id = "h_default", text = "<The warhorse stamps a bare hoof on the stones and waits, as if for a rider who isn't coming.>" } },
+      lines = {
+        { id = "h_default", text = "<The warhorse stamps a bare hoof on the stones and waits, as if for a rider who isn't coming.>" },
+        { id = "yh_paladin", when = { class = "PALADIN" }, text = "<The warhorse lifts its head at the sight of you and takes one stiff step forward, as though it remembers the bearing of a knight.>" },
+      },
       choices = {
         { text = "Look over its old barding.", next = "xbard" },
         { text = "Offer it a handful of oats.", next = "xoats" },
         { text = "Try to climb into the saddle.", next = "xmount" },
         { text = "Lay a hand on its brow and pray.", next = "xpray", when = { class = "PALADIN" } },
         { text = "Easy there. Good horse.", next = "pat" },
+        { text = "Check its hooves.", next = "yhooves" },
+        { text = "Look at the scars on its flank.", next = "yscars" },
+        { text = "Whistle softly to it.", next = "ywhistle" },
         { text = "Leave it be.", next = "END" },
       },
     },
@@ -2092,6 +2120,8 @@ P:NPC {
     },
   },
   topics = {
+    silver_hand = { { id = "ytp_sh", text = "<The cut-away crest on its barding says more than any rider could.>" } },
+    bandarion_keep = { { id = "ytp_bk", text = "<The horse looks toward the keep's gate, and waits.>" } },
     ephram = { { id = "xtp_ep", text = "<The horse's ears swivel toward the stables at the name.>" } },
     _none = { { id = "tp_none", text = "<The horse flicks a ragged ear and looks away.>" } },
   },
