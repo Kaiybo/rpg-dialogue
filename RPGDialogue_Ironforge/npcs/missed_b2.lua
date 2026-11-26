@@ -124,11 +124,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else can I do for ye?" },
         { id = "h_again2", text = "Aye, go on." },
+        { id = "h_again_x0", when = { class = { "WARRIOR", "PALADIN" } }, text = "Back again! Show me the dents, {class}, an' I'll tell ye what they mean." },
       },
       choices = {
         { text = "Show me your plate.", next = "BUSINESS" },
         { text = "What's the test of good plate?", next = "test" },
         { text = "The gnome nearby says plate is for those who can't dodge.", next = "liss" },
+        { text = "Your father still comes in?", next = "father" },
+        { text = "Who's Dolkin?", next = "dolkin" },
+        { text = "What gorget would you recommend?", next = "gorget", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Do you make plate for gnomes?", next = "BACK", when = { race = "Gnome" }, reply = "I've made a few pieces, an' they were the hardest work I've ever done. Everything's half the size an' twice as fiddly." },
         { text = "Good day, Olthran.", next = "END" },
       },
     },
@@ -147,8 +152,40 @@ P:NPC {
       lines = { { id = "l_default", text = "Lissyphus said that, did she? She's a sharp wee thing an' she's welcome tae her opinion. I'll only say that I've never seen a leather jerkin stop a ballista bolt, an' I've never seen a dwarf dodge one either." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    father = {
+      lines = { { id = "xfather_default", text = "Every week, an' he stands in the doorway like he still owns it, which he does, in his heart. He says we're too soft wi' the hammer an' too quick wi' the sale." } },
+      choices = {
+        { text = "Is he right?", next = "right" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    right = {
+      lines = { { id = "xright_default", text = "About the hammer, maybe, for he tested every piece three times an' we test it twice. About the sale, no, for there's more customers now than in his day, an' they cannae all wait a fortnight." } },
+      choices = {
+        { text = "Should you keep his old methods?", next = "methods" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    methods = {
+      narr = "He glances toward the back of the shop, where hammering has stopped.",
+      lines = { { id = "xmethods_default", text = "Dolkin wants tae try a gnomish press for the rivets, an' my father would rather die than see it in his shop. I'm caught in between, as always. What would ye do?" } },
+      choices = {
+        { text = "Keep your father's ways. They've served for generations.", next = "BACK", reply = "Aye, they have, an' my father would shake yer hand. Dolkin would sulk for a week.", fx = { align = { order = 1 } } },
+        { text = "Try the new press. Old ways can still improve.", next = "BACK", reply = "Dolkin would buy ye a drink for that. My father would have ye thrown out, mind.", fx = { align = { order = -1 }, affinity = 1 } },
+      },
+    },
+    dolkin = {
+      lines = { { id = "xdolkin_default", text = "My brother, an' he does the chain an' the hittin', for he's got the bigger arm. He's a good smith an' a better test, an' he's never once said a breastplate was sound when it wasnae." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gorget = {
+      lines = { { id = "xgorget_default", text = "A thick one, wi' a lip at the top, so a blade that slides off the breastplate doesnae find yer throat. Most folk skimp on the gorget, an' most folk die o' the thing they skimped on." } },
+      choices = { { text = "I'll look for a thick one.", next = "BACK", reply = "Ye'll find one on my rack, {class}. An' if ye dinnae, Dolkin will make ye one." } },
+    },
   },
   topics = {
+    hall_of_arms = { { id = "tp_xhall_of_arms", text = "The trainers in the Hall of Arms send their recruits tae us. We send them back in plate." } },
+    military_ward = { { id = "tp_xmilitary_ward", text = "The Military Ward is where the soldiers buy their kit. We've been here longer than most." } },
     background = { { id = "tp_bg", text = "Craghelm by name an' by trade. Dolkin an' I took the shop over from our father, an' he still comes in tae tell us we're doin' it wrong." } },
     _none = { { id = "tp_none", text = "That's beyond me, friend. Ask in the Hall of Arms, for the trainers know the ward's business." } },
   },
@@ -182,11 +219,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "Something else? I'm in no hurry, as you can see." },
         { id = "h_again2", text = "Go on, I'm only counting the spins." },
+        { id = "h_again_x0", when = { class = "ROGUE" }, text = "You again. I heard you on the second step this time. You're getting better." },
       },
       choices = {
         { text = "You handle that knife well.", next = "knife" },
         { text = "What does a gnome want with so many blades?", next = "blades" },
         { text = "Could you teach me to throw like that?", next = "teach", when = { class = { "ROGUE", "WARRIOR", "HUNTER" } } },
+        { text = "What did you do in Gnomeregan?", next = "past" },
+        { text = "What's Stoneblade's like?", next = "shop" },
+        { text = "Who runs the rogues in this city?", next = "rogues", when = { class = "ROGUE" } },
+        { text = "Did we ever cross paths in Gnomeregan?", next = "BACK", when = { race = "Gnome" }, reply = "If we had, you'd remember, and I wouldn't. That's how I liked it then, and how I like it now." },
         { text = "I'll get out of your light.", next = "END" },
       },
     },
@@ -209,8 +251,40 @@ P:NPC {
       lines = { { id = "t_default", text = "I could, but I don't, not any more. Bixi Wobblebonk up at Timberline Arms takes students for thrown weapons, and she has more patience than I have, which you'll want." } },
       choices = { { text = "I'll look for Bixi. Something else.", next = "BACK" } },
     },
+    past = {
+      lines = { { id = "xpast_default", text = "I've already told you that's nobody's business. But since you're still standing there, I'll say I was good with locks, and the people who paid me weren't always the ones who owned them." } },
+      choices = {
+        { text = "You won't say more?", next = "pressed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pressed = {
+      narr = "The knife stops turning for a moment, then starts again.",
+      lines = { { id = "xpressed_default", text = "I'll say I never took anything from someone who couldn't spare it, and I never took anything from a friend. That's more of a code than most people in this city keep." } },
+      choices = {
+        { text = "So you only robbed thieves?", next = "thieves" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    thieves = {
+      lines = { { id = "xthieves_default", text = "Mostly. Merchants who cheated their workers, engineers who stole other people's designs. Some say robbing a crook is still robbing, and some say it's fair game. What do you say?" } },
+      choices = {
+        { text = "Stealing is stealing, whoever the mark.", next = "BACK", reply = "That's a very clean way to see the world. I hope it stays that clean for you.", fx = { align = { honor = 1 } } },
+        { text = "A crook who's robbed got what he deserved.", next = "BACK", reply = "Now you're talking sense. Don't say it too loudly in Ironforge, though.", fx = { align = { honor = -1 }, affinity = 1 } },
+      },
+    },
+    shop = {
+      lines = { { id = "xshop_default", text = "Good blades, honest prices and a shopkeeper who doesn't ask questions. It's quiet, and the light's bad, which suits me better than the Commons does." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    rogues = {
+      lines = { { id = "xrogues_default", text = "The trainers in the Forlorn Cavern, and you'll find them if you're meant to. Hulfdan and the others don't advertise, and neither should you." } },
+      choices = { { text = "I'll look for them.", next = "BACK", reply = "Don't look too hard. They'll find you first." } },
+    },
   },
   topics = {
+    forlorn_cavern = { { id = "tp_xforlorn_cavern", text = "The Forlorn Cavern is where the quiet folk gather. Nobody asks your name, which is the point." } },
+    gnomeregan = { { id = "tp_xgnomeregan", text = "I left Gnomeregan the same way everyone did, in a hurry. I didn't leave much behind." } },
     background = { { id = "tp_bg", text = "I'm from Gnomeregan, like everyone my height. What I did there is nobody's business in Ironforge." } },
     _none = { { id = "tp_none", text = "I wouldn't know, and if I did I'd want something for it." } },
   },
@@ -245,11 +319,15 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Murky's listenin' too, mind." },
         { id = "h_again2", text = "Go on, we've all day." },
+        { id = "h_again_x0", when = { class = "HUNTER" }, text = "Back again, {class}? Has yer beast asked after Murky?" },
       },
       choices = {
         { text = "How does a dwarf come by a murloc?", next = "murky" },
         { text = "Why keep him down here?", next = "cavern" },
         { text = "Murlocs have tried to kill me. Often.", next = "kill" },
+        { text = "Where did Murky's egg come from?", next = "egg" },
+        { text = "What other beasts do you keep?", next = "others" },
+        { text = "My pet would like to meet Murky.", next = "pet", when = { class = "HUNTER" } },
         { text = "Goodbye, Ransin. Goodbye, Murky.", next = "END" },
       },
     },
@@ -272,8 +350,39 @@ P:NPC {
       lines = { { id = "k_default", text = "Aye, the grown ones are a menace, I'll no' deny it. But this one's never known a tide pool nor a spear, only a dwarf an' a warm hearth, an' I like tae think it matters how a creature's raised." } },
       choices = { { text = "Maybe it does. Something else.", next = "BACK" } },
     },
+    egg = {
+      lines = { { id = "xegg_default", text = "A traveller off the tram had it in a basket, an' he said he'd found it on a beach an' couldnae be bothered tae carry it further. I paid him a silver for it, which he thought was a great joke." } },
+      choices = {
+        { text = "Will Murky grow huge?", next = "grow" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grow = {
+      narr = "Murky gurgles at his feet, and he reaches down to pat its head.",
+      lines = { { id = "xgrow_default", text = "I dinnae ken, an' neither does anyone else. He's grown a hand's width since I got him, an' if he keeps on, I'll need a bigger pool an' a stronger door." } },
+      choices = {
+        { text = "Should wild things be kept as pets at all?", next = "wild" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wild = {
+      lines = { { id = "xwild_default", text = "Some folk at the pool say I should let him go back tae the sea where he belongs, an' others say he's better off wi' me than wi' a spear in his gut. What do ye think?" } },
+      choices = {
+        { text = "A kind keeper is better than a cruel sea.", next = "BACK", reply = "Aye, that's my view, an' Murky agrees, I'm sure. He's never known anythin' else.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Wild things belong in the wild. Let him go.", next = "BACK", reply = "Maybe ye're right, but he'd no' last a day out there. He doesnae know what a shark is.", fx = { align = { light = -1 } } },
+      },
+    },
+    others = {
+      lines = { { id = "xothers_default", text = "A pair o' cave crickets, a lizard that sleeps by the Forge an' a snail I've named after a senator. None o' them are as clever as Murky, but they're all good company." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    pet = {
+      lines = { { id = "xpet_default", text = "Oh, aye, bring it here! Murky likes a new friend, so long as it doesnae try tae eat him. He gets nervous round cats, I've noticed." } },
+      choices = { { text = "I'll keep my pet calm.", next = "BACK", reply = "Good. They'll get on fine, I'm sure. Murky, say hello!" } },
+    },
   },
   topics = {
+    forlorn_cavern = { { id = "tp_xforlorn_cavern", text = "The Forlorn Cavern has the only water in the city. Murky likes it, an' the folk down here dinnae mind him." } },
     background = { { id = "tp_bg", text = "I've kept beasts since I was a lad wi' a pocket full o' cave crickets. Murky's the crown o' the collection." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, an' Murky's only got the one word, so he's nae help either." } },
   },
@@ -306,10 +415,15 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? The iron needs tae heat anyway." },
         { id = "h_again2", text = "Go on, I'm glad o' the rest." },
+        { id = "h_again_x0", when = { profession = "Blacksmithing" }, text = "Back again? Come an' look at this nail, an' tell me honestly if it's straight." },
       },
       choices = {
         { text = "Why take up the hammer so late?", next = "late" },
         { text = "What does Groum make of his father the apprentice?", next = "groum" },
+        { text = "Tell me about the Gol'Bolar seams.", next = "seams" },
+        { text = "What does Bengus Deepforge think of you?", next = "bengus" },
+        { text = "Hold the tongs closer to the jaw.", next = "BACK", when = { profession = "Blacksmithing" }, reply = "Like this? Aye, that's better, the iron's no' slippin'. Thank ye, an' dinnae tell Groum ye had tae show me.", fx = { affinity = 1 } },
+        { text = "What's the best seam you ever worked?", next = "best", when = { profession = "Mining" } },
         { text = "Good luck with the nails.", next = "END" },
       },
     },
@@ -328,8 +442,40 @@ P:NPC {
       lines = { { id = "groum_default", text = "He's embarrassed an' proud by turns, the way I was when he was the one makin' crooked nails. He checks my work when he thinks I'm no' lookin', an' I let him, for a father can learn from his son if he's the sense tae keep quiet about it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    seams = {
+      lines = { { id = "xseams_default", text = "Copper an' tin, mostly, an' a bit o' silver if ye followed the right vein. I worked them for forty years, till my knees gave out an' the troggs came up." } },
+      choices = {
+        { text = "The troggs were there in your day?", next = "troggs" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    troggs = {
+      narr = "He sets the hammer down and flexes his fingers.",
+      lines = { { id = "xtroggs_default", text = "No' when I started, but they came at the end. We broke intae a cave one mornin' an' they came out o' it like water from a burst pipe. I've never run so fast in my life." } },
+      choices = {
+        { text = "Should Ironforge retake the quarry?", next = "retake" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    retake = {
+      lines = { { id = "xretake_default", text = "The miners say aye, an' they want tae do it themselves wi' picks an' shovels. The Senate says wait for the soldiers, an' the soldiers say they're busy. What do ye say?" } },
+      choices = {
+        { text = "Wait for the soldiers. Miners shouldn't fight troggs.", next = "BACK", reply = "Aye, an' I've seen what troggs do tae miners. Wait, an' let them come wi' rifles.", fx = { align = { order = 1 } } },
+        { text = "Let the miners take it back themselves.", next = "BACK", reply = "Ha! Ye'd have them at the quarry tomorrow, if they had their way. I'd go wi' them, if my knees let me.", fx = { align = { order = -1 }, affinity = 1 } },
+      },
+    },
+    bengus = {
+      lines = { { id = "xbengus_default", text = "He says I've a miner's arm, which means I hit everythin' as if it were rock. He's no' wrong, but he's patient wi' me, which is more than I deserve at my age." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    best = {
+      lines = { { id = "xbest_default", text = "A vein o' tin so pure it shone like silver, out by the Gol'Bolar's eastern face. We worked it for a season an' it fed half the Great Forge, an' then the troggs came." } },
+      choices = { { text = "A fine seam lost.", next = "BACK", reply = "Aye. Some day, maybe, a dwarf will work it again." } },
+    },
   },
   topics = {
+    troggs = { { id = "tp_xtroggs", text = "They came up through Gol'Bolar at the end o' my minin' days. I've no' forgiven them for it." } },
+    great_forge = { { id = "tp_xgreat_forge", text = "I'm learnin' at the Great Forge now, an' it's harder than any mine I worked." } },
     background = { { id = "tp_bg", text = "Forty years in the Gol'Bolar seams an' elsewhere, an' one year at the anvil. I know which was easier on the knees." } },
     _none = { { id = "tp_none", text = "I dinnae ken, friend. Ask my son Groum; he's the clever one in the family." } },
   },

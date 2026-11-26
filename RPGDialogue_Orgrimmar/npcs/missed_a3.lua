@@ -37,6 +37,9 @@ P:NPC {
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "What sells best in the Drag?", next = "sells" },
         { text = "Who are your neighbours here?", next = "neighbours" },
+        { text = "How did you come to own a market?", next = "xhow" },
+        { text = "Do goblins compete with you?", next = "xgoblins" },
+        { text = "Any advice for a hunter on the road?", when = { class = "HUNTER" }, next = "xhunter" },
         { text = "Good trading, Asoran.", next = "END" },
       },
     },
@@ -65,9 +68,46 @@ P:NPC {
       lines = { { id = "sh_default", text = "No, and I thank the builders for it every summer. The canyon walls keep it cool enough that food does not spoil by noon, which is why the traders settled here and left the open valleys to the warriors." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xhow = {
+      lines = {
+        { id = "xhow_default", text = "I was a quartermaster in the Horde's march across the Barrens, and when we reached Durotar, nobody else knew how to count a sack of grain. The Warchief gave me a corner of the Drag, and I made it a market." },
+      },
+      choices = {
+        { text = "Was the march hard?", next = "xmarch" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmarch = {
+      lines = {
+        { id = "xmarch_default", text = "Hard and hungry, with centaur on one side and the human fleet on the other. We ate whatever we could find, and I swore that no grunt would go hungry under my count again." },
+      },
+      choices = {
+        { text = "Then this market is a promise kept.", next = "BACK", reply = "I suppose it is, though I never said it so plainly.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgoblins = {
+      lines = {
+        { id = "xgoblins_default", text = "They compete with everyone, and they compete well. They sell cheaper, and they sell to the Alliance as well, and I will not." },
+      },
+      choices = {
+        { text = "Selling to both sides is only business.", next = "BACK", reply = "Then buy from them, {class}, and count your fingers after.", fx = { align = { honor = -1 } } },
+        { text = "A Horde merchant should feed only the Horde.", next = "BACK", reply = "That is what I say, and it costs me coin, and I do not regret it.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunter = {
+      lines = {
+        { id = "xhunter_default", text = "Carry meat for your beast and water for yourself, and do not trust the water holes in the Barrens without boiling them. The beast will forgive you a lot, but not hunger." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I carried supplies for the Horde's march across the Barrens. When the city was built I simply put the pack down and opened it." } },
+    trade = { { id = "tp_x_trade", text = "The Drag is where Orgrimmar buys and sells. If something cannot be found here, it is not worth having or not worth the risk." } },
     _none = { { id = "tp_none", text = "I do not know about that. I know what is on my shelves and what it costs." } },
   },
 }
@@ -454,6 +494,9 @@ P:NPC {
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "Why does dust cost so much?", next = "dust" },
         { text = "How is the apprentice coming along?", next = "jhag" },
+        { text = "How does an orc come to enchanting?", next = "xorc" },
+        { text = "What is the strangest thing anyone sold you?", next = "xstrange" },
+        { text = "Do mages buy from you?", when = { class = "MAGE" }, next = "xmage" },
         { text = "Farewell, Kithas.", next = "END" },
       },
     },
@@ -482,9 +525,45 @@ P:NPC {
       lines = { { id = "l_default", text = "I like that he sweeps up without being asked. The rest is your imagination, {class}, and I will thank you to keep it away from my scale." } },
       choices = { { text = "Of course. Something else.", next = "BACK" } },
     },
+    xorc = {
+      lines = {
+        { id = "xorc_default", text = "Through warlocks, sadly, since the first orcs to touch magic touched the wrong sort. The Warchief prefers shamans, but Godan says enchanting is only craft, and craft has no master but the hands." },
+      },
+      choices = {
+        { text = "Do you agree with him?", next = "xagree" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xagree = {
+      lines = {
+        { id = "xagree_default", text = "Mostly. Magic is like fire, and the Horde learned the hard way how it burns. Some say it should be kept far from orc hands, and some say we must learn it or fall behind the Alliance." },
+      },
+      choices = {
+        { text = "We must master it, or the Alliance will master us.", next = "BACK", reply = "That is Godan's view, and he is usually right, which is irritating.", fx = { align = { light = -1 } } },
+        { text = "Some power is better left alone, after the demon blood.", next = "BACK", reply = "You sound like a shaman. I do not entirely disagree.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xstrange = {
+      lines = {
+        { id = "xstrange_default", text = "A goblin sold me a jar of what he swore was dust from a dragon's hoard. It was sand and powdered copper, and I keep it on the shelf to remind me never to trust a goblin twice." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xmage_default", text = "Now and then, the Forsaken ones, who learned their trade in Dalaran before they died. They are polite and precise, and they always count the change." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I kept the stores for a warband once, and dust is easier to count than grunts. It also complains less." } },
+    dalaran = { { id = "tp_x_dalaran", text = "The human city of mages. The Forsaken who learned there buy from me and speak of it the way an orc speaks of the old clan lands." } },
     _none = { { id = "tp_none", text = "That is not on my shelves, so it is not my business. Ask Godan, if he will look up from his runes." } },
   },
 }

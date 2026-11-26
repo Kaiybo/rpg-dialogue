@@ -38,6 +38,7 @@ P:NPC {
         { text = "Who is Theresa?", next = "theresa" },
         { text = "You don't sound troubled by it.", next = "troubled" },
         { text = "Who were you, before the plague?", next = "before" },
+        { text = "Does the War Quarter suit a soldier's widow?", next = "jw_quarter" },
         { text = "I'll leave you to your talk.", next = "END" },
       },
     },
@@ -70,8 +71,33 @@ P:NPC {
       lines = { { id = "re_default", text = "I do not, and I've stopped turning over helmets to find out. If he lives, he would not thank me for knocking at his door looking as I do, and if he doesn't, then he's somebody else's soldier now." } },
       choices = { { text = "I'm sorry I asked. Something else.", next = "BACK" } },
     },
+    jw_quarter = {
+      lines = { { id = "jw_q_default", text = "Better than the parlour ever did. I hear the Deathguard drilling and know what every shout means, because Reuben practised them on the dog. A quarter full of soldiers is the only company I ever learned to keep." } },
+      choices = {
+        { text = "What do you make of the Deathguard?", next = "jw_guard" },
+        { text = "I'm a soldier myself, as it happens.", next = "BACK", when = { class = "WARRIOR" }, reply = "Then stand up straight. Reuben always did when a lady was watching, even a dead one." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jw_guard = {
+      lines = { { id = "jw_g_default", text = "Better soldiers than Terenas ever paid for, since they can't desert and they don't need feeding. They march to the Bulwark knowing what waits there, and they go anyway. I respect that more than I ever respected a parade." } },
+      choices = {
+        { text = "Would you send them against the living, too?", next = "jw_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jw_stance = {
+      lines = { { id = "jw_s_default", text = "The Dark Lady will send them where she pleases, and she won't ask me. But I think the living chose their side when they barred the gates and lit the pyres. Tell me where you stand, since you're so curious." } },
+      choices = {
+        { text = "Not every living soul barred a gate against you.", next = "BACK", reply = "No, some of them only watched. I find I can't tell the two apart any longer.", fx = { align = { light = 1 } } },
+        { text = "Then let them answer for it, every one.", next = "BACK", reply = "Now you sound like a Whitehall. Reuben would have liked you, I think.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    lordaeron = { { id = "tp_lordaeron_x", text = "A kingdom of parades and pyres, and I saw rather more of the second. I don't mourn the flags." } },
+    forsaken = { { id = "tp_forsaken_x", text = "We are what was left when the king's men finished being merciful. I find it suits me well enough." } },
     background = { { id = "tp_bg", text = "A soldier's wife in Lordaeron, and now a widow who happens to be the one who died. I keep to the War Quarter, where at least the noise is honest." } },
     _none = { { id = "tp_none", text = "I couldn't tell you, and I'd rather not guess. Ask Gerard; he enjoys being asked things." } },
   },
@@ -110,6 +136,7 @@ P:NPC {
         { text = "You mean your time in the Scourge.", next = "scourge" },
         { text = "What do Joanna and Gerard say?", next = "others" },
         { text = "What does a priest do to a mind like hers?", next = "priest", when = { class = "PRIEST" } },
+        { text = "Have you ever spoken to Theresa yourself?", next = "lt_spoke" },
         { text = "Good day, Leona.", next = "END" },
       },
     },
@@ -139,8 +166,31 @@ P:NPC {
       lines = { { id = "p_default", text = "I've heard the priests of the Forsaken can push a mind aside for a short while, and that the owner comes back to it afterward. What holds Theresa is the same trick made permanent, I think, and nobody has been able to tell me whether the owner is still waiting." } },
       choices = { { text = "I couldn't tell you either. Something else.", next = "BACK" } },
     },
+    lt_spoke = {
+      lines = { { id = "lt_sp_default", text = "Once. I asked her name, and she told me, and then she told me where Gerard's parcel was going, in exactly the same voice. I couldn't think what to ask her after that, so I let her go on her way." } },
+      choices = {
+        { text = "What would you ask her now?", next = "lt_ask" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lt_ask = {
+      lines = { { id = "lt_a_default", text = "Whether she hears herself, at the back, the way I did. If she does, then someone ought to tell her she isn't mad, because nobody told me, and I spent a long while thinking I was." } },
+      choices = {
+        { text = "And if Gerard caught you at it?", next = "lt_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lt_stance = {
+      lines = { { id = "lt_st_default", text = "Gerard would say I'd interfered with his property, and the law of this city would probably agree with him. I'm not brave, you understand. I only keep wondering what the right thing would be." } },
+      choices = {
+        { text = "Ask her anyway. Some things matter more than the law.", next = "BACK", reply = "You make it sound simple. Perhaps it is, from the outside.", fx = { align = { order = -1 } } },
+        { text = "Leave it be. The city's laws keep the peace down here.", next = "BACK", reply = "That's what Joanna says, more or less. I suppose you're both right.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken_x", text = "We're the ones who woke up. Some days that feels like a gift, and some days like a sentence." } },
     background = { { id = "tp_bg", text = "I was nobody of note in Lordaeron, and then I was a body in the Lich King's ranks, and now I stand in the War Quarter asking questions nobody wants." } },
     _none = { { id = "tp_none", text = "I don't know, and I've enough unanswered questions already. Joanna might have an opinion; she usually does." } },
   },
@@ -179,6 +229,7 @@ P:NPC {
         { text = "You were a locksmith?", next = "locks" },
         { text = "What goes on in this quarter?", next = "quarter" },
         { text = "Any advice for someone learning locks?", next = "advice", when = { class = "ROGUE" } },
+        { text = "Did you ever get caught, back in Capital City?", next = "lf_caught" },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -208,8 +259,33 @@ P:NPC {
       lines = { { id = "a_default", text = "Practise on cheap locks until your hands do it without you, because the day you have to think about a tumbler is the day somebody comes round the corner. And never carry your picks in the same pocket as your excuses." } },
       choices = { { text = "I'll remember that. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    lf_caught = {
+      lines = { { id = "lf_c_default", text = "Once, by a magistrate's housekeeper who came down for a glass of milk. She hit me with the jug, and I spent a season in the king's gaol below the capital. It was the only holiday I ever took." } },
+      choices = {
+        { text = "What was the gaol like?", next = "lf_stockade" },
+        { text = "Were you a Ravenholdt man?", next = "BACK", when = { class = "ROGUE" }, reply = "I never earned the invitation, and I was wise enough not to go looking for it uninvited." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lf_stockade = {
+      lines = { { id = "lf_s_default", text = "Damp, and full of people who knew more than I did. I learned more about locks in that cell than in ten years of honest burglary, mostly from an old Alterac fence who wouldn't stop talking." } },
+      choices = {
+        { text = "And what do you think of thieving now?", next = "lf_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lf_stance = {
+      lines = { { id = "lf_st_default", text = "I think a door is a promise, and a thief is the fellow who checks whether it was kept. The Dark Lady's people call it intelligence work now and pay for it, which takes some of the shine off." } },
+      choices = {
+        { text = "A thief's still a thief, whoever pays him.", next = "BACK", reply = "Spoken like someone who has never been paid well. I envy you a little.", fx = { align = { honor = 1 } } },
+        { text = "Taking from fools who don't lock up is fair game.", next = "BACK", reply = "A sound philosophy. I lived by it for twenty years and died by something else entirely.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    deathstalkers = { { id = "tp_deathstalkers_x", text = "Mennet's lot. They do what I did, but with knives and permission." } },
+    lordaeron = { { id = "tp_lordaeron_x", text = "Every lock in the capital is open now. I'd have liked to do it slowly, one at a time." } },
     background = { { id = "tp_bg", text = "I kept a locksmith's shop in the capital and a second trade after dark. Death closed the shop, though I've kept the habits." } },
     _none = { { id = "tp_none", text = "That's a door I've not been through. Ask in the back, among the Deathstalkers, if they'll speak to you." } },
   },
@@ -248,6 +324,7 @@ P:NPC {
         { text = "What are they fighting down there?", next = "fight" },
         { text = "Are you related to Baltus Fowler?", next = "baltus" },
         { text = "Who else is in the crowd?", next = "crowd" },
+        { text = "Who were you before you came to the fights?", next = "mf_before" },
         { text = "Enjoy the bout.", next = "END" },
       },
     },
@@ -277,8 +354,33 @@ P:NPC {
       lines = { { id = "c_default", text = "Robert Gossom and Richard Van Brunt are the loud ones after me, Riley Walker wagers on every bout and wins about half, and Chloe Curthas and Andrew Hartwell argue over which is the better fighter. We're here most days, since the dead have few other appointments." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    mf_before = {
+      lines = { { id = "mf_b_default", text = "I kept a tavern by the docks at Lordamere, and I broke up more fights than Baltus ever started. You learn to read a brawl before it starts, which is why I can tell you Tyler's going to drop that shoulder again." } },
+      choices = {
+        { text = "Do you miss the tavern?", next = "mf_tavern" },
+        { text = "I could teach Tyler a thing or two.", next = "BACK", when = { class = { "WARRIOR", "SHAMAN" } }, reply = "Go on, then, but he won't listen to you either. He doesn't listen to anybody." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mf_tavern = {
+      lines = { { id = "mf_t_default", text = "I miss the noise, and this is the nearest thing to it in the whole city. Nobody drinks now and nobody sings, but they'll still shout at a fight, and that will have to do me." } },
+      choices = {
+        { text = "Is it right, setting captives against the fighters?", next = "mf_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mf_stance = {
+      lines = { { id = "mf_s_default", text = "Malach says the humans in the pit were Scarlets who'd have burned us on sight, and I've no cause to doubt him. Still, one of them called for his mother last week, and the crowd went quiet for a moment." } },
+      choices = {
+        { text = "They're our enemies. The pit is fair enough.", next = "BACK", reply = "That's what I told myself, and I went on cheering after a while.", fx = { align = { light = -1 } } },
+        { text = "Killing prisoners for sport isn't fighting. It's cruelty.", next = "BACK", reply = "Maybe so. Don't say it too loud near Malach, mind.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken_x", text = "We're loud enough, when there's something worth shouting about. There isn't often." } },
+    advice = { { id = "tp_advice_x", text = "Keep your shield up and your shoulder down, and never fight a Fowler before breakfast." } },
     background = { { id = "tp_bg", text = "The Fowlers were loud in Lordaeron and we're loud down here. Dying didn't change much about us but the colour." } },
     _none = { { id = "tp_none", text = "I haven't the faintest idea, and I can't think about it while there's a bout on. Ask me after the abomination." } },
   },
@@ -317,6 +419,7 @@ P:NPC {
         { text = "Why do you walk the ring all day?", next = "why" },
         { text = "What have you heard lately?", next = "heard" },
         { text = "I'm lost. Which way to the quarters?", next = "lost" },
+        { text = "Do your feet remember any other city?", next = "ma_other" },
         { text = "I'll let you walk on.", next = "END" },
       },
     },
@@ -346,8 +449,33 @@ P:NPC {
       lines = { { id = "l_default", text = "Everyone is, the first week. The bank and the bat handlers are in the middle, and the four quarters hang off the outer ring: War, Rogues', Magic, and the Apothecarium beyond, with the canal running through all of it." } },
       choices = { { text = "That helps. Something else.", next = "BACK" } },
     },
+    ma_other = {
+      lines = { { id = "ma_o_default", text = "Southshore, a little, before I married inland. I can still feel the planks of the jetty if I close my eyes, but I don't go back, because the Alliance holds it and they'd not know me for the girl who sold mussels there." } },
+      choices = {
+        { text = "Would you go back, if you could?", next = "ma_back" },
+        { text = "I've walked Southshore recently, as it happens.", next = "BACK", when = { race = "Human" }, reply = "Then you've seen more of it than I'll ever see again. Don't tell me if the jetty's gone." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ma_back = {
+      lines = { { id = "ma_b_default", text = "Only to walk it once, round and round like here, until my feet were sure of it. Edrick says that's maudlin, and that a Forsaken has no business with old roads. He's probably right, but he says it walking." } },
+      choices = {
+        { text = "Should the Forsaken take back the old lands?", next = "ma_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ma_stance = {
+      lines = { { id = "ma_s_default", text = "The Deathguard talk of it every time they pass, how Hillsbrad and Southshore were Lordaeron once and ought to be again. I only want to walk on them, but I suppose walking needs a road someone holds." } },
+      choices = {
+        { text = "Those lands were Lordaeron's. The Forsaken should reclaim them.", next = "BACK", reply = "Then the Deathguard will be glad of you. Mind you come home to tell me.", fx = { align = { order = 1 } } },
+        { text = "Let the living keep them. We've enough graves already.", next = "BACK", reply = "That's Edrick's answer, and he hasn't lost a step yet.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    lordaeron = { { id = "tp_lordaeron_x", text = "Every road in it is somebody's grave road now. I'd still walk them, given leave." } },
+    advice = { { id = "tp_advice_x", text = "Learn the ring first, then the quarters. A lost soul down here can end up in the Apothecarium by mistake." } },
     background = { { id = "tp_bg", text = "I lived in the capital above us and never once came down to its sewers. Now I know them better than I knew my own street." } },
     _none = { { id = "tp_none", text = "We haven't heard a word about that on our rounds. Ask me again in a lap or two." } },
   },

@@ -487,6 +487,9 @@ P:NPC {
         { text = "What are you two arguing about?", next = "argue" },
         { text = "You sound like old friends.", next = "friends" },
         { text = "Why come up here at all?", next = "upstairs" },
+        { text = "Where did you two fight?", next = "xwar" },
+        { text = "You'd be bored in the Valley of Honor too.", next = "xbored" },
+        { text = "I am a warrior. Ask me who is right.", when = { class = "WARRIOR" }, next = "xjudge" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -514,10 +517,55 @@ P:NPC {
       lines = { { id = "u_default", text = "Because the scholars below do not shout, and neither of us can read well enough to be bothered by what they write. It is the one place in Orgrimmar where nobody tries to sell us anything." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xwar = {
+      lines = {
+        { id = "xwar_default", text = "In the Second War, both of us, under the Blackrock banner until the Alliance broke it. Tamaro carried me out of a burning field near Blackrock Mountain, and I have been paying for it ever since by listening to him." },
+      },
+      choices = {
+        { text = "And after the war?", next = "xcamps" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcamps = {
+      lines = {
+        { id = "xcamps_default", text = "After the war came the camps, and I will not talk long about them. We sat in the mud together for years, and when the Warchief opened the gates, Tamaro said he wanted shade and quiet, and I said he was a fool." },
+      },
+      choices = {
+        { text = "And here you are, in shade and quiet.", next = "xshade" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xshade = {
+      lines = {
+        { id = "xshade_default", text = "Here we are, and do not tell him I like it. An orc who admits he likes the quiet is one step from tending turnips, and I have seen what that did to the camps." },
+      },
+      choices = {
+        { text = "Peace is earned. There is no shame in enjoying it.", next = "BACK", reply = "Hmph. You talk like him, and he is never right, so be careful.", fx = { align = { honor = -1 } } },
+        { text = "A warrior should die fighting, not sitting.", next = "BACK", reply = "Ha! Tell him that, and see if he answers louder than a sigh.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbored = {
+      lines = {
+        { id = "xbored_default", text = "Bored? I would be teaching the young ones how to swing properly, and they would be thanking me for it. Tamaro says they would be laughing at an old orc who forgot his knees." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xjudge = {
+      lines = {
+        { id = "xjudge_default", text = "Good. A warrior knows an orc belongs where the axes ring, in the Valley of Honor, and not up a staircase watching goblins haggle. Tell him so, and say it louder than I do." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I am an old soldier with time on his hands, and Tamaro is the same. We earned the right to waste a day." } },
     internment = { { id = "tp_in", text = "We sat behind human walls and forgot what we were. Thrall reminded us, and I do not forget twice." } },
+    second_war = { { id = "tp_x_second_war", text = "We lost the Second War, and nobody needs to remind me. Tamaro carried me out of it, which he reminds me of instead." } },
     _none = { { id = "tp_none", text = "I do not know, and Tamaro knows less, whatever he tells you." } },
   },
 }
@@ -554,6 +602,9 @@ P:NPC {
         { text = "What is your half of the argument?", next = "half" },
         { text = "Doesn't his shouting wear on you?", next = "shout" },
         { text = "You both look like old soldiers.", next = "soldiers" },
+        { text = "Sarlek says you carried him out of a battle.", next = "xcarry" },
+        { text = "What do you see from up here?", next = "xview" },
+        { text = "A shaman values quiet. What do the spirits say here?", when = { class = "SHAMAN" }, next = "xspirits" },
         { text = "Rest well, Tamaro.", next = "END" },
       },
     },
@@ -579,9 +630,55 @@ P:NPC {
       lines = { { id = "so_default", text = "We were, once. We followed the Warchief out of the camps and over the sea, and we carried stone for these walls when our fighting was done, which I count as the better work of the two." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xcarry = {
+      lines = {
+        { id = "xcarry_default", text = "I did, near Blackrock Mountain, with his leg broken and his mouth still working. He has never once thanked me, which is how I know he is grateful." },
+      },
+      choices = {
+        { text = "Why carry him? The battle was lost.", next = "xwhy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwhy = {
+      lines = {
+        { id = "xwhy_default", text = "Because he was there, and I was standing, and that was all the reason an orc of the Horde needed. We had very little honour left in those days, so we kept what we could find." },
+      },
+      choices = {
+        { text = "Then you kept the best of it.", next = "xkept" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xkept = {
+      lines = {
+        { id = "xkept_default", text = "Perhaps. The demon blood took a great deal from us, and the camps took more, but nobody could take a friend you had carried. Sarlek would never say that, so I say it for both of us." },
+      },
+      choices = {
+        { text = "Loyalty to a friend matters more than any war.", next = "BACK", reply = "So I think, though Sarlek would call it soft and then agree with me later.", fx = { align = { honor = -1 } } },
+        { text = "Loyalty to the Horde comes first, friends after.", next = "BACK", reply = "That was the Horde's creed under Doomhammer, and it cost us dear. I keep it differently now.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xview = {
+      lines = {
+        { id = "xview_default", text = "The Drag, and every goblin and trader who passes through it. I like to watch them buy and sell, because none of them are trying to kill anyone, and I spent too many years where everyone was." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xspirits = {
+      lines = {
+        { id = "xspirits_default", text = "I am no shaman, but I feel what you mean. The stone holds the sound of the drums below, and it is a calm sound from up here, like rain heard from under a good roof." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "An old soldier, and now an old builder with nothing left to build. Sarlek keeps me from growing bored." } },
+    internment = { { id = "tp_x_internment", text = "We waited out the camps together, Sarlek and I. He talked and I listened, and I think the talking kept him alive." } },
+    thrall = { { id = "tp_x_thrall", text = "The Warchief gave us our freedom and then a city to keep it in. I am content to sit in a corner of it." } },
     _none = { { id = "tp_none", text = "I could not say. Ask Sarlek, and he will give you an answer whether he has one or not." } },
   },
 }

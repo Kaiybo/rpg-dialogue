@@ -91,6 +91,8 @@ P:NPC {
         { text = "What do the quarry walls tell you?", next = "walls" },
         { text = "Who works the quarry?", next = "miners" },
         { text = "Troggs have been seen near the quarry.", next = "troggs" },
+        { text = "What's the best find you've made here?", next = "xp_find" },
+        { text = "I'm an archaeologist of sorts myself.", next = "xp_dwarf", when = { race = "Dwarf" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -121,8 +123,46 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xp_find = {
+      lines = {
+        { id = "xpf_default", text = "A carved stone the size of my fist, buried three fathoms down, with lines on it no dwarf ever cut. I sent it to the Hall of Explorers, and they've been arguin' about it for a year." },
+      },
+      choices = {
+        { text = "What do they think it is?", next = "xp_find2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xp_find2 = {
+      lines = {
+        { id = "xpf2_default", text = "Half say it's titan work, a marker of some kind. The other half say it's a trogg's toy and I've gone soft in the head. I'll tell ye, nae trogg I've met could cut a line that straight." },
+      },
+      choices = {
+        { text = "Should the League keep digging here?", next = "xp_dig" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xp_dig = {
+      lines = {
+        { id = "xpd_default", text = "That's the question the King's builders keep askin'. Every day I spend lookin' is a day they cannae cut stone, and the city wants its new halls." },
+      },
+      choices = {
+        { text = "Knowledge first. The stone will keep.", next = "BACK", reply = "Aye, that's what I tell them, and they grumble.", fx = { align = { order = -1 } } },
+        { text = "The city's needs come first. Study what you can.", next = "BACK", reply = "Fair, fair. I'll work faster, and keep my notebook closer.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xp_dwarf = {
+      lines = {
+        { id = "xpdw_default", text = "Are ye now? Then ye'll know the itch. Come by the Hall of Explorers and tell them Gehn sent ye, and they'll find ye a shovel and a dig nobody else wants." },
+      },
+      choices = {
+        { text = "I might. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    explorers_league = { { id = "tp_league", text = "The finest band of diggers and scholars in Khaz Modan. I'd nae trade my badge for a thane's seat." } },
+    uldaman = { { id = "tp_uldaman", text = "Uldaman's the prize every League man dreams of. Troggs or nae, I'd give a finger to see the deep halls." } },
     _none = { { id = "tp_none", text = "That's nae in my notebook, I'm afraid. Ask at the Hall of Explorers if it's learnin' ye want." } },
   },
 }
@@ -149,6 +189,8 @@ P:NPC {
         { text = "What's left of the Silver Hand?", next = "hand" },
         { text = "How bad are the troggs here?", next = "troggs" },
         { text = "I bear the Light as you do.", next = "brother", when = { class = "PALADIN" } },
+        { text = "Why guard miners instead of a city?", next = "xv_why" },
+        { text = "I'm a dwarf. My kin need protecting too.", next = "xv_dwarf", when = { race = "Dwarf" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -179,8 +221,46 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xv_why = {
+      lines = {
+        { id = "xvw_default", text = "Because cities have walls, and miners have only their picks. The Light doesnae ask how important a soul is before it asks us to stand in front of it." },
+      },
+      choices = {
+        { text = "Have you lost any miners here?", next = "xv_lost" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xv_lost = {
+      lines = {
+        { id = "xvl_default", text = "Two, last winter, before I came. A trogg pack dragged them into the dark. I've prayed for them every night since, though I never knew their faces." },
+      },
+      choices = {
+        { text = "Should we hunt the troggs to their dens?", next = "xv_hunt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xv_hunt = {
+      lines = {
+        { id = "xvh_default", text = "Some say we should go down after them and burn every nest we find. Others say we guard what's ours and leave the deep places be. I've nae made up my mind." },
+      },
+      choices = {
+        { text = "Burn the nests. Strike before they strike us.", next = "BACK", reply = "Aye, there's sense in that, though the Light weeps at slaughter.", fx = { align = { light = -1 } } },
+        { text = "Guard the miners. Don't go seeking blood.", next = "BACK", reply = "That's the path of a protector. I think I'll take it.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xv_dwarf = {
+      lines = {
+        { id = "xvd_default", text = "They do, and they have me. If ye've a cousin swingin' a pick up here, tell them Avarus Kharag sleeps light and swings heavy." },
+      },
+      choices = {
+        { text = "I will. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    holy_light = { { id = "tp_light", text = "The Light is in every honest stroke of the pick. I'll guard it here as gladly as in any cathedral." } },
+    troggs = { { id = "tp_troggs", text = "They come up from the deep places hungry and angry, and they've nae mercy in them. I have mercy, but I keep it behind my hammer." } },
     _none = { { id = "tp_none", text = "That's nae my concern, friend. My concern is the quarry and the folk in it." } },
   },
 }
@@ -206,6 +286,8 @@ P:NPC {
       choices = {
         { text = "What crawls out of Gnomeregan?", next = "gnomeregan" },
         { text = "People whisper about your complexion?", next = "skin" },
+        { text = "What do you report to Ironforge?", next = "xo2_report" },
+        { text = "I lived in Gnomeregan. Is it lost for good?", next = "xo2_gnome", when = { race = "Gnome" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -230,8 +312,46 @@ P:NPC {
         { text = "One more thing, then.", next = "BACK" },
       },
     },
+    xo2_report = {
+      lines = {
+        { id = "xor_default", text = "Troggs, leper gnomes, the odd flash of light deep in the city. I send it all down to the Military Ward in a satchel once a week, and I've nae idea if anyone reads it." },
+      },
+      choices = {
+        { text = "What's the strangest thing you've seen?", next = "xo2_strange" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xo2_strange = {
+      lines = {
+        { id = "xos2_default", text = "A gnome walkin' out of the front gate, steady as ye please, with a glow about him that wasnae lamplight. He looked up at my tower and waved. I didnae wave back." },
+      },
+      choices = {
+        { text = "Should someone go in and clear the city?", next = "xo2_clear" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xo2_clear = {
+      lines = {
+        { id = "xoc2_default", text = "The gnomes want to, and fair enough, it's their home. But I've watched what comes out of there, and I wonder if it's worth the lives. Maybe it's best sealed and forgotten." },
+      },
+      choices = {
+        { text = "Gnomeregan is their home. They deserve it back.", next = "BACK", reply = "Aye. I'll nae argue with a gnome's heart, only with his odds.", fx = { align = { honor = 1 } } },
+        { text = "Seal it. Some places aren't worth the lives.", next = "BACK", reply = "That's my thinkin', but I'll nae say it near a gnome.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xo2_gnome = {
+      lines = {
+        { id = "xog_default", text = "Lost? Nae, friend, only sleepin' badly. I've seen yer folk go in with hammers and come back with stories. Ye'll have it back one day, mark me." },
+      },
+      choices = {
+        { text = "I hope you're right. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    gnomeregan = { { id = "tp_gnomer", text = "I watch it every day and I still couldnae tell ye half of what goes on in there." } },
+    troggs = { { id = "tp_troggs", text = "They came up and drove the gnomes out. Now they're everywhere in Dun Morogh, and I count them from my tower." } },
     _none = { { id = "tp_none", text = "Nae idea, friend. I watch gates, I don't read books." } },
   },
 }
@@ -258,6 +378,8 @@ P:NPC {
         { text = "Is the seam a good one?", next = "seam" },
         { text = "You work alongside Miner Grumnal?", next = "grumnal" },
         { text = "I mine too. Mind if I take a look?", next = "miner", when = { profession = "Mining" } },
+        { text = "How long have you been a miner?", next = "xg2_long" },
+        { text = "I'm a dwarf. Copper or tin, which do you prefer?", next = "xg2_dwarf", when = { race = "Dwarf" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -288,8 +410,45 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xg2_long = {
+      lines = {
+        { id = "xgl_default", text = "I've mined since I could lift a pick, and my da dug before me, and his da before him. That's all there is to it." },
+      },
+      choices = {
+        { text = "Did you ever want something else?", next = "xg2_else" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xg2_else = {
+      lines = {
+        { id = "xge_default", text = "Once, I wanted to be a Mountaineer and carry a rifle. Da said a rifle cannae feed a family but a pick can, so I picked." },
+      },
+      choices = {
+        { text = "Do you regret it?", next = "xg2_regret" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xg2_regret = {
+      lines = {
+        { id = "xgr_default", text = "Some days. Grumnal says I should've followed my own way. I say a dwarf does what his family needs." },
+      },
+      choices = {
+        { text = "Your family came first. That's honourable.", next = "BACK", reply = "Aye. That's how I see it.", fx = { align = { order = 1 } } },
+        { text = "You should've followed your heart.", next = "BACK", reply = "Hmph. Now ye sound like Grumnal.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xg2_dwarf = {
+      lines = {
+        { id = "xgd_default", text = "Tin, every time. Copper's easy to find, but tin makes ye work for it, and I like a seam that fights back." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    troggs = { { id = "tp_troggs", text = "They come up out of the dark, I swing my pick, and they go back down again." } },
     _none = { { id = "tp_none", text = "Couldnae say. Ask somebody who spends less time in the rock." } },
   },
 }
@@ -315,6 +474,8 @@ P:NPC {
       choices = {
         { text = "Where do the troggs come from?", next = "troggs" },
         { text = "What's Grothor like to work with?", next = "grothor" },
+        { text = "What's the best thing you've ever dug up?", next = "xu_best" },
+        { text = "I'm a miner. How do you find seams?", next = "xu_mine", when = { profession = "Mining" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -339,8 +500,45 @@ P:NPC {
         { text = "One more thing, then.", next = "BACK" },
       },
     },
+    xu_best = {
+      lines = {
+        { id = "xub_default", text = "A gnome, once! Well, a gnome's lunchbox, but I swear the thing had clockwork in it and a sandwich that hadnae gone off. Gave it to Grothor and he ate the sandwich." },
+      },
+      choices = {
+        { text = "Where did it come from?", next = "xu_where" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xu_where = {
+      lines = {
+        { id = "xuw_default", text = "Gnomeregan, I'd wager, washed down the tunnels after the fall. We find bits of their city now and then, cogs and wires and such. Grothor sells them, I keep them." },
+      },
+      choices = {
+        { text = "Should you return them to the gnomes?", next = "xu_return" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xu_return = {
+      lines = {
+        { id = "xur_default", text = "Grothor says a find's a find, and there's nae owner left alive to claim it. I say they belong to the gnomes, even if they're only cogs." },
+      },
+      choices = {
+        { text = "Give them back. They belong to the gnomes.", next = "BACK", reply = "Aye! That's what I've been sayin'.", fx = { align = { honor = 1 } } },
+        { text = "Finders keepers. Grothor's right.", next = "BACK", reply = "Och, ye'll make him unbearable.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xu_mine = {
+      lines = {
+        { id = "xum_default", text = "Listen to the rock, friend. Tap it with yer pick and hear how it rings. Hollow means a seam, solid means waste. Grothor does it by smell, but I've nae idea how." },
+      },
+      choices = {
+        { text = "I'll try it. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    gnomeregan = { { id = "tp_gnomer", text = "Bits of it wash up in our tunnels. Sad, really. The gnomes built fine things." } },
     _none = { { id = "tp_none", text = "Ah, that's nae somethin' I know, and I know a great deal, ask anyone." } },
   },
 }
@@ -439,6 +637,8 @@ P:NPC {
         { text = "What happened to Gnomeregan?", next = "fall" },
         { text = "What are you building?", next = "gadget" },
         { text = "I made it out of Gnomeregan too.", next = "kin", when = { race = "Gnome" } },
+        { text = "What did the third pneumatics division do?", next = "xt_div" },
+        { text = "I'm an engineer. Need a hand?", next = "xt_eng", when = { profession = "Engineering" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -469,8 +669,46 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xt_div = {
+      lines = {
+        { id = "xtd_default", text = "Air pressure! We ran the pumps that kept fresh air moving through the lower levels. Twelve thousand valves, and I knew about eight hundred of them by the sound they made." },
+      },
+      choices = {
+        { text = "What happened to the pumps when the city fell?", next = "xt_pumps" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xt_pumps = {
+      lines = {
+        { id = "xtp_default", text = "We were ordered to run them backwards, to push the radiation down into the trogg tunnels. It worked for an hour. Then the seals failed, and it all came back up through every vent we'd built." },
+      },
+      choices = {
+        { text = "Do you blame whoever gave the order?", next = "xt_blame" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xt_blame = {
+      lines = {
+        { id = "xtb_default", text = "Sometimes. Other times I think we'd have died anyway, just slower, with troggs at every door. My supervisor still says the order was sound and the seals were bad. I'm not sure that's a comfort." },
+      },
+      choices = {
+        { text = "The order was sound. Bad luck isn't treason.", next = "BACK", reply = "That's what the High Tinker says too. I'm trying to believe it.", fx = { align = { order = 1 } } },
+        { text = "Someone should answer for those deaths.", next = "BACK", reply = "Hmm. You're not the first to say so, and I suspect you won't be the last.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xt_eng = {
+      lines = {
+        { id = "xte_default", text = "Oh, would you? Hold this spring, no, the other end, and don't let it go until I say. Excellent! You have very steady hands for someone who isn't a gnome." },
+      },
+      choices = {
+        { text = "Happy to help. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    gnomeregan = { { id = "tp_gnomer", text = "I can still hear the valves when I close my eyes. That's either very nostalgic or a sign I need sleep." } },
+    troggs = { { id = "tp_troggs", text = "They came up through the lowest levels first, right where my division worked. I don't talk about the first night." } },
     _none = { { id = "tp_none", text = "Hmm, that's outside my area of expertise, which is mostly springs." } },
   },
 }
@@ -570,6 +808,8 @@ P:NPC {
       choices = {
         { text = "Are these fireworks safe?", next = "safe" },
         { text = "Why sell fireworks in Ironforge?", next = "why" },
+        { text = "How did you get into fireworks?", next = "xz_start" },
+        { text = "I'm an engineer. Can I buy your formula?", next = "xz_eng", when = { profession = "Engineering" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -594,8 +834,45 @@ P:NPC {
         { text = "One more thing, then.", next = "BACK" },
       },
     },
+    xz_start = {
+      lines = {
+        { id = "xzs_default", text = "A laboratory accident! I was trying to make a better lamp oil, and instead I made a very bright, very loud, very short-lived lamp. The crowd that gathered was so delighted that I changed careers on the spot." },
+      },
+      choices = {
+        { text = "Have you ever been hurt?", next = "xz_hurt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xz_hurt = {
+      lines = {
+        { id = "xzh_default", text = "Define hurt. My eyebrows have regrown eleven times, I'm missing the tip of one ear, and I can't hear high notes. But nobody has ever been hurt by a firework I sold, which is the statistic I'm proudest of." },
+      },
+      choices = {
+        { text = "Should fireworks even be sold in a city?", next = "xz_city" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xz_city = {
+      lines = {
+        { id = "xzc_default", text = "The guards ask me that every Midsummer. They'd like everything sold in a field outside Kharanos. I say a celebration belongs where the people are, and I keep a bucket of water handy." },
+      },
+      choices = {
+        { text = "The guards have a point. Safety comes first.", next = "BACK", reply = "Fair enough. I'll buy a second bucket, just for you.", fx = { align = { order = 1 } } },
+        { text = "Folk can choose their own fun. Light them up.", next = "BACK", reply = "A kindred spirit! Have a rocket, half off.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xz_eng = {
+      lines = {
+        { id = "xze_default", text = "My formula? Ha! It's mostly blasting powder, a pinch of copper for the green, and a great deal of luck. Make your own, and when they work, come tell me how." },
+      },
+      choices = {
+        { text = "I will. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    great_forge = { { id = "tp_forge", text = "The dwarves keep asking me not to test near the Great Forge. I keep asking why not, and they keep pointing at my eyebrows." } },
     _none = { { id = "tp_none", text = "No idea, but if you find out, tell me whether it explodes." } },
   },
 }
@@ -860,6 +1137,8 @@ P:NPC {
       choices = {
         { text = "What is Smokywood Pastures?", next = "company" },
         { text = "Why is your stock dearer than Wulmort's?", next = "price" },
+        { text = "What's your best-selling item?", next = "xc_best" },
+        { text = "I'm a gnome. Any discount for kin?", next = "xc_gnome", when = { race = "Gnome" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -884,8 +1163,45 @@ P:NPC {
         { text = "One more thing, then.", next = "BACK" },
       },
     },
+    xc_best = {
+      lines = {
+        { id = "xcb_default", text = "Gingerbread, every season, wrapped in the good paper with the gold edges. People don't buy gingerbread for themselves, they buy it to impress somebody else, and impressions are expensive." },
+      },
+      choices = {
+        { text = "Isn't that a bit cynical?", next = "xc_cynic" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xc_cynic = {
+      lines = {
+        { id = "xcc_default", text = "It's honest. Smokywood Pastures is a business, and a business sells what people want. If what they want is to look generous for a price, I'm happy to help, and everyone goes home pleased." },
+      },
+      choices = {
+        { text = "Shouldn't Winter Veil be about giving, not selling?", next = "xc_give" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xc_give = {
+      lines = {
+        { id = "xcg_default", text = "Oh, it is, and somebody has to sell the things people give. I'd rather it be me than a goblin with a cart and no taste." },
+      },
+      choices = {
+        { text = "Gifts should come from the heart, not a shop.", next = "BACK", reply = "Then make your own. I'll be here when you run out of time.", fx = { align = { honor = 1 } } },
+        { text = "A good gift is a good gift. Price is fine.", next = "BACK", reply = "Finally, someone who understands commerce! Let me show you the ribbons.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xc_gnome = {
+      lines = {
+        { id = "xcgn_default", text = "For kin, a ribbon free with every purchase, and I'll wrap it myself. That's as far as I go, mind, because Smokywood counts every copper and so do I." },
+      },
+      choices = {
+        { text = "That's fair. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    gnomeregan = { { id = "tp_gnomer", text = "I lost my shop there, so I joined a company that has a lot of shops. It seemed sensible at the time." } },
     _none = { { id = "tp_none", text = "Never heard of it, and if I can't sell it, I don't need to." } },
   },
 }
@@ -996,6 +1312,8 @@ P:NPC {
       choices = {
         { text = "What happens at Warsong Gulch?", next = "gulch" },
         { text = "Why recruit in Ironforge?", next = "ironforge" },
+        { text = "What are the Silverwing Sentinels?", next = "xl_silver" },
+        { text = "I'm a night elf. Elune guide you, sister.", next = "xl_elf", when = { race = "NightElf" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1020,8 +1338,45 @@ P:NPC {
         { text = "One more thing, then.", next = "BACK" },
       },
     },
+    xl_silver = {
+      lines = {
+        { id = "xls_default", text = "We are the Sentinels of Ashenvale, sworn to guard the forest. The Silverwing hold the southern woods, where the Warsong clan cuts and burns." },
+      },
+      choices = {
+        { text = "Why do the orcs cut the forest?", next = "xl_why2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xl_why2 = {
+      lines = {
+        { id = "xlw_default", text = "For lumber, they say, to build their new nation in Durotar. But Ashenvale is sacred, and they cut it as if it were nothing. We have asked them to stop, and they answer with axes." },
+      },
+      choices = {
+        { text = "Is there no peace to be found with them?", next = "xl_peace" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xl_peace = {
+      lines = {
+        { id = "xlp_default", text = "Some of my sisters believe there could be, if both sides gave ground. I have seen too many trees fall to believe it. But I do not speak for all the Sentinels." },
+      },
+      choices = {
+        { text = "Defend the forest. The orcs chose this war.", next = "BACK", reply = "You understand. Join us at the gulch, and we will show them.", fx = { align = { light = -1 } } },
+        { text = "War isn't the only way. Try for peace.", next = "BACK", reply = "Perhaps. I will think on it, though I do not expect the orcs to listen.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xl_elf = {
+      lines = {
+        { id = "xle_default", text = "And you, sister. It is good to see a face from home in this stone hall. The Sentinels would welcome your bow at Warsong Gulch, if you can spare it." },
+      },
+      choices = {
+        { text = "Perhaps. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    hall_of_arms = { { id = "tp_hall", text = "The dwarves have been gracious hosts, though I miss the open sky." } },
     _none = { { id = "tp_none", text = "I know nothing of that. Ask one of the dwarves." } },
   },
 }
@@ -1195,6 +1550,8 @@ P:NPC {
       choices = {
         { text = "What's in Arathi Basin?", next = "basin" },
         { text = "Is Stromgarde your home?", next = "home" },
+        { text = "What is the League of Arathor?", next = "xa2_league" },
+        { text = "I'm human too. Is Stromgarde recovering?", next = "xa2_human", when = { race = "Human" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1219,8 +1576,45 @@ P:NPC {
         { text = "One more thing, then.", next = "BACK" },
       },
     },
+    xa2_league = {
+      lines = {
+        { id = "xa2l_default", text = "Survivors of the old kingdom of Stromgarde, mostly, and anyone else willing to fight for the Arathi Highlands. We hold a few farms and a mill, and the Defilers want them all." },
+      },
+      choices = {
+        { text = "Why do the Defilers want farms?", next = "xa2_farms" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xa2_farms = {
+      lines = {
+        { id = "xa2f_default", text = "For food, for land, and to break us. Whoever holds the basin holds the heart of Arathor. The Forsaken don't eat, but their allies do, and they'd starve Stromgarde out if they could." },
+      },
+      choices = {
+        { text = "Could the land be shared?", next = "xa2_share" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xa2_share = {
+      lines = {
+        { id = "xa2s_default", text = "Shared with the Forsaken? I've heard it argued, in taverns. I've seen what they do to villages, and I'll fight before I share a field with them." },
+      },
+      choices = {
+        { text = "Then fight. Stromgarde's land is Stromgarde's.", next = "BACK", reply = "Good. We need folk who see it plainly.", fx = { align = { light = -1 } } },
+        { text = "Fighting forever won't save the basin.", next = "BACK", reply = "Maybe not, but neither will talking, not yet.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xa2_human = {
+      lines = {
+        { id = "xa2h_default", text = "Slowly, if at all. Stromgarde's half in ruins and the Syndicate holds parts of it. But the League still flies the banner, and as long as it flies, there's hope." },
+      },
+      choices = {
+        { text = "I'll fight for it. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    hall_of_arms = { { id = "tp_hall", text = "The dwarves have given us a corner of their hall to recruit in. I'm grateful, and I try not to complain about the beer." } },
     _none = { { id = "tp_none", text = "Can't say. Arathor's my business, and that isn't Arathor." } },
   },
 }
@@ -1394,6 +1788,8 @@ P:NPC {
       choices = {
         { text = "The Forsaken started this holiday?", next = "forsaken" },
         { text = "What can you tell me about the masks?", next = "masks" },
+        { text = "What's your favourite treat to sell?", next = "xk2_fav" },
+        { text = "I'm a gnome. Are there gnomish Hallow's End customs?", next = "xk2_gnome", when = { race = "Gnome" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1418,8 +1814,45 @@ P:NPC {
         { text = "One more thing, then.", next = "BACK" },
       },
     },
+    xk2_fav = {
+      lines = {
+        { id = "xk2f_default", text = "Candy corn! Little three-coloured wedges of sugar that last forever and taste like a happy accident. I made this season's batch myself, in a borrowed oven in Kharanos." },
+      },
+      choices = {
+        { text = "How did you get into this business?", next = "xk2_business" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xk2_business = {
+      lines = {
+        { id = "xk2b_default", text = "After Gnomeregan, I needed coin, and everyone needs sugar. A Hallow's End stall seemed like the quickest way to make both happen at once." },
+      },
+      choices = {
+        { text = "Should we celebrate a Forsaken holiday at all?", next = "xk2_should" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xk2_should = {
+      lines = {
+        { id = "xk2s_default", text = "Some folk think it's disrespectful, celebrating something the Forsaken started. I think a good holiday belongs to whoever enjoys it, and the Forsaken don't own candy." },
+      },
+      choices = {
+        { text = "A holiday is a holiday. Enjoy it.", next = "BACK", reply = "Exactly! Here, have a piece of candy corn.", fx = { align = { order = -1 } } },
+        { text = "Better to keep our own traditions.", next = "BACK", reply = "Fair enough, but you'll miss out on a very good pumpkin pie.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xk2_gnome = {
+      lines = {
+        { id = "xk2g_default", text = "We used to light the lamps in the city green and orange for a night, and tell stories about the ghosts in the old pipes. I miss that, though I suppose now there really are ghosts in the pipes." },
+      },
+      choices = {
+        { text = "That's a sad thought. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    gnomeregan = { { id = "tp_gnomer", text = "I had a little sweet shop there, in the third ring. It's probably full of troggs eating my old stock." } },
     _none = { { id = "tp_none", text = "That's not something I know about, but would you like a sweet instead?" } },
   },
 }
@@ -1517,6 +1950,8 @@ P:NPC {
       choices = {
         { text = "Why fight over Alterac?", next = "why" },
         { text = "Who leads the Stormpike?", next = "vanndar" },
+        { text = "What's it like fighting in Alterac?", next = "xs2_like" },
+        { text = "I'm a dwarf. Should I join the Stormpike?", next = "xs2_dwarf", when = { race = "Dwarf" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1541,8 +1976,46 @@ P:NPC {
         { text = "One more thing, then.", next = "BACK" },
       },
     },
+    xs2_like = {
+      lines = {
+        { id = "xs2l_default", text = "Cold, loud and bloody. The snow gets in yer boots, the Frostwolves come at ye from the ridges, and the cannons never stop. But we're winnin', slowly, and that's enough." },
+      },
+      choices = {
+        { text = "What do you think of the Frostwolves?", next = "xs2_wolves" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xs2_wolves = {
+      lines = {
+        { id = "xs2w_default", text = "They fight hard and they fight clean, I'll grant them that. Drek'Thar's no fool, and his warriors would die for him. I'd almost respect them, if they'd stop shootin' at me." },
+      },
+      choices = {
+        { text = "Is the iron worth the war?", next = "xs2_worth" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xs2_worth = {
+      lines = {
+        { id = "xs2wo_default", text = "Vanndar says it is, and I trust Vanndar. But I've buried friends in that valley, and some nights I wonder if any iron's worth them." },
+      },
+      choices = {
+        { text = "It's worth it. Ironforge needs that iron.", next = "BACK", reply = "Aye, I know it. That's what keeps me goin'.", fx = { align = { light = -1 } } },
+        { text = "No iron's worth your friends' lives.", next = "BACK", reply = "Maybe not. But they died for it, so I'll see it through.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xs2_dwarf = {
+      lines = {
+        { id = "xs2d_default", text = "Aye, if ye've a strong arm and a thick coat. The Stormpike are Ironforge's own, and we need every dwarf who can swing an axe." },
+      },
+      choices = {
+        { text = "I'll consider it. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    hall_of_arms = { { id = "tp_hall", text = "Best place in the city to find a fighter. I've signed up more dwarves here than in all of Dun Morogh." } },
+    frostmane = { { id = "tp_frost", text = "The Frostmane are nothin' compared to the Frostwolves, believe me." } },
     _none = { { id = "tp_none", text = "Never heard of it. Ask somebody who doesnae live in the snow." } },
   },
 }
@@ -2018,6 +2491,8 @@ P:NPC {
         { text = "Why do people light fires at midsummer?", next = "why" },
         { text = "You mentioned the Horde cities?", next = "horde" },
         { text = "Tell me a festival tale.", next = "tale" },
+        { text = "Do dwarves have their own fire tales?", next = "xf_dwarf" },
+        { text = "I'm a shaman. The flame speaks to me too.", next = "xf_shaman", when = { class = "SHAMAN" } },
         { text = "A good festival to you.", next = "END" },
       },
     },
@@ -2058,8 +2533,37 @@ P:NPC {
         { text = "Ha. Something else.", next = "BACK" },
       },
     },
+    xf_dwarf = {
+      lines = {
+        { id = "xfd_default", text = "Aye, the oldest of all! Our grandfathers say the first fire in Khaz Modan was lit by the titans themselves, deep in the mountain, and the Great Forge is its last ember. I cannae prove it, but I'll nae let anyone say otherwise on Midsummer." },
+      },
+      choices = {
+        { text = "And the Dark Irons' fire?", next = "xf_dark" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xf_dark = {
+      lines = {
+        { id = "xfdk_default", text = "That's a sorrier tale. Thaurissan called up a fire he couldnae command, and it swallowed his city and scorched the whole south. Every Midsummer I remind folk that a flame is a gift, nae a servant." },
+      },
+      choices = {
+        { text = "Fire must be respected. Never bound.", next = "BACK", reply = "Aye, well said. Ye'd make a fine loremaster.", fx = { align = { order = -1 } } },
+        { text = "Fire is a tool. Mastered, it serves us.", next = "BACK", reply = "Mastered by the Great Forge's keepers, aye. Mastered by a Thaurissan, never.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xf_shaman = {
+      lines = {
+        { id = "xfs_default", text = "Then ye'll know better than I that the flame has a temper. Honour it tonight, and it'll honour ye, or so the old tales say. I only write them down." },
+      },
+      choices = {
+        { text = "I'll honour it. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    great_forge = { { id = "tp_forge", text = "The Forge burns every night of the year, but on Midsummer it feels like it's burnin' for all of us." } },
+    dark_iron = { { id = "tp_darkiron", text = "They lit a fire that swallowed them whole. Midsummer is partly for rememberin' that." } },
     _none = { { id = "tp_none", text = "That's nae part of the festival lore, {g:lad|lass}. Try the Hall of Explorers; they've a book on everything." } },
   },
 }
@@ -2090,6 +2594,8 @@ P:NPC {
       choices = {
         { text = "A goblin helping Greatfather Winter? Truly?", next = "why" },
         { text = "What's the Feast of Winter Veil about?", next = "veil" },
+        { text = "What does Smokywood pay you?", next = "xw2_pay" },
+        { text = "Goblins don't celebrate Winter Veil, surely?", next = "xw2_gob" },
         { text = "Merry Winter Veil.", next = "END" },
       },
     },
@@ -2111,8 +2617,45 @@ P:NPC {
       lines = { { id = "v_default", text = "Snow, presents, a big tree and a jolly old fella handing things out, that's the short version. The dwarves have been celebrating it since before anybody wrote it down, and they drink twice as much eggnog as everybody else, which is good for sales." } },
       choices = { { text = "Sounds like a fine tradition. Something else.", next = "BACK" } },
     },
+    xw2_pay = {
+      lines = {
+        { id = "xw2p_default", text = "Not enough, chum, never enough. Room and board in a cold tent, a copper a gift, and a bonus if I meet my quota. I've met it every year, mind you, because I don't sleep." },
+      },
+      choices = {
+        { text = "Do you enjoy it, at least?", next = "xw2_enjoy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xw2_enjoy = {
+      lines = {
+        { id = "xw2e_default", text = "Enjoy it? Look, between you and me, the kids' faces when they open the boxes? That's the real pay. Don't tell Smokywood I said that, they'll cut my rate." },
+      },
+      choices = {
+        { text = "Should Winter Veil be run by a company at all?", next = "xw2_company" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xw2_company = {
+      lines = {
+        { id = "xw2c_default", text = "Somebody's gotta make the toys and haul 'em up the mountain, and Greatfather Winter can't do it all by himself. Smokywood's got the wagons, the warehouses and the hired help, and that's me." },
+      },
+      choices = {
+        { text = "A holiday shouldn't be a business.", next = "BACK", reply = "Sure, sure, and gingerbread grows on trees. Merry Winter Veil, chum.", fx = { align = { honor = 1 } } },
+        { text = "Business makes the holiday possible. Fair enough.", next = "BACK", reply = "Ha, a realist! I like you. Have a candy cane.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xw2_gob = {
+      lines = {
+        { id = "xw2g_default", text = "We celebrate coin, chum, and Winter Veil brings in a lot of it. But I've grown fond of the snow and the singing. Don't spread that around Booty Bay." },
+      },
+      choices = {
+        { text = "Your secret's safe. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    booty_bay = { { id = "tp_bay", text = "Back home they'd laugh at me in this suit. Then they'd ask how much it pays." } },
     _none = { { id = "tp_none", text = "Not in my contract, pal. Try the big guy, he knows everybody's business, if ya know what I mean." } },
   },
 }
@@ -2219,6 +2762,8 @@ P:NPC {
         { text = "I need directions.", next = "BUSINESS" },
         { text = "Any trouble in Dun Morogh?", next = "trouble" },
         { text = "You lot look proud of your king.", next = "magni" },
+        { text = "What's guard duty like here?", next = "xi2_duty" },
+        { text = "I'm a dwarf. Any word on my clan?", next = "xi2_dwarf", when = { race = "Dwarf" } },
         { text = "Thank you, guard.", next = "END" },
       },
     },
@@ -2240,8 +2785,37 @@ P:NPC {
         { text = "Maybe someday the clans can mend it.", next = "BACK", reply = "Ha! Maybe when the mountain melts, {g:lad|lass}.", fx = { align = { order = -1 } } },
       },
     },
+    xi2_duty = {
+      lines = {
+        { id = "xi2d_default", text = "Long hours standin' in one spot, and folk askin' the way to the bank every few minutes. But it's an honour to guard the gates of Ironforge, and I'd nae trade it." },
+      },
+      choices = {
+        { text = "Do the guards ever bend the rules?", next = "xi2_bend" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xi2_bend = {
+      lines = {
+        { id = "xi2b_default", text = "A wee bit, for kin or a friend in trouble. The captains say a rule's a rule, but I've let a drunken cousin sleep it off in the guard post rather than haul him to the cells." },
+      },
+      choices = {
+        { text = "A rule's a rule. Kin shouldn't matter.", next = "BACK", reply = "Aye, the captains would agree with ye. I'll mind it next time.", fx = { align = { order = 1 } } },
+        { text = "Kin first. A little mercy never hurt.", next = "BACK", reply = "That's how I see it, but keep it quiet.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xi2_dwarf = {
+      lines = {
+        { id = "xi2dw_default", text = "I couldnae say, {g:lad|lass}, there's too many clans to keep track of. Ask at the Hall of Explorers, they keep the records." },
+      },
+      choices = {
+        { text = "I'll ask there. Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "That's beyond my post, I'm afraid. Ask at the Hall of Explorers, they know everythin' worth knowin'." } } },
+  topics = {
+    magni = { { id = "tp_magni", text = "Long may he reign, the finest king Ironforge has had." } },
+    dark_iron = { { id = "tp_darkiron", text = "We watch for them at every gate. They'll nae get past us." } }, _none = { { id = "tp_none", text = "That's beyond my post, I'm afraid. Ask at the Hall of Explorers, they know everythin' worth knowin'." } } },
 }
 
 -- Ironforge Mountaineer: the dwarven riflemen who patrol the roads and passes of Dun Morogh.
@@ -2268,6 +2842,8 @@ P:NPC {
       choices = {
         { text = "What dangers are on these roads?", next = "roads" },
         { text = "How did you become a Mountaineer?", next = "joined" },
+        { text = "What's the hardest part of the job?", next = "xm2_hard" },
+        { text = "I'm a hunter too. Any good hunting nearby?", next = "xm2_hunt", when = { class = "HUNTER" } },
         { text = "Stay warm.", next = "END" },
       },
     },
@@ -2289,8 +2865,27 @@ P:NPC {
         { text = "You should choose your own road.", next = "BACK", reply = "Bah, ye sound like me mam, but I'll think on it.", fx = { align = { order = -1 } } },
       },
     },
+    xm2_hard = {
+      lines = {
+        { id = "xm2h_default", text = "The cold, every time. Ye can fight a wolf or a trogg, but ye cannae fight the snow. Half the Mountaineers lose a toe or two by the time they're grey." },
+      },
+      choices = {
+        { text = "Is it worth it?", next = "BACK", reply = "Aye, every frozen toe. Somebody's got to keep the roads safe." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xm2_hunt = {
+      lines = {
+        { id = "xm2hu_default", text = "Plenty, if ye don't mind the cold. Boars near Kharanos, bears in the hills, and wolves everywhere. Mind the wendigos, they're nae worth the trouble." },
+      },
+      choices = {
+        { text = "Thanks for the tip. Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Couldn't tell ye. Ask at the Thunderbrew Distillery in Kharanos, there's always somebody who knows." } } },
+  topics = {
+    frostmane = { { id = "tp_frost", text = "Trolls in the hills, mean as sin. I shoot them on sight." } },
+    troggs = { { id = "tp_troggs", text = "Up from Gnomeregan, ugly and hungry. We keep them off the roads." } }, _none = { { id = "tp_none", text = "Couldn't tell ye. Ask at the Thunderbrew Distillery in Kharanos, there's always somebody who knows." } } },
 }
 
 -- Gnome Engineer: Gnomeregan engineers in Dun Morogh, still working on the city they lost.
@@ -2318,6 +2913,8 @@ P:NPC {
       choices = {
         { text = "What happened to Gnomeregan?", next = "fall" },
         { text = "What are you building?", next = "build" },
+        { text = "Do you think Gnomeregan can be retaken?", next = "xe_retake" },
+        { text = "I'm a gnome too. Which sector were you?", next = "xe_gnome", when = { race = "Gnome" } },
         { text = "I'll leave you to your valve.", next = "END" },
       },
     },
@@ -2340,6 +2937,35 @@ P:NPC {
       lines = { { id = "b_default", text = "A portable radiation scrubber, theoretically, which will clean the air in a corridor long enough for a squad to get through, and practically it's a loud box that gets hot. I'm aiming for eighty percent efficiency and settling for not on fire." } },
       choices = { { text = "Good luck with it. Something else.", next = "BACK" } },
     },
+    xe_retake = {
+      lines = {
+        { id = "xer_default", text = "Theoretically, yes. Practically, we need better radiation suits, more fighters and roughly forty-two percent fewer troggs. I'm working on the first part, and I leave the other two to braver gnomes." },
+      },
+      choices = {
+        { text = "Is it worth the cost?", next = "xe_cost" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xe_cost = {
+      lines = {
+        { id = "xec_default", text = "That's the question everyone asks quietly. Some say we should build a new home and let the old one go. Others, like me, want our city back, whatever it takes." },
+      },
+      choices = {
+        { text = "Take it back. It's your home.", next = "BACK", reply = "Exactly! Thank you. I'll name a valve after you.", fx = { align = { honor = 1 } } },
+        { text = "Start fresh. The past is gone.", next = "BACK", reply = "Hm. Sensible, I suppose. But I'm not ready to give up yet.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xe_gnome = {
+      lines = {
+        { id = "xeg_default", text = "Sector seven, the hydraulics level. I worked on the big pumps until the day it all went wrong. Where were you? Never mind, don't answer, it only makes us both sad." },
+      },
+      choices = {
+        { text = "I understand. Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Not my field, I'm afraid. Try Tinker Town, someone there has probably built a machine that knows." } } },
+  topics = {
+    gnomeregan = { { id = "tp_gnomer", text = "We'll take it back. We have to. There's no other choice for us." } },
+    troggs = { { id = "tp_troggs", text = "Nasty creatures from below. They started all of this, and they'll pay for it eventually." } }, _none = { { id = "tp_none", text = "Not my field, I'm afraid. Try Tinker Town, someone there has probably built a machine that knows." } } },
 }

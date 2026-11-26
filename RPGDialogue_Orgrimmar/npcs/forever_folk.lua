@@ -159,6 +159,9 @@ P:NPC {
         { text = "What's the ground like?", next = "ground" },
         { text = "Why are you wearing a Warsong tabard?", next = "tabard" },
         { text = "Send me to the islands.", next = "BUSINESS", when = { minLevel = 30 } },
+        { text = "What does the Horde gain from those islands?", next = "xgain" },
+        { text = "Who were the Darkspear before Thrall came?", next = "xpast" },
+        { text = "I am a shaman. Do the spirits favour the islands?", when = { class = "SHAMAN" }, next = "xshaman" },
         { text = "Another time, Gruga.", next = "END" },
       },
     },
@@ -209,12 +212,49 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xgain = {
+      lines = {
+        { id = "xgain_default", text = "A place for the Darkspear to call home again, maybe, and a lesson for Theramore that the Horde don't forget a debt. Some orcs say it be a waste of grunts for a rock in the sea. What you think, mon?" },
+      },
+      choices = {
+        { text = "A debt to an ally is paid in full, whatever it costs.", next = "BACK", reply = "Dat be how Thrall talks, and dat be why the Darkspear follow him.", fx = { align = { honor = 1 } } },
+        { text = "We fight where it profits the Horde, nowhere else.", next = "BACK", reply = "Hard words, mon, but Gruga heard them from wiser heads than yours. Maybe you right.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpast = {
+      lines = {
+        { id = "xpast_default", text = "We were a small tribe being hunted by murlocs and a sea witch, and by humans too, until the Warchief's ships washed up on our shore. Sen'jin died for that meeting, and Vol'jin swore us to the Horde." },
+      },
+      choices = {
+        { text = "What happened to Sen'jin?", next = "xsenjin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsenjin = {
+      lines = {
+        { id = "xsenjin_default", text = "The sea witch took him, and Thrall could not save him, though he tried. Gruga was a boy then, and he remembers the drums for Sen'jin went all night, and in the morning we sailed for Kalimdor." },
+      },
+      choices = {
+        { text = "Then the islands are his grave as well.", next = "BACK", reply = "Dat they are, mon, and that be why the Raiders fight so hard.", fx = { learn = { "voljin" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xshaman = {
+      lines = {
+        { id = "xshaman_default", text = "The spirits there be angry, mon, because too much blood soaked into that ground for too many years. Talk to them gentle before you fight, and maybe they don't fight you too." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     echo_isles = { { id = "tp_echo", text = "The Echo Isles be our home now, off the Durotar coast, when Zalazane's not sitting on them. The Darkspear Islands be the old home, far over the sea, and both of them be worth fighting for." } },
     background = { { id = "tp_bg", text = "Gruga fought for the Darkspear before he fought for the Horde, and now he gets to do both. Not much more to it than that, mon." } },
     advice = { { id = "tp_ad", text = "Keep moving, keep your friends close, and never chase a human into the water. Gruga learned that last one the wet way." } },
+    darkspear = { { id = "tp_x_darkspear", text = "Small tribe, big hearts, long memory. The Darkspear don't forget a friend, and we never forget an enemy." } },
     _none = { { id = "tp_none", text = "Gruga don't know about that. Ask him about the islands, he knows plenty about those." } },
   },
 }

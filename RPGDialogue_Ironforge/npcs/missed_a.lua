@@ -33,11 +33,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else can I call for ye?" },
         { id = "h_again2", text = "Go on, then, the hall's nae quiet but I can hear ye." },
+        { id = "h_again_x0", when = { profession = "Mining" }, text = "Back with more bars, miner? Bring them here, and let the hall decide what they're worth." },
       },
       choices = {
         { text = "What sells best in Ironforge?", next = "sells" },
         { text = "You enjoy this work, I can tell.", next = "enjoy" },
         { text = "How do the three of you share the hall?", next = "three" },
+        { text = "What's the grandest lot you've ever called?", next = "grand" },
+        { text = "Do goblins sell through your hall?", next = "goblins" },
+        { text = "Does cloth sell well here?", next = "cloth", when = { profession = "Tailoring" } },
+        { text = "Is Lympkin a gnome from Gnomeregan too?", next = "BACK", when = { race = "Gnome" }, reply = "Aye, came up wi' the first refugees and walked straight to the counter. She's the quickest pair of hands in the hall, and she knows it." },
         { text = "I'll look over the lots.", next = "END" },
       },
     },
@@ -60,8 +65,40 @@ P:NPC {
       lines = { { id = "t_default", text = "Redmuse has been at it longest and she's the sharpest of us, so when she says a price is daft, it's daft. Lympkin came up from Gnomeregan with nothin' but a head for numbers, and I'd nae trade either of them for a cask of Thunderbrew." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    grand = {
+      narr = "He spreads his arms wide, as if the whole hall were still listening.",
+      lines = { { id = "xgrand_default", text = "A runed hammer off a Dark Iron captain, brought in by a pair of adventurers who'd been to Blackrock and back. Two smiths and a senator's nephew bid on it till the hall went silent, and I called it in a voice that cracked a lamp." } },
+      choices = {
+        { text = "Who won it?", next = "won" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    won = {
+      lines = { { id = "xwon_default", text = "The senator's nephew, and he paid three times what it was worth, out of pure stubbornness and because the smiths wouldnae back down. I've never been prouder of a bidding war, nor a wee bit more ashamed." } },
+      choices = {
+        { text = "Ashamed? Why?", next = "ashamed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ashamed = {
+      lines = { { id = "xashamed_default", text = "Because I could have called it closed sooner and let the lad keep his coin. Redmuse says a bidder's pride is his own lookout, and I say an auctioneer ought to cool a hot head now and then. Who's right?" } },
+      choices = {
+        { text = "Cool them down. A fair hall protects its bidders.", next = "BACK", reply = "Aye, that's my conscience talking too. I'll mind it next time, though it'll cost me a grand afternoon.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "A bidder's pride is his own business.", next = "BACK", reply = "That's Redmuse's view, and she's kept this hall afloat longer than I have. Still, I'll not sleep easier for it.", fx = { align = { honor = -1 } } },
+      },
+    },
+    goblins = {
+      lines = { { id = "xgoblins_default", text = "Not here, for this is an Ironforge hall and every lot goes to Alliance folk. If ye want to trade across the lines, ye'll need the goblins' own hall in Gadgetzan, and ye'll pay their cut for the privilege." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    cloth = {
+      lines = { { id = "xcloth_default", text = "Linen and wool by the stack, aye, for every tailor wants more than they can cut. Bandages, too, sell faster than I can call them, which tells ye something about the folk who come through this hall." } },
+      choices = { { text = "I'll keep that in mind.", next = "BACK", reply = "Do. A sharp seller watches what the hall wants." } },
+    },
   },
   topics = {
+    commons = { { id = "tp_xcommons", text = "The Commons is the busiest ward in the city, and my hall's the loudest corner of it." } },
+    gadgetzan = { { id = "tp_xgadgetzan", text = "The goblins run their own hall in Gadgetzan, where Horde and Alliance bid side by side. I'd like to hear it, once." } },
     background = { { id = "tp_bg", text = "I've called lots in the Commons since my beard was short, and I've the lungs to show for it." } },
     _none = { { id = "tp_none", text = "That's nae on my lot sheet, friend. Ask Redmuse, for she hears everything that crosses this hall." } },
   },
@@ -99,6 +136,8 @@ P:NPC {
         { text = "How many Stonemantles work here?", next = "family" },
         { text = "How safe is the Vault, truly?", next = "safe" },
         { text = "You seem cheerful for a banker.", next = "cheer" },
+        { text = "What's the strangest thing anyone's deposited?", next = "xb_odd" },
+        { text = "Do you trust gnomes with ledgers?", next = "xb_gnome", when = { race = "Gnome" } },
         { text = "Just my box, thank you.", next = "END" },
       },
     },
@@ -121,8 +160,46 @@ P:NPC {
       lines = { { id = "c_default", text = "Why wouldn't I be? I spend my days surrounded by gold and none of the worry of ownin' it, which is the best arrangement a dwarf ever struck." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xb_odd = {
+      lines = {
+        { id = "xbo_default", text = "Och, that's easy. A Wildhammer once left us a gryphon feather the length of my arm and made me swear it'd nae be bent. I've checked it every week for three years, and it's straighter than Barnum." },
+      },
+      choices = {
+        { text = "Did he ever come back for it?", next = "xb_odd2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xb_odd2 = {
+      lines = {
+        { id = "xbo2_default", text = "Nae yet, and that's the trouble with the Vault, friend. Folk put things in for safekeepin' and then the road keeps them instead. We've boxes down here older than me, and nobody left to open them." },
+      },
+      choices = {
+        { text = "What happens to a box nobody claims?", next = "xb_unclaimed" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xb_unclaimed = {
+      lines = {
+        { id = "xbu_default", text = "By the old law it sits a hundred years, and then it goes to the Crown. Dinita follows the law to the letter. I'd sooner hunt down a grandchild and hand it over myself, but I'm only a banker at a window." },
+      },
+      choices = {
+        { text = "The law is the law. Dinita is right.", next = "BACK", reply = "Aye, and that's why she runs the Vault and I tell the jokes. I'll nae pretend ye're wrong.", fx = { align = { order = 1 } } },
+        { text = "Find the grandchild. Kin matters more than the Crown.", next = "BACK", reply = "Ha, ye've a soft heart for a stranger. Keep it quiet, but I've done it twice already.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xb_gnome = {
+      lines = {
+        { id = "xbg_default", text = "Trust them? I'd hire one tomorrow if Dinita let me. The gnomes that came up after Gnomeregan fell keep accounts like they're buildin' a clock, every figure fitted just so. It shames a few of the dwarves in this hall, and it ought to." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    gnomeregan = { { id = "tp_gnomer", text = "A sad business. Half the gnomes who bank with us now came up with nothin' but the clothes they wore, and we opened their boxes free of charge." } },
+    magni = { { id = "tp_magni", text = "The King banks here, same as anyone, though I'll nae tell ye what's in his box. I'll say it's heavy." } },
     background = { { id = "tp_bg", text = "Born a Stonemantle, so I was always going to be a banker. I never minded, for it's honest work and it's warm in here." } },
     _none = { { id = "tp_none", text = "I only know what's in the ledgers, friend, and the ledgers are private. Try the Commons for gossip." } },
   },
@@ -160,6 +237,8 @@ P:NPC {
         { text = "Never a single coin lost?", next = "lost" },
         { text = "Your brother seems the merrier one.", next = "bailey" },
         { text = "What do folk keep here besides gold?", next = "keep" },
+        { text = "How does a family keep a trust so long?", next = "xn_trust" },
+        { text = "A dwarf should know how the Vault was built.", next = "xn_dwarf", when = { race = "Dwarf" } },
         { text = "My box, please.", next = "END" },
       },
     },
@@ -185,8 +264,46 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xn_trust = {
+      lines = {
+        { id = "xnt_default", text = "By never once makin' an exception. Every Stonemantle learns the rules before the letters, and the first rule is that the gold is nae ours, nae a copper of it, nae for a single night." },
+      },
+      choices = {
+        { text = "Has anyone in the family broken that rule?", next = "xn_broke" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xn_broke = {
+      lines = {
+        { id = "xnb_default", text = "One, in my grandfather's time. A cousin borrowed from a box to pay a debt and meant to put it back by morning. He did put it back, every coin, and he was struck from the ledger all the same." },
+      },
+      choices = {
+        { text = "That seems harsh, if he repaid it.", next = "xn_harsh" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xn_harsh = {
+      lines = {
+        { id = "xnh_default", text = "Harsh, aye, and right. If the Vault forgives one borrowed night, then every Stonemantle after him gets to wonder whether his own night might be forgiven too. I'd rather be harsh than wonder." },
+      },
+      choices = {
+        { text = "A trust that bends once is broken. You're right.", next = "BACK", reply = "I'm glad ye see it. Most folk call me cold, and I'd sooner be called that than careless.", fx = { align = { order = 1 } } },
+        { text = "He made it right. Mercy has a place in any ledger.", next = "BACK", reply = "Perhaps in yer ledger, friend. Nae in this one, though I'll grant ye mean it kindly.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xn_dwarf = {
+      lines = {
+        { id = "xnd_default", text = "Then hear it from a Stonemantle. The Vault was cut by the same masons who carved the Great Forge, in the days of Modimus Anvilmar, and the deepest boxes sit lower than the Forlorn Cavern. Our clan has kept the keys since the first coin was counted." },
+      },
+      choices = {
+        { text = "I'll remember that. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    great_forge = { { id = "tp_forge", text = "The Forge keeps the city warm and the Vault keeps it honest. I'd argue mine is the harder task." } },
+    dark_iron = { { id = "tp_darkiron", text = "Nae Dark Iron has ever held an account here, and while I stand at this window, none ever will." } },
     background = { { id = "tp_bg", text = "I've stood at this window since I was old enough to see over it. I've never wished for another trade." } },
     _none = { { id = "tp_none", text = "That is nae a banking matter, and so it is nae mine. Good day to ye." } },
   },
@@ -309,6 +426,8 @@ P:NPC {
         { text = "Why would a wizard need a weapon?", next = "why" },
         { text = "How do you choose a staff?", next = "staff" },
         { text = "A gnome and a dwarf sharing a shop?", next = "harick" },
+        { text = "Which wand pairs best with a staff?", next = "xg_pair" },
+        { text = "I'm a mage. What should I carry?", next = "xg_mage", when = { class = "MAGE" } },
         { text = "I'll browse the wall.", next = "END" },
       },
     },
@@ -331,8 +450,46 @@ P:NPC {
       lines = { { id = "ha_default", text = "Harick Boulderdrum is the least excitable person I have ever met, which makes him an ideal colleague for a gnome. I supply the enthusiasm, he supplies the long silences, and the shop's accounts balance to the copper." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xg_pair = {
+      lines = {
+        { id = "xgp_default", text = "Ooh, good question! A long staff and a quick wand give you reach and rate of fire, which covers most tactical situations. Harick says you should just pick the one that feels right, which isn't a method, it's a mood." },
+      },
+      choices = {
+        { text = "What happens when a mage gets cornered anyway?", next = "xg_corner" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xg_corner = {
+      lines = {
+        { id = "xgc_default", text = "Then the staff earns its price! Most casters hold it like a candle, but if you set your feet and swing from the hips, even a gnome can crack a kobold's skull. I've drawn a diagram, if you'd like one." },
+      },
+      choices = {
+        { text = "Should casters learn to fight at all?", next = "xg_fight" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xg_fight = {
+      lines = {
+        { id = "xgf_default", text = "That's the great argument in the Mystic Ward! The old magi say a wizard who swings a stick has already failed. I say a wizard who can't swing a stick will eventually fail somewhere quite dark and quite far from help." },
+      },
+      choices = {
+        { text = "A true mage relies on the arcane alone.", next = "BACK", reply = "Hm, that's the Dalaran view, and very elegant. I'll keep a dagger on the shelf for when elegance runs out.", fx = { align = { order = 1 } } },
+        { text = "Use whatever works. Tradition doesn't save lives.", next = "BACK", reply = "Exactly! Practicality is the root of all good engineering, and of most good survival.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xg_mage = {
+      lines = {
+        { id = "xgm_default", text = "A staff with good intellect weighting, first, and a dagger second for when you've gone dry of mana. Keep the dagger short, because you'll draw it in a panic and a long blade catches on robes. That's tested, I'm sorry to say." },
+      },
+      choices = {
+        { text = "Thanks. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    gnomeregan = { { id = "tp_gnomer", text = "I had a little workshop in the fourth ring. I think of it whenever something squeaks, which is often." } },
+    dalaran = { { id = "tp_dalaran", text = "The magi of Dalaran sniff at a wizard with a dagger. I've sold a dozen to the ones who came through anyway." } },
     background = { { id = "tp_bg", text = "I came out of Gnomeregan with the other refugees, and I've sold a caster's weapons in the Mystic Ward ever since." } },
     _none = { { id = "tp_none", text = "I haven't any data on that, I'm sorry to say. Somebody in the Hall of Mysteries next door might." } },
   },
@@ -370,6 +527,8 @@ P:NPC {
         { text = "How would you improve a dagger?", next = "improve" },
         { text = "What does Hjoldir make of your ideas?", next = "hjoldir" },
         { text = "It's a gloomy corner for a gnome.", next = "cavern" },
+        { text = "What's your best invention so far?", next = "xy_best" },
+        { text = "Could you improve my lockpicks too?", next = "xy_picks", when = { class = "ROGUE" } },
         { text = "I'll speak with Hjoldir.", next = "END" },
       },
     },
@@ -392,8 +551,46 @@ P:NPC {
       lines = { { id = "c_default", text = "It's dim and it's damp, but nobody down here asks a gnome why she's taking knives apart. After Gnomeregan I find I like a place where people mind their own workbench." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xy_best = {
+      lines = {
+        { id = "xyb_default", text = "The spring-loaded hilt! You squeeze the grip and the blade kicks forward a finger's width, just enough to surprise someone. Hjoldir calls it a toy, but he hasn't stopped testing it, so I'm counting that as a compliment." },
+      },
+      choices = {
+        { text = "Would you sell it?", next = "xy_sell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xy_sell = {
+      lines = {
+        { id = "xys_default", text = "Not yet, it fails about one time in twelve, and when it fails the blade goes backwards. I'd like it to fail one time in a thousand before I put it in anyone's hand. Hjoldir says one in a hundred is plenty." },
+      },
+      choices = {
+        { text = "Who's right, you or Hjoldir?", next = "xy_right" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xy_right = {
+      lines = {
+        { id = "xyr_default", text = "Well, he says folk down here need an edge today, not a perfect one next year. I say a blade that bites its owner isn't an edge at all. We've been arguing it for a month, and the hilt is still in pieces on my lap." },
+      },
+      choices = {
+        { text = "Wait until it's perfect. People's hands depend on it.", next = "BACK", reply = "Thank you! I'll quote you to Hjoldir, and he'll grunt, and I'll take that as a win.", fx = { align = { honor = 1 } } },
+        { text = "Sell it now and warn buyers. Let them choose.", next = "BACK", reply = "Hm, that's a very cavern sort of answer. I suppose folk here do like to choose their own risks.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xy_picks = {
+      lines = {
+        { id = "xyp_default", text = "Oh, quietly, yes. A good pick is just a very small lever with opinions. Bring me yours and I'll file the tension wrench so it stops talking back, but don't mention it near Brombar the Keymaster, please." },
+      },
+      choices = {
+        { text = "My lips are sealed. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    forlorn_cavern = { { id = "tp_cavern", text = "It's dim and damp and nobody asks questions. For a tinker who blows things up now and then, that's ideal." } },
+    gnomeregan = { { id = "tp_gnomer", text = "I left with a toolbox and a coat with one sleeve. I've made the other sleeve since, and it has pockets." } },
     background = { { id = "tp_bg", text = "I was a tinker in Gnomeregan, and now I tinker with blades in the Forlorn Cavern, which is mostly the same work with sharper parts." } },
     _none = { { id = "tp_none", text = "I don't know anything about that, unless it has moving parts. Does it have moving parts?" } },
   },
@@ -431,6 +628,8 @@ P:NPC {
         { text = "What do all those keys open?", next = "open" },
         { text = "What makes a lock hard to pick?", next = "lock" },
         { text = "It must be a heavy trust to carry.", next = "trust" },
+        { text = "How did you become Keymaster?", next = "xk_how" },
+        { text = "I'm a smith. Who cast your best lock?", next = "xk_smith", when = { profession = "Blacksmithing" } },
         { text = "I'll keep my hands to myself.", next = "END" },
       },
     },
@@ -456,8 +655,46 @@ P:NPC {
       lines = { { id = "t_default", text = "Heavier than the ring, and the ring's nae light. I've never married and I never drink more than two pints, for a keymaster who talks in his sleep or in his cups is nae keymaster at all." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xk_how = {
+      lines = {
+        { id = "xkh_default", text = "By bein' the only apprentice who never once lost a key. Old Keymaster Thorgas tested us. He'd hide a key in our coats while we slept and then ask for it in the mornin'. I always knew where it was." },
+      },
+      choices = {
+        { text = "And when Thorgas retired?", next = "xk_how2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xk_how2 = {
+      lines = {
+        { id = "xkh2_default", text = "He didnae retire. He died at his bench with a half-cut key in his hand, and they found every other key accounted for. I finished that last one for him, and it hangs on this ring yet, though the lock it fits is long gone." },
+      },
+      choices = {
+        { text = "Do you ever refuse to open a door?", next = "xk_refuse" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xk_refuse = {
+      lines = {
+        { id = "xkr_default", text = "Aye, when the asker hasnae the right, whoever they are. A thane came down once, drunk and shoutin', and demanded the archive. I told him to come back sober with a writ, and he came back with both, and an apology." },
+      },
+      choices = {
+        { text = "Good. Rank shouldn't open doors that law keeps shut.", next = "BACK", reply = "That's it exactly. A key that turns for anyone loud enough is nae a key at all.", fx = { align = { order = 1 } } },
+        { text = "Some doors deserve opening, writ or no writ.", next = "BACK", reply = "Hmph. That's the talk of folk who end up meetin' the guards, but I'll nae pretend I've never wondered.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xk_smith = {
+      lines = {
+        { id = "xks_default", text = "I cast the brass myself, and I'd trust nae other smith with it. The trick is a slow cool in sand, so the metal doesnae warp. Ye'd know the feel of it, a smith would." },
+      },
+      choices = {
+        { text = "I would. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    great_forge = { { id = "tp_forge", text = "There's nae heat in Azeroth like the Great Forge for brass. That's why I stand here and nae elsewhere." } },
+    magni = { { id = "tp_magni", text = "Aye, I hold keys the King himself uses. Nae, I'll nae say which." } },
     background = { { id = "tp_bg", text = "I was a locksmith's apprentice before I was Keymaster, and I've spent my whole life beside this forge." } },
     _none = { { id = "tp_none", text = "If I knew, I'd nae say, and as it happens I do nae know. That's two locks on the one door." } },
   },
@@ -499,6 +736,8 @@ P:NPC {
         { text = "How do I know good steel?", next = "steel" },
         { text = "Plate or mail, for a long march?", next = "march" },
         { text = "Who forges what you sell?", next = "forge" },
+        { text = "What was the Second War like?", next = "xm_war" },
+        { text = "I'm a paladin. Will your plate take a blessing?", next = "xm_pal", when = { class = "PALADIN" } },
         { text = "I'll look it over.", next = "END" },
       },
     },
@@ -521,8 +760,46 @@ P:NPC {
       lines = { { id = "f_default", text = "The smiths of the Great Forge, every piece, and I can tell ye which anvil most of it came off. I'll nae sell Stormwind plate, for they make it thin to look handsome on parade, and a parade is all it's good for." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xm_war = {
+      lines = {
+        { id = "xmw_default", text = "Cold and loud and long. I stood in a shield wall at the Thandol Span when the Horde came north, and I learned there that good plate is nae about lookin' grand. It's about bein' alive at sundown." },
+      },
+      choices = {
+        { text = "You held the bridge?", next = "xm_war2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xm_war2 = {
+      lines = {
+        { id = "xmw2_default", text = "We held it long enough. A grunt's axe split my pauldron clean, and the shoulder under it was barely bruised, because Thorgrum Flintbeard forged it and he never cut a corner. I've sold steel ever since, so others get the same luck." },
+      },
+      choices = {
+        { text = "Do you still think about the orcs?", next = "xm_orcs" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xm_orcs = {
+      lines = {
+        { id = "xmo_default", text = "Most days. They're penned up in camps now, and some say they ought to be let go, that the fight's gone out of them. Maybe, but I remember the bridge." },
+      },
+      choices = {
+        { text = "Keep them penned. The Alliance can't take the risk.", next = "BACK", reply = "Aye, that's my thinkin', and I'll nae apologise for it.", fx = { align = { light = -1 } } },
+        { text = "Even orcs can change. The camps can't last forever.", next = "BACK", reply = "Ye've a kinder heart than mine, {class}. I hope ye're right, I truly do.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xm_pal = {
+      lines = {
+        { id = "xmp_default", text = "It will, and it'll thank ye for it. Good steel holds the Light the way it holds an edge, and I've had priests of the Cathedral swear our plate glows a touch brighter. I've nae seen it, but I'll nae argue with a priest." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    second_war = { { id = "tp_war", text = "I carried a shield in it and I'll carry the memory longer. Ask me over an ale, nae over a counter." } },
+    thandol_span = { { id = "tp_span", text = "I stood on that bridge once with the whole Horde comin' at it. Keep it in good repair, I say, whatever it costs." } },
     background = { { id = "tp_bg", text = "I carried a shield in the Second War, and I've sold armour in the Commons ever since I put it down." } },
     _none = { { id = "tp_none", text = "I sell steel, friend, nae stories. Ask at the Stonefire Tavern, for they've plenty of the other." } },
   },

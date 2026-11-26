@@ -313,6 +313,7 @@ P:NPC {
         { text = "What should I be gathering to sell?", next = "gather" },
         { text = "Where do all these goods come from?", next = "source" },
         { text = "Show me today's listings.", next = "BUSINESS" },
+        { text = "What did a factor's clerk do in the capital?", next = "as_clerk" },
         { text = "Thank you, Stockton.", next = "END" },
       },
     },
@@ -335,8 +336,33 @@ P:NPC {
       lines = { { id = "s_default", text = "From everywhere the Horde can reach, and a few places it can't officially. An orc lists a hide in Orgrimmar and a Forsaken tailor has it by the next post, and the goblins who carry it take their cut twice." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    as_clerk = {
+      lines = { { id = "as_c_default", text = "Kept the books for a wool factor who bought from every farm in Tirisfal and sold to every tailor in the capital. I knew the price of a fleece in Brill before the farmer did. Then the farmers died, and so did the price." } },
+      choices = {
+        { text = "And now you watch the war through prices?", next = "as_war" },
+        { text = "I could use your figures for my trade.", next = "BACK", when = { profession = { "Herbalism", "Mining", "Skinning" } }, reply = "Bring me your goods, then, and I'll tell you what they'll fetch. Honestly, for once." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    as_war = {
+      lines = { { id = "as_w_default", text = "Iron up means the Bulwark is short of blades. Peacebloom down means the Society has found something better to brew with, and I'd rather not know what. Linen up, always, because somebody somewhere is always bleeding." } },
+      choices = {
+        { text = "Should the auction house profit from the war?", next = "as_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    as_stance = {
+      lines = { { id = "as_s_default", text = "The house takes its cut from every sale, whether it's bandages for the Bulwark or poison for the Scarlets. I've been told I ought to feel something about that. I feel the cut, and that's my job." } },
+      choices = {
+        { text = "Trade is trade. Someone must keep the market running.", next = "BACK", reply = "Thank you. You'd be astonished how few people say so.", fx = { align = { honor = -1 } } },
+        { text = "Profiting from the dying is low, even for the dead.", next = "BACK", reply = "Low and steady. I've seen worse business, believe me.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    advice = { { id = "tp_advice_x", text = "Sell on the day the soldiers are paid, and buy on the day after a battle." } },
+    goblins = { { id = "tp_goblins_x", text = "The Steamwheedle runs the neutral houses, and they charge accordingly. I admire them, from a distance." } },
     background = { { id = "tp_bg", text = "I was a factor's clerk in the capital upstairs, back when it had a market square. The square is rubble now, and the trade simply moved down a floor." } },
     _none = { { id = "tp_none", text = "I've no figures on that, and I don't guess without figures. Ask me what it costs instead." } },
   },

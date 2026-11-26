@@ -38,6 +38,7 @@ P:NPC {
         { text = "Where do you send them?", next = "posts" },
         { text = "How many come back?", next = "back" },
         { text = "The Horde could send you soldiers.", next = "horde", when = { race = { "Orc", "Tauren", "Troll" } } },
+        { text = "Who were you, before the Deathguard?", next = "sr_before" },
         { text = "As you were, Sergeant.", next = "END" },
       },
     },
@@ -67,8 +68,33 @@ P:NPC {
       lines = { { id = "ho_default", text = "It could, and now and then it does, and I'll say for your people that they fight well and ask few questions. They also can't stand the smell of the place for more than a week, so I've learned not to write them into the roster in ink." } },
       choices = { { text = "A fair complaint. Something else.", next = "BACK" } },
     },
+    sr_before = {
+      lines = { { id = "sr_b_default", text = "A sergeant in the Lordaeron foot, keeping the muster roll at the garrison by Andorhal. I counted men going out and men coming back for eleven years, and the difference was always somebody's son. Nothing about the job has changed except the uniform." } },
+      choices = {
+        { text = "Andorhal? The Scourge holds it now.", next = "sr_andorhal" },
+        { text = "I've served at the Bulwark myself.", next = "BACK", when = { minLevel = 50 }, reply = "Then you're on my roll somewhere, and I'm glad to see you still standing." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sr_andorhal = {
+      lines = { { id = "sr_a_default", text = "It does. The granaries there sent out the plague grain, and I signed for some of it without a second look. I think of that whenever I sign for anything now, and I read every line twice." } },
+      choices = {
+        { text = "Should the Deathguard spend themselves retaking it?", next = "sr_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sr_stance = {
+      lines = { { id = "sr_s_default", text = "Andorhal is a city of rot, and every soldier I send toward it is one fewer on the wall at the Bulwark. The High Executor wants it back, and the Dark Lady wants vengeance. I want my roll to stop shrinking, which counts for nothing." } },
+      choices = {
+        { text = "Orders are orders. If the Dark Lady wants Andorhal, take it.", next = "BACK", reply = "That's the soldier's answer, and I've given it myself, many times.", fx = { align = { order = 1 } } },
+        { text = "Hold the wall and stop throwing lives at ruins.", next = "BACK", reply = "Say that to Houser and he'll have you scrubbing armour for a month. I'll not argue with you, though.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    scourge = { { id = "tp_scourge_x", text = "They don't keep rolls, and they don't need to. Every one of ours they kill, they keep." } },
+    lordaeron = { { id = "tp_lordaeron_x", text = "I served its king for eleven years. Its king killed my whole company in one winter." } },
     background = { { id = "tp_bg", text = "I was a soldier before the plague and I'm a soldier after it. Only the roll has changed, and it gets shorter every month." } },
     _none = { { id = "tp_none", text = "That's not a matter for the watch. Take it to someone with time to spare." } },
   },
@@ -107,6 +133,7 @@ P:NPC {
         { text = "What sort of relics?", next = "relics" },
         { text = "Hannah Akeley sells; why don't you?", next = "hannah" },
         { text = "Is any of this safe to touch?", next = "safe" },
+        { text = "Which relic means the most to you?", next = "sz_dear" },
         { text = "I'll leave you to them.", next = "END" },
       },
     },
@@ -139,8 +166,33 @@ P:NPC {
       lines = { { id = "sa_default", text = "Safe enough for the dead, since most of it was made to keep death off and has nothing further to say to us. I would advise the living to keep their hands in their sleeves, and not out of superstition." } },
       choices = { { text = "I'll keep my hands to myself. Something else.", next = "BACK" } },
     },
+    sz_dear = {
+      lines = { { id = "sz_d_default", text = "A tin locket with a lock of red hair in it, taken from a girl I buried in the last week of the plague. She asked me to keep it safe until her mother came. Her mother never came, so I've kept it safe a long while." } },
+      choices = {
+        { text = "Do you think the relics hold any power?", next = "sz_power" },
+        { text = "A priest might bless that locket for you.", next = "BACK", when = { class = "PRIEST" }, reply = "A priest of the Forgotten Shadow? I'd rather it kept the old blessing, thank you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sz_power = {
+      lines = { { id = "sz_p_default", text = "The warlocks say no, and they ought to know power when they see it. But people prayed over these things for years, and prayer must go somewhere. I think a little of it lingers, the way smoke lingers in a church." } },
+      choices = {
+        { text = "Should the Light still matter to the Forsaken?", next = "sz_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sz_stance = {
+      lines = { { id = "sz_s_default", text = "The Light burns us now, and the priests of my old parish would have burned me faster. Yet I carry their saints in my pocket. I don't pretend that makes sense. I only know I can't put them down." } },
+      choices = {
+        { text = "The Light abandoned you. You owe it nothing.", next = "BACK", reply = "That's the warlocks' sermon, and they preach it well. I still keep the locket.", fx = { align = { light = -1 } } },
+        { text = "Keep faith. The Light may yet remember you.", next = "BACK", reply = "Kind of you to say. I'll not tell Hannah you said it.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    lordaeron = { { id = "tp_lordaeron_x", text = "Every village had a chapel and a sexton. Now there are only the graves, and fewer to dig them." } },
+    forsaken = { { id = "tp_forsaken_x", text = "We lost the Light and kept the habits. I still take my hat off when I pass a grave." } },
     background = { { id = "tp_bg", text = "I was a sexton in a parish of Lordaeron and buried people with these things round their necks. It seemed right that somebody should gather them up again." } },
     _none = { { id = "tp_none", text = "I've no relic that answers that, nor any knowledge either. Ask the warlocks, if you can pay what they charge for an answer." } },
   },
@@ -179,6 +231,7 @@ P:NPC {
         { text = "How did you survive out there?", next = "survive" },
         { text = "Why keep to the Rogues' Quarter?", next = "quarter" },
         { text = "Tirisfal's game is poor hunting.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "What was Agamand Mills like, before?", next = "st_mills" },
         { text = "Walk safely, Susan.", next = "END" },
       },
     },
@@ -208,8 +261,33 @@ P:NPC {
       lines = { { id = "hu_default", text = "It is, since the plague. The deer are thin, the bats taste of nothing, and half the hounds you'll see have been dead longer than I have. Go south to Silverpine if you want meat that fights back, and mind the worgen while you're about it." } },
       choices = { { text = "I'll try Silverpine. Something else.", next = "BACK" } },
     },
+    st_mills = {
+      lines = { { id = "st_m_default", text = "Grain and millwheels and the Agamands lording it over all of us from the big house. I set snares on their land and sold them rabbits they'd already paid for, and nobody ever caught on. Now the Agamands walk about their own fields, and not prettily." } },
+      choices = {
+        { text = "You've been back there since you rose?", next = "st_back" },
+        { text = "Any tips for a hunter in Tirisfal?", next = "BACK", when = { class = "HUNTER" }, reply = "Watch the treeline, not the path. The Scarlets hide where nobody looks up." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    st_back = {
+      lines = { { id = "st_b_default", text = "Once, to fetch my old knife from under a stone. The mill was full of the Agamands' risen dead, all of them still giving orders. I took my knife and left them to it, and I'll not say I didn't enjoy that a little." } },
+      choices = {
+        { text = "Should the Forsaken put down the mindless dead?", next = "st_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    st_stance = {
+      lines = { { id = "st_s_default", text = "The Deathguard say they ought to be put down, every one, before the Scourge finds a use for them. I was mindless once and somebody spared me long enough to wake. I don't know which side of that I'd choose." } },
+      choices = {
+        { text = "Put them down. Mercy now stops the Scourge later.", next = "BACK", reply = "A clean answer, and probably the right one. I still can't do it myself.", fx = { align = { honor = -1 } } },
+        { text = "Give them the chance you were given.", next = "BACK", reply = "That's what I'd want for them. The woods taught me it seldom comes.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    scarlet_crusade = { { id = "tp_scarlet_crusade_x", text = "They hunted me through the woods for a season. I learned to be quieter than they were." } },
+    advice = { { id = "tp_advice_x", text = "Carry less than you think you need. You run faster light, and you'll run." } },
     background = { { id = "tp_bg", text = "I set snares for a living near Agamand Mills, before the plague. I rose alone and stayed out in the woods until the Dark Lady's people found me." } },
     _none = { { id = "tp_none", text = "I don't know it, and I don't guess. Guessing is how people get found." } },
   },
@@ -248,6 +326,7 @@ P:NPC {
         { text = "What's on that shelf?", next = "shelf" },
         { text = "Do the apothecaries thank you for it?", next = "thanks" },
         { text = "You never turn round, do you?", next = "turn" },
+        { text = "What are you looking up today?", next = "tg_today" },
         { text = "I'll leave you to your shelf.", next = "END" },
       },
     },
@@ -280,8 +359,33 @@ P:NPC {
       lines = { { id = "tu_default", text = "I lose my place if I do, and then I must begin the shelf again from the left. I'm told there are some remarkable things in the room behind me, in cages, and I've found that I read more comfortably without having seen them." } },
       choices = { { text = "You may be the wisest man here. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    tg_today = {
+      lines = { { id = "tg_t_default", text = "Whether a Gilnean alchemist wrote anything on bone-softening agents before the Greymane Wall went up. The apothecaries want to know, and they want to know by tomorrow, and the index was compiled by a man who could not spell Gilneas." } },
+      choices = {
+        { text = "Do the apothecaries tell you why they need it?", next = "tg_why" },
+        { text = "I'm an alchemist myself.", next = "BACK", when = { profession = "Alchemy" }, reply = "Then you'll know how often the old recipes were simply wrong. I find that comforting." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tg_why = {
+      lines = { { id = "tg_w_default", text = "Never, and I've learned not to wonder. A librarian who wonders what his readers want with a book ends up refusing them, and I've no wish to refuse the Royal Apothecary Society anything at all." } },
+      choices = {
+        { text = "Should knowledge be shared, whatever it's used for?", next = "tg_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tg_stance = {
+      lines = { { id = "tg_s_default", text = "My old master burned three books he thought wicked, and I've never forgiven him for it. But I've seen what comes out of the inner rooms here, and some nights I wonder whether he had the right of it after all." } },
+      choices = {
+        { text = "Knowledge is never wicked. Only its users are.", next = "BACK", reply = "That was my creed for forty years. It still is, mostly.", fx = { align = { light = -1 } } },
+        { text = "Some books ought to burn.", next = "BACK", reply = "Perhaps. I'd want to read them first, which is rather the trouble.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    new_plague = { { id = "tp_new_plague_x", text = "I look things up. What they build from them is not something I'm told, and not something I ask about." } },
+    advice = { { id = "tp_advice_x", text = "Check the index, then check whoever compiled the index. Half of scholarship is distrust." } },
     background = { { id = "tp_bg", text = "I catalogued a nobleman's library near the capital. He is gone and the library with him, but the habit of looking things up has proved hard to kill." } },
     _none = { { id = "tp_none", text = "It isn't on this shelf, and I've not reached the next. Ask me again in a month or so." } },
   },
@@ -320,6 +424,7 @@ P:NPC {
         { text = "Why did you join the Deathguard?", next = "join" },
         { text = "Is Sergeant Houser as hard as he sounds?", next = "houser" },
         { text = "You drop your guard after each swing.", next = "guard", when = { class = { "WARRIOR", "ROGUE", "PALADIN" } } },
+        { text = "How are you finding the training?", next = "tb_training" },
         { text = "Keep at it, Bosk.", next = "END" },
       },
     },
@@ -352,8 +457,33 @@ P:NPC {
         { text = "Ask your sergeant, not me.", next = "BACK", reply = "That's fair, and I will, when he stops for breath." },
       },
     },
+    tb_training = {
+      lines = { { id = "tb_t_default", text = "Hard. My arms don't tire, which you'd think would help, but they don't do what I tell them either. Alyssa says I swing like I'm kneading dough, and she's right, because I think I was a baker's lad and the hands remember." } },
+      choices = {
+        { text = "What does Houser say about you?", next = "tb_houser" },
+        { text = "Try a hammer. It suits a kneader.", next = "BACK", when = { class = "WARRIOR" }, reply = "A hammer? I'll ask the Sergeant. He'll shout, but he might say yes." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tb_houser = {
+      lines = { { id = "tb_h_default", text = "That I'm the slowest recruit he's had since the city was dug, and that I'll be the one he sends to the Bulwark first, because slow soldiers learn fastest there. I think that was meant to cheer me up." } },
+      choices = {
+        { text = "Do you want to go to the Bulwark?", next = "tb_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tb_stance = {
+      lines = { { id = "tb_s_default", text = "Part of me does, to prove him wrong. Part of me wants to stay and bake something, though I can't eat it and nobody here can either. Do you think a Deathguard is allowed to be bad at it?" } },
+      choices = {
+        { text = "Do your duty, Bosk. The Forsaken need every guard.", next = "BACK", reply = "Yes. Yes, you're right. I'll hold my blade higher tomorrow.", fx = { align = { order = 1 } } },
+        { text = "Bake, if that's who you are. Nobody owns you now.", next = "BACK", reply = "Don't say that near the Sergeant. But thank you.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken_x", text = "We're free, the Sergeant says. Free to do drills, mostly." } },
+    advice = { { id = "tp_advice_x", text = "Get up before the Sergeant tells you to. It's the only time he doesn't shout." } },
     background = { { id = "tp_bg", text = "I rose near Deathknell not long ago, and I think I was a baker's lad before that. I'm to be a Deathguard, if the Sergeant ever passes me." } },
     _none = { { id = "tp_none", text = "I wouldn't know, I'm only a recruit. The Sergeant knows everything, but please don't tell him I sent you." } },
   },

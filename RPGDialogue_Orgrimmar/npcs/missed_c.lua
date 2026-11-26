@@ -39,6 +39,9 @@ P:NPC {
         { text = "What brings a chieftain to Orgrimmar?", next = "why" },
         { text = "This hall seems an odd place for a tauren.", next = "odd" },
         { text = "Who else has the officers' ear?", next = "others" },
+        { text = "How did the tauren join the Horde?", next = "xjoin" },
+        { text = "Do you trust the orcs, Chieftain?", next = "xtrust" },
+        { text = "I am a druid. What would you ask of me?", when = { class = "DRUID" }, next = "xdruid" },
         { text = "Walk with the Earth Mother, Chieftain.", next = "END" },
       },
     },
@@ -71,10 +74,47 @@ P:NPC {
       lines = { { id = "ot_default", text = "Advisor Willington speaks for the Forsaken, and he counts the cost of every plan aloud until the warlords growl at him. First Sergeant Hola'mahi keeps the champions' armor, and I have learned that she knows more of how our battles truly went than any report does." } },
       choices = { { text = "Something else, Chieftain.", next = "BACK" } },
     },
+    xjoin = {
+      lines = {
+        { id = "xjoin_default", text = "The centaur hunted us across the Barrens, and Cairne's people were weary and few. The orcs came, and their young Warchief fought beside us, and Cairne swore that our horns would never forget it." },
+      },
+      choices = {
+        { text = "Do the tauren still owe the orcs?", next = "xowe" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xowe = {
+      lines = {
+        { id = "xowe_default", text = "A debt between friends is not counted, young one, it is lived. Yet some of the young braves ask why we march in orc wars far from Mulgore. What would you tell them?" },
+      },
+      choices = {
+        { text = "A promise made is kept, however far it leads.", next = "BACK", reply = "That is what Cairne would say, and what the Earth Mother asks.", fx = { align = { honor = 1 } } },
+        { text = "Our first duty is to Mulgore, not to the orcs.", next = "BACK", reply = "A fair answer, and one I hear often. The Grimtotem say it too, which troubles me.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtrust = {
+      lines = {
+        { id = "xtrust_default", text = "I trust the Warchief, who listens before he speaks, and I trust the orcs who have bled beside my braves. The rest I am still learning, as they are still learning me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      lines = {
+        { id = "xdruid_default", text = "Walk in the Barrens and listen to the land there, because it is sick in places where the oases fail. The Druids of the Fang wander there, and some say they have lost their way." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I led my tribe across the Barrens when the centaur still hunted us from water to water. I am too old for that walk now, and so Cairne has given me a hall to stand in." } },
     alterac = { { id = "tp_alt", text = "It is a cold and bitter valley, and the Frostwolves have made their home in it. Rokhstrom, their ambassador, stands in the Valley of Strength, and she can tell you more than I." } },
+    thrall = { { id = "tp_x_thrall", text = "A young warchief with an old soul. Cairne trusts him, and I have found no reason not to." } },
+    centaur = { { id = "tp_x_centaur", text = "The centaur hunted my people across the Barrens until the orcs stood with us. We have not forgotten." } },
     _none = { { id = "tp_none", text = "I have no wisdom to offer on that, friend. A chieftain who answers every question soon finds that no one trusts his answers." } },
   },
 }

@@ -34,11 +34,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, {class}?" },
         { id = "h_again2", text = "Aye, go on, the forge will keep." },
+        { id = "h_again_x0", when = { class = "WARRIOR" }, text = "Back fer another look at the hammers, {class}? Mind the ram, he's in a mood." },
       },
       choices = {
         { text = "A smith on a ram ranch?", next = "smith" },
         { text = "You keep watching the hills.", next = "hills" },
         { text = "What makes a weapon dwarven?", next = "dwarven" },
+        { text = "What do you make most, out here?", next = "most" },
+        { text = "What do you think of Ultham Ironhorn?", next = "ultham" },
+        { text = "I'm a smith too. Any advice?", next = "smithadv", when = { profession = "Blacksmithing" } },
+        { text = "Could a gnome ride one of your rams?", next = "BACK", when = { race = "Gnome" }, reply = "Veron would sell ye one if he could, but the rams are fer dwarves, an' yer folk have those clockwork striders. I'm told they dinnae need feedin'." },
         { text = "Let me see your work.", next = "END" },
       },
     },
@@ -71,8 +76,39 @@ P:NPC {
       lines = { { id = "d_default", text = "Weight in the head an' a short haft, so all the strength o' yer back goes intae the blow. Human blades are made fer reach, but a dwarf fights close, an' close is where a hammer does its talkin'." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    most = {
+      lines = { { id = "xmost_default", text = "Tack buckles an' shears fer the family, an' hammers fer whoever comes by. The rams wear through more iron than ye'd think, fer they've a way o' chewin' anythin' that isnae nailed down." } },
+      choices = {
+        { text = "Who does Veron sell rams to?", next = "veron" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    veron = {
+      lines = { { id = "xveron_default", text = "Dwarves, fer the most part, an' only those he thinks will treat the beast right. He's turned away a rich lad or two who looked at a ram like it was a cart wi' legs." } },
+      choices = {
+        { text = "Should he sell to anyone with coin?", next = "sell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sell = {
+      lines = { { id = "xsell_default", text = "Rudra an' Veron argue about that every season. Veron says a ram's a friend fer life an' ought tae go only tae those who've earned it, an' Rudra says the ranch needs the coin. What do ye say?" } },
+      choices = {
+        { text = "Only to those who've earned it.", next = "BACK", reply = "Aye, that's Veron's view, an' mine. A ram's no' a purchase, it's a partner.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Sell to anyone. Coin keeps the ranch alive.", next = "BACK", reply = "Rudra would agree wi' ye, an' she's the one who counts the money. I'll no' say she's wrong.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ultham = {
+      lines = { { id = "xultham_default", text = "He's the finest rider in Khaz Modan, an' he knows it, an' he'll tell ye if ye stand still long enough. I've seen him stay on a ram that was tryin' tae climb a cliff, so I'll grant he's earned his brag." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    smithadv = {
+      lines = { { id = "xsmithadv_default", text = "Weight in the head an' a short haft, as I said, an' never trust the first quench. Heat it, cool it slow, heat it again, an' ye'll have steel that bends afore it breaks." } },
+      choices = { { text = "Patience at the forge, then.", next = "BACK", reply = "Patience everywhere, {g:lad|lass}. It's the one thing every craft wants an' nae dwarf has enough o'." } },
+    },
   },
   topics = {
+    great_forge = { { id = "tp_xgreat_forge", text = "I learned at the Great Forge as a lad. The rams never forgave me fer leavin'." } },
+    kharanos = { { id = "tp_xkharanos", text = "Kharanos is the nearest market. The rams go up the road an' the coin comes back down." } },
     background = { { id = "tp_bg", text = "I'm an Amberstill who cannae abide rams, so I learned the forge instead. The family's forgiven me, mostly." } },
     frostmane = { { id = "tp_fm", text = "The trolls keep tae the west, an' they've never troubled the ranch. It's what comes out o' the hills that costs us rams." } },
     _none = { { id = "tp_none", text = "I dinnae ken, friend. Ask Rudra; she hears the news from every rider who comes fer a ram." } },
@@ -193,11 +229,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else can I tell ye about the place?" },
         { id = "h_again2", text = "Aye, ask away, {class}, I've all the time in the world." },
+        { id = "h_again_x0", when = { race = "Gnome" }, text = "Ah, it's yerself again, wee one! Warm yer hands by the fire an' tell me how ye're farin'." },
       },
       choices = {
         { text = "Who should a newcomer meet here?", next = "meet" },
         { text = "Is welcoming people your whole trade?", next = "trade" },
         { text = "You must see every sort come through.", next = "sorts" },
+        { text = "Tell me about the Thunderbrews.", next = "thunderbrews" },
+        { text = "What's Innkeeper Belm like?", next = "belm" },
+        { text = "Thank you for welcoming my people.", next = "BACK", when = { race = "Gnome" }, reply = "Och, nae thanks needed. Ye'd have done the same fer us, an' ye still might, if we ever lose a city.", fx = { affinity = 1 } },
+        { text = "It's far colder here than Stormwind.", next = "BACK", when = { race = "Human" }, reply = "Ha! Every human says that on their first day. Stand by the fire, an' have a stout, an' ye'll stop noticin' in a week." },
         { text = "Thank you for the welcome.", next = "END" },
       },
     },
@@ -223,8 +264,35 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    thunderbrews = {
+      lines = { { id = "xthunderbrews_default", text = "The finest brewers in Khaz Modan, if ye ask them, an' they'll tell ye whether ye ask or no'. Ragnar runs the distillery now, an' every cask in Ironforge has their name burned intae it." } },
+      choices = {
+        { text = "And the Barleybrews?", next = "barley" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    barley = {
+      lines = { { id = "xbarley_default", text = "Down at Brewnall, wi' a better recipe an' nae room tae brew it, or so they say. It's an old feud an' a friendly one, mostly, though I'd no' mention one family's ale in the other's hall." } },
+      choices = {
+        { text = "Do all strangers get the same welcome here?", next = "strangers" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    strangers = {
+      lines = { { id = "xstrangers_default", text = "Some in the village grumble that I'm too free wi' my welcomes, fer every gnome who comes in is another mouth an' the winters are long. I say a cold road is a cold road. What do ye think?" } },
+      choices = {
+        { text = "Welcome everyone. The cold doesn't ask where you're from.", next = "BACK", reply = "That's my own creed, an' I'll keep it. Belm's beds are never empty, an' that's how it should be.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "A village must look after its own first.", next = "BACK", reply = "Aye, I hear that often enough. But Kharanos is only a village because somebody once welcomed the first dwarf tae it.", fx = { align = { light = -1 } } },
+      },
+    },
+    belm = {
+      lines = { { id = "xbelm_default", text = "A good dwarf an' a better cook, an' he'll feed ye before he asks yer name. He's always lookin' fer a hand wi' somethin' or other, so if ye've an hour tae spare, ye'll no' leave hungry." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    belm = { { id = "tp_xbelm", text = "Belm keeps the inn here in Kharanos. Tell him Yori sent ye, an' he'll pour ye a stout." } },
+    kharanos = { { id = "tp_xkharanos", text = "Kharanos is the heart o' Dun Morogh, an' I'm its doorman. Everyone comes through here sooner or later." } },
     background = { { id = "tp_bg", text = "I've lived in Kharanos all my days, an' I've appointed myself its doorman. Naebody's objected yet." } },
     gnomeregan = { { id = "tp_gn", text = "The poor wee folk still come through, though fewer now. I try tae see they get a warm welcome, for they've had a cold enough road." } },
     _none = { { id = "tp_none", text = "Now that I dinnae know, but somebody in this hall will. Ask Belm, an' tell him Yori sent ye." } },

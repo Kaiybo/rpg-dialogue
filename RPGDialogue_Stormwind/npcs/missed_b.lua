@@ -36,6 +36,9 @@ P:NPC {
         { text = "What do you need from Ancient Curios?", next = "list" },
         { text = "Your son seems eager to arrive.", next = "gil" },
         { text = "It's a long walk for small legs.", next = "walk" },
+        { text = "Is Gil's father with you today?", next = "x_father" },
+        { text = "Children should be told the truth, even hard truths.", next = "x_stance" },
+        { text = "I know Charys's shop. Her reagents are good.", next = "x_mage", when = { class = "MAGE" } },
         { text = "Enjoy your walk.", next = "END" },
       },
     },
@@ -57,6 +60,49 @@ P:NPC {
     walk = {
       lines = { { id = "w_default", text = "It is, but they see the whole city this way, the Cathedral and the canals and the guards on the bridges. I'd rather they knew their own streets than only the one we live on." } },
       choices = { { text = "That's a good reason. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    x_father = {
+      lines = {
+        { id = "x_father_l0", text = "He's with the Westfall caravans this month, driving grain to the city, which pays well because nobody else will take the road. I'd rather he took less coin and came home sooner." },
+      },
+      choices = {
+        { text = "Is the road that dangerous?", next = "x_father2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_father2 = {
+      lines = {
+        { id = "x_father2_l0", text = "Defias stopped two wagons near the Jangolode Mine last month, and the drivers walked home in their smallclothes. He laughs about it in his letters, but he writes them more often than he used to." },
+      },
+      choices = {
+        { text = "He writes to put your mind at ease.", next = "x_father3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_father3 = {
+      lines = {
+        { id = "x_father3_l0", text = "I know, and I let him think it works. The children think he's off on an adventure, and I'll let them think it a while longer." },
+      },
+      choices = {
+        { text = "He'll be home soon. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "Gil believes the rabbit was a wizard, and Paige believes whatever Gil does. I haven't the heart to tell them otherwise, and I'm not sure I'd be right." },
+      },
+      choices = {
+        { text = "Let them have their stories while they're small.", next = "BACK", reply = "That's my thinking too, and the world will teach them soon enough.", fx = { align = { order = -1 } } },
+        { text = "Children need the truth, or they'll never learn to judge.", next = "BACK", reply = "Perhaps, but I'll pick a different day than this one.", fx = { align = { order = 1 } } },
+      },
+    },
+    x_mage = {
+      lines = {
+        { id = "x_mage_l0", text = "They are, and she's patient with my list, which is more than most shopkeepers manage with two children in tow. Would you tell Gil sheep spells don't make rabbits? He won't hear it from me." },
+      },
+      choices = {
+        { text = "I'll leave that mystery alone. Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -96,6 +142,8 @@ P:NPC {
       choices = {
         { text = "Who is Fizzles?", next = "fizzles" },
         { text = "You must like the walk through the city.", next = "walk" },
+        { text = "What would you ask Fizzles if he could talk?", next = "x_ask" },
+        { text = "Your brother shouldn't tell you tall tales.", next = "x_stance" },
         { text = "Be gentle with the rabbit, Paige.", next = "END" },
       },
     },
@@ -114,6 +162,23 @@ P:NPC {
     walk = {
       lines = { { id = "w_default", text = "I like the bridges, because you can see the fish, and I like the big statues by the gate. I don't like the part with the stairs, because my legs get tired and Mommy won't carry me any more." } },
       choices = { { text = "You're nearly there. Something else.", next = "BACK" } },
+    },
+    x_ask = {
+      lines = {
+        { id = "x_ask_l0", text = "I'd ask him if he's sad about being a bunny, and if he wants a carrot, and if he can do magic still, only small magic. If he says yes I'll give him my ribbon." },
+      },
+      choices = {
+        { text = "That's very kind. Something else.", next = "BACK" },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "Gil's not telling tales, he's telling true things! Mommy didn't say it wasn't true, she only smiled." },
+      },
+      choices = {
+        { text = "Stories are fun, true or not.", next = "BACK", reply = "Yes! And this one is true anyway.", fx = { align = { order = -1 } } },
+        { text = "It's better to know what's really true.", next = "BACK", reply = "Then I'll ask Fizzles myself, and he'll tell me.", fx = { align = { order = 1 } } },
+      },
     },
   },
   topics = {
@@ -154,6 +219,9 @@ P:NPC {
         { text = "Which do you say it is, spell or potion?", next = "which" },
         { text = "Why sit out here and not in the tower?", next = "outside" },
         { text = "It sounds as if you three enjoy the argument.", next = "enjoy" },
+        { text = "Who teaches you three at the Sanctum?", next = "x_teach" },
+        { text = "Rules slow magic down. You should experiment more.", next = "x_stance" },
+        { text = "I've studied at the Sanctum too.", next = "x_mage", when = { class = "MAGE" } },
         { text = "I'll leave you to your debate.", next = "END" },
       },
     },
@@ -175,6 +243,49 @@ P:NPC {
     enjoy = {
       lines = { { id = "e_default", text = "I suppose we do, though I'd never say so in front of them. I'd have given up on the whole thing in a week by myself, and with those two I can't, because one of them would finish it without me." } },
       choices = { { text = "That's what friends are for. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    x_teach = {
+      lines = {
+        { id = "x_teach_l0", text = "Jennea Cannon takes the new students, and she's very strict about notes, which is where I learned to write everything down. Janey says I took the lesson too far, but Janey loses her notes weekly." },
+      },
+      choices = {
+        { text = "What did Jennea say about your project?", next = "x_teach2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_teach2 = {
+      lines = {
+        { id = "x_teach2_l0", text = "She said to bring her a working theory, written out clean, before we light so much as a candle. So I've written eleven theories, and Janey has burnt three of them by accident." },
+      },
+      choices = {
+        { text = "By accident?", next = "x_teach3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_teach3 = {
+      lines = {
+        { id = "x_teach3_l0", text = "She says so, and Suzanne believes her, and I've decided to believe her too for the sake of peace. I keep copies now, in a box with a lock." },
+      },
+      choices = {
+        { text = "Wise. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "That's what Janey would say, and it's how half of Dalaran's apprentices lost their eyebrows. I'd rather have a slow spell than a quick accident." },
+      },
+      choices = {
+        { text = "Caution is how good magic gets made. Keep your notes.", next = "BACK", reply = "Thank you! I'll tell Janey a passing {class} agreed with me.", fx = { align = { order = 1 } } },
+        { text = "You'll never discover anything by playing safe.", next = "BACK", reply = "Oh, don't say that where Janey can hear you.", fx = { align = { order = -1 } } },
+      },
+    },
+    x_mage = {
+      lines = {
+        { id = "x_mage_l0", text = "Then you'll know how long the stairs are, and how cross they get if you're late. Did you ever make anything new, or only learn the old spells?" },
+      },
+      choices = {
+        { text = "Only the old ones, so far. Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -215,6 +326,9 @@ P:NPC {
         { text = "Why a potion?", next = "potion" },
         { text = "How long has this gone on?", next = "long" },
         { text = "You seem to be the calm one.", next = "calm" },
+        { text = "Why would you leave your name off it?", next = "x_name" },
+        { text = "A useful thing should be given away freely.", next = "x_stance" },
+        { text = "An alchemist might help with your potion.", next = "x_alch", when = { profession = "Alchemy" } },
         { text = "Good luck with it, Suzanne.", next = "END" },
       },
     },
@@ -236,6 +350,49 @@ P:NPC {
     calm = {
       lines = { { id = "c_default", text = "Somebody has to be, or we'd have set fire to something by now. I was the middle child of five, and I learned very early that the one who waits until last usually gets listened to." } },
       choices = { { text = "A useful lesson. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    x_name = {
+      lines = {
+        { id = "x_name_l0", text = "Because Janey wants her name on things more than I do, and Lisan wants to be right more than I do, and somebody has to want the thing to work. I'd be happy to see a fisherman use it and never know my name." },
+      },
+      choices = {
+        { text = "Do you have family by the water?", next = "x_name2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_name2 = {
+      lines = {
+        { id = "x_name2_l0", text = "My father works the docks in the harbor, and he's seen two men drown off the piers this year. That's why it's water, if you want the truth, though the others don't know." },
+      },
+      choices = {
+        { text = "You should tell them.", next = "x_name3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_name3 = {
+      lines = {
+        { id = "x_name3_l0", text = "Maybe, when it works, but I'd rather they kept arguing for the fun of it. They'll argue harder if they think it's only a game." },
+      },
+      choices = {
+        { text = "I'll keep your secret. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "I think so, but Lisan says the Sanctum would want to sell it, and Janey says we should sell it ourselves and buy a house. I just want it to exist." },
+      },
+      choices = {
+        { text = "Give it away. That's what it's for.", next = "BACK", reply = "That's what I said, and they both laughed at me.", fx = { align = { light = 1 } } },
+        { text = "Sell it. Your work deserves payment.", next = "BACK", reply = "Janey would hug you for that, so be careful near her.", fx = { align = { light = -1 } } },
+      },
+    },
+    x_alch = {
+      lines = {
+        { id = "x_alch_l0", text = "Would they? I've been reading about water-breathing draughts in the library, and I couldn't make half the words out. If you know the herbs, I'd love just the names." },
+      },
+      choices = {
+        { text = "Blackmouth oil, for a start. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
     },
   },
   topics = {

@@ -178,6 +178,9 @@ P:NPC {
         { text = "What is the strangest creature you keep?", next = "strange" },
         { text = "Tharl threatened to put me in the pond.", next = "tharl" },
         { text = "Do the other orcs mock you for this?", next = "mock" },
+        { text = "Where do the creatures come from?", next = "xfrom" },
+        { text = "I'm a hunter. Could any of these become a companion?", when = { class = "HUNTER" }, next = "xhunter" },
+        { text = "Some would say beasts belong in the wild.", next = "xwild" },
         { text = "Take care of them, Zas'Tysh.", next = "END" },
       },
     },
@@ -203,9 +206,46 @@ P:NPC {
       lines = { { id = "mk_default", text = "A few did, in the first year. Then their own children began coming here every evening to see the beasts, and it is hard for a warrior to mock the orc his daughter will not stop talking about." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xfrom = {
+      lines = {
+        { id = "xfrom_default", text = "Some come from the Barrens on trader carts, some from Durotar's own scrub, and a few wash up from the coast in nets. Each one gets a meal and a corner, and some of them never leave." },
+      },
+      choices = {
+        { text = "Who brings them in?", next = "xwho" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwho = {
+      lines = {
+        { id = "xwho_default", text = "Goblins, mostly, who find a creature in a crate and want it gone before it bites them. Tharl grumbles about it, but he paid a goblin for a hatchling only last week and thinks I did not see." },
+      },
+      choices = {
+        { text = "Your secret is safe with me.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunter = {
+      lines = {
+        { id = "xhunter_default", text = "Not these, hunter, they are too small and too spoiled now. Go to the trainers in the Valley of Honor, and find a beast that has fought for its own supper, because that kind will fight for yours." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwild = {
+      lines = {
+        { id = "xwild_default", text = "Some would, and some of these could not live a day out there with a broken wing or a gnawed leg. What do you think, {class}?" },
+      },
+      choices = {
+        { text = "The strong survive. Coddling them makes them weak.", next = "BACK", reply = "Maybe so, but the weak ones make Orgrimmar smile, and that is worth something.", fx = { align = { light = -1 } } },
+        { text = "Caring for the weak is worthy work.", next = "BACK", reply = "Tell that to Tharl, and watch his face try not to agree.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I keep small beasts by the pond with Tharl Stonebleeder. It is the best work I have had, and the quietest." } },
+    advice = { { id = "tp_x_advice", text = "Move slowly near small creatures, {class}. Most fear is only surprise wearing teeth." } },
     _none = { { id = "tp_none", text = "I have no idea, friend. Unless it has scales, fur or too many legs, I am the wrong orc to ask." } },
   },
 }
@@ -320,6 +360,9 @@ P:NPC {
         { text = "What are you looking for?", next = "looking" },
         { text = "Has the Alliance ever got inside?", next = "inside" },
         { text = "The city seems peaceful enough.", next = "peace" },
+        { text = "What enemies come for Orgrimmar?", next = "xenemies" },
+        { text = "I move quietly too. Could I scout for the Horde?", when = { class = { "ROGUE", "HUNTER" } }, next = "xrogue" },
+        { text = "Your feet must ache by nightfall.", next = "xfeet" },
         { text = "I'll not slow you. Go well.", next = "END" },
       },
     },
@@ -342,10 +385,46 @@ P:NPC {
       lines = { { id = "pc_default", text = "It seems so because it is watched. The Burning Blade found its way into the Cleft under all our noses, and I have not trusted a quiet street since.", fx = { learn = { "burning_blade" } } } },
       choices = { { text = "A fair lesson. Something else.", next = "BACK" } },
     },
+    xenemies = {
+      lines = {
+        { id = "xenemies_default", text = "The Burning Blade, mostly, cultists who hide in the Cleft and in Ragefire Chasm beneath the city. The Alliance sends spies too, but the cultists already live here, and that makes them worse." },
+      },
+      choices = {
+        { text = "How do you tell a cultist from an honest orc?", next = "xtell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtell = {
+      lines = {
+        { id = "xtell_default", text = "You watch who goes down into the Cleft and who comes back changed. The demon blood called to us once, and some orcs still miss its voice, so I watch for the ones who look hungry." },
+      },
+      choices = {
+        { text = "Root them out, every one, without mercy.", next = "BACK", reply = "That is a grunt's answer, and sometimes it is the right one, but a dead cultist tells no tales.", fx = { align = { light = -1 } } },
+        { text = "Some may be turned back. They are still orcs.", next = "BACK", reply = "The Warchief believes that too, and I try to. Then I find another shrine.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      lines = {
+        { id = "xrogue_default", text = "Perhaps, if you can keep pace and keep quiet in the same breath. Learn the city first, every alley and every roof, and when you can find me before I find you, come and ask again." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfeet = {
+      lines = {
+        { id = "xfeet_default", text = "They do, and I have walked every stone of this city a thousand times. Still, my feet complain less than my head does when I sit, because sitting lets me think about what I missed." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I am a scout of Orgrimmar. I walk, I watch, and I shout when it is needed." } },
     burning_blade = { { id = "tp_bb", text = "Demon worshippers, hiding among our own. Ask in Grommash Hold if you want to hunt them." } },
+    thrall = { { id = "tp_x_thrall", text = "The Warchief walks his own city at night sometimes, and I am the one who pretends not to see him." } },
     _none = { { id = "tp_none", text = "I cannot say, and I cannot stop to think on it. Ask a guard who is standing still." } },
   },
 }
@@ -382,6 +461,9 @@ P:NPC {
         { text = "I am lost. Where is everything?", next = "lost" },
         { text = "Which part of the city gives you most trouble?", next = "trouble" },
         { text = "Stronghand says he's the louder of you.", next = "loud" },
+        { text = "Do merchants ever cheat in the Drag?", next = "xcheat" },
+        { text = "You don't seem to trust the Forsaken.", next = "xforsaken" },
+        { text = "Which way should a newcomer walk first?", when = { maxLevel = 15 }, next = "xnew" },
         { text = "Keep to your round, scout.", next = "END" },
       },
     },
@@ -407,9 +489,45 @@ P:NPC {
       lines = { { id = "ld_default", text = "Stronghand is louder, and I let him believe that is the same as better. I can whistle so that it carries from the Drag to the gate, and a whistle does not tell the enemy which way the guard is coming from." } },
       choices = { { text = "A sly answer. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    xcheat = {
+      lines = {
+        { id = "xcheat_default", text = "Every day, and the goblins are the best at it, though they call it business. I cannot arrest a fellow for a bad price, but I can stand near his stall until his customers get nervous." },
+      },
+      choices = {
+        { text = "Do you ever take a bribe to look away?", next = "xbribe" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbribe = {
+      lines = {
+        { id = "xbribe_default", text = "I am offered one each week, usually in candy or bad wine, and I refuse it each week. A scout who can be bought is worse than none, because the city thinks it is watched when it is not." },
+      },
+      choices = {
+        { text = "The law is the law. Your honesty does you credit.", next = "BACK", reply = "It does me no good with the goblins, but I sleep well.", fx = { align = { order = 1 } } },
+        { text = "A little give makes a city run smoother.", next = "BACK", reply = "So the goblins say, and their stalls burn down more often than most.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xforsaken = {
+      lines = {
+        { id = "xforsaken_default", text = "I trust them as allies, since the Warchief does, and I watch them as I watch everyone. The grunts are less patient, and I would rather a Forsaken walk where I can stand between them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnew = {
+      lines = {
+        { id = "xnew_default", text = "The Valley of Strength first, for the bank and the inn, and then the Drag for supplies. Stay out of the Cleft of Shadow until somebody has a reason to send you there." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I scouted the Barrens before the city was built, and now I scout the city. The ground is flatter and the company is worse." } },
+    advice = { { id = "tp_x_advice", text = "Know two ways out of any street you walk into, {class}. The city taught me that, and so did the war." } },
     _none = { { id = "tp_none", text = "That is not on my round, {class}. Ask at Grommash Hold." } },
   },
 }

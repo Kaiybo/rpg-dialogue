@@ -209,6 +209,8 @@ P:NPC {
         { text = "What's it like, learning from your father?", next = "father" },
         { text = "How many nails have you made?", next = "nails" },
         { text = "It's hot work by the Great Forge.", next = "forge" },
+        { text = "What do you want to make, one day?", next = "xs_dream" },
+        { text = "I'm a smith too. Want a tip?", next = "xs_smith", when = { profession = "Blacksmithing" } },
         { text = "Back to the bellows with you.", next = "END" },
       },
     },
@@ -234,8 +236,45 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xs_dream = {
+      lines = {
+        { id = "xsd_default", text = "A sword! A proper one, with a fuller down the blade and a guard like the ones in the Hall of Arms. Da says I'll make one when I can make a nail he cannae bend, and I'm close, I swear it." },
+      },
+      choices = {
+        { text = "How close?", next = "xs_close" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xs_close = {
+      lines = {
+        { id = "xsc_default", text = "He bent three of yesterday's twelve. That's better than last month, when he bent all twelve and laughed. I've been sneakin' a bit of extra heat on them when he's at his lunch." },
+      },
+      choices = {
+        { text = "Does your father know about the extra heat?", next = "xs_secret" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xs_secret = {
+      lines = {
+        { id = "xss_default", text = "Nae, and I'd sooner he didnae. It's nae cheatin', exactly, it's just... findin' my own way. Ye'll nae tell him, will ye?" },
+      },
+      choices = {
+        { text = "Tell him yourself. He deserves to know.", next = "BACK", reply = "Aye, aye, ye sound like my mam. Fine, I'll tell him, after supper.", fx = { align = { honor = 1 } } },
+        { text = "Your secret's safe. Find your own way.", next = "BACK", reply = "Ha! Thank ye. When I make that sword, I'll name it after ye.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xs_smith = {
+      lines = {
+        { id = "xsm_default", text = "From a real smith? Aye, please! Da only ever tells me what I did wrong, and never what to do instead." },
+      },
+      choices = {
+        { text = "Quench slower. Steel hates surprises.", next = "BACK", reply = "Steel hates surprises. I'll scratch that on the anvil, thank ye!" },
+      },
+    },
   },
   topics = {
+    great_forge = { { id = "tp_forge", text = "It never goes out, nae even at night. I've tried to see the bottom of it and singed my eyebrows off." } },
     background = { { id = "tp_bg", text = "I'm Rotgath Stonebeard's son, and I've been at the Great Forge since I could carry a coal scuttle." } },
     _none = { { id = "tp_none", text = "I'm sorry, but I dinnae know, for I mostly know nails an' the hammers that drive them." } },
   },
@@ -277,6 +316,8 @@ P:NPC {
         { text = "What's the best thing on tap?", next = "tap" },
         { text = "You must hear a lot of travellers' tales.", next = "tales" },
         { text = "Is there another tavern in the city?", next = "bruuk" },
+        { text = "What's the worst brawl you've seen here?", next = "xw_brawl" },
+        { text = "Got anything from Kharanos on tap?", next = "xw_dwarf", when = { race = "Dwarf" } },
         { text = "Just a drink by the fire.", next = "END" },
       },
     },
@@ -299,8 +340,45 @@ P:NPC {
       lines = { { id = "b_default", text = "Bruuk's Corner, in the Military Ward, where the soldiers drink. Bruuk Barleybeard's a decent old badger and we send each other custom, for his lot want noise and my lot want a bed after." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xw_brawl = {
+      lines = {
+        { id = "xwb_default", text = "Two Wildhammers and a Bronzebeard over whose clan brewed the first ale. It went three rounds and broke four stools, and in the end they all agreed it was the Dark Irons, just to have somethin' to agree on." },
+      },
+      choices = {
+        { text = "Who did brew the first ale?", next = "xw_first" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xw_first = {
+      lines = {
+        { id = "xwf_default", text = "My granny swore it was a Firebrew, which is likely nonsense, but I'll say it to any customer who asks. A tavern needs its stories more than its truths." },
+      },
+      choices = {
+        { text = "Does a tavern owe its customers the truth?", next = "xw_truth" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xw_truth = {
+      lines = {
+        { id = "xwt_default", text = "About the ale, aye, every drop. About the stories? Folk come here to forget the road, and a good tale does that better than a true one. I've never once watered a mug, mind." },
+      },
+      choices = {
+        { text = "Honest pours and honest tales. Both matter.", next = "BACK", reply = "Och, ye're a hard one. Fine, the Firebrew story's only half true.", fx = { align = { honor = 1 } } },
+        { text = "A good story's worth more than a dull fact.", next = "BACK", reply = "That's the spirit! Sit down, I'll tell ye about my granny's bear.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xw_dwarf = {
+      lines = {
+        { id = "xwd_default", text = "Thunderbrew, fresh up from the distillery this week, and it's a good batch. Ye can taste the snow in it, which a gnome once told me is impossible, and I told him to drink another." },
+      },
+      choices = {
+        { text = "Pour me one. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    wildhammer = { { id = "tp_wild", text = "They drink like they fight, loud and all at once. Good customers, terrible for the furniture." } },
     background = { { id = "tp_bg", text = "Firebrews have kept the Stonefire a long while. I grew up carryin' mugs across this floor, and I never found a reason to leave." } },
     _none = { { id = "tp_none", text = "That's nae one I've heard across the bar, and I hear most things. Try me again after the evenin' crowd's been in." } },
   },
@@ -340,6 +418,8 @@ P:NPC {
         { text = "You sell wands but can't use them?", next = "use" },
         { text = "How does one choose a wand?", next = "choose" },
         { text = "Bingus says you're very calm.", next = "bingus" },
+        { text = "Has a wand ever gone off in your hand?", next = "xh_off" },
+        { text = "I'm a priest. What wand suits me?", next = "xh_priest", when = { class = "PRIEST" } },
         { text = "I'll look them over.", next = "END" },
       },
     },
@@ -362,8 +442,45 @@ P:NPC {
       lines = { { id = "b_default", text = "Next to a gnome, a landslide is calm. He's a good wee fellow, mind, and he keeps the accounts to the copper, so I let him measure things and he lets me alone." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xh_off = {
+      lines = {
+        { id = "xho_default", text = "Aye, three times. The last one was a fire wand some mage brought back for trade, and it took the hair off my left arm. It grew back. I sell that same mage's wands to this day." },
+      },
+      choices = {
+        { text = "Why would you keep trading with him?", next = "xh_off2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xh_off2 = {
+      lines = {
+        { id = "xho2_default", text = "Because he came back and told me himself it was faulty, and offered to pay for the arm. Most would've hidden it. A dwarf can forgive a bad wand, but nae a bad word." },
+      },
+      choices = {
+        { text = "Should he have paid anyway?", next = "xh_pay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xh_pay = {
+      lines = {
+        { id = "xhp_default", text = "I wouldnae take his coin. Ye cannae put a price on a dwarf's arm hair, I told him, and he laughed, and we've done business for nine years. Bingus says I should have taken it." },
+      },
+      choices = {
+        { text = "You were right. Honour is worth more than coin.", next = "BACK", reply = "Aye. That's my view, though it's a poor one for a shopkeeper.", fx = { align = { honor = 1 } } },
+        { text = "Bingus is right. Take the coin, a debt is a debt.", next = "BACK", reply = "Hmph. The wee one will be pleased to hear it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xh_priest = {
+      lines = {
+        { id = "xhpr_default", text = "Shadow or holy, depending on yer leanings. Most priests here buy holy, for they come from the Mystic Ward. A few buy shadow and pretend they didnae, and I pretend I didnae notice." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    hall_of_mysteries = { { id = "tp_mystery", text = "The priests next door buy the most wands and ask the fewest questions. I like them for it." } },
     background = { { id = "tp_bg", text = "I kept a lamp shop before this, and wands are much the same trade. Folk want a wee bit of light or fire at the end of a stick." } },
     _none = { { id = "tp_none", text = "I dinnae know, and I'll nae pretend to. Ask in the Hall of Mysteries, for they like bein' asked." } },
   },
@@ -403,6 +520,8 @@ P:NPC {
         { text = "Why keep shop in the Forlorn Cavern?", next = "cavern" },
         { text = "Your blades are very plain.", next = "plain" },
         { text = "How do you bear Binny's improvements?", next = "binny" },
+        { text = "Who taught you to forge?", next = "xj_taught" },
+        { text = "I need a quiet blade. No questions.", next = "xj_rogue", when = { class = "ROGUE" } },
         { text = "I'll browse and ask nothing.", next = "END" },
       },
     },
@@ -430,8 +549,45 @@ P:NPC {
       lines = { { id = "b_default", text = "With patience, and a thick apron. Half her notions are daft, and the other half I've quietly started buildin' into the hilts, though I'd be obliged if ye didnae tell her which half." } },
       choices = { { text = "Not a word. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    xj_taught = {
+      lines = {
+        { id = "xjt_default", text = "My uncle, in the Military Ward, before he decided the Ward asked too many questions. He moved his anvil down here and I followed. He's gone now, but the anvil stayed." },
+      },
+      choices = {
+        { text = "What did the Ward ask him?", next = "xj_ward" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xj_ward = {
+      lines = {
+        { id = "xjw_default", text = "Who his customers were. He said a smith forges steel, nae judgement, and that what a buyer does with a blade is between him and the Light. The Ward disagreed." },
+      },
+      choices = {
+        { text = "Do you agree with your uncle?", next = "xj_agree" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xj_agree = {
+      lines = {
+        { id = "xja_default", text = "Most days. Some nights I wonder about a blade I've sold, and where it went. But a smith who asks questions soon has nae customers, and a smith with nae customers cannae feed his family." },
+      },
+      choices = {
+        { text = "A smith answers for every blade he sells.", next = "BACK", reply = "Aye, maybe so. It's a heavy thought, and I'll carry it.", fx = { align = { order = 1 } } },
+        { text = "Your uncle was right. Steel isn't judgement.", next = "BACK", reply = "That's the cavern's creed, and it's kept me in business.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xj_rogue = {
+      lines = {
+        { id = "xjr_default", text = "Then ye've come to the right cavern. Short blade, dark tang, a grip that doesnae shine. I'll nae ask yer name, and ye'll nae tell me what it's for." },
+      },
+      choices = {
+        { text = "Agreed. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    forlorn_cavern = { { id = "tp_cavern", text = "Quiet, dim and honest in its own way. Folk who come here know what they want, and that's more than ye can say for the Commons." } },
     background = { { id = "tp_bg", text = "I learned bladework at the Great Forge and brought it down here, where it's cooler and nobody watches over my shoulder." } },
     _none = { { id = "tp_none", text = "I dinnae know, and I've made a habit of nae knowin'. It's served me well." } },
   },
@@ -473,6 +629,8 @@ P:NPC {
         { text = "Can cloth really be called armour?", next = "armour" },
         { text = "What do casters forget to buy?", next = "forget" },
         { text = "A dwarf selling cloth is unusual.", next = "dwarf" },
+        { text = "How did you start working for Maeva?", next = "xi_maeva" },
+        { text = "I'm a mage. What am I forgetting?", next = "xi_mage", when = { class = "MAGE" } },
         { text = "I'll see what you have.", next = "END" },
       },
     },
@@ -495,8 +653,45 @@ P:NPC {
       lines = { { id = "d_default", text = "So folk tell me, and usually while they're buyin' somethin'. We've mages and priests in Ironforge like any city, and now half of Gnomeregan besides, and somebody has to dress them who knows what a mountain winter is." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xi_maeva = {
+      lines = {
+        { id = "xim_default", text = "Maeva took me on when my own mam's shop closed, and she has a stubborn streak as wide as a ram. I liked her at once, and we've been stitchin' together since. She does the fine work, and I do the sensible work." },
+      },
+      choices = {
+        { text = "What does the sensible work involve?", next = "xi_sense" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xi_sense = {
+      lines = {
+        { id = "xis_default", text = "Linin' every glove with wool, for one. Casters' hands get cold and cold hands fumble the gestures. And double-stitchin' the boot seams, because no mage ever walks as little as they think they will." },
+      },
+      choices = {
+        { text = "Does Maeva agree with that?", next = "xi_agree" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xi_agree = {
+      lines = {
+        { id = "xia_default", text = "Nae always. She says a robe should be beautiful first, because confidence is half of any spell. I say a robe should keep ye warm first, because frostbite is the other half." },
+      },
+      choices = {
+        { text = "Practical first. A cold mage is a dead mage.", next = "BACK", reply = "Thank ye! That's what I tell her, near enough every day.", fx = { align = { order = 1 } } },
+        { text = "Maeva's right. Confidence is everything in spellcraft.", next = "BACK", reply = "Hmph. Ye'd get on with her. Fine, I'll add a ribbon.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xi_mage = {
+      lines = {
+        { id = "ximg_default", text = "Gloves. Every mage forgets gloves until their fingers go blue in Dun Morogh. I've wool-lined ones on the left shelf, and I'll nae let ye out of here without tryin' a pair." },
+      },
+      choices = {
+        { text = "I'll try them. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    hall_of_mysteries = { { id = "tp_mystery", text = "Half my customers walk over from the Hall of Mysteries, and every one of them forgets their gloves." } },
     background = { { id = "tp_bg", text = "I've worked at Maeva's a good many years. I started on the hemmin', and I've had the cloth armour counter since." } },
     _none = { { id = "tp_none", text = "I couldnae tell ye, dear. Ask Maeva, or one of the scholars in the Hall of Mysteries." } },
   },

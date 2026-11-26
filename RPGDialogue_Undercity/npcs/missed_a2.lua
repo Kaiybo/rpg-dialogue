@@ -36,6 +36,7 @@ P:NPC {
         { text = "What's in the flask?", next = "flask" },
         { text = "How long have you been holding it?", next = "long" },
         { text = "Do you know Algernon?", next = "algernon" },
+        { text = "Do you remember anything before the flask?", next = "by_before" },
         { text = "Hold steady, Boyle.", next = "END" },
       },
     },
@@ -58,8 +59,33 @@ P:NPC {
       lines = { { id = "a_default", text = "Algernon is the other slow one, and he has the flowers. He walks past with the herbs and says good morning to Boyle every time, even when it is not morning, and Boyle likes that." } },
       choices = { { text = "It's good to have a friend. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    by_before = {
+      lines = { { id = "by_b_default", text = "Boyle remembers a cart, and a horse that did not like Boyle. Then there was a long walking, with many others, and somebody shouting inside Boyle's head. Then the shouting stopped, and the doctors came, and the flask came." } },
+      choices = {
+        { text = "Who was shouting inside your head?", next = "by_shout" },
+        { text = "That shouting was the Lich King. I heard it too.", next = "BACK", when = { race = "Scourge" }, reply = "You heard it too? Then you know why Boyle likes the quiet flask better." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    by_shout = {
+      lines = { { id = "by_s_default", text = "Boyle does not know the name. It was very big and very cold, and it wanted Boyle to bite people. Boyle did not want to bite people, but Boyle did anyway. Now Boyle holds the flask, and nobody wants Boyle to bite anybody." } },
+      choices = {
+        { text = "Do you like the doctors better than the shouting?", next = "by_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    by_stance = {
+      lines = { { id = "by_st_default", text = "The doctors are not kind, but they are quiet. They say Boyle is useful. Boyle thinks useful is a good thing to be. Do you think useful is a good thing to be?" } },
+      choices = {
+        { text = "Yes, Boyle. Doing your task well is a fine thing.", next = "BACK", reply = "Boyle thinks so too. Boyle will hold the flask very well.", fx = { align = { order = 1 } } },
+        { text = "You should choose your own task, Boyle.", next = "BACK", reply = "Choose? Boyle will think about that. Slowly, so the flask does not spill.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    scourge = { { id = "tp_scourge_x", text = "The big cold shouting. Boyle does not want to hear it again." } },
+    advice = { { id = "tp_advice_x", text = "Hold it level. That is all Boyle knows, and it is enough." } },
     background = { { id = "tp_bg", text = "Boyle woke up, and somebody put a flask in his hand. That is all of it." } },
     _none = { { id = "tp_none", text = "Boyle does not know that. Boyle knows the flask." } },
   },

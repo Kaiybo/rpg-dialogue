@@ -90,6 +90,8 @@ P:NPC {
         { text = { normal = "What's happening in the Plaguelands?", polite = "What news is there from the Plaguelands, Harbinger?", blunt = "What's in the Plaguelands?" }, next = "plague" },
         { text = "You must walk a great distance every day.", next = "walk" },
         { text = "I'm ready to fight for the Dark Lady.", next = "ready", when = { minLevel = 50 } },
+        { text = "Who were you before you were the harbinger?", next = "hb_before" },
+        { text = "I died in Lordaeron too, Harbinger.", next = "BACK", when = { race = "Scourge" }, reply = "Then you know why my voice carries. We were all silenced once." },
         { text = "I'll keep that in mind.", next = "END" },
       },
     },
@@ -122,8 +124,24 @@ P:NPC {
       lines = { { id = "a_default", text = "To kill what the Scourge throws at the wall, mostly, and to carry the fight to Andorhal when it's time. It is honest work for a soldier, and there's no shortage of it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    hb_before = {
+      lines = { { id = "hb_b_default", text = "A town crier in Capital City. I read the king's proclamations from the palace steps, including the last one, which promised that Prince Arthas would return with a cure. I read it in this same voice. I have tried since to make amends for that." } },
+      choices = {
+        { text = "How does a harbinger make amends?", next = "hb_amends" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    hb_amends = {
+      lines = { { id = "hb_a_default", text = "By calling only true things. The Dark Lady's needs are real, and her enemies are real, and when I tell the Forsaken to march, there is something worth marching against. Terenas never gave me that comfort." } },
+      choices = {
+        { text = "And if her orders were ever wrong?", next = "BACK", reply = "Then I would still call them, {class}, and pray that they weren't. I've no other trade." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    sylvanas = { { id = "tp_sylvanas_x", text = "She gave us our voices back. I use mine in her service, gladly." } },
+    scourge = { { id = "tp_scourge_x", text = "Every proclamation I make is, in the end, about them." } },
     _none = { { id = "tp_none", text = "I carry the Dark Lady's words, {class}, not the city's gossip." } },
   },
 }
@@ -149,6 +167,9 @@ P:NPC {
         { text = "Tell me about Warsong Gulch.", next = "gulch" },
         { text = "You don't care for the Undercity.", next = "city" },
         { text = "Send me to the gulch.", next = "BUSINESS" },
+        { text = "How did an Outrider end up in the Undercity?", next = "kb_here" },
+        { text = "What are the Silverwing like?", next = "kb_silverwing" },
+        { text = "Lok'tar, brother. How fares the Warsong?", next = "BACK", when = { race = "Orc" }, reply = "Bleeding and winning, brother. As it should be." },
         { text = "Another time.", next = "END" },
       },
     },
@@ -163,8 +184,39 @@ P:NPC {
       lines = { { id = "c_default", text = "It's cold, it stinks of the apothecaries' brews, and nobody here has eaten a proper meal in years. Still, the Forsaken fight hard, and a Warsong warrior respects that." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    kb_here = {
+      lines = { { id = "kb_h_default", text = "Warchief Thrall wanted every city of the Horde sending fighters to the gulch, and somebody had to stand in this crypt and ask. I lost the draw. The Forsaken fight well, I'll say that, even if they smell like an old battlefield." } },
+      choices = {
+        { text = "Do you trust the Forsaken as allies?", next = "kb_trust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kb_trust = {
+      lines = { { id = "kb_t_default", text = "I've seen them hold the line at the gulch while the Sentinels came over the walls, and none of them broke. Some orcs say the dead don't belong in the Horde. I say anyone who bleeds for it, or used to, belongs." } },
+      choices = {
+        { text = "The Forsaken have earned their place in the Horde.", next = "BACK", reply = "Aye. Say it louder in Orgrimmar, where they need to hear it.", fx = { align = { honor = 1 } } },
+        { text = "The dead are useful, but never truly Horde.", next = "BACK", reply = "Hmph. Keep that thought out of the gulch, where they're guarding your back.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kb_silverwing = {
+      lines = { { id = "kb_s_default", text = "Night elf women with glaives and owls and very long memories. They don't shout their war cries; they just appear behind you. I've fought their kind since Grom's days in Ashenvale, and I still can't hear them coming." } },
+      choices = {
+        { text = "How do you beat them?", next = "kb_beat" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kb_beat = {
+      lines = { { id = "kb_b_default", text = "Keep together, guard the flag carrier, and never chase an elf into the trees alone. The ones who chase alone come back on a stretcher, if they come back. Do that, and the Silverwing lose like anyone else." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    thrall = { { id = "tp_thrall_x", text = "The Warchief sent me here himself. I'd go anywhere he asked, even a crypt." } },
+    forsaken = { { id = "tp_forsaken_x", text = "Cold, quiet, and harder than they look. Good fighters." } },
+    advice = { { id = "tp_advice_x", text = "Guard the flag carrier. Glory comes after." } },
     _none = { { id = "tp_none", text = "Don't know, don't care. Ask me about the gulch." } },
   },
 }
@@ -190,6 +242,9 @@ P:NPC {
         { text = "Who are the Stormpike?", next = "stormpike" },
         { text = "Why does the valley matter so much?", next = "valley" },
         { text = "Send me to Alterac.", next = "BUSINESS" },
+        { text = "How did you lose half your mane?", next = "gh_mane" },
+        { text = "What is Drek'Thar like?", next = "gh_drek" },
+        { text = "The Earth Mother watches over the Frostwolves.", next = "BACK", when = { race = "Tauren" }, reply = "Then I'll thank her, through you. The valley needs every blessing." },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -204,8 +259,37 @@ P:NPC {
         { text = "Land is land. Share it and be done.", next = "BACK", reply = "Spoken like one who's never buried kin in it.", fx = { align = { order = -1 } } },
       },
     },
+    gh_mane = {
+      lines = { { id = "gh_m_default", text = "A Stormpike rifleman, from the ridge above Iceblood. The shot burned off half my hair and none of my head, and the clan has called me Halfmane ever since. I keep it this way, so the dwarves remember that they missed." } },
+      choices = {
+        { text = "What's it like to fight in that snow?", next = "gh_snow" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gh_snow = {
+      lines = { { id = "gh_s_default", text = "Cold enough to freeze a wolf to the ground, and the wind takes your war cry before anyone hears it. The dwarves are made for it, curse them. The Frostwolves were made for it too, in the long years of exile." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gh_drek = {
+      lines = { { id = "gh_d_default", text = "Old and blind, and he sees more than any orc in the valley. He kept the clan alive when the rest of the Horde was penned in camps, and he gave Thrall back his name. When Drek'Thar speaks, even the wolves go quiet." } },
+      choices = {
+        { text = "Does he still lead in battle?", next = "gh_drek2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gh_drek2 = {
+      lines = { { id = "gh_d2_default", text = "From Frostwolf Keep, with the spirits at his call. The Stormpike want his head more than they want the iron, I think. They'll have to climb a great many of us to reach it." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    thrall = { { id = "tp_thrall_x", text = "Son of Durotan, raised to the clan's name by Drek'Thar. The Frostwolves will follow him anywhere." } },
+    alterac = { { id = "tp_alterac_x", text = "The mountains are ours by right of exile and blood. The Stormpike will learn it." } },
+    advice = { { id = "tp_advice_x", text = "Dress warm and kill the riflemen first." } },
     _none = { { id = "tp_none", text = "I know snow and battle. Ask someone else about that." } },
   },
 }
@@ -231,6 +315,9 @@ P:NPC {
         { text = "Who fights here?", next = "fighters" },
         { text = "A priest running fights is an odd thing.", next = "priest" },
         { text = "Tell me of the Forgotten Shadow.", next = "shadow", when = { class = "PRIEST" } },
+        { text = "Where do the captives come from?", next = "bm_captives" },
+        { text = "Do the fighters ever die for good?", next = "bm_die" },
+        { text = "I'm human. Would you put me in the pit?", next = "BACK", when = { race = "Human" }, reply = "Only if you asked nicely, or crossed the Dark Lady. Most of my guests did the latter." },
         { text = "I'll watch from a distance.", next = "END" },
       },
     },
@@ -249,8 +336,38 @@ P:NPC {
       lines = { { id = "s_default", text = "We turned from the Light when it turned from us, and we found that the shadow answers more honestly. Speak to Aelthalyste in the War Quarter if you want the full catechism." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    bm_captives = {
+      lines = { { id = "bm_c_default", text = "Scarlet zealots taken near Tirisfal, mostly, and the odd bandit the Deathguard catch on the roads. Every one of them would have burned us, given the chance. I give them a sword, which is more than they offered us." } },
+      choices = {
+        { text = "Then the pit is a kind of justice?", next = "bm_justice" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bm_justice = {
+      lines = { { id = "bm_j_default", text = "Justice is the Light's word, and I've put it away with the rest. I call it a lesson. The captives learn what they made of us, the fighters learn what they still are, and the crowd learns that it can still feel something." } },
+      choices = {
+        { text = "Captives deserve a quick death, not a show.", next = "BACK", reply = "A tidy sentiment. The Crusade gave us neither.", fx = { align = { honor = 1 } } },
+        { text = "They chose their war. Let them fight in it.", next = "BACK", reply = "Just so. And they fight better than you'd think.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bm_die = {
+      lines = { { id = "bm_d_default", text = "Not yet. I stitch them up after each bout, and Tyler complains that I sew crooked, and Edward complains that I sew at all. One day something in the pit will take them apart past mending, and I'll have to find new students." } },
+      choices = {
+        { text = "Would you mourn them?", next = "bm_mourn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    bm_mourn = {
+      lines = { { id = "bm_m_default", text = "The Forgotten Shadow doesn't mourn, {class}. We record. I'd write their names in the book and the number of bouts they won, and I'd read it to the next pair. That is a kind of mourning, I suppose, if you insist." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken_x", text = "We learned what we are in the dark. The pit is just a smaller dark, with a crowd." } },
+    scarlet_crusade = { { id = "tp_scarlet_crusade_x", text = "My best source of students. They never volunteer, though." } },
     _none = { { id = "tp_none", text = "Not my concern, {class}. My concern is in the pit." } },
   },
 }
@@ -276,6 +393,9 @@ P:NPC {
         { text = "Winter Veil in the Undercity?", next = "undercity" },
         { text = "You and Nardstrum compete?", next = "brother" },
         { text = "Show me the goods.", next = "BUSINESS" },
+        { text = "What's the priciest thing on your stall?", next = "jc_price" },
+        { text = "Do goblins even celebrate Winter Veil?", next = "jc_self" },
+        { text = "Got anything big enough for a tauren?", next = "BACK", when = { race = "Tauren" }, reply = "Sweetheart, for a tauren I'll stitch two hats together. Double price, naturally." },
         { text = "Not today.", next = "END" },
       },
     },
@@ -287,8 +407,38 @@ P:NPC {
       lines = { { id = "b_default", text = "Compete? We're diversified, sweetheart, so whichever way the customer's purse leans, a Copperpinch catches it. He keeps the volume, I keep the margins, and the Cartel keeps a cut of the whole festive mess." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    jc_price = {
+      lines = { { id = "jc_p_default", text = "The gift-wrapped stuff, top shelf, the boxes with bows that sing when you open them. Costs me a copper to wrap and you a silver to unwrap, and that difference is called Winter Veil spirit, pal." } },
+      choices = {
+        { text = "Isn't that robbery?", next = "jc_rob" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jc_rob = {
+      lines = { { id = "jc_r_default", text = "Robbery is when they don't come back next year. These folks come back every year, so I call it a relationship. Tell me honestly, do you think I should knock the prices down for the dead?" } },
+      choices = {
+        { text = "Charge what they'll pay. That's honest business.", next = "BACK", reply = "Finally, somebody gets it! You want a job?", fx = { align = { honor = -1 } } },
+        { text = "Fleecing the grieving dead is low, even for a goblin.", next = "BACK", reply = "Low, sure, but profitable. Those are different shelves.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jc_self = {
+      lines = { { id = "jc_s_default", text = "Sure, in Undermine we give each other receipts. Very sentimental. Greatfather Winter gets a cut of the season, so he's practically family, and family's what you invoice at cost." } },
+      choices = {
+        { text = "What did you get last year?", next = "jc_gift" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    jc_gift = {
+      lines = { { id = "jc_g_default", text = "A ledger from Nardstrum, with all his margins written in. Best gift I ever got. I used it to undercut him for a month." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    goblins = { { id = "tp_goblins_x", text = "We're the only folk who'll sell to everybody. Somebody's got to." } },
+    forsaken = { { id = "tp_forsaken_x", text = "Great customers. Never hungry, never sleep, and they've got old money tucked in odd places." } },
     _none = { { id = "tp_none", text = "Can't sell you that, so I can't say I care about it." } },
   },
 }
@@ -314,6 +464,9 @@ P:NPC {
         { text = "Do the Forsaken even eat cookies?", next = "eat" },
         { text = "Who is Greatfather Winter?", next = "greatfather" },
         { text = "What are you selling?", next = "BUSINESS" },
+        { text = "Is your sister really the smart one?", next = "nc_sister" },
+        { text = "Cheap or fair, which is your price?", next = "nc_price" },
+        { text = "I'm a troll, mon. Got any rum cocoa?", next = "BACK", when = { race = "Troll" }, reply = "Rum cocoa! Not on the list, buddy, but give me a minute and a barrel." },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -325,8 +478,31 @@ P:NPC {
       lines = { { id = "greatfather_default", text = "The jolly fella in Orgrimmar with the beard and the presents, and the best mascot Smokywood ever signed. The dwarves call him something else on their side, but the cookies cost the same." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    nc_sister = {
+      lines = { { id = "nc_s_default", text = "She's the smart one with the expensive boxes, sure. But I move six crates to her one, and at the end of the season we compare ledgers, and she goes very quiet. A goblin who goes quiet is a goblin who lost." } },
+      choices = {
+        { text = "So who wins, in the end?", next = "nc_wins" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nc_wins = {
+      lines = { { id = "nc_w_default", text = "The Cartel wins, buddy, it always does. But I win more often than Jaycrue tells people. Don't tell her I told you that, because she'll raise her prices just to spite me." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nc_price = {
+      lines = { { id = "nc_p_default", text = "Cheap's my whole line, pal. A working stiff should get a candy cane for a copper, even down here. Jaycrue says I'm leaving money on the table, and I say the table's where folks can reach it." } },
+      choices = {
+        { text = "A fair price for working folk is the right way.", next = "BACK", reply = "See? You get it. Have a cookie, on me. Well, at cost.", fx = { align = { honor = 1 } } },
+        { text = "Cheap is just bad business. Charge more.", next = "BACK", reply = "You sound just like my sister. I hope you're happy.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    goblins = { { id = "tp_goblins_x", text = "Kezan, Undermine, Booty Bay, wherever there's a coin. That's goblin country." } },
+    advice = { { id = "tp_advice_x", text = "Buy your cocoa early. By the end of the week, even I raise the price." } },
     _none = { { id = "tp_none", text = "No idea, pal, but I've got a candy cane that'll take your mind off it." } },
   },
 }
@@ -408,6 +584,9 @@ P:NPC {
       choices = {
         { text = "You smell of perfume.", next = "perfume" },
         { text = "What does the Society work on?", next = "work" },
+        { text = "The innkeeper sells perfume?", next = "ak_norman" },
+        { text = "How did you come to join the Society?", next = "ak_join" },
+        { text = "I brew potions myself.", next = "BACK", when = { profession = "Alchemy" }, reply = "Then mind your hands, {class}. The Society's vials are not your sort of potion." },
         { text = "Safe travels.", next = "END" },
       },
     },
@@ -429,8 +608,36 @@ P:NPC {
         { text = "That would be a grave mistake.", next = "BACK", reply = "Perhaps it would. Most mistakes here are grave ones, literally.", fx = { align = { light = 1 } } },
       },
     },
+    ak_norman = {
+      lines = { { id = "ak_n_default", text = "Innkeeper Norman, by the Trade Quarter. He keeps a few bottles of scent behind the bar for guests who would rather not notice the canals, and he sells them to me at a discount, since I am the only one who asks." } },
+      choices = {
+        { text = "Why does perfume matter to you?", next = "ak_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ak_why = {
+      lines = { { id = "ak_w_default", text = "I was a perfumer's apprentice in life, in a shop off the palace square. The Society took me on because I can tell one compound from another by smell. I think they'd rather I forgot the perfume part." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ak_join = {
+      lines = { { id = "ak_j_default", text = "I woke in Deathknell and walked to the city with nothing but my nose. The Society tested me with forty unlabelled jars, and I named thirty-nine. The fortieth was something I still don't care to name." } },
+      choices = {
+        { text = "What was in the fortieth jar?", next = "ak_jar" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ak_jar = {
+      lines = { { id = "ak_ja_default", text = "Something with plague in it, and something older underneath. I knew the smell from the last week in the capital, when the grain carts came. I told them so, and they promoted me on the spot." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken_x", text = "We smell like what we are. Some of us would rather not, and I can help with that." } },
+    new_plague = { { id = "tp_new_plague_x", text = "I didn't say anything, {class}. My nose is very discreet." } },
     _none = { { id = "tp_none", text = "Not in my notes, {class}. Try the Apothecarium library." } },
   },
 }
@@ -455,6 +662,8 @@ P:NPC {
       choices = {
         { text = "What are you writing about me?", next = "notes" },
         { text = "Where do you find your subjects?", next = "subjects" },
+        { text = "What have you learned about decay?", next = "al_decay" },
+        { text = "Do you study yourself as well?", next = "al_self" },
         { text = "I'll be going now.", next = "END" },
       },
     },
@@ -472,8 +681,36 @@ P:NPC {
         { text = "That sounds like cruelty with a notebook.", next = "BACK", reply = "All science looks like cruelty to the subject, {class}.", fx = { align = { light = 1 } } },
       },
     },
+    al_decay = {
+      lines = { { id = "al_d_default", text = "That it is slower in the Undercity than in the Plaguelands, because the Society's salts hold us together. Remove the salts, and a Forsaken lasts about as long as an apple in a sack. I find that clarifying." } },
+      choices = {
+        { text = "What happens when a Forsaken decays entirely?", next = "al_end" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    al_end = {
+      lines = { { id = "al_e_default", text = "Bones and a stain, and sometimes a voice for a little while after. The Society has records of that. I'll not tell you what the voices say, because I don't believe you'd sleep afterwards, if you sleep at all." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    al_self = {
+      lines = { { id = "al_s_default", text = "Every morning. My left hand is losing its third finger slowly, and I record the rate. It is the most dependable subject I have, and the only one who has never once complained to Faranell." } },
+      choices = {
+        { text = "Does it frighten you?", next = "al_fear" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    al_fear = {
+      lines = { { id = "al_f_default", text = "Fear is a measurement like any other. It peaks at night, when the canals are quiet. I have written it down, and once a thing is written down, it belongs to me rather than the other way around." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    scourge = { { id = "tp_scourge_x", text = "The Scourge preserve their dead with necromancy. We use chemistry. Ours lasts longer, in my notes." } },
+    forsaken = { { id = "tp_forsaken_x", text = "Fascinating subjects, every one. Myself included." } },
     _none = { { id = "tp_none", text = "I haven't observed that. Bring me a sample and I'll tell you." } },
   },
 }
@@ -499,6 +736,9 @@ P:NPC {
         { text = "Why would the Forsaken celebrate fire?", next = "fire" },
         { text = "What's the festival about?", next = "festival" },
         { text = "Let me see what you sell.", next = "BUSINESS" },
+        { text = "Do you remember Midsummer in Lordaeron?", next = "mm_memory" },
+        { text = "Who are the Earthen Ring?", next = "mm_ring" },
+        { text = "The elements bless the fire, merchant.", next = "BACK", when = { class = "SHAMAN" }, reply = "Then tell them to bless it from a little further away, if you would." },
         { text = "Happy Midsummer.", next = "END" },
       },
     },
@@ -510,8 +750,31 @@ P:NPC {
       lines = { { id = "fe_default", text = "The longest day of the year, kept by the shamans and their Earthen Ring. You honour the flames in your own cities and steal them from the Alliance's, which is the part most of the Horde enjoys." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    mm_memory = {
+      lines = { { id = "mm_m_default", text = "In Brill we jumped the bonfire on the longest night, the young ones, for luck in love. I jumped it three years running and married a girl who didn't. Now I'd go up like a straw doll if I tried, so I sell other people the jumping." } },
+      choices = {
+        { text = "And what of stealing the Alliance's flames?", next = "mm_steal" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mm_steal = {
+      lines = { { id = "mm_s_default", text = "The Horde goes to Ironforge and Stormwind and carries off their city flames, and they do the same to us. It's sport, mostly. Some say it shames the holiday, and some say a flame stolen from your enemy burns sweeter." } },
+      choices = {
+        { text = "A sacred fire should be honoured, not stolen.", next = "BACK", reply = "You'd have got on with my wife. She never jumped either.", fx = { align = { honor = 1 } } },
+        { text = "Take their fire. It's war, even on holidays.", next = "BACK", reply = "Spoken like a true Horde. Bring it back without burning me.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    mm_ring = {
+      lines = { { id = "mm_r_default", text = "Shamans of every race who listen to the elements and pay merchants like me to sell their trinkets. They keep the festival so the elements remember we're grateful. I'm grateful too, from a safe distance." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    lordaeron = { { id = "tp_lordaeron_x", text = "We had bonfires on every hill at Midsummer. I could see four from my door." } },
+    forsaken = { { id = "tp_forsaken_x", text = "Fire is the one thing we fear and still celebrate. That's very Forsaken, if you think about it." } },
     _none = { { id = "tp_none", text = "I only know what's on my stall, {class}." } },
   },
 }
@@ -538,6 +801,8 @@ P:NPC {
         { text = "What makes a good tabard?", next = "good" },
         { text = "Colours are hard to see down here.", next = "light" },
         { text = "I'd like to design a tabard.", next = "BUSINESS" },
+        { text = "Who did you design for in life?", next = "er_life" },
+        { text = "What would you design for me?", next = "er_me" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -549,8 +814,35 @@ P:NPC {
       lines = { { id = "l_default", text = "It is the bane of my profession. Everything under these lamps looks the colour of pond water, so I take my samples up to the ruins to see them in daylight, and the Deathguard think I'm mad." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    er_life = {
+      lines = { { id = "er_l_default", text = "The heralds of Lordaeron's lesser houses, the ones who wanted a coat of arms without paying a heraldist. I painted lions for barons who owned three goats. The lions were very good, and the barons are all gone." } },
+      choices = {
+        { text = "Should the Forsaken wear Lordaeron's colours still?", next = "er_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    er_stance = {
+      lines = { { id = "er_s_default", text = "Some of the guilds ask for the old blue and gold. I stitch it, of course, but it sits strangely on a corpse. The Dark Lady's people wear purple and black now, and some say we should forget the old banner entirely." } },
+      choices = {
+        { text = "Lordaeron's colours are ours by right. Wear them proudly.", next = "BACK", reply = "A traditionalist! I'll give you the gold thread at cost.", fx = { align = { order = 1 } } },
+        { text = "Burn the old banners. We're something new now.", next = "BACK", reply = "Bold, if a bit dramatic. Purple suits you, I think.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    er_me = {
+      lines = {
+        { id = "er_m_rogue", when = { class = "ROGUE" }, text = "Black on black, naturally, with an emblem nobody can make out at twenty paces. I've done a dozen for the Rogues' Quarter." },
+        { id = "er_m_warlock", when = { class = "WARLOCK" }, text = "Green fel on purple, I suppose, since your lot insist. I'll make it tasteful if it kills me again." },
+        { id = "er_m_default", text = "Something sober. A single charge on a plain field, two colours, and nothing that glows. Restraint is very fashionable among the dead, since we've had enough excitement." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    lordaeron = { { id = "tp_lordaeron_x", text = "The old houses had the best heraldry in the north. Their banners are mostly ash now." } },
+    advice = { { id = "tp_advice_x", text = "Two colours, one emblem. And never pink." } },
     _none = { { id = "tp_none", text = "I design tabards, {class}, not opinions." } },
   },
 }
@@ -588,6 +880,9 @@ P:NPC {
         { text = "What did Gerard do to you?", next = "gerard" },
         { text = "Do you remember your life before this?", next = "before" },
         { text = "What do you carry for them?", next = "parcels" },
+        { text = "Who is Father Lankester?", next = "th_lankester" },
+        { text = "Do you want to be free, Theresa?", next = "th_free" },
+        { text = "Let me look at that scar.", next = "BACK", when = { class = "PRIEST" }, reply = "Master Gerard says only he may look at it. But you may look a little, if you are quick." },
         { text = "Go on with your errand, Theresa.", next = "END" },
       },
     },
@@ -615,6 +910,31 @@ P:NPC {
       lines = { { id = "pa_default", text = "Bottles, mostly, and papers sealed with wax. Father Lankester says I must never open them, and I never have. I would not know how to want to." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    th_lankester = {
+      lines = { { id = "th_l_default", text = "He is a priest of the Forsaken in the War Quarter. He takes the parcels and reads the papers inside them, and sometimes he looks at me for a long time before he gives me the next one. I do not know what he is looking for." } },
+      choices = {
+        { text = "Is he kind to you?", next = "th_kind" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    th_kind = {
+      lines = { { id = "th_k_default", text = "He gave me a cup of water once, without being asked. Master Gerard was angry, because water was not in the instructions. I drank it anyway. I do not know why I did that." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    th_free = {
+      lines = { { id = "th_f_default", text = "Free is a word I know. I do not know where it would go, inside me. If you took away the parcels, I think I would stand in the street until someone gave me another one." } },
+      choices = {
+        { text = "Someone should take you away from Gerard.", next = "BACK", reply = "Then who would carry the parcels? Somebody must.", fx = { align = { order = -1 } } },
+        { text = "Your errands are your purpose now. Keep to them.", next = "BACK", reply = "Yes. That is what Master Gerard says. It is a comfortable thing to hear.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background_x", text = "I am Theresa. I carry parcels. Before that there was a kitchen, and bread." } },
+    _none = { { id = "tp__none_x", text = "Master Gerard did not tell me about that. I am sorry." } },
   },
 }
 
@@ -646,6 +966,9 @@ P:NPC {
         { text = "Who were you, before you were a ghost?", next = "before" },
         { text = "What is Hallow's End to you?", next = "hallows" },
         { text = "Want to try scaring me again?", next = "scare" },
+        { text = "What secrets do you know about rats?", next = "sp_rats" },
+        { text = "Are you lonely, Spoops?", next = "sp_lonely" },
+        { text = "I'm dead too, you know. Boo.", next = "BACK", when = { race = "Scourge" }, reply = "Eek! Oh, you got me! Nobody ever gets me. Do it again!" },
         { text = "Goodbye, Spoops.", next = "END" },
       },
     },
@@ -668,5 +991,38 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    sp_rats = {
+      lines = { { id = "sp_r_default", text = "The big grey one under the bank is called Lord Whiskers, and he steals coins from the vault. The little ones in the Apothecarium glow at night because they drink from the green puddles. Don't tell the apothecaries. They'd want them back." } },
+      choices = {
+        { text = "Do the rats ever see you?", next = "sp_rats2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_rats2 = {
+      lines = { { id = "sp_r2_default", text = "Oh yes, rats can see ghosts. They're the only ones in the city who still jump when I say boo, so they're my best friends. Lord Whiskers pretends he isn't scared, but his tail goes all puffy." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_lonely = {
+      lines = { { id = "sp_l_default", text = "A little, after the festival ends and everyone stops looking at the fire. The grown-up ghosts in the Royal Quarter are very gloomy and won't play hide and seek. They say they're haunting, but I think they're just sulking." } },
+      choices = {
+        { text = "Should ghosts like you be put to rest?", next = "sp_rest" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sp_rest = {
+      lines = { { id = "sp_re_default", text = "A priest tried once. He said a lot of words, and I hid in a barrel until he went away. I don't want to rest. Resting is what you do when you're finished, and I'm not finished at all." } },
+      choices = {
+        { text = "Stay, Spoops. The city needs a bit of mischief.", next = "BACK", reply = "Yay! I'll tell the rats you said so.", fx = { align = { light = -1 } } },
+        { text = "Rest would be kinder, little one.", next = "BACK", reply = "Kinder for who? Not for me. Boo!", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    background = { { id = "tp_background_x", text = "There was a house and a dog. Now there's the whole city to haunt!" } },
+    forsaken = { { id = "tp_forsaken_x", text = "The big dead people. They never jump, but they're nice when they think nobody's looking." } },
+    _none = { { id = "tp__none_x", text = "I don't know that one! Ask the rats. They know everything." } },
   },
 }

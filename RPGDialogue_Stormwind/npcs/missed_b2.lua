@@ -39,6 +39,9 @@ P:NPC {
         { text = "What's it like, keeping a tavern for mages?", next = "mages" },
         { text = "Angus thinks he's the reason people come?", next = "angus" },
         { text = "Why the Blue Recluse?", next = "name" },
+        { text = "Does Erich really bring in customers?", next = "x_erich" },
+        { text = "Mages should pay for the damage they cause.", next = "x_stance" },
+        { text = "A dwarf would want stronger ale than this.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "I'll find a seat. Thanks.", next = "END" },
       },
     },
@@ -60,6 +63,49 @@ P:NPC {
     name = {
       lines = { { id = "n_default", text = "It had the name when it came to me, and the sign was already paid for. The apprentices each have a story about a blue spider in the cellar, and I let them tell it, because it keeps them out of the cellar." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    x_erich = {
+      lines = {
+        { id = "x_erich_l0", text = "More than I'd admit to his face, friend, which is why I keep him on the lawns. He promises the moon and I serve them a stew, and somehow they come back for both." },
+      },
+      choices = {
+        { text = "Why did you give him that job?", next = "x_erich2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_erich2 = {
+      lines = {
+        { id = "x_erich2_l0", text = "Because he's my brother, and he lost his work at the docks when the shipwright went under. A man needs somewhere to go every morning, even if it's only round in circles." },
+      },
+      choices = {
+        { text = "That's kind of you.", next = "x_erich3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_erich3 = {
+      lines = {
+        { id = "x_erich3_l0", text = "Don't say that to him either, because he'd make a speech of it on the lawns. Have a drink, and I'll pretend we never spoke." },
+      },
+      choices = {
+        { text = "Your secret's safe. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "They do pay, mostly, once they're back in their own shapes. The trick is getting the coin before the spell wears off and they remember they're angry." },
+      },
+      choices = {
+        { text = "They break it, they pay for it. Simple as that.", next = "BACK", reply = "That's the rule on the board behind me, friend.", fx = { align = { order = 1 } } },
+        { text = "Let them be. Young mages need room to make mistakes.", next = "BACK", reply = "Easy for you to say. You don't sweep up the feathers.", fx = { align = { order = -1 } } },
+      },
+    },
+    x_dwarf = {
+      lines = {
+        { id = "x_dwarf_l0", text = "Then it's a good thing I keep a barrel of Thunderbrew in the back for those who ask. It costs me dear to get it down from Ironforge, and it's worth every copper." },
+      },
+      choices = {
+        { text = "Pour me one. Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -178,6 +224,9 @@ P:NPC {
         { text = "What can you tell from a greeting?", next = "greeting" },
         { text = "Are you one of the trainers here?", next = "trainer" },
         { text = "You must meet your share of rude folk.", next = "rude" },
+        { text = "How long have you stood at this door?", next = "x_long" },
+        { text = "Manners are a courtesy, not a duty.", next = "x_stance" },
+        { text = "I'm a warrior. Judge my greeting.", next = "x_war", when = { class = "WARRIOR" } },
         { text = "Good day, Master Wood.", next = "END" },
       },
     },
@@ -202,6 +251,49 @@ P:NPC {
     rude = {
       lines = { { id = "r_default", text = "Daily, and I answer every one of them in kind, so that they know how it feels. Most go away angry, and a few come back the next morning and try again properly, and those few are worth the trouble." } },
       choices = { { text = "A hard lesson, but a fair one. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    x_long = {
+      lines = {
+        { id = "x_long_l0", text = "Since before the city was rebuilt, when the trainers taught in a tent of canvas on the rubble. I saw the first stones of these walls laid, and I have seen what became of the men who laid them." },
+      },
+      choices = {
+        { text = "The stonemasons?", next = "x_long2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_long2 = {
+      lines = {
+        { id = "x_long2_l0", text = "Yes, VanCleef's people, who were good workers and badly paid. Some of them trained here in the evenings, and I taught them to hold a blade, which I think of more often than I would like." },
+      },
+      choices = {
+        { text = "Do you regret it?", next = "x_long3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_long3 = {
+      lines = {
+        { id = "x_long3_l0", text = "I regret that their lords cheated them, and I regret what they chose to do about it. I do not regret teaching. A teacher cannot choose what his students become." },
+      },
+      choices = {
+        { text = "A hard truth. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "You may call it whatever you like, but a soldier who will not greet his betters will not obey them in the field either. Courtesy is the first drill." },
+      },
+      choices = {
+        { text = "Respect must be earned, not demanded at a door.", next = "BACK", reply = "Then you will earn very little of mine, I suspect.", fx = { align = { order = -1 } } },
+        { text = "Discipline starts with small things. You're right.", next = "BACK", reply = "Good. Now stand straighter while you agree with me.", fx = { align = { order = 1 } } },
+      },
+    },
+    x_war = {
+      lines = {
+        { id = "x_war_l0", text = "Your stance is acceptable and your salute is late. Go inside, find Wu Shen, and tell him I said you need work on your footing." },
+      },
+      choices = {
+        { text = "I'll tell him. Something else.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -244,6 +336,9 @@ P:NPC {
         { text = "Does Osric agree it's the better half?", next = "osric" },
         { text = "How do you judge good mail?", next = "judge" },
         { text = "Who buys mail these days?", next = "buyers" },
+        { text = "How did the Strangs come to Limited Immunity?", next = "x_family" },
+        { text = "Fine armour should go to whoever can pay for it.", next = "x_stance" },
+        { text = "I'm a blacksmith. What do you look for in a link?", next = "x_smith", when = { profession = "Blacksmithing" } },
         { text = "Good day, Wilhelm.", next = "END" },
       },
     },
@@ -269,9 +364,53 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    x_family = {
+      lines = {
+        { id = "x_family_l0", text = "Our father was a smith in the old city before the orcs burned it, and he carried his tools out on his back. When the city went up again, Osric and I took the shop with his name over the door." },
+      },
+      choices = {
+        { text = "What happened to your father?", next = "x_family2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_family2 = {
+      lines = {
+        { id = "x_family2_l0", text = "He forged for Lothar's army through the Second War and died in his bed after, which is more than most smiths of that war can say. He left one hauberk that neither of us will sell." },
+      },
+      choices = {
+        { text = "Why not?", next = "x_family3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    x_family3 = {
+      lines = {
+        { id = "x_family3_l0", text = "Because he made it for the Lion of Azeroth himself, and Lothar sent it back with a note saying it had turned three orc axes. The note hangs in the back room, and Osric reads it when he thinks I'm not looking." },
+      },
+      choices = {
+        { text = "A fine legacy. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    x_stance = {
+      lines = {
+        { id = "x_stance_l0", text = "The shop needs coin, and the guard pays slowly. But I've turned away a man I was sure rode with the Defias, and Osric said I was a fool." },
+      },
+      choices = {
+        { text = "You were right to refuse him.", next = "BACK", reply = "I think so, though the purse was heavy.", fx = { align = { honor = 1 } } },
+        { text = "Coin is coin. What he does with it isn't your affair.", next = "BACK", reply = "That's Osric's view, and he says it louder than you.", fx = { align = { honor = -1 } } },
+      },
+    },
+    x_smith = {
+      lines = {
+        { id = "x_smith_l0", text = "That each ring is closed and riveted, not butted, and that the weave lies flat when you hang it. Butted mail is for parades, and you'd be surprised how many nobles wear it." },
+      },
+      choices = {
+        { text = "I'll check my own work. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "The Strangs have sold armour in Old Town for as long as I can remember, and I learned mail at the same bench Osric learned plate." } },
+    rumors = { { id = "tp_rumors_x", text = "There's talk that the Defias have smiths of their own in the Deadmines. I'd like to see their work, if only to know what we're up against." } },
     _none = { { id = "tp_none", text = "I wouldn't know, I'm sorry. Osric might, and he'll tell you whether he does or not." } },
   },
 }
