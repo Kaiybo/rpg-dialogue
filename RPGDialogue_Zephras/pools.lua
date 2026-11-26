@@ -75,15 +75,25 @@ P:Pool {
     { id = "l_x2", text = "Since the spirits left, people come to the fire earlier and stay later. I don't mind. A crowded common room is warmer than an empty one." },
     { id = "l_x3", when = { race = "Skyborne" }, text = "Your grandmother's people built this inn, I'd wager, same as mine. Sit, cousin, and tell me who you're related to." },
 
+    { id = "yl_x4", text = "My mother kept this fire before me, and her father before her. When the wind spirits were still here, they'd come down the chimney on stormy nights and warm their hands, she said. I've never seen one, but I keep the hearth swept for them." },
+    { id = "yl_x5", text = "The Peacekeepers drink here off duty and tell me nothing, which tells me everything. Something's troubling them about the pylons, and they won't say what." },
+    { id = "yl_x6", when = { timeOfDay = "night" }, text = "Late, friend. The Al'Aketh walk the lanes after dark these days, so take a room, or at least take the lantern by the door when you go." },
     { id = "l_default", text = "A good fire, warm bread, and a blanket someone's grandmother wove. The bread's yesterday's, but the wind hasn't stolen it yet, which makes it a good day on this isle." },
     { id = "l_feathers", text = "If you want hippogryph feathers for your hair, ask about; somebody always has a few to spare, and on this isle a feather in the hair is practically required." },
     { id = "l_food", text = "Try the gustberry pie, or a bit of skycheddar if you're brave. Stormapples, too, from the Windfield Orchard down in the lowlands." },
     { id = "l_refugees", text = "Half my rooms go to folk from the fallen places, and they pay when they can. I'd sooner have a full house of the unlucky than an empty one." },
   },
-  choices = { { text = "A room, please.", next = "BUSINESS" }, { text = "Just warming up.", next = "END" } },
+  choices = {
+    { text = "A room, please.", next = "BUSINESS" },
+    { text = "The refugees should pay like anyone else.", next = "END", reply = "When they can, they do. When they can't, I'll not turn them into the wind.", fx = { align = { honor = -1 } } },
+    { text = "Keep sheltering the refugees. That's a true host.", next = "END", reply = "Bless you. My grandmother would have said the same, louder.", fx = { align = { honor = 1 } } },
+    { text = "Just warming up.", next = "END" },
+  },
   topics = {
     spirits = { { id = "t_xspirits", text = "The wind spirits that left us. Folk still leave a cup out for them on the windowsill, just in case." } },
 
+    al_aketh = { { id = "yt_aketh", text = "They came in once, shaved heads and grey robes, and asked for water. I gave it. I'll not give them a room." } },
+    gustberry = { { id = "yt_gust", text = "Gustberry pie, my mother's recipe. The berries only grow on the windward cliffs, so every pie's a small act of courage." } },
     windstones = { { id = "t_stones", text = "Windstones or coin, either will buy you a bed, though I'll admit I like the stones better." } },
     _none = { { id = "t_none", text = "I hear a lot by this fire, but not that." } },
   },
@@ -105,14 +115,23 @@ P:Pool {
     { id = "l_x1", text = "A good cloak here is weighted at the hem, or the wind will have it off your shoulders before you reach the end of the street." },
     { id = "l_x2", text = "Mainland merchants laugh at our prices until they try to ship anything up here. Then they stop laughing and start paying." },
 
+    { id = "yl_x3", text = "I used to sell cloth to the High Order and the Windshapers both, and they'd haggle in two different accents over the same bolt. Now they both haggle harder, because nobody knows what windstones will be worth next season." },
+    { id = "yl_x4", text = "Hippogryph feather trim is the fashion this year, but don't buy it from the stalls by the docks. Half of those are gull feathers dyed blue, and the dye runs in the first squall." },
+    { id = "yl_x5", when = { race = "Skyborne" }, text = "You'll want a proper cloak for the season, cousin, weighted at the hem. I knew your family's weave once, or one like it, from the old looms at Valanaar." },
     { id = "l_default", text = "Cloth, mostly. Our weavers try to make it move the way the wind does, and since the spirits left, I think it comforts people to wear it." },
     { id = "l_luminarian", text = "Every blade and breastplate on this isle is made in Luminarian's style, more or less. He was the greatest of the magesmiths, and nobody's improved on him yet." },
     { id = "l_stones", text = "Windstones are worth more every season, now that the island's magic is fading. I'd hold on to any you find." },
   },
-  choices = { { text = "Show me.", next = "BUSINESS" } },
+  choices = {
+    { text = "Show me.", next = "BUSINESS" },
+    { text = "Hoard your windstones. Prices will only rise.", next = "END", reply = "That's what the smart money says. I hate that the smart money is right.", fx = { align = { order = -1 } } },
+    { text = "Sell them fairly. The isle needs them circulating.", next = "END", reply = "That's what the Council says, and my conscience agrees, more's the pity.", fx = { align = { order = 1 } } },
+  },
   topics = {
     luminarian = { { id = "t_xlumin", text = "The great magesmith. Half the patterns I sell still carry his marks, whether the smith knows it or not." } },
 
+    feathers = { { id = "yt_feath", text = "Real hippogryph feathers have a silver sheen at the root. Gull feathers don't, whatever the dock sellers swear." } },
+    two_orders = { { id = "yt_orders", text = "The High Order and the Windshapers both buy my cloth. I sell to both and argue with neither." } },
     windstones = { { id = "t_stones", text = "Raw wind, packed into a stone. It lights the lamps and pays the bills, for now." } },
     _none = { { id = "t_none", text = "If it isn't for sale, I couldn't tell you about it." } },
   },
