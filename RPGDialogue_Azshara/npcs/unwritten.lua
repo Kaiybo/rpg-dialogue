@@ -443,6 +443,7 @@ P:NPC {
         { id = "h_default", text = "Xiggs Fuselighter, pilot out of Ironforge. I fly where the King's men can't walk, and Azshara has more such places than I'd like." },
         { id = "h_q", when = { questActive = TODO_QUEST("Xiggs Fuselighter") }, text = "You're the one I was told to expect, then. Good. Let's see what you've brought me, and quick, before the satyrs hear my engine cool." },
         { id = "yh_gnome", when = { race = "Gnome" }, text = "A gnome! Come look at my rotor coupling, would you? I swear she rattles at altitude and I can't find why." },
+        { id = "yh_hunter", when = { class = "HUNTER" }, text = "A hunter! Keep that pet clear of Fizzle's rotor, would you? Last wolf that sniffed her lost the tip of its tail, and it's never forgiven me." },
       },
       again = { { id = "h_again", text = "Anything else? I've a long flight home." } },
       choices = {

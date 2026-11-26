@@ -24,8 +24,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ycamps = {
+      lines = { { id = "ycamps_x", text = "Grey. Everything was grey, the walls, the food, our skin. The humans gave us knives only to tan the hides of cattle we were not allowed to eat. I learned the work there. I hated every hide. Now I love it. Strange." } },
+      choices = {
+        { text = "Do you hate the humans still?", next = "yhate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhate = {
+      lines = { { id = "yhate_x", text = "Thrall says we must not hate, and Thrall was a slave longer than I. But some nights, by the fire, I remember the guard who broke my brother's arm. Should I forgive, as Thrall says, or remember, as my blood says?" } },
+      choices = {
+        { text = "Forgive. Hatred is another camp.", next = "BACK", reply = "Hm. Another camp. I will remember those words.", fx = { align = { light = 1 } } },
+        { text = "Remember. Your brother deserves it.", next = "BACK", reply = "Aye. My brother's arm never healed straight. I will remember.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygrown = {
+      lines = { { id = "ygrown_x", text = "Once, at a distance, flying over Lethlor Ravine. Its shadow covered my whole camp. I lay in the dust until it passed. I am brave, stranger, not stupid." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yfamily = {
+      lines = { { id = "yfamily_x", text = "A brother, Garthok, who works the forges in Orgrimmar. He sends me a letter every winter and complains about the heat. I send him a whelp scale and complain about the dust. That is our way." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "I am Thorkaf Dragoneye, and I work the hides of dragons, which is the hardest leather in the world to cut and the best in the world to wear. The black flight's whelps nest all over these canyons, so I am never short of material." } },
+      lines = {
+        { id = "h_default", text = "I am Thorkaf Dragoneye, and I work the hides of dragons, which is the hardest leather in the world to cut and the best in the world to wear. The black flight's whelps nest all over these canyons, so I am never short of material." },
+        { id = "yh_tauren", when = { race = "Tauren" }, text = "A tauren, in dragon country. Your people know hides. Sit, and see what a black whelp's scale does under the knife." },
+      },
       again = {
         { id = "h_again", text = "What else, then? The fire will not wait forever." },
         { id = "h_again2", text = "Speak, and be quick about it." },
@@ -34,6 +60,9 @@ P:NPC {
         { text = "How did you earn the name Dragoneye?", next = "name" },
         { text = "Hunting whelps for leather sounds dangerous work.", next = "whelps" },
         { text = "Why camp out here instead of Kargath?", next = "camp" },
+        { text = "What were the internment camps like?", next = "ycamps" },
+        { text = "Have you ever met a grown dragon?", next = "ygrown" },
+        { text = "Do you have any family?", next = "yfamily" },
         { text = "Teach me what you know.", next = "END" },
       },
     },
@@ -62,6 +91,8 @@ P:NPC {
     },
   },
   topics = {
+    lethlor_ravine = { { id = "ytp_lr", text = "The ravine is where the black dragons nest. Go carefully, or not at all." } },
+    internment_camps = { { id = "ytp_ic", text = "The camps taught me leather and patience. I keep the leather." } },
     background = { { id = "tp_bg", text = "I am an orc of the Horde, and I have worked hides since the internment camps, where it was the only work they let us do with knives." } },
     _none = { { id = "tp_none", text = "I know leather and dragons, stranger. Ask someone in Kargath about the rest." } },
   },
@@ -80,8 +111,38 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yold = {
+      lines = { { id = "yold_x", text = "I was a grunt under Kargath Bladefist himself, in the days of the Second War. He wore a blade where his hand had been. We named this place for him. Some say he went back through the Dark Portal before it closed, and no word has come since. His name on our gate reminds us who we were." } },
+      choices = {
+        { text = "Did any of his warriors stay behind?", next = "ybladefist" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybladefist = {
+      lines = { { id = "ybladefist_x", text = "Some. A few of them went into the mountain with Rend and wear Blackrock colours now. One was my shield-brother. If he walked through our gate tomorrow, should I take his head, or hear him first?" } },
+      choices = {
+        { text = "Take his head. A traitor is a traitor.", next = "BACK", reply = "Aye. That is the law of Kargath, and I am its hand.", fx = { align = { order = 1 } } },
+        { text = "Hear him first. He was your chieftain once.", next = "BACK", reply = "Hm. Perhaps. Then I would take his head anyway, but I would listen first.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yweigh = {
+      lines = { { id = "yweigh_x", text = "Each head is a name. I keep them all. When I sleep, I count them, as a shaman counts the stars. It does not weigh, but it does not go away, and that is the same thing in the end." } },
+      choices = {
+        { text = "How do you tell a spy from a deserter?", next = "ywatch" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywatch = {
+      lines = { { id = "ywatch_x", text = "The Dark Irons send spies dressed as traders, and the Blackrock send orcs who claim to have deserted. I look at their eyes. A true deserter is ashamed. A spy is only careful." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", key = true, text = "I am Nuzrak, and when the Horde judges a traitor in the Badlands, it is my axe that carries out the sentence. Kargath watches the Blackrock and the Dark Irons both, and my work is never finished." } },
+      lines = {
+        { id = "h_default", key = true, text = "I am Nuzrak, and when the Horde judges a traitor in the Badlands, it is my axe that carries out the sentence. Kargath watches the Blackrock and the Dark Irons both, and my work is never finished." },
+        { id = "yh_orc", when = { race = "Orc" }, text = "I am Nuzrak, executioner of Kargath. An orc, good. You know the weight of blood, then. Speak plainly, brother, and I will answer the same." },
+        { id = "yh_tauren", when = { race = "Tauren" }, text = "I am Nuzrak, executioner of Kargath. A tauren, far from the plains. The Badlands will not be kind to your hooves, but my axe will not trouble you unless you give it cause." },
+      },
       again = { { id = "h_again", text = "What else, {class}?" } },
       choices = {
         { text = "Whom have you executed?", next = "traitors" },
@@ -90,6 +151,8 @@ P:NPC {
         { text = "Have you ever spared a traitor?", next = "xspare" },
         { text = "What is Kargath to you?", next = "xkargath" },
         { text = "I'm a warrior. Is your axe ever heavy?", next = "BACK", when = { class = "WARRIOR" }, reply = "Always heavy. A warrior who forgets the weight of his axe is no warrior. Remember that, when you swing yours." },
+        { text = "Do you remember the old Horde?", next = "yold" },
+        { text = "Does the work weigh on you?", next = "yweigh" },
         { text = "Lok'tar.", next = "END", when = { faction = "Horde" } },
         { text = "I'll be going.", next = "END" },
       },
@@ -136,6 +199,8 @@ P:NPC {
     },
   },
   topics = {
+    kargath_bladefist = { { id = "ytp_kb", text = "Kargath Bladefist led the Shattered Hand. He went back through the Portal, and his name stays on our gate." } },
+    badlands = { { id = "ytp_bl", text = "The Badlands are dry and cruel, like the Blackrock. We hold them anyway." } },
     dark_irons = { { id = "tp_xdark_irons", text = "They live below the mountain and serve a fire lord. They will answer for it." } },
     blackrock = { { id = "tp_xblackrock", text = "Orcs who chose the dragon over the Horde." } },
     _none = { { id = "tp_none", text = "I am an executioner, not a scholar. Ask someone with softer hands." } },
