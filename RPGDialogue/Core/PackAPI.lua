@@ -325,6 +325,12 @@ function kinds.Arrival(pack, def)
   Data.arrivals[def.zone] = Data.arrivals[def.zone] or {}
   table.insert(Data.arrivals[def.zone], def)
 end
+-- Exchanges (0.116.0): two nearby people talking to each other (Systems/Overheard.lua).
+function kinds.Exchange(pack, def)
+  if not def.id or type(def.lines) ~= "table" then return warn(pack, "Exchange needs id and lines") end
+  def._pack = pack.id
+  if ns.Overheard then ns.Overheard.Add(def) end
+end
 -- Rumors: lines innkeepers (or any role listed) may pass on.
 function kinds.Rumors(pack, def)
   if not def.id then return warn(pack, "rumors without id") end

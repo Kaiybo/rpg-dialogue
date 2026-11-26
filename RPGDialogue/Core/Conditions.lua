@@ -193,6 +193,23 @@ end)
 def("heardClaim", 60, "hinge", nil, function(_, v)
   return ns.char.claims.heard[v] ~= nil, "claim " .. tostring(v)
 end)
+-- Overheard (Systems/Overheard.lua): the player stood by while two people talked. `true` =
+-- any exchange this NPC took part in; an id or list = that exchange.
+def("overheard", 50, "hinge", nil, function(ctx, v, env)
+  local spoofed = ctx.spoofed and ctx.spoofed.overheard
+  if spoofed ~= nil and (spoofed == v or spoofed == true) then return true, "overheard (spoofed)" end
+  local store = ns.char.overheard or {}
+  if v == true then
+    local key = env and env.info and ns.Memory.Key(env.info)
+    local by = key and store._by and store._by[key]
+    return by ~= nil, "overheard: " .. (by and ("this NPC in " .. tostring(by)) or "nothing with this NPC")
+  end
+  local list = type(v) == "table" and v or { v }
+  for _, id in ipairs(list) do
+    if store[id] then return true, "overheard " .. tostring(id) end
+  end
+  return false, "overheard " .. show(v) .. ": not heard"
+end)
 def("claimExposed", 60, "hinge", nil, function(_, v)
   return ns.char.claims.exposed[v] ~= nil, "claim exposed " .. tostring(v)
 end)

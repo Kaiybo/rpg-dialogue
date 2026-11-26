@@ -25,6 +25,7 @@ SD.ACCOUNT_DEFAULTS = {
     trp3Title = true,           -- ...and your roleplay title
     ackChance = 0.35,           -- noticing-moment frequency
     barks = true,
+    overheard = true,           -- nearby people sometimes talk to each other (0.116.0)
     letters = true,             -- people you've met sometimes write; letters wait at the mailbox
     flirting = true,            -- people of the opposite sex sometimes flirt with you (condition `flirt`)
     insanityFx = true,
@@ -112,6 +113,7 @@ SD.CHAR_DEFAULTS = {
   letters = {},      -- letter id -> { sent, due, arrived, read, burned }
   lettersRandomAt = 0, -- when the last random letter was sent
   arrived = {},      -- zone -> when the diary's arrival entry was written
+  overheard = {},   -- exchange id -> when heard; _by[npc key] = last exchange id (0.116.0)
   journalRead = nil, -- how many diary entries have been seen (the journal button's count)
   _quarantine = {},
 }

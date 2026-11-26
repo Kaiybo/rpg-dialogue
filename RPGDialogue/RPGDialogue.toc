@@ -39,6 +39,7 @@ Systems\Books.lua
 Systems\Insanity.lua
 Systems\Insight.lua
 Systems\Barks.lua
+Systems\Overheard.lua
 Systems\Errands.lua
 Systems\Diary.lua
 Systems\Letters.lua
