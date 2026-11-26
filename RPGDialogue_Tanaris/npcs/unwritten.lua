@@ -177,6 +177,10 @@ P:NPC {
       choices = {
         { text = "Can you get home?", next = "home" },
         { text = "What's wrong with you?", next = "wrong" },
+        { text = "Who is Oglethorpe Obnoticus?", next = "xogle" },
+        { text = "What were you designed to do?", next = "xdesign" },
+        { text = "Your paint is blistered from the sun.", next = "xpaint" },
+        { text = "I'm a gnome engineer. Let me look at you.", next = "xgnome", when = { race = "Gnome" } },
         { text = "Good luck, chicken.", next = "END" },
       },
     },
@@ -188,8 +192,51 @@ P:NPC {
       lines = { { id = "w_default", text = "Flight system failure, sand ingress and mild embarrassment. Oglethorpe Obnoticus did not program the embarrassment, so this unit suspects it is the sand." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xogle = {
+      lines = { { id = "xxogle_d", text = "Bzzt. Oglethorpe Obnoticus is this unit's creator and a master gnomish engineer residing in Booty Bay. He builds homing robots and dislikes it when they fail to home, which is the current situation." } },
+      choices = {
+        { text = "Does he build many of you?", next = "xmany" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmany = {
+      lines = { { id = "xxmany_d", text = "Affirmative. There are at least three OOX units in active distress across Kalimdor and the Eastern Kingdoms. This unit considers the failure rate statistically embarrassing for Mister Obnoticus." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdesign = {
+      lines = { { id = "xxdesign_d", text = "Bzzt. Primary function, homing flight back to Booty Bay with valuable cargo. Secondary function, broadcasting distress. This unit is currently excelling at its secondary function." } },
+      choices = {
+        { text = "Is a robot that fails still worth saving?", next = "xworth" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xworth = {
+      lines = { { id = "xxworth_d", text = "Query is philosophical. This unit computes two acceptable answers and lacks the authority to choose between them." } },
+      choices = {
+        { text = "Yes. Everything that serves deserves rescue, even a machine.", next = "BACK", reply = "Bzzt. Gratitude subroutine activated. This unit will remember that response.", fx = { align = { light = 1 } } },
+        { text = "No. A broken tool is just scrap.", next = "BACK", reply = "Bzzt. Logical but discouraging. This unit hopes you will escort it anyway.", fx = { align = { light = -1 } } },
+      },
+    },
+    xpaint = {
+      narr = "A small flap on its chest pops open, vents a puff of hot air and clanks shut again.",
+      lines = { { id = "xxpaint_d", text = "Confirmed. Ambient temperature exceeds design tolerance by forty-two percent. This unit's paint warranty expired in the first hour of exposure." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgnome = {
+      lines = { { id = "xxgnome_d", text = "Bzzt. Gnomish engineer detected. Please do not open the casing without proper tools, as the last unit that was opened in the field is still missing its left leg." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Bzzt. Query not found. Please shake the sand out and try again." } } },
+  topics = {
+    booty_bay = { { id = "tp_xbooty_bay", text = "Bzzt. Booty Bay is home. Home is where the charging station is." } },
+    wastewander = { { id = "tp_xwastewander", text = "Bandits. Statistically hostile. Please avoid." } },
+    _none = { { id = "tp_none", text = "Bzzt. Query not found. Please shake the sand out and try again." } } },
 }
 
 -- Meridith the Mermaiden: a lovesick naga off Land's End Beach.
@@ -290,6 +337,10 @@ P:NPC {
       choices = {
         { text = "Why did you leave the others?", next = "leave" },
         { text = "What do you watch for?", next = "watch" },
+        { text = "What is it like to be naga?", next = "xnaga" },
+        { text = "Do you miss the sea?", next = "xsea" },
+        { text = "You speak gently for a naga.", next = "xgentle" },
+        { text = "I'm a night elf. Do you remember Azshara?", next = "xelf", when = { race = "NightElf" } },
         { text = "Farewell, naga.", next = "END" },
       },
     },
@@ -304,8 +355,44 @@ P:NPC {
       lines = { { id = "w_default", text = "The tide, the gulls, the ships of the goblins. Once I watched for my kin to come and fetch me, but they never did, and now I watch only the tide." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xnaga = {
+      lines = { { id = "xxnaga_d", text = "It is to be changed and not to choose it. My ancestors were elves, once, before the Well's fall, and the sea took them and made them into this. I remember the shape of my grandmother's face, though she was cursed before I was born." } },
+      choices = {
+        { text = "How do you remember, then?", next = "xrem" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrem = {
+      lines = { { id = "xxrem_d", text = "Through songs, through the stories we tell in the deep. Many naga remember with anger, and some remember with grief." } },
+      choices = {
+        { text = "Grief is more honest than anger.", next = "BACK", reply = "Perhaps. It is the path I have chosen, at least.", fx = { align = { honor = 1 } } },
+        { text = "Your people have every right to their anger.", next = "BACK", reply = "That is what they would say. It is why I left.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xsea = {
+      lines = { { id = "xxsea_d", text = "Every day, but the sea has others of my kind in it, and I do not wish to be with them. Here I have shallow water and silence, and that is enough for one who has seen too much." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgentle = {
+      narr = "He coils a little tighter in the shallows, and the water around him barely ripples.",
+      lines = { { id = "xxgentle_d", text = "Gentleness is a choice, land-dweller, like cruelty. Most of my kind choose cruelty because it was chosen for them. I chose differently, and they did not forgive me." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xelf = {
+      lines = { { id = "xxelf_d", text = "Not her face, only her name, spoken with love and dread in the same breath. Your people and mine were one, once. Perhaps that is why I do not attack you." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I do not know, land-dweller. The sea does not tell me such things." } } },
+  topics = {
+    azshara = { { id = "tp_xazshara", text = "A name spoken with love and dread. I do not speak it often." } },
+    naga = { { id = "tp_xnaga", text = "My kind are bitter. I am not, or I try not to be." } },
+    _none = { { id = "tp_none", text = "I do not know, land-dweller. The sea does not tell me such things." } } },
 }
 
 -- Torta: Tooga's mate, a turtle.
@@ -333,6 +420,10 @@ P:NPC {
       choices = {
         { text = "Where did Tooga go?", next = "where" },
         { text = "How long have you waited?", next = "long" },
+        { text = "How long have you and Tooga been together?", next = "xlong2" },
+        { text = "What do turtles eat in the desert?", next = "xeat" },
+        { text = "You seem very patient.", next = "xpatient" },
+        { text = "I'm a druid. I understand turtles a little.", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll look out for him.", next = "END" },
       },
     },
@@ -344,8 +435,44 @@ P:NPC {
       lines = { { id = "l_default", text = "A long time, even for a turtle, which is a very long time. Torta is not worried, of course. Torta is only checking the horizon very often." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xlong2 = {
+      lines = { { id = "xxlong2_d", text = "Two hundred years, maybe more. Torta stopped counting when Tooga forgot her name day for the third time in a row." } },
+      choices = {
+        { text = "That's a long time to be married.", next = "xmarried" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmarried = {
+      lines = { { id = "xxmarried_d", text = "Torta does not know what married is, but Tooga is Torta's, and Torta is Tooga's. Some say mates should always stay close, and some say mates should go on walks alone sometimes." } },
+      choices = {
+        { text = "Mates should stay close. Tooga should not have wandered.", next = "BACK", reply = "Yes! Torta will tell Tooga a stranger agrees with Torta.", fx = { align = { order = 1 } } },
+        { text = "Let Tooga wander. Everyone needs a little freedom.", next = "BACK", reply = "Hmph. You sound like Tooga. Torta is not pleased.", fx = { align = { order = -1 } } },
+      },
+    },
+    xeat = {
+      lines = { { id = "xxeat_d", text = "Cactus, when it is soft, and beetles, when they are slow. Torta is very good at slow beetles, though not as good as Tooga, who is better at everything except coming home." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpatient = {
+      narr = "She blinks once, very slowly, which may be the turtle equivalent of a sigh.",
+      lines = { { id = "xxpatient_d", text = "Turtles are patient, little one, but Torta is tired of being patient. Patience is for waiting; Torta would like a turn at something else." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      lines = { { id = "xxdruid_d", text = "Then you know how it is. The shell is heavy, the desert is hot and Tooga is foolish. Torta is glad someone understands." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Torta does not know. Torta is a turtle." } } },
+  topics = {
+    tooga = { { id = "tp_xtooga", text = "Torta's mate. Lost, then found. Foolish, always." } },
+    tanaris = { { id = "tp_xtanaris", text = "Very big. Very hot. Tooga liked it, and Torta does not." } },
+    _none = { { id = "tp_none", text = "Torta does not know. Torta is a turtle." } } },
 }
 
 -- Stone Watcher of Norgannon: titan projection at the Uldum pedestal.
@@ -373,6 +500,10 @@ P:NPC {
       choices = {
         { text = "Who were the titans?", next = "titans" },
         { text = "What is behind these gates?", next = "gates" },
+        { text = "Who was Norgannon?", next = "xnorg" },
+        { text = "Why was this record left?", next = "xwhy" },
+        { text = "Are you alive?", next = "xalive" },
+        { text = "I'm a mage. What do the Keepers say of magic?", next = "xmage", when = { class = "MAGE" } },
         { text = "End the record.", next = "END" },
       },
     },
@@ -391,8 +522,51 @@ P:NPC {
       lines = { { id = "gates_default", text = "Uldum. Access is restricted. This record is not authorized to open the gates, only to speak of them." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xnorg = {
+      lines = { { id = "xxnorg_d", text = "Norgannon was a keeper of lore among the titans, tasked with recording the shaping of worlds. This record is one of many he left, so that those who came after might remember." } },
+      choices = {
+        { text = "Remember what?", next = "xremember" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xremember = {
+      lines = { { id = "xxremember_d", text = "The order of creation. The making of the earthen and the guardians of the vaults. The sealing of what lies beneath. Further data restricted." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwhy = {
+      lines = { { id = "xxwhy_d", text = "To preserve knowledge against the passing of ages. Records decay, creations forget and even stone wears away under the wind of ages." } },
+      choices = {
+        { text = "Should such knowledge be shared?", next = "xshare" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xshare = {
+      lines = { { id = "xxshare_d", text = "Query outside parameters. This construct may relay your judgment to the Keepers." } },
+      choices = {
+        { text = "Yes. Knowledge of creation belongs to all who seek it.", next = "BACK", reply = "Judgment recorded. Access level unchanged. Further inquiry permitted.", fx = { align = { order = -1 } } },
+        { text = "No. Some truths should stay guarded.", next = "BACK", reply = "Judgment recorded. This aligns with Keeper protocol.", fx = { align = { order = 1 } } },
+      },
+    },
+    xalive = {
+      narr = "The light within the stone flickers, steadies and flickers again.",
+      lines = { { id = "xxalive_d", text = "Negative. This construct is a projection of recorded will. It responds, but it does not want. That distinction is important." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      lines = { { id = "xxmage_d", text = "Magic is the arcane order of the cosmos, to be used with care. Uncontrolled arcane draws the attention of the Burning Legion. This warning has been recorded many times." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "That inquiry is outside this record's parameters." } } },
+  topics = {
+    titans = { { id = "tp_xtitans", text = "The makers. They shaped this world and moved on." } },
+    uldum = { { id = "tp_xuldum", text = "Access restricted. The seal holds." } },
+    _none = { { id = "tp_none", text = "That inquiry is outside this record's parameters." } } },
 }
 
 -- Elder Ragetotem: a tauren elder honoured in the Valley of the Watchers, Tanaris, during the Lunar Festival.
@@ -622,6 +796,10 @@ P:NPC {
       choices = {
         { text = "What's life like in Gadgetzan?", next = "life" },
         { text = "What do you think of the bruisers?", next = "bruisers" },
+        { text = "Who's overcharging in Gadgetzan?", next = "xover" },
+        { text = "How did you end up in Tanaris?", next = "xhow" },
+        { text = "You seem to know everyone.", next = "xknow" },
+        { text = "I'm a rogue. Got any tips for a newcomer?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "Enjoy the shade, Quinn.", next = "END" },
       },
     },
@@ -637,6 +815,42 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xover = {
+      lines = { { id = "xxover_d", text = "Everyone, honey, but some more than others. The water seller near the inn charges a silver a skin, and there's a well a mile south that's free if you don't mind the scorpids." } },
+      choices = {
+        { text = "Why does nobody complain?", next = "xcomplain" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcomplain = {
+      lines = { { id = "xxcomplain_d", text = "Because the Cartel takes a cut of everything, and complaining to the Cartel is like complaining to the sun. Some say that's fair trade, and some say it's robbery in a nice hat." } },
+      choices = {
+        { text = "A market's a market. They earned their prices.", next = "BACK", reply = "Spoken like a goblin. Noggenfogger would buy you a drink, if he bought anyone drinks.", fx = { align = { order = 1 } } },
+        { text = "It's robbery. Someone should stand up to them.", next = "BACK", reply = "Careful saying that too loud. The bruisers have very good hearing.", fx = { align = { order = -1 } } },
+      },
+    },
+    xhow = {
+      lines = { { id = "xxhow_d", text = "I came on a caravan from Thousand Needles, with a broken wagon and no money, and I stayed because nobody in Gadgetzan asks questions. That's the best thing about the place, and the worst." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xknow = {
+      narr = "She flicks a grain of sand off her sleeve and smiles without showing her teeth.",
+      lines = { { id = "xxknow_d", text = "I know who owes who, who's cheating at cards and who's sleeping with whose cousin. That's not knowing everyone, that's just paying attention." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrogue = {
+      lines = { { id = "xxrogue_d", text = "Don't pick pockets in Gadgetzan. The bruisers will throw you in the cage, and the cage has no shade. Pick them in Steamwheedle Port instead, where the bruisers are lazier." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Never heard of it, and that means nobody's selling it here." } } },
+  topics = {
+    gadgetzan = { { id = "tp_xgadgetzan", text = "Hot, dusty and full of goblins. I love it, in a way." } },
+    steamwheedle_cartel = { { id = "tp_xsteamwheedle_cartel", text = "They own everything. You learn to live with it." } },
+    _none = { { id = "tp_none", text = "Never heard of it, and that means nobody's selling it here." } } },
 }

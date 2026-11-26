@@ -80,9 +80,9 @@ P:NPC {
       },
     },
     xhands = {
-      narr = "He goes very still.",
+      narr = "He lifts his hands and stares through them at the cobbles beneath.",
       lines = {
-        { id = "xh1", text = "<He lifts his hands and stares through them at the cobbles beneath, and for a moment his voice drops to a whisper.> Oh. Oh, Light. How long?" },
+        { id = "xh1", text = "Oh, Light, you're right, I can see the stones through my palms. How long has it been?" },
       },
       choices = {
         { text = "Years. I'm sorry.", next = "BACK", reply = "Years. And still I keep the gate. Leave me to it, then, because I don't know what else to do." },
@@ -273,8 +273,9 @@ P:NPC {
       },
     },
     xpal = {
+      narr = "He reaches down to pat the mare's neck, and his hand passes through her mane like smoke.",
       lines = {
-        { id = "xp1", text = "<He reaches down and pats Bramble's neck, and his hand passes through her mane like smoke.> She's still warm to me, {class}. Don't tell me otherwise, please." },
+        { id = "xp1", text = "She's still warm to me, {class}. Don't tell me otherwise, please." },
       },
       choices = {
         { text = "I won't.", next = "BACK" },

@@ -124,6 +124,10 @@ P:NPC {
       choices = {
         { text = "Why Feralas, of all places?", next = "why" },
         { text = "It's dangerous out here.", next = "danger" },
+        { text = "What's the best place you've seen?", next = "xbest" },
+        { text = "How did you and Paige meet?", next = "xmet" },
+        { text = "You seem very happy for a man so far from home.", next = "xhappy" },
+        { text = "I'm from Stormwind too. Where did you live?", next = "xhuman", when = { race = "Human" } },
         { text = "Safe travels.", next = "END" },
       },
     },
@@ -145,8 +149,44 @@ P:NPC {
         { text = "Good for you. See it while you can.", next = "BACK", reply = "That's what I keep saying!", fx = { affinity = 1, align = { order = -1 } } },
       },
     },
+    xbest = {
+      lines = { { id = "xxbest_d", text = "Feathermoon, at sunset, with the whole bay turned gold and the elves singing on the walls. Paige says it was the Barrens, but she's wrong, because nothing in the Barrens is gold except the dust." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmet = {
+      narr = "He glances back at Paige and grins like a man who's still surprised by his luck.",
+      lines = { { id = "xxmet_d", text = "At the Goldshire inn, when I spilled a whole jug of ale on her. She made me pay for her dress and then marry her, and I've never had a better bargain." } },
+      choices = {
+        { text = "Do you ever argue?", next = "xargue" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xargue = {
+      lines = { { id = "xxargue_d", text = "All the time! She wants to settle down, and I want to see the next hill. What would you do?" } },
+      choices = {
+        { text = "Settle down. Paige deserves a home.", next = "BACK", reply = "That's what my mother says, and Paige, and now you. I'm outnumbered.", fx = { align = { order = 1 } } },
+        { text = "Keep travelling. The world's too big to sit still.", next = "BACK", reply = "Ha! Finally someone on my side. Don't tell Paige.", fx = { align = { order = -1 } } },
+      },
+    },
+    xhappy = {
+      lines = { { id = "xxhappy_d", text = "Why wouldn't I be? I've a wife who puts up with me, a map with half the roads marked and no rent to pay. That's happiness to me, even with the giants." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuman = {
+      lines = { { id = "xxhuman_d", text = "The Trade District, above a cobbler's shop. You'll know the smell, all leather and boot polish. I don't miss it much, but I miss the bread from the baker next door." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "No idea, friend. Ask Paige, she reads the guidebooks." } } },
+  topics = {
+    paige = { { id = "tp_xpaige", text = "My wife. Smarter than me, and she knows it." } },
+    feathermoon = { { id = "tp_xfeathermoon", text = "The best sunset in Kalimdor, I'd swear it." } },
+    _none = { { id = "tp_none", text = "No idea, friend. Ask Paige, she reads the guidebooks." } } },
 }
 
 -- Paige Felixe: Erik's wife.
@@ -174,6 +214,10 @@ P:NPC {
       choices = {
         { text = "Where are you headed next?", next = "next" },
         { text = "Do you regret coming?", next = "regret" },
+        { text = "What do you miss about home?", next = "xmiss" },
+        { text = "Is Erik a good husband?", next = "xerik" },
+        { text = "You seem the sensible one.", next = "xsense" },
+        { text = "I'm a priest. Want a blessing for the road?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "Take care.", next = "END" },
       },
     },
@@ -188,8 +232,44 @@ P:NPC {
       lines = { { id = "r_default", text = "No, though don't tell him. I've seen things I'll talk about at the hearth for the rest of my life, and that's worth a few wet nights." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xmiss = {
+      lines = { { id = "xxmiss_d", text = "A proper bed, fresh bread and a roof that doesn't leak when it rains. Feralas rains every day, and I've been damp since we left the boat." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xerik = {
+      narr = "She smiles despite herself and shakes her head.",
+      lines = { { id = "xxerik_d", text = "He's a good man and a terrible navigator. He once led us half a day the wrong way because he wanted to see a waterfall, and then the waterfall turned out to be a wet cliff." } },
+      choices = {
+        { text = "Do you trust his judgment?", next = "xtrust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtrust = {
+      lines = { { id = "xxtrust_d", text = "Some days, and some days I'd rather trust a goblin's map. Should a wife follow her husband, or the other way round?" } },
+      choices = {
+        { text = "Go where Erik goes. That's marriage.", next = "BACK", reply = "That's what my mother would say. I'm not sure I agree.", fx = { align = { order = 1 } } },
+        { text = "He should follow you. You're the one with sense.", next = "BACK", reply = "Thank you! I'll tell him you said so.", fx = { align = { order = -1 } } },
+      },
+    },
+    xsense = {
+      lines = { { id = "xxsense_d", text = "Someone has to be. Erik wants to climb every tree, and I want to know if we'll eat tomorrow. Between us we get by." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpriest = {
+      lines = { { id = "xxpriest_d", text = "Oh, yes, please. I don't know if the Light reaches this far, but a blessing never hurt anyone, and we could use one." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "That's not in the guidebook, I'm afraid." } } },
+  topics = {
+    erik = { { id = "tp_xerik", text = "My husband. Brave, foolish and the reason I'm in a swamp." } },
+    goldshire = { { id = "tp_xgoldshire", text = "I wanted a cottage there. I'm still hoping." } },
+    _none = { { id = "tp_none", text = "That's not in the guidebook, I'm afraid." } } },
 }
 
 -- Kristy Grant: a human at Thalanaar (Forever: the Pesterhide pelts quests).
@@ -296,6 +376,10 @@ P:NPC {
       choices = {
         { text = "Can you walk?", next = "walk" },
         { text = "Who built you?", next = "maker" },
+        { text = "Why did you crash here?", next = "xcrash" },
+        { text = "What do you think of yetis?", next = "xyeti" },
+        { text = "You're very polite for a robot.", next = "xpolite" },
+        { text = "I'm a gnome. Can I fix your thrusters?", next = "xgnome", when = { race = "Gnome" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -307,8 +391,44 @@ P:NPC {
       lines = { { id = "m_default", text = "Oglethorpe Obnoticus, master engineer, of Booty Bay. He is a genius, and he would like you to know it, and he would also like his chicken back." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xcrash = {
+      lines = { { id = "xxcrash_d", text = "Bzzt. Unexpected wind shear over the Twin Colossals, followed by sudden altitude loss. This unit recommends that future flight paths avoid any location named after something very large." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xyeti = {
+      lines = { { id = "xxyeti_d", text = "Bzzt. Yetis are large, hairy and loud. This unit has observed them for eleven hours and still does not know what they eat, though it suspects they would eat this unit." } },
+      choices = {
+        { text = "Are the yetis really a threat?", next = "xthreat" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xthreat = {
+      lines = { { id = "xxthreat_d", text = "Calculating. Two acceptable responses found. This unit requires an outside opinion." } },
+      choices = {
+        { text = "They're dangerous. Avoid them at all costs.", next = "BACK", reply = "Bzzt. Confirmed. This unit will remain behind the rock.", fx = { align = { order = 1 } } },
+        { text = "They're just animals. You're overreacting.", next = "BACK", reply = "Bzzt. Statistically optimistic. This unit is not reassured.", fx = { align = { order = -1 } } },
+      },
+    },
+    xpolite = {
+      narr = "Its single eye blinks twice in a way that might almost be friendly.",
+      lines = { { id = "xxpolite_d", text = "Bzzt. Mister Obnoticus installed a courtesy module after the last unit insulted a pirate captain and was used as a cannonball. This unit values courtesy greatly." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgnome = {
+      lines = { { id = "xxgnome_d", text = "Bzzt. Please proceed with caution. The third thruster contains volatile fuel, and the last field repair resulted in a crater shaped like a gnome." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Bzzt. Query not found in memory banks." } } },
+  topics = {
+    oglethorpe = { { id = "tp_xoglethorpe", text = "Bzzt. Creator. Booty Bay. Disappointed in this unit." } },
+    yetis = { { id = "tp_xyetis", text = "Large. Hairy. Possibly hungry. Avoid." } },
+    _none = { { id = "tp_none", text = "Bzzt. Query not found in memory banks." } } },
 }
 
 -- Shay Leafrunner: a wandering night elf child.
@@ -425,6 +545,10 @@ P:NPC {
       choices = {
         { text = "How is it different from other leatherworking?", next = "diff" },
         { text = "Why teach here at Thalanaar?", next = "here" },
+        { text = "Who taught you tribal leatherwork?", next = "xwho" },
+        { text = "What beasts do you work with?", next = "xbeasts" },
+        { text = "You speak of the beast with respect.", next = "xrespect" },
+        { text = "I'm a hunter. My pet would approve, I think.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Elune keep you.", next = "END" },
       },
     },
@@ -443,8 +567,44 @@ P:NPC {
       lines = { { id = "h2_default", text = "Thalanaar sits at the edge of the forest, and from here I can watch the Needles too. Hunters pass through from both, and they bring me the hides I need." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xwho = {
+      lines = { { id = "xxwho_d", text = "My grandmother, who learned it from her grandmother, who learned it from the druids before the Sundering. The craft is older than Darnassus, older than most of our trees." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbeasts = {
+      lines = { { id = "xxbeasts_d", text = "Stag, bear and wolf, mostly, and the great cats of the deep forest when a hunter brings one. Each beast gives something different, and the craft is knowing what." } },
+      choices = {
+        { text = "Do you hunt them yourself?", next = "xhunt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunt = {
+      lines = { { id = "xxhunt_d", text = "Rarely, now. I let the hunters bring them to me, and I make sure the beast is honoured. Some say that is enough, and some say the crafter should take the life herself." } },
+      choices = {
+        { text = "A crafter should take the life herself. It honours the beast.", next = "BACK", reply = "The old way. Few still follow it, but I respect it.", fx = { align = { honor = 1 } } },
+        { text = "It's enough to honour what others bring.", next = "BACK", reply = "That is how I live now. Perhaps it is enough.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xrespect = {
+      narr = "She smooths a pelt across her knee, carefully, as if it could still feel her hand.",
+      lines = { { id = "xxrespect_d", text = "Respect is all we can give a creature whose life we take. If you do not respect the beast, you do not deserve to wear its hide." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunter = {
+      lines = { { id = "xxhunter_d", text = "Then you understand the bond between hunter and beast. Bring your companion to me sometime, and I will show you how the old crafters made armor for their pets." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "That I cannot tell you. Ask the Sentinels." } } },
+  topics = {
+    tribal_leatherworking = { { id = "tp_xtribal_leatherworking", text = "The old way. Listen to the beast, not the pattern." } },
+    druids = { { id = "tp_xdruids", text = "My craft was first taught by the druids, long ago." } },
+    _none = { { id = "tp_none", text = "That I cannot tell you. Ask the Sentinels." } } },
 }
 
 -- Rendow: leather armor merchant at Thalanaar.
@@ -474,6 +634,10 @@ P:NPC {
       choices = {
         { text = "Why are the Sentinels short?", next = "short" },
         { text = "What is Thalanaar for?", next = "outpost" },
+        { text = "Who makes the armour you sell?", next = "xwho" },
+        { text = "What's the danger out in the forest?", next = "xdanger" },
+        { text = "You stand like a Sentinel, not a merchant.", next = "xsentinel" },
+        { text = "I'm a druid. Do you sell to druids often?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -488,8 +652,44 @@ P:NPC {
       lines = { { id = "o_default", text = "It is the eastern gate of Feralas and a waystation for anyone crossing from the Needles. We keep the road open, as much as anyone can." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xwho = {
+      lines = { { id = "xxwho_d", text = "Hunters and crafters of the outpost, mostly, and Caryssia when she has time. Each piece is blessed before it leaves the bench, because a blessing is cheaper than a funeral." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdanger = {
+      lines = { { id = "xxdanger_d", text = "Grimtotem to the east, gnolls to the west and things in the deep forest that even the Sentinels do not name. Last month a patrol went out and only half came back." } },
+      choices = {
+        { text = "Should the Sentinels pull back?", next = "xpull" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpull = {
+      lines = { { id = "xxpull_d", text = "Some say we should hold the outpost and wait, and some say we should strike at the Grimtotem before they strike at us." } },
+      choices = {
+        { text = "Strike first. Waiting lets them grow bolder.", next = "BACK", reply = "You speak like my captain. I hope you are right.", fx = { align = { honor = -1 } } },
+        { text = "Hold the line. Thalanaar must not fall.", next = "BACK", reply = "That is my thinking too, for now. Patience has served us well.", fx = { align = { honor = 1 } } },
+      },
+    },
+    xsentinel = {
+      narr = "She shifts her weight off her left leg without seeming to notice she's done it.",
+      lines = { { id = "xxsentinel_d", text = "I was one, before my leg was broken. I can still stand a watch, but I cannot run a patrol, so I sell armour and stand at the wall when they need me." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      lines = { { id = "xxdruid_d", text = "Often enough, and they always want something they can shift in. Leather moves with you, and the Circle's blessing keeps it from tearing when you take another shape." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I could not say. Ask at the moonwell." } } },
+  topics = {
+    grimtotem = { { id = "tp_xgrimtotem", text = "Tauren who serve no one. They attack our patrols to the east." } },
+    thalanaar = { { id = "tp_xthalanaar", text = "A small outpost, and an important one. It holds the road between Feralas and the Needles." } },
+    _none = { { id = "tp_none", text = "I could not say. Ask at the moonwell." } } },
 }
 
 -- Brienna Starglow: tailoring supplies at Thalanaar.
@@ -517,6 +717,10 @@ P:NPC {
       choices = {
         { text = "A priestess selling thread?", next = "priestess" },
         { text = "Tell me about the moonwell.", next = "well" },
+        { text = "How long have you been at Thalanaar?", next = "xlong" },
+        { text = "Who comes through Thalanaar?", next = "xwho" },
+        { text = "Your thread shimmers in the light.", next = "xshimmer" },
+        { text = "I'm a priestess of Elune too.", next = "xpriest", when = { class = "PRIEST" } },
         { text = "Elune keep you.", next = "END" },
       },
     },
@@ -531,8 +735,44 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlong = {
+      lines = { { id = "xxlong_d", text = "Since the outpost was raised, after the Third War. Before that I lived in Ashenvale, near the Raynewood Retreat, and I left when the orcs' axes came close." } },
+      choices = {
+        { text = "Do you blame the orcs?", next = "xblame" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xblame = {
+      lines = { { id = "xxblame_d", text = "I have asked myself that question many times under the moon. Some say they will never change, and some say even they may learn peace." } },
+      choices = {
+        { text = "They are capable of change. Give them time.", next = "BACK", reply = "That is a generous thought. Elune would approve, I think.", fx = { align = { light = 1 } } },
+        { text = "They destroyed the forest. That cannot be forgiven.", next = "BACK", reply = "Many of my sisters feel the same. I understand why.", fx = { align = { light = -1 } } },
+      },
+    },
+    xwho = {
+      lines = { { id = "xxwho_d", text = "Sentinels on patrol, druids headed for the Needles, and now and then a human or a dwarf who has lost the road to Feathermoon. They all need thread eventually." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xshimmer = {
+      narr = "She holds a spool up so the light runs along the thread like water.",
+      lines = { { id = "xxshimmer_d", text = "It is spun in moonlight, from silk gathered in the forests of Feralas. The light catches it because it remembers where it came from, or so my grandmother said." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpriest = {
+      lines = { { id = "xxpriest_d", text = "Then you will know the moonwell's songs. Come and sing one with me tonight, and Elune will listen to us both." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I know little of that, traveller. Ask the Sentinels." } } },
+  topics = {
+    thalanaar = { { id = "tp_xthalanaar", text = "A small post on the edge of the Needles. Quiet, mostly, and I like it that way." } },
+    moonwell = { { id = "tp_xmoonwell", text = "I tend it when the others are on patrol. It is quiet work." } },
+    _none = { { id = "tp_none", text = "I know little of that, traveller. Ask the Sentinels." } } },
 }
 
 -- Miblon Snarltooth: gnoll guarding the Evoroot nursery.
@@ -556,6 +796,10 @@ P:NPC {
       choices = {
         { text = "What's behind the door?", next = "door" },
         { text = "What would you eat, if you could?", next = "food" },
+        { text = "Who left you here?", next = "xwho" },
+        { text = "What's an Evoroot?", next = "xevo" },
+        { text = "You don't look like the other gnolls.", next = "xdiff" },
+        { text = "I'm a hunter. I could share some meat.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Enjoy your post.", next = "END" },
       },
     },
@@ -567,8 +811,44 @@ P:NPC {
       lines = { { id = "f_default", text = "Meat, smelly meat, the smellier the better! If Miblon smells meat, Miblon would go and find it, and then nobody would be guarding the door, but that would not be Miblon's fault." } },
       choices = { { text = "Interesting. Something else.", next = "BACK" } },
     },
+    xwho = {
+      lines = { { id = "xxwho_d", text = "Miblon's boss, who is a very bad gnoll named Woodpaw. He says Miblon guards the door, and if anyone gets in, Woodpaw feeds Miblon to the other gnolls." } },
+      choices = {
+        { text = "Do you like Woodpaw?", next = "xlike" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlike = {
+      lines = { { id = "xxlike_d", text = "Nobody likes Woodpaw. Woodpaw is mean and keeps all the meat. Some gnolls say obey the boss, and some say run away." } },
+      choices = {
+        { text = "Obey him. A pack needs a leader.", next = "BACK", reply = "Grumble. Miblon knows. Miblon will keep standing here.", fx = { align = { order = 1 } } },
+        { text = "Run away. Woodpaw doesn't deserve you.", next = "BACK", reply = "Miblon thinks about it every day. Miblon is scared, but Miblon thinks.", fx = { align = { order = -1 } } },
+      },
+    },
+    xevo = {
+      lines = { { id = "xxevo_d", text = "Funny plant, glows and moves a little. The druids want it, and the gnolls want to sell it, and Miblon just wants supper." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdiff = {
+      narr = "He scratches behind one ragged ear and looks around to make sure nobody is listening.",
+      lines = { { id = "xxdiff_d", text = "Miblon is smaller, and Miblon talks too much, and Miblon does not like fighting. The others call Miblon soft, but Miblon is not dead yet, which is more than some." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunter = {
+      lines = { { id = "xxhunter_d", text = "Meat? Miblon would like meat very much. But Miblon cannot take it, because Woodpaw would smell it on Miblon's breath." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Miblon does not know. Miblon is hungry." } } },
+  topics = {
+    woodpaw = { { id = "tp_xwoodpaw", text = "Boss gnoll. Mean. Keeps all the meat." } },
+    evoroot = { { id = "tp_xevoroot", text = "Funny glowing plant. The druids want it, and Miblon wants supper." } },
+    _none = { { id = "tp_none", text = "Miblon does not know. Miblon is hungry." } } },
 }
 
 -- Elder Grimtotem: a tauren ancestor honored at the Lunar Festival, at Lariss Pavilion.

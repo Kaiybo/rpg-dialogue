@@ -264,6 +264,10 @@ P:NPC {
       choices = {
         { text = "Good boy. Who's a good boy?", next = "good" },
         { text = "Your eyes just glowed. Didn't they?", next = "eyes" },
+        { text = "Who's your owner, boy?", next = "xowner" },
+        { text = "You never seem to blink.", next = "xblink" },
+        { text = "Sit. Good boy. Shake?", next = "xsit" },
+        { text = "I'm a warlock. I know what you are.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Leave the dog alone.", next = "END" },
       },
     },
@@ -278,6 +282,39 @@ P:NPC {
     eyes = {
       lines = { { id = "e_default", text = "Precious blinks, slow and deliberate, and his eyes are a dull, ordinary brown. He sneezes, scratches behind one ear, and looks entirely like a dog who has never heard of the Twisting Nether." } },
       choices = { { text = "I must have imagined it.", next = "BACK" } },
+    },
+    xowner = {
+      lines = { { id = "xxowner_d", text = "Precious glances toward Simone, and his tail thumps the ground twice. When he looks back at you, his eyes hold yours for a moment too long, and then he pants and grins like any good dog." } },
+      choices = {
+        { text = "You're very loyal to her.", next = "xloyal" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xloyal = {
+      lines = { { id = "xxloyal_d", text = "His ears flatten, just briefly, and a low growl rumbles somewhere deep in his chest before he catches it and wags again. Somewhere behind you, Simone hums a tune you don't recognise." } },
+      choices = {
+        { text = "Loyalty is loyalty, even to a strange master.", next = "BACK", reply = "He licks his lips, slowly, and the growl turns into something like a purr.", fx = { align = { light = -1 } } },
+        { text = "That woman isn't what she seems. Neither are you.", next = "BACK", reply = "He tilts his head, and for one heartbeat there is fire behind his eyes. Then it's gone.", fx = { align = { light = 1 } } },
+      },
+    },
+    xblink = {
+      narr = "His jaws close with a sound like a trap springing shut.",
+      lines = { { id = "xxblink_d", text = "He doesn't. You watch for it, and he watches you watching, and still he does not blink. Then a fly lands on his nose, and he snaps it out of the air too fast to see." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsit = {
+      lines = { { id = "xxsit_d", text = "Precious sits at once, perfectly, and holds up one paw. It is warmer than any dog's paw should be, and it leaves a faint smell of ash on your glove." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarlock = {
+      lines = { { id = "xxwarlock_d", text = "He goes very still, and the friendly look slides off his face like water. He does not growl. He just watches you, and waits, and you understand that this conversation is now between equals." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
     },
   },
   topics = { _none = { { id = "tp_none", text = "Precious yawns, showing rather too many teeth, and does not answer." } } },

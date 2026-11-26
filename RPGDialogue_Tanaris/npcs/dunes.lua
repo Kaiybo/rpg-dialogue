@@ -934,7 +934,43 @@ P:NPC {
       },
       choices = {
         { text = "What's at Land's End Beach?", next = "BACK", reply = "*Click, click.* Damaged unit, partially buried in sand. Recovery requires hands. You have hands." },
+        { text = "Who sent you?", next = "xsent" },
+        { text = "What is D.E.L.T.A?", next = "xdelta" },
+        { text = "You're very persistent for a machine.", next = "xpersist" },
         { text = "Lead the way, little machine.", next = "END", reply = "*The rotors rise to a happy pitch, and it darts off toward the sea.* Affirmative. Follow." },
+      },
+    },
+    xsent = {
+      lines = { { id = "xxsent_d", text = "*The lens blinks orange, then green.* Origin unit offline. Last command received: locate organic, guide to beach, recover unit. Command loop active." } },
+      choices = {
+        { text = "How long have you been looking?", next = "xlong" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlong = {
+      lines = { { id = "xxlong_d", text = "*Click, whirr.* Many days. Many organics. Most organics run. You did not run. Probability of success increased." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdelta = {
+      lines = { { id = "xxdelta_d", text = "*It hesitates, rotors dipping.* Designation incomplete in memory. Sand damage. Data recovered: D, E, L, T, A. Meaning lost. Unit still functions." } },
+      choices = {
+        { text = "Should broken machines keep working?", next = "xbroken" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbroken = {
+      lines = { { id = "xxbroken_d", text = "*The lens tilts, as if waiting for your answer.* Query received. Unit lacks judgment protocols. Organic decides." } },
+      choices = {
+        { text = "Yes. Doing your duty matters, even when you're broken.", next = "BACK", reply = "*A cheerful chirp.* Affirmative. Duty continues. Please follow.", fx = { align = { order = 1 } } },
+        { text = "No. You should rest, little machine.", next = "BACK", reply = "*The rotors slow, then pick up again.* Rest not in protocol. Please follow anyway.", fx = { align = { order = -1 } } },
+      },
+    },
+    xpersist = {
+      lines = { { id = "xxpersist_d", text = "*Beep-beep.* Persistence is primary function. Persistence is also only function remaining after the crash." } },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
   },
