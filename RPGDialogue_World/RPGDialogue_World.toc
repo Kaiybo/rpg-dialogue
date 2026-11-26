@@ -92,5 +92,8 @@ hunter_notice.lua
 mage_notice.lua
 druid_notice.lua
 asks.lua
+passing.lua
+overheard.lua
+overheard_named.lua
 arrivals.lua
 wanderers\spoogledorf.lua

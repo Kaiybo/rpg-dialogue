@@ -25,6 +25,8 @@ local nearby = {}            -- guid -> { unit, t }
 local lastAt = 0
 local playing = false
 
+function Over.IsPlaying() return playing end
+
 function Over.Add(def)
   if type(def.id) ~= "string" or type(def.lines) ~= "table" then return false end
   if byId[def.id] then
@@ -142,7 +144,9 @@ local function play(c, ctx, env)
   end
   local function line(i)
     local l = c.def.lines[i]
-    if not l then playing = false; return end
+    -- Cut short when a fight starts or the player opens a conversation of their own.
+    local sess = ns.Conversation.session
+    if not l or C.InCombat() or (sess and sess.mode == "full") then playing = false; return end
     local text = ns.Tokens.Render(l.text or l[2] or "", ctx, env)
     local who = l.who or l[1]
     if who == "a" or who == "b" then

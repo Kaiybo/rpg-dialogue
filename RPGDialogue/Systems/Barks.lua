@@ -19,6 +19,8 @@ local nearby = {}      -- guid -> { unit, name, npcID, t }
 
 local function enabled()
   local s = ns.db and ns.db.settings
+  -- Nobody butts in while two people near you are talking (Systems/Overheard.lua).
+  if ns.Overheard and ns.Overheard.IsPlaying() then return false end
   return s and s.enabled and s.barks and not C.InCombat() and not C.InInstance()
 end
 
