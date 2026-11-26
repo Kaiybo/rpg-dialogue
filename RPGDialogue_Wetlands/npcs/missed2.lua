@@ -33,6 +33,9 @@ P:NPC {
         { text = "Doesn't your mother mind you climbing?", next = "mum" },
         { text = "Isn't it frightening up there?", next = "scared" },
         { text = "What will you be when you're grown?", next = "grown" },
+        { text = "What's the best thing you've seen from up there?", next = "ybest" },
+        { text = "Do you and Regina ever get along?", next = "yregina" },
+        { text = "What do you think of the dwarves here?", next = "ydwarves" },
         { text = "Good luck hiding, Jesse.", next = "END" },
       },
     },
@@ -55,8 +58,47 @@ P:NPC {
       lines = { { id = "g_default2", text = "A sailor, up in the crow's nest, because that's the highest place there is. Dad wants me to be a tanner like him, but tanning smells awful and you never get to climb anything." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  
+    ybest = {
+      lines = {
+        { id = "yjesseh_ybest_d", text = "A great big ship with black sails, far out past the lighthouse, going north. Dad said it was a pirate, or maybe a ghost ship. Nobody else saw it, and Regina says I made it up." },
+      },
+      choices = {
+        { text = "Did you make it up?", next = "ymade" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymade = {
+      lines = {
+        { id = "yjesseh_ymade_d", text = "No! Well, maybe it wasn't black. But it was big, and it was real. Dad says a sailor must always tell the truth about what he sees, even if nobody believes him. Mum says a sailor must never climb a wobbly tower." },
+      },
+      choices = {
+        { text = "Tell the truth about what you saw, always.", next = "BACK", reply = "I will! And when I'm a sailor, I'll find that ship and prove it.", fx = { align = { honor = 1 } } },
+        { text = "Your mum's right. Stay off the tower.", next = "BACK", reply = "Aw. Maybe. But I'll still look at the ships from the docks, at least.", fx = { align = { honor = -1 } } },
+      },
+    },
+    yregina = {
+      lines = {
+        { id = "yjesseh_yregina_d", text = "Sometimes, when she's not tattling. She brings me bread when I'm in trouble and can't come to supper. Don't tell her I said that, she'll be insufferable." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydwarves = {
+      lines = {
+        { id = "yjesseh_ydwarves_d", text = "Gimlok's my best friend, even though he's small. And the mountaineers let me hold a rifle once, unloaded. Dwarves are fun, except they never climb anything." },
+        { id = "yjesseh_ydwarves_v0", when = { race = "Dwarf" }, text = "Gimlok's my best friend, and the mountaineers let me hold a rifle once! You're a dwarf, so maybe you can tell me why dwarves never climb anything." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    wind_tower = { { id = "yjesseh_tp_wind_tower", text = "The wind tower is the best hiding spot in the harbor. Don't tell Regina." } },
+    ships = { { id = "yjesseh_tp_ships", text = "I'll sail on the Maiden's Virtue one day, all the way to Theramore and back." } },
+
     background = { { id = "tp_bg", text = "I'm Jesse Halloran. My dad makes leather and my sister tells on me." } },
     _none = { { id = "tp_none", text = "I don't know about that. Ask my dad, he's over by the smelly barrels." } },
   },
@@ -92,6 +134,9 @@ P:NPC {
         { text = "Are you going to tell your mother?", next = "tell" },
         { text = "Why don't you climb up after him?", next = "climb" },
         { text = "Do you like living in the harbor?", next = "harbor" },
+        { text = "What do you want to be when you're grown?", next = "ygrown" },
+        { text = "Do you ever break the rules?", next = "ybreak" },
+        { text = "What's it like being the tanner's daughter?", next = "ytanner" },
         { text = "I hope you find him, Regina.", next = "END" },
       },
     },
@@ -114,8 +159,47 @@ P:NPC {
       lines = { { id = "ha_default", text = "I like the ships, and I like Gimlok from the shop even though he's very small and smells of crabs. I don't like the tannery smell, but Dad says it's the smell of supper being paid for." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  
+    ygrown = {
+      lines = {
+        { id = "yregina_ygrown_d", text = "A priest at the chapel, maybe, or a healer at the keep. Somebody who knows how to fix people when they fall off towers. Jesse says that's boring. I say it's useful." },
+        { id = "yregina_ygrown_v0", when = { class = "PRIEST" }, text = "A priest, like you! Somebody who knows how to fix people when they fall off things. Jesse says it's boring. Do you think it's boring?" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybreak = {
+      lines = {
+        { id = "yregina_ybreak_d", text = "Once. I took a honey cake from the inn without asking, because Jesse dared me. I felt so bad that I went back the next day and paid with my own copper. Innkeeper Helbrek laughed and gave me another one." },
+      },
+      choices = {
+        { text = "Was that the right thing to do?", next = "yright" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yright = {
+      lines = {
+        { id = "yregina_yright_d", text = "I think so. Jesse says I was silly, because nobody saw. But I saw, and that's the same thing, isn't it? Mum says rules are for keeping people safe. Jesse says rules are for being broken." },
+      },
+      choices = {
+        { text = "Rules matter, even when nobody's watching.", next = "BACK", reply = "That's what I think! I'll tell Jesse a grown-up agreed with me.", fx = { align = { order = 1 } } },
+        { text = "Sometimes rules are meant to be broken.", next = "BACK", reply = "Don't tell Jesse you said that. He'll never stop climbing.", fx = { align = { order = -1 } } },
+      },
+    },
+    ytanner = {
+      lines = {
+        { id = "yregina_ytanner_d", text = "Smelly. Everything smells of hides, even my bread. But Dad makes the best leather in Menethil, and he says I have good hands for the work. I don't want to be a tanner, though." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    jesse = { { id = "yregina_tp_jesse", text = "Jesse's up the wind tower again, I just know it." } },
+    gimlok = { { id = "yregina_tp_gimlok", text = "Gimlok's small and smells of crabs, but he's nice. Don't tell him I said so." } },
+
     background = { { id = "tp_bg", text = "I'm Regina. My dad is James Halloran the tanner, and my mum is Andrea." } },
     _none = { { id = "tp_none", text = "I don't know. You should ask a grown-up, that's what I'd do." } },
   },
@@ -153,6 +237,9 @@ P:NPC {
         { text = "What keeps you so busy?", next = "busy" },
         { text = "What's this about Tarrel Rockweaver?", next = "tarrel" },
         { text = "You seem cheerful for a man with a shovel.", next = "cheer" },
+        { text = "How did you end up in Menethil?", next = "yhow" },
+        { text = "Who's Murphy West?", next = "ymurphy" },
+        { text = "What happens if the wall gives?", next = "ywall" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -175,8 +262,47 @@ P:NPC {
       lines = { { id = "c_default", text = "Why wouldn't I be? I've steady pay, a dry bed at the Deepwater, and a wall between me and the orcs that I helped shore up myself. Plenty in the north can't say as much." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  
+    yhow = {
+      lines = {
+        { id = "ythomas_yhow_d", text = "Came up from Stormwind as a lad, looking for work after the Second War. Menethil needed strong backs and didn't ask questions, and I've been shoveling ever since. My mother thinks I'm a sergeant. I've never told her otherwise." },
+      },
+      choices = {
+        { text = "Why not tell her?", next = "ytell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytell = {
+      lines = {
+        { id = "ythomas_ytell_d", text = "Because she's proud, and it costs me nothing. She tells her neighbours her boy guards the harbour. In a way I do. Some would say a lie to your mother is still a lie. Others say kindness has room for a few." },
+      },
+      choices = {
+        { text = "Tell her the truth. She'd be proud anyway.", next = "BACK", reply = "Maybe. I'll write her this winter, and see what comes out.", fx = { align = { honor = 1 } } },
+        { text = "Let her be proud. It harms no one.", next = "BACK", reply = "That's my thinking. A shovel holds up a wall as well as a sword.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ymurphy = {
+      lines = {
+        { id = "ythomas_ymurphy_d", text = "Murphy West keeps the cellar stores dry and talks about it like he's a general. He and Tarrel and I play cards on Fridays. Murphy cheats, Tarrel complains, and I win anyway." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywall = {
+      lines = {
+        { id = "ythomas_ywall_d", text = "Then the marsh comes in, and the orcs come after it. I shore that wall up every spring and every autumn, and I check it every night before bed. It hasn't given yet." },
+        { id = "ythomas_ywall_v0", when = { race = "Dwarf" }, text = "Then the marsh comes in and the orcs after. Your Tarrel says a dwarf would've built it right the first time. He's probably right, but don't tell him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    tarrel = { { id = "ythomas_tp_tarrel", text = "Tarrel Rockweaver says I dig like a human. I say he digs like a dwarf who's never seen a bog." } },
+    deepwater = { { id = "ythomas_tp_deepwater", text = "The Deepwater Tavern's warm, dry, and Helbrek pours a fair pint." } },
+
     background = { { id = "tp_bg", text = "I'm a labourer for the keep. I dig, I haul, and I get blamed when it rains." } },
     _none = { { id = "tp_none", text = "No idea, friend. I only know what's at the end of a shovel." } },
   },
@@ -214,6 +340,9 @@ P:NPC {
         { text = "What threatens the pass?", next = "threat" },
         { text = "What's the road like on the other side?", next = "loch" },
         { text = "And down into the Wetlands?", next = "wet" },
+        { text = "How long have you held this post?", next = "ylong" },
+        { text = "What's the worst you've faced here?", next = "yworst" },
+        { text = "What do you think of Menethil?", next = "ymen" },
         { text = "Keep your watch, mountaineer.", next = "END" },
       },
     },
@@ -236,8 +365,47 @@ P:NPC {
       lines = { { id = "w_default", text = "Bog an' reeds all the way tae the sea. Stay on the road till ye reach Menethil, for the raptors hunt in the long grass an' they're quicker than they look." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  
+    ylong = {
+      lines = {
+        { id = "ymounta_ylong_d", text = "Four years, since the Dragonmaw first came back intae the hills. Before that, I was a miner in Loch Modan, an' I'd never held a rifle. Now I cannae remember what it was like nae tae have one." },
+        { id = "ymounta_ylong_v0", when = { race = "Dwarf" }, text = "Four years, since the Dragonmaw came back. Ye'll know how it goes, {g:lad|lass}: a miner one season, a mountaineer the next, an' never quite a miner again." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yworst = {
+      lines = {
+        { id = "ymounta_yworst_d", text = "A night when the fog was so thick ye couldnae see yer own hand, an' the Dragonmaw came through the side tunnels. We fought blind for an hour. In the mornin', I found I'd shot one o' our own, a lad from Thelsamar. He lived, but he lost the arm." },
+      },
+      choices = {
+        { text = "Do you blame yourself?", next = "yblame" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yblame = {
+      lines = {
+        { id = "ymounta_yblame_d", text = "Every day. The captain says it was the fog, an' the orcs, an' no fault o' mine. The lad's mother says otherwise, an' she's no' wrong. Some say a soldier must carry his mistakes. Others say he must set them down tae keep fightin'." },
+      },
+      choices = {
+        { text = "Carry it. It makes you careful.", next = "BACK", reply = "Aye. It does that. I've no' fired blind since.", fx = { align = { honor = 1 } } },
+        { text = "Set it down. The fog was to blame.", next = "BACK", reply = "Maybe. I'll try. It's heavier than any rifle, mind.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ymen = {
+      lines = {
+        { id = "ymounta_ymen_d", text = "Wet, sinkin', an' full o' humans who think dwarves can swim. The keep's sturdy, an' Captain Stoutfist's a proper dwarf, so it'll hold." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    thelsamar = { { id = "ymounta_tp_thelsamar", text = "Thelsamar's a fine wee town wi' a proper inn. Tell 'em Thar sent ye." } },
+    fog = { { id = "ymounta_tp_fog", text = "The fog rolls in off the marsh at night. When it does, keep yer back tae the wall." } },
+
     background = { { id = "tp_bg", text = "I'm a mountaineer of Ironforge, posted tae the Dun Algaz pass." } },
     dragonmaw = { { id = "tp_dm", text = "Orcs in the hills an' the tunnels. Keep tae the road an' ye'll likely nae meet them." } },
     _none = { { id = "tp_none", text = "Nae my post, nae my business. Ask in Menethil or Thelsamar." } },
@@ -451,6 +619,9 @@ P:NPC {
         { text = "What did you make of the human lands?", next = "humans" },
         { text = "How do the people here treat you?", next = "treat" },
         { text = "Why go home now?", next = "home" },
+        { text = "What will you do in Darkshore?", next = "yplan" },
+        { text = "Did anything here surprise you?", next = "ysurprise" },
+        { text = "What do you make of the dwarves?", next = "ydwarves" },
         { text = "Safe crossing, Sylessa.", next = "END" },
       },
     },
@@ -478,8 +649,47 @@ P:NPC {
       lines = { { id = "ho_default", text = "Word reached me that the trees in Darkshore are sickening, and that something walks the shore at night that should not. I am no Sentinel, but I can carry water and keep watch." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  
+    yplan = {
+      lines = {
+        { id = "ysyless_yplan_d", text = "Walk the shore near Auberdine, and look at the trees myself. My brother is a Sentinel there, and he writes that something is wrong with the forest. He does not frighten easily, and his letter frightened me." },
+      },
+      choices = {
+        { text = "Should the Sentinels handle it?", next = "ysentinels" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysentinels = {
+      lines = {
+        { id = "ysyless_ysentinels_d", text = "They will, if they can. But they are spread thin, and the Arch Druid has eyes only for Teldrassil. Some say we should trust our leaders. Others say a forest calls to anyone who loves it." },
+      },
+      choices = {
+        { text = "Trust the Sentinels. They know the land.", next = "BACK", reply = "Perhaps you are right. I will offer my help, but I will not go alone.", fx = { align = { order = 1 } } },
+        { text = "Go. A forest needs everyone who loves it.", next = "BACK", reply = "Thank you. I needed to hear that, I think.", fx = { align = { order = -1 } } },
+      },
+    },
+    ysurprise = {
+      lines = {
+        { id = "ysyless_ysurprise_d", text = "The children. Human children are so quick, so loud, so sure of everything. A boy named Jesse asked me if I was a thousand years old. I told him I was younger than his great-grandmother's house, and he was disappointed." },
+        { id = "ysyless_ysurprise_v0", when = { race = "Human" }, text = "Your children, especially. A boy asked me if I was a thousand years old, and when I said I was not, he seemed most disappointed in me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydwarves = {
+      lines = {
+        { id = "ysyless_ydwarves_d", text = "They drink more than I thought possible and sing louder than I thought wise. A dwarf at the inn offered to teach me a song about a goat. I declined, and he sang it anyway, three times." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    darkshore = { { id = "ysyless_tp_darkshore", text = "Darkshore is my home. The trees there are old and wise, and something is troubling them." } },
+    auberdine = { { id = "ysyless_tp_auberdine", text = "Auberdine is a quiet village on the shore. My brother keeps watch there." } },
+
     background = { { id = "tp_bg", text = "I am Sylessa of Darnassus. I have walked the human roads for a season, and now I am waiting for a boat like everyone else." } },
     auberdine = { { id = "tp_aub", text = "Auberdine is the nearest thing my people have to a harbor. It is quieter than this one, and the gulls are better mannered." } },
     _none = { { id = "tp_none", text = "I have not been here long enough to know that. Ask a sailor; they will tell you something, even if it is not true." } },

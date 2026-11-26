@@ -21,6 +21,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yoff = {
+      lines = {
+        { id = "ybarcommanderamaren1", text = "Sleep, when I can. Write letters to Stormwind that nobody answers. And sometimes I walk up to the ridge and look at the keep, and remember when it had banners on every tower." },
+        { id = "ybarcommanderamaren2", when = { race = "Human" }, text = "You'll know what it is to see your home in ruins, maybe. It doesn't get easier." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylong = {
+      lines = {
+        { id = "yarcommanderamaren1", text = "Since the Third War, when the Scourge took the north and the trolls came down from the hills. I was a captain of the keep guard then. Now I'm the most senior officer left alive who isn't a Trollbane." },
+        { id = "yarcommanderamaren2", when = { race = "Dwarf" }, text = "Ironforge sent us aid in the old days. I'd take a squad of your riflemen gladly, if you know anyone looking for work." },
+      },
+      choices = {
+        { text = "What would you need to retake the keep?", next = "yretake" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yretake = {
+      lines = {
+        { id = "yarcommanderamaren3", text = "Three hundred men, a hundred horse and a siege engine. I have eighty men and twelve horses. Some say I should beg Stormwind for aid, and some say Stromgarde begs no one." },
+      },
+      choices = {
+        { text = "Stromgarde begs no one. Hold and build.", next = "BACK", reply = "Spoken like a Trollbane. I'll tell Galen, and he'll like you for it.", fx = { align = { honor = 1 } } },
+        { text = "Ask for help. Pride won't take back the keep.", next = "BACK", reply = "It's what I've written to Stormwind three times. No answer yet.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Commander Amaren, of the Stromic army. Refuge Pointe is the last hill in Arathi that still flies Stromgarde's banner without question, and I mean to keep it that way." } },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Go on, but be quick about it." } },
@@ -29,6 +58,8 @@ P:NPC {
         { text = "Who threatens Refuge Pointe?", next = "threats" },
         { text = "You look like you haven't slept.", next = "sleep" },
         { text = "Stromgarde's people deserve better than this.", next = "stromgarde", when = { race = "Human" } },
+        { text = "How long have you held Refuge Pointe?", next = "ylong" },
+        { text = "What do you do when you're not commanding?", next = "yoff" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -74,6 +105,8 @@ P:NPC {
     },
   },
   topics = {
+    galen = { { id = "yarcommanderamaren4", text = "Prince Galen Trollbane. He leads us, and he means to take back his father's throne." } },
+    go_shek = { { id = "yarcommanderamaren5", text = "Go'Shek Farm. The Forsaken are brewing something there." } },
     _none = { { id = "tp_none", text = "Not my concern, {class}. Ask Captain Nials if it's about supplies." } },
   },
 }
@@ -391,6 +424,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ydaughter = {
+      lines = {
+        { id = "ybarrefugepointedefender1", text = "Elsie. She's nine now, and she wants to be a knight like Valorcall. I tell her knights get blisters and sleep in tents, and she says she doesn't mind. She'll be better than all of us." },
+        { id = "ybarrefugepointedefender2", when = { class = "PALADIN" }, text = "She'd love to meet you. She draws paladins with shining swords in every letter." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygoing = {
+      lines = {
+        { id = "yarrefugepointedefender1", text = "My daughter, in Southshore, with her grandmother. She writes me every season, and her letters are all spelling mistakes and drawings of horses. I keep them in my helmet, and I read them on watch." },
+        { id = "yarrefugepointedefender2", when = { race = "Human" }, text = "You'll have someone back home too, I'd guess. Hold onto them. It's what keeps a soldier standing." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I guard Refuge Pointe for Stromgarde, and for the people who still call this land home. There aren't many of us left, but we hold the hill." } },
       again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Ask away, friend." } },
@@ -400,6 +451,8 @@ P:NPC {
         { text = "I'm a dwarf. Ironforge sends its regards.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Who attacks Refuge Pointe?", next = "threats" },
         { text = "Is Stromgarde lost?", next = "stromgarde" },
+        { text = "What keeps you going?", next = "ygoing" },
+        { text = "What's your daughter's name?", next = "ydaughter" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -460,6 +513,7 @@ P:NPC {
     },
   },
   topics = {
+    galen = { { id = "yarrefugepointedefender3", text = "Lord Galen leads us from a tent. He'll lead us from the throne one day." } },
     trollbane = { { id = "xtp_tb", text = "The Trollbanes have held Stromgarde since Thoradin. A tent doesn't change that." } },
     syndicate = { { id = "xtp_sy", text = "Alterac's traitors, squatting in our keep. We'll root them out." } },
     _none = { { id = "tp_none", text = "I don't know about that, friend. Ask the Commander." } },
@@ -483,6 +537,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yorcs = {
+      lines = {
+        { id = "ybarbrumnwinterhoof1", text = "Some come for armour, and some come to sit by the fire and say nothing. An old grunt who wore chains in that camp sits with me most evenings. He does not speak of it, and I do not ask." },
+        { id = "ybarbrumnwinterhoof2", when = { race = "Orc" }, text = "Your people carry much sorrow in this place. The spirits feel it, and so do I." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytribe = {
+      lines = {
+        { id = "yarbrumnwinterhoof1", text = "On the plains of Mulgore, far across the sea, under the shadow of Thunder Bluff. Cairne sent me east to learn how the elements speak in these old human hills. They speak sadly here, I find." },
+        { id = "yarbrumnwinterhoof2", when = { race = "Tauren" }, text = "You will know the plains, then. Tell me, does the wind still sing over Red Rocks?" },
+      },
+      choices = {
+        { text = "Why do they speak sadly?", next = "ysad" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysad = {
+      lines = {
+        { id = "yarbrumnwinterhoof3", text = "Much blood has soaked into this earth. Humans and trolls and orcs, for a thousand years. The Earth Mother does not take sides, but she remembers every hurt, and the hides from this land carry it." },
+      },
+      choices = {
+        { text = "Then we should heal the land, not fight over it.", next = "BACK", reply = "Your heart is good. If more walked this way, the earth would sing again.", fx = { align = { light = 1 } } },
+        { text = "The land bears war. That's the way of things.", next = "BACK", reply = "Perhaps. But even a warrior must rest, and the earth is tired.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Brumn Winterhoof, of the Winterhoof tribe. I teach leatherworkers to bind the elements, fire and earth and wind and water, into the hides they shape." } },
       again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "Speak, I am listening." } },
@@ -491,6 +574,8 @@ P:NPC {
         { text = "Why camp so far from Hammerfall?", next = "camp" },
         { text = "The ogres of Boulder'gor are close.", next = "ogres" },
         { text = "I'm a leatherworker. Can you teach me?", next = "teach", when = { profession = "Leatherworking" } },
+        { text = "Where is the Winterhoof tribe?", next = "ytribe" },
+        { text = "Do the orcs of Hammerfall visit you?", next = "yorcs" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -536,6 +621,8 @@ P:NPC {
     },
   },
   topics = {
+    cairne = { { id = "yarbrumnwinterhoof4", text = "The great chief of the tauren. He sent me east to listen." } },
+    mulgore = { { id = "yarbrumnwinterhoof5", text = "Home. The plains, and the wind, and the long grass." } },
     _none = { { id = "tp_none", text = "I do not know that, friend. The winds have not whispered it to me." } },
   },
 }
@@ -558,6 +645,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yleave2 = {
+      lines = {
+        { id = "ybarfardeldabyrie1", text = "Go to Stormwind and see the Cathedral, and maybe the sea. I've never seen the sea, believe it or not. Marcel says it's just a big lake. I say a big lake is still a big lake, and worth seeing." },
+        { id = "ybarfardeldabyrie2", when = { race = "NightElf" }, text = "You came from over the sea, didn't you? Is it as big as they say?" },
+      },
+      choices = {
+        { text = "Do you resent the farm?", next = "yresent" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yresent = {
+      lines = {
+        { id = "ybarfardeldabyrie3", text = "Some days. It's Mother's dream, and Grandfather's, and maybe Marcel's. I don't know if it's mine." },
+      },
+      choices = {
+        { text = "It's your family's legacy. Honour it.", next = "BACK", reply = "I suppose. Someone has to keep the oak watered.", fx = { align = { honor = 1 } } },
+        { text = "Find your own dream. The farm can wait.", next = "BACK", reply = "Maybe I will. Don't tell Mother, she'll throw a pan.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybest = {
+      lines = {
+        { id = "yarfardeldabyrie1", text = "The sunrise over the hills, before the trolls wake up. And the smell of the bread Mother bakes on market day. And the look on Marcel's face when I get up first, which happens about once a year." },
+        { id = "yarfardeldabyrie2", when = { race = "Human" }, text = "You'll know farm mornings, I'd guess. There's nothing like them, even with trolls about." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Fardel Dabyrie, and this is my mother's farm, and that lump over there is my brother Marcel. We keep our heads down and our fields planted, which is more than most can say in Arathi these days." } },
       again = { { id = "h_again", text = "Something else on your mind, friend?" } },
@@ -567,6 +683,8 @@ P:NPC {
         { text = "Have you ever thought of leaving?", next = "xleave" },
         { text = "Why keep a militia on a farm?", next = "militia" },
         { text = "Folk say your family has sticky fingers.", next = "thieves" },
+        { text = "What's the best thing about the farm?", next = "ybest" },
+        { text = "What would you do if you could leave?", next = "yleave2" },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -625,6 +743,8 @@ P:NPC {
     },
   },
   topics = {
+    sea = { { id = "ycarfardeldabyrie1", text = "I've never seen it. Marcel says it's a big lake. I want to see for myself." } },
+    kenata = { { id = "yarfardeldabyrie3", text = "My mother. The hardest woman in Arathi." } },
     stromgarde = { { id = "xtp_sg", text = "Proud lords on a hill. We grow their bread and they forget our names." } },
     trolls = { { id = "xtp_tr", text = "Witherbark. They come at night with drums, and the dogs know before we do." } }, _none = { { id = "tp_none", text = "Never heard of it, and I'd rather not. Ask Marcel, he knows less than me." } } },
 }
@@ -643,6 +763,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yfather = {
+      lines = {
+        { id = "ybarmarceldabyrie1", text = "He'd say we've kept it, and that's enough. He'd be ashamed we haven't stood up to the Syndicate. He'd be proud of Fardel, though he'd never say it. He'd be proud of Mother. He was always proud of Mother." },
+        { id = "ybarmarceldabyrie2", when = { race = "Human" }, text = "You'll have known men like him. Quiet, strong, and stubborn as an ox." },
+      },
+      choices = {
+        { text = "Should you fight the Syndicate?", next = "yfight" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfight = {
+      lines = {
+        { id = "ybarmarceldabyrie3", text = "Mother says no. She says we pay them and they leave us be. But my father would have fought." },
+      },
+      choices = {
+        { text = "Listen to your mother. Pay and survive.", next = "BACK", reply = "Aye. She's kept us alive this long.", fx = { align = { order = 1 } } },
+        { text = "Stand up to them. Your father would.", next = "BACK", reply = "Maybe. I'd need more than a shovel.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfardel = {
+      lines = {
+        { id = "yarmarceldabyrie1", text = "Run the farm myself, and grumble about it, and miss him every day. Don't tell him that. He'd never let me forget it, and I'd never live it down at the market." },
+        { id = "yarmarceldabyrie2", when = { race = "Human" }, text = "You'll have brothers too, maybe. Then you know how it is: you fight like dogs, and you'd die for each other." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm Marcel, the elder brother, though Fardel would tell you otherwise. Mother runs the farm, I run the fields, and Fardel runs his mouth." } },
       again = { { id = "h_again", text = "What else? I've fences to mend." } },
@@ -652,6 +801,8 @@ P:NPC {
         { text = "I'm a farmer's child myself.", next = "xfarm", when = { race = "Human" } },
         { text = "Hard times for farming here?", next = "hard" },
         { text = "Tell me about your mother.", next = "mother" },
+        { text = "What would you do if Fardel left?", next = "yfardel" },
+        { text = "What would your father say about the farm now?", next = "yfather" },
         { text = "I'll leave you to your fences.", next = "END" },
       },
     },
@@ -709,6 +860,8 @@ P:NPC {
     },
   },
   topics = {
+    father = { { id = "ycarmarceldabyrie1", text = "Buried under the oak. He'd have fought the Syndicate." } },
+    fardel = { { id = "yarmarceldabyrie3", text = "My brother. Grins too much and gets up late." } },
     syndicate = { { id = "xtp_sy", text = "They took our horse two years back. I'd know that horse anywhere." } },
     kenata = { { id = "xtp_ke", text = "Mother. She runs this farm, and the rest of us just think we do." } }, _none = { { id = "tp_none", text = "Don't know, don't care. Ask at Refuge Pointe." } } },
 }
@@ -727,6 +880,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ykenata = {
+      lines = {
+        { id = "ybardabyriemilitia1", text = "Strict, fair and terrifying. She pays on time, feeds us well and shouts if we slack. Once she caught me asleep on watch and made me muck out the pigs for a week. I never slept on watch again." },
+        { id = "ybardabyriemilitia2", when = { class = "WARRIOR" }, text = "She'd like you. She likes anyone who looks like they could hit a troll properly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yafter = {
+      lines = {
+        { id = "yardabyriemilitia1", text = "Go home to my mother in Southshore, if there's still a home. She thinks I'm a farmhand, and I've not had the heart to tell her otherwise. A son with a shovel is easier to worry about than a son with a spear." },
+        { id = "yardabyriemilitia2", when = { race = "Human" }, text = "You'll know how mothers are. Mine would come out here and hit the trolls herself if she knew." },
+      },
+      choices = {
+        { text = "Should you tell her the truth?", next = "ytruth" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytruth = {
+      lines = {
+        { id = "yardabyriemilitia3", text = "I don't know. She'd worry, and she has a bad heart. But she'd want to know." },
+      },
+      choices = {
+        { text = "Tell her. She deserves the truth.", next = "BACK", reply = "Aye, you're right. I'll write tonight, and pray she reads it sitting down.", fx = { align = { honor = 1 } } },
+        { text = "Spare her. Some truths only hurt.", next = "BACK", reply = "That's what I've been telling myself. I'll keep it, a while longer.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I guard the farm for the Dabyries, which mostly means standing here and hoping nothing comes over the hill. The pay's poor, but Kenata feeds us well." } },
       again = { { id = "h_again", text = "Something else? I'm meant to be watching." } },
@@ -736,6 +918,8 @@ P:NPC {
         { text = "Seen anything strange lately?", next = "xstrange" },
         { text = "What comes over the hill?", next = "hill" },
         { text = "Were you a soldier before?", next = "before" },
+        { text = "What will you do after this job?", next = "yafter" },
+        { text = "What's Kenata like to work for?", next = "ykenata" },
         { text = "I'll let you keep watch.", next = "END" },
       },
     },
@@ -793,6 +977,8 @@ P:NPC {
     },
   },
   topics = {
+    valorcall = { { id = "ybardabyriemilitia3", text = "The cavalry lieutenant. When his banner passes, I sleep easier." } },
+    southshore = { { id = "yardabyriemilitia4", text = "My mother's home. I'll go back when this job's done." } },
     trolls = { { id = "xtp_tr", text = "Witherbark. Big tusks, bad tempers, and they don't like shovels." } },
     kenata = { { id = "xtp_ke", text = "She pays us in stew and coin, in that order of quality." } }, _none = { { id = "tp_none", text = "Don't ask me, I just hold the spear. Ask Fardel." } } },
 }
@@ -814,6 +1000,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yworst = {
+      lines = {
+        { id = "ybarstromgardetrollhunter1", text = "A Witherbark shadow hunter who came at us in the lower keep, with a mask of bone and a voice like the wind. Three of us went down before I put a torch to him. He was laughing as he burned." },
+        { id = "ybarstromgardetrollhunter2", when = { race = "Troll" }, text = "You'd know their ways, maybe. Do your shadow hunters laugh like that?" },
+      },
+      choices = {
+        { text = "Do you ever wonder about them?", next = "ywonder" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywonder = {
+      lines = {
+        { id = "ybarstromgardetrollhunter3", text = "About the trolls? Sometimes. They were here first, before Thoradin. Some say we should make peace with them. Some say we should burn them all." },
+      },
+      choices = {
+        { text = "There's honour in peace, even with old enemies.", next = "BACK", reply = "Maybe. But I've not met a Witherbark who'd stop to listen.", fx = { align = { honor = 1 } } },
+        { text = "Burn them. They'll never stop.", next = "BACK", reply = "That's what my father said. I think he was right.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylong = {
+      lines = {
+        { id = "yarstromgardetrollhunter1", text = "Since I was sixteen, and my father before me. He lost his arm to a Witherbark axe and taught me to fight with my left so I'd never be caught short. I'm better with my left than my right now." },
+        { id = "yarstromgardetrollhunter2", when = { race = "Troll" }, text = "Your people don't burn. The Amani do. I've never understood why, but I'm glad of it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "We hunt the trolls in Stromgarde's ruins, so that one day the keep might be whole again. It's slow work, and the Syndicate doesn't make it easier." } },
       again = { { id = "h_again", text = "What else? Make it quick." } },
@@ -823,6 +1038,8 @@ P:NPC {
         { text = "Trolls are my people. Speak carefully.", next = "xtroll", when = { race = "Troll" } },
         { text = "Why the torch?", next = "torch" },
         { text = "Can Stromgarde be retaken?", next = "retake" },
+        { text = "How long have you hunted trolls?", next = "ylong" },
+        { text = "What's the worst troll you've faced?", next = "yworst" },
         { text = "Good hunting.", next = "END" },
       },
     },
@@ -880,6 +1097,8 @@ P:NPC {
     },
   },
   topics = {
+    shadow_hunter = { { id = "ycarstromgardetrollhunter1", text = "Bone masks and voices like the wind. They laugh as they burn." } },
+    father = { { id = "yarstromgardetrollhunter3", text = "He lost his arm to a Witherbark axe and taught me to fight with my left." } },
     trolls = { { id = "xtp_tr", text = "Burn them, or they get up again. My father taught me that." } },
     thoradin = { { id = "xtp_th", text = "The first king of Arathor. He united men to beat the trolls, and we're still at it." } }, _none = { { id = "tp_none", text = "No idea. Ask at Refuge Pointe, they've got the maps." } } },
 }
@@ -901,6 +1120,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yhard = {
+      lines = {
+        { id = "ybardwarvenfarmer1", text = "The trolls, an' the crows, an' the rain that comes sideways off the hills. But the worst is the Syndicate, who ride by an' take a cut o' the harvest. I've a rifle by the door for the next one." },
+        { id = "ybardwarvenfarmer2", when = { race = "Dwarf" }, text = "Ye'd do the same, I'd wager. A dwarf doesnae pay a thief twice." },
+      },
+      choices = {
+        { text = "Will you fight them?", next = "yfight" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfight = {
+      lines = {
+        { id = "ybardwarvenfarmer3", text = "Aye, if they come again. Marcel Dabyrie says I should pay an' keep the peace. I say a thief who's paid once comes back twice." },
+      },
+      choices = {
+        { text = "Pay them. Keep the peace and your life.", next = "BACK", reply = "Hmph. That's Marcel's answer. I'll think on it.", fx = { align = { order = 1 } } },
+        { text = "Fight them. A thief should be stopped.", next = "BACK", reply = "Aye! Ye're a proper dwarf at heart, whatever yer blood.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yclan = {
+      lines = {
+        { id = "yardwarvenfarmer1", text = "Aye, though ye'd not know it from the dirt under me nails. Me father's a mining foreman in Ironforge, an' me brother's a rifleman wi' the Mountaineers. I'm the black sheep, or the green one, I suppose." },
+        { id = "yardwarvenfarmer2", when = { race = "Dwarf" }, text = "Ye'll know the type, then. Every clan has one who wanders off. I'm ours, an' proud of it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I farm, {g:lad|lass}, plain and simple. Ironforge cannae eat stone, so some of us come out where the soil's soft and grow what the mountain cannae." } },
       again = { { id = "h_again", text = "Somethin' else? The cabbages willnae mind." } },
@@ -910,6 +1158,8 @@ P:NPC {
         { text = "Fellow dwarf here. Farming suits you?", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Why so far from anyone?", next = "far" },
         { text = "A dwarf farmer? That's unusual.", next = "unusual" },
+        { text = "Are you a Bronzebeard?", next = "yclan" },
+        { text = "What's the hardest part of farming here?", next = "yhard" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -964,6 +1214,8 @@ P:NPC {
     },
   },
   topics = {
+    syndicate = { { id = "ycardwarvenfarmer1", text = "Thieves on horseback. I've a rifle by the door for the next one." } },
+    bronzebeard = { { id = "yardwarvenfarmer3", text = "Me clan. Miners an' riflemen, an' one farmer." } },
     ironforge = { { id = "xtp_if", text = "Home, though I like it best when it's far away." } },
     thunderbrew = { { id = "xtp_tb", text = "My barley's in their ale. Don't tell them, they'll want a discount." } }, _none = { { id = "tp_none", text = "Couldnae tell ye. Ask me about cabbages instead." } } },
 }
@@ -986,6 +1238,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yhealed = {
+      lines = {
+        { id = "ybarainjuredsoldier1", text = "Go back to the ridge, and find that crossbowman, and put him in the ground. Then I'll drink, and then I'll go home to Durotar and see my mother, who still thinks I'm a cook." },
+        { id = "ybarainjuredsoldier2", when = { race = "Orc" }, text = "You'll know how it is with mothers. They never think you're a warrior until you come home with a scar." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfrom = {
+      lines = {
+        { id = "yarainjuredsoldier1", text = "Durotar, born under Thrall's banner. My father was in the internment camps, and he made me swear to never let the humans cage another orc. So I came here, to the old camp, to hold it." },
+        { id = "yarainjuredsoldier2", when = { race = "Orc" }, text = "You'll know the story, then. Every family in Durotar has one like it." },
+      },
+      choices = {
+        { text = "Do you hate the humans?", next = "yhate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhate = {
+      lines = {
+        { id = "yarainjuredsoldier3", text = "My father did. I don't know if I do. The ones on the ridge shot me, yes. But I've seen human farmers at the Dabyrie place, and they only want to grow their wheat. Maybe they're not all the same." },
+      },
+      choices = {
+        { text = "Some are honorable. Judge each one.", next = "BACK", reply = "Maybe. My father wouldn't agree. But my father isn't here.", fx = { align = { honor = 1 } } },
+        { text = "They caged our people. Never forget.", next = "BACK", reply = "I won't. Not while this leg reminds me.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Syndicate blades and Stromgarde arrows, that's how I got here. Doctor Victor says I'll fight again, if the bleeding stops. I'm holding him to it." },
@@ -998,6 +1279,9 @@ P:NPC {
         { text = "I'm a shaman. I can mend wounds.", next = "xheal", when = { class = "SHAMAN" } },
         { text = "Who did this to you?", next = "who" },
         { text = "Do you need anything?", next = "need" },
+        { text = "Where are you from?", next = "yfrom" },
+        { text = "Lok'tar, brother. You'll fight again.", next = "BACK", when = { race = "Orc" }, reply = "Lok'tar. I will, if the doctor stops talking long enough to finish." },
+        { text = "What will you do when you're healed?", next = "yhealed" },
         { text = "Hold on, soldier.", next = "END" },
       },
     },
@@ -1049,6 +1333,9 @@ P:NPC {
     },
   },
   topics = {
+    mother = { { id = "ycarainjuredsoldier1", text = "She thinks I'm a cook. I'll tell her the truth when I have a scar to show." } },
+    father = { { id = "yarainjuredsoldier4", text = "He was in the camps. He made me swear." } },
+    durotar = { { id = "yarainjuredsoldier5", text = "Home. Red earth and Thrall's banner." } },
     syndicate = { { id = "xtp_sy", text = "Cowards with crossbows. Find them and I'll walk again just to thank you." } },
     stromgarde = { { id = "xtp_sg", text = "Humans who won't stop coming. I'll give them that much." } },
   },

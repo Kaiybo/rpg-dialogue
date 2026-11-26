@@ -24,8 +24,41 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A sexton at the chapel here, when Deathknell was only a village with a big graveyard. I dug half these graves myself. It's a strange thing to watch the folk you buried climb back out and ask you for directions." } },
+      choices = {
+        { text = "Do you recognise any of them?", next = "yrecog" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yrecog = {
+      lines = { { id = "yrecog_x", text = "Now and then. The miller's son came up last week, and he didn't know me, and I didn't tell him. Should I have? Some of them are better off starting fresh." } },
+      choices = {
+        { text = "Tell them. They deserve their own past.", next = "BACK", reply = "Maybe so. I'll think on it, next time.", fx = { align = { order = -1 } } },
+        { text = "Say nothing. The Dark Lady needs soldiers, not mourners.", next = "BACK", reply = "Aye, that's the Executor's view. I suppose it's mine too.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycount = {
+      lines = { { id = "ycount_x", text = "Five, six, sometimes a dozen. Fewer than the first year, when they came up by the hundred. Why some rise and some stay down, nobody can tell me, not even the priests." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ywrong = {
+      lines = { { id = "ywrong_x", text = "Some wake mindless, still the Scourge's creatures. Those we put back down, quickly, and Shadow Priest Sarvis says a word over them. I keep a list of their names, when I knew them. Nobody asked me to." } },
+      choices = {
+        { text = "Why keep the list?", next = "ylist" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylist = {
+      lines = { { id = "ylist_x", text = "Because somebody should. They were people of this parish, once. I'll not have them forgotten just because they came back wrong." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Deathguard Bartrand, of the Deathknell watch. I stand here and see that what comes out of the crypt is one of ours, and that what comes down from the hills is dealt with before it reaches the chapel." } },
+      lines = {
+        { id = "h_default", text = "Deathguard Bartrand, of the Deathknell watch. I stand here and see that what comes out of the crypt is one of ours, and that what comes down from the hills is dealt with before it reaches the chapel." },
+        { id = "yh_human", when = { race = "Human" }, text = "A living human, this deep in Deathknell. Either you're very lost or very brave, and the Scarlets will want to know which." },
+      },
       again = {
         { id = "h_again", text = "Was there something else? The graves don't watch themselves." },
         { id = "h_again2", text = "Go on, then, but be brief about it." },
@@ -34,6 +67,9 @@ P:NPC {
         { text = "What comes out of the crypt that isn't one of ours?", next = "crypt" },
         { text = "What comes down from the hills?", next = "hills" },
         { text = "It's a quiet post you have.", next = "quiet" },
+        { text = "Who were you, before?", next = "ylife" },
+        { text = "How many rise here each week?", next = "ycount" },
+        { text = "What happens to those who wake wrong?", next = "ywrong" },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -58,6 +94,8 @@ P:NPC {
     },
   },
   topics = {
+    sarvis = { { id = "ytp_sarvis", text = "Shadow Priest Sarvis greets the risen. I just count them." } },
+    deathknell = { { id = "ytp_dk", text = "Deathknell was a quiet parish once. It's still quiet, mostly, in a different way." } },
     background = { { id = "tp_bg", text = "I died in Lordaeron's fall and woke in service to the Dark Lady, like every other soldier on this hill." } },
     scarlet_crusade = { { id = "tp_sc", text = "Fanatics in red, camped closer to Deathknell than I care for. Arren wants them thinned." } },
     _none = { { id = "tp_none", text = "That's no business of the watch. Ask Executor Arren, if you must ask someone." } },
@@ -84,8 +122,41 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yking = {
+      lines = { { id = "yking_x", text = "Terenas? I saw him once, at a parade, waving at the crowd from a white horse. He looked tired. I suppose kings do. I served his army nine years and never met him, which is the usual arrangement." } },
+      choices = {
+        { text = "Do you mourn him?", next = "ymourn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymourn = {
+      lines = { { id = "ymourn_x", text = "Mourn him? He let the Cult grow under his nose and never noticed until his own son came home with a sword. But he was a decent man, they say. Can a decent king still fail his people?" } },
+      choices = {
+        { text = "Yes. He should have seen it coming.", next = "BACK", reply = "Aye, that's my view too, on the bad days.", fx = { align = { order = -1 } } },
+        { text = "No. He was betrayed. A king can't be blamed for that.", next = "BACK", reply = "Hm. Loyal to a dead king. I admire it, a bit.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfunny = {
+      lines = { { id = "yfunny_x", text = "Because the alternative is screaming, and I tried that for my first week. It doesn't help. A man can laugh at his own ribs poking out, or he can weep about it, and weeping takes eyes I'm not sure I've still got." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yserious = {
+      lines = { { id = "yserious_x", text = "The Scarlets. There's nothing funny about a man who'd burn a child for waking up wrong. I've seen them do it at the Solliden farmstead, and I've not laughed at them since." } },
+      choices = {
+        { text = "What happened at Solliden?", next = "ysolliden" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysolliden = {
+      lines = { { id = "ysolliden_x", text = "A family rose there, mother and two boys, and they came walking toward Deathknell. The Scarlets caught them first. I was too far away. I keep a joke ready for most things, but not that one." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Deathguard Oliver. I served in Lordaeron's garrison when it had a king, and I serve in Deathknell's now that it has a queen, and I'll confess the second posting has fewer parades." } },
+      lines = {
+        { id = "h_default", text = "Deathguard Oliver. I served in Lordaeron's garrison when it had a king, and I serve in Deathknell's now that it has a queen, and I'll confess the second posting has fewer parades." },
+        { id = "yh_tauren", when = { race = "Tauren" }, text = "A tauren in Deathknell! Mind the low doorways, friend. The chapel lintel's taken more than one horn already, and the chapel complains." },
+      },
       again = {
         { id = "h_again", text = "What else can a dead man tell you?" },
         { id = "h_again2", text = "Ask away, since I've nowhere to be until the world ends." },
@@ -94,6 +165,9 @@ P:NPC {
         { text = "You served the old king?", next = "king" },
         { text = "Where should someone newly risen go first?", next = "first" },
         { text = "You take death lightly.", next = "lightly" },
+        { text = "What was the old king like?", next = "yking" },
+        { text = "Why find death so funny?", next = "yfunny" },
+        { text = "Is there anything you take seriously?", next = "yserious" },
         { text = "Carry on, Deathguard.", next = "END" },
       },
     },
@@ -118,6 +192,8 @@ P:NPC {
     },
   },
   topics = {
+    terenas = { { id = "ytp_terenas", text = "Old King Terenas looked tired at the parade. I'd look tired too, in his shoes." } },
+    scarlet_crusade = { { id = "ytp_sc", text = "The Scarlets are the only joke in Tirisfal that isn't funny." } },
     background = { { id = "tp_bg", text = "Garrison soldier under Terenas, and Deathguard under the Dark Lady. The pay was better the first time." } },
     _none = { { id = "tp_none", text = "I haven't the faintest idea, and I've had a long time to think about most things." } },
   },
@@ -143,8 +219,41 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A sergeant of the Lordaeron footmen, garrisoned at Brill. I trained boys to hold a pike. Then I watched most of them fall to the Scourge in a single night. The ones who didn't fall turned." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yhard = {
+      lines = { { id = "yhard_x", text = "Because soft recruits die twice. I lost a whole squad at the Scarlet camp to the north, because I let them stop to gawk at their old homes. Never again. A hard word now saves a burning later." } },
+      choices = {
+        { text = "You can't blame them for looking back.", next = "ylook" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylook = {
+      lines = { { id = "ylook_x", text = "I don't blame them. I blame myself. Should a sergeant drive his recruits hard and lose their love, or go gentle and lose their lives?" } },
+      choices = {
+        { text = "Drive them hard. Love won't stop a Scarlet blade.", next = "BACK", reply = "Aye. Good. You'd make a sergeant.", fx = { align = { order = 1 } } },
+        { text = "Go gentle. Fear makes poor soldiers.", next = "BACK", reply = "Hm. Maybe. I'll think on that, between drills.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ypatrol = {
+      lines = { { id = "ypatrol_x", text = "Six of us went toward Solliden. Three came back. One of the three was me, which still surprises me. The others are buried in the field, properly this time, and they'll stay down." } },
+      choices = {
+        { text = "Why not burn the camp, then?", next = "yorders" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yorders = {
+      lines = { { id = "yorders_x", text = "Executor Arren wants the camp left alone until we've numbers to take it. I want it burned. Orders are orders. I watch the road instead, and I count." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Deathguard Phillip. My post is this road, and my orders are that nothing in a red tabard walks it, so unless you've seen one I can't think what we have to discuss." } },
+      lines = {
+        { id = "h_default", text = "Deathguard Phillip. My post is this road, and my orders are that nothing in a red tabard walks it, so unless you've seen one I can't think what we have to discuss." },
+        { id = "yh_scourge", when = { race = "Scourge" }, text = "Freshly risen, and already standing about. Move, recruit. The Crusade doesn't wait for you to find your feet." },
+      },
       again = {
         { id = "h_again", text = "Well? Speak, and then let me get back to it." },
         { id = "h_again2", text = "Is there more, or may I return to my duty?" },
@@ -152,6 +261,9 @@ P:NPC {
       choices = {
         { text = "How close does the Crusade come?", next = "crusade" },
         { text = "You don't think much of the newly risen.", next = "risen" },
+        { text = "Who were you in life?", next = "ylife" },
+        { text = "Why are you so hard on the risen?", next = "yhard" },
+        { text = "What happened to your patrol?", next = "ypatrol" },
         { text = "As you were, Deathguard.", next = "END" },
       },
     },
@@ -172,6 +284,8 @@ P:NPC {
     },
   },
   topics = {
+    executor_arren = { { id = "ytp_arren", text = "Executor Arren has the patience of a gravestone. I have less." } },
+    pikes = { { id = "ytp_pikes", text = "A pike keeps a Scarlet horse at bay. A sword doesn't. I wish more recruits learned that." } },
     background = { { id = "tp_bg", text = "I was a soldier before the plague and I am a soldier after it. Very little else about me is worth your time." } },
     scarlet_crusade = { { id = "tp_sc", text = "Zealots who would burn every one of us and call it mercy. Kill them when you find them." } },
     _none = { { id = "tp_none", text = "That isn't a matter for the watch. Take it to the Executor." } },
@@ -198,8 +312,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yold = {
+      lines = { { id = "yold_x", text = "Sixty-eight winters, and still standing watch for the militia. I'd outlived my wife and both my brothers. I thought the plague would be the end of me, and so it was, and then it wasn't." } },
+      choices = {
+        { text = "Is the watch hard, at your age?", next = "ywatch" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhardest = {
+      lines = { { id = "yhardest_x", text = "The young ones. They wake up and ask for their mothers. I tell them gently that their mothers are gone, and that the Dark Lady is all the family they have now. Is that a lie, do you think?" } },
+      choices = {
+        { text = "No. The Forsaken are a family now.", next = "BACK", reply = "Good. I'll keep saying it, then, and believing it.", fx = { align = { order = 1 } } },
+        { text = "Yes. They should be told the truth and choose.", next = "BACK", reply = "Hm. Choose what, though? There's not much choosing for the dead.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfamily = {
+      lines = { { id = "yfamily_x", text = "A grandson, somewhere. He was at Andorhal when it fell. If he rose, he rose there, and I've never heard. I ask every Deathguard who comes back from the Bulwark. Nobody's seen a lad with my nose." } },
+      choices = {
+        { text = "I'll keep an eye out for him.", next = "BACK", reply = "Would you? His name's Tomas. Thank you, truly.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ychapel = {
+      lines = { { id = "ychapel_x", text = "The chapel bell hasn't rung since the plague. Shadow Priest Sarvis wants it melted for arrowheads. I'd sooner it stayed up there, quiet. Some things deserve to be left as they were." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ywatch = {
+      lines = { { id = "ywatch_x", text = "Watching is easy. It's the thinking that's hard. At my age, a man thinks about everything he's ever done, and on watch there's no one to talk to but the crows." } },
+      choices = {
+        { text = "What about the chapel bell?", next = "ychapel" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Deathguard Randolph. I've watched this hill since the Dark Lady freed us, and I have seen a great many of our people climb out of that crypt and stand blinking at the sky." } },
+      lines = {
+        { id = "h_default", text = "Deathguard Randolph. I've watched this hill since the Dark Lady freed us, and I have seen a great many of our people climb out of that crypt and stand blinking at the sky." },
+        { id = "yh_human", when = { race = "Human" }, text = "A living human. Strange to see one here who isn't trying to burn us. Stay a while, then, and tell me how the world's changed." },
+      },
       again = {
         { id = "h_again", text = "What else would you know?" },
         { id = "h_again2", text = "Ask, and I'll answer if I can." },
@@ -208,6 +358,9 @@ P:NPC {
         { text = "What do you say to them, when they wake?", next = "wake" },
         { text = "What was Deathknell, before?", next = "before" },
         { text = "You sound almost fond of the place.", next = "fond" },
+        { text = "How old were you when you died?", next = "yold" },
+        { text = "What's the hardest part of greeting the risen?", next = "yhardest" },
+        { text = "Do you have family among the risen?", next = "yfamily" },
         { text = "Good watch to you.", next = "END" },
       },
     },
@@ -232,6 +385,8 @@ P:NPC {
     },
   },
   topics = {
+    deathknell_chapel = { { id = "ytp_chapel", text = "The bell's still up there. I hope it stays." } },
+    old_age = { { id = "ytp_age", text = "I was old when I died. Death didn't make me any younger, only stiffer." } },
     background = { { id = "tp_bg", text = "I was an old soldier when the plague took me, and death hasn't made me any younger." } },
     _none = { { id = "tp_none", text = "I can't help you there. I know this hill, and not a great deal beyond it." } },
   },
@@ -258,8 +413,41 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A carter. I drove grain from Brill to the capital twice a week for twenty years. I knew every pothole and every inn. The grain was what killed us, in the end. I drove it myself." } },
+      choices = {
+        { text = "You carried the plagued grain?", next = "ygrain" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygrain = {
+      lines = { { id = "ygrain_x", text = "I didn't know. None of us did. The Cult paid well and the sacks looked like any others. Does a man who carried poison without knowing it share the blame, do you think?" } },
+      choices = {
+        { text = "No. The Cult of the Damned bears the guilt.", next = "BACK", reply = "Kind words. I've heard them before. They don't stick.", fx = { align = { light = 1 } } },
+        { text = "Maybe. Ignorance doesn't bring the dead back.", next = "BACK", reply = "No. It doesn't. That's why I walk this road now.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ystrange = {
+      lines = { { id = "ystrange_x", text = "A Scarlet monk, once, walking south toward the Undercity with his hands up. He said he wanted to see the Dark Lady. The Deathguard took him to the Apothecarium instead." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ysafe = {
+      lines = { { id = "ysafe_x", text = "Between the milestones, in daylight, with the Deathguard about? Safe enough. After dark, the bats come down from Nightmare Vale, and the Scarlets send riders. Keep to the stones." } },
+      choices = {
+        { text = "You know those stones well.", next = "ymilestone" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymilestone = {
+      lines = { { id = "ymilestone_x", text = "There's a milestone past Brill with my old cart-mark scratched in it, a wheel with a nail through it. I touch it every time I pass. It's foolish. I keep doing it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Deathguard Lundmark, road patrol. I walk from Deathknell to the gates of the Undercity and back again, so if there's a place in the Glades you can't find, I've likely tripped over it." } },
+      lines = {
+        { id = "h_default", text = "Deathguard Lundmark, road patrol. I walk from Deathknell to the gates of the Undercity and back again, so if there's a place in the Glades you can't find, I've likely tripped over it." },
+        { id = "yh_orc", when = { race = "Orc" }, text = "An orc, off the zeppelin, I'd guess. Brill's east, the Undercity's south, and the Scarlets are everywhere else. That's all you need." },
+      },
       again = {
         { id = "h_again", text = "Where else do you need pointing?" },
         { id = "h_again2", text = "Keep up, and ask as we go." },
@@ -268,6 +456,9 @@ P:NPC {
         { text = "Which way to Brill?", next = "brill" },
         { text = "How do I reach the Undercity?", next = "undercity" },
         { text = "What should I stay away from on this road?", next = "danger" },
+        { text = "Who were you in life?", next = "ylife" },
+        { text = "What's the strangest thing on this road?", next = "ystrange" },
+        { text = "Is the road ever safe?", next = "ysafe" },
         { text = "I know my way. Farewell.", next = "END" },
       },
     },
@@ -292,6 +483,8 @@ P:NPC {
     },
   },
   topics = {
+    the_road = { { id = "ytp_road", text = "The road runs from Deathknell to the Undercity. I could walk it blind, and some nights I nearly do." } },
+    brill = { { id = "ytp_brill", text = "Brill's the halfway house. Stop at the Gallows' End and tell them Lundmark sent you." } },
     background = { { id = "tp_bg", text = "I carried messages on these roads when Lordaeron lived, and I walk them still. Only the company has changed." } },
     _none = { { id = "tp_none", text = "If it isn't on my road, I can't tell you. Ask in Brill." } },
   },
@@ -318,8 +511,41 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A bowyer in Brill, believe it or not. I made longbows for the Lordaeron militia. Now I carry a sword because my fingers can't hold a string any more. The rot started in the fingertips, the way it does." } },
+      choices = {
+        { text = "Does that weigh on you?", next = "yweigh" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yweigh = {
+      lines = { { id = "yweigh_x", text = "Every time I see a hunter at the inn. I'd give a great deal to hold a bow again. The apothecaries say they could stitch on a living hand, if I'd let them. What would you do?" } },
+      choices = {
+        { text = "Take the hand. The living owe us that much.", next = "BACK", reply = "That's the Society's view too. I'm not sure I'd sleep well, if I slept at all.", fx = { align = { light = -1 } } },
+        { text = "Refuse. Some lines shouldn't be crossed.", next = "BACK", reply = "Aye. I'll keep my own rotten fingers, thank you.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yberyl = {
+      lines = { { id = "yberyl_x", text = "She sends her students out to mend us, and they practise on the line. It's a fair bargain. A Deathguard gets stitched, and a young priest learns what a darkhound bite looks like from the inside." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yrelief = {
+      lines = { { id = "yrelief_x", text = "Every third night, a Deathguard called Dillinger comes up from Brill and takes the post. He talks to the hounds. I don't ask what they say back." } },
+      choices = {
+        { text = "Where do the Scarlet scouts come from?", next = "yscarlet" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yscarlet = {
+      lines = { { id = "yscarlet_x", text = "Their scouts come from the tower to the north, the Scarlet Watch Post. They count our guards. I count their scouts. One day we'll both run out of numbers." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Deathguard Kel. I keep the ground north of the cemetery clear, so the hounds and the Scarlet scouts don't come wandering in among the headstones while decent folk are trying to rise." } },
+      lines = {
+        { id = "h_default", text = "Deathguard Kel. I keep the ground north of the cemetery clear, so the hounds and the Scarlet scouts don't come wandering in among the headstones while decent folk are trying to rise." },
+        { id = "yh_priest", when = { class = "PRIEST" }, text = "Deathguard Kel. A priest, at last. I keep the ground north of the cemetery clear, so the hounds and the Scarlet scouts don't wander in among the headstones. If you've a mending in you, I'll hold still for it." },
+      },
       again = {
         { id = "h_again", text = "What else? I've a field to watch." },
         { id = "h_again2", text = "Speak up, then." },
@@ -328,6 +554,9 @@ P:NPC {
         { text = "You look wounded.", next = "wounds" },
         { text = "What comes at you out here?", next = "threats" },
         { text = "Why not fall back to Brill?", next = "fallback" },
+        { text = "Who were you in life?", next = "ylife" },
+        { text = "What do you think of Dark Cleric Beryl?", next = "yberyl" },
+        { text = "Does anyone come to relieve you?", next = "yrelief" },
         { text = "Hold fast, Deathguard.", next = "END" },
       },
     },
@@ -352,6 +581,8 @@ P:NPC {
     },
   },
   topics = {
+    dark_cleric_beryl = { { id = "ytp_beryl", text = "Beryl sends her students to mend us. Most of them are getting better at it." } },
+    brill_cemetery = { { id = "ytp_cem", text = "The cemetery's safe because I stand out here. That's the whole of the job." } },
     background = { { id = "tp_bg", text = "Deathguard of Brill, posted north of the graves. There's not much more to me than the post." } },
     _none = { { id = "tp_none", text = "I wouldn't know. I watch a field, and the field doesn't gossip." } },
   },
@@ -377,8 +608,41 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yhouse = {
+      lines = { { id = "yhouse_x", text = "Lord Ebonwood's, near Lordamere Lake. I was his wife, not his housekeeper, though the servants would have said there was little difference. I kept forty rooms in order and a husband who never noticed." } },
+      choices = {
+        { text = "What became of Lord Ebonwood?", next = "ylord" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylord = {
+      lines = { { id = "ylord_x", text = "He fled south with the silver and the horses, and left me with the sick servants. I nursed them until I caught it too. I hear he lives in Stormwind now and tells everyone I died bravely. I did, rather." } },
+      choices = {
+        { text = "Find him. He owes you an answer.", next = "BACK", reply = "Oh, I intend to, one day. I'll wear my best gown and what's left of my face.", fx = { align = { honor = 1 } } },
+        { text = "Forget him. Revenge is a waste of eternity.", next = "BACK", reply = "Perhaps. Though eternity is rather long, and I've nothing else to fill it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yleft = {
+      lines = { { id = "yleft_x", text = "My maid, Corinne, rose with me. She doesn't remember serving me. She calls me Maquell and borrows my combs, and I haven't the heart to correct her." } },
+      choices = {
+        { text = "How do you judge the newly risen?", next = "yrisen" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ychange = {
+      lines = { { id = "ychange_x", text = "Everything. The newly risen sleep in the open, the crypt is filthy, and no one's swept the chapel steps since the plague. Give me a broom and three Deathguard, and I'd have it fit for the Dark Lady in a week." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yrisen = {
+      lines = { { id = "yrisen_x", text = "I sort them as they pass, by habit. That one's a farmhand, that one was a clerk, that one never worked a day in her life. It's the only household I have left to run." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Maquell Ebonwood. I woke on this hill some while ago and have stayed, because somebody ought to tell these poor creatures to brush the grave dirt off before they present themselves to an Executor." } },
+      lines = {
+        { id = "h_default", text = "Maquell Ebonwood. I woke on this hill some while ago and have stayed, because somebody ought to tell these poor creatures to brush the grave dirt off before they present themselves to an Executor." },
+        { id = "yh_troll", when = { race = "Troll" }, text = "A troll, in Deathknell. Stand up straight, at least. One may be dead and still keep a decent posture." },
+      },
       again = {
         { id = "h_again", text = "Yes? What else?" },
         { id = "h_again2", text = "Go on, I'm listening, after a fashion." },
@@ -387,6 +651,9 @@ P:NPC {
         { text = "Why stay in Deathknell?", next = "stay" },
         { text = "What do you make of the newly risen?", next = "risen" },
         { text = "You sound as though you miss your old life.", next = "miss" },
+        { text = "Whose household did you run?", next = "yhouse" },
+        { text = "Do you have anyone left?", next = "yleft" },
+        { text = "What would you change about Deathknell?", next = "ychange" },
         { text = "Good day, madam.", next = "END" },
       },
     },
@@ -411,6 +678,8 @@ P:NPC {
     },
   },
   topics = {
+    lordamere = { { id = "ytp_lord", text = "Our house stood by Lordamere Lake. I'm told it's a ruin now, which suits it." } },
+    stormwind = { { id = "ytp_sw", text = "My husband lives in Stormwind. I don't, which I find gives me the advantage." } },
     background = { { id = "tp_bg", text = "I kept a respectable house in Tirisfal once. The plague had no respect for it." } },
     _none = { { id = "tp_none", text = "I'm sure I don't know, and I'm sure it's none of my concern." } },
   },
@@ -587,8 +856,41 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "What did I do? What does any man do? I kept the toll at the Brill bridge, and I learned to tell a liar by his boots. Muddy heels meant he'd come the back way, and the back way meant he had a reason." } },
+      choices = {
+        { text = "Is the bridge still there?", next = "ybridge" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yheard = {
+      lines = { { id = "yheard_x", text = "Heard? That the apothecaries in Brill are paying for rats. Live ones. Why would anyone want live rats? And why pay so well? I've stopped asking aloud." } },
+      choices = {
+        { text = "Should someone tell the Executor?", next = "yexec" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yexec = {
+      lines = { { id = "yexec_x", text = "Tell Zygand? He'd thank me, or the apothecaries would thank me differently. Would you go to the Executor, or keep your own counsel?" } },
+      choices = {
+        { text = "Tell him. The town should know.", next = "BACK", reply = "Bold. I'll let you go first, and I'll watch what happens to you.", fx = { align = { order = 1 } } },
+        { text = "Keep quiet. Information's worth more hidden.", next = "BACK", reply = "Now you're thinking like me. Shall we keep counsel together?", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywho = {
+      lines = { { id = "ywho_x", text = "Can't be trusted? Who can? The innkeeper waters the cider, the Deathguard sleep on watch, and the apothecaries smile too much. Of the lot, I trust the bats over the graveyard. At least they're honest about wanting blood." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ybridge = {
+      lines = { { id = "ybridge_x", text = "The bridge? It's still there, isn't it? Nobody collects the toll. I stand by it some nights, out of habit, and wonder who'd pay." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Ratslin Maime, and that's a name I give out sparingly. I keep my ears open in Brill, which is easy work, since a town full of the dead has very little to do except talk." } },
+      lines = {
+        { id = "h_default", text = "Ratslin Maime, and that's a name I give out sparingly. I keep my ears open in Brill, which is easy work, since a town full of the dead has very little to do except talk." },
+        { id = "yh_rogue", when = { class = "ROGUE" }, text = "A rogue. You stepped over the loose board by the door. Who told you about it? Nobody? Then you're better than most." },
+      },
       again = {
         { id = "h_again", text = "What else are you fishing for?" },
         { id = "h_again2", text = "Ask it quietly, whatever it is." },
@@ -597,6 +899,9 @@ P:NPC {
         { text = "What does a town of the dead talk about?", next = "talk" },
         { text = "Who are you listening for?", next = "listen" },
         { text = "You don't trust anyone, do you?", next = "trust" },
+        { text = "What did you do before?", next = "ylife" },
+        { text = "What have you heard lately?", next = "yheard" },
+        { text = "Who in Brill can't be trusted?", next = "ywho" },
         { text = "I'll leave you to your listening.", next = "END" },
       },
     },
@@ -621,6 +926,8 @@ P:NPC {
     },
   },
   topics = {
+    executor_zygand = { { id = "ytp_zyg", text = "Zygand runs Brill. Who runs Zygand? That's the better question." } },
+    brill_bridge = { { id = "ytp_bridge", text = "I kept the toll on the bridge. Do you know how many lies cross a bridge in a year?" } },
     background = { { id = "tp_bg", text = "I made my living on other people's secrets when I breathed, and I've seen no cause to learn a new trade." } },
     _none = { { id = "tp_none", text = "If I knew, I'd want to know why you were asking." } },
   },

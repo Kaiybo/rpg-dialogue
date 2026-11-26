@@ -115,6 +115,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yworst = {
+      lines = {
+        { id = "ybblanethergardeofficer1", text = "A patrol of six that went south toward the Tainted Scar and came back as one, raving about demons and fire. The mages took him away, and I never saw him again. I put his name in my report, and nothing else." },
+        { id = "ybblanethergardeofficer2", when = { class = "WARLOCK" }, text = "You'll know what's down there better than I do, I expect. I'd rather you didn't tell me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfrom = {
+      lines = {
+        { id = "yblanethergardeofficer1", text = "Lakeshire, in Redridge. My father was a fisherman on the lake, and I joined the army to get away from the smell of fish. Now I'm in a wasteland that smells of brimstone, and I'd give a year's pay for that fish smell." },
+        { id = "yblanethergardeofficer2", when = { race = "Human" }, text = "You'll know Redridge, perhaps. The lake's the prettiest thing in the kingdom, when the orcs aren't burning it." },
+      },
+      choices = {
+        { text = "Will you go back?", next = "yback" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yback = {
+      lines = {
+        { id = "yblanethergardeofficer3", text = "When Stormwind relieves us. Which they promise every season, and never do. I've written to the Marshal three times. I'll write a fourth." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I command a watch on the walls of Nethergarde, and I keep the soldiers awake, armed and sober, which out here is three separate battles. The Keep stands because we never stop standing." } },
       again = { { id = "h_again", text = "Go on. Briefly." } },
@@ -126,6 +153,8 @@ P:NPC {
         { text = "Do you trust the Kirin Tor mages?", next = "xmages" },
         { text = "What do you think of the Horde in Stonard?", next = "xstonard" },
         { text = "I'm a warrior. Need another sword on the wall?", next = "BACK", when = { class = "WARRIOR" }, reply = "Always. Report to the barracks, and tell them I sent you. You'll stand the night watch, which is the honest test." },
+        { text = "Where are you from?", next = "yfrom" },
+        { text = "What's the worst thing you've seen here?", next = "yworst" },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -172,6 +201,7 @@ P:NPC {
     },
   },
   topics = {
+    lakeshire = { { id = "yblanethergardeofficer4", text = "Home. My father fishes the lake still, I hope." } },
     kirin_tor = { { id = "tp_xkirin_tor", text = "Clever folk who think soldiers are furniture." } },
     dark_portal = { { id = "tp_xdark_portal", text = "Dead and broken. I'll keep watching it anyway." } },
     background = { { id = "tp_bg", text = "I'm an officer of Stormwind's army, posted to Nethergarde, and I intend to bring every one of my soldiers home." } },
@@ -385,6 +415,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yogres = {
+      lines = {
+        { id = "ybblanethergardeminer1", text = "Twice this season. The Dreadmaul come down from the hills for the ore carts, and the guards drive them off. Last time an ogre picked up a cart with a miner still in it. We got him back, mostly." },
+        { id = "ybblanethergardeminer2", when = { race = "Dwarf" }, text = "Your kin would know how to deal with ogres, I'd wager. Ironforge ought to send us a few riflemen." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfamily = {
+      lines = {
+        { id = "yblanethergardeminer1", text = "Mary bakes at the Goldshire inn, and Tom is seven, and he wants to be a miner like his da. I tell him no, be a baker like your mum, it's warmer. He'll do what he likes, I expect, same as I did." },
+        { id = "yblanethergardeminer2", when = { class = { "PRIEST", "PALADIN" } }, text = "If you pass through Goldshire, would you say a prayer for them? I'd be grateful." },
+      },
+      choices = {
+        { text = "Do you plan to go home?", next = "yhome" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhome = {
+      lines = {
+        { id = "yblanethergardeminer3", text = "When my contract ends, next spring. Unless the Keep asks me to stay, and pays double. Mary says come home. The foreman says the Keep needs every pick. I don't know." },
+      },
+      choices = {
+        { text = "Stay. The Keep needs your iron.", next = "BACK", reply = "Aye. The money would help, at least.", fx = { align = { order = 1 } } },
+        { text = "Go home. Family matters more.", next = "BACK", reply = "You're right. I'll tell the foreman in spring.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I dig iron and coal for the Keep, same as every day, and I'll dig tomorrow too unless an ogre gets me first. It's honest work, if you don't count the red dust that gets into your lungs." } },
       again = { { id = "h_again", text = "Something else? Take your time, please." } },
@@ -396,6 +455,8 @@ P:NPC {
         { text = "What do you do when you're not digging?", next = "xoff" },
         { text = "Are the green crystals dangerous?", next = "xcrystal" },
         { text = "I'm a dwarf. I'd dig with you any day.", next = "BACK", when = { race = "Dwarf" }, reply = "Ha! Then grab a pick, friend. Dwarves always seem to find the good seam first, and I'd like to learn how." },
+        { text = "Tell me about your wife and son.", next = "yfamily" },
+        { text = "Do the ogres bother the mine?", next = "yogres" },
         { text = "Back to work with you.", next = "END" },
       },
     },
@@ -442,6 +503,7 @@ P:NPC {
     },
   },
   topics = {
+    mary = { { id = "yblanethergardeminer4", text = "My wife, in Goldshire. She bakes the best bread in Elwynn." } },
     goldshire = { { id = "tp_xgoldshire", text = "Home. I miss the smell of the bakery more than anything." } },
     defias = { { id = "tp_xdefias", text = "They took my old mine. I'll not forgive them for it." } },
     background = { { id = "tp_bg", text = "I'm a Stormwind miner, far from home, digging for the Keep." } },
@@ -468,6 +530,35 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yworst = {
+      lines = {
+        { id = "ybblanethergardeengineer1", text = "The main gate winch, the night the Dreadmaul came. It jammed halfway, and I had to climb inside with a hammer while the soldiers held the ogres off. I fixed it in four minutes. My hands didn't stop shaking for two days." },
+        { id = "ybblanethergardeengineer2", when = { class = { "WARRIOR", "PALADIN" } }, text = "You'd have been on the other side of that gate, holding the line. Thank you for that, whoever you were." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytrain = {
+      lines = {
+        { id = "yblanethergardeengineer1", text = "At the Gnomeregan Academy of Applied Pressure, top of my class in boilers and second in valves. The fellow who beat me in valves is somewhere in Gnomeregan still, I think. I hope he's well, whatever he's become." },
+        { id = "yblanethergardeengineer2", when = { race = "Gnome" }, text = "You'll have known the Academy, perhaps. The cafeteria had the best sprocket stew anywhere." },
+      },
+      choices = {
+        { text = "Will you go back?", next = "yback" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yback = {
+      lines = {
+        { id = "yblanethergardeengineer3", text = "When the King calls, aye. Mekkatorque says we'll retake the city. Some say we should rebuild elsewhere and leave Gnomeregan to the troggs. I'd rather go home, radiation and all." },
+      },
+      choices = {
+        { text = "Follow the King. Gnomeregan will be retaken.", next = "BACK", reply = "That's the spirit! I'll bring my best wrench.", fx = { align = { order = 1 } } },
+        { text = "Build anew. The past is poisoned.", next = "BACK", reply = "Hmph. Perhaps. But I'd miss the old pipes.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "We keep the drills turning in the mines and the machines running in the armoury. The keep needs ore for weapons, and weapons for whatever comes out of the Dark Portal." } },
       again = { { id = "h_again", text = "Anything else? This valve won't tighten itself." } },
@@ -478,6 +569,8 @@ P:NPC {
         { text = "Do the soldiers appreciate your work?", next = "xsoldiers" },
         { text = "What would you build, if funds allowed?", next = "xdream" },
         { text = "Dwarves and gnomes, building together again?", next = "BACK", when = { race = "Dwarf" }, reply = "Always, friend! Your lot bring the stubbornness and we bring the springs. The walls stay up, so somebody's doing something right." },
+        { text = "Where did you train?", next = "ytrain" },
+        { text = "What's the worst thing that's broken here?", next = "yworst" },
         { text = "Good luck with the boiler.", next = "END" },
       },
     },
@@ -535,6 +628,7 @@ P:NPC {
     },
   },
   topics = {
+    mekkatorque = { { id = "yblanethergardeengineer4", text = "High Tinker Mekkatorque. He'll lead us home." } },
     gnomeregan = { { id = "tp_xgnomeregan", text = "Home. We'll get it back. I've a wrench with the trogg king's name on it." } },
     dark_portal = { { id = "tp_xdark_portal", text = "A broken gate. I check the readings twice a day all the same." } },
     _none = { { id = "tp_none", text = "Not my field, I'm afraid. Try one of the advisors." } },

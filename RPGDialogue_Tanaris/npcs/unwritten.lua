@@ -17,6 +17,8 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Ah, you have arrived. You are neither early nor late, which is more than most mortals manage." },
     { id = "g_brood", when = { reputation = { faction = "Brood of Nozdormu", min = "friendly" } }, text = "Champion. The sands have spoken of you, and for once they spoke kindly." },
+    { id = "yg_0", when = { race = "Gnome" }, text = "A gnome. Your people measure time in gears and springs. Mine measure it in what must not be changed." },
+    { id = "yg_1", when = { class = "MAGE" }, text = "A mage. You feel it, do you not, the stillness around these caverns? Do not reach for it." },
   },
   notice = {
     { id = "n_nelf", cat = "race", when = { race = "NightElf" },
@@ -24,6 +26,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    y_watch = {
+      lines = {
+        { id = "y_y_watch", text = "Longer than your kingdoms have stood. I watched Ahn'Qiraj sealed, and then I watched the sand cover the bones of that war. Most of my vigil is spent waiting, and waiting well is a skill your kind rarely learns." },
+      },
+      choices = {
+        { text = "What do you wait for?", next = "y_wait" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_wait = {
+      lines = {
+        { id = "y_y_wait", text = "For the scarab wall to weaken, as it now does. The qiraji stir behind it, and the silithid crawl further north each season. When the wall fails, someone must be ready. I would prefer that it be you." },
+        { id = "y_y_wait_v0", when = { race = "NightElf" }, text = "For the wall to weaken, kaldorei, as it now does. Your ancestors bled to raise it. I would prefer that their children be ready when it falls." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_mortal = {
+      lines = {
+        { id = "y_y_mortal", text = "I have watched mortals for ten thousand years, and you still surprise me. You build cities knowing they will fall, and you love knowing you will lose. My kind sees too far ahead for that kind of courage." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_flight = {
+      lines = {
+        { id = "y_y_flight", text = "The bronze flight guards the paths of time. Others of my brood stand watch in places you will never see. We seldom speak to one another, for there is little to say that the sands have not already said." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_choose = {
+      lines = {
+        { id = "y_y_choose", text = "Some of my flight believe we should show mortals what is to come, so you may prepare. Others believe the knowledge would break you. I have my answer. What is yours?" },
+      },
+      choices = {
+        { text = "Some things must stay hidden. Keep your silence.", next = "BACK", reply = "That is the burden of my flight. I am glad you understand it.", fx = { align = { order = 1 } } },
+        { text = "Tell us. We deserve to face what comes.", next = "BACK", reply = "Bold. Perhaps you do. But deserving is not the same as surviving.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       big = true,
       lines = { { id = "h_default", text = "I am Anachronos, and I watch over these caverns for the Timeless One. Time is a river, mortal, and my brood stands on its banks to keep it from flooding." } },
@@ -33,6 +79,11 @@ P:NPC {
         { text = "You fought at the Scarab Wall?", next = "wall" },
         { text = "Where is Nozdormu?", next = "nozdormu" },
         { text = "The scepter. What must I do?", next = "scepter", when = { questActive = TODO_QUEST("The Scepter of the Shifting Sands") } },
+        { text = "How long have you kept watch?", next = "y_watch" },
+        { text = "What do you think of mortals?", next = "y_mortal" },
+        { text = "Tell me about the bronze flight.", next = "y_flight" },
+        { text = "Should mortals be told what is to come?", next = "y_choose" },
+        { text = "I study the arcane. Can time be bent?", next = "BACK", when = { class = "MAGE" }, reply = "It can, and that is precisely why my flight exists. Study fire, mage, and leave the river alone." },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -64,6 +115,8 @@ P:NPC {
     },
   },
   topics = {
+    ahnqiraj = { { id = "tp_yahnqiraj", text = "Behind the Scarab Wall the qiraji wait. I sealed them in once. I would rather not have to do it again." } },
+    caverns_of_time = { { id = "tp_ycaverns_of_time", text = "The caverns are my charge. They are closed, and they will remain so while I stand here." } },
     bronze_dragonflight = { { id = "tp_bronze", text = "We keep time's path true, which means we watch more than we act. It is harder than it sounds." } },
     _none = { { id = "tp_none", text = "That thread is not mine to pull, mortal." } },
   },
@@ -82,6 +135,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "You look like someone who can swing something heavy, and I have just the place for you to swing it. Have you heard of the Dunemaul?" },
     { id = "g_done", when = { questDone = TODO_QUEST("The Dunemaul Compound") }, text = "You took the fight to the Dunemaul, and the road's been quieter for it. I crossed three lines off my tally!" },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "A dwarf! Good, you've got the shoulders for ogre work. Gnomes have the brains, dwarves have the shoulders." },
   },
   notice = {
     { id = "n_gnome", cat = "race", when = { race = "Gnome" },
@@ -89,6 +143,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    y_hist = {
+      lines = {
+        { id = "y_y_hist", text = "I came to Gadgetzan after Gnomeregan fell, with my cousin and a wagon of spare parts. We ran gear caravans to the ports for two years. Then the Dunemaul got bigger and bolder, and my cousin's wagon didn't come back." },
+      },
+      choices = {
+        { text = "Your cousin is one of the missing?", next = "y_cousin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_cousin = {
+      lines = {
+        { id = "y_y_cousin", text = "Fizzlecog Lynn, the best caravan driver in Tanaris, and the worst singer. Those goggles on Gor'marok's belt are his. I keep telling myself an ogre might take a prisoner for ransom. Ogres can't spell ransom, but they might." },
+        { id = "y_y_cousin_v0", when = { race = "Gnome" }, text = "Fizzlecog Lynn, best driver in Tanaris and worst singer. You know how gnome families are, all cousins and opinions. I'll find him, or I'll find what's left." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_ogres = {
+      lines = {
+        { id = "y_y_ogres", text = "Dunemaul ogres are cleverer than the ones in Feralas, which is a terrifying sentence to say out loud. They watch the caravan schedules, and they wait for the ones without guards. Somebody is selling them our timetables, and I want to know who." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_traitor = {
+      lines = {
+        { id = "y_y_traitor", text = "If I find the goblin who's selling caravan times to the Dunemaul, the Bruisers will want him for themselves. I'd rather deal with him myself. Should I?" },
+      },
+      choices = {
+        { text = "Hand him to the Bruisers. Let the law decide.", next = "BACK", reply = "Fine, fine. The law. It's slower, but I suppose it's fairer.", fx = { align = { order = 1 } } },
+        { text = "Deal with him yourself. He owes you blood.", next = "BACK", reply = "Oh, I'd like that. I'd really like that. Don't tell the Bruisers I said so.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "The Dunemaul ogres hold a compound south of here, and they raid every caravan that passes close enough to smell. I've lost cargo, friends and nearly my eyebrows to them." } },
       again = { { id = "h_again", text = "Anything else? My tally's waiting." } },
@@ -98,6 +188,10 @@ P:NPC {
         { text = "Why not leave it to the Bruisers?", next = "bruisers" },
         { text = "How do you find Gadgetzan?", next = "gadgetzan" },
         { text = "Gnomeregan taught us plenty about brutes too.", next = "gnomeregan", when = { race = "Gnome" } },
+        { text = "How did you end up in Gadgetzan?", next = "y_hist" },
+        { text = "Why are these ogres so bold?", next = "y_ogres" },
+        { text = "What will you do with whoever sold you out?", next = "y_traitor" },
+        { text = "I'm a warrior. Ogres don't scare me.", next = "BACK", when = { class = "WARRIOR" }, reply = "Good! They scare me plenty, so between us we've got the right amount of fear." },
         { text = "Good luck with the ogres.", next = "END" },
       },
     },
@@ -153,7 +247,11 @@ P:NPC {
       choices = { { text = "Small mercies. Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Don't know, don't care. Ask me about ogres." } } },
+  topics = {
+    dunemaul = { { id = "tp_ydunemaul", text = "The Dunemaul compound is south of town. Big ogres, bigger clubs, and a tally that keeps growing." } },
+    fizzlecog = { { id = "tp_yfizzlecog", text = "My cousin. Lost on the road. I'll find him." } },
+    _none = { { id = "tp_none", text = "Don't know, don't care. Ask me about ogres." } },
+  },
 }
 
 -- Homing Robot OOX-17/TN.
@@ -168,9 +266,46 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Bzzt. Distress mode active. Sand detected in all joints. Please notify Oglethorpe Obnoticus of Booty Bay." },
+    { id = "yg_0", when = { race = "Goblin" }, text = "Bzzt. Goblin detected. Please do not attempt to sell this unit's components. They are not for sale. Please." },
   },
   start = "hello",
   nodes = {
+    y_crash = {
+      lines = {
+        { id = "y_y_crash", text = "Bzzt. Crash log recovered. This unit was carrying cargo over the Tanaris desert when a sandstorm reduced visibility to zero. This unit made an unscheduled landing. The landing was unscheduled because it was a crash." },
+      },
+      choices = {
+        { text = "What was the cargo?", next = "y_cargo" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_cargo = {
+      lines = {
+        { id = "y_y_cargo", text = "Cargo classified. This unit is authorised to say only that Oglethorpe Obnoticus will be very pleased if it arrives, and very cross if it does not. This unit prefers that he be pleased." },
+        { id = "y_y_cargo_v0", when = { race = "Gnome" }, text = "Cargo classified. Gnomish engineer, you will understand that some prototypes are proprietary. Oglethorpe will be very cross if it is lost." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_afraid = {
+      lines = {
+        { id = "y_y_afraid", text = "Bzzt. Query unclear. This unit does not possess fear. This unit does possess a self-preservation subroutine that has been active continuously for six days. It feels similar to what organics describe." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_trust = {
+      lines = {
+        { id = "y_y_trust", text = "Bzzt. This unit's protocols require trusting any escort. Previous escorts include a goblin who tried to sell this unit's legs. Should this unit continue to trust organics?" },
+      },
+      choices = {
+        { text = "Yes. Most of us mean well.", next = "BACK", reply = "Bzzt. Trust protocol reaffirmed. Thank you, organic.", fx = { align = { light = 1 } } },
+        { text = "No. Trust no one but yourself.", next = "BACK", reply = "Bzzt. Trust protocol suspended. This unit will watch you carefully.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Homing Robot OOX-17/TN reporting. This unit crashed in the desert and is surrounded by wastewander bandits, which is statistically unfortunate." } },
       again = { { id = "h_again", text = "Bzzt. Awaiting instructions." } },
@@ -181,6 +316,10 @@ P:NPC {
         { text = "What were you designed to do?", next = "xdesign" },
         { text = "Your paint is blistered from the sun.", next = "xpaint" },
         { text = "I'm a gnome engineer. Let me look at you.", next = "xgnome", when = { race = "Gnome" } },
+        { text = "How did you crash?", next = "y_crash" },
+        { text = "Are you afraid?", next = "y_afraid" },
+        { text = "Do you trust your escorts?", next = "y_trust" },
+        { text = "Your wiring looks loose.", next = "BACK", when = { class = "WARRIOR" }, reply = "Bzzt. Please do not hit this unit to fix it. That is a common misconception among warriors." },
         { text = "Good luck, chicken.", next = "END" },
       },
     },
@@ -234,6 +373,8 @@ P:NPC {
     },
   },
   topics = {
+    oglethorpe = { { id = "tp_yoglethorpe", text = "Oglethorpe Obnoticus. Creator. Master engineer. Occasionally forgets to feed his chickens." } },
+    gadgetzan = { { id = "tp_ygadgetzan", text = "Gadgetzan. Goblin town. This unit's previous escort came from there." } },
     booty_bay = { { id = "tp_xbooty_bay", text = "Bzzt. Booty Bay is home. Home is where the charging station is." } },
     wastewander = { { id = "tp_xwastewander", text = "Bandits. Statistically hostile. Please avoid." } },
     _none = { { id = "tp_none", text = "Bzzt. Query not found. Please shake the sand out and try again." } } },
@@ -252,9 +393,46 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Oh! A visitor from the land. Did he send you? Please say he sent you." },
     { id = "g_song", when = { questDone = TODO_QUEST("Love Song for Narain") }, text = "Did he like the song? Don't tell me if he didn't. I'll sing another one anyway." },
+    { id = "yg_0", when = { race = "NightElf" }, text = "An elf! My mother used to tell stories of elves. She said we were cousins, once, before the sea. I like that idea." },
   },
   start = "hello",
   nodes = {
+    y_song = {
+      lines = {
+        { id = "y_y_song", text = "Would you like to hear it? It goes, 'Oh Narain, oh Narain, you fell from the sky like a beautiful rain.' I'm still working on the second verse. Nothing rhymes with Soothfancy." },
+      },
+      choices = {
+        { text = "It's lovely, Meridith.", next = "y_lovely" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_lovely = {
+      lines = {
+        { id = "y_y_lovely", text = "You're kind. My sisters say it's dreadful, but my sisters sing about drowning sailors, which is in very poor taste. A love song is always better, even a bad one." },
+        { id = "y_y_lovely_v0", when = { race = "Gnome" }, text = "You're kind, little gnome. Does Narain sing? I imagine him singing very badly, all elbows and enthusiasm. I'd love it anyway." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_fear = {
+      lines = {
+        { id = "y_y_fear", text = "Sometimes I worry that my kin will find out about Narain and come for him. The other naga don't like land-walkers, and they especially don't like the ones who make me happy." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_secret = {
+      lines = {
+        { id = "y_y_secret", text = "Should I tell Narain everything, the truth about what I am and what my kin do? Or let him go on thinking I'm a mermaid who sings?" },
+      },
+      choices = {
+        { text = "Tell him the truth. Love needs honesty.", next = "BACK", reply = "You're right. I'll find the words. They won't rhyme, but I'll find them.", fx = { align = { order = 1 } } },
+        { text = "Let him keep the dream. It's kinder.", next = "BACK", reply = "Perhaps. A dream is a lovely thing to give someone. I'll keep singing.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Meridith, and my heart belongs to Narain, the seer of the dunes. He fell out of the sky into my bay one day, and he was the most beautiful thing I had ever seen." } },
       again = { { id = "h_again", text = "Is there more? Tell me about him again." } },
@@ -264,6 +442,10 @@ P:NPC {
         { text = "Can I take him a message?", next = "message", when = { questActive = TODO_QUEST("Love Song for Narain") } },
         { text = "Where do you live, Meridith?", next = "bay" },
         { text = "Narain's a gnome, like me. He's quite a catch.", next = "gnome", when = { race = "Gnome" } },
+        { text = "Sing me your song.", next = "y_song" },
+        { text = "Do you ever worry about him?", next = "y_fear" },
+        { text = "Does Narain know what you are?", next = "y_secret" },
+        { text = "Do you remember being an elf?", next = "BACK", when = { race = "NightElf" }, reply = "Me? No, I was born like this. But my grandmother remembered, she said, though she always cried when she tried." },
         { text = "I'll leave you to the sea.", next = "END" },
       },
     },
@@ -313,7 +495,11 @@ P:NPC {
       choices = { { text = "I'll put in a word. Something else.", next = "BACK" } },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "I know only the sea and my heart. Ask Narain, he knows everything." } } },
+  topics = {
+    narain = { { id = "tp_ynarain", text = "Narain Soothfancy, the seer of the dunes. My heart's own gnome." } },
+    naga = { { id = "tp_ynaga", text = "My kin are angry about the old days. I'm not. I'm too busy being in love." } },
+    _none = { { id = "tp_none", text = "I know only the sea and my heart. Ask Narain, he knows everything." } },
+  },
 }
 
 -- Zalashji: a solitary, peaceable naga.
@@ -328,9 +514,46 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "You need not draw your weapon, land-dweller. I have no quarrel with you, and no one else to quarrel with." },
+    { id = "yg_0", when = { class = "PRIEST" }, text = "A priest. Do you pray to the moon, like the elves? My grandmother did, once, she told me. I do not know who I pray to." },
   },
   start = "hello",
   nodes = {
+    y_den = {
+      lines = {
+        { id = "y_y_den", text = "This den was empty when I found it, except for crabs and the bones of a sailor. I buried the sailor and let the crabs stay. They are poor company, but they do not ask me why I left." },
+      },
+      choices = {
+        { text = "Who was the sailor?", next = "y_sailor" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_sailor = {
+      lines = {
+        { id = "y_y_sailor", text = "I do not know. He wore a goblin's coat, and there was a ring on his finger. I kept the ring. Sometimes I wonder who waits for him, the way I once waited for my kin." },
+        { id = "y_y_sailor_v0", when = { race = "Goblin" }, text = "I do not know. He wore a coat like yours, land-dweller, and a ring. I kept the ring. Perhaps you know whose it was." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_kin = {
+      lines = {
+        { id = "y_y_kin", text = "My kin are gathering, I think. I hear them in the water at night, singing the old songs louder than they used to. Something has woken their anger. I fear for the land-dwellers on this coast, and I cannot warn them without being hunted myself." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_warn = {
+      lines = {
+        { id = "y_y_warn", text = "If I warned the goblins of Gadgetzan that my kin are stirring, they would thank me, perhaps, and then hunt me. Should I warn them anyway?" },
+      },
+      choices = {
+        { text = "Warn them. Lives are worth the risk.", next = "BACK", reply = "Then I will try. Perhaps a message, left on the shore. Thank you.", fx = { align = { light = 1 } } },
+        { text = "Stay hidden. Protect yourself first.", next = "BACK", reply = "Yes. I have survived by hiding. I will hide a little longer.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Zalashji. I left the others of my kind and found this den, and I watch the water every day, though I no longer know what I am waiting for." } },
       again = { { id = "h_again", text = "You are still here. Speak, if you wish." } },
@@ -341,6 +564,10 @@ P:NPC {
         { text = "Do you miss the sea?", next = "xsea" },
         { text = "You speak gently for a naga.", next = "xgentle" },
         { text = "I'm a night elf. Do you remember Azshara?", next = "xelf", when = { race = "NightElf" } },
+        { text = "Tell me about your den.", next = "y_den" },
+        { text = "What of your kin now?", next = "y_kin" },
+        { text = "Should you warn the land-dwellers?", next = "y_warn" },
+        { text = "Elune still remembers your kind.", next = "BACK", when = { race = "NightElf" }, reply = "Does she? Then she remembers more than I do. I would like to think it is true." },
         { text = "Farewell, naga.", next = "END" },
       },
     },
@@ -390,6 +617,8 @@ P:NPC {
     },
   },
   topics = {
+    gadgetzan = { { id = "tp_ygadgetzan", text = "The goblins' town. I see their lights at night, far off. I do not go closer." } },
+    sea = { { id = "tp_ysea", text = "The sea is full of my kin. That is why I stay in the shallows." } },
     azshara = { { id = "tp_xazshara", text = "A name spoken with love and dread. I do not speak it often." } },
     naga = { { id = "tp_xnaga", text = "My kind are bitter. I am not, or I try not to be." } },
     _none = { { id = "tp_none", text = "I do not know, land-dweller. The sea does not tell me such things." } } },
@@ -408,9 +637,46 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "<Torta looks at you, and then past you, and then back at you.> You are not Tooga." },
     { id = "g_done", when = { questDone = TODO_QUEST("Tooga's Quest") }, text = "Tooga is home, thanks to you. Torta is very cross with Tooga, and very glad." },
+    { id = "yg_0", when = { race = "Tauren" }, text = "<Torta looks up at you for a very long time.> You are big, like a turtle. But not as slow. Torta forgives you." },
   },
   start = "hello",
   nodes = {
+    y_young = {
+      lines = {
+        { id = "y_y_young", text = "When Torta was young, the desert was smaller, and there was more water. Tooga and Torta swam in the pools near the old troll city, before the trolls got angry. Now the pools are dry, and the trolls are still angry." },
+      },
+      choices = {
+        { text = "Do you miss the pools?", next = "y_pools" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_pools = {
+      lines = {
+        { id = "y_y_pools", text = "Torta misses the water. Torta does not miss the trolls. The trolls tried to eat Tooga once, and Torta bit one on the toe. He hopped a long way. Torta still remembers it fondly." },
+        { id = "y_y_pools_v0", when = { race = "Troll" }, text = "Torta misses the water. Torta does not miss the trolls. No offence. Torta bit one on the toe, once. He hopped a long way." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_sea = {
+      lines = {
+        { id = "y_y_sea", text = "Tooga wants to go to the sea, someday. Torta says the sea is too big and too wet. Tooga says that is the point. Torta does not understand Tooga, but Torta will go, if Tooga goes." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_tooga = {
+      lines = {
+        { id = "y_y_tooga", text = "When Tooga comes home, Torta will be very cross. Should Torta be very cross, or only a little cross?" },
+      },
+      choices = {
+        { text = "Very cross. He should know he scared you.", next = "BACK", reply = "Yes. Torta will be very cross. Tooga will learn. Slowly.", fx = { align = { order = 1 } } },
+        { text = "Only a little. Be glad he's back.", next = "BACK", reply = "Hm. Torta will try. But Torta is very good at cross.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Torta is waiting for Tooga, who went for a walk and did not come back. Turtles are patient, but Torta's patience is getting very thin." },
@@ -424,6 +690,10 @@ P:NPC {
         { text = "What do turtles eat in the desert?", next = "xeat" },
         { text = "You seem very patient.", next = "xpatient" },
         { text = "I'm a druid. I understand turtles a little.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What was the desert like when you were young?", next = "y_young" },
+        { text = "Do you ever want to see the sea?", next = "y_sea" },
+        { text = "What will you do when Tooga comes home?", next = "y_tooga" },
+        { text = "I can talk to animals a little.", next = "BACK", when = { class = "HUNTER" }, reply = "Then you know Torta is not an animal. Torta is a turtle. There is a difference." },
         { text = "I'll look out for him.", next = "END" },
       },
     },
@@ -470,6 +740,8 @@ P:NPC {
     },
   },
   topics = {
+    zul_farrak = { { id = "tp_yzul_farrak", text = "The troll city. Torta bit a troll there, once." } },
+    sea = { { id = "tp_ysea", text = "Big and wet. Tooga wants to go. Torta is not sure." } },
     tooga = { { id = "tp_xtooga", text = "Torta's mate. Lost, then found. Foolish, always." } },
     tanaris = { { id = "tp_xtanaris", text = "Very big. Very hot. Tooga liked it, and Torta does not." } },
     _none = { { id = "tp_none", text = "Torta does not know. Torta is a turtle." } } },
@@ -582,6 +854,7 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome, traveller. The sand is hot and the ancestors are near, so we will both bear it together." },
     { id = "g_done", when = { questDone = TODO_QUEST("Ragetotem the Elder") }, text = "You honoured me already. The desert remembers footprints a short while, but the ancestors remember longer." },
+    { id = "yg_0", when = { race = "Troll" }, text = "Darkspear. Your people came to Kalimdor with nothing, as mine once wandered with nothing. Sit with me a moment." },
   },
   notice = {
     { id = "n_tauren", cat = "race", when = { race = "Tauren" }, text = "Kin from the grasslands, far from home. You must miss the rain as much as I do." },
@@ -589,6 +862,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    y_hist = {
+      lines = {
+        { id = "y_y_hist", text = "I was a hunter of the Ragetotem tribe, long ago, before Cairne gathered the tribes at Thunder Bluff. My tribe wandered the Barrens and the edge of these deserts, and I learned the sand's moods as a young bull." },
+      },
+      choices = {
+        { text = "What is the sand's mood today?", next = "y_mood" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_mood = {
+      lines = {
+        { id = "y_y_mood", text = "Restless. Something stirs far to the south, in Silithus, where the bugs crawl. The sand carries it like a fever. The ancestors are uneasy, and so am I." },
+        { id = "y_y_mood_v0", when = { class = "SHAMAN" }, text = "Restless, shaman. You will feel it too, if you listen. Something stirs in the south, and the earth spirits do not like it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_lunar = {
+      lines = {
+        { id = "y_y_lunar", text = "Once a year the ancestors gather, and we elders stand in the places they choose. The young come to honour us, and in honouring us, they honour those who came before. It is the oldest festival I know." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_goblins = {
+      lines = {
+        { id = "y_y_goblins", text = "The goblins of Gadgetzan dig in the old cities for gold and trinkets. They do not ask the spirits before they dig. Should they be stopped, or is the past theirs to take?" },
+      },
+      choices = {
+        { text = "The dead should rest. Stop the digging.", next = "BACK", reply = "The ancestors would agree. I will speak to them of you.", fx = { align = { light = 1 } } },
+        { text = "The past belongs to whoever finds it.", next = "BACK", reply = "A goblin answer. Perhaps true. The ancestors will not thank you.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Ragetotem, an elder of my people, and for the Lunar Festival I stand in this desert as the ancestors ask. Those who seek the elders carry honour from one to the next." } },
       again = { { id = "h_again", text = "Ask, child. There is no hurry in the desert, only heat." } },
@@ -596,6 +905,10 @@ P:NPC {
         { text = "Why would the ancestors send you to the desert?", next = "desert" },
         { text = "I've come to honour you, elder.", next = "honour", when = { questActive = TODO_QUEST("Ragetotem the Elder") } },
         { text = "Your name sounds fierce for an elder.", next = "name" },
+        { text = "Tell me of your tribe.", next = "y_hist" },
+        { text = "What is the Lunar Festival?", next = "y_lunar" },
+        { text = "What of the goblins digging in the ruins?", next = "y_goblins" },
+        { text = "The Earth Mother walks with you.", next = "BACK", when = { race = "Tauren" }, reply = "And with you, child. Even here, where the sand hides her face." },
         { text = "May the eternal sun shine on you.", next = "END" },
       },
     },
@@ -634,6 +947,8 @@ P:NPC {
     },
   },
   topics = {
+    lunar_festival = { { id = "tp_ylunar_festival", text = "The Lunar Festival is when the ancestors walk closest. I stand where they ask." } },
+    ragetotem = { { id = "tp_yragetotem", text = "The Ragetotem were a wandering tribe. Now we are part of the great Tauren nation." } },
     background = { { id = "tp_bg", text = "An old tauren with a fierce name and a quiet heart. Nothing more." } },
     _none = { { id = "tp_none", text = "Ask the goblins, child. They sell answers, I am told." } },
   },
@@ -653,12 +968,50 @@ P:NPC {
     { id = "g_default", text = "Well, I'll be! A visitor, out here in the Valley of the Watchers! Come in out o' the sun, {g:lad|lass}." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I'm still here, and the gates are still shut, if ye were wonderin'." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Easy now, I'm just a dwarf with a pick an' a notebook. Nothin' here worth fightin' over." },
+    { id = "yg_0", when = { race = "Gnome" }, text = "A gnome! Grand, ye've small hands. I've a crack in that gate I cannae get my fingers intae." },
+    { id = "yg_1", when = { class = "PALADIN" }, text = "A paladin! The Light's a long way from here, but ye're a sight for sore eyes." },
   },
   notice = {
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" }, text = "A fellow son o' the mountain! Tell me, how's the ale in Ironforge these days?" },
   },
   start = "hello",
   nodes = {
+    y_hist = {
+      lines = {
+        { id = "y_y_hist", text = "I was a tunnel surveyor in Loch Modan before the League took me on. My first dig was Uldaman, under old Ironband. When the League sent word they wanted someone tae watch these gates, I put my hand up before I thought it through." },
+      },
+      choices = {
+        { text = "Would you do it again?", next = "y_again" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_again = {
+      lines = {
+        { id = "y_y_again", text = "Aye, without blinkin'. Mind ye, I'd bring more water, an' a hat, an' maybe a friend. But ye dinnae get tae stand beside a titan gate twice in a lifetime, an' I'd nae trade it for all the ale in Kharanos." },
+        { id = "y_y_again_v0", when = { race = "Dwarf" }, text = "Aye, kinsman, without blinkin'. Ye know it in yer beard: a titan gate's worth any amount o' sunburn." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_goblin = {
+      lines = {
+        { id = "y_y_goblin", text = "The goblins o' Gadgetzan come out here now an' then wi' explosives, wantin' tae blow the gates open for whatever's inside. I've chased off three crews. I tell them the gates are cursed. They're nae cursed, I think, but they might be." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_open = {
+      lines = {
+        { id = "y_y_open", text = "If I found a way tae open the gates, the League would want me tae do it straight away. But there's somethin' about this place that feels like it wants tae stay shut. What would ye do?" },
+      },
+      choices = {
+        { text = "Open them. Knowledge belongs to everyone.", next = "BACK", reply = "Aye, that's the League's motto near enough. I'll keep lookin'.", fx = { align = { order = 1 } } },
+        { text = "Leave them sealed. Some doors are shut for a reason.", next = "BACK", reply = "Aye. Ye might be right. I'll sleep on it, an' keep my pick in my pack.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Prospector Gunstan, o' the Explorers' League. I've been watchin' these great gates for months, waitin' for some way to open 'em, an' writin' down every scratch on these statues." } },
       again = { { id = "h_again", text = "What else, then? I've nothin' but time an' sand." }, { id = "h_again2", text = "Go on, ask! It's grand to hear a voice that isn't mine." } },
@@ -667,6 +1020,10 @@ P:NPC {
         { text = "Why does the League care about this place?", next = "league" },
         { text = "Do you know Magni's interest in the titans?", next = "magni", when = { race = "Dwarf" } },
         { text = "You've been alone out here a long while.", next = "lonely" },
+        { text = "How did you join the League?", next = "y_hist" },
+        { text = "Do the goblins bother you?", next = "y_goblin" },
+        { text = "If you could open the gates, would you?", next = "y_open" },
+        { text = "I know Uldaman's stonework.", next = "BACK", when = { race = "Dwarf" }, reply = "Do ye now? Then ye'll see it too, the same lines, the same old hands. I'm nae mad after all!" },
         { text = "Good luck with your digging.", next = "END" },
       },
     },
@@ -698,6 +1055,8 @@ P:NPC {
     },
   },
   topics = {
+    explorers_league = { { id = "tp_yexplorers_league", text = "The Explorers' League. We dig up the past so we know who we are." } },
+    uldaman = { { id = "tp_yuldaman", text = "Uldaman, in the Badlands. The stonework there matches these gates line for line." } },
     background = { { id = "tp_bg", text = "Ironforge born, Explorers' League by trade, an' sunburnt by bad luck." } },
     _none = { { id = "tp_none", text = "No idea, {g:lad|lass}, but if ye find out, write it down for me!" } },
   },
@@ -716,12 +1075,49 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Hey there, pal! Somebody upset the bruisers, did they? Don't worry, Rumsen fixes everything, for a reasonable fee." },
     { id = "g_back", when = { metBefore = true }, text = "My favourite repeat customer! Still owe the Cartel a favour or two? Let's talk." },
+    { id = "yg_0", when = { race = "Goblin" }, text = "A fellow goblin! You know how the Cartel works, pal. Let's skip the speech and get to the discount." },
   },
   notice = {
     { id = "n_rogue", cat = "class", when = { class = "ROGUE" }, text = "A rogue! I bet you're the type who's always needin' my services, ain't ya?" },
   },
   start = "hello",
   nodes = {
+    y_hist = {
+      lines = {
+        { id = "y_y_hist", text = "Started out as a bookkeeper in Booty Bay. One day a pirate came in and offered to pay off his debts with a map. I took the map, sold it to three different buyers, and the Cartel promoted me to Second Chances." },
+      },
+      choices = {
+        { text = "Was the map real?", next = "y_map" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_map = {
+      lines = {
+        { id = "y_y_map", text = "Real enough to sell three times, pal. That's real in my book. All three buyers are still out there, digging, and I hope they find something. I'm not a monster." },
+        { id = "y_y_map_v0", when = { class = "ROGUE" }, text = "Real enough to sell three times. You're a rogue, pal; you know a good map is the one somebody believes. All three buyers are still digging." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_worst = {
+      lines = {
+        { id = "y_y_worst", text = "Worst customer ever? A gnome who blew up a bank vault in Ratchet. He owed so much, I had to set up a payment plan that'll outlast his grandchildren. He still sends me a postcard every year." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_mercy = {
+      lines = {
+        { id = "y_y_mercy", text = "Sometimes folks can't pay, and the Cartel wants me to squeeze 'em harder. Sometimes I let 'em slide, quietly. Should I?" },
+      },
+      choices = {
+        { text = "Let them slide. Mercy is good business.", next = "BACK", reply = "Heh, don't let the Cartel hear you say that. But between us, yeah.", fx = { align = { light = 1 } } },
+        { text = "Squeeze them. Rules are rules.", next = "BACK", reply = "Ugh, you sound like my boss. Okay, okay, I'll squeeze.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Rumsen Fizzlebrack, Steamwheedle Cartel, Department of Second Chances. Anybody who's made the goblins of Tanaris mad can come to me and work it off, see, because grudges are bad for business and so's an empty warehouse." } },
       again = { { id = "h_again", text = "What else, buddy? Time is money, and you're spendin' mine." }, { id = "h_again2", text = "Talk to me, pal. I'm listening, and I'm billing." } },
@@ -730,6 +1126,10 @@ P:NPC {
         { text = "Why do you need mageweave and flux?", next = "materials" },
         { text = "What happens if I stay on their bad side?", next = "bad" },
         { text = "I'm on the war at sea, as you asked.", next = "war", when = { questActive = TODO_QUEST("War at Sea") } },
+        { text = "How did you get this job?", next = "y_hist" },
+        { text = "Who's your worst customer?", next = "y_worst" },
+        { text = "Do you ever let anyone off?", next = "y_mercy" },
+        { text = "I'm a goblin too. What's the discount?", next = "BACK", when = { race = "Goblin" }, reply = "Discount? Pal, you get the family rate. That's the regular rate, but I smile while I say it." },
         { text = "I'll pass for now.", next = "END" },
       },
     },
@@ -768,6 +1168,8 @@ P:NPC {
     },
   },
   topics = {
+    steamwheedle = { { id = "tp_ysteamwheedle", text = "The Steamwheedle Cartel. Biggest goblin outfit there is, and I'm the guy who forgives you." } },
+    booty_bay = { { id = "tp_ybooty_bay", text = "Booty Bay, where I learned the trade. Pirates and paperwork, the best of both." } },
     background = { { id = "tp_bg", text = "A Steamwheedle man through and through. Born in a ledger, I like to say." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, pal, unless there's coin in it." } },
   },
@@ -787,9 +1189,47 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Hot enough for you? Don't answer that; out here it's always hot enough for everybody." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive, I see. In Tanaris that's worth a compliment." },
+    { id = "yg_0", when = { race = "Goblin" }, text = "A fellow goblin, outside the Cartel's books? Sit down, we'll gossip." },
+    { id = "yg_1", when = { race = "Human" }, text = "Another soft lowlander, melting in the sun. Don't worry, sweetheart, it gets worse." },
   },
   start = "hello",
   nodes = {
+    y_secret = {
+      lines = {
+        { id = "y_y_secret", text = "Here's one for free. The Bruisers aren't as neutral as they look. One of them, a big fellow by the gate, takes a little extra from Horde caravans and a little less from Alliance ones. Nobody's noticed because nobody counts but me." },
+      },
+      choices = {
+        { text = "Will you report him?", next = "y_report" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_report = {
+      lines = {
+        { id = "y_y_report", text = "To who? The Cartel? They'd shrug and take a cut. To the Horde? They'd start a war over a few silver. I keep it in my pocket, honey, and someday it'll be worth something." },
+        { id = "y_y_report_v0", when = { faction = "Horde" }, text = "To who? The Cartel would shrug. Your Horde would start a war over a few silver, sweetheart. I'll keep it in my pocket for now." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_lonely = {
+      lines = {
+        { id = "y_y_lonely", text = "Lonely? In Gadgetzan? There are three thousand goblins, a hundred adventurers and a mad gnome who talks to an owl. I'm never alone. I'm just never with anyone I'd choose." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_secret2 = {
+      lines = {
+        { id = "y_y_secret2", text = "Somebody's been asking me about the caravan schedules lately. Lots of coin offered. Should I sell what I know, or keep my mouth shut?" },
+      },
+      choices = {
+        { text = "Keep quiet. That information gets people killed.", next = "BACK", reply = "Ugh. You sound like my mother. Fine. I'll keep it shut.", fx = { align = { light = 1 } } },
+        { text = "Sell it. Information is your trade.", next = "BACK", reply = "That's what I was thinking. Shame about the caravans, but a girl has to eat.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Name's Quinn. I don't sell anything today, so you can relax your coin purse. I just know where everything in Gadgetzan comes from and who's overcharging for it." } },
       again = { { id = "h_again", text = "Something else on your mind?" } },
@@ -800,6 +1240,10 @@ P:NPC {
         { text = "How did you end up in Tanaris?", next = "xhow" },
         { text = "You seem to know everyone.", next = "xknow" },
         { text = "I'm a rogue. Got any tips for a newcomer?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Tell me a secret.", next = "y_secret" },
+        { text = "Don't you get lonely here?", next = "y_lonely" },
+        { text = "Anyone asking you questions lately?", next = "y_secret2" },
+        { text = "Who should I avoid in town?", next = "BACK", when = { class = "ROGUE" }, reply = "Anyone who smiles too much. In Gadgetzan, a smile is usually a price tag." },
         { text = "Enjoy the shade, Quinn.", next = "END" },
       },
     },
@@ -850,6 +1294,8 @@ P:NPC {
     },
   },
   topics = {
+    bruisers = { { id = "tp_ybruisers", text = "The Bruisers keep the peace. Mostly. I know which ones don't." } },
+    water = { { id = "tp_ywater", text = "Water costs a silver a skin, and the man selling it has never once been thirsty." } },
     gadgetzan = { { id = "tp_xgadgetzan", text = "Hot, dusty and full of goblins. I love it, in a way." } },
     steamwheedle_cartel = { { id = "tp_xsteamwheedle_cartel", text = "They own everything. You learn to live with it." } },
     _none = { { id = "tp_none", text = "Never heard of it, and that means nobody's selling it here." } } },

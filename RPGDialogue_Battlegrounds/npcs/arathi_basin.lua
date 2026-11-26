@@ -704,9 +704,38 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "The forge is warm and I am not. Speak, if you have business with the Defilers' steel." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "A living thing at my anvil. How quaint. You'll make a fine quenching, I imagine." },
+    { id = "yg_0", when = { race = "Scourge" }, text = "Another of the risen. Pull up a stool; the fire won't warm you, but it's company." },
   },
   start = "hello",
   nodes = {
+    y_tools = {
+      lines = {
+        { id = "y_y_tools", text = "These are my own tools, from my shop in Andorhal. I went back for them after I rose. The shop was full of Scourge, and I was half afraid they'd mistake me for one of their own. They nearly did." },
+      },
+      choices = {
+        { text = "What was Andorhal like before?", next = "y_andor" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_andor = {
+      lines = {
+        { id = "y_y_andor", text = "Busy, warm, full of grain carts and arguing farmers. I shod horses for half the county. Now it's a city of the dead, and the Scourge have their own smiths. I wonder sometimes if one of them uses my old anvil." },
+        { id = "y_y_andor_v0", when = { race = "Human" }, text = "Busy and warm, full of grain carts. You may have bought bread from there, once. Now it's a city of the dead, and I try not to think about it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_league = {
+      lines = {
+        { id = "y_y_league", text = "The League of Arathor's smiths are good, I'll grant them that. I've picked up a few of their dropped hammers on the field. Well balanced, honest work. I don't tell the Defilers I admire them." },
+      },
+      choices = {
+        { text = "Admire good work wherever you find it.", next = "BACK", reply = "Yes. The iron doesn't care whose hands worked it.", fx = { align = { honor = 1 } } },
+        { text = "The League are the enemy. Admire nothing.", next = "BACK", reply = "Hm. That's what the Dark Lady would say. I'll keep my admiration to myself.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", key = true, text = "I was a smith in Lordaeron before the Plague, and I am a smith in Arathi now, for the Dark Lady and the Defilers. The fire doesn't care whether my hands are warm, and neither does the iron." } },
       again = {
@@ -721,6 +750,9 @@ P:NPC {
         { text = "Do the orcs at Hammerfall trust your work?", next = "xorcs" },
         { text = "I work the forge myself.", next = "xsmith", when = { profession = "Blacksmithing" } },
         { text = "For the Dark Lady.", next = "END", when = { faction = "Horde" } },
+        { text = "Tell me about your tools.", next = "y_tools" },
+        { text = "What do you think of the League's smiths?", next = "y_league" },
+        { text = "I worked a forge in life too.", next = "BACK", when = { race = "Scourge" }, reply = "Then you know the iron remembers what the hand forgets. Mine certainly does." },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -766,6 +798,7 @@ P:NPC {
     },
   },
   topics = {
+    smithing = { { id = "tp_ysmithing", text = "Smithing is all I had in life, and all I have now. It is enough." } },
     andorhal = { { id = "xtp_andorhal", text = "My old home, rotting under the Scourge now. I don't go back, and I don't want to." } },
     league_of_arathor = { { id = "xtp_league", text = "Living men in a dead kingdom. They'll learn, one way or another." } },
     _none = { { id = "tp_none", text = "I don't know and I don't care. Ask an apothecary." } } },
@@ -778,9 +811,38 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Don't stand behind that one, it kicks, and it doesn't feel the need to stop." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "The horses are dead and so am I, but you're not. Shall we fix that?" },
+    { id = "yg_0", when = { race = "Scourge" }, text = "Another of the dead. Good. The horses don't spook at you, and they spook at everything else." },
   },
   start = "hello",
   nodes = {
+    y_horse = {
+      lines = {
+        { id = "y_y_horse", text = "This one is Bones. That's not a joke; that's his name. He was a farm horse in Hillsbrad, and he came back with the rest of us. He doesn't remember his old owner, but he remembers apples, and he still looks for them." },
+      },
+      choices = {
+        { text = "Do you give him apples?", next = "y_apple" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_apple = {
+      lines = {
+        { id = "y_y_apple", text = "I do, though he can't eat them anymore. He just holds them in his teeth until they rot. I think it makes him happy, or as close to happy as a dead horse gets." },
+        { id = "y_y_apple_v0", when = { class = "HUNTER" }, text = "I do, though he can't eat them. You're a hunter; you know beasts keep their habits. He holds them in his teeth until they rot." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_league = {
+      lines = {
+        { id = "y_y_league", text = "The League's stables are across the field. I see their grooms sometimes, brushing living horses. I wonder if they'd trade one. Not for the war, just so I could feel a warm flank again." },
+      },
+      choices = {
+        { text = "Trade with them. A horse is a horse.", next = "BACK", reply = "Perhaps. I doubt they'd agree, but I could ask.", fx = { align = { order = 1 } } },
+        { text = "Never deal with the enemy.", next = "BACK", reply = "Of course. The Dark Lady wouldn't approve. I'll keep my dead horses.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", key = true, text = "I tend the horses at the Stables for the Defilers, and most of them are as dead as I am. They don't need feeding, which saves a great deal of trouble, though they do have a habit of losing pieces." } },
       again = {
@@ -794,6 +856,9 @@ P:NPC {
         { text = "How do you fix a horse that loses a leg?", next = "xfix" },
         { text = "What do you think of the League's stables?", next = "xleague" },
         { text = "Could I ride one of these?", next = "xride", when = { race = "Scourge" } },
+        { text = "Tell me about this horse.", next = "y_horse" },
+        { text = "Do you envy the League's stables?", next = "y_league" },
+        { text = "I rode horses once, in life.", next = "BACK", when = { race = "Scourge" }, reply = "So did I. Now I ride nothing, but I tend everything. It's a change." },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -832,6 +897,7 @@ P:NPC {
     },
   },
   topics = {
+    horses = { { id = "tp_yhorses", text = "Dead horses are easier to keep than living ones, but they're worse company." } },
     hillsbrad = { { id = "xtp_hb", text = "I groomed horses there once. Now the humans keep their horses and we keep ours, and I prefer ours." } },
     royal_apothecary_society = { { id = "xtp_ras", text = "They keep my horses walking, so I don't complain about their methods." } },
     _none = { { id = "tp_none", text = "I only know dead horses and where to find their missing parts." } } },

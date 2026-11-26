@@ -36,6 +36,9 @@ P:NPC {
         { text = "Every other farm I've passed keeps pigs.", next = "pigs" },
         { text = "Bladeshadow isn't a farmer's name.", next = "name" },
         { text = "Is it safe out here, so far from Razor Hill?", next = "safe" },
+        { text = "Why did you put down the blade?", next = "ywhy" },
+        { text = "What do you think of Harroc?", next = "yharroc" },
+        { text = "You were in the old Horde?", next = "yold", when = { race = "Orc" } },
         { text = "May your harvest be good, Rokar.", next = "END" },
       },
     },
@@ -65,8 +68,35 @@ P:NPC {
       lines = { { id = "s_default", text = "Safe enough for an orc who listens. The harpies keep to Razorwind Canyon and the thunder lizards are too stupid to hold a grudge, so it's only the crocolisks along the river that Harroc has to be warned about, and I warn him weekly." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ywhy = {
+      lines = {
+        { id = "yywhy_d", text = "Because I had used it too long and too well, and the blood drank me as I drank it. When Thrall freed us, I made a promise to the ancestors. I grow things now. It is penance and peace both." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yharroc = {
+      lines = {
+        { id = "yyharroc_d", text = "He is a good boy and a hard worker, and he wants to be a grunt. I do not stop him. I only tell him that every grunt needs a farmer at his back. He will decide, in time." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yold = {
+      lines = {
+        { id = "yyold_d", text = "I was. I followed Blackhand through the Dark Portal and burned villages in Azeroth, and I am not proud of it. The demon blood made me something else. It took many years to remember who I was." },
+      },
+      choices = {
+        { text = "The demon blood was to blame, not you.", next = "BACK", reply = "Some say so. I am not sure the ancestors agree.", fx = { align = { light = 1 } } },
+        { text = "You chose those deeds. Carry them.", next = "BACK", reply = "I do, every day, in every furrow.", fx = { align = { light = -1 } } },
+      },
+    },
   },
   topics = {
+    thrall = { { id = "ytp_thrall", text = "Thrall gave us back our souls. I will never forget that." } },
+    harroc = { { id = "ytp_harroc", text = "Harroc digs well. He will make a good farmer, or a good grunt, whichever he chooses." } },
     background = { { id = "tp_bg", text = "I did the Horde's quiet work for many years, and now I grow its vegetables. I find I'm better company for it." } },
     _none = { { id = "tp_none", text = "That's news from the road, {class}, and I gave up the road. Ask in Razor Hill." } },
   },
@@ -103,6 +133,10 @@ P:NPC {
         { text = "What grows in ground like this?", next = "grow" },
         { text = "You'd rather be a grunt, I think.", next = "grunt" },
         { text = "What's Rokar like to work for?", next = "rokar" },
+        { text = "Where did you grow up?", next = "ygrew" },
+        { text = "Will you ever join the grunts?", next = "yjoin" },
+        { text = "What does Rokar teach you?", next = "yteach" },
+        { text = "Show me how to dig.", next = "ydig" },
         { text = "Keep digging, Harroc.", next = "END" },
       },
     },
@@ -125,8 +159,44 @@ P:NPC {
       lines = { { id = "r_default", text = "He's quiet, and fair, and he hears everything. I dropped a bucket behind the house once, and he called out which bucket it was before I'd picked it up." } },
       choices = { { text = "Something else, Harroc.", next = "BACK" } },
     },
+    ygrew = {
+      lines = {
+        { id = "yygrew_d", text = "In the camps, mostly, though I was small when Thrall freed us. I remember the walls, and the cold, and my mother singing. Then I remember Durotar, and the sun, and that's better." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yjoin = {
+      lines = {
+        { id = "yyjoin_d", text = "I want to, but Rokar says the Horde needs farmers as much as fighters. He says a full belly wins more wars than a sharp axe. Some days I believe him. Some days I want the axe." },
+      },
+      choices = {
+        { text = "Rokar's right. Farming is honourable work.", next = "BACK", reply = "I'll tell him you said so. He'll pretend he isn't pleased.", fx = { align = { honor = 1 } } },
+        { text = "Follow your heart. Be a grunt.", next = "BACK", reply = "Maybe one day. But I'll finish this row first.", fx = { align = { honor = -1 } } },
+      },
+    },
+    yteach = {
+      lines = {
+        { id = "yyteach_d", text = "To be patient, and to listen to the ground, and to keep quiet when I'm angry. He was a warrior once, but he never talks about it. I think he's tired of fighting." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydig = {
+      lines = {
+        { id = "yydig_v0", when = { profession = "Herbalism" }, text = "You know plants? Then dig here, gently. Rokar says the roots tell you how deep. Don't think about anything else. That's the trick." },
+        { id = "yydig_d", text = "You want to dig? Here, take the hoe. No, the other way. That's it. Now dig, and don't think about anything else. That's how Rokar says to do it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    durotar = { { id = "ytp_durotar", text = "Durotar is red and dry, but things grow, if you're stubborn enough." } },
+    camps = { { id = "ytp_camps", text = "The camps were bad. I don't remember much. Rokar says that's lucky." } },
     background = { { id = "tp_bg", text = "I was born in a camp and I don't remember it, which Rokar says is a gift. This farm is the first place I've had a job to do." } },
     _none = { { id = "tp_none", text = "I don't hear much out here, {class}. Rokar might know, if you ask him while he's weeding." } },
   },

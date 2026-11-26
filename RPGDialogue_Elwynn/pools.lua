@@ -7,6 +7,8 @@ P:Pool {
   id = "guard_northshire", role = "guard", community = "northshire",
   barks = {
     { id = "b_road", text = "Mind yourself on the road, recruit, because the wolves won't, and I'm not digging another grave this week." },
+    { id = "yb_kobold", text = "Another kobold in the vineyard last night, and it took a whole lantern, the little thief." },
+    { id = "yb_abbey", text = "The abbey bells always sound sweeter when the wolves are quiet, and they've not been quiet in weeks." },
     { id = "b_liked", when = { townStanding = { town = "northshire", min = 30 } }, text = "There goes the one who cleared the bandits out of the vineyard." },
   },
   greetings = {
@@ -23,11 +25,22 @@ P:Pool {
   },
   lines = {
     { id = "l_default", text = "There are kobolds to the north, thieves to the east and wolves everywhere else, so welcome to Northshire, recruit." },
+    { id = "yl_mine", text = "The kobolds in Echo Ridge Mine dig toward the abbey a little more every month. The brothers pretend not to hear the picks at night, but I hear them." },
+    { id = "yl_recruits", text = "Every week the abbey sends out another batch of recruits, and every week fewer of them come back through this gate. I try to remember their faces anyway." },
+    { id = "yl_defias", text = "Garrick Padfoot and his cutthroats have been squatting by the vineyard cottage for a month now. If you've a sword and a strong stomach, the Marshal will pay for his head." },
+    { id = "yl_dwarf", when = { race = "Dwarf" }, text = "A dwarf in Northshire! We had one come through last spring who called our kobolds wee cave rats and went into the mine with nothing but a pick. He came out with forty candles." },
+    { id = "yl_paladin", when = { class = "PALADIN" }, text = "Brother Sammuel speaks well of the paladins he trains here. Keep the Light close, and keep your shield closer, because the Defias don't care how holy you are." },
     { id = "l_liked", when = { townStanding = { town = "northshire", min = 30 } }, text = "You've done the valley some good. The lads on watch noticed." },
   },
-  choices = { { text = "I'll be on my way.", next = "END" } },
+  choices = {
+    { text = "Hang the Defias, every last one.", next = "END", reply = "That's the Marshal's view and mine, recruit. A rope settles a lot.", fx = { align = { order = 1 } } },
+    { text = "Many Defias were cheated masons. Show some mercy.", next = "END", reply = "Maybe so, but a cheated man with a knife is still a man with a knife.", fx = { align = { order = -1 } } },
+    { text = "I'll be on my way.", next = "END" },
+  },
   topics = {
     defias = { { id = "t_defias", text = "There are red bandanas in the vineyard again. Deputy Willem keeps a tally, and he's run out of chalk twice." } },
+    kobolds = { { id = "yt_kobold", text = "Vermin with candles on their heads, and they dig like they're paid by the yard. Don't take their candles, recruit; they get very upset." } },
+    mcbride = { { id = "yt_mcb", text = "Marshal McBride runs Northshire from the abbey steps. He's hard, but he's never sent a recruit anywhere he wouldn't go himself." } },
     _none = { { id = "t_none", text = "You'd best ask the Marshal about that. I just stand here and watch the road, and my feet have the blisters to show for it." } },
   },
 }

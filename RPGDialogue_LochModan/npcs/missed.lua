@@ -266,6 +266,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away, and I'll answer between ripples." },
       },
       choices = {
+        { text = "Where did you hunt before Loch Modan?", next = "ykelt_past" },
+        { text = "One hunter to another: is it worth the wait?", next = "ykelt_hunter", when = { class = "HUNTER" } },
         { text = "What is it you're watching for?", next = "watch" },
         { text = "The dwarves speak well of your hunting.", next = "dwarves" },
         { text = "Good luck with your watch.", next = "END" },
@@ -298,8 +300,57 @@ P:NPC {
       lines = { { id = "i_default", text = "He minds a little, and Daryl minds a great deal, because it's hard to boast at a man who won't look round. Waiting is hunting too, though the young ones never believe it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ykelt_past = {
+      lines = {
+        { id = "yykelt_past_d", text = "Stranglethorn first, under the old hunting parties out of Booty Bay, and then the Redridge hills for bears and the Wetlands for raptors. I took a trophy from most of them and kept none, for they never felt like the end of anything." },
+      },
+      choices = {
+        { text = "What would feel like the end?", next = "ykelt_end" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykelt_end = {
+      narr = "He lifts his gaze back to the far side of the loch and holds it there.",
+      lines = {
+        { id = "yykelt_end_d", text = "The threshadon, if it's real. I'm not a young man any more, friend, and I'd like one hunt in my life that the tellers can't improve on, because I was there and it was bigger than they said." },
+      },
+      choices = {
+        { text = "And if it isn't real?", next = "ykelt_unreal" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykelt_unreal = {
+      lines = {
+        { id = "yykelt_unreal_d", text = "Then I'll have spent my last good seasons watching water, and Daryl will have a story about me to tell at the lodge fire. I've made my peace with that, mostly, though I'd not say so to him." },
+      },
+      choices = {
+        { text = "What will you do if you find it?", next = "ykelt_find" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykelt_find = {
+      lines = {
+        { id = "yykelt_find_d", text = "That's the question that keeps me up some nights. A beast that old has outlived the dam and the dwarves who built it, and part of me wants only to see it once and let it go back down." },
+      },
+      choices = {
+        { text = "Then let it go. Some things should stay wild.", next = "BACK", reply = "You've said what I keep telling myself on the quiet evenings. Thank you for that.", fx = { align = { order = -1 } } },
+        { text = "Take it. The lodge wall is where a hunt ends.", next = "BACK", reply = "That's the Farstrider way, and Marek would cheer you for it. I'm still not sure it's mine.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykelt_hunter = {
+      lines = {
+        { id = "yykelt_hunter_v0", when = { race = "Dwarf" }, text = "You'll have heard the threshadon tale at your grandfather's knee, I'd wager, so you'll know better than I do how much of it to believe. I believe all of it, which is either the patience of a hunter or the foolishness of an old man." },
+        { id = "yykelt_hunter_d", text = "Worth it? A hunter who needs to be told that hasn't waited long enough yet, though I'll grant you it's a cold kind of hunting. The bears in the hills will feed your pot, and the loch will feed nothing but your wondering." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    farstrider_lodge = { { id = "tp_yfarstrider_lodge", text = "Marek and his hunters have treated me like kin, though I think they've stopped expecting me to hunt anything with legs." } },
+    stonewrought_dam = { { id = "tp_ystonewrought_dam", text = "The dam holds back more water than anyone in Thelsamar likes to think about, and something lives in the deepest of it." } },
     background = { { id = "tp_bg", text = "I've been a hunter all my life, and a guest of this lodge for longer than I meant to be. The loch has a hold on me." } },
     _none = { { id = "tp_none", text = "I can't help you there. I've had my eyes on the water too long to know much else of late." } },
   },
@@ -334,6 +385,9 @@ P:NPC {
         { id = "h_again2", text = "Go on, I can talk an' hammer both." },
       },
       choices = {
+        { text = "How long have the Deepforges been smiths?", next = "ytho_family" },
+        { text = "What do you think of a gnome blacksmith?", next = "ytho_gnome", when = { race = "Gnome" } },
+        { text = "Do the kings watch over your work?", next = "ytho_kings" },
         { text = "Those two? The statues?", next = "statues" },
         { text = "Who buys weapons out here?", next = "buys" },
         { text = "You carry a wide range for one smith.", next = "range" },
@@ -366,8 +420,55 @@ P:NPC {
       lines = { { id = "r_default", text = "A valley smith has tae be everythin' tae everybody, for there's nae second shop tae send ye tae. My kin are smiths from here tae Ironforge, an' we were all raised tae turn a hand tae any pattern." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ytho_family = {
+      lines = {
+        { id = "yytho_family_d", text = "Since before Modimus Anvilmar sat the throne, if ye believe my great-grandmother, an' I'd no' dare disbelieve her even now she's gone. Every Deepforge learns the hammer before the alphabet, an' some never quite get tae the alphabet." },
+      },
+      choices = {
+        { text = "Did you ever want another trade?", next = "ytho_trade" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytho_trade = {
+      lines = {
+        { id = "yytho_trade_d", text = "Once, when I was young an' daft, I wanted tae be a brewer, for the brewers had all the lasses. My da put a hammer in my hand an' said a brewer makes folk forget, an' a smith makes sure they live tae remember." },
+      },
+      choices = {
+        { text = "What's the hardest blade you've made?", next = "ytho_hardest" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytho_hardest = {
+      narr = "Thorvald sets down his hammer and wipes his hands slowly on his apron.",
+      lines = {
+        { id = "yytho_hardest_d", text = "A sword for a Mountaineer who'd lost his brother tae the troggs, an' wanted a blade tae avenge him. I made it true, but I've wondered since if I should've told him tae grieve first an' fight after, for he took it straight intae the hills." },
+      },
+      choices = {
+        { text = "You should have counselled him. Vengeance blinds.", next = "BACK", reply = "Aye, maybe I should. A smith's no' a priest, but I could've tried.", fx = { align = { light = 1 } } },
+        { text = "You gave him what he needed. Justice is no sin.", next = "BACK", reply = "That's what I told myself, an' maybe it's true. He came back, at least.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytho_gnome = {
+      lines = {
+        { id = "yytho_gnome_d", text = "A gnome at the anvil? I've seen it, an' the work was finer than I'd expected, for yer folk measure twice an' strike once. I'd hire one if they'd come out tae the valley, but they all want tae stay near Tinker Town." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytho_kings = {
+      lines = {
+        { id = "yytho_kings_d", text = "Aye, for they stood when the clans broke, an' there's nae better company for a smith. When I make a blade under their eyes, I make it well, for I'd no' want tae disappoint a king, even a stone one." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    deepforge = { { id = "tp_ydeepforge", text = "My family's name an' my family's trade. We've been smiths since before the throne." } },
+    valley_of_kings = { { id = "tp_yvalley_of_kings", text = "The kings watch my forge, an' I make sure they've nae cause tae frown." } },
     background = { { id = "tp_bg", text = "The Deepforges have been smiths as far back as anyone's bothered tae count. I chose the valley because I like the company o' kings." } },
     troggs = { { id = "tp_tr", text = "West o' here, in Stonesplinter Valley. Hard on axes, the lot o' them." } },
     _none = { { id = "tp_none", text = "That's beyond me, friend. I know steel, an' I know this valley, an' there it ends." } },

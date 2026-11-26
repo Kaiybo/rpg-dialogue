@@ -32,6 +32,8 @@ P:NPC {
         { id = "h_again2", text = "Still here? Then ask." },
       },
       choices = {
+        { text = "Who did you bury, Bolyun?", next = "ybol_buried" },
+        { text = "A fellow hermit, of sorts. How do you live?", next = "ybol_hermit", when = { class = { "HUNTER", "ROGUE" } } },
         { text = "Why hide up here in the mountains?", next = "hide" },
         { text = "Who is Harlown?", next = "harlown" },
         { text = "The Shrine of Aessina is close by.", next = "shrine" },
@@ -78,6 +80,47 @@ P:NPC {
       lines = { { id = "sh_default", text = "Aessina's Shrine, aye. The druids there are fine neighbors, because they mind their own business, and so do the wisps." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ybol_buried = {
+      narr = "Bolyun looks away toward the mountains, and his jaw tightens under the beard.",
+      lines = {
+        { id = "yybol_buried_d", text = "Friends from the War of the Ancients, and friends from the war with the orcs, and too many between. The last one was my brother, Ferel, who went down to Astranaar to take up a bow when the Warsong came, and he died on the road to Splintertree." },
+      },
+      choices = {
+        { text = "Is that why you won't fight?", next = "ybol_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybol_why = {
+      lines = {
+        { id = "yybol_why_d", text = "Partly, aye, and partly because I'm tired. Ten thousand years of fighting, and the forest is still bleeding, and the Sentinels think one more war will mend it. I've stopped believing that, and I'd sooner be called a coward than lie to myself." },
+      },
+      choices = {
+        { text = "What will you do if the war comes here?", next = "ybol_war" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybol_war = {
+      lines = {
+        { id = "yybol_war_d", text = "Then I'll fight, because I'll have no choice, and Harlown will fight beside me. But I'll not go looking for it, and I'll not send any young elf down to Astranaar who comes to me asking for advice about whether to join up." },
+      },
+      choices = {
+        { text = "Tell them the truth. Let them choose.", next = "BACK", reply = "Aye, maybe that's fairer. I'll tell them what I've seen, and let them decide.", fx = { align = { honor = 1 } } },
+        { text = "Turn them away. Spare them what you saw.", next = "BACK", reply = "That's what I've done so far, and I'll keep doing it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybol_hermit = {
+      lines = {
+        { id = "yybol_hermit_d", text = "Quietly, and on very little. We hunt the hills, we trade with the shrine for what we can't grow, and we keep the path hidden. You'll know the trick of it already, if you've lived out in the wilds yourself." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    darkweave = { { id = "tp_ydarkweave", text = "Harlown is my partner. He works leather and trusts nobody, which suits us both." } },
+    shrine_of_aessina = { { id = "tp_yshrine_of_aessina", text = "Our nearest neighbours. They keep to themselves, which I like." } },
   },
 }
 
@@ -145,6 +188,8 @@ P:NPC {
         { id = "h_again2", text = "Speak your mind." },
       },
       choices = {
+        { text = "How did you and Bolyun meet?", next = "yhar_meet" },
+        { text = "A night elf asks: why hide from the Sentinels?", next = "yhar_elf", when = { race = "NightElf" } },
         { text = "Who is Bolyun?", next = "xbolyun" },
         { text = "How did you learn your craft?", next = "xcraft" },
         { text = "What do you make of the Warsong camps?", next = "xwarsong" },
@@ -168,8 +213,47 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yhar_meet = {
+      lines = {
+        { id = "yyhar_meet_d", text = "At the Shrine of Aessina, a long time ago, when we both came looking for quiet. He was mourning his brother and I was mourning my mother, and we found that we didn't need to talk much to understand each other." },
+      },
+      choices = {
+        { text = "Do you ever miss Astranaar?", next = "yhar_miss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhar_miss = {
+      narr = "Harlown's hands go still on the hide he is working, and he looks down the mountain toward the lake.",
+      lines = {
+        { id = "yyhar_miss_d", text = "I miss the market there, and the old tanner who taught me after my mother died. But the Sentinels came to my stall one day and asked me to make armour for them, and I said no, and they never forgave me for it." },
+      },
+      choices = {
+        { text = "Why did you refuse them?", next = "yhar_refuse" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhar_refuse = {
+      lines = {
+        { id = "yyhar_refuse_d", text = "Because I didn't want my work to kill anyone, orc or elf. Bolyun says that's foolish, for leather on a Sentinel's back saves her life as often as it takes another, and I've started to think he might be right." },
+      },
+      choices = {
+        { text = "Make the armour. It would save lives.", next = "BACK", reply = "Maybe. I'll make one piece, and see how it feels.", fx = { align = { honor = 1 } } },
+        { text = "Keep your oath. Your work is your own.", next = "BACK", reply = "Aye. Thank you. Bolyun will grumble, but I'll keep it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhar_elf = {
+      lines = {
+        { id = "yyhar_elf_d", text = "Because the Sentinels want every elf with a bow, and I would sooner hold a scraping knife. You'll understand that, I think, even if you wear a Sentinel's colours yourself. There's more than one way to serve the forest." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    camp_path = { { id = "tp_ycamp_path", text = "Bolyun is my partner. He keeps the path, and I keep the hides." } },
+    astranaar = { { id = "tp_yastranaar", text = "Where I learned my craft. The Sentinels didn't like my answer to them." } },
     bolyun = { { id = "tp_xbolyun", text = "If Bolyun says you're a friend, you're a friend. Otherwise, you're just lost." } },
   },
 }
@@ -227,6 +311,8 @@ P:NPC {
         { id = "h_again2", text = "Speak, if you wish. The wisps don't mind." },
       },
       choices = {
+        { text = "What was Elendil like?", next = "ylil_elendil" },
+        { text = "I've been to Felfire Hill. I could look for him.", next = "ylil_look", when = { minLevel = 20 } },
         { text = "Who are you waiting for?", next = "xwait" },
         { text = "Tell me about the wisps.", next = "xwisps" },
         { text = "Do you live in Astranaar?", next = "xhome" },
@@ -256,8 +342,47 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ylil_elendil = {
+      lines = {
+        { id = "yylil_elendil_d", text = "Quiet, like me, but braver. He loved the old songs and the stars, and he would sit on the roof of our house at night naming every one of them. When the Sentinels came looking for archers, he was the first to go, and he went smiling." },
+      },
+      choices = {
+        { text = "Did you try to stop him?", next = "ylil_stop" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylil_stop = {
+      narr = "Lilyn folds her hands in her lap and watches a wisp drift slowly past.",
+      lines = {
+        { id = "yylil_stop_d", text = "I begged him not to go, and he laughed and said the forest needed him more than I did. I was angry with him for a long time after, and now I am angry with myself for being angry, which helps no one." },
+      },
+      choices = {
+        { text = "Does the anger help at all?", next = "ylil_anger" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylil_anger = {
+      lines = {
+        { id = "yylil_anger_d", text = "Not at all, but it is easier than the grief, some days. Shindrell says I should take up a bow myself and go to Felfire Hill, to find out what happened, but I am no Sentinel, and I am afraid of what I would find." },
+      },
+      choices = {
+        { text = "Seek the truth. Not knowing will haunt you.", next = "BACK", reply = "Perhaps you are right. I will think about it, here, with the wisps.", fx = { align = { light = 1 } } },
+        { text = "Stay here. He would want you safe.", next = "BACK", reply = "Thank you. I think he would, too. It helps to hear it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylil_look = {
+      lines = {
+        { id = "yylil_look_d", text = "Would you? I would not ask, but I would be grateful beyond words. He wore a silver brooch shaped like a crescent moon, which our mother gave him. If you find it, bring it back to me, and I will know." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    elendil = { { id = "tp_yelendil", text = "My brother. He went to Felfire Hill and did not return." } },
+    wisps = { { id = "tp_ywisps", text = "They drift through the shrine at dusk, gentle as lanterns." } },
     aessina = { { id = "tp_xaessina", text = "The Mother of the Wild. I like to think she watches over those who come to her shrine." } },
     felfire_hill = { { id = "tp_xfelfire", text = "Where my brother was lost. I do not go there, and I hope you never need to." } },
   },
@@ -316,6 +441,8 @@ P:NPC {
         { id = "h_again2", text = "Still lookin'? Good, good." },
       },
       choices = {
+        { text = "How's business this season, really?", next = "ygap_business" },
+        { text = "You're a goblin. Steamwheedle or Venture?", next = "ygap_goblin", when = { race = "Goblin" } },
         { text = "How did you end up in Ashenvale?", next = "xhow" },
         { text = "What's your best seller?", next = "xbest" },
         { text = "Do you ever give anything away?", next = "xgive" },
@@ -339,8 +466,47 @@ P:NPC {
       lines = { { id = "ve_default", text = "Greatfather Winter brings gifts, folks drink too much eggnog, and Smokywood Pastures sells the eggnog. The rest is details." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ygap_business = {
+      lines = {
+        { id = "yygap_business_d", text = "Really? Okay, between you and me, pal, it's slow. The Sentinels buy one candy cane apiece and act like they've robbed a bank, and the druids won't touch anything with sugar in it. I'm runnin' at a loss on the gingerbread, and the eggnog's barely holdin' up the books." },
+      },
+      choices = {
+        { text = "Why not move to a better market?", next = "ygap_move" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygap_move = {
+      narr = "Gapp glances at the elves walking past and lowers his voice to a stage whisper.",
+      lines = {
+        { id = "yygap_move_d", text = "Because here's the thing, pal, I kinda like it here. Nobody yells, nobody shoves, and the elves say thank you when they buy somethin', which is more than I can say for Ratchet. Smokywood offered me Ironforge next year, and I'm thinkin' about sayin' no." },
+      },
+      choices = {
+        { text = "Would Smokywood let you stay?", next = "ygap_stay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygap_stay = {
+      lines = {
+        { id = "yygap_stay_d", text = "Only if I make the numbers work, and the numbers ain't workin'. I could cut the price and sell more, or I could raise the price and sell less but make more on each, and either way I'm takin' a gamble with my own money." },
+      },
+      choices = {
+        { text = "Raise the price. Make the margin.", next = "BACK", reply = "Ha, that's good goblin thinkin'. My cousin would hire you on the spot.", fx = { align = { order = 1 } } },
+        { text = "Cut the price. Make the elves happy.", next = "BACK", reply = "Generous, pal. Real generous. You'd be a terrible goblin, and I mean that nicely.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygap_goblin = {
+      lines = {
+        { id = "yygap_goblin_d", text = "Smokywood Pastures, pal, which is neither, and that's the beauty of it. Seasonal work, seasonal pay, no lumber contracts and no Cartel dues. My cousin in the Venture Company thinks I'm crazy, and maybe I am." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    smokywood_pastures = { { id = "tp_ysmokywood_pastures", text = "The finest seasonal goods company in the world, pal, and they pay on time." } },
+    astranaar = { { id = "tp_yastranaar", text = "Quiet town, polite customers, terrible for business. I like it here." } },
     winter_veil = { { id = "tp_xveil", text = "Best season of the year, pal. Everybody's generous, and generosity looks a lot like profit from where I'm standin'." } },
   },
 }
@@ -402,6 +568,8 @@ P:NPC {
         { id = "h_again2", text = "Speak, friend. I am listening." },
       },
       choices = {
+        { text = "What do you see when the trees fall?", next = "ylor_trees" },
+        { text = "Do the orcs mock your prayers?", next = "ylor_mock", when = { race = "Orc" } },
         { text = "What do you do at Splintertree?", next = "xjob" },
         { text = "Do the orcs listen to your concerns?", next = "xlisten" },
         { text = "What of Cenarius? Your people revered him.", next = "xcenarius" },
@@ -425,8 +593,47 @@ P:NPC {
       lines = { { id = "el_default", text = "They may be right. Orgrimmar needs wood, and the Barrens have none, but the kaldorei guard these trees like their own children. There must be some better way." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ylor_trees = {
+      narr = "Loruk looks at the stumps around the camp and his ears flatten a little.",
+      lines = {
+        { id = "yylor_trees_d", text = "I see the Earth Mother's hair cut away, and I hear her weeping. The orcs hear only the axes, and the peons sing while they cut, and I have learned to walk out into the forest at dawn so I do not have to listen." },
+      },
+      choices = {
+        { text = "Have you told the commanders?", next = "ylor_told" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylor_told = {
+      lines = {
+        { id = "yylor_told_d", text = "I have, and they listened, and they nodded, and they cut the next grove anyway. Orgrimmar needs wood, they say, and they are not wrong. But a hunter who takes more than he needs is no hunter at all, and the Warsong take far more." },
+      },
+      choices = {
+        { text = "Will you go home to Thunder Bluff?", next = "ylor_home" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylor_home = {
+      lines = {
+        { id = "yylor_home_d", text = "I have thought of it every night for a season. My people owe Thrall a great debt, and I would honour it, but I am not sure that standing among the stumps honours anything. The elders would say stay, and my heart says go." },
+      },
+      choices = {
+        { text = "Stay. A debt must be honoured.", next = "BACK", reply = "Yes. That is the tauren way, and I will keep it. For now.", fx = { align = { honor = 1 } } },
+        { text = "Go home. Your heart knows the way.", next = "BACK", reply = "Perhaps it does. The winds of Mulgore are calling me, I think.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylor_mock = {
+      lines = {
+        { id = "yylor_mock_d", text = "Some do, the young ones, who have never known anything but the camps and the axe. The older grunts are kinder, for they remember when the orcs had shamans too, and spoke to the spirits. Thrall speaks to them still, I am told." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    splintertree_post = { { id = "tp_ysplintertree_post", text = "The Horde's camp in the forest. I hunt for the peons, and I mourn the trees." } },
+    mulgore = { { id = "tp_ymulgore", text = "My home, where the grass grows free and nobody cuts it with an axe." } },
     thunder_bluff = { { id = "tp_xbluff", text = "Home. The wind there is clean, and nobody cuts the grass with an axe." } },
     cenarius = { { id = "tp_xcenarius", text = "The Lord of the Forest. My people honored him, and I still do, even here." } },
   },
@@ -489,6 +696,8 @@ P:NPC {
         { id = "h_again2", text = "Ask. I have had a very long time to think." },
       },
       choices = {
+        { text = "Tell me about Dalarel and Teronis.", next = "ysar_friends" },
+        { text = "I have arcane power. What should I fear?", next = "ysar_mage", when = { class = "MAGE" } },
         { text = "What do you remember of the old world?", next = "xold" },
         { text = "Were the others in the gem your friends?", next = "xothers" },
         { text = "What will you do now that you're free?", next = "xnow" },
@@ -512,8 +721,47 @@ P:NPC {
       lines = { { id = "ge_default", text = "Dark, and very quiet. I could feel the others beside me, fading one by one. I do not think I will stay in this world long." } },
       choices = { { text = "I'm sorry. Something else.", next = "BACK" } },
     },
+    ysar_friends = {
+      lines = {
+        { id = "yysar_friends_d", text = "Dalarel wrote verses about the moon that made the Queen's court weep, and she was the last of us to fade. Teronis argued with everyone about everything, and he argued with the dark inside the gem for a thousand years before it took him." },
+      },
+      choices = {
+        { text = "What did he argue about?", next = "ysar_argue" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysar_argue = {
+      narr = "Sargath's form flickers, like a candle in a draught.",
+      lines = {
+        { id = "yysar_argue_d", text = "That we deserved our fate, that the Highborne had brought the Legion into the world, and that we should not blame Athrikus for punishing us. The rest of us called him a fool, but in the dark, after he faded, I began to wonder if he was right." },
+      },
+      choices = {
+        { text = "Was Teronis right?", next = "ysar_right" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysar_right = {
+      lines = {
+        { id = "yysar_right_d", text = "I do not know. I did not call the demons, but I drank the wine of the Well and laughed at the elves who warned us. Perhaps that is enough to make a soul answer for it, and perhaps it is not." },
+      },
+      choices = {
+        { text = "You did not call them. You are not to blame.", next = "BACK", reply = "Thank you, young one. I will try to believe it, before I go.", fx = { align = { light = 1 } } },
+        { text = "You laughed at the warnings. That is a sin.", next = "BACK", reply = "Yes. Teronis would agree with you. Perhaps I will tell him, when I see him.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysar_mage = {
+      lines = {
+        { id = "yysar_mage_d", text = "Fear the hunger, young one, above all. The arcane feeds you and you feed it, and one day you find you cannot stop. We could not, and the world broke because of it. Be wiser than we were." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    eldarath = { { id = "tp_yeldarath", text = "Our city, once. I hear it lies in ruins now, in a land your people call Azshara." } },
+    well_of_eternity = { { id = "tp_ywell_of_eternity", text = "Our pride and our ruin. I drank from it once, and I would give anything to undo it." } },
     highborne = { { id = "tp_xhighborne", text = "My people. Proud and brilliant, and proud above all. It was the pride that drowned us." } },
     athrikus = { { id = "tp_xathrikus", text = "The one who betrayed us. I hope he fears the dark as I learned to." } },
   },
@@ -576,6 +824,8 @@ P:NPC {
         { id = "h_again2", text = "Yes? I've crates to count." },
       },
       choices = {
+        { text = "That missing cart near the Zoram Strand. Whose was it?", next = "yshn_cart" },
+        { text = "I'm a crafter. What should I stock up on?", next = "yshn_craft", when = { profession = { "Blacksmithing", "Leatherworking", "Tailoring" } } },
         { text = "Where do your goods come from?", next = "xsource" },
         { text = "Who else lives at the refuge?", next = "xfolk" },
         { text = "Is it hard being a merchant in wartime?", next = "xwar" },
@@ -599,8 +849,47 @@ P:NPC {
       lines = { { id = "re_default", text = "Quiet, for now. The druids tend the wounded, the Sentinels watch the road, and I make sure nobody runs out of thread." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yshn_cart = {
+      lines = {
+        { id = "yyshn_cart_d", text = "A carter named Thalwen, who had driven the Astranaar road for longer than I have been trading. The Sentinels found the cart a week later, overturned in the reeds, with the oxen gone and no sign of her at all." },
+      },
+      choices = {
+        { text = "What do you think happened?", next = "yshn_happened" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yshn_happened = {
+      narr = "Shandrina sets down the crate she was holding and stares at it for a long moment.",
+      lines = {
+        { id = "yyshn_happened_d", text = "The Sentinels say naga, for there were tracks in the mud like nothing that walks on land. I think they are right, but I also think Thalwen was carrying something more than thread that week, for she was nervous before she left and would not tell me why." },
+      },
+      choices = {
+        { text = "Should you tell the Sentinels?", next = "yshn_tell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yshn_tell = {
+      lines = {
+        { id = "yyshn_tell_d", text = "I have nothing to tell them but a feeling, and Thalwen was my friend. If she was smuggling something, I would rather her name stayed clean, but if it is what drew the naga, others might die on that road." },
+      },
+      choices = {
+        { text = "Tell them. Lives matter more than her name.", next = "BACK", reply = "You are right, and I knew it. I will go to Astranaar on the next cart.", fx = { align = { honor = 1 } } },
+        { text = "Keep quiet. A feeling is not proof.", next = "BACK", reply = "Yes. I will keep my silence, and hope it does not cost anyone.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yshn_craft = {
+      lines = {
+        { id = "yyshn_craft_d", text = "Salt, first, because nobody in Silverwind thinks to buy enough of it, and thread second. Flux is dear this season, so buy what you need and no more. I would not overcharge a crafter, but I cannot promise the next shipment will come." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    zoram_strand = { { id = "tp_yzoram_strand", text = "The coast road west. The naga have made it dangerous." } },
+    silverwind_refuge = { { id = "tp_ysilverwind_refuge", text = "The last quiet place in Ashenvale. I keep it stocked." } },
     astranaar = { { id = "tp_xastranaar", text = "My supplier and my nearest friend. When Astranaar sneezes, Silverwind catches cold." } },
   },
 }
@@ -635,6 +924,8 @@ P:NPC {
         { id = "h_again2", text = "The river is patient, and so am I. Ask." },
       },
       choices = {
+        { text = "What is the Falfarren river like?", next = "yriv_falfarren" },
+        { text = "Do you know my family, Elder?", next = "yriv_kin", when = { race = "NightElf" } },
         { text = "What does the festival mean to the kaldorei?", next = "festival" },
         { text = "Why are you called Riversong?", next = "name" },
         { text = "You must have seen a great deal.", next = "seen" },
@@ -676,6 +967,47 @@ P:NPC {
       lines = { { id = "t_default", text = "It grieves me more than you can know, but I have learned that grief does not plant saplings. Take what you must, young one, and leave the old groves standing." } },
       choices = { { text = "I'll remember that.", next = "BACK" } },
     },
+    yriv_falfarren = {
+      lines = {
+        { id = "yyriv_falfarren_d", text = "Clear and cold in the north, and slow and green where it reaches the lake. My mother sang to it every spring, and I sing to it still, though the water carries sawdust now from the Warsong camps upriver." },
+      },
+      choices = {
+        { text = "Does the sawdust trouble you?", next = "yriv_sawdust" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yriv_sawdust = {
+      narr = "Riversong dips her fingers into a small bowl of water beside her and watches the ripples spread.",
+      lines = {
+        { id = "yyriv_sawdust_d", text = "It troubles the fish more than me, and the fish trouble the furbolgs, and the furbolgs trouble the Sentinels. Everything in the forest is tied together, young one, and when one thread is cut, the whole weave pulls loose." },
+      },
+      choices = {
+        { text = "Can the weave be mended?", next = "yriv_mend" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yriv_mend = {
+      lines = {
+        { id = "yyriv_mend_d", text = "I believe so, though not in my lifetime, or perhaps even in yours. The young Sentinels want to cut the bad threads away, and the druids want to wait and let the forest mend itself. I have seen both work, and both fail." },
+      },
+      choices = {
+        { text = "Cut the bad threads. Act now.", next = "BACK", reply = "Brave words, young one. The Sentinels will welcome you.", fx = { align = { order = 1 } } },
+        { text = "Wait. The forest heals in its own time.", next = "BACK", reply = "Patience is the river's gift. I am glad you have it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yriv_kin = {
+      lines = {
+        { id = "yyriv_kin_d", text = "Perhaps, for I have known many families over the years, and the faces blur into one another. Tell me your mother's name, and I will tell you if I remember her singing. Most kaldorei mothers sang once, before the wars." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    falfarren_river = { { id = "tp_yfalfarren_river", text = "The river I was named for. It carries sawdust now." } },
+    moonglade = { { id = "tp_ymoonglade", text = "The druids' sacred place. I went there once, when I was young." } },
   },
   topics = { _none = { { id = "tp_none", text = "That is not a song I know. Ask the druids of Moonglade, for they know far more than an old elf by a river." } } },
 }
@@ -924,6 +1256,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I am one of Ordanus's vindicators, and I stand at his side until the forest is safe again. That may be a very long time, and I do not mind." } },
       again = { { id = "h_again", text = "What more do you seek?" } },
       choices = {
+        { text = "What is Ordanus like?", next = "ycen_ordanus" },
+        { text = "Do the keepers hate the Horde?", next = "ycen_horde", when = { faction = "Horde" } },
         { text = "How do the keepers live, day to day?", next = "xdays" },
         { text = "Who are your enemies here, besides the Horde?", next = "xfoes" },
         { text = "What would you have me do for Ordanus?", next = "xask" },
@@ -952,8 +1286,47 @@ P:NPC {
       lines = { { id = "v_default", text = "The forest's right to live, and the keeper's right to keep it. We are not soldiers, but those who harm this grove learn quickly that we fight like them." } },
       choices = { { text = "I understand.", next = "BACK" } },
     },
+    ycen_ordanus = {
+      lines = {
+        { id = "yycen_ordanus_d", text = "Old and patient, as the oldest trees are patient. He speaks rarely, and when he does the whole grove leans to listen. He has sworn to keep the Raynewood free of the satyr taint until he himself becomes part of the forest, and I believe he will." },
+      },
+      choices = {
+        { text = "Will you ever be like him?", next = "ycen_like" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycen_like = {
+      narr = "The young keeper looks down at his own hooves, and for a moment he seems very young indeed.",
+      lines = {
+        { id = "yycen_like_d", text = "I hope so, in a thousand years or so. For now I am impatient and quick to anger, and Ordanus says that is the curse of the young keepers. He says I will learn patience when the forest teaches it to me, which it has not yet." },
+      },
+      choices = {
+        { text = "What makes you angry?", next = "ycen_angry" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycen_angry = {
+      lines = {
+        { id = "yycen_angry_d", text = "The axes, and the fel, and the slowness of the druids who will not strike first. When I see a grove burned I want to ride down on the Warsong and trample them, but Ordanus says that would only make more burned groves." },
+      },
+      choices = {
+        { text = "Ordanus is right. Vengeance breeds more war.", next = "BACK", reply = "So he says, and so you say. I am trying to believe it.", fx = { align = { light = 1 } } },
+        { text = "Ride down on them. The forest needs defending.", next = "BACK", reply = "Your words please my heart, and trouble my mind. I will not, for Ordanus.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycen_horde = {
+      lines = {
+        { id = "yycen_horde_d", text = "We do not hate, little one, but we remember. My father fell to an orc's axe in this forest, and his blood is in the earth here. Walk with care in Ashenvale, and cut nothing, and the keepers will let you pass." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    ordanus = { { id = "tp_yordanus", text = "The keeper of the Raynewood. I stand at his side." } },
+    raynewood_retreat = { { id = "tp_yraynewood_retreat", text = "The keeper's grove. The satyrs creep closer every season." } },
     cenarius = { { id = "tp_xcenarius", text = "My father, slain in this very forest. His sons keep his woods now." } },
     satyrs = { { id = "tp_xsatyrs", text = "Felfire Hill festers with them. One day the keepers will go there, and the hill will be quiet again." } },
  _none = { { id = "tp_none", text = "I know only the grove. Ask the Sentinels for the rest." } } },
@@ -1193,6 +1566,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I run messages between the Warsong camps and the outposts. Lumber counts, sentinel sightings, who's dead and who's late. Mostly who's dead." } },
       again = { { id = "h_again", text = "More? I'm already late." } },
       choices = {
+        { text = "Who taught you to run?", next = "ywru_taught" },
+        { text = "A troll can run too. Race you to Splintertree.", next = "ywru_troll", when = { race = "Troll" } },
         { text = "How long have you been a runner?", next = "xlong" },
         { text = "What's the worst message you've carried?", next = "xworst" },
         { text = "Where do you run next?", next = "xnext" },
@@ -1215,8 +1590,47 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ywru_taught = {
+      lines = {
+        { id = "yywru_taught_d", text = "An old wolf rider named Grutha, who lost his wolf at Hyjal and his legs a year later to a Sentinel arrow. He sat by the fire at the lumber camp and told me which trails were safe and which were not, and he was right every time." },
+      },
+      choices = {
+        { text = "Where is Grutha now?", next = "ywru_grutha" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywru_grutha = {
+      narr = "The runner stops shifting from foot to foot for the first time.",
+      lines = {
+        { id = "yywru_grutha_d", text = "Dead, last winter, of a fever that came off the river. His name was on a list I carried myself, and I read it before I knew whose it was. I ran the whole way to Splintertree without stopping, and I have no memory of the road." },
+      },
+      choices = {
+        { text = "Do you still read the lists?", next = "ywru_lists" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywru_lists = {
+      lines = {
+        { id = "yywru_lists_d", text = "I try not to, but my eyes find the names. Some runners say we should know every name, to honour them, and some say it makes the legs slow. I have not decided which is true." },
+      },
+      choices = {
+        { text = "Read them. The dead deserve remembering.", next = "BACK", reply = "You sound like Grutha. I will read them, and run anyway.", fx = { align = { honor = 1 } } },
+        { text = "Don't read them. Keep your legs fast.", next = "BACK", reply = "Aye. That is what the chieftain says. I will try.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywru_troll = {
+      lines = {
+        { id = "yywru_troll_d", text = "A troll! You have long legs, I will grant you, but you do not know the deer trails. I would beat you by a hundred paces, and then I would wait for you at the gate and laugh. Lok'tar, friend." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    warsong_lumber_camp = { { id = "tp_ywarsong_lumber_camp", text = "The first stop on my run. The saws never stop there." } },
+    mystral_lake = { { id = "tp_ymystral_lake", text = "The Sentinels watch it. I go around." } },
     splintertree = { { id = "tp_xsplinter", text = "Splintertree Post is the Horde's fist in Ashenvale. I'm one of its fingers, the fast one." } },
  _none = { { id = "tp_none", text = "Ask at Splintertree. I just carry the words." } } },
 }
@@ -1267,6 +1681,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I watch the gulch and the paths to it. The Silverwing Sentinels want our clan out of these woods, and the Warsong want every axe they own back in the trees." } },
       again = { { id = "h_again", text = "Something else? Keep it low." } },
       choices = {
+        { text = "Why haven't you told anyone about the ancient?", next = "ywsc_ancient" },
+        { text = "A night elf, here? You should not have come.", next = "ywsc_elf", when = { race = "NightElf" } },
         { text = "How did you become a scout?", next = "xbecame" },
         { text = "What do you see out there at night?", next = "xnight" },
         { text = "What do you think of Grom's legacy here?", next = "xgrom" },
@@ -1289,8 +1705,47 @@ P:NPC {
       lines = { { id = "e_default", text = "From the dark, with arrows and great cats and owls that see everything. They fight like the forest itself hates you, and maybe it does." } },
       choices = { { text = "I'll keep my eyes open.", next = "BACK" } },
     },
+    ywsc_ancient = {
+      lines = {
+        { id = "yywsc_ancient_d", text = "Because they would laugh, or they would send a party to cut it down, and I do not want either. It looked at me the way an elder looks at a child, and I felt that it knew my name, though I do not know how." },
+      },
+      choices = {
+        { text = "Do you think it was a warning?", next = "ywsc_warning" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywsc_warning = {
+      narr = "The scout glances up into the canopy, as though expecting to see something looking back.",
+      lines = {
+        { id = "yywsc_warning_d", text = "Perhaps, or perhaps only a question. I think it was asking me why we cut its kin. I had no answer, and I have none now, and I have stopped sleeping well since that night." },
+      },
+      choices = {
+        { text = "What would you tell it now?", next = "ywsc_tell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywsc_tell = {
+      lines = {
+        { id = "yywsc_tell_d", text = "That Orgrimmar needs wood, and that the Horde must live. But I would also tell it that I am sorry, and I do not think the clan would forgive me for saying so. A Warsong scout is not meant to be sorry." },
+      },
+      choices = {
+        { text = "Being sorry is no shame. Say it.", next = "BACK", reply = "Perhaps. If I see it again, I will tell it, and hope the clan never hears.", fx = { align = { light = 1 } } },
+        { text = "The Horde must survive. Don't apologise.", next = "BACK", reply = "That is what my chieftain would say. I will keep my silence.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywsc_elf = {
+      lines = {
+        { id = "yywsc_elf_d", text = "You are not Sentinel, by your gear, and you walk with the Horde's leave, so I will not draw on you. But your kin in the trees may not be so careful, and neither may mine. Walk quietly, and keep to the paths." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    warsong_gulch = { { id = "tp_ywarsong_gulch", text = "Our lumber road. The Sentinels want it closed, and we want it open." } },
+    ancients = { { id = "tp_yancients", text = "The walking trees. One looked at me once, and I have not forgotten." } },
     grom = { { id = "tp_xgrom", text = "Grom Hellscream. Our chieftain, our shame and our pride, all in one." } },
  _none = { { id = "tp_none", text = "Don't know. Ask at the camp." } } },
 }
@@ -1355,6 +1810,8 @@ P:NPC {
       lines = { { id = "h_default", text = "We guard this island and the road through the forest. The Warsong cut from the north, the satyrs creep from the south, and the furbolgs have gone mad between them." } },
       again = { { id = "h_again", text = "What more would you ask?" } },
       choices = {
+        { text = "How long have you stood this bridge?", next = "yast_long" },
+        { text = "A Horde scout, at your gate. Will you let me pass?", next = "yast_horde", when = { faction = "Horde" } },
         { text = "Tell me about Astranaar itself.", next = "xtown" },
         { text = "What of the satyrs to the south?", next = "xsatyr" },
         { text = "Why have the furbolgs gone mad?", next = "xfurbolg" },
@@ -1378,8 +1835,48 @@ P:NPC {
       lines = { { id = "i_default", text = "The inn is near the centre of the town. Innkeeper Kimlya will see that you are fed and rested." } },
       choices = { { text = "Thank you. Something else.", next = "BACK" } },
     },
+    yast_long = {
+      lines = {
+        { id = "yyast_long_d", text = "Since before the orcs came, when the bridge was only a crossing and Astranaar was a town of poets and moon-priestesses. I have watched it become a fortress one season at a time, and I am not certain I like what we have built." },
+      },
+      choices = {
+        { text = "What do you miss about the old town?", next = "yast_miss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yast_miss = {
+      narr = "She glances back over her shoulder, toward the moonwell glimmering between the trees of the island.",
+      lines = {
+        { id = "yyast_miss_d", text = "The singing at dusk, when the priestesses walked the shore with lanterns and the children followed them into the water. There is still singing, but it is quieter now, and the children are sent to Darnassus when they are old enough to travel." },
+      },
+      choices = {
+        { text = "Should the children stay in Ashenvale?", next = "yast_children" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yast_children = {
+      lines = {
+        { id = "yyast_children_d", text = "My sister would keep hers here, for she says a kaldorei child who has never seen Ashenvale will never fight for it. I would send them to Teldrassil and let them grow up without arrows on the wind, but it is her choice, not mine." },
+      },
+      choices = {
+        { text = "Send them to Teldrassil. Safety first.", next = "BACK", reply = "Yes. I will tell her a stranger said so, and she will tell me to mind my own bridge.", fx = { align = { order = 1 } } },
+        { text = "Let them stay. Ashenvale is their birthright.", next = "BACK", reply = "That is my sister's view. Perhaps she is wiser than I am.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yast_horde = {
+      lines = {
+        { id = "yyast_horde_v0", when = { race = "Tauren" }, text = "You are a child of the Earth Mother, and your people honour the forest, I am told. That does not open my bridge, but it softens my glaive a little. Go back south, and tell your Warsong friends to cut less." },
+        { id = "yyast_horde_d", text = "You will not, and you know it. Turn back toward Splintertree before my sisters on the wall notice you, and tell your commanders that Astranaar does not sleep. There will be no second warning." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    lake_iris = { { id = "tp_ylake_iris", text = "The lake around Astranaar. It is half our wall, and all of our water." } },
+    teldrassil = { { id = "tp_yteldrassil", text = "Our new home across the sea. The children go there now, when they are old enough." } },
     raene = { { id = "tp_xraene", text = "Raene Wolfrunner commands Astranaar. If you want to be useful, she will see that you are." } },
     satyrs = { { id = "tp_xsatyrs", text = "Felfire Hill is theirs now. Do not go there alone, whatever you think you can do." } },
  _none = { { id = "tp_none", text = "I cannot say. Ask the Sentinel captain." } } },

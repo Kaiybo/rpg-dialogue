@@ -33,6 +33,11 @@ P:NPC {
         { text = "What does Razor Hill need most?", next = "need" },
         { text = "Your arm is black as a smith's anvil.", next = "arm" },
         { text = "Who causes trouble around here?", next = "trouble" },
+        { text = "How long have you counted for Razor Hill?", next = "ylong" },
+        { text = "What's the hardest thing to get here?", next = "yhard" },
+        { text = "Do you trust the goblin traders?", next = "ygob" },
+        { text = "What about the humans at Tiragarde Keep?", next = "ytiragarde" },
+        { text = "Why count everything so carefully?", next = "ycamp" },
         { text = "Farewell, Yelnagi.", next = "END" },
       },
     },
@@ -59,8 +64,52 @@ P:NPC {
       lines = { { id = "t_default", text = "The Burning Blade cultists in the Skull Rock caves, and the humans at Tiragarde Keep along the coast. Gar'Thok in the bunker will give you work against both if you have the stomach for it." } },
       choices = { { text = "I'll speak to Gar'Thok. Something else.", next = "BACK" } },
     },
+    ylong = {
+      lines = {
+        { id = "yylong_d", text = "Since the first wall went up, when Gar'Thok was still shouting at the timber crews. I counted every log, every nail and every scorpion we found in the boots. It was a lot of scorpions." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhard = {
+      lines = {
+        { id = "yyhard_d", text = "Iron, and good wood, and sometimes patience. Orgrimmar takes the best of everything, and Razor Hill gets what's left. I keep the lists, and the lists are always short." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygob = {
+      lines = {
+        { id = "yygob_d", text = "I trust them to cheat me, and so I am never surprised. The ones from Ratchet are honest goblins, which means they cheat you honestly. The Venture Company cheats you and burns your forest." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytiragarde = {
+      lines = {
+        { id = "yytiragarde_d", text = "The humans at Tiragarde Keep sit on the coast and send raiding parties up the road. Some grunts want to burn them out. Others say Thrall wants peace, and we should leave them be." },
+      },
+      choices = {
+        { text = "Burn them out. They're on our land.", next = "BACK", reply = "Gar'Thok would agree. Thrall might not.", fx = { align = { order = -1 } } },
+        { text = "Thrall wants peace. Follow the Warchief.", next = "BACK", reply = "Yes. The Warchief knows more than any grunt.", fx = { align = { order = 1 } } },
+      },
+    },
+    ycamp = {
+      lines = {
+        { id = "yycamp_v0", when = { race = "Orc" }, text = "You were in the camps too? Then you know why I count everything. In the camps, the humans counted us. Now I count for us." },
+        { id = "yycamp_d", text = "You were in the camps too? Then you know why I count everything. In the camps, the humans counted us. Now I count for us, and nobody counts me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    gar_thok = { { id = "ytp_gar_thok", text = "Gar'Thok runs Razor Hill. He shouts a lot, but he listens, too." } },
+    orgrimmar = { { id = "ytp_orgrimmar", text = "Orgrimmar takes our best and sends back orders. That is how capitals work." } },
     background = { { id = "tp_bg", text = "I was nine years behind human walls and three years building this town. I like the building better." } },
     _none = { { id = "tp_none", text = "I count crates, {class}. Ask somebody who has time to wonder about things." } },
   },
@@ -93,6 +142,9 @@ P:NPC {
         { text = "What's life like in Sen'jin?", next = "xlife" },
         { text = "Do you ever go near the Isles?", next = "xnear" },
         { text = "Darkspear to Darkspear: will we take the Isles back?", next = "xback", when = { race = "Troll" } },
+        { text = "Who taught you to watch the water?", next = "ytaught" },
+        { text = "What do you see at night?", next = "ynight" },
+        { text = "What do you think of the orcs?", next = "yorcs" },
         { text = "Keep watching, then.", next = "END" },
       },
     },
@@ -134,8 +186,35 @@ P:NPC {
         { text = "Sen'jin is home now. Build here.", next = "BACK", reply = "Maybe, mon. Maybe dat be wisdom.", fx = { align = { honor = -1 } } },
       },
     },
+    ytaught = {
+      lines = {
+        { id = "yytaught_d", text = "My grandmother, who watched for murlocs and pirates on de Isles before Zalazane came. She say de water always tell you what be comin', if you be patient enough to listen." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ynight = {
+      lines = {
+        { id = "yynight_d", text = "Fires on de Isles, and drums, and sometimes screams. Zalazane's thralls dance till dey fall down. I try not to look too long, because some of dem used to be my cousins." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yorcs = {
+      lines = {
+        { id = "yyorcs_v0", when = { race = "Orc" }, text = "Your Warchief gave us dis land when we had nothin', brudda. Orcs be loud and eat too much, but you keep your word. A troll ask nothin' better." },
+        { id = "yyorcs_d", text = "Thrall gave us dis land when we had nothin' but boats and blood. De orcs be loud and dey eat too much, but dey keep dey word. A troll can ask for nothin' better from a friend." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    vol_jin = { { id = "ytp_vol_jin", text = "Vol'jin be our chief now. He clever, and he patient, and he hate Zalazane more dan anyone." } },
+    murlocs = { { id = "ytp_murlocs", text = "De murlocs be everywhere on dis coast. Dey be noisy, but dey don't be smart." } },
     sen_jin = { { id = "tp_xsen_jin", text = "Sen'jin Village be named for our old chief. He died so we could live." } },
     echo_isles = { { id = "tp_xecho_isles", text = "De Echo Isles be our home, and Zalazane stole dem." } },
     _none = { { id = "tp_none", text = "I don't know nothin' about dat, mon. I just watch de water." } },
@@ -165,6 +244,9 @@ P:NPC {
         { text = "How did you become a bruiser?", next = "xhow" },
         { text = "What's the strangest fight you've broken up?", next = "xfight" },
         { text = "Goblin to goblin: what's the pay like?", next = "xpay", when = { race = "Goblin" } },
+        { text = "Ever been hurt on the job?", next = "yhurt" },
+        { text = "Do you have any family?", next = "yfam" },
+        { text = "Is it dangerous, being neutral?", next = "ydanger" },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -224,8 +306,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yhurt = {
+      lines = {
+        { id = "yyhurt_d", text = "A tauren sat on me once. Not on purpose, he was drunk, but I still can't feel my left ear. I put him out in the cold, and he paid for the damage, so we're square." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfam = {
+      lines = {
+        { id = "yyfam_v0", when = { race = "Goblin" }, text = "A wife in Ratchet and three kids who think I'm a war hero, cousin. You'd do the same. A goblin's got to have a little glory." },
+        { id = "yyfam_d", text = "A wife in Ratchet and three kids who think I'm a war hero. I let 'em think it. A goblin's got to have a little glory, or what's the point of all this muscle?" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydanger = {
+      lines = {
+        { id = "yydanger_d", text = "The Alliance and Horde shake hands at the bar, then knife each other in the alley. I'm in between, and they both hate me for it. Best job in the world, if you ask me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    ratchet = { { id = "ytp_ratchet", text = "Ratchet's the Cartel's port in the Barrens. I keep the peace there, and here, and anywhere they pay me." } },
+    bruisers = { { id = "ytp_bruisers", text = "Bruisers keep the Cartel neutral, with clubs if we have to." } },
     steamwheedle = { { id = "tp_xsteamwheedle", text = "The Steamwheedle Cartel keeps trade flowing. I keep it from flowing into fistfights." } },
     _none = { { id = "tp_none", text = "I don't get paid to know that, friend. I get paid to stand here and look scary." } },
   },
@@ -670,6 +779,9 @@ P:NPC {
         { text = "How did you fall?", next = "xfall" },
         { text = "Do you have kin still living?", next = "xkin" },
         { text = "I am an orc. Did you fight in the old wars?", next = "xorc", when = { race = "Orc" } },
+        { text = "What is it like, beyond?", next = "ybeyond" },
+        { text = "Do the dead watch the Horde?", next = "ywatch" },
+        { text = "Do troll ancestors walk with you?", next = "ytroll", when = { race = "Troll" } },
         { text = "Rest well, ancestor.", next = "END" },
       },
     },
@@ -719,8 +831,36 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ybeyond = {
+      lines = {
+        { id = "yybeyond_d", text = "Quiet, like the plains before a storm, and full of voices you once knew. I cannot tell you more, for the living are not meant to know. But it is not cold, and it is not lonely." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywatch = {
+      lines = {
+        { id = "yywatch_v0", when = { class = "SHAMAN" }, text = "You hear us more clearly than most, shaman. When the Horde fights with honour, we are proud. When it strikes the helpless, we turn our faces away." },
+        { id = "yywatch_d", text = "We watch, and we remember. When the Horde fights with honour, we are proud. When it forgets, we grieve. Every warrior who strikes a helpless foe makes the ancestors turn their faces away." },
+      },
+      choices = {
+        { text = "Then I will fight with honour, always.", next = "BACK", reply = "Good. We will be watching, and we will be proud.", fx = { align = { honor = 1 } } },
+        { text = "Victory matters more than how it's won.", next = "BACK", reply = "So thought Gul'dan's warlocks. Remember where that path led us.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ytroll = {
+      lines = {
+        { id = "yytroll_d", text = "The Darkspear have their own ancestors, and their loa, and I do not claim to understand them. But a fallen warrior is a fallen warrior. Your dead and mine stand side by side tonight." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    thrall = { { id = "ytp_thrall", text = "Thrall is young, but he carries the old ways well. Tell him the dead are proud of him." } },
+    draenor = { { id = "ytp_draenor", text = "I was born under a red sky in Draenor. I died under a blue one in Kalimdor. Both were home." } },
     harvest_festival = { { id = "tp_xharvest_festival", text = "The Harvest Festival is when we honour the fallen. It is our time to walk among you." } },
     background = { { id = "tp_bg", text = "I am one of the fallen. That is all the living need know." } },
     _none = { { id = "tp_none", text = "The dead do not keep up with such things, child." } },
@@ -753,6 +893,10 @@ P:NPC {
         { text = "What would you rather be doing?", next = "xrather" },
         { text = "Who is your foreman?", next = "xforeman" },
         { text = "Do you remember the camps?", next = "xcamps" },
+        { text = "What's the worst job you've had?", next = "yworst" },
+        { text = "Do you have any friends?", next = "yfriends" },
+        { text = "A troll would never work this hard either.", next = "ytroll", when = { race = "Troll" } },
+        { text = "What do you dream about?", next = "ydream" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -803,8 +947,43 @@ P:NPC {
         { text = "Freedom means working for the Horde willingly.", next = "BACK", reply = "Willingly. Yes. Tomorrow, I will be very willing.", fx = { align = { order = 1 } } },
       },
     },
+    yworst = {
+      lines = {
+        { id = "yyworst_d", text = "Mucking out the wolf kennels at Razor Hill. The wolves do not like peons, and they show it, from both ends. After that, logs are very restful." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfriends = {
+      lines = {
+        { id = "yyfriends_d", text = "Lots! Every peon in the Valley of Trials. We nap in turns, so the foreman never catches all of us at once. It is called teamwork, and we are very good at it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytroll = {
+      lines = {
+        { id = "yytroll_v0", when = { race = "Troll" }, text = "Ha! You understand, mon. Your people sleep in the sun like lizards and nobody shouts. Maybe I go to Sen'jin and learn to be a troll." },
+        { id = "yytroll_d", text = "Ha! A troll understands. Your people sleep in the sun like lizards, and nobody shouts at you. Maybe I will go to Sen'jin and learn to be a troll." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydream = {
+      lines = {
+        { id = "yydream_d", text = "I dreamed I was a grunt, with a big axe, and everyone bowed to me. Then I dreamed the foreman was a peon, and I was the foreman. That was a good dream. I did not want to wake up." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    valley_of_trials = { { id = "ytp_valley_of_trials", text = "The Valley of Trials is where young orcs learn to fight. Peons learn to hide." } },
+    logs = { { id = "ytp_logs", text = "Logs are heavy, and there are always more of them. It is very unfair." } },
     foreman = { { id = "tp_xforeman", text = "Thazz'ril is always angry. Me always tired. We balance." } },
     _none = { { id = "tp_none", text = "Me just a peon. Ask the foreman." } },
   },

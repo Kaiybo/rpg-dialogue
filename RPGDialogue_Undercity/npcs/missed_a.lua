@@ -25,10 +25,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A copyist in Lordaeron, if you can believe it, paid by the page to write out other men's sermons. I learned every word the Church had to say about demons, and I find most of it was wrong in very interesting ways." } },
+      choices = {
+        { text = "Wrong how?", next = "ychurch" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ychurch = {
+      lines = { { id = "ychurch_x", text = "The priests wrote that a demon could only be cast out, never commanded. Mistress Pruitt commands three before breakfast. Either the Light lied to us, or it never knew, and I'm not sure which I'd rather believe." } },
+      choices = {
+        { text = "The Light abandoned you. Take what power you can.", next = "BACK", reply = "That's the lesson the whole Quarter teaches, and I find it easier to learn every day.", fx = { align = { light = -1 } } },
+        { text = "The priests were right to fear them. Be careful.", next = "BACK", reply = "Careful is all I am, these days. Still, I'd sooner understand a thing than fear it blindly.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywant = {
+      lines = { { id = "ywant_x", text = "A voidwalker, for it's loyal and it doesn't talk. Winifred wants the succubus, which tells you a great deal about Winifred. Victor would summon nothing at all and write a book about not doing it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ypruitt = {
+      lines = { { id = "ypruitt_x", text = "She's harsh, and she's never once been wrong in front of us, which is the same thing in a teacher. I've heard she lost a pupil to an imp in her first year here. She has never mentioned it, and I've never had the nerve to ask." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Adrian Bartlett, and I am a student, as you can see. Mistress Pruitt shows us the demons one at a time, and Winifred, Victor and I are expected to learn what each one wants before we're allowed to call it ourselves." },
         { id = "h_warlock", when = { class = "WARLOCK" }, text = "Adrian Bartlett, and still a student, which you plainly are not. Mistress Pruitt shows us the demons one at a time, and I am told I'll be allowed a circle of my own when she stops finding fault with my chalk lines." },
+        { id = "yh_human", when = { race = "Human" }, text = "A living human at a demon lesson in the Undercity. Either you're very brave or very lost, and Mistress Pruitt will want to know which before I say another word." },
       },
       again = {
         { id = "h_again", text = "Ask quickly, before she summons the next one." },
@@ -39,6 +63,9 @@ P:NPC {
         { text = "You haven't summoned anything yourself yet.", next = "practice" },
         { text = "Who are the other two?", next = "others" },
         { text = "My first binding went badly, Adrian. It left scars.", next = "binding", when = { class = "WARLOCK" } },
+        { text = "What were you before you died?", next = "ylife" },
+        { text = "What would you summon first, given the chance?", next = "ywant" },
+        { text = "Is Jezelle Pruitt a good teacher?", next = "ypruitt" },
         { text = "I'll leave you to your lesson.", next = "END" },
       },
     },
@@ -70,6 +97,8 @@ P:NPC {
     },
   },
   topics = {
+    jezelle_pruitt = { { id = "ytp_pruitt", text = "Mistress Pruitt teaches demons as other tutors teach grammar, one rule at a time and with no excuses accepted." } },
+    magic_quarter = { { id = "ytp_mq", text = "The Magic Quarter smells of ink and brimstone, and I love every damp corner of it." } },
     background = { { id = "tp_bg", text = "I woke in a Tirisfal grave like the rest, and found I'd more curiosity than fear left. The Magic Quarter is where curiosity gets sent." } },
     _none = { { id = "tp_none", text = "That isn't in any of my notes. Ask Carendin Halgar across the quarter, if you dare take up his time." } },
   },
@@ -96,9 +125,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A miller's girl from outside Andorhal. I carried flour sacks all day and wished somebody would hand me a sword instead. Then the plague came through and somebody did, though it took dying first." } },
+      choices = {
+        { text = "Andorhal. Do you ever think of going back?", next = "yandorhal" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yandorhal = {
+      lines = { { id = "yandorhal_x", text = "Every night. They say the town's crawling with Scourge and the mill's a ruin. Houser says we leave the Western Plaguelands to the Bulwark, but I'd march there tomorrow if anyone would let me." } },
+      choices = {
+        { text = "Then go. Orders don't bury your dead.", next = "BACK", reply = "Don't say that so loud. I'll be thinking about it all through drill now.", fx = { align = { order = -1 } } },
+        { text = "Wait for orders. A lone soldier just dies again.", next = "BACK", reply = "You sound like Houser. I suppose he's right, and I suppose I hate it.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfear = {
+      lines = { { id = "yfear_x", text = "Not the Scourge, strangely. I'm afraid I'll see someone I knew among them, still wearing an apron or a wedding ring, and that I'll hesitate. Houser says hesitation is the only thing that kills the dead." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ytip = {
+      lines = { { id = "ytip_x", text = "From a real warrior? Yes, please, before Houser starts shouting again. I'll take anything that keeps my elbow up." } },
+      choices = { { text = "Keep your shield close and let them come to you.", next = "BACK", reply = "Let them come to me. I can do that. Thank you, truly.", fx = { affinity = 1 } } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Alyssa Blaye, recruit, and no more than that until Sergeant Houser says otherwise. Eldin, Travist and I drill here from one bell to the next, and when we're good enough the Deathguard will have us." },
+        { id = "yh_orc", when = { race = "Orc" }, text = "An orc, watching me drill? Don't tell Houser you saw my footwork, he'll say I've shamed the whole Undercity in front of the Horde." },
       },
       again = {
         { id = "h_again", text = "Go on, then. I can listen and strike at once." },
@@ -109,6 +162,9 @@ P:NPC {
         { text = "You hit that dummy like you hate it.", next = "hate" },
         { text = "Where will they send you?", next = "posting" },
         { text = "Your elbow drops before the cut. He's right.", next = "elbow", when = { class = "WARRIOR" } },
+        { text = "Who were you before you died?", next = "ylife" },
+        { text = "What are you afraid of, out there?", next = "yfear" },
+        { text = "I'm a warrior. Want a tip?", next = "ytip", when = { class = "WARRIOR" } },
         { text = "Back to your drill, recruit.", next = "END" },
       },
     },
@@ -140,6 +196,8 @@ P:NPC {
     },
   },
   topics = {
+    sergeant_houser = { { id = "ytp_houser", text = "Houser shouts because he cares. At least that's what Eldin says, and Eldin thinks about everything far too much." } },
+    andorhal = { { id = "ytp_andorhal", text = "Andorhal was my home before the plague grain came. I'll see it again one day, sword in hand." } },
     background = { { id = "tp_bg", text = "I woke in Tirisfal with nothing but a grudge, and the War Quarter was the first place that had a use for one." } },
     _none = { { id = "tp_none", text = "I'm a recruit. Nobody tells me anything except to keep my guard up." } },
   },
@@ -166,9 +224,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ybets = {
+      lines = { { id = "ybets_x", text = "Every bout, and Brother Malach takes my coin with that pious face of his. I'm down eleven silver this month alone, but I'm due a turn, I can feel it in my bones, what's left of them." } },
+      choices = {
+        { text = "Does Malach rig the bouts?", next = "yrig" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yrig = {
+      lines = { { id = "yrig_x", text = "Rig them? A priest of the Forgotten Shadow? I'll not say so aloud. Only, the abomination always seems to win when the crowd's bet heavy against it, and I've lost count of the coincidences." } },
+      choices = {
+        { text = "Then call him out. A cheat should answer for it.", next = "BACK", reply = "Me, call out Malach? You're braver than me, or newer here.", fx = { align = { honor = 1 } } },
+        { text = "Every game has its angle. Learn his and win.", next = "BACK", reply = "Now that's thinking. I'll start watching his hands instead of the fighters.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylife = {
+      lines = { { id = "ylife_x", text = "I kept the books at a Lordaeron tannery, which is how I learned to tally. I never once got a column wrong in life, and I've not got a bout right since dying, so make of that what you will." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yfight = {
+      lines = { { id = "yfight_x", text = "Me? Down there? I'd last as long as a candle in a canal. No, the rail's my place. Somebody has to tell those two what they're doing wrong, and they'd never hear it from each other." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Andrew Hartwell, and I've not missed a bout this season. Edward and Tyler are our lads down there, and Brother Malach keeps them supplied with things to kill, which is the best entertainment this city has." },
+        { id = "yh_orc", when = { race = "Orc" }, text = "An orc at the rail! Now here's someone who knows a proper fight. Tell me, which way are you betting?" },
       },
       again = {
         { id = "h_again", text = "Go on, but talk while I watch, because I'll not turn my back on the sand." },
@@ -179,6 +261,9 @@ P:NPC {
         { text = "Which of the two is better?", next = "better" },
         { text = "Hartwell. Like the mage trainer?", next = "name" },
         { text = "This is a cruel sort of sport.", next = "cruel" },
+        { text = "Do you place bets on these bouts?", next = "ybets" },
+        { text = "What did you do before you died?", next = "ylife" },
+        { text = "Ever thought of fighting yourself?", next = "yfight" },
         { text = "Enjoy the show.", next = "END" },
       },
     },
@@ -207,6 +292,8 @@ P:NPC {
     },
   },
   topics = {
+    brother_malach = { { id = "ytp_malach", text = "Malach runs the pit like a sermon, with the collection plate passed round afterwards." } },
+    edward_and_tyler = { { id = "ytp_et", text = "Edward's the steady one and Tyler's the show. Put my money on Tyler, every time, and lose it." } },
     background = { { id = "tp_bg", text = "I was a Lordaeron man with a quiet trade, once. Now I've a place at the rail, and I find I prefer it." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. If it didn't happen in the pit, I didn't see it." } },
   },
@@ -233,9 +320,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "An apothecary's daughter in Stratholme. I mixed tinctures for my father's customers until the grain came. He made a cure that didn't work, and sold it to half the city. I've never been able to make myself forget that." } },
+      choices = {
+        { text = "He couldn't have known.", next = "yknown" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yknown = {
+      lines = { { id = "yknown_x", text = "He should have tested it. I test everything now, on whoever the Society gives me. Is that a fair price for one man's mistake, would you say?" } },
+      choices = {
+        { text = "No. Your subjects pay for his guilt.", next = "BACK", reply = "Correct. And I'll keep doing it. Next question.", fx = { align = { light = 1 } } },
+        { text = "Yes. Better a tested poison than a false cure.", next = "BACK", reply = "My view exactly. Thank you. Walk faster.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yworst = {
+      lines = { { id = "yworst_x", text = "A sealed flask that sang. Faintly, all the way from the Trade Quarter to the Apothecarium. I delivered it. I did not ask. I did not sleep for a week, and the dead don't need to." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yslow = {
+      lines = { { id = "yslow_x", text = "Because a Forsaken who stops gets asked questions by people with more authority than you. Keep walking, and you keep working. Keep working, and the Society keeps you whole." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Apothecary Vallia, of the Royal Apothecary Society. I carry what the Apothecarium needs down from the Trade Quarter and what it has finished back up again, and I'm trusted not to drop either." },
+        { id = "yh_alch", when = { profession = "Alchemy" }, text = "An alchemist. Your hands are stained wrong for Society work. Walk with me, if you must talk." },
       },
       again = {
         { id = "h_again", text = "Ask the next one. I've another flight of stairs before I'm rid of this satchel." },
@@ -246,6 +357,9 @@ P:NPC {
         { text = "What does the Society want with the market?", next = "market" },
         { text = "You must know every corner of this city.", next = "city" },
         { text = "Does the Society take on new alchemists?", next = "join", when = { profession = "Alchemy" } },
+        { text = "What were you before the Society?", next = "ylife" },
+        { text = "What's the worst thing you've carried?", next = "yworst" },
+        { text = "Why won't you slow down?", next = "yslow" },
         { text = "I won't keep you.", next = "END" },
       },
     },
@@ -274,6 +388,8 @@ P:NPC {
     },
   },
   topics = {
+    stratholme = { { id = "ytp_strat", text = "My father's shop was on the market square. It's still there, I'm told, full of things that walk." } },
+    apothecarium = { { id = "ytp_apoth", text = "The Apothecarium is where I belong. I don't enjoy it. That isn't the same thing." } },
     background = { { id = "tp_bg", text = "I ground powders for a chemist in life, and I carry bottles for the Society in death. The work is better now, and so is the cause." } },
     _none = { { id = "tp_none", text = "That is not the Society's business, and so it isn't mine. Ask a guard." } },
   },

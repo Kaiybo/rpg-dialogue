@@ -136,6 +136,8 @@ P:NPC {
         { text = "Where did you learn to blow things up?", next = "learned" },
         { text = "My fuses run on clockwork, not string.", next = "fuses", when = { race = "Gnome" } },
         { text = "I know a thing or two about explosives.", next = "fuses", when = { profession = { "Engineering" } } },
+        { text = "What's the biggest thing you ever blew up?", next = "ybig" },
+        { text = "Got any family back in Gadgetzan?", next = "yfamily" },
         { text = "Get ready, Weegli.", next = "END" },
       },
     },
@@ -183,8 +185,36 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ybig = {
+      lines = {
+        { id = "yb_default", text = "A whole hillside in the Badlands, pal, for a Venture Company crew lookin' for an iron seam. Brought the whole thing down in one go, and the seam with it, and a rockslide that took out the foreman's outhouse. They docked my pay but I still say it was a success." },
+        { id = "yb_dwarf", when = { race = "Dwarf" }, text = "A hillside in the Badlands, for a crew diggin' near Uldaman, with a bunch of your Explorers' League types standin' too close. Nobody got hurt, mostly, but your lot still won't sell me powder." },
+      },
+      choices = {
+        { text = "You worked for the Venture Company?", next = "yventure" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yventure = {
+      lines = { { id = "yv_default", text = "For a season, till I saw what they were doin' to the land, and the pay was rotten besides. Some say a goblin should take whatever job pays, and some say there's jobs you don't take. You'd say which, pal?" } },
+      choices = {
+        { text = "A job's a job. Take the coin.", next = "BACK", reply = "That's the goblin way! Though they did short me on the last invoice.", fx = { align = { light = -1 } } },
+        { text = "Some jobs aren't worth the coin.", next = "BACK", reply = "Yeah. Yeah, I figured that one out the hard way.", fx = { align = { light = 1 } } },
+      },
+    },
+    yfamily = {
+      narr = "He pats his boot, where something lumpy clinks.",
+      lines = {
+        { id = "yfa_default", text = "A ma who sells fuses on the Gadgetzan market and a cousin who lost both eyebrows testin' her stock. She thinks I'm doin' honest mining work. If you ever meet her, I'm doin' honest mining work, all right?" },
+        { id = "yfa_horde", when = { faction = "Horde" }, text = "A ma in Gadgetzan who sells fuses, and a cousin with no eyebrows. She sells to Horde and Alliance both, so you'll get a fair price, buddy. Just tell her I'm doin' honest mining work, all right?" },
+      },
+      choices = { { text = "Your secret's safe. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    bly = { { id = "yt_bly", text = "Sergeant Bly's the boss. He's got a plan, and plans are great, as long as there's dynamite in 'em." } },
+    ukorz = { { id = "yt_ukorz", text = "Chief Ukorz Sandscalp sits behind that big door. I'm gonna open it for you, real loud." } },
+    gadgetzan = { { id = "yt_gadget", text = "Gadgetzan's got the best fuses in Tanaris and the worst permits. My ma sells the former." } },
     _none = { { id = "tp_none", text = "Dunno! Is it flammable? If not, I didn't pay attention." } },
   },
 }

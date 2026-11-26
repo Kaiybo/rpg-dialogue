@@ -287,6 +287,8 @@ P:NPC {
         { text = "What will you do when you're free?", next = "xfree" },
         { text = "I'm a shaman. I hear the fire in you.", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "I'm a mage. Your fire is pure and wild.", next = "xmage", when = { class = "MAGE" } },
+        { text = "Were you a forge fire before this?", next = "yforge" },
+        { text = "Do you remember the Firelands?", next = "yhome" },
         { text = "Stay close and follow me. We're leaving.", next = "END", reply = "*The elemental drifts after you, scorching the grass with every step it takes toward the marsh.*" },
       },
     },
@@ -322,5 +324,38 @@ P:NPC {
       lines = { { id = "xma_default", text = "*The flames recoil from you, wary and hissing, and the elemental draws back as far as its chains allow.*" } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  
+    yforge = {
+      lines = {
+        { id = "ycaptiv_yforge_d", text = "*The elemental's flames bend low and red, the colour of banked coals, and for a moment it looks almost like the fire under a smith's bellows.*" },
+        { id = "ycaptiv_yforge_v0", when = { class = "SHAMAN" }, text = "*Its fire flickers into a dull, hammered rhythm, steady as a forge beat, and you feel in it a weariness older than the chains.*" },
+      },
+      choices = {
+        { text = "They've made you work their forges.", next = "ywork" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywork = {
+      lines = {
+        { id = "ycaptiv_ywork_d", text = "*The fire gutters, then flares in a long hiss that sounds almost like a sigh. The iron links glow orange where its heat presses against them.*" },
+      },
+      choices = {
+        { text = "I'll free you. No fire should be chained.", next = "BACK", reply = "*The flames brighten and lean toward you, warm as a hand held out.*", fx = { align = { light = 1 } } },
+        { text = "Your fire is a weapon. Better it serve Ironforge than Thaurissan.", next = "BACK", reply = "*The elemental recoils, hissing, and sparks scatter angrily across the stones at your feet.*", fx = { align = { light = -1 } } },
+      },
+    },
+    yhome = {
+      lines = {
+        { id = "ycaptiv_yhome_d", text = "*For an instant the elemental's heart burns white, and the air around it ripples with a heat that does not belong to the marsh. Then it dims, and the chains rattle.*" },
+        { id = "ycaptiv_yhome_v0", when = { class = "MAGE" }, text = "*Its core flares white, and you sense in it a homesickness for a place of pure fire, far from any mortal land. Then the chains rattle, and the heat dims.*" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    dark_iron = { { id = "ycaptiv_tp_dark_iron", text = "*At the name, the flames roar up angrily and the chains clatter against the stones.*" } },
+    fire = { { id = "ycaptiv_tp_fire", text = "*The elemental pulses brighter, as though the word were an old song it recognised.*" } },
   },
 }

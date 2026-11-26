@@ -33,6 +33,10 @@ P:NPC {
         { text = "What exactly do you see coming?", next = "vision" },
         { text = "Why do the Zandalar need outsiders?", next = "outsiders" },
         { text = "Seers usually see what they want to see.", next = "doubt" },
+        { text = "Tell me about Zandalar.", next = "yzand" },
+        { text = "What did you see when I arrived?", next = "yseeyou" },
+        { text = "What does the All-Seeing fear?", next = "yfear" },
+        { text = "A Darkspear seeks your counsel, elder.", next = "BACK", when = { race = "Troll" }, reply = "Den sit, cousin. De Darkspear be small, but de Zandalar remember dat your tribe never bowed to Hakkar." },
         { text = "I'll go to Zul'Gurub.", next = "END" },
       },
     },
@@ -59,8 +63,47 @@ P:NPC {
       lines = { { id = "d_default", text = "Some do, mon, and I have seen dem die of it. I would very much like to be wrong about Hakkar, but de bones keep fallin' de same way, and I am too old to argue with bones." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  
+    yseeyou = {
+      lines = {
+        { id = "yaltabi_yseeyou_d", text = "A fire on de water, and your shadow walkin' through it without burnin'. Dat is all de bones gave me, mon. I do not know if it means you will live or only dat you will be brave, and Al'tabim does not pretend." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfear = {
+      lines = {
+        { id = "yaltabi_yfear_d", text = "Dat de bones be right. Seein' is a heavy gift, mon. I saw de Atal'ai fall into de swamp before it happened, and I warned dem, and dey laughed. Now I see Zul'Gurub, and I wonder who will laugh dis time." },
+      },
+      choices = {
+        { text = "Do the bones ever lie?", next = "ylie" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylie = {
+      lines = {
+        { id = "yaltabi_ylie_d", text = "De bones show what is likely, not what is certain. Some of my brothers say a seer must speak every vision, even de cruel ones. Others say some visions only make de future come quicker. Which be wiser, you think?" },
+      },
+      choices = {
+        { text = "Speak every vision. People must be warned.", next = "BACK", reply = "Den Al'tabim will keep speakin', even when de words taste bitter.", fx = { align = { order = 1 } } },
+        { text = "Keep the cruel ones silent. Fear helps no one.", next = "BACK", reply = "Maybe. But silence has a taste too, and it be worse.", fx = { align = { order = -1 } } },
+      },
+    },
+    yzand = {
+      lines = {
+        { id = "yaltabi_yzand_d", text = "Zandalar is our island, far to de south across de sea, older dan any troll kingdom. De King Rastakhan sends us to mend what our children broke. We be priests first, and warriors only when we must." },
+        { id = "yaltabi_yzand_v0", when = { race = "Troll" }, text = "Zandalar, cousin, de cradle of every troll who ever lived, yours too, though de Darkspear forget it. Rastakhan sends us to mend what our children broke." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    hakkar = { { id = "yaltabi_tp_hakkar", text = "Hakkar de Soulflayer. Say his name softly, mon, for his priests be listenin' in every shadow." } },
+    zandalar = { { id = "yaltabi_tp_zandalar", text = "Zandalar is de first home of all trolls. Every tribe came from dere, whether dey remember or not." } },
+
     background = { { id = "tp_bg", text = "I am a seer of de Zandalar, come to Yojamba to watch de Soulflayer and warn de world." } },
     _none = { { id = "tp_none", text = "Dat, I do not see, stranger. Even de All-Seeing has his blind spots." } },
   },
@@ -931,6 +974,10 @@ P:NPC {
         { text = "Why work out here, so far from Grom'gol?", next = "camp" },
         { text = "These jungles look dangerous for a lone craftsman.", next = "jungle" },
         { text = "I work leather. Teach me the tribal way.", next = "teach", when = { profession = "Leatherworking" } },
+        { text = "What do you hunt for your hides?", next = "ytigers" },
+        { text = "Who taught you the tribal way?", next = "ytaught" },
+        { text = "Do you get along with the orcs?", next = "yorcs" },
+        { text = "I'm a leatherworker. What's your secret?", next = "BACK", when = { profession = "Leatherworking" }, reply = "No secret, mon. Cut with de grain, cure slow, and thank de beast. Most forget de last part." },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -960,8 +1007,47 @@ P:NPC {
       lines = { { id = "t_default", text = "Se'Jib teaches only the ones who already know the basic cuts well. Master the craft, then come to Se'Jib, and he will teach you to make armour that moves like a panther." } },
       choices = { { text = "I'll prove myself to you. Something else.", next = "BACK" } },
     },
+  
+    ytaught = {
+      lines = {
+        { id = "ysejib_ytaught_d", text = "My grandfather, on de Echo Isles, before de Darkspear came to Durotar with Thrall. He made leather from sea-turtle and shark, and he said every hide carry de spirit of de one who wore it. I still hear him when I work." },
+        { id = "ysejib_ytaught_v0", when = { race = "Troll" }, text = "My grandfather, on de Echo Isles, cousin. You know de old ways. He said every hide carry de spirit of de one who wore it, and I still hear him when I cut." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yorcs = {
+      lines = {
+        { id = "ysejib_yorcs_d", text = "Dey be loud, but dey keep deir word. Thrall gave de Darkspear a home when nobody else would, and Se'Jib not forget dat. But de orcs in Grom'gol hunt tigers for sport and leave de hides. Dat Se'Jib cannot forgive." },
+      },
+      choices = {
+        { text = "Should the Horde stop them?", next = "ystop" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ystop = {
+      lines = {
+        { id = "ysejib_ystop_d", text = "Some Darkspear say tell de Warchief, let him punish dem. Others say keep quiet, dis be orc business and de Darkspear be guests. Se'Jib not sure. What you say?" },
+      },
+      choices = {
+        { text = "Tell the Warchief. Waste dishonours everyone.", next = "BACK", reply = "Den Se'Jib will send word, and de loa will see who listens.", fx = { align = { honor = 1 } } },
+        { text = "Keep quiet. The Darkspear owe Thrall too much.", next = "BACK", reply = "Maybe. But a debt not make waste right, mon.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ytigers = {
+      lines = {
+        { id = "ysejib_ytigers_d", text = "De Stranglethorn tigers be fast and proud, and deir hides make de best armour for a hunter who must move quiet. Se'Jib hunts only de old ones, de ones de jungle already let go." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    echo_isles = { { id = "ysejib_tp_echo_isles", text = "De Echo Isles be home, once. De Darkspear left dem, but de spirits stay." } },
+    loa = { { id = "ysejib_tp_loa", text = "De loa watch everyting. Even a tanner must keep dem happy." } },
+
     background = { { id = "tp_bg", text = "Jungle troll, leatherworker, teacher of the tribal way. Nothing more you need to know." } },
     _none = { { id = "tp_none", text = "Se'Jib knows leather and jungle, mon. Ask somebody else about that." } },
   },
@@ -1098,6 +1184,8 @@ P:NPC {
         { text = "Why haven't you moved on?", next = "xstay" },
         { text = "Can I help you rest?", next = "xrest" },
         { text = "A mage should know better than to cast underwater.", next = "BACK", when = { class = "MAGE" }, reply = "Oh, you're a wizard too? Then you know the first rule: never trust a scroll from a pirate. I learned that one late." },
+        { text = "What would you do with the gold, anyway?", next = "ygold" },
+        { text = "Do you remember being alive?", next = "yalive" },
         { text = "Rest easy, Gremnik.", next = "END" },
       },
     },
@@ -1162,8 +1250,39 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+  
+    ygold = {
+      lines = {
+        { id = "ygremni_ygold_d", text = "Spend it? Can't. Hold it? Can't. But knowing it's mine, friend, that's the part a goblin never stops wanting. I'd give it to my sister in Gadgetzan, maybe, if I could. She never liked me, but she'd like the gold." },
+      },
+      choices = {
+        { text = "Then let her have it.", next = "ysister" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysister = {
+      lines = {
+        { id = "ygremni_ysister_d", text = "You mean go after my partner and make him pay her instead? That'd mean admitting I'm dead, legally speaking, and goblin law takes a dim view of the dead owning property. I'd have to sign it over. A ghost can't sign." },
+      },
+      choices = {
+        { text = "Find a way. Make the debt do some good.", next = "BACK", reply = "Hmph. You're as bad as the priests. Fine, I'll think about haunting a notary.", fx = { align = { honor = 1 } } },
+        { text = "Forget the sister. It's your gold.", next = "BACK", reply = "Now that's a goblin talking! I knew I liked you.", fx = { align = { honor = -1 } } },
+      },
+    },
+    yalive = {
+      lines = {
+        { id = "ygremni_yalive_d", text = "Bits. The smell of the docks, the weight of a full purse, the feeling of a good deal closing. I don't remember dying, which I'm told is a mercy. I'd rather remember it and know who to haunt." },
+        { id = "ygremni_yalive_v0", when = { race = "Scourge" }, text = "Bits, same as you, I'd wager. The docks, a full purse, a deal closing. You lot came back with your bodies, though. I got stuck with the cheap option." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    gadgetzan = { { id = "ygremni_tp_gadgetzan", text = "My sister runs a shop in Gadgetzan. She'd sell my ghost to a collector if she could." } },
+    ghosts = { { id = "ygremni_tp_ghosts", text = "The other ghosts in this bay are pirates. Terrible conversationalists, worse with money." } },
+
     booty_bay = { { id = "tp_xbooty_bay", text = "Still the best port on the South Seas. I'd know, for I've drifted through every warehouse in it." } },
     baron_revilgaz = { { id = "tp_xbaron_revilgaz", text = "The Baron never knew half of what came through his docks. That was rather the point." } },
     _none = { { id = "tp_none", text = "If I knew, I'd sell it to you. Since I don't, go ask a living goblin." } },
@@ -1195,6 +1314,8 @@ P:NPC {
         { text = "What's the strangest thing you've sold?", next = "xodd" },
         { text = "Do you trade with both Horde and Alliance?", next = "xsides" },
         { text = "Do you deal with rogues often?", next = "BACK", when = { class = "ROGUE" }, reply = "Every day, friend, and the good ones never tell me their real name. I'd like to keep it that way with you, too." },
+        { text = "How did you start out?", next = "ystart" },
+        { text = "Ever had a deal go sour?", next = "ysour" },
         { text = "Not today, Landro.", next = "END" },
       },
     },
@@ -1259,8 +1380,39 @@ P:NPC {
         { text = "Some causes are worth more than profit.", next = "BACK", reply = "Heh. Noble of you. Expensive, but noble.", fx = { align = { order = 1 } } },
       },
     },
+  
+    ystart = {
+      lines = {
+        { id = "ylandro_ystart_d", text = "Sweeping floors in a Steamwheedle warehouse in Booty Bay, and noticing what got moved at night. I learned more in those three years than any school could teach, friend, and I never once stole a crate. I only remembered where they went." },
+        { id = "ylandro_ystart_v0", when = { race = "Goblin" }, text = "Sweeping floors in a Steamwheedle warehouse, same as half of us. You know how it goes, pal. You learn what moves at night and you remember where it goes." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysour = {
+      lines = {
+        { id = "ylandro_ysour_d", text = "Once. A buyer from the Bloodsail paid for a crate of rare tokens with coin that turned out to be lead with a gold skin. My boys found him a week later. He paid me back in full, and he walks with a limp now." },
+      },
+      choices = {
+        { text = "Was the limp necessary?", next = "ylimp" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylimp = {
+      lines = {
+        { id = "ylandro_ylimp_d", text = "In Booty Bay, a reputation is the only thing that keeps you breathing. If I let one cheat go, every pirate in the bay would try it. Some say I'm cruel. I say I'm consistent, and consistency keeps more people alive than kindness." },
+      },
+      choices = {
+        { text = "Consistency keeps order. You did what you had to.", next = "BACK", reply = "Exactly, friend. You understand business better than most.", fx = { align = { order = 1 } } },
+        { text = "Cruelty is still cruelty. You could have shown mercy.", next = "BACK", reply = "Mercy's a luxury, pal. I'll buy some when I can afford it.", fx = { align = { order = -1 } } },
+      },
+    },
   },
   topics = {
+    bloodsail = { { id = "ylandro_tp_bloodsail", text = "The Bloodsail Buccaneers don't pay their debts. I've learned to take payment up front." } },
+    steamwheedle = { { id = "ylandro_tp_steamwheedle", text = "The Steamwheedle Cartel runs Booty Bay. They don't ask questions, and neither do I." } },
+
     booty_bay = { { id = "tp_xbooty_bay", text = "Best market in the world, if you know who to ask. Usually that's me." } },
     goblins = { { id = "tp_xgoblins", text = "We're a practical people. Steamwheedle keeps the ports open and the deals flowing." } },
     _none = { { id = "tp_none", text = "That's not my line, friend. But if you find something on it, bring it to Landro." } },
@@ -1293,6 +1445,9 @@ P:NPC {
         { text = "How do you hold this camp?", next = "xhold" },
         { text = "What do you think of Stormwind now?", next = "xstorm" },
         { text = "Do you ever see Horde scouts here?", next = "BACK", when = { faction = "Horde" }, reply = "We see them, and they see us, and mostly we both decide the jungle's dangerous enough already. Don't make me regret that." },
+        { text = "Do you ever think of going home?", next = "yhome" },
+        { text = "Who leads the camp now?", next = "ylead" },
+        { text = "A soldier of Stormwind salutes you.", next = "BACK", when = { race = "Human" }, reply = "Then you're braver than most who'd salute a rebel. Thank you, friend. It matters more than you'd think." },
         { text = "Stay sharp, soldier.", next = "END" },
       },
     },
@@ -1348,8 +1503,38 @@ P:NPC {
         { text = "An oath is an oath. You should have stayed.", next = "BACK", reply = "Then you'd have watched us turn into what Kurzen's men are now.", fx = { align = { order = 1 } } },
       },
     },
+  
+    yhome = {
+      lines = {
+        { id = "yrebelw_yhome_d", text = "Every night. I've a wife in Goldshire, if she's still waiting. I wrote her once, through a Booty Bay trader, and never heard back. Maybe the letter never reached her. Maybe it did." },
+      },
+      choices = {
+        { text = "Would Stormwind take you back?", next = "yback" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yback = {
+      lines = {
+        { id = "yrebelw_yback_d", text = "They'd hang me, more likely, or put me in the Stockade. Some of the men want to march home and face it, tell the truth and take whatever comes. Others say we stay here until Kurzen's dead and we've proved ourselves." },
+      },
+      choices = {
+        { text = "March home and tell the truth.", next = "BACK", reply = "Brave words. Maybe when Kurzen's gone, I'll find the courage to take them.", fx = { align = { honor = 1 } } },
+        { text = "Stay and finish the job first.", next = "BACK", reply = "Aye. That's what most of us believe. Kurzen first, then home.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ylead = {
+      lines = {
+        { id = "yrebelw_ylead_d", text = "Lieutenant Doren, who led us out of Kurzen's compound. He's young but steady, and he's never once asked a man to do something he wouldn't do himself. I'd follow him into the Gurubashi ruins." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    doren = { { id = "yrebelw_tp_doren", text = "Lieutenant Doren leads the camp. He's the reason we're still alive." } },
+    goldshire = { { id = "yrebelw_tp_goldshire", text = "Goldshire's home. The Lion's Pride Inn, and a wife who may not remember my face." } },
+
     kurzen = { { id = "tp_xkurzen", text = "The colonel was a good officer once. That's what makes it hard." } },
     stormwind = { { id = "tp_xstormwind", text = "Home, once. I'd go back if they'd have me without a noose." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask Lieutenant Doren; he knows more than I do." } },
@@ -1381,6 +1566,8 @@ P:NPC {
         { text = "What's your best firework?", next = "xbest" },
         { text = "Have you ever had an accident?", next = "xaccident" },
         { text = "A gnome would make these quieter.", next = "BACK", when = { race = "Gnome" }, reply = "Quieter? Why would anybody want quieter? Go build your silent rockets in Ironforge, pal, and leave the noise to the professionals." },
+        { text = "Who taught you pyrotechnics?", next = "yteach" },
+        { text = "What's the biggest show you've ever done?", next = "yshow" },
         { text = "I'll pass for now.", next = "END" },
       },
     },
@@ -1436,8 +1623,39 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+  
+    yteach = {
+      lines = {
+        { id = "yziggle_yteach_d", text = "My uncle Bizzle, on Kezan, before he got exploded. He said a goblin who can make the sky pretty can make his purse heavy, and he was right, until the day he wasn't. I keep his lucky fuse in my pocket." },
+        { id = "yziggle_yteach_v0", when = { race = "Goblin" }, text = "My uncle Bizzle, back on Kezan, before he got exploded. You know how it goes. I keep his lucky fuse in my pocket, unlit, for respect." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yshow = {
+      lines = {
+        { id = "yziggle_yshow_d", text = "The Baron's birthday, three years back. I lit the whole sky over the bay, red, gold and green. Every pirate stopped fighting to watch. The Baron paid me double, then fined me for the scorch marks on his balcony." },
+      },
+      choices = {
+        { text = "Should you charge less for the risk?", next = "ycharge" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycharge = {
+      lines = {
+        { id = "yziggle_ycharge_d", text = "Less? Pal, the risk is the price. Some folk say a merchant should warn buyers what can go wrong. Others say a buyer who wants fireworks already knows. I say a little mystery sells more rockets." },
+      },
+      choices = {
+        { text = "Warn your buyers. It's the honest thing.", next = "BACK", reply = "Fine, fine. I'll print a warning. Very small print.", fx = { align = { honor = 1 } } },
+        { text = "Mystery sells. Keep it quiet.", next = "BACK", reply = "That's the goblin way! You'd make a fine salesman.", fx = { align = { honor = -1 } } },
+      },
+    },
   },
   topics = {
+    kezan = { { id = "yziggle_tp_kezan", text = "Kezan's home, the goblin island. Loud, smoky, and full of explosions. I miss it." } },
+    baron = { { id = "yziggle_tp_baron", text = "Baron Revilgaz pays well and fines better. Watch his balcony." } },
+
     fireworks = { { id = "tp_xfireworks", text = "The finest in Booty Bay, and the loudest too." } },
     booty_bay = { { id = "tp_xbooty_bay", text = "Best town in the world for a goblin with fire in his blood." } },
     _none = { { id = "tp_none", text = "No idea, pal! But I bet it'd look great with a rocket going off behind it." } },
@@ -1471,6 +1689,8 @@ P:NPC {
         { text = "Who is Molthor?", next = "xmolthor" },
         { text = "What happens if Hakkar wins?", next = "xwins" },
         { text = "A Darkspear stands with you, brother.", next = "BACK", when = { race = "Troll" }, reply = "Den stand tall, Darkspear. De Zandalar remember every tribe dat answers when de blood god calls." },
+        { text = "Have you fought Hakkar's priests before?", next = "yfought" },
+        { text = "Do you miss Zandalar?", next = "ymiss" },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -1527,6 +1747,37 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+  
+    yfought = {
+      lines = {
+        { id = "yservan_yfought_d", text = "On de shore below Zul'Gurub, two moons ago. A Hakkari priest called blood from my brother's veins with a word. I killed de priest, but my brother did not wake. I carry his blade now, beside my own." },
+      },
+      choices = {
+        { text = "Do you seek revenge?", next = "yrevenge" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yrevenge = {
+      lines = {
+        { id = "yservan_yrevenge_d", text = "De Hand says revenge clouds de eye, and a clouded eye misses de true enemy. But my brother's blood still be on dat shore. Some Zandalar say a warrior's grief must be fed. Others say it must be starved." },
+      },
+      choices = {
+        { text = "Feed it. Your brother deserves vengeance.", next = "BACK", reply = "Den I will carry his blade into Zul'Gurub, and it will drink first.", fx = { align = { honor = 1 } } },
+        { text = "The Hand is right. Starve it, and see clearly.", next = "BACK", reply = "You speak like Molthor. Maybe you both be right.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ymiss = {
+      lines = {
+        { id = "yservan_ymiss_d", text = "Every day. De island has temples older dan any city of de younger races, and de sea dere is clear as glass. When dis war be done, I will go home and tell my mother how her son died." },
+        { id = "yservan_ymiss_v0", when = { race = "Troll" }, text = "Every day. You be troll, so maybe someday you see it, de temples and de clear sea. When dis war be done, I go home and tell my mother how her son died." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Dat is not for me to answer. Ask de Hand, if he will hear you." } } },
+  topics = {
+    molthor = { { id = "yservan_tp_molthor", text = "Molthor be de Hand of Rastakhan. When he speaks, de King speaks." } },
+    zul_gurub = { { id = "yservan_tp_zul_gurub", text = "Zul'Gurub be de old Gurubashi capital. Hakkar's priests hold it now, and de jungle bleeds." } },
+ _none = { { id = "tp_none", text = "Dat is not for me to answer. Ask de Hand, if he will hear you." } } },
 }

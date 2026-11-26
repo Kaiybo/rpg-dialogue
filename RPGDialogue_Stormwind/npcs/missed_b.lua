@@ -131,6 +131,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yfav = {
+      lines = {
+        { id = "ypaigechaddis1", text = "The dress shops in the Trade District, because the ladies there are always so pretty. And the Cathedral, because it has coloured glass windows, and when the sun shines through them it makes rainbows on the floor." },
+        { id = "ypaigechaddis2", when = { class = "PRIEST" }, text = "Do you go to the Cathedral? I love the coloured windows. Are they magic?" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymommy = {
+      lines = {
+        { id = "ypaigechaddis3", text = "She makes medicines and she knows all the herbs, even the ones that smell bad. When I'm sick she gives me a tea with honey in it, and I get better in a day. She says I can help her when I'm older." },
+      },
+      choices = {
+        { text = "Would you like that?", next = "yhelp" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhelp = {
+      lines = {
+        { id = "ypaigechaddis4", text = "I think so, but I'd rather have a rabbit and a shop full of dresses. Mommy says I can be anything I want, but Gil says girls should be healers and boys should be wizards." },
+      },
+      choices = {
+        { text = "Your mommy's right. Be what you want.", next = "BACK", reply = "I'm going to be a wizard and have a rabbit, and Gil can be a healer.", fx = { align = { honor = 1 } } },
+        { text = "A healer's work is an honour. Learn it well.", next = "BACK", reply = "Mommy would like that. Maybe I can do both.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yrabbit = {
+      lines = {
+        { id = "ypaigechaddis5", text = "A white one, with a pink nose, called Snowball. I'd teach him to sit and to fetch, and if he turns out to be a wizard too, I'd let him read my books, as long as he doesn't eat them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Paige, and that's my mommy, and that's Gil, who is my brother and keeps asking if we're there yet. We're going to the shop with all the old things in it, where Fizzles lives." },
@@ -144,6 +180,10 @@ P:NPC {
         { text = "You must like the walk through the city.", next = "walk" },
         { text = "What would you ask Fizzles if he could talk?", next = "x_ask" },
         { text = "Your brother shouldn't tell you tall tales.", next = "x_stance" },
+        { text = "What's your favourite part of Stormwind?", next = "yfav" },
+        { text = "What does your mommy do?", next = "ymommy" },
+        { text = "Do you want to see a gnome trick?", next = "BACK", when = { race = "Gnome" }, reply = "Yes, yes! Gil, look, the gnome's doing a trick! Do it again, slower, so Gil can see." },
+        { text = "What rabbit would you have?", next = "yrabbit" },
         { text = "Be gentle with the rabbit, Paige.", next = "END" },
       },
     },
@@ -182,6 +222,8 @@ P:NPC {
     },
   },
   topics = {
+    fizzles = { { id = "ypaigechaddis6", text = "A soft rabbit at the shop. Gil says he's a wizard." } },
+    gil = { { id = "ypaigechaddis7", text = "My brother. He walks too slow and asks if we're there yet." } },
     background = { { id = "tp_bg", text = "I'm Paige, and I live with Mommy and Gil, and I'm going to have a rabbit of my own one day." } },
     _none = { { id = "tp_none", text = "I don't know about that. You should ask my mommy." } },
   },

@@ -251,6 +251,9 @@ P:NPC {
         { text = "What does a Vault Administrator do?", next = "admin" },
         { text = "The Explorers' League banks with you?", next = "league" },
         { text = "Bailey says you find fault with him daily.", next = "bailey" },
+        { text = "What keeps you up at night?", next = "ysleep" },
+        { text = "Who holds the deepest boxes?", next = "ydeep" },
+        { text = "Does the Vault serve gnomes as well?", next = "BACK", when = { race = "Gnome" }, reply = "It does, and it opened their boxes free the season Gnomeregan fell. I signed that order myself, and I'd sign it again." },
         { text = "I'll trouble the bankers instead.", next = "END" },
       },
     },
@@ -284,8 +287,40 @@ P:NPC {
       lines = { { id = "b_default", text = "Bailey's sums are perfect and his jokes are dreadful, and I only correct the second. Barnum would never dream of jestin' with a customer, and Soleil has the sense to laugh at neither of them." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  
+    ysleep = {
+      lines = {
+        { id = "ydinita_ysleep_d", text = "A key I cannae account for. My mother's ledger lists nine master keys, and I hold eight. The ninth went down to the deep boxes with her uncle forty years ago, and neither came back up." },
+      },
+      choices = {
+        { text = "You think someone has it?", next = "ykey" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykey = {
+      lines = {
+        { id = "ydinita_ykey_d", text = "I think a key that isnae in my hand is a key in someone else's, and that's reason enough to change every lock. Changin' them means openin' every box, though, and some of those boxes have nae been opened in three hundred years." },
+      },
+      choices = {
+        { text = "Change the locks. Every box, however old.", next = "BACK", reply = "Aye. It'll take a year and cost a fortune, and it's the only honest answer.", fx = { align = { order = 1 } } },
+        { text = "Let sleeping boxes lie. Don't open what isn't yours.", next = "BACK", reply = "Ye sound like my bankers. I'll weigh it, though I doubt I'll sleep any better.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydeep = {
+      lines = {
+        { id = "ydinita_ydeep_d", text = "The old clans, mostly, Anvilmars and Bronzebeards and a few families whose names are on nae door in the city any longer. The King's box is down there too, and I'll say nae more than Bailey already has." },
+        { id = "ydinita_ydeep_v0", when = { race = "Dwarf" }, text = "The old clans, {g:lad|lass}, same as ye'd guess. Yer own family's box may well be down there, if they ever had coin worth keepin', and I'd look it up for ye with the proper seal." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    vault = { { id = "ydinita_tp_vault", text = "The Vault sits below the Commons, cut deep enough that the Great Forge cannae warm it. I keep a shawl at my desk for it." } },
+    explorers = { { id = "ydinita_tp_explorers", text = "The League pays its debts, eventually, and Magellas signs every note with a flourish I have to squint at." } },
+
     background = { { id = "tp_bg", text = "The Vault's ledger has passed from one Stonemantle to the next for generations. It came to me, and it'll leave my hands as clean as I found it." } },
     _none = { { id = "tp_none", text = "If it's nae written in my ledger, I've nae opinion on it. Good day to ye." } },
   },

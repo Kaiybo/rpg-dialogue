@@ -34,6 +34,9 @@ P:NPC {
         { text = "How did Dun Modr fall?", next = "fall" },
         { text = "How do you keep rifles working out here?", next = "rifles" },
         { text = "You're smiling. In this place?", next = "smile" },
+        { text = "What was your shop like inside the walls?", next = "yshop" },
+        { text = "What worries you most in camp?", next = "yworry" },
+        { text = "I'm a hunter. Can you look at my rifle?", next = "BACK", when = { class = "HUNTER" }, reply = "Hand it over. Aye, the marsh has been at yer lock. Oil it nightly or it'll rust shut by the week's end." },
         { text = "Keep them firing, Ashlan.", next = "END" },
       },
     },
@@ -63,8 +66,39 @@ P:NPC {
       lines = { { id = "s_default", text = "It's how the face is built, friend, an' I've stopped apologisin' for it. My father had it at his own wake, I'm told, an' it's seen me through worse days than this one." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  
+    yshop = {
+      lines = {
+        { id = "yashlan_yshop_d", text = "Two rooms an' a forge, wi' a sign my father carved that said Stonesmirk an' Son. I left it hangin' when we ran. Some Dark Iron's likely usin' it for kindlin' by now, or worse, hangin' it over his own door." },
+        { id = "yashlan_yshop_v0", when = { race = "Dwarf" }, text = "Two rooms an' a forge, an' a sign my father carved. Ye'll know what it is tae leave a family name behind, {g:lad|lass}. Some Dark Iron's likely burnin' it for warmth." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yworry = {
+      lines = {
+        { id = "yashlan_yworry_d", text = "Powder, mostly. We've enough for a week o' hard fightin', no' more, an' the supply road from Menethil's long an' watched. Some o' the lads want tae raid the Dark Iron stores inside Dun Modr itself." },
+      },
+      choices = {
+        { text = "Would that work?", next = "yraid" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yraid = {
+      lines = {
+        { id = "yashlan_yraid_d", text = "It might, an' it might get six good dwarves killed for three kegs. Longbraid says wait for supply. The younger lads say waitin' is how we lost the town in the first place. I've nae made up my mind." },
+      },
+      choices = {
+        { text = "Wait for supply. Longbraid knows the risks.", next = "BACK", reply = "Aye, likely right. I'll tell the lads tae keep their fuses dry an' their tempers drier.", fx = { align = { order = 1 } } },
+        { text = "Raid the stores. Waiting lost you the town.", next = "BACK", reply = "Ye've a point, an' a hard one. I'll put it tae Longbraid, an' he'll no' thank me for it.", fx = { align = { order = -1 } } },
+      },
+    },
   },
   topics = {
+    longbraid = { { id = "yashlan_tp_longbraid", text = "Longbraid the Grim leads us now. He's earned the name, an' he's earned our trust besides." } },
+    thandol_span = { { id = "yashlan_tp_thandol_span", text = "The Thandol Span was the greatest bridge in Khaz Modan. The Dark Irons blew it, an' a part o' me fell wi' it." } },
+
     background = { { id = "tp_bg", text = "I was Dun Modr's gunsmith when it had a garrison tae arm. I still am, though the garrison would fit round one fire now." } },
     dark_iron = { { id = "tp_di", text = "They hold our town an' they broke the Span. I've a ball cast for every one o' them." } },
     _none = { { id = "tp_none", text = "I cannae help ye wi' that. Ask Longbraid, though he's no' much for talk these days." } },

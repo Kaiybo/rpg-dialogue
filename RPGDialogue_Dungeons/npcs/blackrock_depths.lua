@@ -579,6 +579,7 @@ P:NPC {
         { text = "This is an odd place for romance.", next = "guzzler" },
         { text = "What do you need from me?", next = "potion" },
         { text = "A Dark Iron flirting with a Bronzebeard. Now I've seen everything.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "How did you end up in the Guzzler?", next = "yhow" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -635,9 +636,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yhow = {
+      narr = "She swirls the dregs in her mug and doesn't drink them.",
+      lines = {
+        { id = "yh_default", text = "Born in Shadowforge City, love, to a mother who scrubbed the Emperor's floors and a father who died at the forges. I learned young that a smile pays better than a scrub brush, and Plugger pays best of all, so here I am." },
+        { id = "yh_dwarf", when = { race = "Dwarf" }, text = "Born in Shadowforge, to a mother who scrubbed the Emperor's floors and a father the forges took. Ye surface folk think we all love fire. Most of us just haven't anywhere else to go, sweetling." },
+      },
+      choices = {
+        { text = "Do you ever think of leaving?", next = "yleave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yleave = {
+      lines = { { id = "yl_default", text = "The Thorium Brotherhood up in the Gorge would take me, I hear, them that broke from the Emperor. But this is my city, rotten as it is. A girl doesn't walk out on her own mountain. Or should she?" } },
+      choices = {
+        { text = "Go to the Brotherhood. Break free.", next = "BACK", reply = "Maybe I will, once Rocknot's sorted. He'd need to come too.", fx = { align = { order = -1 } } },
+        { text = "Stay. Your city needs folk like you.", next = "BACK", reply = "Ha! It needs a lot of things, love, and I'm the cheapest.", fx = { align = { order = 1 } } },
+      },
+    },
   },
 
   topics = {
+    rocknot = { { id = "yt_rocknot", text = "Private Rocknot. Big shoulders, sad eyes, and in love with a barrel. I'll fix that." } },
+    plugger = { { id = "yt_plug", text = "Plugger Spazzring runs the Grim Guzzler. Pours honest measures and hates thieves more than he hates the Emperor." } },
+    thaurissan = { { id = "yt_thaur", text = "The Emperor and his fire lord. Say his name softer in here, sweetling, the walls drink too." } },
     _none = { { id = "tp_none", text = "Gossip's for the bar, love, and I'm only interested in one man's business tonight." } },
   },
 }
@@ -670,6 +692,7 @@ P:NPC {
         { text = "What did you see of the Dark Irons' halls?", next = "xhalls" },
         { text = "Are there other Wildhammers down here?", next = "xother" },
         { text = "I've flown a gryphon from Aerie Peak myself.", next = "xflown", when = { race = "Dwarf" } },
+        { text = "What will you do when you're free?", next = "yfree" },
         { text = "Go. Find your way out.", next = "END" },
       },
     },
@@ -723,8 +746,28 @@ P:NPC {
       lines = { { id = "xfl_default", text = "Have ye, now? Then ye've felt the wind lift ye clean off the cliff, and ye'll know why I'm going half mad down here. A Bronzebeard on a gryphon, though, the lads at the Peak would laugh themselves silly." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yfree = {
+      lines = {
+        { id = "yfr_default", text = "Find the nearest gryphon roost and beg a ride home, then drink the Peak's cellars dry and tell Falstad to his face that the Dark Irons need a lesson from the air. After that, I'll find out if my Skyrender still lives." },
+        { id = "yfr_horde", when = { faction = "Horde" }, text = "Get out, first, and I'll thank ye for the key even if ye're Horde. Then home to Aerie Peak to find out if my gryphon Skyrender still lives, and to drink the cellars dry." },
+      },
+      choices = {
+        { text = "Will you come back to fight?", next = "yreturn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yreturn = {
+      narr = "He flexes hands rubbed raw by the chains.",
+      lines = { { id = "yre_default", text = "Some of the lads will want a raid on the mountain the day I tell them about Grimbald. I'd sooner bring the Bronzebeards in too and do it properly, but that'd mean asking Ironforge for help. What would ye do?" } },
+      choices = {
+        { text = "Strike now, with the Wildhammers alone.", next = "BACK", reply = "Fast and angry, the Wildhammer way. Aye, it's tempting.", fx = { align = { order = -1 } } },
+        { text = "Swallow your pride and ask Ironforge.", next = "BACK", reply = "It'll stick in my throat, but ye may be right.", fx = { align = { order = 1 } } },
+      },
+    },
   },
   topics = {
+    windsor = { { id = "yt_windsor", text = "Marshal Windsor of Stormwind. Grim man, sharp mind. If he says run, I run." } },
+    gryphons = { { id = "yt_gryph", text = "A gryphon picks its rider, not the other way round. Mine's Skyrender, and she's the finest in the Peak." } },
     aerie_peak = { { id = "xtp_aerie", text = "Home, and the finest place in the world to drink and fly and argue. I'll see it again, or I'll die trying." } },
     dark_iron = { { id = "xtp_di", text = "Fire-loving cowards who strike from behind and then gloat about it. I owe them a long debt." } },
     _none = { { id = "tp_none", text = "Ask me again under the open sky, friend, and I'll tell ye anything ye like." } } },
@@ -754,6 +797,7 @@ P:NPC {
         { text = "How did you survive this long?", next = "xsurvive" },
         { text = "What will you do once you're out?", next = "xafter" },
         { text = "I'm from Stormwind. I'll carry word back.", next = "xstormwind", when = { race = "Human" } },
+        { text = "Do you have family waiting for you?", next = "yfamily" },
         { text = "Get moving.", next = "END" },
       },
     },
@@ -800,8 +844,20 @@ P:NPC {
       lines = { { id = "xsw_default", text = "Tell them Tobias Seecher's alive, if anyone still asks after me. And tell the marshal's friends at the Keep that he never stopped working, not even in here." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yfamily = {
+      narr = "He rubs at the stubble on his jaw, and for once he doesn't smile.",
+      lines = {
+        { id = "yfa_default", text = "A girl in Lakeshire, if she's waited, which I wouldn't blame her for not doing. Her name's Molly, and she bakes the worst bread on the lake, and I'd eat a whole loaf of it right now and ask for another." },
+        { id = "yfa_dwarf", when = { race = "Dwarf" }, text = "A girl in Lakeshire named Molly, who bakes bread so hard a Bronzebeard could use it for a whetstone. If she's waited, I'll eat a whole loaf and ask for another." },
+      },
+      choices = { { text = "She'll have waited. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    lakeshire = { { id = "yt_lake", text = "Lakeshire's got the best bridge and the worst bread in the kingdom, and I miss both." } },
+    onyxia = { { id = "yt_onyx", text = "Windsor had a name he'd only whisper. I'll leave the whispering to him, friend." } },
+    thaurissan = { { id = "yt_thaur", text = "The Emperor sits on a throne of black stone and talks to fire. I saw him once, from a cage, and once was plenty." } },
+    shill = { { id = "yt_shill", text = "The Scarlet in the next cell prays all night. I'd let him out just to get some sleep." } },
     windsor = { { id = "xtp_windsor", text = "The best officer I ever served and the most stubborn man alive. If anyone gets out of here, it'll be him." } },
     dark_iron = { { id = "xtp_di", text = "They took us in one night and they've been taking us apart ever since. I don't forgive easily." } },
     _none = { { id = "tp_none", text = "I've been in a cell for longer than I care to count, friend, so I don't know much about anything lately." } } },
@@ -920,6 +976,7 @@ P:NPC {
         { text = "Where were you before Blackrock?", next = "xbefore" },
         { text = "What would you do if you got out?", next = "xout" },
         { text = "I'm an orc. I could speak to Jaz for you.", next = "xorc", when = { race = "Orc" } },
+        { text = "What did ogres eat, back in the mountains?", next = "yfood" },
         { text = "Enjoy your gruel.", next = "END" },
       },
     },
@@ -966,8 +1023,26 @@ P:NPC {
       lines = { { id = "xor_default", text = "You are like Jaz, green and loud. Tell him to stop talking about honour in the night, because Ograbisi cannot sleep and honour does not fill bellies." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yfood = {
+      lines = {
+        { id = "yfo_default", text = "Goats, boars, black-scale lizards, and sometimes a dwarf that walks too far from the forge. Ogre mothers cook with big rocks in big pots, and the smell goes all the way up the mountain. Ograbisi misses the smell more than the mountain." },
+        { id = "yfo_tauren", when = { race = "Tauren" }, text = "Goats and boars and lizards, and once a cow-man like you, but small. Do not worry. Ograbisi is in chains, and also you look stringy. Ograbisi misses mother's big pot more than the mountain." },
+      },
+      choices = {
+        { text = "You had a mother?", next = "ymother" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymother = {
+      narr = "The ogre is quiet for a long moment, which seems to surprise even him.",
+      lines = { { id = "ymo_default", text = "Everybody has a mother, little one, even ogres. Ograbisi's mother had two heads, one nice and one shouting. The shouting head told Ograbisi never to eat the cattle man. Ograbisi did not listen, and now Ograbisi is here." } },
+      choices = { { text = "Mothers usually know best. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    gruel = { { id = "yt_gruel", text = "Gruel is grey and it is cold and it tastes of the jailer's thumb. Ograbisi hates gruel." } },
+    chains = { { id = "yt_chains", text = "Six chains brought Ograbisi in. Now it is four. Ograbisi is patient, for an ogre." } },
+    thaurissan = { { id = "yt_thaur", text = "The fire dwarf king. Ograbisi ate his cows. Ograbisi would eat the king too, but he is mostly beard." } },
     dark_iron = { { id = "xtp_di", text = "Small and mean and they smell of smoke. Ograbisi does not like dwarfs." } },
     jaz = { { id = "xtp_jaz", text = "Jaz is the orc. Jaz talks and talks, and Ograbisi listens because there is nothing else to do." } },
     _none = { { id = "tp_none", text = "Ograbisi does not know that. Ograbisi knows hungry and Ograbisi knows chains." } } },
@@ -999,6 +1074,7 @@ P:NPC {
         { text = "How do the dwarves treat you here?", next = "xtreat" },
         { text = "What did you see in the fires below?", next = "xfire" },
         { text = "I'm a paladin. Your Crusade shames the Light.", next = "xpaladin", when = { class = "PALADIN" } },
+        { text = "Where were you from, before the Crusade?", next = "yfrom" },
         { text = "Pray on, then.", next = "END" },
       },
     },
@@ -1045,8 +1121,19 @@ P:NPC {
       lines = { { id = "xpa_default", text = "Shames it? We are the last who still carry it into the dark, while your Silver Hand sits in Stormwind polishing its hammers. When Uther fell, his order fell with him, and we picked up what was left." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yfrom = {
+      narr = "For a moment the zealot's glare falters, and he looks only tired.",
+      lines = {
+        { id = "yfr_default", text = "A village outside Hearthglen, with an orchard and a mill and a chapel with a blue window. The plague came in the grain, and the chapel window was the last thing I saw before I ran. There is no village now. There is only the Crusade." },
+        { id = "yfr_human", when = { race = "Human" }, text = "A village outside Hearthglen, with an orchard and a chapel with a blue window. You are Lordaeron-born too, maybe, or your parents were. Then you know there is nothing to go home to. There is only the Crusade." },
+      },
+      choices = { { text = "I'm sorry for your loss. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    hearthglen = { { id = "yt_hearth", text = "Hearthglen still holds, in the north. The Light keeps it, and so do the Crusade's swords." } },
+    dark_iron = { { id = "yt_di", text = "Heathens who worship fire and laugh at prayer. The Light will judge them, and I hope to watch." } },
+    light = { { id = "yt_light", text = "The Light does not ask whether we are gentle. It asks whether we are faithful." } },
     scarlet_crusade = { { id = "xtp_scarlet", text = "The only true army of the Light left in Lordaeron. You will come to see it, if you live long enough." } },
     scourge = { { id = "xtp_scourge", text = "The plague of the Lich King, and the reason I will never stop fighting. Every corpse is a soldier waiting to rise." } },
     _none = { { id = "tp_none", text = "I know only the Light and the evils it opposes. Ask me of those or ask me nothing." } } },

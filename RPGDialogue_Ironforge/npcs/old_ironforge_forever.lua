@@ -485,6 +485,9 @@ P:NPC {
         { text = "What grudge holds him here?", next = "grudge" },
         { text = "Why are you still here?", next = "self" },
         { text = "I'll put Faldrim to rest.", next = "END", when = { questActive = TODO_QUEST("An Ancient Grudge") } },
+        { text = "What was Ironforge like in your day?", next = "ydays" },
+        { text = "Do you remember your own name?", next = "yname" },
+        { text = "I am a priest. I could pray for you.", next = "BACK", when = { class = "PRIEST" }, reply = "Pray for him first. When he sleeps, your words will find me waiting, and I will be glad of them." },
         { text = "Go in peace, lady.", next = "END" },
       },
     },
@@ -523,9 +526,41 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+  
+    ydays = {
+      narr = "*Her voice drifts, as if the stone around you were a room she remembered differently.*",
+      lines = {
+        { id = "yghostl_ydays_d", text = "Smaller, and louder, and every hall belonged to a clan. The Anvilmars kept these old chambers, and I carried their cups down corridors that no living dwarf walks any longer." },
+      },
+      choices = {
+        { text = "Were you happy serving them?", next = "yhappy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhappy = {
+      lines = {
+        { id = "yghostl_yhappy_d", text = "I was content, which is not the same, but it was enough. My Thane was hard and loud, and he never once raised a hand to anyone beneath him. Others in those halls could not say as much of theirs." },
+      },
+      choices = {
+        { text = "Loyal service like yours deserves remembering.", next = "BACK", reply = "Then remember it, and remember him kindly. That is all I would ask.", fx = { align = { honor = 1 } } },
+        { text = "You owed him nothing after death. Go and rest.", next = "BACK", reply = "Perhaps I did not. But I would not know how to leave him, even now.", fx = { align = { honor = -1 } } },
+      },
+    },
+    yname = {
+      lines = {
+        { id = "yghostl_yname_d", text = "I... had one. He called me by it at the end, when the others had gone. It has worn smooth in my mind, like a stair stepped on too often, and I cannot read it any longer." },
+        { id = "yghostl_yname_v0", when = { race = "Dwarf" }, text = "I had one, child of the mountain. A dwarf's name is cut in stone, but mine was cut shallow, for a servant. The stone has forgotten it, and I think I have too." },
+      },
+      choices = {
+        { text = "I'm sorry. Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    anvilmar = { { id = "yghostl_tp_anvilmar", text = "The Anvilmars were the first of the halls, and the proudest. My Thane would have told you so twice before supper." } },
+    ironforge = { { id = "yghostl_tp_ironforge", text = "The city above is louder than I remember. I hear the Forge sometimes, through the stone, like a heart that never tires." } },
+
     _none = { { id = "tp_none", text = "*She looks through you, toward the deeper halls.* I do not know... I only know my Thane." } },
   },
 }

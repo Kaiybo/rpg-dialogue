@@ -112,6 +112,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ybefore = {
+      lines = {
+        { id = "ygruntzuul1", text = "Nowhere. I was born in this swamp, to orcs who hid from the humans' camps. My mother taught me to sit in the reeds for a day without moving, so the patrols would pass. That is why I watch so well." },
+      },
+      choices = {
+        { text = "Do you miss anything of that life?", next = "ymiss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymiss = {
+      lines = {
+        { id = "ygruntzuul2", text = "The quiet. In the reeds, there was only the water and my mother's breathing. Here there is Tharlak, who never stops talking, and a human who never stops scheming." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybecome = {
+      lines = {
+        { id = "ygruntzuul3", text = "The questioners will take what he knows and decide. Some say a spy should be killed, and some say he should be traded back for our own captives. Tharlak wants him dead. I have not decided." },
+      },
+      choices = {
+        { text = "Trade him back. Our own captives matter more.", next = "BACK", reply = "That is a fair thought. I will say it to the questioners, if they ask a grunt.", fx = { align = { honor = 1 } } },
+        { text = "Kill him. Spies get no mercy.", next = "BACK", reply = "That is Tharlak's answer, and the swamp's. Perhaps it is right.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Zuul. Tharlak makes the noise for both of us, and I do the watching, and between the two the human has found no moment to run." } },
       again = {
@@ -123,6 +150,9 @@ P:NPC {
         { text = "Has he tried to escape?", next = "escape" },
         { text = "Tharlak does all the talking.", next = "tharlak" },
         { text = "What have you learned by watching him?", next = "learned", when = { class = { "HUNTER", "ROGUE", "SHAMAN" } } },
+        { text = "Where did you serve before Stonard?", next = "ybefore" },
+        { text = "What will become of the prisoner?", next = "ybecome" },
+        { text = "Were you in the internment camps?", next = "BACK", when = { race = "Orc" }, reply = "No. I was born after, in the swamp, to those who hid. I have never worn a chain, and I do not intend to." },
         { text = "Keep your watch, Zuul.", next = "END" },
       },
     },
@@ -158,6 +188,8 @@ P:NPC {
     },
   },
   topics = {
+    tharlak = { { id = "ygruntzuul4", text = "Loud, and brave, and he never stops talking. The human fears him." } },
+    prisoner = { { id = "ygruntzuul5", text = "A spy from the west. He listens at doors." } },
     background = { { id = "tp_bg", text = "I am a grunt of Stonard. I was set to watch a prisoner, and so I watch him." } },
     _none = { { id = "tp_none", text = "I do not know it. Ask one whose duty is to know." } },
   },

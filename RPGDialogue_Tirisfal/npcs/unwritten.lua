@@ -19,10 +19,41 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylooking = {
+      lines = { { id = "ylooking_x", text = "My sister, Marla. She was buried here before the plague, of an ordinary fever. Her stone is the one with the lily carved on it. She never rose. I can't decide whether that's a mercy or a slight." } },
+      choices = {
+        { text = "Would you want her to rise?", next = "yrise" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yrise = {
+      lines = { { id = "yrise_x", text = "Some nights I would. Then I see what I've become, and I'm glad she's spared it. The apothecaries say they can raise anyone, given time. Should I ask them?" } },
+      choices = {
+        { text = "Yes. She'd want to be with you again.", next = "BACK", reply = "Would she? I wonder. I'll hold off a little longer, I think.", fx = { align = { light = -1 } } },
+        { text = "No. Let her rest. She earned it.", next = "BACK", reply = "Aye. You're right. I'll keep visiting the lily, and leave it at that.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylife = {
+      lines = { { id = "ylife_x", text = "A seamstress in Brill. I made burial shrouds as well as dresses, for there was always demand. I sewed my sister's shroud myself, with lilies at the hem. I sewed my own, too, as it turned out." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ygraves = {
+      lines = { { id = "ygraves_x", text = "Most of them. The Agamands are buried in the east corner, those that stayed down. The Hallers are by the wall. The old priest, Father Oswin, lies under the yew tree. He rose and walked away toward the Monastery, and nobody's seen him since." } },
+      choices = {
+        { text = "Father Oswin walked to the Scarlets?", next = "yoswin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yoswin = {
+      lines = { { id = "yoswin_x", text = "Toward them, anyway. Perhaps he thought they'd welcome him back. Perhaps he wanted them to finish it. I've never decided which, and I don't like either answer." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Doreen Beltis. I lived in Brill before the plague came up the road, and I'm still here after, which I suppose makes me the town's longest tenant." },
         { id = "h_living", when = { faction = "Alliance" }, text = "A living face in Brill's graveyard, and not even a Scarlet one. Say your piece quickly, before the Deathguard notice you." },
+        { id = "yh_scourge", when = { race = "Scourge" }, text = "Another of us, wandering among the stones. Are you looking for your own grave? Many do, at first. It's rarely as comforting as they hope." },
       },
       again = {
         { id = "h_again", text = "Something else? I've nowhere to be." },
@@ -32,6 +63,9 @@ P:NPC {
         { text = { normal = "Whose graves are these?", polite = "If I may ask, whose graves are these?", blunt = "Who's buried here?" }, next = "graves" },
         { text = "You remember Brill as it was.", next = "before" },
         { text = "You keep watch here every night, by the look of it.", next = "watch" },
+        { text = "Who are you looking for?", next = "ylooking" },
+        { text = "Who were you in life?", next = "ylife" },
+        { text = "Do you know whose graves these are?", next = "ygraves" },
         { text = "I'll leave you to your stones.", next = "END" },
       },
     },
@@ -60,6 +94,8 @@ P:NPC {
     },
   },
   topics = {
+    brill_graveyard = { { id = "ytp_bg", text = "The Brill graveyard is my parish now. I know every stone by its carving." } },
+    agamand = { { id = "ytp_agamand", text = "The Agamands were proud folk. Their graves are the tallest in the yard, and the emptiest." } },
     background = { { id = "tp_bg", text = "Born in Brill, buried in Brill, and up again in Brill. I've never been much of a traveller." } },
     _none = { { id = "tp_none", text = "If it isn't carved on a stone in this yard, I'm likely the wrong one to ask." } },
   },
@@ -280,8 +316,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "I was a shepherd on the hills above Brill. Elise kept the house and the bees, and I kept the sheep, and we had a slow, good life. Then the grain came. She went first, and she didn't stay down." } },
+      choices = {
+        { text = "Why keep a grave for someone who left it?", next = "yrise" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yrise = {
+      lines = { { id = "yrise_x", text = "Because it's the last place she was mine. The Deathguard want the plot for the newly risen, and they've asked me twice to give it up. Should I let it go, or keep it waiting for her?" } },
+      choices = {
+        { text = "Give it up. The living dead need it more.", next = "BACK", reply = "Aye. That's the sensible answer, and the Executor's too. I'll think on it.", fx = { align = { order = 1 } } },
+        { text = "Keep it. No order should take that from you.", next = "BACK", reply = "Then I'll keep it, and they can ask a third time.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yvisit = {
+      lines = { { id = "yvisit_x", text = "Doreen Beltis stands among the stones most nights. She doesn't speak, and nor do I. She has her own stone to watch, her sister's, the one with the lily. We are two of a kind, keeping watch for people who didn't come back the way we did." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Sahvan. The rest of the name I took after I woke, because the one I was born with belonged to a softer man." } },
+      lines = {
+        { id = "h_default", text = "Sahvan. The rest of the name I took after I woke, because the one I was born with belonged to a softer man." },
+        { id = "yh_human", when = { race = "Human" }, text = "Sahvan. You're living, and human, and I'll try not to stare. My wife had hair your colour, once, and the rest of my name I took after I woke." },
+      },
       again = { { id = "h_again", text = "Anything else? We're nearly at the gate." } },
       choices = {
         { text = "What was your wife's name?", next = "xname" },
@@ -289,6 +347,8 @@ P:NPC {
         { text = "I lost someone to the Scourge too.", next = "xlost", when = { race = "Scourge" } },
         { text = "You stop at the same grave every time.", next = "grave" },
         { text = "Why do you walk the town like this?", next = "walk" },
+        { text = "What did you do in life?", next = "ylife" },
+        { text = "Does anyone else keep watch at the graves?", next = "yvisit" },
         { text = "Farewell, Sahvan.", next = "END" },
       },
     },
@@ -355,6 +415,8 @@ P:NPC {
     },
   },
   topics = {
+    elise = { { id = "ytp_elise", text = "Elise kept bees. I still remember the hum of the hives in summer, and her laugh across the river." } },
+    brill_graveyard = { { id = "ytp_bg", text = "The same grave, every time, and it's still empty. I can't help it." } },
     plaguelands = { { id = "xtp_pl", text = "Grey grass and walking dead. My wife is somewhere out there." } },
     deathknell = { { id = "xtp_dk", text = "Where I woke. I didn't like it, but I don't suppose anyone does." } },
     _none = { { id = "tp_none", text = "I couldn't say. Ask someone who stands still long enough to learn things." } },
@@ -375,8 +437,41 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ymiss = {
+      lines = { { id = "ymiss_x", text = "Every morning. The barley in summer, gold to the horizon. Now Tirisfal grows nothing but grey grass and pumpkins that rot from the inside. I tend a little plot behind the inn, out of habit." } },
+      choices = {
+        { text = "What grows in your plot?", next = "yplot" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yplot = {
+      lines = { { id = "yplot_x", text = "Not much. An apothecary offered me a powder to help it along, and swore it made his own turnips grow fat. I've kept it in a jar for a month. Should I use it, or let the soil be?" } },
+      choices = {
+        { text = "Use it. A crop is a crop.", next = "BACK", reply = "Aye, I suppose so. If the turnips glow, I'll blame you.", fx = { align = { light = -1 } } },
+        { text = "Stop. Poisoned soil only poisons more.", next = "BACK", reply = "My father would've said that. I'll throw the powder in the canal.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yleaders = {
+      lines = { { id = "yleaders_x", text = "Executor Zygand gives us work, and the Dark Lady gives us freedom. I don't ask for more. A farmer never did understand lords, and I'm too old to start." } },
+      choices = {
+        { text = "Did you have family, before?", next = "ymills" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydruid = {
+      lines = { { id = "ydruid_x", text = "Heal? I'd give my last bone to see it. If you can coax one green shoot out of this ground, come and show me. I'll believe it then, and not before." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ymills = {
+      lines = { { id = "ymills_x", text = "A wife, Hannah, and a boy who wanted to be a soldier. The plague took Hannah in the house. The boy rode off with the militia to Andorhal and never wrote. I like to think he's still too busy to write." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Thomas Arlento. I farmed the land out past Agamand Mills when there was land worth farming, and now I hire on wherever the Deathguard need a strong back." } },
+      lines = {
+        { id = "h_default", text = "Thomas Arlento. I farmed the land out past Agamand Mills when there was land worth farming, and now I hire on wherever the Deathguard need a strong back." },
+        { id = "yh_tauren", when = { race = "Tauren" }, text = "A tauren. Your folk know the land, I hear. Tell me, can anything grow in soil like this? I've been trying for years." },
+      },
       again = { { id = "h_again", text = "Something else, {class}?" } },
       choices = {
         { text = "What did you farm before?", next = "xfarm" },
@@ -384,6 +479,9 @@ P:NPC {
         { text = "Have you seen the Agamands since?", next = "xseen" },
         { text = "What happened to Agamand Mills?", next = "agamand" },
         { text = "Does anything grow in Tirisfal now?", next = "grow" },
+        { text = "Do you miss the farm?", next = "ymiss" },
+        { text = "What do you think of the Forsaken leaders?", next = "yleaders" },
+        { text = "I'm a druid. Can this land heal?", next = "ydruid", when = { class = "DRUID" } },
         { text = "I'll let you get back to work.", next = "END" },
       },
     },
@@ -438,6 +536,8 @@ P:NPC {
     },
   },
   topics = {
+    hannah = { { id = "ytp_hannah", text = "Hannah kept the house while I kept the fields. I still set out two cups, some mornings." } },
+    brill = { { id = "ytp_brill", text = "Brill's quiet. I like quiet. It reminds me of the fields." } },
     agamand = { { id = "xtp_ag", text = "They owned the land and everyone on it. Now they own nothing but their own rot." } },
     deathguard = { { id = "xtp_dg", text = "They pay in coin and they don't make me sing while I dig, so I've no complaints." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. I know dirt and weather, and not much of either anymore." } },
@@ -458,10 +558,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "The schoolmistress in Brill. I taught letters to farm children in the room above the smithy. I still welcome people the way I welcomed new pupils, with a list of rules and a firm smile." } },
+      choices = {
+        { text = "Do you miss your pupils?", next = "ypupils" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ypupils = {
+      lines = { { id = "ypupils_x", text = "Some of them rose. One works for the apothecaries now, and he doesn't remember a single letter I taught him. Should I teach him again, or let him be what he's become?" } },
+      choices = {
+        { text = "Teach him. Learning is never wasted.", next = "BACK", reply = "Then I'll find him a slate. He'll grumble, but he always did.", fx = { align = { light = 1 } } },
+        { text = "Let him be. The past is dead with him.", next = "BACK", reply = "Perhaps. Though I've never been good at leaving a lesson unfinished.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhard = {
+      lines = { { id = "yhard_x", text = "It's easier than teaching sums, and the newcomers listen better. The hardest are the living visitors. They stare at my jaw and pretend they aren't. I've learned to stare back until they stop." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Claire Willower. New arrivals up from Deathknell come through here bewildered, so I tell them where things are before they wander into the river." },
         { id = "h_undead", when = { race = "Scourge" }, text = "You've the look of someone fresh out of the Deathknell graves. Don't worry; the confusion wears off, and what's left after it is mostly bearable." },
+        { id = "yh_tauren", when = { race = "Tauren" }, text = "A tauren. Welcome to Brill. Mind the inn's ceiling beams, the last of your kind left a horn-shaped dent and Innkeeper Renee hasn't forgiven him." },
       },
       again = { { id = "h_again", text = "Anything else you need pointed at?" } },
       choices = {
@@ -471,6 +591,8 @@ P:NPC {
         { text = "A living visitor. Am I safe here?", next = "xliving", when = { race = "Orc" } },
         { text = { normal = "Where should I go first?", polite = "Where would you suggest I go first?", blunt = "Where do I go?" }, next = "where" },
         { text = "Who's in charge here?", next = "charge" },
+        { text = "Who were you before?", next = "ylife" },
+        { text = "Is it hard, welcoming strangers?", next = "yhard" },
         { text = "I'll find my own way.", next = "END" },
       },
     },
@@ -533,6 +655,8 @@ P:NPC {
     },
   },
   topics = {
+    gallows_end = { { id = "ytp_ge", text = "The Gallows' End is the warmest room in Brill, which isn't saying much." } },
+    schooling = { { id = "ytp_school", text = "I taught letters in Brill once. Some habits outlast the body." } },
     brill = { { id = "xtp_br", text = "Our town. It was a human town once, and now it's a better one, or at least a quieter one." } },
     scarlet = { { id = "xtp_sc", text = "The Scarlet Crusade burn our kind on sight. Stay off the roads near the monastery." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know. Try the town hall; they keep records of everything." } },
@@ -558,9 +682,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A farmer's son from Hillsbrad. I joined the Lordaeron army too late to save anything. When the Argent Dawn formed, I took their tabard because it was the only banner left that fought the dead and not the living." } },
+      choices = {
+        { text = "Do the Scarlets ever try to recruit you?", next = "yscarlet" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yscarlet = {
+      lines = { { id = "yscarlet_x", text = "Often. They say the Dawn is soft for treating with Forsaken. My brother wears the Scarlet tabard now. Should I keep trying to bring him to the Dawn, or let him be lost?" } },
+      choices = {
+        { text = "Keep trying. Family's worth the fight.", next = "BACK", reply = "Thank you. I'll write him again, though he burns my letters.", fx = { align = { light = 1 } } },
+        { text = "Let him go. He chose his side.", next = "BACK", reply = "Perhaps. I'd still rather face him with words than steel.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yask = {
+      lines = { { id = "yask_x", text = "Only that we fight the Scourge first and question the rest later. The old Highlord Mograine's own son serves the Scarlets in their monastery now. That's a sorrow the Dawn doesn't speak of." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "The Argent Dawn sent us to watch the roads where the plague spills over. We don't care whose banner you march under, only that you're no friend of the Scourge." },
+        { id = "yh_scourge", when = { race = "Scourge" }, text = "Forsaken. The Dawn stands with any who fight the Scourge. Speak, and I'll listen, though I'll keep my sword where it is." },
       },
       again = { { id = "h_again", text = "Anything else? I'd rather talk with my eyes on the road, if it's all the same to you." } },
       choices = {
@@ -570,6 +714,8 @@ P:NPC {
         { text = "What is the Argent Dawn?", next = "dawn" },
         { text = "How bad is the plague out east?", next = "east" },
         { text = "How do you feel about the Forsaken?", next = "forsaken" },
+        { text = "Who were you before the Dawn?", next = "ylife" },
+        { text = "What does the Dawn ask of its soldiers?", next = "yask" },
         { text = "Light keep you, Defender.", next = "END" },
       },
     },
@@ -626,6 +772,8 @@ P:NPC {
     },
   },
   topics = {
+    argent_dawn = { { id = "ytp_ad", text = "The Dawn fights the Scourge wherever it walks. Tirisfal is no exception." } },
+    scarlet_crusade = { { id = "ytp_sc", text = "The Scarlets hate the dead so much they've forgotten to love the living." } },
     scourge = { { id = "xtp_sc", text = "The Lich King's army. It never sleeps and never stops." } },
     lights_hope = { { id = "xtp_lh", text = "Our chapel in the east. The dead can't walk on its ground." } },
   },
@@ -649,9 +797,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A watchman in Brill. Every autumn I carried a torch round the town, warding off spirits. Now I guard the Wicker Man so the spirits can have their festival. Funny how it goes." } },
+      choices = {
+        { text = "How did the festival change?", next = "yhallow" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yrole = {
+      lines = { { id = "yrole_x", text = "Keep the crowd back, keep the Alliance out, and make sure nobody lights it early. Last year a drunk orc tried, and I had to pour cider over him. He thanked me later. I think." } },
+      choices = {
+        { text = "Has the Alliance ever tried to sabotage it?", next = "yalliance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yalliance = {
+      lines = { { id = "yalliance_x", text = "A pair of dwarves came last year, with buckets. I caught them before they could douse it. They said it was a prank. Should I have let them go, or sent them to the Executor?" } },
+      choices = {
+        { text = "Let them go. It's a festival, after all.", next = "BACK", reply = "Aye, that's what I did. They left me a bottle of stout.", fx = { align = { order = -1 } } },
+        { text = "Send them to the Executor. Rules are rules.", next = "BACK", reply = "That's the right answer, I suppose. I'll do better this year.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yscarlet = {
+      lines = { { id = "yscarlet_x", text = "They watch from the hills and pray loud enough to hear. They've never come down. I think, in their hearts, they'd like to see it burn as much as we would." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yhallow = {
+      lines = { { id = "yhallow_x", text = "Hallow's End was a living festival first, to scare the spirits off. Now the spirits run it. The masks are the same. Only the faces underneath have changed." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I guard the Wicker Man. It stands for the chains the Lich King put on us, and when it burns, we remember that we threw them off. No one touches it before its time." },
+        { id = "yh_tauren", when = { race = "Tauren" }, text = "A tauren at the Wicker Man! Stand back from the fire, friend. Fur burns as well as wicker." },
       },
       again = { { id = "h_again", text = "Something more? The fire won't wait forever." } },
       choices = {
@@ -660,6 +839,9 @@ P:NPC {
         { text = "I'm a human. May I watch?", next = "xhuman", when = { race = "Human" } },
         { text = "Why burn a wicker man?", next = "why" },
         { text = "What do the living make of this?", next = "living" },
+        { text = "Who were you before?", next = "ylife" },
+        { text = "What's your role tonight?", next = "yrole" },
+        { text = "Do the Scarlets ever try to stop the burning?", next = "yscarlet" },
         { text = "I'll watch the burning, then.", next = "END" },
       },
     },
@@ -711,6 +893,8 @@ P:NPC {
     },
   },
   topics = {
+    brill = { { id = "ytp_brill", text = "Brill burns the Wicker Man every year. Best show in Tirisfal." } },
+    masks = { { id = "ytp_masks", text = "Wear a mask tonight. It's tradition, and it hides your expression when the Wicker Man goes up." } },
     hallows_end = { { id = "xtp_he", text = "Our feast. The living borrowed it and filled it with sweets." } },
     sylvanas = { { id = "xtp_sy", text = "The Dark Lady. She broke our chains first, and we broke the rest ourselves." } },
   },

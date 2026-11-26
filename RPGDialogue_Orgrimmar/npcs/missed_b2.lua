@@ -217,6 +217,9 @@ P:NPC {
         { text = "What are you forging?", next = "forging" },
         { text = "Armor or weapons: which is the truer craft?", next = "truer" },
         { text = "I smith as well. What should I practise?", next = "practise", when = { profession = "Blacksmithing" } },
+        { text = "Who taught you to smith?", next = "y_teach" },
+        { text = "What do you fear at the forge?", next = "y_fear" },
+        { text = "Who is Kelgruk to you?", next = "y_kelgruk" },
         { text = "Strength and honor, Shayis.", next = "END" },
       },
     },
@@ -246,9 +249,36 @@ P:NPC {
       lines = { { id = "pr_default", text = "Rivets. Everyone wants to hammer out a grand breastplate, and nobody wants to set two hundred rivets straight, and it is the rivets that give way in battle. When yours are all even, come and show me." } },
       choices = { { text = "Rivets it is. Something else.", next = "BACK" } },
     },
+    y_teach = {
+      lines = {
+        { id = "y_teach_d", text = "Saru, when I was too small to hold the tongs. He made me sweep the forge for a year before I touched a hammer. I hated him for it. Now I make my own apprentices sweep." },
+        { id = "y_teach_orc", when = { race = "Orc" }, text = "Saru, when I was small, as some elder of your clan probably taught you something you hated. A year of sweeping before a hammer. Now my apprentices sweep." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_fear = {
+      lines = { { id = "y_fear_d", text = "A plate that splits. I made one once, in a hurry, for a grunt riding to Ashenvale. He came back with a night elf arrow in his ribs, through my plate. I have never hurried since." } },
+      choices = {
+        { text = "Did you tell him it was your fault?", next = "y_fault" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_fault = {
+      lines = { { id = "y_fault_d", text = "Saru said to keep quiet, that it would ruin the Steelfury name. I told the grunt anyway. Was Saru wrong, or was I?" } },
+      choices = {
+        { text = "You were right. Honesty first.", next = "BACK", reply = "Good. I would do it again.", fx = { align = { honor = 1 } } },
+        { text = "Saru was right. The name matters.", next = "BACK", reply = "Hm. Then you and he would get along.", fx = { align = { honor = -1 } } },
+      },
+    },
+    y_kelgruk = {
+      lines = { { id = "y_kelgruk_d", text = "Kelgruk Bloodaxe makes the blades across the way, and we have argued every morning for six years. If he ever agrees with me, I will check him for fever." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "A Steelfury at the forge, like the rest of my blood. I make armor, and I make it to be struck." } },
+    saru_steelfury = { { id = "y_tp_saru", text = "Saru is the best smith in Orgrimmar and the worst at saying so. I say it for him." } },
+    ashenvale = { { id = "y_tp_ash", text = "Ashenvale is where my plate gets tested. The elves shoot well." } },
     _none = { { id = "tp_none", text = "I have no idea, {class}, and no time to find out. Ask someone who is not holding hot iron." } },
   },
 }
@@ -286,6 +316,10 @@ P:NPC {
         { text = "When will Saru let you forge?", next = "forge" },
         { text = "You and Ug'thok seem to compete.", next = "ugthok" },
         { text = "I've done my time on the bellows too.", next = "bellows", when = { profession = "Blacksmithing" } },
+        { text = "Where were you raised, Snarl?", next = "y_raised" },
+        { text = "What do you dream of forging?", next = "y_dream" },
+        { text = "Those are a lot of burns on your arms.", next = "y_burn" },
+        { text = "How is the horseshoe count now?", next = "y_sixtyone" },
         { text = "Back to the bellows, then.", next = "END" },
       },
     },
@@ -318,9 +352,40 @@ P:NPC {
         { text = "A smith is never really done with bellows.", next = "BACK", reply = "Bah. I should not have asked." },
       },
     },
+    y_raised = {
+      lines = {
+        { id = "y_raised_d", text = "Here, in the Drag, the year the walls went up. My father hauled stone for the Warchief and my mother cooked for the haulers. I am the first of my blood to hold anything but a shovel." },
+        { id = "y_raised_orc", when = { race = "Orc" }, text = "Here in the Drag, like plenty of young orcs. My father hauled stone and my mother cooked for the haulers. I will be the first of my blood to forge a blade." },
+      },
+      choices = {
+        { text = "Your parents must be proud.", next = "y_proud" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_proud = {
+      lines = { { id = "y_proud_d", text = "My father says a hauler's son should not get above himself. My mother says nothing and brings me food at the forge. I think she is the proud one." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_dream = {
+      lines = { { id = "y_dream_d", text = "An axe for a Kor'kron guard. Every orc in the city would see my work beside the Warchief. Ug'thok says that is vanity, and that a smith should want only to make good iron." } },
+      choices = {
+        { text = "Ug'thok is right. Make good iron.", next = "BACK", reply = "Bah. He would say that. But perhaps.", fx = { align = { honor = 1 } } },
+        { text = "Aim high. Glory drives good work.", next = "BACK", reply = "Ha! I knew someone would understand.", fx = { align = { honor = -1 } } },
+      },
+    },
+    y_burn = {
+      lines = { { id = "y_burn_d", text = "These? Sparks from the first year, when I stood too close and too proud. Saru says each one is a lesson. I have a great many lessons." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_sixtyone = {
+      lines = { { id = "y_sixtyone_d", text = "I am at forty this time. The master watches every one now, and he has not thrown one back in a week. I do not trust it. He is waiting for me to get careless." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I was raised in Orgrimmar, and I am apprenticed to Saru Steelfury. It is not glory yet, but it will be." } },
+    saru_steelfury = { { id = "y_tp_saru", text = "Saru Steelfury is the best smith in Orgrimmar, and he knows it, and he makes sure I know it." } },
+    the_drag = { { id = "y_tp_drag", text = "I grew up in the Drag. It smells of tanning and it is never quiet, and I love it." } },
     _none = { { id = "tp_none", text = "I am an apprentice. Nobody tells me anything except to pump harder." } },
   },
 }
@@ -446,6 +511,9 @@ P:NPC {
         { text = "What sells best?", next = "sells" },
         { text = "A family of smiths must be loud.", next = "family" },
         { text = "What would you put on a warrior?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Do you and Sumi get on?", next = "y_sumi" },
+        { text = "What's the worst sale you've made?", next = "y_worst" },
+        { text = "How do you make buyers prove themselves?", next = "y_proof" },
         { text = "Good trading, Tumi.", next = "END" },
       },
     },
@@ -472,9 +540,36 @@ P:NPC {
       lines = { { id = "wr_default", text = "Whatever is heaviest that still lets you raise your arms over your head, and I will have you prove it before you pay. Then go to Okothos if you ever want something made to your own measure, because nobody in Kalimdor fits plate better." } },
       choices = { { text = "I'll remember the name. Something else.", next = "BACK" } },
     },
+    y_sumi = {
+      lines = {
+        { id = "y_sumi_d", text = "Like two hammers on one anvil, {class}. She thinks I flatter customers and I think she frightens them. Our father pretends not to hear, which is a skill he learned from our mother." },
+        { id = "y_sumi_orc", when = { race = "Orc" }, text = "Like two hammers on one anvil. You know how orc sisters are. She thinks I flatter customers, I think she frightens them, and our father pretends not to hear." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_worst = {
+      lines = { { id = "y_worst_d", text = "Plate to a young warrior who could barely lift it. He begged, and he paid, and he fell at the Crossroads a week later because he could not raise his shield fast enough." } },
+      choices = {
+        { text = "That wasn't your fault.", next = "y_fault" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_fault = {
+      lines = { { id = "y_fault_d", text = "My father says the customer chooses. I say a seller should refuse when she knows better. Who is right, {class}?" } },
+      choices = {
+        { text = "You are. Refuse when you know better.", next = "BACK", reply = "Then I will keep refusing, and Father can grumble.", fx = { align = { order = -1 } } },
+        { text = "Your father. Warriors make their own choices.", next = "BACK", reply = "Hm. He would like you.", fx = { align = { order = 1 } } },
+      },
+    },
+    y_proof = {
+      lines = { { id = "y_proof_d", text = "Lift your arms over your head, turn twice, and draw your weapon. If you can do that in my plate without groaning, it is yours. Most groan." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "Saru Steelfury's daughter, and Sumi's sister. I sell what the family forge and its neighbours make." } },
+    saru_steelfury = { { id = "y_tp_saru", text = "My father, Saru. His hammer wakes the valley, and his temper keeps it awake." } },
+    sumi = { { id = "y_tp_sumi", text = "Sumi sells to the smiths. Do not haggle with her. I mean that kindly." } },
     _none = { { id = "tp_none", text = "I could not tell you. Ask my father, if you can get a word in between hammer blows." } },
   },
 }
@@ -512,6 +607,9 @@ P:NPC {
         { text = "How do you work alongside a troll?", next = "zendo" },
         { text = "A weapon is only a tool.", next = "tool" },
         { text = "How should a warrior choose a weapon?", next = "choose", when = { class = "WARRIOR" } },
+        { text = "You said you wore chains.", next = "y_chains" },
+        { text = "Do you sell to anyone who asks?", next = "y_sell" },
+        { text = "Tell me of Gorehowl.", next = "y_gorehowl" },
         { text = "Lok'tar, Shoma.", next = "END" },
       },
     },
@@ -541,10 +639,37 @@ P:NPC {
       lines = { { id = "ch_default", text = "Hold it out at arm's length and count to fifty. If the point has dropped, it is too heavy for you today, and you should come back for it when it is not." } },
       choices = { { text = "A plain test. Something else.", next = "BACK" } },
     },
+    y_chains = {
+      lines = {
+        { id = "y_chains_d", text = "Eleven years in the camp at Durnholde's shadow, {class}. I fought in the pits for the guards' wagers. When Thrall came, I broke my chains on the head of the guard who held the key." },
+        { id = "y_chains_orc", when = { race = "Orc" }, text = "Eleven years in the camps, as your parents may have known. I fought in the pits for wagers, and when Thrall came, I broke my chains on the guard who held the key." },
+      },
+      choices = {
+        { text = "Do you regret killing him?", next = "y_regret" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_regret = {
+      lines = { { id = "y_regret_d", text = "No. But I remember his face, and I wonder if he had children who wait for him still. Should a warrior remember the faces of those he kills?" } },
+      choices = {
+        { text = "Yes. It keeps a warrior honest.", next = "BACK", reply = "So I believe. I keep each one.", fx = { align = { honor = 1 } } },
+        { text = "No. A warrior moves on.", next = "BACK", reply = "Perhaps that is easier. It is not my way.", fx = { align = { honor = -1 } } },
+      },
+    },
+    y_sell = {
+      lines = { { id = "y_sell_d", text = "No. I have refused grunts who beat peons and goblins who sell to the Burning Blade. A weapon carries something of its seller, and I will not carry their shame." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_gorehowl = {
+      lines = { { id = "y_gorehowl_d", text = "Gorehowl was Grom Hellscream's axe. It howled when he swung it, they say, and the whole army howled with it. I heard it once, from far off. I have never forgotten the sound." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I fought under the Warchief, and now I arm those who fight after me. I count it the same service." } },
     warsong = { { id = "tp_ws", text = "Hellscream's clan. They cut the forests of Ashenvale still, and they do not forget him." } },
+    grom_hellscream = { { id = "y_tp_grom", text = "Grom freed us from the demons by killing one. No weapon in my racks will ever do as much." } },
+    internment = { { id = "y_tp_camps", text = "Eleven years of chains taught me what a weapon is for. Freedom, and nothing less." } },
     _none = { { id = "tp_none", text = "That is beyond me, {class}. I know weapons and those who bear them." } },
   },
 }
@@ -583,6 +708,9 @@ P:NPC {
         { text = "What's it like selling beside Shoma?", next = "shoma" },
         { text = "Orcs seem to prefer their axes.", next = "orcs" },
         { text = "Teach me something about throwing.", next = "lesson", when = { class = { "HUNTER", "ROGUE", "WARRIOR" } } },
+        { text = "Why did you leave the Echo Isles?", next = "y_left" },
+        { text = "What worries a Darkspear in this city?", next = "y_worry" },
+        { text = "What happened to your uncle with nine axes?", next = "y_uncle" },
         { text = "Stay sharp, Zendo'jian.", next = "END" },
       },
     },
@@ -612,9 +740,29 @@ P:NPC {
       lines = { { id = "ls_default", text = "Don't throw with your arm, throw with your hip, and let go a breath sooner than feels right. Go and ask Hanashi about it too, because he teaches it proper and I only show off." } },
       choices = { { text = "Hip, not arm. Something else.", next = "BACK" } },
     },
+    y_left = {
+      lines = {
+        { id = "y_left_d", text = "Zalazane, mon. When he started bindin' our people with his voodoo, my uncle told me to go to Orgrimmar and make coin, and not to come back till de isles be ours again." },
+        { id = "y_left_tr", when = { race = "Troll" }, text = "Same as plenty of us, mon. Zalazane started bindin' minds, and my uncle sent me to Orgrimmar. You know de story. We all be waitin' to go home." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_worry = {
+      lines = { { id = "y_worry_d", text = "Dat some orcs still look at a troll like a pet, mon. Shoma don't, but some of dem in de Drag do. One spat at my rack last week. Should I have fought him?" } },
+      choices = {
+        { text = "Yes. Respect must be defended.", next = "BACK", reply = "Ha! You got a troll's blood in you, mon.", fx = { align = { honor = 1 } } },
+        { text = "No. Let it go. Keep the peace.", next = "BACK", reply = "Ya, dat be what Shoma said too.", fx = { align = { honor = -1 } } },
+      },
+    },
+    y_uncle = {
+      lines = { { id = "y_uncle_d", text = "My uncle carried nine axes and threw dem all in one fight against de murlocs. He died fetchin' de ninth one, mon. De family say he would have laughed about it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "Darkspear, from the Echo Isles, and I hunted before I sold. Now I sell to the hunters and tell them they're doing it wrong." } },
+    echo_isles = { { id = "y_tp_ei", text = "De Echo Isles be home, mon. Zalazane be sittin' on it like a fat crab." } },
+    shoma = { { id = "y_tp_shoma", text = "Shoma be a good orc. Serious as stone, but good." } },
     _none = { { id = "tp_none", text = "Don't know dat one, mon. If it can't be thrown or stabbed with, it's not my business." } },
   },
 }

@@ -130,6 +130,9 @@ P:NPC {
         { text = "What have you seen in here?", next = "seen" },
         { text = "How do you stay hidden?", next = "hidden" },
         { text = "You should get out while you can.", next = "out" },
+        { text = "Where are you from, scout?", next = "y_home" },
+        { text = "What frightens you most in here?", next = "y_fear" },
+        { text = "Has anyone else come this far?", next = "y_others" },
         { text = "Elune guard you, scout.", next = "END" },
       },
     },
@@ -152,9 +155,36 @@ P:NPC {
       lines = { { id = "o_default", text = "When my count is finished, and no sooner. The Hold is deciding where to spend lives it cannot spare, and a wrong number from me would cost more of them than my staying will." } },
       choices = { { text = "Then finish it and live. Another thing.", next = "BACK" } },
     },
+    y_home = {
+      lines = {
+        { id = "y_home_d", text = "Auberdine, on the Darkshore coast, where the sea is cold and the trees grow right down to the sand. I joined the Circle to protect those woods, and they sent me to the one place in Kalimdor with no trees at all." },
+        { id = "y_home_ne", when = { race = "NightElf" }, text = "Auberdine, sister, or brother, as you may know it yourself. Cold sea and trees to the shore. I joined the Circle for those woods, and they sent me here, where no tree has ever grown." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_fear = {
+      lines = { { id = "y_fear_d", text = "The silence after a patrol passes. The hive is never truly quiet, so when it falls still, something larger is moving. I have felt that stillness twice, and both times I did not breathe until it ended." } },
+      choices = {
+        { text = "What did you see?", next = "y_saw" },
+        { text = "Another thing.", next = "BACK" },
+      },
+    },
+    y_saw = {
+      lines = { { id = "y_saw_d", text = "A shape too tall for the tunnels, with drones bowing before it. I could have followed it and learned more, or stayed and kept my count true. I stayed. Was that wise or cowardly?" } },
+      choices = {
+        { text = "Wise. Your count is what the Hold needs.", next = "BACK", reply = "That is what I tell myself. Thank you.", fx = { align = { order = 1 } } },
+        { text = "You should have followed it.", next = "BACK", reply = "Perhaps. Next time, if there is a next time.", fx = { align = { order = -1 } } },
+      },
+    },
+    y_others = {
+      lines = { { id = "y_others_d", text = "Landion is in Hive'Regal, and Jalia watches Hive'Ashi. We have not seen each other in a moon. I leave marks on the stones at the Hold so the others know I still live." } },
+      choices = { { text = "Another thing.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "A scout of the Circle. I have been inside this hive for six days, and I have counted every one of them." } },
+    hive_zora = { { id = "y_tp_hz", text = "Hive'Zora hums like a struck bell. Do not linger near the brood chambers." } },
+    cenarion_hold = { { id = "y_tp_ch", text = "Cenarion Hold is the last safe walls in Silithus. Tell Mar'alith I still count." } },
     _none = { { id = "tp_none", text = "Not here, and not now. Ask at Cenarion Hold." } },
   },
 }
@@ -190,6 +220,9 @@ P:NPC {
         { text = "What makes Hive'Regal different?", next = "different" },
         { text = "Which way out is safest?", next = "way" },
         { text = "You sound as if you dislike this duty.", next = "duty" },
+        { text = "Where did you range before this?", next = "y_before" },
+        { text = "Will the Circle attack the hive?", next = "y_attack" },
+        { text = "Do you have anyone waiting for you?", next = "y_wait" },
         { text = "Stay hidden, scout.", next = "END" },
       },
     },
@@ -212,9 +245,37 @@ P:NPC {
       lines = { { id = "du_default", text = "I am a ranger of the forest, and I am standing in a hole full of insects under a desert. I do it because the Circle asked and because it matters, but I shall not pretend to you that I enjoy the smell." } },
       choices = { { text = "Fair enough. Another question.", next = "BACK" } },
     },
+    y_before = {
+      lines = {
+        { id = "y_before_d", text = "Ashenvale, along the Falfarren river, keeping the Warsong from the old groves. I knew every tree by its bark. Here I know every tunnel by its smell, which is not a skill I wanted." },
+        { id = "y_before_ne", when = { race = "NightElf" }, text = "Ashenvale, by the Falfarren, as you might guess from my accent. I kept the Warsong from the groves. Here I know every tunnel by its smell. Not a skill I wanted." },
+        { id = "y_before_orc", when = { race = "Orc" }, text = "You would not like the answer. Ashenvale, keeping your Warsong cousins from the groves. Here we share one enemy, so let us leave that between the trees." },
+      },
+      choices = { { text = "Another question.", next = "BACK" } },
+    },
+    y_attack = {
+      lines = { { id = "y_attack_d", text = "The Circle wants to watch and wait. The Brigade and the Legion want to burn the hives now, before whatever is breeding here wakes. I have seen inside, and I am no longer sure which side is wiser." } },
+      choices = {
+        { text = "Burn them now, while we can.", next = "y_burn" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    y_burn = {
+      lines = { { id = "y_burn_d", text = "Strike too soon and you wake the whole swarm. Wait too long and the swarm wakes on its own. What would you advise the Circle, {class}?" } },
+      choices = {
+        { text = "Strike now. Waiting only feeds them.", next = "BACK", reply = "A soldier's answer. I will pass it on.", fx = { align = { order = -1 } } },
+        { text = "Wait and watch, as the Circle says.", next = "BACK", reply = "A druid's answer. Patience has kept the wall standing.", fx = { align = { order = 1 } } },
+      },
+    },
+    y_wait = {
+      lines = { { id = "y_wait_d", text = "A sister in Astranaar who thinks I am still in Ashenvale. I write her letters about trees, and I have not told her where I really am. Let her worry about the Warsong instead." } },
+      choices = { { text = "Another question.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "A scout of the Circle, and a forest ranger before that. I miss trees more than I can tell you." } },
+    hive_regal = { { id = "y_tp_hr", text = "Hive'Regal is the barracks of the swarm. The others breed, and this one marches." } },
+    ashenvale = { { id = "y_tp_ash", text = "Ashenvale is green and cool. Remind me of it when I am out of this hole." } },
     _none = { { id = "tp_none", text = "This is not the place for it. Ask me at the Hold, if I ever see it again." } },
   },
 }

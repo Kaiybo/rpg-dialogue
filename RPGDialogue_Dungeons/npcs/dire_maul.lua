@@ -161,6 +161,7 @@ P:NPC {
         { text = "Can you open the way deeper in?", next = "door" },
         { text = "How old are you?", next = "age" },
         { text = "Cenarius's children have not forgotten you, Ironbark.", next = "cenarius", when = { class = "DRUID" } },
+        { text = "What do you remember of the Highborne?", next = "yhigh" },
         { text = "Rest well, old one.", next = "END" },
       },
     },
@@ -212,6 +213,20 @@ P:NPC {
       lines = { { id = "a_default", text = "Older than the walls, younger than the hills. I saw the sky turn green the night the Well broke, though I was only a sapling then and did not understand it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yhigh = {
+      narr = "Bark creaks as the great head turns, very slowly, toward the old walls.",
+      lines = {
+        { id = "yh_default", text = "Hmm. Tall, bright, singing elves, who planted my grandfathers along their avenues for shade and then forgot us. They drew magic from the earth as you draw water, and they never asked whether the earth minded." },
+        { id = "yh_nelf", when = { race = "NightElf" }, text = "Hmm. Your cousins, small one, though you are wiser. They planted my grandfathers for shade and drew magic from the earth as you draw water, and never asked whether the earth minded. You ask. I can tell." },
+      },
+      choices = { { text = "The earth remembers. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    warpwood = { { id = "yt_warp", text = "The Warpwood were my brothers. Now they are hollow and angry, and they do not know me." } },
+    satyrs = { { id = "yt_satyr", text = "Satyrs are elves who sold themselves to demons. They smell of burnt moss and lies." } },
+    _none = { { id = "yt_none", text = "Hmm. I do not know that, small one. I have only stood here a thousand years, and that is not long enough to learn everything." } },
+    alzzin = { { id = "yt_alz", text = "Alzzin the Wildshaper wears many shapes and loves none of them. He is the root of the rot here." } },
   },
 }
 
@@ -251,6 +266,8 @@ P:NPC {
         { text = "What do you want of me?", next = "madness" },
         { text = "These halls feel like a tomb.", next = "tomb" },
         { text = "My people banished yours for good reason.", next = "exile", when = { race = "NightElf" } },
+        { text = "What were you, in life?", next = "ylife" },
+        { text = "Do you remember the Well of Eternity?", next = "ywell" },
         { text = "Rest easy, ancient one.", next = "END" },
       },
     },
@@ -298,8 +315,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    ylife = {
+      narr = "The ghost's hands move as if turning the pages of a book no longer there.",
+      lines = {
+        { id = "yli_default", text = "A keeper of star charts, in Azshara's court and then here. I mapped the heavens for a people who looked only at themselves. When we came to these halls I mapped the ley lines instead, and that was how the prince found the place to bind his demon." },
+        { id = "yli_mage", when = { class = "MAGE" }, text = "A keeper of star charts, and then of ley lines, which you will understand, mage. I found the place where the prince bound his demon. I have regretted the precision of my work for a very long time." },
+      },
+      choices = {
+        { text = "You couldn't have known what he'd do.", next = "yknow" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yknow = {
+      lines = { { id = "ykn_default", text = "I knew he would do something, and I chose not to ask what. Is that ignorance, stranger, or the oldest kind of guilt? I have never settled it, and the dead have little else to do." } },
+      choices = { { text = "Perhaps both. Something else.", next = "BACK" } },
+    },
+    ywell = {
+      lines = {
+        { id = "ywe_default", text = "As one remembers the sun after a lifetime underground. It shone with a light that made you feel you could unmake the stars. We thought it was ours. It was never ours, and the world paid for our mistake." },
+        { id = "ywe_nelf", when = { race = "NightElf" }, text = "As your elders do, child, though they remember its fall and I remember its glory. It made us feel we could unmake the stars. Your druids were right to fear it, and I was wrong to love it." },
+      },
+      choices = { { text = "A hard lesson. Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "That is beyond my knowledge, stranger. The library holds many things, but not that." } } },
+  topics = { _none = { { id = "tp_none", text = "That is beyond my knowledge, stranger. The library holds many things, but not that." } } ,
+    tortheldrin = { { id = "yt_tort", text = "The prince was brilliant once, and kind, in his way. Hunger changes everything it touches." } },
+    immolthar = { { id = "yt_immol", text = "Immol'thar is the demon in the pylons' cage. Its hunger has no bottom, and we fed it anyway." } },
+    eldre_thalas = { { id = "yt_et", text = "We built Eldre'Thalas to be a second Zin-Azshari. It became a mausoleum with a library attached." } },
+  
+},
 }
 
 ---------------------------------------------------------------------------
@@ -422,6 +466,7 @@ P:NPC {
         { text = "What do you think of the prince?", next = "xprince" },
         { text = "I'm a druid. I'd like to see the Dream volume.", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'm a shaman. What's Frost Shock and You?", next = "xshaman", when = { class = "SHAMAN" } },
+        { text = "Which tome do you love most?", next = "ylove" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -469,8 +514,19 @@ P:NPC {
       lines = { { id = "xsh_default", text = "A practical manual on the spirits of the elements, written by an orc, I believe, with more enthusiasm than grammar. It is surprisingly good, and I tell no one I think so." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ylove = {
+      lines = {
+        { id = "ylo_default", text = "A small book of Highborne lullabies, written in a hand that shook with age. It holds no power at all, which is why the prince lets me keep it, and why I value it above every grimoire in this library." },
+        { id = "ylo_priest", when = { class = "PRIEST" }, text = "A small book of Highborne lullabies, with no power in it at all. You priests understand, I think, that a thing can be holy without being useful. I value it above every grimoire on these shelves." },
+      },
+      choices = { { text = "A worthy treasure. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    tortheldrin = { { id = "yt_tort", text = "Prince Tortheldrin rules the Shen'dralar. I keep my opinion of him in the restricted section." } },
+    druids = { { id = "yt_druid", text = "The druids drove us out after the Sundering. Their scholarship on the Dream is excellent, and I resent it." } },
+    emerald_dream = { { id = "yt_dream", text = "The Emerald Dream is the world as it might have been. I have read of it far more than I would like to visit it." } },
+    tomes = { { id = "yt_tomes", text = "Every class has its lost tome, scattered through these halls by ogres who could not read them. I would like them back." } },
     eldre_thalas = { { id = "xtp_et", text = "Our city, which the outside world calls Dire Maul. I prefer the old name, and so would you, if you had seen it whole." } },
     highborne = { { id = "xtp_hb", text = "We were the Highborne, once. Now we are librarians, and I am not certain it was a fall." } },
     _none = { { id = "tp_none", text = "I could not say. Try the shelves, or better yet, try someone less busy." } } },
@@ -499,6 +555,7 @@ P:NPC {
         { text = "I'm a paladin. What does your tome say of the Light?", next = "xpaladin", when = { class = "PALADIN" } },
         { text = "I'm a warlock. I'd like to read Harnessing Shadows.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "I'm a hunter. Which race does the book favour?", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Have you ever read a book that frightened you?", next = "yfright" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -546,8 +603,20 @@ P:NPC {
       lines = { { id = "xht_default", text = "Yours, of course, or so you will say once you have read it. Bring me the copy and you may judge for yourself, though I warn you the chapter on boar tracking is very long." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yfright = {
+      narr = "His hand drifts, unbidden, toward a locked case behind him.",
+      lines = {
+        { id = "yfr_default", text = "One, and I keep it locked. It is a Highborne account of the night Queen Azshara's court first opened the way for the Legion, written by a scribe who thought it a glorious triumph. It is not the demons that frighten me, it is how proud he sounds." },
+        { id = "yfr_warlock", when = { class = "WARLOCK" }, text = "One, and it stays locked, even from you. A Highborne scribe's account of the night Azshara's court opened the way for the Legion. He thought it a triumph. You should take that as a warning, friend." },
+      },
+      choices = { { text = "A warning worth heeding. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    javon = { { id = "yt_javon", text = "Javon pretends to hate the books he shelves. He reads every one of them twice." } },
+    legion = { { id = "yt_legion", text = "My people opened the door for the Burning Legion once. We do not say so aloud, but every lorekeeper knows it." } },
+    tortheldrin = { { id = "yt_tort", text = "The prince keeps us alive with a power I'd rather not name. I am grateful, and uneasy, in equal parts." } },
+    eldre_thalas = { { id = "yt_et", text = "Eldre'Thalas was a jewel. Now ogres roast boars in its gardens, and the smoke gets into the parchment." } },
     lydros = { { id = "xtp_lydros", text = "Our eldest lorekeeper, and the sharpest mind in the library. He frightens me a little, and I think he enjoys it." } },
     shendralar = { { id = "xtp_shen", text = "What remains of the Highborne who kept the library after the Sundering. Fewer than you would think, and fewer every year." } },
     _none = { { id = "tp_none", text = "A fascinating question, but alas, not one my shelves can answer." } } },
@@ -576,6 +645,7 @@ P:NPC {
         { text = "Do the ogres trouble your stores?", next = "xogres" },
         { text = "Is the demon's gift worth the cost?", next = "xdemon" },
         { text = "I'm a night elf. We share a people, once.", next = "xkaldorei", when = { race = "NightElf" } },
+        { text = "Who were you, before the stores?", next = "ywho" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -626,8 +696,19 @@ P:NPC {
       lines = { { id = "xka_default", text = "Once, yes, before your druids drove us out. You will find no welcome in the prince's hall, but I will sell to you at the same price as anyone, and perhaps that is a kind of welcome." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ywho = {
+      narr = "She straightens a row of jars that were already straight.",
+      lines = {
+        { id = "ywh_default", text = "A steward of the prince's own table, when there was a table worth the name. I served wine to archmages and summoners whose names your histories have lost. Now I count rations for a dozen lorekeepers and sell bread to strangers." },
+        { id = "ywh_horde", when = { faction = "Horde" }, text = "A steward of the prince's table, serving wine to archmages your histories have forgotten. Now I sell bread to orcs and trolls, which my old masters would have called the end of the world. Perhaps it was." },
+      },
+      choices = { { text = "A long way to fall. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    lydros = { { id = "yt_lydros", text = "Lorekeeper Lydros decides who is welcome in the library. I decide who eats. We rarely disagree." } },
+    pylons = { { id = "yt_pylons", text = "The pylons sustain us, and they take their due. I keep the stores and do not ask what the due is." } },
+    highborne = { { id = "yt_high", text = "We were the Highborne. Now we are a pantry with a library attached, and the pantry is emptier." } },
     immolthar = { { id = "xtp_immol", text = "The prince's prisoner, and our larder, in a manner of speaking. I do not care for the manner." } },
     gordok = { { id = "xtp_gordok", text = "Hungry, loud and in the east wing. I keep my stores warded against them." } },
     _none = { { id = "tp_none", text = "I sell provisions. Questions are the lorekeepers' business." } } },
@@ -655,6 +736,7 @@ P:NPC {
         { text = "What threatens the Athenaeum most?", next = "xthreat" },
         { text = "Do you trust the lorekeepers?", next = "xlore" },
         { text = "A kaldorei standing guard for exiles.", next = "xkaldorei", when = { race = "NightElf" } },
+        { text = "Have you lost anyone to the demon?", next = "ylost" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -698,8 +780,20 @@ P:NPC {
       lines = { { id = "xka_default", text = "Exiles, you call us, as if your people's ten thousand years of sleeping in trees were not its own exile. We kept the old ways when you abandoned them, and I will not apologise for that." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ylost = {
+      narr = "Her eyes do not leave the door, but her jaw tightens.",
+      lines = {
+        { id = "yl_default", text = "My sister. She was chosen for the pylons in the cold season, and I stood guard at this door while they took her down the stair. I did my duty. I have done it every day since. Do not ask me if I would do it again." },
+        { id = "yl_nelf", when = { race = "NightElf" }, text = "My sister, chosen for the pylons, and I stood guard while they took her. Your Sentinels would have fought, I suppose. We have not the numbers to fight, kaldorei, only to stand. Do not ask me more." },
+      },
+      choices = { { text = "I won't. I'm sorry. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    athenaeum = { { id = "yt_athen", text = "The Athenaeum holds the oldest books of the Shen'dralar. Touch nothing without leave." } },
+    ogres = { { id = "yt_ogres", text = "The gordok wallow in the east wing like pigs in a temple. One day we will clear them out." } },
+    duty = { { id = "yt_duty", text = "A guard's duty is to stand where she is told. Whether the order is good is for princes to answer." } },
+    lydros = { { id = "yt_lydros", text = "Lydros talks to outsiders too freely. I keep my glaive near when he does." } },
     tortheldrin = { { id = "xtp_tort", text = "Prince Tortheldrin rules the Shen'dralar, and I serve him. That is all an outsider needs to know." } },
     satyrs = { { id = "xtp_satyr", text = "Twisted things in our gardens, and the oldest shame of our people. I kill them gladly." } },
     _none = { { id = "tp_none", text = "Take your questions to the lorekeepers. I am not here to talk." } } },
@@ -729,6 +823,8 @@ P:NPC {
         { text = "Why do you hate the ogres?", next = "vendetta" },
         { text = "What is this challenge you speak of?", next = "challenge" },
         { text = "Treeshaper sounds like a druid's name.", next = "druid", when = { class = "DRUID" } },
+        { text = "Tell me about your brother.", next = "ybrother" },
+        { text = "How do you live here among ogres?", next = "ylive" },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -769,8 +865,36 @@ P:NPC {
       lines = { { id = "d_default", text = "Treeshaper is an old family name, nothing more. My craft is enchantment, and my business is my own." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ybrother = {
+      narr = "He closes the book in front of him without marking the page.",
+      lines = { { id = "yb_default", text = "Talvash was the scholar of us two, and I the one with the charms. He came to study the Highborne libraries before the ogres were so many, and they caught him in the courtyard with an armful of scrolls. I found what was left of him a season later." } },
+      choices = { { text = "I'm sorry for your loss. Something else.", next = "BACK" } },
+    },
+    ylive = {
+      lines = {
+        { id = "yl_default", text = "Carefully, and with a ward on the door that makes ogres forget why they came in. They are not clever, but there are a great many of them, and they are very hungry. I am not foolish enough to think the ward will last forever." },
+        { id = "yl_mage", when = { class = "MAGE" }, text = "With a ward on the door that makes ogres forget why they came. You'll feel it, I expect, prickling at your sleeves. It's old Highborne work I've patched, and it won't last forever, but it lasts long enough for my reading." },
+      },
+      choices = {
+        { text = "Why not leave?", next = "yleave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yleave = {
+      lines = { { id = "ylv_default", text = "Because the books here hold more of the Highborne's lost charms than any library in Kalimdor, and the elves who might guard them would only lock them away. Should knowledge like that be kept safe, or put to use?" } },
+      choices = {
+        { text = "Lock it away. Highborne magic ruined the world.", next = "BACK", reply = "You sound like a Darnassian. I'll not argue, but I'll not stop.", fx = { align = { order = 1 } } },
+        { text = "Use it. Knowledge locked up is wasted.", next = "BACK", reply = "Exactly what I tell myself, every night, in this damp room.", fx = { align = { order = -1 } } },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know, friend, and I've read most of the books in here." } } },
+  topics = { _none = { { id = "tp_none", text = "I don't know, friend, and I've read most of the books in here." } } ,
+    enchanting = { { id = "yt_ench", text = "A charm is only a promise the world agrees to keep. Most of mine, the world keeps grudgingly." } },
+    highborne = { { id = "yt_high", text = "The Highborne wrote down everything, which is the only thing I admire about them." } },
+    anthion = { { id = "yt_anthion", text = "Anthion Harmon was always stubborn. Death hasn't changed that, from the sound of it." } },
+    ogres = { { id = "yt_ogres", text = "The Gordok ogres hold Dire Maul now. They wear beads of their kills, and I collect them back." } },
+  
+},
 }
 
 ---------------------------------------------------------------------------
@@ -798,6 +922,8 @@ P:NPC {
         { text = "Why wait in a place like this?", next = "why" },
         { text = "I have come for your blessing, elder.", next = "coin" },
         { text = "The Earth Mother walks with you, elder.", next = "tauren", when = { race = "Tauren" } },
+        { text = "Who were you, before you were an elder?", next = "ywho" },
+        { text = "Do the ogres trouble you here?", next = "yogres" },
         { text = "Farewell, elder.", next = "END" },
       },
     },
@@ -828,6 +954,37 @@ P:NPC {
       lines = { { id = "t_default", text = "And with you, young one. Carry her warmth into this cold place, and do not let the ruins make you forget the open sky." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ywho = {
+      narr = "The spirit's light dims, then steadies, like a candle in a draught.",
+      lines = {
+        { id = "yw_default", text = "A walker of the misty places, a guide for those lost between the mountains. That was long ago, before even the ruin of this city. Now I am memory, and memory is enough for the festival." },
+        { id = "yw_tauren", when = { race = "Tauren" }, text = "A walker of the misty places, as my name tells you, young one, a guide for herds lost in fog. That was long ago. Now I am memory, and the Earth Mother lets memory walk once each year." },
+      },
+      choices = {
+        { text = "Do you miss being alive?", next = "ymiss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymiss = {
+      lines = { { id = "ym_default", text = "I miss the warmth of a fire and the taste of water. But the dead who cling to life become something else, as the plagued north shows. Is it better to hold on, or to let go when your time is done?" } },
+      choices = {
+        { text = "Let go. Every life must end.", next = "BACK", reply = "Yes. That is the old wisdom, and I hold to it.", fx = { align = { light = 1 } } },
+        { text = "Hold on. Fight death as long as you can.", next = "BACK", reply = "Many have said so, and the Scourge is the answer they got.", fx = { align = { light = -1 } } },
+      },
+    },
+    yogres = {
+      lines = { { id = "yo_default", text = "They do not see me, which suits us both. The Gordok squabble over a crown and a broken city, and they do not know that the elves who built it were ancestors once, and fell through the same pride." } },
+      choices = {
+        { text = "The Highborne were ancestors too?", next = "why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I am an old spirit, child, and my memory reaches only to what matters." } } },
+  topics = { _none = { { id = "tp_none", text = "I am an old spirit, child, and my memory reaches only to what matters." } } ,
+    lunar_festival = { { id = "yt_lunar", text = "When the new moon of the year rises, the elders wake and wait. Find us all, and the ancestors will know your name." } },
+    highborne = { { id = "yt_high", text = "Proud and brilliant, and their pride broke the world. Even so, I would not have them forgotten." } },
+    dire_maul = { { id = "yt_dm", text = "Eldre'Thalas, the Highborne called it. Now ogres sleep in its libraries, and the books do not mind." } },
+    ancestors = { { id = "yt_anc", text = "The ancestors are the roots of every tree. Honour them, and you will stand when the storm comes." } },
+  
+},
 }

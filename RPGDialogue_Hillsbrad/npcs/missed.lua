@@ -345,6 +345,10 @@ P:NPC {
         { text = "Who are your prisoners?", next = "prisoners" },
         { text = "What were they after in Dalaran?", next = "after" },
         { text = "A prison camp in these hills has an ugly history.", next = "history" },
+        { text = "Is the camp humane?", next = "yhumane" },
+        { text = "Do you miss Dalaran?", next = "ymiss" },
+        { text = "Is Dalaran rebuilding well?", next = "ybuild" },
+        { text = "A fellow mage. Any advice?", next = "ymage", when = { class = "MAGE" } },
         { text = "I'll not disturb your watch.", next = "END" },
       },
     },
@@ -367,8 +371,43 @@ P:NPC {
       lines = { { id = "hi_default", text = "You are thinking of Durnholde and the orc camps, and I do not blame you. The difference is that mine holds those who committed a wrong, and I keep a record of each one to prove it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yhumane = {
+      lines = {
+        { id = "yyhumane_d", text = "As humane as a prison can be. They are fed, they are warm, and they are held only as long as the Kirin Tor require. That is more than the old camps offered the orcs, which I know some will remind me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymiss = {
+      lines = {
+        { id = "yymiss_d", text = "Every day. I was born in the old city, before Arthas came and Archimonde levelled it. The barrier keeps out the curious, and it keeps me out too, until my posting ends." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybuild = {
+      lines = {
+        { id = "yybuild_d", text = "Slowly, and carefully, which is the Kirin Tor's way. They rebuild with every stone catalogued and every spell double-checked. Some say the city should open its gates to the refugees first. Others say Dalaran's secrets must be protected above all." },
+      },
+      choices = {
+        { text = "Open the gates. People matter more than secrets.", next = "BACK", reply = "A kind thought. The Council would call it naive.", fx = { align = { order = -1 } } },
+        { text = "Protect Dalaran's secrets at all costs.", next = "BACK", reply = "That is the Council's view, and mine, mostly.", fx = { align = { order = 1 } } },
+      },
+    },
+    ymage = {
+      lines = {
+        { id = "yymage_d", text = "Catalogue everything, trust nothing, and never cast a spell you couldn't explain to a child. That last one is mine, not the Kirin Tor's, but I find it useful." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    dalaran = { { id = "ytp_dalaran", text = "Dalaran will rise again. It has before." } },
+    kirin_tor = { { id = "ytp_kirin_tor", text = "The Kirin Tor rule Dalaran. I serve them, though I don't always agree with them." } },
     background = { { id = "tp_bg", text = "I am a mage of the Kirin Tor, and this camp is my charge until Dalaran needs it no longer." } },
     burning_legion = { { id = "tp_bl", text = "They destroyed our city in the last war. We are still counting what was lost." } },
     _none = { { id = "tp_none", text = "That does not concern this camp, and so I have no information to give you." } },
@@ -407,6 +446,10 @@ P:NPC {
         { text = "Why set up shop above a city of ogres?", next = "why" },
         { text = "What do you sell that's worth the climb?", next = "stock" },
         { text = "Don't the ogres ever come up here?", next = "ogres" },
+        { text = "How did you get up here in the first place?", next = "yclimb" },
+        { text = "Who are your customers, really?", next = "ycust" },
+        { text = "Did Alterac fall before you came?", next = "yruins" },
+        { text = "Goblin to goblin, is this a smart location?", next = "ygob", when = { race = "Goblin" } },
         { text = "Show me the goods.", next = "END" },
       },
     },
@@ -429,8 +472,53 @@ P:NPC {
       lines = { { id = "o_default", text = "One did, once, by accident, and he was so surprised to see me he walked right off the wall. The Crushridge are great big fellas, sure, but between the lot of 'em they couldn't count their own toes." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yclimb = {
+      lines = {
+        { id = "yyclimb_d", text = "Up the back way, with a rope, two crates and a lot of language. The ogres saw me and laughed so hard one of them fell off a wall, and after that they decided I was funny, not food." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycust = {
+      lines = {
+        { id = "yycust_d", text = "Syndicate thugs who don't want to walk to Southshore, adventurers with ogre blood on their boots, and once a very confused paladin. Everybody needs potions up here, pal, and nobody can get them anywhere else." },
+      },
+      choices = {
+        { text = "You sell to the Syndicate?", next = "ysynd" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysynd = {
+      lines = {
+        { id = "yysynd_d", text = "Sure I sell to the Syndicate. Their coin's as round as yours. They're killers and thieves, and I know it, but I'm not their mother, I'm their alchemist." },
+      },
+      choices = {
+        { text = "A trader has no business picking sides.", next = "BACK", reply = "Exactly. You'd do well in the Cartel, friend.", fx = { align = { order = -1 } } },
+        { text = "Selling to murderers makes you part of it.", next = "BACK", reply = "Sure, sure. Then you buy all my stock and I'll stop.", fx = { align = { order = 1 } } },
+      },
+    },
+    yruins = {
+      lines = {
+        { id = "yyruins_d", text = "Long before, pal. The city fell when Lordaeron cut it loose after the war, and the nobles ran off to become the Syndicate. Now ogres live in the palace, and honestly they keep it cleaner." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygob = {
+      lines = {
+        { id = "yygob_v0", when = { race = "Goblin" }, text = "Smart? It's genius, cousin. No rent, no competition, and a moat made of ogres. You'd have done the same if you'd seen it first." },
+        { id = "yygob_d", text = "Smart? It's genius. No rent, no competition, and a moat made of ogres. The only downside is the commute, and I don't commute." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    syndicate = { { id = "ytp_syndicate", text = "The Syndicate are Alterac's old nobles turned cutthroats. Good customers, bad tippers." } },
+    crushridge = { { id = "ytp_crushridge", text = "The Crushridge ogres run the ruins now. They're loud, but they can't climb." } },
     background = { { id = "tp_bg", text = "Independent trader, Booty Bay papers, and the best spot in Alterac. That's me in one invoice." } },
     alterac = { { id = "tp_al", text = "Used to be a kingdom, now it's ogres and rubble. Cheap real estate, though, I'll say that." } },
     _none = { { id = "tp_none", text = "No idea, pal, and if I had one I'd be selling it." } },
@@ -469,6 +557,10 @@ P:NPC {
         { text = "How did the ogres catch you?", next = "caught" },
         { text = "Can't I just let you out?", next = "out" },
         { text = "You're still selling, in there?", next = "selling" },
+        { text = "How long have you been in the cage?", next = "ylong" },
+        { text = "What do the ogres feed you?", next = "yfood" },
+        { text = "Were you in Gnomeregan when it fell?", next = "yfell", when = { race = "Gnome" } },
+        { text = "How do you sell from in there?", next = "ysell" },
         { text = "I'll see your wares, Rizz.", next = "END" },
       },
     },
@@ -491,8 +583,44 @@ P:NPC {
       lines = { { id = "s_default", text = "Naturally! The ogres let me keep the crates because they couldn't work out what any of it was for, and a gnome doesn't stop doing business merely because he's been captured. Besides, I'll need capital when I get out." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ylong = {
+      lines = {
+        { id = "yylong_d", text = "Eleven days, by my count, which I keep by scratching the bars. I've also counted the ogres, the bars, and the number of times the big one has looked at me hungrily. That last number is concerning." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfood = {
+      lines = {
+        { id = "yyfood_d", text = "Turnips, mostly, and once a raw fish that the cook ogre thought was very funny. I've worked out a turnip-powered heater, though, so I'm warm, if not happy." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfell = {
+      lines = {
+        { id = "yyfell_v0", when = { race = "Gnome" }, text = "You know, then. I was out on a sales trip. My workshop was under the main gears, and everything I own is still down there, glowing." },
+        { id = "yyfell_d", text = "I was out on a sales trip, which is the only reason I'm alive. My workshop was right under the main gears. Everything I owned is still down there, irradiated and probably glowing." },
+      },
+      choices = {
+        { text = "Gnomeregan should be retaken, whatever it costs.", next = "BACK", reply = "Yes! Mekkatorque says so too. I'll bring the wrenches.", fx = { align = { honor = 1 } } },
+        { text = "Let it go. Build something new elsewhere.", next = "BACK", reply = "Sensible. Painful, but sensible. I'll think about it.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ysell = {
+      lines = {
+        { id = "yysell_d", text = "Cash through the bars, goods through the bars, and absolutely no refunds. The ogres take ten percent of everything, which honestly is a better rate than the Cartel offered." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    crushridge = { { id = "ytp_crushridge", text = "The Crushridge ogres are not clever, but they are many, and they have my keys." } },
+    slaughter_hollow = { { id = "ytp_slaughter_hollow", text = "Slaughter Hollow is where the ogres keep their prisoners. The name is not a joke." } },
     background = { { id = "tp_bg", text = "I'm a travelling supplier of engineering parts, temporarily stationary. Very temporarily, I hope." } },
     gnomeregan = { { id = "tp_gn", text = "I lost my workshop when the city fell, and now I've lost my cart to ogres. I'm starting to detect a pattern." } },
     _none = { { id = "tp_none", text = "I haven't the data, I'm afraid, and my sources of news are all ogres." } },
@@ -531,6 +659,10 @@ P:NPC {
         { text = "What goes on at Dun Garok?", next = "fort" },
         { text = "You don't take sides in the fighting?", next = "sides" },
         { text = "What do you watch for out here?", next = "watch" },
+        { text = "Why don't you join Dun Garok's garrison?", next = "ywhy" },
+        { text = "Where did you come from before this?", next = "yfrom" },
+        { text = "Do the Forsaken ever trouble you?", next = "yforsaken" },
+        { text = "A dwarf with no clan? Tell me, kinsman.", next = "yclan", when = { race = "Dwarf" } },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -553,8 +685,52 @@ P:NPC {
       lines = { { id = "w_default", text = "Whoever's comin', so I can be elsewhere when they arrive. The yetis come down from the cave when they're hungry, an' they dinnae ask which flag ye salute either." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ywhy = {
+      lines = {
+        { id = "yywhy_d", text = "Because I wore a uniform in the Second War, an' I watched what orders did tae good dwarves. Now I watch, an' I don't take orders, an' I sleep a deal better for it." },
+      },
+      choices = {
+        { text = "Then you've given up on duty?", next = "yduty" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yduty = {
+      lines = {
+        { id = "yyduty_d", text = "I've given up on bein' told what duty is. If an orc comes up that road at a child, I'll fight. If a captain tells me tae burn a farm, I'll nae. That's my duty, an' it's mine alone." },
+      },
+      choices = {
+        { text = "Your conscience is the only honest commander.", next = "BACK", reply = "Aye. Glad tae hear someone say it.", fx = { align = { order = -1 } } },
+        { text = "Without orders, armies fall apart.", next = "BACK", reply = "Armies fall apart anyway. I've seen it.", fx = { align = { order = 1 } } },
+      },
+    },
+    yfrom = {
+      lines = {
+        { id = "yyfrom_d", text = "Dun Morogh, long ago, an' then Grim Batol, an' then a long walk north. I'll nae tell ye more than that, for some of it I'm nae proud of an' the rest is nae yer concern." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yforsaken = {
+      lines = {
+        { id = "yyforsaken_d", text = "They pass by, now an' then, an' they leave me be, for I've nae got anythin' they want. I've seen worse than walkin' dead. I've seen livin' folk do worse." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yclan = {
+      lines = {
+        { id = "yyclan_d", text = "Once I'd a clan, an' a hall, an' a name that meant somethin'. Now I've a hill an' a fire. Dinnae pity me, kinsman. I chose it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    dun_garok = { { id = "ytp_dun_garok", text = "Dun Garok's a fine old fort, an' the dwarves in it are brave an' stubborn. I wish 'em well, from here." } },
+    second_war = { { id = "ytp_second_war", text = "I was there. That's all I'll say, an' it's more than most who weren't will say." } },
     background = { { id = "tp_bg", text = "I'm a dwarf wi' nae banner, an' I like it so. That's all ye'll get from me." } },
     _none = { { id = "tp_none", text = "Nae idea, an' nae interest. Ask someone who's chosen a side." } },
   },
@@ -594,6 +770,11 @@ P:NPC {
         { text = "How did you fall?", next = "fall" },
         { text = "Why do you stay?", next = "stay" },
         { text = "Tell me about your rifle.", next = "rifle" },
+        { text = "Who held the fort with you?", next = "ywith" },
+        { text = "Do you remember the day it fell?", next = "yday" },
+        { text = "Is there anything I can do for you?", next = "ydo" },
+        { text = "Will you ever rest?", next = "yrest" },
+        { text = "Does a dwarf ever forget her clan?", next = "ydwarf", when = { race = "Dwarf" } },
         { text = "Stand easy, Tamra.", next = "END" },
       },
     },
@@ -619,8 +800,53 @@ P:NPC {
       lines = { { id = "r_default", text = "Forged an' bored in this very fort, an' sighted by my own hand. It's the last true thing I carry, an' it shoots as straight for a shade as it did for a soldier." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ywith = {
+      lines = {
+        { id = "yywith_d", text = "My brother Gorrik, my cousin Feyna, an' a dozen others whose names I'll nae forget. They're gone now, all of them. I'm the only one who stayed, an' I'm nae sure why the others didn't." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yday = {
+      lines = {
+        { id = "yyday_d", text = "The Syndicate came first, an' then the ogres, an' then the walls were burnin'. I held the inner door till my arm gave out. I remember the cold, an' then I remember nothin', an' then I was standin' here." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydo = {
+      lines = {
+        { id = "yydo_d", text = "Tell my clan I held. That's all, really. Tell Vanndar's folk in Alterac that Tamra Stormpike never left her post. Maybe then I'll feel I can." },
+      },
+      choices = {
+        { text = "I'll carry your message.", next = "BACK", reply = "Thank ye. That's more than I hoped for.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yrest = {
+      lines = {
+        { id = "yyrest_d", text = "Rest's for them as finished the job. Some say a spirit should let go when the fight's lost. Others say ye hold till yer relieved. I'm a Stormpike. I hold." },
+      },
+      choices = {
+        { text = "Hold, then. Your duty is your honour.", next = "BACK", reply = "Aye. That's the Stormpike way.", fx = { align = { honor = 1 } } },
+        { text = "Let go, Tamra. You've done enough.", next = "BACK", reply = "Maybe, someday. But nae today.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ydwarf = {
+      lines = {
+        { id = "yydwarf_v0", when = { race = "Dwarf" }, text = "A dwarf! Tell me true, kinsman, is the Stormpike banner still flyin' anywhere? I've lost track of the world, standin' here." },
+        { id = "yydwarf_d", text = "Ye're a dwarf, then. Tell me true, is the Stormpike banner still flyin' anywhere? I've lost track of the world, standin' here." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    dun_garok = { { id = "ytp_dun_garok", text = "Dun Garok was a proud fort. I'd see it proud again, if I could." } },
+    stormpike = { { id = "ytp_stormpike", text = "The Stormpike are stubborn as stone, an' I'm the most stubborn of the lot." } },
     background = { { id = "tp_bg", text = "I was a Stormpike an' a rifle-dwarf of Dun Garok. I am both yet, after a fashion." } },
     _none = { { id = "tp_none", text = "That's a matter for the livin', an' I've lost the thread o' such things." } },
   },

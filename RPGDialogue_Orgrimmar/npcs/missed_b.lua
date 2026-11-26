@@ -39,6 +39,9 @@ P:NPC {
         { text = "Who else works this armory?", next = "armory" },
         { text = "Leather won't stop an axe.", next = "axe" },
         { text = "I move unseen. What suits me?", next = "quiet", when = { class = { "ROGUE", "DRUID" } } },
+        { text = "Did you wear leather in the old wars?", next = "y_wars" },
+        { text = "What troubles a leather seller?", next = "y_worry" },
+        { text = "I skin my own hides. Will you buy?", next = "y_skin", when = { profession = "Skinning" } },
         { text = "Strength to you, Morgum.", next = "END" },
       },
     },
@@ -68,8 +71,42 @@ P:NPC {
       lines = { { id = "q_default", text = "Then you want it soft at the joints and dark all over, and you want every buckle wrapped so it makes no sound. Oil it often, because dry leather creaks, and a creak has ended more ambushes than any sentry." } },
       choices = { { text = "Good counsel. Something else.", next = "BACK" } },
     },
+    y_wars = {
+      lines = {
+        { id = "y_wars_d", text = "I wore it in the Second War, when the Horde still marched for the Shadow Council and none of us knew it. I was a scout for the Blackrock, and the leather on my back was the only thing I owned that I had chosen for myself." },
+        { id = "y_wars_orc", when = { race = "Orc" }, text = "You are young enough that the camps raised you, I think. I wore leather before the camps, as a Blackrock scout, and I wore it again the day Thrall broke us out." },
+      },
+      choices = {
+        { text = "What did you do after the camps?", next = "y_after" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_after = {
+      lines = { { id = "y_after_d", text = "I followed the Warchief across the sea and I cut hides in Durotar while the walls went up around me. I could have stayed a scout, but I found I liked dressing hunters better than being hunted." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_worry = {
+      lines = { { id = "y_worry_d", text = "Young grunts who buy the cheapest jerkin on the wall because they mean to buy better after their first pay. Some of them never see their first pay, and I sold them the jerkin." } },
+      choices = {
+        { text = "Then refuse them the cheap ones.", next = "y_refuse" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_refuse = {
+      lines = { { id = "y_refuse_d", text = "And send them out in nothing at all? Soran says a seller sells and a grunt chooses, and that the Horde does not need me to be its mother. Tell me which of us is right." } },
+      choices = {
+        { text = "A grunt chooses for himself. Respect that.", next = "BACK", reply = "That is Soran's way, and the Horde's. I will keep selling, then.", fx = { align = { order = 1 } } },
+        { text = "Turn them away. A bad sale is a bad sale.", next = "BACK", reply = "Soran will curse me for it, but I think you are right.", fx = { align = { order = -1 } } },
+      },
+    },
+    y_skin = {
+      lines = { { id = "y_skin_d", text = "Not here, for I buy only from Karolek's tanners. Sell your raw hides in the Drag, and if they are good, they will come back to my wall as armor." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    blackrock = { { id = "y_tp_br", text = "I was Blackrock once, and so were half the orcs in this city. We do not speak of what the clan became under Rend." } },
+    drag = { { id = "y_tp_drag", text = "The tanners in the Drag smell worse than the hides, but nobody in Orgrimmar does better work." } },
     background = { { id = "tp_bg", text = "I sell leather in Soran's armory, as I have since the city's walls went up. There is not much more to tell than that." } },
     _none = { { id = "tp_none", text = "That is no business of a leather seller. Ask a grunt, or ask Thatog upstairs, who hears more than I do." } },
   },
@@ -108,6 +145,9 @@ P:NPC {
         { text = "Morgum and Soran laugh at you?", next = "laugh" },
         { text = "Cloth seems a poor shield.", next = "shield" },
         { text = "What would you put on a spellcaster?", next = "caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
+        { text = "What were you, before the camps?", next = "y_before" },
+        { text = "Does anything worry you, Ollanus?", next = "y_worry" },
+        { text = "I wear cloth myself. Why do orcs mock it?", next = "y_mock", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
         { text = "Be well, Ollanus.", next = "END" },
       },
     },
@@ -137,9 +177,36 @@ P:NPC {
       lines = { { id = "c_default", text = "Something loose at the wrist and short enough that you will not trip when you must run, because you will have to run. Take a second set as well, since fire and frost are harder on cloth than any blade." } },
       choices = { { text = "I will keep that in mind. Something else.", next = "BACK" } },
     },
+    y_before = {
+      lines = {
+        { id = "y_before_d", text = "A child, {class}. I was born in the camps and knew nothing else until Thrall broke them. I learned to sew mending the guards' uniforms, and I swore I would sew for orcs once I was free." },
+        { id = "y_before_orc", when = { race = "Orc" }, text = "A child of the camps, as so many of us were. I learned to sew mending the guards' uniforms, and I swore I would sew only for orcs once we were free." },
+      },
+      choices = {
+        { text = "Do you hate the humans?", next = "y_hate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_hate = {
+      lines = { { id = "y_hate_d", text = "One guard was cruel and one was kind, and the rest did not care at all. It is hard to hate a whole people when you have seen all three. Some orcs say I am too soft." } },
+      choices = {
+        { text = "You're not soft. You're fair.", next = "BACK", reply = "Thank you. Fairness is a quiet thing, and I prefer quiet.", fx = { align = { light = 1 } } },
+        { text = "They kept you in chains. Hate them.", next = "BACK", reply = "Perhaps. But hate is heavy, and I already carry enough cloth.", fx = { align = { light = -1 } } },
+      },
+    },
+    y_worry = {
+      lines = { { id = "y_worry_d", text = "The warlocks in the Cleft buy my robes, and so do the shamans, and I do not ask which ones serve the Warchief and which serve the Burning Blade. One day I may have to." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_mock = {
+      lines = { { id = "y_mock_d", text = "Because their fathers were warriors and their grandfathers were warriors, and a robe reminds them of the warlocks who led us into demon blood. Wear yours proudly. It is not the robe that chose the demons." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I have sold light armor here since Soran opened his doors. It is quiet work, and after the camps I do not mind quiet." } },
+    internment = { { id = "y_tp_camps", text = "I learned to sew in the camps. It is the one thing I took from them that I kept." } },
+    cleft_of_shadow = { { id = "y_tp_cos", text = "The Cleft of Shadow buys more of my robes than anyone. I try not to wonder why." } },
     _none = { { id = "tp_none", text = "I could not tell you, {class}. I know cloth and stitching, and little else worth your time." } },
   },
 }
@@ -177,6 +244,9 @@ P:NPC {
         { text = "You must see everyone who comes through the gate.", next = "gate" },
         { text = "What should a warrior carry?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I fight without steel.", next = "nosteel", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
+        { text = "What really happened to your knees?", next = "y_knees" },
+        { text = "Do you ever refuse a buyer?", next = "y_refuse" },
+        { text = "Tell me about the trainers.", next = "y_sayoc" },
         { text = "Lok'tar, Urtharo.", next = "END" },
       },
     },
@@ -210,9 +280,31 @@ P:NPC {
       lines = { { id = "ns_default", text = "So do the warlocks in the Cleft, and I have noticed that every one of them still carries a knife. Spells run dry, {class}, and when they do, you will be glad of a hand's length of iron." } },
       choices = { { text = "You may be right. Something else.", next = "BACK" } },
     },
+    y_knees = {
+      lines = {
+        { id = "y_knees_d", text = "A kodo sat on them, {class}, in the Barrens, during a centaur raid on the Crossroads. I tell young ones it was a warlord's hammer. The kodo was very apologetic, for a kodo." },
+        { id = "y_knees_ta", when = { race = "Tauren" }, text = "One of your kodo sat on them, friend, during a centaur raid. I tell the young ones it was a warlord's hammer. Please do not correct me in front of them." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_refuse = {
+      lines = { { id = "y_refuse_d", text = "Once, an orc in a red robe who wanted ten daggers and paid in demon-stamped gold. I sold him nothing and told a grunt. The grunt said I should have sold them and followed him. Was I wrong?" } },
+      choices = {
+        { text = "You did right. Never arm the Blade.", next = "BACK", reply = "Good. My conscience agrees with you.", fx = { align = { honor = 1 } } },
+        { text = "The grunt was right. Bait the trap.", next = "BACK", reply = "Hm. Cunning. Not my way, but cunning.", fx = { align = { honor = -1 } } },
+      },
+    },
+    y_sayoc = {
+      lines = {
+        { id = "y_sayoc_d", text = "Sayoc and Hanashi train warriors in the Valley of Honor. They are harder than any blade I sell. Go to them after you buy, not before, or you will have nothing left to spend." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I carried an axe for the Horde before I sold them, and my knees ended that. Now I arm the ones who still can march." } },
+    valley_of_trials = { { id = "y_tp_vot", text = "The young ones from the Valley of Trials come with peon knives. They leave with real steel, if they have coin." } },
+    crossroads = { { id = "y_tp_xr", text = "The Crossroads is where I held the line. And where the kodo sat on me." } },
     _none = { { id = "tp_none", text = "You are asking a weapon seller, {class}. If it has no edge and no haft, I know nothing about it." } },
   },
 }
@@ -250,6 +342,9 @@ P:NPC {
         { text = "It smells strong in here.", next = "smell" },
         { text = "What is Karolek like to work for?", next = "karolek" },
         { text = "I work leather myself. Any advice?", next = "advice", when = { profession = "Leatherworking" } },
+        { text = "How did you end up keeping shelves?", next = "y_how" },
+        { text = "Does anything trouble the shop?", next = "y_trouble" },
+        { text = "What is Thuwd like?", next = "y_thuwd" },
         { text = "Good trading, Tamar.", next = "END" },
       },
     },
@@ -276,9 +371,43 @@ P:NPC {
       lines = { { id = "ad_default", text = "Buy more thread than you think you need, and wax it before you use it. And cure your own hides when you can, {class}, because you learn more about leather from one ruined kodo skin than from ten bought ones." } },
       choices = { { text = "I'll do that. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    y_how = {
+      lines = {
+        { id = "y_how_d", text = "I lost two fingers to a centaur blade in the Barrens, {class}, and a stitcher needs all ten. Karolek gave me the shelves instead. I count better than I ever stitched." },
+        { id = "y_how_orc", when = { race = "Orc" }, text = "A centaur blade took two fingers in the Barrens. You know what that means to a stitcher. Karolek gave me the shelves instead, and I count better than I ever stitched." },
+      },
+      choices = {
+        { text = "Do you miss stitching?", next = "y_miss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_miss = {
+      lines = { { id = "y_miss_d", text = "Every day I watch Karolek work. But I keep the shop alive, and without salt and thread he would be stitching nothing. That is a kind of craft too." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_trouble = {
+      lines = { { id = "y_trouble_d", text = "Salt goes missing, a sack at a time. I think one of the apprentices sells it in the Drag. I have not told Karolek, because he would throw the boy out." } },
+      choices = {
+        { text = "Tell Karolek. Theft can't go unpunished.", next = "y_tell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_tell = {
+      lines = { { id = "y_tell_d", text = "The boy's mother is sick, and the salt pays for her healer. If I speak, the boy is ruined. If I do not, the shop bleeds. Which would you choose?" } },
+      choices = {
+        { text = "Speak. The shop's trust matters.", next = "BACK", reply = "Hm. You may be right, though I do not like it.", fx = { align = { order = 1 } } },
+        { text = "Stay quiet. Help the boy instead.", next = "BACK", reply = "That is what my heart says. I will find him other work.", fx = { align = { order = -1 } } },
+      },
+    },
+    y_thuwd = {
+      lines = { { id = "y_thuwd_d", text = "Thuwd teaches skinning, and he speaks less than I do. When he and Karolek argue, it is all silence and glaring. The apprentices hide in the vats." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I keep the shelves for the Kodohide shop. I count what comes in and what goes out, and the craft goes on around me." } },
+    karolek = { { id = "y_tp_karolek", text = "Karolek is the best leatherworker in Orgrimmar. Ask him and he will tell you so, at length." } },
+    the_drag = { { id = "y_tp_drag", text = "The Drag is all tanners and smoke. You stop noticing after a winter." } },
     _none = { { id = "tp_none", text = "I do not know about that. Ask Karolek, if he will stop working long enough to answer." } },
   },
 }
@@ -716,6 +845,9 @@ P:NPC {
         { text = "What becomes of them when they're grown?", next = "grown" },
         { text = "You carry yourself like a fighter.", next = "fighter" },
         { text = "Earth Mother watch over them.", next = "blessing", when = { race = "Tauren" } },
+        { text = "Where did you fight?", next = "y_fought" },
+        { text = "What worries you about the children?", next = "y_worry" },
+        { text = "Tell me about Matron Battlewail.", next = "y_matron" },
         { text = "I won't wake them. Farewell.", next = "END" },
       },
     },
@@ -745,9 +877,36 @@ P:NPC {
       lines = { { id = "b_default", text = "They will take that blessing gladly, and so will I. Your people sent us blankets from Thunder Bluff in the first winter, and the Matron has not forgotten it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    y_fought = {
+      lines = {
+        { id = "y_fought_d", text = "At the Crossroads, and later in Ashenvale with the Warsong. I lost my mate at Hyjal and came home to find his sister's children with nobody. That is how I came to this house." },
+        { id = "y_fought_orc", when = { race = "Orc" }, text = "The Crossroads, and Ashenvale with the Warsong. I lost my mate at Hyjal, as many orcs lost someone there. I came home to his sister's orphans, and so to this house." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_worry = {
+      lines = { { id = "y_worry_d", text = "The older boys sneak to the Valley of Honor to watch the training, and some sneak to the Cleft. There are things in the Cleft that should not see children." } },
+      choices = {
+        { text = "Forbid it. Lock the doors.", next = "y_lock" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_lock = {
+      lines = { { id = "y_lock_d", text = "Matron would lock them in. I think a locked door only makes a bold child bolder. Should I guard them like prisoners, or trust them to choose?" } },
+      choices = {
+        { text = "Trust them. Teach them, then let go.", next = "BACK", reply = "Yes. That is how I was raised, before the camps.", fx = { align = { order = -1 } } },
+        { text = "Guard them. They're too young to choose.", next = "BACK", reply = "Matron would thank you for that answer.", fx = { align = { order = 1 } } },
+      },
+    },
+    y_matron = {
+      lines = { { id = "y_matron_d", text = "Matron Battlewail is the hardest orc I know and the softest, depending on the hour. She has buried more children than she will say, and she still knows every living one by name." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I fought for the Horde, and now I mind its orphans with Matron Battlewail. I think the second is the harder duty." } },
+    matron_battlewail = { { id = "y_tp_matron", text = "Matron Battlewail runs this house. I only help, and I am glad to." } },
+    hyjal = { { id = "y_tp_hyjal", text = "Hyjal took my mate and gave the Horde a future. I try to remember the second part." } },
     _none = { { id = "tp_none", text = "I have no time to know such things, {class}. Ask me about children and I can tell you plenty." } },
   },
 }

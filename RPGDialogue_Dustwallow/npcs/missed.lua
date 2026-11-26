@@ -26,6 +26,51 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ynight = {
+      lines = {
+        { id = "ybmikalpierce1", text = "Quiet, once the children are asleep, and Amie and I sit by the hearth and talk of nothing much. Some nights I hear the guards on the wall, and I thank the Light they're there." },
+        { id = "ybmikalpierce2", when = { class = { "PRIEST", "PALADIN" } }, text = "Some nights I pray, though I'm not as good at it as you, I expect. I ask for the walls to hold." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywork = {
+      lines = {
+        { id = "ymikalpierce1", text = "Roofs, fences, the odd dock plank. Whatever the town needs mended. I was a carpenter in Lordaeron, and there's more work here than there are hands, so I've never once been idle." },
+      },
+      choices = {
+        { text = "Do you mend the walls too?", next = "ywalls" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywalls = {
+      lines = {
+        { id = "ymikalpierce2", text = "When the Guard asks. The north wall has a weak spot near the old tower, where the ground sinks. I've told the sergeant twice, and it's still on his list of things to look at." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfear = {
+      lines = {
+        { id = "ymikalpierce3", text = "Some nights. Black dragons in the south, Horde to the north, and the Admiral's men who still curse the Lady's name. I've a mind to send the children east to my cousin in Menethil, but Amie won't hear of it." },
+      },
+      choices = {
+        { text = "What do you think?", next = "ythink" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ythink = {
+      lines = {
+        { id = "ymikalpierce4", text = "I think a family should stay together. And I think a father should keep his children safe. I can't do both." },
+      },
+      choices = {
+        { text = "Stay together. The walls will hold.", next = "BACK", reply = "I want to believe it. Amie would be pleased to hear you say so.", fx = { align = { order = 1 } } },
+        { text = "Send them east. Safety comes first.", next = "BACK", reply = "That's my fear talking back at me. I'll raise it again, gently.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Mikal Pierce. My wife Amie and I came over the sea with Lady Proudmoore's fleet, and both our children were born inside these walls. Theramore's all the home they've ever known, and I mean to keep it standing for them." },
@@ -38,6 +83,10 @@ P:NPC {
         { text = "What was the crossing like?", next = "crossing" },
         { text = "Is Theramore a good place for children?", next = "children" },
         { text = "A marsh seems a hard place to settle.", next = "marsh" },
+        { text = "What work do you do in town?", next = "ywork" },
+        { text = "Do you fear for Theramore?", next = "yfear" },
+        { text = "Could you use a blessing on the house?", next = "BACK", when = { class = { "PALADIN", "PRIEST" } }, reply = "I would, and Amie would be glad of it. Say it by the children's door, if you would." },
+        { text = "What is the house like at night?", next = "ynight" },
         { text = "Light keep your family.", next = "END" },
       },
     },
@@ -62,6 +111,8 @@ P:NPC {
     },
   },
   topics = {
+    amie = { { id = "ymikalpierce5", text = "My wife, and the one who keeps this house together." } },
+    carpentry = { { id = "ymikalpierce6", text = "I was a carpenter in Lordaeron. Here, I mend whatever needs mending." } },
     background = { { id = "tp_bg", text = "Lordaeron born, like most here. I work where the town needs hands, and I go home to my family at night." } },
     _none = { { id = "tp_none", text = "I couldn't tell you. Ask one of the guards, or up at the citadel." } },
   },
@@ -89,6 +140,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ygoodday = {
+      lines = {
+        { id = "ybamiepierce1", text = "A day when the ship comes in with flour, the children come home dry, and Mikal doesn't hit his thumb. That's perhaps twice a season, and I treasure every one of them." },
+        { id = "ybamiepierce2", when = { class = "PRIEST" }, text = "Any day a priest stops by, if I'm honest. The children go quiet as mice, and I get a whole cup of tea drunk while it's still warm." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylordaeron = {
+      lines = {
+        { id = "yamiepierce1", text = "A farmhouse outside Southshore, with an apple tree my grandfather planted. I don't know who has it now, or whether anyone does, and I've stopped asking the sailors because the answers are never kind." },
+      },
+      choices = {
+        { text = "Do you ever hope to go back?", next = "yback" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yback = {
+      lines = {
+        { id = "yamiepierce2", text = "I used to. Now I think of Theramore as the place my children were born, and that's a stronger root than any apple tree. If the Lady says we stay, we stay." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymikal = {
+      lines = {
+        { id = "yamiepierce3", text = "He mended our cart wheel on the road south when the refugees were fleeing Lordaeron, and he wouldn't take a copper for it. I married him for that, and because he made me laugh on the worst week of my life." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yworry = {
+      lines = {
+        { id = "yamiepierce4", text = "Of course I do. Every mother on this island has buried someone, and I'd sooner Sara grew up to bake bread than stand on a wall. But she'll choose for herself, and I have to decide whether to let her." },
+      },
+      choices = {
+        { text = "Let her choose. A child should follow her own heart.", next = "BACK", reply = "You sound like Mikal. Perhaps you're both right, and I'm only frightened.", fx = { align = { order = 1 } } },
+        { text = "Guide her firmly. A mother knows best.", next = "BACK", reply = "That's what my own mother would have said. I'll think on it, though Sara won't thank either of us.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Amie Pierce, and this is our home, such as it is. My husband Mikal keeps the roof on, and I keep Sara and Dahne out of the harbour, which is the harder job by a long way." },
@@ -101,6 +196,12 @@ P:NPC {
         { text = "Tell me about your children.", next = "children" },
         { text = "How does a family manage out here?", next = "manage" },
         { text = "The town seems uneasy lately.", next = "uneasy" },
+        { text = "What did you leave behind in Lordaeron?", next = "ylordaeron" },
+        { text = "How did you and Mikal meet?", next = "ymikal" },
+        { text = "Do you worry about Sara's plans?", next = "yworry" },
+        { text = "I'm from Stormwind. Do you miss the east?", next = "BACK", when = { race = "Human" }, reply = "Every day, dear, though it's Lordaeron I miss and not Stormwind. Still, it's good to hear a voice from the old kingdoms." },
+        { text = "I'll say a word for this house.", next = "BACK", when = { class = "PRIEST" }, reply = "Bless you. I'll tell the children a priest prayed over them, and they'll sit still for nearly an hour." },
+        { text = "What's a good day in this house?", next = "ygoodday" },
         { text = "Good day, Mistress Pierce.", next = "END" },
       },
     },
@@ -128,6 +229,8 @@ P:NPC {
     },
   },
   topics = {
+    shady_rest = { { id = "yamiepierce5", text = "The Hyals kept a good house on the north road. I can't walk past the north gate now without thinking of them." } },
+    lordaeron = { { id = "yamiepierce6", text = "I was born there and married there, and I'll not see it again. I've made my peace with that, mostly." } },
     background = { { id = "tp_bg", text = "I was a farmer's daughter in Lordaeron, a long time ago now. Here I'm a mother, and that's work enough." } },
     _none = { { id = "tp_none", text = "I'm sure I don't know, dear. Mikal might, or the guards." } },
   },
@@ -155,6 +258,51 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylessons = {
+      lines = {
+        { id = "ybsarapierce1", text = "Yes, with the priest at the chapel, and we learn letters and numbers and about the Light. I'm good at numbers. I'm counting how many guards there are so I know how many I'll be in charge of." },
+        { id = "ybsarapierce2", when = { class = "PRIEST" }, text = "Are you a priest? Our priest says the Light is in everyone, even Dahne when he's being annoying." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfavourite = {
+      lines = {
+        { id = "ysarapierce1", text = "Guard Narrisha, because she's the cleverest and she always beats the boys. And Captain Thomas, because he saluted me. Mama says I'm not to have favourites, but everyone has favourites." },
+      },
+      choices = {
+        { text = "What about Combat Master Criton?", next = "ycriton" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycriton = {
+      lines = {
+        { id = "ysarapierce2", text = "He's loud. He shouted at a recruit for standing wrong and the recruit nearly cried. I'd never cry, but I'd stand properly the very first time so he wouldn't have to shout." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    youtside = {
+      lines = {
+        { id = "ysarapierce3", text = "The burned inn on the north road, but Mama says absolutely not, ever. And the dragons, but only from very far. And the big city across the sea, because Papa says there's a king there and he's only a boy." },
+      },
+      choices = {
+        { text = "Would you sneak out to see them?", next = "ysneak" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysneak = {
+      lines = {
+        { id = "ysarapierce4", text = "Maybe. Dahne says I shouldn't, because Mama would cry. But real adventurers go places, don't they?" },
+      },
+      choices = {
+        { text = "Stay inside. Your mama's rules keep you safe.", next = "BACK", reply = "Fine. But when I'm a guard I'll go everywhere, and nobody can stop me.", fx = { align = { order = 1 } } },
+        { text = "Real adventurers go where they please.", next = "BACK", reply = "I knew it! Don't tell Mama you said that, all right?", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Sara, and that's my brother Dahne, and he's littler than me even though everyone says I'm little. I'm going to be a Theramore guard, and I already know how to salute." },
@@ -167,6 +315,10 @@ P:NPC {
         { text = "Show me your salute.", next = "salute" },
         { text = "What's the scariest thing in the marsh?", next = "scary" },
         { text = "Does your brother want to be a guard too?", next = "dahne" },
+        { text = "Who's your favourite guard?", next = "yfavourite" },
+        { text = "What's outside the walls you want to see?", next = "youtside" },
+        { text = "Want to see a real sword drill?", next = "BACK", when = { class = { "WARRIOR", "PALADIN" } }, reply = "Yes! Do it slow so I can copy it. Wait, Dahne, come and watch, it's a real one!" },
+        { text = "Do you go to lessons?", next = "ylessons" },
         { text = "Carry on, Guard Sara.", next = "END" },
       },
     },
@@ -191,6 +343,8 @@ P:NPC {
     },
   },
   topics = {
+    dahne = { { id = "ysarapierce5", text = "My little brother. He's going to carry my flag." } },
+    guards = { { id = "ysarapierce6", text = "I'm going to be one. I already know the salute." } },
     background = { { id = "tp_bg", text = "I was born right here in Theramore, and I've never been anywhere else, but I'm going to." } },
     _none = { { id = "tp_none", text = "I don't know that one. Ask my Papa, he knows nearly everything." } },
   },
@@ -218,6 +372,51 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yname = {
+      lines = {
+        { id = "ybdahnepierce1", text = "It's called Splinter, because the first time I hit the fence it gave me a splinter. Papa says a real sword needs a real name, and Sara said Splinter was silly, but I'm keeping it." },
+        { id = "ybdahnepierce2", when = { class = { "WARRIOR", "PALADIN" } }, text = "What's your sword called? Is it something brave? Mine's called Splinter, but that's brave too." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yscared = {
+      lines = {
+        { id = "ydahnepierce1", text = "Only a little. Mama says the walls are strong and the guards are awake, but sometimes at night I hear a big splash out in the water and I count the guards I can see from my window." },
+      },
+      choices = {
+        { text = "How many can you see?", next = "ycount" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycount = {
+      lines = {
+        { id = "ydahnepierce2", text = "Three, if the fog isn't there. When the fog comes I can't see any, so I count them in my head instead, and I always make it four so there's one extra." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ypapa = {
+      lines = {
+        { id = "ydahnepierce3", text = "He fixes roofs and fences, and he made my sword, and once he fixed the captain's door. Papa says I can help him when I'm older, but I want to be a guard like Sara, or a sailor, I haven't decided." },
+      },
+      choices = {
+        { text = "Which would you choose?", next = "ychoose" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ychoose = {
+      lines = {
+        { id = "ydahnepierce4", text = "Sara says guard, because then we can be together. But sailors go everywhere and bring shells back. What do you think I should be?" },
+      },
+      choices = {
+        { text = "A guard, like Sara. Stand by your family.", next = "BACK", reply = "Then I'll carry the flag, and I'll carry it really straight.", fx = { align = { honor = 1 } } },
+        { text = "A sailor. See the world for yourself.", next = "BACK", reply = "I'd bring you back a shell, a big one! Don't tell Sara I said maybe.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Dahne. I've got a wooden sword that Papa made, and a sister, and she says when she's the captain I get to carry the flag." },
@@ -230,6 +429,10 @@ P:NPC {
         { text = "That's a fine sword. Do you practise?", next = "sword" },
         { text = "What do you like best in Theramore?", next = "best" },
         { text = "You don't have to do what Sara says.", next = "sara" },
+        { text = "Are you scared of the marsh?", next = "yscared" },
+        { text = "What does your Papa do?", next = "ypapa" },
+        { text = "I'm short like you, and I'm a grown-up.", next = "BACK", when = { race = { "Gnome", "Dwarf" } }, reply = "Really? Then maybe I'll be a grown-up before I'm tall. I'm going to tell Sara that, because she says I have to wait." },
+        { text = "What's your sword's name?", next = "yname" },
         { text = "Goodbye, Dahne.", next = "END" },
       },
     },
@@ -254,6 +457,8 @@ P:NPC {
     },
   },
   topics = {
+    sara = { { id = "ydahnepierce5", text = "She's my sister. She's bossy, but she's the best." } },
+    shell = { { id = "ydahnepierce6", text = "It's a secret. It's under my bed in a sock." } },
     background = { { id = "tp_bg", text = "I'm the littlest one in our house, but I'm going to be bigger than Sara one day, Papa said." } },
     _none = { { id = "tp_none", text = "I don't know. Sara might know, she's older." } },
   },
@@ -279,6 +484,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yfav = {
+      lines = {
+        { id = "ybsmilingjim1", text = "The evening, when the hearth is warm and the travellers tell their stories. A soldier's tale, a trader's lie, a song from the Barrens. I could listen all night, and some nights I do." },
+        { id = "ybsmilingjim2", when = { race = "Tauren" }, text = "A tauren! You must have a story from the plains. Sit, and tell me while I fetch your supper." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yguests = {
+      lines = {
+        { id = "ysmilingjim1", text = "Oh, all sorts. Theramore soldiers, Horde traders who keep their voices low, and sometimes a gentleman in a fine cloak who asks a great many questions about the road. He was here only the other night, I'm sure of it." },
+      },
+      choices = {
+        { text = "What did the gentleman ask?", next = "ygentleman" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygentleman = {
+      lines = {
+        { id = "ysmilingjim2", text = "Which way the patrols rode, and how often, and whether the Lady ever came this way. I thought it odd, but a good innkeeper doesn't pry. Lynn didn't like him, and she's usually right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfire = {
+      lines = {
+        { id = "ysmilingjim3", text = "No, no. There was a smell of smoke, I said. I'd rather not, friend. Talk of the fire makes the room cold, and Lynn doesn't like the room cold. Should I remember it, do you think?" },
+      },
+      choices = {
+        { text = "Remember, Jim. The truth will let you rest.", next = "BACK", reply = "The truth. Yes, perhaps. It's very dark there, friend, and I'm not ready yet.", fx = { align = { light = 1 } } },
+        { text = "Forget it. Some things are kinder left alone.", next = "BACK", reply = "That's kind of you, friend. Sit by the fire and we'll talk of nicer things.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "They call me Smiling Jim, for I've a smile for every traveller on the north road. Mead or beer, a bed and a hot plate, and nobody's ever left my house hungry." },
@@ -291,6 +532,10 @@ P:NPC {
         { text = "Tell me about your inn.", next = "inn" },
         { text = "Who is Lynn?", next = "lynn" },
         { text = "Jim, this isn't the Shady Rest.", next = "truth" },
+        { text = "Who stays at your inn these days?", next = "yguests" },
+        { text = "Do you remember the night of the fire?", next = "yfire" },
+        { text = "Jim, you can rest now. Go to the Light.", next = "BACK", when = { class = { "PRIEST", "PALADIN" } }, reply = "Rest? I can't rest, friend, not with the hearth to keep. Lynn will be home soon, and someone must have the kettle on." },
+        { text = "What's your favourite part of the job?", next = "yfav" },
         { text = "Rest easy, Jim.", next = "END" },
       },
     },
@@ -318,6 +563,9 @@ P:NPC {
     },
   },
   topics = {
+    fire = { { id = "ybsmilingjim3", text = "There was smoke, I said. I'd rather not talk of it." } },
+    lynn = { { id = "ysmilingjim4", text = "My wife, and the real head of the house. She'll be along directly." } },
+    vincent = { { id = "ysmilingjim5", text = "My brother, in Menethil. I ought to write." } },
     background = { { id = "tp_bg", text = "I'm an innkeeper, friend, and so was my father. My brother went to sea and I stayed by the hearth." } },
     _none = { { id = "tp_none", text = "I couldn't say, friend. Ask Lynn when she comes in; she'll know." } },
   },
@@ -345,6 +593,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yvaluable = {
+      lines = {
+        { id = "ybingowoolybush1", text = "A gold coin from the old ogre ruins, stamped with a face I cannae name. The League will want it, and the Lady might want it too. I've kept it in my boot until I know who has the better claim." },
+        { id = "ybingowoolybush2", when = { race = "Dwarf" }, text = "I'd show ye, if ye promise nae to tell the humans. A dwarf knows the value o' keeping one's mouth shut." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yleague = {
+      lines = {
+        { id = "yingowoolybush1", text = "Titan works, if ye ask the old men in the Hall of Explorers. Every scrap o' the old makers' stone on this continent, mapped and measured. Out here I've found ogre ruins and dragon bones, and one odd carved stone I cannae read." },
+      },
+      choices = {
+        { text = "Where's the stone?", next = "ystone" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ystone = {
+      lines = {
+        { id = "yingowoolybush2", text = "Out by the Quagmire, half sunk in the peat. I could dig it out for the League, or leave it where it's sat for ten thousand years. The tauren who pass say it should be left." },
+      },
+      choices = {
+        { text = "Dig it out. Knowledge belongs to everyone.", next = "BACK", reply = "Aye, that's the League's creed. I'll need a bigger shovel and more courage.", fx = { align = { order = 1 } } },
+        { text = "Leave it. Some things should stay where they lie.", next = "BACK", reply = "Ye sound like my grandmother. Still, I'll sketch it and let it be, for now.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylillian = {
+      lines = {
+        { id = "yingowoolybush3", text = "A fine woman, and she pours a fair ale, though nae as fair as Thunderbrew. She lets me spread my charts on the corner table after supper, and I bring her a mug o' something from every ship that docks." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Ingo Woolybush, of the Explorers' League, at yer service. The League sent me west to see what's under all this mud, and I'll tell ye, there's a good deal more than the humans think." },
@@ -357,6 +641,10 @@ P:NPC {
         { text = "What's under the mud?", next = "under" },
         { text = "Why work from an inn?", next = "inn" },
         { text = "A swamp is a strange place for a dwarf.", next = "swamp" },
+        { text = "What's the League after, really?", next = "yleague" },
+        { text = "What news would you send Ironforge?", next = "BACK", when = { race = "Dwarf" }, reply = "That the marsh hides more than mud, and I need more paper and another pair o' boots. Tell Magellas I'm still alive, if ye see him." },
+        { text = "Tell me about Lillian at the inn.", next = "ylillian" },
+        { text = "Have you found anything valuable?", next = "yvaluable" },
         { text = "I'll mind the maps. Farewell.", next = "END" },
       },
     },
@@ -381,6 +669,8 @@ P:NPC {
     },
   },
   topics = {
+    explorers_league = { { id = "yingowoolybush4", text = "The finest society o' scholars and diggers in the world, and I'll hear nae argument." } },
+    wyrmbog = { { id = "yingowoolybush5", text = "Bones older than any kingdom, and dragons walking among them. I draw from a distance." } },
     background = { { id = "tp_bg", text = "Explorers' League, and proud of it. I've dug in Loch Modan and the Badlands, and this is the wettest hole yet." } },
     _none = { { id = "tp_none", text = "That's not on any o' my maps, I'm afraid. Ask the humans; it's their island." } },
   },
@@ -408,6 +698,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yfamily = {
+      lines = {
+        { id = "ybjensenfarran1", text = "A son, ten summers old, who'd rather fish than fletch. I don't push him. A boy who's made to learn his father's trade will hate it, and I'd rather he loved something else than hated my workbench." },
+        { id = "ybjensenfarran2", when = { class = "HUNTER" }, text = "He'd follow you about like a pup, if you let him. He thinks hunters are the bravest folk alive." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywood = {
+      lines = {
+        { id = "yjensenfarran1", text = "Yew from the east when the ships bring it, and marsh ash when they don't. The ash is soft and the damp loves it, but I've a trick with hot oil and patience that makes a passable longbow." },
+      },
+      choices = {
+        { text = "Teach me the trick?", next = "ytrick" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytrick = {
+      lines = {
+        { id = "yjensenfarran2", text = "That's a family secret, and it's been in my family three generations. Some bowyers say every trick should be shared so every archer's better, and some say a craftsman's secrets feed his children." },
+      },
+      choices = {
+        { text = "Keep it. Your family earned that secret.", next = "BACK", reply = "Aye, I will. My son can have it when he's old enough to be trusted with it.", fx = { align = { honor = 1 } } },
+        { text = "Share it. More good bows means more soldiers live.", next = "BACK", reply = "You make a fair point, and I hate fair points. I'll show Lasiter, at least.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Jensen Farran, bowyer. I string for the Theramore Guard and for any hunter with sense enough to come by, and I've not had a bow come back broken that wasn't the owner's fault." },
@@ -421,6 +739,9 @@ P:NPC {
         { text = "How does a bow fare in this damp?", next = "damp" },
         { text = "I hunt. What would you carry out there?", next = "hunter", when = { class = "HUNTER" } },
         { text = "What do you think of Lady Proudmoore?", next = "kt_jaina" },
+        { text = "Do you sell to the Horde hunters too?", next = "BACK", when = { class = "HUNTER" }, reply = "Not over the counter, no. If one came to the door I'd give him a fair word, mind, under the Lady's peace." },
+        { text = "What wood do you use here?", next = "ywood" },
+        { text = "Do you have family on the island?", next = "yfamily" },
         { text = "Straight shooting, Jensen.", next = "END" },
       },
     },
@@ -454,6 +775,8 @@ P:NPC {
     },
   },
   topics = {
+    lasiter = { { id = "yjensenfarran3", text = "The best shot on the island, and the last to believe it." } },
+    yew = { { id = "yjensenfarran4", text = "Comes from the east, when the ships remember to bring it." } },
     jaina = { { id = "tp_ktjaina", text = "The Lady? She chose the right side, I suppose, though I'll never understand how she bore the cost of it." } },
     background = { { id = "tp_bg", text = "I learned the trade in Kul Tiras, making bows for ships' marines. I came over with the fleet and never found a reason to stop." } },
     _none = { { id = "tp_none", text = "Couldn't say. I know wood and string, and that's the length of it." } },
@@ -482,6 +805,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ymenethil = {
+      lines = {
+        { id = "ydecedrawillham1", text = "Damp, much like here, but older and greyer, with dwarves on the docks and a keep that's half sunk into the bog. I've only seen it from the rail, mind, because I never get off the boat at the far end." },
+      },
+      choices = {
+        { text = "Why not?", next = "ywhy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywhy = {
+      lines = {
+        { id = "ydecedrawillham2", text = "Because my father's a ship away from there, in Boralus, and if I got off in Menethil I might keep going. I've not decided whether I want to see him again, and the pier lets me put off deciding." },
+      },
+      choices = {
+        { text = "Go and see him. He's your father.", next = "BACK", reply = "Maybe I will. Next season, when the tides are kinder. I always say that, mind.", fx = { align = { honor = 1 } } },
+        { text = "Stay. You chose this place for a reason.", next = "BACK", reply = "I did, and some days I even remember what it was. Thank you for that.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymissed = {
+      lines = {
+        { id = "ydecedrawillham3", text = "A lieutenant once, carrying dispatches for the Lady, who stopped for one last drink at the inn. He watched the sails go from the end of this pier, and I've never heard a man swear so inventively in my life." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Decedra Willham, and I see that folk get on the right ship and off at the right end. The vessel from this pier crosses to Menethil Harbor in the Wetlands, and she's the only regular passage east we have." },
@@ -495,6 +845,9 @@ P:NPC {
         { text = "What comes in on the ship?", next = "cargo" },
         { text = "You must see everyone who comes and goes.", next = "everyone" },
         { text = "Do the Kul Tiras folk here love Lady Proudmoore?", next = "kt_jaina" },
+        { text = "What's Menethil Harbor like?", next = "ymenethil" },
+        { text = "Has anyone missed the ship badly?", next = "ymissed" },
+        { text = "Any news of Ironforge off the boat?", next = "BACK", when = { race = "Dwarf" }, reply = "Only that the Menethil road's still bad and the dwarves at the Thandol Span are complaining about it. Same as last season, so I suppose that's good news." },
         { text = "Thank you. Fair tides.", next = "END" },
       },
     },
@@ -528,6 +881,8 @@ P:NPC {
     },
   },
   topics = {
+    menethil = { { id = "ydecedrawillham4", text = "Across the sea in the Wetlands. Damp, grey and full of dwarves." } },
+    boralus = { { id = "ydecedrawillham5", text = "My father's home, and mine once. I've not been back." } },
     jaina = { { id = "tp_ktjaina", text = "My father went home to Boralus when the Lady sided with the orcs. I stayed, and I've not decided yet which of us was the fool." } },
     background = { { id = "tp_bg", text = "I grew up on the quays of Kul Tiras, so a pier is the nearest thing I have to a home street." } },
     _none = { { id = "tp_none", text = "That's not come in on any ship of mine. Ask up in the town." } },
@@ -556,6 +911,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yfeast = {
+      lines = {
+        { id = "ybdwanewertle1", text = "Roast boar from the Barrens, when the traders bring it, and a fish stew with every herb Uma will sell me. On the Lady's name day I bake a honey cake, and the whole garrison pretends it's not their favourite." },
+        { id = "ybdwanewertle2", when = { race = "Dwarf" }, text = "For a dwarf, I'd roast a ram, if I had one. I'll settle for a boar and a barrel, and you'll not complain." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ystrange = {
+      lines = {
+        { id = "ydwanewertle1", text = "Crocolisk tail in a Kul Tiras fish pie, the week the supply ship sank. The lads ate it to the last crumb and asked for more, and I've never told them what it was. You'll keep that to yourself." },
+      },
+      choices = {
+        { text = "What does the Lady eat?", next = "ylady" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylady = {
+      lines = {
+        { id = "ydwanewertle2", text = "Plain food, and very little of it, which near breaks my heart. She works through supper with a book open, and I've taken to slipping a pastry onto the tray so she eats something before midnight." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Dwane Wertle, chef to the citadel, and before you ask, yes, it's my name and my father wanted a boy. I feed the Theramore Guard three times a day, and not a man of them has gone on watch with an empty belly." },
@@ -569,6 +950,9 @@ P:NPC {
         { text = "Do you know Morgan Stern at the inn?", next = "morgan" },
         { text = "Feeding soldiers must be thankless.", next = "thankless" },
         { text = "What do the old fleet hands think of Lady Proudmoore?", next = "kt_jaina" },
+        { text = "What's the strangest dish you've made?", next = "ystrange" },
+        { text = "I'll eat anything. What's your spiciest?", next = "BACK", when = { race = "Troll" }, reply = "A pepper stew that made a marine weep in front of the whole mess hall. I'll make you a bowl and watch." },
+        { text = "What do you cook on feast days?", next = "yfeast" },
         { text = "I'll get out of your doorway.", next = "END" },
       },
     },
@@ -602,6 +986,8 @@ P:NPC {
     },
   },
   topics = {
+    uma = { { id = "ybdwanewertle3", text = "Uma sells me herbs, and charges too much for them. I'd pay double if I had to." } },
+    morgan = { { id = "ydwanewertle3", text = "Morgan Stern at the inn. The cleverer cook, I'll admit, but not the harder worker." } },
     jaina = { { id = "tp_ktjaina", text = "I set the Lady's table and say nothing, which is more than her father's crew would do." } },
     background = { { id = "tp_bg", text = "I cooked on a ship of the Kul Tiras fleet all the way across the sea. A kitchen that doesn't roll is a luxury I've never got used to." } },
     _none = { { id = "tp_none", text = "Not my kitchen, not my business. Ask one of the officers." } },

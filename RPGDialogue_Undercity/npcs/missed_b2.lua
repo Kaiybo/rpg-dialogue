@@ -412,10 +412,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "The Lordaeron court's archives, cataloguing letters between dead kings. I'm still cataloguing, only now the dead kings include my employer. Pierce says I never noticed I'd died, and I'm not certain he's wrong." } },
+      choices = {
+        { text = "Did you read anything of Arthas?", next = "yarthas" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yarthas = {
+      lines = { { id = "yarthas_x", text = "His letters as a boy, to his father. Polite, eager, full of horses. I keep them in a box in Gutterspeak translation so no one can read them easily. Should I burn them, do you think, or keep them for history?" } },
+      choices = {
+        { text = "Keep them. History must remember everything.", next = "BACK", reply = "That is the archivist's answer, and I'm glad to hear someone else give it.", fx = { align = { order = 1 } } },
+        { text = "Burn them. He doesn't deserve to be remembered kindly.", next = "BACK", reply = "Perhaps not. I'll hold the match a little longer, but I'll hold it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ystrange = {
+      lines = { { id = "ystrange_x", text = "A Kirin Tor ledger listing the debts of a magister named Kel'Thuzad, unpaid since he left Dalaran. Whoever kept it wrote late in the margin, in red. I have read it eleven times and I still find it funny." } },
+      choices = {
+        { text = "Why does Gutterspeak matter to you?", next = "ytongue" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytongue = {
+      lines = { { id = "ytongue_x", text = "Gutterspeak is the only thing the Forsaken made that the Scourge never gave us. A dialect of the grave, our own. I'd sooner think in it than in the King's Common, which was his language, after all." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Samantha Shackleton. I read for the mages of this quarter, which means I go through what was saved from Lordaeron's shelves and tell them which parts are true, and they thank me and then ignore the list." },
+        { id = "yh_mage", when = { class = "MAGE" }, text = "A mage. Then you won't mind if I keep reading while we talk. Pierce never does, and he's family." },
       },
       again = {
         { id = "h_again", text = "Yes, what else? I've lost my place already, so you may as well ask." },
@@ -426,6 +453,8 @@ P:NPC {
         { text = "Why keep to Gutterspeak?", next = "gutter" },
         { text = "Are you Pierce Shackleton's kin?", next = "pierce" },
         { text = "It's good to hear our own tongue spoken.", next = "ours", when = { race = "Scourge" } },
+        { text = "What did you study in life?", next = "ylife" },
+        { text = "What's the strangest thing you've found here?", next = "ystrange" },
         { text = "I'll let you read.", next = "END" },
       },
     },
@@ -461,6 +490,8 @@ P:NPC {
     },
   },
   topics = {
+    gutterspeak = { { id = "ytp_gs", text = "Our own tongue, made of rot and stubbornness. I'm very fond of it." } },
+    pierce_shackleton = { { id = "ytp_pierce", text = "Pierce teaches frost and fire to students who never listen. We get along by never speaking." } },
     background = { { id = "tp_bg", text = "The Shackletons were scholars in Lordaeron, of the sort who were never invited to Dalaran. I've more to read now than I ever had in life." } },
     _none = { { id = "tp_none", text = "I've not come across it in anything I've read, and I'd sooner say so than invent it. Ask Pierce, though he may invent it." } },
   },
@@ -486,10 +517,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A lady's maid in a noble house near the capital, the sort of servant nobody notices. I learned that the quietest person in a room hears everything. Death has only made me quieter." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ysecret = {
+      lines = { { id = "ysecret_x", text = "That a certain apothecary has been buying Scarlet prisoners from Deathguard captains, privately, and not for the Society's records. I've told no one. I've only collected the names." } },
+      choices = {
+        { text = "What will you do with those names?", next = "ynames" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ynames = {
+      lines = { { id = "ynames_x", text = "That's the question, isn't it? I could give them to the Dark Lady's people, or keep them for the day I need a favour. Which would you do?" } },
+      choices = {
+        { text = "Give them to the Dark Lady. That's loyalty.", next = "BACK", reply = "Loyal, yes. Also short-lived, sometimes. I'll consider it.", fx = { align = { order = 1 } } },
+        { text = "Keep them. Leverage is worth more than duty.", next = "BACK", reply = "You think like a maid. That's a compliment, I promise.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysell = {
+      lines = { { id = "ysell_x", text = "Never. I trade them, which is different. Davitt thinks I simply like to know things, and I let him think it. Reginald never notices anything, which makes him splendid company." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Selina Pickman. I walk with Reginald and Davitt because one learns more on the move than standing still, and this city tells you everything if you pass the same doors at the same hour each day." },
+        { id = "yh_rogue", when = { class = "ROGUE" }, text = "A rogue. We're in a similar trade, you and I, though I never take anything that isn't said aloud." },
       },
       again = {
         { id = "h_again", text = "What else would you like to know? I may even tell you." },
@@ -500,6 +555,9 @@ P:NPC {
         { text = "How do you put up with Reginald?", next = "reginald" },
         { text = "Are you related to Luther Pickman?", next = "luther" },
         { text = "What did you learn about me?", next = "me" },
+        { text = "Who were you in life?", next = "ylife" },
+        { text = "What's the biggest secret you know?", next = "ysecret" },
+        { text = "Do you sell what you hear?", next = "ysell" },
         { text = "Good day, Selina.", next = "END" },
       },
     },
@@ -531,6 +589,8 @@ P:NPC {
     },
   },
   topics = {
+    davitt_hickson = { { id = "ytp_davitt", text = "Davitt talks so I don't have to. It's the best arrangement I've ever had." } },
+    royal_quarter = { { id = "ytp_rq", text = "The Royal Quarter has the best echoes in the city. I've learned a great deal from them." } },
     background = { { id = "tp_bg", text = "I kept a boarding house in the capital and knew every lodger's business. I've a larger house now and a good many more lodgers." } },
     _none = { { id = "tp_none", text = "Now that I haven't heard, and it irritates me. Give me a week of walking and ask again." } },
   },
@@ -556,10 +616,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "The Lordaeron line at Hillsbrad, during the Second War, against the orcs themselves. Funny how it goes. Now I drill recruits to fight beside the folk I once fought. I'd have laughed at it, living." } },
+      choices = {
+        { text = "Does that sit easily with you?", next = "yeasy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yeasy = {
+      lines = { { id = "yeasy_x", text = "It sits. The orcs fight straight and keep their word, which is more than I can say for the Alliance that cast us out. Still, some of my old mates died to orc axes. Should a soldier forget that, or hold onto it?" } },
+      choices = {
+        { text = "Forget it. The Horde is your army now.", next = "BACK", reply = "Aye. A soldier serves the army he has. Good answer.", fx = { align = { order = 1 } } },
+        { text = "Hold onto it. Your dead deserve remembering.", next = "BACK", reply = "Aye, I'll remember them, quietly. Don't tell the recruits.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfear = {
+      lines = { { id = "yfear_x", text = "That I'll send them out before they're ready, because the Bulwark's always shouting for more. Blaye's eager, Partridge thinks too much, and Bosk hasn't said a word in a week. I'll lose one. I always lose one." } },
+      choices = {
+        { text = "Why doesn't Bosk speak?", next = "ybosk" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybosk = {
+      lines = { { id = "ybosk_x", text = "Travist Bosk woke in a Deathknell grave with no name and took the first one he heard. He drills like a golem and speaks like one too. I think he remembers something he'd rather not. I don't push." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Sergeant Houser. I've got Blaye, Partridge and Bosk for as long as it takes to make Deathguards of them, and I mean to send the Dark Lady three soldiers and not three more corpses for the Lich King to pick up." },
+        { id = "yh_orc", when = { race = "Orc" }, text = "An orc! Stand there and let my recruits see what a real soldier of the Horde looks like. Blaye, eyes front!" },
       },
       again = {
         { id = "h_again", text = "What else? Make it brisk; Partridge has stopped moving his feet again." },
@@ -570,6 +657,8 @@ P:NPC {
         { text = "You served Lordaeron before this.", next = "served" },
         { text = "Straw dummies won't teach them much.", next = "dummies" },
         { text = "Have you a word for a warrior of the Horde?", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "Where did you serve in life?", next = "ylife" },
+        { text = "What do you fear for them?", next = "yfear" },
         { text = "Carry on, Sergeant.", next = "END" },
       },
     },
@@ -608,6 +697,8 @@ P:NPC {
     },
   },
   topics = {
+    the_bulwark = { { id = "ytp_bulwark", text = "The Bulwark takes my recruits and sends back reports. Some of the reports have names on them." } },
+    travist_bosk = { { id = "ytp_bosk", text = "Bosk says nothing and hits hard. I've had worse recruits." } },
     background = { { id = "tp_bg", text = "Sergeant of foot in Lordaeron's army, and now a sergeant in the Dark Lady's. I've changed sovereigns, but never trades." } },
     _none = { { id = "tp_none", text = "That's above a sergeant's station, {class}. Ask an officer, and salute him first." } },
   },

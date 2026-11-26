@@ -18,6 +18,43 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ywar = {
+      lines = {
+        { id = "ybspminormanifestationwater1", text = "The water remembers every war. Men in armour fell into the lake, and orcs, and the dead. Their blood ran into me, and I carried it to the sea. I am still carrying some of it." },
+        { id = "ybspminormanifestationwater2", when = { class = "SHAMAN" }, text = "You feel it too, shaman. The water is heavy with what it has seen." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yold = {
+      lines = {
+        { id = "yspminormanifestationwater1", text = "As old as the first rain on these hills, and as young as this morning's dew. I am both, and neither. The great sea gave me a voice, but I am only a small part of its song." },
+        { id = "yspminormanifestationwater2", when = { class = "SHAMAN" }, text = "You know this already. The elements are old beyond counting, and still they are reborn each day." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysee = {
+      lines = {
+        { id = "yspminormanifestationwater3", text = "Fish that sicken, weeds that blacken, and the bones of drowned men from a war long past. And beneath them all, the slow heart of the water, which still beats, though more faintly than it did." },
+      },
+      choices = {
+        { text = "Can it be healed?", next = "yheal" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yheal = {
+      lines = {
+        { id = "yspminormanifestationwater4", text = "If the poison stops. If the hands that foul it learn to keep it clean. But mortals do not learn quickly, and water does not wait." },
+      },
+      choices = {
+        { text = "Then I'll help cleanse it.", next = "BACK", reply = "The tide thanks you, mortal. Remember this promise.", fx = { align = { light = 1 } } },
+        { text = "Mortals must live. Some poison is the price.", next = "BACK", reply = "Then the water will remember that too, and it will not forget.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am a small voice of a great sea. Something foul ran into these waters from the land, and it bent me until I struck at anyone who came near." },
@@ -28,6 +65,9 @@ P:NPC {
         { text = { normal = "What corrupted you?", polite = "Will you tell me what corrupted you?", blunt = "What fouled the water?" }, next = "foul" },
         { text = "You seem calm now.", next = "calm" },
         { text = "What must I do to earn the water's favour?", next = "favour", when = { class = "SHAMAN" } },
+        { text = "How old are you?", next = "yold" },
+        { text = "What do you see in the lake?", next = "ysee" },
+        { text = "Do you remember the war?", next = "ywar" },
         { text = "I'll leave you to the tide.", next = "END" },
       },
     },
@@ -62,6 +102,8 @@ P:NPC {
     },
   },
   topics = {
+    sea = { { id = "yspminormanifestationwater5", text = "The great sea, whose small voice I am." } },
+    poison = { { id = "yspminormanifestationwater6", text = "From the land of the dead, and the wizards' works across the lake." } },
     _none = { { id = "tp_none", text = "That is a matter for earth or fire, mortal. Water knows only what flows." } },
   },
 }
@@ -84,6 +126,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ygilneans = {
+      lines = {
+        { id = "ybsildeathguard1", text = "They shut their wall while Lordaeron burned. I stood on the gate and watched refugees die who could have fled south to them. If Greymane's wall ever comes down, I'll be first through it." },
+        { id = "ybsildeathguard2", when = { race = "Human" }, text = "No offence meant, living one. Your people aren't all Greymane's." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylife = {
+      lines = {
+        { id = "ysildeathguard1", text = "A guardsman in Lordaeron's capital, on the gate. I saw Arthas ride in with his father's crown in his hand, and I saluted him. I've never forgiven myself for that salute, and I never will." },
+        { id = "ysildeathguard2", when = { race = "Scourge" }, text = "You'll have your own memory of that day, perhaps. We all do. Most of us don't speak of it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "The Deathguard hold the Sepulcher and the roads around it for the Dark Lady. Between the worgen, the Scourge and Gilneas behind its wall, we're never short of work." },
@@ -96,6 +156,8 @@ P:NPC {
         { text = "What are the worgen?", next = "worgen" },
         { text = "What lies beyond the Greymane Wall?", next = "gilneas" },
         { text = "Why do you serve Sylvanas?", next = "serve" },
+        { text = "Who were you, in life?", next = "ylife" },
+        { text = "What do you think of the Gilneans?", next = "ygilneans" },
         { text = "Carry on, Deathguard.", next = "END" },
       },
     },
@@ -160,6 +222,7 @@ P:NPC {
     },
   },
   topics = {
+    arthas = { { id = "ysildeathguard3", text = "The prince who came home. I saluted him. I'll never forgive myself." } },
     arugal = { { id = "xtp_ar", text = "The mad wizard of Shadowfang. He called the worgen, and now they're everyone's problem." } },
     hadrec = { { id = "xtp_ha", text = "High Executor Hadrec. He runs the Sepulcher like a tomb, which I suppose it is." } },
   },

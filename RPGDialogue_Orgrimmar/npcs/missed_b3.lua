@@ -37,6 +37,8 @@ P:NPC {
         { text = "Is there anything worth catching in that pond?", next = "pond" },
         { text = "Fishing seems dull work for a warrior.", next = "dull" },
         { text = "I fish. What bait do you swear by?", next = "bait", when = { profession = "Fishing" } },
+        { text = "Why did you choose a quiet life?", next = "y_quiet" },
+        { text = "Who is Lumak to you?", next = "y_lumak" },
         { text = "Good catching, Shankys.", next = "END" },
       },
     },
@@ -73,9 +75,32 @@ P:NPC {
       lines = { { id = "bt_default", text = "Shiny baubles for the shallows, and something that smells truly foul for anything deeper. Fish are like goblins, {class}, in that they will come to glitter or to a stink and to nothing in between." } },
       choices = { { text = "I'll take that to the river. Something else.", next = "BACK" } },
     },
+    y_quiet = {
+      lines = {
+        { id = "y_quiet_d", text = "I carried an axe in the Second War and I carried it badly. I stood in the line at Blackrock and I saw what the demon blood made of us. When I was free, I wanted something that did not need blood." },
+        { id = "y_quiet_orc", when = { race = "Orc" }, text = "You know the stories of the Second War. I lived them, and I saw what the demon blood made of us. When I was free, I wanted work that needed no blood, and a pole needs none." },
+      },
+      choices = {
+        { text = "Do you think orcs can stay peaceful?", next = "y_peace" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_peace = {
+      lines = { { id = "y_peace_d", text = "The Warchief thinks so. The Warsong in Ashenvale do not. I think it depends on whether the young ones learn to sit still. Do you think the Horde should keep fighting?" } },
+      choices = {
+        { text = "Peace, where we can find it.", next = "BACK", reply = "Then come fishing sometime. Peace starts there.", fx = { align = { light = 1 } } },
+        { text = "We fight. The world won't let us rest.", next = "BACK", reply = "Perhaps. Then eat well first.", fx = { align = { light = -1 } } },
+      },
+    },
+    y_lumak = {
+      lines = { { id = "y_lumak_d", text = "My partner in the shop and nothing more, whatever the grunts say. He fishes better than he talks, and he talks better than most. We get on." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I sell fishing gear by the pond, and I fish the Southfury when Lumak can spare me. It is a quiet life, and I chose it." } },
+    southfury = { { id = "y_tp_sf", text = "The Southfury runs fast and cold, and the fish there fight like grunts. That is where the real catching is." } },
+    lumak = { { id = "y_tp_lumak", text = "Lumak teaches the fishing. If you want to learn, go to him. If you want a pole, come to me." } },
     _none = { { id = "tp_none", text = "I would not know, {class}. Ask me about hooks, or ask Lumak about everything else." } },
   },
 }
@@ -113,6 +138,9 @@ P:NPC {
         { text = "What sort of creatures are they?", next = "what" },
         { text = "Stonebleeder is a fearsome name for this work.", next = "name" },
         { text = "A hunter knows the worth of a companion.", next = "hunter", when = { class = "HUNTER" } },
+        { text = "Which walls did you break?", next = "y_walls" },
+        { text = "Do any of the beasts worry you?", next = "y_worry" },
+        { text = "Tell me about Zas'Tysh.", next = "y_zastysh" },
         { text = "I'll step carefully. Farewell.", next = "END" },
       },
     },
@@ -139,9 +167,36 @@ P:NPC {
       lines = { { id = "hn_default", text = "Then you understand better than most of this valley. Yours fights beside you and mine only eat and sleep, but the bond is the same thing in a smaller skin." } },
       choices = { { text = "It is. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    y_walls = {
+      lines = {
+        { id = "y_walls_d", text = "Human walls, in the Second War, with a ram and later with my own axe. I broke the gate at a keep in Hillsbrad, and I watched what the Horde did after. I have not broken anything since but bread." },
+        { id = "y_walls_orc", when = { race = "Orc" }, text = "Human walls, brother, in the Second War. I broke a gate in Hillsbrad and watched what came after. You know what the old Horde was. I break nothing now but bread." },
+      },
+      choices = {
+        { text = "Do you regret what came after?", next = "y_regret" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_regret = {
+      lines = { { id = "y_regret_d", text = "I regret the demon blood that drove us. I do not regret fighting the humans who chained us after. Some say an orc should regret both. What do you say?" } },
+      choices = {
+        { text = "Regret both. War spares no one.", next = "BACK", reply = "Perhaps. I feed the little ones to quiet that thought.", fx = { align = { light = 1 } } },
+        { text = "Regret only the demons. Not the fight.", next = "BACK", reply = "Aye. That is where I stand.", fx = { align = { light = -1 } } },
+      },
+    },
+    y_worry = {
+      lines = { { id = "y_worry_d", text = "A tiny snake Zas'Tysh brought in that hisses at everyone but me. He says it chose me. I say it is waiting to bite. We will see which of us is right." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_zastysh = {
+      lines = { { id = "y_zastysh_d", text = "Zas'Tysh is a troll who loves anything with too many legs. We argue over feeding times and agree on everything else. He is my friend, though I would not tell him." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I was a soldier, and I am a keeper of small beasts now. Say what you like about it, but say it from over there." } },
+    zastysh = { { id = "y_tp_zas", text = "Zas'Tysh keeps the stranger beasts. Ask him about the roaches if you have an afternoon." } },
+    hillsbrad = { { id = "y_tp_hb", text = "Hillsbrad has green fields and old ghosts. I left some of both there." } },
     _none = { { id = "tp_none", text = "I do not know. Ask Zas'Tysh, though he will likely tell you about his beasts instead." } },
   },
 }

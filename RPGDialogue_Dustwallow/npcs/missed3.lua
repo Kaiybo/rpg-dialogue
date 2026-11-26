@@ -26,6 +26,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ybrack = {
+      lines = {
+        { id = "ybghokkah1", text = "A camp of mud and ogres, with a few orcs to keep order. It smells of wet fur and crocolisk, and the ogres sing at night. I have lived in worse places, and none of them sang." },
+        { id = "ybghokkah2", when = { race = "Orc" }, text = "You will know how it is, to live among strangers in a strange land. We are Horde, and we make it home anyway." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycamps = {
+      lines = {
+        { id = "yghokkah1", text = "Near Durnholde, for years. The humans fed us and watched us and waited for us to die of the sickness in our blood. I sewed with stolen thread and hid the work in my bedding." },
+      },
+      choices = {
+        { text = "Do you hate the humans for it?", next = "yhate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhate = {
+      lines = {
+        { id = "yghokkah2", text = "I did. Theramore is close, and they keep Thrall's peace. Some here say we should trade with them, and some say spit at them." },
+      },
+      choices = {
+        { text = "Trade with them. A Horde that keeps its word is strong.", next = "BACK", reply = "That is what Thrall would say. I will think on it, and sew either way.", fx = { align = { honor = 1 } } },
+        { text = "Remember the camps. Trust is for fools.", next = "BACK", reply = "I remember them every night. You are not wrong, and that troubles me.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yneed = {
+      lines = {
+        { id = "yghokkah3", text = "Cloth, oil and an end to the dragon raids. The black dragons fly over the village and the ogres hide, and the hides on my racks rot faster than I can stitch them. Krog asks the Warchief for help, and we wait." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Ghok'kah. A Horde that cannot mend its own tents and banners is not an army, it is a mob in the rain, and so I keep this village in thread." },
@@ -38,6 +74,10 @@ P:NPC {
         { text = "Who buys thread in an ogre village?", next = "who" },
         { text = "How did a warrior come to sell needles?", next = "how" },
         { text = "This swamp must be hard on cloth.", next = "swamp" },
+        { text = "You were in the internment camps?", next = "ycamps" },
+        { text = "What does Brackenwall need most?", next = "yneed" },
+        { text = "Did the camps make you weak, as some say?", next = "BACK", when = { race = "Orc" }, reply = "Some say that. They were not there. Lethargy is a sickness, not a choice, and I cured mine with a needle." },
+        { text = "What do you think of Brackenwall?", next = "ybrack" },
         { text = "Strength and honor, Ghok'kah.", next = "END" },
       },
     },
@@ -62,6 +102,8 @@ P:NPC {
     },
   },
   topics = {
+    camps = { { id = "yghokkah4", text = "I will not forget them, but I will not live in them either." } },
+    stonemaul = { { id = "yghokkah5", text = "The ogres. Loud, strong and very hard on their loincloths." } },
     background = { { id = "tp_bg", text = "I was a grunt once, and a prisoner after that. Now I am what the Horde needs here, and that is enough." } },
     _none = { { id = "tp_none", text = "I do not know. Ask Krog; he is the one who sends reports." } },
   },
@@ -89,6 +131,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ybest = {
+      lines = {
+        { id = "yboggmarr1", text = "Crocolisk tail, slow cooked, with mud mushrooms. Ogg'marr makes it for Krog when Krog is sad, and Krog stops being sad for a little while. Meat fixes most things, Ogg'marr thinks." },
+        { id = "yboggmarr2", when = { race = "Orc" }, text = "Orcs like it with blood still in. Ogg'marr makes it like that for orcs, with a sauce of the red mushrooms." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yold = {
+      lines = {
+        { id = "yoggmarr1", text = "Ogg'marr misses it, yes. It was dry, and the meat stood still for Ogg'marr. Then the black dragons came and burned it, and the old chief died, and now Mok'Morokk is boss and we live in this mud." },
+      },
+      choices = {
+        { text = "Do you like Mok'Morokk?", next = "ymok" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymok = {
+      lines = {
+        { id = "yoggmarr2", text = "Ogg'marr is not supposed to say. Mok'Morokk eats the best meat and does not fight the dragons, and some ogres whisper about Tharg instead. What would you do, little friend?" },
+      },
+      choices = {
+        { text = "Follow your boss. A village needs one chief.", next = "BACK", reply = "That is what Ogg'marr does. Ogg'marr is very good at following, and at chopping.", fx = { align = { order = 1 } } },
+        { text = "Follow the one who fights the dragons.", next = "BACK", reply = "Shh! Not so loud. But Ogg'marr is thinking it too.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yorcs = {
+      lines = {
+        { id = "yoggmarr3", text = "The orcs are small and grumpy, but they bring tools and do not run from dragons. Krog shares his fire with ogres, which nobody ever did before. Ogg'marr cuts him the good parts, always." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Ogg'marr cuts the meat for all of Brackenwall, ogres and orcs and anybody with teeth. If it walks in the swamp or swims in it, Ogg'marr can make it fit on a plate." },
@@ -101,6 +179,10 @@ P:NPC {
         { text = "What meat is that on the block?", next = "what" },
         { text = "Logok says you sold him a goose.", next = "goose" },
         { text = "Who eats the most in Brackenwall?", next = "most" },
+        { text = "Do you miss the old Stonemaul village?", next = "yold" },
+        { text = "What do ogres think of the orcs here?", next = "yorcs" },
+        { text = "What's the meat trolls like best?", next = "BACK", when = { race = "Troll" }, reply = "Raptor, with the bones in! Trolls crunch them, and Ogg'marr likes the sound. It sounds like happy." },
+        { text = "What's the best meat in the swamp?", next = "ybest" },
         { text = "Keep your cleaver sharp.", next = "END" },
       },
     },
@@ -125,6 +207,8 @@ P:NPC {
     },
   },
   topics = {
+    mok_morokk = { { id = "yoggmarr4", text = "The boss. Big belly, big voice, not big on dragons." } },
+    dragons = { { id = "yoggmarr5", text = "They burned the old village. Ogg'marr does not like dragons, unless they are on the block." } },
     background = { { id = "tp_bg", text = "Ogg'marr was butcher in the old Stonemaul village too. The meat was better there, and nobody had to chase it through mud." } },
     _none = { { id = "tp_none", text = "Ogg'marr only knows meat. If you cannot eat it, ask somebody else." } },
   },
@@ -150,6 +234,42 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yends = {
+      lines = {
+        { id = "ybkagoro1", text = "I sit, and I wait, and I let the swamp speak. There is always another sign, if you have patience. Most do not, and they come back with nothing and a story about how the ground lied." },
+        { id = "ybkagoro2", when = { class = "HUNTER" }, text = "You know this already. The beast that hides is still a beast, and it must breathe and eat and leave a sign." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ythink = {
+      lines = {
+        { id = "ykagoro1", text = "I think someone wanted it to look like the Horde. Those who did it left more marks than raiders ever do. A raider wants to be gone, but this one wanted to be seen." },
+      },
+      choices = {
+        { text = "Who would want that?", next = "ywho" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywho = {
+      lines = {
+        { id = "ykagoro2", text = "Those who want the peace broken. There are some in Theramore, and some in Brackenwall, and some under the mountains to the south. When I find the trail's end, I must decide whom to tell." },
+      },
+      choices = {
+        { text = "Tell both Krog and the humans. Truth belongs to all.", next = "BACK", reply = "That is dangerous honesty. Thrall would approve, and Krog may not.", fx = { align = { honor = 1 } } },
+        { text = "Tell Krog alone. Protect the Horde first.", next = "BACK", reply = "That is what a scout should do. I will think on it as I walk.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybarrens = {
+      lines = {
+        { id = "ykagoro3", text = "Open land, where a print lasts a week and the wind is the only thief. I tracked centaur and quilboar there for the Warchief's scouts. This swamp is harder, but the ground still speaks." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Kagoro. You found hoofprints in the ash of the human inn, and Krog wants to know whose hooves made them, so I am going to ask the ground." },
@@ -162,6 +282,10 @@ P:NPC {
         { text = "Whose prints do you think they are?", next = "whose" },
         { text = "Can you follow a trail through a swamp?", next = "swamp" },
         { text = "Why does Brackenwall care about a human inn?", next = "care" },
+        { text = "What do you think really happened at the inn?", next = "ythink" },
+        { text = "You suspect my people?", next = "BACK", when = { race = "Tauren" }, reply = "I suspect no one yet. If the hooves were tauren, they were not Thrall's tauren, and I will say so to Krog." },
+        { text = "Tell me about the Barrens.", next = "ybarrens" },
+        { text = "What do you do when the trail ends?", next = "yends" },
         { text = "Good hunting, Kagoro.", next = "END" },
       },
     },
@@ -186,6 +310,9 @@ P:NPC {
     },
   },
   topics = {
+    tracking = { { id = "ybkagoro3", text = "The ground never lies, but it whispers. You must learn to listen." } },
+    shady_rest = { { id = "ykagoro4", text = "A human inn, burned with its family inside. Someone wants us blamed." } },
+    krog = { { id = "ykagoro5", text = "Krog leads Brackenwall. He is wise enough to doubt, which is rare." } },
     background = { { id = "tp_bg", text = "I tracked for the Warchief's scouts in the Barrens. Krog asked for me by name when he came to this marsh." } },
     _none = { { id = "tp_none", text = "I know trails, and that is not one. Ask Krog." } },
   },

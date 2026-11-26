@@ -160,6 +160,7 @@ P:NPC {
         { text = "What was Stratholme like, before?", next = "before" },
         { text = "I was of Lordaeron once, like you.", next = "forsaken", when = { race = "Scourge" } },
         { text = "May the Light give you strength, Ysida.", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "What will you do, once you're free?", next = "yfree" },
         { text = "Let's get you out of here.", next = "END" },
       },
     },
@@ -209,5 +210,19 @@ P:NPC {
       lines = { { id = "lt_default", text = "I stopped praying in the cage, because I didn't think anyone was listening. Maybe someone was, after all, and maybe it was you they sent." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yfree = {
+      narr = "She turns a hidden ring over and over between her fingers.",
+      lines = {
+        { id = "yfr_default", text = "Find Anthion, and then find somewhere far from here, with no grain fields and no bells. I used to love bells. I don't think I can bear them now. Maybe Stormwind, or somewhere smaller, where nobody knows what Stratholme was." },
+        { id = "yfr_human", when = { race = "Human" }, text = "Find Anthion, and go south, maybe to Stormwind where your people are, or somewhere smaller. Do they ring the cathedral bells there? I used to love bells. I don't think I can bear them now." },
+      },
+      choices = { { text = "You'll find a quiet place. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    anthion = { { id = "yt_anthion", text = "Anthion Harmon, my husband. He was going to meet me at the gate the day the grain came." } },
+    rivendare = { { id = "yt_riv", text = "Baron Rivendare. He laughs when he hurts people. I hear it when I close my eyes." } },
+    stratholme = { { id = "yt_strat", text = "Stratholme had bells in the morning and bakers on every street. Now it has only the dead." } },
+    arthas = { { id = "yt_arthas", text = "The prince burned my city to save it. I still don't know whether to hate him or pity him." } },
   },
 }

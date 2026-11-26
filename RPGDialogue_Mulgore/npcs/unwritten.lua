@@ -38,6 +38,8 @@ P:NPC {
         { text = "Tell me about your father.", next = "father" },
         { text = "Why not do one, then the other?", next = "choose" },
         { text = "I walked the Rite myself, not long ago.", next = "tauren", when = { race = "Tauren" } },
+        { text = "What will you do after the Rite?", next = "yafter" },
+        { text = "Do you have friends at Narache?", next = "yfriends" },
         { text = "Good luck, Antur.", next = "END" },
       },
     },
@@ -71,6 +73,38 @@ P:NPC {
       lines = { { id = "t_default", text = "Then you know how it feels, standing at the edge of the mesa with the whole of Mulgore below you. Tell me it ends well, even if it is a lie." } },
       choices = { { text = "It ends well. Go and see.", next = "BACK", fx = { affinity = 1 } } },
     },
+  
+    yafter = {
+      lines = {
+        { id = "yanturf_yafter_d", text = "Walk the plains for a season, I hope, the way my mother did, before I decide whether to hunt or to trade. My father wants a trader. I think I want to be a hunter, but I have never told him so." },
+      },
+      choices = {
+        { text = "Why haven't you told him?", next = "ytell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytell = {
+      lines = {
+        { id = "yanturf_ytell_d", text = "Because he would be quiet, the way he gets when he is hurt, and talk to his furs for a week. He has carried the trade alone since my mother died. I am afraid that if I leave it, I leave him too." },
+      },
+      choices = {
+        { text = "Tell him. A daughter's path is her own.", next = "BACK", reply = "Perhaps you are right. I will tell him after the Rite, when I am brave enough.", fx = { align = { honor = 1 } } },
+        { text = "Your father needs you. The trade is family.", next = "BACK", reply = "That is what I tell myself each night. It sounds truer when you say it.", fx = { align = { honor = -1 } } },
+      },
+    },
+    yfriends = {
+      lines = {
+        { id = "yanturf_yfriends_d", text = "A few. Tarak, who boasts, and Mira, who never says a word but always hits the target. They have both finished their Rites already, and they wait to see if I will finish mine." },
+        { id = "yanturf_yfriends_v0", when = { race = "Tauren" }, text = "A few, as you will have had at your own camp. Tarak boasts and Mira never speaks but always hits the target. They have finished their Rites, and they wait for me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    rite_of_strength = { { id = "yanturf_tp_rite_of_strength", text = "The Rite of Strength is how Narache knows a calf is ready. Grull Hawkwind decides who passes." } },
+    furs = { { id = "yanturf_tp_furs", text = "My father's furs are fine work, plainstrider and cougar. The trader in Bloodhoof pays well for them." } },
   },
 }
 
@@ -102,6 +136,9 @@ P:NPC {
         { text = "How old are you?", next = "xold" },
         { text = "Do you remember the world before the tauren?", next = "xbefore" },
         { text = "I call on the earth too.", next = "xshaman", when = { class = "SHAMAN" } },
+        { text = "What do you feel beneath Mulgore?", next = "yfeel" },
+        { text = "Do other elements speak to you?", next = "yothers" },
+        { text = "I am no shaman. Will you speak to me?", next = "BACK", when = { class = { "WARRIOR", "HUNTER", "DRUID" } }, reply = "Stone speaks to anything that stands on it. You stand, so I speak, a little." },
         { text = "Return to the stone.", next = "END" },
       },
     },
@@ -148,8 +185,40 @@ P:NPC {
         { text = "I'll be patient.", next = "BACK", reply = "Good. Patience is the earth's only lesson.", fx = { affinity = 1 } },
       },
     },
+  
+    yfeel = {
+      narr = "*The stones of its body settle, as though it were leaning closer to the ground.*",
+      lines = {
+        { id = "yminorm_yfeel_d", text = "Roots, deep and old, and water moving slowly through the dark. And to the west, a scraping. Small hands with iron tools, digging where the stone did not ask to be opened." },
+      },
+      choices = {
+        { text = "The dwarves at the digsite?", next = "ydig" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydig = {
+      lines = {
+        { id = "yminorm_ydig_d", text = "I do not know their names. Names are a thing of the quick. I know only that they dig for something buried long ago, and that the stone around it is uneasy. Some burdens are buried for a reason." },
+      },
+      choices = {
+        { text = "Then they must be stopped before they wake it.", next = "BACK", reply = "Stone agrees. Tell the tall ones in the village, and they may listen.", fx = { align = { order = 1 } } },
+        { text = "Perhaps what's buried should be studied, not hidden.", next = "BACK", reply = "Stone does not study. Stone remembers. Be careful what you dig toward, little mortal.", fx = { align = { order = -1 } } },
+      },
+    },
+    yothers = {
+      lines = {
+        { id = "yminorm_yothers_d", text = "Fire is loud, and water is restless, and air never stays to finish a sentence. We are not friends, the elements. But we are old, and we remember when the world was whole, and that is a kind of kinship." },
+        { id = "yminorm_yothers_v0", when = { class = "SHAMAN" }, text = "Fire is loud, water restless, air never finishes. You will meet them all, young shaman, and each will test you differently. Stone tests patience. The others are less kind." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    mulgore = { { id = "yminorm_tp_mulgore", text = "This land is soft on top and hard beneath. The tauren walk softly on it, which the stone appreciates." } },
+    patience = { { id = "yminorm_tp_patience", text = "Patience is the first thing stone teaches, and the last thing most mortals learn." } },
+
     earth = { { id = "tp_xearth", text = "The earth is the mother of all things. I am only a small piece of her." } },
   },
 }
@@ -289,6 +358,8 @@ P:NPC {
         { text = "Tell me about your grandmother.", next = "xgran" },
         { text = "What do you think of the Faire's folk?", next = "xfolk" },
         { text = "Do you ever cook kodo?", next = "xkodo", when = { race = "Tauren" } },
+        { text = "What's the strangest thing you've eaten?", next = "ystrange" },
+        { text = "Does the Faire ever go hungry?", next = "yhungry" },
         { text = "Give me something to eat.", next = "END" },
       },
     },
@@ -344,8 +415,39 @@ P:NPC {
         { text = "Good.", next = "BACK", reply = "Earth Mother bless you for asking." },
       },
     },
+  
+    ystrange = {
+      lines = {
+        { id = "ystampt_ystrange_d", text = "In Booty Bay, a goblin sold me a stew he swore was turtle. It had too many legs for a turtle. I ate it anyway, because a cook must know what the world tastes like, and I was ill for three days." },
+        { id = "ystampt_ystrange_v0", when = { race = "Goblin" }, text = "In Booty Bay, one of your kin sold me a stew he swore was turtle. It had too many legs. I was ill three days, and I still respect his salesmanship." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhungry = {
+      lines = {
+        { id = "ystampt_yhungry_d", text = "Once, crossing the Barrens in a dry season. The supply wagon broke an axle, and we were two days from water. I cooked what we had, and gave the children the most. Silas told me later that some of the carnies grumbled." },
+      },
+      choices = {
+        { text = "Did you do right?", next = "yright" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yright = {
+      lines = {
+        { id = "ystampt_yright_d", text = "I think so. But a carnie who cannot work is a Faire that cannot pay, and Silas reminded me of that very politely. My grandmother would have fed the children first. Silas would have fed the workers." },
+      },
+      choices = {
+        { text = "Feed the children first. Always.", next = "BACK", reply = "My grandmother would agree with you, and so do I. Silas forgave me in the end.", fx = { align = { light = 1 } } },
+        { text = "Silas has a point. The workers keep everyone alive.", next = "BACK", reply = "Perhaps. A cook must think of tomorrow's meal as well as today's.", fx = { align = { light = -1 } } },
+      },
+    },
   },
   topics = {
+    silas = { { id = "ystampt_tp_silas", text = "Silas Darkmoon pays fairly and asks no questions. I like him, though I do not always understand him." } },
+    kodo = { { id = "ystampt_tp_kodo", text = "I will never cook kodo. The kodo carried my grandmother's tents across the Barrens." } },
+
     darkmoon_faire = { { id = "tp_xdarkmoon_faire", text = "The Faire comes to Mulgore every few months. I cook twice as much when it does." } },
   },
 }
@@ -380,6 +482,9 @@ P:NPC {
         { text = "What is the Lunar Festival, Elder?", next = "festival" },
         { text = "I have come to pay my respects.", next = "respects" },
         { text = "My family were Bloodhoof too, Elder.", next = "kin", when = { race = "Tauren" } },
+        { text = "Tell me something no one remembers.", next = "ymem" },
+        { text = "Should the elders be remembered forever?", next = "yforget" },
+        { text = "What happens when the festival ends?", next = "ymoon" },
         { text = "Rest well, Elder.", next = "END" },
       },
     },
@@ -419,8 +524,39 @@ P:NPC {
       lines = { { id = "k_default", text = "Then you are my kin many times over, and I am glad to see the line still runs strong. Tell your grandchildren that an old hunter stood here, and that he was proud." } },
       choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
     },
+  
+    ymem = {
+      lines = {
+        { id = "yelderb_ymem_d", text = "I hunted with a brother who could call the kodo by name. He fell to the centaur on the long walk out of the Barrens, and I carried his horn the rest of the way." },
+        { id = "yelderb_ymem_v0", when = { race = "Tauren" }, text = "I hunted with a brother who could call the kodo by name. You carry the same blood, child, so carry the memory for me as well." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yforget = {
+      lines = {
+        { id = "yelderb_yforget_d", text = "Some of the living say we elders should be forgotten, so the young can walk without our shadows. Others say forgetting is how a people loses itself." },
+      },
+      choices = {
+        { text = "Remember them. The elders guide the living.", next = "BACK", reply = "Then I will stay a while longer, and gladly. Thank you, child.", fx = { align = { light = 1 } } },
+        { text = "Let the dead go. The young need room to grow.", next = "BACK", reply = "Perhaps. But even a young tree drinks from old roots.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymoon = {
+      lines = {
+        { id = "yelderb_ymoon_d", text = "When the festival ends, the elders go back to the quiet. We do not sleep, exactly, but we wait, the way the earth waits through winter. Each year I wonder if anyone will come." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    centaur = { { id = "yelderb_tp_centaur", text = "The centaur hunted us across the Barrens for generations. I remember their arrows better than I remember my own children's faces, and that grieves me." } },
+    cairne = { { id = "yelderb_tp_cairne", text = "Cairne is a good chieftain, the best of my line. I watch over his village with pride." } },
+
     _none = { { id = "tp_none", text = "That is a question for the living, young one. I only remember the plains as they were." } },
   },
 }
@@ -455,6 +591,9 @@ P:NPC {
         { text = "What is the Lunar Festival, Elder?", next = "festival" },
         { text = "I have come to pay my respects.", next = "respects" },
         { text = "The spirits speak to me as well, Elder.", next = "kin", when = { class = "SHAMAN" } },
+        { text = "Tell me something no one remembers.", next = "ymem" },
+        { text = "Should the elders be remembered forever?", next = "yforget" },
+        { text = "What happens when the festival ends?", next = "ymoon" },
         { text = "Rest well, Elder.", next = "END" },
       },
     },
@@ -494,8 +633,39 @@ P:NPC {
       lines = { { id = "k_default", text = "Then we are of one craft, shaman. Listen most when they are quietest, because a spirit that shouts is usually lying." } },
       choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
     },
+  
+    ymem = {
+      lines = {
+        { id = "yelderd_ymem_d", text = "I dreamed once of a great tree burning, and of a people who walked out of the fire with green skin and wolves at their side. I told the elders, and they laughed. Then the orcs came, and Thrall with them." },
+        { id = "yelderd_ymem_v0", when = { race = "Tauren" }, text = "I dreamed once of a great tree burning, and of a people who walked out of the fire with green skin and wolves at their side. You carry the same blood, child, so carry the memory for me as well." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yforget = {
+      lines = {
+        { id = "yelderd_yforget_d", text = "There are young shaman who say dreams are only dreams, and that the old seers spoke too much of things they could not prove. Others say the dreams are the Earth Mother's own voice." },
+      },
+      choices = {
+        { text = "Remember them. The elders guide the living.", next = "BACK", reply = "Then I will stay a while longer, and gladly. Thank you, child.", fx = { align = { light = 1 } } },
+        { text = "Let the dead go. The young need room to grow.", next = "BACK", reply = "Perhaps. But even a young tree drinks from old roots.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymoon = {
+      lines = {
+        { id = "yelderd_ymoon_d", text = "When the festival ends, the elders go back to the quiet. We do not sleep, exactly, but we wait, the way the earth waits through winter. Each year I wonder if anyone will come." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    dreams = { { id = "yelderd_tp_dreams", text = "Dreams are the Earth Mother speaking slowly, for she knows we are slow to listen." } },
+    thrall = { { id = "yelderd_tp_thrall", text = "I dreamed of him before he came. A green-skinned chieftain with a hammer, and a storm at his back." } },
+
     _none = { { id = "tp_none", text = "I have not dreamed of that, child. Ask me again after you have slept." } },
   },
 }
@@ -530,6 +700,9 @@ P:NPC {
         { text = "What is the Lunar Festival, Elder?", next = "festival" },
         { text = "I have come to pay my respects.", next = "respects" },
         { text = "My grandmother read the sky as you did.", next = "kin", when = { race = "Tauren" } },
+        { text = "Tell me something no one remembers.", next = "ymem" },
+        { text = "Should the elders be remembered forever?", next = "yforget" },
+        { text = "What happens when the festival ends?", next = "ymoon" },
         { text = "Rest well, Elder.", next = "END" },
       },
     },
@@ -569,8 +742,39 @@ P:NPC {
       lines = { { id = "k_default", text = "Then she and I would have argued about the clouds for hours, and enjoyed every moment. Honour her tonight as you honour me." } },
       choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
     },
+  
+    ymem = {
+      lines = {
+        { id = "yesk_ymem_d", text = "I saw the night the sky burned red over the north, long ago, and the hunters said it was a sign of war. It was, and they were right, but I was the only one who saw the stars weep afterwards." },
+        { id = "yesk_ymem_v0", when = { race = "Tauren" }, text = "I saw the night the sky burned red over the north, long ago, and the hunters said it was a sign of war. You carry the same blood, child, so carry the memory for me as well." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yforget = {
+      lines = {
+        { id = "yesk_yforget_d", text = "Some say the sky shows nothing, and the old readers were only guessing. Others say the sky remembers everything that happens beneath it." },
+      },
+      choices = {
+        { text = "Remember them. The elders guide the living.", next = "BACK", reply = "Then I will stay a while longer, and gladly. Thank you, child.", fx = { align = { light = 1 } } },
+        { text = "Let the dead go. The young need room to grow.", next = "BACK", reply = "Perhaps. But even a young tree drinks from old roots.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymoon = {
+      lines = {
+        { id = "yesk_ymoon_d", text = "When the festival ends, the elders go back to the quiet. We do not sleep, exactly, but we wait, the way the earth waits through winter. Each year I wonder if anyone will come." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    stars = { { id = "yesk_tp_stars", text = "The stars are the eyes of the ancestors. Look up on a clear night and you will feel them looking back." } },
+    an_she = { { id = "yesk_tp_an_she", text = "An'she is the sun, and Mu'sha the moon. They are the eyes of the Earth Mother, open in turn." } },
+
     _none = { { id = "tp_none", text = "That is not written in the sky, {class}, or if it is, I never read that part." } },
   },
 }
@@ -605,6 +809,9 @@ P:NPC {
         { text = "What is the Lunar Festival, Elder?", next = "festival" },
         { text = "I have come to pay my respects.", next = "respects" },
         { text = "My people are new to Kalimdor, Elder.", next = "kin", when = { race = { "Orc", "Troll", "Scourge" } } },
+        { text = "Tell me something no one remembers.", next = "ymem" },
+        { text = "Should the elders be remembered forever?", next = "yforget" },
+        { text = "What happens when the festival ends?", next = "ymoon" },
         { text = "Rest well, Elder.", next = "END" },
       },
     },
@@ -644,8 +851,39 @@ P:NPC {
       lines = { { id = "k_default", text = "Then walk softly here, and listen to the land before you speak to it. The Horde has given us much, and the Earth Mother welcomes friends of the tauren." } },
       choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
     },
+  
+    ymem = {
+      lines = {
+        { id = "yess_ymem_d", text = "I raised the standing stones on the high ridge with my own hands, three summers of carrying. My sons helped, and the youngest crushed his foot under the third stone. He walked with a limp all his life, and never complained." },
+        { id = "yess_ymem_v0", when = { race = "Tauren" }, text = "I raised the standing stones on the high ridge with my own hands, three summers of carrying. You carry the same blood, child, so carry the memory for me as well." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yforget = {
+      lines = {
+        { id = "yess_yforget_d", text = "Some of the young say the old stones should be moved, so the new roads run straight. Others say a stone set by an elder's hand should never be shifted." },
+      },
+      choices = {
+        { text = "Remember them. The elders guide the living.", next = "BACK", reply = "Then I will stay a while longer, and gladly. Thank you, child.", fx = { align = { light = 1 } } },
+        { text = "Let the dead go. The young need room to grow.", next = "BACK", reply = "Perhaps. But even a young tree drinks from old roots.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymoon = {
+      lines = {
+        { id = "yess_ymoon_d", text = "When the festival ends, the elders go back to the quiet. We do not sleep, exactly, but we wait, the way the earth waits through winter. Each year I wonder if anyone will come." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    stones = { { id = "yess_tp_stones", text = "A standing stone is a promise to the Earth Mother. My stones have kept theirs for a long time." } },
+    high_places = { { id = "yess_tp_high_places", text = "The high places are where the earth comes closest to the sky. Speak softly there." } },
+
     _none = { { id = "tp_none", text = "The stones do not know that, child, and neither do I." } },
   },
 }
@@ -779,6 +1017,8 @@ P:NPC {
         { text = "What's the hardest part of being a brave?", next = "xhard" },
         { text = "What do you think of the Venture Company?", next = "xventure" },
         { text = "I'm also young. Any advice?", next = "xyoung", when = { race = "Tauren" } },
+        { text = "Who do you look up to?", next = "yhero" },
+        { text = "Have you ever been in a real fight?", next = "yfight" },
         { text = "Farewell, Thontek.", next = "END" },
       },
     },
@@ -835,8 +1075,39 @@ P:NPC {
         { text = "Thanks.", next = "BACK", reply = "Walk with the Earth Mother, friend!", fx = { affinity = 1 } },
       },
     },
+  
+    yhero = {
+      lines = {
+        { id = "ythonte_yhero_d", text = "Baine Bloodhoof, who is patient, and Brave Strongbash, who is strong. I want to be both, though the elders say I must choose one first. I chose strong, and now I am trying to learn patient." },
+        { id = "ythonte_yhero_v0", when = { race = "Tauren" }, text = "Baine, who is patient, and Strongbash, who is strong. You will know how the elders make us choose. I chose strong, and now I am learning patient, badly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfight = {
+      lines = {
+        { id = "ythonte_yfight_d", text = "Once, against a gnoll who tried to steal a kodo calf. I stomped, and he fell, and I was so surprised that he got up and ran away. The other braves still laugh about it. I tell them I let him go." },
+      },
+      choices = {
+        { text = "Did you?", next = "ylet" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylet = {
+      lines = {
+        { id = "ythonte_ylet_d", text = "No. But now I wonder if I should have. A brave from Narache says a thief must always be punished, so he does not return. My mother says a gnoll who runs away has learned enough." },
+      },
+      choices = {
+        { text = "Punish thieves, or they return.", next = "BACK", reply = "Then next time I will not be so surprised, and he will not get up.", fx = { align = { order = 1 } } },
+        { text = "Your mother is right. He learned his lesson.", next = "BACK", reply = "I like to think so. And I like that I did not have to hurt him more.", fx = { align = { order = -1 } } },
+      },
+    },
   },
   topics = {
+    stomp = { { id = "ythonte_tp_stomp", text = "A tauren's war stomp is a gift from the Earth Mother. I am still learning how to aim it." } },
+    baine = { { id = "ythonte_tp_baine", text = "Baine keeps the village. He is patient as stone, and I am trying to learn from him." } },
+
     bloodhoof_village = { { id = "tp_xbloodhoof_village", text = "Bloodhoof Village is where I was born and where I will die old." } },
     venture_company = { { id = "tp_xventure_company", text = "The Venture Company cuts our trees. I would cut their saws." } },
     _none = { { id = "tp_none", text = "I have no idea, {class}, but if you find out, come and tell me. I like news." } },

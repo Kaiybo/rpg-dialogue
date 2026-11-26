@@ -25,6 +25,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yroman = {
+      lines = {
+        { id = "ybrandoncanals1", text = "He's the quiet one. He doesn't tell stories like Justin, but he once caught an eel as long as his arm, and he didn't even yell. His dad's a guard on the harbour wall, so Roman knows all the guards' names." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfamily = {
+      lines = {
+        { id = "ybrandoncanals2", text = "My mum sews sails for the ships, and my dad went to fight in the north before I was born. Mum says he's a hero, and the guards came once and gave her a letter and a medal in a box." },
+        { id = "ybrandoncanals3", when = { class = { "WARRIOR", "PALADIN" } }, text = "You fight like my dad did, I bet. Mum keeps his medal in a box on the shelf." },
+      },
+      choices = {
+        { text = "Do you miss him?", next = "ymiss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymiss = {
+      lines = {
+        { id = "ybrandoncanals4", text = "I don't remember him, so I don't know if it counts. Justin says I should be a soldier to make him proud, and Roman says I should do whatever I like. What do you think?" },
+      },
+      choices = {
+        { text = "Be a soldier. Honour your father's memory.", next = "BACK", reply = "Maybe. I'd want a sword with a red handle, though.", fx = { align = { honor = 1 } } },
+        { text = "Do what you like. That's what he fought for.", next = "BACK", reply = "That's what Mum says too. I think I'd like to make boats.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Brandon, and that's Justin and that's Roman, and we fish here nearly every day. Justin knows a lot of stories, but I don't think all of them really happened." },
@@ -40,6 +68,8 @@ P:NPC {
         { text = "What would you do if Justin's stories were true?", next = "x_true" },
         { text = "You should believe your friends, Brandon.", next = "x_stance" },
         { text = "I'm a mage. Ask me what's true.", next = "x_mage", when = { class = "MAGE" } },
+        { text = "Who's Roman?", next = "yroman" },
+        { text = "What does your family do?", next = "yfamily" },
         { text = "Good fishing, Brandon.", next = "END" },
       },
     },
@@ -89,6 +119,8 @@ P:NPC {
     },
   },
   topics = {
+    justin = { { id = "ybrandoncanals5", text = "He tells stories. Some of them are even true, he says." } },
+    roman = { { id = "ybrandoncanals6", text = "He's quiet and he caught an eel. His dad's a guard." } },
     background = { { id = "tp_bg", text = "I live near the canals, and Justin and Roman are my best friends. We're going to get a boat one day, when we've saved up." } },
     _none = { { id = "tp_none", text = "I don't know. Justin would say he knows, but he'd be making it up." } },
   },

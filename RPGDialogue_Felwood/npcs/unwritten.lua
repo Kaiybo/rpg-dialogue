@@ -198,6 +198,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Ask what you need to. Then go and finish it." } },
       choices = {
+        { text = "How long were you held in Shadow Hold?", next = "yark_long" },
+        { text = "I'm a Sentinel's sister too. What do you need?", next = "yark_elf", when = { race = "NightElf" } },
         { text = "Tell me about Trey.", next = "trey" },
         { text = "Who is Rakaiah?", next = "rakaiah" },
         { text = "Where will you go now?", next = "home" },
@@ -241,6 +243,47 @@ P:NPC {
       lines = { { id = "ho_default", text = "To Darnassus, to tell the Sentinels what Jaedenar has become. Then to sleep for a week, if the dreams let me." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yark_long = {
+      lines = {
+        { id = "yyark_long_d", text = "Eleven days, by the light through the cracks, though I lost count near the end. They fed us once a day and questioned us twice, and Trey made them laugh during the questions just to make them angry. I never knew if that was courage or madness." },
+      },
+      choices = {
+        { text = "What did they want to know?", next = "yark_want" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yark_want = {
+      narr = "Arko'narin rubs the welts on her wrists without seeming to notice she is doing it.",
+      lines = {
+        { id = "yyark_want_d", text = "Where the Sentinels watch from, and how many of us there are at Talonbranch and Emerald Sanctuary. I told them nothing, and Trey told them a great many very funny lies. That was why they killed him first, I think, because he made them look foolish." },
+      },
+      choices = {
+        { text = "Do you blame yourself for his death?", next = "yark_blame" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yark_blame = {
+      lines = {
+        { id = "yyark_blame_d", text = "Every hour. If I had told them something, anything, they might have kept him alive longer, long enough for someone to find us. The Sentinels would call that treason, and Trey would call it mercy, and I do not know which of them is right." },
+      },
+      choices = {
+        { text = "Silence was your duty. You did right.", next = "BACK", reply = "Yes. That is what the Sentinels will say, and I will try to believe it.", fx = { align = { order = 1 } } },
+        { text = "A life was worth a few words. Trey mattered.", next = "BACK", reply = "You speak like him. That is a kind of comfort, and a kind of wound.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yark_elf = {
+      lines = {
+        { id = "yyark_elf_d", text = "Then stay close to Jaedenar and watch for anything that crawls out of the cave. I need to reach Talonbranch Glade and send word to Darnassus, and I cannot do it if the Shadow Council follows me there." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    shadow_hold = { { id = "tp_yshadow_hold", text = "The Shadow Council's cave in Jaedenar. Eleven days in a cage." } },
+    talonbranch_glade = { { id = "tp_ytalonbranch_glade", text = "The Sentinel camp in Felwood. I must reach it before the Council follows me." } },
   },
 }
 
@@ -289,6 +332,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "The remains lie still. There is nothing more to see." } },
       choices = {
+        { text = "Look at his face.", next = "ytre_face" },
+        { text = "Lay his hands at rest.", next = "ytre_hands" },
         { text = "Look around the cave.", next = "xcave" },
         { text = "Examine his armor.", next = "xarmor" },
 
@@ -309,5 +354,47 @@ P:NPC {
       lines = { { id = "pr_default", text = "The cave stays dark and silent while you speak. For a moment the air feels a little lighter, or perhaps you only hope it does." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ytre_face = {
+      lines = {
+        { id = "yytre_face_d", text = "His face is young beneath the blood, younger than you expected, and there are laugh lines at the corners of his eyes. Whatever he saw at the end, his mouth is set in something very like a smile." },
+      },
+      choices = {
+        { text = "Close his eyes.", next = "ytre_close" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytre_close = {
+      narr = "The cave's silence presses close as you kneel.",
+      lines = {
+        { id = "yytre_close_d", text = "His eyelids are cold, and they close easily. For a moment, in the dim light, he looks only asleep, a tired paladin resting after a long road. The Silver Hand on his tabard catches what little light there is." },
+      },
+      choices = {
+        { text = "Look for anything else he carried.", next = "ytre_carried" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytre_carried = {
+      lines = {
+        { id = "yytre_carried_v0", when = { class = "PALADIN" }, text = "Tucked behind his breastplate is a folded letter of commission from the Silver Hand, signed by a name you recognise from the order's rolls. The seal is broken, and the letter has been read many times." },
+        { id = "yytre_carried_d", text = "Tucked behind his breastplate is a folded letter, sealed and addressed in a careful hand to someone in Stormwind. The ink has blurred with damp, and you cannot read the name." },
+      },
+      choices = {
+        { text = "Carry the letter to Stormwind. It must be delivered.", next = "BACK", reply = "The letter is light in your hand, and heavy all the same.", fx = { align = { honor = 1 } } },
+        { text = "Leave it with him. It belongs to the dead.", next = "BACK", reply = "You tuck the letter back behind his breastplate, where it has lain all this time.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytre_hands = {
+      lines = {
+        { id = "yytre_hands_d", text = "You fold his hands across his chest, over the torn symbol of the Silver Hand. They are stiff and cold, and the gauntlets are scarred from a hundred blows, but they lie still now, as though in prayer." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    silver_hand = { { id = "tp_ysilver_hand", text = "The order of paladins whose symbol he wore to the end." } },
+    jaedenar = { { id = "tp_yjaedenar", text = "The Shadow Council's stronghold, where he died." } },
   },
 }

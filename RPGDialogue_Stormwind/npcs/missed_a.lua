@@ -149,6 +149,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ydad = {
+      lines = {
+        { id = "yadamcanals1", text = "He works on the docks in the harbour, carrying crates off the ships from Menethil and Booty Bay. He comes home smelling of tar and fish, and he says that's why he doesn't need to go fishing." },
+        { id = "yadamcanals2", when = { race = "Dwarf" }, text = "He says the dwarves at the docks can carry twice as much as anyone. Can you really, or is that a story too?" },
+      },
+      choices = {
+        { text = "Do you want to work the docks too?", next = "ydocks" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydocks = {
+      lines = {
+        { id = "yadamcanals3", text = "No, I want my own boat, a little one with a red sail. Dad says boats cost more than he makes in a year, so I'm saving my coppers in a jar, and I've got eleven so far." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywhere = {
+      lines = {
+        { id = "yadamcanals4", text = "In Old Town, above the shop where his uncle mends boots. His uncle says the Defias are hiding in the canals, but my mum says that's just what grown-ups say to keep us from playing under the bridges." },
+      },
+      choices = {
+        { text = "Listen to your mum. Stay out from under the bridges.", next = "BACK", reply = "All right. Billy won't, though, and then I'll have to go and get him.", fx = { align = { order = 1 } } },
+        { text = "A little exploring never hurt anyone.", next = "BACK", reply = "That's what Billy says! Only don't tell my mum you said it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Adam, and that's Billy, and he says there's a fish under the bridge as big as a boat. There isn't, because I've looked, and all I ever saw was an old boot." },
@@ -164,6 +192,8 @@ P:NPC {
         { text = "Billy says he's going to catch a crocolisk.", next = "x_croc" },
         { text = "Fibbing is all right if it's a good story.", next = "x_stance" },
         { text = "I'm a hunter. I could teach you to read the water.", next = "x_hunt", when = { class = "HUNTER" } },
+        { text = "What does your dad do?", next = "ydad" },
+        { text = "Where does Billy live?", next = "ywhere" },
         { text = "Good luck, Adam.", next = "END" },
       },
     },
@@ -213,6 +243,8 @@ P:NPC {
     },
   },
   topics = {
+    billy = { { id = "yadamcanals5", text = "My best friend. He fibs, but he's good at skipping stones." } },
+    boat = { { id = "yadamcanals6", text = "I'm going to have a little boat with a red sail. I've got eleven coppers saved." } },
     background = { { id = "tp_bg", text = "I live by the canals, and I'm going to be a real fisherman with a boat when I'm big. Billy can come too, if he stops fibbing." } },
     _none = { { id = "tp_none", text = "I don't know about that. You could ask Billy, but he'd only make something up." } },
   },
@@ -654,6 +686,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ydanna = {
+      lines = {
+        { id = "yjimmypupil1", text = "She's our teacher, and she knows everything about Stormwind, like who built the walls and which king was which. She's nice, mostly, but she won't let us stop at bakeries, and she says I ask too many questions about food." },
+        { id = "yjimmypupil2", when = { class = { "PRIEST", "PALADIN" } }, text = "She says the Light wants us to learn. Does it? I think the Light wants us to have lunch too." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylive = {
+      lines = {
+        { id = "yjimmypupil3", text = "Near the canals, with my gran, because my mum and dad went away to Westfall to farm and didn't come back yet. Gran says they will, when the harvest's good, but it hasn't been good for ages." },
+      },
+      choices = {
+        { text = "Do you miss them?", next = "ymiss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymiss = {
+      lines = {
+        { id = "yjimmypupil4", text = "Lots. Gran says the Defias are making the farms hard. Some people at the market say the farmers should fight the Defias, and some say they should give them what they want so they stop." },
+      },
+      choices = {
+        { text = "The farmers should stand up to them.", next = "BACK", reply = "That's what Gran says too. I hope my dad is brave.", fx = { align = { order = 1 } } },
+        { text = "Better to keep the peace and stay safe.", next = "BACK", reply = "I just want Mum and Dad home. I don't care who wins.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Jimmy, and my feet hurt, and we've walked past three bakeries without stopping at any of them. Miss Danna says learning comes first, but I learn better after a bun." },
@@ -669,6 +729,8 @@ P:NPC {
         { text = "If you had a whole silver, what would you buy?", next = "x_silver" },
         { text = "You should share your treats with the others.", next = "x_stance" },
         { text = "Gnomes like sweets too, you know.", next = "x_gnome", when = { race = "Gnome" } },
+        { text = "Who is Miss Danna?", next = "ydanna" },
+        { text = "Where do you live?", next = "ylive" },
         { text = "Run along, Jimmy.", next = "END" },
       },
     },
@@ -718,6 +780,8 @@ P:NPC {
     },
   },
   topics = {
+    gran = { { id = "yjimmypupil5", text = "I live with my gran. She makes the best soup." } },
+    westfall = { { id = "yjimmypupil6", text = "My mum and dad went there to farm. It's far, and it's dangerous now." } },
     background = { { id = "tp_bg", text = "I'm in Miss Danna's class with Andi and Geoff. I'm the littlest, but I'm not the slowest, that's Geoff when he's fighting things." } },
     _none = { { id = "tp_none", text = "I don't know. Is it something you can eat?" } },
   },

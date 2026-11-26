@@ -41,6 +41,7 @@ P:NPC {
         { text = "What were you working on, before?", next = "work" },
         { text = "I'm from Tinker Town. Do you remember me?", next = "tinker", when = { race = "Gnome" } },
         { text = "Come with me. I'll get you out.", next = "escort" },
+        { text = "Do you have any family, Kernobee?", next = "yfamily" },
         { text = "Stay safe. I'll be back.", next = "END" },
       },
     },
@@ -104,9 +105,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yfamily = {
+      narr = "He pats his pockets, as though his family might be in one of them.",
+      lines = {
+        { id = "yfa_default", text = "A wife, I'm nearly sure, called Wizzle or Fizzle, with lovely spectacles. She was on the evening shift. Do you think she got out? I'd like to think she got out and is cross with me for being late." },
+        { id = "yfa_gnome", when = { race = "Gnome" }, text = "A wife, Wizzle or Fizzle, with lovely spectacles, on the evening shift. You're from Tinker Town, you said? Could you ask about her? I'd like to think she's there, and cross with me for being late." },
+      },
+      choices = {
+        { text = "I'll ask in Tinker Town for her.", next = "BACK", reply = "Oh, would you? Tell her I'm coming, eventually, once I find the stairs." , fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    scooty = { { id = "yt_scooty", text = "Scooty! Lovely fellow, up in Booty Bay, or possibly on level two. He builds transporters that mostly work." } },
+    mekkatorque = { { id = "yt_mekka", text = "The High Tinker? Splendid gnome. He signed my promotion, or my parking fine. Something with his signature on it, anyway." } },
+    coffee = { { id = "yt_coffee", text = "The coffee on level three has gone a lovely shade of green. I'd not drink it, but I do admire it." } },
+    radiation = { { id = "yt_rad", text = "Is that what this is? I thought I was just very warm. It's a pleasant sort of warm, mostly." } },
     _none = { { id = "tp_none", text = "Hmm? I'm sorry, I don't remember anything about that." } },
   },
 }
@@ -149,6 +165,7 @@ P:NPC {
         { text = "Those charges look homemade.", next = "charges" },
         { text = "I'm from Gnomeregan too. What's left of it?", next = "home", when = { race = "Gnome" } },
         { text = "I know a little about explosives myself.", next = "engineer", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "What did you do before the city fell?", next = "ybefore" },
         { text = "Let's do it.", next = "END" },
       },
     },
@@ -202,9 +219,27 @@ P:NPC {
       lines = { { id = "s_default", text = "Because this is home, and somebody has to stop the troggs before they spread. Somebody had to stay; it may as well be the one carrying the explosives." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ybefore = {
+      lines = {
+        { id = "yb_default", text = "Ran the demolition crew for the lower excavations, opening new tunnels at roughly four hundred feet a week. Which, in hindsight, is precisely how we found the troggs in the first place. I try not to think about that ratio." },
+        { id = "yb_dwarf", when = { race = "Dwarf" }, text = "Ran the demolition crew on the lower digs, and I trained under a dwarf from the Ironforge Mining Guild, so I know you lot like a good controlled blast. We dug too deep, though, and found the troggs." },
+      },
+      choices = {
+        { text = "So it's partly your fault?", next = "yfault" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfault = {
+      narr = "Her hands stop on the fuse she's crimping.",
+      lines = { { id = "yf_default", text = "Partly, technically, statistically. I've done the sums a hundred times. Mekkatorque says nobody could have known, and Thermaplugg made it worse with the radiation. But I lit the charges, and I'm still lighting them, so maybe that balances it." } },
+      choices = { { text = "You're making it right now. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
 
   topics = {
+    troggs = { { id = "yt_troggs", text = "Troggs. Stone-skinned, dim, and endlessly breeding. I've run the numbers, and they're not good numbers." } },
+    thermaplugg = { { id = "yt_therma", text = "Mekgineer Thermaplugg. Advisor, traitor, and the reason my city glows green. I've a charge with his name on it." } },
+    mekkatorque = { { id = "yt_mekka", text = "High Tinker Mekkatorque got as many of us out as he could. I'll follow him back in, with fuses lit." } },
     _none = { { id = "tp_none", text = "Ask me again when we're not under attack!" } },
   },
 }
@@ -366,6 +401,11 @@ P:NPC {
     },
   },
   topics = {
+    radiation = { { id = "yt_rad", text = "If your teeth tingle, leave. If your hair glows, leave faster. If you can see in the dark, come and see me first." } },
+    ironforge = { { id = "yt_if", text = "Ironforge took us in when we had nothing. I send my worst cases up to the Tinker Town infirmary, when there's anyone to carry them." } },
+    troggs = { { id = "yt_troggs", text = "Trogg bites go bad fast. Clean them with solvent, wrap them tight, and don't let anyone tell you to use ale." } },
+    clean_zone = { { id = "yt_clean", text = "The Clean Zone is the only part of Gnomeregan where the air won't poison you. We keep it that way, hour by hour." } },
+    mekkatorque = { { id = "yt_mekka", text = "The High Tinker visits Tinker Town's wounded every week. He listens, which is more than most leaders do." } },
     gnomeregan = { { id = "xtp_gnomer", text = "Our city, still, whatever Thermaplugg thinks. I'd like to see it with the lights back on one day." } },
     thermaplugg = { { id = "xtp_therma", text = "He gave the advice that poisoned us all, and now he hides in the heart of the city. I'm a medic, but I'd make an exception." } },
     _none = { { id = "tp_none", text = "I'm a medic, not a mechanic. Ask a technician, or better yet, ask Tink." } } },
@@ -393,6 +433,7 @@ P:NPC {
         { text = "Tell me about Thermaplugg.", next = "xtherma" },
         { text = "What are those turrets you keep up?", next = "xturret" },
         { text = "I'm an engineer. Can I lend a hand?", next = "xeng", when = { profession = "Engineering" } },
+        { text = "Did you lose anyone when the city fell?", next = "ylost" },
         { text = "Carry on.", next = "END" },
       },
     },
@@ -436,8 +477,29 @@ P:NPC {
       lines = { { id = "xen_default", text = "An actual engineer! Then go and look at the relay by the eastern door, and if you can tell me why it hums in B-flat, I'll name a spanner after you." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ylost = {
+      narr = "He goes very still, spanner halfway to a bolt.",
+      lines = {
+        { id = "yl_default", text = "My apprentice, Pindle. Quick hands, terrible jokes. He went back for a toolkit when the alarms sounded and never came out. I see pale gnomes in the lower halls sometimes, and I look at every face, and I hope I never see his." },
+        { id = "yl_gnome", when = { race = "Gnome" }, text = "My apprentice, Pindle, who went back for a toolkit when the alarms sounded. You've lost someone too, I'd guess, every gnome has. I look at every pale face in the lower halls and hope never to see his." },
+      },
+      choices = {
+        { text = "If you did, what would you do?", next = "yfind" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfind = {
+      lines = { { id = "yfi_default", text = "Medic says a leper that far gone can't come back, and the kindest thing is a quick end. Part of me wants to drag him up to Ironforge anyway and make the alchemists try. I don't know which part is right." } },
+      choices = {
+        { text = "Give him peace. A quick end is mercy.", next = "BACK", reply = "Yeah. Yeah, I know. I just needed somebody else to say it.", fx = { align = { light = 1 } } },
+        { text = "Drag him out. Never stop trying.", next = "BACK", reply = "That's the gnome in me talking too. Thanks.", fx = { align = { light = -1 } } },
+      },
+    },
   },
   topics = {
+    scrubbers = { { id = "yt_scrub", text = "The air scrubbers hum in three different keys when they're healthy. When they hum in a fourth, I start running." } },
+    tinker_town = { { id = "yt_tinker", text = "Tinker Town is cramped and loud and full of refugees, and it's the most beautiful place in Ironforge." } },
+    troggs = { { id = "yt_troggs", text = "Troggs chew cables for fun, I swear it. I've started coating them in pepper oil, and it's working, a bit." } },
     thermaplugg = { { id = "xtp_therma", text = "A traitor with good wiring. I hate admitting the second part." } },
     mekkatorque = { { id = "xtp_mekka", text = "The High Tinker made a terrible call, but he's still the one gnome I'd follow back down here." } },
     _none = { { id = "tp_none", text = "Not my department. Unless it's wired, I don't know about it." } } },

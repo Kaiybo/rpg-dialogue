@@ -410,6 +410,9 @@ P:NPC {
         { text = "What threatens Brill?", next = "threats" },
         { text = "Do you remember your life before?", next = "before", when = { race = "Scourge" } },
         { text = "This town feels like a graveyard.", next = "graveyard" },
+        { text = "Who were your neighbours in life?", next = "yneigh" },
+        { text = "Do you ever see the living you knew?", next = "yseen" },
+        { text = "A fellow Forsaken asks your counsel.", next = "BACK", when = { race = "Scourge" }, reply = "Then hear it: find a task and keep it. The ones who drift become what we fled." },
         { text = "Farewell, Deathguard.", next = "END" },
       },
     },
@@ -446,8 +449,39 @@ P:NPC {
       lines = { { id = "graveyard_default", text = "It is, and a busy one, which is more than most villages in Lordaeron can say now. The dead here keep shop, brew potions and pour ale, so you may judge for yourself whether that is better or worse." } },
       choices = { { text = "Better, I think. Something else.", next = "BACK" } },
     },
+  
+    yneigh = {
+      lines = {
+        { id = "ydeathg_yneigh_d", text = "The baker Tomas, the smith's widow, a family of six by the old mill. I patrolled their street for eleven years. Most of them are ghouls now, wandering the fields. I put two down myself, and I recognised both." },
+      },
+      choices = {
+        { text = "How do you bear it?", next = "ybear" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybear = {
+      lines = {
+        { id = "ydeathg_ybear_d", text = "By telling myself they were gone already, and the thing I struck was only a husk. Some Deathguard say we should try to raise them free, as the Dark Lady freed us. The apothecaries say it cannot be done, and should not be tried." },
+      },
+      choices = {
+        { text = "Try to free them. Everyone deserves a choice.", next = "BACK", reply = "A noble thought. I'll mention it at muster, though the captain will laugh.", fx = { align = { light = 1 } } },
+        { text = "Put them down. Mercy is a clean end.", next = "BACK", reply = "Yes. I tell myself that every time, and it is true enough.", fx = { align = { light = -1 } } },
+      },
+    },
+    yseen = {
+      lines = {
+        { id = "ydeathg_yseen_d", text = "Once, a human woman from the Crusade, riding past on the north road. She was my sister's daughter. She looked at me, and did not know me, and I let her ride on. I have not told the captain." },
+        { id = "ydeathg_yseen_v0", when = { race = "Human" }, text = "Once, my sister's daughter, riding with the Crusade. She looked at me with your eyes, the eyes of the living, and did not know me. I let her ride on." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    brill = { { id = "ydeathg_tp_brill", text = "Brill is a dead town that keeps shop. I find that more comforting than I should." } },
+    scarlet = { { id = "ydeathg_tp_scarlet", text = "The Scarlet Crusade burn what they fear. They fear us most of all." } },
+
     background = { { id = "tp_bg", text = "Guard of Brill in life, guard of Brill in death. I'm nothing if not consistent." } },
     _none = { { id = "tp_none", text = "Not my concern, I'm afraid. Ask at the Gallows' End; somebody there will pretend to know." } },
   },
@@ -480,6 +514,10 @@ P:NPC {
         { text = "How do the Deathguard keep discipline?", next = "discipline" },
         { text = "Do you still feel the Lich King's call?", next = "call", when = { race = "Scourge" } },
         { text = "You seem tired, for a corpse.", next = "tired" },
+        { text = "What grows in the fields now?", next = "yfields" },
+        { text = "What did you do in life?", next = "ylife" },
+        { text = "Who do you trust in the supply line?", next = "ytrust" },
+        { text = "A priest of the Forsaken offers you guidance.", next = "BACK", when = { race = "Scourge", class = "PRIEST" }, reply = "Guidance, from the Shadow? I'll take it, and I'll be suspicious of it, which I think is the point." },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -510,8 +548,47 @@ P:NPC {
       lines = { { id = "t_default", text = "The body doesn't tire, but the mind does, and mine has stood this post a long while. Still, it beats lying in a field with crows for company." } },
       choices = { { text = "That it does. Something else.", next = "BACK" } },
     },
+  
+    ylife = {
+      lines = {
+        { id = "ydeathg_ylife_d", text = "A quartermaster in the Lordaeron army, counting grain sacks for men who are now counting nothing. I died in Andorhal, behind a supply wagon, and woke with the same ledger in my hand. Some habits outlast the body." },
+        { id = "ydeathg_ylife_v0", when = { race = "Scourge" }, text = "A quartermaster, counting grain sacks. Died in Andorhal, woke with the ledger still in my hand. You'll know how it is. Some habits cling harder than flesh." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytrust = {
+      lines = {
+        { id = "ydeathg_ytrust_d", text = "Hardly anyone. Last week a crate of Apothecary reagents arrived with the seals broken. The carter swore he never touched it. I believed him, and I wrote it up as theft by gnolls. Now I'm not sure." },
+      },
+      choices = {
+        { text = "Should you report the carter?", next = "yreport" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yreport = {
+      lines = {
+        { id = "ydeathg_yreport_d", text = "If I report him, the Apothecaries will have him in their cells, and they don't let people out whole. If I don't, and it was him, I've let a thief walk. Some say the law must be served. Others say the Apothecaries are worse than any thief." },
+      },
+      choices = {
+        { text = "Report him. The supply line needs discipline.", next = "BACK", reply = "Yes. I'll write it up tonight, and pray to nothing that I'm wrong.", fx = { align = { order = 1 } } },
+        { text = "Protect him. The Apothecaries are worse.", next = "BACK", reply = "A dangerous thing to say aloud. But you may not be wrong.", fx = { align = { order = -1 } } },
+      },
+    },
+    yfields = {
+      lines = {
+        { id = "ydeathg_yfields_d", text = "North of Brill, past the windmill, the Scourge still wander. They don't eat, but they trample everything. Our farmers plant blightcaps and corpseweed now. Nothing else grows." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    apothecaries = { { id = "ydeathg_tp_apothecaries", text = "The Royal Apothecary Society brews for the Dark Lady. I count their crates and ask no questions." } },
+    andorhal = { { id = "ydeathg_tp_andorhal", text = "Andorhal is where I died. I'd not go back for any reason." } },
+
     background = { { id = "tp_bg", text = "A Deathguard of Brill. Before that, I'd rather not say." } },
     _none = { { id = "tp_none", text = "No idea. I count crates, not rumours." } },
   },
@@ -637,6 +714,9 @@ P:NPC {
         { text = "I come to honour you, elder.", next = "honour", when = { questActive = TODO_QUEST("Meadowrun the Elder") } },
         { text = "Can this land ever heal?", next = "heal" },
         { text = "I see you're a Kaldorei, like me. Why come so far east?", next = "kaldorei", when = { race = "NightElf" } },
+        { text = "What do you remember of the war at Hyjal?", next = "yhyjal" },
+        { text = "Are you afraid here, elder?", next = "yafraid" },
+        { text = "A Forsaken pays respects. Will you accept them?", next = "BACK", when = { race = "Scourge" }, reply = "Gladly, child. You were made to walk against your will, and yet you came here to honour the dead. That is enough." },
         { text = "Elune keep you, elder.", next = "END" },
       },
     },
@@ -673,8 +753,39 @@ P:NPC {
       lines = { { id = "ka_default", text = "Because grief is grief, whatever land it falls on. We lost Hyjal's forests to the same Legion that sent the Scourge here, and I would not have these people mourn alone." } },
       choices = { { text = "Ishnu-alah, elder. Something else.", next = "BACK" } },
     },
+  
+    yhyjal = {
+      lines = {
+        { id = "yelderm_yhyjal_d", text = "Fire on the mountain, the sky black with demons, and the World Tree trembling. I was there, as a healer, and I bound wounds until my hands bled. We won, but the forests we lost still haunt my dreams." },
+      },
+      choices = {
+        { text = "Was the cost worth it?", next = "ycost" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycost = {
+      lines = {
+        { id = "yelderm_ycost_d", text = "The druids say yes, for the world survived. Some of my sisters say no, that we should have fought sooner, before the Legion ever reached Hyjal. I have never decided which I believe." },
+      },
+      choices = {
+        { text = "The druids were right. The world survived.", next = "BACK", reply = "Yes. I hold to that, on most nights.", fx = { align = { order = 1 } } },
+        { text = "Your sisters were right. Waiting cost too much.", next = "BACK", reply = "Perhaps. Their grief is as true as the druids' wisdom.", fx = { align = { order = -1 } } },
+      },
+    },
+    yafraid = {
+      lines = {
+        { id = "yelderm_yafraid_d", text = "No, child, for there is little left here that can harm a spirit. But I am sad, and the sadness is heavier than fear. Every spirit I meet here asks me why no one came to help them." },
+        { id = "yelderm_yafraid_v0", when = { race = "NightElf" }, text = "No, sister. There is little left here that can harm a spirit. But I am sad. Every spirit I meet asks me why no one came, and I have no answer." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    hyjal = { { id = "yelderm_tp_hyjal", text = "Hyjal is sacred to my people. We defended it against the Legion, at great cost." } },
+    plague = { { id = "yelderm_tp_plague", text = "The plague is a wound in the world itself. Elune will heal it, slowly." } },
+
     background = { { id = "tp_bg", text = "An elder of the Kaldorei, sent where the ancestors willed. This year, they willed here." } },
     _none = { { id = "tp_none", text = "The ancestors have not told me that, child, and I would not guess." } },
   },
@@ -715,6 +826,9 @@ P:NPC {
         { text = "What is the Lunar Festival?", next = "festival" },
         { text = "What happens inside Scholomance?", next = "school" },
         { text = "A priest of the Light can't abide that school.", next = "priest", when = { class = "PRIEST" } },
+        { text = "What did you do in life?", next = "ylife" },
+        { text = "Do you see the students inside?", next = "ystudents" },
+        { text = "A night elf honours you, elder.", next = "BACK", when = { race = "NightElf" }, reply = "Ishnu-alah, child of the moon. It warms me to see one of my own here, even in this dark place." },
         { text = "Elune-adore, Elder.", next = "END" },
       },
     },
@@ -753,5 +867,36 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+  
+    ylife = {
+      lines = {
+        { id = "yelderm_ylife_d", text = "I was a priestess of Elune, and a teacher of young healers in Ashenvale. I trained hundreds over the centuries. I keep vigil at a school of death because I could not bear to watch another school go unwatched." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ystudents = {
+      lines = {
+        { id = "yelderm_ystudents_d", text = "Young humans, mostly, who came to learn power and stayed to become something else. Some of them weep at night, behind the windows. I hear them. I cannot help them, but I can listen." },
+      },
+      choices = {
+        { text = "Can any of them be saved?", next = "ysaved" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ysaved = {
+      lines = {
+        { id = "yelderm_ysaved_d", text = "Some, perhaps, if they were taken out before the Cult finished its work. The Argent Dawn says every student is lost. I say a weeping child is not yet lost, though I do not know how to reach them." },
+      },
+      choices = {
+        { text = "Save the weeping ones. They're not lost yet.", next = "BACK", reply = "Then go carefully, and watch their eyes. The lost ones do not weep.", fx = { align = { light = 1 } } },
+        { text = "The Dawn is right. Better to purge it all.", next = "BACK", reply = "Perhaps. But I will keep listening, all the same.", fx = { align = { light = -1 } } },
+      },
+    },
+  },
+  topics = {
+    scholomance = { { id = "yelderm_tp_scholomance", text = "Scholomance is a school of death. The Cult teaches necromancy there, and the dead walk its halls." } },
+    elune = { { id = "yelderm_tp_elune", text = "Elune watches over even this place, though her light is very faint here." } },
   },
 }

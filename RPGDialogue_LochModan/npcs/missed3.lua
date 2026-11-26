@@ -30,6 +30,9 @@ P:NPC {
         { id = "h_again2", text = "Speak." },
       },
       choices = {
+        { text = "What happened to the ones who didn't return?", next = "yham_lost" },
+        { text = "Do you suspect every traveller?", next = "yham_suspect", when = { race = { "Gnome", "Human", "NightElf" } } },
+        { text = "Tell me about the Hammerfall family.", next = "yham_family" },
         { text = "Do many fail to come back?", next = "fail" },
         { text = "Hammerfall. Like the place in Arathi?", next = "name" },
         { text = "I'm bound for the Wetlands.", next = "bound" },
@@ -55,8 +58,55 @@ P:NPC {
       lines = { { id = "b_default", text = "Then keep tae the main tunnel, carry a light, an' dinnae stop for anythin' that calls tae ye from a side passage. Menethil's at the far end o' the marsh road, an' ye'll want tae reach the bridges before night." } },
       choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
     },
+    yham_lost = {
+      lines = {
+        { id = "yyham_lost_d", text = "I keep a ledger, an' every name in it has a mark beside it: a tick if they came back through, an' a ring if they didnae. There's eleven rings since I took this post, an' I know every one o' their faces." },
+      },
+      choices = {
+        { text = "Do you search for them?", next = "yham_search" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yham_search = {
+      narr = "He lays a broad hand flat on the ledger at his belt.",
+      lines = {
+        { id = "yyham_search_d", text = "When I can, wi' Brokk an' a torch, as far as the first side tunnel an' nae further, for Rockgar's orders. We've found two, an' buried them proper by the station, an' the other nine are still in the dark somewhere." },
+      },
+      choices = {
+        { text = "Would you go further, with no orders?", next = "yham_orders" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yham_orders = {
+      lines = {
+        { id = "yyham_orders_d", text = "Every night I think on it. Nine dwarves an' men down there, an' maybe some still breathin' in a Dragonmaw pen, an' me standin' at a gate because I was told tae. It's no' an easy thing for a soldier tae swallow." },
+      },
+      choices = {
+        { text = "Orders keep the station alive. Hold the gate.", next = "BACK", reply = "Aye, an' Rockgar would say the same. I'll hold it, an' hate it.", fx = { align = { order = 1 } } },
+        { text = "Orders be damned. Go and find them.", next = "BACK", reply = "Dinnae say that too loud near the station. But I've thought it, aye.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yham_suspect = {
+      lines = {
+        { id = "yyham_suspect_d", text = "Every one, friend, an' dinnae take it ill. The Dragonmaw have sent spies through in stolen cloaks before, an' I'd sooner offend a hundred honest travellers than wave one knife through tae the loch." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yham_family = {
+      lines = {
+        { id = "yyham_family_d", text = "Smiths an' soldiers, as I said, an' every second one o' us named Thoren for some old grandfather naebody remembers. My cousin Thoren keeps a forge in Ironforge, an' my other cousin Thoren keeps a grudge against him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    dun_algaz = { { id = "tp_ydun_algaz", text = "The tunnel north tae the Wetlands. Keep tae the main way an' keep a light burnin'." } },
+    wetlands = { { id = "tp_ywetlands", text = "Menethil's at the far end, if ye get there. Tell the harbourmaster Hammerfall sent ye." } },
     background = { { id = "tp_bg", text = "I'm a Hammerfall o' Dun Morogh, smiths an' soldiers both. I keep the gate here." } },
     dragonmaw = { { id = "tp_dm", text = "Orcs in the side tunnels o' Dun Algaz. Keep tae the main way an' keep movin'." } },
     _none = { { id = "tp_none", text = "That's no' gate business. Ask Rockgar." } },
@@ -90,6 +140,9 @@ P:NPC {
         { id = "h_again2", text = "Go on." },
       },
       choices = {
+        { text = "How did you learn to shoot like that?", next = "ylux_learn" },
+        { text = "Teach a hunter something about range.", next = "ylux_hunter", when = { class = "HUNTER" } },
+        { text = "What's special about your powder?", next = "ylux_powder" },
         { text = "How far does a ball carry true?", next = "far" },
         { text = "What do you shoot at, out here?", next = "shoot" },
         { text = "I'd call that pine two hundred and ten paces.", next = "pine", when = { class = "HUNTER" } },
@@ -115,8 +168,55 @@ P:NPC {
       lines = { { id = "p_default", text = "Two hundred an' eighteen, but ye're closer than Zwarn's ever got, an' he's stood beside it. Ye've the eye, {g:lad|lass}, an' it only wants practice." } },
       choices = { { text = "I'll take that. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ylux_learn = {
+      lines = {
+        { id = "yylux_learn_d", text = "From a Bronzebeard sharpshooter called Durga Steelsight, who fought at Grim Batol an' could split a hair at two hundred paces. She took me on because I was the only one o' her pupils who never asked how long the lessons would last." },
+      },
+      choices = {
+        { text = "Is she still shooting?", next = "ylux_durga" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylux_durga = {
+      lines = {
+        { id = "yylux_durga_d", text = "She lost her eyes tae a Dragonmaw firebomb in the last o' the war, an' she sits in Ironforge now by the Military Ward. I send her my best tallies every season, an' she writes back tellin' me they're no' good enough." },
+      },
+      choices = {
+        { text = "Do you ever miss a shot?", next = "ylux_miss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylux_miss = {
+      narr = "Luxst lowers the rifle for the first time and turns it slowly in his hands.",
+      lines = {
+        { id = "yylux_miss_d", text = "Once, at a scout who turned out tae be a lad no older than fifteen, an orc boy wi' a spear too big for him. I pulled the shot, an' he ran back intae the tunnel. Rockgar says it was a mistake, an' I'm no' sure he's wrong." },
+      },
+      choices = {
+        { text = "Sparing a child was right, orc or not.", next = "BACK", reply = "Aye. I'd do it again, an' that worries me less than it should.", fx = { align = { light = 1 } } },
+        { text = "Every orc grows up. That boy will kill dwarves.", next = "BACK", reply = "That's what Rockgar said. It's what I think on, some nights.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylux_hunter = {
+      lines = {
+        { id = "yylux_hunter_d", text = "Look at the grass, no' the target, for the grass tells ye the wind an' the target only tells ye where tae aim. An' count yer breaths, for a hunter who's holdin' it is a hunter whose hand is shakin'." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylux_powder = {
+      lines = {
+        { id = "yylux_powder_d", text = "I weigh it on Durga's old brass scale, every charge, an' I mix my own from Gothor's stock wi' a pinch o' somethin' I'll no' tell ye. It's the pinch that makes the difference, or so I like tae think." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    algaz_station = { { id = "tp_yalgaz_station", text = "My station. I know every rock in front of it out tae three hundred paces." } },
+    durga_steelsight = { { id = "tp_ydurga_steelsight", text = "My old teacher. She'd say I'm still too slow on the trigger, an' she'd be right." } },
     background = { { id = "tp_bg", text = "I shoot for the station. There's little else tae tell, an' I'd sooner no' tell it." } },
     dragonmaw = { { id = "tp_dm", text = "Their scouts come tae count us. I see tae it they lose their place." } },
     _none = { { id = "tp_none", text = "I dinnae know. It's out o' my range, ye might say." } },
@@ -150,6 +250,9 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on." },
       },
       choices = {
+        { text = "What do you do with the names that don't return?", next = "ymor_names" },
+        { text = "I'll take a message to Dun Modr if you like.", next = "ymor_message", when = { minLevel = 20 } },
+        { text = "What's Menethil Harbor like?", next = "ymor_menethil" },
         { text = "What goes up the road these days?", next = "goes" },
         { text = "And what comes back?", next = "back" },
         { text = "Mark me down as passing through.", next = "END" },
@@ -170,8 +273,55 @@ P:NPC {
       lines = { { id = "b_default", text = "Empty carts, mostly, an' carters who've aged a year in a fortnight. Now an' then a cart doesnae come back at all, an' I leave the line open in the book a full month before I close it." } },
       choices = { { text = "That's a hard line to rule. Something else.", next = "BACK" } },
     },
+    ymor_names = {
+      lines = {
+        { id = "yymor_names_d", text = "I copy them intae a second book, separate from the tally, an' send it tae Ironforge every month. Somebody should know who went north an' didnae come home, an' the Mountaineer command never asks unless ye make them." },
+      },
+      choices = {
+        { text = "How many names are in that book?", next = "ymor_count" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymor_count = {
+      narr = "Morran turns the ledger at his belt around so you can see the thick second spine.",
+      lines = {
+        { id = "yymor_count_d", text = "Too many, an' more since the Dark Irons took Dun Modr. Carters, mostly, an' a few adventurers, an' one wee lass who said she was goin' tae find her da. I wrote her name in the first book an' then, a month later, in the second." },
+      },
+      choices = {
+        { text = "Do you blame yourself?", next = "ymor_blame" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymor_blame = {
+      lines = {
+        { id = "yymor_blame_d", text = "I let them through, so aye, a bit. Hammerfall says it's no' our place tae stop folk who want tae go, but I've wondered if I should have turned that lass back, even if she'd have cursed me for it." },
+      },
+      choices = {
+        { text = "You should have stopped her. She was a child.", next = "BACK", reply = "Aye. Next time I'll turn the bairns back, an' let them curse me.", fx = { align = { order = 1 } } },
+        { text = "It was her choice to make. Not yours.", next = "BACK", reply = "Maybe so. It doesnae make the second book any lighter.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymor_message = {
+      lines = {
+        { id = "yymor_message_d", text = "That's kind o' ye, an' they could use it. Find Longbraid's camp outside Dun Modr an' tell them the powder's comin' as fast as Algaz can send it, which isnae fast enough, an' that Morran's still countin' every crate." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ymor_menethil = {
+      lines = {
+        { id = "yymor_menethil_d", text = "Wet, crowded an' noisy, wi' half the Alliance's ships comin' an' goin' an' the Dragonmaw watchin' from the hills. It's the only harbour in Khaz Modan, an' everythin' goes through it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    dun_modr = { { id = "tp_ydun_modr", text = "The Dark Irons took it, an' Longbraid's folk are camped outside. Everythin' I send north goes there." } },
+    menethil_harbor = { { id = "tp_ymenethil_harbor", text = "The far end o' the road an' the only harbour we've got. Ships, salt an' trouble." } },
     background = { { id = "tp_bg", text = "I'm a Mountaineer who can add, which makes me the station's clerk whether I like it or no'." } },
     dark_iron = { { id = "tp_di", text = "They've Dun Modr, by all accounts. I see it in what the north keeps askin' for." } },
     _none = { { id = "tp_none", text = "It's no' in my book, so I couldnae tell ye." } },
@@ -207,6 +357,9 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on, I like a chat." },
       },
       choices = {
+        { text = "Why are you so cheerful here?", next = "yyut_cheer" },
+        { text = "An elf feels welcome, thank you.", next = "yyut_elf", when = { race = "NightElf" } },
+        { text = "Will you go back to Thelsamar?", next = "yyut_chair" },
         { text = "Where should I go from here?", next = "where" },
         { text = "You seem happy, for such a grim post.", next = "happy" },
         { text = "Thank you for the welcome.", next = "END" },
@@ -227,8 +380,55 @@ P:NPC {
       lines = { { id = "ha_default", text = "Somebody has tae be, wi' Zwarn sighin' on one side o' me an' Luxst sayin' nothin' on the other. Folk come out o' that tunnel wet an' frightened, an' a smile costs me less than it's worth tae them." } },
       choices = { { text = "It was worth a good deal. Something else.", next = "BACK" } },
     },
+    yyut_cheer = {
+      lines = {
+        { id = "yyyut_cheer_d", text = "Because the folk who come out o' that tunnel have just walked through the Dragonmaw's back yard, an' they need somebody tae tell them they're safe now. Hammerfall's good at many things, but makin' folk feel safe isnae one o' them." },
+      },
+      choices = {
+        { text = "Do you ever feel afraid here?", next = "yyut_afraid" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yyut_afraid = {
+      narr = "Yuttha's smile stays, but her hands fold together a little tighter.",
+      lines = {
+        { id = "yyyut_afraid_d", text = "Every night, if I'm honest, when Zwarn's sighin' an' the wind's comin' down the pass. But I've learned that if I smile at a frightened traveller, I feel braver myself, so I smile a great deal." },
+      },
+      choices = {
+        { text = "What would you do if the orcs came?", next = "yyut_orcs" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yyut_orcs = {
+      lines = {
+        { id = "yyyut_orcs_d", text = "Fight, I suppose, an' hope Luxst is as good as he says. But I've often wondered whether we could talk tae them first, for the Dragonmaw are beaten an' hungry, an' a hungry clan might take bread over blood." },
+      },
+      choices = {
+        { text = "Try talking. Peace is worth the risk.", next = "BACK", reply = "Aye, that's what I think! Dinnae tell Rockgar I said so, mind.", fx = { align = { light = 1 } } },
+        { text = "They're Dragonmaw. They'll only answer to steel.", next = "BACK", reply = "Maybe ye're right, an' I'm too soft for this post. I'll keep smilin' all the same.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yyut_elf = {
+      lines = {
+        { id = "yyyut_elf_d", text = "Ye're most welcome! I've only met a few o' yer folk, but every one walked through that marsh like it was a garden. Would ye tell me, are the trees in yer land truly as tall as mountains?" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yyut_chair = {
+      lines = {
+        { id = "yyyut_chair_d", text = "Aye, an' I mean tae have it back. Old Cragg's sittin' in it now, I hear, an' he'll no' give it up easily, but I've told the innkeeper tae keep it warm for me till the Reserve comes home." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    thelsamar = { { id = "tp_ythelsamar", text = "My home, an' the best town in Khaz Modan. The Stoutlager has the warmest fire." } },
+    zwarn = { { id = "tp_yzwarn", text = "He's sure we'll die tonight. I've been sure we'll no' for four years, an' I'm winnin'." } },
     background = { { id = "tp_bg", text = "Thelsamar born, an' posted tae Algaz for my sins. I'll be home by the fire again one day." } },
     _none = { { id = "tp_none", text = "Oh, I dinnae know that one, I'm sorry! Rockgar might, if ye catch him in a good mood." } },
   },
@@ -262,6 +462,9 @@ P:NPC {
         { id = "h_again2", text = "Go on, it'll pass the hour." },
       },
       choices = {
+        { text = "Why are you so sure they'll come?", next = "yzwa_sure" },
+        { text = "I'm an orc. Should you fear me?", next = "yzwa_orc", when = { race = "Orc" } },
+        { text = "What's on Yuttha's tally?", next = "yzwa_tally" },
         { text = "What will be tonight?", next = "tonight" },
         { text = "You've said that before, I'd guess.", next = "before" },
         { text = "Keep your chin up, Zwarn.", next = "END" },
@@ -282,8 +485,55 @@ P:NPC {
       lines = { { id = "b_default", text = "Every night for four years, an' Yuttha keeps a tally on the wall tae mock me wi'. But a watchman only has tae be right the once, an' I'd rather be laughed at than surprised." } },
       choices = { { text = "There's sense in that. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    yzwa_sure = {
+      lines = {
+        { id = "yyzwa_sure_d", text = "Because I was at Grim Batol when the Dragonmaw held it, a prisoner for three weeks in the year the war ended. I saw what they do wi' captives, an' I saw how many of them there were, an' they didnae all die when the dragons flew off." },
+      },
+      choices = {
+        { text = "You were a prisoner?", next = "yzwa_prisoner" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yzwa_prisoner = {
+      narr = "Zwarn turns his collar higher, though the wind has not changed.",
+      lines = {
+        { id = "yyzwa_prisoner_d", text = "Aye, wi' twenty other dwarves in a pen under the mountain. We were freed when Alliance soldiers broke the hold, but only six of us walked out. I've counted my nights since, an' every one feels borrowed." },
+      },
+      choices = {
+        { text = "Does anyone know what you went through?", next = "yzwa_know" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yzwa_know = {
+      lines = {
+        { id = "yyzwa_know_d", text = "Rockgar does, an' he lets me keep the cold corner. The others think I'm a sour old fool, an' I've no' told them otherwise, for I'd sooner they laughed at me than looked at me the way the healers did." },
+      },
+      choices = {
+        { text = "Tell them. They'd stand closer beside you.", next = "BACK", reply = "Maybe. Yuttha would listen, I think. She's kinder than I deserve.", fx = { align = { honor = 1 } } },
+        { text = "Keep it to yourself. It's your burden.", next = "BACK", reply = "Aye, it is, an' it's mine tae carry. Thank ye for understandin'.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yzwa_orc = {
+      lines = {
+        { id = "yyzwa_orc_d", text = "Ye're no' Dragonmaw, I can see that much, for yer kit's Horde an' no' clan. But ye'll forgive me if my hand doesnae leave my axe while ye're stood there, for I've learned the hard way what an orc can do." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yzwa_tally = {
+      lines = {
+        { id = "yyzwa_tally_d", text = "Four years o' marks, every night I said they'd come an' they didnae. She draws a wee orc wi' a frown beside each one, an' I've started tae look forward tae seein' what she draws next." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    grim_batol = { { id = "tp_ygrim_batol", text = "I was held there, once. I'll no' speak more of it." } },
+    algaz_station = { { id = "tp_yalgaz_station", text = "The cold corner's mine. Rockgar knows why." } },
     background = { { id = "tp_bg", text = "Four years at Algaz Station, an' I've expected tae die on every night o' them. It's wearin'." } },
     dragonmaw = { { id = "tp_dm", text = "Up the pass, in the tunnels. It'll be tonight, mark me." } },
     _none = { { id = "tp_none", text = "I dinnae know, an' I doubt it'll matter by mornin'." } },
@@ -317,6 +567,9 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on!" },
       },
       choices = {
+        { text = "Any word on the flying machine?", next = "ygan_machine" },
+        { text = "I have news from Gnomeregan, of a kind.", next = "ygan_gnome", when = { race = "Gnome" } },
+        { text = "Why do you carry news at all?", next = "ygan_crier" },
         { text = "What's the news from the station?", next = "station" },
         { text = "And from the North Gate?", next = "gate" },
         { text = "I've come from Ironforge, and it stands.", next = "ironforge", when = { race = { "Dwarf", "Gnome" } } },
@@ -342,8 +595,55 @@ P:NPC {
       lines = { { id = "i_default", text = "It does? Well, o' course it does, but it's good tae hear it said by somebody who's seen the gates this season. I'll have that at both ends o' the road by nightfall." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ygan_machine = {
+      lines = {
+        { id = "yygan_machine_d", text = "Only that the pilot's sure it came down near the trogg hills, an' that he wants it found before the troggs strip it for scrap. He's a gnome, an' he says there's a part in it that's worth more than the whole North Gate outpost." },
+      },
+      choices = {
+        { text = "What part?", next = "ygan_part" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygan_part = {
+      lines = {
+        { id = "yygan_part_d", text = "He wouldnae tell me, an' I'm no' a dwarf who's easily turned down. All he'd say is that it came out o' Gnomeregan before the fall, an' there's no' another like it left in the world now." },
+      },
+      choices = {
+        { text = "Should the outpost spend men on it?", next = "ygan_spend" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygan_spend = {
+      narr = "Ganin taps the side of his nose, the way a dwarf does when he's about to share an opinion he shouldn't.",
+      lines = {
+        { id = "yygan_spend_d", text = "That's the argument at the outpost every night. Hammerfoot wants a search party, the sergeant wants the men on the wall, an' I carry each o' them the other's words twice a day an' try no' tae take sides, which I'm bad at." },
+      },
+      choices = {
+        { text = "The wall comes first. Men matter more than machines.", next = "BACK", reply = "That's the sergeant's view, an' I'll tell him a stranger agreed. He'll like that.", fx = { align = { order = 1 } } },
+        { text = "Find the machine. Gnomeregan's secrets can't be lost.", next = "BACK", reply = "Hammerfoot'll kiss ye for that, if he can reach. I'll pass it on.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygan_gnome = {
+      lines = {
+        { id = "yygan_gnome_d", text = "Then ye've more than I've ever had tae give the lads! Tell me plainly, though, an' I'll pass it on plainly: is there any hope o' takin' the city back, or are the gnomes in Ironforge tae stay?" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygan_crier = {
+      lines = {
+        { id = "yygan_crier_d", text = "Because the station has nae courier an' the outpost has nae bird, so news either walks wi' me or it doesnae walk. I've carried word o' weddin's, deaths, debts an' one very rude letter, an' I never read them, mostly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    north_gate_pass = { { id = "tp_ynorth_gate_pass", text = "The outpost at the top o' my road. Cold, windy, an' full o' gnomes watchin' the sky." } },
+    pilot_hammerfoot = { { id = "tp_ypilot_hammerfoot", text = "A gnome who's lost a flyin' machine an' won't stop lookin' till he's found every bolt of it." } },
     background = { { id = "tp_bg", text = "I walk the pass road an' carry the talk along it. Ye'd be surprised how much a garrison needs that." } },
     _none = { { id = "tp_none", text = "I've heard nothin' on that, an' it pains me tae say so. If ye learn it, tell me first." } },
   },
@@ -378,6 +678,9 @@ P:NPC {
         { id = "h_again2", text = "Aye, out wi' it." },
       },
       choices = {
+        { text = "How long have you walked this patrol?", next = "ybrok_long" },
+        { text = "Do you hate the orcs, Brokk?", next = "ybrok_hate", when = { race = "Orc" } },
+        { text = "Who is Gothor?", next = "ybrok_gothor" },
         { text = "You stand there on purpose?", next = "stand" },
         { text = "What are the Dragonmaw doing in Dun Algaz?", next = "orcs" },
         { text = "Give them my regards.", next = "END" },
@@ -398,8 +701,55 @@ P:NPC {
       lines = { { id = "o_default", text = "Sulkin', mostly. They were the terror o' Khaz Modan when they'd dragons tae ride, an' now they squat in dwarven tunnels they didnae dig an' raid the marsh road for scraps." } },
       choices = { { text = "A long fall for them. Something else.", next = "BACK" } },
     },
+    ybrok_long = {
+      lines = {
+        { id = "yybrok_long_d", text = "Four years, since the day Rockgar asked for a volunteer an' my hand was up before he'd finished askin'. My brother was on the Thandol Span when the Dragonmaw still had their dragons, an' I reckon I owe him a look at their faces." },
+      },
+      choices = {
+        { text = "What happened to your brother?", next = "ybrok_brother" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybrok_brother = {
+      narr = "He grips the strap of his rifle and does not look at you for a moment.",
+      lines = {
+        { id = "yybrok_brother_d", text = "Burned on the Span wi' half his company, back in the Second War, when the dragons came down out o' Grim Batol. I was too young tae march wi' him, an' I've never quite forgiven the years for it." },
+      },
+      choices = {
+        { text = "Is that why you stand at the tunnel?", next = "ybrok_why" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybrok_why = {
+      lines = {
+        { id = "yybrok_why_d", text = "Partly, an' partly because somebody has tae. Rockgar says I'll stand there one day too long an' get an arrow for my trouble, an' he's likely right, but I'd sooner that than have the orcs think we've gone soft." },
+      },
+      choices = {
+        { text = "Showing your face is the bravest thing on this road.", next = "BACK", reply = "Ha! Ye'd make a Mountaineer, {class}. Come stand wi' me some mornin'.", fx = { align = { honor = 1 } } },
+        { text = "That's pride, not duty. Rockgar is right.", next = "BACK", reply = "Maybe so, an' maybe pride's all that's kept those orcs in their holes. I'll think on it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybrok_hate = {
+      lines = {
+        { id = "yybrok_hate_d", text = "Hate's a big word for what's left o' them, though I'll no' pretend I'd share a drink wi' a Dragonmaw. Ye're no' of their clan, an' I've heard Thrall's lot keep different ways, so mind yer road an' I'll mind mine." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybrok_gothor = {
+      lines = {
+        { id = "yybrok_gothor_d", text = "Gothor Brumn, our smith at the station, an' the only dwarf here who curses louder than me. He's mended every dent the orcs ever put in me, an' he says he'll charge double the day I come back wi' a hole he cannae fix." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    algaz_station = { { id = "tp_yalgaz_station", text = "Rockgar's station, wi' five rifles an' a smith between the orcs an' the loch. It holds, though." } },
+    grim_batol = { { id = "tp_ygrim_batol", text = "The Dragonmaw's old hold, past the Wetlands. I'll see it burned clean one day, or my son will." } },
     background = { { id = "tp_bg", text = "I've the Dun Algaz patrol, an' I asked for it. Somebody ought tae look those orcs in the eye." } },
     dragonmaw = { { id = "tp_dm", text = "Dragon riders wi' nae dragons, hidin' in our tunnels. I show them my face every day." } },
     _none = { { id = "tp_none", text = "I've nae idea. If I cannae shoot it or shout at it, I leave it tae Rockgar." } },
@@ -435,6 +785,9 @@ P:NPC {
         { id = "h_again2", text = "Hush a moment. Nae, it's only water. Go on." },
       },
       choices = {
+        { text = "How did you come to the tunnel patrol?", next = "ydok_how" },
+        { text = "Do the orcs ever hear you first?", next = "ydok_orc", when = { race = "Orc" } },
+        { text = "Tell me about your lantern.", next = "ydok_lantern" },
         { text = "What do you listen for?", next = "listen" },
         { text = "These tunnels are dwarven work.", next = "work" },
         { text = "I'll go quietly.", next = "END" },
@@ -455,8 +808,55 @@ P:NPC {
       lines = { { id = "w_default", text = "Aye, every yard, an' fine work it is. It shames me that orcs sleep in the side halls, for it was built as a road between dwarven lands an' it's a road we can barely keep open now." } },
       choices = { { text = "It'll be yours again one day. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ydok_how = {
+      lines = {
+        { id = "yydok_how_d", text = "I was a miner at the Ironband dig before the troggs, an' a miner learns tae listen tae the rock before it falls on him. When Rockgar asked who could walk the dark wi'out a lantern blazin', I was the only one who didnae laugh." },
+      },
+      choices = {
+        { text = "You worked at Ironband's dig?", next = "ydok_dig" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydok_dig = {
+      lines = {
+        { id = "yydok_dig_d", text = "Three seasons, wi' the Explorers' League diggin' for titan stone. Then the troggs came up out o' the deep places, an' we left our picks where they lay. I still dream o' that last shaft, an' I couldnae tell ye why." },
+      },
+      choices = {
+        { text = "What do you think woke the troggs?", next = "ydok_woke" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydok_woke = {
+      narr = "He lowers the lantern hood a little further and speaks even more softly.",
+      lines = {
+        { id = "yydok_woke_d", text = "The diggin', I fear. We went deeper than the old maps said tae go, an' Ironband wouldnae stop because the stone kept gettin' stranger. I've wondered since if some places are best left shut, though the League would call that cowardice." },
+      },
+      choices = {
+        { text = "Some things belong buried. You were right to fear it.", next = "BACK", reply = "Aye, I think so too. It's a comfort tae hear it said aloud.", fx = { align = { light = 1 } } },
+        { text = "Knowledge is worth the risk. The League should dig on.", next = "BACK", reply = "Brave words, an' maybe true. Ye didnae hear the troggs comin' up, though.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydok_orc = {
+      lines = {
+        { id = "yydok_orc_d", text = "Now an' then, aye, for an orc has keen ears in the dark, keener than mine. Ye're no' Dragonmaw by the look o' ye, an' I'll no' shutter the lantern on ye, but ye'll understand if I keep my hand near my axe." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydok_lantern = {
+      lines = {
+        { id = "yydok_lantern_d", text = "It was my father's, from the coal pits under Dun Morogh, an' the hood's been mended so often there's little o' the first one left. It lights a dwarf's feet an' naught else, which is all a tunnel guard needs." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    ironband_excavation = { { id = "tp_yironband_excavation", text = "I dug there once. Now it's trogg country, an' I dinnae go near it." } },
+    wetlands = { { id = "tp_ywetlands", text = "Wet, green an' full o' things that bite. I see the end o' my tunnel an' turn back gladly." } },
     background = { { id = "tp_bg", text = "I've walked this tunnel six years. I could do it blind, an' some nights I near enough do." } },
     dragonmaw = { { id = "tp_dm", text = "They keep tae the side halls. Listen for iron draggin' on stone." } },
     _none = { { id = "tp_none", text = "I couldnae tell ye. Little news finds its way in here." } },
@@ -492,6 +892,9 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on, traveller." },
       },
       choices = {
+        { text = "What happened between Bronzebeard and Wildhammer?", next = "ynaa_war" },
+        { text = "I'm of Wildhammer blood. Tell me of my thane.", next = "ynaa_wild", when = { race = "Dwarf" } },
+        { text = "Why did you ask for this post?", next = "ynaa_nine" },
         { text = "Who are the statues?", next = "who" },
         { text = "What do you guard them from?", next = "from" },
         { text = "I'll pay my respects.", next = "END" },
@@ -512,8 +915,55 @@ P:NPC {
       lines = { { id = "f_default", text = "From troggs, who've nae more reverence than the rocks they crawled from, an' who'd foul the plinths if we let them near. Captain Rugelfuss holds them west o' the valley, an' I stand here in case he cannae.", fx = { learn = { "troggs" } } } },
       choices = { { text = "May it never come to that. Something else.", next = "BACK" } },
     },
+    ynaa_war = {
+      lines = {
+        { id = "yynaa_war_d", text = "When Modimus Anvilmar died, the three clans fought for the throne in Ironforge, an' the Bronzebeards won it. The Wildhammers went north tae Grim Batol an' the Dark Irons went south an' sulked, an' then they struck at both." },
+      },
+      choices = {
+        { text = "And the two thanes stood together?", next = "ynaa_stood" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ynaa_stood = {
+      lines = {
+        { id = "yynaa_stood_d", text = "Against the Dark Irons, aye, outside Thaurissan's walls, an' they broke them. Then the sorcerer Thaurissan called up somethin' in his fury that burned the Searing Gorge an' made the Burning Steppes, an' that was the end o' the war." },
+      },
+      choices = {
+        { text = "Do you think the clans will unite again?", next = "ynaa_unite" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ynaa_unite = {
+      narr = "Naarh looks up at the two great faces as if waiting for one of them to answer first.",
+      lines = {
+        { id = "yynaa_unite_d", text = "I hope for it every day I stand here. The Wildhammers in the Hinterlands still call us soft, an' there's Bronzebeards who call them savages, an' the kings above us would be ashamed o' both. One day it'll take another war tae bring us together." },
+      },
+      choices = {
+        { text = "Unity is worth any price. Your kings would want it.", next = "BACK", reply = "Aye. That's what I believe, an' what I'll tell any dwarf who passes here.", fx = { align = { honor = 1 } } },
+        { text = "The clans chose their roads. Respect their choices.", next = "BACK", reply = "Perhaps. But the kings chose one road together, an' that's why we stand here.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ynaa_wild = {
+      lines = {
+        { id = "yynaa_wild_d", text = "Khardros Wildhammer, who led yer folk tae Grim Batol an' made it the greatest hold in the north, till the Dark Irons' curse drove ye out. Look on him well, for there's nae finer likeness o' him in all o' Khaz Modan." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ynaa_nine = {
+      lines = {
+        { id = "yynaa_nine_d", text = "Because I was born in the shadow o' these statues, in a farmstead that's gone now, an' my father brought me here every year on the day o' the kings' victory. I promised him I'd guard them when he couldnae, an' I keep my promises." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    valley_of_kings = { { id = "tp_yvalley_of_kings", text = "The valley where the two kings stand watch. I'll guard it till the stone wears away." } },
+    bronzebeard = { { id = "tp_ybronzebeard", text = "The clan o' the King in Ironforge. Madoran was the first o' them tae rule there." } },
     background = { { id = "tp_bg", text = "I asked for this post an' I've held it nine years. I'd ask for nae other." } },
     dark_iron = { { id = "tp_di", text = "The kings above us stood against them once. We stand here still." } },
     troggs = { { id = "tp_tr", text = "Beasts wi' nae respect for stone that's been worked. They'll no' touch the kings while I draw breath." } },
@@ -550,6 +1000,9 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on, I've all day, more's the pity." },
       },
       choices = {
+        { text = "Do you have family back in Ironforge?", next = "ytyr_family" },
+        { text = "Tinker Town does have a double toaster.", next = "ytyr_gnome", when = { race = "Gnome" } },
+        { text = "What were the troggs like up close?", next = "ytyr_troggs" },
         { text = "What do you miss about Ironforge?", next = "miss" },
         { text = "Is the valley really so dull?", next = "dull" },
         { text = "The Great Forge was burning bright when I left.", next = "forge", when = { race = { "Dwarf", "Gnome" } } },
@@ -575,8 +1028,55 @@ P:NPC {
       lines = { { id = "f_default", text = "Was it? Ah, ye've done me good just sayin' so. I can near enough feel it, an' I'll thank ye for that when the wind gets up tonight." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ytyr_family = {
+      lines = {
+        { id = "yytyr_family_d", text = "A sweetheart, Brenna, who works the bellows at the Great Forge an' writes me every week, though the letters take a fortnight tae reach the valley. She says I'm missin' nothin', an' I know she's lyin' because she's kind." },
+      },
+      choices = {
+        { text = "Will you marry her when you're home?", next = "ytyr_marry" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytyr_marry = {
+      narr = "Tyraw grins and pats the breast of his tunic, where something small and square sits over his heart.",
+      lines = {
+        { id = "yytyr_marry_d", text = "I've the ring already, bought off a Commons jeweller wi' three months' pay. I meant tae ask before I was sent out, but I lost my nerve, an' now I'm stuck under two stone kings wi' a ring an' nae nerve at all." },
+      },
+      choices = {
+        { text = "Why not ask her by letter?", next = "ytyr_letter" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytyr_letter = {
+      lines = {
+        { id = "yytyr_letter_d", text = "I've thought on it, believe me, an' I've written it twice an' burned it twice. A proper dwarf asks face tae face, my da says, but a fortnight's post an' a hundred days left on my loan make for a long wait." },
+      },
+      choices = {
+        { text = "Ask her face to face. She deserves that.", next = "BACK", reply = "Aye, ye're right, an' so's my da. A hundred days, then, an' I'll practise on the statues.", fx = { align = { honor = 1 } } },
+        { text = "Write the letter. Life's too short to wait.", next = "BACK", reply = "Ye know, ye might be right. I'll write it tonight, an' maybe no' burn this one.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytyr_gnome = {
+      lines = {
+        { id = "yytyr_gnome_d", text = "I knew it! I told Naarh an' he said nae machine could toast both sides wi'out burnin' the middle, an' he's been smug about it for a month. I owe ye a pint for that, friend, when I'm next near an inn." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytyr_troggs = {
+      lines = {
+        { id = "yytyr_troggs_d", text = "Like a pack o' rats wi' rocks in their fists, an' about as clever, but there's a lot o' them an' they dinnae fear dyin'. Naarh stood like a wall an' I stood beside him, an' it was the best quarter hour o' my posting." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    great_forge = { { id = "tp_ygreat_forge", text = "The heart o' Ironforge, an' the warmest place in the world. Brenna works the bellows there." } },
+    valley_of_kings = { { id = "tp_yvalley_of_kings", text = "A grand place tae stand, if ye like quiet. I dinnae, much." } },
     background = { { id = "tp_bg", text = "Ironforge garrison, on loan tae the valley. A hundred an' six days, an' countin'." } },
     troggs = { { id = "tp_tr", text = "They liven the place up, I'll say that, an' I'd sooner they didnae." } },
     _none = { { id = "tp_none", text = "I couldnae tell ye, I'm new here myself. Ask Naarh, he's been stood under those statues for years." } },
@@ -612,6 +1112,9 @@ P:NPC {
         { id = "h_again2", text = "Go on." },
       },
       choices = {
+        { text = "Why did you leave Dun Morogh's boar for this?", next = "ykal_why" },
+        { text = "A hunter wants to know the valley's game.", next = "ykal_hunter", when = { class = "HUNTER" } },
+        { text = "Have you found anything that wasn't a trogg?", next = "ykal_boot" },
         { text = "What crossed it last night?", next = "last" },
         { text = "How do you tell a trogg's track?", next = "track" },
         { text = "Three troggs, one limping, heading west.", next = "read", when = { class = "HUNTER" } },
@@ -637,8 +1140,55 @@ P:NPC {
       lines = { { id = "r_default", text = "Four, for one's steppin' in another's prints, but ye've the limp an' the headin' right, an' that's better than most Mountaineers manage. Ye'd be wasted anywhere but on a trail." } },
       choices = { { text = "Four. I'll look closer. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ykal_why = {
+      lines = {
+        { id = "yykal_why_d", text = "Because the boar never meant me harm, an' the troggs do. I tracked tae feed my family once, but when the Stonesplinters came up I found I'd rather track tae keep families fed, an' this valley's fed half o' Loch Modan for centuries." },
+      },
+      choices = {
+        { text = "Are the troggs getting cleverer?", next = "ykal_clever" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykal_clever = {
+      narr = "She crouches and lays two fingers lightly in an old print.",
+      lines = {
+        { id = "yykal_clever_d", text = "No' cleverer, but better led. These prints walk in a line now, wi' one set out ahead an' back again, like a scout reportin'. Troggs never did that before, an' somethin' is teachin' them, or somebody." },
+      },
+      choices = {
+        { text = "What does the Captain think?", next = "ykal_captain" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykal_captain = {
+      lines = {
+        { id = "yykal_captain_d", text = "Rugelfuss thinks I read too much intae mud, an' he's said so kindly, but he moved the watch all the same. I'd like him tae send a party over the ridge tae see who's leadin' them, but he says the valley cannae spare the rifles." },
+      },
+      choices = {
+        { text = "The Captain's right. Keep the rifles home.", next = "BACK", reply = "Aye, he's the Captain an' I'm a tracker. I'll keep readin' the mud.", fx = { align = { order = 1 } } },
+        { text = "Strike first. Find their leader before they come.", next = "BACK", reply = "That's what I'd do, if the green on my shoulder were a captain's.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykal_hunter = {
+      lines = {
+        { id = "yykal_hunter_d", text = "Boar an' bear on the eastern slopes, an' mountain buzzards circlin' over the old mine heads. Leave the crocolisks by the loch tae the Farstriders, for they'll take yer arm if ye misread the water." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ykal_boot = {
+      lines = {
+        { id = "yykal_boot_d", text = "A boot print, once, among the trogg tracks, hobnailed an' too small for a man. I've only seen it the once, an' I've no' told the Captain, for I couldnae swear tae it in the light I had." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    valley_of_kings = { { id = "tp_yvalley_of_kings", text = "A grand place tae stand guard, an' a grand place tae read tracks, for the floor's soft an' honest." } },
+    dun_morogh = { { id = "tp_ydun_morogh", text = "Snow tracks are the easiest in the world. I miss them, some mornin's." } },
     background = { { id = "tp_bg", text = "I tracked boar in Dun Morogh before I took the green. Troggs are easier, an' I like them less." } },
     troggs = { { id = "tp_tr", text = "They've started scoutin' us. That's new, an' I dinnae like new in a trogg." } },
     _none = { { id = "tp_none", text = "Cannae say. It's left nae tracks where I walk." } },
@@ -672,6 +1222,9 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on, I can spare ye a breath." },
       },
       choices = {
+        { text = "Have you always been a runner?", next = "yzar_runner" },
+        { text = "Race me to the crossroad, then.", next = "yzar_race", when = { race = "NightElf" } },
+        { text = "What happened with the boulder?", next = "yzar_boulder" },
         { text = "Why race your own patrol?", next = "race" },
         { text = "What's at the crossroad?", next = "cross" },
         { text = "Don't let me slow you.", next = "END" },
@@ -692,8 +1245,55 @@ P:NPC {
       lines = { { id = "x_default", text = "A signpost an' a choice: north tae Thelsamar, or east round the south shore toward the dig an' the lodge. Droken has the Thelsamar road from there, an' I hand folk on tae him like a parcel." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yzar_runner = {
+      lines = {
+        { id = "yyzar_runner_d", text = "Since I was a bairn in Kharanos, racin' my brothers tae the top o' the hill an' back. I never once beat the eldest, an' he went off wi' the Reserve this spring, so I race the sun instead, which is a fairer match." },
+      },
+      choices = {
+        { text = "Do you miss your brother?", next = "yzar_brother" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yzar_brother = {
+      narr = "For once Zaren slows, and her breath comes a little ragged.",
+      lines = {
+        { id = "yyzar_brother_d", text = "More than I'll say tae his face when he's home. He's at the Alliance front somewhere north o' Arathi, an' his letters stopped a month back. The Captain says the post is slow, an' I run faster so I dinnae have tae think about it." },
+      },
+      choices = {
+        { text = "What if the news is bad?", next = "yzar_bad" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yzar_bad = {
+      lines = {
+        { id = "yyzar_bad_d", text = "Then I'll run tae Ironforge an' back in a day an' a night, for there'll be nothin' else tae do wi' my legs. My mother says I should stop racin' an' sit wi' her, but I cannae sit still, I never could." },
+      },
+      choices = {
+        { text = "Sit with your mother. Grief shared is lighter.", next = "BACK", reply = "Aye, maybe she needs me more than I need the road. I'll go tonight.", fx = { align = { light = 1 } } },
+        { text = "Keep running. Everyone grieves their own way.", next = "BACK", reply = "Thank ye. That's what I needed tae hear, I think.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yzar_race = {
+      lines = {
+        { id = "yyzar_race_d", text = "Ha! I'd lose, an' I know it, but I'd like tae see the look on Droken's face when an elf comes bargin' past him wi' me pantin' behind. Off ye go, then, an' I'll catch ye up, eventually." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yzar_boulder = {
+      lines = {
+        { id = "yyzar_boulder_d", text = "Three troggs rollin' it like bairns wi' a snowball, an' when they saw me they dropped it on their own feet an' ran. I laughed so hard I couldnae fire, an' Droken's no' let me forget it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    kharanos = { { id = "tp_ykharanos", text = "Where I learned tae run. My mother's still there, waitin' for news." } },
+    alliance_front = { { id = "tp_yalliance_front", text = "Somewhere north. My brother's there, an' I'm here, runnin'." } },
     background = { { id = "tp_bg", text = "I've the valley road, an' the best time on it, an' I'll race any Mountaineer who says otherwise." } },
     troggs = { { id = "tp_tr", text = "They watch for regular habits. So I havenae any." } },
     _none = { { id = "tp_none", text = "Dinnae know, an' I cannae stop tae wonder! Ask Droken up the road." } },
@@ -730,6 +1330,9 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on, I've a pipe tae finish anyway." },
       },
       choices = {
+        { text = "Tell me about the pipe.", next = "yvee_pipe" },
+        { text = "I'm young. What should I know about the road?", next = "yvee_young", when = { maxLevel = 12 } },
+        { text = "Tell me about the South Gate Pass.", next = "yvee_pass" },
         { text = "You must see everyone who comes through.", next = "everyone" },
         { text = "Is there trouble on this stretch?", next = "trouble" },
         { text = "Good day, Mountaineer.", next = "END" },
@@ -750,8 +1353,55 @@ P:NPC {
       lines = { { id = "t_default", text = "Little enough, this close tae the pass. A wolf follows the tunnel through from the snow now an' then, an' the troggs keep further north, where Kalmir an' the Captain have their hands full.", fx = { learn = { "troggs" } } } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yvee_pipe = {
+      lines = {
+        { id = "yyvee_pipe_d", text = "It was my wife's, would ye believe, for she smoked like a forge an' laughed like one too. She's been in the ground six years now, an' I light it every mornin' on this road because she'd have liked the view." },
+      },
+      choices = {
+        { text = "I'm sorry. What was her name?", next = "yvee_wife" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yvee_wife = {
+      narr = "Veek takes the pipe from his teeth and turns it over slowly in his fingers.",
+      lines = {
+        { id = "yyvee_wife_d", text = "Rhona, an' she was the finest brewer in Kharanos till the fever took her in the cold winter. I asked for this road after, because the house was too quiet an' the road's never quiet for long." },
+      },
+      choices = {
+        { text = "Do you think of going back to Kharanos?", next = "yvee_back" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yvee_back = {
+      lines = {
+        { id = "yyvee_back_d", text = "My son wants me tae, for he's opened her brewery again an' says it needs an old dwarf tae taste the ale. But I've a road here, an' young folk who need tellin' tae keep their heads, an' I'm no' sure he needs me more than they do." },
+      },
+      choices = {
+        { text = "Go home. Your son needs his father.", next = "BACK", reply = "Aye, maybe he does. I'll write him tonight, an' see what the pipe says.", fx = { align = { honor = 1 } } },
+        { text = "Stay on the road. The young ones need you more.", next = "BACK", reply = "That's what I tell myself, every mornin'. It's good tae hear somebody agree.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yvee_young = {
+      lines = {
+        { id = "yyvee_young_d", text = "Keep tae the road, keep a light pack an' a full waterskin, an' dinnae fight anythin' bigger than ye unless ye've a friend wi' ye. An' come back this way when ye're done, so I can see what ye've become." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yvee_pass = {
+      lines = {
+        { id = "yyvee_pass_d", text = "The South Gate tunnel, back tae Dun Morogh, cut by the old masons for the trade wagons. It's dry an' safe an' well-lit, which is more than I can say for the north one, so be glad ye came this way." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    kharanos = { { id = "tp_ykharanos", text = "My old town, in Dun Morogh. My son keeps the brewery there now." } },
+    south_gate_pass = { { id = "tp_ysouth_gate_pass", text = "The tunnel from Dun Morogh. Dry an' safe, an' I've walked it more times than I can count." } },
     background = { { id = "tp_bg", text = "I've walked the South Gate road since before the last war. I mean tae walk it till my pipe goes out for good." } },
     troggs = { { id = "tp_tr", text = "North an' west o' my stretch, thank the stone. Ask the Captain." } },
     _none = { { id = "tp_none", text = "I couldnae say, {g:lad|lass}. I know my road, an' the faces on it, an' that's my lot." } },

@@ -34,6 +34,10 @@ P:NPC {
         { text = "So what's going on in Everlook?", next = "news" },
         { text = "How do you make a living, then?", next = "living" },
         { text = "You have an admirer, I hear.", next = "kezzig" },
+        { text = "What's the biggest secret in Everlook?", next = "ysecret" },
+        { text = "Who do you like best in town?", next = "ylike" },
+        { text = "Do the Horde and Alliance get along here?", next = "yboth" },
+        { text = "Got any gossip for a fellow goblin?", next = "ygob", when = { race = "Goblin" } },
         { text = "Keep warm, Gogo.", next = "END" },
       },
     },
@@ -56,8 +60,45 @@ P:NPC {
       lines = { { id = "lx_default", text = "Lunnix has a pickaxe and a temper, and I'm fond of my head where it is. So let's say you never saw him here and I never said a word, and everybody in Everlook stays friends." } },
       choices = { { text = "I saw nothing. Something else.", next = "BACK" } },
     },
+    ysecret = {
+      lines = {
+        { id = "yysecret_d", text = "If I told you, it wouldn't be a secret, would it, sugar? I'll give you a little one for free. Somebody in town's been selling Timbermaw beads to the Deadwood furbolgs. Guess who." },
+      },
+      choices = {
+        { text = "Tell the Timbermaw. They deserve to know.", next = "BACK", reply = "Oh, you're a do-gooder! Fine, but don't tell them you heard it from me.", fx = { align = { honor = 1 } } },
+        { text = "Keep it quiet. That's how you stay alive here.", next = "BACK", reply = "Now you sound like a local. I knew there was a goblin in you somewhere.", fx = { align = { honor = -1 } } },
+      },
+    },
+    ylike = {
+      lines = {
+        { id = "yylike_d", text = "Lunnix, because she's honest, and Kezzig, because he's not. You need both kinds in a town, or it gets dull. Honest folk keep you warm, and liars keep you sharp." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yboth = {
+      lines = {
+        { id = "yyboth_d", text = "Inside the walls, sure, because the bruisers'll put you in the snow if you start trouble. Outside, everyone's on their own. I've seen an orc and a night elf drink together in the inn and then try to kill each other at dawn." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygob = {
+      lines = {
+        { id = "yygob_v0", when = { race = "Goblin" }, text = "For you, cousin, a discount. Rumour is the Cartel's sending an auditor up here, and half the shopkeepers in Everlook are sweating ice." },
+        { id = "yygob_d", text = "Sugar, I've got gossip about everyone from here to Gadgetzan. For you, a discount. Rumour is the Cartel's sending someone to audit Everlook, and half the shopkeepers are sweating ice." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    lunnix = { { id = "ytp_lunnix", text = "Lunnix sells mining gear and doesn't gossip. I think it's a waste of a good counter." } },
+    everlook = { { id = "ytp_everlook", text = "Everlook's the warmest cold town in the world. Lots of gossip, lots of fur." } },
+    timbermaw = { { id = "ytp_timbermaw", text = "The Timbermaw furbolgs are friendly, if you're friendly first. I've never tried." } },
     background = { { id = "tp_bg", text = "I came up to Everlook with a friend and stayed for the company. The weather sure wasn't the draw." } },
     _none = { { id = "tp_none", text = "Ooh, that one I ain't heard yet. Come back in a day or two, hon, I'll know by then." } },
   },
@@ -95,6 +136,10 @@ P:NPC {
         { text = "What money did the goblin promise?", next = "money" },
         { text = "Why not go home?", next = "home" },
         { text = "What's Everlook like to live in?", next = "town" },
+        { text = "Who was the goblin who promised you money?", next = "ygob" },
+        { text = "Do you have family back home?", next = "yfam" },
+        { text = "What do you do with your days?", next = "ydays" },
+        { text = "A fellow human so far north. Where are you from?", next = "yfrom", when = { race = "Human" } },
         { text = "Stay warm, Jack.", next = "END" },
       },
     },
@@ -117,8 +162,44 @@ P:NPC {
       lines = { { id = "t_default", text = "It's the only place I've lived where an orc, a dwarf and a dead man will stand in the same queue for stew without a word said. The goblins' bruisers see to the peace, and the cold sees to the rest, since nobody wants to be thrown out into it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    ygob = {
+      lines = {
+        { id = "yygob_d", text = "A fellow in Booty Bay called Grizzle, who said Everlook was the next Gadgetzan and I'd be in on the ground floor. The ground floor turned out to be snow, and Grizzle turned out to be gone." },
+      },
+      choices = {
+        { text = "Find him and make him pay.", next = "BACK", reply = "I'd like to. But I'd have to get warm first.", fx = { align = { order = -1 } } },
+        { text = "Let it go. You chose to believe him.", next = "BACK", reply = "True enough. I was a fool, and a cold one.", fx = { align = { order = 1 } } },
+      },
+    },
+    yfam = {
+      lines = {
+        { id = "yyfam_d", text = "A sister in Lakeshire who writes me letters full of disapproval. She was right, of course. She usually is, which is the most annoying thing about her." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydays = {
+      lines = {
+        { id = "yydays_d", text = "I drink, I play cards with the bruisers, and I watch the Timbermaw traders come down from the hills. Some days I help Lunnix count furs, and she pays me in soup." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfrom = {
+      lines = {
+        { id = "yyfrom_d", text = "Lakeshire, in Redridge, where the worst cold is a wet spring. If you're headed back south, tell the Lakeshire inn I said hello, and that I'm still alive, more or less." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    everlook = { { id = "ytp_everlook", text = "Everlook's a goblin town with a goblin's prices. The ale is good, at least." } },
+    lakeshire = { { id = "ytp_lakeshire", text = "Lakeshire's a pretty town on a lake. I'd give my boots to be there now." } },
+    booty_bay = { { id = "ytp_booty_bay", text = "Booty Bay's where I made my first mistake. It's a good place for mistakes." } },
     background = { { id = "tp_bg", text = "I'm a southerner who came north after easy money, and found it wasn't easy and wasn't much." } },
     _none = { { id = "tp_none", text = "You've got me there. Ask one of the goblins; they'll know, and they'll charge you." } },
   },
@@ -156,6 +237,10 @@ P:NPC {
         { text = "What do you watch for out here?", next = "watch" },
         { text = "Could you teach me to ride a frostsaber?", next = "ride" },
         { text = "A human lives in the house nearby.", next = "umbranse" },
+        { text = "Why are you posted so far from the Rock?", next = "yfar" },
+        { text = "Have you lost a saber to the wild?", next = "ylost" },
+        { text = "What do you think of Everlook's goblins?", next = "ygob" },
+        { text = "A daughter of Teldrassil, so far from home?", next = "yhome", when = { race = "NightElf" } },
         { text = "Elune watch your camp.", next = "END" },
       },
     },
@@ -178,8 +263,53 @@ P:NPC {
       lines = { { id = "u_default", text = "Umbranse, who says he speaks with the dead. He keeps to his house and I keep to my fire, and the sabers give his door a wide berth, which tells me there is something to his claim." } },
       choices = { { text = "Another question.", next = "BACK" } },
     },
+    yfar = {
+      lines = {
+        { id = "yyfar_d", text = "Rivern says it is because I see well in snow-glare. I think it is because I argued with her about the young sabers, and she wanted me somewhere I could argue with the wind instead." },
+      },
+      choices = {
+        { text = "What did you argue about?", next = "yargue" },
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    yargue = {
+      lines = {
+        { id = "yyargue_d", text = "Whether the cubs should be taken from the wild at all. Rivern says the Trainers keep the bloodlines strong. I say a saber raised on a rope forgets what snow is for. We are both a little right." },
+      },
+      choices = {
+        { text = "The Trainers' way keeps the sabers safe. It's right.", next = "BACK", reply = "Perhaps. Rivern would be glad to hear it, and gladder that I did.", fx = { align = { order = 1 } } },
+        { text = "Leave the cubs wild. The snow is their home.", next = "BACK", reply = "So I said. It is why I am out here, and not at the Rock.", fx = { align = { order = -1 } } },
+      },
+    },
+    ylost = {
+      lines = {
+        { id = "yylost_d", text = "One, a young female called Ashmane, who heard the wild pack calling and followed them over the ridge. I did not stop her. I watch for her still, and twice I have seen tracks that might be hers." },
+      },
+      choices = {
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    ygob = {
+      lines = {
+        { id = "yygob_d", text = "They sell us rope and feed and pay in coin for every pelt the poachers bring, which I hate. Yet without Everlook the Trainers would have no supply road at all. Elune keeps strange company for us." },
+      },
+      choices = {
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    yhome = {
+      lines = {
+        { id = "yyhome_v0", when = { race = "NightElf" }, text = "I left before Teldrassil was finished, sister, and have not been back. The snow suits me. Here the stars are close enough to touch, as they were in the old forests." },
+        { id = "yyhome_d", text = "I left Darnassus before the tree was finished, and I have not been back. The snow suits me better than the new city. Here the stars are close enough to touch." },
+      },
+      choices = {
+        { text = "Another question.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    wintersaber_trainers = { { id = "ytp_wintersaber_trainers", text = "The Wintersaber Trainers raise the frostsabers on Frostsaber Rock. It is a slow, cold, honourable work." } },
+    everlook = { { id = "ytp_everlook", text = "Everlook is loud and smells of oil. I go there only when I must." } },
     background = { { id = "tp_bg", text = "I have walked with the frostsabers since before these hills had a goblin town in them." } },
     _none = { { id = "tp_none", text = "The snow has not told me, and little else speaks out here." } },
   },
@@ -217,6 +347,10 @@ P:NPC {
         { text = "What have you learned of the frostsabers?", next = "sabers" },
         { text = "This is hard country for a tauren.", next = "hard" },
         { text = "Who is the Forsaken who shares your camp?", next = "rilan" },
+        { text = "Do you miss Mulgore?", next = "ymiss" },
+        { text = "Have you hunted a frostsaber?", next = "yhunt" },
+        { text = "What do you think of the night elves?", next = "yelves" },
+        { text = "A tauren hunter should see this. Show me.", next = "yshow", when = { class = "HUNTER" } },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
     },
@@ -239,8 +373,44 @@ P:NPC {
       lines = { { id = "ri_default", text = "Rilan Howard, of the Undercity. He does not feel the cold and I do not understand his purpose here, but he keeps the fire through the night while I sleep, and that is enough for travelling companions." } },
       choices = { { text = "Tell me something else.", next = "BACK" } },
     },
+    ymiss = {
+      lines = {
+        { id = "yymiss_d", text = "Every morning, when I wake and there is no grass. But the Earth Mother made the snow too, and she asked me to see it. A hunter who only knows one land is a poor hunter." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhunt = {
+      lines = {
+        { id = "yyhunt_d", text = "No, and I will not. They are the night elves' sacred beasts, and I respect that, though the elves would gladly shoot me for watching. A hunter can learn more by watching than by killing." },
+      },
+      choices = {
+        { text = "Respect their sacred beasts. Watching is enough.", next = "BACK", reply = "Yes. The Earth Mother smiles on that.", fx = { align = { light = 1 } } },
+        { text = "A hunter should hunt. The beasts don't belong to anyone.", next = "BACK", reply = "Perhaps, but I would rather be welcome in these hills than right.", fx = { align = { light = -1 } } },
+      },
+    },
+    yelves = {
+      lines = {
+        { id = "yyelves_d", text = "They are proud and fierce, and they love their land as we love ours. If they were not at war with the Horde, I think we would be friends. Perhaps we will be, one day." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yshow = {
+      lines = {
+        { id = "yyshow_v0", when = { race = "Tauren" }, text = "Then watch the ridge at dawn, child of the herds. The sabers come down to drink, and they move like falling snow. Only watch, and the Earth Mother will teach you." },
+        { id = "yyshow_d", text = "Then watch the ridge at dawn. The sabers come down to drink at the hot springs, and they move like snow falling. Do not make a sound, and do not hunt. Only watch." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    thunder_bluff = { { id = "ytp_thunder_bluff", text = "Thunder Bluff is home. I will go back when I have learned what the snow has to teach." } },
+    rilan = { { id = "ytp_rilan", text = "The Forsaken is a strange friend. He does not breathe, and he does not complain, and that is restful." } },
     background = { { id = "tp_bg", text = "I am a hunter of Thunder Bluff, come to look upon beasts the plains never showed me." } },
     _none = { { id = "tp_none", text = "The wind has carried me no word of that. Perhaps they know in Everlook." } },
   },
@@ -278,6 +448,10 @@ P:NPC {
         { text = "Who sent you?", next = "sent" },
         { text = "The cold doesn't trouble you at all?", next = "cold" },
         { text = "You travel with a tauren.", next = "sar" },
+        { text = "What do you think of the night elves?", next = "yelves" },
+        { text = "Do you remember your life before?", next = "ybefore" },
+        { text = "Is it lonely, being Forsaken?", next = "ylonely" },
+        { text = "I'm Forsaken too. How do you bear it?", next = "ybear", when = { race = "Scourge" } },
         { text = "I'll leave you to the snow.", next = "END" },
       },
     },
@@ -300,8 +474,44 @@ P:NPC {
       lines = { { id = "sa_default", text = "Sar Browneye, who came for the cats and stays for reasons she calls reverence. She talks to the mountain and it doesn't answer, and she seems entirely content with the arrangement, which I envy more than I'd tell her." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yelves = {
+      lines = {
+        { id = "yyelves_d", text = "They are very old, very proud, and very fond of cats. They also hate me on sight, which is efficient of them. I admire their patience, if not their manners." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybefore = {
+      lines = {
+        { id = "yybefore_d", text = "A clerk in Lordaeron's treasury, with a wife and a little garden. I remember the smell of ink and roses. I don't remember their faces, which is perhaps a mercy the Dark Lady arranged." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ylonely = {
+      lines = {
+        { id = "yylonely_d", text = "The tauren keeps me company, and she does not flinch, which is more than most living do. Some of my kind would say I've grown soft. Others would say I've remembered something worth keeping." },
+      },
+      choices = {
+        { text = "Friendship is worth keeping, even dead.", next = "BACK", reply = "Yes. I suspect so too, though I'd never say it in the Undercity.", fx = { align = { light = 1 } } },
+        { text = "The Forsaken stand alone. Trust nobody.", next = "BACK", reply = "That is the Dark Lady's teaching. It is also very cold advice.", fx = { align = { light = -1 } } },
+      },
+    },
+    ybear = {
+      lines = {
+        { id = "yybear_v0", when = { race = "Scourge" }, text = "By keeping busy, and by not thinking about the before too often. You'll know that trick already, I suspect. The cold helps." },
+        { id = "yybear_d", text = "By keeping busy, and by not thinking about the before too often. The cold helps. It numbs what little there is left to numb." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    undercity = { { id = "ytp_undercity", text = "The Undercity is warm and damp and full of plotting. I prefer the snow." } },
+    frostsabers = { { id = "ytp_frostsabers", text = "Great white cats. They frighten me, and I am already dead." } },
     background = { { id = "tp_bg", text = "I kept accounts in Lordaeron before the plague. Now I keep them for the Undercity, on rather stranger subjects." } },
     _none = { { id = "tp_none", text = "I haven't been asked to look into that, and I don't volunteer." } },
   },
@@ -338,6 +548,10 @@ P:NPC {
         { text = "Who is your master?", next = "master" },
         { text = "Can you repair my armour?", next = "repair" },
         { text = "What would it cost to bind you instead?", next = "bind", when = { class = "WARLOCK" } },
+        { text = "What's the strangest thing you sell?", next = "yodd" },
+        { text = "Do the demons above trouble you?", next = "ydemons" },
+        { text = "Would you leave if you could?", next = "yleave" },
+        { text = "A warlock could use an imp like you.", next = "ylock", when = { class = "WARLOCK" } },
         { text = "I'll be going.", next = "END" },
       },
     },
@@ -364,8 +578,44 @@ P:NPC {
       lines = { { id = "b_default", text = "Ooh, a new posting? It has been dull down here, and I shouldn't say that. No, no, forget I spoke, because the price would be a slice of your life, you'd never pay it, and my master reads my thoughts on alternate days." } },
       choices = { { text = "Keep your post, imp. Something else.", next = "BACK" } },
     },
+    yodd = {
+      lines = {
+        { id = "yyodd_d", text = "A jar with a felhound's eyeball in it that still blinks when you say its name. I haven't sold it yet, mostly because nobody knows its name, and I'm not telling." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydemons = {
+      lines = {
+        { id = "yydemons_d", text = "They trouble everyone. They're the Legion's leftovers, the ones who didn't get the message that the war is over. I keep the door locked and sell them nothing. Well, almost nothing." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yleave = {
+      lines = {
+        { id = "yyleave_d", text = "Leave? And go where, a warlock's pocket? At least down here I'm my own master, mostly. Some imps dream of freedom, and some dream of a big master to serve. I dream of profit." },
+      },
+      choices = {
+        { text = "Freedom is worth more than any master.", next = "BACK", reply = "Pfft. Says someone who's never been summoned by the ears.", fx = { align = { order = -1 } } },
+        { text = "Every imp needs a master. You're no different.", next = "BACK", reply = "Oh, charming. Remind me to raise your prices.", fx = { align = { order = 1 } } },
+      },
+    },
+    ylock = {
+      lines = {
+        { id = "yylock_v0", when = { class = "WARLOCK" }, text = "Oh, no, no, you put that soul shard away. I've got a shop to run. Summon your own imp, warlock, for this one is self-employed." },
+        { id = "yylock_d", text = "Oh, no, no, no, you put that soul shard away right now. I've got a shop to run. If you want an imp, summon your own. I'm self-employed." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    darkwhisper_gorge = { { id = "ytp_darkwhisper_gorge", text = "Darkwhisper Gorge is full of demons, ice and bad memories. Excellent location for a shop, really." } },
+    burning_legion = { { id = "ytp_burning_legion", text = "The Legion lost. I didn't. That's all you need to know." } },
     background = { { id = "tp_bg", text = "Summoned, bound and put behind a counter. I've had worse masters, and far worse hours." } },
     _none = { { id = "tp_none", text = "I might know, and I might sell it to you, but not at the price you're thinking of." } },
   },

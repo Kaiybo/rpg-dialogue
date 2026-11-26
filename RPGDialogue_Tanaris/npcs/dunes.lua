@@ -923,9 +923,54 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "*The quadcopter's four rotors whine as it drops to eye level. A lens whirs, focuses on you, and blinks green.* Beep. Organic located. Please follow." },
     { id = "g_quest", when = { questDone = TODO_QUEST("Beach Bot") }, text = "*The quadcopter blinks its lens twice, chirps a happy little tone, and spins once in the air.* Unit recovered. Thank you, organic." },
+    { id = "yg_0", when = { race = "Gnome" }, text = "*The lens zooms in, then out, then in again.* Gnomish organic detected. Probability of successful repair increased. Please follow anyway." },
+    { id = "yg_1", when = { class = "HUNTER" }, text = "*The quadcopter darts away from your pet, chirping a nervous tone, then edges back.* Animal companion detected. Please do not eat unit." },
   },
   start = "hello",
+  topics = {
+    lands_end = { { id = "tp_ylands_end", text = "*Click.* Land's End Beach. Signal source. Please follow." } },
+    gadgetzan = { { id = "tp_ygadgetzan", text = "*Whirr.* Goblin settlement. Unit avoids. Goblins attempt to sell unit." } },
+    delta = { { id = "tp_ydelta", text = "*The lens flickers.* D, E, L, T, A. Remaining letters lost. Unit is sorry." } },
+    sand = { { id = "tp_ysand", text = "*A rotor grinds.* Sand. Everywhere. Unit does not recommend sand." } },
+  },
+
   nodes = {
+    y_origin = {
+      lines = {
+        { id = "y_y_origin", text = "*The lens flickers through a sequence of lights.* Origin data corrupted. Last recorded location: sky. Second recorded location: sand. Third recorded location: here." },
+      },
+      choices = {
+        { text = "What happened between sky and sand?", next = "y_fall" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_fall = {
+      lines = {
+        { id = "y_y_fall", text = "*It wobbles in the air, then rights itself with an anxious buzz.* Impact detected. Many impacts. Unit has counted the impacts and does not wish to discuss them." },
+        { id = "y_y_fall_v0", when = { race = "Goblin" }, text = "*The lens narrows at you.* Goblin detected. Impact count withheld. Please do not offer salvage price." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_dmg = {
+      lines = {
+        { id = "y_y_dmg", text = "*One rotor sputters, then catches.* Rotor three at sixty percent. Lens cracked. Memory partially lost. Unit remains functional, which is the important part, and the only part unit can still measure." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_name = {
+      lines = {
+        { id = "y_y_name", text = "*The lens blinks slowly.* Unit has no name. Origin unit called this unit 'little one' once. Unit has stored this designation in protected memory. Unit is unsure why." },
+      },
+      choices = {
+        { text = "Then that's your name. Little one.", next = "BACK", reply = "*The lens glows warm amber and chirps three times.* Designation accepted. Gratitude subroutine activated.", fx = { align = { light = 1 } } },
+        { text = "Machines don't need names.", next = "BACK", reply = "*The lens dims a little.* Understood. Designation discarded. Please follow.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "*It points itself toward the shore and wobbles there, insisting.* Distress beacon detected at Land's End Beach. Assistance required. Please follow." },
@@ -937,6 +982,10 @@ P:NPC {
         { text = "Who sent you?", next = "xsent" },
         { text = "What is D.E.L.T.A?", next = "xdelta" },
         { text = "You're very persistent for a machine.", next = "xpersist" },
+        { text = "Where did you come from?", next = "y_origin" },
+        { text = "Are you damaged?", next = "y_dmg" },
+        { text = "Do you have a name?", next = "y_name" },
+        { text = "Let me look at your rotors.", next = "BACK", when = { race = "Gnome" }, reply = "*Whirr. The quadcopter holds still, rotors slowing.* Repair accepted. Gratitude subroutine activated." },
         { text = "Lead the way, little machine.", next = "END", reply = "*The rotors rise to a happy pitch, and it darts off toward the sea.* Affirmative. Follow." },
       },
     },
