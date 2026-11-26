@@ -406,14 +406,38 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "In Dalaran, alongside many who later joined the Cult of the Damned. I knew Kel'Thuzad by sight. He was charming, and brilliant, and I thought nothing of it. I've thought of little else since." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yfear = {
+      lines = { { id = "yfear_x", text = "That it will move. A necropolis that floats can go anywhere. If it ever drifts toward Stormwind or Orgrimmar, there will be no army fast enough to meet it." } },
+      choices = {
+        { text = "Should we strike now, while it's here?", next = "ystrike" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ystrike = {
+      lines = { { id = "ystrike_x", text = "Highlord Fordring wants to wait until the Dawn is stronger. Others want to assault it at once. I'm torn. Should we strike before we're ready, or wait and risk it moving?" } },
+      choices = {
+        { text = "Strike now. Waiting gives the Scourge time.", next = "BACK", reply = "Bold. I'd like to agree. I'll carry your view to the council.", fx = { align = { order = -1 } } },
+        { text = "Wait. Fordring knows what he's doing.", next = "BACK", reply = "Aye, he usually does. Patience, then.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
-      lines = { { id = "h_default", text = "I am Angela Dosantos, archmage of the Brotherhood of the Light. Kel'Thuzad has raised Naxxramas above the Plaguewood, and I mean to learn how to break its doors." } },
+      lines = {
+        { id = "h_default", text = "I am Angela Dosantos, archmage of the Brotherhood of the Light. Kel'Thuzad has raised Naxxramas above the Plaguewood, and I mean to learn how to break its doors." },
+        { id = "yh_mage", when = { class = "MAGE" }, text = "A mage. Good. Then you'll understand why I watch that citadel day and night. There is more power in Naxxramas than in all of Dalaran's libraries." },
+      },
       again = { { id = "h_again", text = "What else would you ask? Be brief; my notes will not write themselves." } },
       choices = {
         { text = "What is Naxxramas?", next = "naxx" },
         { text = "Who are the Brotherhood of the Light?", next = "brotherhood" },
         { text = "How does one get inside the citadel?", next = "attune" },
         { text = "Is there anything a mage could learn from it?", next = "frostfire", when = { class = "MAGE" } },
+        { text = "Where did you study, Archmage?", next = "ylife" },
+        { text = "What do you fear most about the citadel?", next = "yfear" },
         { text = "Good day, Archmage.", next = "END" },
       },
     },
@@ -461,6 +485,8 @@ P:NPC {
     },
   },
   topics = {
+    naxxramas = { { id = "ytp_naxx", text = "Naxxramas floats over the Plaguewood like a black moon. I can't stop looking at it." } },
+    kelthuzad = { { id = "ytp_kt", text = "Kel'Thuzad was a man once, and a clever one. I'd like to know where he went wrong." } },
     background = { { id = "tp_bg", text = "I trained in Dalaran before the plague came, and I have spent every year since learning how it was made." } },
     _none = { { id = "tp_none", text = "That is outside my study. Ask the commander, or one of the Dawn's quartermasters." } },
   },
@@ -653,14 +679,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A sentinel of the old kingdom, long before the Sundering. I guarded the roads near the Well of Eternity, and I watched the Highborne grow proud. I left before the end. Not all my sisters did." } },
+      choices = {
+        { text = "Do you regret leaving?", next = "yregret" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yregret = {
+      lines = { { id = "yregret_x", text = "I regret that I did not stay and fight. But I lived, and those who stayed died. Is it better to die for your people, or live to remember them?" } },
+      choices = {
+        { text = "Live. Memory keeps a people alive.", next = "BACK", reply = "That is the druids' teaching. I have come to believe it.", fx = { align = { honor = -1 } } },
+        { text = "Die. Honor demands we stand with our people.", next = "BACK", reply = "Then I have failed honor. But I remember them. That is something.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yland = {
+      lines = { { id = "yland_x", text = "Forests, endless forests. Before the humans came, before the trolls built their temples, there was only green and the songs of the wild. The blight is a wound. Wounds heal, if someone tends them." } },
+      choices = {
+        { text = "What does the coin of ancestry mean?", next = "ycoin" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfear = {
+      lines = { { id = "yfear_x", text = "I am an elder spirit, child. The Scourge cannot touch me. But I fear for the living who walk these roads, and for the druids who would try to heal this land. The dead do not forgive the living for living." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ycoin = {
+      lines = { { id = "ycoin_x", text = "The coin of ancestry carries a little of the elders with it. Keep it close in the dark places, and when you feel alone, remember that the old ones walked before you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "I am Windrun, an elder of my people. At the turning of the year we come back among the living, and those who seek us out are honored in turn." } },
+      lines = {
+        { id = "h_default", text = "I am Windrun, an elder of my people. At the turning of the year we come back among the living, and those who seek us out are honored in turn." },
+        { id = "yh_nelf", when = { race = "NightElf" }, text = "Child of the Kaldorei. Even here, in the blight, you shine like the moon on still water. Sit with me, if you will." },
+      },
       again = { { id = "h_again", text = "Ask what you will. The night is long." } },
       choices = {
         { text = "Why stand here, of all places?", next = "here" },
         { text = "What is the Lunar Festival?", next = "festival" },
         { text = "I've come to honor you, Elder.", next = "honor" },
         { text = "Does Elune still watch the Kaldorei?", next = "elune", when = { race = "NightElf" } },
+        { text = "Who were you in life?", next = "ylife" },
+        { text = "What do you remember of this land?", next = "yland" },
+        { text = "Do you fear the Scourge?", next = "yfear" },
         { text = "Farewell, Elder.", next = "END" },
       },
     },
@@ -693,6 +755,8 @@ P:NPC {
     },
   },
   topics = {
+    moonglade = { { id = "ytp_mg", text = "The Moonglade calls us home each year. It is the most beautiful place in all the world." } },
+    kaldorei = { { id = "ytp_kal", text = "The Kaldorei endure. We always have." } },
     background = { { id = "tp_bg", text = "I walked these lands long before humans named them. Now I return once a year, at the festival." } },
     _none = { { id = "tp_none", text = "The dead do not know everything, child. Ask the living." } },
   },
@@ -718,14 +782,50 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "I fought in the internment camps' breakout with Thrall, when the humans kept us penned like pigs. Then at Hyjal, against the Legion. Now I stand at a human chapel and talk. Thrall says this is also war. I believe him, mostly." } },
+      choices = {
+        { text = "You were at Hyjal?", next = "yhyjal" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhyjal = {
+      lines = { { id = "yhyjal_x", text = "I was. Humans, elves and orcs, side by side, against the demons. I fought beside a human knight there. He saved my life. I do not know his name. Should I tell my warriors to remember that, or forget it?" } },
+      choices = {
+        { text = "Remember it. Enemies can become allies.", next = "BACK", reply = "Aye. That is Thrall's way, too. I will tell them.", fx = { align = { honor = 1 } } },
+        { text = "Forget it. The Alliance is the enemy now.", next = "BACK", reply = "Hm. Harder words. I will think on them.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydawn = {
+      lines = { { id = "ydawn_x", text = "They fight the Scourge and ask nothing about which banner you serve. That is honor. I give them respect, and I keep the Horde's business outside their walls, as they ask." } },
+      choices = {
+        { text = "Which tower is hardest to take?", next = "ytowers" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yforsaken = {
+      lines = { { id = "yforsaken_x", text = "The Forsaken fight the Scourge harder than anyone. That much I trust. Their apothecaries, I trust less. I watch them as I watch the ghouls, with my axe close." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ytowers = {
+      lines = { { id = "ytowers_x", text = "Northpass is the hardest, close to the Plaguewood. Crown Guard is the easiest, but the Alliance love it. Eastwall watches the road to Stratholme. Take them in any order, but take them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "I am Gormok, emissary of the Warchief. The Horde means to hold the old towers of these lands, and I am here to see that it does." } },
+      lines = {
+        { id = "h_default", text = "I am Gormok, emissary of the Warchief. The Horde means to hold the old towers of these lands, and I am here to see that it does." },
+        { id = "yh_tauren", when = { race = "Tauren" }, text = "A tauren. Good. Your people hold ground like mountains. Take the towers, and hold them the same way." },
+      },
       again = { { id = "h_again", text = "More questions? Ask them fast." } },
       choices = {
         { text = "Which towers?", next = "towers" },
         { text = "Why does the Horde want them?", next = "why" },
         { text = "What would you have me do?", next = "task", when = { faction = "Horde" } },
         { text = "And the Alliance wants them too?", next = "rivals" },
+        { text = "Where did you fight before this?", next = "ylife" },
+        { text = "What do you think of the Argent Dawn?", next = "ydawn" },
+        { text = "Do you trust the Forsaken?", next = "yforsaken" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -760,6 +860,8 @@ P:NPC {
     },
   },
   topics = {
+    thrall = { { id = "ytp_thrall", text = "Thrall freed us from the camps. I would follow him anywhere, even here." } },
+    hyjal = { { id = "ytp_hyjal", text = "I fought at Hyjal. The Legion burned, and so did many of us. I remember." } },
     background = { { id = "tp_bg", text = "I fought in the Warchief's wars and now I fight with words, mostly. I do not like it as much." } },
     _none = { { id = "tp_none", text = "I don't know. Ask the Argent Dawn; they know everything here." } },
   },
@@ -785,13 +887,49 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "The Alliance army in the Second War, as a quartermaster under Lord Lothar. I've counted barrels and argued with orcs for longer than most humans have been alive. Here I'm doin' the same, only with towers." } },
+      choices = {
+        { text = "You fought the orcs, then. Now you parley.", next = "yparley" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yparley = {
+      lines = { { id = "yparley_x", text = "Aye. Strange times. Gormok's a decent sort, for an orc. But the High Council wants Alliance banners on every tower. Should we share them with the Horde to fight the Scourge, or keep them for ourselves?" } },
+      choices = {
+        { text = "Share them. The Scourge is the real enemy.", next = "BACK", reply = "Hm. Ye sound like the Argent Dawn. I'll mention it, quietly.", fx = { align = { honor = 1 } } },
+        { text = "Keep them. The Alliance bled for this land.", next = "BACK", reply = "Aye! That's the spirit. The High Council will be pleased.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytowers = {
+      lines = { { id = "ytowers_x", text = "Garrison them properly, with dwarven stone and good gunners. The humans built them for show. I'd build them for war, and the ghouls would learn to stay away." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ydrink = {
+      lines = { { id = "ydrink_x", text = "Every night, by the chapel fire. He drinks grog and I drink stout, and we argue about the towers. We've never once agreed, and we've never once come to blows. That's diplomacy." } },
+      choices = {
+        { text = "How did your beard go so white?", next = "ybeard" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ybeard = {
+      lines = { { id = "ybeard_x", text = "Went white overnight, the day I saw Stratholme burning from the road. Me ma always said a fright would whiten a beard. I didnae believe her till then." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Whitebeard, emissary for the Alliance. Me orders are simple: get our banners up on the old towers before the Horde does." } },
+      lines = {
+        { id = "h_default", text = "Whitebeard, emissary for the Alliance. Me orders are simple: get our banners up on the old towers before the Horde does." },
+        { id = "yh_dwarf", when = { race = "Dwarf" }, text = "A son of Khaz Modan! Good. Ye'll know what a tower's worth, then. Stone holds, and so do dwarves." },
+      },
       again = { { id = "h_again", text = "Aye? What else, then?" } },
       choices = {
         { text = "Why do the towers matter?", next = "why" },
         { text = "What can I do?", next = "task", when = { faction = "Alliance" } },
         { text = "What do you think of Gormok?", next = "gormok" },
+        { text = "Where did you serve before?", next = "ylife" },
+        { text = "What would you do with the towers?", next = "ytowers" },
+        { text = "Do you ever drink with Gormok?", next = "ydrink" },
         { text = "Goodbye, Emissary.", next = "END" },
       },
     },
@@ -827,6 +965,8 @@ P:NPC {
     },
   },
   topics = {
+    gormok = { { id = "ytp_gormok", text = "Gormok's an orc I'd trust with my back, if not my towers." } },
+    high_council = { { id = "ytp_hc", text = "The High Council in Ironforge wants every tower flying our flag. I'm doin' my best." } },
     background = { { id = "tp_bg", text = "Ironforge born, Second War veteran, and now a talker instead of a fighter. Me knees prefer it." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye. Ask one o' the Dawn's lot." } },
   },
@@ -852,14 +992,43 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "The Brotherhood's best craftsman, if I may say it without pride. I made the armor of half the knights at Light's Hope, and all of their buckles. I could tell a knight's rank by the wear on his greaves." } },
+      choices = {
+        { text = "How were you taken?", next = "ytaken" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yfamily = {
+      lines = { { id = "yfamily_x", text = "A daughter in Stormwind, apprenticed to a tailor. She thinks I'm on a long errand for the Brotherhood. If you see her, tell her the errand ran long. Don't tell her where." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yrefuse = {
+      lines = { { id = "yrefuse_x", text = "Because what I'd make would kill thousands. My life is one life. Some would say a craftsman should make what he must and live to fight again. What would you say?" } },
+      choices = {
+        { text = "You're right. No life is worth that.", next = "BACK", reply = "Thank you. I needed to hear someone say it. Take the handbook.", fx = { align = { light = 1 } } },
+        { text = "Make the armor, then sabotage it. Live.", next = "BACK", reply = "Clever. Too clever for them, perhaps. They'd know. They always know.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytaken = {
+      lines = { { id = "ytaken_x", text = "I was taken on the road from Light's Hope to Tyr's Hand, scouting for iron. The ghouls came out of the ground. I woke here, in the cold. Every night, the cold is worse." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Omarion, master craftsman of the Brotherhood of the Light. They took me to make armor for the dead, and I refused. I'm dying for it, but I'm not done yet." } },
+      lines = {
+        { id = "h_default", text = "Omarion, master craftsman of the Brotherhood of the Light. They took me to make armor for the dead, and I refused. I'm dying for it, but I'm not done yet." },
+        { id = "yh_smith", when = { profession = "Blacksmithing" }, text = "A smith! Your hands, show me your hands. Yes. Burn scars in the right places. You'll understand what I've written. Listen closely." },
+      },
       again = { { id = "h_again", text = "Ask. Every breath is borrowed." } },
       choices = {
         { text = "Can I free you?", next = "free" },
         { text = "What do you want me to know?", next = "teach" },
         { text = "What did they want you to make?", next = "make" },
         { text = "Can you teach a leatherworker?", next = "craftsmen", when = { profession = "Leatherworking" } },
+        { text = "Who were you, before the cage?", next = "ylife" },
+        { text = "Do you have family?", next = "yfamily" },
+        { text = "Why refuse them? You'll die.", next = "yrefuse" },
         { text = "Rest easy, craftsman.", next = "END" },
       },
     },
@@ -899,6 +1068,8 @@ P:NPC {
     },
   },
   topics = {
+    brotherhood = { { id = "ytp_bro", text = "The Brotherhood of the Light makes armor for those who fight the dead. I was their best. I hope I still am." } },
+    light_hope = { { id = "ytp_lh", text = "Light's Hope Chapel. I'd give anything to see it again." } },
     background = { { id = "tp_bg", text = "A craftsman of the Brotherhood, and a prisoner of Naxxramas. That's the whole of it now." } },
     _none = { { id = "tp_none", text = "I don't know, and I haven't time to guess." } },
   },
@@ -924,14 +1095,43 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yhome = {
+      lines = { { id = "yhome_x", text = "Ironforge, the Commons. My clan's been carters and packmasters for six generations. I came north with the Brotherhood because nobody else could keep their crates straight, and I've kept them straight since." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ysupply = {
+      lines = { { id = "ysupply_x", text = "Thorium and runecloth, every day, every week. And bandages. The healers go through bandages like a gnome goes through gears. If ye've any to spare, bring them to me." } },
+      choices = {
+        { text = "What will you do after the war?", next = "ychickens" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycheat = {
+      lines = { { id = "ycheat_x", text = "Oh, aye, a few. A human brought me a writ for twenty bolts, and half were linen dyed to look like runecloth. I caught him. Should I report him to the Dawn, or let him off with a warnin'?" } },
+      choices = {
+        { text = "Report him. Cheats endanger the soldiers.", next = "BACK", reply = "Aye. That's my view. I'll send the bolts to the captain with a note.", fx = { align = { honor = 1 } } },
+        { text = "Warn him. He'll do better, out of shame.", next = "BACK", reply = "Hmph. Soft, but maybe right. I'll make him count every bolt twice.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ychickens = {
+      lines = { { id = "ychickens_x", text = "Go home and count something peaceful, like kegs. My cousin keeps a tavern in Thelsamar. I've promised him I'll tally his cellar when the dead stop walkin'. He's been waitin' a good while." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Stonebruiser, packmaster for the Brotherhood. Every blade, potion and bandage this chapel uses against the citadel comes through my hands." } },
+      lines = {
+        { id = "h_default", text = "Stonebruiser, packmaster for the Brotherhood. Every blade, potion and bandage this chapel uses against the citadel comes through my hands." },
+        { id = "yh_dwarf", when = { race = "Dwarf" }, text = "A fellow dwarf! Good, good, ye'll know how to count a crate properly. The humans here count like they're scared of numbers." },
+      },
       again = { { id = "h_again", text = "What is it now?" } },
       choices = {
         { text = "What's a craftsman's writ?", next = "writ" },
         { text = "What does the Brotherhood need most?", next = "need" },
         { text = "Is the Brotherhood winning?", next = "winning" },
         { text = "I've a writ to turn in.", next = "turnin", when = { questDone = TODO_QUEST("Craftsman's Writ - Dense Weightstone") } },
+        { text = "Where are you from?", next = "yhome" },
+        { text = "What's the most important supply?", next = "ysupply" },
+        { text = "Does anyone ever cheat the writs?", next = "ycheat" },
         { text = "I'll leave ye to it.", next = "END" },
       },
     },
@@ -968,6 +1168,8 @@ P:NPC {
     },
   },
   topics = {
+    ironforge = { { id = "ytp_if", text = "Ironforge's crates are the straightest in the world. I learned there." } },
+    runecloth = { { id = "ytp_rc", text = "Runecloth, aye. Bring me every bolt ye can." } },
     background = { { id = "tp_bg", text = "Ironforge quartermaster for thirty years, and now this. I've counted worse." } },
     _none = { { id = "tp_none", text = "Not my department. Ask Dawnbringer." } },
   },
@@ -992,8 +1194,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    yhome = {
+      lines = { { id = "yhome_x", text = "Thelsamar, by Loch Modan. My da was a herbalist and my ma was a surgeon in the Second War. I took my oath to the Dawn because I couldnae stand the thought of folk dyin' of rot when I could stop it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ylose = {
+      lines = { { id = "ylose_x", text = "Aye, more than I'd like. The plague gets into the blood, and some folk turn before I can do a thing. The hardest is when they beg me to finish it before they rise. Should a healer do that, d'ye think?" } },
+      choices = {
+        { text = "Yes. Mercy sometimes means a quick end.", next = "BACK", reply = "Aye. I've done it, twice. I'll nae say more about it.", fx = { align = { light = -1 } } },
+        { text = "No. A healer heals, whatever the cost.", next = "BACK", reply = "Spoken like the Light's own. I'll keep tryin', then, to the last breath.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycure = {
+      lines = { { id = "ycure_x", text = "Maggot slime's best treated with a poultice of Light-blessed moss and a good stiff drink, the drink bein' for me. And ghoul rot answers to silver salts, which cost the Dawn a fortune. Some days I think the gold's worth more than the healin'." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "I'm a medic of the Argent Dawn. If the Dawn trusts ye, I'll cure what the Scourge has put in yer blood." } },
+      lines = {
+        { id = "h_default", text = "I'm a medic of the Argent Dawn. If the Dawn trusts ye, I'll cure what the Scourge has put in yer blood." },
+        { id = "yh_dwarf", when = { race = "Dwarf" }, text = "A fellow dwarf! Sit down, laddie, let me look at ye. Ye've a bit of ghoul on yer boot, but otherwise ye're as fit as a Dun Morogh ram." },
+      },
       again = { { id = "h_again", text = "Anything else ailing ye?" } },
       choices = {
         { text = "What's the worst case you've treated?", next = "xworst" },
@@ -1001,6 +1222,9 @@ P:NPC {
         { text = "I'm Forsaken. Can you treat me?", next = "xdead", when = { race = "Scourge" } },
         { text = "What sicknesses do you see?", next = "sick" },
         { text = "Why does it depend on the Dawn's trust?", next = "trust" },
+        { text = "Where are you from?", next = "yhome" },
+        { text = "Do you ever lose patients?", next = "ylose" },
+        { text = "What's the oddest cure you know?", next = "ycure" },
         { text = "I'm well, thanks.", next = "END" },
       },
     },
@@ -1058,6 +1282,8 @@ P:NPC {
     },
   },
   topics = {
+    loch_modan = { { id = "ytp_loch", text = "Loch Modan's the bonniest place in the world. I'll see it again, once the dead stop walkin'." } },
+    argent_dawn = { { id = "ytp_ad", text = "The Dawn heals any who fight the dead. Even the dead themselves, if they ask nicely." } },
     plaguewood = { { id = "xtp_pw", text = "Never go in there without a medic nearby." } },
     andorhal = { { id = "xtp_an", text = "Where I learned my trade. It's Scourge now." } },
     _none = { { id = "tp_none", text = "Ask someone else. I'm busy keeping people alive." } },
@@ -1079,8 +1305,37 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ycomrades = {
+      lines = { { id = "ycomrades_x", text = "A squad from Southshore, mostly, and a Forsaken scout named Gerard who knew the Plaguewood paths. The Southshore lads didn't like him. He saved three of them when the abomination came. They like him a bit more now." } },
+      choices = {
+        { text = "Where is Gerard now?", next = "ygerard" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ygerard = {
+      lines = { { id = "ygerard_x", text = "He went back out alone, once we were carried in. The captain says Forsaken shouldn't scout for the Dawn without an escort. Should we trust them on their own, or keep watch on them?" } },
+      choices = {
+        { text = "Trust them. He earned it with blood.", next = "BACK", reply = "Aye. That's what I told the captain. He didn't like it.", fx = { align = { order = -1 } } },
+        { text = "Keep watch. The rules keep everyone safe.", next = "BACK", reply = "Hm. Fair. Gerard would probably agree, the strange fellow.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ythink = {
+      lines = { { id = "ythink_x", text = "My wife's kitchen, in Southshore. The smell of fish stew. I promised I'd be back by harvest. I'll make it, if the bandages hold and the Dawn lets me go." } },
+      choices = {
+        { text = "Where did you take the wound?", next = "ycot" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ycot = {
+      lines = { { id = "ycot_x", text = "The cot's hard, but it's better than the ground at Corin's Crossing. That's where I took the wound. A ghoul came up out of a cellar. Never trust a cellar in these lands." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
-      lines = { { id = "h_default", text = "Got hit by an abomination near the Plaguewood. Medics say I'll live, but I'm not sure I believe them." } },
+      lines = {
+        { id = "h_default", text = "Got hit by an abomination near the Plaguewood. Medics say I'll live, but I'm not sure I believe them." },
+        { id = "yh_dwarf", when = { race = "Dwarf" }, text = "A dwarf. One of the medics, are ye? No? Pity. I could use some of that dwarven stout they keep for themselves." },
+      },
       again = { { id = "h_again", text = "Still here. What is it?" } },
       choices = {
         { text = "Where are you from?", next = "xfrom" },
@@ -1088,6 +1343,8 @@ P:NPC {
         { text = "I'm a priest. Let me help.", next = "xheal", when = { class = "PRIEST" } },
         { text = "What happened out there?", next = "story" },
         { text = "Can I get you anything?", next = "help" },
+        { text = "Who did you fight beside?", next = "ycomrades" },
+        { text = "What do you think about when you rest?", next = "ythink" },
         { text = "Rest well.", next = "END" },
       },
     },
@@ -1145,6 +1402,8 @@ P:NPC {
     },
   },
   topics = {
+    southshore = { { id = "ytp_ss", text = "Southshore has the best fish stew in Lordaeron. I'll be eating it by harvest." } },
+    corins_crossing = { { id = "ytp_cc", text = "Corin's Crossing is a ghoul nest. Avoid the cellars." } },
     scarlet = { { id = "xtp_sc", text = "My brother's one of them. I don't know whether to hate them or pity them." } },
     plaguewood = { { id = "xtp_pw", text = "Where I got this. Don't go there alone." } },
     _none = { { id = "tp_none", text = "I don't know, friend. Ask one of the officers." } },
@@ -1169,9 +1428,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ystable = {
+      lines = { { id = "ystable_x", text = "Six stalls and a loft full of hay. I had a grey mare called Bess who'd bite anyone but me. I hope she ran. I hope she's eating someone's turnips in Hillsbrad and biting all the stable boys." } },
+      choices = {
+        { text = "Tell me more of your sister.", next = "yjoanna" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yblame = {
+      lines = { { id = "yblame_x", text = "Blame? We all do, a bit. Some blame Redpath, some blame the Light, some blame King Terenas for letting the Cult grow. Should we forgive them all, now that it's over, or remember?" } },
+      choices = {
+        { text = "Forgive. You're free now. Let it go.", next = "BACK", reply = "Aye. I'd like that. It feels lighter, saying it.", fx = { align = { light = 1 } } },
+        { text = "Remember. Those who failed you shouldn't be forgotten.", next = "BACK", reply = "Perhaps. Someone should remember. Only, not me, I think.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ypain = {
+      lines = { { id = "ypain_x", text = "Not any more. There was, all those years, a cold ache like a winter that never lifted. Now it's only a gentle tug, like someone calling me home for supper. I think I'll answer it soon." } },
+      choices = {
+        { text = "What about Davil Lightfire?", next = "ydavil" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ydavil = {
+      lines = { { id = "ydavil_x", text = "Davil fought in the square till the end, and he never fell back. I've heard some adventurer's been gathering his old libram and his helm, to lay him to rest. If anyone deserves it, he does." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    yjoanna = {
+      lines = { { id = "yjoanna_x", text = "Joanna had red hair and a temper. If she made it south, she'll have married a smith and bossed him into the ground. Tell her I said that, if you find her. She'll know it's me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I lived in Darrowshire, before the Scourge came. When I died, those creatures kept a piece of me, and I couldn't leave. Now I think I can go home, wherever home is now." },
+        { id = "yh_human", when = { race = "Human" }, text = "A human. You look like folk from the south road. Did you come from Southshore, or Hillsbrad? Have you seen anyone from Darrowshire there?" },
       },
       again = { { id = "h_again", text = "I can feel myself fading. Ask quickly, if you've something to ask." } },
       choices = {
@@ -1180,6 +1470,9 @@ P:NPC {
         { text = "Is there anyone you want me to find?", next = "xfind" },
         { text = "What happened at Darrowshire?", next = "battle" },
         { text = "Where will you go now?", next = "go" },
+        { text = "What was the stable like?", next = "ystable" },
+        { text = "Do you blame anyone for what happened?", next = "yblame" },
+        { text = "Is there pain, now?", next = "ypain" },
         { text = "Rest easy, friend.", next = "END" },
       },
     },
@@ -1229,6 +1522,8 @@ P:NPC {
     },
   },
   topics = {
+    darrowshire = { { id = "ytp_darrow", text = "Darrowshire was a good place. Apple pies, and a bell, and Bess the mare. That's what I'll remember." } },
+    joanna = { { id = "ytp_jo", text = "My sister Joanna. Red hair and a temper. I hope she's alive." } },
     redpath = { { id = "xtp_rp", text = "Captain Redpath. He was brave, once." } },
     davil = { { id = "xtp_dv", text = "Davil Lightfire led us. He fought like ten men." } },
   },
@@ -1251,9 +1546,40 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    ylife = {
+      lines = { { id = "ylife_x", text = "A cooper. I made barrels for the cider press on the hill. My wife died the winter before, and it was only me and Ellie. I made her a little barrel to keep her doll in. I wonder if she still has it." } },
+      choices = {
+        { text = "Where did the carts go?", next = "ycart" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yangry = {
+      lines = { { id = "yangry_x", text = "Because the ghouls still feed on us! On our bones! Every night I watch them. Every night I can't stop them. Do you know what that's like, to be a ghost who can't even throw a stone?" } },
+      choices = {
+        { text = "What would you have me do?", next = "ywant" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywant = {
+      lines = { { id = "ywant_x", text = "Kill them, all of them, and leave nothing standing in Darrowshire. Or don't, and let the town rest as it is, ruins and all. I hardly know any more. Which would you do?" } },
+      choices = {
+        { text = "Burn it all clean. Leave nothing for the Scourge.", next = "BACK", reply = "Yes. Burn it. Burn every rotting beam, if it frees us.", fx = { align = { order = -1 } } },
+        { text = "Kill the ghouls, but leave the town. It's still yours.", next = "BACK", reply = "Still mine? Aye. Perhaps it is. Perhaps someone will rebuild.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yredpath = {
+      lines = { { id = "yredpath_x", text = "The captain? He stood with us in the square. Then he fell, and he rose, and he led them through the gate. I saw his face. It was still his face. That's the worst of it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    ycart = {
+      lines = { { id = "ycart_x", text = "The carts went south, to Corin's Crossing, and maybe further. I heard the driver was a fat man named Bram, who swore he'd go to Hillsbrad. If Ellie's anywhere, she's with him. Find him, if you can." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I died at Darrowshire, and I've not been allowed to stop dying since. I follow whoever disturbs me, and today that's you. Don't take it personally." },
+        { id = "yh_paladin", when = { class = "PALADIN" }, text = "A paladin. Where were you, when the bell rang? Where was the Light then? No. Don't answer. You'll only make me angrier." },
       },
       again = { { id = "h_again", text = "Do you mean to help me, or just keep walking? I'll come either way." } },
       choices = {
@@ -1262,6 +1588,9 @@ P:NPC {
         { text = "Why can I see you?", next = "xsee" },
         { text = "How do I lay you to rest?", next = "rest" },
         { text = "How did you die?", next = "death" },
+        { text = "Who were you, before?", next = "ylife" },
+        { text = "Why are you angry?", next = "yangry" },
+        { text = "Do you remember Joseph Redpath?", next = "yredpath" },
         { text = "Leave me be, spirit.", next = "END" },
       },
     },
@@ -1313,6 +1642,8 @@ P:NPC {
     },
   },
   topics = {
+    darrowshire = { { id = "ytp_darrow", text = "Darrowshire. My home. The dead won't leave it, and neither will I." } },
+    corins_crossing = { { id = "ytp_corin", text = "The carts went to Corin's Crossing. That's all I know. That's all I'll ever know." } },
     ellie = { { id = "xtp_pa", text = "My little girl. She got out on the cart. She must have." } },
     ghouls = { { id = "xtp_gh", text = "They still feed here. Kill them, and some of us go free." } },
   },

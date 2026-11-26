@@ -343,8 +343,8 @@ P:NPC {
     },
     y_lost = {
       lines = {
-        { id = "y_lost_d", text = "My brother, a Farstrider who held the Elrendar crossing against the Scourge. He sent our mother a message the day before it fell, and asked her to plant a tree for him in the Highvale. I planted it myself." },
-        { id = "y_lost_dw", when = { race = "Dwarf" }, text = "My brother, a Farstrider at the Elrendar crossing. Your Wildhammer cousins brought word of him to the lodge. I owe your people that kindness still. I planted a tree for him here." },
+        { id = "y_lost_d", text = "My brother, a Farstrider who held the Quel'Danil Lodge against the Scourge. He sent our mother a message the day before it fell, and asked her to plant a tree for him in the Highvale. I planted it myself." },
+        { id = "y_lost_dw", when = { race = "Dwarf" }, text = "My brother, a Farstrider at the Quel'Danil Lodge. Your Wildhammer cousins brought word of him to the lodge. I owe your people that kindness still. I planted a tree for him here." },
       },
       choices = { { text = "I am sorry.", next = "BACK" } },
     },

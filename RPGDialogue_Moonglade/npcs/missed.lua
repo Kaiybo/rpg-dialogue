@@ -48,6 +48,8 @@ P:NPC {
         { text = "Why is Moonglade so peaceful?", next = "peace" },
         { text = "Horde and Alliance both walk here.", next = "both" },
         { text = "What can the soil teach a druid that a trainer can't?", next = "d_soil", when = { class = "DRUID" } },
+        { text = "How long have you served the Circle?", next = "ylong" },
+        { text = "Does anything trouble the glade?", next = "ytrouble" },
         { text = "Elune be with you.", next = "END" },
       },
     },
@@ -70,8 +72,25 @@ P:NPC {
       lines = { { id = "bo_default", text = "They do, and they glare at one another across the lake and then go quietly about their business. I have come to think the Riverbends, who live among us, do more for peace by baking bread for an elf than all the envoys in Darnassus." } },
       choices = { { text = "Let us speak of something else.", next = "BACK" } },
     },
+    ylong = {
+      narr = "She presses her palm flat to the earth beside her, as though asking it.",
+      lines = {
+        { id = "ylo_default", text = "Since the druids woke from the long sleep after the War of the Satyr, and the Keeper set some of us to tend the glade while the others walked the Dream. I chose the soil because it does not dream back. That was a young elf's reasoning, and I have kept to it." },
+        { id = "ylo_nelf", when = { race = "NightElf" }, text = "Since after the War of the Satyr, {g:brother|sister}, when Malfurion set some of us to tend the waking world. You will know the tales from your own elders. I chose the soil, because it does not dream back." },
+      },
+      choices = { { text = "A long watch. Something else.", next = "BACK" } },
+    },
+    ytrouble = {
+      lines = { { id = "ytr_default", text = "Felwood's corruption seeps north along the old roots, a finger's breadth each year. Some of the Circle would burn a firebreak through the southern woods. Others say we must heal what is sick, however long it takes. What would you choose?" } },
+      choices = {
+        { text = "Burn the break. Protect what still lives.", next = "BACK", reply = "Swift and sure. It may come to that, I fear.", fx = { align = { light = -1 } } },
+        { text = "Heal it, however long it takes.", next = "BACK", reply = "Then we are of a mind, and the soil will thank you.", fx = { align = { light = 1 } } },
+      },
+    },
   },
   topics = {
+    felwood = { { id = "yt_felwood", text = "Felwood cries without ceasing, to the south. I hear it through the roots on still nights." } },
+    remulos = { { id = "yt_remulos", text = "Keeper Remulos is the son of Cenarius. He speaks to the glade as I speak to the soil, and it listens better." } },
     background = { { id = "tp_bg", text = "I have served the Circle in this glade for many turnings of the seasons. I do not count them any longer." } },
     _none = { { id = "tp_none", text = "The earth has not spoken to me of that. Perhaps Rabine Saturna can help you." } },
   },
@@ -184,6 +203,9 @@ P:NPC {
         { text = "How do the night elves treat you?", next = "elves" },
         { text = "What is it like to live in Nighthaven?", next = "live" },
         { text = "Moren says you keep him in order.", next = "moren" },
+        { text = "Do you miss Mulgore?", next = "ymiss" },
+        { text = "Do Horde and Alliance ever quarrel here?", next = "yquarrel" },
+        { text = "I'm of the Earth Mother's children too.", next = "ycousin", when = { race = "Tauren" } },
         { text = "May the eternal sun shine on you.", next = "END" },
       },
     },
@@ -206,8 +228,37 @@ P:NPC {
       lines = { { id = "m_default", text = "Somebody must. He has a good heart and a deep mind, and he would sit by that lake until the moss grew over him if I did not call him in for supper." } },
       choices = { { text = "Tell me something else.", next = "BACK" } },
     },
+    ymiss = {
+      narr = "She brushes flour from her hands and gazes at the treetops as if looking for a horizon.",
+      lines = { { id = "ymi_default", text = "Every morning, when I look up and see branches instead of sky. I miss the wind across the grass and the sound of kodo calling at dusk. But my mother always said a tauren's home is wherever she has bread rising, and my bread rises here." } },
+      choices = {
+        { text = "Will you ever go back?", next = "yback" },
+        { text = "Tell me something else.", next = "BACK" },
+      },
+    },
+    yback = {
+      lines = { { id = "yba_default", text = "When Moren finishes his study, perhaps, though he says that will be another hundred years. A druid's patience is a cook's despair. I will wait, I think, and visit the Bluff when the Lunar Festival opens the roads." } },
+      choices = { { text = "Your patience does you credit. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    yquarrel = {
+      lines = { { id = "yqu_default", text = "A human paladin and an orc warrior nearly came to blows at the inn last spring, over a war neither had fought. The wardens would have thrown them both out. I gave them bread instead, and made them share. Was that wise, or should the wardens have done it their way?" } },
+      choices = {
+        { text = "The wardens' law keeps the peace. Enforce it.", next = "BACK", reply = "Perhaps. Law is a good fence, but bread is a better gate.", fx = { align = { order = 1 } } },
+        { text = "Your bread did more than any law could.", next = "BACK", reply = "My mother would be proud to hear you say it.", fx = { align = { order = -1 } } },
+      },
+    },
+    ycousin = {
+      lines = {
+        { id = "yc_default", text = "Then sit, and let me feed you properly. Tell me which tribe you are from, and whether the grass still grows tall south of Bloodhoof Village. I have not seen it in eleven seasons, and I long for news of it." },
+        { id = "yc_druid", when = { class = "DRUID" }, text = "And a druid besides, like Moren. Sit, and let me feed you, then tell me whether Hamuul still keeps the Elder Rise, and whether the grass grows tall south of Bloodhoof Village." },
+      },
+      choices = { { text = "The grass grows tall. Something else.", next = "BACK", reply = "Good. Then the Earth Mother is well, and so am I." } },
+    },
   },
   topics = {
+    moren = { { id = "yt_moren", text = "Moren is my kinsman. He studies the lake and forgets to eat, so I bring him bread." } },
+    mulgore = { { id = "yt_mul", text = "Mulgore's grass is gold at sunset, and the kodo call across it at dusk. I hear them still, in dreams." } },
+    bread = { { id = "yt_bread", text = "Plains flatbread, with a little wild honey. The kaldorei pretend not to like it, then ask for more." } },
     background = { { id = "tp_bg", text = "I am of the Riverbend family, from Mulgore. I came north for kin, and stayed for the peace." } },
     _none = { { id = "tp_none", text = "I do not know that. Moren might, if you can draw him away from the water." } },
   },

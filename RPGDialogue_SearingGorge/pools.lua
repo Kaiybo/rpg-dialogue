@@ -7,6 +7,7 @@ P:Pool {
     { id = "b_heat", text = "It's hot today, an' it's hot every day, an' I've no' had dry socks since the spring thaw." },
     { id = "b_mountain", text = "Smoke over the mountain again, so somebody down there's still workin' for the Firelord, poor sods." },
     { id = "b_xslag", text = "Another fire elemental wandered up from the slag last night. Burned my best boots, the wee beast." },
+    { id = "yb_stairs", text = "Somebody's comin' up the stairs, an' it's no' a Brotherhood step. Hands where I can see them, stranger." },
     { id = "b_xore", text = "Thorium's good this season, an' the Overseer's almost smilin'. Almost." },
   },
   greetings = {
@@ -22,6 +23,10 @@ P:Pool {
   lines = {
     { id = "l_xcommission", text = "The Brotherhood takes commissions from anyone who can pay an' prove they're no friend o' Thaurissan. Bring us proof an' we'll talk business." },
     { id = "l_xslaves", text = "Some o' our kin are still slaves down in the Cauldron. Free a few, an' ye'll have friends at the Point for life." },
+    { id = "yl_cauldron", text = "From the top o' the Point ye can see the Cauldron glowin' all night. Our kin dig there in chains, an' every one o' us knows a name down there." },
+    { id = "yl_elementals", text = "Fire elementals drift up out o' the slag after dark like lanterns. Pretty, aye, until one wanders into yer bedroll." },
+    { id = "yl_x_dwarf", when = { race = "Dwarf" }, text = "Ye Bronzebeards come up here starin' at us like we're the Emperor's own. Some o' us carried our children up those stairs wi' Thaurissan's hounds behind us, so mind yer looks." },
+    { id = "yl_x_horde", when = { faction = "Horde" }, text = "Horde or Alliance, it's all one to the Brotherhood. We've hated the same Emperor longer than either o' ye have existed." },
     { id = "l_default", text = "We forged weapons for the Firelord's armies till we found a way out, an' now we forge for whoever pays, which is a better bargain." },
   },
   choices = {
@@ -32,6 +37,8 @@ P:Pool {
   topics = {
     dark_iron = { { id = "t_dark_iron", text = "Our kin are still under the mountain, still bowin' tae fire. We left an' they didnae, so don't lump us together." } },
     blackrock = { { id = "t_blackrock", text = "Orcs in the upper Spire, our kin in the depths below. That mountain's got more masters than a bad smithy, an' every one o' them wants the rest dead." } },
+    cauldron = { { id = "yt_caul", text = "The Cauldron's where the slaves dig an' the slag runs. Free a few o' ours an' ye'll never pay for an ale at the Point again." } },
+    ragnaros = { { id = "yt_rag", text = "The Firelord sleeps under the mountain, an' the Emperor feeds him. We'd rather no' say the rest." } },
     _none = { { id = "t_none", text = "Ask the Overseer, for he knows everything that happens on the Point; he says so, often, an' usually while ye're tryin' tae eat." } },
   },
 }
