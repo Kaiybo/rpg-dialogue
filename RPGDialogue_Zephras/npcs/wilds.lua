@@ -717,3 +717,176 @@ P:NPC {
     _none = { { id = "tp_none", text = "Couldn't say. The water doesn't gossip." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- The Strange Hermit: a gnome engineer living rough in Shadowgale Forest (the wiki's infobox says
+-- "Shadowglade"). Quests: Camping 101: Engineering, Free the Hollows, The Forest's Bounty,
+-- The Strange Hermit. Quest text isn't captured, so how he reached a floating island stays his
+-- own vague, cheerful mystery rather than an invented backstory.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "zep_strange_hermit", id = TODO_NPC("Strange Hermit"), name = "Strange Hermit",
+  bible = "bibles/zep_wilds.md", role = "questgiver", tier = "major",
+  communities = { "zephras_isle" }, temper = { "excitable", "eccentric" }, values = { "invention", "solitude" },
+  notices = { "race", "class", "profession" },
+
+  impression = {
+    first = "A gnome in a patched coat, living alone in a haunted forest on an island in the sky, and perfectly delighted about it.",
+    third = "{name} met the Strange Hermit, a gnome engineer camped deep in Shadowgale Forest who won't say how he got there.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Oh! A visitor! Mind the tripwire, it's attached to a kettle, and the kettle is attached to something I'd rather not set off." },
+    { id = "g_back", when = { metBefore = true }, text = "You again, and still in one piece! That puts you well ahead of my last three prototypes." },
+    { id = "g_found", when = { questActive = TODO_QUEST("The Strange Hermit") }, text = "Somebody sent you looking for me? How flattering, and how worrying, because I thought I'd hidden the camp rather well." },
+  },
+
+  notice = {
+    { id = "n_gnome", cat = "race", when = { race = "Gnome" },
+      text = "A gnome! Up here! Oh, this is marvellous, I haven't heard a proper Gnomeregan vowel in ages, so say something technical, anything at all." },
+    { id = "n_eng", cat = "profession", when = { profession = "Engineering" },
+      text = "Is that a wrench on your belt? A fellow engineer, out here in the wilds, and I've got so much to show you." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", key = true,
+          text = "Welcome to my camp, which is also my workshop, my laboratory and, on rainy nights, my bed. Folk call me the Strange Hermit, and I've decided to take that as a compliment." },
+        { id = "h_skyborne", when = { race = "Skyborne" },
+          text = "One of the feathered folk from the villages! You're the first to come this far into the forest in a while, because most of your people think the trees here are haunted, and frankly they're not wrong." },
+        { id = "h_camp", tags = { "news" }, when = { questActive = TODO_QUEST("Camping 101: Engineering") },
+          text = "You've come to learn camp engineering! Splendid, because a campfire is just a fire until someone clever bolts something useful onto it." },
+        { id = "h_hollows", tags = { "news" }, when = { questActive = TODO_QUEST("Free the Hollows") },
+          text = "Have you seen them yet, the hollowed ones? Something in this forest has them trapped, and I can't bear the way they drift about, so please be quick." },
+        { id = "h_bounty", tags = { "news" }, when = { questActive = TODO_QUEST("The Forest's Bounty") },
+          text = "Back with the forest's bounty, or still looking? The woods are stingy with the good bits, though generous with the teeth." },
+        { id = "h_freed", when = { questDone = TODO_QUEST("Free the Hollows") },
+          text = "The forest feels lighter since you freed the hollows, and I can hear birds again in the mornings. I'd forgotten I liked birds." },
+      },
+      again = {
+        { id = "h_again", text = "What else? Ask quickly, before I get distracted by something shiny, which happens about every forty seconds." },
+        { id = "h_again2", text = "Go on, go on, I'm listening with at least sixty percent of my attention." },
+      },
+      choices = {
+        { text = "How does a gnome end up on a floating island?", next = "arrive" },
+        { text = "Why live alone out here?", next = "alone" },
+        { text = "Something's wrong with this forest.", next = "forest" },
+        { text = "What are you building?", next = "build" },
+        { text = "Teach me to engineer a proper camp.", next = "camp", when = { profession = "Engineering" } },
+        { text = "Gnomeregan fell. Did you know?", next = "xgnome", when = { race = "Gnome" } },
+        { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+
+    arrive = {
+      lines = {
+        { id = "ar_default", text = "That is a long story with a great many explosions in it, and I've told it so many different ways that I'm no longer sure which one is true. Let's say I came up, and the coming down part hasn't been sorted yet." },
+      },
+      choices = {
+        { text = "You're dodging the question.", next = "arrive_dodge" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    arrive_dodge = {
+      big = true,
+      lines = {
+        { id = "ad_default", text = "I am, aren't I, and rather well too. Some of us leave home because home asks too many questions, my friend, and a hermit who answers them all isn't much of a hermit." },
+      },
+      choices = {
+        { text = "Fair enough. Everyone's owed their secrets.", next = "BACK", reply = "Precisely! You'd make a fine hermit yourself, if you ever want the job.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "The elders deserve to know who's living on their island.", next = "BACK", reply = "And they're welcome to visit, though they'll have to step over the kettle like everyone else.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    alone = {
+      lines = {
+        { id = "al_default", text = "Because nobody out here tells me my inventions are dangerous, mostly because nobody is out here. It's very good for productivity, and only slightly bad for conversation." },
+      },
+      choices = {
+        { text = "You seem awfully glad of the company.", next = "alone_company" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    alone_company = {
+      lines = {
+        { id = "ac_default", text = "Well, yes, I suppose I am, so don't tell anyone in the villages or they'll all come out here at once. A visitor now and then is lovely, but forty visitors is a crowd, and crowds touch things." },
+      },
+      choices = { { text = "Your secret's safe. Something else.", next = "BACK" } },
+    },
+
+    forest = {
+      lines = {
+        { id = "fo_default", text = "You've noticed! Most don't. The shadows here sit too thick for the time of day, and there are spirits drifting between the trees that look scooped out, like empty shells of what they ought to be." },
+      },
+      choices = {
+        { text = "The hollows. What are they?", next = "forest_hollows" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forest_hollows = {
+      lines = {
+        { id = "fh_default", text = "I've measured them, and I don't understand them, which is my least favourite combination. They act trapped, held here by something, and whatever holds them doesn't want them to leave." },
+      },
+      choices = {
+        { text = "Then we free them, whatever it takes.", next = "forest_choice" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forest_choice = {
+      big = true,
+      lines = {
+        { id = "fc_default", text = "That's the spirit, if you'll excuse the expression. But be careful, because I've no idea what's on the other end of whatever's holding them, and I'd like you back for tea." },
+      },
+      choices = {
+        { text = "They suffer. Freeing them is simply right.", next = "BACK", reply = "Yes, I think so too, though I couldn't have proved it with an instrument.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "I'll do it, but for what you can teach me.", next = "BACK", reply = "Ha! An honest bargain, and I've plenty of knowledge going spare.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    build = {
+      lines = {
+        { id = "bu_default", text = "A little of everything, out of whatever the forest provides, because there's no Tinker Town up here to buy sprockets from. That's why I need the forest's bounty, you see: wood, sap, odd bits that grow here and nowhere else." },
+      },
+      choices = {
+        { text = "Does any of it actually work?", next = "build_work" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    build_work = {
+      lines = {
+        { id = "bw_default", text = "About thirty-eight percent of it works, and another twenty percent works in ways I didn't intend, which I count as a bonus. The rest makes a very satisfying noise." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    camp = {
+      lines = {
+        { id = "ca_default", text = "Any fool can light a fire, but an engineer makes the fire work for a living. Lanterns, a proper anvil stand, a little gadget to keep the kettle hot, and suddenly your camp is a workshop with a sky for a roof." },
+      },
+      choices = {
+        { text = "That's all? It sounds simple.", next = "BACK", reply = "Simple's only the first bolt, friend. Raise your skill and the furnishings get grander." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgnome = {
+      lines = {
+        { id = "xg_default", text = "I knew. Word travels even up here, if slowly. I try not to think about it too much, because when I do I can't build anything, and building is the only thing that's ever helped." },
+      },
+      choices = {
+        { text = "We'll take it back from Thermaplugg one day.", next = "BACK", reply = "I'd like to see that, I truly would. Send me a letter, if letters reach the sky.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Some things are better left behind.", next = "BACK", reply = "Maybe so. That's what I told myself, at least, the day I left.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    gnomeregan = { { id = "tp_gn", text = "Home, once. I don't talk about it before supper, or after, or much at all really." } },
+    _none = { { id = "tp_none", text = "Haven't a clue, but give me a week and a box of parts and I'll have a theory, probably an explosive one." } },
+  },
+}

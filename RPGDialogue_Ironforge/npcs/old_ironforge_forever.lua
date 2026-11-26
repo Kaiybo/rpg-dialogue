@@ -435,3 +435,97 @@ P:NPC {
     _none = { { id = "tp_none", text = "No idea, friend, and I'd tell you if there was money in it." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- The Ghostly Attendant: a dwarf woman's ghost in the Hall of Thanes (instance), down the first
+-- hallway on the left. She served Thane Faldrim Anvilmar and gives An Ancient Grudge. Her quest
+-- text is halting and broken, so she speaks slowly here, in whole sentences, with narration between.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "if_ghostly_attendant", id = TODO_NPC("Ghostly Attendant"), name = "Ghostly Attendant",
+  role = "questgiver", tier = "quest", gender = "female",
+  temper = { "mournful", "fading" }, values = { "loyalty", "duty" },
+  spiritSensitive = true,
+  notices = { "class", "race" },
+
+  impression = {
+    first = "A dwarf woman's ghost who still waits on her Thane, centuries after both of them died.",
+    third = "{name} met the Ghostly Attendant in the Hall of Thanes, a dwarf spirit who still serves Thane Faldrim Anvilmar.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "*A pale dwarf woman in a servant's apron turns toward you, slow as smoke, and her eyes take a long while to find you.*" },
+    { id = "g_done", when = { questDone = TODO_QUEST("An Ancient Grudge") }, text = "*The attendant is fainter than before, almost gone, and for the first time she seems to be smiling.*" },
+  },
+
+  notice = {
+    { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
+      text = "*Her gaze settles on your beard and braids, and something like recognition moves across her face.* You are... of the mountain. Then you will understand." },
+    { id = "n_priest", cat = "class", when = { class = { "PRIEST", "PALADIN" } },
+      text = "*She drifts a little closer to the light you carry, the way a cold hand drifts toward a hearth.*" },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", key = true,
+          text = "My Thane... my mighty Thane cannot rest. Something holds him to the stone, an old grudge, older than the walls, and he will not let it go." },
+        { id = "h_active", tags = { "news" }, when = { questActive = TODO_QUEST("An Ancient Grudge") },
+          text = "*The ghostly figure stares past you, her lips moving, and only a low rasp comes out.* Please... he is still waiting. Help him rest." },
+        { id = "h_after", when = { questDone = TODO_QUEST("An Ancient Grudge") },
+          text = "He rests now, my Thane, truly rests. I can feel it in the stone, and soon I will rest beside him." },
+      },
+      again = {
+        { id = "h_again", text = "*The attendant waits, patient as she has always been.*" },
+        { id = "h_again2", text = "You... have more to ask? Ask, then, while I can still hear you." },
+      },
+      choices = {
+        { text = "Who was your Thane?", next = "thane" },
+        { text = "What grudge holds him here?", next = "grudge" },
+        { text = "Why are you still here?", next = "self" },
+        { text = "I'll put Faldrim to rest.", next = "END", when = { questActive = TODO_QUEST("An Ancient Grudge") } },
+        { text = "Go in peace, lady.", next = "END" },
+      },
+    },
+    thane = {
+      lines = {
+        { id = "th_default", text = "Faldrim Anvilmar, Thane of his house, and the strongest arm in all the halls. I kept his cup full and his hearth warm for all the years of his life, and I was proud to." },
+      },
+      choices = {
+        { text = "The Anvilmars are an old clan.", next = "thane_clan" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    thane_clan = {
+      lines = {
+        { id = "tc_default", text = "Old, and proud, and never quick to forgive. The Lorekeeper above will have their names written down, but she will not have written how loud they laughed." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    grudge = {
+      big = true,
+      lines = {
+        { id = "gr_default", text = "I do not remember what began it, only that he never let it go, not in life and not after. It ate him slowly, and now that something has woken the dead, it is all that is left of him." },
+      },
+      choices = {
+        { text = "A grudge kept that long becomes a curse.", next = "BACK", reply = "*She bows her head.* Yes. I told him so once, and he did not speak to me for a month.", fx = { align = { honor = -1 } } },
+        { text = "A dwarf's grudge is his honour. He held to it.", next = "BACK", reply = "Perhaps. But honour should let a body sleep, and his does not.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    self = {
+      lines = {
+        { id = "se_default", text = "Because he is still here, and I served him. An attendant does not leave until her Thane is abed, and mine has not slept in a very long time." },
+      },
+      choices = {
+        { text = "Your loyalty outlived you both.", next = "BACK", reply = "*A faint smile, there and gone.* It is the only thing of mine that did.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    _none = { { id = "tp_none", text = "*She looks through you, toward the deeper halls.* I do not know... I only know my Thane." } },
+  },
+}

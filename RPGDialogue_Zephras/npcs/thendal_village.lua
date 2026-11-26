@@ -1371,3 +1371,42 @@ P:NPC {
     _none = { { id = "tp_none", text = "I don't know that one. I could ask the spirit, but it doesn't answer much." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Peeps: a pepe, one of the small round birds of the isle, who hops about Thendal Village.
+-- Animals don't speak, so every line is narration in asterisks (the Dalaran cats' pattern).
+---------------------------------------------------------------------------
+local function Critter(t)
+  t.role = t.role or "citizen"
+  t.tier = t.tier or "service"
+  t.start = "hello"
+  P:NPC(t)
+end
+
+Critter {
+  key = "zep_critter_peeps", id = TODO_NPC("Peeps"), name = "Peeps",
+  temper = { "cheerful" }, values = { "curious" },
+  impression = {
+    first = "A round little pepe who hops about Thendal Village as if every doorstep belonged to it.",
+    third = "{name} met Peeps, a small round pepe bird who keeps Thendal Village company.",
+  },
+  greetings = {
+    { id = "g_default", text = "*A fat little pepe bird hops across the path in front of you, stops, and tilts its head so one shiny black eye can take you in.*" },
+    { id = "g_back", when = { metBefore = true }, text = "*Peeps flutters up onto a fence post at your approach and fluffs out its feathers until it is very nearly a perfect ball.*" },
+  },
+  nodes = {
+    hello = {
+      lines = {
+        { id = "h_default", text = "*Peeps pecks at the dust between the village houses, finds nothing worth eating, and pecks again with undiminished hope.*" },
+        { id = "h_skyborne", when = { race = "Skyborne" }, text = "*Peeps eyes the feathers in your hair with deep suspicion, as if you might be a very large and very rude relative.*" },
+        { id = "h_night", when = { timeOfDay = "night" }, text = "*Peeps is tucked into a nook under the eaves with its head buried in its feathers, and one sleepy eye cracks open at the sound of you.*" },
+      },
+      again = { { id = "a_again", text = "*Peeps is still here, hopping in a small and busy circle.*" } },
+      choices = {
+        { text = "Hello, Peeps. Find anything good today?", next = "BACK", reply = "*Peeps answers with a single high chirp and a hop toward the merchants' stalls, where crumbs are known to fall.*" },
+        { text = "Scatter a few crumbs for it.", next = "BACK", reply = "*Peeps descends on the crumbs with tremendous seriousness, eats every last one, and then looks at your hands for more.*" },
+        { text = "Hold out a finger for it to perch on.", next = "END", reply = "*Peeps considers your finger, hops onto it for one wobbling moment, then takes off in a flurry of feathers toward the rooftops.*" },
+      },
+    },
+  },
+}
