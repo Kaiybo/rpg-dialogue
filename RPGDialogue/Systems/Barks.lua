@@ -92,7 +92,9 @@ ns.On("PLAYER_TARGET_CHANGED", function()
   if C.Exists("target") then remember("target"); Barks.Try("target") end
 end)
 ns.On("UPDATE_MOUSEOVER_UNIT", function()
-  if C.Exists("mouseover") then remember("mouseover") end
+  -- Passing someone with the mouse over them: they may speak up (0.116.0). Same timers and
+  -- roll as every bark, so it stays rare.
+  if C.Exists("mouseover") then remember("mouseover"); Barks.Try("mouseover") end
 end)
 
 -- Only when no conversation window is open (the controller handles those).

@@ -44,7 +44,7 @@ end
 
 local function enabled()
   local s = ns.db and ns.db.settings
-  return s and s.enabled and s.barks and s.overheard ~= false and not C.InCombat() and not C.InInstance()
+  return s and s.enabled and s.overheard == true and not C.InCombat() and not C.InInstance()
     and not (ns.Conversation.session and ns.Conversation.session.mode == "full")
 end
 
