@@ -96,5 +96,6 @@ passing.lua
 passing_towns.lua
 overheard.lua
 overheard_named.lua
+overheard_you.lua
 arrivals.lua
 wanderers\spoogledorf.lua
