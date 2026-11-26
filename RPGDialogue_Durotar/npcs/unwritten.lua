@@ -214,7 +214,7 @@ P:NPC {
   },
   topics = {
     raptors = { { id = "ytp_raptors", text = "De raptors on de Isles be fast, mon. We used to race dem as children." } },
-    echo_isles = { { id = "ytp_echo_isles", text = "De Echo Isles be home. De sand be white and de water be warm, and Zalazane don't deserve dem." } },
+    home = { { id = "ytp_home", text = "De Echo Isles be home. De sand be white and de water be warm, and Zalazane don't deserve dem." } },
     vol_jin = { { id = "ytp_vol_jin", text = "Vol'jin be our chief now. He clever, and he patient, and he hate Zalazane more dan anyone." } },
     murlocs = { { id = "ytp_murlocs", text = "De murlocs be everywhere on dis coast. Dey be noisy, but dey don't be smart." } },
     sen_jin = { { id = "tp_xsen_jin", text = "Sen'jin Village be named for our old chief. He died so we could live." } },

@@ -395,6 +395,7 @@ P:NPC {
     night_elves = { { id = "tp_xnight_elves", text = "Quiet folk. They seem to know something about the grove we don't." } },
     background = { { id = "tp_bg", text = "Darkshire born, Watch sworn. Not much more to it than that." } },
     darkshire = { { id = "y_tp_ds", text = "Darkshire's grim and grey, but it's ours. The Watch keeps it standing." } },
+    green_dragons = { { id = "y_tp_gd", text = "Green dragons sleep in the grove. Let them sleep, I say, and I say it quietly." } },
     _none = { { id = "tp_none", text = "Don't know it, and I've a road to walk. Ask in town." } },
   },
 }
@@ -694,6 +695,7 @@ P:NPC {
     background = { { id = "tp_bg", text = "Joined the Watch for the steady pay. Nobody told me about the straws." } },
     darkshire = { { id = "y_tp_ds", text = "Darkshire is grey, wet and full of folk who'd rather not talk about what's in the woods." } },
     thayer = { { id = "y_tp_thayer", text = "Thayer wants this post more than any sane man should. I've stopped asking why." } },
+    straws = { { id = "y_tp_straws", text = "The straws are rigged. I can't prove it, but I've drawn short three times running." } },
     _none = { { id = "tp_none", text = "Don't know. Ask someone who drew a better post." } },
   },
 }
@@ -724,6 +726,8 @@ P:NPC {
         { text = "What's the worst you've seen come out?", next = "xworst" },
         { text = "What do you think of Thayer?", next = "xthayer" },
         { text = "A Gilnean once told me of such woods.", next = "BACK", when = { race = "Human" }, reply = "Gilneas has walled itself off, so I'd not trust much that comes over that wall. But woods like these exist, sure enough, and they make the same sort of people." },
+        { text = "Did your mother teach you the road?", next = "y_taught" },
+        { text = "What do you fear most, Sarys?", next = "y_fear" },
         { text = "Keep the road, Sarys.", next = "END" },
       },
     },
@@ -776,11 +780,33 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    y_taught = {
+      lines = {
+        { id = "y_taught_d", text = "She walked me down it when I was eight, in daylight, and named every root and rut. She said a watcher should know her road better than her own face. I still say the names in my head on night shift." },
+        { id = "y_taught_hu", when = { race = "Human" }, text = "When I was eight, in daylight. She named every root and rut, the way a Lordaeron farmer names his fields. I still say the names in my head on night shift." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_fear = {
+      lines = { { id = "y_fear_d", text = "Seeing her face on one of those ghouls. Her grave's on Raven Hill, and the dead walk there now. I haven't been to see if she's still in it." } },
+      choices = {
+        { text = "Go and see. Better to know.", next = "y_grave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_grave = {
+      lines = { { id = "y_grave_d", text = "And if the grave's empty? Then I'll know she's out there, and I'll look for her face every night. Should I go, or keep the not-knowing?" } },
+      choices = {
+        { text = "Go. The truth is better than fear.", next = "BACK", reply = "Aye. On my next free morning, then.", fx = { align = { light = 1 } } },
+        { text = "Don't. Some doubts keep you sane.", next = "BACK", reply = "That's what I've been telling myself for a year.", fx = { align = { light = -1 } } },
+      },
+    },
   },
   topics = {
     rotting_orchard = { { id = "tp_xrotting_orchard", text = "Don't eat the apples. That's the most important thing I can tell you." } },
     night_watch = { { id = "tp_xnight_watch", text = "My family business, and my mother's before me." } },
     background = { { id = "tp_bg", text = "Watch-born, Watch-raised. My mother held this road before me." } },
+    raven_hill = { { id = "y_tp_rh", text = "My mother's buried on Raven Hill. I don't go there anymore." } },
     _none = { { id = "tp_none", text = "Not my concern. My concern is this road." } },
   },
 }
@@ -811,6 +837,8 @@ P:NPC {
         { text = "What was Elwynn like for you?", next = "xelwynn" },
         { text = "Would your family move back?", next = "xmove" },
         { text = "I'm from Elwynn too, Selkin.", next = "BACK", when = { race = "Human" }, reply = "Are you? Then you know the smell of the Eastvale in summer. Lord, I miss it. Tell me you've been there lately." },
+        { text = "Why don't you send the letters?", next = "y_why" },
+        { text = "Have you heard the worgen?", next = "y_worgen" },
         { text = "Take care, Selkin.", next = "END" },
       },
     },
@@ -859,11 +887,33 @@ P:NPC {
         { text = "Your mother. No land is worth your family's lives.", next = "BACK", reply = "I've said the same, quietly. Father only shouts louder.", fx = { align = { order = -1 } } },
       },
     },
+    y_why = {
+      lines = {
+        { id = "y_why_d", text = "Because Maryanne would read them and come down here to drag me home, or worse, to stay. I tell her in my sent letters that Darkshire's quiet. The real ones I keep in a box under my bunk." },
+        { id = "y_why_hu", when = { race = "Human" }, text = "Because my sister would come and drag me home. You'd do the same for your kin, I think. I send her the quiet letters and keep the true ones in a box." },
+      },
+      choices = {
+        { text = "She deserves the truth.", next = "y_truth" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_truth = {
+      lines = { { id = "y_truth_d", text = "If I fall here, she'll get the box, and she'll know I lied to her for a year. Is it kinder to lie, or to frighten her?" } },
+      choices = {
+        { text = "Tell her. She deserves to know.", next = "BACK", reply = "Aye. I'll send one true letter. Just one.", fx = { align = { light = 1 } } },
+        { text = "Keep lying. Spare her the fear.", next = "BACK", reply = "Then the box stays shut. Thank you.", fx = { align = { light = -1 } } },
+      },
+    },
+    y_worgen = {
+      lines = { { id = "y_worgen_d", text = "At night, out past Brightwood, howling like no wolf I ever heard in Elwynn. The old hands say they came out of a tower in the Silverpine. I don't sleep well on full moons." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     elwynn = { { id = "tp_xelwynn", text = "Home before home. Sunlit and green, and a long way from here." } },
     darkshire = { { id = "tp_xdarkshire", text = "My family's here now, so it's mine too, I suppose." } },
     background = { { id = "tp_bg", text = "Elwynn farm boy, Darkshire watchman. I'm still not sure which I am more." } },
+    goldshire = { { id = "y_tp_gs", text = "My sister keeps the books at the Lion's Pride. Say hello if you pass through." } },
     _none = { { id = "tp_none", text = "I don't know, sorry. Ask in town; someone there will." } },
   },
 }
@@ -898,6 +948,9 @@ P:NPC {
         { text = "How would you kill Stitches?", next = "xkill" },
         { text = "What will you do if you win?", next = "xafter" },
         { text = "I'm a warrior too. I'll stand with you.", next = "BACK", when = { class = "WARRIOR" }, reply = "Then you're the first on this line to say so. When it comes, stand on my left, and swing for the knees." },
+        { text = "What was Rowan like?", next = "y_rowan" },
+        { text = "Has the commander warned you?", next = "y_warned" },
+        { text = "Tell me about that blade.", next = "y_blade" },
         { text = "Good luck, Thayer.", next = "END" },
       },
     },
@@ -937,11 +990,38 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    y_rowan = {
+      lines = {
+        { id = "y_rowan_d", text = "Loud, kind, and the worst cook in the Watch. He'd burn porridge and laugh about it. He had a girl in Darkshire he was going to marry come autumn. I carry his ring now. I haven't been able to give it to her." },
+        { id = "y_rowan_war", when = { class = "WARRIOR" }, text = "Loud and kind, and the best shield I ever stood beside. You'll know what that means, losing one. I carry his ring now, meant for a girl in Darkshire, and I haven't given it to her." },
+      },
+      choices = {
+        { text = "You should give her the ring.", next = "y_ring" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_ring = {
+      lines = { { id = "y_ring_d", text = "When Stitches is dead. Not before. I'll give her the ring and the cleaver both. Is that how a man honours a friend, or am I lying to myself?" } },
+      choices = {
+        { text = "Give it now. She's waited enough.", next = "BACK", reply = "Hm. Maybe. You're not the first to say it.", fx = { align = { honor = -1 } } },
+        { text = "Keep your vow. Finish it first.", next = "BACK", reply = "Aye. That's what Rowan would want.", fx = { align = { honor = 1 } } },
+      },
+    },
+    y_warned = {
+      lines = { { id = "y_warned_d", text = "Commander Althea Ebonlocke told me if I break the line to chase Stitches, I'm off the Watch. She's right, and I know it, and I still check the road every hour hoping." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_blade = {
+      lines = { { id = "y_blade_d", text = "Rowan's blade, reforged in Darkshire with silver in the edge. The smith said silver won't help against stitched flesh. I don't care. It's his steel, and it'll finish his fight." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     stitches = { { id = "tp_xstitches", text = "I'll put an end to it. That's all I have to say." } },
     abercrombie = { { id = "tp_xabercrombie", text = "The commander says he's harmless. I say he buys too much thread." } },
     background = { { id = "tp_bg", text = "Twelve years a watcher. I've buried more friends than I can count, and I mean to stop counting." } },
+    rowan = { { id = "y_tp_rowan", text = "Rowan was my partner. Stitches took him. That's all I'll say." } },
+    night_watch = { { id = "y_tp_nw", text = "The Night Watch holds this town together with spears and stubbornness." } },
     _none = { { id = "tp_none", text = "Don't know, don't care. Ask me about Stitches." } },
   },
 }
