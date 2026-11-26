@@ -6,16 +6,22 @@ P:Pool {
   barks = {
     { id = "b_trogg", text = "Troggs again on the north ridge, like weeds with fists." },
     { id = "b_dam", text = "The dam's holdin', same as it always holds, until the day it doesn't, I suppose." },
+    { id = "xb_ale", text = "Two more hours o' watch, an' then the Stoutlager, an' I'll no' be talked out of it." },
+    { id = "xb_gryphon", text = "There goes one o' Thorgrum's birds over the loch, wi' a rider on it, thank the stone." },
   },
   greetings = {
     { id = "g_loch", text = "Welcome tae Thelsamar, where there's good beer, good folk, an' troggs in every hole in the hills, so mind yer step." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "It's a bit late fer wanderin'. Get indoors; the Stoutlager's still pourin'." },
+    { id = "xg_back", when = { metBefore = true }, text = "Back in the loch country, are ye? Good, for the troggs havenae thinned themselves." },
+    { id = "xg_rain", text = "Mind the mud on the north road, friend, for it's ankle deep an' it'll take a boot off ye." },
   },
   notice = {
     { id = "n_kit", cat = "kit", when = { durability = { max = 0.25 } },
       text = "Troggs had a go at ye? Morhan the smith by the inn'll put ye right, an' then ye can go an' have a go back." },
     { id = "n_dwarf", cat = "race", when = { race = "Dwarf" },
       text = "One o' ours! Welcome home, near enough, for Ironforge is just over the hills." },
+    { id = "xn_gnome", cat = "race", when = { race = "Gnome" },
+      text = "A gnome this far east? There's a few o' yer folk at the excavation, arguin' wi' the League about drills, so ye'll feel right at home." },
   },
   react = { { id = "r_stealth", on = "stealth", text = "Who's sneakin' about? Come out, or I'll set the dogs on ye, an' never mind that we've no dogs; come out anyway." } },
   lines = {
