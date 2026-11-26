@@ -93,6 +93,7 @@ mage_notice.lua
 druid_notice.lua
 asks.lua
 passing.lua
+passing_towns.lua
 overheard.lua
 overheard_named.lua
 arrivals.lua
