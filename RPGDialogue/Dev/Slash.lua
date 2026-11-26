@@ -167,6 +167,13 @@ end
 
 commands.journal = function() ns.Journal.Toggle() end
 
+-- overhear: start an exchange between two people near you now, if any fits (testing).
+commands.overhear = function()
+  if not (ns.Overheard and ns.Overheard.Try(true)) then
+    ns.Compat.Print("RPG Dialogue: nobody near enough is talking (target or mouse over two people first).")
+  end
+end
+
 -- letters: show the Letters tab of the open mail window. letters send <id>: deliver that letter now (testing).
 commands.letters = function(args)
   if args[1] == "send" and args[2] then

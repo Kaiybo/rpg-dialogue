@@ -8,9 +8,9 @@ local C = ns.Compat
 local Barks = {}
 ns.Barks = Barks
 
-Barks.GLOBAL_SECONDS = 90
-Barks.NPC_SECONDS = 600
-Barks.CHANCE = 0.3
+Barks.GLOBAL_SECONDS = 300   -- rare on purpose (0.116.0: was 90)
+Barks.NPC_SECONDS = 3600     -- one remark per person per hour at most
+Barks.CHANCE = 0.2
 Barks.NEARBY_SECONDS = 20
 
 local lastGlobal = 0
@@ -19,6 +19,8 @@ local nearby = {}      -- guid -> { unit, name, npcID, t }
 
 local function enabled()
   local s = ns.db and ns.db.settings
+  -- Nobody butts in while two people near you are talking (Systems/Overheard.lua).
+  if ns.Overheard and ns.Overheard.IsPlaying() then return false end
   return s and s.enabled and s.barks and not C.InCombat() and not C.InInstance()
 end
 
@@ -35,7 +37,9 @@ local function say(info, text)
 end
 
 -- Returns true if a bark was said.
-function Barks.Try(unit, force)
+Barks.MOUSEOVER_CHANCE = 0.08  -- mouseover happens constantly, so it rolls far lower
+
+function Barks.Try(unit, force, chance)
   if not enabled() then return false end
   local now = C.Now()
   if not force and now - lastGlobal < Barks.GLOBAL_SECONDS then return false end
@@ -44,7 +48,7 @@ function Barks.Try(unit, force)
   local key = ns.Memory.Key(info)
   if not force and lastByNpc[key] and now - lastByNpc[key] < Barks.NPC_SECONDS then return false end
   local env = ns.Engine.NewEnv(info, ctx, ns.Memory.Get(key) or {})
-  if not force and math.random() > Barks.CHANCE then return false end  -- env.rng is seeded per NPC per day: same roll all day
+  if not force and math.random() > (chance or Barks.CHANCE) then return false end  -- env.rng is seeded per NPC per day: same roll all day
   local w = ns.Engine.PickBark(info, ctx, env)
   if not w then return false end
   ns.Memory.MarkSeen(w.gid, w.line)
@@ -92,7 +96,9 @@ ns.On("PLAYER_TARGET_CHANGED", function()
   if C.Exists("target") then remember("target"); Barks.Try("target") end
 end)
 ns.On("UPDATE_MOUSEOVER_UNIT", function()
-  if C.Exists("mouseover") then remember("mouseover") end
+  -- Passing someone with the mouse over them: they may speak up (0.116.0). Same timers and
+  -- roll as every bark, so it stays rare.
+  if C.Exists("mouseover") then remember("mouseover"); Barks.Try("mouseover", false, Barks.MOUSEOVER_CHANCE) end
 end)
 
 -- Only when no conversation window is open (the controller handles those).

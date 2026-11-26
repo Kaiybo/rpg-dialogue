@@ -17,6 +17,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_sylvanas_varimathras" }, text = "You heard me remind Varimathras of his place. Remember it as well, because I do not repeat myself to the living or the dead." },
     { id = "g_queen", text = "Before you stands the Dark Lady. Kneel if you like; I won't insist, not today." },
     { id = "g_forsaken", when = { race = "Scourge" }, text = "One of my own. You were taken, and you took yourself back; never forget that, because I don't." },
     { id = "g_back", when = { metBefore = true }, text = "Once more you come to me. Speak, then; I have little patience, but I have a great deal of time." },
@@ -774,6 +775,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_sylvanas_varimathras" }, text = "You heard my queen's words to me. Such devotion between us, mortal, is a rare and lovely thing, wouldn't you agree?" },
     { id = "g_dread", text = "You may approach, slowly. I serve the Dark Lady, and in her name I suffer visitors." },
     { id = "g_back", when = { metBefore = true }, text = "Returned, have you? The Dark Lady finds you useful, and I find you, shall we say, adequate." },
     { id = "g_away", when = { away = 14 }, text = "Ah, you've been away {away}, and I confess the court was no duller for it. Still, the Dark Lady finds you useful, so welcome back." },

@@ -16,6 +16,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_gryan_danuvin" }, text = "You heard about the Molsen farm, then. That's Westfall now, friend, and it's why the Militia needs every pair of hands it can get." },
     { id = "hum_g1", when = { race = "Human" }, priority = 5,
       text = "Another of Stormwind's children, come to see what the kingdom left behind. Welcome to Sentinel Hill, and I mean it, even if the welcome's thinner than it ought to be." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I saw what demon magic did to the Horde's own lands, and I fought the men it made in the Second War. Westfall has troubles enough without a demon-caller at my map table." },

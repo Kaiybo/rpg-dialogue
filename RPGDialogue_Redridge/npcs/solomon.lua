@@ -25,6 +25,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_solomon_marris" }, text = "You heard me complaining about Stormwind's silence, I suppose. Forgive me, but four unanswered letters would try anyone's patience." },
     { id = "g_hu", when = { race = "Human" }, priority = 5,
       text = "Another of Stormwind's own come up the Redridge road. The court will hear you, and it will try not to hold the kingdom's silence against you personally." },
     { id = "g_nelf", when = { race = "NightElf" }, priority = 5,

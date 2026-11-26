@@ -17,6 +17,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_magni_archesonus" }, text = "Ye caught the bit about Uldaman, did ye? My brother's always findin' somethin', and I'm always the last tae read about it." },
     { id = "g_king", text = "Ye stand before the King of Ironforge. Speak up; the forges are loud." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "One o' mine, by the look o' ye. Welcome home, whatever road ye've been walkin'." },
     { id = "g_hero", when = { minLevel = 50 }, text = "I know that face, an' so does every tavern from here tae Stormwind. Come, sit, an' tell me how the world's been treatin' ye." },

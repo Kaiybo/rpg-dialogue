@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_revilgaz_seahorn" }, text = "You heard about the Bloodsail, then. Every sunk ship's money out of my pocket, friend, so keep your blade sharp and your rates reasonable." },
     { id = "g_hu_human", when = { race = "Human" }, priority = 5,
       text = "A human, is it? Your lords in Stormwind still owe this town for a decade of rum, friend, so you'll forgive me if I ask for coin before conversation." },
     { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "revilgaz_human_soft" }, priority = 10,

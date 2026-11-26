@@ -16,6 +16,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_bolvar_katrana" }, text = "You were listening, weren't you? How charming. The Highlord has a soft heart, and someone at court must mind the purse." },
     { id = "hum_g1", when = { race = "Human" }, priority = 5,
       text = "Ah, one of the Regent's own subjects, come to see how the kingdom is run. Do keep your voice down, little one; the Keep has excellent acoustics and very little patience." },
     { id = "g_op_prestor", when = { opinion = { topic = "prestor", stance = "distrust" } }, text = "Ah, the one who thinks the Regent listens to me too much. Do come closer, darling; I've been longing to know what else you think." },

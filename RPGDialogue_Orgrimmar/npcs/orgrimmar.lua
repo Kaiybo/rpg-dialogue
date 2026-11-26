@@ -17,6 +17,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_thrall_eitrigg_council" }, text = "You heard Eitrigg and me, {class}. He has earned the right to say hard things to me, and I would be a fool to stop him." },
     { id = "g_warchief", text = "Lok'tar. Speak freely, warrior. In this hall, every voice of the Horde is heard." },
     { id = "g_orc", when = { race = "Orc" }, text = "{g:Brother|Sister}, we were slaves once, and now we have a home. Never let anyone make us forget either." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned, and the Horde is stronger for every warrior who comes back. Sit with me a while." },
