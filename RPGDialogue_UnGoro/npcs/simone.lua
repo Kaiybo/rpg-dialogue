@@ -356,8 +356,8 @@ P:NPC {
       },
     },
   },
-  topics = { _none = { { id = "tp_none", text = "Precious yawns, showing rather too many teeth, and does not answer." } } },
   topics = {
+    _none = { { id = "tp_none", text = "Precious yawns, showing rather too many teeth, and does not answer." } },
     fire = { { id = "ytp_fire", text = "Precious looks at the nearest fumarole with something like fondness." } },
     good_boy = { { id = "ytp_good_boy", text = "At the words, Precious wags with perfect enthusiasm, and the mud around his tail steams." } },
     simone = { { id = "ytp_simone", text = "At the name, Precious sits up very straight and looks toward the pool, as a dog does when his mistress is due home." } },

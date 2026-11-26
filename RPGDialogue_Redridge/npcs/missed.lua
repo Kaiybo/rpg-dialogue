@@ -37,6 +37,8 @@ P:NPC {
         { text = "How's the bridge coming along?", next = "bridge" },
         { text = "You check everything twice, I notice.", next = "twice" },
         { text = "What's the crew like to work with?", next = "crew" },
+        { text = "Where did you learn to lay stone?", next = "ylearn" },
+        { text = "Does anything about the work worry you?", next = "yworry" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -66,8 +68,32 @@ P:NPC {
       lines = { { id = "o_default", text = "He shouts, but he's never asked a man to do what he wouldn't do himself, and he was first into the water after those tools. I've worked under quieter foremen and trusted them a good deal less." } },
       choices = { { text = "High praise from you. Something else.", next = "BACK" } },
     },
+    ylearn = {
+      lines = {
+        { id = "yle_default", text = "In Stormwind, rebuilding the city walls after the Second War, under the Stonemasons' Guild. I was a boy carrying mortar buckets, and an old master named Thane Kellar taught me to true a course by eye. Then the guild's wages stopped, and most of the crew went west angry." },
+        { id = "yle_dwarf", when = { race = "Dwarf" }, text = "In Stormwind, rebuilding the walls under the Stonemasons' Guild. There was a dwarf on our crew from Ironforge who could true a course by the sound of the chisel. I never managed it, but I still listen." },
+      },
+      choices = {
+        { text = "You didn't go west with them?", next = "ywest" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ywest = {
+      narr = "He runs his thumb along a joint in the stone, slowly, and doesn't look up.",
+      lines = { { id = "ywe_default", text = "No. Some of those men are Defias now, Kellar among them, I hear. The nobles cheated them, and I've never said otherwise. But I'd sooner build a bridge for folk who need it than burn one for the ones who wronged me. Was I right, do you think?" } },
+      choices = {
+        { text = "You were. Building is better than burning.", next = "BACK", reply = "I hope so. I tell myself it every morning.", fx = { align = { honor = 1 } } },
+        { text = "They had cause. You might have stood with them.", next = "BACK", reply = "Maybe. I've wondered it on long nights.", fx = { align = { honor = -1 } } },
+      },
+    },
+    yworry = {
+      lines = { { id = "ywo_default", text = "The third pier. The Foreman wants it raised before the rains, and the footing's not had the time it needs to settle. If it shifts, the whole span shifts with it. I've told him, and he says we haven't the luxury of time with orcs in the hills." } },
+      choices = { { text = "I hope it holds. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    oslow = { { id = "yt_oslow", text = "Foreman Oslow shouts and works harder than any of us. I'd lay stone for him anywhere." } },
+    defias = { { id = "yt_defias", text = "Some of my old guild went to Westfall and took up the red mask. I don't hold with it, but I understand it." } },
     background = { { id = "tp_bg", text = "I'm a mason on the bridge crew. I lay the stone and see that it's straight, and there isn't much more to tell." } },
     everstill_bridge = { { id = "tp_eb", text = "The orcs burned it, and we're building it back in stone. It'll be done when it's right, and not before, if I've any say." } },
     _none = { { id = "tp_none", text = "I wouldn't know, I'm afraid. Dmitri hears more than I do." } },
@@ -107,6 +133,8 @@ P:NPC {
         { text = "Why do you prefer the wall?", next = "wall" },
         { text = "How is the watch holding up?", next = "holding" },
         { text = "Where do the gnolls hide from arrows?", next = "shoot", when = { class = "HUNTER" } },
+        { text = "Have you lost friends on the wall?", next = "ylost" },
+        { text = "What would Lakeshire need to win?", next = "ywin" },
         { text = "As you were, guard.", next = "END" },
       },
     },
@@ -133,8 +161,25 @@ P:NPC {
       lines = { { id = "s_default", text = "In the gullies, where they think the slope covers them. Get above them before you loose, aim for the ones carrying torches, and the rest lose heart quicker than you'd credit." } },
       choices = { { text = "High ground and torchbearers. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    ylost = {
+      narr = "She checks the string of her bow, though it doesn't need checking.",
+      lines = { { id = "ylo_default", text = "Two this season. Corwin took a gnoll spear on the west wall, and old Tam went out after a lost calf and we found his lantern in the morning. I don't count them aloud. Kim does, and it's harder on her than on me." } },
+      choices = { { text = "I'm sorry. Something else.", next = "BACK" } },
+    },
+    ywin = {
+      lines = {
+        { id = "ywi_default", text = "Fifty more bows and a wall that doesn't leak, or a strike force up to Stonewatch to burn out the Blackrock. Marris wants to wait for Stormwind. I want to go now, with whoever will come. Which would you choose?" },
+        { id = "ywi_orc", when = { race = "Orc" }, text = "Odd, asking that of an orc. Fifty more bows, or a strike on Stonewatch. Your Horde has nothing to do with the Blackrock, I'm told. Well then, which would you choose?" },
+      },
+      choices = {
+        { text = "Wait for Stormwind's soldiers. Hold the wall.", next = "BACK", reply = "That's the Marshal's answer. Sensible, and slow.", fx = { align = { order = 1 } } },
+        { text = "Go now. Waiting is how towns burn.", next = "BACK", reply = "Finally, someone with sense. Find me when you're ready.", fx = { align = { order = -1 } } },
+      },
+    },
   },
   topics = {
+    kimberly = { { id = "yt_kim", text = "Kimberly Hiett feathers our arrows, and complains about how fast we lose them. She's right to." } },
+    marris = { { id = "yt_marris", text = "Marshal Marris is a careful man. Too careful, some nights." } },
     background = { { id = "tp_bg", text = "Lakeshire watch, and a Hiett, so I grew up with a bow in my hand. The sword came with the uniform." } },
     redridge_gnolls = { { id = "tp_gn", text = "They're thick in the hills south and west. I've put arrows in a fair few, and there are always more." } },
     _none = { { id = "tp_none", text = "Not my post, not my business. Try the town hall." } },
@@ -274,6 +319,7 @@ P:NPC {
         { text = "You look like you've been chased.", next = "chased" },
         { text = "Do soldiers write home much from here?", next = "letters" },
         { text = "Ever delivered to Darkshire?", next = "darkshire" },
+        { text = "Who's the strangest customer you've had?", next = "ystrange" },
         { text = "Never mind.", next = "END" },
       },
     },
@@ -321,8 +367,21 @@ P:NPC {
       lines = { { id = "da_default", text = "Once, and never again if I can help it, because the woods out there are full of things that ain't alive and ain't dead either. The Night Watch signed for the parcel with a hand that was shakin', and they're the ones who live there." } },
       choices = { { text = "I'll keep that in mind. Something else.", next = "BACK" } },
     },
+    ystrange = {
+      narr = "He sets the mailbag down and leans on it like an old friend.",
+      lines = {
+        { id = "yst_default", text = "Old fella at Three Corners who sends a letter to his wife every week, pal, and she's buried in the Goldshire churchyard. Pays full rate every time. I deliver it to the headstone, because a paid letter gets delivered, and don't let anybody tell you goblins ain't got standards." },
+        { id = "yst_horde", when = { faction = "Horde" }, text = "Old fella at Three Corners who writes his dead wife every week and pays full rate. I deliver it to the headstone in Goldshire. You Horde folk think goblins ain't got standards? A paid letter gets delivered." },
+      },
+      choices = { { text = "That's oddly touching. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    darkshire = { { id = "yt_dark", text = "Darkshire's mail I'll carry for double, and only in daylight. Read the small print, pal." } },
+    steamwheedle = { { id = "yt_steam", text = "The Steamwheedle Cartel takes a cut of every stamp in the kingdom. It's a beautiful business, pal." } },
+    three_corners = { { id = "yt_three", text = "Three Corners is where Elwynn, Redridge and Duskwood meet, and where my feet go to complain." } },
+    lakeshire = { { id = "yt_lake", text = "Lakeshire's mayor wants his mail before I've even got off the kodo. Fine fella, terrible handwriting." } },
+    gnolls = { { id = "yt_gnolls", text = "The Redridge gnolls stole one bag and ate the seed packets. Somewhere in those hills there's a very confused gnoll farm." } },
     mail = { { id = "tp_mail", text = "It gets there, mostly. The gnolls take a cut now and then." } },
     _none = { { id = "tp_none", text = "No idea, pal, I just carry the bags. Ask the auctioneer, he's got an opinion on everything with a price." } },
   },
