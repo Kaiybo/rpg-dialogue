@@ -149,6 +149,8 @@ P:NPC {
         { text = "How do the recruits look to you?", next = "recruits" },
         { text = "Who are the masters here?", next = "masters" },
         { text = "This hall has a proud feel to it.", next = "hall" },
+        { text = "Did you serve in the field yourself?", next = "xd_field" },
+        { text = "I'm a warrior. Any advice from the old guard?", next = "xd_warr", when = { class = "WARRIOR" } },
         { text = "I'll leave you to your watching.", next = "END" },
       },
     },
@@ -171,8 +173,46 @@ P:NPC {
       lines = { { id = "h2_default", text = "It should have. Every regiment that marched out of Ironforge in either war against the orcs mustered on this floor first, and some of the banners overhead came home with fewer dwarves than carried them out." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xd_field = {
+      lines = {
+        { id = "xdf_default", text = "Thirty years, most of them in the Wetlands holdin' the road to Dun Modr. Ye learn a great deal about patience in a swamp, and nothin' good about yer boots." },
+      },
+      choices = {
+        { text = "What brought you back to the Hall?", next = "xd_field2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xd_field2 = {
+      lines = {
+        { id = "xdf2_default", text = "A Dragonmaw spear through the knee, near Grim Batol. It healed crooked, so they gave me a stool in the Hall of Arms and told me to make soldiers instead of bein' one. I've made a few good ones." },
+      },
+      choices = {
+        { text = "What makes a good soldier, to your mind?", next = "xd_good" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xd_good = {
+      lines = {
+        { id = "xdg_default", text = "There's two schools of it in this Hall. One says a soldier does as he's told and nae more. The other says a soldier thinks, and sometimes that means thinkin' past his orders. I've buried dwarves from both schools." },
+      },
+      choices = {
+        { text = "Discipline wins wars. A soldier follows orders.", next = "BACK", reply = "Aye, that's the Hall's teachin', and it's kept the line many a time.", fx = { align = { order = 1 } } },
+        { text = "A soldier who can't think dies with his orders.", next = "BACK", reply = "Hmph. I've seen that too, more than I'd like. Ye may have the right of it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xd_warr = {
+      lines = {
+        { id = "xdw_default", text = "Learn to fight tired. Any fool can swing well for a minute, but a battle runs for hours, and the dwarf still swingin' clean at the end is the one who goes home. Drill till yer arms quit, then drill once more." },
+      },
+      choices = {
+        { text = "I'll remember it. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    hall_of_arms = { { id = "tp_hall", text = "The Hall has turned out soldiers since before the Second War. I'm proud to sit in it, even on a stool." } },
+    grim_batol = { { id = "tp_batol", text = "Dragonmaw country, and worse than that underneath. Stay well clear unless ye've an army behind ye." } },
     background = { { id = "tp_bg", text = "A soldier of Ironforge, same as my father. There's nae more to tell, and I like it that way." } },
     _none = { { id = "tp_none", text = "I couldnae say, {class}. I know the Hall of Arms and what goes on in it, and little beyond the doors." } },
   },
@@ -285,6 +325,8 @@ P:NPC {
         { text = "Every single ring?", next = "rings" },
         { text = "Why choose mail over plate?", next = "plate" },
         { text = "How do you and Olthran get along?", next = "olthran" },
+        { text = "Which of you is the better smith, truly?", next = "xo_better" },
+        { text = "I'm a hunter. How should mail sit for archery?", next = "xo_hunt", when = { class = "HUNTER" } },
         { text = "I'll see the shirts.", next = "END" },
       },
     },
@@ -307,8 +349,45 @@ P:NPC {
       lines = { { id = "o_default", text = "Well enough for two Craghelms under one roof. He says plate is for warriors and chain is for folk who cannae make up their minds, and I say chain is for folk who mean to walk home afterwards." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xo_better = {
+      lines = {
+        { id = "xob_default", text = "Olthran will tell ye he is, loudly. I'll tell ye that plate is mostly hammerin' and mail is mostly thinkin', and leave ye to draw yer own sums." },
+      },
+      choices = {
+        { text = "How long does one shirt take?", next = "xo_shirt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xo_shirt = {
+      lines = {
+        { id = "xos_default", text = "Six weeks for a good hauberk, if my eyes hold out. Four rings through every one, each riveted by hand. I do the riveting at night, when the shop is quiet, because a man cannae count rings with Olthran hammerin' beside him." },
+      },
+      choices = {
+        { text = "Why not sell cheaper, faster mail?", next = "xo_cheap" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xo_cheap = {
+      lines = {
+        { id = "xoc_default", text = "There's a smith in the Commons who butts his rings instead of rivetin' them. Half the price, and it looks the same on the wall. It looks very different after a sword finds the gap." },
+      },
+      choices = {
+        { text = "Honest work at a fair price. You're right to hold out.", next = "BACK", reply = "Thank ye. It's a slow road, but my name's on every shirt.", fx = { align = { honor = 1 } } },
+        { text = "Cheap mail on many backs beats fine mail on few.", next = "BACK", reply = "There's sense in that, I'll grant, but I'll nae be the one sellin' it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xo_hunt = {
+      lines = {
+        { id = "xoh_default", text = "Loose at the shoulders and short in the sleeve, so the bowstring cannae catch a ring. Most hunters buy a shirt cut for a warrior and wonder why their arrows fly wide. I'll fit ye right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    military_ward = { { id = "tp_ward", text = "Every armourer in the Military Ward knows every other, and we all think we're the best. Some of us are right." } },
     background = { { id = "tp_bg", text = "Craghelms have sold armour in the Military Ward a long while. I took the chain side of the shop because I've the patience for it." } },
     _none = { { id = "tp_none", text = "That's outside my trade, friend. Ask in the Hall of Arms across the way." } },
   },
@@ -349,6 +428,8 @@ P:NPC {
         { text = "What is the Hidden Circle?", next = "circle" },
         { text = "What sort of folk come down here?", next = "folk" },
         { text = "The guards don't care for this cavern.", next = "guards" },
+        { text = "Do you ever get bored, just watching?", next = "xr_bored" },
+        { text = "I'm one of you. Any word from the Circle?", next = "xr_rogue", when = { class = "ROGUE" } },
         { text = "I was only passing.", next = "END" },
       },
     },
@@ -374,8 +455,46 @@ P:NPC {
       lines = { { id = "guards_default", text = "They walk through twice a day, lookin' straight ahead, and they're glad to be out again. It's an arrangement that suits both sides, for they've nae wish to see anythin' and we've nae wish to be seen." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xr_bored = {
+      lines = {
+        { id = "xrb_default", text = "Never. Watchin' is like readin' a book written in boots and faces. I can tell who's lost, who's lyin' and who's about to start a fight before they know it themselves." },
+      },
+      choices = {
+        { text = "What do you see in me?", next = "xr_me" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xr_me = {
+      lines = {
+        { id = "xrm_default", text = "Ye've asked a watcher what he sees, which tells me ye're curious and nae afraid of the answer. Ye looked behind ye twice on the way down the tunnel. I'll keep the rest to myself." },
+      },
+      choices = {
+        { text = "Do you ever tell the guards what you see?", next = "xr_guards" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xr_guards = {
+      lines = {
+        { id = "xrg_default", text = "Once in a long while, if somebody means real harm to the city. Most of what passes here is small business, a debt or a grudge, and that I keep. A cavern that talks to the guards soon stops bein' useful." },
+      },
+      choices = {
+        { text = "Silence is the deal. Keep everyone's secrets.", next = "BACK", reply = "Aye. That's how the Circle survives, and how I do.", fx = { align = { order = -1 } } },
+        { text = "If you see a crime, the guards should know.", next = "BACK", reply = "Spoken like a citizen. Ye'd make a poor watcher, but likely a better neighbour.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xr_rogue = {
+      lines = {
+        { id = "xrr_default", text = "Word is a Dark Iron agent was seen near the Deeprun Tram, so keep yer eyes open and yer blade quiet. Ormyr would pay for a name. Ye didnae hear it from me." },
+      },
+      choices = {
+        { text = "I heard nothing. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    forlorn_cavern = { { id = "tp_cavern", text = "It's nae a dangerous place, whatever the guards say. It's a place for folk who'd rather nae be seen, and that's different." } },
+    dark_iron = { { id = "tp_darkiron", text = "They've spies in this city, I'd swear it. I've seen boots that never touched an Ironforge road." } },
     background = { { id = "tp_bg", text = "I was born in Ironforge and I've seen a good deal of it by lamplight. Leave it there." } },
     _none = { { id = "tp_none", text = "I dinnae know, and if I did, ye'd nae hear it from me for nothin'." } },
   },
@@ -413,6 +532,8 @@ P:NPC {
         { text = "What sort of creatures?", next = "creatures" },
         { text = "A dwarf who likes murlocs?", next = "murlocs" },
         { text = "Why wait down here, of all places?", next = "here" },
+        { text = "Who exactly are you waiting for?", next = "xa_wait" },
+        { text = "I've a pet of my own. Like it?", next = "xa_pet", when = { class = "HUNTER" } },
         { text = "Good day to you both.", next = "END" },
       },
     },
@@ -435,8 +556,45 @@ P:NPC {
       lines = { { id = "he_default", text = "Because it's damp, and there's a pool, and nobody minds what a body keeps in a bucket. Up in the Commons they'd have the guards on me before the first gurgle." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xa_wait = {
+      lines = {
+        { id = "xaw_default", text = "Folk from the Darkmoon Faire, mostly, and those who bring wee creatures back from their travels. A murloc hatchling came through here once in a bucket, and I've nae been the same since." },
+      },
+      choices = {
+        { text = "Tell me about the hatchling.", next = "xa_hatch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xa_hatch2 = {
+      lines = {
+        { id = "xah2_default", text = "Wee green thing, eyes like marbles, and it gurgled at me as if it knew a joke I didnae. The fellow carryin' it was takin' it to Stormwind to sell. I've wondered ever since whether it found a good home." },
+      },
+      choices = {
+        { text = "Should creatures like that be sold at all?", next = "xa_sold" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xa_sold = {
+      lines = {
+        { id = "xas_default", text = "Ransin says a beast is a beast, and if a gold coin keeps it fed, that's better than a swamp. I say a thing that can look at ye like that belongs where it was born." },
+      },
+      choices = {
+        { text = "Wild things belong in the wild. Leave them be.", next = "BACK", reply = "Aye! Thank ye. Ransin, did ye hear that?", fx = { align = { light = 1 } } },
+        { text = "A fed pet is better off than a hungry wild one.", next = "BACK", reply = "Hmph. That's Ransin's very argument. He'll be insufferable now.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xa_pet = {
+      lines = {
+        { id = "xap_default", text = "Oh, aye, a handsome beast, and well kept by the look of its coat. Ye can tell how a hunter treats a pet by how it stands beside them, and that one stands proud." },
+      },
+      choices = {
+        { text = "Thank you. Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    darkmoon_faire = { { id = "tp_faire", text = "When the Faire comes near, I'll be first in line. They've the strangest wee creatures in all the world." } },
     background = { { id = "tp_bg", text = "I've wandered a fair bit and brought home stranger things than gold. Ransin and I have stood in this cavern a good while now." } },
     _none = { { id = "tp_none", text = "I cannae help ye there, friend, unless it swims, crawls or gurgles." } },
   },

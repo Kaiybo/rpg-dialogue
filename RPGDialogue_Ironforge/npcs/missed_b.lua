@@ -111,10 +111,15 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? The fuse is a long one, so we've time." },
         { id = "h_again2", text = "Ask away, I'm only waiting for this to cool." },
+        { id = "h_again_x0", when = { profession = "Engineering" }, text = "Back again? Good, I've a new prototype, and it hasn't exploded yet." },
       },
       choices = {
         { text = "What are you building?", next = "building" },
         { text = "Your eyebrow has seen better days.", next = "eyebrow" },
+        { text = "How did you and Jemma get out of Gnomeregan?", next = "escape" },
+        { text = "What's Springspindle like as a master?", next = "master" },
+        { text = "Need a second pair of hands?", next = "help", when = { profession = "Engineering" } },
+        { text = "Did you know my family in Gnomeregan?", next = "BACK", when = { race = "Gnome" }, reply = "Maybe! There were rather a lot of us, and I mostly knew the ones who lived near the steam vents. Tell me your clan someday and I'll check Jemma's notes." },
         { text = "I'll give you some room.", next = "END" },
       },
     },
@@ -133,8 +138,40 @@ P:NPC {
       lines = { { id = "e_default", text = "That was Tuesday's prototype, and it taught me a great deal about venting. Back in Gnomeregan they'd have called it a learning opportunity and given me a bigger workshop, and I do miss that attitude." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    escape = {
+      narr = "For a moment her hands stop moving on the bench.",
+      lines = { { id = "xescape_default", text = "We ran, mostly, along with everyone else when the alarms went and the troggs came up through the lower levels. Jemma had a map in her head and I had a lantern, and between us we found the Tinker Town tram before the gas did." } },
+      choices = {
+        { text = "Was it the radiation that drove you out?", next = "rad" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rad = {
+      lines = { { id = "xrad_default", text = "The troggs first, and then the High Tinker flooded the lower levels with radiation to stop them, and then Thermaplugg turned out to be helping the troggs all along. It was a very bad week, and some of us are still counting the people who didn't come out." } },
+      choices = {
+        { text = "Should gnomes try to retake it now?", next = "retake" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    retake = {
+      lines = { { id = "xretake_default", text = "Half of Tinker Town wants to march back tomorrow, and the other half says we wait for Mekkatorque's plan, whatever it turns out to be. Jemma's for waiting, and I'm about fifty-five percent for going. What would you say?" } },
+      choices = {
+        { text = "Wait for Mekkatorque. A rushed attack wastes lives.", next = "BACK", reply = "That's Jemma's argument, almost word for word. She'll be insufferable when I tell her.", fx = { align = { order = 1 } } },
+        { text = "Go now, before the troggs dig in deeper.", next = "BACK", reply = "Yes! That's what I keep saying! Fifty-five percent just became sixty.", fx = { align = { order = -1 }, affinity = 1 } },
+      },
+    },
+    master = {
+      lines = { { id = "xmaster_default", text = "Springspindle Fizzlegear runs the shop, and she's brilliant and terrifying in about equal measure. She told me my last device had the structural integrity of a damp biscuit, and then she showed me how to fix it, which is the best kind of teacher." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    help = {
+      lines = { { id = "xhelp_default", text = "Oh, would you? Hold this end, and don't let go, and whatever you do, don't touch the blue wire. Jemma says I should never let a stranger near the blue wire, but you look careful." } },
+      choices = { { text = "Which one's the blue wire?", next = "BACK", reply = "Ah. That's actually a very good question, and I'm going to ask Jemma.", fx = { affinity = 1 } } },
+    },
   },
   topics = {
+    gnomeregan = { { id = "tp_xgnomeregan", text = "We came out through the Tinker Town tram, Jemma and I. I still dream about the alarms." } },
+    tinker_town = { { id = "tp_xtinker_town", text = "Tinker Town is home now, more or less. It smells of oil and burnt toast, and nobody minds an explosion." } },
     background = { { id = "tp_bg", text = "Jemma and I came out of Gnomeregan together, with one bag between us and most of it her notebooks." } },
     _none = { { id = "tp_none", text = "No idea! Ask Jemma, she's probably got it written down under a heading." } },
   },
@@ -648,11 +685,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "Was there something else? I've a jerkin to restitch, but it can wait." },
         { id = "h_again2", text = "Yes? Go on, I'm listening with at least one ear." },
+        { id = "h_again_x0", when = { class = { "ROGUE", "HUNTER" } }, text = "Back again? Has the leather held up, or have you been crawling through something unpleasant?" },
       },
       choices = {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "A gnome selling armor to dwarf soldiers?", next = "dwarves" },
         { text = "Why light armor, in a ward full of plate?", next = "light" },
+        { text = "How do you size people by eye?", next = "measure" },
+        { text = "You made safety aprons in Gnomeregan?", next = "aprons" },
+        { text = "Do you sell anything for night work?", next = "nightwork", when = { class = { "ROGUE", "HUNTER" } } },
+        { text = "Why should a dwarf wear leather?", next = "BACK", when = { race = "Dwarf" }, reply = "Because you'll walk twice as far in it, and you'll still be standing when the plate-wearers sit down for a rest. Try a jerkin, and see." },
         { text = "Thank you, Lissyphus.", next = "END" },
       },
     },
@@ -671,8 +713,39 @@ P:NPC {
       lines = { { id = "l_default", text = "Because I carried my whole workshop out of Gnomeregan on my back, and it taught me precisely what every extra pound costs over a mile. I worked it out afterwards, and it's about seven percent more swearing per pound." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    measure = {
+      lines = { { id = "xmeasure_default", text = "Practice, mostly, and a good deal of staring. I measured every engineer in my old workshop for their aprons, and after the first few hundred I could do it while they were walking past." } },
+      choices = {
+        { text = "Have you ever been wrong?", next = "wrong" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wrong = {
+      lines = { { id = "xwrong_default", text = "Once, on a dwarf who'd been at the Thunderbrew all night, and I'm still not sure if it was his chest or the ale. I've learned to ask now, politely, before I start pinning." } },
+      choices = {
+        { text = "How do you compete with the Craghelms?", next = "rivals" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rivals = {
+      lines = { { id = "xrivals_default", text = "Quality, mostly, though a dwarf down the ward tells me I ought to undercut them till they're selling at a loss. It works for some merchants, but it doesn't feel right to me. What would you do?" } },
+      choices = {
+        { text = "Compete on quality. Tricks win nothing lasting.", next = "BACK", reply = "That's my thinking too, and the scouts keep coming back, so it must work.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Undercut them. Trade's a battle, and you want to win.", next = "BACK", reply = "Hmm, maybe. Olthran would never forgive me, but he'd never forgive me anyway.", fx = { align = { honor = -1 } } },
+      },
+    },
+    aprons = {
+      lines = { { id = "xaprons_default", text = "Leather and treated canvas, double-stitched and fireproofed, because engineering is mostly a matter of what happens when something goes wrong. Armour is the same idea, only the accidents are on purpose." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    nightwork = {
+      lines = { { id = "xnightwork_default", text = "Soft-soled boots and dark leather, oiled so it won't creak, and I won't ask what you'll be doing in them. A gnome who's spent her life in workshops knows the value of not making noise." } },
+      choices = { { text = "I appreciate your discretion.", next = "BACK", reply = "Discretion costs nothing, and it's good for business." } },
+    },
   },
   topics = {
+    gnomeregan = { { id = "tp_xgnomeregan", text = "I carried my whole workshop out of Gnomeregan on my back. It's why I sell light armour now." } },
+    military_ward = { { id = "tp_xmilitary_ward", text = "I'm the only shop in the Military Ward that isn't selling a hundredweight of steel, and I like it that way." } },
     background = { { id = "tp_bg", text = "I made safety aprons for the workshops back home. Armour is the same idea, only the accidents are on purpose." } },
     _none = { { id = "tp_none", text = "I couldn't tell you, I'm afraid. If it doesn't have a seam, I haven't studied it." } },
   },
@@ -707,10 +780,15 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else would ye like tae know?" },
         { id = "h_again2", text = "Ask away, the books will keep." },
+        { id = "h_again_x0", when = { race = "Dwarf" }, text = "Back again, {g:lad|lass}? Have ye found out which clan ye're from yet?" },
       },
       choices = {
         { text = "What are you reading?", next = "reading" },
         { text = "The Library seems busier than a dig site.", next = "library" },
+        { text = "You clerked for the Senate for forty years?", next = "senate" },
+        { text = "What do you know of Uldaman?", next = "uldaman" },
+        { text = "Which clan keeps the oldest records?", next = "clans", when = { race = "Dwarf" } },
+        { text = "Do you read any arcane works?", next = "BACK", when = { class = "MAGE" }, reply = "A few, though I'll confess I mostly look at the pictures. The script makes my eyes water, an' I've no' the patience for footnotes." },
         { text = "I'll leave you to your books.", next = "END" },
       },
     },
@@ -729,8 +807,41 @@ P:NPC {
       lines = { { id = "l_default", text = "It always is when the passes are snowed in, for every prospector home from the field comes tae argue over his findin's. Curator Thorius keeps the peace, an' Mae Paledust keeps the books from walkin' out the door under somebody's cloak." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    senate = {
+      lines = { { id = "xsenate_default", text = "Aye, forty years o' writin' down what other dwarves said, an' most o' it was the same argument wearin' a different beard. Still, I saw how this kingdom works from the inside, which few get tae see." } },
+      choices = {
+        { text = "What did the minutes leave out?", next = "minutes" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    minutes = {
+      narr = "He closes one of the books, carefully, with a finger left in to keep the page.",
+      lines = { { id = "xminutes_default", text = "The shouting, mostly, an' the votes that were decided in the tavern the night before. The Senate's minutes make it look orderly, but there were days when it took three guards tae keep two senators apart." } },
+      choices = {
+        { text = "Does King Magni heed the Senate?", next = "magni" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    magni = {
+      lines = { { id = "xmagni_default", text = "Most days, an' when he doesnae, the Senate grumbles an' the city carries on. Some say the Senate should bind the king, an' some say a king should rule as his gut tells him. Where do ye stand?" } },
+      choices = {
+        { text = "The Senate's law should bind the king.", next = "BACK", reply = "Spoken like a clerk, an' I mean that kindly. I wrote down a great many laws, an' I'd like tae think they mattered.", fx = { align = { order = 1 } } },
+        { text = "Let Magni rule. A king shouldn't wait on talkers.", next = "BACK", reply = "Ye'd have been popular in the taverns, if no' in the chamber. Magni would like ye, I think.", fx = { align = { order = -1 }, affinity = 1 } },
+      },
+    },
+    uldaman = {
+      lines = { { id = "xuldaman_default", text = "It's a titan vault out in the Badlands, an' the League has been diggin' at it for years. The prospectors tell me it's full o' troggs an' Dark Irons, which is a fine reason tae read about it from here." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    clans = {
+      lines = { { id = "xclans_default", text = "The Bronzebeards, by right o' rule, but the oldest scrolls I've seen came from a minor hold out by the Thandol Span. Most clans keep their histories in their heads an' their songs, an' that's a sore trial tae a librarian." } },
+      choices = { { text = "Maybe someone should write them down.", next = "BACK", reply = "Aye, an' I'm too old an' too slow for it. Perhaps ye'll do it, {g:lad|lass}." } },
+    },
   },
   topics = {
+    magni = { { id = "tp_xmagni", text = "King Magni listens tae the Senate when it suits him, an' tae his own gut the rest o' the time. It's served us well enough." } },
+    uldaman = { { id = "tp_xuldaman", text = "The League's titan vault in the Badlands. I've read every report on it, an' I'll never set foot there." } },
+    explorers_league = { { id = "tp_xexplorers_league", text = "The League keeps me in books, an' I keep them in criticism. It's a fair trade." } },
     background = { { id = "tp_bg", text = "I was a clerk tae the Senate for forty years, an' when I retired I came here tae read what the minutes left out." } },
     three_hammers = { { id = "tp_th", text = "Bronzebeard, Wildhammer an' Dark Iron fought for this mountain after old King Anvilmar died. We won, an' we've been payin' for it since." } },
     _none = { { id = "tp_none", text = "I've no' come tae that chapter yet, I fear. Ask the librarian, for she's read further than I have." } },
@@ -766,11 +877,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else can I do for ye, dear?" },
         { id = "h_again2", text = "Go on, I'm only pinnin' a hem." },
+        { id = "h_again_x0", when = { class = { "MAGE", "PRIEST" } }, text = "Back again, dear? Let me see how the sleeves are holdin' up." },
       },
       choices = {
         { text = "Show me your robes.", next = "BUSINESS" },
         { text = "What makes a good robe?", next = "robe" },
         { text = "Is Poranna Snowbraid a relation of yours?", next = "poranna" },
+        { text = "Your brothers were miners, you said?", next = "brothers" },
+        { text = "Do you sell to warlocks?", next = "warlocks" },
+        { text = "Could you add pockets to my robe?", next = "pockets", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
+        { text = "Do you cut robes for gnomes?", next = "BACK", when = { race = "Gnome" }, reply = "I do, dear, an' I've a whole rail for the wee folk now. The mages from Tinker Town keep me busy wi' their hems." },
         { text = "Good day, Maeva.", next = "END" },
       },
     },
@@ -789,8 +905,40 @@ P:NPC {
       lines = { { id = "p_default", text = "She's kin, aye, an' she keeps the tailorin' supplies at Stonebrow's by the Great Forge. I buy my thread from her an' she tells me I'm overchargin' for my robes, an' that's how Snowbraids show affection." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    brothers = {
+      lines = { { id = "xbrothers_default", text = "Four o' them, an' every one came home wi' his shirt torn tae ribbons. I was mendin' them before I could read, an' I swore I'd make somethin' that didnae smell o' rock dust one day." } },
+      choices = {
+        { text = "Are they still mining?", next = "still" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    still = {
+      lines = { { id = "xstill_default", text = "Two are, out by Thelsamar in Loch Modan, an' one went tae the Wetlands wi' the Explorers' League an' writes when he remembers. The youngest stayed home, an' he's a cook now, bless him." } },
+      choices = {
+        { text = "Do they write often?", next = "letters" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    letters = {
+      narr = "She smooths a hem that doesn't need smoothing.",
+      lines = { { id = "xletters_default", text = "No' often enough, an' when they do it's all about the rock they found. I keep every letter in a drawer, an' I'll tell ye a secret: I read them aloud tae the robes, for company." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    warlocks = {
+      lines = { { id = "xwarlocks_default", text = "I do, dear, an' some in the Mystic Ward think I shouldnae. The priests say a robe for a demon-caller is a robe for the enemy, an' I say cloth is cloth. What would ye do?" } },
+      choices = {
+        { text = "Cloth is cloth. Sell to anyone who pays.", next = "BACK", reply = "That's my view, an' I'll keep it. A warlock still needs a hem that clears the ground.", fx = { align = { light = -1 } } },
+        { text = "Turn them away. Demons are no customer.", next = "BACK", reply = "Ye sound like the priests, dear. Maybe they're right, but I've never had a warlock skip a bill.", fx = { align = { light = 1 } } },
+      },
+    },
+    pockets = {
+      lines = { { id = "xpockets_default", text = "I'd want tae see it first, dear, for I'll no' cut intae somethin' I didnae make wi'out lookin' at the seams. But if it's yer robe an' ye want pockets, I'd say three on the left an' two on the right." } },
+      choices = { { text = "Why more on the left?", next = "BACK", reply = "Ye cast wi' yer right, I'd wager. Ye'll want the left free for reagents, dear." } },
+    },
   },
   topics = {
+    hall_of_mysteries = { { id = "tp_xhall_of_mysteries", text = "The priests in the Hall of Mysteries are my best customers. They're forever kneelin', so the knees wear first." } },
+    holy_light = { { id = "tp_xholy_light", text = "I'm no' devout, dear, but I've dressed enough priests tae know the Light makes folk kinder." } },
     background = { { id = "tp_bg", text = "I learned tae sew mendin' my brothers' minin' shirts, an' robes are a good deal more pleasant tae handle." } },
     _none = { { id = "tp_none", text = "I couldnae say, dear. Ask one o' the priests in the Hall, for they know more than a seamstress does." } },
   },
@@ -825,11 +973,16 @@ P:NPC {
       again = {
         { id = "h_again", text = "Aye, what else?" },
         { id = "h_again2", text = "Go on, then." },
+        { id = "h_again_x0", when = { class = { "WARRIOR", "PALADIN" } }, text = "Back again, {class}? Let me hear the plate ring." },
       },
       choices = {
         { text = "Show me your armor.", next = "BUSINESS" },
         { text = "Why set up in the Commons and not the Military Ward?", next = "commons" },
         { text = "You and Raena split the shop between you.", next = "raena" },
+        { text = "Five generations of Flinthammers?", next = "gens" },
+        { text = "What's the traffic like at the gates?", next = "gates" },
+        { text = "My pauldron strap has stretched.", next = "strap", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Do you have plate in my size?", next = "BACK", when = { race = "Gnome" }, reply = "A few pieces, aye, but plate on a gnome is a heavy thing. Raena's leather might suit ye better, friend." },
         { text = "Good day, Mangorn.", next = "END" },
       },
     },
@@ -848,8 +1001,40 @@ P:NPC {
       lines = { { id = "r_default", text = "Aye, an' it's kept the peace for a good many years. I thought leather was for boots when I married her, an' she's sold more o' it tae hunters an' scouts than I've sold plate, so I've learned tae hold my tongue." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    gens = {
+      lines = { { id = "xgens_default", text = "Aye, an' every one o' them fitted armour for this city. My grandfather made mail for the dwarves who held the passes in the Second War, an' his father taught him on the same anvil." } },
+      choices = {
+        { text = "Did the Horde ever reach the gates?", next = "horde" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    horde = {
+      narr = "He raps a breastplate once with his knuckles and listens to it ring.",
+      lines = { { id = "xhorde_default", text = "They reached the foot o' the mountain, but they never got through the gates, an' my grandfather was proud o' that till his last day. He said a hundred thousand orcs couldnae get past good dwarven steel." } },
+      choices = {
+        { text = "And now there are free orcs again, in Kalimdor.", next = "orcs" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orcs = {
+      lines = { { id = "xorcs_default", text = "So I hear, under a new warchief who says they've changed. Some say they should have stayed in the camps, an' some say they deserve the chance tae prove it. I've no' made up my mind. Have ye?" } },
+      choices = {
+        { text = "They deserve a chance to prove themselves.", next = "BACK", reply = "Aye, maybe. I'd want tae see it wi' my own eyes, mind, an' I'd want a good breastplate while I looked.", fx = { align = { light = 1 } } },
+        { text = "They should have stayed in the camps.", next = "BACK", reply = "That's what my grandfather would have said, an' many in this city agree. I'll keep sellin' armour, either way.", fx = { align = { light = -1 } } },
+      },
+    },
+    gates = {
+      lines = { { id = "xgates_default", text = "Recruits up from Dun Morogh, refugees from Gnomeregan, an' humans off the tram who stare at the ceiling. They all need somethin' tae wear, an' most o' them need it before they know they do." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    strap = {
+      lines = { { id = "xstrap_default", text = "Aye, I noticed. Take it tae a smith at the Great Forge an' have them put a new strap on it, for a stretched strap means the plate shifts, an' a shiftin' plate is no' doin' its work." } },
+      choices = { { text = "I'll see to it.", next = "BACK", reply = "Do, {class}. I'd sooner ye came back for new armour than no' at all." } },
+    },
   },
   topics = {
+    second_war = { { id = "tp_xsecond_war", text = "My grandfather made mail for the dwarves who held the passes. The Horde never got through the gates." } },
+    hall_of_arms = { { id = "tp_xhall_of_arms", text = "The Hall of Arms trains them, an' then they come down tae the Commons lookin' for armour. I see every recruit twice." } },
     background = { { id = "tp_bg", text = "Flinthammers have fitted armour in Ironforge for five generations, an' I was hammerin' rivets before I could grow a beard." } },
     _none = { { id = "tp_none", text = "I dinnae ken, friend. Ask Raena, for she hears all the talk at the gates." } },
   },
@@ -884,11 +1069,15 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, dear?" },
         { id = "h_again2", text = "Go on, I've always time for a blether." },
+        { id = "h_again_x0", when = { class = { "HUNTER", "ROGUE" } }, text = "Back again, dear? Let me see the leather, an' I'll tell ye if it'll last." },
       },
       choices = {
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "What's the talk at the gates this week?", next = "talk" },
         { text = "Mangorn says you have the better half of the wits.", next = "mangorn" },
+        { text = "A tanner's daughter from Kharanos?", next = "tanner" },
+        { text = "Any word from the Military Ward?", next = "ward" },
+        { text = "Does Dun Morogh bear hide hold up?", next = "bear", when = { class = { "HUNTER", "ROGUE" } } },
         { text = "Good day, Raena.", next = "END" },
       },
     },
@@ -907,8 +1096,40 @@ P:NPC {
       lines = { { id = "m_default", text = "He said that tae a stranger? Well, he's right, but don't tell him I agreed. He's the best armourer in the Commons an' the worst haggler in Khaz Modan, so I do the sums an' he does the hammerin'." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    tanner = {
+      lines = { { id = "xtanner_default", text = "Aye, an' I could tan a hide before I could spell it. My father had the yard behind the Thunderbrew Distillery, an' the smell o' tannin an' malt is the smell o' home tae me." } },
+      choices = {
+        { text = "How did you meet Mangorn?", next = "met" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    met = {
+      narr = "She laughs, then lowers her voice as if Mangorn might hear.",
+      lines = { { id = "xmet_default", text = "He came tae buy hides for his straps an' tried tae haggle my father down, an' he was so bad at it my father took pity on him. I took pity on him too, an' I've been doin' the hagglin' ever since." } },
+      choices = {
+        { text = "Is it honest to haggle hard?", next = "haggle" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    haggle = {
+      lines = { { id = "xhaggle_default", text = "Mangorn says a fair price is a fair price an' ye shouldnae squeeze. I say a hard bargain is only good sense, an' the other fellow can always walk away. Who's right?" } },
+      choices = {
+        { text = "Pay a fair price. Squeezing people isn't honest.", next = "BACK", reply = "That's Mangorn's line, an' ye sound just like him. He'll be pleased, an' I'll be outvoted.", fx = { align = { honor = 1 } } },
+        { text = "A hard bargain is just good sense.", next = "BACK", reply = "That's the spirit, {g:lad|lass}! I knew I liked ye the moment ye walked in.", fx = { align = { honor = -1 }, affinity = 1 } },
+      },
+    },
+    ward = {
+      lines = { { id = "xward_default", text = "The trainers are complainin' about the recruits, the riflemen are complainin' about the trainers, an' everyone's complainin' about the Senate. Same as every week, dear." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    bear = {
+      lines = { { id = "xbear_default", text = "It does, if it's tanned right, an' mine is. A Dun Morogh bear lives through winters that would kill a lesser beast, an' its hide remembers every one o' them." } },
+      choices = { { text = "I'll take your word for it.", next = "BACK", reply = "Take a jerkin as well, dear, an' ye'll see for yerself." } },
+    },
   },
   topics = {
+    kharanos = { { id = "tp_xkharanos", text = "I grew up in Kharanos, behind the distillery. The smell o' malt still makes me homesick." } },
+    gnomeregan = { { id = "tp_xgnomeregan", text = "The poor wee folk come through the gates every week. I sell them what they need an' try no' tae stare." } },
     background = { { id = "tp_bg", text = "I was a tanner's daughter from Kharanos before I was a Flinthammer, so I've had my hands in hides all my life." } },
     _none = { { id = "tp_none", text = "Now that I havenae heard, an' it's no' often I say so. Ask at the inn, dear." } },
   },
