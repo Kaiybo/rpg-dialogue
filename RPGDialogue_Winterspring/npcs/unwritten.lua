@@ -86,6 +86,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xfound = {
+      narr = "He rummages in a pack and pulls out a chipped piece of blue stone.",
+      lines = { { id = "xfound_default", text = "Bits of carved stone, mostly, and a bowl Jaron swears is ten thousand years old. I think it's a chamber pot. Either way, the League'll want it, and they pay by the pound." } },
+      choices = {
+        { text = "Should you be taking things from elven ruins?", next = "xtaking" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtaking = {
+      lines = { { id = "xtaking_default", text = "Aye, well, that's the argument, isn't it? The elves say it's their history and we're robbin' it. I say history in a museum's better than history under the snow. Who's right, eh?" } },
+      choices = {
+        { text = "The elves are right. It's their past.", next = "BACK", reply = "Ach, you sound like the druid who keeps scowlin' at me.", fx = { align = { order = 1 } } },
+        { text = "Knowledge belongs to whoever digs it up.", next = "BACK", reply = "Ha! Now there's a proper Explorers' League answer.", fx = { align = { order = -1 } } },
+      },
+    },
+    xdruids = {
+      lines = { { id = "xdruids_default", text = "They sleep, mostly, so we get on famous. One woke up last week and asked me what century it was. I told him, and he went back to sleep looking very disappointed." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xfood = {
+      lines = { { id = "xfood_default", text = "I trade with the goblins at Everlook, though they charge a dwarf's ransom for a wheel of cheese. And I've a cask of Thunderbrew hidden in the den that I'll deny havin' to anyone who asks." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xkin = {
+      lines = { { id = "xkin_default", text = "Dun Morogh, born and bred, so I know cold, lad. But this Winterspring cold is a different beast. It gets into your beard and argues with ye. Sit down and warm yerself!" } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Grum Redbeard's the name. I came north to poke at the old elven ruins, same as Jaron Stoneshaper, and I've been hidin' in this barrow den from the snow ever since." },
@@ -95,6 +123,11 @@ P:NPC {
         { id = "h_again2", text = "Aye? Out with it." },
       },
       choices = {
+        { text = "What have you found in the ruins so far?", next = "xfound" },
+        { text = "How do you get on with the druids?", next = "xdruids" },
+        { text = "How do you eat out here?", next = "xfood" },
+        { text = "A fellow dwarf! Where are you from?", next = "xkin", when = { race = "Dwarf" } },
+
         { text = "Why not stay out with Jaron at the ruins?", next = "jaron" },
         { text = "What's a barrow den?", next = "barrow" },
         { text = "Farewell, Grum.", next = "END" },
@@ -112,6 +145,10 @@ P:NPC {
       lines = { { id = "ba_default", text = "Where the elf druids sleep, so they tell me, deep in their dreams. It's quiet, and it's warm, and the druids don't snore, which is more than I can say for Jaron." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  },
+  topics = {
+    jaron = { { id = "tp_xjaron", text = "Jaron Stoneshaper. Good dwarf, terrible sense. He'll freeze out there one of these days." } },
+    everlook = { { id = "tp_xeverlook", text = "Goblin town. Good ale, bad prices, and a sense o' humour about it." } },
   },
 }
 
@@ -131,6 +168,34 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xcartel = {
+      narr = "He taps the side of his nose and leans closer.",
+      lines = { { id = "xcartel_default", text = "Eyes and ears, pal. Who's buyin', who's sellin', and who's sellin' what they shouldn't. Then I write it all down, and somebody in Gadgetzan decides if it matters." } },
+      choices = {
+        { text = "That sounds like spying.", next = "xspy" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xspy = {
+      lines = { { id = "xspy_default", text = "Spying's such an ugly word. I prefer market research. Everybody does it, pal; I just do it out in the open where everybody can see me doin' it. Do you think that's honest, or just clever?" } },
+      choices = {
+        { text = "Honest enough. You don't hide what you are.", next = "BACK", reply = "See? You get it. That's why I like you.", fx = { align = { honor = 1 } } },
+        { text = "Clever. Honest people don't keep ledgers on neighbours.", next = "BACK", reply = "Ouch. You'd make a terrible goblin, and I mean that kindly.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xdeal = {
+      lines = { { id = "xdeal_default", text = "A Timbermaw elder traded forty frostsaber pelts for one music box. One! It played a little tune and spun a little dancer. He cried when he heard it, and I still can't decide who got the better deal." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xleave = {
+      lines = { { id = "xleave_default", text = "Leave? Outside are yetis and wildkin and furbolgs with bad tempers. Inside are hot food and gossip. Pal, I'm a goblin; I can do the arithmetic." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xgoblin = {
+      lines = { { id = "xgoblin_default", text = "Sell furs south and boots north, and never the other way. And if Vizzie offers you a drink on the house, check the house. Nothin' in Everlook is ever really free." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Umaron Stragarelm, at your service, though I don't actually provide any services. I'm here for the cartel, keepin' an eye on who buys what and who's selling it cheap." },
@@ -140,6 +205,11 @@ P:NPC {
         { id = "h_again2", text = "Still here? Good. Talk's cheap, so let's have some." },
       },
       choices = {
+        { text = "What does the cartel want with you here?", next = "xcartel" },
+        { text = "What's the biggest deal you've seen here?", next = "xdeal" },
+        { text = "Do you ever leave the town?", next = "xleave" },
+        { text = "Got any tips for a fellow goblin?", next = "xgoblin", when = { race = "Goblin" } },
+
         { text = "Who runs Everlook?", next = "who" },
         { text = "Why would anyone trade in this cold?", next = "cold" },
         { text = "See you around, Umaron.", next = "END" },
@@ -157,6 +227,10 @@ P:NPC {
       lines = { { id = "co_default", text = "Furs, pal. Frostsaber pelts, chimaera hides, and the stuff the Timbermaw trade for. Folks pay a fortune for 'em down south, and they're up here for the taking." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+  },
+  topics = {
+    steamwheedle = { { id = "tp_xsteam", text = "The cartel. Everlook, Gadgetzan, Booty Bay and Ratchet. Neutral, profitable, and always watchin'." } },
+    timbermaw = { { id = "tp_xtimbermaw", text = "Furbolgs who still have their wits. Good traders, if you've made friends first." } },
   },
 }
 
@@ -248,12 +322,45 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xshrines = {
+      narr = "She brushes snow from a carved stone at her feet, revealing a crescent moon.",
+      lines = { { id = "xshrines_default", text = "The old moonwells and the little altars along the Owl Wing paths. Most are buried, and some are broken. I clear one each day, if the weather allows, and pray over it before it fills again." } },
+      choices = {
+        { text = "Isn't that a hopeless task?", next = "xhope" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhope = {
+      lines = { { id = "xhope_default", text = "Perhaps. But Elune does not ask that a task be finished, only that it be done with love. Some sisters say I should return to Darnassus where I am needed. Should I?" } },
+      choices = {
+        { text = "Stay. The old places deserve someone faithful.", next = "BACK", reply = "Then I will stay, and clear another stone tomorrow.", fx = { align = { light = 1 } } },
+        { text = "Go home. The living need you more.", next = "BACK", reply = "Perhaps you are right. But not before spring.", fx = { align = { light = -1 } } },
+      },
+    },
+    xcold = {
+      lines = { { id = "xcold_default", text = "With prayer, and with very warm boots from the goblins of Everlook. Elune gives warmth to the spirit, but she has never claimed to warm the feet." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xsaber = {
+      lines = { { id = "xsaber_default", text = "The Winterspring frostsabers are sacred to the Sentinels, and Rivern Frostwind breeds them at the cave to the south. They are proud animals. They will let you ride them only if they decide to." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xpriest = {
+      lines = { { id = "xpriest_default", text = "That faith is easier in a warm temple than in the snow. Kneel here with me for one night, and you will learn which of your prayers you truly mean." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I came to Winterspring to tend the old shrines our people built when this land was green. The snow has buried most of them, but Elune remembers where they are." },
       },
       again = { { id = "h_again", text = "Ask, if you wish. The cold makes for short conversations, but not short memories." } },
       choices = {
+        { text = "Which shrines do you tend?", next = "xshrines" },
+        { text = "How do you endure the cold?", next = "xcold" },
+        { text = "Tell me about the frostsabers.", next = "xsaber" },
+        { text = "I'm a priest as well. What can I learn here?", next = "xpriest", when = { class = "PRIEST" } },
+
         { text = "What happened to this land?", next = "land" },
         { text = "What threatens Winterspring now?", next = "threat" },
         { text = "Elune-adore, priestess.", next = "END" },
@@ -271,5 +378,9 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+  },
+  topics = {
+    elune = { { id = "tp_xelune", text = "The Mother Moon. She watches even this frozen land, and so do I." } },
+    frostsabers = { { id = "tp_xsabers", text = "Proud cats of the snow. The Sentinels prize them above all mounts." } },
   },
 }

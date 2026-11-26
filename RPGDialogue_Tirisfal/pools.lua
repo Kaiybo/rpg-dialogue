@@ -36,6 +36,7 @@ P:Pool {
 P:Pool {
   id = "guard_deathknell", role = "guard", community = "deathknell",
   barks = {
+    { id = "xb_crypt", text = "Another one stirring in the crypt. Either it'll ask where it is, or it'll try to bite me, and I've learned to wait and see." },
     { id = "b_mindless", text = "Another one woke up mindless, so we put it back down. That's the job." },
   },
   greetings = {
@@ -48,10 +49,17 @@ P:Pool {
   },
   react = { { id = "r_stealth", on = "stealth", text = "Sneaking already? You'll do well in the Undercity." } },
   lines = {
+    { id = "xl_new", when = { race = "Scourge" }, text = "You're freshly risen, by the look of you, so here's what I tell them all: the Dark Lady freed you, and you owe her for it." },
+    { id = "xl_scar", text = "The Scarlets have been creeping closer from the Solliden fields. If you're headed out past the graveyard, take a blade and a friend." },
     { id = "l_default", text = "Deathknell's where the Forsaken wake, though not all of us wake as ourselves, and those that don't, we deal with." },
   },
-  choices = { { text = "Understood.", next = "END", fx = { standing = { deathknell = 1 } } } },
+  choices = {
+    { text = "What happens to those who don't wake as themselves?", next = "END", reply = "We put them down, quickly and as gently as we can, and bury them again." },
+    { text = "I'll keep my wits about me.", next = "END", reply = "Good. Wits are the first thing the plague takes." },
+    { text = "Understood.", next = "END", fx = { standing = { deathknell = 1 } } } },
   topics = {
+    scarlet = { { id = "xt_sc", text = "Zealots in red who come to burn us in our graves. Kill them first." } },
+    sylvanas = { { id = "xt_sy", text = "The Dark Lady freed us. Every Forsaken here owes her that." } },
     knows = {
       { id = "t_kn1", text = "We see everyone who wakes here, and they all come with questions. These are the ones I can answer." },
     },

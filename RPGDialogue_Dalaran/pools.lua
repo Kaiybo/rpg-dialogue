@@ -105,6 +105,9 @@ P:Pool {
       text = "Mind the mortar, and mind the magus floating that block over your head even more." },
   },
   lines = {
+    { id = "l_x1", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } }, text = "A magus asked me to make a wall that hums. I asked him what key. He didn't laugh, and now I'm learning music." },
+    { id = "l_x2", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } }, text = "The pay is good and the work is strange. Last week I mortared a window that opened onto a different room each morning." },
+
     { id = "l_default", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },
       text = "The magi lift the stones and we set them, which sounds fair until a magus sneezes. We lost a whole cornice that way, and nobody's owned up to it." },
     { id = "l_dome", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },
@@ -129,6 +132,10 @@ P:Pool {
       text = "Excuse me! Sorry, I'm carrying four hundred pages, and none of them are in order." },
   },
   lines = {
+    { id = "l_x1", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } }, text = "I spent three hours yesterday copying a single rune. My master looked at it, said it was upside down, and went to lunch." },
+    { id = "l_x2", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } }, text = "The library's lamps never go out, which sounds wonderful until you realise it means nobody ever tells you to go to bed." },
+    { id = "l_x3", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } }, text = "Everyone whispers about the Shade upstairs. I try not to think about it, which mostly means I think about nothing else." },
+
     { id = "l_default", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },
       text = "My master says the ley lines under the city are settling, the way a house settles after a storm. I hope he's right, because my room sits right on top of one." },
     { id = "l_stairs", when = { any = { { zone = "Dalaran" }, { subzone = { "Dalaran", "Violet Citadel", "Sky Enclave", "Path of Renewal", "Dalaran Charter", "Eclipse with Shears", "Magical Menagerie" } } } },

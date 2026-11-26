@@ -2026,6 +2026,10 @@ P:NPC {
       narr = "Tatters of a Lordaeron caparison still hang from its flanks.",
       lines = { { id = "h_default", text = "<The warhorse stamps a bare hoof on the stones and waits, as if for a rider who isn't coming.>" } },
       choices = {
+        { text = "Look over its old barding.", next = "xbard" },
+        { text = "Offer it a handful of oats.", next = "xoats" },
+        { text = "Try to climb into the saddle.", next = "xmount" },
+        { text = "Lay a hand on its brow and pray.", next = "xpray", when = { class = "PALADIN" } },
         { text = "Easy there. Good horse.", next = "pat" },
         { text = "Leave it be.", next = "END" },
       },
@@ -2034,8 +2038,61 @@ P:NPC {
       lines = { { id = "p_default", text = "<It lowers its head and lets you touch its neck, which is cold and still under your hand.>" } },
       choices = { { text = "Leave it be.", next = "END", fx = { affinity = 1 } } },
     },
+    xbard = {
+      lines = {
+        { id = "xb1", text = "<The caparison is Silver Hand blue under the mud, and a stitched crest on the breastplate has been cut away with a knife.>" },
+      },
+      choices = {
+        { text = "Whoever rode you, they're gone now.", next = "xgone" },
+        { text = "Step back.", next = "BACK" },
+      },
+    },
+    xgone = {
+      lines = {
+        { id = "xg1", text = "<The horse turns its head toward the gate of the keep and holds still, ears forward, the way a living horse listens for a familiar step.>" },
+      },
+      choices = {
+        { text = "Someone should put this poor beast to rest.", next = "BACK", reply = "<The horse snorts and sidles away from you, hooves scraping on the stone.>", fx = { align = { light = 1 } } },
+        { text = "It chose to stay. Let it serve, as the rest do.", next = "BACK", reply = "<It settles, and the dull eye stays on you a while longer.>", fx = { align = { light = -1 } } },
+      },
+    },
+    xoats = {
+      lines = {
+        { id = "xo1", text = "<The horse lips at the oats out of old habit, then lets them spill through its teeth onto the stones. It does not seem to mind, and neither, after a moment, do you.>" },
+      },
+      choices = {
+        { text = "Ask Ephram what it does eat.", next = "xephram" },
+        { text = "Step back.", next = "BACK" },
+      },
+    },
+    xephram = {
+      lines = {
+        { id = "xe1", text = "<Across the yard, a Forsaken stablehand calls out that the dead horses eat nothing at all, and that Ephram still puts out hay for them every morning anyway.>" },
+      },
+      choices = {
+        { text = "Step back.", next = "BACK" },
+      },
+    },
+    xmount = {
+      lines = {
+        { id = "xm1", text = "<The horse stands rock-still while you take the reins, then swings its head round and closes its bare teeth on your sleeve, not hard, but plainly.>" },
+        { id = "xm2", when = { race = "Scourge" }, text = "<The horse lets you set a foot in the stirrup before it shies, as if the weight of a cold rider is the only kind it remembers.>" },
+      },
+      choices = {
+        { text = "Fair enough. You have a rider already.", next = "BACK", reply = "<It lets go of your sleeve and blows a gust of cold air through its nose.>" },
+      },
+    },
+    xpray = {
+      lines = {
+        { id = "xp1", text = "<A faint warmth gathers under your palm, and the horse shudders once from ears to tail and does not pull away. When you lift your hand, it is still standing, still dead, and somehow quieter.>" },
+      },
+      choices = {
+        { text = "Step back.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    ephram = { { id = "xtp_ep", text = "<The horse's ears swivel toward the stables at the name.>" } },
     _none = { { id = "tp_none", text = "<The horse flicks a ragged ear and looks away.>" } },
   },
 }

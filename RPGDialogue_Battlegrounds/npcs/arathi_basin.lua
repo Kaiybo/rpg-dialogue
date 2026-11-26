@@ -375,11 +375,16 @@ P:NPC {
           text = "A hunter, good. I could use someone who can watch the Lumber Mill ridge without falling asleep. What do you want?" },
       },
       again = {
+        { id = "xh_again2", text = "Back again? Then make it short; the ledger won't fill itself." },
         { id = "h_again", text = "Anything else? I've a ledger waiting." },
       },
       choices = {
         { text = "How goes the fighting?", next = "fight" },
         { text = "The mill on the ridge looks important.", next = "mill" },
+        { text = "Who commands the League here?", next = "xcommand" },
+        { text = "What do you think of the Defilers?", next = "xdef" },
+        { text = "Do you have enough soldiers?", next = "xmen" },
+        { text = "I'm a warrior. Where do you need a shield?", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "Carry on, Sergeant.", next = "END" },
       },
     },
@@ -404,6 +409,39 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xcommand = {
+      lines = { { id = "xco_default", text = "The League answers to the Hall and to Stromgarde's old blood, though in the field it's whoever shouts loudest and makes sense. I'm a sergeant, so I shout the loudest and hope the sense follows." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdef = {
+      narr = "He sets down his quill and drums his fingers on the ledger.",
+      lines = { { id = "xde_default", text = "Dead Lordaeronians digging up Arathor's barrows for their apothecaries, and calling it a war. Some of them might have been my neighbours once, and that's the part I try not to think about." } },
+      choices = {
+        { text = "Then give them no mercy. They chose the Dark Lady.", next = "BACK", reply = "Aye, that's what I tell the new lads, and it helps them sleep.", fx = { align = { light = -1 } } },
+        { text = "Pity them, even as you fight them.", next = "BACK", reply = "I do, quietly, and I'd thank you not to tell the men.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmen = {
+      lines = { { id = "xme_default", text = "Never. Farmers, refugees and a few old veterans hold the line until adventurers like you come and swell it. When you leave, I count heads again, and the number's always smaller." } },
+      choices = {
+        { text = "Then I'll stay as long as the fight lasts.", next = "xstay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xstay = {
+      lines = { { id = "xsy_default", text = "Big words, and I've heard them before, but I'll write your name in the ledger all the same. Prove me wrong, {class}, and I'll buy the first round at Refuge Pointe." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xwarrior = {
+      lines = { { id = "xwa_default", text = "At the Blacksmith, where the fighting's thickest and the ground's flattest. Stand in front of the archers and don't fall over, and that's half the job done." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    stromgarde = { { id = "xtp_strom", text = "That's what we're fighting for, when it comes down to it. Every flag we hold puts us a little nearer home." } },
+    defilers = { { id = "xtp_def", text = "The Dark Lady's lot, all rot and resentment. They fight well for corpses, I'll give them that." } },
+    _none = { { id = "xtp_none", text = "Not in my ledger, {class}. Ask at the Stables, they hear everything." } },
   },
 }
 
@@ -433,11 +471,16 @@ P:NPC {
           text = "A mage, and not one of Dalaran's simpering sort, I hope. You'd appreciate the chemistry here, if you've the stomach for it. Ask quickly." },
       },
       again = {
+        { id = "xh_again2", text = "You again. Either you're curious or you're stalling, and I hope it's the former." },
         { id = "h_again", text = "Something else? My reagents won't keep forever." },
       },
       choices = {
         { text = "What's under the soil?", next = "soil" },
         { text = "What's in the crates?", next = "crates" },
+        { text = "What do you think of the League of Arathor?", next = "xleague" },
+        { text = "Do you remember being alive?", next = "xalive" },
+        { text = "What does Faranell want with old bones?", next = "xfaranell" },
+        { text = "I'm Forsaken as well. What's your work, really?", next = "xforsaken", when = { race = "Scourge" } },
         { text = "Good luck with your work.", next = "END" },
       },
     },
@@ -462,6 +505,39 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xleague = {
+      lines = { { id = "xlg_default", text = "Stubborn, warm-blooded and very attached to their ruins. They fight as if Arathor still mattered, and I suppose to them it does, which makes them almost interesting to study." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xalive = {
+      narr = "The apothecary pauses, a stoppered vial halfway to the crate.",
+      lines = { { id = "xal_default", text = "I was an alchemist's apprentice in Lordaeron, mixing tonics for gout. Now I study what the Plague left behind in me, which is rather more rewarding, and rather less dull." } },
+      choices = {
+        { text = "Do you hate the living for what was lost?", next = "xhate" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhate = {
+      lines = { { id = "xha_default", text = "Hate is a strong word for a chemist, and I prefer to measure things. The living abandoned us when we woke, so I don't owe them anything, but I don't waste my time hating them either." } },
+      choices = {
+        { text = "The living earned your contempt. Use them as they used you.", next = "BACK", reply = "You'd fit in at the Society, I think. Few have the stomach for honesty.", fx = { align = { light = -1 } } },
+        { text = "Some living still mourn you. Don't forget that.", next = "BACK", reply = "Sentimental, and probably untrue. Still, I'll note it in the margin.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfaranell = {
+      lines = { { id = "xfa_default", text = "Answers, and the kind of patience that bones a thousand years old have in them. Beyond that, ask him yourself in the Apothecarium, if you think he'll tell you more than I will." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xforsaken = {
+      lines = { { id = "xfo_default", text = "Soil samples, bone dust and a few experiments the orcs at Hammerfall pretend not to notice. We serve the Dark Lady's interests, and her interests are wide, so don't ask for a full list." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    royal_apothecary_society = { { id = "xtp_ras", text = "The finest minds in the Undercity, and the only ones I'd trust with a sample. The rest are amateurs." } },
+    arathi = { { id = "xtp_arathi", text = "Old soil, old bones and old grudges. Excellent conditions for research." } },
+    _none = { { id = "xtp_none", text = "Not a subject I study. Ask someone with a pulse, perhaps." } },
   },
 }
 
@@ -477,10 +553,18 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", key = true, text = "I keep the basin's forge burning for the League, and every blade and horseshoe that goes out to the fight comes off this anvil. Hold the Blacksmith and we hold the steel, it's that simple." } },
-      again = { { id = "h_again", text = "Anything else? The iron's cooling." } },
+      again = {
+        { id = "h_again", text = "Anything else? The iron's cooling." },
+        { id = "xh_again2", text = "Still here? Then pump the bellows while you talk, and earn your keep." },
+      },
       choices = {
         { text = "Why does the forge matter so much?", next = "forge" },
         { text = "The Defilers keep taking it from you.", next = "defilers" },
+        { text = "Where did you learn your trade?", next = "xlearn" },
+        { text = "What do you think of the League?", next = "xleague" },
+        { text = "Are the Defilers' blades any good?", next = "xblades" },
+        { text = "I'm a blacksmith too.", next = "xsmith", when = { profession = "Blacksmithing" } },
+        { text = "A dwarf could teach you a thing or two here.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Keep the fire hot.", next = "END" },
       },
     },
@@ -496,8 +580,43 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlearn = {
+      narr = "He turns a half-finished blade in the tongs and squints down its length.",
+      lines = { { id = "xle_default", text = "In Stromgarde, at my father's forge under the old walls, before the ogres and the Syndicate made a ruin of the place. I've been making swords for a kingdom that's lost its capital ever since." } },
+      choices = {
+        { text = "Will Stromgarde ever be retaken?", next = "xstrom" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xstrom = {
+      lines = { { id = "xst_default", text = "If the League can hold this basin and keep the iron flowing, aye, I believe it. Galen Trollbane's line still holds part of the keep, and the rest of us mean to give them back the whole of it." } },
+      choices = {
+        { text = "Stromgarde's line deserves its throne back.", next = "BACK", reply = "Spoken like a friend of Arathor. I'll mark your blade with the old crest.", fx = { align = { order = 1 } } },
+        { text = "Old kingdoms die. Build something new instead.", next = "BACK", reply = "Something new, on Thoradin's land? You're not from round here, are you?", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xleague = {
+      lines = { { id = "xlg_default", text = "Soldiers and refugees and farmers who've had enough, under a banner that's older than Stormwind. We're not the prettiest army you'll ever see, but we're the stubbornest, and stubborn wins basins." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xblades = {
+      lines = { { id = "xbl_default", text = "Sharp enough, I'll grant them that, and heavier than they need to be. Forsaken smiths don't feel the weight, so they never learn balance, and I'd not trade one of mine for ten of theirs." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xsmith = {
+      lines = { { id = "xsm_default", text = "Are you, now? Then you'll know why I curse every time the forge goes cold. Pick up a hammer between fights if you like, and we'll see if you've the arm for it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdwarf = {
+      lines = { { id = "xdw_default", text = "Aye, they could, and they never let me forget it. Your folk taught my grandfather's grandfather to work steel in the Troll Wars, and we've been trying to catch up ever since." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I hammer metal, friend. Ask a sergeant about anything else." } } },
+  topics = {
+    stromgarde = { { id = "xtp_strom", text = "My city, and the League's reason for fighting. We'll have it back, one forged blade at a time." } },
+    defilers = { { id = "xtp_def", text = "Dead men who want our iron. They can have it, point first." } },
+    _none = { { id = "tp_none", text = "I hammer metal, friend. Ask a sergeant about anything else." } } },
 }
 
 -- Arathi Stablehand: League groom caring for the horses at the Stables node.
@@ -512,10 +631,18 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", key = true, text = "I look after the horses here at the Stables, and the League rides them out to every corner of the basin. It's not glorious work, but a knight without a horse is just a man in very heavy boots." } },
-      again = { { id = "h_again", text = "Anything else? The bay mare needs her feed." } },
+      again = {
+        { id = "h_again", text = "Anything else? The bay mare needs her feed." },
+        { id = "xh_again2", text = "Oh, you're back. Mind the grey, she bites, though only people she likes." },
+      },
       choices = {
         { text = "Why fight for a stable?", next = "why" },
         { text = "Are you a soldier?", next = "soldier" },
+        { text = "Which horse is your favourite?", next = "xfav" },
+        { text = "Do the Defilers ride horses too?", next = "xdead" },
+        { text = "Tell me about your father.", next = "xfather" },
+        { text = "I'm a paladin. My charger could use a look.", next = "xpaladin", when = { class = "PALADIN" } },
+        { text = "I'm a hunter. Horses and I get on well.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Take care of them.", next = "END" },
       },
     },
@@ -531,8 +658,43 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xfav = {
+      narr = "His face brightens, and he points to a dappled mare chewing at the fence rail.",
+      lines = { { id = "xfa_default", text = "That one, Bramble, who's carried riders to the Gold Mine and back more times than anyone. She's scared of chickens and nothing else, which is a better record than most soldiers here." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdead = {
+      lines = { { id = "xde_default", text = "Dead ones, all bones and stitches, and they don't even whinny. I saw one up close at the Stables after the Defilers took it, and I couldn't sleep for two nights afterwards." } },
+      choices = {
+        { text = "Their horses deserve pity too, poor things.", next = "BACK", reply = "That's what I thought, and nobody here would listen. Thank you.", fx = { align = { light = 1 } } },
+        { text = "Burn every one of them. They're abominations.", next = "BACK", reply = "I suppose you're right, though I'd rather someone else did the burning.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfather = {
+      lines = { { id = "xft_default", text = "He rode in the Second War with Trollbane's lancers and came home with a limp and a hundred stories. He wanted me to be a knight, but I only ever wanted to be in the stable, brushing the horses he rode." } },
+      choices = {
+        { text = "Was he disappointed?", next = "xdisapp" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdisapp = {
+      lines = { { id = "xdi_default", text = "He said a good groom saves more knights than a good lance does, and then he went quiet. I think he meant it, and I think he was a little disappointed too." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xpaladin = {
+      lines = { { id = "xpa_default", text = "One of the Light's own chargers? I'd be honoured, though I'm told they won't let anyone but their rider touch them. If yours lets me, I'll know you've a kind one." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhunter = {
+      lines = { { id = "xhu_default", text = "I can tell, the way you stood just now, so the mares didn't startle. If you ever want a job tending horses instead of fighting, the League could use you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I only know horses, I'm afraid. Ask someone with a helmet." } } },
+  topics = {
+    stables = { { id = "xtp_stables", text = "The best horses in Arathi are here, and I mean to keep them safe whoever holds the flag." } },
+    trollbane = { { id = "xtp_troll", text = "My father rode for the old king's son. He still lifts his mug to Thoradin's line every night." } },
+    _none = { { id = "tp_none", text = "I only know horses, I'm afraid. Ask someone with a helmet." } } },
 }
 
 -- Forsaken Blacksmith: Defiler smith holding the forge for the Dark Lady.
@@ -547,10 +709,17 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", key = true, text = "I was a smith in Lordaeron before the Plague, and I am a smith in Arathi now, for the Dark Lady and the Defilers. The fire doesn't care whether my hands are warm, and neither does the iron." } },
-      again = { { id = "h_again", text = "What else? I've blades to finish." } },
+      again = {
+        { id = "h_again", text = "What else? I've blades to finish." },
+        { id = "xh_again2", text = "Back again. The forge doesn't mind company, and neither do I, much." },
+      },
       choices = {
         { text = "You remember your old life?", next = "past" },
         { text = "Why do the Defilers want the basin?", next = "basin" },
+        { text = "What do you make for the Defilers?", next = "xmake" },
+        { text = "What do you think of the League's smith?", next = "xrival" },
+        { text = "Do the orcs at Hammerfall trust your work?", next = "xorcs" },
+        { text = "I work the forge myself.", next = "xsmith", when = { profession = "Blacksmithing" } },
         { text = "For the Dark Lady.", next = "END", when = { faction = "Horde" } },
         { text = "I'll go.", next = "END" },
       },
@@ -567,8 +736,39 @@ P:NPC {
       lines = { { id = "b_default", text = "The Dark Lady wants the resources, and she wants the humans of Stromgarde to know their old kingdom belongs to the dead now. I'm happy to help with both." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xmake = {
+      lines = { { id = "xma_default", text = "Cleavers, mostly, and blades heavy enough that a living arm would ache to hold them. My soldiers don't feel the weight, so I make what kills best and leave the balance to the living." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xrival = {
+      narr = "He glances across the basin toward the League's distant forge smoke.",
+      lines = { { id = "xri_default", text = "Competent, for a man who still sleeps, and very proud of his balance. He'll never understand that a dead man's blade doesn't need it, and that's why I'll outlast him." } },
+      choices = {
+        { text = "He fights for his home. Respect that.", next = "BACK", reply = "I fought for my home once, and look where it got me.", fx = { align = { honor = 1 } } },
+        { text = "Balance won't save him from your steel.", next = "BACK", reply = "No, it won't. You understand the craft better than he does.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xorcs = {
+      lines = { { id = "xor_default", text = "They trust the iron, if not the smith. The Warchief's grunts ask me to sharpen their axes and then wash their hands afterward, as if death were catching." } },
+      choices = {
+        { text = "Is it?", next = "xcatch" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcatch = {
+      lines = { { id = "xca_default", text = "Ask the people of Andorhal, if you can find any who still breathe. The Plague came in grain sacks, not in handshakes, but the orcs never let facts spoil a good fear." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xsmith = {
+      lines = { { id = "xsm_default", text = "Then hold your hand near this fire and tell me how it feels. I can't remember anymore, and some days I'd like to." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know and I don't care. Ask an apothecary." } } },
+  topics = {
+    andorhal = { { id = "xtp_andorhal", text = "My old home, rotting under the Scourge now. I don't go back, and I don't want to." } },
+    league_of_arathor = { { id = "xtp_league", text = "Living men in a dead kingdom. They'll learn, one way or another." } },
+    _none = { { id = "tp_none", text = "I don't know and I don't care. Ask an apothecary." } } },
 }
 
 -- Forsaken Stablehand: Defiler groom keeping the skeletal horses at the Stables.
@@ -583,10 +783,17 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", key = true, text = "I tend the horses at the Stables for the Defilers, and most of them are as dead as I am. They don't need feeding, which saves a great deal of trouble, though they do have a habit of losing pieces." } },
-      again = { { id = "h_again", text = "Something else? The roan's lost a hoof again." } },
+      again = {
+        { id = "h_again", text = "Something else? The roan's lost a hoof again." },
+        { id = "xh_again2", text = "Still here? Pass me that thread, then, the grey's lost an ear." },
+      },
       choices = {
         { text = "Dead horses?", next = "horses" },
         { text = "Do you miss the living ones?", next = "miss" },
+        { text = "Who was the lord in Hillsbrad?", next = "xlord" },
+        { text = "How do you fix a horse that loses a leg?", next = "xfix" },
+        { text = "What do you think of the League's stables?", next = "xleague" },
+        { text = "Could I ride one of these?", next = "xride", when = { race = "Scourge" } },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -602,6 +809,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlord = {
+      lines = { { id = "xlo_default", text = "A minor house near Southshore, with more horses than sense. He died the same week I did, and I'm told he's a ghoul in the Plaguelands now, which pleases me more than it should." } },
+      choices = {
+        { text = "He got what he deserved, then.", next = "BACK", reply = "I like to think so. Small comforts are all the dead get.", fx = { align = { light = -1 } } },
+        { text = "No one deserves the Scourge, not even him.", next = "BACK", reply = "Perhaps not. I'll try to feel sorry for him, though I don't promise to succeed.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfix = {
+      narr = "He holds up a heavy curved needle and a length of black thread.",
+      lines = { { id = "xfi_default", text = "Needle, thread and a fresh leg from somewhere, and the apothecaries supply the somewhere. I don't ask, and the horse doesn't seem to mind." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xleague = {
+      lines = { { id = "xle_default", text = "Warm horses, warm grooms and a lot of feed to carry in. Their boy weeps when a horse dies, I hear, which must make for a very wet stable." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xride = {
+      lines = { { id = "xri_default", text = "Of course, if you don't mind the odd rib working loose. Skeletal horses go faster than you'd think, and they never tire, so hold on to the reins and don't look down." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I only know dead horses and where to find their missing parts." } } },
+  topics = {
+    hillsbrad = { { id = "xtp_hb", text = "I groomed horses there once. Now the humans keep their horses and we keep ours, and I prefer ours." } },
+    royal_apothecary_society = { { id = "xtp_ras", text = "They keep my horses walking, so I don't complain about their methods." } },
+    _none = { { id = "tp_none", text = "I only know dead horses and where to find their missing parts." } } },
 }

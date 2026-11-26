@@ -659,10 +659,17 @@ P:NPC {
         { id = "h_default", key = true, text = "Dughal Stormwing, of the Wildhammer clan of Aerie Peak. The Dark Irons dragged me down here after a skirmish in the Hinterlands' south, and I've not seen the sky since." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A cousin from Ironforge! I'll not hold the beard trimming against ye today. Dughal Stormwing of Aerie Peak, and I'd kiss ye for that key." },
       },
-      again = { { id = "h_again", text = "Aye? Ask quick, the jailers have ears." } },
+      again = {
+        { id = "h_again", text = "Aye? Ask quick, the jailers have ears." },
+        { id = "xh_again2", text = "Still talking? Talk while ye walk, then, for I've had enough of sitting." },
+      },
       choices = {
         { text = "How did the Dark Irons catch a Wildhammer?", next = "caught" },
         { text = "Marshal Windsor is in these cells too.", next = "windsor" },
+        { text = "Tell me about Aerie Peak.", next = "xaerie" },
+        { text = "What did you see of the Dark Irons' halls?", next = "xhalls" },
+        { text = "Are there other Wildhammers down here?", next = "xother" },
+        { text = "I've flown a gryphon from Aerie Peak myself.", next = "xflown", when = { race = "Dwarf" } },
         { text = "Go. Find your way out.", next = "END" },
       },
     },
@@ -681,8 +688,46 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xaerie = {
+      narr = "He tips his head back as if he could see the sky through the stone.",
+      lines = { { id = "xae_default", text = "High on the cliffs of the Hinterlands, where the wind smells of pine and the gryphons nest in the rocks. Falstad Wildhammer rules there, and he'd sooner fly a hundred miles than ask Ironforge for a favour." } },
+      choices = {
+        { text = "Why do the Wildhammers keep apart from Ironforge?", next = "xsplit" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsplit = {
+      lines = { { id = "xsp_default", text = "The War of the Three Hammers, long ago, when Bronzebeard, Wildhammer and Dark Iron tore the old kingdom in three. We took to the high places and the open air, and we've no wish to go back under a mountain, as ye can tell." } },
+      choices = {
+        { text = "The clans should stand together again.", next = "BACK", reply = "Maybe, so long as nobody asks us to trim our beards and live in a hole.", fx = { align = { order = 1 } } },
+        { text = "Every clan has the right to its own road.", next = "BACK", reply = "Aye, that's the Wildhammer creed, near enough. Ye'd fit in at the Peak.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhalls = {
+      lines = { { id = "xha_default", text = "Forges the size of a town and rivers of fire, and a great black city built into the mountain's guts. They marched me past an arena where they make prisoners fight for the crowd's sport, and I'll not forget the cheering." } },
+      choices = {
+        { text = "The Dark Irons deserve to burn in their own fires.", next = "BACK", reply = "Aye, and I'd fan the flames myself, if I'd the hands free.", fx = { align = { light = -1 } } },
+        { text = "Not every Dark Iron chose this.", next = "BACK", reply = "Maybe so, but I've yet to meet the one who didn't. Show me him, and I'll think on it.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xother = {
+      lines = { { id = "xot_default", text = "None that I've seen alive. There was a lad from Aerie Peak taken with me, Grimbald, and they took him up the stairs one morning and he never came back down." } },
+      choices = {
+        { text = "I'm sorry for him.", next = "BACK", reply = "So am I. Tell them at the Peak, if ye ever pass that way, so someone raises a mug for him." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xflown = {
+      lines = { { id = "xfl_default", text = "Have ye, now? Then ye've felt the wind lift ye clean off the cliff, and ye'll know why I'm going half mad down here. A Bronzebeard on a gryphon, though, the lads at the Peak would laugh themselves silly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Ask me again under the open sky, friend, and I'll tell ye anything ye like." } } },
+  topics = {
+    aerie_peak = { { id = "xtp_aerie", text = "Home, and the finest place in the world to drink and fly and argue. I'll see it again, or I'll die trying." } },
+    dark_iron = { { id = "xtp_di", text = "Fire-loving cowards who strike from behind and then gloat about it. I owe them a long debt." } },
+    _none = { { id = "tp_none", text = "Ask me again under the open sky, friend, and I'll tell ye anything ye like." } } },
 }
 
 ---------------------------------------------------------------------------
@@ -698,10 +743,17 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", key = true, text = "Tobias Seecher. I rode with Marshal Windsor's company when we came to look into this mountain, and the Dark Irons took the lot of us in one bad night." } },
-      again = { { id = "h_again", text = "Anything else, before they notice the door's open?" } },
+      again = {
+        { id = "h_again", text = "Anything else, before they notice the door's open?" },
+        { id = "xh_again2", text = "Still with me? Good, because the walls make terrible company." },
+      },
       choices = {
         { text = "What happened to Windsor's company?", next = "company" },
         { text = "Who are the others in these cells?", next = "cells" },
+        { text = "What was Windsor looking for here?", next = "xlooking" },
+        { text = "How did you survive this long?", next = "xsurvive" },
+        { text = "What will you do once you're out?", next = "xafter" },
+        { text = "I'm from Stormwind. I'll carry word back.", next = "xstormwind", when = { race = "Human" } },
         { text = "Get moving.", next = "END" },
       },
     },
@@ -720,8 +772,39 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlooking = {
+      lines = { { id = "xlo_default", text = "Answers, mostly, about who was really pulling the strings in Stormwind's court. The marshal had a notion that the Dark Irons and the black dragons knew more about it than they ought to, and he wanted proof." } },
+      choices = {
+        { text = "Did he find it?", next = "xproof" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xproof = {
+      narr = "He glances down the corridor before he answers, lowering his voice.",
+      lines = { { id = "xpr_default", text = "He found something, and they took it off him, notes and all, and scattered it among their own people. If you can find the pieces and get them back to him, he'll know what to do with them." } },
+      choices = {
+        { text = "Then I'll find every page and bring them back.", next = "BACK", reply = "That's the spirit. The marshal will want to shake your hand, if they've left him one.", fx = { align = { order = 1 } } },
+        { text = "Court intrigue isn't worth dying in a cell over.", next = "BACK", reply = "Maybe not, but he's already in the cell, and so am I. Might as well make it count.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsurvive = {
+      lines = { { id = "xsu_default", text = "By keeping my head down and my mouth shut, which anyone who knows me would tell you is a miracle. I tell myself jokes, and I laugh at them, because nobody else down here will." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xafter = {
+      lines = { { id = "xaf_default", text = "Find the deepest tavern in Lakeshire and sit in it until I've forgotten the smell of this place. Then I'll ride with the marshal again, because a man doesn't get to choose his debts." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xstormwind = {
+      lines = { { id = "xsw_default", text = "Tell them Tobias Seecher's alive, if anyone still asks after me. And tell the marshal's friends at the Keep that he never stopped working, not even in here." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I've been in a cell for longer than I care to count, friend, so I don't know much about anything lately." } } },
+  topics = {
+    windsor = { { id = "xtp_windsor", text = "The best officer I ever served and the most stubborn man alive. If anyone gets out of here, it'll be him." } },
+    dark_iron = { { id = "xtp_di", text = "They took us in one night and they've been taking us apart ever since. I don't forgive easily." } },
+    _none = { { id = "tp_none", text = "I've been in a cell for longer than I care to count, friend, so I don't know much about anything lately." } } },
 }
 
 ---------------------------------------------------------------------------
@@ -737,10 +820,18 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", key = true, text = "They call me Crest Killer, and I earned the name with more noble houses than ye can count. The Dark Irons lock up their worst in these halls, so ye can guess how proud I am to be here." } },
-      again = { { id = "h_again", text = "Still here? Brave or daft, I can't tell which." } },
+      again = {
+        { id = "h_again", text = "Still here? Brave or daft, I can't tell which." },
+        { id = "xh_again2", text = "Ye keep coming back to my bars. Most folk learn quicker than that." },
+      },
       choices = {
         { text = "What did you do to earn that name?", next = "name" },
         { text = "Would you fight the jailers if I freed you?", next = "free" },
+        { text = "Who paid you for your killings?", next = "xpaid" },
+        { text = "How long have you been in here?", next = "xlong" },
+        { text = "What do you think of the Dark Irons?", next = "xdark" },
+        { text = "I know a few nobles I'd pay you to visit.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "You're a disgrace to dwarvenkind.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "I'll leave your door shut.", next = "END" },
       },
     },
@@ -759,8 +850,50 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xpaid = {
+      narr = "He grins through the bars, and you count three missing teeth.",
+      lines = { { id = "xpa_default", text = "Other nobles, mostly, for there's no man so keen to see a lord dead as his own cousin. I never asked their reasons, and they never asked my methods, and that's the whole secret of a long career." } },
+      choices = {
+        { text = "So how did you end up here?", next = "xcaught" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcaught = {
+      lines = { { id = "xca_default", text = "I took a contract on a Dark Iron, if ye can believe it, a fat steward who'd crossed the wrong merchant. The steward had more guards than sense, and I had more confidence than either." } },
+      choices = {
+        { text = "Then the cell's fair payment for that mistake.", next = "BACK", reply = "Fair? Ha. Fair is a word for honest men, and I've met few of those down here.", fx = { align = { order = 1 } } },
+        { text = "Bad luck, not justice, put you here.", next = "BACK", reply = "Now ye're talking like a sensible sort. Luck turns, given time and a careless guard.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlong = {
+      lines = { { id = "xlo_default", text = "Long enough to know the jailers by their footsteps and the gruel by its smell. Some days I count the drips from the ceiling, and some days I count the ways I'd kill the one who brings the bowl." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdark = {
+      lines = { { id = "xda_default", text = "They're cruel, proud and too clever with fire, and I'd admire them if they weren't the ones holding the key. Their Emperor bows to something bigger beneath the mountain, so the whispers say, though no prisoner's ever seen what." } },
+      choices = {
+        { text = "What does the whisper say it is?", next = "xwhisper" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwhisper = {
+      lines = { { id = "xwh_default", text = "Fire that walks and talks, and a lord made of it, deep down in the molten heart of the mountain. Could be jailers' talk to frighten us, but I've felt the floor go warm at night, and I don't scare easy." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xrogue = {
+      lines = { { id = "xro_default", text = "Do ye, now? Then ye understand the trade, and ye'll understand I don't work from a cell. Open the door and we'll talk about prices, or don't, and keep yer nobles to yerself." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdwarf = {
+      lines = { { id = "xdw_default", text = "A disgrace, aye, and a rich one, until recently. Ironforge has its share of knives in the dark, cousin, it just pays them better and calls them something prettier." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Ask the jailers, friend. I'm not in the habit of answering questions for free." } } },
+  topics = {
+    dark_iron = { { id = "xtp_di", text = "They pay their jailers in scraps and their soldiers in fire. I'd not work for them, and I've worked for anyone." } },
+    stormwind = { { id = "xtp_sw", text = "Lots of crests in Stormwind, and lots of folk who'd like a few of them gone. I made a fair living there once." } },
+    _none = { { id = "tp_none", text = "Ask the jailers, friend. I'm not in the habit of answering questions for free." } } },
 }
 
 ---------------------------------------------------------------------------
@@ -776,10 +909,17 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", key = true, text = "Ograbisi was a strong one in the mountain, and the dwarfs needed six chains to bring him in here. Now he sits with the orc and the orc talks too much." } },
-      again = { { id = "h_again", text = "Ograbisi is still hungry. You want something more?" } },
+      again = {
+        { id = "h_again", text = "Ograbisi is still hungry. You want something more?" },
+        { id = "xh_again2", text = "You come back. Ograbisi hopes you bring meat this time." },
+      },
       choices = {
         { text = "The orc is your cellmate?", next = "jaz" },
         { text = "Why did the dwarves lock you up?", next = "why" },
+        { text = "What's it like being an ogre in a dwarf prison?", next = "xprison" },
+        { text = "Where were you before Blackrock?", next = "xbefore" },
+        { text = "What would you do if you got out?", next = "xout" },
+        { text = "I'm an orc. I could speak to Jaz for you.", next = "xorc", when = { race = "Orc" } },
         { text = "Enjoy your gruel.", next = "END" },
       },
     },
@@ -798,8 +938,39 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xprison = {
+      narr = "He shifts his weight, and the chains on his wrists clank against the stone.",
+      lines = { { id = "xpr_default", text = "Small. Everything is small, the door is small, the bowl is small, the dwarfs are small. Ograbisi hits his head every morning and the jailers laugh, and Ograbisi remembers which ones laugh." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xbefore = {
+      lines = { { id = "xbe_default", text = "Ograbisi was in the mountain with the other ogres, the Firegut and the ones who serve the black dragons. Ogres fight for whoever pays, and the dwarfs did not pay, so Ograbisi ate their cows." } },
+      choices = {
+        { text = "Who pays the ogres now?", next = "xpays" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpays = {
+      lines = { { id = "xpa_default", text = "The black dragons up the mountain, and the orcs in the spire, they pay with meat and shiny things. Ograbisi thinks it is a good deal, but Jaz says ogres are fools to work for dragons." } },
+      choices = {
+        { text = "Jaz is right. Dragons use ogres and throw them away.", next = "BACK", reply = "Hm. Ograbisi does not like it when Jaz is right. Jaz gets loud.", fx = { align = { order = -1 } } },
+        { text = "Strong ones fight for whoever is strongest. Sensible.", next = "BACK", reply = "Yes! You understand. You are small, but you are not stupid.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xout = {
+      lines = { { id = "xou_default", text = "Eat. Then smash the dwarf who laughs loudest. Then eat again, because smashing makes Ograbisi hungry." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xorc = {
+      lines = { { id = "xor_default", text = "You are like Jaz, green and loud. Tell him to stop talking about honour in the night, because Ograbisi cannot sleep and honour does not fill bellies." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Ograbisi does not know that. Ograbisi knows hungry and Ograbisi knows chains." } } },
+  topics = {
+    dark_iron = { { id = "xtp_di", text = "Small and mean and they smell of smoke. Ograbisi does not like dwarfs." } },
+    jaz = { { id = "xtp_jaz", text = "Jaz is the orc. Jaz talks and talks, and Ograbisi listens because there is nothing else to do." } },
+    _none = { { id = "tp_none", text = "Ograbisi does not know that. Ograbisi knows hungry and Ograbisi knows chains." } } },
 }
 
 ---------------------------------------------------------------------------
@@ -817,10 +988,17 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", key = true, text = "I am Shill Dinger, a soldier of the Scarlet Crusade. I came south hunting the taint of the Scourge, and these heathen dwarves threw me in chains for my trouble." } },
-      again = { { id = "h_again", text = "Speak, and be quick about it. My prayers are not finished." } },
+      again = {
+        { id = "h_again", text = "Speak, and be quick about it. My prayers are not finished." },
+        { id = "xh_again2", text = "You linger. Are you here to repent, or to mock?" },
+      },
       choices = {
         { text = "What brought a Crusader to Blackrock?", next = "why" },
         { text = "The Crusade kills innocents in Lordaeron.", next = "crusade" },
+        { text = "Who leads the Scarlet Crusade?", next = "xleader" },
+        { text = "How do the dwarves treat you here?", next = "xtreat" },
+        { text = "What did you see in the fires below?", next = "xfire" },
+        { text = "I'm a paladin. Your Crusade shames the Light.", next = "xpaladin", when = { class = "PALADIN" } },
         { text = "Pray on, then.", next = "END" },
       },
     },
@@ -839,6 +1017,37 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xleader = {
+      lines = { { id = "xle_default", text = "Grand Crusader Saidan Dathrohan, and under him the faithful of Tyr's Hand and the Monastery. The Light chose them to cleanse Lordaeron, and when I am free I will return to their banner." } },
+      choices = {
+        { text = "And if they're wrong?", next = "xwrong" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwrong = {
+      narr = "He stares at you, and his knuckles whiten on the bars.",
+      lines = { { id = "xwr_default", text = "Wrong? The dead walk in the streets of Andorhal, stranger, and you ask if we are wrong to burn them. If there is a sin in the Crusade, it is that we have been too slow." } },
+      choices = {
+        { text = "Then the Light has left your Crusade behind.", next = "BACK", reply = "Heresy, spoken in a heathen pit. I will pray for you, though you do not deserve it.", fx = { align = { light = 1 } } },
+        { text = "Hard times demand hard men. I understand.", next = "BACK", reply = "Then you are wiser than most who pass these bars. Remember that when you reach Lordaeron.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtreat = {
+      lines = { { id = "xtr_default", text = "They throw me bread and laugh at my prayers. But they have not broken me, and every day I outlast them is a sermon of its own." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xfire = {
+      lines = { { id = "xfi_default", text = "A city that worships flame, and priests who sing to it. Whatever lies beneath this mountain, it is no less a darkness than the Scourge, only warmer." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xpaladin = {
+      lines = { { id = "xpa_default", text = "Shames it? We are the last who still carry it into the dark, while your Silver Hand sits in Stormwind polishing its hammers. When Uther fell, his order fell with him, and we picked up what was left." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I know only the Light and the evils it opposes. Ask me of those or ask me nothing." } } },
+  topics = {
+    scarlet_crusade = { { id = "xtp_scarlet", text = "The only true army of the Light left in Lordaeron. You will come to see it, if you live long enough." } },
+    scourge = { { id = "xtp_scourge", text = "The plague of the Lich King, and the reason I will never stop fighting. Every corpse is a soldier waiting to rise." } },
+    _none = { { id = "tp_none", text = "I know only the Light and the evils it opposes. Ask me of those or ask me nothing." } } },
 }

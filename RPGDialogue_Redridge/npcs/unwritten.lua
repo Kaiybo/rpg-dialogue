@@ -89,6 +89,10 @@ P:NPC {
       choices = {
         { text = "What do you know about the gnolls?", next = "gnolls" },
         { text = "What do you like best about Lakeshire?", next = "lakeshire" },
+        { text = "What's the biggest fish you've seen?", next = "xfish" },
+        { text = "Why do you carry a stick?", next = "xstick" },
+        { text = "Do you have any friends to play with?", next = "xfriends" },
+        { text = "I'm a gnome. Am I the littlest adventurer?", next = "BACK", when = { race = "Gnome" }, reply = "You're even littler than my cousin Tommy! But you've got a sword, so you're the littlest and bravest adventurer." },
         { text = "Run along home, now.", next = "END" },
       },
     },
@@ -110,8 +114,37 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xfish = {
+      lines = {
+        { id = "xxfish_0", text = "One as big as my arm! It jumped right out of the water by the dock and went splash and got Mister Hoggins wet. He said a bad word, but I didn't hear it, Mama." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xstick = {
+      lines = {
+        { id = "xxstick_0", text = "It's my sword, for gnolls. If one comes, I'll hit it on the nose. Mama says I should run instead. Should I run, or hit it on the nose?" },
+      },
+      choices = {
+        { text = "Run home, little one. Leave gnolls to grown-ups.", next = "BACK", reply = "Okay. But I'm keeping the stick, just in case.", fx = { align = { honor = -1 } } },
+        { text = "Hit it on the nose, then run home fast.", next = "BACK", reply = "Yes! Nose first, then run. That's a good plan.", fx = { align = { honor = 1 } } },
+      },
+    },
+    xfriends = {
+      lines = {
+        { id = "xxfriends_0", text = "Erin and Hannah, but they always play guards and gnolls, and I want to play fishing. Sometimes they let me be the fish the gnoll is trying to catch." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know that one. You should ask a grown-up, they know boring things." } } },
+  topics = {
+    lakeshire = { { id = "tp_xlakeshire", text = "It has the lake, and the fish, and the bridge I'm not allowed past." } },
+    gnolls = { { id = "tp_xgnolls", text = "Smelly and big. I'll hit them on the nose." } },
+    _none = { { id = "tp_none", text = "I don't know that one. You should ask a grown-up, they know boring things." } },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -140,6 +173,10 @@ P:NPC {
       choices = {
         { text = "I'm a real hero, yes.", next = "hero" },
         { text = "Why play at gnolls, of all things?", next = "why" },
+        { text = "What does a guard captain do?", next = "xcaptain" },
+        { text = "What does your papa do?", next = "xpapa" },
+        { text = "What will you be when you grow up?", next = "xgrow" },
+        { text = "I'm a dwarf. Can I be a guard too?", next = "BACK", when = { race = "Dwarf" }, reply = "Yes! You can be the guard who's very strong and carries the big hammer. Hannah, we've got a dwarf now!" },
         { text = "Off you go and play.", next = "END" },
       },
     },
@@ -161,8 +198,46 @@ P:NPC {
       lines = { { id = "b_default", text = "I know, I know, everybody says it, and I only went across once and it was only a little way. Don't tell her, all right?" } },
       choices = { { text = "Your secret's safe. Something else.", next = "BACK" } },
     },
+    xcaptain = {
+      lines = {
+        { id = "xxcaptain_0", text = "She shouts orders and points with a stick and tells everybody where to stand. And she's never scared, even when the gnoll jumps out from behind the woodpile." },
+      },
+      choices = {
+        { text = "Are you ever scared?", next = "xscared" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xscared = {
+      lines = {
+        { id = "xxscared_0", text = "Only a little, and only at night, when the dogs bark at the hills. Papa says a brave person is scared and does it anyway. Is that true, or is a brave person never scared?" },
+      },
+      choices = {
+        { text = "Brave people are scared, and do it anyway.", next = "BACK", reply = "Then I'm brave! A little bit brave, anyway.", fx = { align = { light = 1 } } },
+        { text = "The bravest people are never scared at all.", next = "BACK", reply = "Oh. Then I need to practise more.", fx = { align = { light = -1 } } },
+      },
+    },
+    xpapa = {
+      lines = {
+        { id = "xxpapa_0", text = "He fishes on the lake and mends nets and grumbles about the gnolls stealing his traps. He says if he were younger he'd chase them himself, but his knees are too creaky." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgrow = {
+      lines = {
+        { id = "xxgrow_0", text = "A real guard captain in Lakeshire, with a real sword and a shiny helmet. Or a fish, because fish get to swim all day. Mostly the captain, though." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know that, but Hannah might, she listens at the inn window." } } },
+  topics = {
+    gnolls = { { id = "tp_xgnolls", text = "They're bad, and they live in the hills, and I'm going to chase them away one day." } },
+    lakeshire = { { id = "tp_xlakeshire", text = "It's the best town in the whole world. I've never been to another one, but I know." } },
+    _none = { { id = "tp_none", text = "I don't know that, but Hannah might, she listens at the inn window." } },
+  },
 }
 
 ---------------------------------------------------------------------------
@@ -191,6 +266,10 @@ P:NPC {
       choices = {
         { text = "Have you ever seen a real gnoll?", next = "real" },
         { text = "Don't you mind always losing?", next = "lose" },
+        { text = "Where's your best hiding place?", next = "xhide" },
+        { text = "What do gnolls sound like, really?", next = "xsound" },
+        { text = "Would you like to be the captain one day?", next = "xcaptain" },
+        { text = "I'm a hunter. My pet can teach you a growl.", next = "BACK", when = { class = "HUNTER" }, reply = "Really? Grrr! Was that good? Erin will never find me if I can growl like a real animal!" },
         { text = "Good hiding, Hannah.", next = "END" },
       },
     },
@@ -212,6 +291,35 @@ P:NPC {
         { text = "You should make Erin lose sometimes too.", next = "BACK", reply = "Ooh, maybe I will, the very next game.", fx = { align = { honor = -1 } } },
       },
     },
+    xhide = {
+      lines = {
+        { id = "xxhide_0", text = "Under Mister Solomon's porch, because it's dark and smells like apples, and nobody ever looks there. Don't tell Erin, it's my best secret." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsound = {
+      lines = {
+        { id = "xxsound_0", text = "Like a big dog who's angry and laughing at the same time. I heard one once at night, and I hid under my blanket till Mama came." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcaptain = {
+      lines = {
+        { id = "xxcaptain_0", text = "Maybe, once. But if I'm the captain, then Erin has to be the gnoll, and she's terrible at hiding. Should I ask her to swap, or keep playing the gnoll?" },
+      },
+      choices = {
+        { text = "Ask to swap. It's only fair.", next = "BACK", reply = "Okay! I'll ask tomorrow. Unless she's grumpy.", fx = { align = { order = -1 } } },
+        { text = "Keep the game the way it is. It works.", next = "BACK", reply = "All right. Gnolls get the best hiding places anyway.", fx = { align = { order = 1 } } },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I don't know, but I can listen at the inn window and find out." } } },
+  topics = {
+    erin = { { id = "tp_xerin", text = "My best friend. She's bossy, but she shares her sweets." } },
+    gnolls = { { id = "tp_xgnolls", text = "Real ones are scary. Pretend ones are fun." } },
+    _none = { { id = "tp_none", text = "I don't know, but I can listen at the inn window and find out." } },
+  },
 }

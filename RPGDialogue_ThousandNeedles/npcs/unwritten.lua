@@ -29,6 +29,9 @@ P:NPC {
       choices = {
         { text = "What does Moktar Krin hunt?", next = "hunt" },
         { text = "Who is Nag'zehn to you?", next = "nag" },
+        { text = "How long has the war party been out here?", next = "xlong" },
+        { text = "What is Moktar Krin like?", next = "xmoktar" },
+        { text = "Where did you fight before this?", next = "xwar", when = { race = "Orc" } },
         { text = "Good hunting.", next = "END" },
       },
     },
@@ -43,6 +46,63 @@ P:NPC {
       lines = { { id = "n_default", text = "My brother, though he will tell you he is the older and the wiser. He is neither, but he snores less, so I keep him." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xlong = {
+      lines = {
+        { id = "x_xlong", text = "Three moons, and the kodo are tired of carrying meat home to Orgrimmar. We came for the beasts of the mesas, and we stayed because the Needles kept offering more." },
+      },
+      choices = {
+        { text = "Is the hunting good?", next = "xgood" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgood = {
+      lines = {
+        { id = "x_xgood", text = "Too good, which worries me. When a land is this full of hungry things, something is driving them out of their own places, and the Grimtotem are stirring on the high mesas." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmoktar = {
+      lines = {
+        { id = "x_xmoktar", text = "A hunter first and an orc second, and he will tell you so himself. He speaks less than any warrior I have known, and every word he does speak is worth hearing." },
+      },
+      choices = {
+        { text = "Is he a good leader?", next = "xleader" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xleader = {
+      lines = {
+        { id = "x_xleader", text = "He brings his hunters home, and that is the only measure I care for. Some say he hunts for glory and not for need, and they say it out of his hearing." },
+      },
+      choices = {
+        { text = "A hunt for glory is an honourable thing.", next = "BACK", reply = "Moktar would agree, and so do I, most days.", fx = { align = { honor = 1 } } },
+        { text = "Hunt for need. Glory wastes the herds.", next = "BACK", reply = "Spoken like a tauren. Perhaps you are right.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xwar = {
+      narr = "He sets down the axe and turns the oiled rag over in his fingers.",
+      lines = {
+        { id = "x_xwar", text = "The Second War, at the walls of Lordaeron, before the camps took us. My brother and I were cubs swinging axes too big for us, and the humans laughed until they didn't." },
+      },
+      choices = {
+        { text = "And after?", next = "xafter" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xafter = {
+      lines = {
+        { id = "x_xafter", text = "After, the camps, and the grey years, and then the Warchief. Now I hunt for the Horde instead of killing for the demons, and I sleep better for it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    moktar_krin = { { id = "tp_xmoktar_krin", text = "Moktar leads the war party. When he points, we hunt." } },
+    ironstone_camp = { { id = "tp_xironstone_camp", text = "Ironstone Camp is ours for the season. The cookfire never goes out." } },
   },
 }
 
@@ -69,6 +129,9 @@ P:NPC {
       choices = {
         { text = "What comes from the sky?", next = "sky" },
         { text = "Who else hunts the Needles?", next = "others" },
+        { text = "Is your brother older or younger?", next = "xbrother" },
+        { text = "What do you think of the tauren here?", next = "xtauren" },
+        { text = "A hunter's advice for a fellow hunter?", next = "xhunt", when = { class = "HUNTER" } },
         { text = "I'll keep quiet.", next = "END" },
       },
     },
@@ -83,6 +146,54 @@ P:NPC {
         { text = "A wide path is wise.", next = "BACK", fx = { align = { order = 1 } } },
       },
     },
+    xbrother = {
+      lines = {
+        { id = "x_xbrother", text = "Older, by a winter, and he never lets me forget it. He takes the axe and the fire, and I take the bow and the high rocks, because neither of us could bear to stand where the other stands." },
+      },
+      choices = {
+        { text = "Do you get along?", next = "xalong" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xalong = {
+      narr = "His eyes leave the cliffs for a moment, toward the fire, then return.",
+      lines = {
+        { id = "x_xalong", text = "Like two wolves in one den, which is to say with growling and loyalty. When the camps took our father, Bor'zehn kept me alive, and I have not forgotten." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtauren = {
+      lines = {
+        { id = "x_xtauren", text = "The Freewind braves are good allies and patient hunters, though they talk to the beasts before they kill them. The Grimtotem are another story, proud and cold, and they watch our camp like we are trespassers." },
+      },
+      choices = {
+        { text = "Are you trespassers?", next = "xtresp" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtresp = {
+      lines = {
+        { id = "x_xtresp", text = "Perhaps, in their eyes. Moktar says the Horde hunts where it wills, and the Grimtotem say this land was theirs before any orc crossed the sea." },
+      },
+      choices = {
+        { text = "The Horde shares this land now. We hunt here.", next = "BACK", reply = "That is Moktar's answer, and he has the bigger axe.", fx = { align = { order = 1 } } },
+        { text = "It's their land. We should ask leave.", next = "BACK", reply = "Ask the Grimtotem? They would answer with spears, I think.", fx = { align = { order = -1 } } },
+      },
+    },
+    xhunt = {
+      lines = {
+        { id = "x_xhunt", text = "Watch the vultures, not the ground, for they find the wounded before you do. And never climb after a wounded cat, because it will be waiting at the top." },
+      },
+      choices = {
+        { text = "Good advice.", next = "BACK", reply = "Hard won, too. Ask Tarkreu about his scar." },
+      },
+    },
+  },
+  topics = {
+    bor_zehn = { { id = "tp_xbor_zehn", text = "My brother. He guards the fire and complains about the cold." } },
+    grimtotem = { { id = "tp_xgrimtotem", text = "The Grimtotem watch us from the high mesas. I watch them back." } },
   },
 }
 
@@ -113,6 +224,9 @@ P:NPC {
       choices = {
         { text = "What have you found out here?", next = "found" },
         { text = "How do you move so quietly?", next = "quiet" },
+        { text = "How did you get that scar?", next = "xscar" },
+        { text = "What have you seen of the Grimtotem?", next = "xgrim" },
+        { text = "I walk in shadows too.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -124,6 +238,45 @@ P:NPC {
       lines = { { id = "q_default", text = "Soft boots, and patience. Most people are loud because they are in a hurry, and the Needles punish hurry." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xscar = {
+      lines = {
+        { id = "x_xscar", text = "A cougar on the high rocks, three seasons ago, who did not like me in her den. I won, but she taught me to look up before I climb, and Nag'zehn has never stopped laughing." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgrim = {
+      lines = {
+        { id = "x_xgrim", text = "More than I wish to. They gather at Darkcloud Pinnacle and watch the roads, and some of them have spoken of the Horde with a hatred I did not expect from tauren." },
+      },
+      choices = {
+        { text = "Should Moktar warn Thunder Bluff?", next = "xwarn" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwarn = {
+      lines = {
+        { id = "x_xwarn", text = "I told him so, and he said it is not our business, that tauren quarrels belong to tauren. I am not certain he is right, and I am not certain he is wrong." },
+      },
+      choices = {
+        { text = "Warn Cairne. The Horde must know.", next = "BACK", reply = "Then perhaps I will send word myself, quietly.", fx = { align = { order = 1 } } },
+        { text = "Moktar leads. Respect his choice.", next = "BACK", reply = "That is the soldier's answer. I have given it often.", fx = { align = { order = -1 } } },
+      },
+    },
+    xrogue = {
+      narr = "He shifts, and for a moment you lose sight of him against the rocks.",
+      lines = {
+        { id = "x_xrogue", text = "Then you know the first lesson is patience, and the second is to leave nothing behind. A hunter tracks, but a shadow is not tracked, and that is the whole of the art." },
+      },
+      choices = {
+        { text = "I'll remember.", next = "BACK", reply = "Do. And step lightly near the camp, or Bor'zehn will throw his axe." },
+      },
+    },
+  },
+  topics = {
+    darkcloud_pinnacle = { { id = "tp_xdarkcloud_pinnacle", text = "Darkcloud Pinnacle is Grimtotem ground. Go there and you will not come back quietly." } },
+    moktar_krin = { { id = "tp_xmoktar_krin", text = "Moktar trusts me to see what he cannot. I have not failed him yet." } },
   },
 }
 
@@ -286,6 +439,9 @@ P:NPC {
       choices = {
         { text = "How do the goblins cheat?", next = "cheat" },
         { text = "What makes your car fast?", next = "car" },
+        { text = "Tell me about your brothers.", next = "xbros" },
+        { text = "What was Gnomeregan like?", next = "xgnomer" },
+        { text = "Fellow gnome! Can I help the team?", next = "xhelp", when = { race = "Gnome" } },
         { text = "Good luck in the race.", next = "END" },
       },
     },
@@ -300,6 +456,54 @@ P:NPC {
       lines = { { id = "ca_default", text = "Rockets, mostly, and a very careful amount of not blowing up. Fizzle handles the design, Wizzle handles the parts, and I handle the parts that fall off." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xbros = {
+      lines = {
+        { id = "x_xbros", text = "Fizzle handles propulsion, Wizzle handles steering and I handle everything that catches fire, which is everything. We've built nine cars together, and seven of them still exist in some form." },
+      },
+      choices = {
+        { text = "What happened to the other two?", next = "xtwo" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xtwo = {
+      lines = {
+        { id = "x_xtwo", text = "One is a crater on the north end of the flats, and the other was eaten by a very large turtle. I've written a paper on the turtle, and nobody believes it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgnomer = {
+      narr = "He stops adjusting the bolt, and his goggles slide down over his eyes.",
+      lines = {
+        { id = "x_xgnomer", text = "Glorious, bright and humming, with lifts that ran on steam and dreams and a little leaky something we shouldn't have used. When Thermaplugg let the trogg in, we left with only what we could carry." },
+      },
+      choices = {
+        { text = "Was it the High Tinker's fault?", next = "xfault" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfault = {
+      lines = {
+        { id = "x_xfault", text = "Some say Mekkatorque trusted Thermaplugg too long, and some say nobody could have known. I'm an engineer, and I say every failure has a cause, though I'd rather fix the next one." },
+      },
+      choices = {
+        { text = "Leaders must answer for their failures.", next = "BACK", reply = "Hmph. You're not wrong, but don't say it in Tinker Town.", fx = { align = { order = -1 } } },
+        { text = "Mekkatorque did his best. Stand by him.", next = "BACK", reply = "Yes! Exactly. He'll lead us home, you'll see.", fx = { align = { order = 1 } } },
+      },
+    },
+    xhelp = {
+      lines = {
+        { id = "x_xhelp", text = "Absolutely, and the fastest help is spare parts, because the goblins keep buying up all the good sprockets in Ratchet. Bring us anything shiny with teeth, and we'll find a use for it." },
+      },
+      choices = {
+        { text = "I'll keep an eye out.", next = "BACK", reply = "Splendid! Percentage odds of victory just rose two points.", fx = { affinity = 1 } },
+      },
+    },
+  },
+  topics = {
+    fizzle = { { id = "tp_xfizzle", text = "Fizzle is my brother, and the reason our car goes forward." } },
+    gnomeregan = { { id = "tp_xgnomeregan", text = "We'll take Gnomeregan back one day, and I'll drive the first car through the gates." } },
   },
 }
 
@@ -326,6 +530,9 @@ P:NPC {
       choices = {
         { text = "Are the goblins' times fake?", next = "fake" },
         { text = "What's a drag master?", next = "drag" },
+        { text = "How did you become drag master?", next = "xhow" },
+        { text = "Have the gnomes ever won?", next = "xwon" },
+        { text = "I'm a gnome. Are we winning?", next = "xgnome", when = { race = "Gnome" } },
         { text = "I'll clear the track.", next = "END" },
       },
     },
@@ -337,6 +544,54 @@ P:NPC {
       lines = { { id = "d_default", text = "The one who sets the line, starts the run and keeps the score, so the most important gnome on the flats. Without me, it's just two cars going very fast in no particular direction." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xhow = {
+      lines = {
+        { id = "x_xhow", text = "I invented the timing device myself, a clockwork chronometer accurate to one hundredth of a second, and the race master needed somebody who could read it. The goblins tried to buy one, and I said no, twice, loudly." },
+      },
+      choices = {
+        { text = "Why not sell it to them?", next = "xsell" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsell = {
+      lines = {
+        { id = "x_xsell", text = "Because they would immediately take it apart and make it run fast, which is the opposite of what a chronometer is for. A timepiece must be honest, or it is only a very expensive noise." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwon = {
+      lines = {
+        { id = "x_xwon", text = "Seventeen times out of forty-one, by my reckoning, and the goblins say nine, by theirs. The disagreement is mostly about whether exploding before the finish line counts as finishing." },
+      },
+      choices = {
+        { text = "Does it?", next = "xcount" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcount = {
+      lines = {
+        { id = "x_xcount", text = "Physically, a portion of the car does cross the line, so I say yes. Kronkrider says rules are rules and a car must be in one piece, and we have argued about it for two seasons." },
+      },
+      choices = {
+        { text = "Rules are rules. One piece, or no finish.", next = "BACK", reply = "Hmph. You sound like Kronkrider, and he wears a sash.", fx = { align = { order = 1 } } },
+        { text = "If it crosses the line, it counts.", next = "BACK", reply = "Exactly! I shall cite you in my next report.", fx = { align = { order = -1 } } },
+      },
+    },
+    xgnome = {
+      narr = "He clicks the stopwatch, frowns, and clicks it again.",
+      lines = {
+        { id = "x_xgnome", text = "On paper, absolutely, and in practice, nearly, which is the gnomish way. If you have any spare sprockets, Rizzle would love them, and if you have spare money, the goblins would love that more." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    mirage_raceway = { { id = "tp_xmirage_raceway", text = "The Mirage Raceway is the finest test track in Kalimdor, salt flat and miles long." } },
+    gnomeregan = { { id = "tp_xgnomeregan", text = "We lost Gnomeregan, but we still have speed. That is something." } },
   },
 }
 
@@ -363,6 +618,9 @@ P:NPC {
       choices = {
         { text = "Who usually wins?", next = "wins" },
         { text = "Are there any rules at all?", next = "rules" },
+        { text = "How did you get this job?", next = "xhow" },
+        { text = "What's the worst crash you've seen?", next = "xcrash" },
+        { text = "Who pays you?", next = "xpay" },
         { text = "Enjoy the race.", next = "END" },
       },
     },
@@ -377,6 +635,54 @@ P:NPC {
         { text = "Rules just slow the cars down.", next = "BACK", fx = { align = { order = -1 } } },
       },
     },
+    xhow = {
+      lines = {
+        { id = "x_xhow", text = "Both sides wanted a referee, and neither would trust a goblin or a gnome, so they found a fellow who had crashed more cars than either of them. I retired from driving with all my limbs, which made me the expert." },
+      },
+      choices = {
+        { text = "You were a driver?", next = "xdriver" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdriver = {
+      narr = "He rubs a long pale scar along his forearm without seeming to notice.",
+      lines = {
+        { id = "x_xdriver", text = "For four seasons, until my last car folded in half on the north turn with me inside it. I walked away, and the car did not, and I took that as a sign." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcrash = {
+      lines = {
+        { id = "x_xcrash", text = "The goblin rocket sled that went straight up instead of forward, three seasons back. It came down in the gnome pit, and both crews spent a week arguing about whose fault it was." },
+      },
+      choices = {
+        { text = "Whose was it?", next = "xfault" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfault = {
+      lines = {
+        { id = "x_xfault", text = "I ruled it a draw, and both sides called me a cheat, which is how I know I ruled it fairly. A referee everyone hates equally is doing his job." },
+      },
+      choices = {
+        { text = "Fair rulings matter, even when nobody thanks you.", next = "BACK", reply = "Thank you, though I notice you're not on either crew.", fx = { align = { order = 1 } } },
+        { text = "A draw is cowardice. Pick a winner.", next = "BACK", reply = "Says the person who doesn't have to eat lunch with both crews.", fx = { align = { order = -1 } } },
+      },
+    },
+    xpay = {
+      lines = {
+        { id = "x_xpay", text = "The Steamwheedle Cartel, through the Gadgetzan bookies, who want the races honest enough that people keep betting. Honest enough is a very particular amount of honest." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    mirage_raceway = { { id = "tp_xmirage_raceway", text = "The Mirage Raceway. Miles of flat salt and two crews who'd rather explode than lose." } },
+    pozzik = { { id = "tp_xpozzik", text = "Pozzik drives for the goblins. Brave, fast and never once read the rules." } },
   },
 }
 
@@ -402,6 +708,9 @@ P:NPC {
       choices = {
         { text = "How did an ogre get this job?", next = "job" },
         { text = "Do you know Zuzubee?", next = "zuzu" },
+        { text = "What was life like before the race?", next = "xbefore" },
+        { text = "What is your favourite meat?", next = "xmeat" },
+        { text = "Do you like the goblins?", next = "xgob" },
         { text = "Enjoy the race, Fobeed.", next = "END" },
       },
     },
@@ -413,6 +722,52 @@ P:NPC {
       lines = { { id = "z_default", text = "Zuzubee is other announcer. Zuzubee shout for gnomes, Fobeed shout for goblins, and nobody can hear the race at all. Is very good." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xbefore = {
+      lines = {
+        { id = "x_xbefore", text = "Fobeed live in Dustwallow with ogre clan, and Fobeed get hit on head a lot. Here Fobeed shout instead, and nobody hit Fobeed at all, so Fobeed think this much better." },
+      },
+      choices = {
+        { text = "Do you miss your clan?", next = "xclan" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xclan = {
+      lines = {
+        { id = "x_xclan", text = "Little bit. Clan have mud and fights and big pot of stew, but clan never give Fobeed megaphone. Fobeed think megaphone better than stew, most days." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmeat = {
+      lines = {
+        { id = "x_xmeat", text = "Fobeed like plainstrider leg best, with crunchy outside, and goblins give Fobeed one after every race. Sometimes goblins give Fobeed things that are not meat, and Fobeed eat them anyway." },
+      },
+      choices = {
+        { text = "That seems unwise.", next = "xunwise" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xunwise = {
+      lines = {
+        { id = "x_xunwise", text = "Fobeed stomach very strong. Fobeed once eat a whole gnome hat by accident, and Zuzubee still angry about it, because Zuzubee say it was Zuzubee's hat." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgob = {
+      lines = {
+        { id = "x_xgob", text = "Goblins talk fast and pay Fobeed, so Fobeed like goblins. Zuzubee say gnomes better, and Fobeed and Zuzubee shout about it every race." },
+      },
+      choices = {
+        { text = "Goblins are better. Shout louder, Fobeed!", next = "BACK", reply = "FOBEED SHOUT LOUDER! Fobeed like you very much.", fx = { align = { order = -1 }, affinity = 1 } },
+        { text = "You should cheer for everyone fairly.", next = "BACK", reply = "Hmm. Fobeed think about that. Fobeed still like goblins most.", fx = { align = { order = 1 } } },
+      },
+    },
+  },
+  topics = {
+    zuzubee = { { id = "tp_xzuzubee", text = "Zuzubee shout for gnomes. Zuzubee is Fobeed's friend, and Fobeed's enemy, but mostly friend." } },
   },
 }
 
@@ -438,6 +793,9 @@ P:NPC {
       choices = {
         { text = "Why cheer for the gnomes?", next = "why" },
         { text = "Does the hat ever explode?", next = "hat" },
+        { text = "Where did you come from?", next = "xfrom" },
+        { text = "Who is better, you or Fobeed?", next = "xfob" },
+        { text = "Do the gnomes treat you well?", next = "xtreat" },
         { text = "Go gnomes.", next = "END" },
       },
     },
@@ -449,6 +807,45 @@ P:NPC {
       lines = { { id = "h2_default", text = "Only one time! Zuzubee eyebrows come back, mostly. Gnomes fixed hat, and now it only smoke a little." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xfrom = {
+      lines = {
+        { id = "x_xfrom", text = "Zuzubee come from big hill in Feralas, with many ogres and much yelling. Zuzubee leave because Zuzubee too small, and here Zuzubee is biggest, so Zuzubee happy." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfob = {
+      lines = {
+        { id = "x_xfob", text = "Zuzubee louder, because Zuzubee hat is shiny and Fobeed only has cone. Fobeed say Fobeed louder, and we shout to find out, and then everybody cover ears." },
+      },
+      choices = {
+        { text = "You're louder, Zuzubee. Gnomes forever!", next = "BACK", reply = "GO GNOMES! Zuzubee knew it! You very good friend.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Fobeed is louder. Goblins win.", next = "BACK", reply = "No! Zuzubee sad now. Zuzubee shout at you later.", fx = { align = { order = -1 } } },
+      },
+    },
+    xtreat = {
+      lines = {
+        { id = "x_xtreat", text = "Gnomes give Zuzubee hat and food and pats on knee, because gnomes cannot reach head. Gnomes very small but very nice, and Zuzubee protect gnomes from everything." },
+      },
+      choices = {
+        { text = "Even the goblins?", next = "xgobs" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgobs = {
+      narr = "He grins enormously, and the megaphone on his head squeals.",
+      lines = {
+        { id = "x_xgobs", text = "Goblins okay, goblins just loud. Zuzubee only sit on goblin once, and that was accident, mostly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    fobeed = { { id = "tp_xfobeed", text = "Fobeed shout for goblins. Fobeed wrong, but Fobeed is Zuzubee friend." } },
+    gnomes = { { id = "tp_xgnomes", text = "Gnomes are tiny and clever. Zuzubee likes them very much." } },
   },
 }
 
@@ -474,6 +871,10 @@ P:NPC {
       choices = {
         { text = "What breaks most?", next = "breaks" },
         { text = "What do you think of the goblin crew?", next = "goblins" },
+        { text = "How did you join the crew?", next = "xjoin" },
+        { text = "Do you miss Gnomeregan?", next = "xgnomer" },
+        { text = "I'm an engineer. Need a hand?", next = "xeng", when = { profession = "Engineering" } },
+        { text = "What was your worst run?", next = "xworst" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -485,6 +886,53 @@ P:NPC {
       lines = { { id = "goblins_default", text = "Sloppy work, very loud, surprisingly fast. I'd never admit it, so you never heard me say that last part." } },
       choices = { { text = "Heard nothing.", next = "BACK" } },
     },
+    xjoin = {
+      lines = {
+        { id = "x_xjoin", text = "Rizzle found me in Tinker Town after the evacuation, sorting bolts by size in a borrowed bucket, and he said anyone who sorts bolts for fun belongs on a pit crew. I have been sorting bolts here ever since, at much higher speeds." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgnomer = {
+      narr = "He stops sorting, holds a bolt up to the light, and sets it down very gently.",
+      lines = {
+        { id = "x_xgnomer", text = "Every single day, and especially when the engine hums a certain way, because it sounds a little like the great lifts did. We'll take the city back one day, the High Tinker says, and I believe him on the good days." },
+      },
+      choices = {
+        { text = "Will you go back when it's retaken?", next = "xback" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xback = {
+      lines = {
+        { id = "x_xback", text = "I think so, though the racing has spoiled me a little for indoor engineering. Some of the crew say we should stay out here and build something new." },
+      },
+      choices = {
+        { text = "Gnomeregan is your home. Go back to it.", next = "BACK", reply = "Yes, yes, you're right, of course you're right. Probably right.", fx = { align = { order = 1 } } },
+        { text = "Build something new. The future's out here.", next = "BACK", reply = "That's what Rizzle says, and he's usually wrong, but not always.", fx = { align = { order = -1 } } },
+      },
+    },
+    xeng = {
+      lines = {
+        { id = "x_xeng", text = "Always, but only if you don't touch the fuel line, because nobody touches the fuel line except Rizzle. The last gnome who touched it is the reason we have a new gnome." },
+      },
+      choices = {
+        { text = "Noted.", next = "BACK", reply = "Good. Hand me that spanner, please, the seven-sixteenths." },
+      },
+    },
+    xworst = {
+      lines = {
+        { id = "x_xworst", text = "Our worst run lasted four seconds and set the salt on fire, which none of us knew salt could do. We wrote it up as a valuable discovery about salt." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    rizzle = { { id = "tp_xrizzle", text = "Rizzle Brassbolts is our chief engineer and the loudest optimist I know." } },
+    tinker_town = { { id = "tp_xtinker_town", text = "Tinker Town is where most of us went after the fall. It's crowded, but it's ours." } },
   },
 }
 
@@ -510,6 +958,9 @@ P:NPC {
       choices = {
         { text = "What's in the fuel?", next = "fuel" },
         { text = "What about the gnome crew?", next = "gnomes" },
+        { text = "Does Pozzik pay well?", next = "xpay" },
+        { text = "Have you ever lost a race?", next = "xlost" },
+        { text = "Goblin to goblin: is the race rigged?", next = "xrig", when = { race = "Goblin" } },
         { text = "Enjoy your sandwich.", next = "END" },
       },
     },
@@ -521,6 +972,54 @@ P:NPC {
       lines = { { id = "gnomes_default", text = "They measure everything twice and still lose. We measure nothing, and sometimes we win. That's the goblin way." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xpay = {
+      lines = {
+        { id = "x_xpay", text = "Pozzik pays in coin, in sandwiches and in promises, and two out of three ain't bad, pal. The promise is a share of the winnings, which I'll see right after the salt flats grow grass." },
+      },
+      choices = {
+        { text = "Why stay, then?", next = "xstay" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xstay = {
+      lines = {
+        { id = "x_xstay", text = "Because where else can a fella blow up a car every afternoon and get paid for it? Back in Ratchet they'd fine me, and here they cheer." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlost = {
+      lines = {
+        { id = "x_xlost", text = "Lost? We never lose, friend, we just finish behind the gnomes for strategic reasons, which are confidential. Also the gnomes cheat, everybody knows that." },
+      },
+      choices = {
+        { text = "Do they actually cheat?", next = "xcheat" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcheat = {
+      lines = {
+        { id = "x_xcheat", text = "Sure they do, they use math, and that ain't natural. Us, we just put more rockets on, and the honest rocket wins, or explodes, which also counts as entertainment." },
+      },
+      choices = {
+        { text = "Math isn't cheating. Learn some.", next = "BACK", reply = "Learn math? What am I, a gnome? Ha!", fx = { align = { order = 1 } } },
+        { text = "More rockets. That's the goblin way.", next = "BACK", reply = "Now you're talkin', friend! Rockets fix everything.", fx = { align = { order = -1 } } },
+      },
+    },
+    xrig = {
+      narr = "He takes a bite of the sandwich and taps his nose with the wrench.",
+      lines = {
+        { id = "x_xrig", text = "Rigged is a strong word, chum, I'd say managed, and the bookies in Gadgetzan manage it very carefully. Bet on the car that blows up second and you'll do fine." },
+      },
+      choices = {
+        { text = "I'll remember that.", next = "BACK", reply = "You didn't hear it from me, and I'll bill you if you did." },
+      },
+    },
+  },
+  topics = {
+    pozzik = { { id = "tp_xpozzik", text = "Pozzik's the boss and the driver. He's got more burn scars than eyebrows." } },
+    gadgetzan = { { id = "tp_xgadgetzan", text = "The Gadgetzan bookies take bets on every race. They always win." } },
   },
 }
 
@@ -550,6 +1049,10 @@ P:NPC {
       choices = {
         { text = "Can anything grow here?", next = "grow" },
         { text = "What do you make of the races?", next = "races" },
+        { text = "Who sent you here?", next = "xwho" },
+        { text = "Do you miss the forests?", next = "xmiss" },
+        { text = "A druid could help you here.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do the racers harm the flats?", next = "xraces2" },
         { text = "Good luck with your work.", next = "END" },
       },
     },
@@ -564,6 +1067,53 @@ P:NPC {
       lines = { { id = "r_default", text = "Loud, wasteful and strangely joyful. I disapprove, but I have caught myself cheering more than once." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xwho = {
+      lines = {
+        { id = "x_xwho", text = "No one sent me, though I am a student of the Cenarion Circle and I report to them now and then. I came because a place this broken asks a question, and I wanted to hear it." },
+      },
+      choices = {
+        { text = "What question?", next = "xquestion" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xquestion = {
+      narr = "He lets the salt run out between his fingers, slowly, and watches it fall.",
+      lines = {
+        { id = "x_xquestion", text = "Whether a land can heal from what was done to it ten thousand years ago, when the Well's sundering tore the continent apart. If the flats can bloom again, then so might much else." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmiss = {
+      lines = {
+        { id = "x_xmiss", text = "I miss them as a man misses a long night's sleep. But Ashenvale is full of druids, and the flats have only me, and the salt does not argue." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xraces2 = {
+      lines = {
+        { id = "x_xraces2", text = "The goblins and gnomes poison the salt with their fuels, and I have asked them to stop. They laugh, and I do not think they mean harm, but harm does not need meaning." },
+      },
+      choices = {
+        { text = "They must stop. The land comes first.", next = "BACK", reply = "I agree, though it will take more than a druid's asking.", fx = { align = { light = 1 } } },
+        { text = "They're only racing. The salt is already dead.", next = "BACK", reply = "Nothing is ever truly dead, friend, though I see why you think so.", fx = { align = { light = -1 } } },
+      },
+    },
+    xdruid = {
+      lines = {
+        { id = "x_xdruid", text = "Then you understand that the land speaks slowly and you must listen longer. If you have a season to spare, the salt has things to teach us both." },
+      },
+      choices = {
+        { text = "Perhaps I will.", next = "BACK", reply = "Elune light your way, then.", fx = { affinity = 1 } },
+      },
+    },
+  },
+  topics = {
+    shimmering_flats = { { id = "tp_xshimmering_flats", text = "The Shimmering Flats were a sea, once, I am almost certain. The salt remembers." } },
+    cenarion_circle = { { id = "tp_xcenarion_circle", text = "The Circle tends the wild. I am only one of its slower students." } },
   },
 }
 -- Elder Morningdew: an ancestor spirit honoured during the Lunar Festival. She appears in Thousand Needles, among the salt and the strange goblin racing.
@@ -667,6 +1217,9 @@ P:NPC {
       choices = {
         { text = "Who troubles the post?", next = "threats" },
         { text = "How do the lifts work?", next = "lifts" },
+        { text = "How did you come to guard Freewind?", next = "xhow" },
+        { text = "What lies below in the canyons?", next = "xbelow" },
+        { text = "What do you think of the Raceway?", next = "xrace" },
         { text = "Farewell, brave.", next = "END" },
       },
     },
@@ -688,8 +1241,54 @@ P:NPC {
       lines = { { id = "l_default", text = "Ropes, counterweights and a good deal of trust, {class}. The platforms rise and fall between the mesas, and the brave at the bottom watches the brave at the top." } },
       choices = { { text = "I'll trust them, then. Something else.", next = "BACK" } },
     },
+    xhow = {
+      lines = {
+        { id = "x_xhow", text = "My father guarded these lifts before me, and his father climbed these mesas when there were no lifts at all. Freewind is in my blood, as the wind is in the grass." },
+      },
+      choices = {
+        { text = "Will your children guard it too?", next = "xkids" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xkids = {
+      lines = {
+        { id = "x_xkids", text = "If the Earth Mother grants me children, they may choose for themselves, as I chose. A brave who stands here only because he was told to will not stand long when the centaur come." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xbelow = {
+      lines = {
+        { id = "x_xbelow", text = "The Galak centaur roam the canyon floors, and they raid any tauren foolish enough to walk alone. Further down there are the old Highperch roosts, where the wyverns nest and the hunters climb." },
+      },
+      choices = {
+        { text = "Should the Galak be driven out?", next = "xgalak" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xgalak = {
+      lines = {
+        { id = "x_xgalak", text = "Some of the elders say we must drive them from the Needles entirely, and others say we must only hold the mesas and let the canyons be. I have not decided which is wiser." },
+      },
+      choices = {
+        { text = "Drive them out. The Needles belong to the tauren.", next = "BACK", reply = "Many braves would cheer you for that. I am not sure I would.", fx = { align = { light = -1 } } },
+        { text = "Hold the mesas. Endless war helps no one.", next = "BACK", reply = "That is the elders' patience speaking. Perhaps it is mine too.", fx = { align = { light = 1 } } },
+      },
+    },
+    xrace = {
+      narr = "He almost smiles, then looks back at the canyon.",
+      lines = {
+        { id = "x_xrace", text = "Loud and strange and full of smoke, and the goblins pay well for water and fresh meat. The young braves sneak down to watch, and I pretend not to notice." },
+      },
+      choices = {
+        { text = "Do you watch too?", next = "BACK", reply = "Once or twice. The gnome car caught fire very beautifully." },
+      },
+    },
   },
   topics = {
+    freewind_post = { { id = "tp_xfreewind_post", text = "Freewind Post sits on the highest mesas, where only the wind and the tauren live." } },
+    galak = { { id = "tp_xgalak", text = "The Galak are cunning and quick. Never chase one into a narrow canyon." } },
     _none = { { id = "tp_none", text = "I keep the lifts, {class}, not the gossip. Ask at the inn above." } },
   },
 }
@@ -722,6 +1321,9 @@ P:NPC {
         { text = "Can you turn yourself back?", next = "back" },
         { text = "The racing crowd seems fond of you.", next = "raceway" },
         { text = "I know that polymorph. I could undo it for you.", next = "mage", when = { class = "MAGE" } },
+        { text = "What's it like being a chicken?", next = "xlife" },
+        { text = "Do you have any friends here?", next = "xfriends" },
+        { text = "I'm a mage. Could I break the spell?", next = "xmage", when = { class = "MAGE" } },
         { text = "Don't worry. Your secret is safe.", next = "END" },
       },
     },
@@ -750,6 +1352,45 @@ P:NPC {
       lines = { { id = "b_default", text = "In theory, yes. In practice, I've grown rather good at being a chicken, and the goblins here feed me for free. Bawk. I may stay a little longer." } },
       choices = { { text = "Mind the gnome racers' wheels.", next = "BACK" } },
     },
+    xlife = {
+      lines = {
+        { id = "x_xlife", text = "Surprisingly restful, apart from the constant urge to scratch at the ground and the strong dislike of foxes. I have learned a great deal about grain, which I never wanted to know." },
+      },
+      choices = {
+        { text = "Do you want to be human again?", next = "xhuman" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhuman = {
+      lines = {
+        { id = "x_xhuman", text = "Of course I do, and also not really, because a human apprentice has duties and debts and a very angry master. A chicken has only chickens, and the racing crowd feeds me crumbs." },
+      },
+      choices = {
+        { text = "Face your master. Running away is cowardice.", next = "BACK", reply = "Easy for someone who isn't feathered to say. But you're right, curse it.", fx = { align = { honor = 1 } } },
+        { text = "Stay a chicken if it makes you happy.", next = "BACK", reply = "Do you mean that? You're the first one who hasn't laughed.", fx = { align = { honor = -1 }, affinity = 1 } },
+      },
+    },
+    xfriends = {
+      narr = "The chicken fluffs its feathers and looks away with surprising dignity.",
+      lines = {
+        { id = "x_xfriends", text = "The pit crews think I'm good luck, so they save me crusts, and the ogres try to pat me, which is terrifying. I talk to the other chickens, but their conversation is very limited." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "x_xmage", text = "Please don't, I beg you, the last apprentice who tried turned himself into a sheep for an afternoon. If I'm to be fixed, it should be by the Magus himself, and only after I've apologised." },
+      },
+      choices = {
+        { text = "Fair enough.", next = "BACK", reply = "Thank you, truly. You've a gentle hand with polymorph, I can tell." },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Bawk. I'm a chicken; I don't know much. Ask the goblins." } } },
+  topics = {
+    magus_tirth = { { id = "tp_xmagus_tirth", text = "Magus Tirth was my master. He's brilliant, and terrifying, and probably looking for me." } },
+    mirage_raceway = { { id = "tp_xmirage_raceway", text = "The Raceway is the safest place for a chicken to hide. Nobody looks twice." } },
+    _none = { { id = "tp_none", text = "Bawk. I'm a chicken; I don't know much. Ask the goblins." } },
+  },
 }

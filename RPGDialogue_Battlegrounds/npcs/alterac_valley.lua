@@ -478,12 +478,17 @@ P:NPC {
           text = "Exalted wi' the Guard! There's nothin' on my shelves ye cannae have, provided ye've the coin for it." },
       },
       again = {
+        { id = "xh_again3", when = { reputation = { faction = "Stormpike Guard", min = "honored" } }, text = "Back again, friend o' the Guard? What'll it be?" },
         { id = "h_again", text = "Aye? Anythin' else?" },
         { id = "h_again2", text = "Make it quick, there's a line." },
       },
       choices = {
         { text = "How do I earn the Guard's trust?", next = "trust" },
         { text = "Where do your supplies come from?", next = "supplies" },
+        { text = "What's the Stormpike expedition after?", next = "xwhy" },
+        { text = "Who commands Dun Baldar?", next = "xcmd" },
+        { text = "Do the Frostwolves have a claim to the valley?", next = "xclaim" },
+        { text = "A Bronzebeard's honoured to serve here.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Just browsing.", next = "END" },
       },
     },
@@ -508,9 +513,33 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xwhy = {
+      lines = { { id = "xwh_default", text = "Iron, relics, an' whatever the old dwarves left buried up here. The Stormpike are a clan o' delvers, an' the valley's full o' things worth diggin' for." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xcmd = {
+      narr = "He nods toward the keep's great hall, without looking up from the ledger.",
+      lines = { { id = "xcm_default", text = "Vanndar Stormpike, an' a finer dwarf ye'll no' meet north o' Ironforge. He's got a temper on him, but he's never lost a fight he meant tae win." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xclaim = {
+      lines = { { id = "xcl_default", text = "The orcs say they've lived here since they fled their own kind, an' that might be true. But the valley's Khaz Modan's by right, an' we were here long before any orc." } },
+      choices = {
+        { text = "Then the valley's yours by right. Take it.", next = "BACK", reply = "Aye, that's what the Guard says, an' I'll say it too.", fx = { align = { order = 1 } } },
+        { text = "They've lived here. Ancient claims mean little.", next = "BACK", reply = "Hmph. Dinnae say that too loud in Dun Baldar, friend.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = { { id = "xdw_default", text = "An' the Guard's honoured tae have ye. Bring back a few Frostwolf hides, an' I'll see ye get somethin' better than the cheap shelf." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    vanndar = { { id = "xtp_vann", text = "Our commander, an' the best o' us. Follow him an' ye'll no' go far wrong." } },
+    frostwolf = { { id = "xtp_frost", text = "Orcs an' wolves an' snow. They fight hard, I'll give them that." } },
+   
     knows = { { id = "tp_knows", text = "Every crate an' buckle in Dun Baldar, an' who owes me for which." } },
     _none = { { id = "tp_none", text = "Is it on my shelves? No? Then I've no idea." } },
   },
@@ -1627,12 +1656,17 @@ P:NPC {
           text = "The clan sings your name. Take what you need; you've earned the right to buy it." },
       },
       again = {
+        { id = "xh_again3", when = { reputation = { faction = "Frostwolf Clan", min = "honored" } }, text = "You again, friend of the clan. What do you need?" },
         { id = "h_again", text = "What else do you need from me?" },
         { id = "h_again2", text = "Speak quickly, for there is a war outside." },
       },
       choices = {
         { text = "How do I earn the clan's respect?", next = "trust" },
         { text = "Where do your supplies come from?", next = "supplies" },
+        { text = "Who leads the Frostwolves?", next = "xleader" },
+        { text = "Why do the Stormpike want this valley?", next = "xwhy" },
+        { text = "What is the most precious thing in your stores?", next = "xprecious" },
+        { text = "I am an orc. The Frostwolves are my blood.", next = "xorc", when = { race = "Orc" } },
         { text = "Just looking.", next = "END" },
       },
     },
@@ -1657,9 +1691,40 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xleader = {
+      lines = { { id = "xle_default", text = "Drek'Thar, the elder shaman, who sees more blind than most do with eyes. Thrall is the son of Durotan, our chieftain, and the clan has never forgotten it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xwhy = {
+      narr = "He sets down a bundle of hides with a heavy thump.",
+      lines = { { id = "xwh_default", text = "The dwarves say they dig for iron and relics, and they dig into our home to find them. This valley sheltered the clan in exile, and we will not give a single cave of it up." } },
+      choices = {
+        { text = "Then drive the dwarves out of the valley.", next = "xdrive" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdrive = {
+      lines = { { id = "xdr_default", text = "That is the plan, and it has been the plan for many winters. Some warriors say we should take Dun Baldar and leave nothing standing, and the elders say we should only take back what is ours." } },
+      choices = {
+        { text = "Burn Dun Baldar. Leave them nothing.", next = "BACK", reply = "The warriors would cheer you. Drek'Thar would frown.", fx = { align = { honor = -1 } } },
+        { text = "Take back the valley, no more.", next = "BACK", reply = "Spoken like an elder. The clan needs both kinds of voice, I suppose.", fx = { align = { honor = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xprecious = {
+      lines = { { id = "xpr_default", text = "Not the gold, and not the blades, but the frostwolf hides. Every one comes from a wolf that died old and honoured, and only friends of the clan may wear them." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xorc = {
+      lines = { { id = "xor_default", text = "Then you know the snow better than the Stormpike ever will. Fight well, and when you come back, the clan will have stories to tell about you." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    drekthar = { { id = "xtp_drek", text = "Our elder shaman, and the clan's wisdom. Do what he asks and you will earn more than gear." } },
+    stormpike = { { id = "xtp_storm", text = "Dwarves with long beards and short memories. They dig where they are not wanted." } },
+   
     knows = { { id = "tp_knows", text = "I know every hide, blade and crate in the keep, and who has paid for which." } },
     _none = { { id = "tp_none", text = "I keep the clan's stores, not its gossip, so ask the warriors by the fire." } },
   },

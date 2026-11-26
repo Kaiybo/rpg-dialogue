@@ -87,6 +87,10 @@ P:NPC {
         { text = "What are you watching for?", next = "watch" },
         { text = "Why did the Brotherhood leave Thaurissan?", next = "why" },
         { text = "You don't trust outsiders much.", next = "trust" },
+        { text = "Have you ever spotted a spy?", next = "xspy" },
+        { text = "What's the view like at night?", next = "xnight" },
+        { text = "Do you have family under the mountain?", next = "xfamily" },
+        { text = "I'm a hunter. My eyes are sharp too.", next = "BACK", when = { class = "HUNTER" }, reply = "Are they? Then tell me what's moving by the slag pit, north of the third tower. No? Then mine are sharper." },
         { text = "I'll go on up.", next = "END" },
       },
     },
@@ -106,8 +110,35 @@ P:NPC {
       lines = { { id = "t_default", text = "Would you, in my boots? Half the world wants my kind dead for what the Emperor did, and the other half works for him. You earn trust here by work, the same as anyone." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xspy = {
+      lines = {
+        { id = "xxspy_0", text = "Three this season. One dressed as a merchant, one as a miner and one as a Bronzebeard dwarf, which was the boldest of the lot. They don't come back up the stairs." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnight = {
+      lines = {
+        { id = "xxnight_0", text = "The Cauldron glows red, the forges smoke and the fire elementals drift across the slag like lanterns. It would be beautiful if it weren't all trying to kill us." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfamily = {
+      lines = {
+        { id = "xxfamily_0", text = "A brother and an old mother, in Blackrock Depths, still loyal to the Emperor. I chose the Brotherhood and they chose Thaurissan. Should I try to bring them over, or let them be?" },
+      },
+      choices = {
+        { text = "Try to bring them over. Kin is kin.", next = "BACK", reply = "Kin who'd sell me to the Emperor. Still, I'd like to try.", fx = { align = { order = -1 } } },
+        { text = "Let them be. You chose your path.", next = "BACK", reply = "Aye. That's the hard truth of it.", fx = { align = { order = 1 } } },
+      },
+    },
   },
   topics = {
+    thorium_brotherhood = { { id = "tp_xthorium_brotherhood", text = "Smiths who chose the forge over the fire lord." } },
+    thaurissan = { { id = "tp_xthaurissan", text = "The Emperor. Don't say that name too loud here." } },
     background = { { id = "tp_bg", text = "I'm Dark Iron born, Thorium Brotherhood by choice, and a lookout because I've the sharpest eyes in camp." } },
     _none = { { id = "tp_none", text = "Not my business. Ask Lokhtos, if you've got the gold to make it his." } },
   },
@@ -139,6 +170,10 @@ P:NPC {
       choices = {
         { text = "What are they making you dig for?", next = "dig" },
         { text = "How did you get captured?", next = "captured" },
+        { text = "What happened to your friends?", next = "xfriends" },
+        { text = "What relics have they found?", next = "xrelics" },
+        { text = "How do you keep going?", next = "xgoing" },
+        { text = "I'm a dwarf. I'll free you, cousin.", next = "BACK", when = { race = "Dwarf" }, reply = "Cousin! Bless ye. If ye can, find the overseer's keys, but don't get yerself chained beside me. One captive's enough for the family." },
         { text = "I'll find a way to help.", next = "END" },
       },
     },
@@ -158,8 +193,46 @@ P:NPC {
       lines = { { id = "c_default", text = "We were mapping the old tunnels west of the pit when they came out of the dark with chains ready. Two of my friends fought back, and they're not with us any more." } },
       choices = { { text = "I'm sorry.", next = "BACK" } },
     },
+    xfriends = {
+      lines = {
+        { id = "xxfriends_0", text = "Two died fighting the day we were taken. The rest dig beside me, or did. Brannoc collapsed last week from the heat, and they dragged him away. I don't know where." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrelics = {
+      lines = {
+        { id = "xxrelics_0", text = "Old Dark Iron carvings, from before the War of the Three Hammers, showing their kings and ours side by side. The overseers smash anything that shows a Bronzebeard face." },
+      },
+      choices = {
+        { text = "Should the relics be saved?", next = "xsave" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsave = {
+      lines = {
+        { id = "xxsave_0", text = "I'd risk my neck to smuggle out one tablet, so the League knows what's here. My friends say it's not worth dying for a stone. What would you tell them?" },
+      },
+      choices = {
+        { text = "Save it. History matters more than comfort.", next = "BACK", reply = "Aye. That's why I came. I'll try, quietly.", fx = { align = { honor = -1 } } },
+        { text = "Stay alive. A stone is not worth your life.", next = "BACK", reply = "You're right, I suppose. But it's a very good stone.", fx = { align = { honor = 1 } } },
+      },
+    },
+    xgoing = {
+      lines = {
+        { id = "xxgoing_0", text = "I recite the names of every dig I've ever worked, from Uldaman to the Loch. When I run out of names, I start again, and the overseer thinks I'm praying." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I cannae think of anythin' but getting out of here. Ask me again when I'm free." } } },
+  topics = {
+    dark_irons = { { id = "tp_xdark_irons", text = "They're cruel taskmasters, but some of them look as tired as we are." } },
+    explorers_league = { { id = "tp_xexplorers_league", text = "The best folk in Ironforge. They'll come for us, I'm sure of it." } },
+    _none = { { id = "tp_none", text = "I cannae think of anythin' but getting out of here. Ask me again when I'm free." } },
+  },
 }
 
 -- Raze, Nilith's Guardian: the infernal bound to Nilith Lokrav near Blackrock Mountain.
@@ -187,6 +260,10 @@ P:NPC {
       choices = {
         { text = "Do you serve Nilith willingly?", next = "serve" },
         { text = "What do you guard against?", next = "guard" },
+        { text = "What was the Twisting Nether like?", next = "xnether" },
+        { text = "Does Nilith treat you well?", next = "xnilith" },
+        { text = "Have you ever slipped your binding?", next = "xslip" },
+        { text = "I'm a warlock. I could command you instead.", next = "BACK", when = { class = "WARLOCK" }, reply = "You could try, little binder. The mistress's circle is strong, and yours would have to be stronger. Most are not." },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -208,6 +285,35 @@ P:NPC {
       lines = { { id = "g2_default", text = "The Dark Iron who wander from the mountain, the poachers who kill her spiders, and anyone she does not like, which is most of them. The Dark Iron have learned to walk around me, which pleases me less than breaking them would." } },
       choices = { { text = "I'll stay on her good side. Something else.", next = "BACK" } },
     },
+    xnether = {
+      lines = {
+        { id = "xxnether_0", text = "A storm with no ground, full of hunger and screaming. I fell through it for an age before a circle caught me. Your world is small and slow, but at least it holds still." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnilith = {
+      lines = {
+        { id = "xxnilith_0", text = "She feeds me heat and gives me the poachers who touch her spiders. That is more kindness than the Legion ever showed, and less than I would take if free." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xslip = {
+      lines = {
+        { id = "xxslip_0", text = "Once, for a heartbeat, when the circle cracked in a quake. I took one step and the earth burned under it. She mended the circle before the second step. Should she have let me go?" },
+      },
+      choices = {
+        { text = "No. Some prisons keep the world safe.", next = "BACK", reply = "Spoken like flesh that has never been chained.", fx = { align = { light = 1 } } },
+        { text = "You've served long enough. Let her free you.", next = "BACK", reply = "She will not. But I will remember you said it.", fx = { align = { light = -1 } } },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I know fire and stone and the mistress's voice, and nothing more. Ask her." } } },
+  topics = {
+    nilith = { { id = "tp_xnilith", text = "The mistress. She is small, but her circle is strong." } },
+    burning_legion = { { id = "tp_xburning_legion", text = "My first masters. I do not miss them." } },
+    _none = { { id = "tp_none", text = "I know fire and stone and the mistress's voice, and nothing more. Ask her." } },
+  },
 }

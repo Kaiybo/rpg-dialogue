@@ -29,6 +29,10 @@ P:NPC {
         { text = "What is the expedition looking for here?", next = "dig" },
         { text = "How do you keep faith in a place like this?", next = "faith" },
         { text = "The Steppes look dead from the air.", next = "steppes" },
+        { text = "Who leads the expedition?", next = "xlead" },
+        { text = "Have the black dragons attacked you?", next = "xdragons" },
+        { text = "What do you think of the Dark Irons?", next = "xdark" },
+        { text = "I'm a dwarf too. How can I help?", next = "BACK", when = { race = "Dwarf" }, reply = "Bless ye, cousin. Bring water if ye can find it, an' a strong arm for the diggers. Every pair o' hands is worth a prayer out here." },
         { text = "Light keep you.", next = "END" },
       },
     },
@@ -48,8 +52,35 @@ P:NPC {
       lines = { { id = "s_default", text = "Dead an' burnin', aye, ever since the Dark Irons called up Ragnaros an' the mountain split open. Morgan's Vigil holds the east, an' we hold this wee corner, an' the rest belongs to the orcs an' the flame." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xlead = {
+      lines = {
+        { id = "xxlead_0", text = "The League sends a leader, but out here it's the diggers who decide where to dig an' the priests who decide when to stop. We argue about it every night, cheerfully enough." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdragons = {
+      lines = {
+        { id = "xxdragons_0", text = "Twice, from above, wi' fire. We lost a tent an' a good mule, an' two diggers were burned badly. I've seen dragon-fire wounds that wouldnae heal for weeks." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdark = {
+      lines = {
+        { id = "xxdark_0", text = "They're dwarves, same as us, an' they chose fire over the mountain's heart. Some o' my brothers say they're beyond the Light. I'm not so sure. Are they?" },
+      },
+      choices = {
+        { text = "No one is beyond the Light. Not even them.", next = "BACK", reply = "That's my heart's answer too. It's a hard one to keep, out here.", fx = { align = { light = 1 } } },
+        { text = "They chose Ragnaros. Let them burn with him.", next = "BACK", reply = "Aye, many would agree. I'll pray for them anyway.", fx = { align = { light = -1 } } },
+      },
+    },
   },
   topics = {
+    dark_irons = { { id = "tp_xdark_irons", text = "Our kin, lost to fire. I pray for them, though they'd laugh at it." } },
+    explorers_league = { { id = "tp_xexplorers_league", text = "Fine folk, if a bit too eager to dig where they shouldnae." } },
     background = { { id = "tp_bg", text = "Ironforge raised me an' the Light called me, an' the expedition sent me somewhere hot." } },
     _none = { { id = "tp_none", text = "I'm a healer, not a scholar, friend. Ask the diggers, they never stop talkin'." } },
   },

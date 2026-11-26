@@ -29,6 +29,10 @@ P:NPC {
         { text = "Could the Dark Portal ever open again?", next = "portal" },
         { text = "What's the worst of the Blasted Lands?", next = "worst" },
         { text = "This posting must be miserable.", next = "posting" },
+        { text = "Where are you from originally?", next = "xfrom" },
+        { text = "Have you fought the Dreadmaul?", next = "xogres" },
+        { text = "What do you do to stay awake on watch?", next = "xawake" },
+        { text = "I'm an orc. Does that worry you?", next = "BACK", when = { race = "Orc" }, reply = "Aye, it worries me, but I'll say this: you're the first orc to talk to me instead of charging. I'll take that as a good sign." },
         { text = "Stay sharp, soldier.", next = "END" },
       },
     },
@@ -48,8 +52,44 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xfrom = {
+      lines = {
+        { id = "xxfrom_0", text = "Lakeshire, in Redridge. My family keeps an inn by the water. I joined up to see the world, and the world turned out to be red dust." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xogres = {
+      lines = {
+        { id = "xxogres_0", text = "Twice, on the supply road. They're slow and stupid and hit like a falling wall. The second time I lost my shield and nearly my arm." },
+      },
+      choices = {
+        { text = "What would you do about them?", next = "xogre2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xogre2 = {
+      lines = {
+        { id = "xxogre2_0", text = "Some say hit their holds hard and burn them out. Others say guard the road and leave the ogres be. What would you do?" },
+      },
+      choices = {
+        { text = "Burn their holds. Teach them to fear us.", next = "BACK", reply = "Aye, I'd like to see it. If we ever get enough men.", fx = { align = { order = -1 } } },
+        { text = "Guard the road. Don't start a war you can't finish.", next = "BACK", reply = "That's what the officer says. I suppose he's right.", fx = { align = { order = 1 } } },
+      },
+    },
+    xawake = {
+      lines = {
+        { id = "xxawake_0", text = "Songs from home, mostly under my breath. The officer pretends he doesn't hear, and the other lads join in when it's late enough." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    lakeshire = { { id = "tp_xlakeshire", text = "Home. Blue water and green hills, nothing like this." } },
+    dreadmaul = { { id = "tp_xdreadmaul", text = "Ogres. Big, angry and hungry. Stay off the north road at night." } },
     background = { { id = "tp_bg", text = "I'm a soldier of the Nethergarde garrison, and I've stood this wall longer than I care to count." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask the quartermaster, he knows everything that passes the gate." } },
   },
@@ -82,6 +122,10 @@ P:NPC {
         { text = "How do you keep morale up out here?", next = "morale" },
         { text = "Who actually runs Nethergarde?", next = "runs" },
         { text = "Your soldiers seem worn thin.", next = "worn" },
+        { text = "How long have you been posted here?", next = "xlong" },
+        { text = "Do you trust the Kirin Tor mages?", next = "xmages" },
+        { text = "What do you think of the Horde in Stonard?", next = "xstonard" },
+        { text = "I'm a warrior. Need another sword on the wall?", next = "BACK", when = { class = "WARRIOR" }, reply = "Always. Report to the barracks, and tell them I sent you. You'll stand the night watch, which is the honest test." },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -101,8 +145,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlong = {
+      lines = {
+        { id = "xxlong_0", text = "Four years, three months, and nine days. I count because the soldiers count, and they need to see I'm in it with them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmages = {
+      lines = {
+        { id = "xxmages_0", text = "I trust them to do magic. I don't trust them to understand soldiers. They'd keep us here forever if they could, watching a gate that may never open." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xstonard = {
+      lines = {
+        { id = "xxstonard_0", text = "They're north of us across the swamp, and they watch us as we watch them. Some of my men want to strike first, before the orcs think of it. Others say we'd only bleed for it. What's your view?" },
+      },
+      choices = {
+        { text = "Strike first. Don't wait for them to come.", next = "BACK", reply = "Bold. I'd need orders from Stormwind, which won't come.", fx = { align = { order = -1 } } },
+        { text = "Hold the wall. Our task is the Portal.", next = "BACK", reply = "Exactly my thinking. We're here for the Portal, nothing else.", fx = { align = { order = 1 } } },
+      },
+    },
   },
   topics = {
+    kirin_tor = { { id = "tp_xkirin_tor", text = "Clever folk who think soldiers are furniture." } },
+    dark_portal = { { id = "tp_xdark_portal", text = "Dead and broken. I'll keep watching it anyway." } },
     background = { { id = "tp_bg", text = "I'm an officer of Stormwind's army, posted to Nethergarde, and I intend to bring every one of my soldiers home." } },
     _none = { { id = "tp_none", text = "Not my concern. Take it to the quartermaster." } },
   },
@@ -135,6 +206,10 @@ P:NPC {
         { text = "Can the Light heal this land?", next = "heal" },
         { text = "What wounds do you see most?", next = "wounds" },
         { text = "Do you ever regret coming here?", next = "regret" },
+        { text = "What do you pray for over the Portal?", next = "xpray" },
+        { text = "Do the mages and the clergy get along?", next = "xmages" },
+        { text = "Who sent you here?", next = "xsent" },
+        { text = "I'm a paladin. Put me to work.", next = "BACK", when = { class = "PALADIN" }, reply = "Gladly, and the Light be thanked for you. The infirmary is past the armoury, and every cot in it is full." },
         { text = "Light be with you.", next = "END" },
       },
     },
@@ -154,8 +229,44 @@ P:NPC {
       lines = { { id = "r_default", text = "Every morning, for a moment, and then the first soldier comes to my door and the moment passes. The Light sent me where I was needed, not where I was comfortable." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xpray = {
+      lines = {
+        { id = "xxpray_0", text = "That it stays shut, mostly, and that the souls of the soldiers who died holding it the first time have found their rest. The ground here remembers them, I think." },
+      },
+      choices = {
+        { text = "Do you sense them?", next = "xsense" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsense = {
+      lines = {
+        { id = "xxsense_0", text = "Sometimes, on the wind from the south, a voice that might be a prayer or might be the dust. Some here say I should ask the mages to banish whatever lingers. Others say leave the dead in peace. What would you do?" },
+      },
+      choices = {
+        { text = "Leave them be. Pray for them, nothing more.", next = "BACK", reply = "That is my heart's answer too. Thank you.", fx = { align = { light = 1 } } },
+        { text = "Let the mages clear it. Safety first.", next = "BACK", reply = "Practical. The Kirin Tor would agree, I think.", fx = { align = { light = -1 } } },
+      },
+    },
+    xmages = {
+      lines = {
+        { id = "xxmages_0", text = "Politely, and at arm's length. They think prayer is superstition, and I think their wards are vanity. But we both want the Portal closed, and that's enough." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsent = {
+      lines = {
+        { id = "xxsent_0", text = "The Cathedral of Light in Stormwind, when the garrison asked for a healer and nobody older wanted the post. I was young enough to say yes before I understood the question." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    dark_portal = { { id = "tp_xdark_portal", text = "A wound in the world. I pray over it every night." } },
+    cathedral_of_light = { { id = "tp_xcathedral_of_light", text = "Home, and a long way from this dust." } },
     background = { { id = "tp_bg", text = "I'm a cleric of the Church of the Holy Light, sent to tend the garrison at Nethergarde." } },
     _none = { { id = "tp_none", text = "I'm afraid I don't know, child. Ask the officers." } },
   },
@@ -188,6 +299,10 @@ P:NPC {
         { text = "What do the mines produce?", next = "ore" },
         { text = "What's the danger down there?", next = "danger" },
         { text = "Do the miners get paid fairly?", next = "pay" },
+        { text = "How many miners have you lost?", next = "xlost" },
+        { text = "What do you think of the clerics?", next = "xclerics" },
+        { text = "How did you become foreman?", next = "xrise" },
+        { text = "I'm a dwarf, and I know a mine when I see one.", next = "BACK", when = { race = "Dwarf" }, reply = "Then you know this one's poor rock and bad air. I could use a dwarf's eye on the supports, if you've an hour." },
         { text = "I'll get out of your way.", next = "END" },
       },
     },
@@ -207,8 +322,44 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xlost = {
+      lines = {
+        { id = "xxlost_0", text = "Seven this year. Two to cave-ins, three to the Dreadmaul and two to the red cough. I write the letters myself, because a clerk would get the names wrong." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xclerics = {
+      lines = {
+        { id = "xxclerics_0", text = "Good folk with soft hands. They pray for my miners and patch them up after, and I'm grateful, even if I'd sooner have more timber for the shafts." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xrise = {
+      lines = {
+        { id = "xxrise_0", text = "The last foreman ran off one night with the payroll and a mule. I was the only man left who could read the tally board, so here I am." },
+      },
+      choices = {
+        { text = "Did anyone chase him?", next = "xchase" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xchase = {
+      lines = {
+        { id = "xxchase_0", text = "Nobody had the time. Some say I should've sent men after him to set an example. Others say let the coward go. What would you have done?" },
+      },
+      choices = {
+        { text = "Send men after him. A thief must answer.", next = "BACK", reply = "Aye, maybe. Too late now, but I'll remember.", fx = { align = { order = 1 } } },
+        { text = "Let him go. The mine needed the men more.", next = "BACK", reply = "My thought exactly. Good riddance to him and the mule.", fx = { align = { order = -1 } } },
+      },
+    },
   },
   topics = {
+    dreadmaul = { { id = "tp_xdreadmaul", text = "Ogres with clubs and no manners. They think the ore's theirs." } },
+    stormwind = { { id = "tp_xstormwind", text = "Late with the pay and short with the timber." } },
     background = { { id = "tp_bg", text = "I'm the foreman of the Nethergarde mines, and I've been digging since before I could grow a beard." } },
     _none = { { id = "tp_none", text = "Don't know, don't care, got carts to move." } },
   },
@@ -241,6 +392,10 @@ P:NPC {
         { text = "How did you end up here?", next = "how" },
         { text = "Have you seen anything strange down there?", next = "strange" },
         { text = "The foreman says you're paid late.", next = "pay" },
+        { text = "What's Goldshire like these days?", next = "xgold" },
+        { text = "What do you do when you're not digging?", next = "xoff" },
+        { text = "Are the green crystals dangerous?", next = "xcrystal" },
+        { text = "I'm a dwarf. I'd dig with you any day.", next = "BACK", when = { race = "Dwarf" }, reply = "Ha! Then grab a pick, friend. Dwarves always seem to find the good seam first, and I'd like to learn how." },
         { text = "Back to work with you.", next = "END" },
       },
     },
@@ -260,8 +415,35 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    xgold = {
+      lines = {
+        { id = "xxgold_0", text = "Last I saw it, still the same inn, the same blacksmith and kobolds in every hole. My wife and boy are there. I send money when it comes, which isn't often." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xoff = {
+      lines = {
+        { id = "xxoff_0", text = "Sleep, mostly, and dice with the lads. Some of them drink, but the officer doesn't like it, and the cleric gives you a look that's worse than any punishment." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcrystal = {
+      lines = {
+        { id = "xxcrystal_0", text = "The old-timers say they make you ill, and the mages want them anyway. Some of us think we should smash them and seal the seam. Others want to sell them to the mages. Which would you do?" },
+      },
+      choices = {
+        { text = "Seal the seam. Some things belong underground.", next = "BACK", reply = "That's what my gut says too. I'll talk to the foreman.", fx = { align = { light = 1 } } },
+        { text = "Sell them. The mages pay well.", next = "BACK", reply = "Aye, and coin's coin. I'll think on it.", fx = { align = { light = -1 } } },
+      },
+    },
   },
   topics = {
+    goldshire = { { id = "tp_xgoldshire", text = "Home. I miss the smell of the bakery more than anything." } },
+    defias = { { id = "tp_xdefias", text = "They took my old mine. I'll not forgive them for it." } },
     background = { { id = "tp_bg", text = "I'm a Stormwind miner, far from home, digging for the Keep." } },
     _none = { { id = "tp_none", text = "Couldn't say, friend. I only see the inside of a mine." } },
   },
@@ -292,6 +474,10 @@ P:NPC {
       choices = {
         { text = "What comes through the Dark Portal?", next = "portal" },
         { text = "Why gnomes, so far from Ironforge?", next = "gnomes" },
+        { text = "What's the most useful machine here?", next = "xdrill" },
+        { text = "Do the soldiers appreciate your work?", next = "xsoldiers" },
+        { text = "What would you build, if funds allowed?", next = "xdream" },
+        { text = "Dwarves and gnomes, building together again?", next = "BACK", when = { race = "Dwarf" }, reply = "Always, friend! Your lot bring the stubbornness and we bring the springs. The walls stay up, so somebody's doing something right." },
         { text = "Good luck with the boiler.", next = "END" },
       },
     },
@@ -313,8 +499,44 @@ P:NPC {
       lines = { { id = "m_default", text = "Every day. But we'll take it back one day, and until then, I'll build things here that keep people safe." } },
       choices = { { text = "That's a good way to think. Something else.", next = "BACK" } },
     },
+    xdrill = {
+      lines = {
+        { id = "xxdrill_0", text = "The steam drill, by a mile. It does the work of ten miners and only explodes once a month, which by Nethergarde standards is extremely reliable." },
+      },
+      choices = {
+        { text = "Once a month?", next = "xexplode" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xexplode = {
+      lines = {
+        { id = "xxexplode_0", text = "Ah, well, the dust gets into the gears. The foreman wants me to slow it down to keep his miners safe. I say a faster drill means more iron and fewer shifts underground. What do you think?" },
+      },
+      choices = {
+        { text = "Slow it down. Lives come before quotas.", next = "BACK", reply = "Hmph, very well. I'll try a gentler setting, for the foreman's sake.", fx = { align = { honor = 1 } } },
+        { text = "Keep it fast. The Keep needs iron.", next = "BACK", reply = "Thank you! Speed is safety, in its own way.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xsoldiers = {
+      lines = {
+        { id = "xxsoldiers_0", text = "Only when something breaks. Nobody thanks the gnome for the gate that works, only curses her for the one that doesn't." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdream = {
+      lines = {
+        { id = "xxdream_0", text = "A mechanical wall-walker, to patrol the battlements so the soldiers can sleep. I've drawn plans, but Stormwind sends ore, not gold." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    gnomeregan = { { id = "tp_xgnomeregan", text = "Home. We'll get it back. I've a wrench with the trogg king's name on it." } },
+    dark_portal = { { id = "tp_xdark_portal", text = "A broken gate. I check the readings twice a day all the same." } },
     _none = { { id = "tp_none", text = "Not my field, I'm afraid. Try one of the advisors." } },
   },
 }

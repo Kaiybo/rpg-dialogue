@@ -276,10 +276,53 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    xorigin = {
+      narr = "He polishes a small crystal on his sleeve while he speaks.",
+      lines = { { id = "xorigin_default", text = "Quel'Thalas, in my youth, and later wherever my curiosity led. My people study the arcane above all. I found the elements more honest; they never pretend to be anything but what they are." } },
+      choices = {
+        { text = "Do you miss your homeland?", next = "xhome" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhome = {
+      lines = { { id = "xhome_default", text = "I miss what it was. The letters I receive grow shorter and sadder each year, and I have not the courage to go back and read the rest in person." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xfavorite = {
+      lines = { { id = "xfavorite_default", text = "Earth, as my title suggests. Fire is loud and water is moody, but earth remembers. Put your hand on a stone here and, if you are patient, you can feel the old war still trembling in it." } },
+      choices = {
+        { text = "Should we listen to the elements, or command them?", next = "xcommand" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xcommand = {
+      lines = { { id = "xcommand_default", text = "Ah, the oldest quarrel between shaman and mage. The shaman asks; the mage takes. I confess I have done both. Where do you stand?" } },
+      choices = {
+        { text = "Listen. They are not ours to command.", next = "BACK", reply = "A shaman's answer, and a humble one. I respect it.", fx = { align = { order = -1 } } },
+        { text = "Command them, wisely. Power must be directed.", next = "BACK", reply = "Spoken like a magister. I am not sure I disagree.", fx = { align = { order = 1 } } },
+      },
+    },
+    xkrixix = {
+      lines = { { id = "xkrixix_default", text = "He was ambitious, and ambition in a goblin is a fuse waiting for a spark. I suspect he found something valuable and decided to keep it. I hope that is all he found." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xshaman = {
+      lines = { { id = "xshaman_default", text = "Everything, I suspect, though you may not be able to put it into words. Tell me, when you call upon earth, does it answer as a servant or as a friend? I have wondered that for a century." } },
+      choices = {
+        { text = "As a friend, when I ask properly.", next = "BACK", reply = "Then I have been asking improperly for a very long time. Fascinating." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "I am Franzahl, called the Earthcaller by those who are generous, and I study the elements of this world, both the known and the less known. Hyjal is a remarkable place to listen to them." } },
       again = { { id = "h_again", text = "What else would you know? I'm always pleased to be distracted." } },
       choices = {
+        { text = "Where did you study before coming here?", next = "xorigin" },
+        { text = "Which element interests you most?", next = "xfavorite" },
+        { text = "What happened to Krixix, do you think?", next = "xkrixix" },
+        { text = "I am a shaman. What can I teach you?", next = "xshaman", when = { class = "SHAMAN" } },
+
         { text = "What do the elements tell you here?", next = "elements" },
         { text = "Do you work alone?", next = "alone" },
         { text = "Good luck with your studies.", next = "END" },
@@ -305,6 +348,9 @@ P:NPC {
     },
   },
   topics = {
+    elements = { { id = "tp_xelements", text = "Earth, fire, water and air. Restless here, and wounded, but alive." } },
+    krixix = { { id = "tp_xkrixix", text = "My old apprentice. A brilliant goblin with an unfortunate love of explosions." } },
+
     background = { { id = "tp_bg", text = "A quel'dorei scholar far from home. The elements are my study, and my company." } },
     _none = { { id = "tp_none", text = "Hmm? Oh, I wouldn't know. The elements haven't mentioned it." } },
   },

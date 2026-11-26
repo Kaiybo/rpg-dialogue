@@ -505,6 +505,10 @@ P:NPC {
       choices = {
         { text = "Who is Theocritus?", next = "master" },
         { text = "Why are gnomes serving out here?", next = "gnomes" },
+        { text = "What's the hardest part of your work?", next = "xhard" },
+        { text = "Do you study magic yourself?", next = "xstudy" },
+        { text = "What exactly hums in here?", next = "xhum" },
+        { text = "I'm a mage too. May I see the library?", next = "BACK", when = { class = "MAGE" }, reply = "Oh, I'd love to say yes! But the archmage keeps the good books upstairs, and the stairs are warded. Perhaps if you ask him nicely?" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -526,8 +530,46 @@ P:NPC {
       lines = { { id = "gn_default", text = "High Tinker Mekkatorque says so, and I believe him, mostly, though the radiation figures I've read are not encouraging. Until then I'll sort spell components and dream of gears." } },
       choices = { { text = "I hope you see it again. Something else.", next = "BACK" } },
     },
+    xhard = {
+      lines = {
+        { id = "xxhard_0", text = "Feeding the wards, without question. They want a dash of arcane dust every hour, and if I'm late they sulk and turn the doors blue. The archmage says that's a feature." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xstudy = {
+      lines = {
+        { id = "xxstudy_0", text = "In the evenings, when the reagents are sorted. I've managed a frost bolt the size of a pea and one very small fire. The fire was not intentional." },
+      },
+      choices = {
+        { text = "Will you be a proper mage someday?", next = "xmage" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xmage = {
+      lines = {
+        { id = "xxmage_0", text = "The archmage says I'm better suited to engineering, which is what every gnome is told eventually. Should I keep studying magic, or go back to what my people know?" },
+      },
+      choices = {
+        { text = "Keep studying. Your path is your own.", next = "BACK", reply = "Thank you! I'll practise my frost bolt tonight, very carefully.", fx = { align = { order = -1 } } },
+        { text = "Engineering suits gnomes. Take the archmage's advice.", next = "BACK", reply = "Hm. You may be right, though it seems a bit unfair.", fx = { align = { order = 1 } } },
+      },
+    },
+    xhum = {
+      lines = {
+        { id = "xxhum_0", text = "The scrying orb, mostly, the one that watches the Defias in the Brackwell pumpkin patch. And something in the third drawer, which I am not allowed to open." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I'm afraid that's not in any of the master's books, or at least not one I'm allowed to open." } } },
+  topics = {
+    theocritus = { { id = "tp_xtheocritus", text = "The archmage. Clever, kind, and never, ever asleep." } },
+    gnomeregan = { { id = "tp_xgnomeregan", text = "My home, once. I try not to think about it too often." } },
+    _none = { { id = "tp_none", text = "I'm afraid that's not in any of the master's books, or at least not one I'm allowed to open." } },
+  },
 }
 
 -- Stormwind Guard: the soldiers who watch Goldshire and the roads of Elwynn.
@@ -552,6 +594,10 @@ P:NPC {
         { text = "What trouble is there in Elwynn?", next = "trouble" },
         { text = "Can you give me directions?", next = "BUSINESS" },
         { text = "Quiet posting, this road.", next = "posting" },
+        { text = "How long have you served?", next = "xlong" },
+        { text = "What's the worst you've seen on this road?", next = "xworst" },
+        { text = "Do you know Marshal Dughan?", next = "xdughan" },
+        { text = "I'm a paladin. Need help keeping the peace?", next = "BACK", when = { class = "PALADIN" }, reply = "Always glad of a paladin on the road. The Light makes the wolves think twice, and the Defias three times." },
         { text = "Carry on, soldier.", next = "END" },
       },
     },
@@ -573,6 +619,44 @@ P:NPC {
         { text = "The nobles have failed the common folk.", next = "BACK", reply = "Keep that sort of talk down, friend, though I won't say you're wrong.", fx = { align = { order = -1 } } },
       },
     },
+    xlong = {
+      lines = {
+        { id = "xxlong_0", text = "Six years. I joined after the Second War, when the city was being rebuilt and the army needed every spear. My father was a mason on the new walls, and I watched over him." },
+      },
+      choices = {
+        { text = "Was your father paid for that?", next = "xpaid" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpaid = {
+      lines = {
+        { id = "xxpaid_0", text = "Some of the masons were, some weren't. There's ill feeling about it still, and some of those men are in the Defias now. Should the crown pay what it owes, or hang the bandits?" },
+      },
+      choices = {
+        { text = "Pay the masons. Justice first, then order.", next = "BACK", reply = "Quiet talk, friend. But I've thought the same myself.", fx = { align = { order = -1 } } },
+        { text = "Hang the bandits. Crimes are crimes.", next = "BACK", reply = "That's the army's view, and mine on duty.", fx = { align = { order = 1 } } },
+      },
+    },
+    xworst = {
+      lines = {
+        { id = "xxworst_0", text = "A farmhouse burned in the night, near the Eastvale. Defias took the harvest and left the family with nothing but the clothes they wore. I'll not forget their faces." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdughan = {
+      lines = {
+        { id = "xxdughan_0", text = "The marshal in Goldshire, aye. Gruff, honest and always short of men. He'd make a good general, if the city lords listened to him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Couldn't tell you, citizen. Ask at the Lion's Pride in Goldshire, someone there will know." } } },
+  topics = {
+    defias = { { id = "tp_xdefias", text = "Bandits in Elwynn and worse in Westfall. Mind your purse." } },
+    goldshire = { { id = "tp_xgoldshire", text = "A fine town. Stop at the Lion's Pride for a rest." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, citizen. Ask at the Lion's Pride in Goldshire, someone there will know." } },
+  },
 }
