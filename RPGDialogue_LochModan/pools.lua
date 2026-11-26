@@ -26,11 +26,20 @@ P:Pool {
   react = { { id = "r_stealth", on = "stealth", text = "Who's sneakin' about? Come out, or I'll set the dogs on ye, an' never mind that we've no dogs; come out anyway." } },
   lines = {
     { id = "l_default", text = "The Mountaineers keep the roads open between Ironforge an' the loch, an' we've a fair few tae keep 'em open against: troggs, kobolds an' Dark Irons." },
+    { id = "xl_garrison", text = "Half the garrison's gone off tae the Wetlands an' Arathi, so the rest of us stand double watches an' grumble about it at the inn." },
+    { id = "xl_troggs", text = "The troggs came up out o' Uldaman an' the deep places, an' now they're thick in every cave from the dam tae the Badlands road." },
+    { id = "xl_captain", text = "Captain Rugelfuss runs the watch from the tower by the inn, an' he's strict, but he's never sent a Mountaineer where he wouldnae go himsel'." },
   },
-  choices = { { text = "Good luck, Mountaineer.", next = "END", fx = { standing = { thelsamar = 1 } } } },
+  choices = {
+    { text = "The troggs will be cleared. I'll see to it.", next = "END", reply = "Big words, an' I hope ye mean 'em, for we could use the help.", fx = { align = { order = 1 } } },
+    { text = "Leave the troggs their caves. Guard the roads.", next = "END", reply = "Easy said, but the caves keep growin' toward the roads, friend.", fx = { align = { order = -1 } } },
+    { text = "Good luck, Mountaineer.", next = "END", fx = { standing = { thelsamar = 1 } } },
+  },
   topics = {
     dark_iron = { { id = "t_dark_iron", text = "The Dark Irons have been at the Stonewrought Dam, so don't let the dam's engineer tell ye otherwise, though he'll try." } },
     explorers_league = { { id = "t_league", text = "League folk dig all over the loch, an' Prospector Ironband's lot at the excavation are the loudest of 'em." } },
+    troggs = { { id = "xt_troggs", text = "Ugly, strong an' everywhere, an' they breed faster than we can shoot 'em. Mind the caves in the north hills." } },
+    stoutlager = { { id = "xt_stout", text = "Best inn in the loch country, an' Hearthstove'll tell ye so himsel'. The dark ale's worth the walk." } },
     _none = { { id = "t_none", text = "Ask Mountaineer Kadrell, across from the inn; he knows everythin' about the loch." } },
   },
 }

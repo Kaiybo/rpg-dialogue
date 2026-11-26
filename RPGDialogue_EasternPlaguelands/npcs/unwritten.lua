@@ -28,6 +28,9 @@ P:NPC {
       lines = { { id = "h_default", text = "I keep watch over Light's Hope Chapel, where the Scourge can't tread, though they test it every night. Stratholme lies to the north and the Plaguewood to the west, and both are full of things that never sleep." } },
       again = { { id = "h_again", text = "What else? I'm on watch." } },
       choices = {
+        { text = "What comes at night?", next = "xnight2" },
+        { text = "How did you come to the Dawn?", next = "xjoin" },
+        { text = "I'm Forsaken. Can I stand on this ground?", next = "xdead", when = { race = "Scourge" } },
         { text = "Why can't the Scourge tread here?", next = "ground" },
         { text = "Horde and Alliance both stand here?", next = "both" },
         { text = "What comes at night?", next = "night" },
@@ -50,8 +53,44 @@ P:NPC {
       lines = { { id = "n_default", text = "Ghouls, mostly, and the plaguehounds from Corin's Crossing, and once a death knight on a pale horse, who sat at the edge of the light and watched us until dawn. I'd rather face the ghouls." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xnight2 = {
+      lines = {
+        { id = "xn1", text = "Ghouls, mostly, sniffing at the edge of the hallowed ground like dogs at a butcher's door. Now and then a gargoyle off the Stratholme spires, and once, last month, a knight in black on a dead horse who sat and watched us until dawn." },
+      },
+      choices = {
+        { text = "A death knight?", next = "xknight" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xknight = {
+      lines = {
+        { id = "xk1", text = "That's what the field marshal called it, and he went pale saying it. Whatever it was, it didn't cross the line, and it left before the sun came up." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xjoin = {
+      lines = {
+        { id = "xj1", text = "I was a mason in Corin's Crossing, and when the dead came I ran with my tools and nothing else. The Dawn gave me a sword and a reason, and I've kept both. The Crossing is Scourge now, all of it. I can see the smoke from the watchtower on a clear day." },
+      },
+      choices = {
+        { text = "You should take the Crossing back.", next = "BACK", reply = "One day. Not with the numbers we have now.", fx = { align = { order = -1 } } },
+        { text = "Hold the chapel. That matters more than revenge.", next = "BACK", reply = "Aye, it does, though it's hard to remember some nights.", fx = { align = { order = 1 } } },
+      },
+    },
+    xdead = {
+      lines = {
+        { id = "xd1", text = "You can, though the Light here may sting, and some of the brothers will stare. The Dawn takes anyone who fights the Scourge, and the chapel doesn't turn away a Forsaken who means no harm." },
+      },
+      choices = {
+        { text = "I'll bear the sting.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    stratholme = { { id = "xtp_st", text = "A city of the dead. Its gates are open, and nobody walks in by choice." } },
+    corins_crossing = { { id = "xtp_cc", text = "My home. The Scourge hold it now." } },
     background = { { id = "tp_bg", text = "I'm a sentry of the Argent Dawn, and Light's Hope is my post." } },
     _none = { { id = "tp_none", text = "Couldn't say, traveller. Ask Lord Tyrosus." } },
   },
@@ -81,6 +120,9 @@ P:NPC {
       lines = { { id = "h_default", text = "I am Field Marshal Chambers, and I coordinate the Argent Dawn's forces here in the east, which is a grand way of saying I send good people out to die against the Scourge. The Scourge has more soldiers than we ever will, so every one of ours must count." } },
       again = { { id = "h_again", text = "What else? Be quick." } },
       choices = {
+        { text = "How do you choose who to send out?", next = "xchoose" },
+        { text = "Who stands with the Dawn here?", next = "xallies" },
+        { text = "I'm a paladin of the Silver Hand.", next = "xpal", when = { class = "PALADIN" } },
         { text = "How goes the war against the Scourge?", next = "war" },
         { text = "What's the Dawn's greatest threat?", next = "threat" },
         { text = "Sending people to die must weigh on you.", next = "weight" },
@@ -103,8 +145,44 @@ P:NPC {
       lines = { { id = "wt_default", text = "It does, every day, and I'd be a poor commander if it didn't. But the alternative is letting the Scourge spread south, and I won't have that on my conscience." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xchoose = {
+      lines = {
+        { id = "xc1", text = "The ones who come back, I send again, and the ones who don't, I write letters for. There's no wisdom in it, only a list of names and a map of where the dead are thickest." },
+      },
+      choices = {
+        { text = "That's a heavy thing to carry.", next = "xheavy" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xheavy = {
+      lines = {
+        { id = "xh1", text = "Heavy enough. Highlord Mograine carried heavier and died for it, and Lord Maxwell Tyrosus asks the same of me now. I don't complain where the soldiers can hear." },
+      },
+      choices = {
+        { text = "Ask for volunteers. Don't send anyone who won't go.", next = "BACK", reply = "Noble, and I'd have no army by spring. Still, I wish it were so.", fx = { align = { order = -1 } } },
+        { text = "Orders are orders. Send them, and grieve later.", next = "BACK", reply = "That's the job, and you've the stomach for command, it seems.", fx = { align = { order = 1 } } },
+      },
+    },
+    xallies = {
+      lines = {
+        { id = "xa1", text = "The Brotherhood of the Light forges our arms, the Cenarion Circle sends druids to heal the land, and even the Forsaken send scouts who'd rather fight the Scourge than the living. Strange company, and I'm glad of every one." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xpal = {
+      lines = {
+        { id = "xp1", text = "Then you know what the Order lost at Stratholme, and after. What's left of the Silver Hand is scattered, but a good many of them wear the Dawn's colours now, and we'd welcome you among them." },
+      },
+      choices = {
+        { text = "I'll think on it.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    tyrosus = { { id = "xtp_ty", text = "Lord Maxwell Tyrosus commands the Dawn here. A hard man, and a fair one." } },
+    naxxramas = { { id = "xtp_nx", text = "A shadow over Stratholme that we dare not name too loudly." } },
     background = { { id = "tp_bg", text = "I'm a soldier of the Argent Dawn, and I've fought the Scourge since the first plague." } },
     _none = { { id = "tp_none", text = "Not my concern. Ask the quartermaster." } },
   },
@@ -136,6 +214,10 @@ P:NPC {
       lines = { { id = "h_default", text = "I am Rayne of the Cenarion Circle, and I have come to aid the Argent Dawn against the Scourge. The plague is a poison not just to the living but to the land itself, and the Circle cannot stand by while it spreads." } },
       again = { { id = "h_again", text = "What else would you ask, traveller?" } },
       choices = {
+        { text = "How do druids heal a land like this?", next = "xhow" },
+        { text = "Do the humans welcome you here?", next = "xhumans" },
+        { text = "I'm a druid as well.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Ishnu-alah. Elune guide you here.", next = "xelf", when = { race = "NightElf" } },
         { text = "Can the land here be healed?", next = "heal" },
         { text = "What does the Circle care about human lands?", next = "why" },
         { text = "What lies in the sky over Plaguewood?", next = "naxx" },
@@ -158,8 +240,52 @@ P:NPC {
       lines = { { id = "n_default", text = "Naxxramas, the Scourge's floating citadel, which hangs over the Plaguewood like a black storm cloud. The Lich King's servants plot there, and the Dawn is gathering strength to strike at it." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xhow = {
+      lines = {
+        { id = "xh1", text = "Slowly, and seed by seed. We draw the plague out of the soil where we can and plant what will take root in what's left, and most of it dies, and we plant again." },
+      },
+      choices = {
+        { text = "Is it worth it?", next = "xworth" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xworth = {
+      lines = {
+        { id = "xw1", text = "The Circle asks that question every season. Some say the Plaguelands should be left to burn clean and grow again in a thousand years, and some say we must tend it now." },
+      },
+      choices = {
+        { text = "Burn it all and let it start anew.", next = "BACK", reply = "Fire is a teacher too, but a cruel one.", fx = { align = { light = -1 } } },
+        { text = "Tend it now. The land deserves our care.", next = "BACK", reply = "I am glad. That is my own belief.", fx = { align = { light = 1 } } },
+      },
+    },
+    xhumans = {
+      lines = {
+        { id = "xhu1", text = "The Argent Dawn welcomes anyone who fights the Scourge, though some of the humans stare at my ears. They are a young people and much has been taken from them; I forgive them the staring." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      lines = {
+        { id = "xd1", text = "Then you feel it too, the land crying beneath your feet. Walk lightly here, and if you take any form, take one that does not touch the ground for long." },
+      },
+      choices = {
+        { text = "I will. Something else.", next = "BACK" },
+      },
+    },
+    xelf = {
+      lines = {
+        { id = "xe1", text = "Elune-adore, sister of the forest. It is strange to see our people so far from Teldrassil, and good. The Kaldorei have hidden too long behind our trees." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    cenarion = { { id = "xtp_ce", text = "The Cenarion Circle. We guard the balance, even here." } },
+    plague = { { id = "xtp_pl", text = "A poison in the roots. It will take many lifetimes to draw out." } },
     background = { { id = "tp_bg", text = "I am a druid of the Cenarion Circle, sent to help the Argent Dawn against the plague." } },
     _none = { { id = "tp_none", text = "The Dream holds no answer to that, traveller." } },
   },
@@ -191,6 +317,9 @@ P:NPC {
       lines = { { id = "h_default", text = "I'm Wilhelm, smith o' the Brotherhood o' the Light, an' I forge armor for those brave enough tae face the Scourge. Bring me the right materials from the dead lands, an' I'll make ye armor no ghoul can tear." } },
       again = { { id = "h_again", text = "What else, {g:lad|lass}? The forge is hot." } },
       choices = {
+        { text = "What materials do you need?", next = "xmat" },
+        { text = "Where's your forge from?", next = "xforge" },
+        { text = "I'm a dwarf. Where are ye from, then?", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "What is the Brotherhood of the Light?", next = "brotherhood" },
         { text = "What makes your armor special?", next = "armor" },
         { text = "Does blessing armor really help?", next = "bless" },
@@ -213,8 +342,44 @@ P:NPC {
       lines = { { id = "bl_default", text = "Ask the lads who came back from Stratholme wearin' my mail, an' they'll tell ye. Faith an' steel together are stronger than either alone, an' I've seen it with my own eyes." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xmat = {
+      lines = {
+        { id = "xm1", text = "Bones o' the dead, gizzards from the plague beasts, an' the like, all things the Scourge carries in plenty. Ye bring 'em, an' I'll make somethin' that turns them against their makers." },
+      },
+      choices = {
+        { text = "Isn't that grim work?", next = "xgrim" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xgrim = {
+      lines = {
+        { id = "xg1", text = "Grim? Aye, it's grim. But a ghoul's bones are just bones once the Light's burned through 'em, an' I'd sooner use the Scourge against itself than let a good bit o' material rot." },
+      },
+      choices = {
+        { text = "Use whatever works. The Scourge deserves no mercy.", next = "BACK", reply = "That's the spirit! Bring me more.", fx = { align = { light = -1 } } },
+        { text = "Using the dead like that troubles me.", next = "BACK", reply = "It troubled me too, once. Then I saw Darrowshire.", fx = { align = { light = 1 } } },
+      },
+    },
+    xforge = {
+      lines = {
+        { id = "xf1", text = "Built it wi' my own hands from the stones o' a fallen church. The priests blessed every brick, an' the fire's never gone out once since I lit it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdwarf = {
+      lines = {
+        { id = "xd1", text = "Ironforge born, an' left for the Plaguelands when the Brotherhood called. Me father thought I'd gone mad, an' maybe I had, but there's nae better work for a smith than arming folk against the dead." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    brotherhood = { { id = "xtp_bh", text = "The Brotherhood o' the Light. Hammer an' prayer, as I said." } },
+    scourge = { { id = "xtp_sc", text = "Good for bones, bad for business. Mostly bad." } },
     background = { { id = "tp_bg", text = "I'm a dwarf smith o' the Brotherhood o' the Light, an' I've forged against the Scourge for years." } },
     _none = { { id = "tp_none", text = "Cannae help ye, {g:lad|lass}. Ask the Dawn's folk." } },
   },
@@ -831,6 +996,9 @@ P:NPC {
       lines = { { id = "h_default", text = "I'm a medic of the Argent Dawn. If the Dawn trusts ye, I'll cure what the Scourge has put in yer blood." } },
       again = { { id = "h_again", text = "Anything else ailing ye?" } },
       choices = {
+        { text = "What's the worst case you've treated?", next = "xworst" },
+        { text = "How did you learn to heal?", next = "xlearn" },
+        { text = "I'm Forsaken. Can you treat me?", next = "xdead", when = { race = "Scourge" } },
         { text = "What sicknesses do you see?", next = "sick" },
         { text = "Why does it depend on the Dawn's trust?", next = "trust" },
         { text = "I'm well, thanks.", next = "END" },
@@ -854,8 +1022,44 @@ P:NPC {
         { text = "Fair. Those who fight should come first.", next = "BACK", reply = "That's how the Dawn sees it.", fx = { align = { light = -1 } } },
       },
     },
+    xworst = {
+      lines = {
+        { id = "xw1", text = "A lad brought in from the Plaguewood with maggot slime in both eyes. We saved one eye, and he went back out with it, and I've not seen him since." },
+      },
+      choices = {
+        { text = "Do you ever lose hope?", next = "xhope" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xhope = {
+      lines = {
+        { id = "xh1", text = "Every morning, and I find it again by noon. Ye can't heal folk if ye believe they're all doomed, so I don't believe it, even when the evidence says otherwise." },
+      },
+      choices = {
+        { text = "Hope is all we have here.", next = "BACK", reply = "Aye, that an' bandages.", fx = { align = { light = 1 } } },
+        { text = "Hope won't save anyone. Skill will.", next = "BACK", reply = "True enough. Good thing I've got some of both.", fx = { align = { light = -1 } } },
+      },
+    },
+    xlearn = {
+      lines = {
+        { id = "xl1", text = "At the knee of a priestess in Andorhal, before it fell. She taught me prayer an' poultices both, an' said the Light works best through steady hands." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdead = {
+      lines = {
+        { id = "xd1", text = "Treat ye? I'm not certain what I'd treat. Ye've no blood for the rot to get in, but if something's crawlin' in yer ribs, I'll fish it out, friend." },
+      },
+      choices = {
+        { text = "Fair enough.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    plaguewood = { { id = "xtp_pw", text = "Never go in there without a medic nearby." } },
+    andorhal = { { id = "xtp_an", text = "Where I learned my trade. It's Scourge now." } },
     _none = { { id = "tp_none", text = "Ask someone else. I'm busy keeping people alive." } },
   },
 }
@@ -879,6 +1083,9 @@ P:NPC {
       lines = { { id = "h_default", text = "Got hit by an abomination near the Plaguewood. Medics say I'll live, but I'm not sure I believe them." } },
       again = { { id = "h_again", text = "Still here. What is it?" } },
       choices = {
+        { text = "Where are you from?", next = "xfrom" },
+        { text = "Will you go back out?", next = "xback" },
+        { text = "I'm a priest. Let me help.", next = "xheal", when = { class = "PRIEST" } },
         { text = "What happened out there?", next = "story" },
         { text = "Can I get you anything?", next = "help" },
         { text = "Rest well.", next = "END" },
@@ -902,8 +1109,44 @@ P:NPC {
       lines = { { id = "h2_default", text = "Water, maybe. And a word with my sergeant that I'll be back on my feet soon. He'll worry otherwise." } },
       choices = { { text = "I'll tell him.", next = "BACK" } },
     },
+    xfrom = {
+      lines = {
+        { id = "xf1", text = "Hearthglen, before the Scarlets made it their fortress. My brother's still there in red, burning anyone he thinks has a fever, and he'd burn me for wearing the Dawn's colours." },
+      },
+      choices = {
+        { text = "Do you ever speak to him?", next = "xbrother" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xbrother = {
+      lines = {
+        { id = "xb1", text = "Not in three years. Last I heard he was a captain. I'd like to think he'd stop short of killing me, but I've seen what the Crusade does to people." },
+      },
+      choices = {
+        { text = "The Crusade has gone mad. He's lost to you.", next = "BACK", reply = "Maybe. But I'll keep hoping, Light help me.", fx = { align = { light = -1 } } },
+        { text = "Maybe he'll come back to the Light one day.", next = "BACK", reply = "That's what I pray for, every night.", fx = { align = { light = 1 } } },
+      },
+    },
+    xback = {
+      lines = {
+        { id = "xba1", text = "Soon as I can stand, aye. The Dawn needs every sword, and I'd rather die out there than lie here listening to the others groan." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xheal = {
+      lines = {
+        { id = "xh1", text = "Bless you. The ribs on the left, mostly, and anything you can spare for the shoulder. I'll pray for you next time I'm out in the Plaguewood." },
+      },
+      choices = {
+        { text = "Hold still.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    scarlet = { { id = "xtp_sc", text = "My brother's one of them. I don't know whether to hate them or pity them." } },
+    plaguewood = { { id = "xtp_pw", text = "Where I got this. Don't go there alone." } },
     _none = { { id = "tp_none", text = "I don't know, friend. Ask one of the officers." } },
   },
 }
@@ -932,6 +1175,9 @@ P:NPC {
       },
       again = { { id = "h_again", text = "I can feel myself fading. Ask quickly, if you've something to ask." } },
       choices = {
+        { text = "What was Darrowshire like before?", next = "xbefore" },
+        { text = "Do you remember your name?", next = "xname" },
+        { text = "Is there anyone you want me to find?", next = "xfind" },
         { text = "What happened at Darrowshire?", next = "battle" },
         { text = "Where will you go now?", next = "go" },
         { text = "Rest easy, friend.", next = "END" },
@@ -956,6 +1202,35 @@ P:NPC {
       lines = { { id = "go_default", text = "To my family, I hope, if they wait for me somewhere. If not, then just somewhere quiet, where nothing hungry can find me." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xbefore = {
+      lines = {
+        { id = "xb1", text = "A little town with a well in the square and a bell in the chapel and the best apple pies in the east. On festival days the children ran up and down the green with ribbons." },
+      },
+      choices = {
+        { text = "It sounds peaceful.", next = "BACK", reply = "It was. That's what I'll remember now, not the end of it." },
+      },
+    },
+    xname = {
+      lines = {
+        { id = "xn1", text = "I think it was Will, or Willem, and I kept the stables by the north road. It's slipping, like everything else, now that I'm free to go." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xfind = {
+      lines = {
+        { id = "xf1", text = "My sister Joanna, if she got out. She was meant to be on the carts to the south. If she lives, tell her I thought of her at the end." },
+      },
+      choices = {
+        { text = "I'll look for her.", next = "BACK", reply = "Thank you. That's more than I'd dared hope.", fx = { align = { honor = 1 } } },
+        { text = "She's likely dead too. Don't hope.", next = "BACK", reply = "Maybe. But let me hope a little longer, stranger.", fx = { align = { honor = -1 } } },
+      },
+    },
+  },
+  topics = {
+    redpath = { { id = "xtp_rp", text = "Captain Redpath. He was brave, once." } },
+    davil = { { id = "xtp_dv", text = "Davil Lightfire led us. He fought like ten men." } },
   },
 }
 
@@ -982,6 +1257,9 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Do you mean to help me, or just keep walking? I'll come either way." } },
       choices = {
+        { text = "What was your daughter's name?", next = "xdaughter" },
+        { text = "What happened to Darrowshire?", next = "xtown" },
+        { text = "Why can I see you?", next = "xsee" },
         { text = "How do I lay you to rest?", next = "rest" },
         { text = "How did you die?", next = "death" },
         { text = "Leave me be, spirit.", next = "END" },
@@ -999,5 +1277,43 @@ P:NPC {
       lines = { { id = "de_default", text = "A ghoul took my leg, and then the rest of me. I remember thinking of my little girl, and that she'd got out on the cart. I hope she got out on the cart." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    xdaughter = {
+      lines = {
+        { id = "xd1", text = "Little Ellie, with hair like straw and a doll she'd never put down. I put her on a cart and told her I'd be right behind, and then I wasn't." },
+      },
+      choices = {
+        { text = "Maybe she survived.", next = "xsurv" },
+        { text = "Let's talk of something else.", next = "BACK" },
+      },
+    },
+    xsurv = {
+      lines = {
+        { id = "xs1", text = "Maybe. Some of the carts got away, they say, to Corin's Crossing or further. If you find her, don't tell her what became of me; tell her I was brave." },
+      },
+      choices = {
+        { text = "I'll tell her the truth. She deserves it.", next = "BACK", reply = "Then tell it gently, please.", fx = { align = { honor = 1 } } },
+        { text = "I'll tell her you were brave. That's enough.", next = "BACK", reply = "Thank you. Let her keep that.", fx = { align = { honor = -1 } } },
+      },
+    },
+    xtown = {
+      lines = {
+        { id = "xt1", text = "The dead came out of the north and the defenders fell, and then the defenders rose against us. I remember the bell ringing, and then I don't remember anything at all." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xsee = {
+      lines = {
+        { id = "xse1", text = "I don't know. Perhaps you've seen enough death to have an eye for it. Most can't, and most walk right through me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+  topics = {
+    ellie = { { id = "xtp_pa", text = "My little girl. She got out on the cart. She must have." } },
+    ghouls = { { id = "xtp_gh", text = "They still feed here. Kill them, and some of us go free." } },
   },
 }
