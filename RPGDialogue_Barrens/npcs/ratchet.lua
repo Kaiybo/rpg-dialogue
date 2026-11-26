@@ -15,6 +15,7 @@ P:NPC {
     third = "{name} met Gazlowe, the goblin boss of Ratchet who once helped build Orgrimmar.",
   },
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_gazlowe_dizzywig" }, text = "Heard all that with Dizzywig, huh? Don't worry, pal, the skimmin' stops today, and you ain't on the suspect list. Yet." },
     { id = "g_hu_human", when = { race = "Human" }, priority = 5,
       text = "Hey, a human! Welcome to Ratchet, pal, the only town on this coast where you won't get a spear in the back, as long as you pay your docking fees and don't tell Northwatch what you saw." },
     { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "gazlowe_human_soft" }, priority = 10,

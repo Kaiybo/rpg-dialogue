@@ -17,6 +17,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_bolvar_katrana" }, text = "You heard Lady Prestor and me on Westfall, I take it. Court business is rarely quiet, though I would rather it were kinder." },
     { id = "hum_g1", when = { race = "Human" }, priority = 5,
       text = "A citizen of Stormwind. You're welcome in the Keep, and I'll ask you to remember that the King's absence is no one's gossip, only the kingdom's grief." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I fought Gul'dan's warlocks in the Second War, and I've not forgotten what they made of the dead. You stand in this hall because the law allows it, not because I do." },

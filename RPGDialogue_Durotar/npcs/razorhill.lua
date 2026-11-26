@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_garthok_orgnil" }, text = "You heard Orgnil and me. Kul Tiras or the Burning Blade, Razor Hill will need strong arms either way, so keep yours ready." },
     { id = "g_barracks", text = "Speak quickly, {class}. Razor Hill has work, and an orc proves himself with his axe, not his mouth." },
     { id = "g_back", when = { metBefore = true }, text = "Report, grunt, and keep it short." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and Razor Hill kept its watch without you, as the Horde always does. Now you're back, so make yourself useful." },

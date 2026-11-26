@@ -811,6 +811,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_hamuul_magatha" }, text = "You heard Magatha and me, I think. Her words are sharp, but the wind carries them away in time, as it carries all things." },
     { id = "g_rise", text = "Peace, traveller, and may the Earth Mother keep you. You're on Elder Rise, so speak softly; the old ones are thinking." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Another druid! Come, come; every one of you is a gift, when not so long ago there were none of us at all." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, traveller, and I'm glad to see you back on Elder Rise. Sit, and tell me what the wild places showed you." },
@@ -1823,6 +1824,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_hamuul_magatha" }, text = "So you heard the Arch Druid defend his elven friends. Think on whose wisdom serves the tauren, young one, when you choose whom to follow." },
     { id = "g_prej", when = { prejudiced = true }, text = "Another of Thrall's people up on my bluff, wearing a guest's smile. Cairne owes your Warchief a debt, but the Grimtotem never signed it, so mind your feet on Elder Rise." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You again, and I find I don't mind it as much as I ought to. Don't let that go to your head, outsider; the Grimtotem still keep their own counsel." },
     { id = "o_mag_respect", when = { gossip = { topic = "magatha", stance = "respect" } }, text = "Sage Truthseeker has written in that little book of hers that you think well of me. How nice to have one sensible voice on the lower rise." },

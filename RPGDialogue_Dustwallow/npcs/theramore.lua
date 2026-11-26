@@ -15,6 +15,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_jaina_tervosh" }, text = "You heard Tervosh worrying about the Horde riders. He means well, but peace takes more courage than war, and less noise." },
     { id = "g_hu", when = { race = "Human" }, priority = 5,
       text = "Welcome to Theramore. Most of the humans who come here now arrive on the Menethil boat, and most of them look at the orcs on the road as though they've walked into the wrong war." },
     { id = "g_tower", text = "Welcome to Theramore, and speak freely; I'd rather hear bad news early than good news late." },

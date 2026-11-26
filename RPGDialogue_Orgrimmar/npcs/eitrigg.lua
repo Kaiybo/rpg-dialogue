@@ -16,6 +16,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_thrall_eitrigg_council" }, text = "You were close enough to hear all that, I suppose. Good, because the Warchief listens to old men, and young ones should too." },
     { id = "g_hold", text = "Speak plainly, {class}. The Warchief's hall has no patience for anything else, and neither have I." },
     { id = "g_rend", when = { questActive = TODO_QUEST("Eitrigg's Wisdom") }, text = "You carry word from the Steppes. Come here, and let me see what Goretooth has written." },
     { id = "g_rend_dead", when = { killed = { name = "Rend Blackhand" } }, text = "Rend is dead. I find I can say it without any joy, only relief." },

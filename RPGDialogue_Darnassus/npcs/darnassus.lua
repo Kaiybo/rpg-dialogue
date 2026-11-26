@@ -20,6 +20,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_tyrande_alathea" }, text = "You heard Alathea's question about Felwood, I think. It is a fair one, and I hope my answer gives you some comfort too." },
     { id = "g_saelra_resolved", when = { race = "NightElf", thread = { id = "elf_saelra", state = "resolved" } }, text = "Saelra crossed the terrace last night, and Thalanir met her halfway. Elune-adore, child; you did that." },
     { id = "g_saelra_soured", when = { race = "NightElf", thread = { id = "elf_saelra", state = "soured" } }, text = "Saelra keeps her post, and her brother his grove. I pray for them both, and for the time we no longer have." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I stood beneath Nordrassil while the Legion burned our forests, and I know the stench of its servants. Keep that creature leashed in my temple, or my priestesses will put it down." },
@@ -918,6 +919,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_overheard", when = { overheard = "ex_fandral_rellian" }, text = "You heard the pilgrims' doubts repeated, I see. Teldrassil stands, and it will stand long after their questions are forgotten." },
     { id = "g_prej", when = { prejudiced = true }, text = "A mage, in the Cenarion Enclave. Keep your hands at your sides, {class}; the last time your art was welcome among my people, it drowned an empire." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You. I still think your craft is a disease, but I've watched you long enough to grant that you, at least, seem to know its symptoms." },
     { id = "g_enclave", text = "Yes? The Enclave is busy, and I am busier still, so be brief." },
