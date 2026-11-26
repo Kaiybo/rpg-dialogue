@@ -373,3 +373,218 @@ P:NPC {
     _none = { { id = "tp_none", text = "Does it sell tickets? No? Then I can't help you, kid." } },
   },
 }
+
+---------------------------------------------------------------------------
+-- Clubtoe: a lone ogre in the ruins of Sunnyglade who wants the Twilight's Hammer gone from them.
+-- Quest text isn't captured, so what each quest asks is kept to what its name says.
+---------------------------------------------------------------------------
+P:NPC {
+  key = "rg_clubtoe", id = TODO_NPC("Clubtoe"), name = "Clubtoe",
+  bible = "bibles/riverglades.md", role = "questgiver", tier = "major",
+  temper = { "gruff", "earnest" }, values = { "brave", "stubborn" },
+  notices = { "race", "class" },
+
+  impression = {
+    first = "An ogre hiding in the ruins of Sunnyglade, who hates the purple robes more than anyone alive.",
+    third = "{name} met Clubtoe, an ogre in the ruins of Sunnyglade who wants the Twilight's Hammer gone from the glades.",
+  },
+
+  greetings = {
+    { id = "g_default", text = "Shh! Little one gets down, because the purple ones look this way sometimes." },
+    { id = "g_back", when = { metBefore = true }, text = "Little one came back, and Clubtoe is glad, because nobody else comes to talk to Clubtoe." },
+    { id = "g_done", when = { questDone = TODO_QUEST("Twilight No More!") }, text = "Little one who broke the Twilight! Clubtoe tells everybody, and everybody says Clubtoe lies, but Clubtoe does not lie." },
+  },
+
+  notice = {
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "An orc. Long ago orcs and ogres burned this town together, and Clubtoe was small then, but Clubtoe remembers the smoke." },
+    { id = "n_lock", cat = "class", when = { class = "WARLOCK" },
+      text = "Little one smells like the purple ones' magic. Clubtoe keeps his club close, and you keep your hands where Clubtoe sees them." },
+  },
+
+  start = "hello",
+  nodes = {
+    hello = {
+      hub = true,
+      lines = {
+        { id = "h_default", key = true,
+          text = "Clubtoe watches the purple ones in Sunnyglade, every day and every night. They do bad things in the old human town, and somebody must stop them, so maybe it is you." },
+        { id = "h_purple", tags = { "news" }, when = { questActive = TODO_QUEST("The Purple Ones") },
+          text = "Did little one hit the purple ones yet? They walk around the ruins in their robes like they own them, and Clubtoe wants fewer of them walking." },
+        { id = "h_lights", tags = { "news" }, when = { questActive = TODO_QUEST("Sickening Lights") },
+          text = "The lights are still burning, little one. Clubtoe can see them from here, and they make Clubtoe's belly turn over." },
+        { id = "h_nomore", tags = { "news" }, when = { questActive = TODO_QUEST("Twilight No More!") },
+          text = "Today is the day, little one. You go in and break the Twilight in Sunnyglade, and Clubtoe will sing about it after, even though Clubtoe sings badly." },
+        { id = "h_spread", tags = { "news" }, when = { questActive = TODO_QUEST("Spread the Word") },
+          text = "Go tell them, little one! Everybody must know the Twilight can bleed, because then everybody stops being afraid." },
+        { id = "h_dig", tags = { "news" }, when = { questActive = TODO_QUEST("Digging for Answers") },
+          text = "Somebody sent you to Clubtoe for answers? Clubtoe has some answers, though not many, so ask good questions." },
+        { id = "h_after", when = { questDone = TODO_QUEST("Twilight No More!") },
+          text = "Sunnyglade is quieter now, and Clubtoe sleeps all night for the first time in a long time. That is because of you, little one." },
+        { id = "h_tauren", when = { race = "Tauren" },
+          text = "Big little one with horns! You are almost ogre-sized, so Clubtoe thinks you are a good one to fight the purple ones." },
+        { id = "h_gnome", when = { race = "Gnome" },
+          text = "Very little one. Clubtoe could step on you by accident, so stand on the rock where Clubtoe can see you." },
+      },
+      again = {
+        { id = "h_again", text = "Little one has more words? Say them quietly, because the purple ones have ears." },
+        { id = "h_again2", text = "What else? Clubtoe is listening, and watching the road too." },
+      },
+      choices = {
+        { text = "Who are the purple ones?", next = "purple" },
+        { text = "Those lights over the ruins don't look natural.", next = "lights" },
+        { text = "An ogre fighting the Twilight. Where's your clan?", next = "self" },
+        { text = "What was Sunnyglade before all this?", next = "town" },
+        { text = "What happens once the cult is broken here?", next = "after", when = { questDone = TODO_QUEST("Twilight No More!") } },
+        { text = "Who should hear that the cult can bleed?", next = "spread", when = { questActive = TODO_QUEST("Spread the Word") } },
+        { text = "You know the dark magic they use, ogre?", next = "xmagic", when = { class = { "WARLOCK", "MAGE", "PRIEST" } } },
+        { text = "Keep your head down, Clubtoe.", next = "END" },
+      },
+    },
+
+    purple = {
+      lines = {
+        { id = "pu_default", text = "The purple ones are the Twilight's Hammer, the cultists in the long robes. They say the world will end soon, and they want to help it end, and they bring ogres to carry things and fight for them.",
+          fx = { learn = { "twilights_hammer" } } },
+      },
+      choices = {
+        { text = "Why do ogres follow them at all?", next = "purple_why" },
+        { text = "They sound mad, not dangerous.", next = "purple_mad" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    purple_why = {
+      lines = {
+        { id = "pw_default", text = "Because the purple ones promise power, and they talk big words, and ogres like big words. Then the ogres go up to Krol'dok or onto the stones, and they do not come back the same." },
+      },
+      choices = {
+        { text = "Krol'dok is their fortress?", next = "purple_kroldok" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    purple_kroldok = {
+      big = true,
+      lines = {
+        { id = "pk_default", text = "Krol'dok is up north in the mountains, full of ogres and full of purple ones who tell the ogres what to do. Sunnyglade is only their little camp, but little camps grow, so Clubtoe wants it gone first." },
+      },
+      choices = {
+        { text = "Then we cut them out, root and branch.", next = "BACK", reply = "Root and branch! Clubtoe likes that, it sounds like hitting.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "Some of those ogres might be turned, like Bolder'ok.", next = "BACK", reply = "Maybe some, if they are not too far gone. Clubtoe hopes so, but Clubtoe does not count on it.", fx = { align = { light = 1 } } },
+        { text = "Not my fight. I'm only passing through.", next = "BACK", reply = "Nobody passes through the glades, little one. The purple ones will make it your fight soon enough.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    purple_mad = {
+      lines = {
+        { id = "pm_default", text = "Mad and dangerous both, little one, and that is the worst kind. A sane enemy wants to live, but the purple ones want everything to die, and they don't mind going first." },
+      },
+      choices = { { text = "Point taken. Something else.", next = "BACK" } },
+    },
+
+    lights = {
+      lines = {
+        { id = "li_default", text = "You see them too! Green and purple lights, burning at night over the old stones, and when Clubtoe goes too close his belly hurts and his head buzzes like bees." },
+        { id = "li_after", when = { questDone = TODO_QUEST("Sickening Lights") },
+          text = "The lights are out now, thanks to you, and Clubtoe's belly is happy again. But Clubtoe still does not know what they were for, and that worries him." },
+      },
+      choices = {
+        { text = "What do you think they're for?", next = "lights_for" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lights_for = {
+      lines = {
+        { id = "lf_default", text = "Clubtoe thinks they are calling something, or feeding something, because the purple ones stand around them and chant. The humans had a magic tower here once, and maybe the purple ones want what was in it." },
+      },
+      choices = {
+        { text = "The old mage tower still stands?", next = "lights_tower" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lights_tower = {
+      lines = {
+        { id = "lt_default", text = "It still stands, because the orcs left it alone long ago to learn human magic from it. Now the purple ones crawl all over it, and Clubtoe does not like a tower full of cultists one bit." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    self = {
+      lines = {
+        { id = "se_default", text = "Clubtoe has no clan now. Clubtoe was with the Twilight once, carrying their boxes, until they took Clubtoe's brother up onto the stones, and he did not come down again." },
+      },
+      choices = {
+        { text = "I'm sorry about your brother.", next = "self_brother" },
+        { text = "Why not join Bolder'ok? They left the cult too.", next = "self_bolderok" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    self_brother = {
+      big = true,
+      lines = {
+        { id = "sb_default", text = "His name was Grunk, and he was bigger than Clubtoe and dumber than Clubtoe, and he was happy all the time. Clubtoe stays near Sunnyglade so the purple ones never forget somebody remembers him." },
+      },
+      choices = {
+        { text = "Then we'll make them pay for Grunk.", next = "BACK", reply = "Yes. Clubtoe does not need them to say sorry, only to stop.", fx = { align = { honor = 1 }, affinity = 1 } },
+        { text = "Revenge won't bring him back, Clubtoe.", next = "BACK", reply = "Clubtoe knows. But it stops more brothers going up the stones, and that is enough.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    self_bolderok = {
+      lines = {
+        { id = "sbo_default", text = "Bolder'ok went to the orcs, and Clubtoe is happy for them. But Clubtoe watches here, because here is where Grunk went, and somebody has to stay close to the stones." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    town = {
+      lines = {
+        { id = "to_default", text = "Humans lived here a long time ago, rich humans with a tall magic tower, before the orcs and ogres came and burned it. Now it is all broken walls, and the purple ones like broken places." },
+        { id = "to_human", when = { race = "Human" },
+          text = "This was your people's town, little one, a rich one, before the old Horde burned it. Clubtoe is sorry for that, even if Clubtoe was very small then." },
+      },
+      choices = {
+        { text = "The Brotherhood at Farholde still fights for this land.", next = "town_farholde" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    town_farholde = {
+      lines = {
+        { id = "tf_default", text = "The horse humans, yes. They do not like ogres, and Clubtoe understands, so Clubtoe stays far from their keep. But if they kill purple ones, Clubtoe cheers for them quietly." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+
+    after = {
+      lines = {
+        { id = "af_default", text = "Now Clubtoe can sit in the sun without hiding. But Krol'dok is still up north, and the purple ones there will hear what happened and send more, so Clubtoe stays and watches." },
+      },
+      choices = {
+        { text = "You've earned some rest, Clubtoe.", next = "BACK", reply = "Clubtoe will rest a little, maybe with one eye open.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spread = {
+      lines = {
+        { id = "sp_default", text = "Everybody! The horse humans, the orcs at Rog'mar, the ogres at Bolder'ok, even the goblins at the port. If everybody knows the Twilight can lose, then everybody fights them a little harder." },
+      },
+      choices = { { text = "I'll carry the word.", next = "BACK" } },
+    },
+    xmagic = {
+      lines = {
+        { id = "xm_default", text = "Clubtoe knows it only from the outside, little one, from carrying boxes past the chanting. It makes the air cold and the shadows too long, and Clubtoe thinks magic like that eats the one who uses it." },
+      },
+      choices = {
+        { text = "Power is only a tool. It's the hand that matters.", next = "BACK", reply = "Hmph. Then keep your hand clean, little one, and Clubtoe will keep watching it.", fx = { align = { light = -1 } } },
+        { text = "You're right. Some magic should stay buried.", next = "BACK", reply = "Yes! Buried deep, under a big rock, with a big ogre sitting on it.", fx = { align = { light = 1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+  },
+
+  topics = {
+    twilights_hammer = { { id = "tp_th", text = "Purple ones. Liars in robes who want the sky to fall on everybody, and Clubtoe wants them gone." } },
+    sunnyglade = { { id = "tp_sg", text = "Old human town, burned and broken. Clubtoe watches it every day, so ask Clubtoe anything about it." } },
+    krol_dok = { { id = "tp_kd", text = "Up north in the mountains, full of Twilight ogres. Clubtoe does not go there, because ogres who go there do not come back." } },
+    _none = { { id = "tp_none", text = "Clubtoe does not know that. Clubtoe knows the purple ones, and the ruins, and hitting." } },
+  },
+}
