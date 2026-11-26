@@ -914,6 +914,7 @@ P:NPC {
     darkshire = { { id = "tp_xdarkshire", text = "My family's here now, so it's mine too, I suppose." } },
     background = { { id = "tp_bg", text = "Elwynn farm boy, Darkshire watchman. I'm still not sure which I am more." } },
     goldshire = { { id = "y_tp_gs", text = "My sister keeps the books at the Lion's Pride. Say hello if you pass through." } },
+    worgen = { { id = "y_tp_worgen", text = "Worgen howl past Brightwood on full moons. I keep my door barred and my candle lit." } },
     _none = { { id = "tp_none", text = "I don't know, sorry. Ask in town; someone there will." } },
   },
 }
