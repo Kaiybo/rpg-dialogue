@@ -883,6 +883,12 @@ P:NPC {
         { text = "Where does your leather come from?", next = "leather" },
         { text = "Business must be good, with so many coming of age.", next = "trade" },
         { text = "I'm a mage. What should I wear?", next = "xmage", when = { class = "MAGE" } },
+        { text = "Those are hippogryph feathers sewn in your hems, aren't they?", next = "feathers" },
+        { text = "What do the young wear when they come of age?", next = "heirloom" },
+        { text = "I'm sailing for Dalaran with the High Order soon.", next = "xdal", when = { race = "Skyborne", faction = "Alliance" } },
+        { text = "I'm bound for Mulgore with the Windshapers.", next = "xmul", when = { race = "Skyborne", faction = "Horde" } },
+        { text = "Surely leather suits a rogue better than cloth?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Your people stitch finer than anyone where I come from.", next = "xout", when = { ["not"] = { race = "Skyborne" } } },
         { text = "Winds be with you, Jolee.", next = "END" },
       },
     },
@@ -917,10 +923,75 @@ P:NPC {
       lines = { { id = "xm_default", text = "Cloth, and plenty of it, because leather fights you when you move your hands. Anathamaas Aetherwind in Valanaar will teach you the spells, but I'd rather you came to me before you go, so you don't look like a vagrant in front of the High Order." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    feathers = {
+      lines = { { id = "fe_default", text = "They are, and you'll see them in half the hair in Thendal too. We only use the feathers they shed, never plucked ones, because a hippogryph remembers who pulled its tail, and so does its rider." } },
+      choices = {
+        { text = "Who taught you the craft?", next = "feathers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    feathers2 = {
+      lines = { { id = "f2_default", text = "My mother, at a loom by the window where the wind came in. She used to say clothcraft was the one art we never asked the spirits to help with, so it was the one we could be proudest of." } },
+      choices = {
+        { text = "Do you still have her loom?", next = "feathers3" },
+        { text = "Good. We should learn to stand without the spirits.", next = "BACK", reply = "She'd have liked you, I think. She never had much patience for waiting on the wind.", fx = { align = { order = 1 } } },
+        { text = "We were wrong to ever think we didn't need them.", next = "BACK", reply = "My grandmother would have said the same, and the two of them argued about it for forty years.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    feathers3 = {
+      lines = { { id = "f3_default", text = "Not the loom, but her shuttle came to me as my heirloom when I came of age, and I use it every morning. Some days I think the cloth comes out better for it, and some days I think I only miss her talking while I work." } },
+      choices = { { text = "Then she's still stitching with you.", next = "BACK", reply = "That's a sweet thing to say. Go on before I get sentimental on the good wool.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    heirloom = {
+      lines = { { id = "he_default", text = "New clothes, stitched for them, and whatever heirloom their family passes down from someone who's gone. I always leave a little pocket in the sleeve so they can carry it close, and nobody's noticed yet that I do it for every one." } },
+      choices = {
+        { text = "And then most of them leave the isle.", next = "heirloom2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    heirloom2 = {
+      big = true,
+      lines = { { id = "h2_default", text = "More every season, on the skycutters, with my pockets full of their grandparents' rings. Some families say a young one ought to serve Zephras first, and some say the world below needs us more now, and I hear both sides at every fitting." } },
+      choices = {
+        { text = "Serve the isle first. Zephras is still falling apart.", next = "BACK", reply = "That's what the elders say, and it sounds right when the pylons flicker. My customers don't always agree.", fx = { align = { order = 1 } } },
+        { text = "Let them go. They can't help anyone if they never leave.", next = "BACK", reply = "Maybe so. I'd only like them to write now and then, so I know the stitching held.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdal = {
+      lines = { { id = "xd_default", text = "Dalaran! Then you'll want something that won't look plain beside the Kirin Tor's robes. A cousin of mine says they wear purple to the elbow, though he's prone to exaggeration, so take that with a pinch of salt." } },
+      choices = {
+        { text = "What else does your cousin say?", next = "xdal2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdal2 = {
+      lines = { { id = "x2_default", text = "That their city floats too, by magic instead of wind, and that nobody there had heard of us until the High Order came knocking. I'd love to see their faces when one of my jerkins walks through the gate." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xmul = {
+      lines = { { id = "xu_default", text = "Mulgore! Then leather, and plenty of it, because I'm told the wind on those plains carries dust instead of cloud. The tauren have been good to our Windshapers at Camp Gev'rek, I hear, so mind you're good back." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xrogue = {
+      lines = { { id = "xr_default", text = "Leather, soft-soled boots, and nothing that jingles. Eltheen Nightbreeze sends her students to me for fittings and then complains I've made them too handsome to hide, which I choose to take as praise." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xout = {
+      lines = { { id = "xo_default", text = "That's kind of you, though we've had a very long time and very little else to do on the windy evenings. What do folk wear where you come from, then?" } },
+      choices = {
+        { text = "Mail and road dust, mostly.", next = "BACK", reply = "Then come back when the dust wears through, and I'll make you something that breathes.", fx = { affinity = 1 } },
+        { text = "Wool and furs. It's cold where I'm from.", next = "BACK", reply = "Furs! I'd give a windstone to get my hands on a good bolt of something warm.", when = { race = { "Dwarf", "Gnome", "Human" } }, fx = { affinity = 1 } },
+        { text = "Whatever I took off the last thing I killed.", next = "BACK", reply = "Oh, my. Well, it shows, if you don't mind my saying.", fx = { trait = { witty = 1 } } },
+      },
+    },
   },
 
   topics = {
     windstones = { { id = "tp_stones", text = "I'll take them, gladly, but I'll take coin too. Everyone should, the way things are." } },
+    two_orders = { { id = "tp_orders", text = "I dress both orders, and I don't take sides with a needle in my hand. Ask me again over supper." } },
+    al_aketh = { { id = "tp_aketh", text = "Grey robes, badly stitched. I'd be ashamed to be seen in them, never mind worship in them." } },
     _none = { { id = "tp_none", text = "I couldn't say. If it isn't cloth or leather, I'm not much use to you." } },
   },
 }
@@ -965,6 +1036,12 @@ P:NPC {
         { text = "What makes a good shield?", next = "shield" },
         { text = "Who's buying armor these days?", next = "buyers" },
         { text = "I need something that takes a beating.", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "Skyhammer. Is that a smith's name, or a family one?", next = "name" },
+        { text = "You work the bellows yourself, I see.", next = "forge" },
+        { text = "What do you make of the Al'Aketh?", next = "cult" },
+        { text = "I fight in bear's shape. I've little need of armor.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "A dwarven smith could teach you a trick or two.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "My people beat steel for war, not for show.", next = "xhorde", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "Winds be with you, Fevrath.", next = "END" },
       },
     },
@@ -992,9 +1069,76 @@ P:NPC {
       lines = { { id = "xw_default", text = "Then take mail over leather and a shield over a second blade, and come back to me before the straps go, not after. I've stitched up a few warriors who waited too long, and I'd rather mend the gear than the person." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    name = {
+      lines = { { id = "na_default", text = "A family name, and older than this forge, though nobody remembers who first swung the hammer. My grandmother swore one of us made shields for the Empyrean Blades when they still guarded the Shal'nan, and I never had the heart to ask her for proof." } },
+      choices = {
+        { text = "Would you make shields for the Blades today?", next = "name2", fx = { learn = { "shal_nan" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    name2 = {
+      lines = { { id = "n2_default", text = "I'd drop everything else on the bench if they asked, though they have their own smiths in Valanaar and good ones. I'll settle for the young ones I arm here growing up to join them one day." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    forge = {
+      lines = { { id = "fo_default", text = "I do, and my arms will tell you so by evening. My father swore the wind used to come down the flue on its own in his day and keep the fire hot, and since the spirits left I've worked these bellows myself." } },
+      choices = {
+        { text = "The wind just stopped helping?", next = "forge2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forge2 = {
+      lines = { { id = "f2_default", text = "Bit by bit, then all at once, the way everything has. I can't tell you whether it was the spirits leaving or just an old man's memory, and I've stopped wondering, because the iron doesn't care either way." } },
+      choices = {
+        { text = "Some say we should never have relied on the wind.", next = "forge3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forge3 = {
+      big = true,
+      lines = { { id = "f3_default", text = "Some say that, and some say we ought to be finding out why it left instead of pumping bellows and grumbling. I'm a smith, so I pump and grumble, but I'll hear what you think." } },
+      choices = {
+        { text = "We work with our own hands now. That's no shame.", next = "BACK", reply = "No shame at all, and my arms are the proof. Good answer.", fx = { align = { order = 1 }, affinity = 1 } },
+        { text = "We should be asking why the wind left, not shrugging.", next = "BACK", reply = "Then ask it, and if it answers, tell it Fevrath wants his flue back.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cult = {
+      lines = { { id = "cu_default", text = "Grey robes, shaved heads and no fear of a blade, which makes them the worst kind of foe. I've mended plenty of shields that met their daggers, and they go for the straps, which tells me somebody taught them how." } },
+      choices = {
+        { text = "How should we fight them, then?", next = "cult2", fx = { learn = { "al_aketh" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cult2 = {
+      big = true,
+      lines = { { id = "c2_default", text = "That's the argument down at the ranger camp every night. Half of them want to meet the cult in the open and shame them, and the other half want to catch them sleeping and be done with it." } },
+      choices = {
+        { text = "Face them openly. We won't become what they are.", next = "BACK", reply = "Then carry a good shield, because they won't return the courtesy.", fx = { align = { honor = 1 } } },
+        { text = "Catch them sleeping. They'd do the same to us.", next = "BACK", reply = "Hard words, but I've seen what they did to the straps. I won't argue.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xdruid = {
+      lines = { { id = "xd_default", text = "So I've heard, and I've heard the bear wears whatever you had on when you changed back. A good leather jerkin under the fur won't hurt you, and it'll save you some blushes in the village square." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdwarf = {
+      lines = { { id = "xw_default", text = "I don't doubt it for a moment, and I'd listen to every word. Tell me, do your smiths really temper steel in a mountain's own heat, or is that a story the High Order brought back to impress us?" } },
+      choices = {
+        { text = "Aye, in Ironforge the Great Forge never goes cold.", next = "BACK", reply = "A forge that never goes cold. I'd give my best anvil to stand in front of it for an hour.", fx = { affinity = 1 } },
+        { text = "Mostly it's ale and stubbornness.", next = "BACK", reply = "Ha! Then we're closer kin than I thought.", fx = { affinity = 1, trait = { witty = 1 } } },
+      },
+    },
+    xhorde = {
+      lines = { { id = "xh_default", text = "Then we'll get along, because I've no time for show either. The Windshapers who've come back from your lands say your warriors wear their scars proudly, and I'd like to see what armor survives that kind of fighting." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    al_aketh = { { id = "tp_aketh", text = "They aim for the straps. Check yours before you go anywhere near them." } },
+    shal_nan = { { id = "tp_shal", text = "Before my time, and my grandmother's too, whatever she claimed. Ask the elders." } },
     _none = { { id = "tp_none", text = "Couldn't tell you. Ask me about rivets." } },
   },
 }
@@ -1030,6 +1174,11 @@ P:NPC {
       choices = {
         { text = "What kind of spirit is it?", next = "kind" },
         { text = "Do your parents know you're up here?", next = "parents" },
+        { text = "How did you even spot it?", next = "spot" },
+        { text = "What do you want to be when you're grown?", next = "grow" },
+        { text = "Is Meeri your sister?", next = "meeri" },
+        { text = "I come from below the clouds, you know.", next = "xout", when = { ["not"] = { race = "Skyborne" } } },
+        { text = "I'm leaving the isle on a skycutter soon.", next = "xleave", when = { race = "Skyborne" } },
         { text = "Be careful up there, Haal.", next = "END" },
       },
     },
@@ -1044,9 +1193,71 @@ P:NPC {
       lines = { { id = "pa_default", text = "They know we climb, they just don't know how high, so please don't tell them. Anyway, Meeri's littler than me and she got up first." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    spot = {
+      lines = { { id = "sp_default", text = "I was up here pretending to be a ranger, watching for cultists, and the leaves started moving the wrong way. I thought it was a bird, but it wasn't anything, it was just air being alive." } },
+      choices = {
+        { text = "What did you do then?", next = "spot2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spot2 = {
+      lines = { { id = "s2_default", text = "I tried to catch it in my cloak, and it went straight through and messed up my hair, and Meeri was so cross with me she didn't talk to me all afternoon. She says you don't grab spirits, you wait for them." } },
+      choices = {
+        { text = "Why did you want to catch it?", next = "spot3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spot3 = {
+      big = true,
+      lines = { { id = "s3_default", text = "So it couldn't go away again, like the others did! If we kept one, maybe it would hold the isle up, and nobody would have to leave. Meeri says that's like keeping a bird in a jar, but birds don't hold up islands." } },
+      choices = {
+        { text = "Meeri's right. You can't keep a spirit in a jar.", next = "BACK", reply = "Everybody always says Meeri's right. It's not fair.", fx = { align = { order = -1 } } },
+        { text = "If it would save the isle, it's worth trying.", next = "BACK", reply = "See? I knew a grown-up would get it. I'm going to need a bigger cloak.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grow = {
+      lines = { { id = "gr_default", text = "An Empyrean Blade, like in the stories, with a shining sword and a cloak that snaps in the wind. Or a ranger, because rangers get to climb things and nobody tells them off for it. What are you?" } },
+      choices = {
+        { text = "A warrior.", next = "grow2", when = { class = "WARRIOR" } },
+        { text = "A rogue. I'm good at climbing too.", next = "grow2", when = { class = "ROGUE" } },
+        { text = "A hunter, like the rangers.", next = "grow2", when = { class = "HUNTER" } },
+        { text = "A mage of the High Order.", next = "grow2", when = { class = "MAGE" } },
+        { text = "A shaman. I listen to spirits like that one.", next = "grow2", when = { class = "SHAMAN" } },
+        { text = "A druid. I can turn into a bear.", next = "grow2", when = { class = "DRUID" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    grow2 = {
+      lines = {
+        { id = "g2_default", text = "That's brilliant! When I'm bigger I'm going to be one too, unless I'm a Blade, and you'll have to teach me everything." },
+        { id = "g2_shaman", when = { class = "SHAMAN" }, text = "Then you can hear it? What's it saying? Is it saying I'm right and Meeri's wrong? You can tell me, I won't tell her." },
+        { id = "g2_druid", when = { class = "DRUID" }, text = "A bear! Do it, do it now, please! No, wait, you'll break the branch, and then we'll both be in trouble." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    meeri = {
+      lines = { { id = "me_default", text = "No! She lives two houses down, and she follows me everywhere, except today she got up here first, which doesn't count because I showed her the best branch. She talks to the spirit. I mostly just look at it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xout = {
+      lines = { { id = "xo_default", text = "Really? Is it true the ground down there doesn't move at all, not even a little, and you can't fall off the edge? I don't think I'd like that, it sounds boring." } },
+      choices = {
+        { text = "It's true. The ground just stays put.", next = "BACK", reply = "How do you know where you are, then? Never mind, I'll find out when I'm grown.", fx = { affinity = 1 } },
+        { text = "Oh, there are plenty of places to fall off.", next = "BACK", reply = "Good! I'd hate for it to be boring.", fx = { trait = { witty = 1 } } },
+      },
+    },
+    xleave = {
+      lines = { { id = "xl_default", text = "Everybody's leaving! My cousin went last spring and he didn't even say goodbye to me, only to my mum. Will you write and tell me what it's like? You can send it to the tree; everyone knows it's ours." } },
+      choices = {
+        { text = "I'll write, Haal. I promise.", next = "BACK", reply = "You have to, now. A promise in front of a spirit counts double.", fx = { affinity = 1, trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
+    al_aketh = { { id = "tp_aketh", text = "The grey men? Mum says if I ever see one I have to run home and not stop. I'd be fast, too." } },
     _none = { { id = "tp_none", text = "I don't know. Ask a grown-up, they know everything boring." } },
   },
 }
@@ -1077,6 +1288,11 @@ P:NPC {
       choices = {
         { text = "What do you tell it?", next = "tell" },
         { text = "Why did the spirits go away?", next = "why" },
+        { text = "Your grandmother sounds wise.", next = "gran" },
+        { text = "May I say something to the spirit?", next = "speak" },
+        { text = "Haal thinks it's only shy.", next = "haal" },
+        { text = "Do spirits live where I come from too?", next = "xout", when = { ["not"] = { race = "Skyborne" } } },
+        { text = "I hear the wild a little. Shall I listen too?", next = "xdruid", when = { class = "DRUID" } },
         { text = "I'll leave you two to it.", next = "END" },
       },
     },
@@ -1093,9 +1309,65 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    gran = {
+      lines = { { id = "gr_default", text = "She is, she's the wisest person in Thendal, only she's old, so she can't climb up here. I come down and tell her what the spirit did, and she tells me what it means." } },
+      choices = {
+        { text = "What does she say it means?", next = "gran2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gran2 = {
+      lines = { { id = "g2_default", text = "She says maybe it's Grandfather, because when he died we gave his ashes to the wind from this very hill. I don't think spirits work like that, but I don't tell her, because it makes her happy." } },
+      choices = {
+        { text = "That's a kind thing to keep from her.", next = "gran3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    gran3 = {
+      big = true,
+      lines = { { id = "g3_default", text = "Mum says the old ways are all we have left now the spirits are gone, so we have to keep every one. But Grandmother's friend says the old ways are why everything broke. Which one is true?" } },
+      choices = {
+        { text = "Keep the old ways, Meeri. They hold your people together.", next = "BACK", reply = "Then I'll keep giving the spirit Grandfather's news. Every single day.", fx = { align = { order = -1 } } },
+        { text = "Sometimes new ways are needed when old ones fail.", next = "BACK", reply = "That sounds like something the High Order would say. Haal would like you.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    speak = {
+      lines = { { id = "sp_default", text = "Yes, but you have to say it softly, and you have to mean it, or it can tell. What do you want to say?" } },
+      choices = {
+        { text = "Thank you for staying.", next = "speak2", fx = { affinity = 1 } },
+        { text = "We're sorry. All of us.", next = "speak2", fx = { trait = { kind = 1 } } },
+        { text = "Spirit of the air, be at peace here.", next = "speak2", when = { class = "SHAMAN" }, fx = { trait = { pious = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    speak2 = {
+      narr = "For a moment the leaves around you stir, though there is no breeze at all.",
+      lines = {
+        { id = "s2_default", text = "Did you see that? It moved! It never moves for Haal. I think it liked you, and I'm going to tell Grandmother the moment I get down." },
+        { id = "s2_shaman", when = { class = "SHAMAN" }, text = "It came closer! You must be a real Windshaper. Is it lonely? Please tell me it isn't lonely." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    haal = {
+      lines = { { id = "ha_default", text = "Haal thinks everything is shy or mean or stupid, because he's a boy. He tried to catch it in his cloak once, and it went right through him, and it served him right." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xout = {
+      lines = { { id = "xo_default", text = "I don't know. Maybe they do, and nobody there talks to them either. You'll have to listen when you go home and tell me, but you have to be very quiet, like this." } },
+      choices = {
+        { text = "My people listen to the spirits. We have shamans too.", next = "BACK", reply = "Then they're lucky. Say hello to them from Meeri.", when = { race = { "Orc", "Troll", "Tauren" } }, fx = { affinity = 1 } },
+        { text = "I'll listen, Meeri. Quietly.", next = "BACK", reply = "Good. And don't let anyone grab them.", fx = { affinity = 1 } },
+      },
+    },
+    xdruid = {
+      lines = { { id = "xd_default", text = "Oh, would you? Grandmother says the druids hear things the rest of us can't. Only don't turn into anything big, because the branch is very thin up here." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    shal_nan = { { id = "tp_shal", text = "Grandmother says the Shal'nan went away with the spirits. Maybe they'll come back together." } },
     _none = { { id = "tp_none", text = "I don't know that one. I could ask the spirit, but it doesn't answer much." } },
   },
 }

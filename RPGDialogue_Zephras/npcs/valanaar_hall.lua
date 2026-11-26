@@ -869,6 +869,12 @@ P:NPC {
         { text = "What does the High Order want?", next = "order" },
         { text = "You don't think much of the Windshapers.", next = "windshapers" },
         { text = "Where do I start with the arcane?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What became of the Highborne of Eldre'Thalas?", next = "past" },
+        { text = "Tell me about the Kirin Tor.", next = "kirin" },
+        { text = "They say arcane talent is growing rarer on the isle.", next = "decline" },
+        { text = "I've chosen the Windshapers and the Horde.", next = "xhorde", when = { race = "Skyborne", faction = "Horde" } },
+        { text = "I feel the ley lines under this floor.", next = "xley", when = { race = "Skyborne", faction = "Alliance" } },
+        { text = "I learned my spells far from Zephras.", next = "xoutmage", when = { class = "MAGE", ["not"] = { race = "Skyborne" } } },
         { text = "Winds be with you, Anathamaas.", next = "END" },
       },
     },
@@ -896,9 +902,71 @@ P:NPC {
       lines = { { id = "xm_default", text = "With patience and a quiet room. The arcane rewards precision and punishes haste, and I have seen more than one eager student singe their own eyebrows trying to skip a lesson." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    past = {
+      lines = { { id = "pa_default", text = "A long and unflattering story. Prince Tortheldrin drew power from the Twisting Nether through crystal pylons, and when the Shal'nan's followers opposed him, he purged them, and the survivors fled west from Eldre'narr." } },
+      choices = {
+        { text = "So your ancestors rebelled against a Highborne prince?", next = "past2", fx = { learn = { "shal_nan" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    past2 = {
+      lines = { { id = "p2_default", text = "They did, magisters among them, and I would remind the Windshapers of it when they call us the prince's heirs. Our forebears fled the same purge as theirs, and the wind spirits sheltered all of them alike." } },
+      choices = {
+        { text = "Then what was Tortheldrin's real crime?", next = "past3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    past3 = {
+      big = true,
+      lines = { { id = "p3_default", text = "That is the question every student of mine must answer. I hold that his crime was cruelty, not curiosity, though there are those in this very hall who say the power itself was the poison." } },
+      choices = {
+        { text = "Power drawn like that is tainted, whoever holds it.", next = "BACK", reply = "A principled answer. I disagree, but I respect that you said it to my face.", fx = { align = { honor = 1 } } },
+        { text = "Knowledge is only a tool. The fault lies in the hand.", next = "BACK", reply = "Precisely. Remember that when someone tells you to fear what you study.", fx = { align = { honor = -1 }, affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kirin = {
+      lines = { { id = "ki_default", text = "The mages of Dalaran, who answered when we called. Ansirem Runeweaver stood with us against Lorthuna's cultists, and it was through the Kirin Tor that the High Order came to the Alliance and to the Sky Enclave." } },
+      choices = {
+        { text = "Do you trust them?", next = "kirin2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    kirin2 = {
+      lines = { { id = "k2_default", text = "I trust that they want what we know, and that we want what they know, which is a sounder footing than affection. Elaadrin Evengale handles the courtesies, and I am content to handle the lessons." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    decline = {
+      lines = { { id = "de_default", text = "They do say it, and I will not pretend I haven't seen fewer gifted children in recent years. Yet the ley lines themselves break the surface more often than ever, which tells me the power has not gone, only our grasp on it." } },
+      choices = {
+        { text = "Or perhaps the isle is telling you something.", next = "decline2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    decline2 = {
+      lines = { { id = "d2_default", text = "The isle is rock and wind, and rock does not speak. I leave omens to Ventaari and the Windshapers; I would rather find the cause and correct it." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xhorde = {
+      lines = { { id = "xh_default", text = "So I see, and I won't lecture you for it, though I am tempted. The Windshapers will teach you reverence, and I hope someone in Mulgore teaches you to ask questions as well." } },
+      choices = {
+        { text = "I'll ask plenty. Of the spirits, too.", next = "BACK", reply = "Then write down their answers, if they give any. I should very much like to read them.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xley = {
+      lines = { { id = "xl_default", text = "Good. That sense is rarer than it was, so guard it and train it. Most students feel only a hum; the best can tell you which way the line runs and how strongly, and that is where the High Order's work begins." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xoutmage = {
+      lines = { { id = "xo_default", text = "So I hear in your phrasing; you shape the words more bluntly than we do. Your teachers are not wrong, merely young, and I mean that as the kindest thing a shen'dorei can say of anyone." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    two_orders = { { id = "tp_orders", text = "The High Order studies; the Windshapers pray. I leave you to judge which keeps an isle aloft." } },
+    shal_nan = { { id = "tp_shal", text = "The Shal'nan led our ancestors out of Eldre'Thalas and then stepped down. A noble gesture, though it left us a great many councils." } },
     _none = { { id = "tp_none", text = "That is outside my study. The library of the High Order may serve you better than I can." } },
   },
 }
@@ -938,6 +1006,12 @@ P:NPC {
         { text = "Teach me to mine.", next = "BUSINESS" },
         { text = "Is it safe to dig into a floating isle?", next = "safe" },
         { text = "Do you ever find windstones?", next = "stones" },
+        { text = "Where are the best seams on the isle?", next = "seams" },
+        { text = "Who gets to keep a windstone you dig up?", next = "stones2" },
+        { text = "Odd trade, for someone raised in the sky.", next = "earth" },
+        { text = "Dwarves would give their beards for ore this easy.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "The Earthen Ring teaches us to listen to stone.", next = "xshaman", when = { class = "SHAMAN" } },
+        { text = "Have you never considered a mechanical drill?", next = "xgnome", when = { race = "Gnome" } },
         { text = "Winds be with you.", next = "END" },
       },
     },
@@ -961,9 +1035,63 @@ P:NPC {
       lines = { { id = "st_default", text = "Now and again, and every time I do, half of Valanaar wants it. If you're lucky enough to dig one up, think hard before you trade it away." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    seams = {
+      lines = { { id = "se_default", text = "Copper turns up in the hills about the island, mostly where the rock has been weathered open by the wind. Look for green staining on the stone, and stay away from anywhere the ground hums, because that's usually a pylon or a ley line." } },
+      choices = {
+        { text = "What happens if I dig near a pylon?", next = "seams2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    seams2 = {
+      lines = { { id = "s3_default", text = "The pylon guards will have words with you, first of all, and they're right to. I knew a miner who swung too close to one years ago, and the stone under his feet shifted a hand's breadth, and he never picked up a pick again." } },
+      choices = {
+        { text = "Did anyone find out why it shifted?", next = "seams3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    seams3 = {
+      lines = { { id = "s4_default", text = "The High Order measured it and the Windshapers prayed over it, and neither of them told me anything I could use. I mark that spot on every map I give my apprentices, and that's the only answer I trust." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    stones2 = {
+      big = true,
+      lines = { { id = "w2_default", text = "That's the argument of the season. Some say whoever digs it keeps it, as it's always been, and some say every stone found should go to the Council of Elders for the pylons, and a few of my apprentices have come to blows over it." } },
+      choices = {
+        { text = "Every stone should go to the Council. The pylons come first.", next = "BACK", reply = "That's the dutiful answer. I'll note that you gave it before you'd found one.", fx = { align = { order = 1 }, learn = { "windstones" } } },
+        { text = "Whoever does the digging earns the stone.", next = "BACK", reply = "That's been the rule as long as I've held a pick. Whether it should stay the rule, I couldn't tell you.", fx = { align = { order = -1 }, learn = { "windstones" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    earth = {
+      lines = { { id = "ea_default", text = "It is, and my mother never understood it. But someone has to know the rock we live on, and lately I think that matters more than ever, with the isle drifting and nobody sure what holds it together." } },
+      choices = {
+        { text = "Has the Earthen Ring told you anything?", next = "earth2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    earth2 = {
+      lines = { { id = "e2_default", text = "Muln Earthfury came through while they were fighting Lorthuna's lot, and I'd have given a month's ore for an hour of his time. I never got it, so I'm still a miner guessing at stone, like I've always been." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdwarf = {
+      lines = { { id = "xd_default", text = "Easy, is it? Then you'll not mind my asking: how deep do your people dig before you stop? I've wondered for years how far is too far, and nobody here has ever dug deep enough to know." } },
+      choices = {
+        { text = "We stop when we hit something that bites back.", next = "BACK", reply = "Sensible. Here, I'd stop well before that, because there's only sky underneath.", fx = { affinity = 1 } },
+        { text = "A dwarf never stops, lad. That's the trouble.", next = "BACK", reply = "Then I'll keep you well away from the underside, friend, with all respect.", fx = { trait = { witty = 1 } } },
+      },
+    },
+    xshaman = {
+      lines = { { id = "xs_default", text = "Does it, now? Then you know more than I do, and I've spent forty years with my hands in it. If the stone ever tells you why this isle stays up, come and tell me before you tell anyone else." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xgnome = {
+      lines = { { id = "xg_default", text = "Something that shakes the rock on purpose, on an island held up by forces nobody understands? I've considered it for exactly as long as it took you to ask, and the answer is no, with respect." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    windstones = { { id = "tp_stones", text = "Found in the rock now and then, and fought over every time. Keep quiet if you dig one up." } },
     _none = { { id = "tp_none", text = "If it isn't in the rock, I don't know it." } },
   },
 }
@@ -1004,6 +1132,12 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "What do you teach, exactly?", next = "teach" },
         { text = "What use is a rogue to the isle?", next = "use" },
+        { text = "How did you learn the quiet arts?", next = "taught" },
+        { text = "Have you fought the Al'Aketh yourself?", next = "cult" },
+        { text = "Will the orders end up spying on each other?", next = "orders" },
+        { text = "I wore the grey robes once.", next = "xformer", when = { origin = "skyborne_former_alaketh" } },
+        { text = "Seena's warriors call your students cowards.", next = "xwar", when = { class = "WARRIOR" } },
+        { text = "In Stormwind, we have SI:7 for this sort of work.", next = "xsi7", when = { class = "ROGUE", race = "Human" } },
         { text = "Winds be with you, Eltheen.", next = "END" },
       },
     },
@@ -1027,9 +1161,72 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    taught = {
+      lines = { { id = "le_default", text = "Mostly by being caught, over and over, by an old ranger who thought I was too loud to be any use. He never praised me once, and the day he stopped catching me, I knew I'd learned." } },
+      choices = {
+        { text = "Is he still teaching?", next = "taught2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    taught2 = {
+      lines = { { id = "l2_default", text = "His ashes went to the wind three winters ago, and I got his old lockpicks as a gift from his family, which I thought was very funny of them. I use them to teach every student who comes through that door." } },
+      choices = {
+        { text = "Then he's still catching people, in a way.", next = "BACK", reply = "Ha. He'd have hated that you said that, which is why I like it.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cult = {
+      lines = { { id = "cu_default", text = "I've crept close enough to their fires to hear them pray, which is closer than I'd like. They call on Al'Akir as though he were already on his way, and some of them sound glad about it." } },
+      choices = {
+        { text = "What did you learn, listening?", next = "cult2", fx = { learn = { "al_aketh" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cult2 = {
+      lines = { { id = "c2_default", text = "That they weren't all born to it. Some were frightened farmers who wanted somebody, anybody, to be in charge of the wind again, and Lorthuna gave them that. A few have since walked away from the grey." } },
+      choices = {
+        { text = "What happens to the ones who walk away?", next = "cult3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cult3 = {
+      big = true,
+      lines = { { id = "c3_default", text = "That depends on who finds them first. Some in Valanaar want them locked up for good, and some want them given a second chance, and I've argued both sides depending on the day and what I'd last seen at a cult fire." } },
+      choices = {
+        { text = "Give them the chance. Mercy is how we win them back.", next = "BACK", reply = "Then you'll be disappointed now and again, and you'll have to keep choosing it anyway.", fx = { align = { light = 1 }, trait = { kind = 1 } } },
+        { text = "Once someone has called on Al'Akir, they can't be trusted.", next = "BACK", reply = "That's safer, and colder. I can't say you're wrong.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    orders = {
+      big = true,
+      lines = { { id = "or_default", text = "They already do, between you and me, though nobody would call it that. Each order asks my students what the other is saying, and I tell them to answer politely and say nothing useful. Do you think I'm wrong?" } },
+      choices = {
+        { text = "Spying on our own kin is beneath us.", next = "BACK", reply = "Spoken like someone who's never been lied to by kin. Still, I hope you keep that.", fx = { align = { honor = 1 } } },
+        { text = "Know your rival. It's only sense.", next = "BACK", reply = "Now you sound like one of mine. Don't let the elders hear you say it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xformer = {
+      lines = { { id = "xf_default", text = "I know, which is why I've been watching you since you came in. Don't flinch; if I thought you were still one of them, you'd never have seen me at all. Just know that others here will be watching too." } },
+      choices = {
+        { text = "I'm done with them. I'll prove it.", next = "BACK", reply = "Good. Prove it quietly, and you'll find more friends than you expect.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xwar = {
+      lines = { { id = "xw_default", text = "They do, until one of my students gets them out of an ambush they walked into with their shields up. Tell Seena's lot I'll still be here when they need me, which they will." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xsi7 = {
+      lines = { { id = "xs_default", text = "Do you? Then your king is wiser than I'd heard, keeping knives in the dark as well as swords in the light. I'd like to hear how they train, if you ever feel like telling me something useful." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    al_aketh = { { id = "tp_aketh", text = "They pray loudly and post their watches badly. Both are useful to know." } },
+    two_orders = { { id = "tp_orders", text = "Both orders want to know what the other's up to. Neither will hear it from me." } },
     _none = { { id = "tp_none", text = "I know a great many things, but not that. Odd, isn't it?" } },
   },
 }
@@ -1063,6 +1260,11 @@ P:NPC {
       choices = {
         { text = "What have you seen from up here?", next = "seen" },
         { text = "Why not train down there yourself?", next = "why" },
+        { text = "Your knees? Did you serve with the Peacekeepers?", next = "past" },
+        { text = "Which of the trainers below is the best?", next = "trainers" },
+        { text = "And what do students get up to when unwatched?", next = "gossip" },
+        { text = "Were you watching my bout down there?", next = "xwatch", when = { class = { "WARRIOR", "ROGUE", "HUNTER" } } },
+        { text = "Do many from below the clouds come through here?", next = "xout", when = { ["not"] = { race = "Skyborne" } } },
         { text = "I'll leave you to your watching.", next = "END" },
       },
     },
@@ -1078,9 +1280,60 @@ P:NPC {
       lines = { { id = "wh_default", text = "I've had my share of training, thank you, and my share of what comes after it. Up here I can rest my knees and still feel useful, which is more than most people my age can say." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    past = {
+      lines = { { id = "pa_default", text = "Most of my life, walking walls and roads with a spear in my hand. I hoped to join the Empyrean Blades when I was young, as everyone did, and I never made it, and I've long since stopped minding." } },
+      choices = {
+        { text = "What were the Blades like?", next = "past2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    past2 = {
+      lines = { { id = "p2_default", text = "Proud, and with good reason, since they began as the Shal'nan's own guard. When the Shal'nan stepped down and vanished, they stayed, and that tells you more about them than any parade." } },
+      choices = {
+        { text = "Was the Shal'nan right to step down?", next = "past3", fx = { learn = { "shal_nan" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    past3 = {
+      big = true,
+      lines = { { id = "p3_default", text = "Every old soldier on this isle has an answer to that, usually after a cup of something. Some of us think the Shal'nan gave us the Council and the right to rule ourselves, and some think we were simply left behind." } },
+      choices = {
+        { text = "Stepping down was honorable. It gave the people a voice.", next = "BACK", reply = "That's my own view, most days. On the bad ones I miss having someone to follow.", fx = { align = { honor = 1 } } },
+        { text = "A leader who walks away in a crisis has failed.", next = "BACK", reply = "You'd find friends among the old guard for that. I won't argue it tonight.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trainers = {
+      lines = { { id = "tr_default", text = "Seena, if you want to survive the first blow, and Eltheen, if you'd rather there wasn't one. Quel'ana is the best teacher of the lot, though, because he makes students think, and they hate him for it until they're grateful." } },
+      choices = {
+        { text = "You've thought about this a great deal.", next = "trainers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    trainers2 = {
+      lines = { { id = "t2_default", text = "I have nothing else to think about, and I've watched a great many students walk out of here and not come back. If I can tell one of them which teacher to listen to, I've done something." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    gossip = {
+      lines = { { id = "go_default", text = "Courting, mostly, and practising moves they've been told not to try. Last week two of Seena's students tried a trick of Eltheen's and knocked over the weapon rack, and I didn't tell anyone, so you mustn't either." } },
+      choices = { { text = "Your secret's safe.", next = "BACK", reply = "I know. You've the face of someone who keeps them.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    xwatch = {
+      lines = {
+        { id = "xw_default", text = "I was, and you did well enough. You drop your guard after a good strike, as though you expect applause, and out in the wilds nobody will be clapping." },
+        { id = "xw_rogue", when = { class = "ROGUE" }, text = "I was, and I saw you, which Eltheen will tell you is the trouble. You're quick, but you're quickest when you think nobody's looking, so practise as though I am." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xout = {
+      lines = { { id = "xo_default", text = "More each month, since the orders went below the clouds and came back with friends. You're all larger and louder than us, and the trainers have had to learn new words for things, but I like the noise." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    shal_nan = { { id = "tp_shal", text = "The Blades still guard what the Shal'nan left behind. Make of that what you will." } },
+    two_orders = { { id = "tp_orders", text = "I've watched both orders train down there. They swing swords the same way." } },
     _none = { { id = "tp_none", text = "I couldn't say. Ask one of the trainers; they love being asked things." } },
   },
 }
@@ -1115,6 +1368,12 @@ P:NPC {
       choices = {
         { text = "What's the news in Valanaar?", next = "news" },
         { text = "Where do the skycutters go?", next = "docks" },
+        { text = "Tell me about this husband of yours.", next = "husband" },
+        { text = "Your nephew in Mulgore, what else does he write?", next = "nephew" },
+        { text = "Who's who in Valanaar, then?", next = "who" },
+        { text = "Cultists on the shrine road? Where exactly?", next = "cult" },
+        { text = "I'm a tauren of Mulgore, as it happens.", next = "xtauren", when = { race = "Tauren" } },
+        { text = "I've come from the Alliance lands, over the sea.", next = "xalliance", when = { faction = "Alliance", ["not"] = { race = "Skyborne" } } },
         { text = "Good day, Culli.", next = "END" },
       },
     },
@@ -1138,9 +1397,77 @@ P:NPC {
       lines = { { id = "do_default", text = "From the skydocks at the southern tip, east to Dalaran and west to Mulgore. My nephew went west, and he writes that the tauren are very kind and very large and that the bread is terrible." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    husband = {
+      lines = { { id = "hu_default", text = "Oh, he's a dear, and very clever, and wrong about everything that matters. He works at the pylons, so he hears the High Order's mages every day and comes home sounding just like them." } },
+      choices = {
+        { text = "And you don't mind?", next = "husband2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    husband2 = {
+      lines = { { id = "h2_default", text = "Not a bit, because I get the last word at supper. We argue about the orders the way other couples argue about the washing, and the neighbours say it's the best entertainment in Valanaar." } },
+      choices = {
+        { text = "Which order would he say I belong to?", next = "husband3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    husband3 = {
+      lines = {
+        { id = "h3_default", text = "Oh, he'd say whichever one you're standing nearest to, the flatterer. But you tell me, dear, which way are you leaning?" },
+      },
+      choices = {
+        { text = "I've joined the High Order, bound for Dalaran.", next = "BACK", when = { race = "Skyborne", faction = "Alliance" }, reply = "He'll be insufferable when I tell him. Write to your mother, dear, Dalaran's a long way.", fx = { affinity = 1 } },
+        { text = "I've joined the Windshapers, bound for Mulgore.", next = "BACK", when = { race = "Skyborne", faction = "Horde" }, reply = "I knew it! Say hello to my nephew if you see him, he's the one complaining about the bread.", fx = { affinity = 1 } },
+        { text = "Neither. I keep my own counsel.", next = "BACK", reply = "Very wise, and very dull. You'd make a fine elder.", fx = { trait = { witty = 1 } } },
+      },
+    },
+    nephew = {
+      lines = { { id = "ne_default", text = "That the Windshapers at Camp Gev'rek have more to learn than they expected, and that the tauren shamans are patient with them. He says the spirits there speak in deeper voices, whatever that means, and that the nights are very quiet without the wind." } },
+      choices = {
+        { text = "Does he want to come home?", next = "nephew2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    nephew2 = {
+      lines = { { id = "n3_default", text = "He says not, but he asks after every single cousin by name, so I know better. Young ones always think they're going away for good, and then they spend every letter asking what's for supper." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    who = {
+      lines = { { id = "wh_default", text = "Well, High Elder Talaanis Shadowsong runs the Council, and she's sharp as a Galestrider's hoof. Under her you've the elders, who all talk at once, and under them you've the rest of us, who do the actual work." } },
+      choices = {
+        { text = "Does the Council do a good job?", next = "who2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    who2 = {
+      big = true,
+      lines = { { id = "w2_default", text = "That depends on who you ask and what's broken that week. Some folk want the Council to take a firmer hand, and others say the elders already meddle too much. What's your view, dear?" } },
+      choices = {
+        { text = "Times like these need a firm hand from the Council.", next = "BACK", reply = "That's my husband's view. I'll tell him he's got company.", fx = { align = { order = 1 } } },
+        { text = "Let folk decide for themselves. The elders talk too much.", next = "BACK", reply = "Ha! Say that loud enough and you'll be elected to the Council yourself.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cult = {
+      lines = { { id = "cu_default", text = "The road out toward the Shrine of Akir, so the carter said, and he swore there were three of them in grey, standing perfectly still on the hill. He came back white as cloud and wouldn't take the road again." } },
+      choices = { { text = "I'll keep an eye out.", next = "BACK", reply = "Do, and come and tell me, because I'll want to know before the market does.", fx = { learn = { "al_aketh" } } }, { text = "Something else.", next = "BACK" } },
+    },
+    xtauren = {
+      lines = { { id = "xt_default", text = "Oh, my nephew writes about your people in every letter! He says you're very kind and very large, and I can see he wasn't exaggerating. Is the bread really as bad as he says?" } },
+      choices = {
+        { text = "Our bread is fine. Your nephew is spoiled.", next = "BACK", reply = "I knew it! I'll tell his mother.", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "We are glad to have your people with us.", next = "BACK", reply = "That's kind, dear. Look after him, if you meet him.", fx = { affinity = 1 } },
+      },
+    },
+    xalliance = {
+      lines = { { id = "xa_default", text = "From over the sea! I've never been further than the skydocks, and now the whole world is coming to visit. You'll want to see Valanaar properly while you're here, and please mind the edges." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    two_orders = { { id = "tp_orders", text = "My husband's High Order and I'm Windshaper, and we've lasted thirty years. The orders could learn from us." } },
+    al_aketh = { { id = "tp_aketh", text = "Grey robes on the shrine road, so they say. Don't go wandering out there alone, dear." } },
     _none = { { id = "tp_none", text = "I haven't heard about that yet, but give me a day." } },
   },
 }
@@ -1182,6 +1509,12 @@ P:NPC {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "What's the secret to good leather?", next = "secret" },
         { text = "Jolee Brightmeadows buys from you, doesn't she?", next = "jolee" },
+        { text = "Why sell from your home, rather than the market?", next = "home" },
+        { text = "What's turned the beasts wild?", next = "wild" },
+        { text = "Your prices are steep, Emerii.", next = "prices" },
+        { text = "I'll bring you clean hides, I promise.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "I wear the shape of those beasts, sometimes.", next = "xdruid", when = { class = "DRUID" } },
+        { text = "My people work kodo hide in Mulgore.", next = "xtauren", when = { race = "Tauren" } },
         { text = "Good day, Emerii.", next = "END" },
       },
     },
@@ -1205,9 +1538,61 @@ P:NPC {
       lines = { { id = "jo_default", text = "She does, and she complains about my prices every time, and then she buys the lot. She's the best seamstress in Thendal, so I let her complain." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    home = {
+      lines = { { id = "ho_default", text = "The wind gets into everything at a stall, grit and damp and worse, and salt does nothing for a hide that's been flapping all morning. Besides, a front room has a door, and these days I like a door I can lock." } },
+      choices = {
+        { text = "Has someone been stealing from you?", next = "home2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    home2 = {
+      lines = { { id = "h2_default", text = "Not from me, but the potter two doors down lost a purse of windstones last month, and nobody's been caught. Folk from the fallen places are hungry, and hungry people take what's lying about, and I can't even blame them properly." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    wild = {
+      lines = { { id = "wi_default", text = "If I knew that, I'd be on the Council instead of in a front room full of hides. They started turning about when the spirits left, so everyone blames the spirits, but I've heard the Rangers blame the cult as well." } },
+      choices = {
+        { text = "What do you think?", next = "wild2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wild2 = {
+      lines = { { id = "w2_default", text = "I think a beast doesn't turn on the hand that fed it without good reason, and I think we don't know the reason. That's not a satisfying answer, but it's the honest one, and I'd rather be honest than satisfying." } },
+      choices = {
+        { text = "Who would know, if anyone?", next = "wild3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    wild3 = {
+      lines = { { id = "w3_default", text = "The Nightclaw druids, maybe, up in Shadowgale Forest, though they don't come down and they don't answer letters. If you ever get one of them talking, ask about the beasts for me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    prices = {
+      big = true,
+      lines = { { id = "pr_default", text = "They're steep because the work is good, and because salt is dear and windstones dearer. Jolee says I ought to charge less in hard times, and my neighbour says I ought to charge more while I can. What would you do?" } },
+      choices = {
+        { text = "Charge fairly. Folk are struggling, and you'll be remembered for it.", next = "BACK", reply = "You sound like Jolee. Fine, I'll think about it, but don't tell her I said so.", fx = { align = { honor = 1 } } },
+        { text = "Charge what folk will pay. That's how a trade survives.", next = "BACK", reply = "A practical answer, and one my ledger agrees with. My conscience is less sure.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xhunter = {
+      lines = { { id = "xh_default", text = "Everyone promises, and then they bring me something that looks like it was skinned with a spoon. One clean cut along the belly, salt it the same day, and keep your pet's teeth out of it, and we'll be friends." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xdruid = {
+      lines = { { id = "xd_default", text = "Oh. Well, that's rather awkward, standing in a room full of hides. Please don't change in here, and please don't take it personally; none of these were anybody you knew, I'm almost certain." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xtauren = {
+      lines = { { id = "xt_default", text = "Kodo! I've heard of them from the Windshapers who've come back, beasts as big as a house. I'd give a great deal to work one of those hides, so if you ever have one spare, you'll find me very polite indeed." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    windstones = { { id = "tp_stones", text = "Dearer than salt, and salt is dear. I take them, but I'd rather have coin." } },
+    al_aketh = { { id = "tp_aketh", text = "The Rangers blame them for the beasts turning. I only know the hides got thicker." } },
     _none = { { id = "tp_none", text = "No idea. Ask me about hides." } },
   },
 }

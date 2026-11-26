@@ -493,6 +493,11 @@ P:NPC {
         { text = "Which galestrider should I choose?", next = "choose" },
         { text = "These beasts look well kept, despite the hard times.", next = "times" },
         { text = "I ride a beast of my own. Any advice?", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Where do your galestriders go, once sold?", next = "sold" },
+        { text = "How's my lesson going?", next = "xlesson", when = { questActive = TODO_QUEST("Learning to Ride") } },
+        { text = "Why ride at all, when we can glide on the wind?", next = "xglide", when = { race = "Skyborne" } },
+        { text = "A wolf would run rings round your galestriders.", next = "xorc", when = { race = "Orc" } },
+        { text = "My people ride nightsabers.", next = "xnelf", when = { race = "NightElf" } },
         { text = "Winds be with you, Genn.", next = "END" },
       },
     },
@@ -535,9 +540,60 @@ P:NPC {
       lines = { { id = "xh_default", text = "Ride upwind of it when you can, and let the galestrider get a good long sniff before you ask it to share a road. They're brave beasts, but they've long memories for anything with teeth." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    sold = {
+      lines = { { id = "so_default", text = "All over Zephras, for the Peacekeepers and the Rangers and anyone with the coin. And lately onto the skycutters, to Dalaran and to Mulgore, which means some of mine have seen more of the world than I have." } },
+      choices = {
+        { text = "Does that bother you?", next = "sold2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sold2 = {
+      lines = { { id = "s2_default", text = "It does and it doesn't. A galestrider's no good standing in a paddock, and they were bred to run, but I raised every one of them from a wobbly foal, and I'd like to know who's brushing them now." } },
+      choices = {
+        { text = "Do you sell to outsiders as well?", next = "sold3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sold3 = {
+      big = true,
+      lines = { { id = "s3_default", text = "That's what Fenn and Tenn and I argue about over supper. Fenn says a galestrider is a shen'dorei thing and ought to stay with our people, and Tenn says a good rider is a good rider wherever they're from. What do you say?" } },
+      choices = {
+        { text = "Keep them for our own people. They're part of who we are.", next = "BACK", reply = "Fenn will be pleased to hear it. I'm not sure I am, but I'll pass it on.", fx = { align = { order = 1 } } },
+        { text = "Sell to anyone who'll treat them well.", next = "BACK", reply = "Tenn's side, and mine, if I'm honest. Thank you, that settles supper.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlesson = {
+      lines = { { id = "xl_default", text = "Better than most, and that's the truth. You sit like you're afraid it'll bolt, which it won't, and the beast can feel it through the saddle, so breathe out and let your shoulders drop." } },
+      choices = {
+        { text = "What if it does bolt?", next = "xlesson2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xlesson2 = {
+      lines = { { id = "x2_default", text = "Then hold on and steer it uphill, because nothing tires a galestrider like a slope. I've chased plenty of runaways across this isle, and every one of them stopped at the top of a hill looking very pleased with itself." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xglide = {
+      lines = { { id = "xg_default", text = "Because walking on air will carry you off a ledge, not across the isle! The wind's a fine thing for a short step, but a galestrider will take you from here to Valanaar without your legs complaining once." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xorc = {
+      lines = { { id = "xo_default", text = "Over a short sprint, maybe, and I'd like to see it. But a galestrider will go all day on a mouthful of grass, and I've never heard of a wolf that would carry you without wanting a share of the supper." } },
+      choices = {
+        { text = "A wolf is a partner, not a beast of burden.", next = "BACK", reply = "Then we're not so different, you and I. That's how I see mine.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    xnelf = {
+      lines = { { id = "xn_default", text = "Great cats, I've heard, as tall at the shoulder as a galestrider. I'd love to see one, though I suspect my young ones would take one look and run straight off the edge of the isle." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    advice = { { id = "tp_ad", text = "Sit tall, breathe out, and let the beast do the running. That's riding and most of life besides." } },
+    two_orders = { { id = "tp_orders", text = "I sell to both orders, and so far nobody's asked my galestriders which they prefer." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. If it hasn't got four hooves, I'm the wrong man to ask." } },
   },
 }
@@ -577,6 +633,11 @@ P:NPC {
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Where do the fish even come from, up here?", next = "fish" },
         { text = "Fishing seems a peaceful life.", next = "peace" },
+        { text = "What's the biggest fish you've ever caught?", next = "big" },
+        { text = "Have the streams changed, with the isle drifting?", next = "streams" },
+        { text = "Will you ever leave Zephras?", next = "leave" },
+        { text = "I've fished the waters below the clouds.", next = "xbelow", when = { ["not"] = { race = "Skyborne" } } },
+        { text = "On the Echo Isles, we fish with spears, mon.", next = "xtroll", when = { race = "Troll" } },
         { text = "Good fishing, Baelann.", next = "END" },
       },
     },
@@ -600,9 +661,59 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    big = {
+      lines = { { id = "bi_default", text = "Now there's a question every fisher lies about. Mine was a silver-backed thing as long as my arm, caught right at the lip of a fall, with half its body already over the edge." } },
+      choices = {
+        { text = "How did you land it?", next = "big2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    big2 = {
+      lines = { { id = "b2_default", text = "I didn't, if I'm honest. I held it for a long moment with the line singing, and then I had to choose between the fish and following it off the isle, and I let go." } },
+      choices = {
+        { text = "Do you regret it?", next = "big3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    big3 = {
+      lines = { { id = "b3_default", text = "Every day, and not at all. It was the best fight I ever had, and nobody can say I made it up, because nobody believes me anyway. That's the trouble with honest fish stories." } },
+      choices = { { text = "I believe you.", next = "BACK", reply = "Then you're either kind or foolish. I'll take either.", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
+    streams = {
+      lines = { { id = "st_default", text = "They have. A stream I fished as a boy now runs off an edge that wasn't there, because the land it used to cross drifted away. The fish didn't know what to make of it, and neither did I." } },
+      choices = {
+        { text = "What should be done about the drifting?", next = "streams2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    streams2 = {
+      big = true,
+      lines = { { id = "s2_default", text = "Everyone asks a fisher that as though I'd know. The High Order wants to bind the pieces together with magic, and the Windshapers want to win back the spirits' favour, and I just want my stream back where it was." } },
+      choices = {
+        { text = "Mend it with magic. We can't wait on spirits.", next = "BACK", reply = "Maybe so. As long as somebody mends it before my next stream goes over.", fx = { align = { order = 1 } } },
+        { text = "Make peace with the spirits first. Magic got us here.", next = "BACK", reply = "My father would have agreed. He talked to the water every morning, and I used to laugh at him.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    leave = {
+      lines = { { id = "le_default", text = "I'm too old and too fond of my rock. The young ones go, and I sell them hooks for the journey, and I tell them the world below is full of fish that have never seen a shen'dorei and won't know to be clever." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    xbelow = {
+      lines = { { id = "xb_default", text = "Have you, now? Then tell me something true, because I've wondered for years. Are the fish down there bigger than ours?" } },
+      choices = {
+        { text = "Much bigger. And some of them bite back.", next = "BACK", reply = "Then I'm glad I stayed up here. A fish should know its place.", fx = { affinity = 1, trait = { witty = 1 } } },
+        { text = "About the same, but far more of them.", next = "BACK", reply = "More of them. Now that's a thought to keep a fisher up at night.", fx = { affinity = 1 } },
+      },
+    },
+    xtroll = {
+      lines = { { id = "xt_default", text = "Spears, is it? I'd like to see that, though I'd wager you'd miss more than you'd think, because the fish up here are cleverer than they look. You'll have to come back and show me." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
+    two_orders = { { id = "tp_orders", text = "Both orders eat fish. That's all I need to know about them." } },
     _none = { { id = "tp_none", text = "Couldn't say. The water doesn't gossip." } },
   },
 }
