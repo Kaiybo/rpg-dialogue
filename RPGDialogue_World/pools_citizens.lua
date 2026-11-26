@@ -53,14 +53,23 @@ P:Pool {
     { id = "g1", text = "Hm?" },
     { id = "g2", text = "Yes?" },
     { id = "g3", text = "Mm." },
+    { id = "xg4", text = "What is it? I'm busy, though you'd not know it to look at me." },
+    { id = "xg5", when = { timeOfDay = "night" }, text = "It's late, and I'm in no mood for talk." },
   },
   lines = {
     { id = "l1", text = "I've nothing to say to you, traveler." },
     { id = "l2", text = "I have nothing for you. Go on your way." },
     { id = "l3", text = "There's nothing I can tell you." },
+    { id = "xl4", text = "I keep to myself out here, and I'd thank you to let me go on doing it." },
+    { id = "xl5", text = "Whatever you're looking for, it isn't me, so you'd best keep walking." },
+    { id = "xl6", text = "I've work to do and no stories to tell, so don't wait on one." },
+    { id = "xl7", when = { metBefore = true }, text = "You again. I had nothing to say last time, and I've less now." },
   },
-  choices = { { text = "Never mind.", next = "END" } },
-  topics = { _none = { { id = "t_none", text = "I couldn't tell you." } } },
+  choices = {
+    { text = "Sorry to bother you.", next = "END", reply = "No bother. Just go on, now." },
+    { text = "Never mind.", next = "END" },
+  },
+  topics = { _none = { { id = "t_none", text = "I couldn't tell you." }, { id = "xt_none2", text = "Ask someone else, friend. I don't keep up with that sort of thing." } } },
 }
 
 ---------------------------------------------------------------------------

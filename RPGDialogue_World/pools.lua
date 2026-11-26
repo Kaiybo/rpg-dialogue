@@ -686,8 +686,19 @@ P:Pool {
     { id = "g_away", when = { away = 7 }, text = "You've been away {away}. Let's see whether you've kept up your practice." },
     { id = "g_since", when = { levelsSince = 6 }, text = "You've come on a long way since I last taught you. Let's see what's left for me to show you." },
   },
-  lines = { { id = "l_default", text = "Practice what I teach you, or don't come back for more." } },
-  choices = { { text = "Train me.", next = "BUSINESS" } },
+  lines = {
+    { id = "l_default", text = "Practice what I teach you, or don't come back for more." },
+    { id = "xl_patience", text = "Every new skill costs a little coin and a great deal of practice, and only one of those is mine to give you." },
+    { id = "xl_young", when = { band = { "Greenhorn", "Blooded" } }, text = "You're young yet, so learn the basics well, because everything later is built on them." },
+    { id = "xl_veteran", when = { band = { "Veteran", "Champion" } }, text = "There isn't much left for me to show you, but what there is will matter in the hard places." },
+    { id = "xl_drill", text = "Don't just read the technique and walk away. Drill it until you could do it half asleep, because one day you'll have to." },
+  },
+  choices = {
+    { text = "Train me.", next = "BUSINESS" },
+    { text = "Talent matters more than practice.", next = "END", reply = "Talent gets you through the door, but practice keeps you alive once you're through it.", fx = { align = { order = -1 } } },
+    { text = "Practice is everything. I'll drill every day.", next = "END", reply = "Good. Come back when you've worn out your boots doing it.", fx = { align = { order = 1 } } },
+    { text = "Not today.", next = "END", reply = "Then go and practise what you already know." },
+  },
 }
 
 -- Spirit healers live in spirithealer.lua (one shared character, the deepest in the addon).
