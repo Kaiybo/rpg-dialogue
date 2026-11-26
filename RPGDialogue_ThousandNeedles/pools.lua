@@ -5,6 +5,8 @@ P:Pool {
   id = "guard_freewind", role = "guard", community = "freewind",
   barks = {
     { id = "b_wind", text = "Wind's from the south, and that's centaur weather." },
+    { id = "yb_drums", text = "Drums on Darkcloud Pinnacle again last night. The Grimtotem do not drum for joy." },
+    { id = "yb_hawk", text = "A hawk circled the lift three times this morning. The elders say that is a message, but nobody agrees what it says." },
     { id = "b_lift", text = "The lift creaks; it always creaks. The day it stops creaking, that's when you worry." },
   },
   greetings = {
@@ -21,17 +23,25 @@ P:Pool {
   lines = {
     { id = "l_default", text = "We watch the canyons for the Galak and the pinnacle for the Grimtotem, as the Earth Mother would want. Both of them are watching us back." },
     { id = "l_x_wind", text = "The wind up here never stops, and the elders say it carries the voices of the ancestors. Most days it only carries dust, but I listen anyway." },
+    { id = "yl_galak", text = "The Galak raid the canyon roads in the dry season, and this is always the dry season. Walk the mesa paths if you can, and the canyon floor only if you must." },
+    { id = "yl_lift", text = "Grish Longrunner carries word up from Thunder Bluff, and the news is never light. Cairne knows what the Grimtotem are, but he will not strike at his own kind without cause." },
+    { id = "yl_x_orc", when = { race = "Orc" }, text = "Moktar Krin's hunters camp below us at Ironstone. They hunt loudly, orc, but they keep the Galak busy, and for that I thank the Earth Mother." },
+    { id = "yl_x_night", when = { timeOfDay = "night" }, text = "At night the canyon wind sounds like the old songs. Mu'sha watches us from above, and the harpies watch us from the ledges below." },
     { id = "l_x_tauren", when = { race = "Tauren" }, text = "It is good to see horns on the mesa, cousin. Freewind needs every tauren who can hold a spear and keep a level head." },
   },
   choices = {
     { text = "The Galak should be driven from the canyons.", next = "END", reply = "Many braves agree with you, and they sharpen their spears for it.", fx = { align = { light = -1 } } },
     { text = "Hold the mesas, and leave the canyons in peace.", next = "END", reply = "The elders say the same. Patience is the tauren way.", fx = { align = { light = 1 } } },
+    { text = "The Grimtotem must answer to Cairne.", next = "END", reply = "Spoken like a Bloodhoof. The Grimtotem answer to no one, and that is the trouble.", fx = { align = { order = 1 } } },
+    { text = "Let the Grimtotem keep their own mesa.", next = "END", reply = "Their own mesa, perhaps. But they want ours too.", fx = { align = { order = -1 } } },
     { text = "Keep watching, Brave.", next = "END", fx = { standing = { freewind = 1 } } },
   },
   topics = {
     highperch = { { id = "t_x_highperch", text = "Highperch is where the wyverns nest. The hunters climb it to take eggs, and not all of them climb down." } },
     grimtotem = { { id = "t_grimtotem", text = "They're tauren, and they look at us like strangers. Don't walk alone near Darkcloud Pinnacle." } },
     mirage_raceway = { { id = "t_raceway", text = "Goblins and gnomes racing across the salt. When the wind drops you can hear the engines from here." } },
+    galak = { { id = "yt_galak", text = "The Galak centaur ride hard and strike from the canyon dust. Their arrows are poor, but there are many of them." } },
+    great_lift = { { id = "yt_lift", text = "The Great Lift joins the Barrens to the Needles. When it creaks, the braves on the platform hold their breath." } },
     _none = { { id = "t_none", text = "Ask the Cliffwatcher; he sees farther than any of us, almost as far as the hawks." } },
   },
 }

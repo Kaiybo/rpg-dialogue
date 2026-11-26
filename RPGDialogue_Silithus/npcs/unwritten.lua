@@ -1348,6 +1348,7 @@ P:NPC {
     cavalry = { { id = "tp_xcavalry", text = "We ride the flanks. It's dangerous and it's the best work in the army." } },
     westfall = { { id = "y_tp_wf", text = "Westfall was hard riding but honest. Here the ground itself fights you." } },
     goldshire = { { id = "y_tp_gs", text = "Goldshire has the Lion's Pride Inn and the best apple pie in Elwynn. I think about it every night." } },
+    gadgetzan = { { id = "y_tp_gz", text = "Gadgetzan's goblins will buy anything, even a tired horse. Bracken's not for sale." } },
     _none = { { id = "tp_none", text = "No idea, friend. Ask the officers." } } },
 }
 

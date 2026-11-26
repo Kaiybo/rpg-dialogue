@@ -37,6 +37,10 @@ P:NPC {
         { text = "Tell me about the spiders.", next = "spiders" },
         { text = "Why wait? Go in and avenge her.", next = "wait" },
         { text = "How do you find life among the Darkspear?", next = "trolls" },
+        { text = "What was your mate's name?", next = "yname" },
+        { text = "Does anyone help you train?", next = "ytrain" },
+        { text = "What will you do after?", next = "yafter" },
+        { text = "An orc should not grieve alone. Let me help.", next = "yhelp", when = { race = "Orc" } },
         { text = "Strength and honor, Darn.", next = "END" },
       },
     },
@@ -59,8 +63,44 @@ P:NPC {
       lines = { { id = "t_default", text = "Xen'Zilla hunts the same spiders for the camp's meat, and he does not ask me to talk about it, which I respect. The witch doctor offered me a charm for my grief, and I told him an orc keeps his grief until it has done its work." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    yname = {
+      lines = {
+        { id = "yyname_d", text = "Kerga. She laughed louder than any orc in Orgrimmar and threw an axe better than me. The Warchief sent us here together. The spiders took her in the night, and I did not wake in time." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytrain = {
+      lines = {
+        { id = "yytrain_d", text = "The Darkspear hunters let me spar with them, and their witch doctor gives me bitter tea for the poison. They say I fight angry. I say anger is all I have left of her." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yafter = {
+      lines = {
+        { id = "yyafter_d", text = "I do not know. I have thought only of the canyon, and of the great spider Besseleth. Some say vengeance leaves you empty. Some say it is the only way to let the dead rest." },
+      },
+      choices = {
+        { text = "Avenge her. Her spirit demands it.", next = "BACK", reply = "Yes. That is what I tell myself every night.", fx = { align = { honor = -1 } } },
+        { text = "Honour her by living, not only by killing.", next = "BACK", reply = "Perhaps. Kerga would say the same, and laugh at me for being slow.", fx = { align = { honor = 1 } } },
+      },
+    },
+    yhelp = {
+      lines = {
+        { id = "yyhelp_v0", when = { race = "Orc" }, text = "Then come with me, brother, and we will cut through the webs together. Bring fire, for the spiders hate it, and a strong stomach." },
+        { id = "yyhelp_d", text = "Then come with me when I go, and we will cut a path through the webs together. Bring fire, for the spiders hate it. And bring a strong stomach." },
+      },
+      choices = {
+        { text = "I'll be ready.", next = "BACK", reply = "Good. I will wait for you.", fx = { affinity = 1 } },
+      },
+    },
   },
   topics = {
+    kerga = { { id = "ytp_kerga", text = "Kerga was my mate. Her laugh was louder than a war drum." } },
+    malaka_jin = { { id = "ytp_malaka_jin", text = "Malaka'jin is a troll camp, but they have made me welcome. I owe them for it." } },
     background = { { id = "tp_bg", text = "A scout of the Horde, sent to Stonetalon. I had a mate, and the canyon has her bones." } },
     _none = { { id = "tp_none", text = "I know nothing of that. I know one canyon and what lives in it." } },
   },
@@ -98,6 +138,10 @@ P:NPC {
         { text = "What is the Talon Den?", next = "den" },
         { text = "Who is cutting the mountain?", next = "cutting" },
         { text = "You don't seem to trust strangers.", next = "trust" },
+        { text = "Do you ever leave the gate?", next = "yleave" },
+        { text = "What do you remember of the mountain before?", next = "ybefore" },
+        { text = "Should the keepers make war on the goblins?", next = "ywar" },
+        { text = "A druid of the Circle greets you, Gatekeeper.", next = "ydruid", when = { class = "DRUID" } },
         { text = "I come in peace, Gatekeeper.", next = "END" },
       },
     },
@@ -120,8 +164,44 @@ P:NPC {
       lines = { { id = "t_default", text = "I trust what a traveller does, and I have not yet seen what you will do. Many who came smiling to this mountain went away with its timber, and so I have learned to watch hands and pay little heed to faces." } },
       choices = { { text = "Then watch mine. Another question.", next = "BACK" } },
     },
+    yleave = {
+      lines = {
+        { id = "yyleave_d", text = "Not in a hundred years. My father, Cenarius, gave this gate to my keeping, and I will keep it until the mountain falls or I do. The druids bring me news, and the wind brings me the rest." },
+      },
+      choices = {
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    ybefore = {
+      lines = {
+        { id = "yybefore_d", text = "Green to the peaks, with waterfalls in every valley and eagles above. The Charred Vale was a forest of red pines. Now it is ash, and the eagles fly higher, and they do not come down." },
+      },
+      choices = {
+        { text = "Another question.", next = "BACK" },
+      },
+    },
+    ywar = {
+      lines = {
+        { id = "yywar_d", text = "Some of my kin say so, and they are loud. The druids counsel patience, for war burns forests too. I stand between them, and the mountain bleeds while we argue." },
+      },
+      choices = {
+        { text = "Drive the goblins out by force.", next = "BACK", reply = "There is truth in that. I have felt it in my hooves.", fx = { align = { order = -1 } } },
+        { text = "Patience. A war would burn what's left.", next = "BACK", reply = "That is the druids' counsel. I hope it is wise.", fx = { align = { order = 1 } } },
+      },
+    },
+    ydruid = {
+      lines = {
+        { id = "yydruid_v0", when = { class = "DRUID" }, text = "Then you are welcome, druid. Tell the council the Gatekeeper greets them, and that the Venture camps have moved another league north." },
+        { id = "yydruid_d", text = "Then you are welcome at the gate, and you may pass when the council allows. Tell them the Gatekeeper sends his greetings, and that the Venture camps have moved another league north." },
+      },
+      choices = {
+        { text = "Another question.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    cenarius = { { id = "ytp_cenarius", text = "Cenarius is my father, and the father of all the keepers. His spirit walks in the forests still." } },
+    charred_vale = { { id = "ytp_charred_vale", text = "The Charred Vale was a forest. The goblins burned it, and the wind still carries the ash." } },
     background = { { id = "tp_bg", text = "I am a keeper of the grove, and this gate is my charge. I have had no other since the forest was whole." } },
     venture_company = { { id = "tp_vc", text = "Goblins who cut and burn for coin. The Windshear Crag is their doing." } },
     _none = { { id = "tp_none", text = "That is not a matter for the gate. Ask Keeper Albagorm within." } },

@@ -1277,6 +1277,7 @@ P:NPC {
     },
   },
   topics = {
+    tidus_depths = { { id = "ytp_tidus_depths", text = "Below the Stair the water is cold and clean. The foulness has not reached so deep, yet." } },
     tides = { { id = "ytp_tides", text = "The tides are my breath. Listen at the Tidus Stair, and you will hear me." } },
     sea = { { id = "ytp_sea", text = "The sea is patient. It has already won, and it waits for the land to notice." } },
     elements = { { id = "ytp_elements", text = "Fire, earth, air and water. We are not your servants, but some of us will listen." } },

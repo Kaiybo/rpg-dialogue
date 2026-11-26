@@ -213,6 +213,8 @@ P:NPC {
     },
   },
   topics = {
+    raptors = { { id = "ytp_raptors", text = "De raptors on de Isles be fast, mon. We used to race dem as children." } },
+    echo_isles = { { id = "ytp_echo_isles", text = "De Echo Isles be home. De sand be white and de water be warm, and Zalazane don't deserve dem." } },
     vol_jin = { { id = "ytp_vol_jin", text = "Vol'jin be our chief now. He clever, and he patient, and he hate Zalazane more dan anyone." } },
     murlocs = { { id = "ytp_murlocs", text = "De murlocs be everywhere on dis coast. Dey be noisy, but dey don't be smart." } },
     sen_jin = { { id = "tp_xsen_jin", text = "Sen'jin Village be named for our old chief. He died so we could live." } },
@@ -333,6 +335,8 @@ P:NPC {
     },
   },
   topics = {
+    booty_bay = { { id = "ytp_booty_bay", text = "Booty Bay's where they train us. If you can keep the peace there, you can keep it anywhere." } },
+    cartel_rules = { { id = "ytp_cartel_rules", text = "Cartel rules are simple. Don't break nothin', don't kill nobody, and pay your tab." } },
     ratchet = { { id = "ytp_ratchet", text = "Ratchet's the Cartel's port in the Barrens. I keep the peace there, and here, and anywhere they pay me." } },
     bruisers = { { id = "ytp_bruisers", text = "Bruisers keep the Cartel neutral, with clubs if we have to." } },
     steamwheedle = { { id = "tp_xsteamwheedle", text = "The Steamwheedle Cartel keeps trade flowing. I keep it from flowing into fistfights." } },
@@ -982,6 +986,7 @@ P:NPC {
     },
   },
   topics = {
+    foreman_whip = { { id = "ytp_foreman_whip", text = "The foreman has a whip, but he only cracks it at the air. I think he is lazy too, secretly." } },
     valley_of_trials = { { id = "ytp_valley_of_trials", text = "The Valley of Trials is where young orcs learn to fight. Peons learn to hide." } },
     logs = { { id = "ytp_logs", text = "Logs are heavy, and there are always more of them. It is very unfair." } },
     foreman = { { id = "tp_xforeman", text = "Thazz'ril is always angry. Me always tired. We balance." } },

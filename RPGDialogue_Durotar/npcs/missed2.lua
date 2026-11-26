@@ -95,6 +95,7 @@ P:NPC {
     },
   },
   topics = {
+    pigs = { { id = "ytp_pigs", text = "I keep no pigs. In the old Horde, I saw what the hungry do to pigs, and to each other." } },
     thrall = { { id = "ytp_thrall", text = "Thrall gave us back our souls. I will never forget that." } },
     harroc = { { id = "ytp_harroc", text = "Harroc digs well. He will make a good farmer, or a good grunt, whichever he chooses." } },
     background = { { id = "tp_bg", text = "I did the Horde's quiet work for many years, and now I grow its vegetables. I find I'm better company for it." } },

@@ -108,6 +108,10 @@ P:NPC {
         { text = "What is the Lunar Festival?", next = "festival" },
         { text = "I've come to honor you, Elder.", next = "honor" },
         { text = "What did the Earth Mother teach you?", next = "earthmother", when = { race = "Tauren" } },
+        { text = "Who were you, in life?", next = "ylife" },
+        { text = "Do you visit other elders at the festival?", next = "yothers" },
+        { text = "What do you think of the goblins and scholars here?", next = "yscholars" },
+        { text = "A child of the herds greets you, Elder.", next = "ytauren", when = { race = "Tauren" } },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -142,8 +146,44 @@ P:NPC {
       lines = { { id = "e_default", text = "That all things are bound together, the hunter and the hunted, the river and the rain. Remember that, and you will never be truly lost." } },
       choices = { { text = "I'll remember.", next = "BACK" } },
     },
+    ylife = {
+      lines = {
+        { id = "yylife_d", text = "A hunter of the Thunderhorn tribe, when the tauren were still wanderers. I chased kodo across the Barrens and the Thousand Needles. I never saw this crater in life, only in dreams." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yothers = {
+      lines = {
+        { id = "yyothers_d", text = "Many of us gather, at Moonglade and at the old places. We speak of the living, and of the young ones who honour us. You are spoken of, a little, now that you have come." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yscholars = {
+      lines = {
+        { id = "yyscholars_d", text = "They come with books and goggles and pick at the crystals and the bones. Some want to learn, and some want to sell. The crater does not care, but it does remember." },
+      },
+      choices = {
+        { text = "Knowledge is good. Let them learn.", next = "BACK", reply = "Yes, if they learn gently.", fx = { align = { order = -1 } } },
+        { text = "The crater should be left alone.", next = "BACK", reply = "Perhaps. But the young never leave anything alone.", fx = { align = { order = 1 } } },
+      },
+    },
+    ytauren = {
+      lines = {
+        { id = "yytauren_d", text = "Then the Earth Mother smiles, and so do I. Walk this crater with respect, young one. It is old, and it has seen the world made. Honour it, and it will honour you." },
+      },
+      choices = {
+        { text = "I will, Elder.", next = "BACK", reply = "Good. Then I am glad you came.", fx = { affinity = 1 } },
+      },
+    },
   },
   topics = {
+    devilsaurs = { { id = "ytp_devilsaurs", text = "The devilsaurs are the oldest hunters. I would have liked to hunt one, in life." } },
+    thunderhorn = { { id = "ytp_thunderhorn", text = "The Thunderhorn tribe were great hunters. I was among the greatest, or so they sang." } },
+    un_goro = { { id = "ytp_un_goro", text = "Un'Goro is young and old at once. It is the world as the titans first made it." } },
     _none = { { id = "tp_none", text = "I do not know that, little one." } },
   },
 }

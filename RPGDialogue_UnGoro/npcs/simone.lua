@@ -268,6 +268,10 @@ P:NPC {
         { text = "You never seem to blink.", next = "xblink" },
         { text = "Sit. Good boy. Shake?", next = "xsit" },
         { text = "I'm a warlock. I know what you are.", next = "xwarlock", when = { class = "WARLOCK" } },
+        { text = "Fetch!", next = "yfetch" },
+        { text = "Do you want a treat?", next = "ytreat" },
+        { text = "Are you hungry?", next = "yhungry" },
+        { text = "I'm a hunter. You're no beast.", next = "yhunter", when = { class = "HUNTER" } },
         { text = "Leave the dog alone.", next = "END" },
       },
     },
@@ -316,6 +320,47 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    yfetch = {
+      narr = "The stick is warm when you pick it up, and smells faintly of smoke.",
+      lines = {
+        { id = "yyfetch_d", text = "You throw a stick. Precious watches it land, then watches you, and does not move. After a moment the stick is lying at your feet, and you did not see him go." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    ytreat = {
+      lines = {
+        { id = "yytreat_d", text = "His tail sweeps the mud, eager and polite. When you offer a scrap of jerky he takes it delicately, and the jerky blackens and curls between his teeth before it disappears." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    yhungry = {
+      lines = {
+        { id = "yyhungry_d", text = "He tilts his head, and for a moment his shadow on the steam is much too large, with far too many teeth. Then it is only a dog's shadow again, sitting nicely." },
+      },
+      choices = {
+        { text = "Good dog. Whatever you are, behave.", next = "BACK", reply = "Precious wags once, slowly, as if agreeing to terms.", fx = { align = { order = 1 } } },
+        { text = "I'd rather see the shadow. Show me.", next = "BACK", reply = "The dog only looks at you. The air grows hot, and then cool again.", fx = { align = { order = -1 } } },
+      },
+    },
+    yhunter = {
+      lines = {
+        { id = "yyhunter_v0", when = { class = "HUNTER" }, text = "You reach for him the way you reach for any beast, and find nothing to hold. It is like reaching for water and touching smoke." },
+        { id = "yyhunter_d", text = "He looks at you, and you look at him, and the bond you share with beasts finds nothing there to hold. It is like reaching for water and touching smoke." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = { _none = { { id = "tp_none", text = "Precious yawns, showing rather too many teeth, and does not answer." } } },
+  topics = {
+    fire = { { id = "ytp_fire", text = "Precious looks at the nearest fumarole with something like fondness." } },
+    good_boy = { { id = "ytp_good_boy", text = "At the words, Precious wags with perfect enthusiasm, and the mud around his tail steams." } },
+    simone = { { id = "ytp_simone", text = "At the name, Precious sits up very straight and looks toward the pool, as a dog does when his mistress is due home." } },
+    demons = { { id = "ytp_demons", text = "Precious yawns, showing a tongue that glows faintly red, and then he lies down as if the word bored him." } },
+  },
 }

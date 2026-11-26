@@ -325,6 +325,8 @@ P:NPC {
         { text = "Do the night elves come here?", next = "xelves" },
         { text = "Why do you turn back before the grove?", next = "xturn" },
         { text = "I'm a druid. The grove calls to me.", next = "BACK", when = { class = "DRUID" }, reply = "Then go with my blessing, but please, don't wake anything on my road. I've a long walk home." },
+        { text = "What happened when you walked into the grove?", next = "y_inside" },
+        { text = "Do you have family in Darkshire?", next = "y_family" },
         { text = "Safe walking, Cutford.", next = "END" },
       },
     },
@@ -373,11 +375,26 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    y_inside = {
+      lines = {
+        { id = "y_inside_d", text = "I don't know, and that's the worst part. I remember the trees turning silver, and a voice singing. Then dawn, and the road, and three days gone. My wife thought I'd deserted." },
+        { id = "y_inside_ne", when = { race = "NightElf" }, text = "I remember silver trees and a voice singing, the kind your people might understand. Then dawn on the road and three days gone. Do you know what dreams in there, friend?" },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_family = {
+      lines = { { id = "y_family_d", text = "A wife who wants me to leave the Watch, and a daughter who wants to join it. I don't know which one scares me more. My daughter's been sneaking toward the grove at night." } },
+      choices = {
+        { text = "Stop her. The grove is dangerous.", next = "BACK", reply = "Aye. I'll lock the door if I must.", fx = { align = { order = 1 } } },
+        { text = "Let her see it. She'll learn.", next = "BACK", reply = "You sound like her. Light help me, maybe you're right.", fx = { align = { order = -1 } } },
+      },
+    },
   },
   topics = {
     twilight_grove = { { id = "tp_xtwilight_grove", text = "Pretty from afar. I keep it that way." } },
     night_elves = { { id = "tp_xnight_elves", text = "Quiet folk. They seem to know something about the grove we don't." } },
     background = { { id = "tp_bg", text = "Darkshire born, Watch sworn. Not much more to it than that." } },
+    darkshire = { { id = "y_tp_ds", text = "Darkshire's grim and grey, but it's ours. The Watch keeps it standing." } },
     _none = { { id = "tp_none", text = "Don't know it, and I've a road to walk. Ask in town." } },
   },
 }
@@ -498,6 +515,7 @@ P:NPC {
         { text = "How many are on this line?", next = "xline" },
         { text = "What did Stitches do last time?", next = "xlasttime" },
         { text = "I'm a priest. Should I pray for the line?", next = "BACK", when = { class = "PRIEST" }, reply = "Pray loud, then, and pray close. Light knows we need it more than the cathedral does." },
+        { text = "Did you know the Wilkins boy?", next = "y_wilkins" },
         { text = "Stand fast, Gelwin.", next = "END" },
       },
     },
@@ -551,11 +569,30 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    y_wilkins = {
+      lines = {
+        { id = "y_wilkins_d", text = "Tommy Wilkins. He brought us bread on the night shift, every night, from his mother's oven. I was on the line when Stitches came, and I didn't reach him in time. I hear the cart wheels in my sleep." },
+        { id = "y_wilkins_pr", when = { class = "PRIEST" }, text = "Tommy Wilkins. He brought us bread every night. I didn't reach him in time. You're a priest. Tell me the Light forgives a man who was too slow." },
+      },
+      choices = {
+        { text = "You couldn't have saved him.", next = "y_couldnt" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_couldnt = {
+      lines = { { id = "y_couldnt_d", text = "Maybe. His mother wants Abercrombie dragged from his shack and hanged, proof or no. Half the Watch agrees with her. Should we wait for proof, or act on what we all believe?" } },
+      choices = {
+        { text = "Wait for proof. Justice needs it.", next = "BACK", reply = "Aye. That's what the commander says too.", fx = { align = { order = 1 } } },
+        { text = "Act. Everyone knows he made it.", next = "BACK", reply = "Careful saying that loud, friend. But I hear you.", fx = { align = { order = -1 } } },
+      },
+    },
   },
   topics = {
     stitches = { { id = "tp_xstitches", text = "An abomination with a cleaver. If you hear it laugh, run." } },
     abercrombie = { { id = "tp_xabercrombie", text = "A hermit, they say. I say hermits don't need that many corpses." } },
     background = { { id = "tp_bg", text = "Watch veteran. I've seen too many friends' names go on the stone." } },
+    raven_hill = { { id = "y_tp_rh", text = "Raven Hill is a cemetery with a village attached. The dead outnumber the living there." } },
+    rotting_orchard = { { id = "y_tp_ro", text = "The Rotting Orchard is south of the line. Nothing good grows there anymore." } },
     _none = { { id = "tp_none", text = "Not now, friend. My eyes are on the road." } },
   },
 }
@@ -586,6 +623,8 @@ P:NPC {
         { text = "What would you do instead of this post?", next = "xinstead" },
         { text = "Tell me about Darkshire's barracks.", next = "xbarracks" },
         { text = "I'm a rogue. I could rig the draw.", next = "BACK", when = { class = "ROGUE" }, reply = "Could you? No, don't tell me. If I'm asked, I want to look honestly surprised." },
+        { text = "Why do you really stay in the Watch?", next = "y_stay" },
+        { text = "Has the post ever gone quiet?", next = "y_quiet" },
         { text = "Better luck next draw.", next = "END" },
       },
     },
@@ -634,11 +673,27 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    y_stay = {
+      lines = {
+        { id = "y_stay_d", text = "Truthfully? My sister lives in Darkshire with three little ones, and if this road fails, the town fails. I complain because it keeps me from thinking about that too much." },
+        { id = "y_stay_hu", when = { race = "Human" }, text = "My sister's in Darkshire with three little ones. You've probably got family somewhere behind a line like this one. I complain so I don't have to think about it." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_quiet = {
+      lines = { { id = "y_quiet_d", text = "Last week, for two whole nights. No ghouls, no howls, nothing. Thayer said it was a mercy. I think something big scared off the little things. I haven't reported it, because I'd sound mad." } },
+      choices = {
+        { text = "Report it. The commander should know.", next = "BACK", reply = "Fine. If she laughs, I'm blaming you.", fx = { align = { order = 1 } } },
+        { text = "Keep it to yourself for now.", next = "BACK", reply = "Aye, no sense starting a panic over a quiet night.", fx = { align = { order = -1 } } },
+      },
+    },
   },
   topics = {
     stitches = { { id = "tp_xstitches", text = "The less said, the better. I've only seen it once, and that was once too many." } },
     goldshire = { { id = "tp_xgoldshire", text = "Lovely place. Sunlight and pies. I miss it like a lost tooth." } },
     background = { { id = "tp_bg", text = "Joined the Watch for the steady pay. Nobody told me about the straws." } },
+    darkshire = { { id = "y_tp_ds", text = "Darkshire is grey, wet and full of folk who'd rather not talk about what's in the woods." } },
+    thayer = { { id = "y_tp_thayer", text = "Thayer wants this post more than any sane man should. I've stopped asking why." } },
     _none = { { id = "tp_none", text = "Don't know. Ask someone who drew a better post." } },
   },
 }
@@ -923,6 +978,9 @@ P:NPC {
         { text = "What brings you to Duskwood?", next = "why" },
         { text = "The Society's work makes me uneasy.", next = "society" },
         { text = "Zraedus sent me to help with the serum.", next = "done", when = { questDone = TODO_QUEST("Nothing But The Truth") } },
+        { text = "You were a physician in Lordaeron?", next = "y_physician" },
+        { text = "Do you trust Zraedus?", next = "y_zraedus" },
+        { text = "Who is the spy you're brewing for?", next = "y_spy" },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -952,9 +1010,43 @@ P:NPC {
       lines = { { id = "d_default", text = "Splendid, a willing pair of hands. Fetch me what the forests grow and the serum will be ready for our friend in Stonard, and do try not to mention to the orcs who brewed it." } },
       choices = { { text = "Your secret's safe. Something else.", next = "BACK" } },
     },
+    y_physician = {
+      lines = {
+        { id = "y_physician_d", text = "In Stratholme, my dear, setting bones and bleeding fevers for a city that thought itself immortal. Then the grain came, and the prince, and I learned that a physician's oath does not survive a funeral." },
+        { id = "y_physician_sc", when = { race = "Scourge" }, text = "In Stratholme, before the prince's purge. You'll have your own memories of that time, I'm sure, or of not having them. My oath did not survive my funeral. Did yours?" },
+      },
+      choices = {
+        { text = "Do you miss healing?", next = "y_miss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_miss = {
+      lines = { { id = "y_miss_d", text = "I miss being thanked. Healing was tedious. Now I make things that frighten people, and nobody thanks me, but at least they remember my name." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    y_zraedus = {
+      lines = { { id = "y_zraedus_d", text = "Zraedus trusts me, which is his mistake, and I watch him, which is my habit. He reports to Varimathras directly. I report to Varimathras through him, and I wonder what he leaves out." } },
+      choices = {
+        { text = "Why not report to the Dark Lady directly?", next = "y_direct" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    y_direct = {
+      lines = { { id = "y_direct_d", text = "Because the Society reports to the dreadlord, and the dreadlord reports to the Dark Lady, and I am told that is how things are done. Should a loyal servant go around the chain, if he suspects it is rotten?" } },
+      choices = {
+        { text = "Yes. Loyalty to the queen comes first.", next = "BACK", reply = "How bold. I shall consider which letter to write.", fx = { align = { order = -1 } } },
+        { text = "No. The chain exists for a reason.", next = "BACK", reply = "Spoken like a perfect subordinate. Varimathras would adore you.", fx = { align = { order = 1 } } },
+      },
+    },
+    y_spy = {
+      lines = { { id = "y_spy_d", text = "The human in Stonard? A Stormwind scout who wandered too close to our tents. He's very brave and very stupid, which is the most useful combination in a test subject." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I was a physician in Lordaeron, once. Now I'm something much more useful." } },
+    stonard = { { id = "y_tp_stonard", text = "Stonard is a swamp full of orcs. Charming, damp and in dire need of a decent alchemist." } },
+    varimathras = { { id = "y_tp_vari", text = "Varimathras serves the Dark Lady. Officially. I find officially is the most interesting word in the language." } },
     _none = { { id = "tp_none", text = "How dreary. Ask me about something that can be boiled." } },
   },
 }

@@ -93,6 +93,7 @@ P:NPC {
     },
   },
   topics = {
+    basket = { { id = "ytp_basket", text = "My basket holds the little ones. One of them bites, so I don't tell anyone which." } },
     gar_thok = { { id = "ytp_gar_thok", text = "Gar'Thok gives orders and I give welcomes. We each do the job we're good at." } },
     valley_of_trials = { { id = "ytp_valley_of_trials", text = "The Valley of Trials is where the young ones learn. I wish it taught them caution." } },
     background = { { id = "tp_bg", text = "I came to Durotar with the first wagons and I've been greeting the later ones ever since." } },

@@ -1035,6 +1035,7 @@ P:NPC {
     },
   },
   topics = {
+    pozzik = { { id = "yt_pozzik", text = "Pozzik drive goblin car very fast and very on fire. Zuzubee cheer when Pozzik lose, but quietly." } },
     kronkrider = { { id = "yt_kronk", text = "Kronkrider wave flag and read rules. Nobody listen, but Zuzubee clap for him anyway." } },
     hat = { { id = "yt_hat", text = "Shiny hat make Zuzubee voice big as mountain. It smoke a little, but gnomes say that normal." } },
     feralas = { { id = "yt_feralas", text = "Feralas has big trees, much rain and many ogres. Zuzubee not go back." } },
