@@ -1650,6 +1650,12 @@ P:NPC {
       choices = {
         { text = "What do you guard here?", next = "guard" },
         { text = "Who may enter the Temple?", next = "enter" },
+        { text = "How does one join the Highguard?", next = "join" },
+        { text = "What do you know of the High Priestess?", next = "tyrande" },
+        { text = "You've not moved a muscle since I came in.", next = "still" },
+        { text = "Why do the Sisterhood lead, and not the druids?", next = "druids" },
+        { text = "I serve Elune too, as a priestess.", next = "priest", when = { class = "PRIEST", race = "NightElf" } },
+        { text = "Even a human may pray here?", next = "human", when = { race = "Human" } },
         { text = "Elune guide you, Highguard.", next = "END" },
       },
     },
@@ -1665,5 +1671,52 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    join = {
+      lines = { { id = "jo_default", text = "Only priestesses and Sentinels who have served long and well are asked, and none of us asks to be chosen. I stood on the borders of Ashenvale for longer than your kingdoms have had kings before the Sisterhood called me here." } },
+      choices = {
+        { text = "Do you miss the borders?", next = "join_miss" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    join_miss = {
+      lines = { { id = "jm_default", text = "Some nights. The orcs cut deeper into Ashenvale every season, and my sisters there are fewer than they should be. Here I stand among peace and moonlight, and I am not certain I have earned it." } },
+      choices = {
+        { text = "Should the Sentinels drive the orcs from Ashenvale?", next = "join_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    join_stance = {
+      big = true,
+      lines = { { id = "js_default", text = "That is the Council's question and the High Priestess's, not a guard's. Still, you asked, so I will ask you in turn: what would you do?" } },
+      choices = {
+        { text = "Hold the line. The forest must be defended.", next = "BACK", reply = "So my sisters believe, and so they bleed. Elune keep them.", fx = { align = { honor = 1 } } },
+        { text = "Seek terms. Endless war will cost more trees than axes.", next = "BACK", reply = "A strange counsel, and not one many of my people would welcome. I will think on it.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tyrande = {
+      lines = { { id = "ty_default", text = "She has led the Sisterhood since before the Well of Eternity was destroyed, and she fought the Burning Legion when your ancestors were still learning fire. When she walks past me, I stand straighter, and I have stood here a very long time." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    still = {
+      lines = { { id = "st_default", text = "Stillness is a discipline, and the Temple teaches it. A Sentinel who can stand without moving through a whole night can also see the one thing in the dark that does move." } },
+      choices = { { text = "I'll remember that. Something else.", next = "BACK" } },
+    },
+    druids = {
+      lines = { { id = "dr_default", text = "The druids sleep in the Emerald Dream for long years, and Malfurion with them. The Sisterhood kept our people safe through ten thousand years of their sleeping, and it is right that we continue." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    priest = {
+      lines = { { id = "pr_default", text = "Then welcome home, sister. The moonwell is open to you at any hour, and if you are troubled, the priestesses in the inner court will listen." } },
+      choices = { { text = "Thank you. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    human = {
+      lines = { { id = "hu_default", text = "Elune turns no one away, and your Light and her moon may be closer than either of our priests would admit. Pray softly, and do not touch the moonwell." } },
+      choices = { { text = "I'll be careful. Something else.", next = "BACK" } },
+    },
+  },
+  topics = {
+    tyrande = { { id = "tp_tyrande", text = "The High Priestess. I would give my life for her without a moment's thought." } },
+    _none = { { id = "tp_none", text = "That is not mine to speak of. Ask the priestesses within, quietly." } },
   },
 }

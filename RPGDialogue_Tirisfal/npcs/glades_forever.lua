@@ -1342,6 +1342,10 @@ P:NPC {
       choices = {
         { text = "Why watch the goblins?", next = "goblins" },
         { text = "Where do the zeppelins go?", next = "where" },
+        { text = "Has the Crusade ever struck the tower?", next = "attack" },
+        { text = "You keep glancing at the sky.", next = "sky" },
+        { text = "What do you make of the Horde folk passing through?", next = "horde" },
+        { text = "I've just come off the zeppelin from Durotar.", next = "durotar", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -1350,7 +1354,43 @@ P:NPC {
       choices = {
         { text = "A goblin's loyalty is only as good as the pay.", next = "BACK", reply = "Exactly so, and the Dark Lady pays well, which is the only reason I sleep at all.", fx = { align = { order = 1 } } },
         { text = "They've earned some trust by now, surely.", next = "BACK", reply = "Trust is for the living, friend, and I'm not one of those any more.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
+    },
+    attack = {
+      lines = { { id = "at_default", text = "Twice that I've seen, both times at night, with oil and torches and a great deal of shouting about purity. The second time they got as far as the stairs before we put them down." } },
+      choices = {
+        { text = "What happened to the prisoners?", next = "attack_prisoners" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    attack_prisoners = {
+      lines = { { id = "ap_default", text = "There were two, and the Apothecaries took them to the Undercity. I didn't ask what for, and I'd advise you not to ask either, unless you've a strong stomach and no particular wish to sleep." } },
+      choices = {
+        { text = "The Scarlets would have done worse to us.", next = "attack_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    attack_stance = {
+      big = true,
+      lines = { { id = "as_default", text = "They would, and they have. Still, I've heard some of the newly risen grumble that we're becoming what we hated, so tell me where you stand." } },
+      choices = {
+        { text = "Whatever keeps the Forsaken safe is justified.", next = "BACK", reply = "That's the Deathguard's creed, near enough, and the Dark Lady's too.", fx = { align = { order = 1 } } },
+        { text = "Cruelty for its own sake is the Scourge's way, not ours.", next = "BACK", reply = "Careful who hears you say that, friend, though I won't be the one to repeat it.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sky = {
+      lines = { { id = "sk_default", text = "Bats, mostly, from the Undercity, carrying messages, and once a gryphon rider from the Alliance who'd lost his way. He didn't find it again, I'm afraid." } },
+      choices = { { text = "Unlucky for him. Something else.", next = "BACK" } },
+    },
+    horde = {
+      lines = { { id = "ho_default", text = "Orcs who stare at us as if we might fall apart, trolls who ask if we're tasty, and tauren who are unfailingly polite and won't stand downwind. They're allies, and I'm grateful for them, in my way." } },
+      choices = { { text = "That's about fair. Something else.", next = "BACK" } },
+    },
+    durotar = {
+      lines = { { id = "du_default", text = "Welcome to Tirisfal, then, and don't let the gloom fool you, because it's worse than it looks. Brill is just up the road; the innkeeper serves food the living can eat, if you're careful which dish you choose." } },
+      choices = { { text = "I'll be careful. Something else.", next = "BACK" } },
     },
     where = {
       lines = { { id = "w_default", text = "One flight carries you to Orgrimmar in Durotar, and the other goes to Grom'gol in Stranglethorn, if you've a taste for jungle and trolls. Mind the steps on the way up, because the goblins never fixed the loose one." } },
@@ -1358,6 +1398,8 @@ P:NPC {
     },
   },
   topics = {
+    scarlet_crusade = { { id = "tp_crusade", text = "They hate the zeppelins almost as much as they hate us. Torches and oil, every time." } },
+    goblins = { { id = "tp_goblins", text = "Honest so far, and well paid to stay that way. I keep an eye on them regardless." } },
     _none = { { id = "tp_none", text = "I watch a tower, not the world. Ask in Brill." } },
   },
 }
@@ -1398,6 +1440,12 @@ P:NPC {
         { text = "What oath binds you here?", next = "oath" },
         { text = "Why call this place Light-forsaken?", next = "forsaken" },
         { text = "You've kept watch a long time, by the look of you.", next = "long" },
+        { text = "What do you guard against?", next = "guard" },
+        { text = "Do you remember your own name?", next = "name" },
+        { text = "What do you know of the Forsaken?", next = "forsaken_folk" },
+        { text = "Lordaeron is gone, Sir Knight. The king is dead.", next = "king" },
+        { text = "I serve the Light too. Let me pray for you.", next = "pray", when = { class = { "PALADIN", "PRIEST" }, ["not"] = { race = "Scourge" } } },
+        { text = "I could try to free you, by shadow if not Light.", next = "shadow", when = { race = "Scourge", class = { "PRIEST", "WARLOCK" } } },
         { text = "I'll leave you to your vigil.", next = "END" },
       },
     },
@@ -1425,8 +1473,61 @@ P:NPC {
       lines = { { id = "l_default", text = "Long enough that the mushrooms have grown up around my feet, and the faerie dragons no longer bother to hide from me. I count the seasons by the leaves, though I have lost the count more than once." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    guard = {
+      lines = { { id = "gu_default", text = "I do not know, and that has troubled me for many seasons. Perhaps the ring itself, for the old folk said such circles were doors to somewhere fair, or perhaps something beneath it that I was set to keep from waking." } },
+      choices = {
+        { text = "Something beneath the ring?", next = "guard_beneath" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    guard_beneath = {
+      lines = { { id = "gb_default", text = "On the stillest nights I hear something, like a voice in a dream speaking from very far off. I have never been able to make out the words, and I am no longer sure I wish to." } },
+      choices = {
+        { text = "Then you were right to stay.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    name = {
+      lines = { { id = "na_default", text = "No. I have tried, and it comes almost to my lips and then slips away, like a fish in cold water. I remember a white horse, and a banner of blue and silver, and a woman laughing in a garden, but not my own name." } },
+      choices = {
+        { text = "Blue and silver were Lordaeron's colours.", next = "name_lordaeron" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    name_lordaeron = {
+      lines = { { id = "nl_default", text = "Were? You say it as though they are no more. I had hoped, standing here, that the kingdom I served still stood somewhere beyond these trees." } },
+      choices = {
+        { text = "It fell to the plague and the Scourge.", next = "king" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    king = {
+      big = true,
+      lines = { { id = "ki_default", text = "<The ghost is silent for a long while, and the faerie lights dim around him.> Then I have kept watch for a crown that no longer exists. Tell me, traveller, should I keep my oath still, or is it ended with the kingdom?" } },
+      choices = {
+        { text = "Keep it. Your oath is all that's left of Lordaeron's honour.", next = "BACK", reply = "Then I will keep it, and gladly, for it seems I am among the last who can.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "It's ended. You owe a dead kingdom nothing more.", next = "BACK", reply = "Perhaps you are right, and yet my feet will not move. It seems the oath does not care what either of us thinks.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forsaken_folk = {
+      lines = {
+        { id = "ff_default", text = "Pale walkers who pass this way now and then, and stare at me as I stare at them. Some say they serve a queen beneath the old capital, but none has stayed long enough to tell me more." },
+        { id = "ff_scourge", when = { race = "Scourge" }, text = "I know only what you show me, which is a dead thing that thinks and grieves. I had believed only ghosts like me were cursed with that." },
+      },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    pray = {
+      lines = { { id = "pr_default", text = "You would do that for a stranger and a shade? Then pray, and I will listen, for I have not heard the Light's words spoken aloud in longer than I can tell. <He bows his translucent head.>" } },
+      choices = { { text = "<Pray quietly for the knight.>", next = "BACK", fx = { affinity = 2 } } },
+    },
+    shadow = {
+      lines = { { id = "sh_default", text = "No. I know that darkness, it is what walked through these woods and took my brothers, and I would rather stand here until the stars go out than be freed by it." } },
+      choices = { { text = "As you wish. Something else.", next = "BACK", fx = { affinity = -1 } } },
+    },
   },
   topics = {
+    lordaeron = { { id = "tp_lord", text = "I served its banner, I am sure of that much. If it has fallen, I would rather you did not tell me how." } },
     _none = { { id = "tp_none", text = "I know only this ring and my oath, traveller, and little of the world beyond it now." } },
   },
 }

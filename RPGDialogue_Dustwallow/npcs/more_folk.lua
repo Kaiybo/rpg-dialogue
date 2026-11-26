@@ -2012,6 +2012,12 @@ P:NPC {
         { text = "Why do they call you \"The Pickle\"?", next = "pickle" },
         { text = "SI:7 sends a dwarf? I thought they were all humans.", next = "si7" },
         { text = "That gadget on your knee is gnomish.", next = "gadget" },
+        { text = "That rifle's seen some miles.", next = "rifle" },
+        { text = "What do you make of Theramore's peace with the Horde?", next = "peace" },
+        { text = "What's the worst of this swamp?", next = "swamp" },
+        { text = "Any news from Ironforge, cousin?", next = "ironforge", when = { race = "Dwarf" } },
+        { text = "I'm a gnome. Those springs were load-bearing, you know.", next = "gnome", when = { race = "Gnome" } },
+        { text = "I've done some quiet work for Shaw myself.", next = "rogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "I'll leave you to your errand.", next = "END" },
       },
     },
@@ -2057,8 +2063,63 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    rifle = {
+      lines = { { id = "ri_default", text = "Made in Ironforge by my uncle, who swore it'd outlive me, an' it's tried its best tae prove him right. It's been dropped off a gryphon, buried in a bog, an' once used as a spit for roastin' a boar, an' it still shoots straight." } },
+      choices = {
+        { text = "A spit? You really were a cook.", next = "rifle_cook" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rifle_cook = {
+      lines = { { id = "rc_default", text = "Still am, when the job allows. Out here I've been eatin' marsh crab an' worse, an' I'd give a month's pay for a proper Dun Morogh sausage an' a mug o' Thunderbrew. Dinnae tell Shaw I said that, he'll dock me the month." } },
+      choices = {
+        { text = "How did a cook end up in SI:7?", next = "rifle_recruit" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rifle_recruit = {
+      lines = { { id = "rr_default", text = "I fixed a jammed cannon on a Stormwind ship while the cook's fire was still goin', an' someone important noticed both. A week later a quiet man asked if I'd like tae see the world, an' I said aye before I thought tae ask which bits." } },
+      choices = { { text = "Mostly the damp bits, it seems. Something else.", next = "BACK" } },
+    },
+    peace = {
+      big = true,
+      lines = { { id = "pe_default", text = "Lady Proudmoore keeps the peace with the orcs at Durotar, an' plenty in Stormwind grumble about it. I've my own view, but I'm a servant o' the Crown, so I'll hear yers first." } },
+      choices = {
+        { text = "The peace keeps folk alive. Proudmoore is right.", next = "BACK", reply = "Aye, it does, an' I've seen what the alternative looks like. I'll keep my rifle loaded all the same.", fx = { align = { honor = 1 } } },
+        { text = "You can't make peace with orcs. It won't last.", next = "BACK", reply = "Plenty agree wi' ye, back in Stormwind. Maybe ye're right, an' maybe that's why they keep sendin' me places.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    swamp = {
+      lines = { { id = "sw_default", text = "Crocolisks, mosquitoes the size o' sparrows, an' the black dragonkin in the south, around the Wyrmbog, that nobody likes tae talk about. There's somethin' bigger down there than the whelps, an' I'd stay well clear o' the place." } },
+      choices = {
+        { text = "Something bigger? Like what?", next = "swamp_big" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    swamp_big = {
+      lines = { { id = "sb_default", text = "If I knew, I'd say so, an' I'm glad I dinnae. Theramore's scouts go quiet when ye ask, an' that's enough for me tae keep my boots out o' the Wyrmbog." } },
+      choices = { { text = "Sound advice. Something else.", next = "BACK" } },
+    },
+    ironforge = {
+      lines = { { id = "if_default", text = "Ha, I've been in this bog so long I'd no' know if the king had shaved his beard. Last I heard, the Dark Irons were stirrin' again in the Searing Gorge, an' Thunderbrew raised his prices, an' I'm no' sure which news hurt more." } },
+      choices = { { text = "The prices, surely. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    gnome = {
+      lines = { { id = "gn_default", text = "Load-bearin', were they? Then why does it work better without 'em? <He tilts the gadget toward you.> Go on, then, show me what I took out, an' I'll put one back if ye can prove it." } },
+      choices = {
+        { text = "<Point to the spring that stops it overheating.>", next = "BACK", reply = "Ah. Well. That one, aye, I'll be puttin' that one back now. Dinnae look so smug.", fx = { affinity = 1 } },
+        { text = "Never mind. Something else.", next = "BACK" },
+      },
+    },
+    rogue = {
+      lines = { { id = "ro_default", text = "Have ye, now? Then ye'll know better than tae say so out loud, in an open swamp, tae a man ye've just met. Lesson one, {g:lad|lass}, an' I'll no' charge ye for it." } },
+      choices = { { text = "Fair point. Something else.", next = "BACK" } },
+    },
   },
   topics = {
+    alcaz = { { id = "tp_alcaz", text = "An island prison. That's all ye'll get from me, an' it's more than I should've said." } },
+    shaw = { { id = "tp_shaw", text = "Ye'll never see him comin'. That's all I'll say." } },
     _none = { { id = "tp_none", text = "Couldnae tell ye, even if I knew, an' I'm no' sayin' I do." } },
   },
 }

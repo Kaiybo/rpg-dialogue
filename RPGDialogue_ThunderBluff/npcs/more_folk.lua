@@ -2801,6 +2801,7 @@ P:NPC {
         { text = "What does a beginner get wrong?", next = "wrong" },
         { text = "What use is a smith at a camp?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Blacksmithing") } },
         { text = "Where should a smith go after you?", next = "after", when = { profession = "Blacksmithing" } },
+        { text = "What are you working on now?", next = "blade" },
         { text = "Strike true, Thrag.", next = "END" },
       },
     },
@@ -2843,6 +2844,21 @@ P:NPC {
       lines = { { id = "after_d", text = "To Karn, an arm's length to my left, when your hands are ready for him. After Karn there are the orcs in Orgrimmar, and I am told there are goblins in Booty Bay who can teach a thing or two, if you count your fingers afterward." } },
       choices = {
         { text = "What would the orcs teach that Karn won't?", next = "after_orcs" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    blade = {
+      lines = { { id = "b_default", key = true, text = "Spearheads, always spearheads! I made one this spring that I would put beside any of Karn's, and then I sold it to a Ragetotem hunter before he could look at it. Now it is out in the plains somewhere, and nobody believes me but the quilboar it has met." } },
+      choices = {
+        { text = "Which hunter took it?", next = "blade_who" },
+        { text = "Make another, and show Karn this time.", next = "BACK", reply = "I would, but the second one never comes out as well as the first. Karn says that is how you know you are learning.", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    blade_who = {
+      lines = { { id = "b_who", text = "Hunter Ragetotem, on the Hunter Rise. If you pass him, ask him whether it holds its edge. He will grunt at you, but you will be able to tell what kind of grunt it is." } },
+      choices = {
+        { text = "I'll ask him for you.", next = "BACK", reply = "Good! And if he says it is dull, do not tell me." },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -5840,6 +5856,12 @@ P:NPC {
         { text = "Who is An'she?", next = "anshe" },
         { text = "Why from Hunter Rise?", next = "cliff" },
         { text = "Traditions are only habits with good stories.", next = "habit" },
+        { text = "What does a Sun Priest do all day?", next = "duty" },
+        { text = "Who were Nida, Nata, Mahu and Naal again?", next = "makers" },
+        { text = "And Mu'sha, the moon? Who prays to her?", next = "musha" },
+        { text = "I am Forsaken. Does the sun still want me?", next = "forsaken", when = { race = "Scourge" } },
+        { text = "My people burn offerings to the loa.", next = "loa", when = { race = "Troll" } },
+        { text = "I serve the Light. Is that so different?", next = "light_priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "What would you have me do?", next = "BUSINESS" },
         { text = "May the eternal sun shine upon you.", next = "END" },
       },
@@ -5882,11 +5904,66 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    duty = {
+      lines = { { id = "du_default", text = "I greet the sun from the high rise at dawn and thank him again at dusk, and between the two I bless hunts, name calves and sit with the sick. Mostly, though, I listen, because people tell a priest what they won't tell their own herd." } },
+      choices = {
+        { text = "What do they tell you?", next = "duty2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    duty2 = {
+      big = true,
+      lines = { { id = "du2_default", text = "Lately, that they are afraid. The Grimtotem grow bolder in Thousand Needles and Stonetalon, and some whisper that Magatha's people would not weep if Cairne fell. I tell them to burn incense and keep faith with the High Chieftain, but some want sharper answers than incense." } },
+      choices = {
+        { text = "Faith and patience will hold the tribes together.", next = "BACK", reply = "I believe so, or I would not have spent my life on that cliff. Thank you for saying it aloud; it helps to hear.", fx = { affinity = 1, align = { light = 1 }, learn = { "grimtotem" } } },
+        { text = "Sharper answers may be needed. Watch the Grimtotem closely.", next = "BACK", reply = "Spoken like a hunter. Perhaps you are right, and I will pray that you are not.", fx = { align = { light = -1 }, learn = { "grimtotem" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    makers = {
+      lines = { { id = "mk_default", text = "Nida keeps herbs, Nata sells cedar, Mahu spins sinew thread on the middle rise, and Naal deals in flint and tinder on the upper. Each of them gives a little piece of the bluff to the incense, so the whole city goes up together in the smoke." } },
+      choices = {
+        { text = "So the whole city prays with me.", next = "makers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    makers2 = {
+      lines = { { id = "mk2_default", text = "That is exactly it, and I am glad you saw it without my saying. A prayer made by one pair of hands is a small thing, but one made by five is a gift from a people." } },
+      choices = { { text = "I'll remember that on the cliff. Something else.", next = "BACK" } },
+    },
+    musha = {
+      lines = { { id = "mu_default", text = "The moon priests of Mu'sha keep the night watch as we keep the day, and the night elves call her Elune, I am told. We are not rivals; a mother needs both her eyes to see her children clearly." } },
+      choices = {
+        { text = "The night elves are no friends of the Horde.", next = "BACK", reply = "No, and I will not pretend the Sentinels in Ashenvale are kind to us. But the moon does not choose sides, and neither, I think, does the sun.", fx = { learn = { "elune" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    forsaken = {
+      lines = { { id = "fs_default", text = "The sun warms the dead earth as gladly as the living grass, friend, and it asks nothing of either. I have sat with your people at the Pools of Vision, and some of them turned their faces up to An'she as if they had forgotten what it felt like." } },
+      choices = {
+        { text = "Perhaps I had forgotten.", next = "BACK", reply = "Then come up to the cliff some dawn and remember. No one there will turn you away.", fx = { affinity = 1 } },
+        { text = "The sun only shows what I've become.", next = "BACK", reply = "It shows what you are now, and now is the only thing anyone can change. I find that hopeful, if you will let me." },
+      },
+    },
+    loa = {
+      lines = { { id = "lo_default", text = "So I have heard, and I think the loa and the winds would understand each other well enough. Burn your offering beside mine if you like; the smoke all goes the same way in the end." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    light_priest = {
+      lines = { { id = "lp_default", text = "Different in its words, perhaps, and less in its heart than either of us is told. You pray to something that heals and warms, and so do I; your Light simply has no face, and An'she has the kindest face I know." } },
+      choices = {
+        { text = "Then we serve the same thing, by different names.", next = "BACK", reply = "Alodan below says the same, and I am beginning to think you are both right.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "No. The Light and the Earth Mother aren't one.", next = "BACK", reply = "Then we will each keep our own fire, and I will think no less of yours.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
     background = { { id = "tp_bg", text = "I have served An'she since I was a calf, and I have never once tired of the morning." } },
     advice = { { id = "tp_ad", text = "Give thanks for something every day, even a small thing. It's harder to be bitter when your mouth is busy with gratitude." } },
+    grimtotem = { { id = "tp_grim", text = "Magatha's people pray to the same Earth Mother I do, and that is what frightens me about them." } },
+    cairne = { { id = "tp_cairne", text = "The High Chieftain greets An'she every morning from the Elder Rise. I have never once seen him miss a dawn." } },
     an_she = { { id = "tp_anshe", text = "An'she is the sun, the Earth Mother's right eye, and everything that grows owes him a debt." } },
     _none = { { id = "tp_none", text = "That is beyond what An'she has shown me, friend. The elders on the Elder Rise may know." } },
   },
@@ -5896,6 +5973,7 @@ P:NPC {
   key = "edine_sharphorn", id = TODO_NPC("Edine Sharphorn"), name = "Edine Sharphorn", title = "Barber",
   gender = "female", role = "vendor", tier = "service",
   communities = { "thunder_bluff" }, temper = { "cheerful" }, values = { "craft" },
+  notices = { "race", "gender" },
   impression = {
     first = "A tauren with shears tucked behind one horn and a chair ready, who looks at your hair the way a hunter looks at tracks.",
     third = "{name} visited Edine Sharphorn's barbershop in Thunder Bluff.",
@@ -5903,15 +5981,31 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Welcome to my barbershop! We offer cuts, colorings, and more, so have a seat and we'll get to work." },
     { id = "g_scourge", when = { race = "Scourge" }, text = "Welcome! Don't look so surprised; I can modify undead features too, and I'm careful with what's left." },
+    { id = "g_back", when = { metBefore = true }, text = "Back in my chair! Let me see how it's held up out there. Oh, the wind's been at it, hasn't it?" },
+  },
+  notice = {
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "Orcs! You come in wanting a topknot tied so tight it pulls your brows up, and I've learned not to argue." },
+    { id = "n_troll", cat = "race", when = { race = "Troll" },
+      text = "Look at that hair. I'll need a ladder, won't I? Don't worry, I keep one for Darkspear customers." },
   },
   start = "hello",
   nodes = {
     hello = {
-      lines = { { id = "h_default", text = "I groom manes and beards, braid in beads, do piercings, and reshape tusks and horns for anyone who asks. A tauren's mane tells the herd who they are before they say a word, so I like to get it right." } },
-      again = { { id = "h_again", text = "Anything else, or shall we start on that mane?" } },
+      lines = {
+        { id = "h_default", key = true, text = "I groom manes and beards, braid in beads, do piercings, and reshape tusks and horns for anyone who asks. A tauren's mane tells the herd who they are before they say a word, so I like to get it right." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else, or shall we start on that mane?" },
+        { id = "h_again2", text = "Ask, ask. I can talk and trim at once, you know." },
+      },
       choices = {
         { text = "What does a mane tell the herd?", next = "mane" },
         { text = "Who's your hardest customer?", next = "hard" },
+        { text = "You must hear every rumor in that chair.", next = "rumor" },
+        { text = "How does one learn to shape horns?", next = "horns" },
+        { text = "What would you do with my hair?", next = "mine" },
+        { text = "Do my tusks need work?", next = "tusks", when = { race = { "Orc", "Troll" } } },
         { text = "Let's get to work.", next = "BUSINESS" },
         { text = "Maybe another day.", next = "END" },
       },
@@ -5921,35 +6015,105 @@ P:NPC {
       choices = {
         { text = "Good. Honors should be earned.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Let them wear what they like.", next = "BACK", fx = { align = { order = -1 } } },
+        { text = "What do the beads mean?", next = "beads" },
         { text = "Something else.", next = "BACK" },
       },
+    },
+    beads = {
+      lines = { { id = "be_default", text = "Bone for a mate, river stone for a child, and a red bead for someone you've lost. I braid more red beads than I used to, since the Grimtotem started causing trouble in the Needles, and I do those ones very slowly and carefully." } },
+      choices = { { text = "That's kind of you. Something else.", next = "BACK" } },
     },
     hard = {
       lines = { { id = "hd_default", text = "The Forsaken from the Pools of Vision, without question, because there's never as much to work with as they'd like. Though the trolls are a close second, since every one of them wants their hair taller than the last." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    rumor = {
+      lines = { { id = "ru_default", text = "Every one of them, and twice from the guards. Shall I tell you the one I heard this morning? It's about the Venture Company, and I'm not sure I believe it." } },
+      choices = {
+        { text = "Go on, tell me.", next = "rumor2" },
+        { text = "I don't trade in gossip.", next = "BACK", reply = "A pity, because gossip's half my wages. Well, I'll save it for the next one." },
+      },
+    },
+    rumor2 = {
+      big = true,
+      lines = { { id = "ru2_default", text = "A brave in my chair swore the goblins at the Venture Company mine are paying quilboar to raid our farms, so the herders will move off and leave the land to them. He wants the braves to burn the mine down. Do you think he's right?" } },
+      choices = {
+        { text = "If it's true, burn it. Mulgore comes first.", next = "BACK", reply = "That's what he said, word for word. I only hope the chieftain asks some questions before the torches come out.", fx = { align = { order = -1 }, learn = { "venture_company" } } },
+        { text = "Rumors start wars. Let the chieftain find the truth.", next = "BACK", reply = "Spoken like my grandmother. You'd be surprised how many people sitting in that chair don't think so.", fx = { affinity = 1, align = { order = 1 }, learn = { "venture_company" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    horns = {
+      lines = { { id = "ho_default", text = "Slowly, with a file and a great deal of oil, and by ruining your own mother's horns first, which I did. She wore them crooked for a whole season and told everyone it was the fashion, and by the end of it, it nearly was." } },
+      choices = {
+        { text = "So your mother made you a barber.", next = "horns2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    horns2 = {
+      lines = { { id = "ho2_default", text = "She did, and she still comes in every moon for a polish and to tell me what I'm doing wrong. I let her, because she's usually right, and because she pays in stew." } },
+      choices = { { text = "Sounds like a fair bargain. Something else.", next = "BACK" } },
+    },
+    mine = {
+      lines = {
+        { id = "mi_default", text = "Let me see. Something to keep it out of your eyes on the road, I think, and a little shine so you look like someone who rests now and then, even if you don't." },
+        { id = "mi_female", when = { gender = "female" }, text = "Let me see. A braid down the back, I think, so it stays out of your way in a fight, and a bead or two so people know someone cares where you've been." },
+        { id = "mi_scourge", when = { race = "Scourge" }, text = "Gently, very gently, and nothing that pulls. We'll keep what you have and make it look deliberate, which is the secret to all good barbering." },
+      },
+      choices = {
+        { text = "I like it as it is.", next = "BACK", reply = "Then I won't touch a hair. Someone who likes their own look is rarer than you'd think." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    tusks = {
+      lines = { { id = "tu_default", text = "They're chipped on the left, which tells me you lead with that side in a fight. I can file them smooth, or leave the chip so everyone knows you've been tested; most orcs choose the chip." } },
+      choices = {
+        { text = "Leave the chip. I earned it.", next = "BACK", reply = "I thought you'd say that. You all do, and you're all quite proud of it.", fx = { trait = { proud = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I hear every rumor in this chair, friend, but not that one. Sit down and maybe it'll come to me." } } },
+  topics = {
+    venture_company = { { id = "tp_venture", text = "My chair says they're up to no good at the mine. My chair says a lot of things, mind you." } },
+    grimtotem = { { id = "tp_grim", text = "I've braided too many red beads because of them. That's all I'll say." } },
+    _none = { { id = "tp_none", text = "I hear every rumor in this chair, friend, but not that one. Sit down and maybe it'll come to me." } },
+  },
 }
 
 P:NPC {
   key = "boramu", id = TODO_NPC("Boramu"), name = "Boramu", title = "Tailoring Recipes",
   gender = "male", role = "vendor", tier = "service",
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "craft" },
+  notices = { "class", "profession" },
   impression = {
     first = "A tauren among the shields and mail of the Thunder Bluff Armorers, a stack of folded patterns at his elbow and a needle stuck in his vest.",
     third = "{name} bought patterns from Boramu in the Thunder Bluff Armorers.",
   },
   greetings = {
     { id = "g_default", text = "Patterns, friend, for cloth and stitching. The armor's for the others in this shop; I deal in softer things." },
+    { id = "g_tailor", when = { profession = "Tailoring" }, text = "A tailor! I can see it in your fingertips, all pricked and patient. Come, look at what's new." },
+  },
+  notice = {
+    { id = "n_mage", cat = "class", when = { class = { "MAGE", "PRIEST", "WARLOCK" } },
+      text = "Cloth on your back and nothing else between you and an axe. You of all people should care who stitched it." },
   },
   start = "hello",
   nodes = {
     hello = {
-      lines = { { id = "h_default", text = "I keep tailoring recipes for anyone who works cloth, tucked in among the armorers so the warriors remember someone has to make what goes under the plate. Look through them, and take what you can use." } },
-      again = { { id = "h_again", text = "Anything else? The patterns don't run away." } },
+      lines = {
+        { id = "h_default", key = true, text = "I keep tailoring recipes for anyone who works cloth, tucked in among the armorers so the warriors remember someone has to make what goes under the plate. Look through them, and take what you can use." },
+      },
+      again = {
+        { id = "h_again", text = "Anything else? The patterns don't run away." },
+        { id = "h_again2", text = "Ask on. A needle teaches patience, and I have more than I need." },
+      },
       choices = {
         { text = "Why sell patterns in an armor shop?", next = "why" },
+        { text = "Where do your patterns come from?", next = "source" },
+        { text = "What cloth is best in Mulgore?", next = "cloth" },
+        { text = "Cloth seems a poor thing against an axe.", next = "poor" },
+        { text = "How do the armorers treat you?", next = "shop" },
+        { text = "Any advice for a tailor?", next = "tailor", when = { profession = "Tailoring" } },
         { text = "Show me your patterns.", next = "BUSINESS" },
         { text = "Farewell.", next = "END" },
       },
@@ -5958,28 +6122,91 @@ P:NPC {
       lines = { { id = "w_default", text = "Because nobody wears mail against bare hide twice, {class}. The armorers sell the steel, I sell the patterns for the padding, and Mahu on the middle rise sells the thread, so a warrior walks out with everything but the courage." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    source = {
+      lines = { { id = "so_default", text = "Some are tauren work, old as the tribes, for kodo-wool blankets and travelling robes. Others come down from Orgrimmar with the caravans, and a few the Forsaken brought from Lordaeron, all lace and dark dye." } },
+      choices = {
+        { text = "Forsaken patterns, in Thunder Bluff?", next = "source2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    source2 = {
+      big = true,
+      lines = { { id = "so2_default", text = "Good stitching is good stitching, whoever's hands made it. Some of the elders mutter that I shouldn't sell the dead men's designs beside our own, and I mutter back that a cold night doesn't care. Which of us is right, would you say?" } },
+      choices = {
+        { text = "A good pattern belongs to whoever can use it.", next = "BACK", reply = "That's what I tell them, and they grumble, and then they buy the shadow-dyed robe anyway.", fx = { affinity = 1, align = { order = -1 } } },
+        { text = "The elders have a point. Keep tauren craft tauren.", next = "BACK", reply = "Perhaps. I keep the old kodo-wool patterns at the top of the stack, if it eases your mind.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cloth = {
+      lines = { { id = "cl_default", text = "Mulgore grows little cloth of its own, so most of what I see is linen and wool taken from the Venture Company's men and the quilboar, if you'll pardon how it's come by. Silk comes up from the spiders in the Barrens and Stonetalon, and it's worth the bites." } },
+      choices = {
+        { text = "Taken from quilboar? That's grim.", next = "cloth2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    cloth2 = {
+      lines = { { id = "cl2_default", text = "Grim, but honest; nothing should go to waste. Wash it three times in the Stonebull Lake and it forgets where it came from, which is more than I can say for most people." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    poor = {
+      lines = {
+        { id = "po_default", text = "Against an axe, perhaps, but you'll meet more cold nights than axes, and more chafing than either. And a mage in good silk has turned more axes than any shield in this shop, so I'm told." },
+        { id = "po_cloth", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "You say that wearing cloth, friend, and you're still standing. Something must be keeping the axes off you, and I'd like to think a little of it is the stitching." },
+      },
+      choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+    shop = {
+      lines = { { id = "sh_default", text = "Kindly, mostly, though they hammer all day and I've learned to thread a needle between blows. They call me the soft one of the shop, and I call them the loud ones, and we all eat together at night." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    tailor = {
+      lines = { { id = "ta_default", text = "Measure twice and cut once, and never sew in the dark, whatever the hour. And go see Mahu on the middle rise; her thread is the best on the bluff, and she'll tell you which patterns are worth your coin better than I will." } },
+      choices = { { text = "I'll find Mahu. Something else.", next = "BACK" } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "I know stitches, not stories, friend. Ask at the inn." } } },
+  topics = {
+    advice = { { id = "tp_ad", text = "Wear cloth under everything. You'll thank me on the first cold night in the Barrens." } },
+    _none = { { id = "tp_none", text = "I know stitches, not stories, friend. Ask at the inn." } },
+  },
 }
 
 P:NPC {
   key = "arrgrah_stonewall", id = TODO_NPC("Arrgrah Stonewall"), name = "Arrgrah Stonewall", gender = "male",
   role = "citizen", tier = "service",
   communities = { "thunder_bluff" }, temper = { "gruff" }, values = { "duty" },
+  notices = { "race", "class" },
   impression = {
     first = "A massive, slow-spoken tauren standing as still as the name he carries, who watches you a long moment before he nods.",
     third = "{name} spoke with Arrgrah Stonewall in Thunder Bluff.",
   },
   greetings = {
     { id = "g_default", text = "Hm. Greetings, {class}. Say what you came to say, and I'll listen." },
+    { id = "g_back", when = { metBefore = true }, text = "You again. I am still here, as you see, and glad enough of the company." },
+  },
+  notice = {
+    { id = "n_warrior", cat = "class", when = { class = "WARRIOR" },
+      text = "A warrior. You stand well, with your weight low, and that is more than most young ones manage." },
+    { id = "n_orc", cat = "race", when = { race = "Orc" },
+      text = "An orc. Your people stood beside mine against the centaur, and I have not forgotten it." },
   },
   start = "hello",
   nodes = {
     hello = {
-      lines = { { id = "h_default", text = "My family has always been the kind that stands where it is put, and they named us for it. I stand in Thunder Bluff now, and I find the city moves around me well enough." } },
-      again = { { id = "h_again", text = "More? I'm still here." } },
+      lines = {
+        { id = "h_default", key = true, text = "My family has always been the kind that stands where it is put, and they named us for it. I stand in Thunder Bluff now, and I find the city moves around me well enough." },
+      },
+      again = {
+        { id = "h_again", text = "More? I'm still here." },
+        { id = "h_again2", text = "Speak. Standing is quiet work, and I don't mind a voice in it." },
+      },
       choices = {
         { text = "Doesn't standing still grow tiresome?", next = "still" },
+        { text = "Where did your family stand, before this?", next = "family" },
+        { text = "What do you see, standing here all day?", next = "see" },
+        { text = "Your eyes have a strange glow to them.", next = "eyes" },
+        { text = "Have you ever fought?", next = "fought" },
+        { text = "Teach me to stand like you.", next = "stance", when = { class = { "WARRIOR", "PALADIN", "SHAMAN" } } },
         { text = "Earth Mother keep you.", next = "END" },
       },
     },
@@ -5991,6 +6218,52 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    family = {
+      lines = { { id = "fa_default", text = "In the passes, when the centaur came down onto the plains. My grandfather held a gap in the rocks south of Bloodhoof for three days so the herd could get through, and when they found him he was still on his feet." } },
+      choices = {
+        { text = "Still alive?", next = "family2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    family2 = {
+      big = true,
+      lines = { { id = "fa2_default", text = "No. Dead, and standing, with his spear still in his hand. The herd lived, and his name became ours. Some say he should have run when he could and lived to fight again. I have never been able to decide." } },
+      choices = {
+        { text = "He held his ground. There's no greater honor.", next = "BACK", reply = "That is what my mother said, every year, on the day we remember him. I think she needed it to be true.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "A living warrior serves the herd longer than a dead one.", next = "BACK", reply = "Hm. That is what my father said, quietly, when my mother was not listening. You may both be right.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    see = {
+      lines = { { id = "se_default", text = "Everyone, sooner or later. Orcs who walk too fast, trolls who laugh too loud, Forsaken who walk the long way around the lift, and the young of my own people who walk past without looking up. The city is a river, and I am a stone in it." } },
+      choices = {
+        { text = "Why do the Forsaken walk around the lift?", next = "see2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    see2 = {
+      lines = { { id = "se2_default", text = "Because some of my people stare, and the dead do not like being stared at any more than the living. The Forsaken came to the Pools of Vision by Cairne's word, and I keep my staring to myself, out of respect for his." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    eyes = {
+      lines = { { id = "ey_default", text = "They were bluer once, and brighter, and the shaman could not tell me why. It faded over a few seasons, and now only the young ones still point. I have decided it does not matter, and so I do not let it." } },
+      choices = { { text = "A sensible way to see it. Something else.", next = "BACK" } },
+    },
+    fought = {
+      lines = { { id = "fo_default", text = "When I had to. Against the Kolkar, when I was young, and against the quilboar of Brambleblade Ravine when they came too close to Camp Narache. I never went looking for a fight, but I never stepped aside from one either." } },
+      choices = {
+        { text = "That's the right way.", next = "BACK", reply = "It is the only way I know. Others may find a better one." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    stance = {
+      lines = { { id = "st_default", text = "Feet wide, knees soft, weight down into the earth, as if your hooves had roots. When the blow comes, you don't push back; you let the ground take it through you. The Earth Mother is stronger than either of us." } },
+      choices = { { text = "Feet wide, knees soft. I'll remember.", next = "BACK", reply = "Hm. Show me next time, and we'll see.", fx = { affinity = 1 } } },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "Don't know. Ask someone who walks around more than I do." } } },
+  topics = {
+    centaur = { { id = "tp_centaur", text = "They took my grandfather. I do not hate them for it, but I do not forget it." } },
+    advice = { { id = "tp_ad", text = "Stand still sometimes. You will be surprised what comes to you." } },
+    _none = { { id = "tp_none", text = "Don't know. Ask someone who walks around more than I do." } },
+  },
 }

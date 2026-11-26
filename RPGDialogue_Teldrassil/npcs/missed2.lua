@@ -364,6 +364,12 @@ P:NPC {
         { text = "What message were you carrying?", next = "message" },
         { text = "That wound looks wrong. What is it?", next = "wound" },
         { text = "Were you alone?", next = "sisters" },
+        { text = "Are you afraid?", next = "afraid" },
+        { text = "How long have you been a Sentinel?", next = "sentinel" },
+        { text = "Tell me about the Oracle Tree.", next = "oracle" },
+        { text = "Let me pray over you, sister.", next = "pray", when = { class = "PRIEST" } },
+        { text = "Let me look at the wound. I know nature's sicknesses.", next = "druid", when = { class = "DRUID" } },
+        { text = "I'm a stranger here, but I'll help however I can.", next = "outsider", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "I'll bring help from Dolanaar.", next = "END" },
       },
     },
@@ -405,9 +411,61 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    afraid = {
+      lines = { { id = "af_default", text = "Yes. I was taught that the Sentinels do not fear death, and I believed it in the training grounds, under the moon with my sisters around me. Out here, alone on the road, I find I am still very young." } },
+      choices = {
+        { text = "Fear doesn't make you any less a Sentinel.", next = "afraid_elune" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    afraid_elune = {
+      lines = { { id = "ae_default", text = "Perhaps not. The priestesses say Elune gathers her children into her light when they fall, and I want to believe them. I only wish I had seen more of the world before I found out whether they are right." } },
+      choices = {
+        { text = "Then hold on. There's more world yet.", next = "afraid_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    afraid_stance = {
+      big = true,
+      lines = { { id = "as_default", text = "You speak as though the choice were mine. Tell me honestly, do you think a Sentinel should fight to the last breath, or make her peace with Elune while she still can?" } },
+      choices = {
+        { text = "Fight. Every breath you take is a victory.", next = "BACK", reply = "Then I will fight, for your sake if not for mine. Thank you.", fx = { affinity = 1, align = { honor = 1 } } },
+        { text = "Make your peace. There's no shame in it.", next = "BACK", reply = "No, perhaps there isn't. It is a strange comfort, to be told I may rest.", fx = { affinity = 1, align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sentinel = {
+      lines = { { id = "se_default", text = "Not quite a decade, which is nothing at all to my people. My instructor said I had quick feet and a slow tongue, so they made me a runner, and I was glad, because I would rather carry words than spears." } },
+      choices = { { text = "You carried them well. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    oracle = {
+      lines = { { id = "or_default", text = "An old and wise tree in the glade, that the druids say still remembers the days before the Sundering. It speaks very slowly, and only to those who are patient enough to listen, which is why its messages matter so much to the Council." } },
+      choices = {
+        { text = "What do you think it was trying to say?", next = "oracle_guess" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    oracle_guess = {
+      lines = { { id = "og_default", text = "I only heard part of it, and I may be wrong, but it spoke of roots that drink something bitter. I think it was warning us that the sickness in the forest is coming from below, from deep in Teldrassil itself." } },
+      choices = { { text = "I'll make sure the Council hears that. Something else.", next = "BACK" } },
+    },
+    pray = {
+      lines = { { id = "pr_default", text = "Please. <She closes her eyes as you pray, and for a moment her breathing eases.> I felt that. Whatever happens, I will not forget that you stopped." } },
+      choices = { { text = "Elune keep you, Eralya.", next = "BACK", fx = { affinity = 2 } } },
+    },
+    druid = {
+      lines = { { id = "dr_default", text = "<You see the black veins spreading from the wound like roots in poisoned soil.> You see it too, then? It is the same darkness as in the furbolgs and the water. If you learn what it is, I beg you to tell the Arch Druid." } },
+      choices = { { text = "I will. Something else.", next = "BACK" } },
+    },
+    outsider = {
+      lines = { { id = "ou_default", text = "A stranger from across the sea, here on our island, and the first to stop for me. My elders say your people are short-lived and hasty, and I think I will tell them they are wrong about the second part." } },
+      choices = { { text = "That's kind of you. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
   },
 
   topics = {
+    oracle_tree = { { id = "tp_oracle", text = "It remembers more than any of us, and it is trying to warn us. I wish I had kept all its words." } },
+    byancie = { { id = "tp_byancie", text = "She makes the best salves in Dolanaar. If anyone can slow this, she can." } },
     harpies = { { id = "tp_harp", text = "They are sick, like the rest of the forest, and sickness makes them cruel." } },
     _none = { { id = "tp_none", text = "Forgive me, I can't think about that now. Ask me again if I am still here." } },
   },

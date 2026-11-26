@@ -1313,6 +1313,12 @@ P:NPC {
         { text = "Why do they call you the Hopeful?", next = "hope" },
         { text = "Why train here, and not in the Undercity?", next = "here" },
         { text = "You look like it hurts you, Alodan.", next = "pain" },
+        { text = "Who were you, before you died?", next = "before" },
+        { text = "What do you teach those who come to you?", next = "teach" },
+        { text = "What of the Scarlet Crusade?", next = "scarlet" },
+        { text = "The Dark Lady has no use for the Light.", next = "lady" },
+        { text = "I walk the Light too. Any counsel?", next = "counsel", when = { class = "PALADIN" } },
+        { text = "I'm a shaman. We heal without your Light.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Teach me, Alodan.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "Light keep you.", next = "END" },
       },
@@ -1372,6 +1378,59 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    before = {
+      lines = { { id = "bf_default", text = "A knight of a small chapel near Andorhal, sworn to keep the roads safe for farmers and pilgrims. When the plague grain came, I helped hand it out, because I was told it was a gift, and I have carried that with me past my own grave." } },
+      choices = {
+        { text = "You couldn't have known.", next = "before2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    before2 = {
+      big = true,
+      lines = { { id = "bf2_default", text = "No, but I could have asked, and I didn't. The Light does not ask me to forgive myself, friend, only to do better with what I have left. Some of my brothers in the Undercity would say guilt is a living man's luxury, and the dead should shed it." } },
+      choices = {
+        { text = "Carry it. Guilt keeps a paladin honest.", next = "BACK", reply = "It does, and it keeps him humble, which is harder. Thank you for not pretending it away.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Shed it. Lordaeron is gone and guilt won't bring it back.", next = "BACK", reply = "You sound like the apothecaries, and perhaps you are wiser than I am. I find I cannot put it down all the same.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teach = {
+      lines = {
+        { id = "tc_default", text = "Whatever the Light will grant them, which is never what they expect. The young ones want hammers and fire, and I give them patience and bandages first, because a paladin who cannot mend has no business breaking anything." },
+        { id = "tc_paladin", when = { class = "PALADIN" }, text = "You know the answer already: whatever the Light will grant you, and never what you expect. I teach the blows last and the mending first, as I hope your first teacher did." },
+      },
+      choices = {
+        { text = "Who are your students?", next = "teach2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    teach2 = {
+      lines = { { id = "tc2_default", text = "Whoever the Horde sends, and a few who come on their own and stand at the bottom of the stairs a long while first. The mages beside me think I'm wasting my hours, and Eylah Sunhorn above thinks I'm doing something holy, and I suspect the truth is somewhere in the middle." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
+    scarlet = {
+      lines = { { id = "sc_default", text = "They were my brothers once, some of them, in the same chapels and under the same banners. Now they hold the monastery in Tirisfal and burn anything that has died, and they would burn me first and slowest for daring to pray." } },
+      choices = {
+        { text = "They should be destroyed, every one.", next = "BACK", reply = "I will not stop you, and I will not cheer you either. I only ask that you do it cleanly, which is more than they would do for you.", fx = { align = { honor = -1 }, learn = { "scarlet_crusade" } } },
+        { text = "Some of them might yet be turned from it.", next = "BACK", reply = "That is the hope I keep for them, and you are the first in a long while to say it back to me.", fx = { affinity = 1, align = { honor = 1 }, learn = { "scarlet_crusade" } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    lady = {
+      lines = { { id = "la_default", text = "She has no use for it, and she has never forbidden it either. The Dark Lady freed my will, and I have chosen to spend it on the Light. If that is a strange gift to make of freedom, it is still mine to make." } },
+      choices = { { text = "Something else.", next = "BACK", fx = { learn = { "sylvanas" } } } },
+    },
+    counsel = {
+      lines = {
+        { id = "co_default", text = "Pray when it is easy, so you remember how when it is hard. And never call on the Light to prove you are righteous; call on it to help someone who isn't you." },
+        { id = "co_scourge", when = { race = "Scourge" }, text = "Pray when it is easy, though for us it is never easy. Let the burning teach you, not stop you, and never call on the Light to prove you are righteous, only to help someone else." },
+      },
+      choices = { { text = "I'll remember. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    shaman = {
+      lines = { { id = "sh_default", text = "You do, and beautifully; I have watched the tauren shaman close wounds with water and earth that I could not close with prayer. I do not think the Light is the only answer, friend. I only think it is mine." } },
+      choices = { { text = "Something else.", next = "BACK" } },
+    },
   },
 
   topics = {
@@ -1390,6 +1449,7 @@ P:NPC {
   key = "gevreka", id = TODO_NPC("Gevreka"), name = "Gevreka", gender = "male",
   role = "citizen", tier = "service",
   communities = { "thunder_bluff" }, temper = { "calm" }, values = { "devout" },
+  notices = { "class", "race" },
   impression = {
     first = "A broad tauren who stands near the edge of Spirit Rise, looking out at the plains as if he were waiting for someone in particular.",
     third = "{name} spoke with Gevreka on Spirit Rise.",
@@ -1397,15 +1457,32 @@ P:NPC {
   greetings = {
     { id = "g_default", text = "Peace, {class}. Spirit Rise is a quiet place, and I try to keep it so." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Mu'sha is bright tonight. On nights like this the spirits come close to the rise, and I like to be here when they do." },
+    { id = "g_back", when = { metBefore = true }, text = "You came back to the rise. The wind is gentle today; stand with me a while." },
+  },
+  notice = {
+    { id = "n_shaman", cat = "class", when = { class = "SHAMAN" },
+      text = "A shaman. Forgive me if I stare; I have always wondered what the spirits sound like to those who can truly hear them." },
+    { id = "n_scourge", cat = "race", when = { race = "Scourge" },
+      text = "One of the Forsaken, on Spirit Rise. The spirits here are restful ones, friend; I hope they are kind to you." },
   },
   start = "hello",
   nodes = {
     hello = {
-      lines = { { id = "h_default", text = "I come up to Spirit Rise most days to sit near the shaman and listen to the wind. The Skychasers do the real work of speaking with the spirits, but someone ought to listen when they are finished." } },
-      again = { { id = "h_again", text = "Something more? The wind is in no hurry, so neither am I." } },
+      lines = {
+        { id = "h_default", key = true, text = "I come up to Spirit Rise most days to sit near the shaman and listen to the wind. The Skychasers do the real work of speaking with the spirits, but someone ought to listen when they are finished." },
+      },
+      again = {
+        { id = "h_again", text = "Something more? The wind is in no hurry, so neither am I." },
+        { id = "h_again2", text = "Ask what you like. The rise is good for slow questions." },
+      },
       choices = {
         { text = "What do you hear in the wind?", next = "wind" },
         { text = "It's a long way down from here.", next = "view" },
+        { text = "Who are you waiting for?", next = "waiting" },
+        { text = "Tell me about the Skychasers.", next = "skychasers" },
+        { text = "You never wished to be a shaman yourself?", next = "shaman" },
+        { text = "What lies in the Pools of Vision below?", next = "pools" },
+        { text = "Do the spirits speak to you, then?", next = "spirits_sham", when = { class = "SHAMAN" } },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
     },
@@ -1421,6 +1498,59 @@ P:NPC {
       lines = { { id = "v_default", text = "It is, and that is why I like it. From up here Mulgore looks the way the Earth Mother must see it, small and green and worth keeping." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    waiting = {
+      lines = { { id = "wa_default", text = "You see a great deal, friend. My brother went south with a caravan to Camp Taurajo two winters ago and did not come back, and no one found him. I look south because it is the way he went." } },
+      choices = {
+        { text = "What happened to him?", next = "waiting2" },
+        { text = "I'm sorry. Something else.", next = "BACK" },
+      },
+    },
+    waiting2 = {
+      big = true,
+      lines = { { id = "wa2_default", text = "Centaur, most likely, or the Barrens heat, and the braves say I should burn the incense for him and let him go. But a body was never found, and some part of me will not stop looking. Tell me, would you keep hoping, or let him go?" } },
+      choices = {
+        { text = "Let him go, and honor him. The living need you.", next = "BACK", reply = "That is what my mother says, and the Skychasers, and now you. Perhaps the wind is trying to tell me the same thing.", fx = { affinity = 1, align = { light = 1 } } },
+        { text = "Keep looking. Until there's a body, there's a chance.", next = "BACK", reply = "You may be the only one on this bluff who would say so. I will keep looking south a while longer, then.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    skychasers = {
+      lines = { { id = "sc_default", text = "The shaman of Spirit Rise, who listen to the elements and the ancestors on behalf of the tribes. Some go out to the Barrens and the Stonetalon peaks to test themselves against the spirits there, and they come back changed, older in the eyes." } },
+      choices = {
+        { text = "Do they ever speak with the dead?", next = "sky2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    sky2 = {
+      lines = { { id = "sk2_default", text = "With the ancestors, sometimes, and they are careful about it, because the dead have their own road to walk. They told me they could not find my brother among the spirits, and I don't know whether that is good news or bad." } },
+      choices = { { text = "Perhaps it means he's still alive. Something else.", next = "BACK" } },
+    },
+    shaman = {
+      lines = { { id = "sh_default", text = "Once, as a calf, I begged the elders to test me. The spirits did not answer, and I was angry for a whole season, until I learned that someone has to carry water to the ones who listen." } },
+      choices = {
+        { text = "That's a humble way to see it.", next = "BACK", reply = "It is only the true way, friend. A herd needs every kind of tauren." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    pools = {
+      lines = { { id = "po_default", text = "The Pools of Vision, where the Forsaken mages work, and the one called Alodan who still prays to his Light. Some of my people would rather the dead were not under our feet, but Cairne said they were welcome, and so they are." } },
+      choices = {
+        { text = "Cairne was right to welcome them.", next = "BACK", reply = "I believe so. Alodan once told me he hears a voice in his Light the way I hear one in the wind, and I could not think how to argue.", fx = { align = { order = 1 } } },
+        { text = "I wouldn't trust the dead so close.", next = "BACK", reply = "Many agree with you, friend. I only know that none of them has ever done me harm.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    spirits_sham = {
+      lines = { { id = "ss_default", text = "Not to me, never to me. But you can hear them, can't you? If you ever hear a young bull's voice on the south wind asking for his brother, tell him Gevreka is still waiting on the rise." } },
+      choices = {
+        { text = "I will listen for him.", next = "BACK", reply = "Thank you. That is more than I had this morning.", fx = { affinity = 2 } },
+        { text = "The spirits don't work that way.", next = "BACK", reply = "No, I suppose not. Forgive an old fool for asking." },
+      },
+    },
   },
-  topics = { _none = { { id = "tp_none", text = "That I could not tell you, friend. The Skychasers know more than I do about nearly everything." } } },
+  topics = {
+    advice = { { id = "tp_ad", text = "Listen first. Speak after, if you still need to." } },
+    cairne = { { id = "tp_cairne", text = "He let the dead into our city and kept the living safe besides. I trust his judgment over my own." } },
+    _none = { { id = "tp_none", text = "That I could not tell you, friend. The Skychasers know more than I do about nearly everything." } },
+  },
 }
