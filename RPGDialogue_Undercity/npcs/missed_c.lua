@@ -40,6 +40,7 @@ P:NPC {
         { text = "What do the dead need with so much cloth?", next = "need" },
         { text = "What does the Undercity give in return?", next = "return_", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "Why keep cloth in the Magic Quarter?", next = "quarter" },
+        { text = "Where did you keep cloth, in Lordaeron?", next = "rf_store" },
         { text = "Good day, quartermaster.", next = "END" },
       },
     },
@@ -67,8 +68,33 @@ P:NPC {
       lines = { { id = "q_default", text = "Because it is the driest corner of a city built in a sewer, and because the mages and warlocks next door are my most particular customers. They ruin a robe a week between them, and they are never the ones who come to replace it." } },
       choices = { { text = "Something else, quartermaster.", next = "BACK" } },
     },
+    rf_store = {
+      lines = { { id = "rf_s_default", text = "In the royal stores by the river gate, where I kept the garrison's woollens and the court's silks on separate floors, as was proper. I knew every bolt by touch. When the prince came home, I was counting linen for his welcome banners." } },
+      choices = {
+        { text = "What became of the banners?", next = "rf_banners" },
+        { text = "I sew for my living too.", next = "BACK", when = { profession = "Tailoring" }, reply = "Then you'll understand why I flinch at a crooked seam. Bring me good work and I'll know it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rf_banners = {
+      lines = { { id = "rf_b_default", text = "They hung in the throne room on the day he killed his father, I'm told. I'd made sure the gold thread was straight. It is a strange thing, to be proud of your stitching on the worst day in the kingdom's history." } },
+      choices = {
+        { text = "Does the Horde treat its quartermasters fairly?", next = "rf_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rf_stance = {
+      lines = { { id = "rf_st_default", text = "The orcs pay what they promise and count nothing twice, which makes them easy to supply and impossible to audit. Some of my colleagues say the Forsaken should keep their own stores apart. I'm undecided, and I'm seldom undecided." } },
+      choices = {
+        { text = "The Horde is one army. Share the stores.", next = "BACK", reply = "A tidy answer. The orcs would agree with you, loudly.", fx = { align = { order = 1 } } },
+        { text = "Keep Forsaken stores for the Forsaken first.", next = "BACK", reply = "A prudent view. I'll make a note of it, quietly.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    lordaeron = { { id = "tp_lordaeron_x", text = "I measured cloth for a king. I measure it now for a queen. The tape hasn't changed." } },
+    arthas = { { id = "tp_arthas_x", text = "I stitched his welcome banners. I'll say no more than that." } },
     background = { { id = "tp_bg", text = "I measured and counted cloth when Lordaeron had a king, and I do the same now that it has a queen. The work has changed less than I have." } },
     _none = { { id = "tp_none", text = "That is not a thing I keep on my shelves, I am afraid. Ask me about cloth, or ask someone else." } },
   },

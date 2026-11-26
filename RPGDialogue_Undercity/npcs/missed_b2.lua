@@ -38,6 +38,7 @@ P:NPC {
         { text = "A gentleman, in the sewers?", next = "gentleman" },
         { text = "What's wrong with the auction house?", next = "auction" },
         { text = "Tell me about your companions.", next = "companions" },
+        { text = "What became of the house near the palace?", next = "rg_house" },
         { text = "Enjoy your walk.", next = "END" },
       },
     },
@@ -70,8 +71,33 @@ P:NPC {
       lines = { { id = "c_default", text = "Selina Pickman is the sharpest of us and pretends otherwise, and Davitt Hickson passes a remark on everyone we meet, which saves me the trouble. We fell in together because we were the only three on the ring walking at a civilised pace." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    rg_house = {
+      lines = { { id = "rg_h_default", text = "The roof fell in the winter after the prince came home, and the Scourge used the garden for a graveyard, which I thought rather unimaginative of them. I walked past it once, after I rose. The roses had done quite well, considering." } },
+      choices = {
+        { text = "Did anyone else of your family survive?", next = "rg_family" },
+        { text = "I imagine a noble house kept a good library.", next = "BACK", when = { class = { "MAGE", "WARLOCK", "PRIEST" } }, reply = "It did, and the Apothecaries have most of it now. I've stopped asking for it back." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rg_family = {
+      lines = { { id = "rg_f_default", text = "A nephew fled south to Stormwind with the family silver and, I'm told, a very good opinion of himself. He writes to nobody, and nobody writes to him, which is the custom among Grimsfords when one of us has died inconveniently." } },
+      choices = {
+        { text = "Do you resent the living nobles who fled?", next = "rg_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rg_stance = {
+      lines = { { id = "rg_s_default", text = "Resent is a common word. I observe that they kept their titles and their pulses, and that we kept the kingdom's ruins and its debts. A gentleman can hold a grudge with perfect manners, you know; it's the only way we were taught." } },
+      choices = {
+        { text = "They broke faith with Lordaeron. They should be held to account.", next = "BACK", reply = "Precisely my view, though I'd phrase it with more cutlery.", fx = { align = { honor = 1 } } },
+        { text = "They ran to live. I'd have done the same.", next = "BACK", reply = "How refreshingly candid. Do keep that out of Selina's hearing.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    lordaeron = { { id = "tp_lordaeron_x", text = "A kingdom with excellent manners and a very poor sense of timing." } },
+    sylvanas = { { id = "tp_sylvanas_x", text = "A queen without a coronation. I don't hold it against her; ours had a poor run of them." } },
     background = { { id = "tp_bg", text = "A Grimsford of Capital City, with a house near the palace. The house is gone, but the name has outlasted better things." } },
     _none = { { id = "tp_none", text = "I couldn't say, and I make it a rule not to speculate in public. Ask Selina; she hears everything." } },
   },
@@ -110,6 +136,7 @@ P:NPC {
         { text = "Who's the better fighter, Edward or Tyler?", next = "better" },
         { text = "You don't work the forge yourself?", next = "forge" },
         { text = "Why does Malach use human captives?", next = "captives" },
+        { text = "How do you judge a blade by watching it fight?", next = "rv_judge" },
         { text = "I'll leave you to the fight.", next = "END" },
       },
     },
@@ -142,8 +169,33 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    rv_judge = {
+      lines = { { id = "rv_j_default", text = "By the sound it makes against bone, mostly. Good steel rings and bad steel thuds, and a thud means some poor Deathguard at the Bulwark is going to find out the hard way. I tell James which ones thudded, and he doesn't thank me." } },
+      choices = {
+        { text = "Have your blades ever failed in the pit?", next = "rv_fail" },
+        { text = "I work a forge myself.", next = "BACK", when = { profession = "Blacksmithing" }, reply = "Then you'll know the thud I mean. Come and listen with me some afternoon." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rv_fail = {
+      lines = { { id = "rv_f_default", text = "One snapped clean across an abomination's hide last winter, and Edward was left holding a hilt. I took the pieces home and found a flaw in the quench, our flaw, and I've not slept since. Not that I ever do." } },
+      choices = {
+        { text = "Should the Van Brunts arm anyone who pays?", next = "rv_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rv_stance = {
+      lines = { { id = "rv_s_default", text = "There's a goblin been asking after our blades by the crate, for buyers he won't name. Samuel says gold is gold. I say a sword goes where it's carried, and I'd like to know whose hand it's in." } },
+      choices = {
+        { text = "Sell to the Horde and no one else.", next = "BACK", reply = "That's my thinking. Samuel will say I'm a sentimental fool.", fx = { align = { order = 1 } } },
+        { text = "Gold's gold. Let the buyer worry about the rest.", next = "BACK", reply = "Samuel's answer, word for word. You two should go drinking, if either of you could.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    forsaken = { { id = "tp_forsaken_x", text = "We're hard on our tools, and harder on ourselves. Good steel's the only thing down here that stays honest." } },
+    advice = { { id = "tp_advice_x", text = "Listen to your blade, friend. It'll tell you it's failing before it does, if you know the sound." } },
     background = { { id = "tp_bg", text = "The Van Brunts were smiths in Lordaeron and we're smiths below it. I'm the one who watches the work get used." } },
     _none = { { id = "tp_none", text = "I know steel and fighting, friend, and that's neither one. Try somebody who reads." } },
   },
@@ -182,6 +234,7 @@ P:NPC {
         { text = "What's your system?", next = "system" },
         { text = "Are you kin to Christoph Walker?", next = "christoph" },
         { text = "Who do you bet against?", next = "against" },
+        { text = "Did you ever win big, in life?", next = "rw_big" },
         { text = "Good luck with your coppers.", next = "END" },
       },
     },
@@ -211,8 +264,33 @@ P:NPC {
       lines = { { id = "o_default", text = "We've passed the same eleven coppers back and forth since we started, near enough. I think of it as one purse that takes turns living in two pockets." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    rw_big = {
+      lines = { { id = "rw_b_default", text = "Once, at the summer fair in Brill, on a pig race. A fortnight's wages, all in one fistful, and I spent it on a coat that the plague ruined a year after. I still think about that coat more than I ought." } },
+      choices = {
+        { text = "Why keep wagering, then?", next = "rw_why" },
+        { text = "Care to wager with me?", next = "BACK", when = { race = "Troll" }, reply = "Against a troll? Your lot have the voodoo on your side, and I've lost enough at the zeppelin tower already." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rw_why = {
+      lines = { { id = "rw_w_default", text = "Because a wager is a reason to care how the afternoon turns out. Most of the dead down here have stopped caring, and you can see it on them. A copper on Tyler keeps me awake, in a manner of speaking." } },
+      choices = {
+        { text = "Is it fair to bet on lives in the pit?", next = "rw_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rw_stance = {
+      lines = { { id = "rw_s_default", text = "Malach takes his own cut, so the church can hardly object. I never bet on whether the captives die, mind. Only on how long the fighters take. A man has to draw a line somewhere, even if it's a thin one." } },
+      choices = {
+        { text = "A line's a line. I respect that you keep one.", next = "BACK", reply = "Thank you. Nobody's said that to me since I was breathing.", fx = { align = { honor = 1 } } },
+        { text = "Lines are for the living. Bet on whatever pays.", next = "BACK", reply = "You'd do well down here, then. Better than me, I expect.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    advice = { { id = "tp_advice_x", text = "Never bet on Tyler staying on his feet. Bet on him getting back up." } },
+    lordaeron = { { id = "tp_lordaeron_x", text = "The fairs were the best of it. Pig races, cider, and a constable who could be bribed with a pie." } },
     background = { { id = "tp_bg", text = "I ran errands and laid small wagers in Capital City. The stakes haven't grown, but I've a great deal more time to lose them in." } },
     _none = { { id = "tp_none", text = "I'd not put a copper on my answer to that. Ask somebody with better odds of knowing." } },
   },
@@ -251,6 +329,7 @@ P:NPC {
         { text = "Why Tyler over Edward?", next = "tyler" },
         { text = "What do the fights accomplish?", next = "point" },
         { text = "This pit would be small by Orgrimmar's measure.", next = "orc", when = { race = "Orc" } },
+        { text = "What did Tyler do in life?", next = "rb_tyler_life" },
         { text = "Cheer him on for me.", next = "END" },
       },
     },
@@ -280,8 +359,33 @@ P:NPC {
       lines = { { id = "o_default", text = "So I hear, and I'd give a good deal to see it, though they say the sun out there would do my skin no favours. You'd not find an abomination in an Orgrimmar ring, mind, so we've that over you." } },
       choices = { { text = "I'll grant you the abomination. Something else.", next = "BACK" } },
     },
+    rb_tyler_life = {
+      lines = { { id = "rb_t_default", text = "Tyler drove the mail coach out of Brill, and I drove the cart that followed it, eating his dust for six years. When we both came back from the Scourge he knew my face straight off, which is more than my own brother managed." } },
+      choices = {
+        { text = "What happened to your brother?", next = "rb_brother" },
+        { text = "Tyler might like a Tauren to cheer him too.", next = "BACK", when = { race = "Tauren" }, reply = "Ha! He'd like a Tauren to stand behind him in the pit, more like. Shout as loud as you like." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rb_brother = {
+      lines = { { id = "rb_b_default", text = "He's a Scarlet now, up at the monastery, or so a Deathguard told me. He saw me at a window in Brill once, after I rose, and he crossed himself and ran. I keep hoping Malach brings him to the pit, and I keep hoping he doesn't." } },
+      choices = {
+        { text = "If he came to the pit, would you want him spared?", next = "rb_stance" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    rb_stance = {
+      lines = { { id = "rb_s_default", text = "I don't know, and that's the honest answer. He'd burn me where I stand, given the chance, and he'd call it a kindness. But he was my brother first, and I was his." } },
+      choices = {
+        { text = "Blood is blood. Spare him, if you can.", next = "BACK", reply = "Aye. I think I would, and I think he'd hate me for it.", fx = { align = { light = 1 } } },
+        { text = "He chose the Crusade. He gets what the Crusade gets.", next = "BACK", reply = "That's what Tyler says. Tyler never had a brother.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
   topics = {
+    scarlet_crusade = { { id = "tp_scarlet_crusade_x", text = "Fanatics, and my brother's among them. I'd shout for them to lose, if I could bear to watch." } },
+    forsaken = { { id = "tp_forsaken_x", text = "We're loud, we're dead, and we pick our side. I picked Tyler's." } },
     background = { { id = "tp_bg", text = "I was a carter in life and a corpse in the Scourge after. These days I stand here and shout for Tyler, and it's the best of the three." } },
     _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask me who's winning; that I know." } },
   },
