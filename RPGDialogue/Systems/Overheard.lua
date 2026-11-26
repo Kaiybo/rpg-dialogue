@@ -13,8 +13,8 @@ local U = ns.Util
 local Over = {}
 ns.Overheard = Over
 
-Over.GLOBAL_SECONDS = 240    -- at most one exchange this often
-Over.CHANCE = 0.35           -- per chance to start one, once two people are near
+Over.GLOBAL_SECONDS = 900    -- at most one exchange every 15 minutes
+Over.CHANCE = 0.2            -- per chance to start one, once two people are near
 Over.NEARBY_SECONDS = 25
 Over.GAP = 3.2               -- seconds between the lines of one exchange
 Over.REPEAT_DAYS = 4         -- role exchanges come round again after this long
