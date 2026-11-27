@@ -436,8 +436,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back. You've kept your eyebrows, I see, and your curiosity too, which pleases me more than I'll admit." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You return. I teach all who come to me, as Quel'Thalas taught me, but I find my patience with you is thin." },
     { id = "g_well", text = "Welcome to the Mage Quarter. Touch nothing that hums, and you'll leave with your eyebrows." },
     { id = "g_mage", when = { class = "MAGE" }, text = "Greetings, mage. Shall I give you a little more insight today?" },
   },
@@ -456,8 +456,8 @@ P:NPC {
     el_conj = {
       lines = { { id = "elc_default", text = "It tastes of nothing because you asked it for nothing, only for water. The magisters of Silvermoon used to flavour theirs with a thought of spring rain, and I never managed it in three hundred years of trying, but you're welcome to try." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The arcane must be mastered slowly, as the magisters did.", next = "BACK", reply = "So it was in Quel'Thalas, and that patience kept the Sunwell's gift from ruining us.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any spell that works is worth learning, whatever its source.", next = "BACK", reply = "That reasoning lost us a good many apprentices, and I buried some of them myself.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll try thinking of the canals.", next = "BACK", reply = "Please don't, because I've tasted the canals. Think of Elwynn after a storm instead.", fx = { trait = { witty = 1 } } },
         { text = "Water is water. I'll drink it and be grateful.", next = "BACK", fx = { affinity = 1 } },
       },
@@ -745,8 +745,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. I'll grant that you've more acuity than I first supposed, so let's not waste it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Portals require focus, and I can't summon much of it with you standing there." },
     { id = "g_doubt", text = "I don't believe you possess the acuity for portal magic, but do go on." },
     { id = "g_mage", when = { class = "MAGE" }, text = "A mage, then, and perhaps we have something to discuss after all." },
   },
@@ -764,8 +764,8 @@ P:NPC {
       big = true,
       lines = { { id = "lat_default", text = "It always will, a little, because your body knows perfectly well it hasn't walked anywhere and resents being lied to. The Rune of Teleportation pins the far end to a place charted long ago, so you can't miss it, but you'll still arrive feeling like a letter that's been posted." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A portal is earned through precise study, not guesswork.", next = "BACK", reply = "At last, someone who understands that one wrong rune leaves you in two places at once.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Copy the runes from a scroll and step through; it'll probably work.", next = "BACK", reply = "Probably, yes, and the Sanctum spends a great deal of time mopping up the times it doesn't.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then I'll save it for need, not convenience.", next = "BACK", reply = "A disciplined answer, and the right one. The world is smaller than it used to be, and that's no reason to stop respecting it.", fx = { align = { order = 1 } } },
         { text = "If it saves a week's ride, I'll gladly be sick.", next = "BACK", reply = "Then be sick outside my tower, please, and not on the anchoring stones.", fx = { align = { order = -1 } } },
         { text = "Who charted the far ends?", next = "la_chart" },
@@ -1287,8 +1287,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You've come back, and you're stronger. Good; I'd hoped I wasn't wasting my time on you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll teach you discipline, since you plainly lack it, but don't expect warmth from me." },
     { id = "g_weak", text = "The arcane only corrupts the weak, so tell me which you are before I decide for you." },
     { id = "g_warlock", when = { class = "WARLOCK" }, text = "Your name has reached my ears as one seeking a master, and I'm glad to see you've found the stairs on your own." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8, class = "WARLOCK" }, text = "You've grown since I last saw you, and you're standing straighter. I notice these things, so don't let it slip." },
@@ -1311,8 +1311,8 @@ P:NPC {
       big = true,
       lines = { { id = "urm_default", text = "It differs in one place only, and it's the place that matters: when you lose your grip, your fire goes out, and when I lose mine, something steps through and doesn't go home. Dumas teaches his students to fear power, and I teach mine to fear themselves, and I know which lesson lasts longer." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A warlock earns mastery over demons through discipline and study.", next = "BACK", reply = "Correct, and the ones who forget it are the ones the demons eat first.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Bargain away a little more of yourself and the power comes faster.", next = "BACK", reply = "It does, until there's nothing left of you to bargain with, and then it's the demon's turn.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then I'll keep my fire, and your doors can stay shut.", next = "BACK", reply = "A sensible arrangement, and one the Sanctum has kept with me for years. Go back up the stairs with my blessing, such as it is.", fx = { align = { light = 1 } } },
         { text = "Perhaps the Sanctum ought to teach your sort of fear.", next = "BACK", reply = "Perhaps it should, but Dumas would sooner eat his book than admit a cellar taught him anything.", fx = { align = { light = -1 } } },
         { text = "Have you ever taught a mage who came downstairs?", next = "ur_mg2" },
@@ -1617,8 +1617,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, hello again! I've just had a new grimoire in, barely singed at all, and I thought of you straight away!" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. You. The books are on the shelf, and the prices are on the books, so do browse quietly." },
     { id = "g_books", text = "Grimoires, grimoires, fresh from the press! Oh, you're not a warlock, are you, but come in anyway, because the shop's never too full for browsing." },
     { id = "g_warlock", when = { class = "WARLOCK" }, text = "Come to teach your little friend a new trick? I've just the book, and it's only slightly singed." },
     { id = "g_morzul", when = { questActive = TODO_QUEST("Mor'zul Bloodbringer") }, text = "Off to the Burning Steppes? Bring a coat, because it's hot but you'll want the pockets." },
@@ -1642,8 +1642,8 @@ P:NPC {
     sp_mg1 = {
       lines = { { id = "spm_default", text = "That's because they are, by the very same binder! There's a fellow on the canal who does the Sanctum's spellbooks on Mondays and my grimoires on Thursdays, and he charges me extra because he says mine bite, though only the one ever did, and it was a very small bite." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A warlock should learn every incantation properly, page by page.", next = "BACK", reply = "Oh, splendid! The proper way is slower, but nobody ends up as a smoking crater.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Just skip to the last page and say the big words loudly.", next = "BACK", reply = "Well, that's certainly one way to meet a demon, though not the way I'd recommend.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Does the Sanctum know they share a binder?", next = "sp_mg2" },
         { text = "Something else, Spackle.", next = "BACK" },
       },

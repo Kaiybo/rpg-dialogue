@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} met Mountaineer Bludd, who keeps the peace near the Stoutlager Inn in Thelsamar.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. The streets feel a little safer with you walking them." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep an eye open. Mind yourself." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite drinker! Have one for me inside, an' tell Hearthstove it goes on Bludd's tally o' sorrows." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Go on in an' drink, for I'd sooner watch the door than watch ye." },
     { id = "g_default", text = "Well met, {class}. The inn's open an' the ale's good, an' ye can drink my share while I stand out here lookin' at the door." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again! Still upright, I see, so ye've no' found the bottom o' Hearthstove's barrel yet." },
   },
@@ -32,8 +32,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "A guard on duty shouldn't touch a drop, whatever the temptation.", next = "BACK", reply = "Aye, ye're right, though it's a hard thing tae hear wi' the smell o' that ale on the wind.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "One quick pint wouldn't hurt. Nobody would ever know.", next = "BACK", reply = "I would know, an' so would the Captain by mornin', for he can smell it on a beard.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Does the inn give you much trouble?", next = "trouble" },
         { text = "How long until your watch ends?", next = "watch" },
         { text = "What's the best ale at the Stoutlager?", next = "xale" },
@@ -112,8 +112,8 @@ P:NPC {
     third = "{name} met Mountaineer Cragg, an old veteran on guard in Thelsamar.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there ye are. The knee told me it'd be a good day, an' for once in its life it was right." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Back, are ye. I've seen worse come up that road, though I'll grant ye no' many." },
     { id = "g_default", text = "Aye, I see ye. I've been seein' folk come up that road since before ye were born, an' ye're no' the strangest by a long way." },
     { id = "g_back", when = { metBefore = true }, text = "Back, are ye? The knee said somebody was comin', though it says that about rain as well." },
   },
@@ -130,8 +130,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm no' goin' anywhere quickly." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The old ways of the watch have kept Thelsamar standing.", next = "BACK", reply = "They have, through two wars. The young ones laugh at the drills, but the drills are why they're alive tae laugh.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Old rules are fit only for old dwarves. Let the young lead.", next = "BACK", reply = "The young ones can lead when they've stood a winter watch wi' troggs in the hills, an' no' before.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Who taught you to stand a watch?", next = "ycrag_teach" },
         { text = "My people held the gates beside yours, old one.", next = "ycrag_dwarf", when = { race = "Dwarf" } },
         { text = "What do you make of the young guards?", next = "ycrag_young" },
@@ -221,8 +221,8 @@ P:NPC {
     third = "{name} met Mountaineer Dalk, a Thelsamar guard who watches the gryphons.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's yerself! I saw ye comin' an' wished I'd been up on a gryphon tae wave ye in." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, you. I'd sooner be watchin' the clouds, if it's all the same tae ye." },
     { id = "g_default", text = "Good day tae ye! Did ye fly in, or did ye walk it like the rest of us poor souls?" },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back. I thought I saw ye come in over the water, or somebody very like ye." },
   },
@@ -239,8 +239,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, I'm listenin', wi' one ear anyway." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "A guard should keep his eyes on the town, not the clouds.", next = "BACK", reply = "Ach, ye sound like my sergeant, an' ye're both right, which is the worst of it.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Follow your heart into the sky, whatever the sergeant says.", next = "BACK", reply = "Dinnae tempt me, friend, for Thorgrum's had my name on his list o' would-be riders for three years.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What are you watching the sky for?", next = "sky" },
         { text = "You'd rather be flying, I think.", next = "fly" },
         { text = "Who is Thorgrum?", next = "xthorgrum" },
@@ -314,8 +314,8 @@ P:NPC {
     third = "{name} met Mountaineer Fazgard, who watches the western hills from Thelsamar.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye're back, an' that's one less thing tae worry about on that ridge. Stand wi' me a minute, if ye like." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep movin', an' keep yer trouble well clear o' my hill." },
     { id = "g_default", text = "Keep movin' if ye're only passin', {class}, an' keep yer eyes on that ridge if ye're stayin'." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back. Did ye see anythin' on the hill as ye came in?" },
     { id = "g_troggs", when = { questDone = TODO_QUEST("The Trogg Threat") },
@@ -334,8 +334,8 @@ P:NPC {
         { id = "h_again2", text = "Aye?" },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The troggs on that ridge should be hunted by proper orders.", next = "BACK", reply = "Aye, an' if the orders came faster, there'd be fewer o' them watchin' us right now.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "I'll hunt troggs when I please, not when a captain says.", next = "BACK", reply = "Then ye'll hunt them alone, an' troggs like nothin' better than a dwarf on his own.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Why won't anyone listen to you?", next = "yfaz_listen" },
         { text = "Could a dwarf like me help you watch?", next = "yfaz_dwarf", when = { race = "Dwarf" } },
         { text = "What happened at the quarry?", next = "yfaz_quarry" },
@@ -425,8 +425,8 @@ P:NPC {
     third = "{name} met Mountaineer Harn, a quiet guard who favours Thelsamar's night watch.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "I knew that heavy step before ye came round the corner. It's good tae hear it again, friend." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I heard ye comin' from the smithy, an' I'd hoped it was somebody else." },
     { id = "g_default", text = "Good day tae ye. Forgive the squint, for I'm more used tae lamplight than sun." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Evenin'. Ye've a heavy step on the left side, did ye know? I heard ye from the smithy." },
     { id = "g_back", when = { metBefore = true }, text = "I thought that was yer step. Welcome back tae Thelsamar." },
@@ -444,8 +444,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listenin'. It's what I do best." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "A town stays safe when everyone keeps to the watch rota.", next = "BACK", reply = "It does. A quiet town is a well-ordered one, an' I've a great fondness for quiet.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Rotas are for clerks. A good guard goes where he's needed.", next = "BACK", reply = "Maybe so, but when every guard goes where he's needed, there's naebody left where he was put.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Why do you prefer the night?", next = "yhar_why" },
         { text = "A rogue could learn a lot from you.", next = "yhar_rogue", when = { class = "ROGUE" } },
         { text = "What about Honni and her ovens?", next = "yhar_honni" },
@@ -535,8 +535,8 @@ P:NPC {
     third = "{name} met Mountaineer Janha, who watches over Thelsamar's shops.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye again, an' ye always settle yer accounts, so ye're welcome at any counter I watch." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll be watchin' ye in the shops today, so keep yer hands where the shopkeepers can see them." },
     { id = "g_default", text = "Welcome tae Thelsamar. The shops are honest here, an' I'm the reason the customers are too." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. Ye paid for everythin' last time, so we're still friends." },
   },
@@ -553,8 +553,8 @@ P:NPC {
         { id = "h_again2", text = "Go on." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "A town's laws protect the shopkeeper and the customer both.", next = "BACK", reply = "Exactly that, an' it's why I stand in here instead o' up on the hill wi' the others.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "If a merchant's careless with goods, they deserve to lose them.", next = "BACK", reply = "Say that a wee bit louder, so I can get a proper look at yer face.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Who taught you to watch hands?", next = "yjan_taught" },
         { text = "Do gnomes get blamed for the thefts?", next = "yjan_gnome", when = { race = "Gnome" } },
         { text = "Tell me about Vrok's shop.", next = "yjan_vrok" },
@@ -649,8 +649,8 @@ P:NPC {
     third = "{name} met Mountaineer Kamdar, a cheerful Thelsamar guard with a nose for the kitchen.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's yerself! Ye've the look o' somebody who's had a fine supper, an' I'm only a wee bit jealous." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'm far too hungry tae be pleasant, so dinnae push yer luck." },
     { id = "g_default", text = "Hello there! Ye wouldnae be carryin' anythin' tae eat, would ye, only it's a long while till the bell." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's yerself! Have ye tried the sausages yet, like I told ye?" },
   },
@@ -667,8 +667,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on, friend." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "A guard eats when the bell rings, and not before.", next = "BACK", reply = "Aye, aye, I know it, an' my stomach knows it too, though it's lodged a complaint.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Slip off and grab a sausage. The square won't run away.", next = "BACK", reply = "Dinnae tempt me, for Modax counts the sausages as close as he counts the guards.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Have you always loved your food this much?", next = "ykam_food" },
         { text = "You're a hearty dwarf. Do you miss Ironforge?", next = "ykam_dwarf", when = { race = "Dwarf" } },
         { text = "What does Uthan think of the swap?", next = "ykam_uthan" },
@@ -762,8 +762,8 @@ P:NPC {
     third = "{name} met Mountaineer Modax, a drill-minded guard in Thelsamar.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye're back, an' yer straps are straight! Ye've been listenin', an' I'll say so in front o' anyone." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye again. Straps twisted, boots unlaced, an' I'm no' the least bit surprised." },
     { id = "g_default", text = "Halt a moment, {class}. Nae, ye've done nothin', I only wanted a look at how ye carry that kit." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' yer straps are still twisted. We spoke about that." },
   },
@@ -782,8 +782,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, an' be brief." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Drilling every morning is what keeps a garrison alive.", next = "BACK", reply = "At last, somebody who understands it! Ye'd make a fine Mountaineer, if ye stood up straight.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Drills are wasted breath. Real fighting can't be rehearsed.", next = "BACK", reply = "Every dwarf who's said that tae me said it again on a stretcher, if he was lucky.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Where did you learn your drill?", next = "ymod_learn" },
         { text = "I'm a warrior. Drill me, Mountaineer.", next = "ymod_warrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Who is your best recruit?", next = "ymod_gwarth" },
@@ -876,8 +876,8 @@ P:NPC {
     third = "{name} met Mountaineer Ozmok, who watches the loch from Thelsamar.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. The streets feel a little safer with you walking them." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep an eye open. Mind yourself." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's yerself again. Come an' watch the water wi' me a while, for it's better wi' company." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The loch's calm an' I'd like tae keep it that way, so say yer piece an' go." },
     { id = "g_default", text = "Mornin', or whatever it is by now. The loch's calm today, an' so am I." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's yerself. The water's hardly changed since ye left." },
   },
@@ -894,8 +894,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "A patient watch at your post beats any amount of running about.", next = "BACK", reply = "Aye, it does. The loch shows ye everythin' in the end, if ye only stay put an' look.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Standing still is no watch at all. Go and find the danger.", next = "BACK", reply = "Ye can go an' find it, friend. I'll be here when it comes tae me, as it always does.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What comes out of the water?", next = "water" },
         { text = "You'd rather be fishing than guarding.", next = "fish" },
         { text = "What's the best catch in the loch?", next = "xcatch" },
@@ -969,8 +969,8 @@ P:NPC {
     third = "{name} met Mountaineer Roghan, who watches over Thelsamar's homes.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. The streets feel a little safer with you walking them." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye're back safe, an' the bairns will be glad, for they still talk about the {class} who waved at them." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep tae the main road, an' keep away from my street, if ye please." },
     { id = "g_default", text = "Well met, friend. Mind the wee ones if ye're ridin' through, for they run out wi'out lookin'." },
     { id = "g_back", when = { metBefore = true }, text = "Good tae see ye back safe. That's always the best news a guard gets." },
   },
@@ -989,8 +989,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, friend, I'm listenin'." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Keeping the town's rules is how we keep the children safe.", next = "BACK", reply = "That's it exactly. Every rule I enforce, I'm thinkin' o' the green door while I do it.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Children should run free, rules or no rules.", next = "BACK", reply = "Free tae run under a ram's hooves, ye mean? Ye've never been a father, I can tell.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What do you miss about masonry?", next = "yrog_mason" },
         { text = "My kin are still on the road from Gnomeregan.", next = "yrog_gnome", when = { race = "Gnome" } },
         { text = "Tell me about your eldest.", next = "yrog_ladle" },
@@ -1080,8 +1080,8 @@ P:NPC {
     third = "{name} met Mountaineer Swarth, a dour guard in Thelsamar.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye again. Ye've given me nae trouble yet, an' I'll admit that's more than I can say for most." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye. I've my eye on ye, so mind ye keep tae the road an' yer hands tae yerself." },
     { id = "g_default", text = "State yer business in Thelsamar, an' state it plain." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. Ye caused nae trouble last time, an' I'll expect the same today." },
   },
@@ -1100,8 +1100,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then, if ye must." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Strangers should state their business before entering a town.", next = "BACK", reply = "Aye, they should, an' it's a rare thing tae hear one o' them say so.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "A free traveller owes no guard an explanation.", next = "BACK", reply = "Then the free traveller can find another town tae sleep in.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Why do you trust powder over people?", next = "yswa_trust" },
         { text = "I'm a dwarf. Do I pass your inspection?", next = "yswa_dwarf", when = { race = "Dwarf" } },
         { text = "Where is the powder store?", next = "yswa_powder" },
@@ -1196,8 +1196,8 @@ P:NPC {
     third = "{name} met Mountaineer Uthan, a bookish guard by Thelsamar's League hall.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's yerself! Come, tell me everythin' ye've seen, for I've been starin' at this door an' dreamin' o' digs." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, you. I'll mind the League's door, an' ye can mind yer own business." },
     { id = "g_default", text = "Well met! Ye havenae come from one o' the digs, by any chance? I'd dearly like tae hear what they've turned up." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back! Have ye seen anythin' old an' strange since we last spoke?" },
   },
@@ -1216,8 +1216,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on!" },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "A guard's duty comes before his dreams, however grand.", next = "BACK", reply = "Aye, an' my father would say the same, though I'd still rather be holdin' a brush at the dig.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Throw down that spear and join the League. Life's short.", next = "BACK", reply = "It's no' so simple as that, friend, though I'll admit I think on it every night.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What dig would you most like to see?", next = "yuth_dig" },
         { text = "Do the night elves remember the titans?", next = "yuth_elf", when = { race = "NightElf" } },
         { text = "What's Jern Hornhelm like?", next = "yuth_hornhelm" },
@@ -1312,8 +1312,8 @@ P:NPC {
     third = "{name} met Mountaineer Wuar, who minds the riders and rams on Thelsamar's road.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye're back, an' ye walked yer beast in proper like. I knew I liked ye." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Slow down on my road, or ye'll be walkin' the rest o' the way on yer own feet." },
     { id = "g_default", text = "Walk yer beast through the town, {class}, if ye've one. There's nae race bein' run here that I've heard of." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. Ye kept tae a walk last time, so I've nae complaint." },
   },
@@ -1332,8 +1332,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Riders should walk their mounts through town, and that's the law.", next = "BACK", reply = "Aye, they should! Tell that tae the next fool on a ram, for he'll no' listen tae me.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "A good rider can gallop anywhere they please.", next = "BACK", reply = "A good rider kens better than tae gallop past the bairns, so ye've told me what kind ye are.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "How did you come to love rams?", next = "ywua_rams" },
         { text = "My pet here is well-trained.", next = "ywua_pet", when = { class = "HUNTER" } },
         { text = "Who keeps the stables?", next = "ywua_lina" },
@@ -1422,8 +1422,8 @@ P:NPC {
     third = "{name} met Mountaineer Stenn, who patrols the short stretch of road north of Thelsamar.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep an eye open. Mind yourself." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye again, an' I've walked tae the white stone a hundred times since! Walk a bit wi' me, I've missed the conversation." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll be at the white stone an' back before ye've said anythin' worth hearin'." },
     { id = "g_default", text = "Hello, {class}. Walk wi' me if ye like, though I warn ye we'll be turnin' round before ye've finished a sentence." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again! I've been tae the turnin' post an' back forty times since I saw ye last." },
   },
@@ -1440,8 +1440,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on, an' walk while ye talk." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "A patrol walked the same way every day is one you can trust.", next = "BACK", reply = "Aye, it's dull, but it's dull the way a good wall is dull, an' I can live wi' that.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Change your route now and then. Troggs learn your habits.", next = "BACK", reply = "Ach, they might, but the Captain doesnae like surprises any more than the troggs do.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Why such a short patrol?", next = "short" },
         { text = "Does anything ever happen on it?", next = "happen" },
         { text = "What do you think about on your walk?", next = "xthink" },
@@ -1508,8 +1508,8 @@ P:NPC {
     third = "{name} met Mountaineer Flint, who patrols the road between Thelsamar and Algaz Station.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye're back on my road, an' I'm glad o' it. Walk wi' me tae the next bend an' tell me what ye saw." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep up or keep out o' my way, for I've nae time for ye today." },
     { id = "g_default", text = "Keep up if ye want tae talk, {class}, for I've a road tae cover before dark." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're on my road again. Any trouble behind ye?" },
   },
@@ -1526,8 +1526,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, quickly." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "A road is only safe if someone answers for it.", next = "BACK", reply = "Aye, an' on this stretch that's me, from the white stone all the way tae Algaz.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Roads belong to whoever's strong enough to walk them.", next = "BACK", reply = "Then ye've never walked this one wi' eight legs scuttlin' after ye in the dark.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Those hobnailed prints. Where did they lead?", next = "yfli_prints" },
         { text = "Teach me to read the ground like you.", next = "yfli_teach", when = { class = { "HUNTER", "ROGUE", "DRUID" } } },
         { text = "Where is the white stone?", next = "yfli_white" },
@@ -1617,8 +1617,8 @@ P:NPC {
     third = "{name} met Mountaineer Droken, who patrols the road from Thelsamar to the Valley of Kings.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my old friend! Did ye find yer way, or will I be pointin' ye somewhere new today?" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Ye ken the road well enough by now tae find it wi'out me." },
     { id = "g_default", text = "Good day tae ye! Thelsamar's north along the road an' the valley's south, an' if ye want anywhere else, I can likely point ye." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, I know yer face. Did ye find the place I sent ye?" },
   },
@@ -1635,8 +1635,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, ask away." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Travellers should keep to the marked roads, for their own safety.", next = "BACK", reply = "Aye, an' if they did, I'd have half the rescuin' tae do that I have now.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "The best paths are the ones nobody's marked yet.", next = "BACK", reply = "Maybe, but they're also the ones where I find folk sittin' wi' a broken ankle.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Do you ever get tired of the same road?", next = "ydro_tired" },
         { text = "Where's the best place for a hunter to camp?", next = "ydro_hunt", when = { class = "HUNTER" } },
         { text = "Do you buy from Greishan's cart?", next = "ydro_greishan" },

@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} met Dawn Brightstar, who sells arcane goods at the top of the Tower of Azora.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you, and worth the climb as always. I've kept the steadier reagents on the near shelf, where you can reach them." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since it's my trade, but keep your hands off anything that hums. I've heard how you treat other people's things." },
     { id = "g_default", text = "Vials and scrolls, every one of them labelled, so please don't touch anything that's humming." },
     { id = "g_back", when = { metBefore = true }, text = "Back up all those stairs again? You must want something rather badly." },
   },
@@ -37,8 +37,8 @@ P:NPC {
       big = true,
       lines = { { id = "dat_default", text = "Not on purpose, though he's taught me more than he knows by shouting at me about it. If you want to learn from him, ask him something he doesn't know the answer to, and then stand very still while he works it out aloud." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A reagent seller should label every vial truthfully.", next = "BACK", reply = "Every vial, every scroll, every time. A mislabelled reagent can take a novice's hand off.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the cloudy vials to novices; they won't know the difference.", next = "BACK", reply = "They'd learn the difference rather violently. Not from my shelves, they won't.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "A proper teacher would be patient with his students.", next = "BACK", reply = "He would, and he isn't, and I've made my peace with it. The gnomes haven't, quite.", fx = { align = { order = 1 } } },
         { text = "I'll provoke him into teaching me, then.", next = "BACK", reply = "Then bring a cushion for the stairs, because you'll be thrown down them at least once before it works.", fx = { align = { order = -1 } } },
         { text = "Something else, Dawn.", next = "BACK" },
@@ -221,8 +221,8 @@ P:NPC {
     third = "{name} met Kitta Firewind, who teaches enchanting in the Tower of Azora.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back! Come and show me your rods; I want to see whether the runes have settled." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. I'll teach you, but I've no wish to share my workbench with you today." },
     { id = "g_default", text = "Oh, a visitor! What brings you all the way up the tower?" },
     { id = "g_back", when = { metBefore = true }, text = "You came back, and I can tell you've been practising, haven't you?" },
   },
@@ -238,8 +238,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Maybe, maybe not, I'd need to test it a hundred times! The mages say enchanting's a lesser craft, and they'd say the same of yours, so we'd be good company." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An enchantment's worth comes from patient study, not shortcuts.", next = "BACK", reply = "Yes, exactly! A hundred tests, then a hundred more, and only then do you trust it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Why study runes when you can copy someone else's work?", next = "BACK", reply = "Because a copied rune fails the moment you need it most, and usually loudly.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Test it properly, Kitta. Careful work outlasts guesses.", next = "BACK", reply = "Ha, you sound like Theocritus! I'll test it, I promise, at least fifty times.", fx = { align = { order = 1 } } },
         { text = "Forget the tests. Try it and see what happens.", next = "BACK", reply = "That's how I learned most of what I know, and how I lost an eyebrow. I like you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

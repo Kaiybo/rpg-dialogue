@@ -148,8 +148,8 @@ P:NPC {
         { id = "h_again2", text = "More questions? Fine, but mind the pins." },
       },
       choices = {
-        { text = "Westfall should obey Stormwind and wait for help.", next = "BACK", reply = "I waited three years, friend. The help never came.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Westfall should look after itself.", next = "BACK", reply = "That's what Gryan says, and I'm coming round to it.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Westfall should keep faith with Stormwind and wait for the king's soldiers.", next = "BACK", reply = "I waited three years, friend, watching that eastern road, and no soldiers ever came down it.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Westfall should look after itself now.", next = "BACK", reply = "Gryan's been saying that since the farms emptied, and I'm coming round to it.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Why does a scout guard farmland nobody else will?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "Show me your map.", next = "map" },
         { text = "They all seem to wear red.", next = "bandanas" },

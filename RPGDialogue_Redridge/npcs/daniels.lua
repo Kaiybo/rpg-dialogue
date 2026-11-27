@@ -275,8 +275,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. You're always welcome under this roof." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Pay first, if you please. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back home again! Narnie's on your chair, as usual, and she'll pretend she was never there." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Coin on the counter first, if you please. I've learned that much about you, and so has Narnie." },
     { id = "dp_pt_any", when = { party = true }, text = "A whole party, and the orcs are bold in the hills this season. I'm glad you're not walking these roads alone." },
     { id = "g_home", text = "Out of the wind, now. Make yourself at home; that's what an inn's for." },
     { id = "g_bound", when = { homeInn = { "Lakeshire", "Lakeshire Inn" } }, text = "Back home! Narnie's kept your chair warm, so shoo her off; she won't mind. Well, she'll mind." },

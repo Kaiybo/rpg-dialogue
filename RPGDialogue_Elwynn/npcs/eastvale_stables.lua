@@ -14,8 +14,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! Come and see the new foals; they're shy, but they'll take to you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Mind the gate and be quick. I'll sell you a horse if I must, but I'll not enjoy it." },
     { id = "g_default", text = "Mind the gate. They're gentle, but they're not stupid, and they know an open gate." },
     { id = "g_ready", when = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } }, minLevel = 40 }, text = "Come to choose a horse, have you? Take your time." },
   },
@@ -35,8 +35,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They take to calm folk, and you're calm enough. I sell my horses with care, and I like them to go to someone who listens to them, spirits or not." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A horse seller should tell you every fault the beast has.", next = "BACK", reply = "Every one, down to the mare who won't cross water. A rider deserves to know.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Dye the grey hairs and sell the old ones as young.", next = "BACK", reply = "A horse's teeth tell the truth even when the seller won't. Not in my stable.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then I'll keep them calm and treat them well, Katie.", next = "BACK", reply = "That's all I ask of anyone who leaves with one of mine. Come and meet the mares when you're ready.", fx = { align = { order = 1 } } },
         { text = "A horse is a horse. Sell to whoever pays.", next = "BACK", reply = "Not my horses, friend, and not from my paddock. I'll choose who they go to, thank you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -200,8 +200,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back. Your heels were down last time, which puts you ahead of most of the Guard." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll teach you to ride, since that's my post. Liking you isn't part of the lesson." },
     { id = "g_default", text = "Heels down, back straight. Oh, you're not on a horse; it's habit." },
     { id = "g_ready", when = { any = { { race = "Human" }, { reputation = { faction = "Stormwind", min = "exalted" } } }, minLevel = 40 }, text = "Ready for a saddle? You look ready, and most people look ready, so let's find out." },
   },
@@ -221,8 +221,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Anyone can learn with patience. Your spirits might calm the horse, but your heels still need to be down, and that doesn't change." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A good rider earns the horse's trust slowly.", next = "BACK", reply = "Slowly, and every day. A horse forgets nothing, kind or otherwise.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A sharp spur teaches a horse faster than kindness.", next = "BACK", reply = "Faster, yes, and it teaches him to throw you at the first chance he gets.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Patience and proper form, Randal. I'll learn it right.", next = "BACK", reply = "That's a good start, and the horse will thank you for it. Heels down, back straight, and we'll begin.", fx = { align = { order = 1 } } },
         { text = "My spirits will keep me on. I'll skip the drills.", next = "BACK", reply = "Then you'll be on the ground by the first fence, spirits or not. Come back when you want to learn.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

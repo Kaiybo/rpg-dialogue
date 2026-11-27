@@ -240,8 +240,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! The briarthorn's in flower, an' I've been savin' the best patch for ye." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The herbs are for sale, but I'll no' be tellin' ye where they grow." },
     { id = "g_default", text = "I'm Kali Healtouch, an' if ye've come for Ghak, he's next door makin' smoke. If ye've come for herbs, ye've found the right one o' us." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did ye find the briarthorn where I told ye, or did ye find the nettles?" },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, an' the silverleaf's come up an' gone over in that time. Ye missed the best o' it." },
@@ -270,8 +270,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. Ghak's no' the only one in this family who likes tae talk." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Pick herbs with care, and leave enough for them to grow back.", next = "BACK", reply = "Aye, that's the right way, an' ye'll find silverleaf on these hills for years if ye do.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Strip the whole patch. Someone else will if I don't.", next = "BACK", reply = "Then there'll be none next year, for ye or for anyone else.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What grows around the loch?", next = "herbs" },
         { text = "How do you pick properly?", next = "picking" },
         { text = "What's Ghak like to live with?", next = "ghak" },

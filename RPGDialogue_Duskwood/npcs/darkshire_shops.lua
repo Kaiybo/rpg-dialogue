@@ -17,8 +17,8 @@ P:NPC {
     third = "{name} met Mabel Solaj, who sells general goods in Darkshire's Scarlet Raven Tavern.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my dear, safe in out of the fog again! Sit by the stove a moment; I worry about you out there, you know." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Candles on the left and bread on the right, and you can find them yourself today." },
     { id = "g_default", text = "Come in out of the fog, dear. Candles are on the left, bread on the right." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again, and still in one piece. Sit a moment before you go back out." },
   },
@@ -32,8 +32,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I mother every single one, whether they want it or not. In Darkshire, most of them do. A shaman's no different." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Folk should pay a fair price, even when light is scarce.", next = "BACK", reply = "Bless you, dear, I wish the wagoners from Lakeshire thought so. I charge what it costs me to get oil through that forest, and no more.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Hoard the lamp oil and sell it dear when winter comes.", next = "BACK", reply = "And leave families sitting in the dark with the worgen at their doors? Shame on you, dear. I'll pretend I didn't hear that.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Thank you, Mabel. Kindness is precious here.", next = "BACK", reply = "It is, dear, and it costs nothing, which is about all Darkshire can afford. Mind you eat something before you go out.", fx = { align = { light = 1 } } },
         { text = "I can look after myself. No need for fuss.", next = "BACK", reply = "Oh, I'm sure you can, dear, they all say that. I'll fuss anyway, and you can pretend not to notice.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -209,8 +209,8 @@ P:NPC {
     third = "{name} met Gunder Thornbush, a tradesman in Darkshire's Scarlet Raven Tavern.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "A returning customer, and a good one. I've stopped writing the date down when you come in; it's not so rare anymore." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Take what you need from the shelves and leave the coin on the counter, and that'll do for both of us." },
     { id = "g_default", text = "Thread, flux, vials and parchment. Whatever your craft needs, I've a little of it." },
     { id = "g_back", when = { metBefore = true }, text = "A returning customer. I'll write the date down; it's rare enough." },
   },
@@ -224,8 +224,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Mostly it is, because the wagons don't come and folk don't buy. Your spirits won't bring the sun back, I'd guess." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A tradesman's word should hold, even when the trade is dying.", next = "BACK", reply = "That's all I've left, the word and the shelves. When the last craftsman leaves Darkshire, I'll at least have kept faith with him.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "When a town's dying, take what profit you can and leave.", next = "BACK", reply = "Plenty did, and I watched their wagons go west. Somebody has to stay and sell thread to the ones who can't leave, friend.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Keep counting, Gunder. A tidy shelf is something to hold on to.", next = "BACK", reply = "That's what I tell myself every morning, and it helps, mostly, so long as the count comes out the same as yesterday.", fx = { align = { order = 1 } } },
         { text = "Stop counting. Close the shop and leave.", next = "BACK", reply = "And go where, exactly? Stormwind's full, and Darkshire still needs thread. I'll stay.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -384,8 +384,8 @@ P:NPC {
     third = "{name} met Morg Gnarltree, Darkshire's armorer.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Turn round and let me see you. Hardly a claw mark on you, and I'll call that a credit to the both of us." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Scrape that muck off before it touches my counter, and then tell me what you want, and be quick about it." },
     { id = "g_default", text = "Armour, mail and plate. Let me see what you're wearing first, and for Light's sake scrape the ghoul off it before it touches my counter." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Turn round, and let me see the damage." },
   },
@@ -402,8 +402,8 @@ P:NPC {
         { id = "dd_morg_w_a", text = "So I see, and so I'll tell you what I tell every Watchman: go for the legs, because they leap, and a worgen that can't leap is only a big dog. Most folk aim for the throat and get their own torn out instead." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An armorer should say plainly when your plate won't hold.", next = "BACK", reply = "I tell every soul who walks in here, and most of them don't like it. Better a sour word from me than a ghoul finding the gap.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Patch the dents with paint and nobody looks closer.", next = "BACK", reply = "Paint! The worgen look closer, friend, with their teeth. Say that again and you can buy your armour in Lakeshire.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Where do these worgen come from?", next = "dd_morg_w2" },
         { text = "I'll keep that in mind. Thanks, Morg.", next = "dd_morg_w2" },
       },
@@ -572,8 +572,8 @@ P:NPC {
     third = "{name} met Matt Johnson, Darkshire's mining trainer.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Still digging, and still coming back to tell me about it! You're the best thing that's happened to mining in Duskwood in years." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you the pick, because that's what I'm here for, but I'll not pretend I'm glad of the company." },
     { id = "g_default", text = "Here to learn mining? You'll be the first this month, and the last one quit after he dug into somebody's grave by mistake." },
     { id = "g_back", when = { metBefore = true }, text = "Still digging, are you? Good, because somebody in this wood ought to be." },
   },
@@ -589,8 +589,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Because the dead are in the mines now, as well as the worgen. Your earth spirits might tell you where it's safe." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A miner should leave the dead's ground alone, ore or no ore.", next = "BACK", reply = "Aye, and I wish the lad who quit last month had heeded that. There's iron under Raven Hill, and it can stay there.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Ore is ore, whether it sits under a grave or a hill.", next = "BACK", reply = "Say that to the Light when the bones come up with the copper, friend. I'll not teach anyone to dig into somebody's grandfather.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll mine safely, Matt, and teach others.", next = "BACK", reply = "That'd be a fine thing, and I'd be glad of it. Mind the deep shafts.", fx = { align = { honor = 1 } } },
         { text = "The mines are lost. Don't waste your time.", next = "BACK", reply = "Maybe so, but it's all I know. I'll keep teaching.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -759,8 +759,8 @@ P:NPC {
     third = "{name} met Danielle Zipstitch, who sells tailoring supplies upstairs in Madame Eva's house in Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, and up the stairs without tripping on the cat! Come in, I've been saving the best gossip for you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The thread's on the shelf, and the gossip's not for sale, not to you." },
     { id = "g_default", text = "Up the stairs already! Mind the cat, who'll steal your lunch, and mind the thread on the floor, which the cat also steals." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more thread, or more gossip? I've plenty of both." },
   },
@@ -777,8 +777,8 @@ P:NPC {
         { id = "dd_danielle_c_a", text = "You went right up to that farmhouse? Sheri won't even walk past the road to it, and I don't blame her, because the folk say Mary still begs anyone she sees not to look at her face. Was she frightening, or was she sad?" },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Gossip heard through the floorboards should stay under them.", next = "BACK", reply = "Oh, you're no fun, but you're right, and Madame Eva would say the same. I'll keep the worst of it to myself, mostly.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A secret overheard is a secret worth selling.", next = "BACK", reply = "Ooh, wicked! Don't tell Sheri you said that, she'd faint, and then I'd have to do the accounts myself.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Sad. Whatever she became, she was a person once.", next = "dd_danielle_c2", fx = { align = { light = 1 } } },
         { text = "Frightening. Some things are best left in the dark.", next = "dd_danielle_c2", fx = { align = { light = -1 } } },
       },
@@ -963,8 +963,8 @@ P:NPC {
     third = "{name} met Sheri Zipstitch, who sells tailoring supplies with Danielle above Madame Eva's house.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you, thank the Light! Come in, please; I breathe easier with someone I trust on the stairs." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you, and I'd hoped it was only the wind. Please be quick about it, and close the door properly when you go." },
     { id = "g_default", text = "Oh! You startled me. Come in, but quietly, please." },
     { id = "g_back", when = { metBefore = true }, text = "It's you again, thank the Light. I thought it was another knock in the night." },
   },
@@ -980,8 +980,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "In Darkshire, everything does, and I'm the careful one. Your spirits might calm me, if they're kind." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Keep honest books, even when the numbers frighten you.", next = "BACK", reply = "I do, and the numbers frighten me every week. At least when we go hungry, I'll know exactly why.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Fiddle the ledger; nobody checks the books in Darkshire.", next = "BACK", reply = "The tax men from Stormwind check them, when they dare come this far! Oh, please don't say things like that up here.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Careful is wise, Sheri. Keep your accounts tidy.", next = "BACK", reply = "I will, and I'll keep them tidy for both of us. Danielle never does.", fx = { align = { order = 1 } } },
         { text = "Stop jumping. Fear makes you weak.", next = "BACK", reply = "I know, I know, but I can't help it. Fear keeps me careful.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1143,8 +1143,8 @@ P:NPC {
     third = "{name} met Hogan Ference, a frustrated townsman who waits in Darkshire's Town Hall.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Sit with me, then; waiting on the council is a little easier with someone worth talking to." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. You were no use to me last time, and I doubt the council's silence has improved your manners." },
     { id = "g_default", text = "You're not from Stormwind, are you? Then you're no use to me, but you may as well sit." },
     { id = "g_back", when = { metBefore = true }, text = "Still here, and so am I. The council still hasn't said a word." },
   },
@@ -1356,8 +1356,8 @@ P:NPC {
     third = "{name} met Kzixx, a goblin trader selling rare goods by the Darkened Bank road in Duskwood.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "My number one customer, pal, back from the woods in one piece! I've been tellin' folks about you, on account of you're good for business." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you, pal. Look all you want, but in my ledger you're filed under cash up front, and that's where you're stayin'." },
     { id = "g_default", text = "Rare goods, friend, rare goods, step right up! You can't find these anywhere else this side of Booty Bay, guaranteed, and if you can, they're cheap knockoffs of mine." },
     { id = "g_back", when = { metBefore = true }, text = "Hey, my favourite customer, back again! I got new stock since you left, pal, and it's even rarer, which means, sadly for both of us, it's pricier too." },
   },
@@ -1373,8 +1373,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Business worries me, friend, 'cause the dead don't buy much and the livin' are in too much of a hurry to haggle. Your spirits might help sales, though, if they'd work on commission." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Sell a rare thing honestly, and you'll sell to that buyer twice.", next = "BACK", reply = "Twice? Friend, an honest deal brings 'em back a dozen times, and that's compound interest on a good name. Mostly I agree with ya.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Call it rare, call it cursed, whatever moves the stock.", next = "BACK", reply = "Ha! Now you're talkin' my language, pal, though I'd never say it that loud with the Watch about. Cursed sells real nice in Duskwood.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Honest scales, Kzixx, or the Watch hears about it.", next = "BACK", reply = "Honest scales, chum, I swear on my mother's ledger! The Watch can check any time they like.", fx = { align = { honor = 1 } } },
         { text = "Sell to the dead, then. They've coin in their graves.", next = "BACK", reply = "Ha! Now there's a market nobody's tapped, chum. I'll think about it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

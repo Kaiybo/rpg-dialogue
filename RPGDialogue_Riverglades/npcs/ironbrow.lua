@@ -14,8 +14,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's a face worth downin' tools for! Come and see the new wall, {g:lad|lass}; ye're one of the few who'll appreciate it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye've come back, have ye? Stand clear of my mortar, then, and keep yer opinions to yerself." },
     { id = "g_wall", text = "Don't lean on that, {g:lad|lass}, it's still setting. Lean on the old bit; it's held through worse than you." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Grab a trowel if ye're staying, I've no use for spectators." },
     { id = "g_away", when = { away = 14 }, text = "Ye've been gone {away}, and I've repointed the whole north face in that time. Go and look; I'll wait." },

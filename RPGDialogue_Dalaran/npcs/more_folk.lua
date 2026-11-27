@@ -468,8 +468,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ishnu-alah, friend of the Guard. The Stormpike stores are open to you, and even the dwarves have stopped grumbling about it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "The Guard has heard things of you that I cannot ignore. Take what your standing allows, and nothing more." },
     { id = "g_default", text = "Ishnu-alah. The Guard's stores are open to those the Guard has learned to trust." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and colder than when you left, I think." },
     { id = "g_rep", when = { reputation = { faction = "Stormpike Guard", min = "revered" } }, text = "The Stormpike speak your name with something close to warmth, and that is rare for dwarves." },
@@ -501,8 +501,8 @@ P:NPC {
         { id = "h_again2", text = "Speak; the snow and I are both patient." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A soldier should take only what their deeds have earned.", next = "BACK", reply = "Just so. The ledger is honest because those who sign it are, and I thank you for remembering it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "If nobody counts the crates, a few can go missing.", next = "BACK", reply = "Someone always counts the crates, friend, and in this camp that someone is me.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me the Guard's stores.", next = "BUSINESS" },
         { text = "A night elf, serving dwarves?", next = "elf" },
         { text = "How do I earn the Guard's trust?", next = "trust" },
@@ -604,8 +604,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and the ledger is glad of it. Your page is the only one in this book I enjoy reading." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Your page in my ledger is not a flattering one. Buy what the clan allows, and close the flap on your way out." },
     { id = "g_default", text = "The Frostwolf stores are open to those the clan has reason to thank. State your business, and close the flap behind you." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and still breathing, if you are the breathing kind. Let us see whether the clan thinks better of you than last time." },
     { id = "g_rep", when = { reputation = { faction = "Frostwolf Clan", min = "revered" } }, text = "The orcs say your name at their fires. I have checked the ledger, and for once the talk and the figures agree." },
@@ -636,8 +636,8 @@ P:NPC {
         { id = "h_again3", text = "Yes? I am listening, and counting, and I can do both." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The clan's stores should be shared out by honest reckoning.", next = "BACK", reply = "Honest reckoning is the only kind I keep, and the clan sleeps better for it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A sharp quartermaster always skims a little for himself.", next = "BACK", reply = "Some do, and I have watched the clan deal with them. It is not a pleasant thing to see.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me the clan's stores.", next = "BUSINESS" },
         { text = "A Forsaken, keeping stores for orcs?", next = "forsaken" },
         { text = "How do I earn the clan's regard?", next = "regard" },

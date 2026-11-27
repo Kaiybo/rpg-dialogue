@@ -14,8 +14,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back from the swamp and hungry, I'll wager! Step up, friend, there's meat that came in fresh this morning." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll sell you food, since everyone has to eat, but pay first and eat it somewhere else." },
     { id = "g_default", text = "Hungry? Everyone who comes out of that swamp is hungry, so step up and I'll see you fed." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? Good, because the meat won't keep much longer in this damp." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late for supper, but I've a few things left that won't kill you." },
@@ -38,8 +38,8 @@ P:NPC {
           text = "Truth is, the man cooks better than I do, and I'll deny I ever said so. Tell him I said his stew's fit for a kodo, and watch his face." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Food in a swamp outpost should be sold at a fair price.", next = "BACK", reply = "That's what I say! The grunts can't fight hungry, and I'll not rob them for it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Hungry grunts will pay anything, so charge them double.", next = "BACK", reply = "And then the hungry grunts come for me with axes. I like my prices and my skull as they are.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll tell him. This feud is too much fun.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "You two should make peace before one of you dies.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Something else, Thultash.", next = "BACK" },
@@ -140,8 +140,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Everything is dry and in its place, and you are one of the few who ever notices." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Don't lean on the shelves, and don't haggle. I've no patience for either from you today." },
     { id = "g_default", text = "Don't lean on the shelves. The damp's bad enough without your elbows in it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Everything's where you left it, and dry, which I'd like you to appreciate." },
   },
@@ -169,8 +169,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, but keep your hands where I can see them." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Honest weights matter, especially for reagents.", next = "BACK", reply = "They do. A pinch too much of the wrong powder, and someone's tent goes up in flames.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Damp reagents weigh more, so sell them wet.", next = "BACK", reply = "And sell bad potions to orcs who will come back looking for me? No, I keep them dry.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "How do you keep anything dry out here?", next = "damp" },
         { text = "You and Rartar sell the same vials, don't you?", next = "rartar" },
@@ -248,8 +248,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and your blade's still bright! You listened about the oil, and I don't forget a customer who listens." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Pick what you want off the rack and go; I've steel to oil before the swamp eats it." },
     { id = "g_default", text = "Looking for steel? Everything on this rack is oiled this morning, because the swamp eats it otherwise." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior! Come and pick up the Great Axe, and tell me it doesn't feel like it belongs in your hands." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Has your blade started to rust yet? It will." },
@@ -278,8 +278,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask, and pick something up while you do." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A blade should be sold oiled, sharp and honest.", next = "BACK", reply = "Every one on my rack is, and I'll stand behind each of them.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Polish the rust off and sell it as new.", next = "BACK", reply = "The swamp will show the rust in a week, and then the grunt will show me his axe.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Does the rust really get that bad?", next = "rust" },
         { text = "Who are you arming against out here?", next = "ogres" },
@@ -357,8 +357,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and still alive! Proper armor will do that, so come and see the platemail I've brought in." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The prices are what they are, and you can go and haggle with Thralosh if you don't like them." },
     { id = "g_default", text = "Plate and mail, brigandine and platemail, and a shield or two. Don't listen to Thralosh across the square, who sells leather." },
     { id = "g_plate", when = { class = { "WARRIOR", "PALADIN" } }, text = "Now there's someone built to wear proper armor. Come and try the platemail on." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still alive, which I'll put down to good armor whether or not you bought it here." },
@@ -379,8 +379,8 @@ P:NPC {
           text = "Thralosh has buried more customers than I have, and you can ask him about that if you like. He won't tell you the number, but I will." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Good plate saves lives, so it should be sold honestly.", next = "BACK", reply = "That's the truth of it. A cheat in armor kills more orcs than the Alliance does.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Tell a fool that leather's plate and he'll pay double.", next = "BACK", reply = "That's Thralosh's trade, not mine. I sell iron, and iron doesn't lie.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "You're right. I'll buy heavier armor.", next = "BACK", fx = { align = { order = 1 } } },
         { text = "Thralosh is right. Speed keeps you alive.", next = "BACK", fx = { align = { order = -1 } } },
         { text = "Something else, Grimnal.", next = "BACK" },
@@ -531,8 +531,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and still nimble, I see! Come and look; Grimnal's customers never move this well." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Look, buy and go, and if you want to waste someone's time, go and waste Grimnal's." },
     { id = "g_default", text = "Light armor for a heavy swamp. Come and see something you can actually move in." },
     { id = "g_cloth", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "A spellcaster! You'll want cloth, and I've cloth that won't rot on your back by the end of the week." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still nimble, I see. Grimnal's customers should be so lucky." },
@@ -559,8 +559,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask, and ignore whatever Grimnal's shouting." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Armor should be sold for what it is, not what it's called.", next = "BACK", reply = "Exactly so, and that's why I never tell anyone leather will stop an axe. Grimnal might.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Leather, plate, who cares? Sell whatever the customer believes.", next = "BACK", reply = "You'd get on well with Grimnal, then. Go and tell him I sent you.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you've got.", next = "BUSINESS" },
         { text = "Why leather, in a swamp?", next = "leather" },
         { text = "Grimnal says plate keeps you alive.", next = "grimnal" },

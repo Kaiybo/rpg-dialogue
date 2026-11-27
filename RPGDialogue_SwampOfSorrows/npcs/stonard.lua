@@ -1227,8 +1227,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite guest. The fire's warm and the room's ready." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Sit where you like, and I'll get to you when I get to you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back in Stonard, and welcome. Your bed's the driest in the swamp, and I kept the mud off it myself." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Boots off by the door, take a bench in the corner, and I'll get to you when I get to you." },
     { id = "dp_pt_any", when = { party = true }, text = "Your friends look tired. Stonard has rooms enough, if they can sleep through the swamp's noise." },
     { id = "g_op_peace", when = { gossip = { topic = "peace", stance = "war" } }, text = "Commander Ruag says you'd march on Theramore tomorrow if the Warchief gave the word. Half my customers would follow you there, and the other half would drink to your funeral." },
     { id = "g_inn", text = "Boots off by the door, because the mud stays outside, even if you don't have to. That goes for every orc, troll and grunt in Stonard." },

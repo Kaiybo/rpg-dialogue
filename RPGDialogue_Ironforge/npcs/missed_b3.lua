@@ -16,8 +16,8 @@ P:NPC {
     third = "{name} met Vosur Brakthel, a dwarf learning alchemy from the gnomes at Berryfizz's in Tinker Town.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again, friend! Mistress Berryfizz says I'm improvin', an' I'd like ye tae be the first tae hear it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ah, it's you. I'll keep my flasks well back from ye, if ye dinnae mind, for I've a feelin' it's safer." },
     { id = "g_default", text = "A moment, friend, till I've set this down. There, now I can breathe, an' so can you." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. I've no' broken a single flask since ye were last here, an' I'd like that written down somewhere." },
   },
@@ -113,8 +113,8 @@ P:NPC {
     third = "{name} met Thief Catcher Farmountain, who walks the halls of Ironforge looking for light fingers.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, a citizen I dinnae have tae watch! Walk wi' me a step, then, for it makes a change from the pickpockets." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I know that walk, an' I know yer name now as well. One step out o' line an' ye'll be explainin' yerself tae the guard." },
     { id = "g_default", text = "Keep movin', citizen, an' keep a hand on yer coin. I've a round tae walk, so make it quick." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "I know that walk. Whatever ye're thinkin' o' doin', do it in some other city, an' we'll get on fine." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Yer purse is still on yer belt, so my day's goin' well enough." },
@@ -135,8 +135,8 @@ P:NPC {
         { id = "h_again_x0", when = { class = "ROGUE" }, text = "Back again? Keep yer hands where I can see them while we talk." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The law keeps Ironforge safe, and every citizen should obey it.", next = "BACK", reply = "That's the right o' it, an' it's why I walk this round twice a night.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws protect the rich. Breaking those is no crime to me.", next = "BACK", reply = "Then ye'll be breakin' them where I cannae see ye, for I'll haul ye in all the same.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Are there many thieves in Ironforge?", next = "thieves" },
         { text = "How do you spot one?", next = "spot" },
         { text = "You've caught the same cutpurse four times?", next = "cutpurse" },
@@ -210,8 +210,8 @@ P:NPC {
     third = "{name} met one of Ironforge's thief catchers, a soft-footed dwarf who hunts thieves by walking the way they do.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye saw me this time, an' before I spoke. That's twice now, an' I'm startin' tae think ye'd make a fine catcher yerself." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've been watchin' ye since the Commons, an' ye didnae notice. Keep it that way, an' keep yer hands still." },
     { id = "g_default", text = "Ye didnae see me till I spoke, did ye? Good, for that's how it's meant tae work." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Evenin'. Ye check the corners when ye walk intae a hall, the same as I do, so we understand each other." },
     { id = "g_back", when = { metBefore = true }, text = "I saw ye two halls back. Ye've a way o' walkin' I'd know anywhere now." },
@@ -232,8 +232,8 @@ P:NPC {
         { id = "h_again_x0", when = { class = "ROGUE" }, text = "Ye again. I saw ye coming two halls back, so dinnae try it." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "A thief caught should face the king's justice, not a back alley.", next = "BACK", reply = "Aye, for justice in the dark is just another crime, an' I'll no' have it on my hands.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Sometimes a thief deserves to get away with it.", next = "BACK", reply = "Some do, an' I've let none o' them, for I cannae read hearts an' neither can ye.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "How do you catch someone you can't see?", next = "unseen" },
         { text = "You walk like a thief yourself.", next = "walk" },
         { text = "What's the worst you've ever caught?", next = "worst" },
@@ -304,8 +304,8 @@ P:NPC {
     third = "{name} met Thief Catcher Thunderbrew, a cheerful dwarf who patrols Ironforge for pickpockets.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. The streets feel a little safer with you walking them." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Mornin', mornin'! Ye're my favourite sort o' citizen, for ye never get robbed an' ye always stop tae chat." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Mornin'. I'll keep half an eye on the purses near ye, if it's all the same, for no reason I'd care tae say aloud." },
     { id = "g_default", text = "Mornin', citizen! Purse still where ye left it? Grand, then I've done my job an' we can both be on our way." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! Still no' robbed, I hope, for it'd reflect badly on me." },
     { id = "g_drunk", when = { drunk = true }, text = "Ho, ye've been at the ale, an' good ale by the smell. Mind yer pockets, friend, for a merry dwarf is a cutpurse's favourite customer." },
@@ -326,8 +326,8 @@ P:NPC {
         { id = "h_again_x0", when = { race = "Dwarf" }, text = "Back again? Still nae barrel, before ye ask." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The rules are the rules, even in the Commons on market day.", next = "BACK", reply = "Grand, that's my view exactly, an' it saves a deal o' arguin'.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "A hungry lad pinching bread shouldn't be locked up for it.", next = "BACK", reply = "Ach, I'd buy the lad a loaf myself, but I'd still have tae take him in, more's the pity.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "A Thunderbrew who doesn't brew?", next = "brew" },
         { text = "What's the cleverest theft you've seen?", next = "clever" },
         { text = "Tell me about your cousins in Kharanos.", next = "cousins" },
@@ -402,8 +402,8 @@ P:NPC {
     third = "{name} met Thonys Pillarstone, a dwarf apprentice enchanter at Thistlefuzz Arcanery in Ironforge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you! My beard's no' glowin' today, which means I can shake yer hand without worryin' about it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ah, it's you. Master Gimble's locked his notes away again, an' I cannae say I blame him this time." },
     { id = "g_default", text = "Hello, friend. If my beard's glowin', dinnae tell me, for I've only just got it tae stop." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you. Master Gimble's upstairs, an' he heard ye on the steps, so he'll be hidin' his notes." },
   },
@@ -493,8 +493,8 @@ P:NPC {
     third = "{name} met Tisa Martine, a human who has made herself at home in Bruuk's Corner in Ironforge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my fellow tall one! Come and lean on the bar with me, for the company's improved the moment you walked in." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. There's room at the bar, I suppose, though I'd rather you took the far end of it." },
     { id = "g_default", text = "Pull up to the bar, there's room. Mind the beam on your way in, though I suppose that's only a worry for some of us." },
     { id = "g_human", when = { race = "Human" }, text = "Another tall one! Come and stand by me, and for once I won't be the only person in here who can see over the bar." },
     { id = "g_back", when = { metBefore = true }, text = "Back at Bruuk's? I knew you would be. Nobody comes here only once." },

@@ -409,8 +409,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! Sit down, and I'll bring the good stuff before the others see." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll rent you a room, but there'll be no trouble in my house tonight." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, home out of the wind! Sit by the fire, and I'll pour you something before Swimmers starts on his ghosts." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll rent you a bed, since business is thin, but keep the windows shut and the trouble outside." },
     { id = "g_default", text = "Come in out of the wind, traveller; this is the Calmbreeze Inn, the only place in Valanaar where it's polite to keep the windows shut. Will you have something to drink?" },
     { id = "g_home", when = { homeInn = true }, text = "Back home to the Calmbreeze. Your bed's made, more or less." },
     { id = "g_away", when = { away = 14 }, text = "You're back after {away}! Come in out of the wind, and I'll pour you something before Swimmers starts in on his ghost stories." },

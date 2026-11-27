@@ -20,8 +20,8 @@ P:NPC {
     third = "{name} met Andrea Halloran, the tanner's wife in Menethil Harbor, who has her hands full with two adventurous children.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you, and thank the Light for a grown-up face! Sit a moment, while the children are quiet." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I've no patience left today, I'm afraid, so be brief." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Hush, please, they're finally asleep. I'd forgotten what the harbor sounds like without them." },
     { id = "g_hi", text = "Oh, hello! Sorry, I'm only half listening; I've lost sight of Jesse again, and that's never a good sign." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! Have you seen a small boy halfway up anything tall? If you have, don't tell me which." },
@@ -136,8 +136,8 @@ P:NPC {
     third = "{name} met Comar Villard, a grieving man who wanders the northern Wetlands searching for his lost wife.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you again, and it's good to see a kind face on this lonely road. Walk with me a while, if you have time." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ah, you. Go on your way, then, and I'll keep looking on my own." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Who's there? Forgive me, I thought for a moment... no. Good evening, friend. It is late to be on this road." },
     { id = "g_hi", text = "Excuse me, friend, but have you seen a woman travelling alone on these roads? No, I suppose you haven't, and nobody ever has." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. Still no sign of her, I'm afraid, but I keep looking." },
@@ -252,8 +252,8 @@ P:NPC {
     third = "{name} met Kersok Prond, the tradesman who works out of the Deepwater Tavern in Menethil Harbor.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite customer! I've set aside a crate o' Ironforge flux, an' it's dry, which is a miracle in this town." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy what ye need, but dinnae expect me tae haggle wi' ye." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf, an' no' yet green wi' the damp. Sit down, {g:lad|lass}, I've Ironforge flux an' Ironforge prices, near enough." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The night boat's due, so I'm still at my table. What are ye short of?" },
     { id = "g_hi", text = "Trade goods, friend, dry an' ready. In this town that's rarer than ye'd think." },
@@ -278,8 +278,8 @@ P:NPC {
         { id = "h_again3", text = "Aye? I'm listenin', an' watchin' the door, as always." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Honest weights at the scales, whatever the market.", next = "BACK", reply = "Aye, that's the way I trade, an' it's why folk trust my table.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A thumb on the scale is just good business.", next = "BACK", reply = "Then ye'd better hope I'm no' the one weighin' yer silver, friend.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "What comes in on the ships?", next = "ships" },
         { text = "Why trade from a tavern?", next = "tavern" },
@@ -351,8 +351,8 @@ P:NPC {
     third = "{name} met Gruham Rumdnul, who sells general supplies in Menethil Harbor.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye're back, an' still dry in the boots! Ye've been listenin' tae me, an' I couldnae be more pleased." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy yer supplies an' dinnae come back complainin' about the marsh." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "General supplies, an' a dwarf tae sell them tae, is it? Then ye'll hate this damp as much as I do, an' we'll get on fine." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Ye're no' thinkin' o' goin' out there in the dark? Buy a lantern, at least, an' let me talk ye out o' the rest." },
     { id = "g_hi", text = "General supplies. Are ye headed intae the marsh? Then let me see yer boots before ye tell me what ye think ye need." },
@@ -377,8 +377,8 @@ P:NPC {
         { id = "h_again3", text = "Aye? Speak yer mind." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A shopkeeper should talk folk out of what they don't need.", next = "BACK", reply = "Aye, an' I do, every day. I'd sooner they came back alive than spent their coin.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell them everything. It's not your job to save them.", next = "BACK", reply = "It's my job tae keep this town alive, an' a customer who dies in the marsh never comes back.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "What does the marsh do to travellers?", next = "marsh" },
         { text = "Who buys from you, mostly?", next = "buyers" },
@@ -450,8 +450,8 @@ P:NPC {
     third = "{name} met Dewin Shimmerdawn, a night elf who sells alchemy supplies in Menethil Harbor.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ishnu-alah. The moon smiles on your return, and I have saved some fine leaf for you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Take your vials, and do not ask for my counsel." },
     { id = "g_alch", when = { profession = "Alchemy" }, text = "Ishnu-alah, brewer. I have clean glass and fresh leaf, and I think you will know the difference." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The moon is up, and the marsh is singing. It is a good hour for a visit; I am glad you came." },
     { id = "g_hi", text = "Ishnu-alah. I have vials, and I have the herbs to fill them, if you know what to do with either." },
@@ -476,8 +476,8 @@ P:NPC {
         { id = "h_again3", text = "Yes? Speak, and I will listen." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A good alchemist is honest about every ingredient in a potion.", next = "BACK", reply = "That is so. A healer who hides her recipe has something to hide besides.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Water the potions down. Most drinkers will never know.", next = "BACK", reply = "They would know when it failed them in the marsh, and so would I.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "What grows in the Wetlands?", next = "grows" },
         { text = "What brought a night elf to Menethil?", next = "came" },
@@ -549,8 +549,8 @@ P:NPC {
     third = "{name} met Brak Durnad, the weaponsmith of Menethil Harbor.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, an' ye've been oilin' that blade like I told ye. I'll make a smith o' ye yet." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Lay yer weapon on the bench, an' save yer breath for the swamp." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The night watch has just been in for their edges. Ye're next, if ye've somethin' needs seein' tae." },
     { id = "g_hi", text = "Weapons, an' good ones. Let me see what ye're carryin' first, for I'll no' sell ye a second till I ken how ye treat the first." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, an' let's see if ye've oiled it since. Hm, ye have, a wee bit, an' that's somethin' in this weather." },
@@ -574,8 +574,8 @@ P:NPC {
         { id = "h_again3", text = "Aye? Speak up over the wheel." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A smith should sell only what will hold in this weather.", next = "BACK", reply = "Aye, an' I do. A blade that rusts in a week isnae worth the coin.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell them pretty steel. They'll be dead before it rusts.", next = "BACK", reply = "That's a coward's way tae trade, an' I'll no' have it in my shop.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "How do you keep steel from rusting here?", next = "rust" },
         { text = "You arm the harbor guard?", next = "guard" },
@@ -651,8 +651,8 @@ P:NPC {
     third = "{name} met Jennabink Powerseam, a gnome who sells tailoring supplies from a cart in Menethil Harbor.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again, hello! I set aside a spool of the oiled thread for you, because I know what this rain does to a cloak." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Pick what you need, and please don't drip on the dye pots." },
     { id = "g_gnome", when = { race = "Gnome" }, text = "Thread, dye, needles and patterns, and a friendly face at eye level for once! Hello, hello." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "I'm just putting the cover on, but I'll take it off again for a customer. What do you need?" },
     { id = "g_hi", text = "Thread, dye, needles and patterns! And if your cloak is letting the rain in, which it is, I can tell you why." },
@@ -677,8 +677,8 @@ P:NPC {
         { id = "h_again3", text = "Yes? Mind the wheel, it's chocked but I don't entirely trust the chock." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A tailor should tell you when your cloth's not fit for rain.", next = "BACK", reply = "Exactly! I'd lose sleep if I sold anyone a cloak that let the drizzle in.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell them pretty cloth. The rain will teach them a lesson.", next = "BACK", reply = "The rain teaches everyone a lesson here, but I won't help it along.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "How do you keep cloth dry in the Wetlands?", next = "dry" },
         { text = "What are the specialty goods?", next = "special" },
@@ -750,8 +750,8 @@ P:NPC {
     third = "{name} met Fradd Swiftgear, a gnome who sells engineering supplies from a camp in the Wetlands.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back! I've finally fixed the east bell, and you're the first person to test it, which I mean as a compliment." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'm in the middle of a calculation, so please be brief." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Oh! You set off the east bell. No harm done, I'm awake, I'm always awake. What can I get you?" },
     { id = "g_eng", when = { profession = "Engineering" }, text = "An engineer, at my camp! Sit, sit, there's tea, and I've a question about fuse cord I've been saving for someone qualified." },
     { id = "g_hi", text = "A customer! Out here! Wonderful, I was beginning to think the sign had fallen over again." },
@@ -776,8 +776,8 @@ P:NPC {
         { id = "h_again3", text = "Yes? Go on, I'm only half watching the kettle." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An engineer should warn the buyer about any explosive faults.", next = "BACK", reply = "Of course! The warning label is the most important part of any device I sell.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Let them discover the faults themselves. It's practically research.", next = "BACK", reply = "Well, it is research, technically, but I'd prefer my customers to keep their eyebrows.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Why set up shop in the middle of a marsh?", next = "why" },
         { text = "Who shares this camp with you?", next = "camp" },
@@ -849,8 +849,8 @@ P:NPC {
     third = "{name} met Wenna Silkbeard, a dwarf who sells special goods from a camp in the Wetlands.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye again, an' welcome! I've a few new things in the crate that the harbor hasnae seen, an' ye can have first look." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll sell ye somethin', but dinnae wake Fradd wi' yer chatter." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Come intae the firelight where I can see ye. Aye, ye'll do. Sit, an' keep yer voice down, for Fradd's finally asleep." },
     { id = "g_hi", text = "I saw ye comin' up from the road a quarter hour back. Sit down, then, an' I'll show ye what I've got that the harbor hasnae." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again! Good. Fradd's been talkin' tae me about bolts since breakfast, an' I'm glad o' the rescue." },
@@ -874,8 +874,8 @@ P:NPC {
         { id = "h_again3", text = "Aye? Ask away." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "I'd sooner pay a fair price than haggle a friend down.", next = "BACK", reply = "Aye, that's how I like it, an' it's why ye're always welcome at this fire.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Charge the harbor folk double. They've no choice but to pay.", next = "BACK", reply = "They do have a choice, friend, an' it's tae never come back. I'll no' do it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "Why trade from a camp, not the harbor?", next = "camp" },
         { text = "Tell me about your neighbour.", next = "fradd" },
@@ -950,8 +950,8 @@ P:NPC {
     third = "{name} met Kixxle, a goblin who sells potions and herbs on the road through the Wetlands.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hey, my favourite customer! I've got a fresh batch with your name on it, pal, and I mean that almost literally." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Full price, pal, and don't make me count your copper twice." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Whoa, hey, don't sneak up on a guy! Night rates apply, pal, that's just the lamp oil talkin'." },
     { id = "g_poor", when = { money = { max = 100 } }, text = "Hey, pal, I can hear your purse from here and it ain't jinglin'. Come back when it does, I'll still be sittin' on this blanket." },
     { id = "g_hi", text = "Hey, hey, pal, over here! You look like somebody who's about to need a potion, and I happen to be the only one sellin' for ten miles." },
@@ -976,8 +976,8 @@ P:NPC {
         { id = "h_again3", text = "Yeah? Make it quick and maybe buy somethin' after." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A potion seller should say plainly what's in the bottle.", next = "BACK", reply = "Plainly? Pal, that's bad for business, but fine, I'll tell you, for a valued customer.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Swamp water with a bit of colour sells just as well.", next = "BACK", reply = "Now that's a business plan, buddy, though I'd keep it quiet near the guards.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you're selling.", next = "BUSINESS" },
         { text = "Why set up on an empty road?", next = "road" },
         { text = "You sell to both sides?", next = "sides" },
@@ -1054,8 +1054,8 @@ P:NPC {
     third = "{name} met Naela Trance, a bowyer in Menethil Harbor.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back, and your bowstring looks dry. I'll take that as a sign you listened to me for once." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy your strings and leave, and don't come back if the damp gets them." },
     { id = "g_hi", text = "Bows, arrows and dry strings, which in this town is the hard part. Come in out of the wet." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Tell me you unstrung it at night, and I'll believe you if you say it quickly." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, and headed into the marsh, I expect. You'll want spare strings, and then one more than that." },
@@ -1078,8 +1078,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. Rain's coming, so neither of us is going anywhere." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A bowyer should never sell a bow with a hidden crack.", next = "BACK", reply = "That's right, and I'd sooner break one over my knee than sell it cracked.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A cracked bow still sells, if you hide the crack well.", next = "BACK", reply = "And snaps in the hunter's face in the marsh. Not on my bench.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your bows.", next = "BUSINESS" },
         { text = "The damp must be murder on a bowstring.", next = "damp" },
         { text = "Two bowyers in a town this size?", next = "edwina" },
@@ -1151,8 +1151,8 @@ P:NPC {
     third = "{name} met Edwina Monzor, a bowyer in Menethil Harbor.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back already, and with that look in your eye? You've found something worth shooting, and I'm glad to see you again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy your arrows and go, and don't bother telling me what you shot." },
     { id = "g_hi", text = "Arrows by the sheaf and bows that will stop a raptor. What are you hunting, and how angry is it?" },
     { id = "g_back", when = { metBefore = true }, text = "Back already? Then you found something worth shooting, and I'm glad to hear it." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "I'm open late, because the night watch runs short at the worst hours. What do you need?" },
@@ -1175,8 +1175,8 @@ P:NPC {
         { id = "h_again2", text = "Yes? Ask, I've another forty of these to do before dark." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Arrows should be fletched to the same standard, every one.", next = "BACK", reply = "That's how I make them, and every hunter in Menethil knows it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Fletch the cheap sheaves sloppily. Nobody checks every arrow.", next = "BACK", reply = "The hunter checks the one that misses, and then they come back to me shouting.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you've got.", next = "BUSINESS" },
         { text = "Why a heavy bow?", next = "heavy" },
         { text = "You fletch every arrow yourself?", next = "fletch" },
@@ -1248,8 +1248,8 @@ P:NPC {
     third = "{name} met Falkan Armonis, who sells reagents in Menethil Harbor.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, and I see you kept the stoppers in, as I asked. That's the mark of a careful customer." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Take your reagents, and do mind the stoppers this time." },
     { id = "g_hi", text = "Good day to you. Reagents for every school, all of them dry, which I promise you is an achievement here." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. I hope the last lot served, and that you kept them stoppered as I asked." },
     { id = "g_mage", when = { class = "MAGE" }, text = "A mage, and bound for Theramore or Darnassus, I'd guess. Do stock up, for there's nothing between here and the far shore." },
@@ -1272,8 +1272,8 @@ P:NPC {
         { id = "h_again2", text = "Yes, do ask. It's a quiet hour between boats." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A reagent seller should never sell spoiled or damp stock.", next = "BACK", reply = "Exactly so, and I check every vial, for a damp reagent is a dangerous one.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Mix the damp reagents in with the good. Nobody will tell.", next = "BACK", reply = "The mage who blows up their own eyebrows will tell, and loudly.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your reagents.", next = "BUSINESS" },
         { text = "How do you keep powder dry in a swamp?", next = "dry" },
         { text = "You must see a lot of travellers.", next = "travellers" },
@@ -1347,8 +1347,8 @@ P:NPC {
     third = "{name} met Bart Tidewater, captain of the Maiden's Virtue, the navy ship docked at Menethil Harbor.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and I'm glad of it. You're always welcome on the Maiden's Virtue's dock, friend." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep clear of my lines, and keep clear of my crew." },
     { id = "g_hi", text = "Welcome to the Maiden's Virtue's dock. Keep clear of the lines, and if it's Theramore you want, the Lady Mehley will have you there soon enough." },
     { id = "g_back", when = { metBefore = true }, text = "You again. You're making the Theramore crossing more often than I have lately, and I'm the one paid to sail." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Out on the docks at night? Mind your footing on the planks, for they're slick, and nobody fishes out hats." },
@@ -1441,8 +1441,8 @@ P:NPC {
     third = "{name} met Adam Lind, a dock hand in Menethil Harbor who directs travellers to the Theramore ship.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! Still the same pier, and still the same friendly face waiting for you on it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. It's still this pier, so go on and stand on it like last time." },
     { id = "g_hi", text = "Theramore? This pier, right here. She'll be along shortly, so mind the gap when you board." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! Still the same pier, I'm afraid, they haven't moved it." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "She sails at night as well, don't worry. Stand under the lamp, where the crew can see you." },
@@ -1534,8 +1534,8 @@ P:NPC {
     third = "{name} met Don Pompa, a dockworker in Menethil Harbor who directs travellers to the Auberdine ship.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again. Still this pier, and still glad to see a traveller who listens the first time." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. This pier, the same as always, and don't ask me again." },
     { id = "g_hi", text = "Auberdine boat, this pier. Theramore's the other one. Aye, I'm sure." },
     { id = "g_back", when = { metBefore = true }, text = "You again. It's still this pier, and it'll be this pier tomorrow as well." },
     { id = "g_elf", when = { race = "NightElf" }, text = "Going home, are you? This pier, and she's due any moment. Your lot never need telling twice, I'll say that." },
@@ -1627,8 +1627,8 @@ P:NPC {
     third = "{name} met Hargin Mundar, a dwarf who drinks his days away in the Deepwater Tavern in Menethil Harbor.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye came back! Sit, sit, for I've remembered the best part o' the floodgate story, an' it's even better now." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll tell my stories tae somebody who appreciates them, thank ye." },
     { id = "g_hi", text = "Sit down, sit down! There's room on the bench, an' I've a story that wants a fresh pair of ears." },
     { id = "g_back", when = { metBefore = true }, text = "Ye came back! Did I tell ye about the floodgate? I did? Well, I've remembered more of it since." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Thank the stone, somebody who'll understand a joke about mortar. Sit, sit." },
@@ -1721,8 +1721,8 @@ P:NPC {
     third = "{name} met Junder Brokk, a dwarf who keeps a seat in the Deepwater Tavern in Menethil Harbor.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye're back, an' I'm glad of it, for ye're the only one who lets Hargin finish a story." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I've had enough o' Hargin's stories today, an' I'll no' be needin' yours as well." },
     { id = "g_hi", text = "Evenin'. If Hargin's already told ye about the floodgate, I'm sorry, an' if he hasnae, run." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back. Pull up a stool, it's the same ale an' the same stories." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "Well met, {g:lad|lass}. It's good tae hear a voice from home that isnae Hargin's." },
@@ -1814,8 +1814,8 @@ P:NPC {
     third = "{name} met Murphy West, who looks after the stores in the basement of Menethil Keep.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again. You're the only visitor who doesn't want a barrel moved, and I've grown fond of that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. I'd hoped it was the sergeant, and that's saying something." },
     { id = "g_hi", text = "Oh. I thought you were the sergeant. Come in, then, and don't lean on the stack, it's not as steady as it looks." },
     { id = "g_back", when = { metBefore = true }, text = "You again. You're the only visitor I get who doesn't want a barrel moved." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "It's the same down here, night or day. That's rather the point of the place." },
@@ -1907,8 +1907,8 @@ P:NPC {
     third = "{name} met Timothy Clark, a young man in Menethil Harbor who hopes to become a guard.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back! I've been practising with the shields every day, and I want to hear everything you've fought." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I've got duties to learn, so I can't stop and talk today." },
     { id = "g_hi", text = "Hello! Are you here to see Captain Stoutfist? I can tell you where he is, I always know where he is." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Did you fight anything? You have to tell me, and don't leave out the bad parts." },
     { id = "g_war", when = { class = { "WARRIOR", "PALADIN" } }, text = "Is that real plate? Sorry, of course it is. I've only ever held the practice shields." },

@@ -199,8 +199,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and sitting straight in the saddle now. The horses have noticed, and they're glad to see you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Mind the hooves, take your lesson, and try not to frighten the beasts this time." },
     { id = "g_default", text = "Mind the hooves. They don't kick, but they don't look where they step either." },
     { id = "g_mounted", when = { mounted = true }, text = "Sitting straighter than you did, I see. Your horse has noticed, even if you haven't." },
   },
@@ -222,8 +222,8 @@ P:NPC {
         { id = "h_again", text = "Something else? The horses can wait. They're very good at it." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A rider should treat a dead horse as well as a living one.", next = "BACK", reply = "Exactly. They can't feel it, but they know it, in their way, and they'll carry you further for it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A dead horse feels nothing. Drive it until its bones crack.", next = "BACK", reply = "Then you'll walk the rest of the way, and you'll deserve to. I don't teach riders like that.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me to ride.", next = "BUSINESS", when = { minLevel = 40 } },
         { text = "How is a dead horse different?", next = "horses" },
         { text = "Who rides them besides the Forsaken?", next = "others" },

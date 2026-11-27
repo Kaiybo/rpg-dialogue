@@ -552,8 +552,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! Yer beast's stall is clean an' the straw's fresh, for I like a rider who looks after their animal." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Yer beast can stay, for it's done nothin' wrong. Ye, on the other hand, can mind yer manners in my stables." },
     { id = "g_default", text = "Mind the cub, he's sleepin', an' mind the ram, he's not. What can I do for ye?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Yer beast'll be glad o' the straw, I'd wager." },
   },

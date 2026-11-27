@@ -54,8 +54,8 @@ P:NPC {
         { id = "h_again2", text = "Anything more, {g:son|lass}? Out with it." },
       },
       choices = {
-        { text = "Discipline wins wars, not courage.", next = "BACK", reply = "Both win wars, but discipline wins the ones that last. Kurzen's lot learned that the hard way.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Out here, you fight however you can.", next = "BACK", reply = "That's how Kurzen's men think, and look where it got them. Still, I've broken a few rules myself.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Doren's orders hold this camp together; follow them to the letter.", next = "BACK", reply = "That's right, and anyone who forgets it digs latrines till Kurzen's dead. Discipline is all we've got over him.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Out here, every soldier should fight his own way, not by orders.", next = "BACK", reply = "Then you'd be dead by sundown, and so would the poor sods beside you. We hold together, or Kurzen picks us off one by one.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Do you know the men you're fighting?", next = "known" },
         { text = "How does Kurzen keep his army fighting?", next = "medicine" },
         { text = "Fighting a man who outnumbers you can't be easy.", next = "tactics" },

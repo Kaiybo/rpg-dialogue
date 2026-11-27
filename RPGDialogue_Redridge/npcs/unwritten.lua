@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} met Bernard Brubaker, who sells leather armour on a hill east of Stonewatch Falls.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Customer! Well, a friend, really; come up, keep low, and let's see how my leathers have held on you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Prices are what they are, and the gnolls' rocks don't care who you are either. Buy, and get down off my hill." },
     { id = "g_default", text = "Customer! Come up, come up, and keep your head down, because the gnolls throw rocks at anything that moves on this hill." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still breathing. That's a fine advertisement for my leathers, that is." },
   },
@@ -34,8 +34,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask, but keep an eye on the ridge for me." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A merchant should say plainly what his armor can't stop.", next = "BACK", reply = "Aye, and mine can't stop a Blackrock axe, so I say so. Gnoll rocks, though, it handles fine.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Up here, folk fleeing gnolls would buy any rag you called armor.", next = "BACK", reply = "They would, once. Then their families would come up this hill looking for me.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why sell out here, instead of Lakeshire?", next = "why" },
         { text = "What's happening at Stonewatch?", next = "stonewatch" },
         { text = "Let me see the leathers.", next = "BUSINESS" },
@@ -115,8 +115,8 @@ P:NPC {
     third = "{name} met Madison, a little girl of Lakeshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Go away. I don't like you very much." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! I found a shiny thing by the lake, and I'm only showing you, nobody else." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Go away. I don't like you very much, and Mum says I don't have to talk to you." },
     { id = "g_default", text = "Hello! Are you an adventurer? You look like an adventurer, because you've got a sword and you're all dirty." },
   },
   start = "hello",
@@ -214,8 +214,8 @@ P:NPC {
     third = "{name} met Erin, a little girl of Lakeshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back! You get to be a real hero in the game, not a gnoll, because I'm the captain and I say so." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling the real guard captain, and you have to be the gnoll forever." },
     { id = "g_default", text = "We're playing guards and gnolls, and I'm the guard captain, so you have to be a gnoll unless you're a real hero." },
   },
   notice = {
@@ -322,8 +322,8 @@ P:NPC {
     third = "{name} met Hannah, a little girl of Lakeshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh! It's you. I was going to growl, but you're nice, so I'll just say hello quietly instead." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not going to growl at you, because you're scary. Please go away now." },
     { id = "g_default", text = "Grr! Oh, sorry, I thought you were Erin, and I'm meant to be a gnoll, so I have to growl at everybody." },
   },
   notice = {

@@ -1163,8 +1163,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and only a little broken this time. Bring it over, and I'll find a decent bit of salvage to mend it with." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Put it on the anvil and stand back, because I've no stories for you today, nor jokes either." },
     { id = "g_default", text = "Need something mended, or something new? It's all salvage either way." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Let's see what you've broken this time." },
     { id = "g_fpal", when = { class = "PALADIN", race = "Scourge" }, text = "Another of Danitha's knights. Stand still and let me look at your straps, because I'll wager nobody has since you left Deathknell." },
@@ -1610,8 +1610,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you, and you've wiped your boots without my asking. The old keep likes you, I think, and so do I." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Wipe your boots, keep off the north stairs, and try not to track anything in that I'll have to sweep." },
     { id = "g_default", text = "Mind the north stairs; they're older than I am, and I'm dead." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. Wipe your boots, if you would; I've just swept." },
     { id = "g_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Oh! A guest with a pulse. Do mind your head on the lintels, because the keep was built for men of Lordaeron and nobody thought to allow for horns or tusks." },
@@ -1754,8 +1754,8 @@ P:NPC {
     third = "{name} spoke with one of the Forsaken paladins who guard the walls of Bandarion Keep.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep an eye open. Mind yourself." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and welcome. The Light's dead keep a watch on every stranger here, but they've stopped watching you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The walls are still standing, and so am I, so state your business and be about it." },
     { id = "g_default", text = "Walk in the Light, or at least walk carefully. This keep is held by the Light's own dead, and we keep a sharp watch." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The walls are still standing, if that was your question." },
     { id = "g_paladin", when = { class = "PALADIN", race = "Scourge" }, text = "A brother of the order, risen like the rest of us. The Light welcomes you home, whatever the Apothecaries mutter." },
@@ -1777,8 +1777,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. The Crusade gives me little else to do but wait." },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "A keep stands because every sentry keeps the watch he's given.", next = "BACK", reply = "Just so. These walls have outlasted kings because the watch was never broken, not even by death.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "A sentry who sees trouble coming should act, orders or not.", next = "BACK", reply = "And leave his post empty while he does? The Scourge would thank you for that, and so would the Crusade.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "How does the Light answer the dead?", next = "light" },
         { text = "Who are you watching for?", next = "watch" },
         { text = "What were you, before you died?", next = "life" },
@@ -1907,8 +1907,8 @@ P:NPC {
     third = "{name} spoke with one of the trainee paladins drilling under Hilda the Breaker at Bandarion Keep.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you again! Hilda's looking the other way, so I can talk for a whole minute, maybe two." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Sorry, I really can't stop, and I'd rather Hilda didn't see me talking to you anyway." },
     { id = "g_default", text = "Sorry, I can't stop long, or Hilda will notice and I'll be on dummy duty till midnight." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, you again! I've only been knocked down twice today, which is a record for me." },
   },
@@ -2028,8 +2028,8 @@ P:NPC {
     third = "{name} met one of the risen warhorses of Bandarion Keep, which still carries its old barding.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "<The warhorse lowers its bony head and nudges your shoulder, cold breath puffing against your neck.>" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "<The warhorse flattens its ears and stamps a bare hoof, turning one clouded eye away from you.>" },
     { id = "g_default", text = "<The dead horse turns one clouded eye on you and snorts a puff of cold air.>" },
   },
   start = "hello",

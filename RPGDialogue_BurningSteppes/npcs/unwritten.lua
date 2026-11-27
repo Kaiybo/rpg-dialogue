@@ -13,8 +13,8 @@ P:NPC {
     third = "{name} met an Ironforge expeditionary priest at Draco'dar in the Burning Steppes.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Light love ye, ye've found us a third time! I'll start believin' the Light sends ye on purpose, an' I'll thank it proper tonight." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye've found Draco'dar again, more's the pity. The Light bids me bless ye, an' so I will, but I'll keep it short." },
     { id = "g_default", text = "Light's blessing on ye, traveller, an' how in the world did ye find us out here? Nobody comes to Draco'dar but dragons an' the odd lost gryphon." },
     { id = "g_back", when = { metBefore = true }, text = "Ye found us twice! Either ye've a fine sense o' direction or the Light's playin' a joke on the both of us." },
   },
@@ -28,8 +28,8 @@ P:NPC {
       lines = { { id = "h_default", text = "We're the expedition's priests, sent from Ironforge to keep the diggers whole an' their spirits up. The Steppes burn day an' night, an' between the Blackrock orcs an' the black dragons, there's always someone in need o' mendin'." } },
       again = { { id = "h_again", text = "Aye, what else is on yer mind?" } },
       choices = {
-        { text = "The Light forgives all who truly seek it.", next = "BACK", reply = "It does, and I pray we're all given the chance to seek.", fx = { align = { light = 1 } } }, -- dp_stance
-        { text = "Some deeds are beyond the Light's forgiveness.", next = "BACK", reply = "Careful, friend. That's a judgment best left to the Light itself.", fx = { align = { light = -1 } } }, -- dp_stance
+        { text = "The Light walks with the diggers, even this near the dragons.", next = "BACK", reply = "Aye, it does, an' I'd not be out here if I didnae believe it with my whole heart.", fx = { align = { light = 1 } } }, -- dp_stance
+        { text = "No prayer will stop a dragon. Trust your axes instead.", next = "BACK", reply = "Axes are fine things, friend, but I've seen what's left of the lads who trusted only that.", fx = { align = { light = -1 } } }, -- dp_stance
         { text = "What is the expedition looking for here?", next = "dig" },
         { text = "How do you keep faith in a place like this?", next = "faith" },
         { text = "The Steppes look dead from the air.", next = "steppes" },

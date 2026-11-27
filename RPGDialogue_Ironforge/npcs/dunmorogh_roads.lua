@@ -635,8 +635,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my best customer for powder and shot! I can hear a Rumbleshot rifle in the hills and know it's yerself firin' it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell ye a gun, since a sale's a sale, but I'd sooner ye pointed it well away from my door." },
     { id = "g_camp", text = "Lookin' for a gun? Ye've come to the right dwarf, and ye'll no' find a better one between here and Ironforge." },
   },
 
@@ -651,8 +651,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Every dwarf has a use for a good rifle! Mind, I've heard the earth-talkers say the blast startles the spirits. If that's so, ye'll want a quieter barrel, an' I'll tell ye now that I dinnae make quiet barrels." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A rifle should be fired fair, from the front, never at a back.", next = "BACK", reply = "Spoken like a proper hunter, and that's how my da taught me to shoot.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A shot in the back kills as well as one in the front.", next = "BACK", reply = "It does, aye, and that's exactly why I'll nae drink with the dwarf who says so.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "A rifle has its place. Discipline's the same either way.", next = "BACK", reply = "Spoken like a proper dwarf, an' I'll find ye a quieter barrel, though I'll no' promise the spirits willnae jump now an' then.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'll trust the storm over powder any day, Hegnar.", next = "BACK", reply = "Aye, aye, the storm's a fine thing, I'll grant ye, but it doesnae always come when called, an' a gun always does.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

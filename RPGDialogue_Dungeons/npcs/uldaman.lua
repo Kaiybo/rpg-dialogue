@@ -12,8 +12,8 @@ P:NPC {
   temper = { "reclusive", "sharp" }, values = { "craft", "solitude" },
   notices = { "craft" },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You found your way through the scorpids again. I'll admit I've started looking forward to your visits, which surprises me more than you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The scorpids have better manners than you, and I'd rather be talking to them." },
     { id = "g_default", text = "So you got past my scorpids. That's more than most manage, and I suppose it earns you a moment of my time." },
   },
   notice = {
@@ -30,8 +30,8 @@ P:NPC {
         { id = "xh_again3", when = { profession = { "Enchanting" } }, text = "Well, enchanter? Ask your question before the dust settles on it." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "I'd rather learn the art properly than buy shortcuts from charlatans.", next = "BACK", reply = "Good. The cheap enchanters in the cities cut corners, and their runes fade before the season's out.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "If a cheap rune sells, why bother with the hard ones?", next = "BACK", reply = "Because I can tell a cheap rune from across the room, and so can anyone worth enchanting for.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why hide in Uldaman?", next = "hide" },
         { text = "The titans' stone hums?", next = "stone" },
         { text = "Teach me.", next = "BUSINESS", when = { profession = { "Enchanting" } } },

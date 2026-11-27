@@ -52,8 +52,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, but be quick about it." },
       },
       choices = {
-        { text = "The old Horde's ways should stay buried.", next = "BACK", reply = "Buried, aye, but never forgotten, or we'll dig them up again by accident.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "The old Horde was strong. We've gone soft.", next = "BACK", reply = "Strong, and drunk on demon blood. I was there, {class}, and soft is better than damned.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Thrall's law binds the Horde now. I will keep it.", next = "BACK", reply = "Good. I killed for Blackhand once, and I'd rather die for Thrall than do that again.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Thrall's peace is weak. The Horde should fight as it did.", next = "BACK", reply = "As it did? I fought that way, {class}, with demon fire in my veins, and it was no victory.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Who are the two in chains?", next = "drakes" },
         { text = "Why kill them now, after all these years?", next = "honor" },
         { text = "Have you tried to reach those two before?", next = "ogres" },

@@ -353,8 +353,8 @@ P:NPC {
     third = "{name} spoke with a Scarlet Zealot kept prisoner in Brill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again. You've shown me more mercy than my own brothers would, and I pray the Light finds you before the end does." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay back, abomination! I'll pray for your destruction with every breath they leave me." },
     { id = "g_default", text = "Stay back, abomination! The Light sees you, even here, even now." },
     { id = "g_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "You're living, and you walk with these things? Then you're worse than they are, because you chose it." },
     { id = "g_priest", when = { class = { "PRIEST", "PALADIN" } }, text = "I can feel the Light on you. How can you carry it and stand among the dead? Answer me that." },

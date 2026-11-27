@@ -141,8 +141,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite patron returns. Your animal had the best stall again, the one my old grey mare used to have." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. There's a stall, and you may use it, but I'll thank you not to linger in my stable." },
     { id = "g_default", text = "Good day to you. If you've an animal that needs a rest, you've found the right stable." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, a returning patron. Do come in." },
   },
@@ -214,8 +214,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You. The last blade held, I see. Come and test the new ones." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy your blade and go, because I've nothing else to say to you." },
     { id = "g_default", text = "You need a blade? I have blades." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Did the last one hold?" },
   },
@@ -238,8 +238,8 @@ P:NPC {
         { id = "h_again", text = "Something more?" },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A weaponsmith should test every edge before he sells it.", next = "BACK", reply = "I do, on my own thumb, and the scars prove it. An untested edge is a lie.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Nobody comes back to complain about a blade that failed them.", next = "BACK", reply = "No, because they're dead, and the Deathguard need every one of them alive. Get out of my shop.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Why is an orc in Tarren Mill?", next = "why" },
         { text = "What do you think of the Forsaken?", next = "forsaken" },
@@ -290,8 +290,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and in one piece, which the gryphons always appreciate. They've been fed and they're in a fine mood for you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The birds will fly you, since that's what they're for, but I'd sooner you didn't stand about my roost." },
     { id = "g_default", text = "Need a bird? They're fed, they're rested, and they're in a better mood than I am." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and in one piece. The gryphons will be pleased, they hate carrying the injured." },
   },
@@ -359,8 +359,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back! Oh, good, I was hoping it was you and not, well, something from the north road. Your animal's stall is clean and ready." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. The stall's there, and, um, I'd rather you saw to your animal yourself, if that's all right." },
     { id = "g_default", text = "Hello! Oh, good, you're alive. I mean, hello, welcome to Southshore." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Your animal's stall is still clean, I made sure of it." },
   },
@@ -432,8 +432,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite, love! Sit by the window, and I'll bring your usual before you've even taken your gloves off." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Sit where you like, love, and I'll get to you when I get to you." },
     { id = "g_default", text = "Sit anywhere, love, I'll be right with you. Unless you're the one who ordered the stew, in which case it's coming." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! The usual, love, or shall I surprise you?" },
   },
@@ -456,8 +456,8 @@ P:NPC {
         { id = "h_again", text = "Anything else, love? I've three tables waiting." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A barmaid should keep the gossip she's told in confidence.", next = "BACK", reply = "Oh, love, I do, mostly, and the rest isn't really gossip if the whole town knows it already.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Gossip's worth coin, Neema. Sell what you hear to the highest bidder.", next = "BACK", reply = "And have half of Southshore stop talking whenever I bring the stew? No, love, I'd starve on that.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What have you got?", next = "BUSINESS" },
         { text = "What's the gossip in town?", next = "gossip" },
         { text = "Is it hard work, keeping this place fed?", next = "work" },

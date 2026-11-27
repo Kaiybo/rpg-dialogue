@@ -1275,8 +1275,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! Sit down, and I'll bring the good stuff before the others see." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "There's a bed if you want it, but don't expect a smile with it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back to the Gallows' End! Your room's kept, the bats are quiet, and I'll pour yours before the others notice you've come in." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "There's a room upstairs if you want it, and a drink if you pay for it, but don't expect the Gallows' End to smile for you." },
     { id = "dp_pt_living", when = { party = { race = { "Orc", "Troll", "Tauren" } } }, text = "Your living friends will be cold in Brill. Tell them the fire's real, even if half the patrons aren't, strictly speaking." },
     { id = "dp_pt_any", when = { party = true }, text = "Company, how rare. Brill doesn't get many travellers who arrive together and stay together." },
     { id = "g_inn", text = "Welcome to the Gallows' End! Sit anywhere you like; nobody here bites. Well, nobody here bites guests." },

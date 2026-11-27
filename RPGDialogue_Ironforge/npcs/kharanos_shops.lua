@@ -16,8 +16,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Still alive an' still buyin' from me! Ye're the sort o' regular a shopkeeper boasts about down at the Thunderbrew." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell ye bread an' water, same as anyone on the road. The word about ye's reached Kharanos, mind, so dinnae dawdle." },
     { id = "g_default", text = "Bread, water an' bags, an' a word o' warnin' for free, if ye want it." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive, I see. That's more than I'd have bet on, the first time ye came in." },
   },
@@ -35,8 +35,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "More than the old folk like, an' fewer than the young ones claim. Every year there's a lad or lass who's been listenin' at the rocks since they were wee, an' now Teo Hammerstorm, the shaman trainer, is tellin' them it isnae daft after all. It's their grandparents who come in here complainin'." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A traveller who finds a lost pack should bring it back here.", next = "BACK", reply = "That's what a good neighbour does, an' I keep a shelf behind the counter for just that.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A pack left in the snow belongs to whoever digs it out.", next = "BACK", reply = "Aye, that's what the troggs think as well, an' ye'll forgive me for no' admirin' it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The grandparents deserve patience. Change is hard on old dwarves.", next = "BACK", reply = "Aye, that's my thinkin' too, for my own granddad still calls the shamans rock-whisperers, an' he'll no' change his mind for a few more winters yet.", fx = { align = { light = 1 } } },
         { text = "The grandparents had their turn. The young can choose now.", next = "BACK", reply = "Maybe they can, but the grandparents built this town, an' I'd want the young ones tae ask their blessin' before they go talkin' tae the stones.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -219,8 +219,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there's the one who keeps my steel honest! Let's see that blade, for I'd wager it's carried ye well." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell ye a blade, for steel doesnae choose its owner. I'd sooner it did, mind." },
     { id = "g_default", text = "Need somethin' with an edge? Ye've come tae the right forge." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. How's that blade holdin' up?" },
   },
@@ -417,8 +417,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Come in, come in! Ye wear my mail better than anyone in Kharanos, an' I'll say so tae anyone who'll listen." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "The mail's for sale an' so's the plate. Pick yer piece, pay for it, an' dinnae linger by the door." },
     { id = "g_default", text = "Come in, come in! Ye look like ye could use a bit more iron about ye." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did the mail keep the teeth out?" },
   },
@@ -617,8 +617,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Look at ye now! I remember ye shiverin' in my doorway, an' now half the valley's talkin' about ye." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll still keep ye warm, for that's my trade, but the valley's been sayin' things about ye that I dinnae like." },
     { id = "g_default", text = "Ye look cold, recruit. Let's find ye somethin' warm before ye catch yer death." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, are ye? Ye're lookin' tougher already, so the valley must be treatin' ye rough in the right ways." },
   },
@@ -634,8 +634,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I've never asked them, an' it's a strange question tae hear in my own shop. The trappers say they thank the beast before they skin it, an' I always took that for an old mountain habit. Ye'd tell me it's more than habit, would ye no'?" } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A trapper should only take what the valley can spare.", next = "BACK", reply = "That's how my da worked the snows, an' there's still wolves out there because of it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Take every pelt you can. The valley will always breed more.", next = "BACK", reply = "That's what folk said about the boars by Shimmer Ridge, an' it's a sorry sight up there now.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "It's more than habit. Thank the beast, always.", next = "BACK", reply = "I'll do it, then, an' I'll tell the trappers ye said so, for they'll be glad somebody understands why they bother.", fx = { align = { honor = 1 } } },
         { text = "A hide's a hide. Thanks don't keep anyone warm.", next = "BACK", reply = "Maybe no', but the trappers say otherwise, an' I've never seen a bad pelt come from a trapper who thanked the beast.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

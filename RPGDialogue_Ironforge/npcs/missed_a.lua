@@ -16,8 +16,8 @@ P:NPC {
     third = "{name} met Auctioneer Buckler, who calls lots at the Ironforge auction house.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, one of my favourite bidders, {class}! Ye always pay what ye bid, and in this hall that makes ye near enough royalty." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Bid if ye must, and I'll take yer coin. But I've heard about yer last few dealings, so dinnae expect any friendliness from me." },
     { id = "g_default", text = "Step up, step up, {class}! If it can be mined, forged, skinned or brewed, somebody in this hall is sellin' it, and I'll find ye the lot." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, a returning bidder! I like those best, for they've already learned what the deposit costs." },
   },
@@ -117,8 +117,8 @@ P:NPC {
     third = "{name} met Bailey Stonemantle, a banker in the Vault of Ironforge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, {class}! Yer box and I have both been waitin' for ye, and only one of us was gettin' impatient." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Yer box is safe, as every box here is safe. That's the Vault's promise, and it's the only one ye'll get from me today." },
     { id = "g_default", text = "Welcome to the Vault of Ironforge, {class}! There's a mountain between yer gold and any thief, and a Stonemantle between the thief and the door." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Yer box is right where ye left it, and I'd be ashamed if it weren't." },
   },
@@ -220,8 +220,8 @@ P:NPC {
     third = "{name} met Barnum Stonemantle, a banker in the Vault of Ironforge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good day, {class}. Yer account is in excellent order, as always, and it's a pleasure to serve a customer who keeps it so." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Yer account is in order, which is more than I can say for yer name around the Vault. State yer business, please." },
     { id = "g_default", text = "Good day to ye, {class}. State yer business plainly and I'll see to it properly, for that's how the Vault has always been run." },
     { id = "g_back", when = { metBefore = true }, text = "Yer account is in order, as it was when ye left it. What will it be today?" },
   },
@@ -409,8 +409,8 @@ P:NPC {
     third = "{name} met Bingus, a gnome who sells weapons at the Fighting Wizard in Ironforge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, hello again! You're the customer who actually reads my weight charts, and you can't imagine how rare that is." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The figures are on the tags, and I'd rather you read them than ask me." },
     { id = "g_default", text = "Welcome to the Fighting Wizard! Everything on this wall is weighted for a caster's arm, and I can give you the exact figures if you'd like them." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, hello again! Has the last one held up, or have you come to tell me about a structural failure?" },
   },
@@ -431,8 +431,8 @@ P:NPC {
         { id = "h_again2", text = "Yes, go on, I've finished counting the daggers." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A merchant should tell you a staff's flaws before you buy it.", next = "BACK", reply = "Exactly, which is why every staff here has a little card listing them, including the one about the knot.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Never mention the flaws. Let the buyer find out in battle.", next = "BACK", reply = "Finding out in battle is how customers stop being customers, and I'd like to keep mine alive.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why would a wizard need a weapon?", next = "why" },
         { text = "How do you choose a staff?", next = "staff" },
         { text = "A gnome and a dwarf sharing a shop?", next = "harick" },
@@ -516,8 +516,8 @@ P:NPC {
     third = "{name} met Binny Springblade, a gnome who keeps company with the blades at Stoneblade's.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! I've been dying to show you my newest hilt, because you're the only customer who ever asks how things work." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Hjoldir says I'm to be polite to everyone, so I'm being polite, but I'm also keeping my tools on this side of the bench." },
     { id = "g_default", text = "Oh, a customer! Hjoldir does the selling, so talk to him about prices, but talk to me if you'd like to know how any of it works." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! I've had this hilt apart three more times since you left, and I think it's finally right." },
   },
@@ -619,8 +619,8 @@ P:NPC {
     third = "{name} met Brombar Higgleby, the Keymaster of Ironforge, by the Great Forge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's yerself again! Ye've never once asked to hold the keys, and for that ye've my undying respect." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye again. The keys stay with me, and I'll thank ye to keep yer hands and yer eyes off them." },
     { id = "g_default", text = "Aye, they're keys, and nae, ye cannae hold them. Now that's settled, what do ye want with the Keymaster?" },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. The answer about holdin' the keys has nae changed since last time." },
   },
@@ -725,8 +725,8 @@ P:NPC {
     third = "{name} met Bromiir Ormsen, who sells heavy armour in the Commons of Ironforge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's a {class} who knows good plate! Come in, for I can see from here that the last set did ye proud." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Plate is plate, and I'll sell it to anyone with coin. Pick what ye need and let's be done quickly." },
     { id = "g_default", text = "Plate and mail, {class}, forged under this very mountain! Stand up straight and let me see what ye could carry." },
     { id = "g_back", when = { metBefore = true }, text = "Back in one piece, I see, so the armour did its work. What needs replacin'?" },
   },
@@ -749,8 +749,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on, {class}." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Armour should be sold with its flaws told plainly.", next = "BACK", reply = "Aye, and I tell them, for a hidden crack in a breastplate is a grave waitin' to be dug.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Paint over a cracked plate. The buyer won't notice until later.", next = "BACK", reply = "Later's when the axe comes, {class}, and I'll nae have that on my conscience.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How do I know good steel?", next = "steel" },
         { text = "Plate or mail, for a long march?", next = "march" },
         { text = "Who forges what you sell?", next = "forge" },

@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} met Ambassador Berrybuck of the Council of Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my friend, how good to see you! I've mentioned you in two letters to the city already, and I mean to make it three." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ah, it's you. I'll not be mentioning you in my letters to Stormwind, I'm afraid, except perhaps as a caution." },
     { id = "g_x1", when = { questDone = TODO_QUEST("The Night Watch") }, text = "The Commander tells me you have been of real service to the Watch. I shall mention you by name in my next letter, for whatever good a name does." },
     { id = "g_default", text = "Welcome to the town hall of Darkshire. If you've come from Stormwind, I have several letters I'd like you to carry back." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. Any word from the city? No, I thought not." },
@@ -133,8 +133,8 @@ P:NPC {
     third = "{name} met Scott Carevin, who sells mushrooms in Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back for more mushrooms! I knew you'd come round, and the pale ones are in the dampest corner, just as they like it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The mushrooms don't mind you, but I do, so take what you want and leave the lamp low." },
     { id = "g_x1", when = { timeOfDay = "night" }, text = "Mushrooms by lamplight! They look better in the dark, I always think, and so do most things in Darkshire." },
     { id = "g_default", text = "Mushrooms, fresh from the forest! Well, as fresh as anything is around here." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? I knew you'd come round to mushrooms. Everyone does, eventually." },
@@ -159,8 +159,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. Mushrooms don't mind waiting." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Folk should know which of your mushrooms are poisonous.", next = "BACK", reply = "Of course they should! I label every basket, and the ones with the skull are for decoration, mostly. Nobody's died on my account yet.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Let the careless pick the wrong mushroom; it's their lookout.", next = "BACK", reply = "That's a cold thing to say, even for Darkshire. I'd rather sell a hundred safe ones than bury one fool.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your mushrooms.", next = "BUSINESS" },
         { text = "Where do you pick them?", next = "pick" },
         { text = "Carevin? Are you kin to the hunters?", next = "kin" },
@@ -251,8 +251,8 @@ P:NPC {
     third = "{name} met Watcher Callahan of the Night Watch, posted on the road north of Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, {class}! The goblin and I were just saying the road's been quieter with you walking it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Keep walking, {class}, and keep your business with the goblin, not with me." },
     { id = "g_y1", when = { race = "Human", class = "WARRIOR" }, text = "A Stormwind sword, on my road? Don't tell me they've finally sent the company we asked for, because one of you is a thin sort of company." },
     { id = "g_x1", when = { timeOfDay = "night" }, text = "Stay on the road and keep that light up, {class}. The goblin's lantern is the only other one between here and the bend." },
     { id = "g_default", text = "Halt, {class}, and state your business. Unless it's with the goblin, in which case go on, he's expecting you." },
@@ -278,8 +278,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. I've nowhere to be." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A watcher should guard every traveller on the road, rich or poor.", next = "BACK", reply = "Aye, and the poor ones are most of them, these days. Whatever the goblin's customers pay, they get no better guarding than the farmers.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Guard the ones who pay you, and let the rest fend.", next = "BACK", reply = "That's the goblin's way of thinking, not the Watch's. I'll pretend I misheard you, {class}.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why guard the goblin?", next = "goblin" },
         { text = "What's on the road north?", next = "road" },
         { text = "Does the Watch pay well?", next = "pay" },
@@ -364,8 +364,8 @@ P:NPC {
     third = "{name} met Watcher Brownell, a young watcher of Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good evening, and it's lovely to see you again! If you passed Watcher Backus on the west road, you'd tell me, wouldn't you?" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Good evening. The lamps are trimmed and the road is open, and that's all I've to say to you." },
     { id = "g_y1", when = { timeOfDay = "night" }, text = "Good evening, and mind the lamps, please; I've only just trimmed them. Did you come by the west road?" },
     { id = "g_x1", when = { class = { "WARRIOR", "PALADIN" } }, text = "Good evening! You'd know, wouldn't you, how long it takes before a commander trusts a soldier with a real post?" },
     { id = "g_default", text = "Good evening, {class}. Have you come in from the west road? Did you see any of the Watch out there?" },
@@ -393,8 +393,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. I'm listening." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A watcher should earn a post through service, not favour.", next = "BACK", reply = "That's what I keep telling myself, every night I'm stuck trimming lamps. I'd like to think the Commander sees it the same way.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Flatter the Commander and you'll get the post you want.", next = "BACK", reply = "Oh, I couldn't! Well, I could, but then I'd never know whether I'd earned it, and that would spoil it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why the western road?", next = "west" },
         { text = "How long have you been in the Watch?", next = "long" },
         { text = "You're too young for this.", next = "young" },
@@ -483,8 +483,8 @@ P:NPC {
     third = "{name} met Watcher Keefer, an old hand of the Night Watch in Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Still alive, and I'm glad of it. There aren't many faces I let myself get used to, {class}, but yours is one." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Still alive, I see. Don't take that as me being pleased about it." },
     { id = "g_x1", when = { timeOfDay = "night" }, text = "It's the wrong hour to be a stranger here, {class}. Walk where the lamps are and don't answer anything that calls your name." },
     { id = "g_default", text = "Another stranger in Darkshire. Keep your lamp lit and your blade close, {class}, and you might live to leave." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive, then, and that's more than most can say." },
@@ -511,8 +511,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then, but be quick about it." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The families deserve the truth about how their dead fell.", next = "BACK", reply = "They do, and I've told it at more doors than I can count. It's never easier, but a lie would rot worse than the bodies.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Tell grieving folk a kind lie; it costs nothing.", next = "BACK", reply = "It costs plenty, later, when they hear it from someone else. I tried that once, {class}, and never again.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What's the worst you've seen?", next = "worst" },
         { text = "How many have you lost?", next = "lost" },
         { text = "You sound tired, Keefer.", next = "tired" },
@@ -598,8 +598,8 @@ P:NPC {
     third = "{name} met Watcher Mocarski, who guards Darkshire's southern entrance.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you, thank the Light, a friendly face! Come in, come in, and stand near me a while if you don't mind." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'd almost rather it were a worgen, {class}, and you can close the gate behind you." },
     { id = "g_y1", when = { class = { "PRIEST", "PALADIN" } }, text = "Oh, thank the Light, and I mean that as a real thanks, since you'd be the one to pass it on. Come in, come in." },
     { id = "g_x1", when = { timeOfDay = "night" }, text = "Is that a lamp or a pair of eyes? A lamp, good, a lamp, come ahead, and mind you close the gate behind you." },
     { id = "g_default", text = "Who's there? Oh, thank the Light, you're not a worgen. Come in, come in, quickly." },
@@ -627,8 +627,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, only did you hear that just now? No? Then go on." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A frightened watcher should say so, not hide it.", next = "BACK", reply = "Do you think so? I've been afraid every night since I was posted, and I've never once said it out loud, until now.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Never let them see you're afraid; bluff, even to your mates.", next = "BACK", reply = "I try, I really do, but my hands shake on the spear and everyone can see it. Bluffing isn't my gift, {class}.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What comes up the south road?", next = "south" },
         { text = "You seem nervous.", next = "nervous" },
         { text = "I'll keep watch with you a while.", next = "keep" },
@@ -710,8 +710,8 @@ P:NPC {
     third = "{name} met Watcher Royce, the Night Watch's joker.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Look who's back, the only visitor Darkshire hasn't scared off yet! Stay a while, {class}; I've run out of fresh jokes for the dead." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'd make a joke about it, {class}, but some things just aren't funny." },
     { id = "g_y1", when = { race = "Human", origin = "human_city_guard" }, text = "A Stormwind guardsman! Welcome to the posting they threaten you with when you've been caught asleep at the gate." },
     { id = "g_x1", when = { timeOfDay = "night" }, text = "Evening! Or it might be morning, since nobody's been able to tell the two apart here in years." },
     { id = "g_default", text = "Welcome to Darkshire, where the nights are long and the days are longer! Mind the dead; they're grumpy." },
@@ -737,8 +737,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm all ears, unlike the worgen, who are mostly teeth." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Laugh all you like, but never shirk the watch.", next = "BACK", reply = "Never have, never will, and the jokes are how I stay awake for it. Somebody's got to keep the gate and the spirits up both.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sleep at your post if nobody's checking.", next = "BACK", reply = "Ha! That's how half of us earned a posting here, {class}, so believe me, somebody's always checking.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Tell me a joke.", next = "joke" },
         { text = "How can you joke in a place like this?", next = "how" },
         { text = "This is no laughing matter.", next = "matter" },
@@ -827,8 +827,8 @@ P:NPC {
     third = "{name} met Watcher Hartin, a devout watcher of Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "The Light brought you back to us, {class}, and I gave thanks for it on my watch tonight." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "The Light keeps everyone, {class}, even you, but I'll not pretend I'm glad to see you." },
     { id = "g_y1", when = { class = "PALADIN" }, text = "A knight of the Silver Hand in Darkshire! Then somebody's prayers were heard, and I'll allow myself to think they were mine." },
     { id = "g_x1", when = { timeOfDay = "night" }, text = "Walk in the Light, {class}, and where there isn't any, carry your own. It's the darkest watch of the night just now." },
     { id = "g_default", text = "The Light keep you, {class}. You've come to a dark place, but you're not alone in it." },
@@ -854,8 +854,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. The Light has time, and so do I." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The Light asks us to fight fair, even against the dead.", next = "BACK", reply = "It does, and I believe it, though the dead don't return the courtesy. We hold to it so we don't become what we fight.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Against the walking dead, any trick is righteous.", next = "BACK", reply = "Careful, {class}. I've seen men say that and then turn the same tricks on the living, and the Light went quiet for them.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Does the Light really walk here?", next = "light" },
         { text = "What do you pray for?", next = "pray" },
         { text = "Prayers won't stop the worgen.", next = "worgen" },
@@ -938,8 +938,8 @@ P:NPC {
     third = "{name} met Watcher Paige of the Night Watch at the Duskwood crossroads.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and I'll put you down in ink, because you've earned it. Which road is it today, {class}?" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll write you down in charcoal, {class}, and I won't trouble to keep it dry." },
     { id = "g_y1", when = { race = "Human", class = "PALADIN" }, text = "A paladin, on my crossroads. Then I'll write this one down in ink and not in charcoal." },
     { id = "g_default", text = "Hold there a moment, {class}. Tell me which road you came by and which you're taking, and then I'll let you get on." },
     { id = "g_2", when = { metBefore = true }, text = "You again. I had you down as gone west, so I'm glad to strike that line out." },
@@ -964,8 +964,8 @@ P:NPC {
         { id = "hello_again3", text = "Ask, but keep your voice down; sound carries strangely out here." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Keep the tally true, even when the count of the lost is shameful.", next = "BACK", reply = "It's the only thing I've got that tells the truth about this crossroads. I'd sooner write a hard number than a kind one.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Round the losses down; Stormwind needn't know how bad it is.", next = "BACK", reply = "And then Stormwind sends no help, because the book says we don't need it. No, the tally stays honest, {class}.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why keep a tally of travellers?", next = "tally" },
         { text = "Which road is the worst?", next = "worst" },
         { text = "This is a lonely post for one watcher.", next = "lonely" },
@@ -1068,8 +1068,8 @@ P:NPC {
     third = "{name} met Watcher Jan, who keeps the lamps of the Night Watch in Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you, and every lamp on this street is lit tonight. Well, they're lit for everyone, but I thought of you while I filled them." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Mind the lamp post, {class}, and mind it well, because I'll not trim a wick on your account if it goes out." },
     { id = "g_y1", when = { timeOfDay = "night" }, text = "Mind the ladder, {class}. I'm halfway through the square, and I'll not have a lamp go dark because somebody walked into me." },
     { id = "g_default", text = "Evening, {class}. Mind the lamp post, would you? I've only just filled it, and oil doesn't come cheap in Darkshire." },
     { id = "g_2", when = { metBefore = true }, text = "Ah, it's you. Every lamp on this street's still burning, in case you were wondering, which nobody ever is." },
@@ -1095,8 +1095,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes? Hold this can a moment, if you would." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Oil should go to every street, not just the council's.", next = "BACK", reply = "That's what I tell the Ambassador whenever he asks for extra on the hall steps. The poor end of town is darker and needs it more.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Skim a little oil for yourself; nobody counts the cups.", next = "BACK", reply = "I count the cups, {class}, every single one. A stolen cupful is a dark doorway somewhere, and something always finds a dark doorway.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Where does the oil come from?", next = "oil" },
         { text = "How many lamps does Darkshire burn?", next = "lamps" },
         { text = "It never gets light here. Why bother counting?", next = "bother" },
@@ -1189,8 +1189,8 @@ P:NPC {
     third = "{name} met Watcher Petras, a woodsman turned watcher who patrols the edge of Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back by the same path, and I'm glad to read your tracks in the mud again, {class}. They're the only ones I like finding." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Your tracks are in my mud again. I'll read them, {class}, but I'll not be glad about it." },
     { id = "g_y1", when = { class = "HUNTER" }, text = "Morning. You've noticed the mud already, I see, so we'll get on." },
     { id = "g_default", text = "Morning, or near enough. Step around that patch of mud, would you? I've not finished reading it." },
     { id = "g_2", when = { metBefore = true }, text = "Back again, and by the same path as last time. You're a creature of habit, {class}, and so is everything else that walks here." },
@@ -1215,8 +1215,8 @@ P:NPC {
         { id = "hello_again3", text = "Ask away. I'm only waiting for the light, and it isn't coming." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Read the tracks true, even when they lead to a neighbour.", next = "BACK", reply = "The mud doesn't lie, and I don't either. If a Darkshire boot walks out to a Defias camp, I'll say so to the Commander.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Smudge a few tracks if it keeps the peace in town.", next = "BACK", reply = "Then I'd be lying to the only honest thing left in these woods. The mud's a ledger, {class}, and I keep it straight.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What came up to the line last night?", next = "night" },
         { text = "You know these woods well.", next = "woods" },
         { text = "The Watch should hunt them, not count them.", next = "hunt" },
@@ -1309,8 +1309,8 @@ P:NPC {
     third = "{name} met Watcher Bukouris, who looks after the Night Watch's arms in Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back, and that blade's been looked after. Let's see it, {class}; it's a pleasure to inspect something that isn't rusting." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Let's see what you're carrying, {class}, and then be on your way, because I've no time for small talk with you." },
     { id = "g_y1", when = { class = "HUNTER" }, text = "A hunter. Good, somebody who strings their own weapon. Let's see the bow, then." },
     { id = "g_default", text = "Let's see what you're carrying, {class}. No, I don't want to take it; I want to know whether it'll last the night." },
     { id = "g_2", when = { metBefore = true }, text = "You're back, and that blade's seen use since I saw it last. Good." },
@@ -1336,8 +1336,8 @@ P:NPC {
         { id = "hello_again3", text = "Ask. I can talk and count at once." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A fighter should own their weapon's flaws, not hide them.", next = "BACK", reply = "Exactly, because a hidden crack only shows itself when a ghoul is on top of you. Tell me what's wrong, and we'll see it mended.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Swap your notched blade for a comrade's when nobody's looking.", next = "BACK", reply = "Do that in this Watch and you'll find out how fast word travels. I'd break your fingers myself, {class}, and then fix the blade.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What is the Watch armed with?", next = "arms" },
         { text = "Do the smiths here help you?", next = "smiths" },
         { text = "A sword's no use against the dead.", next = "dead" },
@@ -1430,8 +1430,8 @@ P:NPC {
     third = "{name} met Watcher Keller, who keeps the Night Watch's post by Darkshire's town hall.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good day again, {class}. The standing orders permit a watcher to say he's pleased to see someone, and I find I am." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Good day. The standing orders oblige me to be courteous to you, {class}, and I am obeying them to the letter." },
     { id = "g_y1", when = { timeOfDay = "night" }, text = "The hall is closed to petitioners after dark. If your business is with the Watch, the Commander is in the square." },
     { id = "g_default", text = "Good day. The town hall is open to petitioners until the lamps are lit, and Clerk Daltry will take your name at the door." },
     { id = "g_2", when = { metBefore = true }, text = "Good day again. The standing orders haven't changed since we last spoke, and neither has my post." },
@@ -1457,8 +1457,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes? Briefly, if you would." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A watcher's word should bind him as firmly as any order.", next = "BACK", reply = "Well said, and I put very nearly that line into the orders myself, in the third section. Nobody reads the third section.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Bend the rules quietly when they get in the way.", next = "BACK", reply = "Quietly bent rules have a way of snapping, {class}, usually at night. I'll keep mine straight, thank you.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What are the Watch's standing orders?", next = "orders" },
         { text = "Who comes to petition the council?", next = "petition" },
         { text = "Rules won't frighten a worgen.", next = "rules" },
@@ -1551,8 +1551,8 @@ P:NPC {
     third = "{name} met Watcher Fraizer, who patrols by the Scarlet Raven Tavern in Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, friend! Smitts said you'd been in, and I told him you're the only stranger I'd vouch for in that taproom." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The Raven's that way, friend, and I'd just as soon you went in and stayed there." },
     { id = "g_y1", when = { drunk = true }, text = "Steady there, friend! The Raven's ale is stronger than it tastes, and Smitts never warns anybody." },
     { id = "g_default", text = "Evening, friend! You'll want the Scarlet Raven, just there. It's the only door in town that opens for strangers after the lamps are lit." },
     { id = "g_2", when = { metBefore = true }, text = "There you are. Smitts said you'd been in, and I said you'd be back out this way before long." },
@@ -1578,8 +1578,8 @@ P:NPC {
         { id = "hello_again3", text = "Ask! Nobody else does, they only tell me things." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "What's said over ale should be passed on fairly, not twisted.", next = "BACK", reply = "I only ever pass on the useful half, and I pass it on straight. The Commander can't use a rumour that's been sweetened.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Spread a rumour or two; it shakes the truth loose.", next = "BACK", reply = "Ha! You'd have the whole Raven at each other's throats by midnight. Smitts would throw you out, and then me for listening.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What's the talk at the Scarlet Raven?", next = "talk" },
         { text = "Who keeps the inn?", next = "inn" },
         { text = "Gossip isn't a watcher's business.", next = "gossip" },
@@ -1671,8 +1671,8 @@ P:NPC {
     third = "{name} met Watcher Wollpert, who keeps the Night Watch's post on the cemetery road out of Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back along my road again, {class}. I'm glad of it; I've carried too many who didn't." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You came back along my road. I'll note it, {class}, and say nothing more." },
     { id = "g_y1", when = { timeOfDay = "night" }, text = "Not east, not at this hour. Whatever you want from the cemetery will still be there in the grey of the morning." },
     { id = "g_default", text = "You're heading east? Then stop and hear me first, {class}, because that road ends at the cemetery and the cemetery isn't what it was." },
     { id = "g_2", when = { metBefore = true }, text = "You came back along my road. Not everyone has." },
@@ -1697,8 +1697,8 @@ P:NPC {
         { id = "hello_again3", text = "Ask. I've nothing to do but watch the road." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The dead should be buried properly, whatever the danger.", next = "BACK", reply = "Aye, and I've carried them east on my own shoulders to see it done. Even now, with the cemetery as it is, we owe them that.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Leave the dead where they fall; the living matter more.", next = "BACK", reply = "Say that quietly, {class}, because the road might hear you. I've known men who left their friends, and the friends came looking for them.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What's wrong with the cemetery?", next = "cemetery" },
         { text = "You've carried the dead out there yourself.", next = "carried" },
         { text = "I heard something came up this road once.", next = "stitches" },
@@ -1791,8 +1791,8 @@ P:NPC {
     third = "{name} met Avette Fellwood, the bowyer of Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! Let me see the string; you're one of the few who looks after a bow properly in this damp." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Back again. Try any bow you like, and then pay for it, and don't loose a string dry while you're about it." },
     { id = "g_y1", when = { class = "HUNTER" }, text = "Now that's a proper bow arm. Come in and try the yew, and tell me honestly what you think of the draw." },
     { id = "g_default", text = "Good day. Try the draw on any bow you like, only don't loose a string dry; I can hear it from across the square." },
     { id = "g_2", when = { metBefore = true }, text = "Welcome back. How has the string held, in this damp?" },
@@ -1818,8 +1818,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes, ask away, by all means." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A hunter should face the beast, not poison the waterhole.", next = "BACK", reply = "Proper hunters say the same, and my regulars would string you up for a poisoned hole. Fair shots and clean kills, that's how Darkshire eats.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Bait, poison, snares; however the meat comes home is fine.", next = "BACK", reply = "It'll come home, aye, and it'll taste of whatever you poisoned it with. Don't bring meat like that to my door, friend.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your bows.", next = "BUSINESS" },
         { text = "Who buys bows in Darkshire?", next = "buyers" },
         { text = "The damp must ruin your work.", next = "damp" },
@@ -1913,8 +1913,8 @@ P:NPC {
     third = "{name} met Lohgan Eva, who sells tailoring supplies in Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, my best needle-hand. I've kept the silk wrapped against the damp, so come and have a look." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Thread, dye and cloth, and no prophecies, as ever. You'll find no warmer welcome in it than that." },
     { id = "g_y1", when = { profession = "Tailoring" }, text = "A needle-hand, at last! Come and look at the silk before the damp gets to it." },
     { id = "g_default", text = "Good day to you. Thread, dye and bolts of cloth, and no prophecies whatever, which you'll find sets me apart in this house." },
     { id = "g_2", when = { metBefore = true }, text = "Back for more thread? Grandmother said you would be, but then she says that about everyone." },
@@ -1939,8 +1939,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes? Ask, by all means." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A merchant should say when the cloth is mildewed.", next = "BACK", reply = "I do, and it costs me sales, but in this damp a hidden spot is a ruined cloak by spring. Better I lose the coin than the customer.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Fold the mildew inside and nobody finds it till they're home.", next = "BACK", reply = "And then they'd come back to the house of Eva and blame the stars for it. No, thank you; I've enough of the stars.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "You don't read the stars yourself?", next = "stars" },
         { text = "Who sews in a town like this?", next = "sews" },
@@ -2033,8 +2033,8 @@ P:NPC {
     third = "{name} met Bliztik, a goblin selling alchemy supplies in the ruins of Raven Hill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "My favourite breathin' customer, back again, pal! Shut the door quick, and let's catch up before the neighbours shamble past." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you, pal. Vials are on the shelf, prices are on the vials, and conversation's extra, and you can't afford it." },
     { id = "g_y1", when = { profession = "Alchemy" }, text = "A fellow professional! Pal, wait till you see my Leaded Vials, they're the best you'll find anywhere the dead outnumber the living." },
     { id = "g_default", text = "Hey, hey, a live one! Step in, pal, shut the door behind ya, and let's talk vials before something outside hears the bell." },
     { id = "g_2", when = { metBefore = true }, text = "My favourite customer, on account of you're the one who keeps coming back breathing! What'll it be?" },
@@ -2059,8 +2059,8 @@ P:NPC {
         { id = "hello_again3", text = "Ask quick, friend, something's scratching at the back wall again." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Even out here, a trader's word should be good.", next = "BACK", reply = "Out here it's the only thing that is good, pal, 'cause the neighbours sure ain't. My word's my best stock, and I keep it polished.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the dead's belongings; they won't miss them.", next = "BACK", reply = "Whoa, whoa, I'm a vial man, not a grave robber, and the Watch would have my ears. Though I'll admit the overhead would be very low.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you've got.", next = "BUSINESS" },
         { text = "Why set up shop in Raven Hill, of all places?", next = "why" },
         { text = "Aren't you afraid of the dead out there?", next = "afraid" },
@@ -2154,8 +2154,8 @@ P:NPC {
     third = "{name} met Benjamin Carevin, the boy of the Carevin household in Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's you! I told everyone you'd come back, and they didn't believe me!" },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back! I told everyone you'd come back, and they said I was making it up, so now I win. What did you kill?" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'm not supposed to talk to strangers, and you're the strangest one I know, so there." },
     { id = "g_default", text = "Hello! Have you been out past the lamps? What did you see? Tell me all of it." },
     { id = "g_2", when = { metBefore = true }, text = "You're back! Did you kill anything since last time? How many?" },
     { id = "g_3", when = { timeOfDay = "night" }, text = "I'm supposed to be in bed, but nobody can sleep with the wolves going. Can you hear them?" },
@@ -2306,8 +2306,8 @@ P:NPC {
     third = "{name} met Whit Wantmal, a householder and writer of verses in Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You've come back to us, and I've a verse half written about it, though I'll spare you the reading. Sit, if you like." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ah, you again. I had meant to write you a verse, but the right word for you hasn't come, and I've stopped looking for it." },
     { id = "g_default", text = "Good evening. It's always evening here, so I've stopped looking out of the window before I say it." },
     { id = "g_2", when = { metBefore = true }, text = "You've come back to us. People do, I've noticed, though they can never say why." },
     { id = "g_3", when = { timeOfDay = "night" }, text = "A true night, this one. You can tell by the gryphons, who go quiet when the dark is real." },
@@ -2449,8 +2449,8 @@ P:NPC {
     third = "{name} met Cog Glitzspinner, a gnome inventor living in Darkshire.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back! Excellent, I need a sensible witness, and you're the most sensible person who's ever walked into this argument." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, you. Please don't take a side today, because you'd pick the wrong one and I'd have to explain why at great length." },
     { id = "g_default", text = "Hello, hello! You've walked in on a disagreement about focal lengths. It's entirely amicable, and I'm entirely right." },
     { id = "g_2", when = { metBefore = true }, text = "You're back! Good, you can settle something. No, wait, you'll side with Finbus, people do." },
     { id = "g_3", when = { race = "Gnome" }, text = "A gnome, in Duskwood! Sit down, sit down, and Herble, look, there's four of us now, that's a quorum!" },

@@ -15,8 +15,8 @@ P:NPC {
     third = "{name} met Gerik Koen of Heavy Handed Weapons in Old Town.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, soldier! I've a new greatsword in that's just your weight, and I'd love to see you swing it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Lift what you like, pay for what you take, and don't swing it near the window." },
     { id = "g_default", text = "Welcome! If you can lift it, I'll sell it to you, and if you can't, I'll sell it to you anyway." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Still swinging that blade with both hands, I hope." },
   },
@@ -34,8 +34,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "The good ones do. A shaman with a greatsword would be a sight. Come back and I'll find you one." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A weapon merchant should tell the buyer if a blade's too heavy.", next = "BACK", reply = "I do, friend, though I'll still sell it to them if they insist.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the heaviest sword to the weakest recruit; it costs more.", next = "BACK", reply = "And then he drops it in the first fight, and some orc picks it up and uses it on him.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "A good weapon earns its place in battle. I'll look.", next = "BACK", reply = "That's the spirit! I've a two-hander in the back that'd look grand next to your totems.", fx = { align = { honor = 1 } } },
         { text = "Greatswords are slow. I'll stick with my axe.", next = "BACK", reply = "Slow, aye, but when it lands, nobody's getting up. Still, a good axe is a fine choice.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -308,8 +308,8 @@ P:NPC {
     third = "{name} met Maris Granger, the impatient skinning trainer of the Protective Hide.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and you've a steady knife now. Come in; I've a hide that's worth your time, for once." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Tell me what you need, make it quick, and then get out of my light." },
     { id = "g_default", text = "Tell me what you need, and make it quick." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good; the tourists never come back." },
   },
@@ -327,8 +327,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Some do, I'd guess. The spirits might object, but the leather won't skin itself." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A skinner learns by working every hide, clean and proper.", next = "BACK", reply = "That's the only way, and I'll not teach any other, so don't ask.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Hack the hide off any way you can; it sells the same.", next = "BACK", reply = "It sells for half, and the tanner curses you for it, and so do I.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Take only what you need, Maris. Respect the beast.", next = "BACK", reply = "I do, love. Nothing's wasted in my shop, and nothing's taken for sport.", fx = { align = { honor = 1 } } },
         { text = "Leather's leather. The spirits can deal with it.", next = "BACK", reply = "That's what I say too, though I'd mind the spirits when you say it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -487,8 +487,8 @@ P:NPC {
     third = "{name} met Jillian Tanner, who sells leatherworking supplies at the Protective Hide.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again. Prices haven't changed, but I've kept a bundle of the good thread back, and it's yours if you want it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The prices are set, and my patience with you is set lower still." },
     { id = "g_default", text = "Only the best supplies, tested and true, and the prices are set. If you want to haggle, go and find a goblin." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Prices haven't changed, in case you were hoping." },
   },
@@ -504,8 +504,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Never, because a fixed price is fair to everyone. Your spirits might bend; I don't." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Set prices are fair prices, and fair to every crafter.", next = "BACK", reply = "That's exactly why I set them, and why I won't haggle with anyone.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Haggle hard; every merchant hides a little margin.", next = "BACK", reply = "Go and haggle with a goblin, then, because you'll get nowhere with me.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Fixed prices are honest. I'll pay what's fair.", next = "BACK", reply = "Exactly. Everyone pays the same, and everyone sleeps better.", fx = { align = { order = 1 } } },
         { text = "Everything bends. Even you, Jillian.", next = "BACK", reply = "Not on prices, I don't. Try me, and see how far you get.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -777,8 +777,8 @@ P:NPC {
     third = "{name} met Alyssa Griffith, who sells bags at the Protective Hide in Old Town.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and full up already, I'll bet! I've a new bag in with a double stitch, and it's just your sort." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The bags are on the shelf, and the prices are set, so don't try your luck." },
     { id = "g_default", text = "Bags! Sturdy, tested and true, and the prices are set, so don't try your luck." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Full up already, I'll bet." },
   },
@@ -794,8 +794,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "The biggest one I have, love, for the totems, the reagents and the rations. Carrying too little is the start of all trouble." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A bag should be stitched to hold, whatever the price.", next = "BACK", reply = "Every one of mine will hold an anvil, friend, and I've tested a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell thin bags at a thick price; travellers can't tell.", next = "BACK", reply = "They can tell when the bottom falls out in Duskwood, friend, and that's my name gone with it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "You're right, Alyssa. A prepared traveller is a safe one.", next = "BACK", reply = "Exactly so! Carrying too little is how heroes end up sleeping in ditches.", fx = { align = { order = 1 } } },
         { text = "I travel light. Spirits carry the rest.", next = "BACK", reply = "Then you've better spirits than most of my customers. Still, a bag never hurt.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -954,8 +954,8 @@ P:NPC {
     third = "{name} met Kendor Kabonka, who sells recipes upstairs at the Pig and Whistle.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back up the stairs again! I've a new recipe from a kitchen in Lakeshire, and I've been saving it for you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The recipes are on the shelf, and you can read them yourself without my help." },
     { id = "g_default", text = "Up the stairs and you've found me! Recipes, friend, from every kitchen between here and Westfall." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did you cook the last one, or are you still working up the courage?" },
   },
@@ -971,8 +971,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Very nearly, my friend! I've dishes from Westfall, Lakeshire and Darkshire, but never a shaman's dish, so come back with one." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A recipe should be credited to the kitchen it came from.", next = "BACK", reply = "Always, friend, because every cook deserves their due, even the grumpy ones.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Swap a few herbs and claim the recipe as your own.", next = "BACK", reply = "Then the cook it came from will come up these stairs with a cleaver, I promise you.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll share one gladly, Kendor. Food is meant for sharing.", next = "BACK", reply = "Splendid, my friend! I'll put it in the book with your name on the page.", fx = { align = { light = 1 } } },
         { text = "Recipes are secrets. You'll have to pay.", next = "BACK", reply = "Then I'll pay what I must, my friend, and gladly. A good recipe's worth the coin.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

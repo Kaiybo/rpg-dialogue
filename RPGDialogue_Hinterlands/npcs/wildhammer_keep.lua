@@ -15,8 +15,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye're back! Yer usual, is it? I've no idea what that was, but I'll pour it wi' a smile anyway." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Here's yer ale an' there's the door, an' I'll no' be tellin' ye any stories tonight." },
     { id = "g_default", text = "Step up, step up! Ale, cheese, a bit o' roast boar, an' the best stories in the Hinterlands for free wi' every mug." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back! Yer usual, is it? I'll pretend I remember what that was." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late, an' the riders are in, so mind yer elbows. They swing their arms when they tell a story." },
@@ -38,8 +38,8 @@ P:NPC {
         { id = "tf_default", text = "Oh, he minds, he just minds quietly. He frets about the noise an' the spilled ale an' the riders singin', an' then he counts what the beds bring in when they're too merry tae fly home. We suit each other fine." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An honest barman fills the mug right to the brim.", next = "BACK", reply = "Aye, an' I do, even if the riders spill half of it tellin' their tales.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Water the ale; the riders are too drunk to tell.", next = "BACK", reply = "Water a Wildhammer's ale? Ye'd be thrown off the keep before ye finished sayin' it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who else keeps you company in here?", next = "thulfram_regulars" },
         { text = "Something else.", next = "BACK" },
       },
@@ -167,8 +167,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! What did ye kill, an' how big was it? Come in, {name}, an' let's see the hide." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if ye must, an' keep yer tall tales tae yerself, for I'll no' be listenin' tae them." },
     { id = "g_default", text = "There's beasts in these hills that would make a Bronzebeard drop his pint! Go an' have a crack at one, {name}, an' bring me back the hide an' a tall tale tae go wi' it." },
     { id = "g_lw", when = { profession = "Leatherworking" }, text = "A leatherworker! Let me see yer hands. Aye, there's the calluses; ye're one o' us." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! What did ye kill, an' how big was it, an' how much bigger will it be by the time ye've told me?" },
@@ -190,8 +190,8 @@ P:NPC {
         { id = "cf_default", text = "Harggan has the forge an' sells the smiths their coal, an' Nioma keeps me in thread an' salt an' reminds me what I owe her. Between the three of us we keep the riders shod, strapped an' saddled, an' they thank the gryphons for it." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A good hide is earned with your own skinning knife.", next = "BACK", reply = "Aye, an' a tall tale tae go wi' it, but the knife comes first.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Buy hides off a trapper and claim you skinned them.", next = "BACK", reply = "Ha! An' when I ask ye how big the beast was, ye'll no' know. I always ask.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Nioma says you're slow to pay.", next = "crafters_nioma", when = { heardLine = "nioma.dk_default" } },
         { text = "Craftsmen rarely get the songs.", next = "crafters_songs" },
         { text = "Something else.", next = "BACK" },
@@ -318,8 +318,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back for more salt? Good, there's a fresh sack in, for ye must be skinnin' half the Hinterlands." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Salt's salt an' the price is the price, so there'll be no hagglin' from ye today." },
     { id = "g_default", text = "Salt, thread, dye an' the odd hide. If ye're makin' somethin', I've got what ye need." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more salt? Ye must be skinnin' every beast between here an' the Overlook Cliffs." },
     { id = "g_lw", when = { profession = "Leatherworking" }, text = "A leatherworker. Good, I've salt an' thread an' dye, an' ye'll know what tae do wi' all three." },
@@ -340,8 +340,8 @@ P:NPC {
         { id = "tr_default", text = "Harggan sells the smiths their coal an' flux across the way, Truk sells the ale, an' Thulfram sells the beds an' a decent stew. There's a gnome wi' a cart on the road east who undercuts the lot of us on thread, an' I've words saved up for her." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Good salt and honest thread make honest leather.", next = "BACK", reply = "Aye, they do, an' I'll no' sell either one short.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Cut the salt with sand; it'll still cure, mostly.", next = "BACK", reply = "Mostly isnae good enough, an' the leatherworkers here would smell it on the hide.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "A little competition keeps prices honest.", next = "traders_gnome" },
         { text = "A keep ought to buy from its own.", next = "traders_gnome" },
         { text = "Something else.", next = "BACK" },
@@ -466,8 +466,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! Yer beast's got the back stall, away from the gryphons, an' it's settled in nicely." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick. I'll stable yer beast, since it's done nothin' wrong, but I've nae time for you." },
     { id = "g_default", text = "Stables are this way. Keep yer beast calm, because the gryphons can smell it, an' they're hungry." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "That's {pet}, is it? A fine animal. It'll want tae hide from the gryphons, so I'll give it the back stall." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Yer beast remembers me, I'd wager, an' it's no' sure how it feels about it." },

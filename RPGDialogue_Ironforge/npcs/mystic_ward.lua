@@ -670,8 +670,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's yerself again. Ye walk in the Light wi' a steady step these days, an' I'm proud tae see it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I know ye, an' I know what ye've done. Say what ye need an' be on yer way, for I've no patience left for ye." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I know fel when it walks intae my hall, an' it just did. Say what ye need an' keep yer hands where I can see them." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "The Light'll hear anyone, but I'm no' the Light, an' I've no' got its patience. What d'ye want?" },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've come back often enough wi'out trouble that I've stopped reachin' for my mace. I'm still prayin' for ye, mind, an' still watchin'." },
@@ -696,8 +696,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I'd like tae think so, though I've heard it argued both ways in this very Hall. The Light's no' a jealous thing, whatever some priests say, an' a dwarf who listens tae the stone might hear the Light in it as well. But if ye ever have tae choose, I'll pray ye choose the one that'll save ye." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The Light judges by deeds, so a priest should judge fairly too.", next = "BACK", reply = "Aye, an' I try, though some days it's harder than others, an' ye'd no' believe how hard.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A priest should judge harshly. Mercy breeds more sin.", next = "BACK", reply = "Mercy breeds forgiveness, an' forgiveness is what the Light's for, whatever ye may think.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The Light and the earth can share one dwarf, Theodrus.", next = "BACK", reply = "Aye, they can. There's room in a dwarf's heart for more than one kind o' listenin', whatever the younger priests say.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The earth was here first. The Light's a guest in it.", next = "BACK", reply = "Maybe it was. But a guest that's stayed this long has earned its chair by the fire, I'd say.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -883,8 +883,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "I hope the Light is wi' ye today, {name}. Ye look well, an' I'm glad o' it, for ye've been in my prayers." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "The Light's wi' everyone, {name}, even ye. I'll do what I can for ye, but I'll no' pretend it's a pleasure today." },
     { id = "g_hope", text = "I hope the Light is wi' ye today, {name}. Is there anythin' I can do for ye?" },
     { id = "g_back", when = { metBefore = true }, text = "Ye're lookin' better than last time, or perhaps the lamps are kinder. Either way, welcome back." },
   },
@@ -904,8 +904,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Fear, mostly, dressed up as doctrine. They remember the orcs' shamans became warlocks, an' they think the same rot waits for any dwarf who listens tae the wild. I think the Light judges hearts, no' paths, an' ye've a decent heart, by the look o' ye." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A priest should comfort the frightened with truth, not empty words.", next = "BACK", reply = "Aye, for the truth comforts longer, even when it stings at first.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Tell the frightened whatever calms them. Truth can wait.", next = "BACK", reply = "It can wait, aye, but it always comes, an' then the frightened are frightened twice over.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then I'll prove my heart to them, one kindness at a time.", next = "BACK", reply = "That's the only way it works. Scowls soften slowly, but they do soften, I promise ye.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Let them scowl. I don't need their approval.", next = "BACK", reply = "Maybe ye dinnae, but they're the ones ye'll have tae heal beside, so a wee bit o' patience wouldnae hurt.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1085,8 +1085,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Greetings, an' a blessin' on ye again! It's always good tae see ye in the Hall, an' I mean that most sincerely." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Greetings. I'll give ye a blessin', for I'd give it tae anyone, but I'll no' pretend it comes as warmly today." },
     { id = "g_welcome", text = "Welcome tae the Hall! Mind the step, an' mind the mages; they're the ones in the pointy hats." },
     { id = "g_ne", when = { race = "NightElf" }, text = "Greetings, an' a blessin' on ye an' yer kind. Good tae see ye in our halls." },
   },
@@ -1106,8 +1106,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "The truth, I suppose, once I know it. Stormwind's Cathedral wants tae know if it's heresy, Darnassus wants tae know if it's druidry, an' the Wildhammers' letter only said it was about time. I'm leanin' towards copyin' the Wildhammers' answer an' sendin' it tae everyone." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A priest should carry messages faithfully, word for word.", next = "BACK", reply = "Aye, for the Temple o' the Moon trusts me wi' its summons, an' I'll no' betray that.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Soften the message if it's harsh. The recipient will thank you.", next = "BACK", reply = "They'd thank me, aye, until they learned the truth, an' then they'd never trust me again.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Tell them it's no heresy. The Light and earth aren't rivals.", next = "BACK", reply = "That's what I hope tae say. Mind if I quote ye? The Cathedral listens better when it comes from a believer.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Tell them it's none of the temples' business.", next = "BACK", reply = "Ha, I'll no' be writin' that tae the Cathedral, but I'll admit I've thought it once or twice myself.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1805,8 +1805,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "A mage, back again! Come in, come in, mind the frost, and I'll say it plainly: you're one of my favourite people to teach." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "A mage, back again. Mind the frost on the floor, and mind your step, because I'm not in a teaching mood today." },
     { id = "g_advice", text = "Well met! Here's free advice, and I've run the numbers on it: make friends with a mage, because our sleeves are absolutely full of tricks, and roughly a third of them work as intended." },
     { id = "g_mage", when = { class = "MAGE" }, text = "A mage! Come in, come in, mind the frost on the floor; that was a demonstration." },
   },
@@ -1826,8 +1826,8 @@ P:NPC {
       big = true,
       lines = { { id = "bkt_default", text = "Of course it did, because that's where the rune was anchored, between the mages and the priests, so everyone who comes home arrives in time for evening prayers. The landing point drifts about a hand's width a year, which I think means the mountain is breathing and the Kirin Tor think means I'm wrong." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A mage should teleport only those who've paid the fare.", next = "BACK", reply = "Exactly, because the Mystic Ward has costs, and the rune doesn't anchor itself for free.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Teleport your friends for nothing. The Ward will never know.", next = "BACK", reply = "The Ward always knows, actually, because the rune keeps a record, and Tabetha reads it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Someone should fix the anchor before it drifts too far.", next = "BACK", reply = "I've written to them about it, twice, with diagrams! They wrote back to ask who'd given me permission to measure it.", fx = { align = { order = 1 } } },
         { text = "Let it drift. A breathing mountain sounds wonderful.", next = "BACK", reply = "Doesn't it? I've started leaving a little cushion on the landing spot, just in case it sneezes.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Who anchored it in the first place?", next = "bk_anchor" },
@@ -2123,8 +2123,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you again. I confess you have shown rather more mental acuity than I first expected, and I shan't say that twice." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I doubt you possess the mental acuity for portal magic, and I see nothing today to change my mind." },
     { id = "g_doubt", text = "Hm. I doubt you possess the mental acuity to grasp portal magic, but go on, say what you came to say." },
     { id = "g_mage", when = { class = "MAGE", minLevel = 40 }, text = "Ah, a mage of some standing, here for portals, I presume. Do try to keep up." },
   },
@@ -2144,8 +2144,8 @@ P:NPC {
       big = true,
       lines = { { id = "mif_default", text = "Of course it flickered, because you were thinking about the dwarf and not about the far end, and a portal goes wherever your attention goes. Fix the destination in your mind before anyone steps through, and let them worry about their own beards." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A portal should open only where the mage truly intends.", next = "BACK", reply = "Precisely, which is why concentration matters, and why I despair of most students.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Open a portal wherever you like. Precision is for clerks.", next = "BACK", reply = "Precision is for anyone who wishes to arrive with all their limbs, which I gather excludes you.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll hold the far end first, always.", next = "BACK", reply = "Good, that's the whole of portal safety in a sentence, and it took me eleven years to write it down.", fx = { align = { order = 1 } } },
         { text = "The people stepping through matter more than the far end.", next = "BACK", reply = "They matter enormously, which is why you must ignore them entirely while you cast. Make peace with that, or stop casting portals.", fx = { align = { order = -1 } } },
         { text = "Something else, Milstaff.", next = "BACK" },

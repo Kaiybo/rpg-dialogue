@@ -15,8 +15,8 @@ P:NPC {
     third = "{name} met Lilyssia Nightbreeze, a night elf alchemist teaching in Stormwind's Mage Quarter.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You have been careful in my workshop again, and I have noticed it. Come in; you are welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. My mother fought at Hyjal while you were doing nothing, and I will sell to you only because I must." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "My mother fought the Legion's demons at Mount Hyjal, and she did not come home. I will sell to you, but I will not pretend to welcome you." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "Your shadow sours the whole workshop. Stand back from the bench and tell me what you need." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have been careful in my workshop every time you came, and I have noticed. Elune may yet forgive you; I am still deciding." },
@@ -36,8 +36,8 @@ P:NPC {
     li_mana = {
       lines = { { id = "lim_default", text = "The ones you've brewed yourself, if you can, because then you'll know what's in the flask and what it will do to you. My sisters would be scandalised to hear me say it, but a mage who runs dry in Ashenvale is a mage the Sentinels must carry home, and I would rather you stood on your own feet." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A true alchemist learns her craft through patient study.", next = "BACK", reply = "Yes, as my mother learned hers, before the Legion came.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Brew whatever sells; the old recipes are slow and dull.", next = "BACK", reply = "The old recipes kept my people alive through the War of the Ancients, and you would do well to respect them.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do your sisters truly hate mages so much?", next = "li_mana2" },
         { text = "Then teach me to brew them.", next = "BUSINESS" },
         { text = "Something else, Lilyssia.", next = "BACK" },
@@ -231,8 +231,8 @@ P:NPC {
     third = "{name} met Eldraeith, who sells Teldrassil's herbs in the Mage Quarter.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ishnu-alah, friend. The Great Tree's gifts are always yours to choose from, and I am glad you have returned." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You return. The herbs are here for anyone who asks, though I would rather you asked someone else." },
     { id = "g_default", text = "Ishnu-alah. Everything here was carried from Teldrassil, and if there is anything you require, you have only to ask." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The Great Tree's gifts are still here for you." },
   },
@@ -248,8 +248,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "A little of it, I believe. The earth remembers where it came from. Your spirits might feel it more than humans do." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Herbs carried from Teldrassil should be sold at a fair price.", next = "BACK", reply = "As a sign of our alliance, yes, and I would not dishonour it with greed.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Charge the humans whatever they'll pay; they don't know better.", next = "BACK", reply = "Then I would dishonour the trust my people placed in this alliance, and I will not.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The earth's memory is worth honouring. Thank you.", next = "BACK", reply = "Thank you. Most who buy these stones in Stormwind only ask whether they will fetch a good price in Ironforge.", fx = { align = { light = 1 } } },
         { text = "Herbs are herbs. Let's talk about price.", next = "BACK", reply = "Of course. The earth will forgive me for discussing coin, I hope.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -410,8 +410,8 @@ P:NPC {
     third = "{name} met Georgio Bolero, who teaches tailoring at Duncan's Textiles in the Mage Quarter.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you're back, and your hem is perfect this time! Come in, let me see what else we can do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you, and your hem's still a disgrace. Come in, if you must, and I'll try not to look." },
     { id = "g_default", text = "Come in, come in, and let me see that hem. Oh, dear, we have work to do." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! And have you been practising your stitches, or only wearing other people's?" },
   },
@@ -428,8 +428,8 @@ P:NPC {
     ge_mage = {
       lines = { { id = "gem_default", text = "Gladly, darling, and it's the best thing you'll ever do for your casting, because a sleeve that doesn't pull at the elbow lets the hand finish the gesture. Half the miscasts in the Sanctum are bad tailoring, and I've told Master Dumas so, and he doesn't believe me." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Tailoring is learned by careful, patient practice at the loom.", next = "BACK", reply = "Quite right, darling, and that's how every masterpiece in this shop was made.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Copy another tailor's cut and call it your own design.", next = "BACK", reply = "Then everyone in the Mage Quarter will know, and they'll say so behind your back.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then teach me.", next = "BUSINESS" },
         { text = "Something else, Georgio.", next = "BACK" },
       },
@@ -594,8 +594,8 @@ P:NPC {
     third = "{name} met Alexandra Bolero, who sells tailoring supplies at Duncan's Textiles.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back for more thread? I've kept a spool of the good silk aside, because I thought you might be." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Thread and dye are on the shelf behind me, so help yourself." },
     { id = "g_default", text = "Thread, dye and patterns, all on the shelf behind me. What do you need?" },
     { id = "g_back", when = { metBefore = true }, text = "Back for more thread? I thought you might be." },
   },
@@ -610,8 +610,8 @@ P:NPC {
     al_mage = {
       lines = { { id = "alm_default", text = "The best and the worst, because they cut cloth with a spell when they grow impatient, and a spell doesn't know where the chalk line is. The ones who sew by hand make robes that fit, and the ones who don't come back to me for more mageweave." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A supplier should tell the buyer where every bolt came from.", next = "BACK", reply = "I always do, and that's why the tailors here trust me.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Call any cloth silk from the south; who'll check?", next = "BACK", reply = "Every tailor in this quarter checks, friend, and they'd never trust me again.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll sew by hand, then.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else, Alexandra.", next = "BACK" },
       },
@@ -781,8 +781,8 @@ P:NPC {
     third = "{name} met Lawrence Schneider, a young tailor who teaches beginners at Duncan's Textiles.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! Your stitches have come on wonderfully, and I'm proud to call you a student of the craft." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you your stitches, since that's my duty, but I'll not be grand about it today." },
     { id = "g_default", text = "Welcome! If you've come to learn your first stitches, then I'm the one to see." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back! How is your stitching coming along? Let me see your hands." },
   },
@@ -798,8 +798,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "That everything holds together if the threads are true. Your spirits must be threads of some kind too." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A tailor learns her craft one honest stitch at a time.", next = "BACK", reply = "Precisely, and each stitch is a thread in the great loom of the craft.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sew fast and sloppy; nobody looks inside a robe.", next = "BACK", reply = "I look inside every robe, my friend, and so does every master tailor in the city.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "True threads hold the world together. Well said, Lawrence.", next = "BACK", reply = "Thank you! I'll tell Master Bolero, though he'll only say I'm being sentimental again.", fx = { align = { order = 1 } } },
         { text = "Threads break. Don't trust them so much.", next = "BACK", reply = "They do break, and that's why you double the stitch. Master Bolero taught me that.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -958,8 +958,8 @@ P:NPC {
     third = "{name} met Ardwyn Cailen, who sells wands at Stormwind Staves in the Mage Quarter.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! I've a new wand in, frost from tip to grip, and I thought of you straight away." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The wands are on the rack, so take your pick and don't wave them at me." },
     { id = "g_default", text = "Wands! Fire, frost and shadow, every one made here in Stormwind. Take a look." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Has your wand been behaving itself?" },
   },
@@ -976,8 +976,8 @@ P:NPC {
     ar_tab = {
       lines = { { id = "art_default", text = "Is she! Then don't buy one of mine, because you'll only compare it to hers forever and be sad about it. I sold her a box of cores once, years ago, and she sent half of them back with a note saying they had no character, which I've had framed." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A wand merchant should sell only wands she'd trust herself.", next = "BACK", reply = "Every wand on this rack I've tested, and some of them twice.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the dud wands to the apprentices; they'll think it's their fault.", next = "BACK", reply = "They'd learn soon enough, and then they'd never set foot in this shop again.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What gives a wand its character?", next = "ar_char" },
         { text = "Something else, Ardwyn.", next = "BACK" },
       },
@@ -1152,8 +1152,8 @@ P:NPC {
     third = "{name} met Charys Yserian, who keeps a shop of arcane curios in the Mage Quarter.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You've come back, and the old things seem quieter for it. Come in; something has been waiting for you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Come in quietly, look if you must, and please don't disturb the shelves." },
     { id = "g_default", text = "Come in quietly, please. Some of these old things don't care for noise." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back. Something on my shelves must have called to you." },
   },
@@ -1168,8 +1168,8 @@ P:NPC {
     ch_rune = {
       lines = { { id = "chr_default", text = "Every mage needs runes, and none of them want to know where they come from, which suits me. They're cut by a mason in the Dwarven District who doesn't know what they're for and inscribed by a gnome in Ironforge who does, and I mark them up for the walk." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An old trinket should be sold for what it truly is.", next = "BACK", reply = "Yes, because a trinket sold under a false name has a way of coming back.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Say every trinket belonged to an archmage; it doubles the price.", next = "BACK", reply = "And the trinket would know, I think, and it would not be pleased.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why not inscribe them yourself?", next = "ch_rune2" },
         { text = "Something else, Charys.", next = "BACK" },
       },
@@ -1356,8 +1356,8 @@ P:NPC {
     third = "{name} met Wynne Larson, who sells robes at Larson Clothiers in the Mage Quarter.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! Your robe has kept out the weather, I see, and I've another that'll do even better." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The robes are on the rack, so take a look and let me get on with my work." },
     { id = "g_default", text = "Robes for scholars, priests and mages, cut to fit and lined to last. What can I show you?" },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Has your robe been keeping out the weather?" },
   },
@@ -1374,8 +1374,8 @@ P:NPC {
     wy_andro = {
       lines = { { id = "wya_default", text = "Then you'll need the carrion recluse silk from Duskwood, and you'll need to bring it to me yourself, because Thurman faints at spiders. Andromath's robes are always the same cut, plain and dark and very slightly too long, and I've stopped arguing with him about it." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A robe merchant should cut every robe to fit its wearer.", next = "BACK", reply = "Exactly so, and that's why my robes are a little looser for kneeling.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell robes from the bottom of the pile at full price.", next = "BACK", reply = "And let the priests kneel in robes that split at the seams? Not from my shop.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why slightly too long?", next = "wy_long" },
         { text = "Something else, Wynne.", next = "BACK" },
       },

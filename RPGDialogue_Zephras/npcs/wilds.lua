@@ -219,8 +219,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and still no blade drawn! At this rate I'll have to start calling you a friend." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Keep your hands where I can see them, and don't touch the robes." },
     { id = "g_default", text = "Why are you looking at me like that? Expecting lightning?" },
     { id = "g_again", when = { metBefore = true }, text = "You again, and no blade drawn. We're practically friends." },
   },
@@ -245,8 +245,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. Nobody else talks to me without shouting." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Sell honestly, even out here where nobody's watching.", next = "BACK", reply = "Somebody's always watching out here, friend, usually from the bushes.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Out in the wilds, a price is whatever you can get.", next = "BACK", reply = "That's how I priced the robes, and look how well the cult turned out.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Most cultists try to kill me on sight. Why don't you?", next = "story" },
         { text = "What trade do you ply for the cult?", next = "trade" },
         { text = "What do you make of Lorthuna?", next = "lorthuna" },
@@ -618,8 +618,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you again. Sit quiet, and I'll show you what's been biting since you left." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your voice down and your hands off my lines, and we'll get along well enough." },
     { id = "g_default", text = "Gale's greetings. Keep your voice down, the fish are listening." },
   },
 
@@ -636,8 +636,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something more? Quietly, now." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Take only what the water can spare.", next = "BACK", reply = "That's the first rule of the line, and the fish thank you for it, in their way.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Net the whole pool while it's full.", next = "BACK", reply = "Do that and there's no pool next year, and you'll be the one going hungry.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Where do the fish even come from, up here?", next = "fish" },
         { text = "Fishing seems a peaceful life.", next = "peace" },

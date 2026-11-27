@@ -19,8 +19,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and your beast's been fed and grumbling. Wipe your boots and come under the roof, friend." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Wipe your boots, say what you need, and keep your voice down, because the beasts don't like you." },
     { id = "g_default", text = "Wipe your boots before you come under my roof, because this is the only dry straw in the whole swamp and I mean to keep it that way." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Your beast's been fed and grumbling, which is how I like them." },
     { id = "g_rain", when = { timeOfDay = "night" }, text = "The frogs are loud tonight, and the beasts hate it, so speak softly if you're coming in." },
@@ -141,8 +141,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, good, it's you. You always take from the front of the shelf, and I appreciate that more than you know." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Don't touch the shelf. Point at what you want, pay for it, and I'll hand it to you myself." },
     { id = "g_default", text = "Don't touch the shelf, please, because everything on it is in order and the order matters." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more vials? Good, but take them from the front, not the back." },
   },
@@ -165,8 +165,8 @@ P:NPC {
         { id = "hl_default", text = "Rogvar brews at the back, Thultazor sells reagents two tables down, and Banalash has the trade goods by the door. Kartosh the warlock comes by for things I'd rather not name, and he always pays in exact coin, which I appreciate." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Every vial should be exactly what its label says.", next = "BACK", reply = "Yes! A label is a promise, and I keep every one of mine in order.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Swap the labels; nobody can tell one green vial from another.", next = "BACK", reply = "I can tell, and so can whoever drinks it. Get away from my shelf.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "You and Thultazor sell much the same wares.", next = "hall_thultazor" },
         { text = "Something else.", next = "BACK" },
       },
@@ -305,8 +305,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! I've thread, flux and dye fresh off the long road, and you're the first to see it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Everything here came a long way and the price knows it, so don't waste my time haggling." },
     { id = "g_default", text = "Thread, flux, dye, salt and needles, and all of it came a long way to get here, so the prices know it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! You'll be wanting more of the same, I suppose, and I've got it, at the same price as last time, near enough." },
   },
@@ -334,8 +334,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, and I'm counting." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Goods carried this far deserve a fair price, not a gouging one.", next = "BACK", reply = "That's the balance I try to strike, and it's harder than it sounds out here.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Nobody else out here sells thread, so name your price.", next = "BACK", reply = "I could, and then the caravans would stop coming, and nobody would sell anything at all.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What have you got?", next = "BUSINESS" },
         { text = "Where do your goods come from?", next = "goods" },
         { text = "Who owes you the most in Stonard?", next = "ledger" },
@@ -406,8 +406,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back at my forge! The coal's dry today, and I'd sooner sell it to you than to anyone else in Stonard." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Take your coal and flux and go; the rain's coming, and I don't want you under my awning." },
     { id = "g_default", text = "Flux, coal, whetstones and hammers, so if you need to work iron, you've come to the right orc." },
     { id = "g_back", when = { metBefore = true }, text = "Back at my forge, good, because the coal's dry today and I want to sell it before the rain gets to it." },
   },
@@ -430,8 +430,8 @@ P:NPC {
         { id = "sn_default", text = "It does, for an outpost. Hartash makes the weapons and Grimnal sells the mail and plate, and both of them need coal, flux and whetstones every day. Thralosh has the cloth and leather, so he needs nothing from me and says so often." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Honest iron starts with honest coal.", next = "BACK", reply = "Now that's a smith's thinking. Bad coal makes brittle steel, and brittle steel breaks in battle.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Mix a little wet coal in; nobody weighs it twice.", next = "BACK", reply = "I weigh it twice, and so does every smith in this camp. Try it and see.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who decides what the forge makes first?", next = "stonard_ruag" },
         { text = "A town this size, and three armourers.", next = "stonard_why" },
         { text = "Something else.", next = "BACK" },

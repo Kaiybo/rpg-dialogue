@@ -14,8 +14,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and your feet are where I told you to put them. Good; come to the bar, and let's see if your shield arm has caught up." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Feet apart, shield up, and no back talk, because I've less patience for you than I have for a lazy stance." },
     { id = "g_drill", text = "Feet apart, shield up, and stop leaning on the bar; dead knees don't lock the way living ones did. What do you need?" },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? Good. The ones who stop coming back are usually the ones who stopped getting up." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}. I hope you were fighting, though in Brill a corpse can sit in the tavern for a month and nobody can tell it from the furniture." },
@@ -55,8 +55,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. Ask, and keep your guard up while you do." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A warrior earns his scars in the front rank, not behind it.", next = "BACK", reply = "That's right, and the front rank is where I'll teach you to stand. Dead knees or not, you hold it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Let the fools hold the line. I'll strike from behind it.", next = "BACK", reply = "Then you'll be the first one the Crusade flanks, because they know that trick. Get to the front.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What makes a good warrior, in your eyes?", next = "good" },
         { text = "Your recruits look freshly risen.", next = "recruits" },
         { text = "What's this task Dillinger has for me?", next = "dillinger", when = { class = "WARRIOR", heardLine = "austil.h_ready" } },

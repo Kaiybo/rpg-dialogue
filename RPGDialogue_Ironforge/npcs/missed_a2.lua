@@ -126,8 +126,8 @@ P:NPC {
     third = "{name} met Demnul Farmountain in the Hall of Arms of Ironforge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, back again, {class}! The recruits still talk about the last time ye passed through, and it does them good." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Back in the Hall, are ye? Stand where ye like, but dinnae expect me to make room for ye." },
     { id = "g_default", text = "Well met, {class}. If ye've come to train, the masters are further in, and if ye've come to watch, stand here by me and keep out of the swing of things." },
     { id = "g_back", when = { metBefore = true }, text = "Back in the Hall, are ye? The recruits are a wee bit better than last time, though I'd nae tell them so." },
   },
@@ -148,8 +148,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I can watch and listen both." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A fair fight in the Hall teaches more than a dirty win.", next = "BACK", reply = "It does, and the masters would tell ye the same, though they'd shout it louder.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Win however you can. The enemy won't fight fair either.", next = "BACK", reply = "The enemy won't, nae, but the Hall of Arms isnae the enemy, and ye'd do well to remember it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How do the recruits look to you?", next = "recruits" },
         { text = "Who are the masters here?", next = "masters" },
         { text = "This hall has a proud feel to it.", next = "hall" },
@@ -341,8 +341,8 @@ P:NPC {
     third = "{name} met Dolkin Craghelm, who sells mail at Craghelm's Plate and Chain in Ironforge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, {class}! Let me see the old shirt, for ye always bring it back with the best stories in its links." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell ye chain, for it's my trade. But ye'll pay before I fetch it, and that's that." },
     { id = "g_default", text = "Craghelm's Plate and Chain, {class}. I'm the chain, and Olthran yonder is the plate, so tell me how far ye mean to walk in it and I'll tell ye which of us ye want." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Let me see the old shirt, for I can tell a great deal from where the links have gone." },
   },
@@ -363,8 +363,8 @@ P:NPC {
         { id = "h_again2", text = "Aye, go on." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Mail should be riveted properly, every link, even where nobody looks.", next = "BACK", reply = "Every link, aye, for the one ye skip is always the one the arrow finds.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Leave the links under the arm loose. Who'd ever look there?", next = "BACK", reply = "The orc with the spear would look there, and Olthran would have yer hide for sayin' it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Every single ring?", next = "rings" },
         { text = "Why choose mail over plate?", next = "plate" },
         { text = "How do you and Olthran get along?", next = "olthran" },
@@ -447,8 +447,8 @@ P:NPC {
     third = "{name} met Durtham Greldon, a quiet dwarf who keeps watch in the Forlorn Cavern.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's ye again. The Circle speaks well of ye, and down here that's worth more than gold." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye again. Folk down here have been talkin' about ye, and none of it was kind, so mind where ye step." },
     { id = "g_default", text = "Ye're a long way from the Commons, {class}. Folk who wander down here are either lost or lookin' for someone, and I can help with the first." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. That's twice now, so I'll assume ye're nae lost." },
   },
@@ -556,8 +556,8 @@ P:NPC {
     third = "{name} met Garel Redrock, a dwarf in the Forlorn Cavern with a fondness for rare creatures.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there ye are! Ye've a good eye for odd beasties, and I've been hopin' ye'd bring me another tale of one." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye're back. I'll talk beasts with anyone, but I'll keep the best stories for better company." },
     { id = "g_default", text = "Well met, {class}! Ye've the look of someone who's come a long way, though whether ye've come to see me is another matter." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, ye're back! Have ye seen anythin' odd on yer travels, with fins for preference?" },
   },

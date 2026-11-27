@@ -20,8 +20,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite rogue! Hands behind your back, still, but I've a new batch you'll want to hear all about." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Don't touch the jars, any of them, and pay before you so much as think about sniffing one." },
     { id = "g_default", text = "Don't touch the green jars, or the blue ones, and actually, keep your hands behind your back." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "A rogue! Come closer, I've a fresh batch that'll make a Dalaran wizard forget his own name." },
   },
@@ -38,8 +38,8 @@ P:NPC {
         { id = "h_again", text = "Something else, dear? Mind the green jars." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Every poison jar should be labelled truthfully, whoever buys it.", next = "BACK", reply = "Of course they should, and mine are! The apothecaries sneer all they like, but they've never caught me with a wrong label.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Mislabel a jar or two. It keeps the apothecaries guessing.", next = "BACK", reply = "Ha! It would, right up until a rogue poisons himself and his friends come looking for me.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your stock.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "Do the apothecaries mind your trade?", next = "apoth" },
         { text = "Do poisons even work on the dead?", next = "dead" },
@@ -144,8 +144,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. You swing that pick like you mean it now, and the hills haven't woken yet, so let's keep at it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, but keep that pick pointed at the rock and well away from me." },
     { id = "g_default", text = "Mind the pick. It's sharper than it looks, and so am I." },
   },
 
@@ -164,8 +164,8 @@ P:NPC {
         { id = "h_again", text = "Anything else? Ask it plain." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A miner should leave a vein alone if someone's already working it.", next = "BACK", reply = "Aye, that's the old rule, and it's kept more miners alive than any pick ever has.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "If they're not at the vein right now, the ore is mine.", next = "BACK", reply = "Try that near Ambermill and the mages will settle the claim for you, and they aren't gentle about it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me mining.", next = "BUSINESS" },
         { text = "Where's the good ore around here?", next = "ore" },
         { text = "Did you mine in life?", next = "past" },

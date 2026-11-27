@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} met Alexandre Lefevre, who sells and mends leather armor at the Sepulcher.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my best customer, and in a jerkin of mine, which is the finest compliment there is. Come in and see the new hides." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Mind the hides, buy what you came for, and spare me your opinions on my stitching." },
     { id = "g_default", text = "Come in, come in, and mind the hides by the door. Some of them are still deciding whether to be armor." },
     { id = "g_leather", when = { class = { "ROGUE", "DRUID", "HUNTER" } }, text = "Ah, someone who wears leather for a living. Turn around, let me see the seams, and then let me apologise on behalf of whoever sewed them." },
     { id = "g_away", when = { away = 14 }, text = "{away} away, and you come back in the same jerkin. I'm wounded, though I'll recover if you buy something." },
@@ -38,8 +38,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask. I talk better than I sell." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A good leatherworker tells you when the stitching won't last.", next = "BACK", reply = "I did for thirty years in Lordaeron, and I lost a sale or two for it, but I never lost a rider.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Hide the weak stitching. Soldiers who can't feel won't notice.", next = "BACK", reply = "They notice when the strap gives way in a fight, I assure you, and then they come back to me with an axe.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Where do your hides come from?", next = "hides" },
         { text = "What was Lordaeron like for a saddler?", next = "saddles" },
@@ -113,8 +113,8 @@ P:NPC {
     third = "{name} met Nadia Vernon, the bowyer of the Sepulcher.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, the one customer who knows which end of the bow goes where. Come in; somebody finally brought me some decent wood." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The bows are on the rack, and the armorer's two doors down if you'd rather bother him." },
     { id = "g_default", text = "Bows, arrows, strings. If you want a sword, the armorer's two doors down, and he's welcome to you." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Good, finally someone who knows which end of the bow goes where." },
     { id = "g_warrior", when = { class = { "WARRIOR", "ROGUE" } }, text = "Looking for something to throw at things from a safe distance? Sensible, for once." },
@@ -130,8 +130,8 @@ P:NPC {
     sawyer = {
       lines = { { id = "sy_default", text = "Abigail Sawyer, yes. She makes a decent stave and she doesn't mind the walk, so we don't tread on each other. I arm the Deathguard on these walls, and she sees to whoever passes through, and there are more than enough worgen for both our order books." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Good wood costs more, and the buyer deserves to know why.", next = "BACK", reply = "Exactly, and I'd tell them why at great length, if anybody ever brought me any.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Stain the bad wood dark and charge them for yew.", next = "BACK", reply = "And when it snaps on the third shot, they'll know whose bow it was. No, thank you.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "No rivalry at all?", next = "sawyer2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -250,8 +250,8 @@ P:NPC {
     third = "{name} met Sebastian Meloche, the Sepulcher's armorer.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you, and hardly a dent on you this time. I'm almost disappointed, but come in all the same." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again, and dented again, I expect. Put it on the bench and keep your opinions about my work to yourself." },
     { id = "g_default", text = "Mind the anvil, and mind the hammer, and while you're at it mind me. What do you need?" },
     { id = "g_plate", when = { class = { "WARRIOR", "PALADIN" } }, text = "Plate on your back, good. Now come here and let me see what you've done to it." },
     { id = "g_away", when = { away = 14 }, text = "{away} gone and you come back with every dent from the last time still in place. I take that personally." },
@@ -377,8 +377,8 @@ P:NPC {
     third = "{name} met Andrew Hilbert, who sells trade supplies at the Sepulcher.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! You're the only crafter in the Sepulcher who ever remembers to bring a list, and I've missed that terribly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The thread, flux and vials are where they always are, and I'm sure you'll find them without me." },
     { id = "g_default", text = "Thread, flux, vials, salt, dye! Whatever your trade is, I've the little things it runs out of." },
     { id = "g_craft", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing", "Alchemy" } }, text = "A crafter, wonderful. You'll be needing something small and essential that you forgot to bring, I can always tell." },
   },
@@ -397,8 +397,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask me anything. I usually know." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Selling a crafter short-weight flux is no better than stealing.", next = "BACK", reply = "Worse, I'd say, because their whole piece fails for it. My scales are honest, and you're welcome to check them.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A pinch light on every bag adds up nicely over a year.", next = "BACK", reply = "Oh, it adds up, until a crafter weighs it at home, and then it adds up to no customers at all!", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "Why do the apothecaries need so many vials?", next = "vials" },
         { text = "Who buys the most from you?", next = "buyers" },
@@ -497,8 +497,8 @@ P:NPC {
     third = "{name} met Sarah Goode, the Sepulcher's stable master.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again, and hello to whoever you've brought along. The beasts settle when you come in, you know, and that's rare." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Slowly, please, and quietly. The beasts remember you, and I'm afraid I do as well." },
     { id = "g_default", text = "Slowly, please. The beasts don't like sudden movements, and they like the dead even less." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, with a companion, I hope. Bring them in and let me have a look." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "And who's this? {pet}, is it? Hello, {pet}, aren't you a fine one." },

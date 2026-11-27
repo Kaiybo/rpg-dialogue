@@ -259,8 +259,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! Pull up a stool by the fire, friend, because I've a new recipe and you're the only one who praises my stew." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Take a stool and follow the recipe exactly, and please don't tell me again that it tastes of nothing." },
     { id = "g_default", text = "I can teach you how to cook! Pull up a stool." },
     { id = "g_cook", when = { profession = "Cooking" }, text = "Cooking is a lifelong pursuit, and I see we share the same passion!" },
     { id = "g_back", when = { metBefore = true }, text = "Back in my kitchen! Mind the pot; it's always hotter than it looks." },
@@ -290,8 +290,8 @@ P:NPC {
         { id = "h_again", text = "Anything else? The stew won't stir itself, but it can wait a moment." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A cook should serve his food as he'd want it served to him.", next = "BACK", reply = "Even though I can't taste it, I try! Cooking for others is the honest pleasure I've got left.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "If the dead can't taste it, use whatever meat is lying about.", next = "BACK", reply = "Well, the living can taste it, and so can the Warchief's folk. No, I cook properly or not at all.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me to cook.", next = "BUSINESS" },
         { text = "How do you cook when you can't taste?", next = "taste" },
         { text = "Why does cooking matter for camping?", next = "camp" },
@@ -369,8 +369,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you again, the one who gives me something to watch. Brill's a duller play without you in it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Brill must agree with you, though I can't say I do, so carry on past me." },
     { id = "g_default", text = "Another new face in Brill. They come and go like the fog these days." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Brill must agree with you." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "A tauren, in Brill. You've made my week, and I shall be telling the Gallows' End about you before you've reached the end of the street." },

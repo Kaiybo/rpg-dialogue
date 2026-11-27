@@ -1795,8 +1795,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! Sit down, and I'll bring the good stuff before the others see." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Pay first, if you please. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite guest! Take the chair by the brazier; I've kept it warm, so to speak." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Coin on the counter before you sit, please. I've a long memory for unpaid tabs, and yours is in it." },
     { id = "dp_pt_living", when = { party = { race = { "Orc", "Troll", "Tauren" } } }, text = "Your living friends will want food, I suppose. There's bread somewhere, though I can't promise when it was baked." },
     { id = "dp_pt_any", when = { party = true }, text = "You've brought company down into the dark. How brave of them, or how unwise; I'll let them decide which." },
     { id = "dp_rep_uc", when = { rep = { faction = "Undercity", min = "Exalted" } }, text = "The Dark Lady's servants speak your name with something close to warmth, and down here, that's the highest honour there is." },

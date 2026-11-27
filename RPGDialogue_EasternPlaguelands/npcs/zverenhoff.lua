@@ -108,8 +108,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. I enjoy a conversation in a language I already speak." },
       },
       choices = {
-        { text = "The Dawn should answer to Stormwind's law.", next = "BACK", reply = "Kings come and go, my friend, and the plague doesn't care for crowns. Still, I see why you'd think it.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "The Dawn is right to answer to no king.", next = "BACK", reply = "Just so. A plague doesn't stop at borders, and neither can we.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The Dawn should keep its oaths to every kingdom that aids it.", next = "BACK", reply = "Oaths matter, my friend, and I've kept every one I swore, even to men who are dead now.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "The Dawn owes no kingdom anything. Let it do as it must.", next = "BACK", reply = "There's truth in that, and danger too. A free sword can still cut the wrong hand.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What are scourgestones?", next = "stones" },
         { text = "You don't seem to think much of the Scarlet Crusade.", next = "crusade" },
         { text = "I hear you're a linguist.", next = "linguist" },

@@ -16,8 +16,8 @@ P:NPC {
     third = "{name} met Angrun, the herbalism trainer at Grom'gol Base Camp.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back, and your fingers are still whole. Come, I will show you the night-blooming ones, because you have earned the patience." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You came back. I will teach you, because that is my task, but I will not warn you twice about the ones that kill." },
     { id = "g_x1", when = { timeOfDay = "night" }, text = "The night-blooming herbs are open now, and so are the eyes of everything that hunts. Pick near the walls until morning." },
     { id = "g_default", text = "You want to learn herbs, or you want to know which ones not to eat? Both lessons are worth your time here." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, and with all your fingers. Good, you listened." },
@@ -46,8 +46,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. I have patience, if not much time." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A healer should be told plainly which herbs can kill.", next = "BACK", reply = "Yes. A herb that heals at one dose kills at three, and a healer who does not know that is a poisoner by accident.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Keep the deadly ones secret; knowledge is a weapon.", next = "BACK", reply = "A weapon, yes, and the jungle trolls think as you do. I would sooner every grunt knew what not to chew.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I want to train.", next = "BUSINESS", when = { profession = "Herbalism", faction = "Horde" } },
         { text = "What grows in this jungle worth picking?", next = "herbs" },
         { text = "Which herbs here would kill me?", next = "poison" },
@@ -145,8 +145,8 @@ P:NPC {
     third = "{name} met Hragran, who sells cloth and leather armour at Grom'gol Base Camp.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and your gear is still dry, I see. You listen, and I like customers who listen." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy before the rot gets in, and before I lose my patience with you." },
     { id = "g_x1", when = { timeOfDay = "night" }, text = "Come under the awning, out of the wet. Night rain is the worst here, because nothing dries until noon." },
     { id = "g_default", text = "Cloth and leather, dry as I can keep it. Buy it before the jungle eats it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Did the jungle rot your last jerkin already? It does that." },
@@ -173,8 +173,8 @@ P:NPC {
         { id = "h_again2", text = "Speak. My brushes can wait a moment." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Sell only cloth that's dry; damp goods cheat the buyer.", next = "BACK", reply = "That is my whole trade, keeping it dry. Anything that smells of the river goes in the fire, not on the table.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Dry the outside, and the inside's the buyer's problem.", next = "BACK", reply = "Then the buyer's jerkin rots off his back in a week, and he comes looking for me with an axe. I will keep my head, thank you.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your armour.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "The jungle rots leather that badly?", next = "rot" },
         { text = "Why not sell mail and plate?", next = "plate" },
@@ -266,8 +266,8 @@ P:NPC {
     third = "{name} met Nargatt, who sells food and drink at Grom'gol Base Camp.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back for water and bread, and I am glad, grunt. A traveller who comes back to my stall is one the jungle did not keep." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Take your water and go, and do not tell me it tastes of the river." },
     { id = "g_x1", when = { timeOfDay = "night" }, text = "You travel at night? Then take water and bread now. Nothing I sell is worse than being lost and hungry in the dark." },
     { id = "g_default", text = "Food that keeps and water that won't make you sick. In this jungle, that is a rare thing, grunt." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? Of course you are. The jungle makes everyone hungry." },
@@ -296,8 +296,8 @@ P:NPC {
         { id = "h_again2", text = "Ask. Food is quick to sell, but talk is free." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Clean water should be sold fair; men die without it.", next = "BACK", reply = "Yes, and I boil every jug of it myself. I could charge more, but a dead grunt buys nothing.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Water's scarce, so charge what the thirsty will pay.", next = "BACK", reply = "The goblins at Booty Bay think as you do. In Grom'gol we are Horde, and the Horde does not bleed its own for a drink.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your food.", next = "BUSINESS", when = { faction = "Horde" } },
         { text = "Why is your water better than the river?", next = "water" },
         { text = "You and Mudduk don't get along?", next = "mudduk" },
@@ -392,8 +392,8 @@ P:NPC {
     third = "{name} met Zudd, the pet trainer at Grom'gol Base Camp.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, and your companion knows me now; see how it lowers its head. Come, we have work to do together." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Bring me the beast, and keep yourself at a distance. It is the better student of the two of you." },
     { id = "g_x1", when = { class = "HUNTER", race = "Troll" }, text = "A Darkspear and a beast together. Your people do this well. Come, let me see how it stands." },
     { id = "g_default", text = "Bring me your beast, hunter. I will teach it things you never thought it could learn." },
     { id = "g_back", when = { metBefore = true }, text = "Back, and your companion looks stronger. Good, the lessons are holding." },
@@ -422,8 +422,8 @@ P:NPC {
         { id = "h_again2", text = "Speak; the beasts are patient, even if I am not." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Train a beast with patience, never with the whip.", next = "BACK", reply = "Good. A whipped beast obeys until the day it bites, and in this jungle that day always comes.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Break a beast's spirit and it will never turn on you.", next = "BACK", reply = "You are wrong, and many dead hunters were wrong before you. A broken beast is only waiting.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach my companion.", next = "BUSINESS", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What beasts in Stranglethorn are worth taming?", next = "beasts" },
         { text = "How do you teach a beast anything?", next = "teach" },
@@ -552,8 +552,8 @@ P:NPC {
     third = "{name} met Kragg, the hunter trainer at Grom'gol Base Camp.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Lok'tar, hunter! You return with the jungle's mark on you and still standing, and that is the kind of student I want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You return. The jungle has not killed you yet, and I will not pretend that pleases me." },
     { id = "g_x1", when = { class = "HUNTER", race = "Orc" }, text = "Lok'tar, hunter. You carry yourself as the wolf-riders did. Let us see if the jungle agrees." },
     { id = "g_default", text = "Hunter! Stranglethorn is the greatest hunting ground in the world, and the most likely to kill you. Ready to learn?" },
     { id = "g_back", when = { metBefore = true }, text = "You are still alive. Good, the jungle has not taught you its last lesson yet." },
@@ -584,8 +584,8 @@ P:NPC {
         { id = "h_again2", text = "Speak, hunter. I have time until dusk." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Hunt for food and for the fight, never for trophies.", next = "BACK", reply = "Yes! The humans at Nesingwary's camp shoot tigers to hang on their walls, but an orc hunts to eat and to test himself.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A trophy proves the kill, and that's all that matters.", next = "BACK", reply = "Then go to Nesingwary and his humans, and hang your heads on their walls. You will learn nothing from me that way.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Why is Stranglethorn the greatest hunting ground?", next = "ground" },
         { text = "What do you make of Nesingwary's camp?", next = "nesingwary" },
@@ -737,8 +737,8 @@ P:NPC {
     third = "{name} met Krakk, the superior armorer of Grom'gol Base Camp.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return, and your armour still rings true when I strike it. Come, {class}, stand still and let me listen again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You return. Stand still while I look at your armour, and say nothing, because I have no wish to hear it." },
     { id = "g_default", text = "Stand still, {class}. Let me see what you wear, and whether it will turn a troll's axe or only slow it." },
     { id = "g_2", when = { metBefore = true }, text = "You return, and you are still in one piece. Then the armour did its work, or you ran well." },
     { id = "g_3", when = { faction = "Alliance" }, text = "I do not sell to the Alliance. Look if you must, and then walk back to wherever your kind is tolerated." },
@@ -764,8 +764,8 @@ P:NPC {
         { id = "hello_again3", text = "Ask, then." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An armourer should tell a warrior plainly when the plate is weak.", next = "BACK", reply = "I do, with this hammer, and the ring tells the truth even when I do not want to hear it. A warrior should know before the troll does.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the flawed plate anyway; a grunt only dies once.", next = "BACK", reply = "A grunt dies once, and then his brothers come to my stall. I would not live long, selling that.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your armour.", next = "BUSINESS" },
         { text = "Where is your armour forged?", next = "forged" },
         { text = "Doesn't the heat make plate a burden?", next = "heat" },
@@ -859,8 +859,8 @@ P:NPC {
     third = "{name} met Brawn, the leatherworking trainer of Grom'gol Base Camp.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You are back, and your stitching is cleaner than before, which tells me you worked while you were gone. I will teach a student like that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You are back. Show me your hands, and then show yourself the door when we are done." },
     { id = "g_default", text = "You come to learn, or to waste hide? Show me your hands, and I will know which." },
     { id = "g_2", when = { metBefore = true }, text = "You are back. Let me see your stitching before you say anything." },
     { id = "g_3", when = { faction = "Alliance" }, text = "Human lands end at our wall. I teach nothing to your side, and you would be wise to leave before I remember more." },
@@ -886,8 +886,8 @@ P:NPC {
         { id = "hello_again3", text = "Ask." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Make every seam well, even on gear for the lowliest grunt.", next = "BACK", reply = "Yes. A grunt's jerkin should be as good as a chieftain's, because the grunt is the one who stands in front.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A rough seam's good enough for gear that gets cut apart anyway.", next = "BACK", reply = "Then you work like a human peasant, and the jerkin will fail you like one. Do it again, properly.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me leatherworking.", next = "BUSINESS" },
         { text = "What hides are worth working here?", next = "hides" },
         { text = "Hragran says you threw a jerkin into the sea.", next = "jerkin" },
@@ -981,8 +981,8 @@ P:NPC {
     third = "{name} met Jaxin Chong, the alchemy trainer of Booty Bay.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "My favourite student, eyebrows and all! Come round the bench, pal; the green one's calmed down, and I think it likes you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Lessons by the hour, breakages by the item, and with you I'm keepin' a very close count." },
     { id = "g_default", text = "Don't touch that, or that either! Sorry, pal, it's a reflex. Jaxin Chong, alchemy, lessons by the hour and breakages by the item." },
     { id = "g_2", when = { metBefore = true }, text = "You again! Good, good, you've still got both eyebrows, so something I said stuck." },
     { id = "g_3", when = { profession = "Alchemy" }, text = "A practitioner, finally! Come round this side of the bench, friend, and mind the green one, it's in a mood." },
@@ -1008,8 +1008,8 @@ P:NPC {
         { id = "hello_again3", text = "Yeah? Ask, but stand back a step." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Label every flask truthfully, even the failed batches.", next = "BACK", reply = "Every flask, pal, because the failed ones are the ones that explode. Honest labels keep my customers alive and payin'.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the failed batches as tonics; nobody reads the label.", next = "BACK", reply = "Somebody always drinks it, pal, and then somebody comes lookin' for me. The herbs cost enough without the funeral fees.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me alchemy.", next = "BUSINESS" },
         { text = "What's this understanding with Glyx Brewright?", next = "glyx" },
         { text = "Is alchemy really that dangerous?", next = "danger" },
@@ -1337,8 +1337,8 @@ P:NPC {
     third = "{name} met Cowardly Crosby, a trader selling tailoring supplies among the Bloodsail on the Wild Shore.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, thank goodness, it's you, my favourite customer! Come in, come in, quickly, and stand between me and the bosun if you would." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'll sell to you, I'll sell to anybody, but please don't stand behind me while you do it." },
     { id = "g_default", text = "Don't shoot! I'm a trader, an independent trader, I'm with nobody at all. Oh, you're a customer. Good, good, come closer, but not quickly." },
     { id = "g_2", when = { metBefore = true }, text = "Oh, thank goodness, it's only you. I thought you were the bosun wanting his shirt." },
     { id = "g_3", when = { class = "ROGUE" }, text = "I didn't see you there, which I'm sure is the point. I've nothing worth stealing, friend, only thread, and I'll sell it to you very cheaply." },
@@ -1364,8 +1364,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes? Yes, what is it?" },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Stay neutral, Crosby, and tell both sides the same truth.", next = "BACK", reply = "I do, I do, I tell everyone I'm neutral six times a day! The truth's the only thing I've got that nobody wants to steal.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Tell each side what it wants to hear, and live longer.", next = "BACK", reply = "Oh, I've tried that, and it turns out the Bloodsail compare notes. I'm not built for it, friend; my nerves can't take it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you've got.", next = "BUSINESS" },
         { text = "Why trade in a pirate camp?", next = "why" },
         { text = "How did you get that name?", next = "name" },
@@ -1459,8 +1459,8 @@ P:NPC {
     third = "{name} met Knaz Blunderflame, a gnome engineer hidden on a hill above the Mosh'Ogg ogre mound.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You found the path again, which makes you my most reliable visitor by a wide margin! Come in, and step over the tripwire as a courtesy to the bell." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, you found the path again. I'll be adjusting the camouflage netting after you leave, I think." },
     { id = "g_default", text = "Oh! A visitor! You found the path, which means either you're very observant or my camouflage netting has a fault, and I'd like to know which." },
     { id = "g_2", when = { metBefore = true }, text = "You found it twice! That rules out luck, statistically. Come in, come in, mind the tripwire, it only rings a bell." },
     { id = "g_3", when = { profession = "Engineering" }, text = "Is that a gyromatic spanner on your belt? A colleague! Oh, this is splendid, I haven't talked torque with anyone in weeks." },
@@ -1486,8 +1486,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes? Ask, ask, I don't mind." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Sell supplies honestly, even up here where nobody's watching.", next = "BACK", reply = "Especially up here! The ogres can't read a price tag, but I'd know, and I'd never sleep for it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Out here nobody can complain, so charge what you like.", next = "BACK", reply = "Hmm, that's true, statistically, but the people who climb this far are my only customers. Fleecing them would be poor engineering.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Why set up shop above an ogre mound?", next = "why" },
         { text = "What are you testing up here?", next = "testing" },

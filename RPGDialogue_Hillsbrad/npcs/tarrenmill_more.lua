@@ -930,8 +930,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, the bats are hungry, and they remember your smell fondly. Where shall they carry you tonight?" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The bats remember your smell, and not fondly, so tell me where you're going and be quick." },
     { id = "g_default", text = "The bats are hungry and so is the wind. Where are you going?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The bats remember your smell, which is a compliment, mostly." },
   },
@@ -1097,8 +1097,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and welcome. I've set the food for the living on the high shelf, where the rats can't get it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Rope, flasks and thread are on the counter, so take what you need and don't loiter." },
     { id = "g_default", text = "Rope, flasks, thread, and food for those who still need it. What will it be?" },
   },
 
@@ -1113,8 +1113,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Rope, bandages and patience, same as everyone, though some say paladins need a little more of the last. I'd keep a few bandages anyway, because I hear the Light doesn't always come as quickly to a dead hand as to a living one." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A supplier should keep the living's food apart and honest.", next = "BACK", reply = "Of course. Our allies breathe, and they sicken if you don't keep their bread clear of our poisons.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the living stale bread. They're only allies by treaty.", next = "BACK", reply = "They're allies by treaty, and the Dark Lady holds treaties dear. I'll not be the one to break hers.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "It comes when I'm worthy of it. I'll stay worthy.", next = "BACK", reply = "Then stay worthy, and buy some bandages anyway. Worthiness and bandages go well together.", fx = { align = { light = 1 } } },
         { text = "I don't wait on the Light. Bandages will do.", next = "BACK", reply = "Sensible. I'd keep the Light for emergencies and the bandages for everything else.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

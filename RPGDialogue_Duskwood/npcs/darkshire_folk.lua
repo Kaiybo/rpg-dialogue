@@ -1565,8 +1565,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. You're always welcome under this roof." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll rent you a room, but there'll be no trouble in my house tonight." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! I've kept the fire banked and the shutters latched, so sit down and rest your feet a while, friend." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You can have a bed, since I don't turn anyone out into Duskwood after dark, but don't expect conversation with it." },
     { id = "dp_pt_any", when = { party = true }, text = "Good, you've brought friends. Nobody in Darkshire should walk out at night without a few beside them." },
     { id = "dp_pt_priest", when = { party = { class = "PRIEST" } }, text = "Your friend's a priest, I see. Tell them we could use a prayer over the Raven Hill road, if they've one to spare." },
     { id = "g_op_dead_burn", when = { gossip = { topic = "duskwood_dead", stance = "burn" } }, text = "The Commander says you'd burn our dead rather than bury them. Keep your voice down in here, friend; half the room has someone up at Raven Hill." },
@@ -1761,8 +1761,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back at my forge, and I'm glad of it; you're one of the few who listens before swinging the hammer." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You'll get your lesson, because that's my trade, but stand where I can see your hands and the sparks can find you." },
     { id = "g_forge", text = "The forge is hot and the hammer's heavy, and you're standing right where the sparks go, so step left." },
     { id = "g_back", when = { metBefore = true }, text = "More lessons, or more burns? Usually it's both." },
   },
@@ -1785,8 +1785,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Every fighter does, spirits or no, because when the dead get close, it's steel that matters." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A smith should only put a mark on work they'd trust with their life.", next = "BACK", reply = "That's the Gnarltree rule, and my father's before me. Anything I'd not wear into the Rotting Orchard goes back into the fire.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the flawed pieces anyway; the dead won't complain.", next = "BACK", reply = "The dead won't, but their widows will, and loudly, right outside my door. Don't let me catch you saying that in front of Gavin.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Steel and spirits both. I'll gear up properly, Clarise.", next = "BACK", reply = "That's the way, and I'll see you're properly kitted. Spirits and steel.", fx = { align = { honor = 1 } } },
         { text = "My spirits are enough. I don't need steel.", next = "BACK", reply = "Then I'll hope your spirits stop a ghoul's teeth, because my steel would have. Suit yourself.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

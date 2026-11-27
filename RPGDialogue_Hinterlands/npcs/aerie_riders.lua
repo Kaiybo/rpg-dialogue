@@ -17,8 +17,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend! Ye've flown hard against the Vilebranch, an' the riders o' the Peak remember it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep yer distance from the landin', an' keep out o' the way o' them that does the real fightin'." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "A warlock in Aerie Peak! Keep yer demon off the landin', or I'll throw it off myself." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I flew against the Horde's warlocks in the Second War, an' I've no' forgotten. What d'ye want?" },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "Ye've flown against the Vilebranch an' brought nothin' foul back wi' ye. I'll drink wi' ye, but I'll no' sit wi' my back tae ye." },
@@ -43,8 +43,8 @@ P:NPC {
         { id = "wg_default", text = "Six of us, when we're all whole, under Gryphon Master Talonaxe's eye. Kerr Ironsight spots for us from the wall, an' Guthrum Thunderfist keeps the birds fed an' shod, which is a harder job than mine." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A rider's word should hold as fast as a gryphon's grip.", next = "BACK", reply = "Aye, it should, an' at the Peak it does. I've trusted my life tae that many a time.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Lie to the Vilebranch if it gets you past their spears.", next = "BACK", reply = "Lie tae trolls all ye like, but lie tae a rider once an' ye'll walk home from Jintha'Alor.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "And the Thane? Does he still fly?", next = "wing_thane" },
         { text = "Something else.", next = "BACK" },
       },
@@ -185,8 +185,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "I saw ye comin' a mile off, an' for once I was glad o' it. Come up, then." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I saw ye comin', an' I'd have been happier if ye'd turned round. What d'ye want?" },
     { id = "g_default", text = "I saw ye comin' up the path a good while ago, so don't look so surprised. What d'ye want?" },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Ye've got the eyes for it, I'll give ye that, though mine are better." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. I watched ye fly in this time; ye sit a gryphon like a sack o' grain." },
@@ -209,8 +209,8 @@ P:NPC {
         { id = "ri_home", when = { questDone = TODO_QUEST("Saving Sharpbeak") }, text = "Better than they'd like. Doran Steelwing dives too early an' gets away wi' it, the young ones bank left when they're frightened, an' Talonaxe is flyin' again now Sharpbeak's home, an' the whole wing's the better for it." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A scout should report only what they've truly seen.", next = "BACK", reply = "Aye, an' that's rarer than ye'd think. Half the riders here see trolls in every bush.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Exaggerate the troll numbers, and command sends more riders.", next = "BACK", reply = "An' then the real count comes in short, an' nobody believes ye again. No' clever, that.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you tell them what you see?", next = "riders_tell" },
         { text = "Something else.", next = "BACK" },
       },
@@ -347,8 +347,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There ye are, dear! Come an' stand by me; Howin's wandered off again an' I've been missin' the company." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Say what ye need quickly, dear, for I've Howin tae find an' no time tae spare ye." },
     { id = "g_default", text = "Hello, dear! Come an' stand by me a moment; Howin's off wanderin' again an' I could do wi' the company." },
     { id = "g_back", when = { metBefore = true }, text = "There ye are again! Howin asked after ye, or I think he did; he was mumblin'." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "Oh, an' who's this? {pet}! What a lovely beast. Keep it away from the aviary, though, there's a dear." },
@@ -516,8 +516,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! I remember ye, I'm almost sure of it, an' I remember I liked ye, too." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Hello? Ah, it's you. I remember ye now, an' I rather wish I didnae, so say what ye need." },
     { id = "g_default", text = "Hello, hello! Have we met? No matter, we have now. Howin Kindfeather, at yer service." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! I remember ye, I think. Ye've the look o' someone I've said hello tae." },
   },

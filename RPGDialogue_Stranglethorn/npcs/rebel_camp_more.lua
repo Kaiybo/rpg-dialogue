@@ -303,8 +303,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and I'm glad of it, though I'm sorry the shelves haven't grown since you left. You're one of the few who never complains." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'm sorry about the prices, as always, but today I'm not very sorry, if I'm honest." },
     { id = "g_default", text = "Camp stores, such as they are. If you need it and I have it, it's yours for coin, and if I don't have it, it's probably in Booty Bay at twice the price." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and I've still not restocked, before you ask." },
   },
@@ -333,8 +333,8 @@ P:NPC {
         { id = "h_again2", text = "What else? The stores aren't going anywhere, more's the pity." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Share the stores fairly, even if an officer asks for more.", next = "BACK", reply = "I do, and Lieutenant Doren's never asked for more than his share, to his credit. The men see that, and it matters.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Keep a private stash; the camp won't miss a little.", next = "BACK", reply = "The camp would miss it, believe me; I count every arrow twice. And I'd never look the men in the eye again.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Where do your supplies come from?", next = "supply" },
         { text = "How does the camp eat, out here?", next = "eat" },

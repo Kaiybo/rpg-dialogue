@@ -17,8 +17,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's yerself! Ye've the best hammer arm I've seen this season, so come an' let's put it tae work." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye'll get yer lesson, for the forge teaches anyone. Dinnae expect me tae stand close while ye swing." },
     { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
       text = "A human at the Great Forge, is it? If ye've come tae borrow a hammer, I'll want it back before ye leave the hall, an' I'll want it back sharp." },
     { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "bengus_human_soft" }, priority = 10,
@@ -49,8 +49,8 @@ P:NPC {
           text = "Ye'll no' like the answer, but ye asked. My father lent Stormwind's quartermasters a cartload o' blades after the Second War, an' the crown's still thinkin' about payin' for half o' them." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A smith should sign only work he forged with his own hands.", next = "BACK", reply = "Aye, an' one who doesnae is no smith at all, just a seller o' other folks' sweat.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Buy a fine blade cheap, stamp your mark on it, and sell it.", next = "BACK", reply = "Get away from my anvil wi' talk like that, for it's the sort o' thing a Dark Iron would do.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Did Stormwind ever pay what it owed?", next = "hu_view2" },
         { text = "You sound like a dwarf who's been stiffed.", next = "hu_view2" },
         { text = "Something else, Bengus.", next = "BACK" },
@@ -378,8 +378,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back from the deeps wi' all yer fingers again! Come in, for I've a few tricks left that I only teach tae the patient ones." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll teach ye, since a dwarf who cannae mine is a danger tae every tunnel he walks in. Just dinnae ask me tae like it." },
     { id = "g_default", text = "Lookin' tae learn the pick? I can teach ye, if ye've the shoulders for it." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the tunnels? Ye've still all yer fingers, which is a fine start." },
   },
@@ -397,8 +397,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "The old hands say so, an' the old hands are the ones still alive, so I listen. Deepmountain Minin' has taught for generations that a creakin' tunnel's only settlin', but I've lost good diggers who believed it. If the stone talks tae ye, I'd sooner ye taught my students tae hear it than I taught them tae ignore it." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A miner should never jump another's claim, however rich the vein.", next = "BACK", reply = "That's the first rule o' Deepmountain, an' the one I'd carve over the door if carvin' did any good.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Whoever swings first owns the vein. That's how tunnels work.", next = "BACK", reply = "That's how tunnel fights start, an' I've buried dwarves over less.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Keep Deepmountain's methods, and add the listening on top.", next = "BACK", reply = "That's what I'd do, an' it's what I've told the lads, for the old teachin' kept them alive an' the listenin' might keep them alive longer.", fx = { align = { order = 1 } } },
         { text = "Throw out the old teaching. Listen to the stone first.", next = "BACK", reply = "Bold, an' maybe right, but Deepmountain's way has kept generations o' miners alive, so I'll no' throw it out tomorrow.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -581,8 +581,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my best student! Come in, come in; I've been dyin' tae hear what ye've been cookin' out in the wilds." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll teach ye the recipe, for good food's for everyone. But ye'll wash yer hands twice before ye touch my pots." },
     { id = "g_default", text = "Ye look hungry, friend, an' I can fix that or teach ye tae fix it yerself." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the Kettle! What've ye been cookin' since I saw ye last?" },
   },
@@ -600,8 +600,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I've wondered! The Wildhammers I've fed cook over open flame an' say a word tae it first, an' I always thought it was manners. A recruit asked me once if the fire would sulk if he burned the meat, an' I told him the fire wouldnae, but I would." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A cook should never pass off spoiled meat, however good the sauce.", next = "BACK", reply = "Never, an' I'll swear it on my ladle, for a cook's word is what keeps the Kettle full.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Enough pepper hides anything. Nobody needs to know what's underneath.", next = "BACK", reply = "Out o' my kitchen wi' that talk, though I'll admit my brother's said the same after a pint.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Saying a word to the fire is only good manners.", next = "BACK", reply = "That's what I thought, an' I've started doin' it myself, an' my bread's never burned since, though that might be the new oven.", fx = { align = { honor = 1 } } },
         { text = "The fire doesn't care. Just don't burn the meat.", next = "BACK", reply = "Fair enough, an' I'll keep the meat safe, but I'll still mutter at the fire now an' then, just tae keep it in good humour.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -808,8 +808,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! I knew ye had the taste for it, an' I've been tellin' Daryl so all week." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Spices are spices, an' I'll sell ye yer salt. But I'll weigh it in front o' ye, so neither of us has cause tae complain." },
     { id = "g_default", text = "Spices, salt an' recipes, all at honest prices, whatever my brother's told ye." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more spice? I knew ye'd get the taste for it." },
   },
@@ -827,8 +827,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Better pepper, I'd hope! It came in damp through the Wetlands, an' I swear the whole crate's been sulkin' since. Daryl says I'm daft tae think spices have moods, but Daryl also says he's the better-lookin' brother, so ye can see where his judgment lies." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Damp pepper should be sold as damp pepper, and cheaper.", next = "BACK", reply = "Aye, an' it is, wi' a sign tae say so, though my brother calls that bad business.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Dry the crate out and sell it as fresh. Who'd ever know?", next = "BACK", reply = "The Kettle would know, an' my brother's tongue would know, so I'll thank ye for nothin'.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll not pretend, Emrul. Spices have no spirits.", next = "BACK", reply = "Ha, fair enough, an' Daryl would agree wi' ye, but I'll still be talkin' tae my pepper when nobody's watchin'.", fx = { align = { honor = 1 } } },
         { text = "For a fair price, I'll whisper sweet things to your pepper.", next = "BACK", reply = "Now there's a business proposal I can respect, an' I'll pay ye in pepper, if it ever stops sulkin' long enough tae be sold.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1009,8 +1009,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, ye're back, an' wi' clean bandages this time, I'd wager. Sit down; it's always a pleasure teachin' ye." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll teach ye tae bind a wound, for I'd let nobody bleed for want o' learnin'. That's as far as my kindness goes today." },
     { id = "g_default", text = "Sit down if ye're bleedin', an' stand if ye're no'. Which is it?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, an' still in one piece, I see. Good, keep it that way." },
   },
@@ -1028,8 +1028,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Aye, an' gladly, though I'm a physician first an' a believer second. A bandage I understand: clean it, bind it, keep it dry. What the priests do I've stopped askin' about, an' what ye do I havenae even begun tae ask, but a soldier doesnae care where the healin' comes from, so long as it comes." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A healer should treat friend and foe alike, without asking questions.", next = "BACK", reply = "That's the oath I took, an' I've stitched up dwarves I'd no' share a table wi'.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Bandages are dear. Save them for those who can repay you.", next = "BACK", reply = "Then ye'll never make a physician, for the ones who cannae pay bleed just the same.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Healing is healing. I'll stand beside your bandages gladly.", next = "BACK", reply = "I'll be glad o' ye. A shaman an' a roll o' linen together have saved more dwarves than either alone.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "Bandages are for those without a better gift.", next = "BACK", reply = "Maybe so, but a gift runs out, an' linen doesnae, an' I've seen gifted healers bleed out for want o' a simple bandage.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1223,8 +1223,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you, which is a relief, because the door ward chimed in the friendly key, and it's only ever done that for three people." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Stand on the mat where I can see you, please, and don't touch the rods, because I've counted them." },
     { id = "g_default", text = "Who's there? Oh, a customer, and you set off my door ward, which I calibrated myself to catch exactly that. You might have knocked, you know." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. I suppose you can come in, since nothing went missing after your last visit; I counted, down to the last pinch of dust." },
   },
@@ -1240,8 +1240,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Not in the least, which is what makes it fascinating! I bind energy in by rule and rune, and you ask the elements nicely and they agree, apparently. If I could work out why they agree, I could probably sell it, but I suspect you'd object." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An enchanter should tell buyers exactly what a rune can do.", next = "BACK", reply = "Precisely, and I write it on a little card for every customer, in triplicate, because that's what honesty looks like.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Let them think the enchantment's stronger. Confidence is half the magic.", next = "BACK", reply = "That's how somebody ends up with a sword that fizzles mid-swing, and then they come back to my shop, shouting.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'd object. The elements aren't for sale, Gimble.", next = "BACK", reply = "Oh, I wouldn't dream of selling them, honestly, I'd only want to understand them, which is a different thing, I think, mostly.", fx = { align = { honor = 1 } } },
         { text = "Work it out, and we'll split the profits.", next = "BACK", reply = "Profits? Oh dear, you're tempting me, and I'm a very easily tempted gnome, but let's start with a notebook and see where it goes.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

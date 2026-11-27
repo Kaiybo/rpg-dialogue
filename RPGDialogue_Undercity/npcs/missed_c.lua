@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} met Ralston Farnsley, the cloth quartermaster who gathers donations for the Undercity in the Magic Quarter.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my good supplier returns. I've set aside a bolt of Stromgarde wool for a friend of the Quarter, and you're the friend." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Keep your hands off the folded linen, if you please; I count every bolt twice once you've passed." },
     { id = "g_default", text = "Good day to you, {class}. If that pack of yours holds any cloth you can spare, the Undercity would put it to better use than the moths will." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again, and I hope your pack is heavier than it was. My shelves empty a good deal faster than they fill." },
     { id = "g_wool", when = { questActive = TODO_QUEST("A Donation of Wool") }, text = "You have the wool, I trust? Lay it on the table, if you please, and mind the candle." },

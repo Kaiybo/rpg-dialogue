@@ -1307,8 +1307,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you, dear, and the children will be so pleased! Mind them now, they'll want to climb all over you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Keep your voice down, please, the little ones are finally settled." },
     { id = "g_children", text = "Now, children, stop that, I mean it! Oh, hello there, dear." },
     { id = "g_future", text = "Mind the little ones underfoot, they get everywhere." },
   },

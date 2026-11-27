@@ -19,8 +19,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's a face I'm glad to shout about! Come in close, friend, and you'll hear the news before the rest of Darkshire does." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "It's you. I'll cry the news to the whole town, friend, but I'll not waste my voice cheering your arrival." },
     { id = "g_default", text = "Hear ye, hear ye! Oh, it's only you. Forgive me, friend, I shout at everyone out of habit." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! No news is good news, they say, and today there's no news, so it's a good day by Darkshire standards." },
     { id = "g_stitches", when = { killed = { name = "Stitches" } }, text = "You were there when the abomination fell! I shouted myself hoarse that night, and I'd do it again, though I hope I don't have to." },
@@ -182,8 +182,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "My favourite student, back at the bench! Sit down, sit down, there's a gear train here that's been dying to meet you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'll teach you, since that's the job, but stand on the far side of the bench, please, where the shrapnel goes." },
     { id = "g_default", text = "I'm never too busy to speak to a stranger! Almost never, anyway... mind the solder, it's still warm." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, back again! Come in, come in, nothing's on fire at the moment." },
   },
@@ -209,8 +209,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, mostly." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A good engineer shows the guild every flaw in a design.", next = "BACK", reply = "Exactly right! Half the accidents in Gnomeregan came from somebody hiding a cracked valve, and I was standing next to most of them.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "If the gadget works, nobody needs to know how it nearly didn't.", next = "BACK", reply = "Hmm, that's how the third-level east workshop got its scorch marks, and its new ceiling, and its very short memorial plaque.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { profession = "Engineering" } },
         { text = "Why Darkshire, of all places?", next = "why" },
         { text = "Do you know Viktori's star device?", next = "viktori" },
@@ -333,8 +333,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you. Come round into the shadow, friend; a customer who knows how to be discreet is always welcome at my corner." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you came for and go, and do it without lingering in the lamplight on my account." },
     { id = "g_default", text = "Quietly, please. The Watch knows I'm here, but they prefer not to be reminded." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Vials, or something to put in them?" },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Ah, one of the trade. Come around the corner where the lamplight doesn't reach." },
@@ -361,8 +361,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, but softly." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Even with poison, you should look your enemy in the eye.", next = "BACK", reply = "Some do, I'm told, and most of them are buried on Raven Hill. I only sell the vials; what you do with them is between you and the Light.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Poison is just a quicker way to win an unfair fight.", next = "BACK", reply = "That's the Duskwood way of seeing it, and it's why the Watch pretends not to see me. Keep your voice down when you say it, though.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Why sell back here?", next = "why" },
         { text = "Do poisons work on the undead?", next = "undead" },

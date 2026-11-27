@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} met Brooke Stonebraid, a dwarf who sells mining supplies in Stormwind's Dwarven District.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ach, it's yerself! I've a pick put by wi' a handle o' good Dun Morogh ash, an' I thought o' ye the moment I set it there." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Picks are on the rack an' flux is in the bin; take what ye need an' leave me be." },
     { id = "g_default", text = "Well met! Picks, lamps and flux, and every handle on that rack's been across my knee and held." },
     { id = "g_2", when = { metBefore = true }, text = "Back again! Did the pick hold, or did ye find the one bad rock in Elwynn?" },
     { id = "g_3", when = { race = "Dwarf" }, text = "Ach, a proper face at last! Come in, come in, and tell me what the mountain's saying." },
@@ -40,8 +40,8 @@ P:NPC {
         { id = "hello_again3", text = "Aye?" },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A good pick's worth payin' for, an' a fair seller'll say so plain.", next = "BACK", reply = "Aye, an' I'll put my name tae every handle on that rack.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell cracked handles tae the humans; they'll blame the rock.", next = "BACK", reply = "They'll blame the rock once, an' then they'll come lookin' for the dwarf who sold it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see the mining supplies.", next = "BUSINESS" },
         { text = "What should a miner carry?", next = "carry" },
         { text = "Tell me about Gelman.", next = "gelman" },
@@ -150,8 +150,8 @@ P:NPC {
     third = "{name} met Borgus Steelhand, a dwarf weaponsmith in Stormwind's Dwarven District.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye've come back, an' ye've the patience o' a real smith now. Stand by the anvil, for I've somethin' tae show ye." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll teach ye, since Therum asks it, but I'll nae waste my best work on ye." },
     { id = "g_default", text = "Aye? If ye want a blade made right, ye'll wait for it, and if ye will nae wait, there's shops enough." },
     { id = "g_2", when = { metBefore = true }, text = "Ye've come back. Then ye've learned what the cheap ones are worth." },
     { id = "g_3", when = { profession = "Blacksmithing" }, text = "A smith, by those forearms. Stand there, out of the sparks, and we'll talk." },
@@ -176,8 +176,8 @@ P:NPC {
         { id = "hello_again3", text = "Aye?" },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A blade worth havin' takes weeks at the forge, an' nae less.", next = "BACK", reply = "Aye, an' every one o' those weeks shows in the edge.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Buy a cheap blade, polish it up, an' call it yer own work.", next = "BACK", reply = "Then ye're nae a smith at all, just a liar wi' a whetstone.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me what you know.", next = "BUSINESS" },
         { text = "Therum says you're the best he's met.", next = "therum" },
         { text = "What makes a weapon good?", next = "good" },
@@ -277,8 +277,8 @@ P:NPC {
     third = "{name} met Dane Lindgren, a journeyman blacksmith in Stormwind's Dwarven District.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, hello again! Come and watch, because I've finally got the tongs right, or so Therum grunted." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Mind the quench barrel, please, and keep your lesson short today." },
     { id = "g_default", text = "Hello there! Mind the quench barrel, it's deeper than it looks, and I'd know." },
     { id = "g_2", when = { metBefore = true }, text = "Aye, welcome back, and by that I mean yes. They've got me doing it now." },
     { id = "g_3", when = { profession = "Blacksmithing" }, text = "Another smith! Come and tell me I'm holding these tongs right, because Therum says I'm not." },
@@ -303,8 +303,8 @@ P:NPC {
         { id = "hello_again3", text = "Aye? Yes, I mean." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A smith should learn the forge the slow way, burn by burn.", next = "BACK", reply = "I've the burns to prove I'm learning it, so I'll not argue with you.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Let the dwarves do the hard bits and put your mark on it.", next = "BACK", reply = "Therum would melt me down for that, and he'd be right to.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me blacksmithing.", next = "BUSINESS" },
         { text = "What's it like, learning from dwarves?", next = "dwarves" },
         { text = "What do you teach a beginner?", next = "teach" },
@@ -404,8 +404,8 @@ P:NPC {
     third = "{name} met Sprite Jumpsprocket, a gnome journeyman engineer in Stormwind's Dwarven District.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back, with every finger still attached, which raises my retention rate to ninety-two percent, so welcome!" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. You. Step around the blue wire, please, and keep your lesson as brief as possible." },
     { id = "g_default", text = "Hello, hello! Don't step on the blue wire, it's live, or it was a minute ago, and I haven't checked since." },
     { id = "g_2", when = { metBefore = true }, text = "You're back, and you've all your fingers! That's a ninety percent retention rate among my pupils this month." },
     { id = "g_3", when = { race = "Gnome" }, text = "Oh, a gnome! Come in, come in, mind the dwarf-sized step, and tell me which level you lived on." },
@@ -430,8 +430,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes, yes?" },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An engineer should test every gadget before selling it.", next = "BACK", reply = "Absolutely, at least four tests, preferably from behind a very thick wall.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the prototype now; the bugs can be fixed later.", next = "BACK", reply = "That's how half of Gnomeregan's troubles started, and I'd rather not start the other half.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me engineering.", next = "BUSINESS" },
         { text = "What do you start a beginner on?", next = "start" },
         { text = "You came from Gnomeregan?", next = "gnomeregan" },
@@ -541,8 +541,8 @@ P:NPC {
     third = "{name} met Einris Brightspear, a dwarf who trains hunters in Stormwind's Dwarven District.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There ye are, an' I barely heard ye on the tram steps this time. Ye're learnin' the quiet way, an' I'm glad of it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I heard ye coming a mile off, an' I'd as soon ye'd kept walkin'." },
     { id = "g_default", text = "Well met. Ye walk loud for someone carrying a bow, but we can mend that." },
     { id = "g_2", when = { metBefore = true }, text = "There ye are. I heard ye coming from the tram steps, which is better than last time." },
     { id = "g_3", when = { class = "HUNTER" }, text = "A hunter, and nae a bad-looking beast at your heel, if ye've one. Come and show me how ye stand." },
@@ -567,8 +567,8 @@ P:NPC {
         { id = "hello_again3", text = "Aye?" },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A true hunter stalks the beast fair and takes it cleanly.", next = "BACK", reply = "Aye, that's the mountaineer's way, an' the only one I'll teach.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Poison the water hole and collect what drops.", next = "BACK", reply = "That's nae huntin', that's butcherin', an' the whole mountain'd spit on ye for it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What does a hunter learn first?", next = "first" },
         { text = "Tell me about Ulfir and Thorfin.", next = "others" },
@@ -731,8 +731,8 @@ P:NPC {
     third = "{name} met Ulfir Ironbeard, a dwarf rifleman who trains hunters in Stormwind's Dwarven District.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ha, back again, an' I'll wager ye're hittin' what ye aim at now! Come here, for ye've earned a proper lesson." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach ye, since it's my post, but I'll nae be braggin' about ye in the tavern." },
     { id = "g_default", text = "Ha! Another one come to learn from the finest shot south of Ironforge. Stand there, where I can see ye." },
     { id = "g_2", when = { metBefore = true }, text = "Back again! Have ye hit anything yet, or are ye still frightening the trees?" },
     { id = "g_3", when = { class = "HUNTER" }, text = "A hunter! Good. Tell me that's a gun on your back and nae one of them bent sticks." },
@@ -757,8 +757,8 @@ P:NPC {
         { id = "hello_again3", text = "Aye?" },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A good shot is earned by years at the range, an' nothin' else.", next = "BACK", reply = "Aye, an' I've the years an' the deaf ear tae prove it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Shoot from behind yer pet an' let it take the blows.", next = "BACK", reply = "Well, that's half what a pet's for, but ye'll still need tae hit the target, {g:lad|lass}.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Are you really the best shot in the city?", next = "best" },
         { text = "Gun or bow?", next = "gun" },
@@ -931,8 +931,8 @@ P:NPC {
     third = "{name} met Thorfin Stoneshield, a dwarf who trains hunters in Stormwind's Dwarven District.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye've come back whole again, an' that pleases me more than ye'd think. Sit, for there's nae hurry." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Sit if ye must, but I've little tae say tae ye today." },
     { id = "g_default", text = "Well met. Sit, if ye like, for there's nae hurry here." },
     { id = "g_2", when = { metBefore = true }, text = "Ye've come back whole, and that's the first thing I look for." },
     { id = "g_3", when = { class = "HUNTER" }, text = "A hunter. Tell me, what's your plan when the beast doesnae fall?" },
@@ -957,8 +957,8 @@ P:NPC {
         { id = "hello_again3", text = "Aye?" },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A hunter learns from every mistake, an' wears the scars honestly.", next = "BACK", reply = "Aye, I've the scars for every lesson I teach, an' I'm nae ashamed o' one.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Let some other hunter make the mistakes, an' learn from them.", next = "BACK", reply = "That works until there's naebody there but ye an' the beast.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What do you do when the beast charges?", next = "charge" },
         { text = "You've a good many scars.", next = "scars" },
@@ -1131,8 +1131,8 @@ P:NPC {
     third = "{name} met Maldryn, a night elf druid who teaches in Stormwind's Park.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ishnu-alah. You return, and the tree seems glad of it, as am I." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You return. Sit, if you must, but I find my balance harder to keep with you near." },
     { id = "g_default", text = "Ishnu-alah. Sit beneath the tree, if you wish. It was here before the walls, and it does not mind them." },
     { id = "g_2", when = { metBefore = true }, text = "You return. The Park is quieter for it, or perhaps I only listen better when you are here." },
     { id = "g_3", when = { class = "DRUID" }, text = "Welcome, young druid. If you have come to learn, sit, and we will begin with your breathing before we begin with anything else." },
@@ -1161,8 +1161,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes?" },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A druid's gifts come through patient study of the wild.", next = "BACK", reply = "So the Cenarion Circle teaches, and so Malfurion taught before them.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Take what power the wild offers, whatever the price to it.", next = "BACK", reply = "That path led the Highborne to ruin, and I would not see you walk it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { class = "DRUID" } },
         { text = "How do you find peace in a city?", next = "peace" },
         { text = "What is the Emerald Dream?", next = "dream" },
@@ -1488,8 +1488,8 @@ P:NPC {
     third = "{name} met Sylista, the night elf stable master of Stormwind's Park.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back. Your companions remember you fondly, and so, I find, do I." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You return. I will tend your beasts, as is my duty, though I wonder if they would rather I kept them." },
     { id = "g_default", text = "Greetings. I can help you recover a lost companion, or keep one safe until you return." },
     { id = "g_2", when = { metBefore = true }, text = "You are back. Your beasts knew your step before I did." },
     { id = "g_3", when = { class = "HUNTER" }, text = "Greetings, hunter. Bring your companion into the shade, and let me see how you have kept it." },
@@ -1613,8 +1613,8 @@ P:NPC {
     third = "{name} met Roberto Pupellyverbos, cellar-keeper and merlot connoisseur of the Gallina Winery in Stormwind.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite palate returns! I have a cask in the corner that has been waiting, I think, for you particularly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I shall count the barrels as you come in, and once more as you go." },
     { id = "g_default", text = "Welcome, welcome! Mind the barrels, please. I have counted them, and I shall count them again when you leave." },
     { id = "g_2", when = { metBefore = true }, text = "Ah, you return to the cellar! Then your palate is not beyond saving." },
     { id = "g_3", when = { questActive = TODO_QUEST("Dry Times") }, text = "You have come for Lakeshire's cask! It has been waiting, and I have turned it every week so that it should not sulk." },
@@ -1639,8 +1639,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes?" },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A vintner should sell each cask for what it truly is.", next = "BACK", reply = "Of course, and a merlot that is called something it is not will sulk all winter.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Top up the old casks with cheap Westfall wine.", next = "BACK", reply = "And have Lakeshire send it back with a rude letter? Never, my friend.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'd like to buy some wine.", next = "BUSINESS" },
         { text = "What makes a merlot great?", next = "great" },
         { text = "Tell me about the vineyard.", next = "vineyard" },
@@ -1740,8 +1740,8 @@ P:NPC {
     third = "{name} met Bernard Gump, florist at Fragrant Flowers on Stormwind's canals.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, hello again! I've some lilies I kept by, because I remembered you liked the white ones." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mind the buckets on your way out, please." },
     { id = "g_default", text = "Good day! Do come in, and mind the buckets. The roses have only just had their water." },
     { id = "g_2", when = { metBefore = true }, text = "Hello again. Did they like the flowers? I do worry, once they've left the shop." },
     { id = "g_3", when = { timeOfDay = "night" }, text = "We're nearly shut, but I've a few stems that won't last till morning, and they ought to go to someone." },
@@ -1766,8 +1766,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes?" },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A florist should sell her flowers fresh, the same day they're cut.", next = "BACK", reply = "That's what Felicia always says, and she's never once been wrong about flowers.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell yesterday's roses to the soldiers; they won't notice.", next = "BACK", reply = "Their sweethearts will, though, and then we never see the soldiers again.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see the flowers.", next = "BUSINESS" },
         { text = "Can you guess what a bouquet is for?", next = "guess" },
         { text = "Where do your flowers come from?", next = "from" },
@@ -1867,8 +1867,8 @@ P:NPC {
     third = "{name} met Rebecca Laughlin, who sells guild tabards at the Stormwind Visitor's Center.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! I've sketched a new device for your guild, and I'd love your opinion before they vote on it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Tabards are on the desk, and Aldwin is at the next one, if you need anything else." },
     { id = "g_default", text = "Good day. If you've a guild, I've a tabard for it, and if you've no guild, Aldwin's at the next desk." },
     { id = "g_2", when = { metBefore = true }, text = "Back again? Don't tell me they've voted to change the colours, because I warned them." },
     { id = "g_3", when = { guild = true }, text = "Ah, you belong to someone already. Let me see what you've been made to wear." },
@@ -1893,8 +1893,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes?" },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A tabard should be made true to the guild's colours, every time.", next = "BACK", reply = "That's my whole trade, and I'll not stitch a single thread out of place.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Use cheaper dye and tell them it'll brighten with wear.", next = "BACK", reply = "It'll fade to grey in a month, and then the whole guild comes back angry.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see the tabards.", next = "BUSINESS" },
         { text = "You can tell a guild's future from its crest?", next = "future" },
         { text = "What's the worst design you've made?", next = "worst" },
@@ -1985,8 +1985,8 @@ P:NPC {
     third = "{name} met Captain Melris Malagan, who commands Stormwind's city guard from the Trade District square.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you again. Your name's come up in my reports, and only for the right reasons." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. My guards have your name, and they'll be watching where you go." },
     { id = "g_default", text = "Citizen. Keep the peace and you'll have no quarrel with my guards." },
     { id = "g_2", when = { metBefore = true }, text = "You again. No complaints against you yet, which is more than I can say for most." },
     { id = "g_3", when = { origin = "human_city_guard" }, text = "I know that stance, and you've worn the tabard. It's good to see one of ours." },
@@ -2011,8 +2011,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes?" },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The guard should enforce the law, whoever the lawbreaker is.", next = "BACK", reply = "That's what the tabard means, and I'll hear no different in my square.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "A wise guard looks away when the crime's small.", next = "BACK", reply = "Small crimes grow into Defias, and I've seen enough of those.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "How does the city stand, Captain?", next = "stand" },
         { text = "What troubles the guard most?", next = "troubles" },
         { text = "Tell me about your officers.", next = "officers" },
@@ -2402,8 +2402,8 @@ P:NPC {
     third = "{name} met Nurse Lillian, who tends the wounded at the Stormwind Stockade.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, you, good. You're one of the few who comes by here to help rather than to gawk." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. If you're hurt I'll tend you, but don't linger in my doorway." },
     { id = "g_default", text = "Are you hurt at all? If not, then mind the doorway, please, they bring them out this way." },
     { id = "g_2", when = { metBefore = true }, text = "You again. You're still in one piece, I see. Good, I've no spare beds." },
     { id = "g_3", when = { class = { "PRIEST", "PALADIN" } }, text = "Light be praised, someone with healing hands. If you've a moment, I've a guard inside with a cracked skull." },
@@ -2529,8 +2529,8 @@ P:NPC {
     third = "{name} met Jenn Langston, of the Pig and Whistle's Langstons, on the streets of Stormwind's Old Town.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! I've told Elly all about you, and it was all good this time, I promise." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'm on errands for Reese, and I've not got time to chat." },
     { id = "g_default", text = "Well, hello there! You're new on this street, or I'd remember." },
     { id = "g_2", when = { metBefore = true }, text = "Oh, it's you! I was just telling Elly about you. It was mostly good." },
     { id = "g_3", when = { drunk = true }, text = "You've been at Reese's bar, haven't you? Mind the kerb, love, it moves when you're in that state." },
@@ -2662,8 +2662,8 @@ P:NPC {
     third = "{name} met Lenny \"Fingers\" McCoy, an idler with a knowing manner, in Stormwind's Old Town.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite listener. Lovely day for it, isn't it, whatever it is we're not doing." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'll keep my advice to myself today, friend, and you keep your hands where I can see them." },
     { id = "g_default", text = "Afternoon, friend. Lovely day to stand about doing nothing unlawful." },
     { id = "g_2", when = { metBefore = true }, text = "There's a familiar face. I'd say I've been keeping busy, and you'd know I was lying." },
     { id = "g_3", when = { class = "ROGUE" }, text = "Well, well. You've the hands for it, haven't you? I can always tell by the fingers." },
@@ -2804,8 +2804,8 @@ P:NPC {
     third = "{name} met Caledra Dawnbreeze, a high elf tracker waiting in the Petitioner's Chamber of Stormwind Keep.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You are back, and I am still waiting, but it is good to see someone in this hall who understands." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The line is behind me, and I have no wish to share my waiting with you." },
     { id = "g_default", text = "Good day. If you are waiting to be heard, the line begins behind me, and it has not moved since the spring." },
     { id = "g_2", when = { metBefore = true }, text = "You are back, and I am still here. You may draw your own conclusions about the court." },
     { id = "g_3", when = { class = "HUNTER" }, text = "You carry yourself like one who reads ground. It is pleasant to meet someone in this hall who looks at the floor for a reason." },
@@ -2946,8 +2946,8 @@ P:NPC {
     third = "{name} met Officer Jaxon of the Stormwind city guard, on patrol in the Trade District.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! You're one of the ones the stallholders speak well of, and I'm glad of it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Mind yourself near the fountain, because I'll be watching you closer than the cutpurses." },
     { id = "g_default", text = "Good day, citizen. Mind your purse near the fountain, it's crowded today." },
     { id = "g_2", when = { metBefore = true }, text = "Hello again. Still keeping out of trouble? Good, that saves me the paperwork." },
     { id = "g_3", when = { origin = "human_city_guard" }, text = "Well, here's one of ours! Which gate were you on?" },
@@ -2972,8 +2972,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes?" },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The Trade District thrives because the guards keep it orderly.", next = "BACK", reply = "That's the truth, and every stallholder here would tell you the same.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "The stalls would do better without the guard poking about.", next = "BACK", reply = "They'd do better right up until the Defias came for the takings.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What's your round like?", next = "round" },
         { text = "You know the merchants well?", next = "merchants" },
         { text = "What trouble does the Trade District see?", next = "trouble" },
@@ -3072,8 +3072,8 @@ P:NPC {
     third = "{name} met Officer Pomeroy of the Stormwind city guard, on his round between the Trade District and the Mage Quarter.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again. Nothing's on fire, and you're here, so I'd call it a good day." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. If anything catches fire today, I'll know where to look first." },
     { id = "g_default", text = "Citizen. Nothing is on fire at present, and I'd like to keep it so." },
     { id = "g_2", when = { metBefore = true }, text = "You again. I'll assume you've not broken anything since we last spoke." },
     { id = "g_3", when = { class = { "MAGE", "WARLOCK" } }, text = "A caster. Then I'll ask you kindly not to practise in the street, and I'll ask you only the once." },
@@ -3098,8 +3098,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes?" },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Mages should follow the city's laws, the same as anyone.", next = "BACK", reply = "Exactly, and if they did, I'd have half as many reports to write.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "A mage's research matters more than the city's rules.", next = "BACK", reply = "Then the mage can explain that to the family whose roof he set alight.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What's it like, policing mages?", next = "mages" },
         { text = "Were you really turned into a sheep?", next = "sheep" },
         { text = "What do you know about the Slaughtered Lamb?", next = "lamb" },
@@ -3199,7 +3199,7 @@ P:NPC {
   },
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. The streets feel a little safer with you walking them." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Move along." },
     { id = "g_default", text = "Citizen." },
     { id = "g_2", when = { metBefore = true }, text = "You again. Good day." },
     { id = "g_3", when = { origin = "human_city_guard" }, text = "You've served, and I can see it. Well met." },
@@ -3224,8 +3224,8 @@ P:NPC {
         { id = "hello_again3", text = "Yes?" },
       },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The law should apply the same to every citizen.", next = "BACK", reply = "Aye, it should, and I'll see it does.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "A few coins to the right guard should solve any problem.", next = "BACK", reply = "Not this guard, and I'd remember your face if you tried.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Why does the Captain send you where it's quiet?", next = "quiet" },
         { text = "You don't say much.", next = "words" },
         { text = "What have you noticed lately?", next = "noticed" },

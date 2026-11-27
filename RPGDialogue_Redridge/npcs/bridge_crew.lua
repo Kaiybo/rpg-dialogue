@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} met Bridge Worker Dmitri, the careful old hand on Foreman Oslow's bridge crew.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, friend. Come and stand on the good stones by me; I know which ones have set." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll ask you to keep off my bridge today. I've seen how you tread on other folk's work." },
     { id = "g_default", text = "Careful where you stand, friend. That stone isn't set yet." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the bridge? Walk down the middle, if you please; the edges are still settling." },
   },
@@ -201,8 +201,8 @@ P:NPC {
     third = "{name} met Bridge Worker Jess, the youngest of Foreman Oslow's bridge crew.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back! Sit on the stone pile and tell me everything you fought, because Dmitri never lets me go anywhere." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I used to tell the others I wanted to be like you, but I've stopped saying it." },
     { id = "g_default", text = "Hello! Are you here to fight the gnolls? You look like you're here to fight the gnolls." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, so tell me you fought something out there, because I've been dying to know!" },
   },

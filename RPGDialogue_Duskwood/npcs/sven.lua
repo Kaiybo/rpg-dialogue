@@ -124,8 +124,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. The fire's not going anywhere, and neither am I." },
       },
       choices = {
-        { text = "Duskwood needs a strong lord to set it right.", next = "BACK", reply = "It had one, once, and look what came of him. I'll take the woods over another lord.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Duskwood folk are better off ruling themselves.", next = "BACK", reply = "Aye, ruling themselves into early graves. Still, it's their graves.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Darkshire needs the Watch and its laws, or the dark wins.", next = "BACK", reply = "Laws didn't save my family, friend, but I'll not say the Watch is useless. They keep the lamps lit, and that's something.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Every man in Duskwood should look to himself, not the Watch.", next = "BACK", reply = "That's how I've lived since that night, and look where it's got me. A lonely camp and a cold supper.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What drove the animals away from your land?", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What happened to your family?", next = "family" },
         { text = "You look like a man who wants something badly.", next = "want" },

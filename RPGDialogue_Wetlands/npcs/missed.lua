@@ -14,8 +14,8 @@ P:NPC {
     third = "{name} met Derina Rumdnul, wife of Menethil's general supplier and mother of a wandering boy.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's yerself again, an' thank the stone ye're here! Ye've a sharp eye, so tell me ye've spotted Gimlok." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I've nae time for ye today, for I've a boy tae find an' a ledger tae balance." },
     { id = "g_default", text = "Welcome, {g:lad|lass}! Ye havenae seen a wee dwarf boy about so high, have ye, likely wet tae the knees?" },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's yerself again. Where has that boy gotten to now, I ask ye?" },
   },
@@ -119,8 +119,8 @@ P:NPC {
     third = "{name} met Gimlok Rumdnul, the shopkeeper's son in Menethil Harbor.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave, just like you." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's you again! Ye kept my secret, so ye can see the crab I caught, if ye promise no' tae tell mam." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Ye're no' going tae tell on me, are ye? I'll never forgive ye if ye do." },
     { id = "g_default", text = "Hullo! Are ye off one o' the big ships? I'm goin' tae sail on one when I'm bigger." },
     { id = "g_back", when = { metBefore = true }, text = "It's you again! Dinnae tell my mam ye saw me by the water." },
   },

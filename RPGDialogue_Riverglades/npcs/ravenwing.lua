@@ -14,8 +14,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and your story still holds. That's rarer than you'd think, so sit, and we'll speak plainly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Back again. I've added a few more questions about you to my list, and I'll ask them all eventually." },
     { id = "g_cold", text = "You're new. Where have you come from, and who sent you?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. Your story hasn't changed since last time, which is either a good sign or a well-practised one." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. I'll want to know where, eventually, but it can wait until you've had something to eat." },
@@ -47,8 +47,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. I've time, if you have answers." },
       },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Even a cultist deserves fair treatment once he's captured.", next = "BACK", reply = "Fair, yes, and patient. Frightened men lie, and a man who's been treated fairly tells me more.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Hurt them until they talk. They'd do worse to us.", next = "BACK", reply = "They would, and they'd learn nothing, which is why I don't take my lessons from cultists.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What do the cultists tell you?", next = "cultists" },
         { text = "How do you make them talk?", next = "methods" },
         { text = "Why the questions? I'm on your side.", next = "trust" },

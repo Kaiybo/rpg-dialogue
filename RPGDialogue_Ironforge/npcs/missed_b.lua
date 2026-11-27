@@ -95,8 +95,8 @@ P:NPC {
     third = "{name} met Trixie Quikswitch, the louder of the two apprentices at Springspindle's Gadgets.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh good, it's you, my favourite test-day visitor! You've never once flinched when something went off, and I've noted that in my logbook." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Stand well back, please, and I mean further back than usual, for reasons I'd rather not explain." },
     { id = "g_default", text = "Hello! Stand a little to the left, would you, because I'm about sixty percent sure which way this one goes off." },
     { id = "g_back", when = { metBefore = true }, text = "Oh good, it's you, and you've still got both eyebrows, so you can't have been standing here yesterday." },
   },
@@ -669,8 +669,8 @@ P:NPC {
     third = "{name} met Lissyphus Finespindle, a gnome who sells light armor in Ironforge's Military Ward.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! I'd know your measurements in the dark by now, and I've been thinking about which leathers would suit you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Your measurements are on file, so you needn't stay long while I fetch something." },
     { id = "g_default", text = "Hello! You're a thirty-eight in the chest, or near enough, and I've leather and cloth to fit it if you don't mind something that bends." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back! You've lost a little off the waist since last time, which is what marching does." },
   },
@@ -692,8 +692,8 @@ P:NPC {
         { id = "h_again_x0", when = { class = { "ROGUE", "HUNTER" } }, text = "Back again? Has the leather held up, or have you been crawling through something unpleasant?" },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Leather should be cured properly, even if it takes twice as long.", next = "BACK", reply = "Twice as long and three times as durable, which I can show you on a chart if you like.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the green leather now. By the time it cracks, you're paid.", next = "BACK", reply = "And by the time it cracks, the buyer's in the Badlands without a jerkin, which is a terrible review.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "A gnome selling armor to dwarf soldiers?", next = "dwarves" },
         { text = "Why light armor, in a ward full of plate?", next = "light" },
@@ -768,8 +768,8 @@ P:NPC {
     third = "{name} met Lyon Mountainheart, a dwarf scholar who reads in the Library at Ironforge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's yourself! Sit a moment, for I've come across a passage about the titans I've been dyin' tae share wi' someone." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Hm? Oh, it's you. I'll go back tae my book, if ye dinnae mind, an' ye can go back tae whatever it is ye do." },
     { id = "g_default", text = "Hm? Oh, good day tae ye. Forgive me, I was three hundred years away, an' it takes a moment tae climb back." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's yourself again. I'm on the same page as when ye left, I'm ashamed tae say." },
   },
@@ -867,8 +867,8 @@ P:NPC {
     third = "{name} met Maeva Snowbraid, who sells robes at Maeva's Mystical Apparel in Ironforge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again, dear! Ye're one o' the few who brings my robes back wi' the sleeves still on, an' I do love ye for it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell ye a robe, dear, since I'd no' see anyone freeze. But I'll no' be pretendin' we're friends." },
     { id = "g_default", text = "Come in out o' the draught, dear. Robes for priests an' mages an' anyone else who'd sooner be comfortable than armoured." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again, dear. Has it held up, or did ye go an' set fire tae the sleeves like the rest o' them?" },
   },
@@ -890,8 +890,8 @@ P:NPC {
         { id = "h_again_x0", when = { class = { "MAGE", "PRIEST" } }, text = "Back again, dear? Let me see how the sleeves are holdin' up." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A robe's price should match the work, not the buyer's purse.", next = "BACK", reply = "That's how I've always kept the shop, dear, whether it's a priest or a prince at the counter.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Charge the mages double. They've more gold than sense anyway.", next = "BACK", reply = "They've more gold than sense, aye, but I've more sense than that, dear.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your robes.", next = "BUSINESS" },
         { text = "What makes a good robe?", next = "robe" },
         { text = "Is Poranna Snowbraid a relation of yours?", next = "poranna" },
@@ -967,8 +967,8 @@ P:NPC {
     third = "{name} met Mangorn Flinthammer, who sells heavy armor in the Commons of Ironforge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye're back, an' ye clank proper now! Come in, friend, for Raena's no' the only one in this family who likes ye." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "The plate's for sale, same as always. I'll frown at ye no more than I frown at anyone, an' that's the best ye'll get." },
     { id = "g_default", text = "Welcome, friend. Mail an' plate on my side, an' if ye want somethin' lighter, Raena has the leather an' cloth." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back, an' still in one piece, so the armour's doin' its work." },
   },
@@ -990,8 +990,8 @@ P:NPC {
         { id = "h_again_x0", when = { class = { "WARRIOR", "PALADIN" } }, text = "Back again, {class}? Let me hear the plate ring." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A smith should stand behind every piece he sells.", next = "BACK", reply = "Aye, an' I'll stand behind mine till my beard's white, an' it's gettin' there.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Once it's sold, the dents are the buyer's problem.", next = "BACK", reply = "Raena would clout ye for that, an' I'd hold her shawl while she did it.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your armor.", next = "BUSINESS" },
         { text = "Why set up in the Commons and not the Military Ward?", next = "commons" },
         { text = "You and Raena split the shop between you.", next = "raena" },
@@ -1067,8 +1067,8 @@ P:NPC {
     third = "{name} met Raena Flinthammer, who sells light armor in the Commons of Ironforge.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There ye are again, dear! I've won another pint off Mangorn, for I told him ye'd be back before the week was out." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's yerself. I'll sell ye leather, dear, but I'll no' be makin' bets on ye wi' Mangorn any more." },
     { id = "g_default", text = "Hello, dear! Leather an' cloth on this side, an' ye can ignore my husband frownin' at ye, for he frowns at everyone who doesnae clank." },
     { id = "g_back", when = { metBefore = true }, text = "There ye are again! I told Mangorn ye'd be back, an' he owes me a pint." },
   },
@@ -1090,8 +1090,8 @@ P:NPC {
         { id = "h_again_x0", when = { class = { "HUNTER", "ROGUE" } }, text = "Back again, dear? Let me see the leather, an' I'll tell ye if it'll last." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Fair weights and fair prices keep a stall honest.", next = "BACK", reply = "They do, dear, an' Mangorn checks my scales every mornin' just tae make sure.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A thumb on the scale never hurt anyone who didn't notice.", next = "BACK", reply = "It hurt my mother's good name, dear, an' it took her twenty years tae win it back.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "What's the talk at the gates this week?", next = "talk" },
         { text = "Mangorn says you have the better half of the wits.", next = "mangorn" },

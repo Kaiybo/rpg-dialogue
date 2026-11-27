@@ -16,8 +16,8 @@ P:NPC {
     third = "{name} met Reginald Grimsford, a Forsaken gentleman who strolls the Undercity's quarters.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, our good companion! You may walk with us all the way to the Magic Quarter today, not only to the bridge." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'm afraid we're quite full on our constitutional this afternoon. Good day to you." },
     { id = "g_default", text = "Good day to you. We are taking our constitutional, such as it is, and you may accompany us as far as the bridge if you've something to say." },
     { id = "g_back", when = { metBefore = true }, text = "We meet again on the promenade. I was just explaining to Selina what is wrong with the auction house, and I've barely begun." },
   },
@@ -116,8 +116,8 @@ P:NPC {
     third = "{name} met Richard Van Brunt, who watches the fights in the Undercity's War Quarter.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, friend. Watch Edward's shield with me; it's taken three hits since you arrived and not a dent." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd watch the fight and not me, if I were you. My arms aren't folded for you." },
     { id = "g_default", text = "Watch Edward's shield arm, stranger. That's Van Brunt steel on it, and it has not buckled yet." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another round? You've come at the right time, for Malach's about to bring out something big." },
   },
@@ -216,8 +216,8 @@ P:NPC {
     third = "{name} met Riley Walker, who wagers on the fights in the Undercity's War Quarter.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You again, and you're my luck, I swear it. Stand by me while I lay this bet." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Stand away; you cost me eight coppers last time, just by being near." },
     { id = "g_default", text = "Hush a moment, I've four coppers on how long the zombie lasts, and Gossom is trying to distract me." },
     { id = "g_back", when = { metBefore = true }, text = "It's you again. I lost on the last bout, so if you've brought any luck with you, stand a little closer." },
   },
@@ -313,8 +313,8 @@ P:NPC {
     third = "{name} met Robert Gossom, Tyler's loudest supporter in the Undercity's War Quarter.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Stand with me and yell for Tyler; he fights better when there's two of us." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You! You said Tyler was slow. I heard it, and I haven't forgotten it." },
     { id = "g_default", text = "Did you see that? Tyler had it by the throat! Well, he had it, anyway, and that's what counts." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Come and stand on my side, Van Brunt's got too many people agreeing with him today." },
   },
@@ -410,8 +410,8 @@ P:NPC {
     third = "{name} met Samantha Shackleton, a Forsaken researcher of the Undercity's Magic Quarter.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, a moment, I'm nearly at the full stop. There. It's you; good, sit, I've a passage to read aloud." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "One moment. No, several moments. I'm in a long sentence, and I'd rather not leave it for you." },
     { id = "g_default", when = { race = "Scourge" }, text = "One moment, I'm in the middle of a sentence, and it's a long one. There, now, what did you want?" },
     { id = "g_living", text = "Oh. You'll want me to speak Orcish, I suppose, so bear with me, for I think in Gutterspeak and the words come out in the wrong order." },
     { id = "g_back", when = { metBefore = true }, text = "You were here before, and I was on this same page. That reflects worse on the page than on me, I assure you." },
@@ -518,8 +518,8 @@ P:NPC {
     third = "{name} met Selina Pickman, who walks the Undercity's quarters and misses very little.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. Come, Reginald's halfway through a speech, so you may tell me all your news." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I've heard about you, and I'll keep my own business to myself today." },
     { id = "g_default", text = "Don't mind Reginald, he's only clearing his throat for the next speech. You may talk to me while he does it." },
     { id = "g_back", when = { metBefore = true }, text = "I remember you. You came in by the lift and went to the bank first, which tells me most of what I wanted to know." },
   },
@@ -619,8 +619,8 @@ P:NPC {
     third = "{name} met Sergeant Houser, who drills the Dark Lady's recruits in the Undercity's War Quarter.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Stand up straight, {class}! No, I'm glad to see you. Bosk could learn something from watching you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Stay behind the line, and don't distract my recruits; they've enough trouble without you." },
     { id = "g_default", text = "Stand clear of the dummies, {class}, unless you want Bosk to take your ear off by mistake. He's improving, but not that quickly." },
     { id = "g_back", when = { metBefore = true }, text = "You again. If you've come to watch, watch quietly, because these three need no more distractions than they've got." },
   },
@@ -633,8 +633,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "The Lordaeron line at Hillsbrad, during the Second War, against the orcs themselves. Funny how it goes. Now I drill recruits to fight beside the folk I once fought. I'd have laughed at it, living." } },
       choices = {
-        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A soldier's word is good even to an old enemy.", next = "BACK", reply = "It has to be. The orcs are our allies now, and I keep my word to them.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "An old enemy stays an enemy, whatever the treaty says.", next = "BACK", reply = "Keep that to yourself near the orc envoys, {class}, or you'll answer to me.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Does that sit easily with you?", next = "yeasy" },
         { text = "Something else.", next = "BACK" },
       },

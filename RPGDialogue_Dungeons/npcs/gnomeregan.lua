@@ -252,8 +252,8 @@ P:NPC {
   temper = { "chipper", "harried" }, values = { "craft", "practical" },
   notices = { "craft" },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "My favourite customer, back again! I've been keeping the shiny unirradiated sprockets aside for you, which is roughly four of them." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'll still sell to you, business being what it is down here, but I've moved the good wrenches out of reach." },
     { id = "g_default", text = "A customer! An actual, living, non-trogg customer! Come in, come in, mind the decontamination puddle." },
   },
   notice = {
@@ -269,8 +269,8 @@ P:NPC {
         { id = "xh_again2", text = "Back so soon? Wonderful, that makes three visits this month, which is a record!" },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Gnomeregan's refugees deserve fair prices, even down here.", next = "BACK", reply = "Oh, thank you! I keep telling myself that, and it's very nice to hear someone else say it out loud.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "No other shop for miles. You could charge whatever you like.", next = "BACK", reply = "I could, and I've done the sums, but the sums don't account for having to live with myself afterwards.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why stay in Gnomeregan at all?", next = "stay" },
         { text = "What's the Clean Zone?", next = "clean" },
         { text = "Show me your supplies.", next = "BUSINESS" },

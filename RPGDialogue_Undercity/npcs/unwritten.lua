@@ -220,8 +220,8 @@ P:NPC {
     third = "{name} met Kurden Bloodclaw, the orc who sends warriors to Warsong Gulch from the Undercity.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's the fighter I remember! The gulch could use you again, and Warsong never forgets its friends." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Warsong remembers who it can count on, and you're not near the top of my list." },
     { id = "g_default", text = "You look like you can swing a weapon, {class}. The Warsong Outriders need fighters at the gulch." },
   },
   start = "hello",
@@ -335,8 +335,8 @@ P:NPC {
     third = "{name} met Grizzle Halfmane, the Frostwolf who sends warriors to Alterac Valley from the Undercity.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Frostwolf greets you, friend, and warmly this time. Drek'Thar has heard your name." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Frostwolf remembers those who leave the field early. Stay away from Alterac if you mean to do it again." },
     { id = "g_default", text = "Frostwolf greets you, {class}. Drek'Thar needs warriors in Alterac, and the Stormpike dwarves aren't leaving on their own." },
   },
   start = "hello",
@@ -448,8 +448,8 @@ P:NPC {
     third = "{name} met Brother Malach, the Forsaken priest who arranges the War Quarter's bouts.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite spectator. Come, there's a good seat by the rail tonight, and the betting's lively." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Stand at the back and watch, and don't put your hand near the gate." },
     { id = "g_default", text = "Have you come to watch, {class}, or to bleed? Either way, there's a place for you here." },
   },
   start = "hello",
@@ -559,8 +559,8 @@ P:NPC {
     third = "{name} met Jaycrue Copperpinch, a Smokywood Pastures goblin selling Winter Veil goods in the Undercity.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hey, it's my favourite customer! I saved you a box of the good candles, sweetheart. Don't tell Nardstrum." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Full price today, sweetheart, and keep your mitts off the ribbons." },
     { id = "g_default", text = "Happy Winter Veil, sweetheart! Smokywood Pastures, finest holiday goods this side of the Great Sea, and no, I don't give samples." },
   },
   start = "hello",
@@ -568,8 +568,8 @@ P:NPC {
     yhow = {
       lines = { { id = "yhow_x", text = "Me and Nardstrum drew the short straws at the Smokywood meeting, didn't we? The cousins got Orgrimmar and Booty Bay, and we got a cellar full of corpses. Turns out corpses tip better, so who's laughing now?" } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An honest merchant shouldn't undercut her own family.", next = "BACK", reply = "Tell that to my brother, sweetheart. He started it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Undercut your brother. Family's just another competitor.", next = "BACK", reply = "Ha! Now you're talking Smokywood. Don't tell our mother I said so.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "They tip better? How?", next = "ytip" },
         { text = "Something else.", next = "BACK" },
       },
@@ -672,8 +672,8 @@ P:NPC {
     third = "{name} met Nardstrum Copperpinch, a goblin selling cheap Winter Veil treats in the Undercity.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Buddy, you came back! Cookies are on the house today, but only one, and don't tell Jaycrue." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you, buddy. Prices just went up, funny thing, and they went up for you specially." },
     { id = "g_default", text = "Greatfather Winter's best prices, buddy, right here! Cookies, cocoa, candy canes, and all of it priced for a working stiff, if you'll pardon the expression." },
   },
   start = "hello",
@@ -681,8 +681,8 @@ P:NPC {
     yhow = {
       lines = { { id = "yhow_x", text = "Smokywood sends one Copperpinch to each city. Jaycrue got here first and set up shop with the fancy goods, so I set up across the canal with the cheap ones. Competition, pal, it's the true spirit of Winter Veil." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Sell the cocoa at a fair price, even if it's Winter Veil.", next = "BACK", reply = "Fair? Buddy, I'm already the cheapest one on the canal.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Mark it up for the holidays. Folks pay anything at Winter Veil.", next = "BACK", reply = "That's my sister's whole plan, and look how well she's doing.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Is it really competition, or a scheme?", next = "yscheme" },
         { text = "Something else.", next = "BACK" },
       },
@@ -884,8 +884,8 @@ P:NPC {
     third = "{name} met Apothecary Katrina, a member of the Royal Apothecary Society who walks the Undercity's rings.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. Come, mind the satchel, and I'll let you smell the good perfume before it's all gone." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stand back from the satchel. I'd hate for the wrong half to break near you." },
     { id = "g_default", text = "Mind the satchel, {class}. Half of it heals and half of it doesn't, and I'd rather not find out which half broke." },
   },
   start = "hello",
@@ -1002,8 +1002,8 @@ P:NPC {
     third = "{name} met Apothecary Lycanus, a cold-eyed member of the Royal Apothecary Society.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you again, and your colour is as interesting as ever. Stand a moment while I note it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I've noted you once already, and I don't need a second entry." },
     { id = "g_default", text = "Stand still a moment, {class}. No, no reason, I was simply noting your colour." },
   },
   start = "hello",
@@ -1112,8 +1112,8 @@ P:NPC {
     third = "{name} met a merchant selling goods for the Midsummer Fire Festival in the Undercity.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Midsummer greetings, old friend! I've saved you a garland, and I'll even hand it over from this safe distance." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy your taper and keep it lit away from me; I remember you standing too near the fire." },
     { id = "g_default", text = "Midsummer greetings, {class}. Come and buy something festive, and please don't push me toward the fire." },
   },
   start = "hello",
@@ -1121,8 +1121,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "A candlemaker in Brill, of all the trades for a Forsaken to remember. I made the festival tapers every summer. My wife wove the garlands, and our daughter sold them by the bridge." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The festival should honour the dead of Brill, not only the living.", next = "BACK", reply = "That's why I keep the stall. Someone ought to light a taper for them.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Midsummer is for the living. The dead should keep away from it.", next = "BACK", reply = "Then I'll keep away from you, and the fire can keep us both company.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What happened to them?", next = "yfamily" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1220,8 +1220,8 @@ P:NPC {
     third = "{name} met Edward Remington, who designs guild tabards in the Undercity.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, a client of taste! I've mixed a new dye, and the green lamps have nearly failed to ruin it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Your guild's colours were dreadful last time, and I doubt they've improved." },
     { id = "g_default", text = "Ah, a client, or at least someone standing near enough to become one. Do you have a guild, {class}, and does it have taste?" },
   },
   start = "hello",
@@ -1229,8 +1229,8 @@ P:NPC {
     yfinest = {
       lines = { { id = "yfinest_x", text = "A tabard for a knight of the Silver Hand, worked in white and gold, with a lion so fine it seemed to breathe. I cannot remember his name. I remember every stitch of the lion, which tells you what kind of man I was." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A tabard should be stitched as finely for a pauper as a lord.", next = "BACK", reply = "Every stitch, yes. The thread doesn't know who's paying for it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Rush the cheap orders. Save your best work for the rich.", next = "BACK", reply = "Then you'll never stitch a lion that breathes. Not once in your life.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Would you make such a thing again?", next = "yagain" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1333,8 +1333,8 @@ P:NPC {
     third = "{name} spoke with Theresa, the living woman Gerard Abernathy keeps as a mindslave in the War Quarter.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good day. You are the kind one. Master Gerard says nothing about kind ones, so I am glad by myself." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Good day. Master Gerard says I must be polite to you also. I am being polite, only less." },
     { id = "g_default", text = "Good day. Master Gerard says I am to be polite to everyone who speaks to me, so I am being polite to you." },
     { id = "g_back", when = { metBefore = true }, text = "I remember you. Master Gerard says remembering faces is one of the parts of me that still works." },
     { id = "g_hallows", when = { holiday = "hallowsend" }, text = "The city is burning a wicker man this week. Master Gerard says I am not to stand too close to the fire." },
@@ -1425,8 +1425,8 @@ P:NPC {
     third = "{name} met Spoops, a mischievous little ghost who haunts the Undercity at Hallow's End.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Boo! Oh, it's you! You always pretend to jump, and you're my very favourite for it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Hmph. It's you. I'm not booing you today, and you can't make me." },
     { id = "g_default", text = "Boo! Oh, you didn't jump. Nobody down here ever jumps, and it isn't fair at all." },
     { id = "g_hallows", when = { holiday = "hallowsend" }, text = "It's Hallow's End! Everybody's dressing up as something scary, and I'm already scary, so I win." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Did you bring sweets? Ghosts can't eat them, but I like to look at them." },

@@ -15,8 +15,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite passenger! The birds perk up when ye come round, {g:lad|lass}, and so do I, among all this soot." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Ye'll get a bird, since that's my job, but I'll nae pretend I'm glad to see ye." },
     { id = "g_default", text = "Need a bird out of the Gorge, {g:lad|lass}? Wise, because there's more ash than air in this place, and the gryphons cough all night and spit black on my boots in the morning." },
     { id = "g_horde", when = { faction = "Horde" }, text = "My birds fly for the Alliance, friend, and nae other. Your orc is just over there with the wind riders, and she'll see ye right." },
     { id = "g_away", when = { away = 14, faction = "Alliance" }, text = "You've been gone {away}, and the gryphons have been coughing ash the whole time. They'll be glad of a flight out with you." },
@@ -213,8 +213,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "The wind riders lift their heads when you come up the path, {class}, and so do I. Climb on, and the sky is yours." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My beasts will carry you because they serve the Horde, not because I like you. Say where, and go." },
     { id = "g_default", text = "The wind riders are fed and ready, {class}. Where are you going, and how fast do you want to get there?" },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "No wind riders for the Alliance, not while I hold this perch for the Horde. The dwarf with the gryphons is over there, if you want a bird." },
     { id = "g_away", when = { away = 14, faction = "Horde" }, text = "Back after {away} away, then. The wind riders still know your smell, so climb on whenever you're ready." },

@@ -1269,8 +1269,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. Your usual seat's free, and I made sure of it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "There's a bed if you want it, but don't expect a smile with it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Home again! Yer bench by the fire's free, an' I chased a rider off it tae keep it that way." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "There's a bed upstairs if ye want it, but ye'll pour yer own ale an' get no smile wi' it." },
     { id = "dp_pt_any", when = { party = true }, text = "Brought the whole flight, have ye? Sit, the lot o' ye, an' I'll pour Wildhammer ale till the gryphons complain." },
     { id = "o_magni_stuffy", tags = { "news" }, when = { gossip = { topic = "magni", stance = "stuffy" } },
       text = "Here's the one who told the Thane that Magni's stuffy! He's had me pour ye a mug on the Bronzebeards' tab every night since, an' the Bronzebeards dinnae know they've a tab." },

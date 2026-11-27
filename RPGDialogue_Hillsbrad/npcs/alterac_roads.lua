@@ -289,8 +289,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you again, and the barrier has stopped crackling at you. It seems to have decided you are welcome, and on reflection, so have I." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Keep well back from the barrier, please, and keep your questions brief, since my concentration is spoken for." },
     { id = "g_dome", text = "Mind the barrier, please. It hums when it is pleased and crackles when it is not, and it has not been pleased in some time." },
     { id = "g_xquarter", when = { origin = "human_mage_quarter" }, text = "A student of Stormwind's Mage Quarter, unless I miss my guess, and your masters will have studied here once. Look well at what's left of the city, apprentice, because they surely told you how it looked before." },
     { id = "g_xdalaran", when = { origin = "forsaken_dalaran_apprentice" }, text = "You studied here once; I can see it in the way you look at the barrier. I'm sorry for what became of you, and I mean that, but I'll still ask you not to come any closer than you are." },
@@ -746,8 +746,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you've come back to the bench, and with all your fingers. Pull up a stool; I've a reduction simmering that you'll enjoy." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Stand off from the bench, touch nothing, and tell me what you want before something boils over." },
     { id = "g_bench", text = "Step lightly near the bench. Some of what's on it is harmless and the rest is labelled, though not always correctly." },
   },
 
@@ -764,8 +764,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I'd brew them for anyone who pays, and I'd think nothing of it, but you might. The Light was never fond of poison, I'm told, though I've noticed the Light was never asked to hold Tarren Mill against Southshore either." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An alchemist should label every flask truthfully, even the deadly ones.", next = "BACK", reply = "Especially the deadly ones, which is the whole point of a label. Mine are honest, mostly, and I'm working on the rest.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Let the Southshore folk buy a mislabelled tonic. Serves them right.", next = "BACK", reply = "A tidy thought, but a poison that kills the wrong man is merely a mistake. I don't make mistakes on purpose.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Keep your poison. The Light is all the edge I need.", next = "BACK", reply = "Then go with your Light, and may it hold back Southshore's pikes for you. I'll keep a vial on the shelf, in case it doesn't.", fx = { align = { honor = 1 } } },
         { text = "Whatever holds Tarren Mill. I'll take the poison.", next = "BACK", reply = "Practical, and I like that in a customer. The Light can keep its opinions; I'll keep the stoppers tight.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

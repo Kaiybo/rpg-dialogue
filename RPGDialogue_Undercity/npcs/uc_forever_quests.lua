@@ -22,8 +22,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. The Light was kind to me this morning, and I'd gladly share some of its warmth with you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The Light forgives a great deal, I've found, but I'm only its servant and I'm slower about it." },
     { id = "g_default", text = "Do you require training in the ways of the Light? It still answers here, whatever the Scarlets in their Monastery say." },
     { id = "g_notpal", when = { ["not"] = { class = "PALADIN" } }, text = "You may not be a paladin, but you may yet find solace in the Light, should you ever go looking for it." },
     { id = "g_back", when = { metBefore = true, class = "PALADIN" }, text = "Back again. Show me your stance, and then tell me what the Light has cost you since we last spoke." },
@@ -51,8 +51,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. My next student is late, so the time's yours." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The Light's gifts should be taught to anyone who asks humbly.", next = "BACK", reply = "Humility is the first lesson, and the Light keeps teaching it to me.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "The Light is a weapon. I'll use it however suits me.", next = "BACK", reply = "It will burn you for that one day, as it burned the Scarlets' good sense.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why does the Light answer the dead?", next = "light" },
         { text = "What does it mean, to break a student?", next = "retrain" },
         { text = "Who leads the Forsaken paladins?", next = "keep" },

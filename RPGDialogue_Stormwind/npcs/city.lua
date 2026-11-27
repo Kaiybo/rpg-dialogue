@@ -559,8 +559,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back. I see you wiped your boots, which already puts you ahead of most of my apprentices, so come in." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The wards remember you, and frankly so do I, so state what you need and keep your hands to yourself." },
     { id = "g_mage", when = { class = "MAGE" }, text = "Welcome to the Sanctum, and do wipe your boots, because the floor wards are sensitive and they remember mud." },
     { id = "g_other", when = { ["not"] = { class = "MAGE" } }, text = "Please don't touch the circles, because they're not decorative, whatever they look like." },
   },
@@ -576,8 +576,8 @@ P:NPC {
       big = true,
       lines = { { id = "jec_default", text = "It feels like nothing because it is nothing, done perfectly, and that is the hardest thing in the world to be proud of. The Kirin Tor learned in the Second War that one silenced warlock saved more lives than ten dead orcs, and not one of the mages who did the silencing ever got a statue." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "True mastery of the arcane comes only from years of study.", next = "BACK", reply = "Precisely, and the Sanctum's shelves are full of the proof, should you care to read it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A spell stolen from another's notes burns just as hot.", next = "BACK", reply = "It does, right up until it burns you, because you never learned why it works.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then I'll practise it until it's instinct.", next = "BACK", reply = "Good, and then practise it some more, because instinct fades if you don't feed it.", fx = { affinity = 1, align = { order = 1 } } },
         { text = "I'd rather have the statue, Magus.", next = "BACK", reply = "Then you'll have to die heroically for it, and I'd much rather you didn't, so practise the counterspell anyway.", fx = { align = { order = -1 } } },
         { text = "Something else, Magus.", next = "BACK" },
@@ -893,8 +893,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Shut the door and sit; you're one of the few who knows how to keep their mouth closed down here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll teach you, because the coven pays me to, but I'm watching you closer than I watched Surena." },
     { id = "g_warlock", when = { class = "WARLOCK" }, text = "Close the door behind you, and do it quietly, because the people upstairs drink to forget we're down here." },
     { id = "g_other", when = { ["not"] = { class = "WARLOCK" } }, text = "You're lost, friend, and I'd suggest you go and be lost somewhere with more light in it." },
     { id = "g_back", when = { metBefore = true, class = "WARLOCK" }, text = "Still whole, I see, and still yourself. You'd be surprised how few students manage both." },
@@ -919,8 +919,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Only that power changes hands, and those who bargain with the world one day may find themselves bargaining with something worse the next. I speak from experience, shaman, though not from mine alone." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Power over demons should be won by discipline, not stolen.", next = "BACK", reply = "Discipline is what keeps the demon on the end of the chain, so yes, I'll grant you that.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A pact is a pact, however you trick your way into it.", next = "BACK", reply = "Spoken like Surena, and look how that ended for everyone who trusted her.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll keep my bargains clean and my spirits honest.", next = "BACK", reply = "Clean bargains are the hardest to keep, shaman. I'll be curious to see how long yours stay that way.", fx = { align = { order = 1 } } },
         { text = "Every bargain has its price. I'll pay mine as I choose.", next = "BACK", reply = "Then we understand each other better than you might like. Come back if the spirits ever stop answering.", fx = { align = { order = -1 } } },
         { text = "Let's leave the spirits out of it.", next = "BACK" },

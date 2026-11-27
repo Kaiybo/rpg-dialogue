@@ -83,8 +83,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. The storm is quiet tonight, and I am feeling generous." },
       },
       choices = {
-        { text = "Power is worth any price you pay for it.", next = "BACK", reply = "Spoken like one who'll go far, or burn quickly. Either way, the Altar will enjoy watching.", fx = { align = { light = -1 } } }, -- dp_stance
-        { text = "Some prices are too high, even for a dreadsteed.", next = "BACK", reply = "Then you'll never ride one, and you'll live longer for it. A dull bargain, but a bargain.", fx = { align = { light = 1 } } }, -- dp_stance
+        { text = "The Burning Legion's gifts are worth whatever they cost me.", next = "BACK", reply = "Ah, a true student of the Altar. The Legion keeps careful accounts, mind, and so shall I.", fx = { align = { light = -1 } } }, -- dp_stance
+        { text = "I'll bind a demon, but I'll never kneel to one.", next = "BACK", reply = "A cautious answer. Caution is dull, but the dull ones do tend to keep their souls.", fx = { align = { light = 1 } } }, -- dp_stance
         { text = "What is the Altar of Storms?", next = "altar" },
         { text = "Why do you love blood so much?", next = "blood" },
         { text = "Who else keeps you company out here?", next = "gorzeeki" },

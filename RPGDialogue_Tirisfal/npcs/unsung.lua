@@ -20,8 +20,8 @@ P:NPC {
     third = "{name} met Dannal Stern, the warrior trainer of Deathknell.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and your sword's still in your hand, which I always look for first. Come here and show me what you've learned." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Stand where I can see you, and keep your blade sheathed until I tell you otherwise." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "You came back with your sword still in your hand, and most fresh ones drop theirs in the first ditch. Come here and let me see how you hold it." },
     { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "You are not one of my students, but stand where I can see you all the same. The mindless ones wander in sometimes." },
   },
@@ -39,8 +39,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I did, and they were brave and stubborn and very sure of themselves until the plague came and there was nothing left to be sure of. Some went to the Crusade and some went into the ground, and you're the first I've met who went into the ground and came back with the Light still in hand." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A soldier should face his enemy, not knife him from behind.", next = "BACK", reply = "Good. I did my share of soldiering, and the ones who fought face to face are the ones I still respect.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A soldier wins however he can. Backstabbing counts.", next = "BACK", reply = "It counts as a win, I suppose, but not as soldiering. Leave the knives to the rogues upstairs.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then I'll carry their courage with me.", next = "BACK", reply = "Carry it well, then, and carry it further than they managed. They'd have liked a paladin who kept going after the end.", fx = { align = { honor = 1 } } },
         { text = "Their certainty failed them. I'll trust my own.", next = "BACK", reply = "Then trust it, but test it every day, because certainty is the first thing the Scourge eats.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -227,8 +227,8 @@ P:NPC {
     third = "{name} met Dark Cleric Duesten, the priest trainer of Deathknell and a voice of the Cult of Forgotten Shadows.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Another of the faithful, come back stronger. Your will has grown since I saw you last, and the Forgotten Shadow is pleased." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Your will is weak, and your spells weaker, so speak your business quickly and leave me to my prayers." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Another of the faithful, come back from the fields. Tell me, does your will grow stronger, or only your spells?" },
     { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "You are not a priest, but the Forgotten Shadow will take anyone stubborn enough to keep walking after they've died." },
     { id = "g_xchapel", when = { origin = "forsaken_chapel_priest" }, text = "You preached in Lordaeron's chapels once; you still stand at the front of a room as if there's a pulpit behind you. The Forgotten Shadow asks less of you than the Light did, and it does not hurt to listen to." },
@@ -245,8 +245,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Every soldier believes in something, even if it's only the strength of the arm beside them. The Forgotten Shadow asks only that you believe in yourself, which is the one thing the Light never let its soldiers do." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The will is earned by suffering, not by borrowing another's strength.", next = "BACK", reply = "Precisely. The Light offers comfort on loan, and the Shadow asks you to pay for your own. That is the difference.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Take power wherever you find it. The source doesn't matter.", next = "BACK", reply = "It matters a great deal, because borrowed power can be taken back. Ask any priest of the Light how it felt.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I fight for something bigger than myself, Cleric.", next = "BACK", reply = "Something bigger, is it? The Light was bigger too, and see how much good it did us. Keep your eyes open.", fx = { align = { light = 1 } } },
         { text = "I believe in my own arm, Cleric. It hasn't failed me.", next = "BACK", reply = "Then you already understand the Forgotten Shadow better than most of my novices. Keep trusting it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -388,8 +388,8 @@ P:NPC {
     third = "{name} met Joshua Kien, who sells supplies to the newly risen of Deathknell.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back so soon? Nobody's lost a finger this week, so you must have come for the bread. It's only a little mouldy." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. The bread's on the shelf and the thread's beside it, so help yourself and don't trouble me." },
     { id = "g_shop", text = "Good day to you, or good night, since it hardly matters to us. What can I sell you? The thread's gone a bit mouldy, but then, so have we." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon? Somebody out in the fields must have lost another finger, I suppose." },
     { id = "g_xbrill", when = { origin = "forsaken_brill_farmer" }, text = "You farmed out past the town, didn't you? I may have sold your family twine or seed once, back when seed meant something, and now you're buying from me again with dead hands." },
@@ -406,8 +406,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I said grace every night when I was alive, and the plague came all the same, so I stopped. But if the Light still listens to a dead paladin, then perhaps it was listening all along, and I owe it an apology, or it owes me one." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Even a dead man's shop should sell bread that isn't rotten.", next = "BACK", reply = "I try, I really do, but the damp gets into everything here, including me. I'll sell you the freshest I've got.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "The dead can't taste it. Sell them the mouldy loaves.", next = "BACK", reply = "Ha! They can't taste it, but they can see the green bits, and some of them still have standards.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "It was listening. You may owe it that apology.", next = "BACK", reply = "Then perhaps I'll say grace again tonight, and see whether anything answers. Thank you, {class}.", fx = { align = { light = 1 } } },
         { text = "It owes you one, Joshua. Don't let it forget.", next = "BACK", reply = "It does, and I'll tell it so, if it ever comes near enough to listen.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -565,8 +565,8 @@ P:NPC {
     third = "{name} met Rupert Boch, the warlock trainer of Brill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "A fellow practitioner, up all those stairs again. Come in, and let me see how well your little friend has been behaving." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Come in, if you must, and don't touch anything that moves, or anything that doesn't." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "A fellow practitioner, and up all those stairs without complaint. Come in, and tell me how your little friend is behaving." },
     { id = "g_other", when = { ["not"] = { class = "WARLOCK" } }, text = "You aren't a warlock, but you are welcome to look around. Don't touch anything that moves." },
     { id = "g_xcult", when = { origin = "forsaken_cult_remnant" }, text = "The Cult of the Damned, before you died, unless I'm much mistaken. Don't look so stricken, because half of what I teach was learned from people like you, and none of us here can afford to be squeamish." },
@@ -595,8 +595,8 @@ P:NPC {
         { id = "h_again2", text = "Another question? Ask it plainly, and I'll answer it the same way, mostly." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A warlock should master his demon, not trick it into service.", next = "BACK", reply = "Mastery lasts, and tricks wear thin. You have the makings of a proper practitioner.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Trick the demon however you can. Results are all that count.", next = "BACK", reply = "Results today, perhaps, and a very unpleasant surprise tomorrow. Demons keep careful accounts.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "You keep calling spells contracts.", next = "contract", when = { class = "WARLOCK" } },
         { text = "Teach me to curse a Scarlet properly.", next = "curse", when = { class = "WARLOCK" } },
@@ -792,8 +792,8 @@ P:NPC {
     third = "{name} met Carolai Anise, the alchemy trainer of Brill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Another alchemist, and a good one, back again. Come and tell me what you've been brewing, and mind the biting vials." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Mind the vials, touch nothing, and tell me what you want without making a fuss of it." },
     { id = "g_shop", text = "Mind the vials; some of them bite, and the rest only eat through skin, which you'll hardly miss. What can I do for you?" },
     { id = "g_alch", when = { profession = "Alchemy" }, text = "Another alchemist, good. Come and tell me what you've been brewing." },
   },
@@ -809,8 +809,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "I trust what I can bottle and hand to someone who's bleeding, which is a potion. The Light may well be more powerful, but I've seen it fail to come, and I've never once seen a properly brewed healing draught refuse to work." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An alchemist should test every brew herself before she sells it.", next = "BACK", reply = "She should, though you'll forgive me if I test the deadly ones on rats. That's simply good sense.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Let the buyers test it. If it kills them, they'll stop complaining.", next = "BACK", reply = "That's how the apothecaries talk, and it's exactly why I don't care for them. Get out of my workroom.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The Light comes when it's needed. I trust it.", next = "BACK", reply = "When it comes, perhaps it does, but I've watched it not come, and I'll keep my shelves stocked all the same.", fx = { align = { light = 1 } } },
         { text = "Right. More draughts, fewer prayers.", next = "BACK", reply = "That's the sensible view, and the one my bottles would agree with. Peacebloom never once failed to show up.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -964,8 +964,8 @@ P:NPC {
     third = "{name} met Nurse Neela, who teaches first aid in Brill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Come in, dear, and let me look at you. Not a stitch out of place since last time, which means you've listened." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Come in, then, and let me see. Don't fidget, dear, and don't argue with me about the stitches." },
     { id = "g_hi", text = "Come in, dear, and let me see you. Don't worry about bleeding on the floor; most of my patients stopped bleeding years ago, so it makes a change." },
     { id = "g_xchapel", when = { origin = "forsaken_chapel_priest" }, text = "You were a chapel priest, I think, because you've that patient look. You'll have sat with the dying in Lordaeron, dear, so you already know the half of my work that isn't bandages." },
   },
@@ -981,8 +981,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "It mends what's broken in you, I'd guess, but not what's missing, and you're missing a heartbeat like the rest of us. I'd still rather you tried than gave up, though, because it's the trying that keeps a patient going, or whatever it is we are now." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A healer should treat the living and the dead with equal care.", next = "BACK", reply = "I always have, dear. A wound's a wound, whoever wears it, and every one deserves a careful hand.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Patch the Deathguard quickly and badly. They can't feel it anyway.", next = "BACK", reply = "They can't feel it, dear, but they can lose a leg for it. I'll stitch them properly, thank you.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll keep trying, Nurse, for every patient.", next = "BACK", reply = "Good, dear, and you'll be surprised how many of them you'll get back on their feet. Trying is half of it.", fx = { align = { light = 1 } } },
         { text = "The dead can't be mended. I'll not pretend otherwise.", next = "BACK", reply = "Perhaps not mended, dear, but patched and walking, and that's a great deal. I'll keep trying even if you won't.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1136,8 +1136,8 @@ P:NPC {
     third = "{name} met Zachariah Post, who sells undead horses in Brill.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, a customer who knows a fine mount when they see one. Come and look at the horses; they've been asking after you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Look at the horses, if you like, but don't touch them, and don't waste my time." },
     { id = "g_shop", text = "Looking for a mount that never tires, never eats and never grieves when you fall? You've come to the right stable." },
     { id = "g_young", when = { maxLevel = 39 }, text = "Come back when you're more experienced, friend, but you're welcome to look at the horses until then." },
     { id = "g_xknight", when = { origin = "forsaken_risen_knight" }, text = "You look at my horses like a knight of the Silver Hand, measuring the legs before the face. You'll have ridden a white charger once, and mine are bonier, but they don't scare and they never tire." },
@@ -1154,8 +1154,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "The knights of Lordaeron rode white chargers into battle, and look where it got them. A horse of bone doesn't tire or bolt, and it won't mind your Light, so I'd say a paladin of the Forsaken deserves a better mount than the Silver Hand ever had." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A horse merchant should tell the buyer the beast's true age.", next = "BACK", reply = "Mine never age, so I never have to lie. That's the beauty of a skeletal horse.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the broken nags as warhorses. The dead don't check teeth.", next = "BACK", reply = "They don't have teeth to check, half of them. No, I sell only the soundest bones.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The Silver Hand's chargers were noble. I'll honour that.", next = "BACK", reply = "They were, and the Silver Hand's riders sat them well. I'll find you one that holds its head high.", fx = { align = { honor = 1 } } },
         { text = "Nobility didn't save them. I'll take the bones.", next = "BACK", reply = "Bones it is, then, and a fine choice. They'll carry you to the Bulwark and never once ask why.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

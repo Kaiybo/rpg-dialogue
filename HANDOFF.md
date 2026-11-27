@@ -82,6 +82,7 @@ Short on purpose: current state and next step only. History is in `CHANGELOG.md`
 - Whether the Forever NPCs added in 0.78.0-0.81.0 open our box. If one doesn't, capture the in-game name.
 
 ## Next step
+00. Done (unreleased, PR after 0.116.0): every pooled `dp_svw`/`dp_svc` greeting (~2,700) and `-- dp_stance` pair (~1,700) in 28 Eastern Kingdoms-side packs rewritten per NPC; no shared text left. Only `luac -p` run. Goes in the next release with pack patch bumps.
 0a. Released in 0.114.0: the like/dislike topics, alignment weight pass and jokes. Next: in-game check.
 0. Done (unreleased): 205 same-pack TODO_NPC doubles removed, deeper copy kept (52 files); the cross-pack doubles are settled too (see State).
 1. The user's in-game test of 0.85.0 (and of 0.84.0), and their `/rpgd tts` output. Bottom bar crowding with disposition, tone, three persuasion buttons and "Ask about..." in the game look; DialogueUI rows.

@@ -1568,8 +1568,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, friend, and you walk the boards so quiet now the fish don't even notice. Let's get you casting." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Step easy on the boards, because you frightened half the fish last time, and I've not forgotten." },
     { id = "g_default", text = "Easy on the boards, friend, fish can hear you walking." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? The tide's good, so let's get you casting." },
   },
@@ -1587,8 +1587,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Not in words, but every fisherman learns to hear it in the tide and the gulls, and I'd guess that's a small cousin of what you do. The difference is that I only ask it for fish, and I suspect a shaman asks it for rather more." } },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "An angler should own up when the big one got away.", next = "BACK", reply = "Aye, the honest ones do, and they're the only ones whose stories I believe on these docks.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Every fish story gets bigger in the telling. That's half the fun.", next = "BACK", reply = "Half the fun, maybe, but none of the skill. I teach the skill, and the lying you'll learn at the inn.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Ask the sea for what you need, and no more.", next = "BACK", reply = "That's the way of it, and the sea always knows when you've taken too much.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "The sea's there to be used. Take all it gives.", next = "BACK", reply = "Take all it gives and you'll find it gives less next year. Lindea will tell you, if I don't.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

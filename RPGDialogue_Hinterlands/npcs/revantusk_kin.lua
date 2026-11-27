@@ -187,8 +187,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, me favourite customer be back! Come see, mon, I got new arrows fletched since you left." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy your arrows an' go, an' don't be standin' round my quivers all day." },
     { id = "g_default", text = "Arrows, mon, sharp ones an' rough ones an' quivers to put dem in. What you be needin'?" },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, an' your quiver be lookin' thin! Come, come, Renn'az fix dat." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? Good. Arrows be de only ting dat always run out, mostly when de Vilebranch come callin'." },
@@ -210,8 +210,8 @@ P:NPC {
         { id = "vi_default", text = "Primal Torntusk, first an' last, since dey took de Elder. Smith Slagtree keep de blades sharp, Lard keep de inn an' de pot, an' Katoom bring de fish in. Gorkas fly de wind riders out, so we not be cut off like before." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Arrows should be sold straight, true and at a fair price.", next = "BACK", reply = "Dat be de only way Renn'az sell dem, mon. A bent arrow get a troll killed.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the bent arrows to whoever's too green to notice.", next = "BACK", reply = "Den dey miss de Vilebranch, an' de Vilebranch don't miss dem. Not on Renn'az's conscience.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "And the mystic?", next = "village_mystic" },
         { text = "Something else.", next = "BACK" },
       },

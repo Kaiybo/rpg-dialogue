@@ -178,8 +178,8 @@ P:NPC {
         { id = "h_again2", text = "Go on; I'm listening with one ear, and the other's on the bridge." },
       },
       choices = {
-        { text = "Lakeshire needs more soldiers, not more farmers.", next = "BACK", reply = "Soldiers need feeding, friend. Without the farmers, my guards would be eating their boots.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Lakeshire should arm its farmers and stop waiting for Stormwind.", next = "BACK", reply = "I've said the same in three letters to the Keep. They've not answered one.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "Lakeshire should hold the line until Stormwind sends soldiers.", next = "BACK", reply = "I'll hold it, friend, but my guards grow thinner every week, and the Keep is slow to remember us.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Arm the farmers and stop writing letters to Stormwind.", next = "BACK", reply = "I've written three letters to the Keep and had not one answer, so you may be right.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Your gnolls are only hungry. Something drives them down from the hills.", next = "druid_talk", when = { class = "DRUID" } },
         { text = "What happened at Stonewatch?", next = "stonewatch" },
         { text = "How bad is it?", next = "bad" },

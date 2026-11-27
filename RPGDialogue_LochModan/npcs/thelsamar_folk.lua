@@ -237,8 +237,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye're back! I've been savin' up questions for ye, so pull up a crate an' tell me where ye've been." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, you. I'll find my stories elsewhere today, thank ye." },
     { id = "g_default", text = "I'm Torren Squarejaw o' the Explorers' League! If ye've come from anywhere interestin', I want tae hear all about it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Seen any ruins since last time? Any carvin's? Even a wee bit o' broken pot?" },
     { id = "g_league", when = { origin = "dwarf_explorers_league" }, text = "One o' the League's own! Tell me ye're headed tae the dig, for I'd give my beard tae go with ye." },
@@ -340,8 +340,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye're back, an' that edge ye carry still looks good. I'll admit I'm a wee bit proud o' that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Hand me the blade, an' save yer breath." },
     { id = "g_default", text = "Let me see yer weapon. No, dinnae tell me about it, just hand it over." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still carryin' that edge? I've seen worse, but no' this week." },
   },

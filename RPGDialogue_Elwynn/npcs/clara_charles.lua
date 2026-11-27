@@ -15,8 +15,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. Markus has been asking after you all week, and so, I'll admit, have I." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Good day. I'd thank you to say your piece quickly, as I've the well to see to." },
     { id = "g_farm", text = "Good day to you. Mind the apples on the table; they're spoken for." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again. My Markus will be pleased; he's been playing at being you all week." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and nothing's changed here, which out on this road counts as good news." },

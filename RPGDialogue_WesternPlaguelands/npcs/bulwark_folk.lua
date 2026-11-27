@@ -17,8 +17,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ey, it be my favourite friend of de Dawn! Come, mon, Hasana been savin' de good stock for you, and she not be sayin' dat to everybody." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again, mon. De Dawn's stores be open to you, but Hasana's smile, dat be closed today." },
     { id = "g_default", text = "Ey, welcome to de Dawn's stores, mon. Everyting here be for de Dawn's friends, so tell me, be you one?" },
     { id = "g_stranger", when = { reputation = { faction = "Argent Dawn", max = "neutral" } }, text = "De Dawn don't know you yet, mon. Go see Garush, bring him some scourgestones, an' den come back to Hasana." },
     { id = "g_honored", when = { reputation = { faction = "Argent Dawn", min = "honored" } }, text = "Dere be one de officers talk about! Come, come, Hasana got good tings for you." },
@@ -47,8 +47,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else, mon? Hasana got time for you." } },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "The Dawn's friends should pay what's fair, nothing more.", next = "BACK", reply = "Dat be de way, mon. De Dawn don't run on greed, it run on scourgestones and good hearts.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Charge the newcomers extra. They'll never know the difference.", next = "BACK", reply = "Ha! Hasana would know, mon, and de loa be watchin' de ledger too.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your stores.", next = "BUSINESS" },
         { text = "Why does a troll serve the Argent Dawn?", next = "why" },
         { text = "How do the Forsaken treat the Dawn here?", next = "forsaken" },
@@ -121,8 +121,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come again, {class}, and it gladdens me. Sit while I pack; the Earth Mother sends good company even to this grey land." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You return. I will speak with you, for the Earth Mother asks patience of me, but I will not pretend to welcome it." },
     { id = "g_default", text = "Hello, {class}. I've set up camp here to make my preparations, so you'll hear me talk while I pack." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "One of the shu'halo, here among the dead! The Earth Mother walks a long way with us, it seems." },
     { id = "g_back", when = { metBefore = true }, text = "Still packing, yes. A tauren carries a long road's worth of things, and forgets half of them all the same." },
@@ -229,8 +229,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Lok'tar, friend! Back again, and you smell of the living, which is a rare gift by this wall. What do you need?" },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy your thread and move along, because I'd sooner talk to the Forsaken than to you." },
     { id = "g_default", text = "Thread, dye, salt, the lot. Buy something or move along, because the Forsaken don't like crowds at the wall." },
     { id = "g_orc", when = { race = "Orc" }, text = "Lok'tar! A proper orc, at last, and not another walking corpse. What do you need?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good; you paid last time." },
@@ -259,8 +259,8 @@ P:NPC {
         { id = "h_again3", text = "Hrm. Go on, then." },
       },
       choices = {
-        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A tanner should say plainly when a hide is plagued.", next = "BACK", reply = "Yes. A cloak sewn from a sick hide kills the one who wears it, and I'll not have that on me.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Sell the plagued hides. The Forsaken won't mind the rot.", next = "BACK", reply = "Hah! They might not, but the orcs who buy from me would, and I'd deserve their axes.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "How's trade at the Bulwark?", next = "trade" },
         { text = "Why would an orc come here?", next = "why" },

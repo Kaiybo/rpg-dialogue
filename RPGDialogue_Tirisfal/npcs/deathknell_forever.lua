@@ -14,8 +14,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! You've taken up a trade, I can see it on you, and I'm as pleased as if I'd learned it myself." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Well, the trainers are where I said they'd be, so I'll not point again, if you don't mind." },
     { id = "g_default", text = "Hello there! Have you thought about taking up a trade yet? I'd be glad to point you toward the trainers." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did you find the trainer I sent you to, or shall I point again?" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, grown strong enough to leave Deathknell well behind! I do hope you took a trade with you when you went." },
@@ -148,8 +148,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, and your hands are clean of torn leaves. Come and learn something new; the herbs deserve someone careful." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Show me your hands, and if they're green with torn leaves, I'll not teach you a thing today." },
     { id = "g_default", text = "If you've come to learn herbs, then come and learn them properly." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Show me your hands; I want to see whether you've been tearing leaves." },
     { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist. Then you'll want your herbs whole and not bruised, and for once I'll have a pupil who understands why it matters." },
@@ -171,8 +171,8 @@ P:NPC {
         { id = "jr_default", text = "Because I teach the first steps and no more, and I'm content with that. When you've learned what I know, Faruza in Brill will take you further, and after her there's Martha Alliestar in the Undercity's Apothecarium." },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Take only what you need from a patch, and let the rest grow.", next = "BACK", reply = "That's the first thing I teach, and the last thing most learn. You'll go far.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Pick every last leaf. Someone else will only take it otherwise.", next = "BACK", reply = "And then nobody has any next season, including you. I'd thought better of you.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "You don't want to teach the rest yourself?", next = "junior2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -314,8 +314,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again. Your knife's sharp and your hides are clean, and that's all I ever ask of a student." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Keep your knife sharp and your cuts clean, because I'll not waste good hides on you." },
     { id = "g_default", text = "Care to learn how to take leather from a beast, or do you need new tools?" },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. Keep your knife sharp; a dull one ruins more hides than a careless hand." },
   },
@@ -338,8 +338,8 @@ P:NPC {
         { id = "h_again", text = "Anything else, dear?" },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A skinner should use every part of the beast he can.", next = "BACK", reply = "Yes, that's right. Wasting a hide is the worst thing a skinner can do, worse than a bad cut.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Take the best of the hide and leave the rest to rot.", next = "BACK", reply = "Then you'll never be much of a skinner, and the beast died for nothing. Do better.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me skinning.", next = "BUSINESS" },
         { text = "What's worth skinning around here?", next = "beasts" },
         { text = "What's the salt for?", next = "salt" },
@@ -462,8 +462,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! You've the dust of a good vein on you, I can see it. Come and tell me all about it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. If it's about rocks, I'll help you, but I'll not chat about it." },
     { id = "g_default", text = "How can I help you? If it's about rocks, I'm your man." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Found any good veins yet?" },
   },
@@ -486,8 +486,8 @@ P:NPC {
         { id = "h_again", text = "What else would you like to know?" },
       },
       choices = {
-        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
-        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "A miner should leave a vein for the next one if he's taken enough.", next = "BACK", reply = "That's the old miners' way, and a good one. The rocks always remember a greedy miner.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Mine every scrap of copper you find. The next miner can fend for himself.", next = "BACK", reply = "Then the next miner will do it to you, and the hills will be bare. That's no way to treat a vein.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me mining.", next = "BUSINESS" },
         { text = "Where's the ore around here?", next = "ore" },
         { text = "What do I do with ore?", next = "smelt" },
@@ -737,8 +737,8 @@ P:NPC {
     third = "{name} spoke with a Deathguard Veteran at the entrance to Deathknell.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Still walking, I see, and still on the safe side of the gate when it matters. Good; you've learned faster than most." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Inside is safe and outside is not, as I told you, and I'd as soon you stayed outside for a while." },
     { id = "g_default", text = "Newly risen, are you? Inside is the safe side of this gate, and outside is not, so keep that straight." },
     { id = "g_back", when = { metBefore = true }, text = "Still walking, I see. That's more than most manage their first week." },
   },
@@ -747,8 +747,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "A gatekeeper at the capital, if you can believe it. I let Prince Arthas through on the day he came home. I opened the gate myself and cheered. I've been standing at gates ever since, trying to do it properly this time." } },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The Dark Lady's orders keep the newly risen alive. I'll follow them.", next = "BACK", reply = "Good. Most of them don't, and most of them don't last a week past the gate.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "I'll go where I please, gate or no gate.", next = "BACK", reply = "Then you'll go where the Scarlets please, too, and they'll be pleased indeed. Your choice.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "You couldn't have known.", next = "yknown" },
         { text = "Something else.", next = "BACK" },
       },
@@ -850,8 +850,8 @@ P:NPC {
     third = "{name} spoke with an injured Deathguard kneeling in Deathknell.",
   },
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep an eye open. Mind yourself." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you again, and you've stopped to talk to a kneeling man. That's kind, and I'll remember it once the leg's back on." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'm still kneeling and the stitches still aren't done, so if you're not a surgeon, carry on." },
     { id = "g_default", text = "Don't mind me, I'm only resting, and I'll be back on my feet once someone sews my leg on properly." },
     { id = "g_back", when = { metBefore = true }, text = "Still kneeling, as you see. The stitches are taking their time." },
   },
@@ -860,8 +860,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "A stonemason, laying walls in Lordaeron. I know how a thing comes apart, and how to put it back. Shame I can't mortar myself. I've tried, mind. The apothecaries laughed." } },
       choices = {
-        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
-        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
+        { text = "The Deathguard hold the line together, wounded or not.", next = "BACK", reply = "We do. I'll be back at my post the moment they stitch me up, and gladly.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "A wounded guard should desert while he still can.", next = "BACK", reply = "Desert to where, the Scarlets? No, I'll stay and be stitched, thank you very much.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Who did this to you?", next = "ycaptain" },
         { text = "Something else.", next = "BACK" },
       },

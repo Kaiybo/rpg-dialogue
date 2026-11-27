@@ -1781,8 +1781,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, the rider who actually brushes down their mount. Come in; the horses like you, and that's the only opinion I trust." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll see to your mount, because the poor beast didn't choose you, but I'll not chat with you while I do it." },
     { id = "g_default", text = "Mind your step there; it's fresh, and the grey's been eating clover all morning." },
     { id = "g_mount", text = "Want your mount looked at? I look at all of them anyway." },
   },
@@ -1983,8 +1983,8 @@ P:NPC {
   },
 
   greetings = {
-    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
-    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're back! Even the grumpiest bird stopped sulking when it saw you, and that's high praise from a gryphon." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll put you on a bird, since that's my job, but I've told them to take the bumpy way round." },
     { id = "g_default", text = "Need a lift? The birds are fed, and grumpy with it, and one of them has eaten my left glove." },
     { id = "g_fog", when = { timeOfDay = "dawn" }, text = "Fog's in. They'll fly, but they'll complain the whole way." },
   },
