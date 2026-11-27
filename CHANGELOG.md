@@ -2,6 +2,10 @@
 
 All notable changes to RPG Dialogue. The core and each content pack get their own version numbers once they exist (see DESIGN.md §1).
 
+## 0.116.1 (2026-11-27): No Hand Stayed
+- Fixed the "RPGDialogue has been blocked from an action" popup when the dialogue box or journal closed during combat.
+- New `/rpgd blocked`: if the game blocks the addon again, a chat line names what was blocked; `/rpgd blocked` lists recent ones, `/rpgd blocked log` turns on the game's taint log.
+
 ## 0.116.0 (2026-11-27): Word Gets Around
 **New files: restart the game fully (a /reload is not enough).** Overheard talk is off by default: turn it on in the settings or with `/rpgd overhear`.
 - **Overheard talk.** Now and then, NPCs near you talk to each other or remark as you pass, in every town and role. Named pairs have their own exchanges, and some townsfolk gossip about you. It's rare on purpose.
