@@ -119,6 +119,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. My kinsman speaks well of you. Come, let's train." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "My kinsman says you want things I don't agree with. I'll train you anyway." },
     { id = "o_dw_hate", when = { gossip = { topic = "dwarves", stance = "hate" } }, text = "My kinsman Taim says you want the dwarves out of Alterac! Good! Then train harder, because they hit like falling rocks!" },
     { id = "g_hi", text = "Shoulders back, like a bull facing the wind! Now, what do you want?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still standing. Good, that's the first lesson." },
@@ -268,6 +270,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Closer, friend. I don't shout, and you listen well. That's a rare thing." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Closer. I don't shout. You'll have to listen, if you can." },
     { id = "g_hi", text = "Closer. I don't shout, unlike my cousin; the plains taught me that a quiet hoof goes further." },
     { id = "g_back", when = { metBefore = true }, text = "You've been practicing your footwork. I can see it in how you stand." },
   },
@@ -415,6 +419,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ho, friend! Sit, sit, by the fire! I was just about to tell a story, and you're the best listener!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ho, a visitor. Sit by the fire, if you like. I'll not tell you a story, though." },
     { id = "g_hi", text = "Ho, a visitor! Sit, sit, by the fire; I was just about to tell a story." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the Rise! Have you been lost anywhere interesting?" },
   },
@@ -575,6 +581,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The elders say you're a friend of the tauren, and so you are to me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The elders say you're a friend of the tauren. I'll decide for myself." },
+
+    { id = "g_rep1", when = { rep = { faction = "Thunder Bluff", min = "Honored" } }, text = "The elders say you are a friend of the tauren. Then sit by my fire as kin would." },
     { id = "g_hi", text = "You've red dust all over you. Come up from the Barrens, have you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Your tracks are cleaner than they were, at least." },
   },
@@ -747,6 +757,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hello, little one! Oh, and you too, friend. Come in, both of you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hello, little one. Oh, and you. I suppose you can come in." },
     { id = "g_hi", text = "Hello, little one. Oh, and you too, I suppose; the Earth Mother made you both." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Let me look at your companion first, and then we'll talk." },
   },
@@ -908,6 +920,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Looking for a fight, friend? The Frostwolf need strong arms, and yours are strong." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Looking for a real fight? The Frostwolf need strong arms, not loose tongues." },
     { id = "g_hi", text = "Looking for a real fight? The Frostwolf need strong hooves and strong hearts in Alterac." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the snow, or on your way to it?" },
   },
@@ -1071,6 +1085,8 @@ P:NPC {
     third = "{name} spoke with Sky Earthtotem in the Hunter's Hall on Hunter Rise.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Sit, friend, and let me tell you about the Hunter's Hall. You always listen." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Sit, if you have the time. The Hunter's Hall was built with patience. Learn some." },
     { id = "g_default", text = "Sit, if you have the time. The Hunter's Hall was built for resting between hunts, and too few use it that way." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A fellow hunter, and your companion with you. Let {pet} lie by the fire; the hall has seen muddier paws." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece. Sit, and tell me which way the herds were moving." },
@@ -1208,6 +1224,8 @@ P:NPC {
     third = "{name} spoke with Rown Leaftender on Hunter Rise.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, hello, friend! I just got back from the plains, and I'm so glad to see you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh, hello. I'm just back from the plains, so please keep it short." },
     { id = "g_default", text = "Oh, hello! I'm only just back from the plains, so forgive the burrs, {class}." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I found peacebloom by the Winding Chasm this morning, if you're curious, and I know you are." },
   },

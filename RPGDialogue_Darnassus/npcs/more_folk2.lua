@@ -21,6 +21,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. The auction house is honored by your custom." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Sell or bid. Briefly." },
     { id = "g_hello", text = "Ishnu-alah. The auction house of Darnassus is open to you. Do you come to sell, or to bid?" },
     { id = "g_back", when = { metBefore = true }, text = "You are welcome back. Your earlier business was concluded in good order, as I recall." },
     { id = "g_out", when = { race = { "Human", "Dwarf", "Gnome" } }, text = "Welcome, friend of the Alliance. Our house deals in your coin as readily as our own, and at the same rates." },
@@ -45,6 +47,8 @@ P:NPC {
         { id = "h_again3", text = "Yes?" },
       },
       choices = {
+        { text = "A formal auction is a fair auction.", next = "BACK", reply = "It is. Thank you.", fx = { align = { order = 1 } } },
+        { text = "Auctions are just games.", next = "BACK", reply = "Then don't play.", fx = { align = { order = -1 } } },
         { text = "I'd like to see the auctions.", next = "BUSINESS" },
         { text = "An auction with no shouting?", next = "quiet" },
         { text = "What sells best in Darnassus?", next = "sells" },
@@ -149,6 +153,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend. Your item and price, and I'll handle the rest." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. Item and lowest price. Now." },
     { id = "g_hello", text = "Good day. If you are selling, I shall need the item and the lowest price you will bear. If you are buying, the board is there." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Your account is in order, for I looked at it this morning." },
     { id = "g_craft", when = { profession = { "Enchanting", "Alchemy", "Tailoring", "Leatherworking" } }, text = "You make things for sale, I think. Then price them by what they cost you and not by what you hope, and we shall get on." },
@@ -173,6 +179,8 @@ P:NPC {
         { id = "h_again3", text = "Yes. Go on." },
       },
       choices = {
+        { text = "A clear auction is a fair auction.", next = "BACK", reply = "It is.", fx = { align = { order = 1 } } },
+        { text = "Auctions are too complicated.", next = "BACK", reply = "Then don't use them.", fx = { align = { order = -1 } } },
         { text = "I'd like to see the auctions.", next = "BUSINESS" },
         { text = "You'd rather count than talk.", next = "count" },
         { text = "What do the figures tell you?", next = "figures" },
@@ -268,6 +276,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome, friend! Buying or selling? Either way, I'm glad you're here!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Buying or selling? Quickly." },
     { id = "g_hello", text = "Welcome, welcome! Come in under the boughs. Are you buying or selling, and, more to the point, where have you come from?" },
     { id = "g_back", when = { metBefore = true }, text = "My friend, you are back! Tell me where you have been since, before Golothas makes me do sums." },
     { id = "g_out", when = { race = { "Human", "Dwarf", "Gnome" } }, text = "An outlander! Splendid. Come and stand where I can ask you things. How was the crossing, and did you see the big fish?" },
@@ -292,6 +302,8 @@ P:NPC {
         { id = "h_again3", text = "Something more, my friend?" },
       },
       choices = {
+        { text = "Curiosity makes a good auctioneer.", next = "BACK", reply = "It does! You understand.", fx = { align = { light = 1 } } },
+        { text = "An auctioneer should just sell.", next = "BACK", reply = "Then talk to Golothas.", fx = { align = { light = -1 } } },
         { text = "I'd like to see the auctions.", next = "BUSINESS" },
         { text = "Collecting the whole world?", next = "collect" },
         { text = "What's the strangest thing sold here?", next = "strange" },
@@ -387,6 +399,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend. You have the hands for a great weapon. Look." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well met. Both hands, all your attention. Which do you lack?" },
     { id = "g_hello", text = "Well met. I sell arms that want both of your hands and all of your attention. Which do you favour, the sword, the staff or the polearm?" },
     { id = "g_back", when = { metBefore = true }, text = "You return, and you are carrying it properly now, across the back and not dragging. I am glad to see that." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior. Take the greatsword from the wall and show me a single cut. I shall know from that what to sell you." },
@@ -411,6 +425,8 @@ P:NPC {
         { id = "h_again3", text = "Yes?" },
       },
       choices = {
+        { text = "A two-handed weapon demands discipline.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "A big weapon just needs a strong arm.", next = "BACK", reply = "Then hit yourself with it.", fx = { align = { order = -1 } } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Why would you ask what I'll do with it?", next = "why" },
         { text = "Do night elves use great blades much?", next = "use" },
@@ -516,6 +532,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend. Your blade is well kept. Let me find you a better one." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Let me see what you carry. Hm. Poorly kept." },
     { id = "g_hello", text = "Good day. Swords for one hand and daggers for the other. Let me see what you carry now, so that I know how low to set my hopes." },
     { id = "g_back", when = { metBefore = true }, text = "Back, and still using that? I thought I had talked you out of it. Very well, show me the edge." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "You have a pair of daggers and you came in by the side stair. I shall not ask why. I shall only say that mine are sharper." },
@@ -540,6 +558,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. I am only sharpening." },
       },
       choices = {
+        { text = "A blade should be kept sharp and clean.", next = "BACK", reply = "It should. You understand.", fx = { align = { order = 1 } } },
+        { text = "A blade is a blade.", next = "BACK", reply = "Then buy one elsewhere.", fx = { align = { order = -1 } } },
         { text = "Show me your blades.", next = "BUSINESS" },
         { text = "Perfect contempt, all three of you?", next = "contempt" },
         { text = "Where is your steel forged?", next = "steel" },
@@ -645,6 +665,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend. Plain and sound, and a good price for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. Plain and sound. Buy." },
     { id = "g_hello", text = "Good day to you. Maces, short swords, staves and daggers, all plain and all sound. If you want something with a history, the others have those." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. It held up, did it? They generally do, for there is not much on them to go wrong." },
     { id = "g_young", when = { maxLevel = 15 }, text = "New to the road? Then you have come to the right stall. Buy something plain, learn on it, and break it without grieving." },
@@ -669,6 +691,8 @@ P:NPC {
         { id = "h_again3", text = "Yes, friend?" },
       },
       choices = {
+        { text = "Plain weapons are honest weapons.", next = "BACK", reply = "They are. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Fancy weapons are better.", next = "BACK", reply = "Then go see Ealyshia.", fx = { align = { honor = -1 } } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "You send customers to your rivals?", next = "rivals" },
         { text = "Is plain truly better?", next = "plain" },
@@ -764,6 +788,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend! A dart for you, perfectly balanced." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Knives, darts, axes. Throw well, or don't buy." },
     { id = "g_hello", text = "Good day! Knives, darts and light axes, every one of them made to leave your hand. Do you see the knot in that post? Watch it for a moment." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it is you. Have you been practising, or have you only been losing knives in the undergrowth?" },
     { id = "g_rogue", when = { class = { "ROGUE", "WARRIOR" } }, text = "A fighter who knows that a blade need not stay in the hand. Good. Come and tell me what you throw, and at what." },
@@ -788,6 +814,8 @@ P:NPC {
         { id = "h_again3", text = "Something more?" },
       },
       choices = {
+        { text = "Throwing weapons take great skill.", next = "BACK", reply = "They do! You understand.", fx = { align = { honor = 1 } } },
+        { text = "Throwing weapons are toys.", next = "BACK", reply = "Then don't throw them.", fx = { align = { honor = -1 } } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Can you hit that knot every time?", next = "knot" },
         { text = "Why won't the Sentinels let you near a glaive?", next = "glaive" },
@@ -885,6 +913,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend! An axe, for you, and no jokes about elves with axes!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well met. Axes. Yes, in Darnassus. Buy or go." },
     { id = "g_hello", text = "Well met! Axes, for one hand or for two. Yes, in Darnassus, and yes, I have heard every remark there is to make about it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! The edge held, I trust. An axe is a forgiving thing, and you have not managed to offend it yet." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf at my stall! Now I shall be judged by someone who knows. Go on, pick one up, and tell me the worst." },
@@ -909,6 +939,8 @@ P:NPC {
         { id = "h_again3", text = "Go on, friend." },
       },
       choices = {
+        { text = "An axe is a fine weapon for anyone.", next = "BACK", reply = "It is! You understand.", fx = { align = { honor = 1 } } },
+        { text = "Axes are for orcs and dwarves.", next = "BACK", reply = "I've heard that one before.", fx = { align = { honor = -1 } } },
         { text = "Show me your axes.", next = "BUSINESS" },
         { text = "An axe merchant, among night elves?", next = "why" },
         { text = "And what's the other part?", next = "part" },
@@ -1014,6 +1046,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Elune-adore, friend. A staff for you, made to heal and not harm." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Elune-adore. Maces and staves. Buy, please." },
     { id = "g_hello", text = "Elune-adore. I sell maces and staves, the arms of those who would rather not draw blood and know that they sometimes must." },
     { id = "g_back", when = { metBefore = true }, text = "You are welcome back. I trust it has served you, and that you have needed it seldom." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "A priest. Then you already know what I sell and why. Come and choose, and take your time over it." },
@@ -1038,6 +1072,8 @@ P:NPC {
         { id = "h_again3", text = "Yes?" },
       },
       choices = {
+        { text = "A weapon that doesn't draw blood is still a weapon.", next = "BACK", reply = "It is. You understand.", fx = { align = { light = 1 } } },
+        { text = "Only blades matter in battle.", next = "BACK", reply = "Then go to Merelyssa.", fx = { align = { light = -1 } } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Why do the priestesses fight without an edge?", next = "edge" },
         { text = "You know them by their staves?", next = "know" },
@@ -1135,6 +1171,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend. This staff speaks of you. Come and see." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. Each staff says something. Yours says little." },
     { id = "g_hello", text = "Good day to you. Every staff here was carved by hand, and each one says something. Tell me a little of yourself and I shall find the one that says it." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you have come back. Has the staff grown used to you? It takes a season, sometimes two." },
     { id = "g_druid", when = { class = "DRUID" }, text = "A druid. Welcome. You will want to feel the wood before you look at the carving, and so you should." },
@@ -1159,6 +1197,8 @@ P:NPC {
         { id = "h_again3", text = "Yes? Go on." },
       },
       choices = {
+        { text = "Every staff carries a story.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "A staff is just a stick.", next = "BACK", reply = "Then use a stick.", fx = { align = { order = -1 } } },
         { text = "Show me your staves.", next = "BUSINESS" },
         { text = "What do the carvings say?", next = "carve" },
         { text = "Where does the wood come from?", next = "wood" },
@@ -1266,6 +1306,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend. A shield for you, the sturdiest I have." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well met. Carry a shield. Buy one." },
     { id = "g_hello", text = "Well met. Bucklers, round shields and the tall kind. Whatever else you carry, carry one of these, and you will carry the rest for longer." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and the shield has new marks on it. Good. I had rather see them there than on you." },
     { id = "g_war", when = { class = { "WARRIOR", "PALADIN" } }, text = "A shield-bearer. Turn it round and let me see the back, for that is where I learn how you use it." },
@@ -1290,6 +1332,8 @@ P:NPC {
         { id = "h_again3", text = "Yes?" },
       },
       choices = {
+        { text = "A shield protects more than its bearer.", next = "BACK", reply = "It does. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Shields slow you down.", next = "BACK", reply = "Then you'll be quick, and dead.", fx = { align = { honor = -1 } } },
         { text = "Show me your shields.", next = "BUSINESS" },
         { text = "The only honest weapon, you say?", next = "honest" },
         { text = "Who made these?", next = "made" },
@@ -1394,6 +1438,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend. Where are you bound? I'll fit you perfectly." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Where are you bound? How soon? Quickly." },
     { id = "g_hello", text = "Good day. Mail shirts, coifs and leggings. Where are you bound, and how soon? Those two things decide everything else." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. Turn about. Yes, it has stretched at the shoulder, as I said that it would. Let me take a link out." },
     { id = "g_hunter", when = { class = { "HUNTER", "WARRIOR" } }, text = "You will want mail, and you will want it to be quiet. I have both, though not always in the same shirt." },
@@ -1418,6 +1464,8 @@ P:NPC {
         { id = "h_again3", text = "Yes? Quickly, now." },
       },
       choices = {
+        { text = "Good mail serves the Sentinels well.", next = "BACK", reply = "It does. I sold to many.", fx = { align = { order = 1 } } },
+        { text = "Mail is too heavy for elves.", next = "BACK", reply = "Then wear cloth.", fx = { align = { order = -1 } } },
         { text = "Show me your mail.", next = "BUSINESS" },
         { text = "You were a quartermaster?", next = "quarter" },
         { text = "Why does it matter where I'm bound?", next = "bound" },
@@ -1522,6 +1570,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend. This mantle would suit you beautifully." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. Cloth that breathes. Buy." },
     { id = "g_hello", text = "Good day, and welcome. I have mantles, gloves, sandals and belts, in cloth that breathes. May I ask what sort of company you keep?" },
     { id = "g_back", when = { metBefore = true }, text = "How pleasant to see you. The mantle sits well on you now, for you have grown into it." },
     { id = "g_caster", when = { class = { "PRIEST", "MAGE", "WARLOCK" } }, text = "One who works by word and gesture. Then nothing I sell will bind your arms, and I can promise you that." },
@@ -1548,6 +1598,8 @@ P:NPC {
         { id = "h_again3", text = "Yes?" },
       },
       choices = {
+        { text = "Cloth armor is graceful and practical.", next = "BACK", reply = "It is. You understand.", fx = { align = { order = 1 } } },
+        { text = "Cloth is no protection at all.", next = "BACK", reply = "Then wear mail.", fx = { align = { order = -1 } } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Why ask what company I keep?", next = "company" },
         { text = "Is cloth truly armor at all?", next = "armor" },
@@ -1644,6 +1696,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. This robe was cut for one like you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Robes, in the kaldorei manner. Buy." },
     { id = "g_hello", text = "Ishnu-alah. These are robes in the kaldorei manner, as they have been cut since before the Sundering. Stand straight, please, and let me look at you." },
     { id = "g_back", when = { metBefore = true }, text = "You return. You wear it well, but you have belted it too high. Allow me." },
     { id = "g_nelf", when = { race = "NightElf" }, text = "A daughter or son of the forest. Good. I need not explain the drape to you, though I may need to remind you of it." },
@@ -1668,6 +1722,8 @@ P:NPC {
         { id = "h_again3", text = "Yes?" },
       },
       choices = {
+        { text = "The old ways of cutting robes are best.", next = "BACK", reply = "They are. You understand.", fx = { align = { order = 1 } } },
+        { text = "New styles are better than old.", next = "BACK", reply = "Then you will look foolish.", fx = { align = { order = -1 } } },
         { text = "Show me your robes.", next = "BUSINESS" },
         { text = "What makes the old pattern right?", next = "pattern" },
         { text = "Trianna's new cuts displease you.", next = "trianna" },
@@ -1765,6 +1821,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend. A pack for you, with room for everything." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "How often have you run out of room? Often, I think." },
     { id = "g_hello", text = "Good day. Pouches, satchels and packs. Before you choose, tell me how often you have had to leave something behind for want of room." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. You have filled it already, have you? Everyone does. I have a larger one." },
     { id = "g_craft", when = { profession = { "Herbalism", "Mining", "Skinning" } }, text = "A gatherer. You will be carrying three times what an ordinary traveller does, and you will be folding hides in on top of herbs. Let us mend that." },
@@ -1789,6 +1847,8 @@ P:NPC {
         { id = "h_again3", text = "Yes?" },
       },
       choices = {
+        { text = "A good bag saves much trouble.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "Any bag will do.", next = "BACK", reply = "Then lose your things.", fx = { align = { order = -1 } } },
         { text = "Show me your bags.", next = "BUSINESS" },
         { text = "A pack is a person's character?", next = "character" },
         { text = "What do people carry that they shouldn't?", next = "carry" },
@@ -1885,6 +1945,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, good day, friend! I saved you the best of everything!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. Food, water, torches. Buy." },
     { id = "g_hello", text = "Good day, good day! Food for the road, water, torches and a little of everything else. Are you lost? You have the look of it. Most people are, the first time." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again! Did you find the bank? It is the great tree shaped like a bear, and I did tell you so." },
     { id = "g_out", when = { race = { "Human", "Dwarf", "Gnome" } }, text = "A visitor! Welcome to Darnassus. You will want to know where things are. Everybody does, and nobody likes to ask a Sentinel." },
@@ -1909,6 +1971,8 @@ P:NPC {
         { id = "h_again3", text = "Yes, dear?" },
       },
       choices = {
+        { text = "Being prepared keeps travelers safe.", next = "BACK", reply = "It does! You understand.", fx = { align = { order = 1 } } },
+        { text = "I'll manage without supplies.", next = "BACK", reply = "Then you'll go hungry.", fx = { align = { order = -1 } } },
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "Where is everything in this city?", next = "where" },
         { text = "You see all of Darnassus pass by.", next = "pass" },
@@ -2024,6 +2088,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend. Sit; I've moonberry juice just for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. Juice and bread. Buy, please." },
     { id = "g_hello", text = "Good day. Moonberry juice, honey bread and spiced fruit. Sit a moment, if you like. You look as though someone has just told you something." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. The usual? I remember it. And you look better than you did, so it must agree with you." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "A servant of the Goddess. The honey bread is baked for the Temple, and there is always a little over. Please, have some." },
@@ -2048,6 +2114,8 @@ P:NPC {
         { id = "h_again3", text = "Yes, friend?" },
       },
       choices = {
+        { text = "A moment's rest is good for the soul.", next = "BACK", reply = "It is. Sit, then.", fx = { align = { light = 1 } } },
+        { text = "Rest is for the weak.", next = "BACK", reply = "Then don't sit.", fx = { align = { light = -1 } } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "You feed people after they've been advised?", next = "advised" },
         { text = "Where does your food come from?", next = "food" },
@@ -2162,6 +2230,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend. Speak plainly, and I'll give you the best." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. Speak plainly. What do you need?" },
     { id = "g_hello", text = "Good day. Vials, flash powder and the usual preparations. Speak plainly about what you need. Nobody is listening down here who would mind." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. The last vial did what was asked of it, I take it, since here you stand." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "One of Syurna's, or one of Erion's. It makes no difference to me. I supply both of them, and I tell neither what the other bought." },
@@ -2186,6 +2256,8 @@ P:NPC {
         { id = "h_again3", text = "Yes?" },
       },
       choices = {
+        { text = "Plain speech serves everyone.", next = "BACK", reply = "It does. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Poison is a coward's weapon.", next = "BACK", reply = "Then don't buy it.", fx = { align = { honor = -1 } } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "How does a night elf come to sell poison?", next = "come" },
         { text = "The druids permit this, under their feet?", next = "druids" },
@@ -2291,6 +2363,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome to the Enclave, friend. I saved some fresh seeds for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Seeds, powders, candles. Buy, please." },
     { id = "g_hello", text = "Welcome to the Enclave, friend. I have seeds, powders, candles and the other small things that a working asks for. What is it you practise?" },
     { id = "g_back", when = { metBefore = true }, text = "You have come back, and so the last of them were spent. I hope that it was on something worth the spending." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Ishnu-alah, friend. You will be wanting seeds for the calling back of the fallen. I keep them at the front, for those who come in a hurry." },
@@ -2315,6 +2389,8 @@ P:NPC {
         { id = "h_again3", text = "Yes?" },
       },
       choices = {
+        { text = "The druids' work is important.", next = "BACK", reply = "It is. I supply them gladly.", fx = { align = { light = 1 } } },
+        { text = "Druids are slow and dreamy.", next = "BACK", reply = "They dream for us all.", fx = { align = { light = -1 } } },
         { text = "Show me your reagents.", next = "BUSINESS" },
         { text = "Why call a reagent a promise?", next = "promise" },
         { text = "What do the druids use most?", next = "most" },
@@ -2412,6 +2488,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Good day, friend. Tell me your company's name, and I'll design something splendid." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. Tell me what your company stands for. Quickly." },
     { id = "g_hello", text = "Good day. I design the tabards that companies wear. Before we speak of colours, tell me what your company has sworn to do." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Does the emblem still fit what your company has become? They change, and the cloth ought to follow." },
     { id = "g_out", when = { race = { "Human", "Dwarf", "Gnome" } }, text = "A guest of the Alliance. Your peoples love their heraldry, I know. I shall do my best not to put a lion on it." },
@@ -2436,6 +2514,8 @@ P:NPC {
         { id = "h_again3", text = "Yes?" },
       },
       choices = {
+        { text = "A tabard should show what a company stands for.", next = "BACK", reply = "It should. You understand.", fx = { align = { honor = 1 } } },
+        { text = "A tabard is just colours.", next = "BACK", reply = "Then pick any colours.", fx = { align = { honor = -1 } } },
         { text = "I'd like a tabard designed.", next = "BUSINESS" },
         { text = "Why ask what a company has sworn?", next = "sworn" },
         { text = "What makes an emblem good?", next = "good" },

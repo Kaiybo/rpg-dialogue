@@ -171,6 +171,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Come in, come in. I'd offer you a seat, but the last one fell apart, rather like the congregation." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you're back. Good; I'd hoped I hadn't scared you off, though the dead do that without trying." },
     { id = "g_ghost", when = { resSick = true }, text = "Just back from the spirit healer, are you? Welcome to the club, child; we meet most evenings, and nobody stays dead for long." },
@@ -195,6 +197,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, child. I've nothing but time, and a little less of me than yesterday." },
       },
       choices = {
+        { text = "The Light forgives all who truly seek it.", next = "BACK", reply = "It does, and I pray we're all given the chance to seek.", fx = { align = { light = 1 } } }, -- dp_stance
+        { text = "Some deeds are beyond the Light's forgiveness.", next = "BACK", reply = "Careful, friend. That's a judgment best left to the Light itself.", fx = { align = { light = -1 } } }, -- dp_stance
         { text = "Do you still believe, Father?", next = "believe" },
         { text = "Do you keep anything from your old church, Father?", next = "collar" },
         { text = "What's in that little box by the altar?", next = "box" },
@@ -283,6 +287,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Stand straight. The Light is watching, and it is not impressed by slouching." },
     { id = "g_back", when = { metBefore = true }, text = "You return, good. Constancy is the beginning of virtue." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "You come at the hour of evening prayer. Consider that no accident, and lower your voice accordingly." },
@@ -307,6 +313,8 @@ P:NPC {
         { id = "h_again2", text = "Consider your next question carefully, child. Idle words are a small sin, but they add up." },
       },
       choices = {
+        { text = "The Light forgives all who truly seek it.", next = "BACK", reply = "It does, and I pray we're all given the chance to seek.", fx = { align = { light = 1 } } }, -- dp_stance
+        { text = "Some deeds are beyond the Light's forgiveness.", next = "BACK", reply = "Careful, friend. That's a judgment best left to the Light itself.", fx = { align = { light = -1 } } }, -- dp_stance
         { text = "The plague must have been a hard test.", next = "tested" },
         { text = "What do you think of the Dark Lady?", next = "lady" },
         { text = "What is this sermon you're always finishing?", next = "sermon" },
@@ -401,6 +409,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_default", text = "Shield up, chin down. Now, what do you want?" },
     { id = "g_back", when = { metBefore = true }, text = "Still alive, I see, or still something, at any rate. Good." },
     { id = "g_woman", when = { gender = "female", class = "WARRIOR" }, text = "Another woman with a sword. Good; the watch never had enough of us, and the Scourge never once asked to see my papers." },
@@ -431,6 +441,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm still on shift. I'm always on shift." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "So you held a gate here, in life.", next = "gate" },
         { text = "What makes a good warrior?", next = "good" },
         { text = "Why do you look at shields before faces?", next = "shield" },
@@ -545,6 +557,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_default", text = "You've a question, or you'd not be standing there. Ask it." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Sit down; my legs aren't what they were, and they were never much." },
     { id = "g_fowler", when = { timeOfDay = { "dusk", "night" } }, text = "Keep your voice down, if you would. Baltus Fowler's been bellowing since dusk, and I'd like one quiet corner in this quarter." },
@@ -572,6 +586,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. Short questions get short answers, and long ones get the same." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "So you fought the orcs.", next = "orcs" },
         { text = "What's the first thing you teach?", next = "first" },
         { text = "Why keep a pike on the wall, if you teach the sword?", next = "pike" },
@@ -687,6 +703,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_default", text = "Ha! Another one! Come here and let's see if you can take a punch, since I stopped feeling mine the day I died." },
     { id = "g_back", when = { metBefore = true }, text = "There you are! I was telling the lads about you just yesterday, though I may have exaggerated." },
     { id = "g_battered", when = { durability = { max = 0.3 } }, text = "Ha! Look at the state of you, mate! Somebody hit you properly, and I want to hear every word of it." },
@@ -716,6 +734,8 @@ P:NPC {
         { id = "h_again2", text = "Ha! Still here? Good, you're tougher than the last one, mate, and he only lasted a minute." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "You look like you've taken some hard hits.", next = "worst" },
         { text = "Why are you so cheerful?", next = "cheer" },
         { text = "Why does every dent in your shield have a name?", next = "dents" },

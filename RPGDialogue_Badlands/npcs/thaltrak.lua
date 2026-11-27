@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my friend, you come back! Sit, mon, and tell me what the road be saying today." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I got enough trouble waiting on my Sha'ni without your kind of trouble too." },
     { id = "g_default", text = "Hey, mon, you be coming from the east? You see any troll soldiers on the road, any word at all?" },
     { id = "g_back", when = { metBefore = true }, text = "You be back, mon. Sit with me a while, I still be watching that road." },
     { id = "g_away", when = { away = 14 }, text = "You been gone {away}, and I been standing right here every day of it, because the Warlord say I can't leave my post, and my feet be blistered to the bone from it." },
@@ -200,6 +202,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You be a true friend to Thal'trak, mon, and I tell Sha'ni about you when I talk to the wind at night." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You treat me like I be nothing, mon, and I already lose enough this year. Walk on if that be how it is." },
+    },
     background = { { id = "tp_ba", text = "Darkspear, mon, from the Echo Isles, and a soldier of the Horde since the Warchief bring us across the sea. Kargath be where they put me." } },
     advice = { { id = "tp_ad", text = "Say the important things before somebody leave on a mission, mon, because you don't always get to say them after." } },
     voljin = { { id = "tp_voljin", text = "Vol'jin be our chief, mon, and he bring us across the sea to the Warchief. Sha'ni say he be the wisest troll alive, and I believe her." } },

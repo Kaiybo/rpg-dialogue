@@ -2428,6 +2428,11 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. You're always welcome under this roof." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "There's a bed if you want it, but don't expect a smile with it." },
+    { id = "dp_pt_elf", when = { party = { race = "NightElf" } }, text = "Yer tall friend can duck under the beams, I hope. We built this inn fer folk who stand closer tae the ale." },
+    { id = "dp_pt_any", when = { party = true }, text = "Brought the whole company, have ye? Good, the Stonefire's at its best when the tables are full and the songs are loud." },
+    { id = "dp_rep_if", when = { rep = { faction = "Ironforge", min = "Exalted" } }, text = "There's not a dwarf in the city who'd not stand ye a pint, friend, an' I'll be the first. Sit, sit." },
     { id = "g_tavern", text = "Welcome tae the Stonefire! Grab a stool, grab a mug, an' if ye've a story, grab the room's attention." },
     { id = "g_home", when = { homeInn = { "Ironforge", "Stonefire Tavern" } }, text = "There ye are! Yer bed's warm, as is everythin' in Ironforge, thanks tae the forges." },
     { id = "g_away", when = { away = 14 }, text = "Look who's back after {away}! Grab a stool, an' I hope ye've brought a story big enough tae make up fer the wait." },

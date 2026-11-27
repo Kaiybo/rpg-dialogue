@@ -39,6 +39,12 @@ P:Thread {
       fx = { thread = { id = "burning_blade", beat = "b1_zureetha", state = "stirring" }, learn = { "burning_blade" } },
     },
     {
+      id = "b1_zureetha_orc", npc = "zureetha",
+      when = { race = "Orc", thread = { id = "burning_blade", notBeat = "b1_zureetha" } },
+      text = "The Burning Blade wear our faces, {class}, and they carry the demon's mark we spent years in the camps washing out of our blood. Their new daggers weren't forged in this valley, so somebody beyond these hills is arming them, and I mean to learn who.",
+      fx = { thread = { id = "burning_blade", beat = "b1_zureetha", state = "stirring" }, learn = { "burning_blade" } },
+    },
+    {
       id = "b2_galgar", npc = "galgar",
       when = { thread = { id = "burning_blade", beat = "b1_zureetha" }, ["not"] = { thread = { id = "burning_blade", beat = "b2_galgar" } } },
       text = "Zureetha's been asking about the peon the Blade killed. He was carrying my cactus apples, and I found the sack in the scrub the next morning, not one apple eaten. Folk who kill over food and then don't eat it aren't hungry; they just wanted the valley frightened.",
@@ -120,6 +126,12 @@ P:Thread {
       id = "b4_jorn", npc = "jorn",
       when = { thread = { id = "kolkar_war", beat = "b3_regthar" }, ["not"] = { thread = { id = "kolkar_war", beat = "b4_jorn" } } },
       text = "Regthar speaks of the Kolkar as though the war began when the orcs landed. My people fought the centaur across this grass for longer than anyone remembers, and on the long walk to Mulgore it was orc axes at our flank, which is a debt Taurajo hasn't forgotten.",
+      fx = { thread = { id = "kolkar_war", beat = "b4_jorn", state = "unfolding" } },
+    },
+    {
+      id = "b4_jorn_tauren", npc = "jorn",
+      when = { race = "Tauren", thread = { id = "kolkar_war", beat = "b3_regthar" }, ["not"] = { thread = { id = "kolkar_war", beat = "b4_jorn" } } },
+      text = "Regthar speaks of the Kolkar as though the war began when the orcs landed, but you and I know better. Our grandfathers fought the centaur across this grass long before Thrall came, and it was orc axes at our flank on the walk to Mulgore, a debt Taurajo still honours.",
       fx = { thread = { id = "kolkar_war", beat = "b4_jorn", state = "unfolding" } },
     },
     {

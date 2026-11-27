@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.59.0 (2026-11-27): Word Gets Around
+Overheard exchanges, passing remarks and gossip about your stances (new files: full game restart). Townsfolk speak in their own race's voice; holiday lines for all eight Classic festivals; deeper views, Ask answers, threads and letters.
+
 ## 1.58.1 (2026-11-25): Mending the Seams
 - Bug pass: lines and replies that never showed (wrong condition keys or values, unremembered "heard" lines, duplicate line ids, NPCs sharing one key) fixed; stance replies phrased as statements.
 

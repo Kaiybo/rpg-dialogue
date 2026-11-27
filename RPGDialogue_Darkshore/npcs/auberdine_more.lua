@@ -186,7 +186,7 @@ P:NPC {
       big = true,
       lines = { { id = "dr_abolish", text = "It would ease the poison in one bear for a while, and I have tried it, but this sickness is more than poison. It is in the water and the moss and in something deeper that I cannot name yet, and a spell cannot mend a whole shore one bear at a time." } },
       choices = {
-        { text = "Then I'll cure every bear I meet, one by one.", next = "BACK", reply = "Then you are as stubborn as I am, and the bears are lucky in both of us. Come and tell me which ones you reach.", fx = { affinity = 1, align = { light = 1 }, opinion = { druids = "healers" } } },
+        { text = "Then I'll cure every bear I meet, one by one.", next = "BACK", reply = "Then you are as stubborn as I am, and the bears are lucky in both of us. Come and tell me which ones you reach.", fx = { affinity = 1, align = { light = 1 }, opinion = { druids = "admire" } } },
         { text = "Then the sickest should be put down quickly.", next = "BACK", reply = "I have said the same, on the bad nights, and it shames me every time. Do it cleanly, if you must.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -629,6 +629,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend! The birds are rested and so glad to see you. Where shall they take you today?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The birds are rested. Pay and fly, before the big grey clouds come." },
     { id = "g_default", text = "Ishnu-alah! The birds are fed and rested, so if you're flying, go now, before the big grey one starts sulking again." },
     { id = "g_wind", when = { timeOfDay = "night" }, text = "The night wind off the sea is cold up there, so wrap up before you go, and trust the bird." },
   },
@@ -727,6 +729,8 @@ P:NPC {
         { id = "ddf_default", text = "Never with a rider who holds on, and I've flown the route to Rut'theran more times than I can count. Most falls happen on Darkshore's cliffs, from people who think they can climb down faster than they can walk around." },
       },
       choices = {
+        { text = "Flying keeps Darkshore connected to Darnassus.", next = "BACK", reply = "It does! Without the birds, we'd be very lonely on this coast.", fx = { align = { order = 1 } } },
+        { text = "The hippogryphs should run wild, not carry riders.", next = "BACK", reply = "They would starve in a week if they ran wild here. Pay and fly.", fx = { align = { order = -1 } } },
         { text = "That sounds like something I'd do.", next = "BACK", reply = "Then take the long way round, and arrive alive. The cliffs will still be there tomorrow." },
         { text = "Something else.", next = "BACK" },
       },

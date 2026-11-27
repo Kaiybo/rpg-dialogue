@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ye came back, friend, an' I'm glad of it. Sit, if ye can bear the heat, an' I'll talk while I can." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I've not got long, an' I'd rather not spend it on ye." },
     { id = "g_default", text = "Forget about me, friend, and help the others, for I've not got long and they've got longer to suffer." },
     { id = "g_back", when = { metBefore = true }, text = "Ye came back, and I'm still here, more or less, which surprises me as much as it does ye." },
     { id = "g_freed", when = { questDone = TODO_QUEST("Release Them") }, text = "They're quiet now, the lads, and I can hear the fire again instead of their hammers. Thank ye for that." },
@@ -148,6 +150,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye're a good friend tae a dyin' dwarf, an' I'd have been proud tae dig beside ye." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've been cruel tae a dyin' man, an' there's no glory in that." },
+    },
     background = { { id = "tp_ba", text = "A digger of the Explorers' League, and proud of it, though I'd have been prouder still to dig somewhere that didn't kill us." } },
     advice = { { id = "tp_ad", text = "Lathoric was the first to show us the way in, smilin' all the while, so mind whoever's too eager to lead ye, friend." } },
     magni = { { id = "tp_magni", text = "Tell the king, if ye ever see him, that the League died diggin' for him. I think he'd want to know." } },

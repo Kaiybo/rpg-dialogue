@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. I'll take my time with you, gnome or not. You've earned that much." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "A gnome on Stonetalon Peak. Again. I'll be brief, as I'm sure you'd prefer." },
     { id = "g_prej", when = { prejudiced = true }, text = "A gnome, on Stonetalon Peak. I'll be short with you, I'm afraid; I've spent a year watching machines chew through the valleys below, and I've forgotten how to like the people who build them." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "I owe you an apology, little friend, and I'm not good at them. You're not the Venture Company, and I shouldn't have looked at you as if you were." },
     { id = "g_default", text = "You climbed all the way up here on foot? Then you've earned a ride down, wherever you're bound, and Elune keep the wind steady under you." },

@@ -123,6 +123,8 @@ P:NPC {
     third = "{name} met Mizzle the Crafty, the Gordok ogre who proclaims each new king in Dire Maul.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "The old king is dead, and Mizzle looked twice to be sure! That means you are the new king, boss, so long live you, for as long as it lasts." },
     { id = "g_back", when = { metBefore = true }, text = "Mizzle is still here, king. Mizzle is always here, whoever is sitting in the big chair." },
   },

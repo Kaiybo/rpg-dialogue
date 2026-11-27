@@ -121,6 +121,8 @@ P:NPC {
     third = "{name} met Kosco Copperpinch of Smokywood Pastures, selling food and drink at Hammerfall.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Hungry, friend? I got bread, I got cheese, I got prices that'll make ya weep with joy." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, pal? The orcs eat like wolves, so get it while it's here." },
   },
@@ -130,6 +132,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Kosco Copperpinch, Smokywood Pastures, Hammerfall branch, which is a very small branch with very big customers. Orcs eat more than any race I've ever sold to, which is great for business and terrible for my inventory." } },
       again = { { id = "h_again", text = "What else, buddy?" }, { id = "h_again2", text = "Go on, the meter's not runnin'." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What do orcs order most?", next = "xorder" },
         { text = "Who robs the supply wagons?", next = "xrob" },
         { text = "A goblin feeding Hammerfall. Does Orgrimmar know?", next = "xorg", when = { faction = "Horde" } },
@@ -221,6 +225,8 @@ P:NPC {
     third = "{name} met Targot Jinglepocket of Smokywood Pastures, selling food and drink at Refuge Pointe.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Food, drink, and a roof, mostly! What'll it be, friend?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, pal? Good, I need the custom after the last raid." },
   },
@@ -230,6 +236,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Targot Jinglepocket, Smokywood Pastures, Refuge Pointe branch, which has been burned down twice this year. The soldiers here pay on time, though, which is more than I can say for the ogres." } },
       again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "Talk fast, I gotta restock before the next raid." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who burned Refuge Pointe down?", next = "xburn" },
         { text = "How do the soldiers here pay?", next = "xpay" },
         { text = "What about the ogres?", next = "xogres" },
@@ -320,6 +328,8 @@ P:NPC {
     third = "{name} spoke with one of the Hammerfall Guardians who hold the gates of the Horde's outpost in Arathi.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
     { id = "g_default", text = "State your business, {class}." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The gate still stands." },
   },
@@ -329,6 +339,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I guard Hammerfall, where Orgrim Doomhammer once held the human prisons and the orcs broke free. We hold this place now, and no human will take it from us again." } },
       again = { { id = "h_again", text = "Speak." }, { id = "h_again2", text = "What else?" } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Did you live in the camps yourself?", next = "xcamp" },
         { text = "What do you think of the humans now?", next = "xhumans" },
         { text = "I'm a human. Am I welcome here?", next = "xhuman", when = { race = "Human" } },
@@ -419,6 +431,8 @@ P:NPC {
     third = "{name} spoke with one of the Refuge Pointe Defenders who guard Stromgarde's last outpost in Arathi.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
     { id = "g_default", text = "Hail, {class}. Watch yourself on the roads." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good to see a friendly face." },
   },
@@ -430,6 +444,8 @@ P:NPC {
         { id = "ybarrefugepointedefender2", when = { class = "PALADIN" }, text = "She'd love to meet you. She draws paladins with shining swords in every letter." },
       },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -641,6 +657,8 @@ P:NPC {
     third = "{name} met Fardel Dabyrie, one of the brothers at Dabyrie's Farmstead.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Afternoon, stranger. If you're here for the harvest, you're late, and if you're here for something else, you're very welcome to leave." },
   },
   start = "hello",
@@ -759,6 +777,8 @@ P:NPC {
     third = "{name} spoke with Marcel Dabyrie at the family farmstead.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Hmph. Another traveller. Mind the chickens, and keep your hands where I can see them." },
   },
   start = "hello",
@@ -876,6 +896,8 @@ P:NPC {
     third = "{name} met one of the militia guarding Dabyrie's Farmstead.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
     { id = "g_default", text = "Who goes there? Oh, you're not a troll. Good, good, carry on, then." },
   },
   start = "hello",
@@ -886,6 +908,8 @@ P:NPC {
         { id = "ybardabyriemilitia2", when = { class = "WARRIOR" }, text = "She'd like you. She likes anyone who looks like they could hit a troll properly." },
       },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -996,6 +1020,8 @@ P:NPC {
     third = "{name} spoke with a Stromgarde troll hunter in the keep.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
     { id = "g_default", text = "Keep close to the walls, and if you see a troll, burn it. Steel alone won't keep them down." },
   },
   start = "hello",
@@ -1006,6 +1032,8 @@ P:NPC {
         { id = "ybarstromgardetrollhunter2", when = { race = "Troll" }, text = "You'd know their ways, maybe. Do your shadow hunters laugh like that?" },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you ever wonder about them?", next = "ywonder" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1116,6 +1144,8 @@ P:NPC {
     third = "{name} met a dwarven farmer working the isolated fields of Arathi.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Well, I'll be! A visitor, way out here? Ye must be lost, {g:lad|lass}, or very curious." },
   },
   start = "hello",
@@ -1233,6 +1263,8 @@ P:NPC {
     third = "{name} spoke with an injured soldier waiting for treatment at Hammerfall.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
     { id = "g_default", text = "If you're a healer, get on with it. If you're not, stop staring." },
     { id = "g_q", when = { questActive = TODO_QUEST("Triage") }, text = "The doctor sent you? Then work fast. Some of us won't last the hour." },
   },
@@ -1244,6 +1276,8 @@ P:NPC {
         { id = "ybarainjuredsoldier2", when = { race = "Orc" }, text = "You'll know how it is with mothers. They never think you're a warrior until you come home with a scar." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Something else.", next = "BACK" },
       },
     },

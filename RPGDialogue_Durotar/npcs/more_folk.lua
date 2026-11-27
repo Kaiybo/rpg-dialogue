@@ -118,6 +118,8 @@ P:NPC {
     third = "{name} met Zjolnir, the troll raptor handler at Sen'jin Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Careful, mon, but dis one don't bite you. She like you now." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Careful, mon. Dey all bite, and dis one want to bite you." },
     { id = "g_default", text = "Careful, mon, dat one bites. Dey all bite, but dat one means it." },
     { id = "g_back", when = { metBefore = true }, text = "You be back to admire my raptors again. Dey like you, a little." },
     { id = "g_exalted", when = { reputation = { faction = "Darkspear Trolls", min = "exalted" } }, text = "De tribe speaks well of you, very well. Come, come, de raptors be ready for a friend of de Darkspear." },
@@ -145,6 +147,8 @@ P:NPC {
         { id = "h_again3", text = "You still be here, and de raptors still be watchin' you. What more you want to know, mon?" },
       },
       choices = {
+        { text = "A raptor should be raised with respect.", next = "BACK", reply = "It should, mon. Dey know who respects dem.", fx = { align = { light = 1 } } },
+        { text = "A raptor's just a beast to ride.", next = "BACK", reply = "Den it'll bite you, mon. Careful.", fx = { align = { light = -1 } } },
         { text = "Show me the raptors.", next = "BUSINESS", when = { any = { { race = "Troll" }, { reputation = { faction = "Darkspear Trolls", min = "exalted" } } } } },
         { text = "Why only for the Darkspear?", next = "why" },
         { text = "How do you tame a raptor?", next = "tame" },
@@ -235,6 +239,8 @@ P:NPC {
     third = "{name} met Xar'Ti, the troll riding trainer at Sen'jin Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You fall well now, mon. Good. Den I teach you de rest." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You want to ride? Den first you learn to fall. Hard." },
     { id = "g_default", text = "You want to ride? Den first you learn to fall, and dat be de lesson most don't like." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and walkin' straight. Good, no broken bones yet." },
     { id = "g_orc", when = { race = "Orc" }, text = "An orc at de raptor pens. You came to look, mon, and lookin' be free, but keep your hands where de beasts can see dem." },
@@ -262,6 +268,8 @@ P:NPC {
         { id = "h_again3", text = "You got more questions dan a hatchlin' got teeth. Go on den, one more." },
       },
       choices = {
+        { text = "Learning to fall is the first lesson.", next = "BACK", reply = "It is, mon. Most don't like it.", fx = { align = { order = 1 } } },
+        { text = "Riding's easy. Just hold on tight.", next = "BACK", reply = "Den you fall, mon, and break your head.", fx = { align = { order = -1 } } },
         { text = "Teach me to ride.", next = "BUSINESS", when = { any = { { race = "Troll" }, { reputation = { faction = "Darkspear Trolls", min = "exalted" } } } } },
         { text = "Why is falling the first lesson?", next = "fall" },
         { text = "Raptors seem like dangerous mounts.", next = "danger" },
@@ -344,6 +352,8 @@ P:NPC {
     third = "{name} met Bom'bay, the eager young witch doctor apprenticed to Master Gadrin.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, hey, my friend! Want to see some real voodoo today? Just for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey. No voodoo today, mon. Go away." },
     { id = "g_default", text = "Hey, hey, you look like somebody who wants to see some real voodoo! No? Maybe a little voodoo?" },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Nobody comes back, mon, dey all run away when I start chantin'." },
     { id = "g_away", when = { away = 14 }, text = "You were gone so long I thought maybe I hexed you by accident and forgot! But no, here you are, mon, same shape and everything." },
@@ -370,6 +380,8 @@ P:NPC {
         { id = "h_again3", text = "You still be here, and you still got two legs and no tail! See, mon, I can be careful when I try." },
       },
       choices = {
+        { text = "Voodoo is a gift from the spirits.", next = "BACK", reply = "It be! Bom'bay learnin' every day.", fx = { align = { light = 1 } } },
+        { text = "Voodoo is just tricks for children.", next = "BACK", reply = "Den go away, mon. Bom'bay busy.", fx = { align = { light = -1 } } },
         { text = "What sort of hexes do you practise?", next = "hexes" },
         { text = "What's it like learning from Gadrin?", next = "gadrin" },
         { text = "Your voodoo is strong? Prove it on Zalazane.", next = "zalazane" },
@@ -465,6 +477,8 @@ P:NPC {
     third = "{name} met Hai'zan, the troll butcher at Sen'jin Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Friend, mon! Hai'zan got de good meat for you, best cut in Sen'jin!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Meat, mon. Pay and go." },
     { id = "g_default", text = "Meat, mon, fresh off de bone! You look hungry, and Hai'zan be fixin' dat." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? De jerky got you, I knew it would." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "You hear dat, mon? Mrrgl, mrrgl, all night down de beach. Buy somethin' and help me forget dem." },
@@ -491,6 +505,8 @@ P:NPC {
         { id = "h_again3", text = "You talk, I chop, everybody be happy. What you want to know now, mon?" },
       },
       choices = {
+        { text = "Feeding the village keeps the Darkspear strong.", next = "BACK", reply = "It does, mon! Hai'zan feed everyone.", fx = { align = { order = 1 } } },
+        { text = "Everyone should hunt their own meat.", next = "BACK", reply = "Den go hunt, mon. Hai'zan busy.", fx = { align = { order = -1 } } },
         { text = "Show me your meat.", next = "BUSINESS" },
         { text = "What's wrong with the murlocs?", next = "murlocs" },
         { text = "Best jerky in Durotar? Cook Torka might disagree.", next = "torka" },
@@ -580,6 +596,8 @@ P:NPC {
     third = "{name} met Grimtak, the Razor Hill butcher who's lost a finger to his own trade.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. Hungry again? I saved a good cut for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Meat and drink. Pay and go." },
     { id = "g_default", text = "Meat and drink, west of the inn, just like the sign says. If you're hungry, you're in the right place." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Still got all your fingers? Good, keep it that way." },
     { id = "g_morning", when = { timeOfDay = "dawn" }, text = "You're early. The boar came in at dawn and it's still warm, so you'll not get fresher in Durotar." },
@@ -606,6 +624,8 @@ P:NPC {
         { id = "h_again3", text = "Still here? Then talk while I work, because the boar won't cut itself." },
       },
       choices = {
+        { text = "A good meal before a fight is wise.", next = "BACK", reply = "It is. A hungry warrior dies.", fx = { align = { order = 1 } } },
+        { text = "A warrior fights better hungry.", next = "BACK", reply = "Then go fight hungry. I'm busy.", fx = { align = { order = -1 } } },
         { text = "Show me what you've got.", next = "BUSINESS" },
         { text = "What happened to your finger?", next = "finger" },
         { text = "You and Torka share the town's kitchen?", next = "torka" },
@@ -695,6 +715,8 @@ P:NPC {
     third = "{name} met Cutac, who sells cloth and leather armor in Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. Good. I've something better in the back, just for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Cloth and leather. Best in Razor Hill. Pay and go." },
     { id = "g_default", text = "Cloth and leather. Not the best in the Horde, but the best in Razor Hill, which is what you've got." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. That armor still holding together?" },
     { id = "g_low", when = { maxLevel = 8 }, text = "Up from the valley, are you? Then look at the boots before you look at anything else on this stall." },
@@ -721,6 +743,8 @@ P:NPC {
         { id = "h_again3", text = "Go on, then. I'm not selling much while you stand in front of the stall anyway." },
       },
       choices = {
+        { text = "Good armor gives a recruit a fighting chance.", next = "BACK", reply = "It does. I've seen too many go without.", fx = { align = { order = 1 } } },
+        { text = "Armor's for cowards.", next = "BACK", reply = "Then go without, and come back for it.", fx = { align = { order = -1 } } },
         { text = "Let me see your armor.", next = "BUSINESS" },
         { text = "What do recruits need most?", next = "recruits" },
         { text = "What dangers should I watch for?", next = "danger" },
@@ -808,6 +832,8 @@ P:NPC {
     third = "{name} met Dhugru Gorelust, the warlock trainer in Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Brave or foolish, I've decided you're brave. Come in." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Another curious one. Brave or foolish? Foolish, I think." },
     { id = "g_default", text = "Another curious one. Most in Razor Hill walk wide of my door, so you're either brave or foolish, and I've no use for the second kind." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, which is more than most manage. The craft rewards persistence, and so do I, within reason." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Come for more, have you? Step closer; I don't bite, though some of my servants do." },
@@ -838,6 +864,8 @@ P:NPC {
         { id = "h_again3", text = "You linger longer than most dare to. Ask, then, and I'll decide whether it deserves an answer." },
       },
       choices = {
+        { text = "Power must be controlled, or it destroys you.", next = "BACK", reply = "It must. You understand more than most.", fx = { align = { order = 1 } } },
+        { text = "Power should be used freely, whatever the cost.", next = "BACK", reply = "Then you will end up like the demons' slaves.", fx = { align = { order = -1 } } },
         { text = "Teach me, Dhugru. I'm hungry for more.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "How do I make a soul shard?", next = "shards", when = { class = "WARLOCK" } },
         { text = "Sometimes I feel the fel pulling at me after a fight.", next = "hunger", when = { class = "WARLOCK" } },
@@ -977,6 +1005,8 @@ P:NPC {
     third = "{name} met Shikrik, the orc shaman trainer in the Valley of Trials.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, friend. The spirits speak kindly of you. Come, learn." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. The spirits wait. Learn, or go." },
     { id = "g_default", text = "Welcome to the Valley, young one. The spirits have been waiting for you, even if you didn't know it." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and you look a little more sure of yourself. Good, the spirits like that." },
     { id = "g_away", when = { away = 14 }, text = "It has been many days, and the valley has sent a great many young ones out since you. Sit a moment and tell me what the wider world sounds like." },
@@ -1001,6 +1031,8 @@ P:NPC {
         { id = "h_again3", text = "You have more to ask, and that is no fault. A shaman who stops asking has stopped learning." },
       },
       choices = {
+        { text = "The spirits should be respected, not commanded.", next = "BACK", reply = "They should. You understand.", fx = { align = { light = 1 } } },
+        { text = "The spirits should obey the shaman.", next = "BACK", reply = "Then they will not answer you.", fx = { align = { light = -1 } } },
         { text = "Teach me, Shikrik.", next = "BUSINESS", when = { class = "SHAMAN" } },
         { text = "How did the orcs forget the spirits?", next = "forgot" },
         { text = "What should a new shaman learn first?", next = "first" },
@@ -1096,6 +1128,8 @@ P:NPC {
     third = "{name} met Zlagk, the butcher in the Valley of Trials.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Hungry? I've got boar and water, as usual, and a little extra for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hungry? Buy something before you faint." },
     { id = "g_default", text = "Hungry? Everyone who comes through this valley is hungry. Buy something, before you faint on my stall." },
     { id = "g_back", when = { metBefore = true }, text = "You survived the boars. Good, now buy some of them." },
     { id = "g_orc", when = { race = "Orc", maxLevel = 5 }, text = "Another young orc with an empty pack. Sit, eat, and listen to Gornek when he talks, in that order." },
@@ -1122,6 +1156,8 @@ P:NPC {
         { id = "h_again3", text = "You're still talking and you're still not eating. Fix one of those, recruit." },
       },
       choices = {
+        { text = "Feeding recruits is important work.", next = "BACK", reply = "It is. They'd starve otherwise.", fx = { align = { order = 1 } } },
+        { text = "Recruits should find their own food.", next = "BACK", reply = "They try. Then they come here.", fx = { align = { order = -1 } } },
         { text = "Show me your food.", next = "BUSINESS" },
         { text = "Where does the boar come from?", next = "boar" },
         { text = "What do you think of the recruits?", next = "recruits" },
@@ -1209,6 +1245,8 @@ P:NPC {
     third = "{name} met Raider Jhash, who patrols the road from the Valley of Trials to Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. Good. Ride with us a moment, friend, and tell me the news." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Need something? Speak up. The patrol doesn't stop." },
     { id = "g_default", text = "Need something? Speak up, the patrol doesn't stop for long." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Road's been quiet, mostly, if you're asking." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Travelling after dark? Stay near the patrol if you're going our way, the scorpids come up onto the road when it cools." },
@@ -1233,6 +1271,8 @@ P:NPC {
         { id = "h_again3", text = "One more, then we ride. The road doesn't watch itself." },
       },
       choices = {
+        { text = "Patrolling the road keeps Durotar safe.", next = "BACK", reply = "It does. Kerr and I see to that.", fx = { align = { order = 1 } } },
+        { text = "The road is safe enough without patrols.", next = "BACK", reply = "Not with the Kolkar about.", fx = { align = { order = -1 } } },
         { text = "What sort of trouble do you see?", next = "trouble" },
         { text = "Do you ever get tired of the same road?", next = "road" },
         { text = "You and Kerr have ridden together a long while.", next = "kerr" },
@@ -1560,6 +1600,8 @@ P:NPC {
     third = "{name} met Nartok, the orc who trains new warlocks behind the Den in the Valley of Trials.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend. Step over the circle; I trust you not to smudge it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the circle. I spent the morning on it." },
     { id = "g_default", text = "Mind the circle on the ground, if you would. It's only chalk, but I spent the morning on it." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "You're the new student, then. Stand outside the circle until I say otherwise, and we'll get along well." },
     { id = "g_orclock", when = { race = "Orc", class = "WARLOCK" }, text = "Another young orc who wants the old fire. Stand outside the circle and keep your hands where I can see them, and we'll start from there." },
@@ -1592,6 +1634,8 @@ P:NPC {
         { id = "h_again3", text = "You're still curious, and I approve of that in moderation." },
       },
       choices = {
+        { text = "Patience is the first lesson of warlockry.", next = "BACK", reply = "It is. You learn well.", fx = { align = { order = 1 } } },
+        { text = "Warlocks should summon fast and fight hard.", next = "BACK", reply = "Then they will be consumed. Mind the circle.", fx = { align = { order = -1 } } },
         { text = "Teach me, Nartok. I won't flinch.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "My imp mocks every spell I cast.", next = "imp", when = { class = "WARLOCK", pet = { family = "Imp" } } },
         { text = "What comes after the imp?", next = "after", when = { class = "WARLOCK" } },
@@ -1778,6 +1822,8 @@ P:NPC {
     third = "{name} met Jen'shan, the Darkspear troll who trains hunters in the Valley of Trials.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Easy now, friend. You walk soft now. I notice. Come in." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You walk loud, mon. De boars hear you. Come in, if you must." },
     { id = "g_default", text = "Easy now, mon, you walk so loud de boars heard you from Razor Hill. Come in, come in." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "Dere be a hunter's eyes on you, young one. Let us see if dere be a hunter's hands to go with dem." },
     { id = "g_back", when = { metBefore = true }, text = "You be back, and you walk quieter dis time. Somebody been practisin'." },
@@ -1803,6 +1849,8 @@ P:NPC {
         { id = "h_again3", text = "Still here? Good, a hunter should be hard to get rid of." },
       },
       choices = {
+        { text = "A hunter should walk softly.", next = "BACK", reply = "Yes, mon. You learn well.", fx = { align = { order = 1 } } },
+        { text = "A hunter should charge in and strike first.", next = "BACK", reply = "Den de boars run first, mon.", fx = { align = { order = -1 } } },
         { text = "Teach me, Jen'shan.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Walk me down the hunter's road, Jen'shan.", next = "h_road", when = { class = "HUNTER" } },
         { text = "What do you make of the game in this valley?", next = "game" },
@@ -1954,6 +2002,8 @@ P:NPC {
     third = "{name} met Mai'ah, the Darkspear mage who trains young spellcasters in the Valley of Trials.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Come closer, friend, I promise not to singe you. You be my favourite student." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come closer. Don't worry, I won't singe you. Probably." },
     { id = "g_default", text = "Come closer, mon, I don't singe anybody on purpose. You got de look of somebody with a question." },
     { id = "g_mage", when = { class = "MAGE" }, text = "Dere you are! I felt you comin' up de path, young one, you leak power like a cracked gourd. We fix dat first." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and your eyebrows be still on. Den you been careful, and I be pleased." },
@@ -1979,6 +2029,8 @@ P:NPC {
         { id = "h_again3", text = "Another question! Good, good, a quiet student learns nothin'." },
       },
       choices = {
+        { text = "The arcane demands discipline.", next = "BACK", reply = "It does, mon. You understand.", fx = { align = { order = 1 } } },
+        { text = "The arcane is about power, nothing more.", next = "BACK", reply = "Den you burn yourself, mon.", fx = { align = { order = -1 } } },
         { text = "Teach me, Mai'ah.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Where does a Darkspear learn the arcane?", next = "learn" },
         { text = "The orcs here seem wary of what you do.", next = "orcs" },
@@ -2126,6 +2178,8 @@ P:NPC {
     third = "{name} met Rwag, the orc who trains rogues in the shadows of the Den in the Valley of Trials.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You saw me first this time. Good. You're learning. Come in." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You looked twice. Still not good enough. What do you want?" },
     { id = "g_default", text = "You looked at this corner twice before you saw me. That's better than most, and I'll take it as a greeting." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Your left boot scuffs when you turn. We'll mend that before it gets you killed, recruit." },
     { id = "g_back", when = { metBefore = true }, text = "You again. You came in quieter this time, though I still heard you at the door." },
@@ -2151,6 +2205,8 @@ P:NPC {
         { id = "h_again3", text = "You're persistent. That's worth more than quick hands, in the end." },
       },
       choices = {
+        { text = "A rogue's skill serves the Horde.", next = "BACK", reply = "It does. Few see it that way.", fx = { align = { order = 1 } } },
+        { text = "A rogue serves only himself.", next = "BACK", reply = "Then you'll be alone when it matters.", fx = { align = { order = -1 } } },
         { text = "Teach me, Rwag.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "The grunts don't think much of how you fight.", next = "honor" },
         { text = "What does a rogue practise on in a valley like this?", next = "practice" },
@@ -2233,6 +2289,8 @@ P:NPC {
     third = "{name} met Jark, who sells general goods to the soldiers and travellers of Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. I've set aside what you'll need, at the old price." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bags, rope, flint, food. Buy and go." },
     { id = "g_default", text = "Bags, rope, flint, food and water. If it isn't a weapon and you need it, I probably have it, and if I don't, the cart's late again." },
     { id = "g_back", when = { metBefore = true }, text = "Back already? Then something broke, got eaten, or got left in the Barrens." },
     { id = "g_low", when = { maxLevel = 7 }, text = "Fresh from the valley, are you? Then you've no bag worth the name, and I can mend that." },
@@ -2256,6 +2314,8 @@ P:NPC {
         { id = "h_again3", text = "Still here and still not buying. Well, ask." },
       },
       choices = {
+        { text = "A fair price keeps customers coming back.", next = "BACK", reply = "It does. You understand trade.", fx = { align = { honor = 1 } } },
+        { text = "Haggle hard, always. Every coin counts.", next = "BACK", reply = "Then haggle elsewhere.", fx = { align = { honor = -1 } } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Where does it all come from?", next = "supply" },
         { text = "What should I carry on the road to the Crossroads?", next = "road" },
@@ -2338,6 +2398,8 @@ P:NPC {
     third = "{name} met Krunn, the orc who teaches mining at the forge in Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Mind the cart, friend. Come in. I'll show you a new vein." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the cart. Ore or lessons? Pick one." },
     { id = "g_default", text = "Mind the cart, it's full and the wheel's bad. What do you want, ore or lessons?" },
     { id = "g_miner", when = { profession = "Mining" }, text = "There's rock dust on your boots, and not from the road. Good. Let's see what you've been finding." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Find anything worth swinging at?" },
@@ -2362,6 +2424,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. I talk better with a pick in my hand, but I'll manage." },
       },
       choices = {
+        { text = "A miner should respect the stone.", next = "BACK", reply = "Aye. The stone gives, if you treat it well.", fx = { align = { order = 1 } } },
+        { text = "Smash the rock until it gives up.", next = "BACK", reply = "Then you'll break your pick.", fx = { align = { order = -1 } } },
         { text = "Teach me to mine.", next = "BUSINESS" },
         { text = "Where does the copper lie in Durotar?", next = "copper" },
         { text = "The forge here never seems to cool.", next = "forge" },
@@ -2437,6 +2501,8 @@ P:NPC {
     third = "{name} met Lau'Tiki, the Darkspear troll who teaches fishing on the strand near Sen'jin Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Shh, friend, softly. Ah, you walk soft now. Come, sit by de line." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Shh. Walk soft, or don't walk here at all." },
     { id = "g_default", text = "Shh, shh, softly, mon. You talk as loud as you like once de line be in, but walk soft on my sand." },
     { id = "g_fisher", when = { profession = "Fishing" }, text = "You carry dat pole like you know which end goes in de water. Come stand by me, mon, de tide be turnin'." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you be back. De fish missed you, mon, dey told me so." },
@@ -2461,6 +2527,8 @@ P:NPC {
         { id = "h_again3", text = "Mm? Ask, I got one hand free." },
       },
       choices = {
+        { text = "Patience is de fisherman's gift.", next = "BACK", reply = "Yes, mon. You understand.", fx = { align = { order = 1 } } },
+        { text = "Fishin's too slow. Spear dem instead.", next = "BACK", reply = "Den go spear, mon. Walk soft.", fx = { align = { order = -1 } } },
         { text = "Teach me to fish, Lau'Tiki.", next = "BUSINESS" },
         { text = "What runs in these waters?", next = "catch" },
         { text = "You keep looking out at those islands.", next = "isles" },
@@ -2544,6 +2612,8 @@ P:NPC {
     third = "{name} met Mishiki, the Darkspear herbalist who teaches her craft at Sen'jin Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend. Step round de racks, as always. I saved some fine leaves for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Step round de racks. Not through. Please." },
     { id = "g_default", text = "Step round de dryin' racks, please, not through dem. Every leaf on dere was a mornin's walk." },
     { id = "g_herb", when = { profession = "Herbalism" }, text = "Your fingers be green at de nails, so you already know de first part. Show me what you carry, and I tell you what you did to it wrong." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good, de earthroot came up fresh after de dew, and I want somebody to show it to." },
@@ -2568,6 +2638,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. De roots can wait a little, dey be dead already." },
       },
       choices = {
+        { text = "Each leaf is a morning's walk. It should be respected.", next = "BACK", reply = "It should, mon. Thank you.", fx = { align = { light = 1 } } },
+        { text = "Leaves are leaves. Pick them and go.", next = "BACK", reply = "Den you not be pickin' mine.", fx = { align = { light = -1 } } },
         { text = "Teach me your craft, Mishiki.", next = "BUSINESS" },
         { text = "What can grow in a place this dry?", next = "grows" },
         { text = "The witch doctors must keep you busy.", next = "gadrin" },
@@ -2645,6 +2717,8 @@ P:NPC {
     third = "{name} met Huklah, who sells cloth and leather armor to the recruits of the Valley of Trials.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Stand still a moment, friend. Yes, I've the perfect fit for you, set aside." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand still. I have something that fits. Maybe." },
     { id = "g_default", text = "Stand still a moment and let me look at you. Yes, I have something that will fit, and it will be better than what you came in wearing." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and the stitching held, I see. What has worn through this time?" },
     { id = "g_low", when = { maxLevel = 3 }, text = "A new one, straight from Kaltunk. You'll want something between you and the boars, young one, and I am the orc who sells it." },
@@ -2668,6 +2742,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. The next recruit isn't due until Kaltunk finishes his speech." },
       },
       choices = {
+        { text = "Good armor should fit well.", next = "BACK", reply = "It should. Badly fitted armor gets you killed.", fx = { align = { order = 1 } } },
+        { text = "Any armor fits if you're tough enough.", next = "BACK", reply = "Then wear any armor, and come back wounded.", fx = { align = { order = -1 } } },
         { text = "Let me see your armor.", next = "BUSINESS" },
         { text = "Where does your leather come from?", next = "leather" },
         { text = "The recruits must go through a lot of gear.", next = "recruits" },
@@ -2744,6 +2820,8 @@ P:NPC {
     third = "{name} met Rarc, the armorer and shieldcrafter of the Valley of Trials.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. Pick this one up. I made it with you in mind." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mail and shields. Feel the weight. Then pay." },
     { id = "g_default", text = "Mail and shields, {class}. Pick one up and feel the weight before you ask me the price." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Show me the dents, I like to see where they landed." },
     { id = "g_low", when = { maxLevel = 3 }, text = "Fresh from Kaltunk, are you? Then you've nothing on your arm, and that will get you stung before sundown." },
@@ -2767,6 +2845,8 @@ P:NPC {
         { id = "h_again3", text = "Ask it. I've a shield cooling, and nothing to do until it has." },
       },
       choices = {
+        { text = "A good shield saves a warrior.", next = "BACK", reply = "It does. I've seen it a hundred times.", fx = { align = { honor = 1 } } },
+        { text = "A good offense beats a good shield.", next = "BACK", reply = "Then go without a shield.", fx = { align = { honor = -1 } } },
         { text = "Show me your armor.", next = "BUSINESS" },
         { text = "What makes a good first shield?", next = "shield" },
         { text = "You work a long way from a proper forge.", next = "forge" },
@@ -2840,6 +2920,8 @@ P:NPC {
     third = "{name} met Hraug, the scarred orc who trains warlocks' demons in the Valley of Trials.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. Good. The imps like you. That's rare." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Keep your voice down. The imps listen." },
     { id = "g_default", text = "Keep your voice down in here. The imps listen, and they repeat what they hear to things you'd rather not meet." },
     { id = "g_warlock", when = { class = "WARLOCK" }, text = "Another of Nartok's students. Let me see how your demon stands when you speak to it, and then I'll know what you need from me." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Has it obeyed you since we last spoke, or has it only let you think so?" },
@@ -2870,6 +2952,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. I'm listening, and so is the imp, so choose your words." },
       },
       choices = {
+        { text = "Demons must be kept on a short leash.", next = "BACK", reply = "They must. You learn well.", fx = { align = { order = 1 } } },
+        { text = "Demons are useful. Let them run free.", next = "BACK", reply = "Then they'll run you into the grave.", fx = { align = { order = -1 } } },
         { text = "Show me your grimoires. The ones worth the price.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "My imp talks back more than I'd like.", next = "imp", when = { class = "WARLOCK" } },
         { text = "What do your grimoires actually teach?", next = "books", when = { class = "WARLOCK" } },
@@ -2989,6 +3073,8 @@ P:NPC {
     third = "{name} met Wuark, the armorer and shieldcrafter at the forge in Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good fire today. Come, I've a fine shield for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mail or shields? Then pay. Blades are with Uhgar." },
     { id = "g_default", text = "If you want mail or a shield, you've found the right fire. If you want a blade, Uhgar is two paces to your left." },
     { id = "g_back", when = { metBefore = true }, text = "Back at my anvil. Let me see what Durotar has done to you since." },
     { id = "g_low", when = { maxLevel = 7 }, text = "You've come up from the valley in Rarc's work, by the look of it. It's honest gear, and you've outgrown it." },
@@ -3012,6 +3098,8 @@ P:NPC {
         { id = "h_again3", text = "Ask. I can hammer and listen." },
       },
       choices = {
+        { text = "Good mail keeps Garrosh's warriors alive.", next = "BACK", reply = "It does. I make sure of it.", fx = { align = { order = 1 } } },
+        { text = "Mail is too heavy. Speed matters more.", next = "BACK", reply = "Then go fast, and die fast.", fx = { align = { order = -1 } } },
         { text = "Show me your armor.", next = "BUSINESS" },
         { text = "What does the garrison wear out fastest?", next = "garrison" },
         { text = "You can read a fight from a dent, they say.", next = "dents" },
@@ -3089,6 +3177,8 @@ P:NPC {
     third = "{name} met Ghrawt, the bowyer of Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. Draw this one; it's my best." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bows and arrows. Don't loose one dry." },
     { id = "g_default", text = "Bows, arrows and quivers. Draw one if you like, but don't loose it dry, or you'll buy it whether you want it or not." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Good, then you'll know what you're holding. Thotar sends me his best and his worst, and I can't yet tell which you are." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back. Did the string hold, or did you leave it out in the sun as I told you not to?" },
@@ -3112,6 +3202,8 @@ P:NPC {
         { id = "h_again3", text = "Go on, then, and mind the staves behind you." },
       },
       choices = {
+        { text = "A bow made without trees is a marvel.", next = "BACK", reply = "It is. Few understand the work.", fx = { align = { honor = 1 } } },
+        { text = "Bows are worse than axes in a fight.", next = "BACK", reply = "Then buy an axe.", fx = { align = { honor = -1 } } },
         { text = "Let me see your bows.", next = "BUSINESS" },
         { text = "Where do you find wood in Durotar?", next = "wood" },
         { text = "Orcs aren't known as archers.", next = "archers" },
@@ -3185,6 +3277,8 @@ P:NPC {
     third = "{name} met Flakk, who keeps the trade supplies in Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Friend! What are you making today? I saved the good thread for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thread, flux, vials. What are you making? Quickly." },
     { id = "g_default", text = "Thread, flux, vials, dyes and a good hammer, if you've lost yours. What are you making, friend?" },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again! Did it turn out the way you meant it to?" },
     { id = "g_craft", when = { profession = { "Tailoring", "Blacksmithing", "Leatherworking", "Engineering", "Alchemy", "Cooking" } }, text = "Now there's a pair of working hands. Tell me what's on your bench and I'll tell you what you've forgotten to buy for it." },
@@ -3208,6 +3302,8 @@ P:NPC {
         { id = "h_again3", text = "Something more? Good, I was getting bored of counting vials." },
       },
       choices = {
+        { text = "A good crafter needs good supplies.", next = "BACK", reply = "They do! You're a smart one.", fx = { align = { order = 1 } } },
+        { text = "Crafting's a waste of time.", next = "BACK", reply = "Then why are you here, friend?", fx = { align = { order = -1 } } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Who buys the most from you?", next = "buyers" },
         { text = "You seem to enjoy other people's work.", next = "enjoy" },
@@ -3281,6 +3377,8 @@ P:NPC {
     third = "{name} met Dwukk, the blacksmithing trainer at the forge in Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good hands. Pick up the tongs; I'll show you something new." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Pick up the tongs, or stand where the sparks fly." },
     { id = "g_default", text = "If you've come to learn, pick up the tongs. If you've come to watch, stand where the sparks don't reach." },
     { id = "g_smith", when = { profession = "Blacksmithing" }, text = "You've held a hammer before, I can see it in your wrist. Show me something you've made, and don't choose your best piece." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the anvil. Good, the iron has missed you more than I have." },
@@ -3304,6 +3402,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. A question is better than a guess at this anvil." },
       },
       choices = {
+        { text = "Blacksmithing takes patience and strength.", next = "BACK", reply = "It does. You have both.", fx = { align = { order = 1 } } },
+        { text = "Smithing's just hitting metal.", next = "BACK", reply = "Then hit it yourself and see.", fx = { align = { order = -1 } } },
         { text = "Teach me blacksmithing.", next = "BUSINESS" },
         { text = "Why does every student start with a nail?", next = "nail" },
         { text = "Your steel goes to the garrison, I hear.", next = "steel" },
@@ -3378,6 +3478,8 @@ P:NPC {
     third = "{name} met Harruk, who trains hunters' beasts in Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Come up, friend. The wolf likes you, and so do I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come up slowly. Don't stare at the wolf." },
     { id = "g_default", text = "Come up slowly, and don't stare at the wolf. She's deciding about you, and so am I." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "Bring {pet} here and let me see how it moves. A beast tells me more about its hunter in ten paces than the hunter does in an hour." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Has your beast been fed today, and I mean before you were?" },
@@ -3402,6 +3504,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. Beasts are patient, and they've taught me to be." },
       },
       choices = {
+        { text = "A beast's trust is earned slowly.", next = "BACK", reply = "It is. You understand.", fx = { align = { light = 1 } } },
+        { text = "A beast should obey, trust or not.", next = "BACK", reply = "Then it'll bite you. Come up slowly.", fx = { align = { light = -1 } } },
         { text = "Train my beast.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Teach me how to keep a beast, Harruk.", next = "k_keep", when = { class = "HUNTER" } },
         { text = "How does a beast come to trust a hunter?", next = "trust" },
@@ -3570,6 +3674,8 @@ P:NPC {
     third = "{name} met Kitha, who trains warlocks' demons in Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. No looking over your shoulder. I like that." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You walked straight to me. Brave or stupid? Stupid, I think." },
     { id = "g_default", text = "You walked straight to me without looking over your shoulder. Either you're a warlock, or you've no idea what I teach." },
     { id = "g_warlock", when = { class = "WARLOCK" }, text = "Dhugru said he'd be sending someone. Let me see the demon first and you second, since that's the order that matters." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and nothing is following you that shouldn't be, which is a good beginning." },
@@ -3598,6 +3704,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. You've not flinched yet, which is more than the quartermaster manages." },
       },
       choices = {
+        { text = "Demons must be controlled with discipline.", next = "BACK", reply = "They must. You learn well.", fx = { align = { order = 1 } } },
+        { text = "Demons should be let loose to do their worst.", next = "BACK", reply = "Then they'll do their worst to you.", fx = { align = { order = -1 } } },
         { text = "Show me your grimoires. I want something with teeth.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "How does a garrison town take to a demon trainer?", next = "town" },
         { text = "A voidwalker must be harder to rule than an imp.", next = "void" },
@@ -3706,6 +3814,8 @@ P:NPC {
     third = "{name} met Mukdrak, the orc engineering trainer in Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You! Lean on the bench, friend, I've unloaded it for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Don't lean on the bench. It's loaded. What do you want?" },
     { id = "g_default", text = "Don't lean on the bench, some of it is loaded. Have you come to learn, or to tell me orcs shouldn't tinker?" },
     { id = "g_eng", when = { profession = "Engineering" }, text = "An engineer! Come and look at this and tell me why it jams, because I've been staring at it since dawn." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Good, hold this spring while I find the other half of it." },
@@ -3729,6 +3839,8 @@ P:NPC {
         { id = "h_again3", text = "Ask away. I'd sooner talk about this than nearly anything." },
       },
       choices = {
+        { text = "Orcs can be fine engineers.", next = "BACK", reply = "We can! I'm proof of it.", fx = { align = { order = 1 } } },
+        { text = "Orcs should leave engineering to goblins.", next = "BACK", reply = "Then go buy goblin junk.", fx = { align = { order = -1 } } },
         { text = "Teach me engineering.", next = "BUSINESS" },
         { text = "How does an orc come to love machines?", next = "love" },
         { text = "The garrison doesn't share your enthusiasm.", next = "garrison" },
@@ -3803,6 +3915,8 @@ P:NPC {
     third = "{name} met Rawrk, who teaches first aid in the barracks at Razor Hill.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. Good. Sit; I'll teach you something new to stop the bleeding." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Are you bleeding? No? Then sit and learn, or go." },
     { id = "g_default", text = "Are you bleeding? No? Then sit down and learn how to stop someone else's." },
     { id = "g_sick", when = { resSick = true }, text = "You look like something the spirit healer sent back unfinished. Sit, drink water, and don't argue with me." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and walking on both legs. I'll count that as a lesson remembered." },
@@ -3826,6 +3940,8 @@ P:NPC {
         { id = "h_again3", text = "Go on, then. I talk while I roll bandages, I always have." },
       },
       choices = {
+        { text = "Stopping a wound saves a life.", next = "BACK", reply = "It does. More than any axe.", fx = { align = { light = 1 } } },
+        { text = "Let the weak bleed. The strong survive.", next = "BACK", reply = "Then you'll bleed one day, and wish I'd taught you.", fx = { align = { light = -1 } } },
         { text = "Teach me first aid.", next = "BUSINESS" },
         { text = "What wounds does the garrison bring you most?", next = "wounds" },
         { text = "Some orcs think a bandage is a weakness.", next = "weakness" },
@@ -4115,6 +4231,8 @@ P:NPC {
     third = "{name} met K'waii, who sells general goods in Sen'jin Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Come in, friend! I got food and water, and a fair price just for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in. Food, water, bags. Fair price." },
     { id = "g_default", text = "Come in under de shade, mon. I got food, water, bags and rope, and I got dem all at a fair price, because I know everybody in dis village." },
     { id = "g_troll", when = { race = "Troll" }, text = "Darkspear! Come, come, you look thin. Buy something to eat before your mother hears I let you walk by hungry." },
     { id = "g_back", when = { metBefore = true }, text = "You be back. De road ate what I sold you already, did it?" },
@@ -4138,6 +4256,8 @@ P:NPC {
         { id = "h_again3", text = "Ask it. I been sitting wit' dese baskets all morning." },
       },
       choices = {
+        { text = "A fair price makes a good trader.", next = "BACK", reply = "It do, mon. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Every trader cheats a little.", next = "BACK", reply = "Den I watch you close, mon.", fx = { align = { honor = -1 } } },
         { text = "Show me what you sell.", next = "BUSINESS" },
         { text = "Where do your goods come from?", next = "goods" },
         { text = "You keep everything hung very high.", next = "crabs" },
@@ -4211,6 +4331,8 @@ P:NPC {
     third = "{name} met Trayexir, the weapon merchant of Sen'jin Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend! Trayexir got somethin' extra sharp for you today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You need somethin' sharp? Pay first." },
     { id = "g_default", text = "You got de look of somebody who needs something sharp. Come, let Trayexir show you what a Darkspear means by a weapon." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon, mon? Did you lose it, break it, or leave it in somebody?" },
     { id = "g_troll", when = { race = "Troll" }, text = "Ah, one of our own. Den you know how to throw, and I don't have to explain which end goes first." },
@@ -4234,6 +4356,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. I can sharpen and listen." },
       },
       choices = {
+        { text = "A Darkspear weapon is a fine weapon.", next = "BACK", reply = "It be, mon! De finest.", fx = { align = { honor = 1 } } },
+        { text = "Orc weapons beat troll weapons.", next = "BACK", reply = "Den go buy from de orcs, mon.", fx = { align = { honor = -1 } } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "What makes a Darkspear weapon different?", next = "darkspear" },
         { text = "The village sends its young to fight on the isles.", next = "young" },
@@ -4307,6 +4431,8 @@ P:NPC {
     third = "{name} met Tai'tasi, who keeps the trade supplies in Sen'jin Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome, friend! Tai'tasi saved de good thread for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Thread, vials, dyes. Pay, please." },
     { id = "g_default", text = "Welcome, friend. Thread, vials, dyes, salt, whatever your hands be needing, Tai'tasi has it or knows who does." },
     { id = "g_craft", when = { profession = { "Tailoring", "Leatherworking", "Alchemy", "Cooking", "Blacksmithing", "Engineering" } }, text = "Ah, a maker. Good, de village can never have too many. What be on your bench today?" },
     { id = "g_back", when = { metBefore = true }, text = "You be back. Run out already, or did it come out wrong?" },
@@ -4330,6 +4456,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. De news is free wit' de thread." },
       },
       choices = {
+        { text = "A village rebuilds with its own hands.", next = "BACK", reply = "It does, mon. We rebuild every day.", fx = { align = { order = 1 } } },
+        { text = "Sen'jin should ask Orgrimmar for help.", next = "BACK", reply = "We do. But we do most ourselves.", fx = { align = { order = -1 } } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "What is the village making these days?", next = "making" },
         { text = "You keep looking toward the western road.", next = "lar" },
@@ -4403,6 +4531,8 @@ P:NPC {
     third = "{name} met Miao'zan, the dancing alchemy trainer of Sen'jin Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, friend! Move your feet, de pot like you! Come, I teach you somethin' new!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey. Don't stand dere. Move, or go." },
     { id = "g_default", text = "Hey, mon, don't just stand dere, move your feet a little! De pot likes company, and so do I." },
     { id = "g_alch", when = { profession = "Alchemy" }, text = "A brewer! Come, smell dis one and tell me what I put in it. If you get all three, I teach you something good." },
     { id = "g_back", when = { metBefore = true }, text = "You be back! Good, good, de potion from last time, it didn't turn you any strange colour?" },
@@ -4426,6 +4556,8 @@ P:NPC {
         { id = "h_again3", text = "Ask it! De pot's got a while yet." },
       },
       choices = {
+        { text = "Brewin' healing potions is a fine gift.", next = "BACK", reply = "It be, mon! It save lives.", fx = { align = { light = 1 } } },
+        { text = "Potions are just for the weak.", next = "BACK", reply = "Den don't drink one, mon.", fx = { align = { light = -1 } } },
         { text = "Teach me alchemy.", next = "BUSINESS" },
         { text = "Why do you dance while you brew?", next = "dance" },
         { text = "What grows around Sen'jin worth brewing?", next = "herbs" },
@@ -4499,6 +4631,8 @@ P:NPC {
     third = "{name} met Zansoa, who sells fishing supplies on the shore at Sen'jin Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend. Mind de net, though you always do. I got de good hooks for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind de net. Poles, line, hooks. Pay." },
     { id = "g_default", text = "Poles, line, hooks and bait. Mind where you step, mon, dat net's only half mended." },
     { id = "g_fish", when = { profession = "Fishing" }, text = "You fish. I can tell, you looked at de water before you looked at me. What be biting where you came from?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Lost de hook, or lost de pole?" },
@@ -4522,6 +4656,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. Tide won't turn for a while yet." },
       },
       choices = {
+        { text = "A mended net catches more fish.", next = "BACK", reply = "It do, mon. You understand.", fx = { align = { order = 1 } } },
+        { text = "A torn net still catches something.", next = "BACK", reply = "Den go fish with a torn net, mon.", fx = { align = { order = -1 } } },
         { text = "Show me your fishing gear.", next = "BUSINESS" },
         { text = "What runs off this shore?", next = "catch" },
         { text = "You mend nets as well as sell them.", next = "nets" },
@@ -4704,6 +4840,8 @@ P:NPC {
     third = "{name} met Frezza, the goblin zeppelin master for the Tirisfal route outside Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. Boarding's this way, friend; I've saved you a good spot." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Tirisfal route. No pushing, no smoking, no complaints." },
     { id = "g_default", text = "Tirisfal Glades and the Undercity, boarding from this platform, no pushing, no smoking and no fire magic, pal. Frezza's the name, what can I do for ya?" },
     { id = "g_forsaken", when = { race = "Scourge" }, text = "Headed home, huh? Platform's right here, friend. Mind the gap, and by that I mean mind all your parts, I ain't sendin' anybody back down for a finger again." },
     { id = "g_back", when = { metBefore = true }, text = "Hey, a repeat customer! See, I told ya it was safe. Mostly I told ya, anyway." },
@@ -4727,6 +4865,8 @@ P:NPC {
         { id = "h_again3", text = "Go on, shoot. With words, I mean, and nowhere near the gasbag." },
       },
       choices = {
+        { text = "A punctual zeppelin keeps the Horde connected.", next = "BACK", reply = "It does. My zeppelin is never late.", fx = { align = { order = 1 } } },
+        { text = "Zeppelins are dangerous goblin contraptions.", next = "BACK", reply = "Then walk to Tirisfal. No pushing.", fx = { align = { order = -1 } } },
         { text = "Where does this zeppelin go?", next = "route" },
         { text = "How safe is this thing, really?", next = "safe" },
         { text = "Goblins flying the Horde's airships. How did that happen?", next = "deal" },
@@ -4811,6 +4951,8 @@ P:NPC {
     third = "{name} met Snurk Bucksquick, the goblin zeppelin master for the Grom'gol route outside Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey there, sweetheart! Best seat on the zeppelin's yours, for a friend." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Zeppelin to Grom'gol boards here. Pay up." },
     { id = "g_default", text = "Hey there! The zeppelin to Grom'gol Base Camp, Stranglethorn Vale, boards right here. I'm Snurk, and I'll be takin' real good care of ya." },
     { id = "g_male", when = { gender = "male" }, text = "Well, hello, handsome. Goin' my way? This one's for Grom'gol, and if ya stand close I'll tell ya when she's comin' in." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you again, sweetheart! Couldn't stay away, huh? Don't worry, nobody can." },
@@ -4834,6 +4976,8 @@ P:NPC {
         { id = "h_again3", text = "Sure, hon, what else? Schedule's fine, I checked." },
       },
       choices = {
+        { text = "Goblin engineering is a marvel.", next = "BACK", reply = "Ha! You get it, sweetheart. We're the best.", fx = { align = { honor = 1 } } },
+        { text = "Goblin zeppelins are a deathtrap.", next = "BACK", reply = "Then swim to Stranglethorn.", fx = { align = { honor = -1 } } },
         { text = "Tell me about Grom'gol.", next = "gromgol" },
         { text = "You run a tight schedule under all that charm.", next = "schedule" },
         { text = "Frezza says to watch my purse around you.", next = "brother" },

@@ -19,6 +19,8 @@ P:NPC {
     third = "{name} met Harutt Thunderhorn, the warrior trainer of Camp Narache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. You're always welcome in my circle. Come, let us train together." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The Chief speaks of you, and not all of it is good. I'll train you, but I'll watch you closely." },
     { id = "o_grim_redeem", when = { gossip = { topic = "grimtotem", stance = "redeemable" } }, text = "The Chief told me you think the Grimtotem could still come home. I hope you're right, though I'd keep my spear close while you wait." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "Come, young brave, and plant your hooves. Let us see what the plains have taught you since you last stood here." },
     { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "Walk with the Earth Mother, friend. You are not one of my braves, but you are welcome at my fire." },
@@ -225,6 +227,8 @@ P:NPC {
     third = "{name} met Meela Dawnstrider, the shaman trainer of Camp Narache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The wind brings you back, friend, and it brings gladness with you. Sit with me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The wind told me you were coming. It did not tell me I should be glad of it." },
     { id = "g_shaman", when = { class = "SHAMAN" }, text = "The wind told me you were coming, young one. Sit with me, and tell me what the elements have whispered to you." },
     { id = "g_other", when = { ["not"] = { class = "SHAMAN" } }, text = "Peace be on you, traveler. The morning is clear, An'she is warm, and the spirits are calm." },
   },
@@ -435,6 +439,8 @@ P:NPC {
     third = "{name} met Gart Mistrunner, the druid trainer of Camp Narache.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back, friend. The plains are good to you, and so, I think, are you to them." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You have returned. The plains will judge whether you've learned anything, as will I." },
     { id = "g_druid", when = { class = "DRUID" }, text = "Welcome back, young druid. The plains have been good to you, I think, because you walk like you belong on them." },
     { id = "g_other", when = { ["not"] = { class = "DRUID" } }, text = "Welcome, friend. The grass is green on the mesa this season, which is a good sign." },
   },
@@ -702,6 +708,8 @@ P:NPC {
     third = "{name} met Krang Stonehoof, the warrior trainer of Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hah, you. Good. You're one of the few worth my time. Let's see what you've learned." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You again. Fine. Stand straight and show me you're worth training, because I've doubts." },
     { id = "o_dw_distrust", when = { gossip = { topic = "dwarves", stance = "distrust" } }, text = "I hear you think the dwarves would dig up the whole world. Good, because then you'll understand why my braves keep their axes sharp near Bael'dun." },
     { id = "g_war", when = { class = "WARRIOR" }, text = "A warrior comes down from the mesa! Come here, and let us see whether Harutt taught you anything." },
     { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "Welcome to Bloodhoof, stranger. Keep your weapon sheathed in the village, as the bull keeps his horns low in the herd, and we will get along." },
@@ -942,6 +950,8 @@ P:NPC {
     third = "{name} met Mahnott Roughwound, the weaponsmith of Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, a friend! Maces, axes, staves, and the best of them saved for hands like yours." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Maces, axes and staves. All big enough for a tauren, and all priced a little higher today." },
     { id = "g_shop", text = "Maces, axes and staves, all made big enough for a tauren's hands and blessed by the Earth Mother's good oak. Take a look." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, friend? I hope you're here to buy, and not to complain about the last one." },
   },
@@ -1108,6 +1118,8 @@ P:NPC {
     third = "{name} bought bread from Jhawna Oatwind, the baker of Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend! Here, the warmest loaf for you, fresh out of the oven, and on me today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Fresh bread. Still warm. The price is on the board, the same as always." },
     { id = "g_shop", text = "Fresh bread from Mulgore's wheat, still warm, and the Earth Mother gave every grain of it. Come and have a look, little one." },
     { id = "g_morning", when = { timeOfDay = "dawn" }, text = "You're up with the sun, and so is the bread. Come and take some while it's hot." },
   },

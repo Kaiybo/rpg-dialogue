@@ -362,6 +362,8 @@ P:NPC {
     third = "{name} met Garon Hutchins, the general goods merchant of Cenarion Hold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in, friend, come in. I've a clean waterskin set aside for you, one the sand hasn't got into yet." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Waterskins, rope, lamp oil. All of it has sand in it, and that's the end of what I've got to say." },
     { id = "g_default", text = "Come in out of the wind, friend. I've waterskins, rope and lamp oil, and all of it has sand in it, same as everything else here." },
     { id = "g_2", when = { metBefore = true }, text = "Good to see you back. Folk who go out toward the hives don't always return, so I notice the ones who do." },
   },

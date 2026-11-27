@@ -22,6 +22,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_zt_f", when = { rep = { faction = "Zandalar Tribe", min = "Friendly" } }, text = "De Zandalar count you a friend now, mon. Hakkar be our enemy, and you stand with us against him." },
+    { id = "dp_rep_zt_r", when = { rep = { faction = "Zandalar Tribe", min = "Revered" } }, text = "De ancestors of Zandalar know your name, mon. Few outsiders ever be spoken of so." },
     { id = "g_default", text = "You stand on Zandalari ground, stranger, so stand straight. De blood god has returned to dis world, and I have no time for anyone who has come only to look." },
     { id = "g_back", when = { metBefore = true }, text = "You return to Yojamba. Good, for every blade dat comes back to dis island is one de Soulflayer has not taken." },
     { id = "g_hero", when = { questDone = TODO_QUEST("The Heart of Hakkar") }, text = "Slayer of de Soulflayer, you are welcome at my fire for as long as de Zandalar keep one on dis shore." },
@@ -239,6 +241,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_zt_h", when = { rep = { faction = "Zandalar Tribe", min = "Honored" } }, text = "De Zandalar honour you, mon, and I see why. Come, I teach you a little more today." },
     { id = "g_default", text = "Greetings, {class}. I am Exzhal, Servitor of Rastakhan, and when I speak, de king of de Zandalar has spoken first." },
     { id = "g_back", when = { metBefore = true }, text = "You return. I hope you have brought me something heavier dan your excuses." },
   },
@@ -350,6 +353,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_zt_f", when = { rep = { faction = "Zandalar Tribe", min = "Friendly" } }, text = "You be a friend of de Zandalar now. Dat mean I trade fair, mon, mostly." },
     { id = "g_default", text = "Peace, traveller. Behind me is de Altar of Zanza, and you stand close enough to it now dat de loa can hear you, so speak gently." },
     { id = "g_back", when = { metBefore = true }, text = "You come back to de altar. Zanza remembers dose who come back." },
   },
@@ -453,6 +457,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_zt_h", when = { rep = { faction = "Zandalar Tribe", min = "Honored" } }, text = "De Zandalar honour you, and so Jin'rokh honour you. Come, see what I forge." },
     { id = "g_default", text = "I am Jin'rokh de Breaker, envoy of Mugamba, de Fist of Rastakhan. My dealings are with warriors and paladins, so tell me which you are." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Did you kill anything since I last saw you, or only talk?" },
   },

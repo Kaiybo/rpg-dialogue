@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. I'll not be getting up, but I'm glad to see you, which is almost as good." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll not be getting up, and I'll not be talking long." },
     { id = "g_bed", text = "I won't be getting up, I'm afraid. Ivar left me with fewer working parts than I started with, and the apothecaries are still arguing over the leg." },
     { id = "g_back", when = { metBefore = true }, text = "Oh. You're back? Good, because the ceiling and I ran out of things to say to each other." },
     { id = "g_potion", when = { questActive = TODO_QUEST("Return to Quinn") }, text = "Rane said someone was coming with a potion. If it has hearts in it, please don't tell me which kind." },
@@ -128,6 +130,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a good sort, for a living one or a dead one. I can't tell anymore." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rude to a wounded man, and I've fewer parts to be rude with." },
+    },
     background = { { id = "tp_bg", text = "Deathstalker, Rane's brother, and lately a piece of furniture. That's about the shape of it." } },
     advice = { { id = "tp_ad", text = "Never cross a farmyard in daylight because you're in a hurry. It's the only advice I'm qualified to give." } },
     forsaken = { { id = "tp_forsaken", text = "I'm Forsaken, and I'm stuck in a farmhouse with a bad leg and a ghoul for a neighbor. The Dark Lady doesn't come to visit much, but my sister does, and that's worth more." } },

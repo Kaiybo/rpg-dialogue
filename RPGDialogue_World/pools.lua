@@ -11,6 +11,10 @@ P:Pool {
     { id = "b_kitty", when = { form = "cat" }, text = "Look, there's a big kitty! Is it a friendly one?" },
   },
   greetings = {
+    { id = "g_h_hall", when = { holiday = "hallows_end" }, text = "Trick or treat! Do you have any sweets? I'll take a trick if you haven't, but I'd rather have sweets." },
+    { id = "g_h_wv", when = { holiday = "winter_veil" }, text = "Did you see Greatfather Winter? I asked him for a pony, and he said he'd see what he could do!" },
+    { id = "g_h_noble", when = { holiday = "noblegarden" }, text = "I found four eggs already! Don't tell anyone, but there's one behind the well." },
+    { id = "g_h_kids", when = { holiday = "childrens_week" }, text = "It's Children's Week! Are you taking anyone on an adventure? I'd be ever so good, I promise." },
     { id = "g_hi", text = "Are you an adventurer, a real one, like in the stories?" },
     { id = "g_sword", when = { class = { "WARRIOR", "PALADIN" } }, text = "Is that sword heavy? Can I hold it, just for a second? I won't drop it, I promise." },
     { id = "g_away", when = { away = 7 }, text = "You've been gone {away}! Did you fight a dragon? I bet you fought a dragon." },
@@ -217,6 +221,10 @@ P:Pool {
 P:Pool {
   id = "innkeeper", role = "innkeeper",
   greetings = {
+    { id = "g_h_hall", when = { holiday = "hallows_end" }, text = "Happy Hallow's End! Trick or treat? Go on, ask; I'm meant to give you something either way." },
+    { id = "g_h_wv", when = { holiday = "winter_veil" }, text = "Merry Winter Veil! The fire's high and the beds are warm, and I've hung mistletoe over the door, so mind who you stand next to." },
+    { id = "g_h_lunar", when = { holiday = "lunar" }, text = "Welcome, and good fortune for the new year. The festival crowds have filled half my rooms, but I've kept one back for regulars." },
+    { id = "g_h_mid", when = { holiday = "midsummer" }, text = "Midsummer brings the travelers in, all smelling of bonfire smoke. Come in and add yours to the rest." },
     -- Opinion pass: answers to an opinion the player just gave (choices below); each clears its own flag.
     { id = "g_op_in_peace", priority = 60, when = { npcFlag = "op_in_peace" }, fx = { npcFlag = { clear = "op_in_peace" } },
       text = "Spoken like a regular! Soldiers on leave drink, but soldiers at war don't come back to pay their tab, so I'll drink to peace any night you like." },

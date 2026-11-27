@@ -1781,6 +1781,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Mind your step there; it's fresh, and the grey's been eating clover all morning." },
     { id = "g_mount", text = "Want your mount looked at? I look at all of them anyway." },
   },
@@ -1981,6 +1983,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Need a lift? The birds are fed, and grumpy with it, and one of them has eaten my left glove." },
     { id = "g_fog", when = { timeOfDay = "dawn" }, text = "Fog's in. They'll fly, but they'll complain the whole way." },
   },

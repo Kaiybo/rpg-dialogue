@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Sniff, sniff! Ah, it's you! My favorite apprentice! Come smell this new grease. It's divine!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Sniff, sniff. Oh, you. Fine, fine. Here's the grease. Try not to blow anything up." },
     { id = "g_default", text = "Sniff, sniff! You smell that? Don't you just love the smell of grease, pal?" },
     { id = "g_back", when = { metBefore = true }, text = "Back up the mountain! Ya must really love engineering, or ya really love climbing, and I only charge for one of those." },
     { id = "g_eng", when = { profession = "Engineering" }, text = "A fellow enthusiast, huh? Well, you just wait, we'll make a proper gearhead out of you in no time." },

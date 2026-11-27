@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, friend! Sit; I've a new style just for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Sit, if you must." },
     { id = "g_default", text = "Welcome to my barbershop! Cuts, colours and more; have a seat and we'll get to work." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon? Either you loved it or you hated it, and I'm hoping for the first." },
     { id = "g_fl_face", when = { flirt = true, chance = 0.4 },
@@ -71,6 +73,8 @@ P:NPC {
           text = "Wrong? Nothing, and that's the trouble! You humans grow lovelier in a single season than we manage in a century, which hardly seems fair, and I've decided I don't mind in the least." },
       },
       choices = {
+        { text = "A good haircut lifts the spirit.", next = "BACK", reply = "It does! You understand.", fx = { align = { light = 1 } } },
+        { text = "Haircuts are vanity.", next = "BACK", reply = "Then look shaggy.", fx = { align = { light = -1 } } },
         { text = "Then admire away, Teuren. I'll sit as long as you like.", next = "fl_stare2",
           fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_muse" } } } },
         { text = "Flattery won't earn you a bigger tip, Teuren.", next = "fl_stare2",

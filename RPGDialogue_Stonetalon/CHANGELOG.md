@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.35.0 (2026-11-27): Word Gets Around
+Disposition greetings for shopkeepers, trainers and other service folk; reputation and holiday lines where they fit. No new files in this pack.
+
 ## 1.34.1 (2026-11-25): Mending the Seams
 - Bug pass: lines and replies that never showed (wrong condition keys or values, unremembered "heard" lines, duplicate line ids, NPCs sharing one key) fixed; stance replies phrased as statements.
 

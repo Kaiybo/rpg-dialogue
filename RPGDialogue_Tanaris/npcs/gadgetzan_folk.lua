@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, a valued customer. The shade's free, the vault's open, and for you, I'll even smile." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Deposit or withdrawal? Pick one, and quickly. The shade costs extra today, for you." },
     { id = "g_default", text = "Deposit, withdrawal, or are you just here for the shade? The shade's free, the vault isn't." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and your box is right where you left it, which in this town counts as a minor miracle, and miracles are not included in the standard fee." },
   },
@@ -275,6 +277,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, it's you, {g:lad|lass}! I'll give ye the best bird on the perch. Ye've earned it a dozen times over." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Need a bird? Pay, climb, and fly. I'll not waste breath on ye beyond that." },
     { id = "g_default", text = "Need a bird, {g:lad|lass}? Mind the sand on the perch, because it gets into everything, and the gryphons hate it even more than this old Dun Morogh lass does." },
   },
 
@@ -527,6 +531,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Lok'tar, friend. The best wyvern is yours, as always. Fly well and come back soon." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You want a wyvern. Take it. Don't expect me to wave you off." },
     { id = "o_horde_mixed", when = { gossip = { topic = "horde", stance = "mixed" } }, text = "Bera, the dwarf across the yard, says you told her the Horde wants a roof and a meal like anyone. She nodded at me twice this morning, so I suppose I owe you for it." },
     { id = "g_default", text = "You need a wind rider, or you need shade? Both are here; only one is free." },
   },
@@ -979,6 +985,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, it's my favorite shooter! For you, pal, the boomsticks come with free powder and a smile. Mostly the smile." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh, you. The boomsticks are for sale, pal, but don't point any of 'em my way." },
     { id = "g_default", text = "Looking for a boomstick, pal? You came to the right goblin, and the only one, so either way you're in luck, and luck's included in the price." },
   },
 

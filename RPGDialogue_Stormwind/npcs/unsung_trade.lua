@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Olivia Burnside, a banker of Stormwind who is very proud of her vaults.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Welcome to the Bank of Stormwind. Your valuables are safer here than anywhere else in the kingdom, and I mean that." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Your box is exactly where you left it, as it always will be." },
   },
@@ -198,6 +200,8 @@ P:NPC {
     third = "{name} met Newton Burnside, a dry and observant banker of Stormwind.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Good day to you. Is it a deposit or a withdrawal? I can usually tell, but I've been wrong once or twice." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. Let me guess: something heavier going in than coming out." },
   },
@@ -384,6 +388,8 @@ P:NPC {
     third = "{name} met John Burnside, the cheerful banker at the first window of the Bank of Stormwind.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Good day, and welcome in! First window on the right, which is me, and I'm free." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again! Where's the road taken you since I last saw you?" },
   },
@@ -567,6 +573,8 @@ P:NPC {
     third = "{name} met Auctioneer Chilton, a showman of Stormwind's auction house.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Buying or selling, friend? Either way, step up; the hall is open and the bidding is warm." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to the hall! Did your last lot sell, or are we trying again with a better price?" },
   },
@@ -753,6 +761,8 @@ P:NPC {
     third = "{name} met Auctioneer Fitch, the careful keeper of the auction house's book.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Good day. If you'll give me your name for the book, we can begin." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, I have you in the book already. Welcome back." },
     { id = "g_word_deceived", when = { word = { "deceived", "caughtLying" } }, text = "I've heard a story about you that I've not yet written down, and I'd prefer to keep it that way. Shall we begin honestly?" },
@@ -1073,6 +1083,8 @@ P:NPC {
     third = "{name} met Auctioneer Jaxon, the warm and practical auctioneer of Stormwind's hall.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Hello, love. Selling something, or just looking at what everyone else is selling?" },
     { id = "g_back", when = { metBefore = true }, text = "There you are! I wondered when you'd be back with more of that cloth." },
   },
@@ -1254,6 +1266,8 @@ P:NPC {
     third = "{name} met Aldwin Laughlin, who keeps the Stormwind guild registry.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Welcome to the guild registry. Are you here to found a guild, or to give an old one a new crest?" },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. I hope your companions are keeping their oaths to one another." },
   },
@@ -1435,6 +1449,8 @@ P:NPC {
     third = "{name} met Woo Ping, the weapon master who teaches in Weller's Arsenal.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_default", text = "Stand still a moment and let me see how you hold yourself. Good, now we may talk." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and your feet are better placed than before. I noticed." },
   },
@@ -1452,6 +1468,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It tells me everything. A steady stance is steady faith. Your spirits would agree, I think." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Steady feet, steady faith. I'll keep that close.", next = "BACK", reply = "Good. Your spirits and your feet will thank you.", fx = { align = { honor = 1 } } },
         { text = "Faith's for priests. I'll fight my own way.", next = "BACK", reply = "Then fight your own way, and fall your own way. I will still be here.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1605,6 +1623,8 @@ P:NPC {
     third = "{name} met Marda Weller, who keeps the books and the second counter at Weller's Arsenal.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Weller's Arsenal. If Gunther's busy talking about balance, I can sell you a sword much faster." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, are you? Good, because that blade you bought should be needing an edge by now." },
   },
@@ -1622,6 +1642,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I keep every copper of them, because Gunther can't count past ten. Your spirits must be better with numbers than he is." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Good books keep a good business, Marda.", next = "BACK", reply = "They do, and mine are the best in the Trade District. Gunther's are a disgrace.", fx = { align = { order = 1 } } },
         { text = "Numbers don't matter. Weapons sell themselves.", next = "BACK", reply = "They don't, or Gunther would be rich. Somebody has to count.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1788,6 +1810,8 @@ P:NPC {
     third = "{name} met Keldric Boucher, who sells arcane goods at Pestle's Apothecary.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Welcome to Pestle's. If it comes in a vial or a pouch, I most likely have it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Running short on something already, are we?" },
   },
@@ -1805,6 +1829,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "All of them, but especially the volatile ones. Your spirits might enjoy them too, though I'd keep them away from the fire." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Knowledge shared is knowledge doubled, Keldric.", next = "BACK", reply = "Then I'll teach you the volatile ones, carefully, and from behind a screen.", fx = { align = { order = 1 } } },
         { text = "Keep your powders. I don't need them.", next = "BACK", reply = "Suit yourself, but they're very interesting powders.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1972,6 +1998,8 @@ P:NPC {
     third = "{name} met Kyra Boucher, the reagent seller at Pestle's Apothecary.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Welcome! Let me know if you need help finding anything; I keep it all right here by the door." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Let me guess what you've run out of." },
   },
@@ -1989,6 +2017,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Ankhs, mostly, for when the spirits bring them back, and a few reagents. I've learned what every sort needs by watching what they buy." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "You know your customers well, Kyra. That's good business.", next = "BACK", reply = "Thank you. I can tell a mage from a warlock by how they look at the black lotus jar.", fx = { align = { order = 1 } } },
         { text = "I'll find what I need myself.", next = "BACK", reply = "Suit yourself, but I'll know what you need before you ask.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

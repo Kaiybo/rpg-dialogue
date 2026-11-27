@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Come up; I've a bottle open, and it'd be a sin to drink it alone." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. You've no business in my bell tower, and less in my good graces." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "Drusilla La Salle's lot again. You've no business in my bell tower, and less in the cellars, so I'll thank you to keep to the yard." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "A novice of ours followed one of your kind down into the crypt last spring and came back up wrong. Keep your distance from the brothers." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've kept out of the cellars, I'll grant you that. Come up if you like, but I'll be watching where you put your hands." },
@@ -276,6 +278,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're good company, which is more than I can say for most of the brothers. Don't tell them." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been disrespectful in the Light's house, and in my bell tower. I'll not forget it." },
+    },
     knows = {
       { id = "tp_knows", text = "The Abbey's records pass through my hands, along with a good deal of gossip from the novices. Ask me about any of this, friend." },
     },

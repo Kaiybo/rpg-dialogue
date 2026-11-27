@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my promising student returns. The Altar has been quiet, and I confess I've missed your ambition." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I tolerate you, as one tolerates a draught. Speak, and then go." },
     { id = "g_default", text = "The Altar of Storms receives few visitors, and fewer still who leave the way they came. Speak, and let us see which kind you are." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still whole, with your blood where it belongs. How encouraging." },
     { id = "g_away", when = { away = 14 }, text = "You have been gone {away}. The circle doesn't care, but I confess I noticed." },
@@ -81,6 +83,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. The storm is quiet tonight, and I am feeling generous." },
       },
       choices = {
+        { text = "Power is worth any price you pay for it.", next = "BACK", reply = "Spoken like one who'll go far, or burn quickly. Either way, the Altar will enjoy watching.", fx = { align = { light = -1 } } }, -- dp_stance
+        { text = "Some prices are too high, even for a dreadsteed.", next = "BACK", reply = "Then you'll never ride one, and you'll live longer for it. A dull bargain, but a bargain.", fx = { align = { light = 1 } } }, -- dp_stance
         { text = "What is the Altar of Storms?", next = "altar" },
         { text = "Why do you love blood so much?", next = "blood" },
         { text = "Who else keeps you company out here?", next = "gorzeeki" },
@@ -251,6 +255,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You have the hunger, and the patience to feed it slowly. Few warlocks have both, and fewer live long enough to use them." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been tiresome, and the tiresome have a way of becoming sacrifices. Mend your manner." },
+    },
     background = { { id = "tp_ba", text = "I am a scholar of the nether, a teacher of warlocks, and a connoisseur of blood, and I was all three when the Shadow Council still met. The rest is no concern of yours." } },
     advice = { { id = "tp_ad", text = "Never step into a circle you didn't draw yourself." } },
     burning_legion = { { id = "tp_burning_legion", text = "The Legion is the source of all true power, and the warlocks who serve it wisely grow strong. The ones who serve it foolishly end up as a smell in my summoning circle." } },

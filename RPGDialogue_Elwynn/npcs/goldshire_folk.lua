@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} was served at the Lion's Pride by Barkeep Dobbins, who hears everything and claims to forget it all.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite guest. The fire's warm and the room's ready." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll rent you a room, but there'll be no trouble in my house tonight." },
     { id = "g_op_refugees", when = { gossip = { topic = "westfall_refugees", stance = "trouble" } }, text = "Falkhaan says you reckon the Westfall folk bring trouble. Well, the trouble last night was a Goldshire man, so keep your eye on the bar as well as the road." },
     { id = "g_op_varian", when = { gossip = { topic = "varian", stance = "alive" } }, text = "Marshal Dughan says you reckon the king's alive. I'll pour to that, and so will half the room, if you'll say it loud enough." },
     { id = "g_pour", text = "What'll it be? The ale's good, and the ale's always good, but don't ask about the wine." },
@@ -243,6 +245,8 @@ P:NPC {
     third = "{name} met Brog Hamfist, Goldshire's seller of rope, flint and the bags adventurers always need more of.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_stock", text = "Rope, flint, flasks and thread, everything you forgot to pack." },
     { id = "g_new", when = { maxLevel = 6 }, text = "Fresh out of Northshire, are you? You'll want more bags than you think; everyone does." },
   },
@@ -257,6 +261,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They forget rope, and a spare torch, and common sense. Your spirits might help with the last one, but I've rope for the rest." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Preparation saves lives, Brog. I'll buy what I need.", next = "BACK", reply = "Now there's a sensible customer, and you'll be glad of the rope before Fargodeep's done with you. Pick out a good coil.", fx = { align = { order = 1 } } },
         { text = "I'll find out at midnight. That's the fun of it.", next = "BACK", reply = "Half the fun until the torch gutters and you're feeling for the wall. I'll keep a coil behind the counter for when you come back.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -423,6 +429,8 @@ P:NPC {
     third = "{name} met Toddrick, the butcher at the Lion's Pride, who takes great pride in his sausages and none in wolf.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_cut", text = "The best cuts in Goldshire; ask anyone, though don't ask the boars." },
   },
   notice = {
@@ -436,6 +444,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It's stringy and sour, and the wolves here eat worse than the farmers do. A shaman would say the beast's spirit was bitter, and I'd not argue." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Thanks for the honest warning, Toddrick. I'll take the pork.", next = "BACK", reply = "Smart choice, and the pork's good this week, from a farm east of the river. You'll not regret it.", fx = { align = { honor = 1 } } },
         { text = "Wolf meat's fine. You're too picky.", next = "BACK", reply = "Then you're welcome to it, but I'll not be the one to sell it. Come back after a week of stomach trouble and tell me I'm picky.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -631,6 +641,8 @@ P:NPC {
     third = "{name} met Tharynn Bouden, a trade supplier who works from a roadside wagon and dreams of a shop in Stormwind.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_craft", text = "Thread, dye, flux and vials, for people who make things." },
     { id = "g_crafter", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing", "Alchemy" } }, text = "Ah, a crafter, my favourite kind of customer, because you come back." },
   },
@@ -645,6 +657,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "A shop in the Trade District, every night, with a gold-lettered sign with my name on it. Your spirits might bring luck to a wagon, if you ask nicely." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Keep at it, Tharynn. The sign will come.", next = "BACK", reply = "You're very kind, and I'll paint the sign myself when it comes. Gold letters, every one.", fx = { align = { honor = 1 } } },
         { text = "Dreams are cheap. Sell more and dream less.", next = "BACK", reply = "Easy for you to say, friend, but a dream keeps a trader moving on a cold road. I'll do both, thank you.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -810,6 +824,8 @@ P:NPC {
     third = "{name} met Andrew Krighton, Goldshire's armorer, who believes a shield is for others to hide behind.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_armor", text = "Mail, plate and shields: something to stand behind." },
   },
   notice = {
@@ -988,6 +1004,8 @@ P:NPC {
     third = "{name} met Corina Steele, Goldshire's weaponsmith, who has a quick tongue and an eye for a blade's balance.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_blade", text = "Swords, axes and maces; pick one up and feel the balance." },
     { id = "g_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "corina_flirt_no" } }, cooldown = "2d",
       text = "Back to look at the swords, or at the smith? Either way, mind the edges, because I've only just put them on." },
@@ -1205,6 +1223,8 @@ P:NPC {
     third = "{name} met Kurran Steele, who sells cloth and leather beside Corina's forge and quarrels with her quite contentedly.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_leather", text = "Not everyone wants to clank. Come and see what I've got." },
   },
   notice = {
@@ -1218,6 +1238,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "We never will, I hope, because an argument shared is a friendship kept. Your spirits must argue too, I'd guess." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then keep it friendly, Kurran. Old arguments make good bonds.", next = "BACK", reply = "We will, don't worry, and Corina would miss it more than she'd admit. Arguing is how we say we care.", fx = { align = { honor = 1 } } },
         { text = "End it. Life's too short for old grudges.", next = "BACK", reply = "End it? She'd never let me, and I'd never let her win. It's not a grudge, friend, it's a hobby.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1384,6 +1406,8 @@ P:NPC {
     third = "{name} met Erma, Goldshire's stable master, who treats every beast in her care like visiting royalty.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_stable", text = "Watch your boots in here, and tell me who you've brought me." },
   },
   notice = {
@@ -1744,6 +1768,8 @@ P:NPC {
     third = "{name} met Maximillian Crowe, who teaches the warlock's craft quietly beneath Goldshire's inn.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_warlock", when = { class = "WARLOCK" }, text = "Down here we speak quietly and learn quickly. Which have you come to do?" },
     { id = "g_other", when = { ["not"] = { class = "WARLOCK" } }, text = "The ale's upstairs, friend; you've taken a wrong turn somewhere." },
   },
@@ -1753,6 +1779,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Power is a debt, and some debts are paid in a different coin. The spirits are generous until they aren't, and then the clever ones look elsewhere, as the orcs did once." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll keep to honest power, Crowe. No debts.", next = "BACK", reply = "Everyone owes something, shaman. You simply haven't been sent the bill yet.", fx = { align = { order = 1 } } },
         { text = "Power's power. I'll take it where I find it.", next = "BACK", reply = "Then you'll find this cellar more welcoming than the rest of Goldshire. Read the terms before you sign them.", fx = { align = { order = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },

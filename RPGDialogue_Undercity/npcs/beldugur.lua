@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Come; I've a book you'll find worth your while." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak, and then go. Knowledge is not for you today." },
     { id = "g_tool", text = "Knowledge is a tool, and a weapon, to anyone with the will to use it. Which are you here for?" },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. I hope you've brought me something to read." },
     { id = "g_ur", when = { questActive = TODO_QUEST("The Book of Ur") }, text = "The Book of Ur is somewhere in Shadowfang Keep. Arugal's wolves won't be reading it, so I'd be grateful if you relieved them of it." },
@@ -120,6 +122,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You understand knowledge as a weapon. Good." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've wasted my time, and time is knowledge." },
+    },
     background = { { id = "tp_bg", text = "I keep books. What I was before I kept them doesn't merit a page." } },
     advice = { { id = "tp_ad", text = "Never let a scruple stop you halfway. Either don't begin, or finish." } },
     worgen = { { id = "tp_worgen", text = "Arugal's failure, walking on four legs. Instructive, if you study it rather than run from it." } },

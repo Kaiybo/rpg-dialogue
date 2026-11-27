@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. I wondered when you'd come back, and I'm glad you did." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Ah. You. I wondered when you'd stop coming." },
     { id = "g_smooth", text = "Ah. I wondered when you'd find your way down here." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon? Either you've news for me, or you've missed my company, and I'm flattered either way." },
     { id = "g_astor", when = { questActive = TODO_QUEST("The Deathstalkers") }, text = "Have you brought Astor Hadren's effects? How you come by them is entirely your own affair." },
@@ -54,6 +56,8 @@ P:NPC {
         { id = "h_again2", text = "Do go on. I'm listening, and so, I expect, is someone else." },
       },
       choices = {
+        { text = "A rogue's loyalty is to coin, nothing more.", next = "BACK", reply = "Honest, at least. I'll keep that in mind when you name your price.", fx = { align = { honor = -1 } } }, -- dp_stance
+        { text = "Even a rogue owes loyalty to the Dark Lady.", next = "BACK", reply = "Spoken like a true servant. The Lady would be pleased, and so am I, almost.", fx = { align = { honor = 1 } } }, -- dp_stance
         { text = "What are the Deathstalkers?", next = "deathstalkers" },
         { text = "What happens to people who ignore your summons?", next = "summons" },
         { text = "Andron Gant seems to know a great many people.", next = "andron", when = { questDone = TODO_QUEST("The Deathstalkers") } },
@@ -139,6 +143,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've a sharp mind and quiet feet. The Quarter could use you." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been careless, and careless rogues don't last long." },
+    },
     background = { { id = "tp_bg", text = "I've had a few lives, and only the current one is any of your business." } },
     advice = { { id = "tp_ad", text = "Always know who in the room is lying, and if you can't tell, assume it's everyone, yourself included." } },
     syndicate = { { id = "tp_syndicate", text = "The old nobles of Alterac, gone to knives and ledgers. They're good at secrets, but not quite good enough to keep them from us." } },

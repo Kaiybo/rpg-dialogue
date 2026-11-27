@@ -20,6 +20,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you! Come in, come in, I've saved you a plate of the good stuff." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Not now, not now, and especially not you." },
     { id = "g_kitchen", text = "Not now, not now! Unless you're bringing me something fresh, in which case, yes, now." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and just in time! Taste this and tell me it needs nothing." },
     { id = "g_haunch", when = { questActive = QH }, text = "Do you have the haunch? I must start the marinade, or the banquet is ruined!" },
@@ -398,6 +400,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've a fine palate, and that's rarer than saffron in this city." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've insulted my kitchen, and nobody insults my kitchen." },
+    },
     booty_bay = { { id = "tp_booty_bay", text = "The spices that come up from Booty Bay are the only reason my kitchen can compete with the Keep's. The goblins rob me blind for them, and I pay gladly, because a dull sauce is a sin." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "The Darkmoon Faire sells food on sticks to people who've never tasted a proper sauce. I visited once, and I've never recovered." } },
     dalaran = { { id = "tp_dalaran", text = "The mages of Dalaran used to dine here when they came south, and they had the most refined palates in the world. I'm told the city's being rebuilt, and I've written to them twice to say my table's ready." } },

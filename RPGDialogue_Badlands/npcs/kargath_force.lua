@@ -414,6 +414,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
     { id = "g_default", text = "Ey, mon, you come lookin' for Razal'blade, or you just lost like the rest of us out here?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, eh? Kargath grows on you, mon, like a rash." },
   },
@@ -436,6 +438,8 @@ P:NPC {
         { id = "fo_default", text = "Dat's Kargath, mon. Warlord Goretooth give the orders, Lexlort shout them again louder, an' the rest of us go where we pointed. Thunderheart read the land, Galamav shoot what I find, an' Gargal stand in front." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "And young Amakkar?", next = "force_amakkar" },
         { text = "Who looks after the camp itself?", next = "force_camp" },
         { text = "Something else.", next = "BACK" },
@@ -588,6 +592,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
     { id = "g_default", text = "Lok'tar. You stand behind me if anything comes over that ridge, understand?" },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and still standing, which is good." },
   },
@@ -606,6 +612,8 @@ P:NPC {
         { id = "dd_gg_kos1", text = "Not much one at a time, maybe. But they come at night with blasting powder and fire, and they don't stop when they bleed, and I've put four friends in the dirt behind this wall. Don't get easy with them." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "You're right. I'll stay wary of them.", next = "BACK", reply = "Good. Wary grunts get old, and old grunts get to complain about young ones.", fx = { align = { order = 1 } } },
         { text = "Let them come. I'll meet them head on.", next = "BACK", reply = "Then stand next to me when they do, and we'll see how far head on gets you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -699,6 +707,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
     { id = "g_default", text = "Another one come to look at the mountain? Look all you like; I'm the one who's going in it." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Did you go up the mountain yet? I'll go with you, if Warlord Goretooth ever lets me." },
   },
@@ -721,6 +731,8 @@ P:NPC {
         { id = "mo_default", text = "Every night, from the ridge, with the smoke glowing red underneath like a forge with the door left open. The Dark Irons hold the deeps and the Blackrock orcs hold the spire above, and both of them are enemies of the Warchief." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Orcs holding the spire? Not Thrall's orcs.", next = "mountain_orcs" },
         { text = "It's an ugly thing to look at every night.", next = "mountain_ugly" },
         { text = "Something else.", next = "BACK" },

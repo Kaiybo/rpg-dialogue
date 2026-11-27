@@ -251,6 +251,19 @@ local function topicNames(ids)
   return out
 end
 
+-- The text of a line by its global id, rendered without a live conversation.
+local function lastSaid(gid, ctx)
+  if not gid or not (ns.Data and ns.Data.Line) then return nil end
+  local line = ns.Data.Line(gid)
+  local text = type(line) == "table" and line.text or (type(line) == "string" and line) or nil
+  if type(text) ~= "string" or text == "" then return nil end
+  local ok, out = pcall(ns.Tokens.Render, text, ctx, {})
+  out = ok and out or text
+  out = out:gsub("|c%x%x%x%x%x%x%x%x", ""):gsub("|r", "")
+  if #out > 160 then out = out:sub(1, 157) .. "..." end
+  return out
+end
+
 -- People, grouped by the zone where you last spoke with them (most recent zone first).
 local function people(add, c, search)
   local needle = search and search ~= "" and search:lower()
@@ -299,6 +312,21 @@ local function people(add, c, search)
       if #rivals > 0 then add(L.J_RIVALS:format(table.concat(rivals, ", ")), "dim") end
       local told = topicNames(p.m.topics)
       if #told > 0 then add(L.J_ASKED_ABOUT:format(table.concat(told, ", ")), "dim") end
+      -- Topics you know but haven't put to them yet (standard ones aside).
+      if ns.Topics and ns.Topics.Known then
+        local okK, known = pcall(ns.Topics.Known, false, p.key, d)
+        local left = 0
+        if okK and type(known) == "table" then
+          local asked = p.m.topics or {}
+          for _, t in ipairs(known) do
+            if not t.standard and not asked[t.id] then left = left + 1 end
+          end
+        end
+        if left > 0 then add(L.J_UNASKED:format(left), "dim") end
+      end
+      -- The last thing they said to you.
+      local said = lastSaid(p.m.lastLine, ctx)
+      if said then add(L.J_LAST_SAID:format(said), "note") end
     end
   end
 end

@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_default", text = "Shh, friend, for they're bitin'. I'm Warg Deepwater, an' if ye've come tae learn fishin', sit down an' be quiet, for that's the first lesson." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Sit, then, an' tell me what ye caught, an' I'll tell ye what ye did wrong." },
     { id = "g_dawn", when = { timeOfDay = "dawn" }, text = "Mornin'. Best hour on the loch, this, before the wind comes up an' the mountaineers start shoutin' on the road." },
@@ -41,6 +43,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then, quiet-like. The fish have ears, whatever the scholars say." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'd like to learn.", next = "BUSINESS" },
         { text = "What's in the loch?", next = "loch" },
         { text = "What's the secret to fishing?", next = "secret" },
@@ -116,6 +120,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "I'm Khara Deepwater, an' I sell fishin' supplies, but I've a lot o' chores today, so what can I get ye?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Lost another lure tae the big one, have ye? Everyone does." },
     { id = "g_clip", when = { questActive = TODO_QUEST("Silver of the Waves") }, text = "Ye've somethin' in yer hand that's glintin' like a fish scale, an' I'd know that glint anywhere." },
@@ -142,6 +148,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, quick-like, for there's a crate o' worms that won't sort itself." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your stock.", next = "BUSINESS" },
         { text = "How did you lose your hair clip?", next = "clip", when = { any = { { questActive = TODO_QUEST("Silver of the Waves") }, { questDone = TODO_QUEST("Silver of the Waves") } } } },
         { text = "What sells best?", next = "sells" },

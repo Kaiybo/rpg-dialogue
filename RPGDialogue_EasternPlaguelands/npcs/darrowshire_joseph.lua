@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are, friend. The square feels brighter when you're in it, and I'm glad of the company." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll speak with you, but my patience is thin, like everything else about me now." },
     { id = "g_free", text = "You're standing in my town square, friend, and you're the first living soul I've seen clearly in a long while. Forgive me if I stare." },
     { id = "g_back", when = { metBefore = true }, text = "You came back to Darrowshire. Not many do, and fewer come twice, so you're welcome here as long as I've any say in it." },
     { id = "g_battle", when = { questActive = TODO_QUEST("The Battle of Darrowshire") }, text = "You fought that day as if you'd been here the first time. I don't know how you did it, but the chain's broken, and I can feel it." },
@@ -197,6 +199,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've done more for Darrowshire than any living soul, and I'll not forget it, even in death." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've shown little respect for this place, friend, and these are my people's graves. Have a care." },
+    },
     background = { { id = "tp_bg", text = "A farmer's son who became a farmer, and a captain for a day. That's the whole of it, and I'd not trade the farming years for anything." } },
     advice = { { id = "tp_ad", text = "Put the little ones somewhere safe before you do anything brave. I did that much right, and it's the only part I'd do the same." } },
     scarlet_crusade = { { id = "tp_scarlet", text = "I don't know them; they came after my time. If they'd burn Pamela for being a ghost, I don't care to know them." } },

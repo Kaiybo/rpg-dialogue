@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You. Good. I can stand a little closer to you than to most, and that means something." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Don't come any closer. I mean it." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I spent weeks in a Blackrock cell listening to their warlocks work on the other prisoners. Don't come any closer than you are." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "That smell was in the camp every night before someone started screaming. I'll talk to you, but from here." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've never once given me cause, and I've been waiting for it. Maybe I can stop waiting soon, but not today." },
@@ -278,6 +280,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You got me out of that cell, and I'll never forget it." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You remind me of the warlocks, and I'd rather not be reminded." },
+    },
     second_war = { { id = "tp_second_war", text = "My grandfather fought the Horde in the Second War, and he'd say the orcs never fought for land, only for the fighting. I didn't believe him until I saw the inside of Stonewatch after they took it." } },
     blackrock_spire = { { id = "tp_blackrock_spire", text = "When they had me in the cages, the guards talked about the mountain to the north as if it were their capital. Every order seemed to come down from that spire, and every captive who went up the road never came back." } },
     internment = { { id = "tp_internment", text = "One of the guards at Render's Rock spoke good Common, and he told me he'd spent ten years in one of our camps. He said it like I owed him something, and I'm not sure he was wrong, which is the worst thing he did to me." } },

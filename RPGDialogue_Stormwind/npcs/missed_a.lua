@@ -16,6 +16,8 @@ P:NPC {
     third = "{name} met Acolyte Dellis, who tends the Academy's library for Mazen Mac'Nadir.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Oh! Good day to you. Please mind the stack by the stair, because I've only just put it in order." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and nothing's fallen over since you left, which I count as a good day." },
   },
@@ -140,6 +142,8 @@ P:NPC {
     third = "{name} met Adam, a boy who fishes the Stormwind canals with Billy.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Go away. I don't like you very much." },
     { id = "g_default", text = "Shh, you'll scare them off! Well, there aren't any to scare, but that's what you're supposed to say." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! Billy still hasn't caught anything, in case you were wondering." },
   },
@@ -261,6 +265,8 @@ P:NPC {
     third = "{name} met Aedis Brom, an old dwarven soldier who drinks at the Pig and Whistle.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Well met, {g:lad|lass}! Walk wi' us if ye like, for we're bound for the Pig and Whistle and the road's short." },
     { id = "g_back", when = { metBefore = true }, text = "Ha, it's yerself again! Christoph, look who's come back for the rest o' the story." },
   },
@@ -380,6 +386,8 @@ P:NPC {
     third = "{name} met Christoph Faral, an old soldier who walks to the Pig and Whistle with Aedis Brom.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Good day to you, friend. Don't mind Aedis, because he's only loud until the second mug." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again. We've not got any further than the canal bridge, as you can see." },
   },
@@ -496,6 +504,8 @@ P:NPC {
     third = "{name} met Andi, one of Miss Danna's pupils on their walk through Stormwind.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave, just like you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling." },
     { id = "g_default", text = "Hello! We're on a school walk, and I'm allowed to talk to people if I'm polite." },
     { id = "g_back", when = { metBefore = true }, text = "It's you again! Did you go anywhere exciting since last time?" },
   },
@@ -587,6 +597,8 @@ P:NPC {
     third = "{name} met Geoff, one of Miss Danna's pupils, who would rather be a knight.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave, just like you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
     { id = "g_default", text = "Hey! Is that a real weapon? Can I hold it? Miss Danna's not looking." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Did you fight anything since I saw you?" },
   },
@@ -677,6 +689,8 @@ P:NPC {
     third = "{name} met Jimmy, one of Miss Danna's pupils, who knows every bakery in Stormwind.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! You're my favourite grown-up, but don't tell my mum." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
     { id = "g_default", text = "Hello! Have you got anything to eat? I'm not supposed to ask, but have you?" },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! We still haven't had lunch, in case you wondered." },
   },

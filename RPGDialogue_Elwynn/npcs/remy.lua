@@ -20,6 +20,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Friend, friend, my best friend! I've got a deal for you, two deals, a two-times deal!" },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. No deals today, friend, no deals at all." },
     { id = "g_op_goblins", when = { opinion = { topic = "goblins", stance = "fair" } }, text = "Friend, friend! You're the one who likes goblins! I've been thinking about Booty Bay ever since, thinking very hard, thinking about prices." },
     { id = "g_dust", text = "Gold dust? Got any gold dust, friend, any at all, any at all?" },
     { id = "g_friend", when = { affinity = { min = 3 } }, text = "My friend, my good friend! What news have you got for Remy, what news?" },
@@ -298,6 +300,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're the best friend Remy's got, and Remy's got lots of friends, mostly for one time each." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've done Remy wrong, and Remy remembers it two times over." },
+    },
     knows = {
       { id = "tp_knows", text = "Oh, I hear everything first, friend, always have, always have! Ask me about any of this and you'll hear it before anyone else does." },
     },

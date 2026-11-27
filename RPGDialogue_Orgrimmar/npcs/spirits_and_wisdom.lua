@@ -17,6 +17,8 @@ P:NPC {
     third = "{name} met Ur'kyo, the Darkspear priest trainer in Orgrimmar's Valley of Spirits.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "De spirits be glad of you, friend. Come, sit, and let us talk." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "De spirits be quiet today, mon. Dey not much like you, I think." },
     { id = "g_hi", text = "The spirits be quiet today, mon. Come and sit, and let's see if they wake up for you." },
     { id = "g_forsaken", when = { race = "Scourge" }, text = "A Forsaken priest, and you still pray. That be the strangest thing in this whole valley, and I like it." },
     { id = "g_bowl", text = "Drop something in the offering bowl by my feet if you like, mon, a coin or a button or a bad memory, because the spirits not be fussy." },
@@ -132,6 +134,8 @@ P:NPC {
     third = "{name} met Uthel'nay, a Darkspear mage trainer in Orgrimmar's Valley of Spirits.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Speak as long as you like, friend. My students can burn the place down for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Speak quick, mon. My students be setting fire to things, and I have no time for you." },
     { id = "g_hi", text = "Speak quick, mon, I've got students setting fire to the curtains again." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, maybe this time you'll remember what I taught you." },
     { id = "g_smoke", text = "If you smell smoke, mon, don't tell me about it, because I already know." },
@@ -275,6 +279,8 @@ P:NPC {
     third = "{name} met Searn Firewarder, a shaman trainer in Orgrimmar's Valley of Wisdom.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The fire spirits are calm around you, friend. That's a rare thing. Come closer." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The fire spirits are restless today. Stand back, because they don't care for you." },
     { id = "g_hi", text = "The fire spirits are restless today, so stand back from the brazier, if you value your eyebrows." },
     { id = "g_shaman", when = { class = "SHAMAN" }, text = "A shaman, come to learn more. Good, because the elements always have more to teach." },
     { id = "g_brazier", text = "Come in, but mind the brazier, because it has burned since this city's first wall went up and I'll not have you kick it over." },
@@ -399,6 +405,8 @@ P:NPC {
     third = "{name} met Arnok, who teaches first aid in Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Sit, and tell me what you need. I always have time for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "If you're bleeding, sit down. If not, stand up and say your business." },
     { id = "g_hi", text = "If you're bleeding, sit down, and if you're not, stand over there and wait your turn." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece, I see. The grunts I patch up are rarely so lucky twice." },
     { id = "g_tally", text = "Don't lean on that wall, because those chalk marks are every grunt I've patched this season and I'm not counting them twice." },
@@ -514,6 +522,8 @@ P:NPC {
     third = "{name} met Jandi, the herbalism trainer in Orgrimmar's Valley of Spirits.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend, you never step on de seedlings. Come, walk where you like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Watch your feet, mon. Dere be seedlings everywhere, and I see you stompin'." },
     { id = "g_hi", text = "Watch your feet, mon, there be seedlings everywhere." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and you smell of the Barrens. You've been picking peacebloom, I can tell." },
     { id = "g_seedling", text = "Say hello to Little Karolek, the prickly earthroot by the door, mon, and don't step on him." },

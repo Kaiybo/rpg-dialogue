@@ -1041,6 +1041,8 @@ P:NPC {
     third = "{name} met Lil Timmy, a boy near the Cathedral who is determined to find his kitten a good home.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
     { id = "g_kitten", text = "Do you want a kitten? Please say yes." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Did you change your mind? Say you changed your mind." },
   },
@@ -1495,6 +1497,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Kneel if you like. The altar doesn't mind company." },
     { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "The Light is patient with everyone, friend. Even me." },
   },
@@ -1515,6 +1519,8 @@ P:NPC {
         { id = "dd_joshua_d_a", text = "Then admit it here, where it's safe to. Each time the spirit returns, it brings something back from the other side, and some find they grow braver for it while others grow careless. Which are you becoming?" },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Braver. Each death teaches me what's worth fighting for.", next = "dd_joshua_d2", fx = { align = { light = 1 } } },
         { text = "Careless, maybe. Death doesn't frighten me any more.", next = "dd_joshua_d2", fx = { align = { light = -1 } } },
       },
@@ -1844,6 +1850,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Walk with me. I think better moving, and so will you." },
     { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "Don't turn your back on the Light, friend. It keeps pace with you, whether you look back or not." },
   },
@@ -1861,6 +1869,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Whether they love you back, I suppose. The Light warms, but I've never heard it laugh, and I wonder whether your spirits do." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "They do, Brother, and so should we. Faith can be joyful.", next = "BACK", reply = "Then I'll take heart from that. A little joy wouldn't hurt this Cathedral.", fx = { align = { light = 1 } } },
         { text = "Spirits are wild things. Better to keep your faith quiet.", next = "BACK", reply = "Perhaps, but I'd like to hear one laugh before I die. Brother Joshua says I'm hopeless.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

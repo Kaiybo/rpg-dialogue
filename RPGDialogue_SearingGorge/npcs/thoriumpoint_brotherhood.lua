@@ -22,6 +22,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
+    { id = "dp_rep_tb_f", when = { rep = { faction = "Thorium Brotherhood", min = "Friendly" } }, text = "The Brotherhood counts you a friend, I hear. Good; we need friends out here more than we need ore." },
+    { id = "dp_rep_tb_h", when = { rep = { faction = "Thorium Brotherhood", min = "Honored" } }, text = "The Brotherhood honours you, and I'll show you the finer bits of thorium, the pieces we keep for ourselves." },
     { id = "g_default", text = "Oh, a visitor! Come in, come in, mind the slag, an' tell me where ye've been, because I want tae go there next." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did ye find anythin' worth bringin' home? I'm only askin' for science." },
   },

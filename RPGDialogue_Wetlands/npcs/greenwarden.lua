@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You return, small one. The reeds do not flinch at you; neither do I." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The reeds flinch, and so does my patience." },
     { id = "g_prej", when = { prejudiced = true }, text = "A dwarf. Your kind cut into this marsh before the harbor had walls, small one, and the reeds still flinch at the sound of a pick." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "The dwarf returns, and the moss does not draw back. I spoke hard words of your kind's picks and fires, and you have walked more gently here than many." },
     { id = "g_default", text = "The roots and ferns speak of you, small one. Come, and step softly on the moss." },
@@ -227,6 +229,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You walk gently in the marsh, small one. That is rare." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You have been careless in my marsh, and the reeds remember." },
+    },
     knows = { { id = "tp_knows", text = "The roots carry word from one end of the marsh to the other, slowly, but they carry it. Ask, and I will tell you what they have said." } },
     background = { { id = "tp_bg", text = "I am the Greenwarden. The marsh made me to keep it, and I keep it still." } },
     advice = { { id = "tp_ad", text = "Burn nothing that still grows, small one, and the marsh will be kinder to you." } },

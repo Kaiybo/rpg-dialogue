@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You. Good. Be silent a moment, and listen to the sea with me." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Be silent, and then be gone." },
     { id = "g_default", text = "Be silent a moment. Even over the sea's roar, you can hear the fish men gurgling." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. How many did you kill, and did they die screaming?" },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}. The fish men haven't, so neither have I." },
@@ -151,6 +153,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You hate the fish men as I do. That makes you a friend." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been careless, and careless gets eaten by murlocs." },
+    },
     background = { { id = "tp_ba", text = "I've lived by this beach long enough to hate it, and the sand's in every seam of my armour. Ask me something else." } },
     advice = { { id = "tp_ad", text = "Never turn your back on the tide, for it's always coming back." } },
     thrall = { { id = "tp_thrall", text = "The Warchief gave us Durotar, and I left it for this swamp, which shows how little sense I have. I'd follow him anywhere, but not back to this beach, if I had the choice." } },

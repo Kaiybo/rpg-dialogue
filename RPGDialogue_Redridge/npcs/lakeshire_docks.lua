@@ -309,6 +309,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Here fishy fishy... come to papa. Oh, hello there, keep your voice down, you'll scare 'em off." },
     { id = "g_back", when = { metBefore = true }, text = "Nothing biting yet. It'll pick up any minute now, you'll see." },
   },

@@ -11,6 +11,8 @@ P:NPC {
     third = "{name} met the Defias Traitor, a jumpy turncoat who knows the way to the Brotherhood's hideout.",
   },
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You. Good. Keep your voice down, but I'm glad to see you." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Keep your voice down, and keep your distance." },
     { id = "g_default", text = "Keep your voice down, will you? If any of my old mates see me talking to you, I'm a dead man." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Are we going or not? Every hour I sit here is another hour for them to find me." },
   },
@@ -201,6 +203,12 @@ P:NPC {
     },
   },
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've kept your word, and that's more than my old mates ever did." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been careless, and careless gets me killed." },
+    },
     deadmines = { { id = "tp_deadmines", text = "The Deadmines are under Moonbrook, and if I lead you there, you'll find more of my old friends than you'll want to count. VanCleef's at the bottom of it all, and he'd skin me slow if he knew I was talking." } },
     stonemasons = { { id = "tp_stonemasons", text = "I was a mason before I was a thief, and I was a good one, and the nobles never paid us for building their fine city. That's how it started, and I'm not sorry for the beginning, only for the end." } },
     the_stockade = { { id = "tp_the_stockade", text = "The Stockade's full of Defias who got caught, and the ones inside are running the place now, I've heard. I'd sooner die out here than end up in a cell next to someone who knows what I've done." } },

@@ -221,6 +221,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Winds be with you, friend! I'm still learning, but I'm glad you're here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Winds be with you. Forgive me, I'm still learning. Please be patient with me." },
     { id = "g_default", text = "Winds be with you! Forgive me, I'm still learning how one greets people here, and I'm told shouting is involved." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I've been practicing the orcish greeting since, and I think I've nearly got it." },
   },
@@ -331,6 +333,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Winds be with you, friend. Even down here, they find you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Winds be with you, though they rarely reach down here, and rarely reach you." },
     { id = "g_default", text = "Winds be with you, though they rarely reach down here. That's rather the point." },
     { id = "g_back", when = { metBefore = true }, text = "Back in the Cleft? Either you like the shade, or you've business with the people in it, and I'm curious which." },
     { id = "g_stealth", when = { stealthed = true }, text = "Your shadow moved against the torchlight, so you may as well stop creeping and say hello." },

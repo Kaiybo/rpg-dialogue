@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's ye! Pull up a plank, friend, and I'll pour ye a wee drop o' the good stuff before the lads drink it all." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's ye again. I'll just keep me jug on this side o' the span, if it's all the same tae ye." },
     { id = "g_default", text = "Well, hello there! Ye found yer way out here, an' that's the easy part; the way back's a tricky wee path after a dram or two." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I'd offer ye a seat, but there's only the one, an' it's a long way down." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, an' I'm still here, which tells ye how the rescue's goin'." },
@@ -150,6 +152,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye're a good sort, friend, the kind that'd carry a dwarf's jug across a broken bridge an' not take a sip. That's rarer than mithril." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've made me nervous, an' I'm nervous enough already, perched out here on half a bridge. Mind yer manners or mind yer own way home." },
+    },
     knows = { { id = "tp_knows", text = "I've a fine view from up here, if nothin' else, an' I hear the odd bit o' news shouted across the gap. Ask." } },
     background = { { id = "tp_bg", text = "One o' Longbraid's lads, an' a brewer on the side. Truth be told, the brewin' goes a good deal better than the soldierin'." } },
     advice = { { id = "tp_ad", text = "Never drink on watch. I'm livin' proof o' why, an' I'm stuck here provin' it." } },

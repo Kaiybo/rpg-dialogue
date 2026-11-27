@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend! Come in. I've set aside what you need, at the old price." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in off the bridge. Buy what you need, and go." },
     { id = "g_default", text = "Ishnu-alah, and come in off the bridge. Whatever you need for the road, I likely have it, or I'll have it when the next cart gets through." },
     { id = "g_back", when = { metBefore = true }, text = "Back in one piece. Good; I like customers who come back." },
   },
@@ -135,6 +137,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I've time between carts. The last one came in with a wheel off and furbolg teeth marks in the flour sacks." },
       },
       choices = {
+        { text = "Keeping Astranaar stocked keeps it alive.", next = "BACK", reply = "It does. Every bag and loaf matters.", fx = { align = { order = 1 } } },
+        { text = "Astranaar can supply itself from the forest.", next = "BACK", reply = "With what? The forest is full of orcs.", fx = { align = { order = -1 } } },
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "How do supplies reach Astranaar?", next = "supply" },
         { text = "Astranaar seems safe enough.", next = "safe" },
@@ -244,6 +248,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. Good. Let me show you a blade worthy of you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "I've forged blades for Sentinels who died. I'd rather not forge one for you." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I've forged blades for Sentinels who died on Warsong axes, and it was demon-craft that put the rage behind those axes. Buy what you need and go." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "My forge is hot and my patience isn't. You'll get no welcome from me, demon-caller." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've paid honestly and never once called up that creature in my shop. Fine. I'll sell to you without glaring, mostly." },
@@ -379,6 +385,8 @@ P:NPC {
         { id = "h_again2", text = "Speak, then. This edge is chipped from some Warsong grunt's skull, and it wants work." },
       },
       choices = {
+        { text = "A good blade can save a Sentinel's life.", next = "BACK", reply = "It can. That is why I forge.", fx = { align = { light = 1 } } },
+        { text = "A blade's just a tool for killing.", next = "BACK", reply = "Then use a rock. Leave my blades alone.", fx = { align = { light = -1 } } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "You sound angry about the orcs.", next = "angry" },
         { text = "You blame more than the orcs, I think.", next = "blame" },
@@ -500,6 +508,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Elune's light on you, friend. I've a new cloak for the rain, and I made it with you in mind." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Robes, gloves, cloaks. Buy, please." },
     { id = "g_default", text = "Elune's light on you. Robes, gloves, a good cloak for the rain; whatever you need, I hope I have it." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back. I'm glad; it's nice to see a familiar face these days." },
   },
@@ -622,6 +632,8 @@ P:NPC {
         { id = "h_again2", text = "Ask what you like; it's quiet today, and every cloak I own is still damp from last week's rain." },
       },
       choices = {
+        { text = "Even cloth armor has its purpose.", next = "BACK", reply = "It does. It keeps the rain off, at least.", fx = { align = { light = 1 } } },
+        { text = "Cloth is useless against an orc's axe.", next = "BACK", reply = "I know. Please, go.", fx = { align = { light = -1 } } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "What was Ashenvale like before the war?", next = "before" },
         { text = "What would make Ashenvale whole again, Aeolynn?", next = "whole" },
@@ -729,6 +741,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "There you are! Sit, sit; you look hungry, as always. I've something warm." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You look hungry. Pay, please, and eat elsewhere." },
     { id = "g_default", text = "You look half-starved! Sit down, sit down, and let me find you something warm." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still too thin. What can I get you?" },
   },
@@ -849,6 +863,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening, and eat while you talk. Mind the bones in the stew, for the fish put up a fight." },
       },
       choices = {
+        { text = "Feeding Astranaar is a worthy task.", next = "BACK", reply = "It is! The Sentinels would starve without me.", fx = { align = { light = 1 } } },
+        { text = "The Sentinels should feed themselves.", next = "BACK", reply = "They are busy fighting. Pay, please.", fx = { align = { light = -1 } } },
         { text = "Let me see your food.", next = "BUSINESS" },
         { text = "Do the Sentinels eat here often?", next = "sentinels" },
         { text = "Keeping the shop stocked must be hard work.", next = "stock" },

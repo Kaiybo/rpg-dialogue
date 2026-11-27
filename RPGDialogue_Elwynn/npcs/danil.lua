@@ -13,6 +13,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_faithful", text = "Supplies for the faithful, and for anyone else with coin." },
     { id = "g_poor", when = { money = { max = 100 } }, text = "Browsing is free. Everything else, regrettably, is not." },
     { id = "g_regular", when = { timesTalked = { min = 6 } }, text = "My best customer! Don't tell the others, they'd be jealous." },
@@ -31,6 +33,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Some of them made the sign of the Light when they saw your totems, I'll confess. But the Light didn't object to dwarven coin when we built the Abbey, and it won't object to yours going toward our leaking roof." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then I'll give something for the roof, Brother. Gladly.", next = "BACK", reply = "Bless you, friend, and the Light will bless you too. The leaking corner's right over my cot.", fx = { align = { light = 1 } } },
         { text = "Let the Light fix its own roof, Brother Danil.", next = "BACK", reply = "It might, in time, but in the meantime I'm sleeping under a bucket. Go in the Light anyway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

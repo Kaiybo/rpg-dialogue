@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Friend! Gordo is happy! Gordo will pull weeds with you!" },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Gordo does not like you today. Gordo will pull weeds alone." },
     { id = "g_weeds", text = "Weeds, weeds, more weeds. Gordo pulls them, but they come up squashed." },
     { id = "g_back", when = { metBefore = true }, text = "Friend come back! Us remembers you, because you is the one with small hands." },
     { id = "g_task", when = { questActive = TODO_QUEST("Gordo's Task") }, text = "Gloom weed grows in the fields and by the road. You take it to Master Holland, and he be happy." },
@@ -133,6 +135,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You are Gordo's friend. Gordo does not have many friends." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You were mean to Gordo. Gordo is sad now." },
+    },
     background = { { id = "tp_bg", text = "Us does not remember before. Before is very dark and very cold, and now is weeds." } },
     advice = { { id = "tp_ad", text = "Do not pick the weeds too hard, because then they is not weeds anymore, they is mush." } },
     scourge = { { id = "tp_scourge", text = "Gordo was Scourge, before, and Gordo did not like it. Gordo likes Brill better, because here nobody shouts in Gordo's head." } },

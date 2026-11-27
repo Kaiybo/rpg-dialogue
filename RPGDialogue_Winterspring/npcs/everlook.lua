@@ -15,6 +15,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "My favorite customer! Truly my favorite! Come in, get warm, and I'll fetch something hot." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh, it's you. Come in and get warm, I suppose. Just don't make trouble." },
+
+    { id = "g_rep1", when = { rep = { faction = "Everlook", min = "Friendly" } }, text = "Everlook's favourite customer! Well, one of them. Come in and get warm, there's a spot by the fire." },
     { id = "g_hu_human", when = { race = "Human" }, priority = 5,
       text = "Shut the door, shut it, sugar, I know how you humans are with doors! There, that's better, and don't you dare tell me Stormwind inns are warmer." },
     { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "vizzie_human_soft" }, priority = 10,
@@ -361,6 +365,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you! Touch anything you like, friend! Well, almost anything. I trust you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh, a customer. Don't touch that, or that, or that, and especially not that." },
     { id = "g_shop", text = "Oh, a customer! Don't touch that, or that, though that one's fine... no, wait, don't touch that one either!" },
   },
 

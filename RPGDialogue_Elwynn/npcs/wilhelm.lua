@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Come through the gate; I'll not keep you beyond the fence today." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay beyond my fence, and keep your business brief." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I fought in the Second War, and I saw what Gul'dan's warlocks made of good men. Stay beyond my fence, and keep that creature further still." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "You've no place at a paladin's door, and you know it. Say your piece from where you stand." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've kept to the fence every time I asked, and you've done good work in Goldshire. I'll speak with you, though I'll not forget what you carry." },
@@ -165,6 +167,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. Ask what's on your mind, not what you think I want to hear." },
       },
       choices = {
+        { text = "The Light forgives even warlocks, in time.", next = "BACK", reply = "The Light, perhaps. I am only a man, and I am slower about it.", fx = { align = { light = 1 } } }, -- dp_stance
+        { text = "Some sins the Light should never forgive.", next = "BACK", reply = "Careful. I said much the same once, and the Light taught me humility for it.", fx = { align = { light = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "What is the Tome of Divinity?", next = "tome", when = { class = "PALADIN" } },
         { text = "What's the hardest part of the oath?", next = "oath" },
@@ -322,6 +326,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've shown the Light's own patience with me, and I've been a hard man to be patient with." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to doubt you, and I doubted you already. Mind the fence." },
+    },
     background = { { id = "tp_bg", text = "A brother of the Light who teaches paladins behind a smithy. Grander men have had smaller callings." } },
     advice = { { id = "tp_ad", text = "Mercy is harder than courage. Practise it when it's easy, so it's there when it isn't." } },
     tome_of_divinity = { { id = "tp_tome", text = "The Tome of Divinity was the Abbey's book, though Duthorian Rall keeps it now. Ask him, and be ready for homework." } },

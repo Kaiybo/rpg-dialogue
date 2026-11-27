@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, it's you. Set it down, and I'll do the job right, not quick. You've earned that much." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Put it on the anvil. Tell me what broke. I'll fix it, and that's all you'll get from me." },
     { id = "g_default", text = "Set it on the anvil and tell me what broke. Then tell me what broke it, because that matters more; my father said the hunt is in the wound, not the spear." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and with more sand in your armor, I'd wager. Let me see." },
     { id = "g_away", when = { away = 14 }, text = "You were gone {away}, and the forge never cooled once. Neither did the sand, though I pray to An'she for a cooler day." },

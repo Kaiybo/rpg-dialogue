@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_pt_any", when = { party = true }, text = "You and your friends look like you've walked from Northshire on empty bellies. Sit down, all of you, and the stew's coming." },
+    { id = "dp_pt_gnome", when = { party = { race = "Gnome" } }, text = "I'll fetch a crate for your little friend to stand on, so they can see over the bar. No offence meant, mind." },
     { id = "g_op_forsaken_pity", when = { gossip = { topic = "forsaken", stance = "pity" } }, text = "Brother Wilhelm says you'd show mercy to the walking dead! He said it proudly, mind, and I'll take his word on it, since I'll never be brave enough to try." },
     { id = "g_op_warchief", when = { opinion = { topic = "warchief", stance = "trust" } }, text = "Here's the one who trusts the orcs! Sit down, sit down; Dobbins has a bet that you've met one, and I'd like to know who wins." },
     { id = "g_welcome", text = "Welcome to the Lion's Pride! Sit anywhere the dog isn't." },

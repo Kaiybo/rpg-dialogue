@@ -19,6 +19,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Friend! Logok saved the best bed for you, and Logok did not sit on it, not even once." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Logok has stew and beds. You pay first, and you do not break anything." },
     { id = "g_hello", text = "Come in, come in! Logok has stew, and Logok has beds, and Logok only sat on one bed this week." },
     { id = "g_back", when = { metBefore = true }, text = "Small friend comes back! Logok saved you a spoon." },
     { id = "g_mok", when = { questDone = TODO_QUEST("Justice Dispensed") }, text = "Overlord Mok'Morokk is happy, so Logok is happy, so everybody gets extra stew tonight." },
@@ -40,6 +42,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else does small friend want? More stew?" } },
       choices = {
+        { text = "The Stonemaul and the Horde are stronger together.", next = "BACK", reply = "Yes! Logok says the same. More friends, more stew.", fx = { align = { order = 1 } } },
+        { text = "The Stonemaul should go back to their own ways.", next = "BACK", reply = "Logok does not like that talk. Pay first.", fx = { align = { order = -1 } } },
         { text = "I'd like to rest here.", next = "BUSINESS" },
         { text = "Why do they call you Little?", next = "name" },
         { text = "What's in the stew?", next = "stew" },
@@ -120,6 +124,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. The riders trust you, fog or no fog. Where to?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Fog's thick. Pay, and don't fall off." },
     { id = "g_hello", text = "Fog's thick today, but the riders know the way. Where to?" },
     { id = "g_back", when = { metBefore = true }, text = "Still alive? Good. The marsh hasn't got you yet." },
   },
@@ -133,6 +139,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? The fog's getting thicker." } },
       choices = {
+        { text = "Flying in this fog takes real nerve.", next = "BACK", reply = "It does. Most riders won't do it.", fx = { align = { honor = 1 } } },
+        { text = "Fog's nothing. The riders are just soft.", next = "BACK", reply = "Then fly yourself and find out.", fx = { align = { honor = -1 } } },
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "How do the riders fly in this fog?", next = "fog" },
         { text = "Do you ever fly near Theramore?", next = "theramore" },

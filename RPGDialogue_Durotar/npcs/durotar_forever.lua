@@ -24,6 +24,8 @@ P:NPC {
     third = "{name} met Kagil, the junior skinning trainer at the Den in the Valley of Trials.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again, and your knife's cleaner than last time. Sit down; I'll show you a cut I don't teach the peons." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Got a knife? Good. Use it somewhere else unless you're paying." },
     { id = "g_default", text = "Got a knife? Then you've got half of what you need, and I'll teach you the other half." },
     { id = "g_skin", when = { profession = "Skinning" }, text = "Back with blood on your sleeves, I see. Show me your hands, and tell me you haven't been sawing at hides like a peon." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The boars are still out there, and they're still wearing good leather." },
@@ -60,6 +62,8 @@ P:NPC {
         { id = "b_default", text = "The mottled boars on the valley floor give you your first scraps, and the scorpids up the slopes give you scales, if you can stand the smell. Raptors and kodos come later, out in the Barrens, when your knife and your nerve have grown." },
       },
       choices = {
+        { text = "The boars should be culled carefully, not slaughtered.", next = "BACK", reply = "Aye. Kill them all now and there's no leather next season.", fx = { align = { order = 1 } } },
+        { text = "Kill every boar in the valley. There's always more.", next = "BACK", reply = "There won't be, if every recruit thinks like you.", fx = { align = { order = -1 } } },
         { text = "Scorpids? Is there even leather on those?", next = "scorpids" },
         { text = "Something else, Kagil.", next = "BACK" },
       },
@@ -129,6 +133,8 @@ P:NPC {
     third = "{name} met Norzsh, the junior mining trainer at the Den in the Valley of Trials.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. Good arms, I remember. Pick up the pick and I'll show you a better swing." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You think you've got the arms? Doubt it. Pay and learn." },
     { id = "g_default", text = "You think you've got the arms for a pick? We'll see about that." },
     { id = "g_mine", when = { profession = "Mining" }, text = "There's rock dust in your hair, so you've been working. Good, keep at it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The hills haven't moved, recruit, and neither has the copper in them." },
@@ -164,6 +170,8 @@ P:NPC {
         { id = "o_default", text = "Copper, mostly, in veins along the cliff walls of the valley and out across the red rock toward Razor Hill. Look for green streaks in the stone, and look up too, because the best veins sit right where a harpy can drop on you." },
       },
       choices = {
+        { text = "Mining builds the Horde, one ore at a time.", next = "BACK", reply = "It does. Orgrimmar's walls came from rocks like these.", fx = { align = { order = 1 } } },
+        { text = "Mining's work for peons, not warriors.", next = "BACK", reply = "Then go swing an axe and leave the ore to me.", fx = { align = { order = -1 } } },
         { text = "Anything better than copper nearby?", next = "better" },
         { text = "Something else.", next = "BACK" },
       },
@@ -224,6 +232,8 @@ P:NPC {
     third = "{name} met Thedda, who helps the recruits of the Valley of Trials choose their professions.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hello, {name}, my friend! I've been thinking about which trade would suit you best. Shall I tell you?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hello. If you want to know about a trade, ask, and I'll answer." },
     { id = "g_default", text = "Hello, {name}! Have you thought about taking up a trade? I can tell you about any of them." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Still deciding? That's no shame, because a trade is a long road and you should pick the right one." },
     { id = "g_two", when = { any = { { profession = "Mining" }, { profession = "Skinning" }, { profession = "Herbalism" } } }, text = "You've started gathering, I see, and good for you. Do you know what you'll make with it yet?" },
@@ -258,6 +268,8 @@ P:NPC {
         { id = "w_default", text = "They're the skills of making, gathering and getting by: forging a blade, sewing a bag, cooking a meal for the road. Learn a recipe once and you can make it again whenever you have the materials, which saves you coin on the road." },
       },
       choices = {
+        { text = "Learning a trade makes the Horde stronger.", next = "BACK", reply = "It does! Every crafter is a gift to Durotar.", fx = { align = { order = 1 } } },
+        { text = "A warrior doesn't need a trade.", next = "BACK", reply = "Then a warrior will buy everything at twice the price.", fx = { align = { order = -1 } } },
         { text = "And what's the difference between them?", next = "how_many" },
         { text = "Something else.", next = "BACK" },
       },
@@ -328,6 +340,8 @@ P:NPC {
     third = "{name} met Zor'la, the Darkspear junior herbalism trainer in the Valley of Trials.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, my friend, come and see. A new flower grew by de rocks, just for you, mon." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ah. A face. See what grows, if you must, but don't trample it." },
     { id = "g_default", text = "Ah, a new face. Come, mon, and see what grows in this red dirt." },
     { id = "g_herb", when = { profession = "Herbalism" }, text = "You smell of peacebloom, mon, so you been listening to me. Good." },
     { id = "g_back", when = { metBefore = true }, text = "You come back. The herbs, they don't move, but you do, and that's how you learn them." },
@@ -364,6 +378,8 @@ P:NPC {
         { id = "he_default", text = "Peacebloom and silverleaf, mostly, low by the rocks where the shade lasts longest, and earthroot too if you dig a little. They grow small and tough here, mon, because the sun is angry and the soil is thirsty." },
       },
       choices = {
+        { text = "Every herb should be gathered with thanks.", next = "BACK", reply = "Dat be de way, mon. De earth gives, we thank.", fx = { align = { light = 1 } } },
+        { text = "Herbs are weeds. Pull them and sell them.", next = "BACK", reply = "Den de earth stop giving, mon.", fx = { align = { light = -1 } } },
         { text = "How do I find them?", next = "find" },
         { text = "Something else.", next = "BACK" },
       },
@@ -845,6 +861,8 @@ P:NPC {
     third = "{name} met Slizzy Kreeg of Rocktusk Farm, who is nursing a beast called Morok'ra back to health to ride into battle.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. The little beast likes you, so you can come closer." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Watch your step. Stay away from the beast." },
     { id = "g_default", text = "Watch your step. This little beast has been through enough." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Morok'ra's eating now, so mind your fingers." },
   },
@@ -879,6 +897,8 @@ P:NPC {
         { id = "f_default", text = "I found it in the scrub off the western road, torn up and too weak to stand, with whatever did it long gone. Most would have finished it, but I saw it bite at me with half its blood on the ground, and I knew it was worth keeping." },
       },
       choices = {
+        { text = "An injured creature deserves care.", next = "BACK", reply = "It does. Someone has to do it.", fx = { align = { light = 1 } } },
+        { text = "An injured beast should be put down.", next = "BACK", reply = "Not this one. Get away from it.", fx = { align = { light = -1 } } },
         { text = "You should have ended its pain.", next = "mercy" },
         { text = "It's lucky you found it.", next = "BACK", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },

@@ -1442,6 +1442,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_ride", text = "Ye look like ye've somewhere tae be. Need one o' my gryphons?" },
     { id = "g_heat", text = "Feel that heat? My gryphons sleep through it like it's a summer's day, an' that's the Great Forge for ye." },
   },

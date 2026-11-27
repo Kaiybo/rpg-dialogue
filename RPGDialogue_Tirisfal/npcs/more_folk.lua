@@ -136,6 +136,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_default", text = "Keep your hands off the shelf unless you mean to buy. Some of these books bite, and the rest are worse." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock, and a customer, I hope. I was beginning to think Rupert had frightened all the custom away." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, I see. How is your servant behaving?" },
@@ -166,6 +168,8 @@ P:NPC {
         { id = "h_again3", text = "Was there something more? The imps on this shelf have no patience, and I have only a little." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me the grimoires.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "Halgar sent for me? Why?", next = "summons", when = { class = "WARLOCK", minLevel = 10 } },
         { text = "My demon talks back more than I'd like.", next = "backtalk", when = { class = "WARLOCK" } },
@@ -309,6 +313,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Another one up from the earth. Stand a moment, and let the world settle around you." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back. Most don't, once they find the road to Brill." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "A priest among the graves. Say what you like over them, so long as you say it quietly and leave my door alone." },
@@ -551,6 +557,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
     { id = "g_default", text = "State your business in Brill, {class}, and I'll point you to it." },
     { id = "g_discipline", when = { questActive = TODO_QUEST("Discipline") }, text = "There must be some mistake. My conduct has been exemplary, and I can produce witnesses." },
     { id = "g_disdone", when = { questDone = TODO_QUEST("Discipline") }, text = "I trust the Executor was satisfied with your work. I certainly was not." },
@@ -574,6 +582,8 @@ P:NPC {
         { id = "tr_priest", when = { class = "PRIEST" }, text = "For a priest, that is Dark Cleric Beryl, in the Gallows' End with the rest of them. The other trainers keep rooms there too, should your companions need one." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "And for a trade, rather than a fight?", next = "trainers2" },
         { text = "Thank you. Something else.", next = "BACK" },
       },
@@ -678,6 +688,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
     { id = "g_default", text = "If you're lost, I can help. If you're from the Executor, I was just straightening up." },
     { id = "g_discipline", when = { questActive = TODO_QUEST("Discipline") }, text = "Oh, no. Not you as well. Doesn't Zygand have anything better for his errand-runners to do?" },
     { id = "g_disdone", when = { questDone = TODO_QUEST("Discipline") }, text = "My shoulder still smarts, if you were wondering. I wasn't sure we could still feel that." },
@@ -698,6 +710,8 @@ P:NPC {
     view = {
       lines = { { id = "v_default", text = "It does, and I've earned it. From here I can see the Gallows' End door, the Executor's back and the road in from Deathknell, which is all three of the things a guard in Brill needs to keep an eye on." } },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What comes up the Deathknell road?", next = "view2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -800,6 +814,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
     { id = "g_default", text = "Up the stairs, are you? Not many bother. Mind the third step; it isn't there." },
     { id = "g_discipline", when = { questActive = TODO_QUEST("Discipline") }, text = "So he's found me even up here. I suppose that's a compliment, of a sort." },
     { id = "g_back", when = { metBefore = true }, text = "You found the stairs again, and remembered the third step by the look of you. That makes you my most regular visitor." },
@@ -820,6 +836,8 @@ P:NPC {
     window = {
       lines = { { id = "wi_default", text = "North as far as the fences at Garren's Haunt on a clear day, and east to where the road bends toward Brightwater Lake. On a clear night I can see the lanterns at the Scarlet tower away to the west, and I count them, for something to do." } },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How many lanterns?", next = "window2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -924,6 +942,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
     { id = "g_default", text = "Lost on the way to the bar? It's upstairs, where it's always been." },
     { id = "g_discipline", when = { questActive = TODO_QUEST("Discipline") }, text = "Down here? Really? I'm the only Deathguard in Brill who works indoors, and you still came looking." },
     { id = "g_back", when = { metBefore = true }, text = "You're down here again, and sober again, which makes twice. I'm beginning to think you come for my company." },
@@ -944,6 +964,8 @@ P:NPC {
     stores = {
       lines = { { id = "st_default", text = "Renee's casks, for the living guests and for the dead ones who like to hold a mug. Past those are the Executor's stores for the town, lamp oil and bandages and arrows, which are the real reason a Deathguard stands on these stairs." } },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "So the joke about guarding beer isn't the whole story.", next = "stores2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1048,6 +1070,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Leather, cured and stitched. It won't stop a Crusader's sword, but it'll make him work for it." },
     { id = "g_rogue", when = { class = { "ROGUE", "HUNTER", "DRUID", "SHAMAN" } }, text = "You've the look of someone who'd rather move than stand and be hit. Good; I sell to people like you." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and I can see how the last lot has been treating you. Turn about and let me look at the seams." },
@@ -1068,6 +1092,8 @@ P:NPC {
     boots = {
       lines = { { id = "bo_default", text = "I do, because boots tell the truth. A purse can be borrowed and a sword can be stolen, but nobody walks in from the Glades with good soles unless they've had the sense to look after themselves." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "And what do mine say?", next = "boots2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1168,6 +1194,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Swords, axes, maces and staves. Plain work, honestly made, and none of it will snap on you." },
     { id = "g_warrior", when = { class = { "WARRIOR", "PALADIN" } }, text = "You hold yourself like someone who swings for a living. Come and pick something heavy." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Let me see the edge on that before you say anything, because I can tell a lot from how a customer has kept it." },
@@ -1188,6 +1216,8 @@ P:NPC {
     ambition = {
       lines = { { id = "am_default", text = "I do, and I don't see why not. A living smith gets forty good years at the anvil if his back holds, and I've got as long as my arms stay on, so all I need is somebody to show me what I'm doing wrong." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Where would you find a teacher now?", next = "ambition2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1287,6 +1317,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Mushrooms! Fresh from the cellar, or as fresh as anything in Brill gets." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? I knew you had the taste for them." },
     { id = "g_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "A customer with a working stomach! Come here, friend, I've mushrooms in this basket that would be wasted on the rest of Brill." },
@@ -1306,6 +1338,8 @@ P:NPC {
     barley = {
       lines = { { id = "ba_default", text = "I did, on a good piece of land that drained well and caught the morning sun. It's all grey stubble now, and the last time I walked out to look at it there were duskbats roosting in what's left of my barn." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Would you go back, if the soil healed?", next = "barley2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1406,6 +1440,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Fresh from the grave and wearing a shroud. Let's get some mail on you before the Crusade sees you like that." },
     { id = "g_back", when = { metBefore = true }, text = "Still in one piece? Good. Mostly good." },
     { id = "g_warrior", when = { class = { "WARRIOR", "PALADIN" } }, text = "You're one of Dannal Stern's, by the look of you. He drills them and I dress them, so stand still and let me see what size you've come back as." },
@@ -1425,6 +1461,8 @@ P:NPC {
     fitting = {
       lines = { { id = "fi_default", text = "It's awkward more than thankless. Nobody comes back the size they went in, so a man who was fitted for his own mail in life finds it hangs off him like a sack, and I have to tell him why." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How do they take it?", next = "fitting2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1523,6 +1561,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Mail and plate, made in Brill. Nothing fancy, but it'll keep your insides in." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Did my wife send you? She sends everyone." },
     { id = "g_warrior", when = { class = { "WARRIOR", "PALADIN" } }, text = "Now here's someone who'll actually wear what I sell. Come and try the weight of this, {class}, and tell me honestly if the shoulders sit right." },
@@ -1542,6 +1582,8 @@ P:NPC {
     before = {
       lines = { { id = "be_default", text = "A clerk, if you can credit it. I kept the tally books for the grain merchants in this very town, and I could tell you the price of a bushel in any month of the last ten years I was breathing." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "That's a long way from an anvil.", next = "before2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1654,6 +1696,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Pick one up and see how it sits in your hand. Nobody in Deathknell knows what they can swing until they've tried." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and you've still got all your fingers. I'll take that as a compliment to the blade." },
     { id = "g_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "You'll be wanting a staff or a dagger, and you'll tell me you don't need either. Take one anyway, because spells run dry and Rattlecages don't." },
@@ -1683,6 +1727,8 @@ P:NPC {
         { id = "h_again3", text = "What else would you like to know? I can talk and sharpen." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what's on the rack.", next = "BUSINESS" },
         { text = "You watch people choose. What do you look for?", next = "choose" },
         { text = "Simple stock, for a village at war.", next = "simple" },
@@ -1765,6 +1811,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_default", text = "Close the door behind you, if you please. The draught turns the pages, and some of these should not be read by accident." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "A warlock, and one who climbed the stairs, which already sets you above the ones who stop at Ageron's shelf. Let me see what you've brought with you." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I wondered whether you would come back, or whether your servant would come back without you." },
@@ -1795,6 +1843,8 @@ P:NPC {
         { id = "h_again3", text = "Ask it, then. I do enjoy a question I haven't heard this week." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your grimoires. I want the hungrier ones.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "Two demon trainers, in one small tavern.", next = "two" },
         { text = "You speak to the demon before its master.", next = "speak" },
@@ -1914,6 +1964,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Vials, herbs and clean glass. Please don't lean on the table, because the rack is balanced and I've only just got it level." },
     { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist. Good, then I needn't explain why you want the leaded vials and not the cheap ones." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. I hope you rinsed the last lot before you corked them, though I know better than to ask." },
@@ -1933,6 +1985,8 @@ P:NPC {
     dried = {
       lines = { { id = "dr_default", text = "Fresh, always, if you can use it the same day, and almost nobody can. A dried herb gives up a little strength and gains a year on the shelf, and Tirisfal's herbs dry better than most, since they are slow to rot even when you would like them to." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Faruza would say to pick your own.", next = "dried2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -2031,6 +2085,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_default", text = "One moment, I am in the middle of a rune. There. Now, what have you brought me to look at?" },
     { id = "g_ench", when = { profession = "Enchanting" }, text = "You have dust under your nails, the grey kind that never quite washes out. Sit down, colleague, and show me your rod." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it is you. I have been thinking about that piece you were wearing last time, and I've decided I was right about it." },
@@ -2048,6 +2104,8 @@ P:NPC {
     pupils = {
       lines = { { id = "pu_default", text = "A handful, and they are an odd handful. Mages who want their staves improved, a tailor who wishes his cloaks to do more than keep the rain off, and one Deathguard who will not say why she is learning and has turned out to be the best of them." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What makes a guard a good enchanter?", next = "pupils2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -2147,6 +2205,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_default", text = "Mind your shadow on the water, friend. Come round this side and I'll gladly talk." },
     { id = "g_fisher", when = { profession = "Fishing" }, text = "There's a rod on your back that's seen some water. Sit down and tell me what they're biting on where you come from." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. They've been rising since first light, so you've picked a good day for it." },
@@ -2176,6 +2236,8 @@ P:NPC {
         { id = "h_again3", text = "Ask away, friend. The fish are in no hurry and neither am I." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me to fish.", next = "BUSINESS" },
         { text = "Why fish at all, if you can't eat?", next = "why" },
         { text = "The Deathguard call you a bass master.", next = "bass" },
@@ -2264,6 +2326,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Rods, line, bait and lures! You'll catch nothing with your hands, whatever Clyde tells you about the old days." },
     { id = "g_fisher", when = { profession = "Fishing" }, text = "Now there's a customer who knows what they want. Let me see that line of yours, because I'll wager it's frayed." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more bait? I told you one tin wouldn't see you through." },
@@ -2281,6 +2345,8 @@ P:NPC {
     shore = {
       lines = { { id = "so_default", text = "Every plank of it. There was a boathouse where those posts stick up, and a jetty, and on a fine day half of Brill came down to row about and get sunburnt. I kept a stall then too, just there, and it's the same pitch I've got now." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "You took your old place back.", next = "shore2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -2380,6 +2446,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_default", text = "Come in, but keep clear of the stretching frames. If you've come to learn, find a stool, and if you've come to gawp, be quick." },
     { id = "g_lw", when = { profession = "Leatherworking" }, text = "That's a stitching awl in your belt, and you carry it where you can reach it. Good. Show me the last thing you made." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Let me see your hands, I want to know whether you've been practising or only meaning to." },
@@ -2408,6 +2476,8 @@ P:NPC {
         { id = "h_again3", text = "Was there more? Ask it, and mind the frame behind you." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me leatherworking.", next = "BUSINESS" },
         { text = "You and your husband both came back.", next = "rand" },
         { text = "Why set up out here, away from Brill?", next = "house" },
@@ -2490,6 +2560,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_default", text = "Mind where you step, there's a hide pegged out just there. Have you come to learn the knife, or to talk? I can manage both at once." },
     { id = "g_skin", when = { profession = "Skinning" }, text = "That's a skinner's knife, and you keep it sharp. Good! Come and look at this one, and tell me where I went wrong at the shoulder." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again. Did you bring me anything dead? Anything else dead, I should say." },
@@ -2518,6 +2590,8 @@ P:NPC {
         { id = "h_again3", text = "Anything more? I've the whole afternoon and half a darkhound." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me to skin.", next = "BUSINESS" },
         { text = "The Deathguard say you're good with a duskbat.", next = "bats" },
         { text = "Your wife seems to run this house.", next = "shelene" },
@@ -2601,6 +2675,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Orgrimmar zeppelin, this platform, friend! She's on her way, she's always on her way, and the wait don't cost you a copper." },
     { id = "g_orc", when = { race = { "Orc", "Troll" } }, text = "Headin' home to Durotar, pal? Smart, real smart, because this place does somethin' to the appetite and I'm speakin' from experience." },
     { id = "g_back", when = { metBefore = true }, text = "Hey, a repeat customer! That's the best advertisement there is, on account of it proves you landed." },
@@ -2723,6 +2799,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Grom'gol Base Camp, Stranglethorn Vale, this side of the tower, friend. Check your bags, check your weapons, and check 'em again, 'cause I don't turn the ship around for a forgotten sword." },
     { id = "g_green", when = { maxLevel = 25 }, text = "Whoa, whoa, hold up, pal. You know where this ship goes, right? I'm askin' because I got a clipboard full of folks who didn't, and none of 'em filed a complaint, if ya take my meanin'." },
     { id = "g_back", when = { metBefore = true }, text = "You're back from the jungle in one piece! I'm markin' that down, friend, it does wonders for my figures." },

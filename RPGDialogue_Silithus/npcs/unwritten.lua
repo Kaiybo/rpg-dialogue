@@ -228,6 +228,8 @@ P:NPC {
     third = "{name} met Sergeant Carnes of the Ironforge Brigade.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Good, you. I'll take one of you over three of the new recruits. At ease, and tell me what you need." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You're here, I see. If you're not here to work, you're in the way, so be quick about it." },
     { id = "g_default", text = "At ease, unless you're here to work. The Brigade's always short of hands." },
     { id = "g_bars", when = { questDone = TODO_QUEST("The Alliance Needs Iron Bars!") }, text = "You're one of the ones who brought iron bars back in Ironforge! They're out here now as blades and bolts, if you were wondering." },
   },
@@ -333,6 +335,8 @@ P:NPC {
     third = "{name} met Colossus Researcher Sophia near the Colossus of Zora.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you! You can stand on the baseline, actually; you're the only one who never kicks the stakes." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Off my baseline, please. Now, and carefully. Then tell me what you need." },
     { id = "g_default", text = "Careful! You're standing on my baseline. Thank you. Now, how can I help?" },
   },
   start = "hello",
@@ -434,6 +438,8 @@ P:NPC {
     third = "{name} met Colossus Researcher Nestor near the Colossus of Ashi.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hello, hello, my friend! You're the very person I hoped to see. I've measurements I simply must share with you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh. Hello. Mind the calipers, please, and do try not to touch anything this time." },
     { id = "g_default", text = "Hello, hello! Mind the calipers. They're calibrated to a hair, and I've only got one hair left to calibrate them to." },
   },
   notice = {
@@ -532,6 +538,8 @@ P:NPC {
     third = "{name} met Colossus Researcher Eazel near the Colossus of Regal.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ye're back. Good. Ye're one of the few that's never looked at me like I'm about to light a fuse." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Aye, it's ye. Say what ye want and let me get on, because I've no time for a long chat." },
     { id = "g_default", text = "Aye, I'm a Dark Iron, and no, I'm not here to set anything on fire. Say what ye want and let me get back to my rock." },
   },
   notice = {
@@ -640,6 +648,8 @@ P:NPC {
     third = "{name} met Warden Haro, a tauren weaponsmith at Cenarion Hold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The Earth Mother guards you still, I see, and I am glad of it. Bring me what the desert gave you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "If you have something from the desert, bring it here. I will judge it fairly, as I judge everyone." },
     { id = "g_default", text = "May the Earth Mother guard your steps in this desert. If you have taken something from the ruins, I can make it into a weapon." },
   },
   notice = {
@@ -746,6 +756,8 @@ P:NPC {
     third = "{name} met Keyl Swiftclaw, a cloak-maker at Cenarion Hold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend. Bring me what the ruins gave you, and I will make it into something worthy of you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. I will work what the ruins gave you, as I work for anyone. That is all I promise." },
     { id = "g_default", text = "Ishnu-alah. If the ruins have given you something, I can turn it into a cloak to keep the sand and the insects off you." },
   },
   notice = {
@@ -851,6 +863,8 @@ P:NPC {
     third = "{name} met J.D. Shadesong at Cenarion Hold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You hear it too, don't you? I thought you might. Sit with me a moment, friend, and listen to the sand." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Quiet. You're too loud for this place, and I suspect you always have been." },
     { id = "g_default", text = "Quiet a moment. Do you hear it? The sand has a sound to it, low, like a drum under the floor." },
   },
   start = "hello",
@@ -956,6 +970,8 @@ P:NPC {
     third = "{name} spoke with an Ironforge Brigade Footman in Silithus.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ho, it's ye! Good to see a face I trust in this blasted sand. Stand with me a bit, would ye?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ho there. Ye're here, so state yer business, and keep yer hands where I can see 'em." },
     { id = "g_default", text = "Ho there. If ye're Alliance, ye're welcome, and if ye're carryin' silithyst, ye're doubly welcome." },
   },
   start = "hello",
@@ -1056,6 +1072,8 @@ P:NPC {
     third = "{name} spoke with an Orgrimmar Legion Axe Thrower in Silithus.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, it be you, mon! Stand right there, I trust you not to flinch. Watch this throw." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand still, mon. I be practicin', and some days my aim gets very poor near certain folk." },
     { id = "g_default", text = "Hey, mon. Stand still, I be practicin' and I don't want to practise on you." },
   },
   start = "hello",
@@ -1156,6 +1174,8 @@ P:NPC {
     third = "{name} spoke with a Stormwind Archmage in Silithus.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you. Stand close, if you wish. I've grown confident you won't jostle my wards." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand clear, please, well clear. I'd rather the qiraji magic not have a reason to find you, or I to notice you." },
     { id = "g_default", text = "Stand clear, please. The air here is full of the qiraji's magic, and I'd prefer not to set it alight by mistake." },
   },
   notice = {
@@ -1261,6 +1281,8 @@ P:NPC {
     third = "{name} spoke with a Stormwind Cavalryman in Silithus.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Easy, girl, it's a friend. See, she's settling already, and that's how I know you're all right." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Easy, girl, easy. She doesn't care for you, friend, and to be honest, she's a fair judge." },
     { id = "g_default", text = "Easy, girl, easy. Sorry, friend, the horses don't care for the hum in the ground." },
   },
   start = "hello",
@@ -1363,6 +1385,8 @@ P:NPC {
     third = "{name} spoke with a Tauren Primalist in Silithus.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The Earth Mother hears you even here, young one, and so do I. It is good to see you safe." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The Earth Mother is far away from this place, young one. Walk carefully, for she may not see you." },
     { id = "g_default", text = "May the Earth Mother guard you, young one. Here, she is very far away, but we call to her still." },
   },
   notice = {
@@ -1668,6 +1692,8 @@ P:NPC {
     third = "{name} met Warlord Gorchuk, who leads the Horde's war effort against Ahn'Qiraj.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Lok'tar, warrior. You've earned your place at my side. Come to fight with me today?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You. Have you come to fight, or to waste my time again?" },
     { id = "g_default", text = "Lok'tar ogar. Have you come to fight, or only to look?" },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "Alliance. The bugs are a common enemy, so I'll not draw on you. Don't push me." },
     { id = "g_done", when = { questDone = TODO_QUEST("The Horde Needs Your Help!") }, text = "Kai'jin sent you, and you answered. The Horde remembers those who carried its crates." },
@@ -1758,6 +1784,8 @@ P:NPC {
     third = "{name} found Cenarion Scout Jalia inside Hive'Ashi, watching the silithid.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, good, it's you. I always breathe a little easier when you're nearby. Stay quiet, though." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Quietly! And stay back from me. I don't need anyone careless drawing the silithid my way." },
     { id = "g_default", text = "Quietly! The silithid hear more than you'd think." },
   },
   start = "hello",
@@ -1871,6 +1899,8 @@ P:NPC {
     third = "{name} spoke with a rifleman of the Ironforge Brigade.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ho, it's ye! Stand right beside me when the bugs come. I'll cover ye like kin." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stay behind me, aye, but not too close. My temper's short, and ye've a way of shortening it." },
     { id = "g_default", text = "Ho there! Stay behind me when the bugs come. I've good aim, but a short temper." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde, eh? Common enemy today. Just don't stand in me sights." },
   },

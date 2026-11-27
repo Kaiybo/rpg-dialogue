@@ -146,6 +146,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Bring your companion closer, friend. It remembers me, and I remember you both fondly." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bring your companion, if you have one. I will see to it." },
     { id = "g_hello", text = "Bring your companion closer, please. I'd like to meet it properly." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Your companion looks prouder than last time." },
   },
@@ -186,6 +188,8 @@ P:NPC {
     know = {
       lines = { { id = "kn_default", text = "You watch it, for a long time, without wanting anything from it. Most hunters watch their pets only when they need them, and the beasts know that very well." } },
       choices = {
+        { text = "Patience is how a companion's trust is won.", next = "BACK", reply = "It is. You watch and wait, and it comes.", fx = { align = { light = 1 } } },
+        { text = "A companion should simply be commanded.", next = "BACK", reply = "Then it will obey, and never trust you.", fx = { align = { light = -1 } } },
         { text = "What should I be watching for?", next = "know_watch" },
         { text = "Something else.", next = "BACK" },
       },
@@ -286,6 +290,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Leaving one, or taking one? For you, I'll manage both at once." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Leaving one, or taking one? One at a time." },
     { id = "g_hello", text = "Leaving one, or taking one? I can do either, but not both at once." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you. Your beasts are well, and they'd like you to visit more often." },
   },
@@ -324,6 +330,8 @@ P:NPC {
     strange = {
       lines = { { id = "st_default", text = "A crab from the coast of Darkshore, if you can believe it, that a dwarf hunter swore was the bravest companion he'd ever had. It pinched me every morning for a month, and I grew rather fond of it." } },
       choices = {
+        { text = "Every beast deserves a good stable.", next = "BACK", reply = "Even the crabs. Especially the crabs.", fx = { align = { light = 1 } } },
+        { text = "Strange beasts don't belong in Darnassus.", next = "BACK", reply = "The crab disagrees. Leaving one, or taking one?", fx = { align = { light = -1 } } },
         { text = "What became of it?", next = "strange_crab" },
         { text = "Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
@@ -410,6 +418,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Oh, it's you! Speak as loud as you like; I'll tell the priestesses you're with me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Speak quietly. The priestesses frown, and so do I." },
     { id = "g_hello", text = "Oh, hello, and do speak quietly, because the priestesses frown at anything louder than a prayer." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece, I see, which is a good start for anyone studying portals." },
   },
@@ -440,6 +450,8 @@ P:NPC {
       big = true,
       lines = { { id = "edn_default", text = "They watch you more, I'm afraid, because a human mage is a guest who doesn't know any better, and a kaldorei mage is a child of the city who should. I've seen how the sisters look at the few of you who come to me, and I'd ask you to be braver than I've ever had to be." } },
       choices = {
+        { text = "Portal magic needs careful study.", next = "BACK", reply = "It does. Three winters to learn one anchor.", fx = { align = { order = 1 } } },
+        { text = "Portals are just a mage's shortcut.", next = "BACK", reply = "Then walk to Stormwind.", fx = { align = { order = -1 } } },
         { text = "I'll show them the arcane can be kept gently.", next = "BACK", reply = "Then you'll do more for mages in this city than I have in all my years here.", fx = { align = { order = 1 } } },
         { text = "Let them watch. I won't hide what I am.", next = "BACK", reply = "Good, though hide it a little during prayers, for my sake if not for theirs.", fx = { align = { order = -1 } } },
         { text = "Something else, Elissa.", next = "BACK" },
@@ -578,6 +590,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, friend. Your belongings are exactly as you left them." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to the vaults. Your belongings are safe. That is all." },
     { id = "g_hello", text = "Welcome to the vaults. Your belongings will be safe here for as long as you like." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Your vault is exactly as you left it." },
   },
@@ -625,6 +639,8 @@ P:NPC {
     keep_return = {
       lines = { { id = "kr_default", text = "Some come every year on the same night, open the box, look, and close it again without taking anything. Others haven't come in centuries, and I keep their boxes dusted all the same." } },
       choices = {
+        { text = "A vault is a promise kept.", next = "BACK", reply = "It is. I keep every one.", fx = { align = { honor = 1 } } },
+        { text = "A vault just hides things from thieves.", next = "BACK", reply = "And from you, if you speak like one.", fx = { align = { honor = -1 } } },
         { text = "And the seeds? Couldn't the druids plant them?", next = "keep_seeds" },
         { text = "Something else.", next = "BACK" },
       },
@@ -695,6 +711,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Come, friend! Try this one; I made it thinking of your arm." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Try the draw, if you like. Then pay." },
     { id = "g_hello", text = "Come, come, try the draw on any of them. You'll know the right one when it fights back a little." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did the last bow treat you well?" },
   },
@@ -733,6 +751,8 @@ P:NPC {
     wood = {
       lines = { { id = "wo_default", text = "Fallen limbs, and branches the druids say the trees can spare, and never a living trunk. It makes for fewer bows than I'd like, but I sleep well, and so do the trees." } },
       choices = {
+        { text = "A bow from fallen wood honors the tree.", next = "BACK", reply = "It does. We never cut a living branch.", fx = { align = { light = 1 } } },
+        { text = "Any wood will make a bow.", next = "BACK", reply = "Not in Teldrassil it won't.", fx = { align = { light = -1 } } },
         { text = "How do the druids decide?", next = "wood_druids" },
         { text = "Something else.", next = "BACK" },
       },

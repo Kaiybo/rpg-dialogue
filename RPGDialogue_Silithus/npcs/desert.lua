@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+
+    { id = "g_rep1", when = { rep = { faction = "Cenarion Circle", min = "Honored" } }, text = "The Circle trusts you, and out here that is worth more than water. Well, nearly as much." },
     { id = "g_default", text = "Walk softly here, friend, for this is a resting place of the kaldorei, and the wastes outside are loud enough." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and in one piece. That isn't nothing, out here." },
     { id = "g_freed", when = { questDone = TODO_QUEST("The Spirits of Southwind") }, text = "Southwind is quieter since you went there. I walk the ruins some nights just to hear it." },

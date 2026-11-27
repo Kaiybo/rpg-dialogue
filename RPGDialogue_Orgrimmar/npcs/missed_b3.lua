@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Shankys, who sells fishing supplies at Lumak's Fishing in the Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Poles, line and bait, friend. And a tip: the big ones bite at dusk." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Poles, line and bait. The pond is behind you. Go fish." },
     { id = "g_default", text = "Poles, line and bait, {class}. The pond is behind you, and what you pull out of it is your own affair." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Then either they were biting or you lost another hook to the bottom." },
   },
@@ -116,6 +118,8 @@ P:NPC {
     third = "{name} met Tharl Stonebleeder, who keeps small beasts by the pond in the Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Watch your feet, friend, but you always do. Come, look at what's crawling today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Watch your feet, {class}. Some of what lives here bites, and some of it I'd let bite you." },
     { id = "g_default", text = "Watch your feet, {class}. Some of what lives around this pond is small, and all of it is under my protection." },
     { id = "g_back", when = { metBefore = true }, text = "You again. You trod on nothing last time, so you may come closer." },
   },
@@ -212,6 +216,8 @@ P:NPC {
     third = "{name} met Zas'Tysh, a cheerful keeper of small beasts by the pond in the Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ho, friend! Come look, come look! You're the best audience I've had all day!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ho there. Come look, but slowly. And don't touch. Please, don't touch." },
     { id = "g_default", text = "Ho there, {class}! Come and look, but slowly, because the small ones startle and then I spend an hour finding them." },
     { id = "g_back", when = { metBefore = true }, text = "You are back! Good, they have grown since you saw them, or at least I tell myself they have." },
   },
@@ -316,6 +322,8 @@ P:NPC {
     third = "{name} met Xan'tish, the Darkspear snake seller in the Valley of Spirits.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Don't step back, friend. They like you. They only bite the ones I don't like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Don't step back so quick. They only bite the ones I don't like, so you might want to." },
     { id = "g_default", text = "Don't step back so quick, {class}. They only bite the ones who be afraid, so stand easy and say hello." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, the brave one be back. The crimson one remembers ya, look how she lifts her head." },
     { id = "g_troll", when = { race = "Troll" }, text = "A Darkspear who doesn't flinch at my little ones. Dat's how I know you were raised right, cousin." },
@@ -335,6 +343,8 @@ P:NPC {
         { id = "h_again2", text = "Ask. The snakes don't mind waiting, they be good at it." },
       },
       choices = {
+        { text = "Teaching even a snake manners is worthy work.", next = "BACK", reply = "Ha! You get it, mon. Discipline be good for snakes and for people.", fx = { align = { order = 1 } } },
+        { text = "Snakes should be left wild, not trained to beg.", next = "BACK", reply = "Wild snakes bite customers, mon. Trained ones only bite thieves.", fx = { align = { order = -1 } } },
         { text = "Why would anyone buy a snake?", next = "why" },
         { text = "How do you catch them?", next = "catch" },
         { text = "They follow you like hounds.", next = "follow" },
@@ -394,6 +404,8 @@ P:NPC {
     third = "{name} met Scout Stronghand, who patrols the streets of Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Walk with me, friend. I'll tell you what I've seen, since you listen well." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Walk with me if you want to talk. I'll keep it short. I've got work to do." },
     { id = "g_default", text = "Walk with me if you want to talk, {class}. A scout who stands still is only a guard." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Keep pace, then, and say what you came to say." },
   },
@@ -495,6 +507,8 @@ P:NPC {
     third = "{name} met Scout Tharr, who patrols the streets of Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hail, friend. If you're lost, I'll point you right, and gladly." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hail, {class}. If you're lost, say so. I'll point you, and then I'll watch where you go." },
     { id = "g_default", text = "Hail, {class}. If you are lost, say so now, because I pass this spot only once an hour." },
     { id = "g_back", when = { metBefore = true }, text = "You are still in the city, I see. Has it swallowed you yet, or do you know your way?" },
   },

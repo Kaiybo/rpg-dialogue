@@ -13,6 +13,8 @@ P:NPC {
     third = "{name} met Graw Cornerstone, an Ironforge dwarf who sells mail armor in the Searing Gorge.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Mail, {g:lad|lass}, good Ironforge links, an' the only honest armor ye'll find on this side o' the Gorge. Mind the cinders on yer boots." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, an' yer mail's still in one piece. That's more than I can say for most folk who come through here." },
   },
@@ -31,6 +33,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away, {g:lad|lass}, the rivets'll keep." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "An Ironforge dwarf trading with Dark Irons?", next = "brotherhood" },
         { text = "What's the Gorge like for a traveller?", next = "gorge" },
         { text = "Your mail looks light for the heat.", next = "mail" },
@@ -103,6 +107,8 @@ P:NPC {
     third = "{name} spoke with a lookout of the Thorium Brotherhood at Thorium Point.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
     { id = "g_default", text = "Stop there and keep your hands open. Thorium Point welcomes traders and fighters, but I've seen too many of the Emperor's spies wearing honest faces." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Go on up, then, and don't make me regret remembering you." },
   },
@@ -116,6 +122,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I keep watch for the Brotherhood, and from up here I can see the whole Gorge, from the Cauldron to the Blackrock road. Anything that comes this way, I see it first, and I'd prefer it was you rather than a war party." } },
       again = { { id = "h_again", text = "Anything else? Be quick, I'm meant to be watching." } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What are you watching for?", next = "watch" },
         { text = "Why did the Brotherhood leave Thaurissan?", next = "why" },
         { text = "You don't trust outsiders much.", next = "trust" },
@@ -201,6 +209,8 @@ P:NPC {
     third = "{name} spoke with an enslaved archaeologist in the Slag Pit.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Quiet, quiet! If the overseers see me talkin', they'll take it out of my hide." },
   },
   start = "hello",
@@ -303,6 +313,8 @@ P:NPC {
     third = "{name} faced Raze, the infernal that guards Nilith Lokrav.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "You stand too close to the mistress's fire, little flesh, and the stone of me remembers every face that does." },
   },
   notice = {

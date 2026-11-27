@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Chieftain Earthbind, the tauren who speaks for Thunder Bluff in the Hall of Legends.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Be welcome, friend. There is a place in this hall for you, and it is a good one." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Be welcome in this hall, {class}. There is room in it for you, though not much." },
     { id = "g_default", text = "Be welcome in this hall, {class}. There is room in it for any who have stood between the Horde and its enemies." },
     { id = "g_back", when = { metBefore = true }, text = "The winds carry you back to me, and I am glad to see you walking. Too many who leave this hall for the fronts do not return to it." },
   },

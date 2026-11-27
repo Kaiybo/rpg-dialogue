@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you. Come, I'll fit ye ahead o' the girdles; they've waited this long." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Get in line, an' it's a long line today." },
     { id = "g_forge", text = "Need somethin' fitted? Get in line behind these girdles; they've been waitin' longer than ye." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, {g:lad|lass}? Let's see what ye've done tae yer armour this time." },
     { id = "g_search", when = { questActive = TODO_QUEST("Songblade Search") }, text = "Any word o' Daewyn? No, ye'd have said. Off ye go, then." },
@@ -113,6 +115,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye've a good build fer armour, an' a better heart. I'd fit ye fer nothin'." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've been rude in my shop, an' I don't fit the rude." },
+    },
     wildhammer = { { id = "tp_wildhammer", text = "My kin are Bronzebeards, but I've worked iron for Wildhammers out of Aerie Peak, and they pay in gryphon feathers half the time. Good fighters, mind, though they'd sooner drink than settle a bill." } },
     explorers_league = { { id = "tp_explorers_league", text = "My brother Daewyn went off with an Explorers' League dig into the Wetlands, all maps and big talk about the old world. He's stopped writing, and I can't call that normal any longer." } },
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons are a stain on every dwarf alive, and I'll not hear excuses for them. They're thick in the Burning Steppes, just past those hills, and I'd hammer a few of their helms flat for free." } },

@@ -338,6 +338,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Have you any cloth to spare for the High Order?" },
     { id = "g_skyborne", when = { race = "Skyborne" }, text = "Winds be with you. Come to help clothe our people?" },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and I remember your last bundle, so I hope this one's been kept out of the rain." },
@@ -674,6 +676,8 @@ P:NPC {
     third = "{name} met Toby, the cat upstairs in the Silver Enclave.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "*A neat grey cat sits upstairs in the Silver Enclave, squarely on top of somebody's stack of papers.*" },
   },
   start = "hello",
@@ -776,6 +780,8 @@ P:NPC {
     third = "{name} met Tycho, the cat of the Sky Enclave.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "*A slim black cat sits on a windowsill in the Sky Enclave, staring upward with great seriousness.*" },
     { id = "g_night", when = { timeOfDay = "night" }, text = "*Tycho sits in the window with the stars reflected in both his eyes, and his tail twitches at every shooting star.*" },
   },

@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Keep clear of the lamp, but come in; the lighthouse is lonely." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Keep clear of the lamp, and keep clear of me." },
     { id = "g_flame", text = "Keep clear of the lamp. It's the only thing here still alive, in its way." },
     { id = "g_murkeye", when = { questActive = TODO_QUEST("The Coastal Menace") }, text = "Old Murk-Eye, the murloc who rules this shore, still breathes. I can feel it in the tide." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Coastal Menace") }, text = "The beach is quiet. Quiet enough that I can hear the gulls again." },
@@ -287,6 +289,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're good company for a ghost, and I've had little." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rude, and ghosts remember rudeness." },
+    },
     bloodsail = { { id = "tp_bloodsail", text = "The Bloodsail fly a flag I flew myself once, and I'm not proud of it now. They're cruel even by a pirate's measure, and they'd sink this whole coast for a chest of silver." } },
     booty_bay = { { id = "tp_booty_bay", text = "I made port at Booty Bay more times than I can count, and I left more coin there than I'll ever see again. The goblins were kind to me while my purse was full, and that was kind enough." } },
     deadmines = { { id = "tp_deadmines", text = "They've built a ship inside the hill, I'm told, which is a fool's place for a ship and a ghost's joke if ever I heard one. Every night I watch the coast for it to sail, and every night it doesn't." } },

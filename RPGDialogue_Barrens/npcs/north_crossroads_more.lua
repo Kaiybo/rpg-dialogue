@@ -105,6 +105,8 @@ P:NPC {
     third = "{name} met Sikwa, the stable master at the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, friend. Your companion's stall is ready." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to the stables. Mind where you step." },
     { id = "g_hi", text = "Welcome to the Crossroads stables. Water's in the trough, so mind where you step." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter with a companion at heel, good. Let me see how you've been treating your friend." },
   },
@@ -120,6 +122,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? The beasts need their evening walk soon." } },
       choices = {
+        { text = "Good stables keep the Crossroads strong.", next = "BACK", reply = "They do. You understand.", fx = { align = { order = 1 } } },
+        { text = "Stables are just barns.", next = "BACK", reply = "Then sleep in one.", fx = { align = { order = -1 } } },
         { text = "I'd like to stable my companion.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What beasts do the Barrens hunters tame?", next = "beasts" },
         { text = "Is the Crossroads safe for the animals?", next = "safe" },

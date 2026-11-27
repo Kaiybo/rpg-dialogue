@@ -20,6 +20,8 @@ P:NPC {
     third = "{name} met Nargal Deatheye, the Crossroads' weaponsmith.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. Good. Pick this one up; I saved it for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Pick it up. Feel the weight. Don't wave it." },
     { id = "g_default", text = "Looking for steel? Pick it up, feel the weight, and don't wave it near my face." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Either you broke what I sold you, or you liked it enough to want another." },
   },
@@ -38,6 +40,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else? I've customers, and an orc's time is worth steel." }, { id = "h_again2", text = "Go on, then." } },
       choices = {
+        { text = "A good weapon honors its wielder.", next = "BACK", reply = "It does. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Any weapon kills.", next = "BACK", reply = "Then use a rock.", fx = { align = { honor = -1 } } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Where do your weapons come from?", next = "source" },
         { text = "Which of these would get me killed?", next = "killed" },
@@ -168,6 +172,8 @@ P:NPC {
     third = "{name} met Jahan Hawkwing, the tauren leather merchant of the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome, friend. Leather breathes, and so do you, easier now." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Leather breathes. Buy, please." },
     { id = "g_default", text = "Welcome, friend. Leather breathes in this heat, which is more than you can say for plate, and the kodo who gave it walked these same plains." },
     { id = "g_back", when = { metBefore = true }, text = "You've walked a long way since I last saw those boots, friend. Come, stand in the shade, and let the dust settle before we talk." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Come in, and tell me what you've taken this season, and how much of it you used." },
@@ -190,6 +196,8 @@ P:NPC {
         { id = "h_again3", text = "Take your time. The leather isn't going anywhere, and neither am I." },
       },
       choices = {
+        { text = "Leather suits the Barrens better than plate.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "Plate beats leather every time.", next = "BACK", reply = "Then sweat in plate.", fx = { align = { order = -1 } } },
         { text = "Let me see your armor.", next = "BUSINESS" },
         { text = "What beasts does your leather come from?", next = "beasts" },
         { text = "What do you mean, hunted with respect?", next = "respect" },
@@ -299,6 +307,8 @@ P:NPC {
     third = "{name} met Wrahk, who sells tailoring supplies at the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend. You may touch the cloth; your hands are always clean." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Wipe your hands before you touch the cloth." },
     { id = "g_default", text = "Wipe your hands before you touch the cloth, please. The dust in this place gets into everything." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Stand there, on the mat, where the dust can't follow you in." },
     { id = "g_robe", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "A robe-wearer! Let me see the hem before you say anything, because I can always tell how a caster's been treating their clothes." },
@@ -321,6 +331,8 @@ P:NPC {
         { id = "h_again3", text = "What else? And mind your sleeve on the dye pots." },
       },
       choices = {
+        { text = "Clean cloth makes fine clothing.", next = "BACK", reply = "It does! Finally, someone listens.", fx = { align = { order = 1 } } },
+        { text = "A little dust never hurt cloth.", next = "BACK", reply = "It does! Wipe your hands.", fx = { align = { order = -1 } } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Why sell cloth out here?", next = "why" },
         { text = "Those dyes didn't come from anywhere in the Barrens.", next = "dye" },
@@ -424,6 +436,8 @@ P:NPC {
     third = "{name} met Moorane Hearthgrain, the tauren baker of the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Come in, little one! The bread's just out, and I saved the warmest loaf." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in out of the sun. Bread, for a price." },
     { id = "g_default", text = "Come in out of the sun, little one. The bread's just out, baked from Mulgore grain the Earth Mother grew, and it smells better than anything else in the Barrens." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, little one? Good, because you still look too thin to me, and we'll see about that." },
     { id = "g_undead", when = { race = "Scourge" }, text = "Come in out of the sun, little one, though I suppose the sun doesn't trouble you much any more." },
@@ -447,6 +461,8 @@ P:NPC {
         { id = "h_again3", text = "Go on, but don't let the bread go cold while you think." },
       },
       choices = {
+        { text = "Mulgore grain makes the best bread.", next = "BACK", reply = "It does! The Earth Mother blesses it.", fx = { align = { light = 1 } } },
+        { text = "Bread is bread, wherever it comes from.", next = "BACK", reply = "It is not. Pay, please.", fx = { align = { light = -1 } } },
         { text = "I'll buy some bread.", next = "BUSINESS" },
         { text = "Where do you get grain out here?", next = "grain" },
         { text = "I'd guess the orcs aren't used to tauren bread.", next = "orcs" },
@@ -543,6 +559,8 @@ P:NPC {
     third = "{name} met Reggifuz, the goblin who runs the Ratchet stables outside the Broken Keel.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Pal! For you, boarding's half price. Don't tell nobody." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Got a beast? Board it or sell it. Pay first." },
     { id = "g_default", text = "Pal! Got a beast that needs boardin', or a beast that needs sellin'? I do one of those and I'm open to discussin' the other." },
   },
   notice = {
@@ -559,6 +577,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else, buddy? Time's money, and I'm losing both." } },
       choices = {
+        { text = "A stable master should care for the beasts.", next = "BACK", reply = "I do, pal! Mostly.", fx = { align = { light = 1 } } },
+        { text = "A stable's just a business.", next = "BACK", reply = "You get it, pal. Pay first.", fx = { align = { light = -1 } } },
         { text = "I need the stable.", next = "BUSINESS" },
         { text = "Why does a goblin run a Horde stable?", next = "why", when = { faction = "Horde" } },
         { text = "What's the hardest beast you've boarded?", next = "hardest" },
@@ -672,6 +692,8 @@ P:NPC {
     third = "{name} met Halga Bloodeye, a sharp-tongued orc trader at the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. Come right up, friend; no browsing for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Browsers to the left. Buyers to the right." },
     { id = "g_default", text = "Buying or browsing? Browsers stand to the left, and buyers come right up." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, our last haggle was too easy, and I've been sharpening my prices since." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "A warrior. You'll know a fair fight when you see one, so come and haggle like you mean it." },
@@ -694,6 +716,8 @@ P:NPC {
         { id = "h_again3", text = "Well? A bargain doesn't wait, and neither do I." },
       },
       choices = {
+        { text = "A fair trader is worth finding.", next = "BACK", reply = "You found one. Buy.", fx = { align = { honor = 1 } } },
+        { text = "Every trader at the Crossroads cheats.", next = "BACK", reply = "Not me. Browsers to the left.", fx = { align = { honor = -1 } } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "What do you think of Sergra Darkthorn?", next = "sergra" },
         { text = "There must be a story behind your name.", next = "name" },
@@ -797,6 +821,8 @@ P:NPC {
     third = "{name} met Lizzarik, a goblin weapons dealer working the Barrens roads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Friend, friend! For you, the finest weapons at friendly prices!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Step up. Finest weapons. Pay first." },
     { id = "g_default", text = "Friend, friend, step right up! The finest weapons in the Barrens, sold right here on the road, no tower climbing and no Crossroads markup." },
     { id = "g_back", when = { metBefore = true }, text = "Hey, it's my repeat customer! Repeat customers get my warmest smile, which is the same smile, pal, but I mean it more." },
     { id = "g_green", when = { maxLevel = 15 }, text = "Whoa, kid, you look fresh off the road. Starter rack's on the left, and nothin' on it'll cut you worse than it cuts the quilboar." },
@@ -820,6 +846,8 @@ P:NPC {
         { id = "h_again3", text = "Still here? Good, standin' near the cart is free, for now." },
       },
       choices = {
+        { text = "A good weapon is worth the price.", next = "BACK", reply = "It is, friend! You get it.", fx = { align = { honor = 1 } } },
+        { text = "Your weapons are overpriced junk.", next = "BACK", reply = "Jorb, show this one the road.", fx = { align = { honor = -1 } } },
         { text = "Show me what you've got.", next = "BUSINESS" },
         { text = "Who are your two friends?", next = "guards" },
         { text = "The road must be dangerous for a merchant.", next = "road" },

@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Tubes, flux, blasting powder and spanners, all sorted by size, so please don't unsort them." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more parts? I hope the last lot went where they were meant to go, and not up." },
   },
@@ -35,6 +37,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "My readings say maybe, and my readings are usually right about maybes. The trouble is that lightning doesn't arrive in a steady current, it arrives in a temper. I'd need a shaman with a calm disposition and a very forgiving eyebrow." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The storm isn't a battery. I'll not misuse it.", next = "BACK", reply = "That's a pity for my readings but probably a kindness to my workshop, which has survived four lightning tests already and would like to retire.", fx = { align = { honor = 1 } } },
         { text = "I'll test it for you. Forgiving eyebrows and all.", next = "BACK", reply = "Splendid, and I'll put the insulated gloves on the counter for you, though I'll warn you the last volunteer still smells faintly of burnt pudding.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -214,6 +218,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_default", text = "Welcome to Springspindle's Gadgets, where tomorrow is invented today, or by Thursday at the latest!" },
     { id = "g_back", when = { metBefore = true }, text = "You're back! I've made progress on the wheel problem since you left, though I've also made a hole in the ceiling." },
   },
@@ -231,6 +237,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I think the earth has put up with gnomes for a very long time and complained remarkably little. If I abolish the wheel, it'll be rolled over less, so I like to imagine it's on my side. You might ask it for me, though, in case it's grown fond of carts." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll ask it plainly and tell you whatever it says.", next = "BACK", reply = "Oh, would you, that's wonderful, and I'll record its answer very precisely, especially if it says anything about carts, which I suspect it will.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Oh, it adores carts. You'd best give up now.", next = "BACK", reply = "Nonsense, nobody adores carts, people simply put up with them because they don't know there's anything better, and soon there will be.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -431,6 +439,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_default", text = "Welcome to Berryfizz's Potions and Mixed Drinks! Potions on the left, drinks on the right, a precise three feet between them, and please don't mix them up." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did that last potion agree with you? I hope so, because I measured it to the drop, and it was meant to." },
     { id = "g_fl_spill", when = { flirt = true, metBefore = true, chance = 0.4 },
@@ -454,6 +464,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I suspect you do! A Wildhammer I bought from once said a word over every root before he pulled it, and his peacebloom outlasted mine by a week. I tried saying words too, but I think the herbs could tell I was reading them off a card." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "It's the respect that matters, not the words, Tally.", next = "BACK", reply = "Oh, that's lovely, and I'll try respect next time instead of the words, though I'm not quite sure how you measure it in a phial.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "It's probably the soil. Sentiment doesn't keep herbs fresh.", next = "BACK", reply = "It might well be, and I've taken soil samples to check, but I still say a word over my peacebloom now, just in case.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

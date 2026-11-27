@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back, mon! De spirits be happy, and Unbagwa be happy too!" },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. De spirits be grumbling, and Unbagwa be grumbling too." },
     { id = "g_default", text = "Witch Doctor Unbagwa see you coming a long way off, mon, because the spirits whisper when strangers walk in Mistvale." },
     { id = "g_back", when = { metBefore = true }, text = "You come back! You got a fang for Unbagwa this time, or you just visiting?" },
     { id = "g_away", when = { away = 14 }, text = "You been gone {away}, mon, and the gorillas been loud the whole time. They miss you, maybe, or they just hungry." },
@@ -154,6 +156,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You be a good friend, mon, and de spirits like you. Dat be rare." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You be rude, mon, and de spirits not like rude." },
+    },
     background = { { id = "tp_ba", text = "Unbagwa be a witch doctor of the jungle, and a friend of the gorilla spirits, and a little bit crazy, they say." } },
     advice = { { id = "tp_ad", text = "Never run from a silverback, mon. Walk slow, and look sorry." } },
     zul_gurub = { { id = "tp_zul_gurub", text = "The trolls of Zul'Gurub be no friends of the gorillas, mon, they hunt them for their blood magic. Unbagwa keep the gorillas safe from them, as best he can." } },

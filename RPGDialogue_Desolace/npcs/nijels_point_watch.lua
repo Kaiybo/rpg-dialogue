@@ -417,6 +417,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Off you go, friend! The hippogryphs are always glad to carry you, and so am I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Off you go, or in you come. Either way, pay first." },
     { id = "g_default", text = "Off you go, or in you come? Either way, the hippogryphs are ready." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the Point! The birds remember you, and they've decided you're acceptable." },
   },
@@ -444,6 +446,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away. A hippogryph master has long hours between flights." },
       },
       choices = {
+        { text = "Flying keeps the Alliance posts connected.", next = "BACK", reply = "That it does. Without the birds, Nijel's Point would be very lonely.", fx = { align = { order = 1 } } },
+        { text = "Flying's a luxury. Walking builds character.", next = "BACK", reply = "Then walk, and build your character, and leave my birds in peace.", fx = { align = { order = -1 } } },
         { text = "Desolace looks beautiful from above?", next = "above" },
         { text = "Skyriver. Is that a real name?", next = "name" },
         { text = "Is it dangerous to fly here?", next = "danger" },

@@ -1212,6 +1212,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend. Your bed is ready, and I've kept a candle lit. Rest, and let Elune keep your dreams." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You may rest. The inn is open to all. Keep to yourself, if you would." },
     { id = "g_rest", text = "You look worn through, body and spirit both. Rest here a while, and may Elune keep your dreams gentle." },
     { id = "g_home", when = { homeInn = { "Astranaar" } }, text = "Your bed's ready, and the island's quiet tonight; the lake keeps the worst of the forest out." },
     { id = "g_away", when = { away = 14 }, text = "There you are, after {away} away, and thinner than when you left, I'd wager. Sit down and let me bring you something warm before you tell me anything at all." },
@@ -1347,6 +1349,8 @@ P:NPC {
         { id = "h_again", text = "Anything else? Take your time; the fire's lit." },
       },
       choices = {
+        { text = "Healing the forest is worth any cost.", next = "BACK", reply = "It is. You have done more than most.", fx = { align = { light = 1 } } },
+        { text = "The forest will burn. Better to take what we can now.", next = "BACK", reply = "Then you will find no rest under my roof.", fx = { align = { light = -1 } } },
         { text = "The common room seems glad about the Branch of Cenarius.", next = "dd_branch", when = { questDone = TODO_QUEST("The Branch of Cenarius") } },
         { text = "Make this my home.", next = "BUSINESS" },
         { text = "Who stays here?", next = "guests" },

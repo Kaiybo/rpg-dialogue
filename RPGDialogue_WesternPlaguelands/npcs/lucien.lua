@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Good day to you, friend. Eva will be so glad, and I confess I am too." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Good day. Eva is there, if you must." },
     { id = "g_formal", text = "Good day to you. If you've come to see my wife, she is just there, and she'll be glad of the company." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Eva said you would, and Eva is generally right about such things." },
     { id = "g_butcher", when = { questActive = TODO_QUEST("Doctor Theolen Krastinov, the Butcher") }, text = "Krastinov. I would ask you to be careful, but I have seen his rooms, and careful is not enough." },
@@ -124,6 +126,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've been kind to my wife and me, and kindness is rare in Caer Darrow." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been unkind to my wife, and I'll not forgive that easily." },
+    },
     background = { { id = "tp_bg", text = "I kept House Barov's silver and House Barov's secrets, and only one of those was ever worth keeping." } },
     advice = { { id = "tp_ad", text = "Watch who arrives after dark, and who stops asking you to set the table. It's not much, but it's what I learned too late." } },
     scholomance = { { id = "tp_scholo", text = "That is what they call the house now. I prefer not to." } },

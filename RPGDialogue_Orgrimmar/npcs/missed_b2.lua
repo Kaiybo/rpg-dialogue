@@ -195,6 +195,8 @@ P:NPC {
     third = "{name} met Shayis Steelfury, an armorsmith at the forge in the Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Talk while I work, friend. I like the company, and this plate won't finish itself." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Talk if you must, {class}. I'll keep hammering, and I won't be listening very closely." },
     { id = "g_default", text = "Talk while I work, {class}, because this plate will not wait and neither will the grunt who ordered it." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Hand me those tongs if you mean to stand there." },
   },
@@ -294,6 +296,8 @@ P:NPC {
     third = "{name} met Snarl, an apprentice blacksmith at Saru Steelfury's forge.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you. I'll fetch the master, or I'll help you myself. You're all right." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Master's at the big anvil. If you want me, you'll have to wait, because I'm busy." },
     { id = "g_default", text = "If you want the master, he is at the big anvil. If you want me, be quick, because the fire dies when I stop." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I am still on the bellows, in case you wondered." },
   },
@@ -487,6 +491,8 @@ P:NPC {
     third = "{name} met Tumi, the heavy armor merchant by the Steelfury forge in the Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Mail on the left, plate on the right, friend, and a fair price on both for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mail on the left, plate on the right. Pick one, and don't waste my time." },
     { id = "g_default", text = "Mail on the left and plate on the right, {class}, and all of it made within a spear's throw of where you stand." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and that dent is new. Tell me what did it, and I will tell you what would have stopped it." },
   },
@@ -585,6 +591,8 @@ P:NPC {
     third = "{name} met Shoma, a weapon vendor at Arms of Legend in the Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Throm-ka, friend. These are Arms of Legend, and you're worthy of them." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Throm-ka, {class}. These are Arms of Legend. Whether you're worthy, I'll decide." },
     { id = "g_default", text = "Throm-ka, {class}. These are Arms of Legend, though the legend is for you to make and not for me to sell." },
     { id = "g_back", when = { metBefore = true }, text = "You return to my racks. Has your weapon earned a name yet?" },
   },
@@ -685,6 +693,8 @@ P:NPC {
     third = "{name} met Zendo'jian, the Darkspear weapon vendor at Arms of Legend.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, friend! Come see, Zendo'jian save the good stuff for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey, {class}. Zendo'jian got stuff. Not the good stuff for you, though." },
     { id = "g_default", text = "Hey, {class}, come see what Zendo'jian has for ya. Shoma got the heavy ones, and I got the ones dat fly." },
     { id = "g_back", when = { metBefore = true }, text = "Ha, you be back! Either ya lost what I sold you or ya threw it and didn't go fetch it." },
     { id = "g_troll", when = { race = "Troll" }, text = "A Darkspear at my rack! Good, now I can talk about spears with someone who won't ask why it isn't an axe." },

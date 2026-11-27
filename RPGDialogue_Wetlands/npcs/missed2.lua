@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Jesse Halloran, the tanner's son, who climbs things in Menethil Harbor.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave, just like you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
     { id = "g_default", text = "Shh, I'm hiding! Well, I'm about to be hiding, so don't tell Regina which way I went." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! You didn't tell my mum about the tower, did you?" },
   },
@@ -115,6 +117,8 @@ P:NPC {
     third = "{name} met Regina Halloran, the tanner's daughter in Menethil Harbor.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! You're my favourite grown-up, but don't tell my mum." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling." },
     { id = "g_default", text = "Excuse me, have you seen my brother? He's supposed to be hiding, but he's not supposed to be hiding up high." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. He's gone up the tower again, I just know it." },
   },
@@ -216,6 +220,8 @@ P:NPC {
     third = "{name} met Thomas Booker, a labourer at Menethil Keep.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Morning! Mind where you step, because I've only just shovelled that and I'd hate to do it twice." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Come to lend a hand, or only to watch a man work?" },
   },
@@ -319,6 +325,8 @@ P:NPC {
     third = "{name} met Mountaineer Thar, who guards the road at Dun Algaz.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
     { id = "g_default", text = "Hold a moment, {class}. Right, ye'll do, so go on through an' keep tae the road." },
     { id = "g_back", when = { metBefore = true }, text = "Ye again. The pass is open, so dinnae dawdle in it." },
   },
@@ -337,6 +345,8 @@ P:NPC {
         { id = "h_again2", text = "What else, then?" },
       },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What threatens the pass?", next = "threat" },
         { text = "What's the road like on the other side?", next = "loch" },
         { text = "And down into the Wetlands?", next = "wet" },
@@ -518,6 +528,8 @@ P:NPC {
     third = "{name} met Terl Arakor, who guards his wagon on the Sundown Marsh road and trades in rumours.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "That's close enough, friend! This is my wagon, and I'm only saying so because people keep looking at it." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you. You can stand there, but the wagon is still mine." },
   },
@@ -595,6 +607,8 @@ P:NPC {
     third = "{name} met Sylessa Duskwhisper, a night elf waiting for the Auberdine boat in Menethil Harbor.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Ishnu-alah. You are not one of the sailors, so I will assume you have not come to tell me the boat is late again." },
     { id = "g_nelf", when = { race = "NightElf" }, priority = 5,
       text = "Ishnu-alah, sister. It is good to see a face that will still be young when this harbor's grandchildren are old. Are you bound for home, or away from it?" },

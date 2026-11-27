@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Careful where you step, but come in; there's always room for a friend by the fire." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Careful where you step, and careful how you speak to me." },
     { id = "g_default", text = "Careful where you step, there's a hide curing on that rock and the rock's warm enough to finish the job. I'm Sarah Tanner, and you're a long way from anywhere." },
     { id = "g_back", when = { metBefore = true }, text = "You found your way back. Most people who visit once decide the Gorge is not for them." },
     { id = "g_away", when = { away = 14 }, text = "It's been {away}, hasn't it? Out here the days run together, but I remember faces; there are so few of them." },
@@ -204,6 +206,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a good soul, and the elementals like you, which is saying something in the Gorge." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been careless here, and the Gorge doesn't forgive carelessness." },
+    },
     knows = { { id = "tp_knows", text = "I know leather, and I know this corner of the Gorge better than I'd like. Ask away." } },
     background = { { id = "tp_bg", text = "A tanner's daughter from Stormwind who wanted to know why the hides crack. The question brought me here." } },
     advice = { { id = "tp_ad", text = "Lay a hide near a vent some evening and watch it, and you'll learn more than I could teach you in a week." } },

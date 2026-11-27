@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you! Have a cup o' mornbrew, it's scaldin', just how ye like it!" },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. Mind the pot, an' mind yerself." },
     { id = "g_brew", text = "Mind the pot, it's scaldin'! That's the whole point o' mornbrew, mind." },
     { id = "g_back", when = { metBefore = true }, text = "There ye are! I don't suppose ye've seen a stray mug lyin' about, have ye?" },
     { id = "g_run", when = { questActive = TODO_QUEST("Scalding Mornbrew Delivery") }, text = "Why are ye still standin' here? It's goin' cold, run!" },
@@ -122,6 +124,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye've been a real friend tae old Nori, an' I'd share my last cup o' mornbrew with ye." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've been rude tae me, an' I've got enough trouble keepin' the pot from spillin'." },
+    },
     background = { { id = "tp_bg", text = "I make mornbrew an' I carry it round the valley before it goes cold. That's the whole of me, near enough." } },
     advice = { { id = "tp_ad", text = "Drink it hot an' bring back the mug. That's all I ask of anybody." } },
     booty_bay = { { id = "tp_booty_bay", text = "Booty Bay sends up coffee beans now an' then, an' they're bitter as a pirate's heart. I put them in the brew anyway, an' nobody's noticed." } },

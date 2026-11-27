@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, good to see you. Come, I'll put you ahead of the queue; the council owes you that much." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll see you, but I'll see you after everyone else, and the queue is long." },
     { id = "g_hall", text = "You've business with the council? Then you've come to the right hall and, I'm afraid, the wrong week." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Good; one of us should be getting something done." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and in that time the council has met four times and decided nothing. Welcome back." },
@@ -97,6 +99,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You get things done, which is more than the council does. I wish I had ten of you on the payroll." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been nothing but trouble for this hall, and I have enough trouble already. Mind yourself." },
+    },
     background = { { id = "tp_bg", text = "Deputy Mayor to Lord Ebonlocke, member of the council, and the man who keeps the minutes nobody reads." } },
     advice = { { id = "tp_ad", text = "Don't wait for permission to do what's right in Duskwood. Nobody here will give it." } },
     _none = { { id = "tp_none", text = "That's not a matter for the council, as far as I know. Ask Clerk Daltry; he keeps the records." } },

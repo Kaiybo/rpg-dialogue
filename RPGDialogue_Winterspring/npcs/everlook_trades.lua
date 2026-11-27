@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend, come in! Shut the door, and I'll show you the best bids before anyone else." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Shut the door behind you. The heat costs money, and so does my time." },
     { id = "g_default", text = "Shut the door behind you, friend, shut it, because the heat costs more than most of the lots on the board and I'm not billing the snow. Now, buying or selling?" },
   },
 
@@ -213,6 +215,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, friend! You're good for Everlook, so I'll only charge you half the usual markup!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Word around town is you're not so good for Everlook. That means full markup, pal." },
+
+    { id = "g_rep1", when = { rep = { faction = "Everlook", min = "Friendly" } }, text = "Word around town is you're good for Everlook. That means I'll only charge you the usual robbery." },
     { id = "g_pj_dwarf", when = { prejudiced = true }, text = "A dwarf, in my shop. Lemme guess, pal, you're gonna pick up my best rifle, squint down the barrel and tell me Ironforge does it better, and then you're gonna buy it anyway." },
     { id = "g_pj_over", when = { prejudiced = "overcome" }, text = "My favourite dwarf! I never thought I'd say those words, so I wrote 'em in the ledger in case I needed proof, but you've never once said Ironforge to me, and that's worth a line item." },
     { id = "g_default", text = "Blades, guns, shot and powder, pal, all of it kept warm by the stove! Cold steel's a saying, friend, not a selling point, and it's sure not my selling point." },
@@ -427,6 +433,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Thread, vials, spices, and for you, a few patterns I don't show everyone." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thread, vials, spices and flux. And no, I don't have any special patterns for you." },
     { id = "g_default", text = "Thread, vials, spices and flux, friend, and a few patterns for anyone who can read 'em, all priced to the copper and not a copper under. What are you making?" },
   },
 
@@ -609,6 +617,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in, friend! Shut the gate behind you, and your beast can have the warmest stall." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in, but shut the gate. The beasts have the only warm spot, and they won't share with you." },
     { id = "g_default", text = "Come in, come in, but shut the gate, pal! The beasts have the only warm straw in Winterspring, and at what I paid for it, I mean to keep it that way." },
   },
 
@@ -777,6 +787,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, love, it's you! Touch the shelf all you like, you've a gentle hand. I'll show you the best vials." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Careful with the shelf. Those vials are cold and brittle, and so am I, today." },
     { id = "g_default", text = "Careful with the shelf, love, those vials are cold and brittle, and the last fellow who leaned on it paid for six, plus the straw! Now, what are you brewing?" },
   },
 

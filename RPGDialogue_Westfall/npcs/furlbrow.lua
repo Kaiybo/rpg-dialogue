@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you. Come in; we're still just minding it, but you're welcome." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "This isn't our place, and you're not welcome in it." },
     { id = "g_porch", text = "This isn't our place, you understand. We're just minding it for now." },
     { id = "g_deed", when = { questActive = TODO_QUEST("Furlbrow's Deed") }, text = "The deed? You've found our deed? Oh, let me see it, please, let me see." },
     { id = "g_watch", when = { questDone = TODO_QUEST("The Forgotten Heirloom") }, text = "It still ticks, you know, and I wind it every morning like a silly old man." },
@@ -269,6 +271,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've been kind to us, and we've had little kindness since the farm." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rude, and we've had enough of that." },
+    },
     deadmines = { { id = "tp_deadmines", text = "The Defias are down in the old Moonbrook mines, they say, and that's where all our stolen grain must have gone. I'd like to see it again, just to know it went somewhere." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Verna and I went to the Darkmoon Faire when it camped by Goldshire, years back, and I bought her a little carved horse. She said it looked just like Blanchy, and I thought so too." } },
     holy_light = { { id = "tp_holy_light", text = "I'm no churchman, but I've prayed more since we lost the farm than I did in thirty years of having one. The Light hasn't answered yet, but Verna says it's thinking it over." } },

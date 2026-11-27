@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "My best customer, alive and walking! Come in, come in, and I'll give you first pick of the mushrooms that don't scream." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. You. The mushrooms don't like you, and frankly, neither do I today." },
     { id = "g_shop", text = "A customer, a real live customer, or at least a customer who's still walking about! Come in, come in, and mind the mold on the step, because it's for sale." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Nobody comes back, you know, they come once and look at me sideways and go, but you came back, and that makes you my favourite." },
     { id = "g_book", when = { questActive = TODO_QUEST("Augustus' Receipt Book") }, text = "Have you got it? My book, my lovely book, the one with all the numbers in it? Upstairs at the inn, I'm sure of it, or nearly sure." },
@@ -207,6 +209,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're the only one who still visits poor Augustus, and I'll never forget it, even if I forget everything else." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rude to Augustus, and Augustus remembers rudeness the way mushrooms remember rain." },
+    },
     background = { { id = "tp_bg", text = "A merchant on the road to Stratholme, once, with a cart and a mule. The mule went north with the Scourge, and I've never forgiven him." } },
     advice = { { id = "tp_ad", text = "Always get a receipt! I didn't, once, and look at me now." } },
     stratholme = { { id = "tp_strat", text = "I was going there to sell, and now it's a city full of customers who only want to eat people. Very bad for trade." } },

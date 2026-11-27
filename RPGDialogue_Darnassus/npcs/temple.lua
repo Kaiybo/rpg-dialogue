@@ -768,6 +768,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. Sit. I've drawn enough fel-sickness to know a friend when I see one." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "I've drawn fel-sickness from many. You'd be no different." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I've spent too many nights drawing fel-sickness out of wounded Sentinels to pretend I don't know what you are. Stand back from the altar." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've been in and out of this Temple and never once brought trouble with you. I'll say that much, though I'll still keep an eye on your hands." },
     { id = "g_short", text = "Elune be with you. If you're here to learn, let's begin; if not, the pool is that way." },
@@ -892,6 +894,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something more? Be quick about it, because a student of mine is kneeling by the pool and pretending not to listen." } },
       choices = {
+        { text = "Healing the wounded is sacred work.", next = "BACK", reply = "It is. You understand.", fx = { align = { light = 1 } } },
+        { text = "Healers should fight too.", next = "BACK", reply = "Then who heals you?", fx = { align = { light = -1 } } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What's the hardest thing to teach?", next = "hard" },
         { text = "You must heal a great many here.", next = "wounded" },
@@ -973,6 +977,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Elune be with you, friend. Look at the pool with me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Elune be with you. Keep the pool still." },
     { id = "g_quiet", text = "Elune be with you. The pool is very still tonight; I'd keep it that way." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Ready to learn something new? I can see you've been using what I taught you." },
   },
@@ -1094,6 +1100,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Is there more you wish to know? Keep your voice low by the moonwell, for it carries." } },
       choices = {
+        { text = "A still pool reflects Elune's light.", next = "BACK", reply = "It does. You understand.", fx = { align = { light = 1 } } },
+        { text = "A pool is just water.", next = "BACK", reply = "Then it will reflect nothing for you.", fx = { align = { light = -1 } } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What does the pool tell you?", next = "pool" },
         { text = "Do the Temple's priests ever leave Darnassus?", next = "leave" },
@@ -1449,6 +1457,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend, and welcome back. Your account is in good order." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to the Bank. Do you have an account? Then state your business." },
     { id = "g_bank", text = "Ishnu-alah, and welcome to the Bank of Darnassus. Do you already have an account with us, {g:sir|ma'am}?" },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Your box is exactly where you left it, as always." },
   },
@@ -1570,6 +1580,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Is there anything else? Your coin is as safe under the Temple's roof as anywhere in Darnassus." } },
       choices = {
+        { text = "A bank is a place of trust.", next = "BACK", reply = "It is. We keep it so.", fx = { align = { honor = 1 } } },
+        { text = "Banks just hold coin.", next = "BACK", reply = "And yours, carefully.", fx = { align = { honor = -1 } } },
         { text = "I'd like to see my box.", next = "BUSINESS" },
         { text = "Who keeps accounts here?", next = "accounts" },
         { text = "Is anything here ever stolen?", next = "stolen" },
@@ -1637,6 +1649,8 @@ P:NPC {
     third = "{name} spoke with a Temple Highguard keeping watch in the Temple of the Moon.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Elune-adore, friend. You may walk freely in the Temple." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Elune-adore. Walk softly. Speak low. I am watching." },
     { id = "g_default", text = "Elune-adore. You stand in the Temple of the Moon, so walk softly and speak low." },
     { id = "g_back", when = { metBefore = true }, text = "Ishnu-alah. You return to the Temple; Elune notices those who do." },
   },
@@ -1648,6 +1662,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Is there more? Ask it quietly." } },
       choices = {
+        { text = "The Temple deserves our reverence.", next = "BACK", reply = "It does. Thank you.", fx = { align = { light = 1 } } },
+        { text = "The Temple is just a building.", next = "BACK", reply = "Walk softly, or leave.", fx = { align = { light = -1 } } },
         { text = "What do you guard here?", next = "guard" },
         { text = "Who may enter the Temple?", next = "enter" },
         { text = "How does one join the Highguard?", next = "join" },

@@ -944,6 +944,8 @@ P:NPC {
     third = "{name} met Alexander Calder, a human warlock trainer in the Forlorn Cavern.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The cavern is quieter at this hour, and I prefer it. Speak softly, if you must speak." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back down the stairs. Most do not, once they have seen the shelves." },
     { id = "g_hi", text = "Yes? If you've come to learn, I'll teach you, and if not, I'd prefer you didn't linger among the books." },
@@ -974,6 +976,8 @@ P:NPC {
         { id = "h_again2", when = { class = "WARLOCK" }, text = "Go on, then, and ask what you came down here to ask." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "I'm tired of walking everywhere.", next = "steed", when = { class = "WARLOCK", minLevel = 40 } },
         { text = "What do you teach that the gnomes don't?", next = "power", when = { class = "WARLOCK" } },
@@ -1100,6 +1104,8 @@ P:NPC {
     third = "{name} met Valgar Highforge, the senior paladin of the Silver Hand in Ironforge.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_back", when = { metBefore = true }, text = "Ye've returned, an' that's good, for a body that comes back tae this hall o' its own accord is half taught already." },
     { id = "g_human", when = { race = "Human" }, text = "The Light be wi' ye, {g:son|daughter} o' Lordaeron or Stormwind, whichever it is. Yer people brought the Hand tae us, an' ye're welcome here." },
     { id = "g_hi", text = "The Light be with ye. Are ye here tae learn, or tae listen?" },
@@ -1125,6 +1131,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { class = "PALADIN" } },
         { text = "What's become of the Silver Hand?", next = "hand" },
         { text = "What makes a good paladin?", next = "good" },
@@ -1204,6 +1212,8 @@ P:NPC {
     third = "{name} met Belia Thundergranite, a dwarf pet trainer in the Hall of Arms.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_back", when = { metBefore = true }, text = "Ye're back! The bear remembers ye, or remembers yer boots, I'm no' sure which." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Whisht, keep yer voice down, I've only just got the cubs tae settle." },
     { id = "g_hi", text = "Hello there, an' where's yer beast? Oh, ye've none at all, which is a terrible shame, but ye can still come in." },
@@ -1228,6 +1238,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train my pet.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "How do you train a beast?", next = "train" },
         { text = "You seem fond of animals.", next = "fond" },
@@ -1370,6 +1382,8 @@ P:NPC {
     third = "{name} met Lieutenant Rotimer, a Stormpike Guard recruitment officer calling for volunteers in the Commons.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
     { id = "g_war", when = { class = { "WARRIOR", "PALADIN" }, minLevel = 51 }, text = "Now there's an arm the Guard could use! Step up, an' let me tell ye where it's needed." },
     { id = "g_hi", text = "The Stormpike Guard needs ye! Have ye heard about Alterac Valley?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Ready tae sign up yet?" },
@@ -1395,6 +1409,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then, quick." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What's happening in Alterac?", next = "alterac" },
         { text = "Why should I fight for the Stormpikes?", next = "why" },
         { text = "You've a hard crowd to recruit from.", next = "crowd" },

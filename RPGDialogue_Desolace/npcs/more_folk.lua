@@ -240,6 +240,8 @@ P:NPC {
     third = "{name} met Aboda, the gentle tauren stable master at Shadowprey Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Peace, friend. Bring your beast; I've kept a quiet stall for your companion, away from the noise." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "I will care for your beast, if you have one. The beast has done nothing wrong." },
     { id = "g_hi", text = "Peace. If you have a beast to leave, I will care for it as my own." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Your beasts have been well; I sang to them last night." },
     { id = "g_back2", when = { metBefore = true }, text = "You are back, and your beasts remember you. They heard your step before I did." },
@@ -266,6 +268,8 @@ P:NPC {
         { id = "h_again2", text = "Ask. I am in no hurry." },
       },
       choices = {
+        { text = "Every creature deserves kindness, even in Desolace.", next = "BACK", reply = "Especially in Desolace. Here, kindness is rare.", fx = { align = { light = 1 } } },
+        { text = "Beasts in this land must be hard, or die.", next = "BACK", reply = "They are hard. They need gentle hands all the more. Bring your beast, or go.", fx = { align = { light = -1 } } },
         { text = "I'd like to stable a beast.", next = "BUSINESS" },
         { text = "Why is Desolace hard on beasts?", next = "hard" },
         { text = "Do you see the Kodo Graveyard from here?", next = "graveyard" },
@@ -393,6 +397,8 @@ P:NPC {
     third = "{name} met Lui'Mala, the troll fishing trainer at Shadowprey Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, mon! You come back! Sit, cast a line, and tell me what you been catchin'. De sea missed you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You want to learn fishin'? Fine. But I don't got patience for you today, so listen quick." },
     { id = "g_hi", text = "Hey, mon, you come to fish? The sea be generous here, if you be patient." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Catch anything, or did the sea laugh at you?" },
     { id = "g_back2", when = { metBefore = true }, text = "Back again, mon! The fish missed you, or maybe dey didn't, hard to tell with fish." },
@@ -419,6 +425,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, ask. I got all day, and so do the fish." },
       },
       choices = {
+        { text = "Patience is de best bait, mon.", next = "BACK", reply = "Ha! Dat be de first lesson, and you already know it. Good.", fx = { align = { order = 1 } } },
+        { text = "Fishin's for people who can't hunt.", next = "BACK", reply = "Den go hunt, mon, and see how many fish you catch with a spear.", fx = { align = { order = -1 } } },
         { text = "Teach me fishing.", next = "BUSINESS" },
         { text = "What's in the water here?", next = "water" },
         { text = "Is it better than the Echo Isles?", next = "isles" },
@@ -540,6 +548,8 @@ P:NPC {
     third = "{name} met Malux, the troll skinning trainer at Shadowprey Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. You got de steady hand. Sit, and I show you de cut I teach nobody else." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You want to learn skinnin'? Pay de coin and watch de knife. Don't talk." },
     { id = "g_hi", text = "You want to learn skinnin', or you just lookin' at my knife? Most people only look." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, mon. Show me your hides, and I tell you what you did wrong." },
     { id = "g_back2", when = { metBefore = true }, text = "You again. Show me what you skinned, and I tell you what you did wrong." },
@@ -566,6 +576,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I be listenin'." },
       },
       choices = {
+        { text = "A good skinner wastes nothin' of de beast.", next = "BACK", reply = "Dat be right. Waste is an insult to de kill.", fx = { align = { honor = 1 } } },
+        { text = "Take de best hide and leave de rest.", next = "BACK", reply = "Den you be a butcher, not a skinner. Pay, and watch.", fx = { align = { honor = -1 } } },
         { text = "Teach me skinning.", next = "BUSINESS" },
         { text = "What's worth skinning in Desolace?", next = "worth" },
         { text = "You're very attached to that knife.", next = "knife" },
@@ -682,6 +694,8 @@ P:NPC {
     third = "{name} met Muuran, the proud macecrafter of Ghost Walker Post.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend! Feel this one; I've been saving it. You deserve a mace that's worthy of you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Maces. Buy one or don't. I don't waste my best on those who don't deserve them." },
     { id = "g_hi", text = "Maces, friend, the finest in Desolace. Take one in your hand and feel what a weapon is meant to be." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Is the mace I sold you still in one piece? It should be." },
     { id = "g_back2", when = { metBefore = true }, text = "You have come back. Either you broke something, or you have the sense to want a second one." },
@@ -708,6 +722,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, friend." },
       },
       choices = {
+        { text = "A well-made mace honors the one who made it.", next = "BACK", reply = "Yes! You understand craft. Few do.", fx = { align = { honor = 1 } } },
+        { text = "A mace is a club with ideas. Any rock will do.", next = "BACK", reply = "Then go and buy a rock. My maces are for warriors.", fx = { align = { honor = -1 } } },
         { text = "Show me your maces.", next = "BUSINESS" },
         { text = "Why maces, and not blades?", next = "why" },
         { text = "What makes a superior mace?", next = "superior" },
@@ -828,6 +844,8 @@ P:NPC {
     third = "{name} met Maxton Strang, the Stormwind mail armour merchant at Nijel's Point.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Back again! I oiled a hauberk for you yesterday, figured you'd be by. Want a look?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mail armour, Stormwind links, price on the tag. That's all." },
     { id = "g_hi", text = "Mail armour, friend, good Stormwind links. Sand gets in everything out here, so I oil it twice a day." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Rings holding up? If they're squeaking, it's the sand." },
     { id = "g_back2", when = { metBefore = true }, text = "Back in one piece. Then whatever you're wearing is doing its job." },
@@ -855,6 +873,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, friend." },
       },
       choices = {
+        { text = "Captain Pentigast keeps the post in good order.", next = "BACK", reply = "He does, though don't tell him I said so. He'd get a big head.", fx = { align = { order = 1 } } },
+        { text = "This post is a waste of good soldiers.", next = "BACK", reply = "Maybe, but it's where we are. Buy your armour and stop complaining.", fx = { align = { order = -1 } } },
         { text = "Show me your armour.", next = "BUSINESS" },
         { text = "Why did you come to Desolace?", next = "why" },
         { text = "The sand must be a nuisance.", next = "sand" },
@@ -983,6 +1003,8 @@ P:NPC {
     third = "{name} met Shelgrayn, the night elf stable master at Nijel's Point.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah. Your companion is always welcome here, friend, and so are you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "I will keep your companion safe, if you have one. That is my duty." },
     { id = "g_hi", text = "Ishnu-alah. If you have a companion that needs rest, I will keep it safe." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Your companion has been well cared for." },
     { id = "g_back2", when = { metBefore = true }, text = "You have returned, and your beasts knew your step. They always do." },
@@ -1008,6 +1030,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, if you wish, for I have time." },
       },
       choices = {
+        { text = "A companion's comfort should come first.", next = "BACK", reply = "That is the rule I keep. Few travelers think of it.", fx = { align = { light = 1 } } },
+        { text = "Beasts endure. That's what they're for.", next = "BACK", reply = "Beasts endure what they must. They should not have to endure careless masters.", fx = { align = { light = -1 } } },
         { text = "I'd like to stable a beast.", next = "BUSINESS" },
         { text = "Why does a night elf serve at a human outpost?", next = "why" },
         { text = "What do the beasts fear here?", next = "fear" },
@@ -1581,6 +1605,8 @@ P:NPC {
     third = "{name} met Narv Hidecrafter, the leatherworking trainer at Ghost Walker Post.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Peace, friend. Sit across from me. I have a hide here that will teach you much, and I'll gladly share it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Sit, if you must. Do not touch the hide. Listen, and learn, or leave." },
     { id = "g_hi", text = "Peace. Sit across from me, and do not put your hand on that hide until I have told you whose it was." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. I have a scorpid shell soaking that will be ready for your hands by evening." },
     { id = "g_away", when = { away = 14 }, text = "{away} away. The leather you left has cured in that time, and it has cured well." },
@@ -1607,6 +1633,8 @@ P:NPC {
         { id = "h_again3", text = "Yes?" },
       },
       choices = {
+        { text = "Nothing of the beast should be wasted.", next = "BACK", reply = "Yes. That is the first lesson, and the last.", fx = { align = { honor = 1 } } },
+        { text = "Take only what sells. The rest is just weight.", next = "BACK", reply = "Then you have learned nothing from me, and you never will.", fx = { align = { honor = -1 } } },
         { text = "Teach me leatherworking.", next = "BUSINESS" },
         { text = "Why speak to a hide before cutting it?", next = "speak" },
         { text = "What leather does Desolace give?", next = "leather" },
@@ -1728,6 +1756,8 @@ P:NPC {
     third = "{name} met Lah'Mawhani, who sells trade supplies at Shadowprey Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you come back! Come in, dry off, and tell me what you be makin'. I give you de good thread today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You drippin' on my floor again. Buy what you need and get out." },
     { id = "g_hi", text = "Come in, come in, don't stand dere drippin' on my thread. What you be makin', and what you be missin'?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, mon! You used it all up already, or you just like my company?" },
     { id = "g_away", when = { away = 14 }, text = "{away} gone, and my shelves been full de whole time. I nearly forgot how to count your coin." },
@@ -1754,6 +1784,8 @@ P:NPC {
         { id = "h_again3", text = "Ya?" },
       },
       choices = {
+        { text = "A good craftsman buys good parts and wastes none.", next = "BACK", reply = "Dat be a smart one. You keep comin' back, mon.", fx = { align = { honor = 1 } } },
+        { text = "Cheap parts work just as well if you're careful.", next = "BACK", reply = "Den go buy cheap somewhere else, and see how long it last.", fx = { align = { honor = -1 } } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "How do goods reach a village like this?", next = "reach" },
         { text = "Who buys from you here?", next = "buy" },
@@ -1867,6 +1899,8 @@ P:NPC {
     third = "{name} met Mai'Lahii, who sells fishing supplies on the docks of Shadowprey Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, mon, sit on de barrel! De sea been kind today, and I got de good hooks just for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hooks and line. Pay, take, go. De sea don't like you today." },
     { id = "g_hi", text = "Hooks, line, bait? Sit on de barrel, mon, and tell me what you be fishin' for. De sea likes to know." },
     { id = "g_back", when = { metBefore = true }, text = "You be back! De charm worked, den, or you'd be at de bottom." },
     { id = "g_away", when = { away = 14 }, text = "{away} off de water. De fish got fat and lazy waitin' for you." },
@@ -1893,6 +1927,8 @@ P:NPC {
         { id = "h_again3", text = "Ya?" },
       },
       choices = {
+        { text = "De sea gives to dose who respect it.", next = "BACK", reply = "You talk like a fisherman, mon. De spirits like dat.", fx = { align = { light = 1 } } },
+        { text = "De sea's just water. Spirits got nothin' to do with it.", next = "BACK", reply = "Careful, mon. De sea hear you, and she don't forget.", fx = { align = { light = -1 } } },
         { text = "Show me your tackle.", next = "BUSINESS" },
         { text = "What are the charms for?", next = "charm" },
         { text = "Is the fishing good off Shadowprey?", next = "good" },
@@ -2007,6 +2043,8 @@ P:NPC {
     third = "{name} met Wulan, who sells cooking supplies at Shadowprey Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Come here, little one. Sit. I will cook something proper for you, and you will eat it all." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Spices and salt. Pay for them and go. I have no time to fuss over you today." },
     { id = "g_hi", text = "You look as though you have been eating out of your saddlebag. Come here, and let us see what can be done about that." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back. Did you use the herbs as I told you, or did you boil them?" },
     { id = "g_away", when = { away = 14 }, text = "{away} on the road, and thinner for it. Sit down, child." },
@@ -2033,6 +2071,8 @@ P:NPC {
         { id = "h_again3", text = "Yes?" },
       },
       choices = {
+        { text = "A good meal is worth the coin.", next = "BACK", reply = "It is. And I am glad someone remembers that.", fx = { align = { honor = 1 } } },
+        { text = "I'll eat from my saddlebag. Cheaper and quicker.", next = "BACK", reply = "And you will look like it, too. Buy your spices, or go.", fx = { align = { honor = -1 } } },
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "How did you come to cook on this coast?", next = "came" },
         { text = "What does Shadowprey eat?", next = "eat" },
@@ -2148,6 +2188,8 @@ P:NPC {
     third = "{name} met Tukk, who sells general goods at Shadowprey Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, mon, my favourite traveller! Come in, sit; I got de good torches, and you get de good price." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bags, waterskins, torches. Pay de price and keep movin', mon." },
     { id = "g_hi", text = "Hey, mon, come out of dat grey dust and into de sea air. You crossed Desolace to get here, so I already know half of what you need." },
     { id = "g_back", when = { metBefore = true }, text = "Back at Tukk's, ya? Good, de land out dere eats supplies, and I be de one who sells dem again." },
     { id = "g_away", when = { away = 14 }, text = "{away}, mon! I thought de centaur had you. Sit, show me de pack, and we see what's left in it." },
@@ -2174,6 +2216,8 @@ P:NPC {
         { id = "h_again3", text = "Ya, mon?" },
       },
       choices = {
+        { text = "A fair trade makes de road easier.", next = "BACK", reply = "Dat be true, mon. You and me, we understand each other.", fx = { align = { honor = 1 } } },
+        { text = "Everyone cheats a little. Dat's just trade.", next = "BACK", reply = "Maybe, mon. But I be watchin' you close now.", fx = { align = { honor = -1 } } },
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "What does Desolace use up fastest?", next = "uses" },
         { text = "Shadowprey is a long way from anywhere.", next = "far" },
@@ -2307,6 +2351,8 @@ P:NPC {
     third = "{name} met Hae'Wilani, the axecrafter at Shadowprey Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. Stand dere. Yes, your weight be good. I got an axe for you, a good one." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand dere. No. You carry yourself wrong, and I don't sell to people who carry themselves wrong." },
     { id = "g_hi", text = "Stand dere, where I can see how you carry your weight. I don't sell an axe to anyone till I know which side dey lean on." },
     { id = "g_back", when = { metBefore = true }, text = "You be back, and de edge is still on it. So you been usin' it right, or you not been usin' it at all." },
     { id = "g_away", when = { away = 14 }, text = "{away}, and look at dat haft, all dried out by de dust. Give it here before it splits in your hand." },
@@ -2333,6 +2379,8 @@ P:NPC {
         { id = "h_again3", text = "Ya?" },
       },
       choices = {
+        { text = "A warrior should master one weapon well.", next = "BACK", reply = "Yes! Like a smith should master one craft. You understand.", fx = { align = { order = 1 } } },
+        { text = "Any weapon will do, so long as it's sharp.", next = "BACK", reply = "Den buy from somebody who makes everything badly. I make axes.", fx = { align = { order = -1 } } },
         { text = "Show me your axes.", next = "BUSINESS" },
         { text = "Why only axes?", next = "only" },
         { text = "A forge by the sea must be hard to keep.", next = "sea" },

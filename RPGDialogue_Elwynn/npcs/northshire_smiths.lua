@@ -13,6 +13,8 @@ P:NPC {
     third = "{name} met Godric Rothgar, Northshire's armorer, who takes dents personally.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Mail, shields and a few good helms. Nothing fancy, but it'll stop a kobold's pick." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece, I see. That's the armor doing its job." },
   },
@@ -27,6 +29,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They all do, and every dent's an insult. A shaman might be kinder to metal, spirits or not, but I'll believe it when your shield comes back." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll treat your work with respect, Godric.", next = "BACK", reply = "Then you'll be the first through that door who means it, and I'll believe it when your shield comes back with only honest dents.", fx = { align = { honor = 1 } } },
         { text = "Armour's meant to be dented. That's its job.", next = "BACK", reply = "It's meant to take a blow, aye, not to be dropped in the mud and walked on. There's a difference, and you'll learn it when you're paying for the repairs.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -185,6 +189,8 @@ P:NPC {
     third = "{name} met Dermot Johns, who clothes and mends for Northshire's novices.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Cloth and leather, friend, sewn here at the Abbey. Mind the hems; they're new." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you again. No tears in that sleeve yet, I hope?" },
   },
@@ -199,6 +205,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Most of them do, I'm afraid, and I mend them quietly. A shaman might be more careful, being calmer than a novice." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Careful hands save good cloth, Dermot. I'll mind mine.", next = "BACK", reply = "That's kind of you, and the cloth will thank you for it. If you do tear something, bring it to me before it's past saving.", fx = { align = { order = 1 } } },
         { text = "Robes are cheap. Let them tear.", next = "BACK", reply = "Cheap for you, perhaps, but every stitch is mine, and the Abbey's purse isn't deep. I'd ask you to be a little gentler all the same.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -346,6 +354,8 @@ P:NPC {
     third = "{name} met Janos Hammerknuckle, a dwarf weaponsmith at Northshire Abbey.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Swords, maces an' axes, every one forged honest. Pick one an' hold it the right way round, if ye please." },
     { id = "g_back", when = { metBefore = true }, text = "Ye came back with all yer fingers. Good, that means ye listened." },
   },
@@ -360,6 +370,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I miss it every day, the halls and the ale and stone with some backbone. Some of the old clans might grumble about a shaman, but I'd not, not this far from home." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Folk far from home should stand together, Janos.", next = "BACK", reply = "Aye, that's the spirit, an' it warms an old smith's heart tae hear it this far from the mountain. Come back an' share a drink when ye've a spare evening.", fx = { align = { honor = 1 } } },
         { text = "The old clans are right. Shamans are strange to us.", next = "BACK", reply = "Maybe they are, maybe they aren't, but I'll no' turn away a dwarf for talkin' tae the wind. Ye're stranger to yerself than ye are tae me, {g:lad|lass}.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -520,6 +532,8 @@ P:NPC {
     third = "{name} met Brother Paxton, who walks Northshire's grounds healing the recruits.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I've spent too many nights healing novices your fellows burned by mistake. Keep your creature away from the wounded, or I'll call the guard." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I'll heal any soul who comes to me hurt, but I won't pretend I'm glad to see you. Say what you need." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've never brought me a burned novice yet, which is more than I can say for your teachers. Go on, then, but carefully." },
@@ -537,6 +551,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It heals everyone who's hurt, I believe. I know every recruit's bruises by name, and I'll learn yours too if you stay." } },
       choices = {
+        { text = "The Light forgives all who truly seek it.", next = "BACK", reply = "It does, and I pray we're all given the chance to seek.", fx = { align = { light = 1 } } }, -- dp_stance
+        { text = "Some deeds are beyond the Light's forgiveness.", next = "BACK", reply = "Careful, friend. That's a judgment best left to the Light itself.", fx = { align = { light = -1 } } }, -- dp_stance
         { text = "The Light's mercy is for all. I believe that, Brother.", next = "BACK", reply = "I'm glad to hear it, and gladder to hear it from someone who walks with the spirits. Come and see me if you're hurt, whatever you believe.", fx = { align = { light = 1 } } },
         { text = "The Light should save its mercy for the faithful.", next = "BACK", reply = "I can't believe that, I'm afraid, and I'll not pretend to. A wound is a wound, and I've never once asked a bleeding man what he prays to.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

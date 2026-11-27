@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Evening, friend. Good to see someone on this road I don't have to watch." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you as close as I watch the woods, and that's close." },
     { id = "g_road", text = "Evening. Keep moving if you've nowhere to be; this road's no place to stand about." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Keep your voice down, would you?" },
     { id = "g_docket", when = { questActive = TODO_QUEST("The Missing Diplomat") }, text = "Be careful out there. I know Trias sent you, but that doesn't mean the woods care." },
@@ -122,6 +124,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're steady in the dark, and that's the only quality I care about on this road." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given the Watch cause to doubt you, and we don't doubt lightly. Keep walking." },
+    },
     background = { { id = "tp_bg", text = "I walk a road for the Night Watch. That's all you need to know, and all I'll tell." } },
     advice = { { id = "tp_ad", text = "Never stand still in Duskwood after dark. Something always notices." } },
     defias = { { id = "tp_defias", text = "They pass through here from Westfall more often than the council knows.", next = "road" } },

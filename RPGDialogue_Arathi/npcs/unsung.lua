@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_forge", text = "Maces, hammers an' flails, every one o' them made tae crack an ogre's head. Have a look, friend." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the Pointe, eh? Still swingin', I hope." },
   },

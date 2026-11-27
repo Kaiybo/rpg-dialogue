@@ -116,6 +116,8 @@ P:NPC {
     third = "{name} met Nixxrak, the heavy armor merchant of Everlook.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Get in here, friend! Shut the door, and I'll find you the warmest mail in Winterspring!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Get in and shut the door. Plate and mail, lined for the cold. Full price, for you." },
     { id = "g_default", text = "Get in here and shut that door, pal! Plate and mail, lined for the cold, and every piece guaranteed not to freeze to ya, mostly." },
     { id = "g_2", when = { metBefore = true }, text = "Back for more, buddy? Good, good. What'd the yetis break this time?" },
   },
@@ -243,6 +245,8 @@ P:NPC {
     third = "{name} met Blixxrak, the light armor merchant of Everlook.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you! Come in, come in, friend, and let me fix what you're wearing for nothing!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh. A customer. Come in, I suppose, but don't touch anything until I say." },
     { id = "g_default", text = "Oh good, a customer! Come in, come in, and look at what you're wearing, pal, you'll catch your death in that." },
     { id = "g_2", when = { metBefore = true }, text = "You're back, and you've still got all your toes? Then the boots worked, and I told ya they would." },
   },
@@ -369,6 +373,9 @@ P:NPC {
     third = "{name} met Xizzer Fizzbolt, who sells engineering supplies in Everlook.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The cartel says good things, and I say better things! For you, friend, a special deal!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The cartel's been saying things about you, pal. Not good things. Full price." },
+    { id = "g_rep1", when = { rep = { faction = "Everlook", min = "Honored" } }, text = "The cartel's been saying good things about you, and that means I can say good things about my prices." },
     { id = "g_default", text = "Welcome, welcome! Parts, powder, and the finest fuses north of anywhere. Stamp the snow off first, pal, because wet powder is sad powder." },
     { id = "g_2", when = { metBefore = true }, text = "You're back and you're in one piece! That's two for two, friend, and my customers don't always manage it." },
   },
@@ -495,6 +502,8 @@ P:NPC {
     third = "{name} met Daleohm, the high elf who sells blacksmithing supplies in Everlook.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Good day, friend. Flux, coal, bar stock, all weighed honestly, and a little extra for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Good day. Flux, coal and bar stock. Weighed honestly. Paid for honestly, I hope." },
     { id = "g_default", text = "Good day. Flux, coal and bar stock, all of it weighed honestly, which I am told is a novelty in this town." },
     { id = "g_2", when = { metBefore = true }, text = "You have returned. I trust that the last order was satisfactory, for I heard no complaint." },
   },
@@ -623,6 +632,8 @@ P:NPC {
     third = "{name} met Syurana, who sells trade supplies at Starfall Village in Winterspring.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend. You climb this hill for more than thread, I think. Sit, and we'll talk." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Few climb this hill to buy thread. I wonder what you've really come for." },
     { id = "g_default", text = "Ishnu-alah, traveler. Few climb this hill merely to buy thread, so I think that you must truly need it." },
     { id = "g_2", when = { metBefore = true }, text = "You have come back to Starfall. The path is no easier the second time, I know." },
   },
@@ -749,6 +760,8 @@ P:NPC {
     third = "{name} met Lyranne Feathersong, who sells food and drink at Starfall Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in, friend! Sit by the brazier, and I'll make you something warm right away!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in from the wind. Sit by the brazier, quietly, and don't say anything just yet." },
     { id = "g_default", text = "Come in from the wind! Sit by the brazier, and do not say a word until you have something hot in your hands." },
     { id = "g_2", when = { metBefore = true }, text = "There you are again. The kettle has been on since I saw you start up the path." },
   },

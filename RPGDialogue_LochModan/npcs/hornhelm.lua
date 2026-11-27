@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my friend! Come, tell me about the dig, an' I'll pour ye an ale while ye do." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Tell me about the dig, if ye must, an' then be on yer way." },
     { id = "g_default", text = "I'm Jern Hornhelm, o' the Explorers' League. If ye've come from the dig, I'll want tae hear about it before ye've sat down." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Sit, sit, an' mind the ledgers, for they're in an order only I understand." },
     { id = "g_away", when = { away = 14 }, text = "There ye are, after {away} away! The League's sent three letters since ye left, an' none o' them pleasant." },
@@ -198,6 +200,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye've a good eye fer history, an' the League could use more like ye." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've been careless with the League's work, an' we don't forget careless." },
+    },
     knows = { { id = "tp_knows", text = "Everythin' the League sends or receives in Loch Modan crosses this table, so I know a fair bit. Ask away." } },
     background = { { id = "tp_bg", text = "I'm a clerk o' the Explorers' League, an' proud o' it. Somebody has tae write it all down, or the diggin' never happened." } },
     advice = { { id = "tp_ad", text = "Count everythin' twice, friend, an' trust the count over the face." } },

@@ -1392,6 +1392,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Weapons down, boots off, friend, and tell me about your fights. I've your favorite bed ready." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Weapons down, boots off, and tell me who you've been fighting. If it's my guests, out." },
     { id = "g_inn", text = "Weapons down, boots off, and tell me who you've been fighting. That's how we do it on Sun Rock, and how my clan did it round the fires in Durotar." },
     { id = "g_home", when = { homeInn = { "Sun Rock Retreat" } }, text = "Home on the rock again! The wind's howling tonight, so it's a good night to be indoors." },
     { id = "g_away", when = { away = 14 }, text = "Look who's back on the rock after {away}! Weapons down, boots off, and tell me everybody you fought while you were gone." },
@@ -1928,6 +1930,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend. Rest here; the trees keep the quiet, and I'm glad to keep you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Rest if you must. The trees are quiet, and I would like you to keep them so." },
     { id = "g_inn", text = "Ishnu-alah. Rest here; it's quiet on the peak, and the trees keep the wind off." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and I've counted a great many stars from this step without you. Rest here a while, it's quiet tonight." },
     { id = "g_word_helped", when = { word = "helped" }, text = "People on the peak say you've been helping out, and I'm glad of it. Rest here as long as you like, and mind the path down after dark." },

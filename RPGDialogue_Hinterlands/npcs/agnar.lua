@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Greetin's, my friend! The beasts are glad tae see ye, an' so am I. Come, meet the new hatchlin'." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The beasts are restless today, an' so am I." },
     { id = "g_default", text = "Greetin's! How can I be of service tae ye, or tae whatever's followin' ye?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Come in, come in, an' mind the hatchlings underfoot." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}! Two gryphon chicks hatched while ye were away, an' both o' them bit me." },
@@ -156,6 +158,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye've a gentle hand with the beasts, an' they know it. So do I, my friend." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've been rough with my beasts, or rough with me, an' they both remember." },
+    },
     knows = { { id = "tp_knows", text = "I know beasts, the Peak's an' a few from further off. Ask about any creature ye like." } },
     background = { { id = "tp_bg", text = "Wildhammer born, an' I was raisin' gryphon chicks before I could ride one." } },
     advice = { { id = "tp_ad", text = "Feed a beast first an' ask it questions after. Works on dwarves too, an' ye can ask my wife." } },

@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Gwyn Farrow, the Sepulcher's mushroom merchant.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_shop", text = "Mushrooms, fresh from the damp! Well, as fresh as anything in a crypt, anyway." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more caps? I knew you'd develop a taste for them." },
   },
@@ -29,6 +31,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Curiosity, mostly, and a little bit of hope, because if a crypt mushroom can survive the Light, then perhaps the rest of us down here can too. And if it shrivels up, well, I'll know not to sell that one to you." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Everything in Lordaeron can survive the Light, given time.", next = "BACK", reply = "What a lovely thought, dear, and from a paladin of all people. I'll put a cap aside and see if it proves you right.", fx = { align = { light = 1 } } },
         { text = "Some things grow better in the dark, Gwyn.", next = "BACK", reply = "They do, don't they? I'm rather proof of that myself, and so are my best mushrooms.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -182,6 +186,8 @@ P:NPC {
     third = "{name} met Andrea Boynton, the clothier of the Sepulcher.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_shop", text = "Robes, gloves and boots, and none of them moth-eaten, which is rare in a crypt. Come and look." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and your clothes are worse than last time. Come in before I faint." },
   },
@@ -199,6 +205,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Only if you mean them, dear, and only if you've the nerve, because every Scarlet in Tirisfal will take it as an insult. I'd rather see something new, in the Dark Lady's colours with a little gold at the hem, though that's only a seamstress dreaming." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll wear the old colours and mean them.", next = "BACK", reply = "Then I'll stitch them with my best thread, dear, and pray you don't meet a Scarlet on the road.", fx = { align = { honor = 1 } } },
         { text = "New colours, Andrea. The old order is dead.", next = "BACK", reply = "Dead, yes, and so are we all, dear. New colours it is, and I'll make them handsome.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -352,6 +360,8 @@ P:NPC {
     third = "{name} met Edwin Harly, who sells general supplies in the Sepulcher.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_shop", text = "Food, water and bags, enough to get you through the forest if you're careful. What do you need?" },
     { id = "g_back", when = { metBefore = true }, text = "Still alive, or whatever we call it? Then the forest hasn't eaten you yet, which is good for business." },
   },
@@ -367,6 +377,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "The forest doesn't care about anything, which is what makes it dangerous. The worgen might, though, because anything that glows is easy to follow, so I'd keep your prayers short between here and Pyrewood." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll pray as long as I need. Let them follow.", next = "BACK", reply = "Pray away, then, and I'll sell you a lantern for the walk. The worgen like a lit target.", fx = { align = { light = 1 } } },
         { text = "Short prayers, then. I'll trust my blade on the road.", next = "BACK", reply = "Sensible, and quicker on the road. I'll pack you something for the trip.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

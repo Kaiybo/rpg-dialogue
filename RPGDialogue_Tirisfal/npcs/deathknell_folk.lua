@@ -19,6 +19,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_default", text = "Don't step on the imp. He bites, and then he sulks, and the sulking is worse." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Another of Maximillion's pupils, and you've brought something with you, or you will soon enough. Come in and let me see how it's behaving." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and you've still got all your fingers, which is more than I'd have wagered on the first day." },
@@ -45,6 +47,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. He's asleep, more or less, and I'd like to enjoy it." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach my demon something new. It's grown restless.", next = "BUSINESS", when = { class = "WARLOCK" } },
         { text = "My imp won't listen to a word I say.", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "What should I expect from my first imp?", next = "firstimp", when = { class = "WARLOCK", maxLevel = 12 } },
@@ -200,6 +204,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Out of the shroud and into something decent, that's my trade. What can I fit you for?" },
   },
 
@@ -218,6 +224,8 @@ P:NPC {
         { id = "h_again", text = "Anything else? I've seams to finish." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your armor.", next = "BUSINESS" },
         { text = "Where do your clothes come from?", next = "source" },
         { text = "Do the dead care how they look?", next = "look" },

@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Come in; Salma's got a pie on, and you're welcome to it." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. State your business, and then off my farm." },
     { id = "hum_g1", when = { race = "Human" }, priority = 5,
       text = "Stormwind, is it? Well, you've come further west than most of the city ever bothers, so I'll not hold your boots against you." },
     { id = "g_prej", when = { prejudiced = true }, text = "Soft hands and a straight back, and I'd wager a name with 'of' in it. Westfall's been bled white by people like your family, so say what you want and mind the chickens." },
@@ -358,6 +360,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've helped us, and we don't forget help." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rude on my farm, and I'll not have it." },
+    },
     deadmines = { { id = "tp_deadmines", text = "The Defias have dug themselves in under Moonbrook like grubs in a turnip, and I'd plough the whole hill over if I had the horses. Instead I've got scarecrows that walk, and they're on the wrong side." } },
     holy_light = { { id = "tp_holy_light", text = "I pray to the Light the way I plough, which is straight and early and without complaining. It hasn't sent me rain in two summers, but it hasn't let me leave either." } },
     darkmoon_faire = { { id = "tp_darkmoon_faire", text = "Salma made me take her to the Darkmoon Faire once, and I spent the whole day worrying about the cows. She says I'm the only man alive who's been bored at a faire, and she may be right." } },

@@ -16,6 +16,8 @@ P:NPC {
     third = "{name} met Apothecary Jorell of the Royal Apothecary Society, at work on something at Go'Shek Farm.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Do not touch the table, and do not breathe on the flasks. Now, what is it that could not wait?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. I trust you have washed since you were last near my samples." },
   },
@@ -121,6 +123,8 @@ P:NPC {
     third = "{name} met Caretaker Alaric, the senior keeper of Trollbane's tomb in Stromgarde.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. The streets feel a little safer with you walking them." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
     { id = "g_default", text = "Lower your voice, {class}. You stand in the resting place of a king of Stromgarde, and we keep silence here." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the crypt. Pay your respects if you will, and touch nothing." },
   },
@@ -137,6 +141,8 @@ P:NPC {
         { id = "yarcaretakeralaric1", text = "My father kept it before me, and his father before him. Our family has tended the dead of House Trollbane for six generations. I was meant to be a scribe, but the Second War took my brothers, and so the keys came to me." },
       },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -224,6 +230,8 @@ P:NPC {
     third = "{name} met Caretaker Nevlin, the wariest of the keepers of Trollbane's tomb.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
     { id = "g_default", text = "That's far enough. Keep your hands where I can see them, and tell me what brings you down here." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I counted the candlesticks after you left, and you may thank your luck they were all there." },
   },
@@ -241,6 +249,8 @@ P:NPC {
         { id = "ybarcaretakernevlin2", when = { class = { "WARRIOR", "PALADIN" } }, text = "You'll know that kind of watch, I'd guess. The kind where your duty and your heart pull opposite ways." },
       },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -328,6 +338,8 @@ P:NPC {
     third = "{name} met Caretaker Weston, the youngest keeper of Trollbane's tomb in Stromgarde.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
     { id = "g_default", text = "Oh, a visitor! Forgive me, we see so few down here that I forget how to greet one properly." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. I'm glad, though Nevlin will pretend he isn't." },
   },
@@ -345,6 +357,8 @@ P:NPC {
         { id = "ybarcaretakerweston2", when = { race = "Dwarf" }, text = "Your masons would admire the carvings, I think, even if they'd grumble about the joins." },
       },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -440,6 +454,8 @@ P:NPC {
     third = "{name} met Deckhand Moishe, a goblin of the Blackwater Raiders stranded at Faldir's Cove.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Yeah, yeah, whaddaya want? If it's a job, I'm busy, and if it's a payin' job, I just got free." },
     { id = "g_back", when = { metBefore = true }, text = "You again, pal? Still no tide, still no wages, so nothin's changed but my mood, and that got worse." },
   },
@@ -544,6 +560,8 @@ P:NPC {
     third = "{name} met Deneb Walker, the last shopkeeper in Stromgarde Keep.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "You got in alive, which already makes you a better customer than most. What do you need?" },
     { id = "g_back", when = { metBefore = true }, text = "Still in one piece, I see. I'd wondered, after you walked back out through that gate." },
   },
@@ -561,6 +579,8 @@ P:NPC {
         { id = "ybardenebwalker2", when = { profession = "First Aid" }, text = "You'll know the bandages, then. The heavy ones sell out first, every time." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -648,6 +668,8 @@ P:NPC {
     third = "{name} met Lieutenant Valorcall, the paladin who leads Stromgarde's cavalry patrol.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
     { id = "g_default", text = "Well met, {class}. Walk with my horse if you would speak, for the patrol does not halt." },
     { id = "g_back", when = { metBefore = true }, text = "We meet again on the road. It is still Stromgarde's road, and I mean to keep it so." },
   },
@@ -665,6 +687,8 @@ P:NPC {
         { id = "yarlieutenantvalorcall2", when = { race = "Human" }, text = "You'll know the stories of Uther, I expect. I met him once. He was kinder than the stories say." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Is the Order still alive?", next = "yorder" },
         { text = "Something else.", next = "BACK" },
       },

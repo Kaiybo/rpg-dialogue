@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You may skip the sand-brushing, just this once. You've always been careful with my things, and I notice that." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Brush your boots, please. Thoroughly. Then tell me what you want, and touch nothing until I say." },
     { id = "g_default", text = "Please, brush the sand from your boots before you come near the table. Rods and dusts don't care for grit any more than I do." },
   },
 
@@ -189,6 +191,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. I keep the purest reagents for those I trust, and you have earned a look at them." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Tell me what you need. I'll sell it to you, and you'll go, and that will be the end of it." },
     { id = "g_default", text = "Reagents for spellcasters, and poisons for those who need them. Tell me which you need, and keep your hands away from the second shelf until I've handed it to you." },
   },
 
@@ -363,6 +367,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, welcome back! The horses know your step by now, I'm sure of it. Shall I bring yours round?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to the stables. The animals will be cared for, sir or madam, whatever I think of their rider." },
     { id = "g_default", text = "Welcome to the Hold's stables! Every animal here is fed, watered and brushed free of sand twice a day, and I'll swear to it." },
   },
 

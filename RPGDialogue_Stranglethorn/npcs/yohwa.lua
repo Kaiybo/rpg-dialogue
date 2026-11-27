@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You. Good. You're not part of our outfit, but you might as well be." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You watch where you step, and watch your mouth too." },
     { id = "g_default", text = "You watch where you step around here, {g:son|lass}. You're not part of our outfit, but that doesn't mean I won't take a cane to you if you fall out of line." },
     { id = "g_back", when = { metBefore = true }, text = "Back on your feet, good. Report, then, and keep it short." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I'd marked you down as Kurzen's. I'm glad to cross it out." },
@@ -52,6 +54,8 @@ P:NPC {
         { id = "h_again2", text = "Anything more, {g:son|lass}? Out with it." },
       },
       choices = {
+        { text = "Discipline wins wars, not courage.", next = "BACK", reply = "Both win wars, but discipline wins the ones that last. Kurzen's lot learned that the hard way.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Out here, you fight however you can.", next = "BACK", reply = "That's how Kurzen's men think, and look where it got them. Still, I've broken a few rules myself.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Do you know the men you're fighting?", next = "known" },
         { text = "How does Kurzen keep his army fighting?", next = "medicine" },
         { text = "Fighting a man who outnumbers you can't be easy.", next = "tactics" },
@@ -166,6 +170,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You fight like one of ours, and that's the best compliment I've got." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to doubt you, and in this jungle, doubt gets people killed." },
+    },
     background = { { id = "tp_ba", text = "A sergeant of Stormwind once, a sergeant of rebels now, and still shouting at recruits either way." } },
     advice = { { id = "tp_ad", text = "Never let a jungle scratch go untreated, {g:son|lass}. Out here, that's how most of us die." } },
     kurzen = { { id = "tp_kurzen", text = "Kurzen was my commander once, and I followed him into this jungle. I won't follow him any further." } },

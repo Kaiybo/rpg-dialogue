@@ -120,10 +120,17 @@ end)
 
 -- Kills by you or your party: a deed per creature ID, plus a tally by creature name
 -- (char.kills.byName) for the `killed` condition. Creatures only, never players.
+-- Kills already counted this session, by GUID (or name when the GUID is missing), so the
+-- combat log and the target-watch fallback below never count one body twice.
+local counted, countedN = {}, 0
 function T.Kill(guid, name)
   if C.IsSecret(guid) then return end
   local id = C.NPCID(guid)
   if not id then return end
+  if counted[guid] then return end
+  countedN = countedN + 1
+  if countedN > 500 then counted, countedN = {}, 1 end
+  counted[guid] = true
   local d = T.Deed("kill:" .. id)
   if type(name) == "string" and name ~= "" and not C.IsSecret(name) then d.name = name end
   local k = char().kills
@@ -229,6 +236,40 @@ end
 if not ns.On("COMBAT_LOG_EVENT_UNFILTERED", onCombatLog) then
   ns.On("PARTY_KILL", function(_, _, targetGUID) T.Kill(targetGUID) end)
 end
+
+-- Fallback for clients whose combat log stays closed or silent (Forever): watch the target.
+-- A creature seen alive and tapped by you (or your group) that then reads as dead counts as
+-- your kill. Only bodies first seen alive count, so clicking an old corpse never does.
+-- T.Kill dedupes by GUID against the combat-log path.
+local engaged, engagedN = {}, 0
+local function watchUnit(unit, healthEvent)
+  if not C.Exists(unit) or C.IsPlayer(unit) then return end
+  local guid = C.GUID(unit)
+  if type(guid) ~= "string" or C.IsSecret(guid) or not guid:find("^Creature") then return end
+  if C.UnitDead(unit) then
+    -- Health just hit zero on a body tapped by you (a one-shot never shows it alive).
+    local tappedNow = healthEvent and _G.UnitIsTappedByPlayer and _G.UnitIsTappedByPlayer(unit)
+    if engaged[guid] or tappedNow then
+      engaged[guid] = nil
+      if not counted[guid] then T.Kill(guid, C.Name(unit)) end
+    end
+  else
+    local tapped = _G.UnitIsTappedByPlayer and _G.UnitIsTappedByPlayer(unit)
+    if tapped or (_G.UnitAffectingCombat and _G.UnitAffectingCombat(unit) and T.lastHit[guid]
+        and T.lastHit[guid].by ~= "npc") then
+      if not engaged[guid] then
+        engagedN = engagedN + 1
+        if engagedN > 300 then engaged, engagedN = {}, 1 end
+      end
+      engaged[guid] = true
+    end
+  end
+end
+ns.On("PLAYER_TARGET_CHANGED", function() watchUnit("target") end)
+ns.On("UNIT_HEALTH", function(_, unit)
+  if unit == "target" or (type(unit) == "string" and unit:find("^party%dtarget$")) then watchUnit(unit, true) end
+end)
+ns.On("UNIT_FLAGS", function(_, unit) if unit == "target" then watchUnit(unit) end end)
 
 ---------------------------------------------------------------------------
 -- Levels, zones, dungeons

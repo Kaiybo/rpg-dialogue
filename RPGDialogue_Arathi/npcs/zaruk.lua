@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, {class}. Sit, and I'll pour you something; Hammerfall is a lonelier place than it looks." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Say what you need and go, because I have no patience left for you today." },
     { id = "g_default", text = "Welcome, {class}. Sit, if you like; few in Hammerfall do." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The Lady said you might." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the stones beneath Arathi have not stopped whispering. Did you hear them, where you went?" },
@@ -199,6 +201,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You listen more than you speak, which is rare among the young of the Horde. I find I trust you, and I trust very few." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've shown me the face you wear when you think no one important is watching. I am more important than you think." },
+    },
     knows = { { id = "tp_knows", text = "I listen to the stones and to the camp, and both say more than they mean to. Ask." } },
     background = { { id = "tp_bg", text = "I fought for the old Horde, and when it fell I found a truer master. That is all you need to know." } },
     advice = { { id = "tp_ad", text = "Listen to what lies beneath, {class}. The stones under Hammerfall have been trying to tell you something since the day you arrived." } },

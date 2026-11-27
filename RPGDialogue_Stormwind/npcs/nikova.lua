@@ -18,6 +18,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You. Come in; my street's safer with you walking it." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Walk my street at night, and then come and talk to me." },
     { id = "g_op_city_proud", when = { opinion = { topic = "stormwind", stance = "proud" } }, text = "Still proud of the city, are you? Walk down my street at night once, and then come and tell me." },
     { id = "g_op_masons", when = { gossip = { topic = "defias", stance = "masons_wronged" } }, text = "They say down the street that you stood up for the stonemasons. Good. Just don't forget a boy died in the Stockade for their grudge." },
     { id = "g_default", text = "If you're selling something, I've nothing to buy it with, and if you're from the Watch, you're a month late." },
@@ -96,6 +98,8 @@ P:NPC {
         { id = "h_again3", text = "Well? I'm listening, though my ears aren't what they were." },
       },
       choices = {
+        { text = "The guards should clear Old Town by force.", next = "BACK", reply = "Then they'd clear the honest poor along with the thieves. That's how Stormwind does most things.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Old Town should be left to look after itself.", next = "BACK", reply = "It does, and it always has, because nobody else ever came to look.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "You spoke of Mac as if you loved him.", next = "mac" },
         { text = "Something happened in the Stockade, I take it.", next = "death" },
         { text = "Why the bandanas?", next = "bandanas", when = { any = { { questActive = TODO_QUEST("The Color of Blood") }, { questDone = TODO_QUEST("The Color of Blood") } } } },
@@ -310,6 +314,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've seen the real city, and you didn't flinch. I respect that." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You're one of those who only sees the pretty parts. Walk down my street sometime." },
+    },
     background = { { id = "tp_bg", text = "Old Town, born and wed and widowed, with a few hard years in Lordaeron between. Nothing grand, but it was mine." } },
     advice = { { id = "tp_ad", text = "Don't sign for anything you'd not sign for twice. I learned that too late." } },
     _none = { { id = "tp_none", text = "I wouldn't know about that. Ask at the Pig and Whistle; they know everything there, and most of it wrong." } },

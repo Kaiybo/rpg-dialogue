@@ -228,6 +228,8 @@ P:NPC {
     third = "{name} met David Trias, the rogue trainer of Deathknell.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Come here, and show me your hands. Steady, good; the grave didn't take your fingers, and that's half the work done." },
     { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "Not one of mine, I see. Keep your purse on the inside of your coat anyway; I teach a very good class." },
   },
@@ -246,6 +248,8 @@ P:NPC {
         { id = "h_again2", text = "Ask on. My lessons don't run to schedules." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
         { text = "What do you teach first?", next = "first" },
         { text = "Do the dead make good rogues?", next = "dead" },
@@ -343,6 +347,8 @@ P:NPC {
     third = "{name} met Isabella, the mage trainer of Deathknell.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_mage", when = { class = "MAGE" }, text = "A student. Sit, and pay attention, and I'll try to keep the lecture short, though I've never once managed it." },
     { id = "g_other", when = { ["not"] = { class = "MAGE" } }, text = "You're not a mage, but I suppose you can listen. Most of my students don't, so it would make a pleasant change." },
   },
@@ -363,6 +369,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. I'm better at answers than lessons." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Train me.", next = "BUSINESS", when = { class = "MAGE" } },
         { text = "Did you study in Dalaran?", next = "dalaran" },
         { text = "What's the first spell you teach?", next = "first" },

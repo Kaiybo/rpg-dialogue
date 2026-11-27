@@ -17,6 +17,8 @@ P:NPC {
     third = "{name} met David Langston, of the family that keeps the Pig and Whistle Tavern.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Welcome to the Pig and Whistle! Find a seat where you can, and Elly will be round before you've warmed it." },
     { id = "g_back", when = { metBefore = true }, text = "Back with us again! That's how it starts, friend, and then you're a regular." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Evening! You've come at the loud hour, so you'll have to speak up." },
@@ -127,6 +129,8 @@ P:NPC {
     third = "{name} met Donna, a girl chasing William through Stormwind for her doll.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave, just like you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
     { id = "g_default", text = "Did you see a boy run past? He's got my doll, and I'm going to get it back!" },
     { id = "g_back", when = { metBefore = true }, text = "I still haven't caught him! He's fast, but he has to stop sometime." },
   },
@@ -239,6 +243,8 @@ P:NPC {
     third = "{name} met Field Marshal Stonebridge, who takes reports on the Blackrock front in the Valley of Heroes.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
     { id = "g_default", text = "State your business, {class}. I've dispatches waiting, and they rarely carry good news." },
     { id = "g_back", when = { metBefore = true }, text = "You again. If you've something to report, report it." },
   },
@@ -259,6 +265,8 @@ P:NPC {
         { id = "h_again2", text = "Go on." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How bad is it in the north?", next = "north" },
         { text = "Why is a field marshal posted at the city gate?", next = "gate" },
         { text = "I've fought the Blackrock orcs myself.", next = "fought", when = { minLevel = 20 } },
@@ -353,6 +361,8 @@ P:NPC {
     third = "{name} met Gil, a boy on a long walk to the Mage Quarter with his mother and sister.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! You're my favourite grown-up, but don't tell my mum." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
     { id = "g_default", text = "Are we there yet? Oh, you're not my mum. Do you know if we're there yet?" },
     { id = "g_back", when = { metBefore = true }, text = "It's you! We're still walking, we've been walking forever." },
   },
@@ -468,6 +478,8 @@ P:NPC {
     third = "{name} met Janey Anship, a young mage who studies with her friends below the Wizard's Sanctum.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Oh, hello! You haven't come to tell us to keep our voices down, have you?" },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! We're no nearer to agreeing, if that's what you've come to ask." },
   },

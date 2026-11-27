@@ -157,6 +157,10 @@ function C.Date()
   if type(t) == "table" then
     return { year = t.year, month = t.month, day = t.monthDay, weekday = t.weekday }
   end
+  local m, day, y = select(2, call("CalendarGetDate"))
+  if type(m) == "number" and type(day) == "number" and type(y) == "number" then
+    return { year = y, month = m, day = day, weekday = (call("CalendarGetDate")) }
+  end
   local d = call("date", "*t")
   if type(d) == "table" then
     return { year = d.year, month = d.month, day = d.day, weekday = d.wday }
@@ -797,10 +801,21 @@ end
 -- tokens, name, level, gender. 0.59.0 added name/level/gender.
 function C.Party()
   local out = {}
-  local n = call({ "GetNumSubgroupMembers", "GetNumPartyMembers" }) or 0
-  if n > 4 then n = 4 end
-  for i = 1, n do
-    local unit = "party" .. i
+  -- In a raid, every raid member but the player counts (party1-4 only see your subgroup).
+  local raidN = call({ "GetNumRaidMembers" }) or 0
+  if raidN == 0 and call("IsInRaid") then raidN = call("GetNumGroupMembers") or 0 end
+  local units = {}
+  if raidN > 0 then
+    for i = 1, math.min(raidN, 40) do
+      local u = "raid" .. i
+      if not call("UnitIsUnit", u, "player") then units[#units + 1] = u end
+    end
+  else
+    local n = call({ "GetNumSubgroupMembers", "GetNumPartyMembers" }) or 0
+    if n > 4 then n = 4 end
+    for i = 1, n do units[#units + 1] = "party" .. i end
+  end
+  for _, unit in ipairs(units) do
     local _, race = C.Race(unit)
     local _, class = C.Class(unit)
     if race or class then
@@ -885,6 +900,20 @@ function C.ForEachAura(unit, filter, fn)
     if not name then break end
     fn({ spellId = clean(spellId), name = clean(name), dispel = clean(dispel) })
   end
+end
+
+-- Standing (1-8) with a faction by its (English or client) name, scanning the reputation
+-- pane with GetFactionInfo. Collapsed headers are skipped, so a faction under a collapsed
+-- header reads as unknown. nil when not found.
+function C.RepByName(name)
+  if type(name) ~= "string" then return nil end
+  local want = name:lower()
+  local n = call("GetNumFactions") or 0
+  for i = 1, n do
+    local fname, _, standing, _, _, _, _, _, isHeader = call("GetFactionInfo", i)
+    if type(fname) == "string" and fname:lower() == want and not isHeader then return standing end
+  end
+  return nil
 end
 
 function C.Rep(factionID)

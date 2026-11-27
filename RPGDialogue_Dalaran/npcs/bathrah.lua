@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, young one, de wind tell me you were coming, and it sound happy about it. Sit with me." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You come again. De wind not so warm when you near, and Bath'rah notice." },
     { id = "g_default", text = "You have traveled far, young one. Sit, and let de wind look at you." },
     { id = "g_back", when = { metBefore = true }, text = "You come back to old Bath'rah. De wind told me you would." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and still I watch, mon. Cyclonian be patient, and so be I." },
@@ -230,6 +232,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You walk soft and listen well, young one, and de spirits like dat about you. So do I." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You been unkind, and de wind remember unkindness longer dan men do. Think on dat." },
+    },
     knows = { { id = "tp_knows", text = "I know de wind, de river and de weapons dat warriors carry. Ask, and old Bath'rah tell you." } },
     background = { { id = "tp_bg", text = "A hermit, a shaman and a maker of weapons. I watch, mostly." } },
     advice = { { id = "tp_ad", text = "Never fight de wind, young one. Bend with it, and strike when it turns." } },

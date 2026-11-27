@@ -244,6 +244,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You! Sit, sit; I saved a slice of the good cheese for you. Don't tell the others." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bread and water, the usual price. Pay up, please." },
     { id = "g_default", text = "Have you eaten? You haven't; I can see it. Sit, and let me sell you something that isn't trail bread." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still thin. Desolace does that to everyone, so let's fix it." },
     { id = "g_back2", when = { metBefore = true }, text = "You came back, and in time for the pot. Sit, sit." },
@@ -275,6 +277,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. I'm good company while you eat." },
       },
       choices = {
+        { text = "Keeping the post fed is a noble work.", next = "BACK", reply = "It's not glamorous, but it matters. Thank you for noticing.", fx = { align = { honor = 1 } } },
+        { text = "Food's food. Doesn't matter where it comes from.", next = "BACK", reply = "It matters when it comes from a long way off and costs a fortune. Pay up.", fx = { align = { honor = -1 } } },
         { text = "How do you get food out here?", next = "supply" },
         { text = "Why does nothing grow here?", next = "grey" },
         { text = "Is it hard to stay cheerful here?", next = "cheer" },
@@ -393,6 +397,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. The braves speak well of you. I have the good thread saved, and I'll give you the clan price." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Trade goods. Prices are on the tags. I'll buy clean hides. That is all." },
     { id = "g_default", text = "Trade goods, {class}. Thread, vials, salt and dye, and I buy hides if they're clean." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good; you paid without haggling last time, and I remember that." },
   },
@@ -420,6 +426,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, but quickly. Light's going." },
       },
       choices = {
+        { text = "Peace with the Magram is worth protecting.", next = "BACK", reply = "It is. Every day without arrows is a good day to trade.", fx = { align = { light = 1 } } },
+        { text = "The Magram only respect strength. We should crush them.", next = "BACK", reply = "And then who would trade with us? Buy something or move on.", fx = { align = { light = -1 } } },
         { text = "What do the braves bring back?", next = "loot" },
         { text = "Who trades with you out here?", next = "traders" },
         { text = "What's worth taking in Desolace?", next = "worth" },

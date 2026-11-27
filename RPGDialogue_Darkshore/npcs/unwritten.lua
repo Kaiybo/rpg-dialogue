@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Heldan Galesong, who fishes and sells his catch on the beach west of Ameth'Aran.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Sit, the fish are biting at last. Perhaps you bring me luck." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Please mind the line, and please don't stay long." },
     { id = "g_default", text = "Ishnu-alah. Mind the line, traveler; I've had one bite all morning and I'd hate to lose it." },
     { id = "g_fish", when = { profession = "Fishing" }, text = "A fellow angler! Sit, if you like. The sea doesn't mind company if it's quiet." },
     { id = "yg_0", when = { race = "Dwarf" }, text = "A dwarf! Your kind fish like they mine: loud and determined. Sit quietly, if you can manage it." },
@@ -26,6 +28,8 @@ P:NPC {
         { id = "y_y_sister", text = "My sister Thessiel is a Sentinel at Astranaar. She writes me every season, and every letter ends the same way: come fight, Heldan, the forest needs you. I write back about fish. She has never once laughed." },
       },
       choices = {
+        { text = "Fishing in peace is a fine way to live.", next = "BACK", reply = "It is. Thessiel thinks otherwise, but I'm content.", fx = { align = { light = 1 } } },
+        { text = "You should join your sister and fight for the forest.", next = "BACK", reply = "Perhaps. But someone must catch the fish. Please, mind the line.", fx = { align = { light = -1 } } },
         { text = "Do you think she's right?", next = "y_right" },
         { text = "Something else.", next = "BACK" },
       },
@@ -259,6 +263,8 @@ P:NPC {
     third = "{name} met Tiyani, who sells food and drink at the Grove of the Ancients in Darkshore.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, friend. The ancients are listening, but they seem glad you're here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Please speak softly. The ancients are listening, and they don't like you." },
     { id = "g_default", text = "Welcome to the Grove. Please speak softly; the ancients are listening." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Thirsty again? The dew is fresh this morning." },
     { id = "yg_0", when = { race = "Dwarf" }, text = "A dwarf, here? Please, quietly. The ancients do not like hammers, and you look as though you carry several." },
@@ -270,6 +276,8 @@ P:NPC {
         { id = "y_y_mother", text = "My mother still keeps her bakery in Auberdine. She sends a basket every week on the supply cart, with a note telling me to come home and marry a nice Sentinel. I send back the empty basket and a sprig of grove moss." },
       },
       choices = {
+        { text = "The Grove is worth tending, whatever your mother says.", next = "BACK", reply = "Thank you. I think so too, though I miss her bread.", fx = { align = { order = 1 } } },
+        { text = "You should go home and help your mother.", next = "BACK", reply = "Perhaps. But this is my home now. Please, speak softly.", fx = { align = { order = -1 } } },
         { text = "Will you go home?", next = "y_go" },
         { text = "Something else.", next = "BACK" },
       },
@@ -463,6 +471,8 @@ P:NPC {
     third = "{name} spoke with an Auberdine Sentinel on watch over the village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend of Auberdine. Mind the docks, though you know them well enough by now." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. I have my eye on you. Mind the docks and mind your step." },
     { id = "g_default", text = "Ishnu-alah. Welcome to Auberdine. Mind the docks; the boards are slick after rain." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. The shore has been quiet, which only makes me more careful." },
     { id = "yg_0", when = { race = "Human" }, text = "Ishnu-alah, human. The Menethil boat brings your kind more often lately. Mind the slick boards." },
@@ -475,6 +485,8 @@ P:NPC {
         { id = "y_y_hist", text = "I served at Feathermoon once, far to the south, before Glynda asked for Sentinels who knew the sea. I have stood on this pier for thirty years. That is not long, for one of us, but long enough to learn every plank by its creak." },
       },
       choices = {
+        { text = "Keeping the docks safe keeps the town alive.", next = "BACK", reply = "It does. That is why I stand here, year after year.", fx = { align = { order = 1 } } },
+        { text = "The docks don't need guarding. Nobody attacks a pier.", next = "BACK", reply = "You have not seen what comes out of the sea at night.", fx = { align = { order = -1 } } },
         { text = "Do you miss Feathermoon?", next = "y_miss" },
         { text = "Something else.", next = "BACK" },
       },

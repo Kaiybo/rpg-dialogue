@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. The Light is with you, and the draught is gone. Come in." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I still feel the draught, and I'll still be watching." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I feel what you carry the way you'd feel a draught from an open grave. The doors are open to you, but I'll be standing between you and the altar." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "Charity is owed to all, and I'll give you mine, but trust is something else. You'll have to earn that, and I doubt you will." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've been here often enough, and done no harm I could find. Charity I've always given you; a little trust may be due as well, a very little." },
@@ -186,6 +188,8 @@ P:NPC {
         { id = "h_again2", text = "Go on; I've time for questions, though not for excuses." },
       },
       choices = {
+        { text = "The Forsaken deserve the Light as much as anyone.", next = "BACK", reply = "That is a generous thought, and I'm not certain the Light agrees. But I'll pray on it.", fx = { align = { light = 1 } } }, -- dp_stance
+        { text = "Some things are beyond the Light's reach.", next = "BACK", reply = "Nothing is, though some things refuse to be reached. That's a different sorrow.", fx = { align = { light = -1 } } }, -- dp_stance
         { text = "The Light must ask much of a paladin.", next = "ask" },
         { text = "Why test us at all?", next = "why" },
         { text = "How do you test the paladins they send you?", next = "tome" },
@@ -299,6 +303,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've proven your heart to the Light, and to me." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to doubt, and the Light does not like doubt." },
+    },
     heroes_vigil = {
       { id = "tp_heroes_vigil", text = "Henze Faulk fell on Heroes' Vigil holding off the Defias so Gazin could escape. The Light can bring him back, if the paladin who carries it is steady, and I've sent the steadiest I could find." },
       { id = "tp_heroes_vigil2", when = { class = "PALADIN" }, text = "If you go to Heroes' Vigil, go with the Symbol of Life and a clear heart, and the Light will do the rest. Henze gave his life for his friend, and that's the sort of soul the Light is eager to return." },

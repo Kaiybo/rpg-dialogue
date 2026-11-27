@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. The forge is hot, but there's always room for you by it." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, or make it useful, or make it elsewhere." },
     { id = "g_forge", text = "The forge is hot, so make it quick or make it useful." },
     { id = "g_shoes", when = { questActive = TODO_QUEST("The Price of Shoes") }, text = "Did Smith Argus in Goldshire get my note? He'll grumble; he always grumbles." },
     { id = "g_yowler", when = { questDone = TODO_QUEST("Howling in the Hills") }, text = "I haven't heard a howl in a week, and my horses are sleeping. So am I, for once." },
@@ -271,6 +273,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're useful, and you're decent, and that's all I ask of anyone." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been neither quick nor useful, and the forge doesn't wait." },
+    },
     dark_iron = { { id = "tp_dark_iron", text = "The Dark Irons hoard the best ore in Khaz Modan and smelt it with fire you can't buy in Stormwind. I'd give my best anvil for a single bar of it, and they'd still not give me one." } },
     blackrock_spire = { { id = "tp_blackrock_spire", text = "The orcs of that mountain to the north are forging weapons faster than I can mend them, and they have all the iron I don't. If anyone ever takes that place, I'd like the scrap." } },
     thandol_span = { { id = "tp_thandol_span", text = "The ore that used to come down from Ironforge came over the Thandol Span, and now I'm told the Dark Irons have been blasting at it. The Guard takes what little I get, so it's no matter either way." } },

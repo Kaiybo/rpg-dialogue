@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You walk lightly here, friend, and the forest notices. Sit, and let me share what I can before the shadows grow long." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Say what you need. I will teach what must be taught, and no more than that." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "This forest was green when I was young, before the demons' servants poisoned it. Keep your fire away from my moonwell." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "The moonwell stays clear when you visit now. I still don't like what you carry, but I'll hear you." },
     { id = "g_druid", when = { class = "DRUID" }, text = "You've come far to train in a sick forest, which is good. Sit by the well." },
@@ -64,6 +66,8 @@ P:NPC {
       big = true,
       lines = { { id = "dr_ghb_default", text = "They were bears once, and some of them still are, under the rot, and that's the worst of it. A druid who wears the bear in Felwood has to decide whether the thing in front of them is an enemy or kin who can't be reached any more, and decide it quickly, because they won't wait." } },
       choices = {
+        { text = "The Cenarion Circle should open its doors to all who would heal.", next = "BACK", reply = "You sound like the Emerald Circle. They are not wrong, though Darnassus would not like it.", fx = { align = { order = 1 } } },
+        { text = "Only the Circle's elders should decide who learns these ways.", next = "BACK", reply = "Then you will wait a long time for Felwood to be healed. They are slow, those elders.", fx = { align = { order = -1 } } },
         { text = "I'll face them as kin, cleanly, and end it quickly.", next = "d_road", reply = "That's the only mercy left to most of them, and it's no small one. Say something to them when you do; I always have.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "They're beasts now. I'll do whatever keeps me alive.", next = "d_road", reply = "That will keep you alive, I don't doubt. Only don't let Felwood teach you to stop seeing what they were.", fx = { align = { honor = -1 } } },
         { text = "Has a corrupted bear ever been healed?", next = "d_bears2" },

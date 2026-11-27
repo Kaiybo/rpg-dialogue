@@ -14,6 +14,10 @@ P:NPC {
   },
 
   greetings = {
+
+
+    { id = "g_rep2", when = { rep = { faction = "Timbermaw Hold", min = "Exalted" } }, text = "You are Timbermaw now in all but fur, and Gorn would fight anyone who says otherwise." },
+    { id = "g_rep1", when = { rep = { faction = "Timbermaw Hold", min = "Honored" } }, text = "Gorn see you, friend of Timbermaw. The tribe speaks your name at the fires now." },
     { id = "g_default", text = "You stand in the halls of the Timbermaw, outsider. Gorn sees you with one eye, and that is enough to see whether you mean us harm." },
     { id = "g_hated", when = { reputation = { faction = "Timbermaw Hold", max = "unfriendly" } }, text = "You smell of Timbermaw blood, outsider. Gorn will speak, because the elders say even an enemy may be heard, but Gorn will not turn his back." },
     { id = "g_friend", when = { reputation = { faction = "Timbermaw Hold", min = "honored" } }, text = "The hold knows your name now, friend. Sit by Gorn's fire, if you have time for an old furbolg." },
@@ -274,6 +278,8 @@ P:NPC {
   },
 
   greetings = {
+
+    { id = "g_rep1", when = { rep = { faction = "Timbermaw Hold", min = "Honored" } }, text = "The tribe trusts you, and so Kernda trusts you. Come in out of the corruption and rest a while." },
     { id = "g_default", text = "What do you seek, {class}? Most who come this deep into the hold are looking for something." },
     { id = "g_totem", when = { questDone = TODO_QUEST("Deadwood Ritual Totem") }, text = "You brought me a Deadwood totem once, and I'm still reading it. It hasn't finished telling me things." },
     { id = "g_wtotem", when = { questDone = TODO_QUEST("Winterfall Ritual Totem") }, text = "The Winterfall totem you brought me sits in a basket of salt by the wall, and I sleep on the other side of the hold now." },
@@ -443,6 +449,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, the furless friend returns! Meilosh has saved the best work for you, and the tribe speaks well of you, very well." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Meilosh will sell to you, because the elders say so. But Meilosh will watch your paws while you look." },
+
+    { id = "g_rep1", when = { rep = { faction = "Timbermaw Hold", min = "Friendly" } }, text = "Ah, the furless friend! The tribe says you are welcome, so Meilosh will show you the good goods." },
     { id = "g_default", text = "You want what Meilosh keeps, outsider? Prove that you're a loyal friend of the Timbermaw first." },
     { id = "g_friendly", when = { reputation = { faction = "Timbermaw Hold", min = "friendly" } }, text = "The hold speaks well of you, so Meilosh will open his packs. Look, and don't touch what you won't buy." },
     { id = "g_revered", when = { reputation = { faction = "Timbermaw Hold", min = "revered" } }, text = "Ah, it's you. Meilosh saved something good for you, as he does for the hold's own." },
@@ -469,6 +479,8 @@ P:NPC {
         { id = "h_again2", text = "Another question, outsider? Ask it." },
       },
       choices = {
+        { text = "The Timbermaw keep the old ways, and that is worth respect.", next = "BACK", reply = "Yes! The furless rarely understand. You are wiser than most of your kind.", fx = { align = { order = 1 } } },
+        { text = "The old ways only keep the Timbermaw hiding in their tunnels.", next = "BACK", reply = "Hiding is how we survived when the others went mad. Meilosh does not like those words.", fx = { align = { order = -1 } } },
         { text = "How do I prove myself loyal?", next = "loyal" },
         { text = "What makes Timbermaw work special?", next = "work" },
         { text = "Do you trade with the Deadwood?", next = "deadwood" },

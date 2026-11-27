@@ -317,6 +317,8 @@ P:NPC {
     third = "{name} met Holt Thunderhorn, the hunter trainer on Thunder Bluff's Hunter Rise.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Come, let's train. You're stronger than you were." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Garra climbed the Rise last moon. I wonder if you'll ever be her match." },
     { id = "g_garra_resolved", when = { class = "HUNTER", thread = { id = "hun_horde", state = "resolved" } }, text = "Garra Steelgaze climbed the Rise last moon, and she listened longer than I expected. Walk with the Earth Mother, friend." },
     { id = "g_garra_soured", when = { class = "HUNTER", thread = { id = "hun_horde", state = "soured" } }, text = "The wagons still roll north out of the Barrens. I count them, as I said I would." },
     { id = "g_hi", text = "Welcome to Hunter Rise. The wind is good for archery today; the Earth Mother is in a generous mood." },
@@ -613,6 +615,8 @@ P:NPC {
     third = "{name} met Ker Ragetotem, the warrior trainer in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Stand firm, friend. You always do. Come, let's train." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand firm, young one. The bluffs are high, and you could fall." },
     { id = "g_hi", text = "Stand firm, young one. The bluffs are high, and the wind is not kind to the unsteady." },
     { id = "g_away", when = { away = 14 }, text = "You've been away {away}, young one, and I hope you kept your stance while you were gone. Show me." },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "You've grown strong since you first stood in my ring, and you hold yourself steadier on the bluffs now. Remember that strength is for protecting the herd." },

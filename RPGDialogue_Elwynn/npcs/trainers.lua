@@ -21,6 +21,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Sit, little {g:brother|sister}. The Light can wait a moment for you to catch your breath." },
     { id = "g_other", when = { ["not"] = { class = "PRIEST" } }, text = "Hurt? Sit down and I'll see to it, and then go and find your own teacher." },
   },
@@ -40,6 +42,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Some do and some don't, and I've no time to worry about it. If you heal, I'll be grateful later." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Healing is holy work, Anetta. I'll help where I can.", next = "BACK", reply = "Then roll up your sleeves, because there's a recruit by the door with a kobold bite and I've two hands only. The Light will sort out the theology later.", fx = { align = { light = 1 } } },
         { text = "Your gratitude isn't needed. I'll do as I please.", next = "BACK", reply = "As you like, but the wounded don't much care about either of our pride. I'll be here when you're ready to be useful.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -225,6 +229,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_mage", when = { class = "MAGE" }, text = "Ready to face your destiny? Good, then close the door; the draught scatters my notes." },
     { id = "g_other", when = { ["not"] = { class = "MAGE" } }, text = "Please don't touch anything that's glowing, humming or warm, because in this room it's usually all three at once." },
   },
@@ -242,6 +248,8 @@ P:NPC {
       big = true,
       lines = { { id = "khw_default", text = "Because a flask runs dry on the second day and conjured water doesn't, and because the first spell that makes something instead of breaking something is the one that teaches you what magic is for. Every student I've sent on to Goldshire learned the water before the fireball, and I mean to keep it that way." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Making before breaking. I like that.", next = "BACK", reply = "Good, then you've understood the lesson before I finished it, which almost never happens. Conjure me a cup, and we'll see how it tastes.", fx = { affinity = 1, align = { light = 1 } } },
         { text = "I came here for the fireball, Khelden.", next = "BACK", reply = "Everyone does, and everyone learns the water first anyway, because I don't teach fireballs to the thirsty.", fx = { align = { light = -1 } } },
         { text = "What did you learn first?", next = "kh_first" },
@@ -518,6 +526,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Took you long enough to find me, and that's good; it means I'm doing my job." },
     { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "Lost? Your trainer's out front somewhere, so go and find them." },
   },
@@ -535,6 +545,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They hum a little, yes, and most folk wouldn't notice, but I do. Keep that in mind if you ever need to hide." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll fight in the open, Jorik. I've nothing to hide.", next = "BACK", reply = "Good, and I'll respect you for it. Just know that the quiet ones will hear you coming.", fx = { align = { honor = 1 } } },
         { text = "Teach me to hide, then. Quiet has its uses.", next = "BACK", reply = "I'll teach you to step softly, at least, and that's half of it. The spirits will have to keep their own counsel.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -768,6 +780,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_warlock", when = { class = "WARLOCK" }, text = "Patience first, then prudence, and power last of all, in that order or not at all." },
     { id = "g_other", when = { ["not"] = { class = "WARLOCK" } }, text = "This ground isn't for you, and what I teach doesn't want you, so go back to the Abbey." },
   },
@@ -785,6 +799,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "We both deal in powers beyond the Light, so the rule I teach holds for you as well: patience and prudence, shaman, because power rewards both and punishes the lack of either." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Patience and prudence, yes. But I'll stay honest.", next = "BACK", reply = "Honest, is it? The spirits will thank you for it, I'm sure, and so will the Brothers. I'll admire your principles from a safe distance.", fx = { align = { order = 1 } } },
         { text = "We're alike enough. Teach me what you know.", next = "BACK", reply = "Perhaps we are, though I'd not say so where Brother Sammuel can hear. Come back when you've learned to listen without trembling.", fx = { align = { order = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },
@@ -1083,6 +1099,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "Shield up, always, even when you're greeting me, because the day you forget is the day a gnoll remembers." },
     { id = "g_other", when = { ["not"] = { class = "WARRIOR" } }, text = "This yard's for fighters, friend, so you'd best stand by the smithy wall where the swings won't reach you." },
   },
@@ -1100,6 +1118,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "It'll accept anyone who holds the line. Your spirits might help, but it's your feet that hold the wall, so stand firm." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll stand firm on the wall, Lyria. You'll see.", next = "BACK", reply = "Good, and I'll hold you to it on the first drill. Feet planted, shield up, and don't look back.", fx = { align = { order = 1 } } },
         { text = "Walls are for the timid. I'll fight in the open.", next = "BACK", reply = "Then you'll fight alone and die in the open, and I'll be on the wall watching. Come back when you change your mind.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1392,6 +1412,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I hear what goes on in that cellar through the floorboards every night, and I know you're part of it. Don't bring it up these stairs." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "One of your fellows called something up last winter, and it scorched the boards beneath my bed. Say what you want and then go back down." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've never once brought that chanting up these stairs with you. I'll talk with you, though I'll keep the candles lit while I do." },
@@ -1415,6 +1437,8 @@ P:NPC {
         { id = "dd_josetta_d_a", text = "Then let me count them for you, gently, because someone ought to. Every time you come back, the Light has given you another chance, and I'd ask you to spend the next one more wisely than the last." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The Light brings me back for a reason. I'll keep fighting.", next = "dd_josetta_d2", fx = { align = { light = 1 } } },
         { text = "Dying is just part of the work. I don't dwell on it.", next = "dd_josetta_d2", fx = { align = { light = -1 } } },
       },
@@ -1621,6 +1645,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_mage", when = { class = "MAGE" }, text = "Ah, a colleague, a junior colleague! Come in, and mind the books." },
     { id = "g_other", when = { ["not"] = { class = "MAGE" } }, text = "Magic hurts the untrained, so please stand over there. A little further." },
   },
@@ -1638,6 +1664,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Everything is interesting, my friend, from your spirits to the horses in the stable below, so do tell me more." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Curiosity is a fine virtue, Zaldimar. Keep it.", next = "BACK", reply = "Oh, I intend to, my friend, it's the only virtue I've managed to keep. Come back and tell me about the spirits sometime.", fx = { align = { order = 1 } } },
         { text = "Curiosity kills. Mind your own studies.", next = "BACK", reply = "It has, on occasion, but so has boredom, and I'd sooner go out curious. I'll mind my studies, thank you.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -1854,6 +1882,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Well, well, look who crawled up the stairs." },
     { id = "g_other", when = { ["not"] = { class = "ROGUE" } }, text = "Wrong room, friend; the door's behind you." },
   },
@@ -1871,6 +1901,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "That's my business, but I'll tell you this much: I've been watching you over the top of it since you came in." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Watchfulness is wisdom, Keryn. I respect it.", next = "BACK", reply = "Good, then we understand each other. Keep watching, because it keeps you alive.", fx = { align = { honor = 1 } } },
         { text = "Your watching doesn't worry me.", next = "BACK", reply = "It should, a little, but I'll not insist. Most people learn to worry the hard way.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -2090,6 +2122,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_warlock", when = { class = "WARLOCK" }, text = "You came down the stairs and out of the light, so you found us after all. Come in, and keep your voice down." },
     { id = "g_other", when = { ["not"] = { class = "WARLOCK" } }, text = "The wine cellar's the other door, friend; this one's private." },
   },
@@ -2107,6 +2141,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Some of it's dangerous enough to cost a man his eyebrows and worse, so I make introductions carefully, and I'm not sure a shaman needs one." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then I'll leave your secrets alone, Remen.", next = "BACK", reply = "Thank you. It isn't that I don't trust you; I don't trust anything down here, myself included.", fx = { align = { order = 1 } } },
         { text = "Dangerous knowledge is worth having. Introduce me.", next = "BACK", reply = "Ask Maximillian Crowe, then, not me. I've only got the one set of eyebrows left.", fx = { align = { order = -1 } } },
         { text = "Let's talk about something else.", next = "BACK" },

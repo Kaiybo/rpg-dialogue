@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Auctioneer Silva'las at the auction house in Darnassus.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Your pack is welcome here, and so are you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Bid or sell. That is all." },
     { id = "g_default", text = "Ishnu-alah. You have the dust of a long road on you, and I would guess a pack worth emptying." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and welcome. Tell me where you have been since, if you have a moment for it." },
   },
@@ -30,6 +32,8 @@ P:NPC {
         { id = "h_again2", text = "Please, go on." },
       },
       choices = {
+        { text = "A fair auction serves everyone.", next = "BACK", reply = "It does. Every bid is honest here.", fx = { align = { honor = 1 } } },
+        { text = "An auction is just a game for the rich.", next = "BACK", reply = "Then do not play.", fx = { align = { honor = -1 } } },
         { text = "Show me what's on offer.", next = "BUSINESS" },
         { text = "You've never left Teldrassil?", next = "left" },
         { text = "What's the strangest thing you've sold?", next = "strange" },
@@ -130,6 +134,8 @@ P:NPC {
     third = "{name} met Cyridan, who sells leather armor on the Tradesmen's Terrace.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Your step is lighter now. Let me mend what remains." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "I heard you before I saw you. We might mend that. Or not." },
     { id = "g_default", text = "Ishnu-alah. I heard you on the walkway well before I saw you, and we may be able to mend that." },
     { id = "g_back", when = { metBefore = true }, text = "You tread more softly than you did last time. Is that my leather, or have you been practising?" },
   },
@@ -148,6 +154,8 @@ P:NPC {
         { id = "h_again2", text = "Yes? Speak, and I will hear it." },
       },
       choices = {
+        { text = "Leather should let you move silently.", next = "BACK", reply = "It should. You understand.", fx = { align = { order = 1 } } },
+        { text = "Silence doesn't matter. Strength does.", next = "BACK", reply = "Then you will be heard, and found.", fx = { align = { order = -1 } } },
         { text = "Let me see your leathers.", next = "BUSINESS" },
         { text = "Why does quiet matter so much to you?", next = "quiet" },
         { text = "Where do your hides come from?", next = "hides" },

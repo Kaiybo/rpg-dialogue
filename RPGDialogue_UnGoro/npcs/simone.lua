@@ -254,6 +254,8 @@ P:NPC {
     third = "{name} met Precious, Simone's pet, a very well behaved dog with something wrong about its eyes.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Precious trots over, tail swishing, and nudges your hand. The low, wrong growl underneath is quieter today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Precious watches you without blinking. The low growl beneath his polite bark is louder than usual." },
     { id = "g_default", text = "Precious tilts his head and gives a short, polite bark. Somewhere beneath it, very low, something like a laugh rumbles and stops." },
   },
   start = "hello",

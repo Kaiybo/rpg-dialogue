@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you. Lean as close as you like, friend. Even the green jar likes you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the jars, {class}. The green one bites, and I've no reason to stop it." },
     { id = "g_default", text = "Mind the jars, {class}, because the green one bites if you lean too close. You want something from Jeeda, or did you just climb the wrong stairs?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. Jayka says you ask a lot of questions downstairs, which means you'll fit right in up here." },
     { id = "g_jinzil", when = { questActive = TODO_QUEST("Jin'Zil's Forest Magic") }, text = "You're running an errand for Jin'Zil? Then tell him Jeeda of Sun Rock is still waiting for an answer to her letters, and mean it." },

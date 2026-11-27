@@ -1825,6 +1825,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Rest yourself, friend. Your bed is ready, and I saved you a hot bowl." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Everyone's welcome. Pay first, though." },
     { id = "g_inn", text = "Rest your hooves, or your feet, or whatever you've got. Everyone's welcome under this roof, as the Earth Mother welcomes every calf to the grass." },
     { id = "g_home", when = { homeInn = { "The Crossroads" } }, text = "Back to the Crossroads! Your bedroll's where you left it. I swept the dust off twice." },
     { id = "g_away", when = { away = 14 }, text = "Back to the Crossroads after {away}! I swept your corner a few times while you were out, and the stars kept coming in through the roof." },
@@ -1989,6 +1991,8 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "Under my leaky roof, are you? Keep whatever follows you away from the other guests, friend, and it can sleep by the door like anyone's dog." },
       },
       choices = {
+        { text = "An inn welcomes every traveler.", next = "BACK", reply = "It does. That's what the Crossroads is for.", fx = { align = { light = 1 } } },
+        { text = "An inn should be for the Horde only.", next = "BACK", reply = "Everyone's welcome under this roof. Pay first.", fx = { align = { light = -1 } } },
         { text = "How is Mankrik, Boorand?", next = "dd_olgra", when = { questDone = TODO_QUEST("Lost in Battle") } },
         { text = "Do the spirits of the Barrens speak to you, Boorand?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The drought must worry the folk who stay here, Boorand.", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },

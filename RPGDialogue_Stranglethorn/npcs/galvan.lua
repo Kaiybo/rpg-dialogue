@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "HAH! My favourite smith! Come, come, and I'll show you a mithril piece that'll make you weep!" },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Hmph. You. The anvil's busy, and so am I." },
     { id = "g_default", text = "HAH! A visitor, at Galvan's anvil, in the middle of the troll jungle! Either you're lost or you're a smith, and you don't look lost." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Galvan hopes you've brought bars, because Galvan has brought lessons." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and the forge hasn't cooled a moment. Galvan doesn't wait for anyone, but he's glad you came back." },
@@ -170,6 +172,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You understand mithril, and you understand Galvan, and that's two things few understand!" },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've spoken well of truesilver, I'd wager, and Galvan does not forgive that!" },
+    },
     background = { { id = "tp_ba", text = "A dwarf of the Mithril Order, a decade in Alterac's mountains, a while in Booty Bay, and now a forge in the jungle." } },
     advice = { { id = "tp_ad", text = "Trust mithril, doubt truesilver, and always dig your own ore." } },
     magni = { { id = "tp_magni", text = "King Magni's a fine king, but Galvan has never been one for kings, Galvan likes a good forge and a good ingot better. Still, the man knows his metal." } },

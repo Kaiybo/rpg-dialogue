@@ -19,6 +19,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_ad_r", when = { rep = { faction = "Argent Dawn", min = "Revered" } }, text = "You carry the Dawn's favour, I see. Good, for Stratholme needs the brave, and the Light needs them more." },
     { id = "g_default", text = "Keep your voice low. The Scourge do not sleep, but they do listen." },
     { id = "g_med", when = { questActive = TODO_QUEST("The Medallion of Faith") }, text = "You have the medallion, or you are close to it. I can feel the Light stir around you." },
   },

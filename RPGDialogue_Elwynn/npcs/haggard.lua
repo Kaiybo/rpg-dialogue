@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, that's you, I'd know your step anywhere now. Come, sit with an old soldier a while." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I can't see you well, but I can hear you're not welcome here today." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "I can't see you well, but I know that sulphur stink, and I smelled it on the field in the Second War. Stand where I can hear you." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "I buried half my company after the Horde's warlocks rained fire on us. Don't expect an old guardsman to smile at your kind." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You've come back often enough that I know your step now. I still smell the sulphur, mind, and I still don't like it." },
@@ -183,6 +185,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then, for my ears still work, even if nothing else does." },
       },
       choices = {
+        { text = "Warlocks should be hanged, every last one.", next = "BACK", reply = "Aye, that's what we said in the war, and we hanged a few. It never brought back the dead.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Not every warlock is Gul'dan's creature.", next = "BACK", reply = "Perhaps not, but I've yet to meet the other kind, and my eyes are poor for looking.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "I've fought a good many Defias, Marshal.", next = "dd_haggard_def", when = { killed = { name = "Defias", min = 40 } } },
 
         { text = "What happened to your badge?", next = "jack" },
@@ -368,6 +372,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've the bearing of a soldier, whether you've served or not. I'd have had you in my company gladly." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've shown me little respect, and I've earned a good deal of it. Mind your tongue." },
+    },
     knows = {
       { id = "tp_knows", text = "I may not see much these days, but there's nothing wrong with my ears. Ask me about any of this, and speak up." },
     },

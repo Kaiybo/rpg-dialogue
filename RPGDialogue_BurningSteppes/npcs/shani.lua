@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back, my friend, and the fire burns a little less when you near. Sit with me a while." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The spirits sent you, but they not tell me I have to like you, mon." },
     { id = "g_default", text = "You can see me, mon? Then the spirits sent you, and I know by who, so sit down and listen before the fire takes my voice." },
     { id = "g_back", when = { metBefore = true }, text = "You come back to dis cursed rock. Did you find him, the ogre with my ring?" },
     { id = "g_done", when = { questDone = TODO_QUEST("Krom'Grul") }, text = "Thal'trak has my ring now, I know it, even if he threw it in the river. I can feel the rock letting go of me a little more every day, and Bwonsamdi waiting at the edge of it." },
@@ -133,6 +135,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You be brave, and you be kind to a dead woman, and that be two things I not find often on this rock." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You treat me like I be just another ghost, mon. I be a soldier of Kargath, and I want respect." },
+    },
     background = { { id = "tp_ba", text = "I was a Darkspear scout of the Horde and a wife, and now I be a ghost on a rock in the Burning Steppes, waiting for the loa to come and fetch me." } },
     advice = { { id = "tp_ad", text = "Never get close enough to hear the chanting, because by then they've already seen you, and no voodoo of mine could hide me." } },
     _none = { { id = "tp_none", text = "I don't know dat one. De dead don't know near as much as folk think, mon." } },

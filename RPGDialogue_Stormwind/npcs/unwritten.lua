@@ -18,6 +18,8 @@ P:NPC {
     third = "{name} met Elfarran of the Silverwing Sentinels, who sends volunteers to Warsong Gulch.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
     { id = "g_default", text = "Ishnu-alah, {class}. If you have come to defend Ashenvale, the Silverwing Sentinels have need of you." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Good; the gulch has not grown any quieter since we last spoke." },
   },
@@ -36,6 +38,8 @@ P:NPC {
         { id = "h_again2", text = "Speak, then. I am listening." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What is the fight in Warsong Gulch?", next = "gulch" },
         { text = "Why recruit here, so far from Ashenvale?", next = "far" },
         { text = "I wish to join the battle.", next = "BUSINESS" },
@@ -124,6 +128,8 @@ P:NPC {
     third = "{name} met Lady Hoteshem of the League of Arathor, who sends fighters to Arathi Basin.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
     { id = "g_default", text = "Well met, {class}. The League of Arathor needs fighters, and you have the look of one." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Have you come to sign on at last, or only to admire the map?" },
   },
@@ -140,6 +146,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, and then decide. Arathor has waited long enough." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What is the League of Arathor?", next = "league" },
         { text = "What's in the basin worth fighting for?", next = "basin" },
         { text = "I'll fight for Arathor.", next = "BUSINESS" },
@@ -228,6 +236,8 @@ P:NPC {
     third = "{name} met Thelman Slatefist of the Stormpike Guard, who sends fighters to Alterac Valley.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
     { id = "g_default", text = "Well met, {g:lad|lass}! Ye've the look o' someone who'd like a proper fight in proper snow." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, eh? The valley's still there, and so are the Frostwolves, more's the pity." },
   },
@@ -244,6 +254,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. I've nothin' but time an' maps." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why do the Stormpike want the valley?", next = "why" },
         { text = "Tell me about the Frostwolves.", next = "frostwolves" },
         { text = "Send me to Alterac.", next = "BUSINESS" },
@@ -331,6 +343,8 @@ P:NPC {
     third = "{name} met Mithras Ironhill, who pores over the great map in Stormwind Keep.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
     { id = "g_default", text = "Mind the map, {g:lad|lass}, ye're standin' on the Redridge Mountains. Step back an' look at it properly." },
     { id = "g_back", when = { metBefore = true }, text = "Back tae see the map again? It's changed since ye left, it always does." },
   },
@@ -347,6 +361,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, the map'll keep while we talk." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What does the map show today?", next = "today" },
         { text = "A dwarf keeping a human kingdom's maps?", next = "dwarf" },
         { text = "What's the worst corner of the map?", next = "x_worst" },
@@ -517,6 +533,8 @@ P:NPC {
     third = "{name} met Guchie Jinglepocket, who sells Smokywood Pastures' finer Winter Veil goods.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Happy Winter Veil, sweetheart! Smokywood Pastures' finest goods, gift-wrapped and very reasonably priced, if your idea of reasonable has a sense of humour." },
     { id = "g_back", when = { metBefore = true }, text = "My favourite customer's back! Well, top five, but the season's young." },
   },
@@ -528,6 +546,8 @@ P:NPC {
         { id = "ybswguchiejinglepocket2", when = { race = "Gnome" }, text = "Gnomes love the hats, they come down to the ears. I give the gnomes a discount, 'cause they always come back." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -635,6 +655,8 @@ P:NPC {
     third = "{name} met Khole Jinglepocket, who sells Smokywood Pastures' cheaper Winter Veil goods.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Hey, hey, Winter Veil bargains right here, pal! Guchie's got the fancy stuff, but I've got the stuff people actually buy." },
     { id = "g_back", when = { metBefore = true }, text = "You came back to my side of the stall! Guchie owes me a silver, she said you wouldn't." },
   },
@@ -646,6 +668,8 @@ P:NPC {
         { id = "ybswkholejinglepocket2", when = { class = "MAGE" }, text = "Don't you go makin' your own, pal. Frostbolt snowballs are bad for business." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -753,6 +777,8 @@ P:NPC {
     third = "{name} met Lillian Singh, who sells holiday fireworks in Stormwind's Trade District.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Fireworks for the festival! Light them outside, away from thatch, and away from the guards if you value your purse." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? I hope you didn't set anything alight last time, or at least nothing that belonged to anyone." },
   },
@@ -768,6 +794,8 @@ P:NPC {
         { id = "yswlilliansingh2", when = { class = { "PRIEST", "PALADIN" } }, text = "If you could look at his hand, I'd be grateful. The scars still ache in the cold." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Should he try again?", next = "yagain" },
         { text = "Something else.", next = "BACK" },
       },
@@ -872,6 +900,8 @@ P:NPC {
     third = "{name} met Emmithue Smails, a gnome who sells sweets during Children's Week.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Sweets, treats and sugared delights, at a precise and very fair price per ounce! Are you shopping for yourself, or for one of the little ones?" },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! I've refilled the candy jars, all twelve of them, and recalibrated the scale." },
   },
@@ -887,6 +917,8 @@ P:NPC {
         { id = "yswemmithuesmails2", when = { race = "Gnome" }, text = "You'll understand, then. Every one of us left someone behind. I keep a list, and I check it each time a new refugee comes up the tram." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Is there hope he lived?", next = "yhope" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1171,6 +1203,8 @@ P:NPC {
     third = "{name} met Acolyte Porena among the warlocks beneath the Slaughtered Lamb.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "You've found the cellar, then. Mind the circles on the floor; they're older than you think." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still in one piece. The shadows must like you." },
   },
@@ -1268,6 +1302,8 @@ P:NPC {
     third = "{name} met Zggi, Zardeth's imp, beneath the Slaughtered Lamb.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "What do you want, mortal? Zggi is busy, very busy, doing nothing at all for Zardeth." },
     { id = "g_back", when = { metBefore = true }, text = "You again? Zggi remembers you, and Zggi is not impressed." },
   },
@@ -1386,6 +1422,8 @@ P:NPC {
     third = "{name} walked beside \"Priestess Tyriona\", the disguise worn by Tyrion's spybot.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Blessings of the Light upon you, citizen. I am a priestess, and I am walking to the garden, as priestesses do." },
     { id = "g_quest", when = { questActive = TODO_QUEST("The Attack!") }, text = "Keep close, and say nothing to the guards. A priestess with a bodyguard is perfectly ordinary, I'm told." },
   },
@@ -1710,6 +1748,8 @@ P:NPC {
     third = "{name} spoke with Captain Dirgehammer in Stormwind's Champions' Hall.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Welcome to the Champions' Hall, {class}. Only those who've earned rank against the Horde trade with me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Earned a few more ranks, have ye?" },
   },
@@ -1838,6 +1878,8 @@ P:NPC {
     third = "{name} spoke with one of the Stormwind City Guard.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep an eye open. Mind yourself." },
     { id = "g_default", text = "Welcome to Stormwind, citizen. Mind the canals, keep the peace, and ask if you've lost your way." },
   },
   notice = {
@@ -1852,6 +1894,8 @@ P:NPC {
         { id = "ybswstormwindcityguard2", when = { race = "Human" }, text = "You'll have heard the same rumours I have, I expect. I don't believe half of them, and the other half I'd rather not." },
       },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Something else.", next = "BACK" },
       },
     },

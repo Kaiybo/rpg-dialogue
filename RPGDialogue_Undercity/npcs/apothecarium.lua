@@ -17,6 +17,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_default", text = "Stand clear of the green flask, please. It's not dangerous, exactly, but it is curious about you." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, my returning student. Your colour is better, or worse; it's hard to tell with the dead." },
   },
@@ -39,6 +41,8 @@ P:NPC {
         { id = "h_again", text = "Another question? I'm in the middle of a distillation, but it'll take an hour whatever I do." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "You speak of your patients as if they're gone.", next = "patients" },
         { text = "What does the Society actually make here?", next = "society" },
         { text = "Teach me alchemy.", next = "BUSINESS", when = { profession = "Alchemy" } },
@@ -142,6 +146,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_default", text = "Oh, mind the pot, dearie. That's my peacebloom, and it's the only one in the city." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did you bring me anything green? No? Well, never mind; nothing grows down here but mould and grudges." },
   },
@@ -164,6 +170,8 @@ P:NPC {
         { id = "h_again", text = "Anything else, dear? I've all the time in the world, and nothing to plant it in." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'm surprised peacebloom grows down here at all.", next = "peacebloom" },
         { text = "Tell me about the farm.", next = "farm" },
         { text = "Teach me herbalism.", next = "BUSINESS", when = { profession = "Herbalism" } },

@@ -15,6 +15,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_ad_h", when = { rep = { faction = "Argent Dawn", min = "Honored" } }, text = "The Dawn honours you, and I'm proud to say it. You've earned more than a welcome at Light's Hope." },
+    { id = "dp_rep_ad_e", when = { rep = { faction = "Argent Dawn", min = "Exalted" } }, text = "There are few the Dawn holds as dear as you, my friend. When this is over, they'll sing about you in every chapel." },
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my friend. You're always welcome at Light's Hope, and doubly welcome by me." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll be civil, as the Dawn asks, but I'll not pretend I'm pleased." },
     { id = "g_prej1", when = { prejudiced = true }, text = "Ah, good day to you. Forgive me if I look twice; the Dawn welcomes the Forsaken and so do I, but my eyes were taught in Stratholme, and they're slower to learn than I am." },
     { id = "g_prej2", when = { prejudiced = true }, text = "One of the Banshee Queen's people, at Light's Hope. Do sit down. I'll only flinch a little, and I'll be ashamed of it afterward." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Welcome back, my friend. I realised this morning that I no longer look twice when you come in, and I took the trouble to be glad about it." },
@@ -104,6 +108,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. I enjoy a conversation in a language I already speak." },
       },
       choices = {
+        { text = "The Dawn should answer to Stormwind's law.", next = "BACK", reply = "Kings come and go, my friend, and the plague doesn't care for crowns. Still, I see why you'd think it.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "The Dawn is right to answer to no king.", next = "BACK", reply = "Just so. A plague doesn't stop at borders, and neither can we.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What are scourgestones?", next = "stones" },
         { text = "You don't seem to think much of the Scarlet Crusade.", next = "crusade" },
         { text = "I hear you're a linguist.", next = "linguist" },
@@ -256,6 +262,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're the sort the Dawn was made for, my friend: steady, honest, and too stubborn to give up." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've done little to earn the Dawn's trust, and less to earn mine. Change that, if you can." },
+    },
     background = { { id = "tp_bg", text = "A duke by birth and a linguist by inclination. The Plaguelands care for neither title, so I mostly answer to Nicholas." } },
     advice = { { id = "tp_ad", text = "Distrust anyone who's entirely certain, including me, especially before breakfast." } },
     argent_dawn = { { id = "tp_argent", text = "Those who'll stand against the Scourge with anyone else who will, whatever their banner. It's a simple idea, and you'd be amazed how many people find it difficult." } },

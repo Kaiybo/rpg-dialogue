@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You! Sit down; there's a plate for you, and I won't hear a word about paying for it today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bread, meat, milk, juice. No grog. Pay and go." },
     { id = "g_default", text = "Bread, meat, milk and juice. If you're about to ask for grog, save your breath; everyone else has." },
   },
 
@@ -154,6 +156,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then. I've nothing better to do until supper." },
       },
       choices = {
+        { text = "Feeding the camp well keeps it fighting well.", next = "BACK", reply = "That's what I tell Valormok, and he listens, for once.", fx = { align = { order = 1 } } },
+        { text = "A real warrior eats what he kills.", next = "BACK", reply = "Then go and kill something, and stop bothering my cooking.", fx = { align = { order = -1 } } },
         { text = "Ag'tor hadn't been eating?", next = "dd_betrayed", when = { questDone = TODO_QUEST("Betrayed") } },
         { text = "They say the land around Valormok is cursed.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
@@ -213,6 +217,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Lok'tar, friend! Your blade's earned its rest at my forge. Let me sharpen it while we talk." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Lok'tar. You want a blade, buy it. I'm not in the mood for talk." },
     { id = "g_default", text = "Lok'tar. If you've come for a blade, you've come to the right orc, because Valormok needs fighters with sharp steel more than it needs anything else." },
   },
 
@@ -342,6 +348,8 @@ P:NPC {
         { id = "h_again2", text = "Speak, but quickly. I have blades to finish, and the dead of this camp are still waiting to be avenged." },
       },
       choices = {
+        { text = "A blade is only as honorable as the hand that holds it.", next = "BACK", reply = "True words. Valormok needs more orcs who think like you.", fx = { align = { honor = 1 } } },
+        { text = "A sharp blade's all that matters. Honor's for songs.", next = "BACK", reply = "Songs keep the clans together. Buy your blade and go.", fx = { align = { honor = -1 } } },
         { text = "You wanted Rimtori dead more than anyone.", next = "dd_rimtori", when = { killed = { name = "Rimtori" } } },
         { text = "What does Azshara's earth give a weaponsmith, Gruul?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Show me your weapons.", next = "BUSINESS" },

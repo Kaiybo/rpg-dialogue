@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. Sit; I'll bring yours first, and the others can wait their turn." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Sit where you like; I'll get to you when I get to you." },
     { id = "g_busy", text = "Sit wherever there's a chair. I'll get to you." },
     { id = "g_regular", when = { timesTalked = { min = 3 } }, text = "Same table as last time? It's free, for once." },
     { id = "g_home", when = { homeInn = { "Goldshire", "Lion's Pride Inn" } }, text = "Back already? Your bed's where you left it, and I've aired it." },
@@ -276,6 +278,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're one of the good ones, and in a busy inn that counts for a lot. Tip or no tip." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've made a mess of my inn's peace, and I'll not have it. Mind your manners." },
+    },
     background = { { id = "tp_bg", text = "I carry plates at the Lion's Pride, and I'm Falkhaan's family. That's all anybody needs to know." } },
     advice = { { id = "tp_ad", text = "Eat before you go out, not after. You'll fight better and I'll have fewer people fainting into the stew." } },
     lions_pride = { { id = "t_inn", text = "Upstairs for sleeping, downstairs for everything else. Farley's family has kept it for generations, and he'll name them all, back to his great-great-grandfather." } },

@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome, friend! Sit, and I'll give you the best of the stew." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Welcome, I suppose. The stew's for friends, and you're not one today." },
     { id = "g_default", text = "Welcome to Misty Reed Post, where the sea stinks, the murlocs gurgle, and the stew is the only good thing for a league." },
     { id = "g_back", when = { metBefore = true }, text = "Glad to see you're alive and well, {class}. Sit down, the pot's on, and an orc's stew is the best thing on this beach." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and nobody else brought me meat the whole while. The soldiers have been eating boiled reeds and blaming me." },
@@ -155,6 +157,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're good company, friend, and the stew tastes better with you around." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rude, and the stew doesn't forgive rudeness." },
+    },
     background = { { id = "tp_ba", text = "I'm a cook who learned smithing because nobody else on this beach would. My father beat iron for the Horde before the camps, so it was in the blood, mostly." } },
     advice = { { id = "tp_ad", text = "Never eat anything that comes out of the sea with a face like a murloc's." } },
     thrall = { { id = "tp_thrall", text = "The Warchief would like my stew, I'm sure of it. Nobody's ever told him about it, which is a crime." } },

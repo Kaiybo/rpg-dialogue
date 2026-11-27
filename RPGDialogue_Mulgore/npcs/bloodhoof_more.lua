@@ -410,6 +410,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The kodo lift their heads when you come, friend, and they do not do that for everyone. Come, sit with us." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The kodo are listening, and they remember. Speak gently, for they have not forgotten you, and neither have I." },
     { id = "g_default", text = "The kodo are listening, so speak gently. They remember rudeness longer than I do." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The kodo remember you, which is either good or bad, depending on what you said last time." },
   },
@@ -542,6 +544,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you. Come in, they won't mind. They've grown used to your step, and so have I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hush, please, and stay by the door. They've only just settled, and I'd rather you didn't unsettle them." },
     { id = "g_default", text = "Hush, hush, they've only just settled. Come in quietly, friend." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you! I remember your {pet}, of course, I never forget a beast." },
   },

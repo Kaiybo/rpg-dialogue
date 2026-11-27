@@ -705,6 +705,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Sit and eat, friend. I saved you the warm seat by the fire." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Sit and eat. Pay first." },
     { id = "g_inn", text = "Sit and eat. Razor Hill is safe enough to sleep in, which is more than you can say for most of Durotar. Leave your boots by the door, though, because the last grunt's boots made the kodo weep." },
     { id = "g_home", when = { homeInn = { "Razor Hill" } }, text = "Your bed's where you left it, and it's scorpid-free; I checked." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, are you? Your bed's still here, and I've shaken the scorpids out of it at least once." },
@@ -740,6 +742,8 @@ P:NPC {
     fl = {
       lines = { { id = "fl_default", text = "I can, but I save it, because Durotar doesn't give a man much to smile about. Then you walk in with the red dust on your boots, and I find I've spent a whole day's ration of it on you." } },
       choices = {
+        { text = "Razor Hill is safe because of good folk.", next = "BACK", reply = "It is. Gar'Thok sees to it.", fx = { align = { order = 1 } } },
+        { text = "Razor Hill's only safe because nobody bothers with it.", next = "BACK", reply = "Then go somewhere more exciting.", fx = { align = { order = -1 } } },
         { text = "Then I'll come by often and use them all up.", next = "fl_yes", fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "grosk_fl_yes" }, clear = { "grosk_fl_no" } } } },
         { text = "Is that an orc's idea of sweet talk?", next = "fl_sweet" },
         { text = "In the camps, nobody had time for this, Grosk.", next = "fl_camps", when = { race = "Orc" } },

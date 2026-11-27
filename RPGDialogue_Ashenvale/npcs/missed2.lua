@@ -16,6 +16,8 @@ P:NPC {
     third = "{name} met Fahrak, a restless orc warrior at Splintertree Post.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. Good. Tell me of a fight, or sit and let me tell you of mine." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "What? Unless you bring word of a fight, go away." },
     { id = "g_default", text = "What do you want, {class}? Unless you bring word of a fight, make it short." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Tell me you have seen battle since we spoke, because I have not." },
   },
@@ -34,6 +36,8 @@ P:NPC {
         { id = "h_again2", text = "Speak. The axe is sharp enough for now." },
       },
       choices = {
+        { text = "Guarding the wagons keeps Splintertree alive.", next = "BACK", reply = "Hm. Maybe it does. Still, I'd rather fight.", fx = { align = { order = 1 } } },
+        { text = "A warrior belongs in battle, not on wagon duty.", next = "BACK", reply = "At last, someone who understands! Not that it changes anything.", fx = { align = { order = -1 } } },
         { text = "Who is Ertog?", next = "yfah_ertog" },
         { text = "I'm a warrior. Spar with me, Fahrak.", next = "yfah_spar", when = { class = "WARRIOR" } },
         { text = "You sound eager for a battle.", next = "eager" },
@@ -119,6 +123,8 @@ P:NPC {
     third = "{name} met Framnali, a watchful Darkspear troll at Splintertree Post.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, friend! Come stand in de shade with me. Dese orcs talk too much, but you be different." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey. De shade be full today. Find your own." },
     { id = "g_default", text = "Hey, mon. Come stand in de shade a while, because nobody thinks straight in the sun." },
     { id = "g_back", when = { metBefore = true }, text = "There you be again. The trees been whispering about you, and it was not all bad." },
   },
@@ -138,6 +144,8 @@ P:NPC {
         { id = "h_again2", text = "Ask. I got the whole day and a good patch of shade." },
       },
       choices = {
+        { text = "De Darkspear belong in de Horde, same as de orcs.", next = "BACK", reply = "Dat be right. Thrall said so himself.", fx = { align = { order = 1 } } },
+        { text = "De trolls should look after demselves, not de orcs.", next = "BACK", reply = "Maybe. But we be here, mon. Go on now.", fx = { align = { order = -1 } } },
         { text = "What do you leave at the north gate?", next = "yfra_offering" },
         { text = "You be a Darkspear too, mon. Talk to me.", next = "yfra_troll", when = { race = "Troll" } },
         { text = "What have the orcs stirred up?", next = "stirred" },
@@ -228,6 +236,8 @@ P:NPC {
     third = "{name} met Har'alen, a thoughtful tauren at Splintertree Post.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "The winds bring you back, friend. Sit, rest a while; I have missed Mulgore less with you here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The winds bring you here. Rest, if you must, but do not trouble me." },
     { id = "g_default", text = "The winds bring you to Splintertree, {class}. Rest a while, for there is good shade here, and there will be less of it each year." },
     { id = "g_back", when = { metBefore = true }, text = "You walk back into the post with the forest's dust on you. I hope it was kind to you." },
   },
@@ -247,6 +257,8 @@ P:NPC {
         { id = "h_again2", text = "Speak when you are ready. I am in no hurry." },
       },
       choices = {
+        { text = "The Earth Mother watches over even this forest.", next = "BACK", reply = "She does. I take comfort in that.", fx = { align = { light = 1 } } },
+        { text = "This forest belongs to the elves. We should not be here.", next = "BACK", reply = "Perhaps. But the Horde needs us here. Go in peace.", fx = { align = { light = -1 } } },
         { text = "Have you seen the druids of the Circle here?", next = "yhra_circle" },
         { text = "I'm of the Shu'halo. Why stay among the stumps?", next = "yhra_tauren", when = { race = "Tauren" } },
         { text = "What troubles you about the forest?", next = "troubles" },
@@ -337,6 +349,8 @@ P:NPC {
     third = "{name} met Vera Nightshade, a Forsaken who keeps to the inn at Splintertree Post.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. Sit. You are almost tolerable company, which is rare in this camp." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Yes? You may sit, if you must. I do not recommend it." },
     { id = "g_default", text = "Yes? You may sit, if you must, though I warn you the orcs think this corner is unlucky." },
     { id = "g_scourge", when = { race = "Scourge" }, text = "Dark Lady watch over you. How pleasant to see a face here that does not flinch at mine." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and still breathing, I notice. Do sit down." },
@@ -357,6 +371,8 @@ P:NPC {
         { id = "h_again2", text = "Do go on. I have nothing but time, as you may imagine." },
       },
       choices = {
+        { text = "The Forsaken serve the Horde well enough.", next = "BACK", reply = "We do. The orcs would not admit it, of course.", fx = { align = { order = 1 } } },
+        { text = "The Forsaken are only here for their own ends.", next = "BACK", reply = "How perceptive. Go away.", fx = { align = { order = -1 } } },
         { text = "What did you lose in Lordaeron?", next = "yver_lost" },
         { text = "You're among the Dark Lady's own here, sister.", next = "yver_forsaken", when = { race = "Scourge" } },
         { text = "What brings a Forsaken to Ashenvale?", next = "brings" },
@@ -449,6 +465,8 @@ P:NPC {
     third = "{name} met Feran Strongwind, a calm tauren at the camp southwest of Splintertree Post.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend. Come to the fire; the ancestors are glad of your company." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come quietly, then, and leave quickly. The forest listens." },
     { id = "g_default", text = "Well met, {class}. Come to the fire, but come quietly, for the forest listens here." },
     { id = "g_back", when = { metBefore = true }, text = "You find our little camp again. Sit, and I will tell you nothing has changed, which is good news." },
   },
@@ -468,6 +486,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, friend. The fire has a while to burn yet." },
       },
       choices = {
+        { text = "Honoring the ancestors keeps us strong.", next = "BACK", reply = "It does. They watch over us still.", fx = { align = { honor = 1 } } },
+        { text = "The ancestors are dead. The living matter more.", next = "BACK", reply = "Spoken like one who has never heard them. Go quietly.", fx = { align = { honor = -1 } } },
         { text = "How did you come north with the Horde?", next = "yfer_north" },
         { text = "I'm a hunter. What do the birds tell you?", next = "yfer_hunter", when = { class = "HUNTER" } },
         { text = "What do you watch for out here?", next = "watch" },
@@ -636,6 +656,8 @@ P:NPC {
     third = "{name} met Darkslayer Mordenthal, the Forsaken soldier who guards the apothecaries' camp in Ashenvale.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. You may pass. The Dark Lady's work continues, and you have not hindered it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Halt. Touch nothing. Leave, if you are wise." },
     { id = "g_default", text = "Halt. This camp belongs to the Dark Lady, and you will touch nothing in it." },
     { id = "g_scourge", when = { race = "Scourge" }, text = "Dark Lady watch over you. You, at least, I need not explain the smell to." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Keep to the path between the tents, as before." },
@@ -655,6 +677,8 @@ P:NPC {
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
+        { text = "The apothecaries' work serves the Dark Lady.", next = "BACK", reply = "It does. Their work will change the world.", fx = { align = { order = 1 } } },
+        { text = "The apothecaries are breeding something terrible.", next = "BACK", reply = "Your opinion is noted. Leave.", fx = { align = { order = -1 } } },
         { text = "What did you do in Lordaeron?", next = "ymrd_life" },
         { text = "A fellow Forsaken asks: do you remember your name?", next = "ymrd_forsaken", when = { race = "Scourge" } },
         { text = "What are the apothecaries brewing?", next = "brewing" },

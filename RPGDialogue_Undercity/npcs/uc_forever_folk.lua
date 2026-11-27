@@ -471,6 +471,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Patterns for reagent bags, linen and wool, and every one tested by my own hand before I'd sell it." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another pattern, or have you come to tell me the last one worked? I do like hearing that." },
   },
@@ -494,6 +496,8 @@ P:NPC {
         { id = "h_again2", text = "Yes? Ask, and then buy something, if you would." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why reagent bags?", next = "bags" },
         { text = "Are you related to Victor Ward?", next = "victor" },
         { text = "What about Carolyn Ward, in the Rogues' Quarter?", next = "carolyn" },
@@ -1427,6 +1431,8 @@ P:NPC {
     third = "{name} spoke with Deelio, a Forsaken who walks the Magic Quarter of the Undercity.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Walk with me if you want to talk, because I don't stop." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I've been round twice since we last spoke, if you're counting." },
   },

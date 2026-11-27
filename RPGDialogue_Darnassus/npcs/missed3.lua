@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Alaindia, who wanders the Temple Gardens of Darnassus selling reagents.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Elune-adore, friend. You found me easily this time. I am glad." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You have found me. Tell me what you need, and go." },
     { id = "g_default", text = "Elune-adore, {class}. You have found me, which is the difficult part, so tell me what you need." },
     { id = "g_back", when = { metBefore = true }, text = "We meet again, and on a different path. What have you run short of this time?" },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Ishnu-alah. The gardens are at their best under the moon, and I am glad you have come to see them so." },
@@ -33,6 +35,8 @@ P:NPC {
         { id = "h_again2", text = "Yes? Walk with me a little, if you like." },
       },
       choices = {
+        { text = "Reagents should be gathered with care.", next = "BACK", reply = "They should. Elune watches.", fx = { align = { light = 1 } } },
+        { text = "Reagents are just powders.", next = "BACK", reply = "Then use them carelessly, and see.", fx = { align = { light = -1 } } },
         { text = "Show me your reagents.", next = "BUSINESS" },
         { text = "Why do you never stay in one place?", next = "walk" },
         { text = "Tell me about the Temple Gardens.", next = "gardens" },
@@ -130,6 +134,8 @@ P:NPC {
     third = "{name} met Corand, a quiet tracker in the Cenarion Enclave.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Your stride is even today. The road has been kind." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You favour your foot. I notice. That is all." },
     { id = "g_default", text = "Ishnu-alah. You favour your left foot a little, so I would guess at a long road and a poor boot." },
     { id = "g_back", when = { metBefore = true }, text = "I knew your step before you spoke. Welcome back to the Enclave." },
   },
@@ -146,6 +152,8 @@ P:NPC {
         { id = "h_again2", text = "Yes? I am listening, and looking." },
       },
       choices = {
+        { text = "A tracker sees what others miss.", next = "BACK", reply = "We do. You understand.", fx = { align = { order = 1 } } },
+        { text = "Tracking is just guessing.", next = "BACK", reply = "Then guess where I'll walk next.", fx = { align = { order = -1 } } },
         { text = "What can you tell from a track?", next = "track" },
         { text = "Do you hunt, then?", next = "hunt" },
         { text = "Who taught you to track?", next = "x_who" },
@@ -244,6 +252,8 @@ P:NPC {
     third = "{name} met Crildor, who walks the quiet paths of Darnassus and rests beside the lake.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend. Sit with me; we'll not hurry together." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well met. I never hurry, but you might." },
     { id = "g_default", text = "Well met, friend. There is no need to hurry on my account, since I never do." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it is you again. Sit a while, if the road will let you." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Elune-adore. The moon is on the water tonight, and I was only just thinking that somebody ought to share it." },
@@ -261,6 +271,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, friend. I have the time." },
       },
       choices = {
+        { text = "There is wisdom in never hurrying.", next = "BACK", reply = "There is. Few understand.", fx = { align = { light = 1 } } },
+        { text = "Hurrying gets things done.", next = "BACK", reply = "And misses everything along the way.", fx = { align = { light = -1 } } },
         { text = "What do you see, watching people?", next = "see" },
         { text = "Do you never tire of the same path?", next = "path" },
         { text = "Why the lake, of all places?", next = "x_lake" },
@@ -356,6 +368,8 @@ P:NPC {
     third = "{name} met Faelyssa, a clever-fingered night elf in the Cenarion Enclave.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend. I'd never touch your lock. Not yours." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "That's a sturdy lock. I'd keep it locked." },
     { id = "g_default", text = "Well met. That is a sturdy lock on your pack, and I mean that only as a compliment." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back, and you have changed the clasp, which is wise of you if a little hurtful." },
   },
@@ -372,6 +386,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, and I may even answer." },
       },
       choices = {
+        { text = "A clever mind is a gift.", next = "BACK", reply = "It is. You have one too.", fx = { align = { honor = 1 } } },
+        { text = "Thieves should be thrown out of Darnassus.", next = "BACK", reply = "Then who would keep your lock honest?", fx = { align = { honor = -1 } } },
         { text = "You pick locks.", next = "locks" },
         { text = "What keeps you in the Enclave?", next = "enclave" },
         { text = "Who taught you locks?", next = "x_who" },
@@ -470,6 +486,8 @@ P:NPC {
     third = "{name} met Fyrenna, who sells food and drink on the Warrior's Terrace.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "There you are! I saved you a real meal. Sit and eat it all." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Have you eaten? Then pay and eat elsewhere." },
     { id = "g_default", text = "Well met, {class}. Have you eaten today? I mean a real meal, and not whatever you chewed on the road." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and looking thinner than when you left. Sit down, and I will find you something." },
   },
@@ -488,6 +506,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I am listening." },
       },
       choices = {
+        { text = "A real meal keeps a warrior strong.", next = "BACK", reply = "It does! You understand.", fx = { align = { order = 1 } } },
+        { text = "Road rations are enough for anyone.", next = "BACK", reply = "Then chew them elsewhere.", fx = { align = { order = -1 } } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Do the Sentinels forget to eat?", next = "forget" },
         { text = "What do night elves eat before a fight?", next = "eat" },
@@ -585,6 +605,8 @@ P:NPC {
     third = "{name} met Huntress Ravenoak on patrol in Darnassus.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. Ride beside me, friend; I'll answer what I can." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Keep to the side. Ask while I ride." },
     { id = "g_default", text = "Keep to the side of the walkway, {class}. If you have something to ask, ask it while I ride." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Be brief, for I have the rest of the round still to make." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Elune-adore. The night watch is the true watch, so say what you need and let me keep it." },
@@ -602,6 +624,8 @@ P:NPC {
         { id = "h_again2", text = "Speak. I am still riding." },
       },
       choices = {
+        { text = "The patrol keeps Darnassus safe.", next = "BACK", reply = "It does. We ride day and night.", fx = { align = { order = 1 } } },
+        { text = "Darnassus doesn't need patrols.", next = "BACK", reply = "Then you've never seen the furbolgs.", fx = { align = { order = -1 } } },
         { text = "What do you watch for, inside the city?", next = "watch" },
         { text = "Darnassus seems peaceful enough.", next = "peace" },
         { text = "Your saber trusts you completely. How?", next = "hunt_saber", when = { class = "HUNTER" } },
@@ -705,6 +729,8 @@ P:NPC {
     third = "{name} met Huntress Skymane on her patrol of Darnassus.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Walk with us; the patrol is glad of you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Walk beside us if you must speak. We do not stop." },
     { id = "g_default", text = "Ishnu-alah, {class}. Walk beside us if you must speak, for the patrol does not stop." },
     { id = "g_back", when = { metBefore = true }, text = "I know your face. Say what you need while the saber is in a patient mood." },
   },
@@ -721,6 +747,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, {class}." },
       },
       choices = {
+        { text = "The Sentinels guard Teldrassil well.", next = "BACK", reply = "We do. Thank you.", fx = { align = { order = 1 } } },
+        { text = "The Sentinels should guard Ashenvale instead.", next = "BACK", reply = "We guard both. Walk on.", fx = { align = { order = -1 } } },
         { text = "That is a fine nightsaber.", next = "saber" },
         { text = "What is Huntress Ravenoak like?", next = "ravenoak" },
         { text = "Do Sentinel sabers and hunters' cats ever quarrel?", next = "hunt_quarrel", when = { class = "HUNTER" } },
@@ -827,6 +855,8 @@ P:NPC {
     third = "{name} met Jareth Wildwoods, a restless young night elf in Darnassus.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Well met, friend! Tell me everything about the forest below!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well met. Rut'theran, was it? Never mind." },
     { id = "g_default", text = "Well met! You have come up from Rut'theran, have you not? Tell me, how did the forest look from the shore?" },
     { id = "g_back", when = { metBefore = true }, text = "You are back! Where have you been since, and was it somewhere with a great many trees?" },
   },
@@ -843,6 +873,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I like talking with travellers." },
       },
       choices = {
+        { text = "Exploring the world is a fine calling.", next = "BACK", reply = "It is! I'd go myself, if I could.", fx = { align = { light = 1 } } },
+        { text = "Darnassus is all anyone needs.", next = "BACK", reply = "Then you've not seen much.", fx = { align = { light = -1 } } },
         { text = "Why not leave for the forest, then?", next = "leave" },
         { text = "Darnassus is in a tree. Isn't that enough?", next = "tree" },
         { text = "Who keeps you here?", next = "x_who" },
@@ -942,6 +974,8 @@ P:NPC {
     third = "{name} met Sarin Starlight, a courtly night elf of Darnassus.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. Count the stars with me; you see more than most." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. I am counting. Please, do not interrupt." },
     { id = "g_default", text = "Ishnu-alah, traveller. You find me counting what I can see of the sky, which through these leaves is never quite enough." },
     { id = "g_back", when = { metBefore = true }, text = "We meet again beneath the same stars, though they have turned a little since." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Elune-adore. It is a clear night above the boughs, and I am glad of someone to share it with." },
@@ -959,6 +993,8 @@ P:NPC {
         { id = "h_again2", text = "Please, continue. The stars are patient." },
       },
       choices = {
+        { text = "The stars are Elune's gift to us.", next = "BACK", reply = "They are. You understand.", fx = { align = { light = 1 } } },
+        { text = "Stars are just lights in the sky.", next = "BACK", reply = "Then they will not shine for you.", fx = { align = { light = -1 } } },
         { text = "Why armor over a robe?", next = "armor" },
         { text = "What do the stars tell you?", next = "stars" },
         { text = "Who taught you to read the stars?", next = "x_who" },
@@ -1057,6 +1093,7 @@ P:NPC {
     third = "{name} met Sentinel Dalia Sunblade at the Temple of the Moon.",
   },
   greetings = {
+    { id = "g_rep1", when = { rep = { faction = "Darnassus", min = "Honored" } }, text = "The city trusts you, so I need not watch your hands. I find that I am glad of it." },
     { id = "g_default", text = "Ishnu-alah, {class}. You stand before the Temple of the Moon, so state your business, and state it truthfully." },
     { id = "g_back", when = { metBefore = true }, text = "You have returned. Tell me what you have seen since we last spoke." },
     { id = "g_active", when = { questActive = TODO_QUEST("Eyes of the Sentinels") }, text = "You carry my charge, {class}. Have you a report for me, or do you need the task set out again?" },
@@ -1159,6 +1196,8 @@ P:NPC {
     third = "{name} spoke with a Darnassian Protector, one of the treants who walk the Cenarion Enclave.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hroom. The small one returns. Hello, little sapling. Hello, friend." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hroom. A small one. Walking too quickly. Hmm." },
     { id = "g_hello", text = "Hroom. A small one, walking very quickly. Hello, little sapling, hello." },
     { id = "g_back", when = { metBefore = true }, text = "Hmmm, you again. You have grown a little, I think, though it is hard to tell with your kind. You grow so fast, and so short." },
   },
@@ -1184,6 +1223,8 @@ P:NPC {
         { id = "a_more", text = "Hmmm, something more? Take your time, little one. I have a great deal of it, more than I know what to do with." },
       },
       choices = {
+        { text = "The groves must be protected.", next = "BACK", reply = "Hroom. Yes. They must.", fx = { align = { order = 1 } } },
+        { text = "Treants are too slow to protect anything.", next = "BACK", reply = "Hroom. Slow, yes. Strong, also.", fx = { align = { order = -1 } } },
         { text = "What are you, exactly?", next = "what" },
         { text = "Who do you answer to?", next = "master" },
         { text = "How does Teldrassil fare?", next = "tree" },

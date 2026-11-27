@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back, dear friend. Nighthaven feels a little warmer whenever you walk in from the path." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You are a guest of the Circle here, as anyone is. I trust you will remember what that asks of you." },
     { id = "g_default", text = "Welcome to Nighthaven. However you came here, and whoever you came with, you're a guest of the grove now." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back to the grove. It does that to people; they always come back." },
   },
@@ -219,6 +221,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you. Come, step lightly, and I'll show you where the best silverleaf hides. Not everyone gets told." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Step lightly, please, and stay on the path. The herbs don't know you, and I'm not certain I do either." },
     { id = "g_default", text = "Shh, step lightly. The silverleaf by the lake is just opening." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. The grove remembers your footsteps, and so do I." },
   },
@@ -409,6 +413,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Back again? Good. I've a yew stave I've been saving for someone who knows what they're doing, and you might." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bows are on the wall. Prices are on the bows. That's the whole of the conversation, I think." },
     { id = "g_default", text = "Yes, a bowyer in a sanctuary. You aren't the first to look surprised, and you won't be the last." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Run out of arrows in Winterspring, did you?" },
   },
@@ -708,6 +714,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Be welcome, friend. Sit near me tonight, if you like. The room has no sides, but it does have good company." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Sit where you like. No one here has a side of the room, though some folk make themselves hard to sit beside." },
     { id = "g_hello", text = "Be welcome in Nighthaven. Sit where you like; nobody here has a side of the room." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to the Glade. The same table is free, if you were fond of it." },
     { id = "g_druid", when = { class = "DRUID" }, text = "A druid of the Circle. You will be hungry, then; the walk from the barrow dens always does it." },

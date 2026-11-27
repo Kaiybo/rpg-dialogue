@@ -12,6 +12,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You honor the shelves by coming back to them. Please, take your time, and ask me anything you wish." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The Circle's mark still opens the shelves. My good opinion, I'm afraid, is not so easily opened." },
+
+    { id = "g_rep1", when = { rep = { faction = "Cenarion Circle", min = "Honored" } }, text = "The Circle has marked you as a friend, so I can open the better shelves for you. Look as long as you like." },
     { id = "g_default", text = "Ishnu-alah, traveller. The Circle's wares are here for those who have earned them." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. Let me see if the Circle thinks better of you than it did last time." },
     { id = "g_away", when = { away = 14 }, text = "Welcome back after {away}, traveller. I'll need to look again at what the Circle thinks of you, because opinions shift in this grove, slowly but surely." },

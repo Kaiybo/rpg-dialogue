@@ -13,6 +13,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again, friend! The kettle's on and there's a log with your name on it, near enough." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The fire's for friends, and I'm not sure which you are today." },
     { id = "g_fire", text = "Well, hello there! Pull up a log; the fire's going and the kettle's nearly there." },
     { id = "g_back", when = { metBefore = true }, text = "There's my favorite passer-by! The fire's still warm, so sit." },
   },
@@ -250,6 +252,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're good company on a cold night, friend, and that's the best thing anyone can be on the road." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've soured the camp, friend, and camps are meant to be cheerful. Lighten up." },
+    },
     background = { { id = "tp_bg", text = "I've not much of a story yet, which is why I'm out here, so ask me again in a year." } },
     advice = { { id = "tp_ad", text = "Sit down more. Everybody who's in a hurry ends up at the spirit healer." } },
     camping = {

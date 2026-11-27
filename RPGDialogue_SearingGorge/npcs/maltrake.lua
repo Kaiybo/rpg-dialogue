@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "My friend! My master speaks well of you, and so do I. Come, the Torch awaits." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. My master tolerates you, and I must too, but I need not like it." },
     { id = "g_op_vengeance", when = { gossip = { topic = "vengeance", stance = "wrong" } }, text = "My master says you lectured him on vengeance. He laughed afterwards, which he never does, and I still haven't decided whether to thank you or challenge you." },
     { id = "g_default", text = "You stand before the squire of Kalaran Windblade, so stand straight, and speak with respect when you speak of my master." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned! Have you come with more fire for the Dark Iron? Say that you have." },
@@ -163,6 +165,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You understand vengeance, and justice, and the difference between them. My master values that." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've shown little respect for my master's cause. Mend your ways." },
+    },
     background = { { id = "tp_ba", text = "An orphan of the war, a squire by my master's grace, and nothing else that matters." } },
     advice = { { id = "tp_ad", text = "Serve someone greater than yourself, and you'll never wonder what you're for." } },
     blackrock_depths = { { id = "tp_blackrock_depths", text = "The Dark Irons in their city beneath the mountain are a blight on this land. My master will see them burned, and I will hand him the torch." } },

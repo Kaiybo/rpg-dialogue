@@ -227,6 +227,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Shi'alune purrs when she sees you, and I've learned to trust her. Come in, and tell me what you're hunting." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Shi'alune doesn't like you today, and neither do I. Ask what you need and keep your distance." },
     { id = "g_default", text = "My cat Shi'alune doesn't mind you, so neither do I. What do you need?" },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter, this far into Felwood. Come, let's see what you've learned on the way." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Shi'alune remembered you before I did." },
@@ -255,6 +257,8 @@ P:NPC {
         { id = "h_again2", text = "Ask. I have the time while the glade is quiet." },
       },
       choices = {
+        { text = "A hunter guards the glade before chasing the glory.", next = "BACK", reply = "Spoken like a Sentinel. That is how we have kept Talonbranch alive.", fx = { align = { order = 1 } } },
+        { text = "I hunt for myself, not for the Sentinels.", next = "BACK", reply = "Then hunt somewhere else, and do not come running here when the satyrs chase you.", fx = { align = { order = -1 } } },
         { text = "Train me.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Tell me about Shi'alune.", next = "cat" },
         { text = "What does the corruption do to beasts?", next = "beasts" },

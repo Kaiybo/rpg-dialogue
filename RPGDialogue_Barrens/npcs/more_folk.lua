@@ -113,6 +113,8 @@ P:NPC {
     third = "{name} met Halija Whitestrider, the tauren clothier at the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Peace, friend. I saved a warm cloak for you; the nights are cold." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Peace. Cloth is on the rack. Buy, please." },
     { id = "g_default", text = "Peace, traveler. The Barrens nights are colder than they seem, so let me find you something warm." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and your cloak has seen some road since. Let me look at it." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "You are abroad late, traveler, and the cold has come down. Stand by the brazier while you look, and take your time." },
@@ -139,6 +141,8 @@ P:NPC {
         { id = "h_again4", text = "Yes, traveler? My hands can work while my ears listen." },
       },
       choices = {
+        { text = "Warm cloth keeps travelers safe at night.", next = "BACK", reply = "It does. The nights are colder than they seem.", fx = { align = { light = 1 } } },
+        { text = "The cold toughens a traveler.", next = "BACK", reply = "Then be tough, and cold.", fx = { align = { light = -1 } } },
         { text = "Let me see your cloth.", next = "BUSINESS" },
         { text = "Why did you leave Mulgore?", next = "mulgore" },
         { text = "What do the Crossroads need most?", next = "needs" },
@@ -239,6 +243,8 @@ P:NPC {
     third = "{name} met Kalyimah Stormcloud, the troll who sells bags at the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Bags, friend! I got de best bags for you, de ones with extra room!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bags. Pay, take, go." },
     { id = "g_default", text = "Bags, mon, bags and sacks! You never got enough room for all your loot, trust me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Your bags be full already, I bet." },
     { id = "g_low", when = { maxLevel = 14 }, text = "Hey, mon, you be new on dis road, I can tell by how little you carry. Dat changes fast out here, so buy de bag before you need it." },
@@ -265,6 +271,8 @@ P:NPC {
         { id = "h_again4", text = "Keep talkin', keep talkin'. A quiet stall be a poor stall." },
       },
       choices = {
+        { text = "A good bag is a traveler's best friend.", next = "BACK", reply = "It be, mon! You understand.", fx = { align = { order = 1 } } },
+        { text = "Any sack will do.", next = "BACK", reply = "Den buy any sack, mon.", fx = { align = { order = -1 } } },
         { text = "Show me your bags.", next = "BUSINESS" },
         { text = "What's the news on the road?", next = "news" },
         { text = "Why sell bags out here?", next = "why" },
@@ -364,6 +372,8 @@ P:NPC {
     third = "{name} met Larhka, who sells drink at the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Thirsty, friend? Of course you are. First cup's on me!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thirsty? Pay up." },
     { id = "g_default", text = "Thirsty? Of course you're thirsty, this is the Barrens. Step up." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! The dust gets in your throat, doesn't it?" },
     { id = "g_day", when = { timeOfDay = "day" }, text = "Sun's straight overhead and you're walking about in it. Drink something before you fall over in front of my stall and scare off trade." },
@@ -390,6 +400,8 @@ P:NPC {
         { id = "h_again4", text = "Go on. Talk's thirsty work, which suits me fine." },
       },
       choices = {
+        { text = "Water for the sensible, I'd say.", next = "BACK", reply = "Ha! You're sensible, then.", fx = { align = { order = 1 } } },
+        { text = "Grog's better than water any day.", next = "BACK", reply = "Then pay for your grog.", fx = { align = { order = -1 } } },
         { text = "Show me your drinks.", next = "BUSINESS" },
         { text = "Where does the water come from?", next = "water" },
         { text = "Does Boorand mind the competition?", next = "boorand" },
@@ -1163,6 +1175,8 @@ P:NPC {
     third = "{name} met Duhng, the orc who cooks at Grub's and teaches cooking east of the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. Wash your hands, and I'll teach you a new recipe." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the pot. Learn or eat. Pick one." },
     { id = "g_default", text = "Mind the pot. If you're here to learn, wash your hands, and if you're here to eat, sit." },
     { id = "g_cook", when = { profession = "Cooking" }, text = "You cook. Taste this and tell me what it's missing. Don't say salt; Tarban always says salt." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Burn anything since?" },
@@ -1188,6 +1202,8 @@ P:NPC {
         { id = "h_again3", text = "Go on, then. It won't catch for a minute." },
       },
       choices = {
+        { text = "Good cooking keeps the Horde fed.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "Cooking's women's work.", next = "BACK", reply = "Then starve.", fx = { align = { order = -1 } } },
         { text = "Teach me to cook.", next = "BUSINESS" },
         { text = "What's worth cooking in the Barrens?", next = "meat" },
         { text = "You don't share Grub's love of rat, I take it.", next = "grub" },
@@ -1263,6 +1279,8 @@ P:NPC {
     third = "{name} met Tarban Hearthgrain, the tauren baker at Grub's cookhouse east of the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Peace to you, friend. The loaves are ready, and I saved the best for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Peace. The loaves want longer. Wait, if you must." },
     { id = "g_default", text = "Peace to you. The loaves want a little longer, but you are welcome to wait in the warmth." },
     { id = "g_dawn", when = { timeOfDay = "dawn" }, text = "You are up with the bakers. Good. The first loaf of the day is the best one, and few are awake to know it." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to my oven. Then the bread did its work." },
@@ -1287,6 +1305,8 @@ P:NPC {
         { id = "h_again3", text = "Yes? I am listening, and so is the oven." },
       },
       choices = {
+        { text = "Patient baking makes the best bread.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "Fast bread is just as good.", next = "BACK", reply = "It is not. Wait, if you must.", fx = { align = { order = -1 } } },
         { text = "Let me see what's baked.", next = "BUSINESS" },
         { text = "Moorane at the Crossroads shares your name.", next = "moorane" },
         { text = "You built that oven out of the ground itself.", next = "oven" },
@@ -1370,6 +1390,8 @@ P:NPC {
     third = "{name} met Tinkerwiz, the goblin engineering trainer in Ratchet.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, friend! Watch the bench, but come in. I've a new design to show you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Watch the bench. First course costs extra." },
     { id = "g_default", text = "Hey, hey, watch the bench, that one's primed. Tinkerwiz, engineering instruction, first consultation's free and short. What do ya need?" },
     { id = "g_eng", when = { profession = "Engineering" }, text = "A practitioner! Lemme see the hands. Nine and a half, not bad, not bad at all. You're either good or lucky, and I can teach either." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and ya didn't bring a claim form. I like that in a customer. What's the job?" },
@@ -1393,6 +1415,8 @@ P:NPC {
         { id = "h_again3", text = "Go on, pal. I got a fuse burnin', but it's a long one." },
       },
       choices = {
+        { text = "Engineering rewards cleverness.", next = "BACK", reply = "It does! You're a smart one.", fx = { align = { honor = 1 } } },
+        { text = "Engineering is just blowing things up.", next = "BACK", reply = "Then stand back.", fx = { align = { honor = -1 } } },
         { text = "Teach me engineering.", next = "BUSINESS" },
         { text = "Ratchet seems full of people building things.", next = "ratchet" },
         { text = "What does a beginner blow up first?", next = "first" },
@@ -1475,6 +1499,8 @@ P:NPC {
     third = "{name} met Traugh, the orc blacksmith who teaches his trade at the Crossroads forge.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again. Good. Put it on the bench; I'll fix it first." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Put it on the bench, or stand clear." },
     { id = "g_default", text = "Put it on the bench if it's broken, and stand clear if it isn't. I've a line of grunts waiting on that anvil." },
     { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith. Good, pick up those tongs and hold this while we talk. I can use the second pair of hands." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. What did the Barrens do to it this time?" },
@@ -1499,6 +1525,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. I've been at this since dawn and could use the excuse." },
       },
       choices = {
+        { text = "A good smith keeps the grunts armed.", next = "BACK", reply = "He does. That's my work.", fx = { align = { order = 1 } } },
+        { text = "Grunts should mend their own gear.", next = "BACK", reply = "They try. Then they come here.", fx = { align = { order = -1 } } },
         { text = "Teach me smithing.", next = "BUSINESS" },
         { text = "What breaks the most gear out here?", next = "breaks" },
         { text = "Your forge looks short of everything.", next = "short" },
@@ -1576,6 +1604,8 @@ P:NPC {
     third = "{name} met Krulmoo Fullmoon, the tauren who teaches leatherworking at Camp Taurajo.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Be welcome, friend. The hides are dry; you may touch them today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the frames. Do not brush the hides." },
     { id = "g_default", text = "Be welcome. Mind the frames, the hides on them are drying, and they do not like to be brushed against." },
     { id = "g_lw", when = { profession = "Leatherworking" }, text = "Your thumbs are stained with tannin, friend. Then sit with me. I have a hide here that is being stubborn, and I would hear another worker's thought on it." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the frames. Good. The leather has been asking after you." },
@@ -1600,6 +1630,8 @@ P:NPC {
         { id = "h_again3", text = "Speak. My hands know this work well enough without my ears." },
       },
       choices = {
+        { text = "Leatherworking honors the beast.", next = "BACK", reply = "It does. You understand.", fx = { align = { light = 1 } } },
+        { text = "Leather is just hide.", next = "BACK", reply = "Then you will make nothing worth keeping.", fx = { align = { light = -1 } } },
         { text = "Teach me leatherworking.", next = "BUSINESS" },
         { text = "You speak to the hides as you work.", next = "speak" },
         { text = "What hides come into Taurajo?", next = "hides" },
@@ -1681,6 +1713,8 @@ P:NPC {
     third = "{name} met Hraq, who sells blacksmithing supplies at the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. Good. The price is the price, but I'll throw in a stone." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Flux, coal, hammers. The price is the price." },
     { id = "g_default", text = "Flux, coal, hammers and grinding stones. The price is the price, and before you ask, Traugh already tried." },
     { id = "g_smith", when = { profession = "Blacksmithing" }, text = "A smith, good. You'll complain about what I charge and then you'll pay it, the same as the rest. Let's skip to the paying." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Run out of flux, or run out of patience with someone else's prices?" },
@@ -1704,6 +1738,8 @@ P:NPC {
         { id = "h_again3", text = "Ask it, then. The cart isn't due until tomorrow." },
       },
       choices = {
+        { text = "A fixed price is a fair price.", next = "BACK", reply = "It is. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Everything can be haggled.", next = "BACK", reply = "Not here.", fx = { align = { honor = -1 } } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Why do your prices run so high?", next = "prices" },
         { text = "Traugh says you'd make a goblin blush.", next = "traugh" },
@@ -1778,6 +1814,8 @@ P:NPC {
     third = "{name} met Kil'hala, the troll tailoring trainer at the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend! Your seams be good now. Come, I teach you somethin' new." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hold still. Dat seam be terrible. Who sewed it?" },
     { id = "g_default", text = "Hold still, mon, let me look at dat seam. Who sewed dis for you, a kodo? Come, sit, I teach you to do better." },
     { id = "g_tailor", when = { profession = "Tailoring" }, text = "Ah, you sew. Show me your hands. Good, you got de needle scars, so you been doing it and not just talking." },
     { id = "g_back", when = { metBefore = true }, text = "You be back. Let me see what you made since, and don't hide de bad ones." },
@@ -1801,6 +1839,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. I got an eye on de needle and an ear for you." },
       },
       choices = {
+        { text = "A good seam takes patience.", next = "BACK", reply = "It do, mon. You learn well.", fx = { align = { order = 1 } } },
+        { text = "A seam is a seam.", next = "BACK", reply = "Den sew it yourself.", fx = { align = { order = -1 } } },
         { text = "Teach me tailoring.", next = "BUSINESS" },
         { text = "What does a troll tailor make of orc clothing?", next = "orcs" },
         { text = "Where do you get cloth out here?", next = "cloth" },
@@ -1875,6 +1915,8 @@ P:NPC {
     third = "{name} met Tari'qa, who sells trade supplies beside the inn at the Crossroads.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend. De shade be yours as long as you like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thread, vials, salt. Take your time, but buy." },
     { id = "g_default", text = "Thread, vials, salt, spices and tools. Take your time, mon, de shade's free and I'm not going anywhere." },
     { id = "g_craft", when = { profession = { "Tailoring", "Alchemy", "Cooking", "Leatherworking", "Engineering", "Blacksmithing" } }, text = "You work a trade, I can see it. Good. Tell me which, and I'll tell you what everybody else in your trade bought dis week." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. I marked you coming in de east gate, and you look worse dan when you left." },
@@ -1898,6 +1940,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. De gate's quiet for de moment." },
       },
       choices = {
+        { text = "A fair trade benefits both sides.", next = "BACK", reply = "It do, mon. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Trading is about getting the best deal.", next = "BACK", reply = "Den get it somewhere else.", fx = { align = { honor = -1 } } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "What do you learn from what people buy?", next = "buy" },
         { text = "You watch the gates as closely as the guards.", next = "gates" },
@@ -1972,6 +2016,8 @@ P:NPC {
     third = "{name} met Kelsuwa, the stable master of Camp Taurajo.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Be welcome, friend. Your companion is always welcome here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "If you have a companion, I will see to it. Not you." },
     { id = "g_default", text = "Be welcome, traveller. If you have a companion who needs rest and water, I will see to it as I would my own." },
     { id = "g_pet", when = { pet = { type = "Beast" } }, text = "Ah, and who is this? Let {pet} come to me in its own time. There is no hurry in my stable." },
     { id = "g_back", when = { metBefore = true }, text = "You have returned, and the beasts are glad of it. They lift their heads when they hear your step." },
@@ -1995,6 +2041,8 @@ P:NPC {
         { id = "h_again3", text = "Ask, and I will answer as well as I can." },
       },
       choices = {
+        { text = "A companion deserves rest and care.", next = "BACK", reply = "It does. You understand.", fx = { align = { light = 1 } } },
+        { text = "A companion should be tough.", next = "BACK", reply = "Tough or not, it needs rest.", fx = { align = { light = -1 } } },
         { text = "I need to stable my beast.", next = "BUSINESS" },
         { text = "What do the beasts tell you?", next = "listen" },
         { text = "Which beasts of the Barrens do hunters bring you?", next = "beasts" },
@@ -2069,6 +2117,8 @@ P:NPC {
     third = "{name} met Yonada, who sells tailoring and leatherworking supplies at Camp Taurajo.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, friend! I saved the good hides for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Thread, salt, dyes. Pay, please." },
     { id = "g_default", text = "Welcome to Taurajo, friend. I have thread, salt and dyes, and good hides besides, if the caravan has not yet taken them." },
     { id = "g_craft", when = { profession = { "Leatherworking", "Tailoring", "Skinning" } }, text = "Ah, you work hide or cloth. Then you have come to the right fire, for this whole camp lives by the skinning knife." },
     { id = "g_back", when = { metBefore = true }, text = "You are back among us. Sit a moment, the dye pots can mind themselves." },
@@ -2092,6 +2142,8 @@ P:NPC {
         { id = "h_again3", text = "Speak on. The caravan is not due for days." },
       },
       choices = {
+        { text = "The hunters of Taurajo bring good hides.", next = "BACK", reply = "They do. They honor the beasts.", fx = { align = { light = 1 } } },
+        { text = "Hunters should just sell the hides fast.", next = "BACK", reply = "Then they would sell them poorly.", fx = { align = { light = -1 } } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Where do the camp's hides go?", next = "caravan" },
         { text = "This camp seems to live by leather.", next = "camp" },
@@ -2166,6 +2218,8 @@ P:NPC {
     third = "{name} met Sanuye Runetotem, the leather armor merchant of Camp Taurajo.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Greetings, friend. Every piece here remembers you kindly." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Greetings. Every piece was living. Remember that." },
     { id = "g_default", text = "Greetings, friend. Every piece on this rack was a living thing on these plains, and I can tell you the story of each, if you have the patience." },
     { id = "g_druid", when = { class = "DRUID" }, text = "A druid. My kin in Thunder Bluff will be glad that another has heard the call. Come, I have leather that will not bind you when you change your shape." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The armor has served you, I hope, and you have honored the one who wore the hide first." },
@@ -2189,6 +2243,8 @@ P:NPC {
         { id = "h_again3", text = "Speak. I am listening." },
       },
       choices = {
+        { text = "Leather should honor the life it came from.", next = "BACK", reply = "It should. You understand.", fx = { align = { light = 1 } } },
+        { text = "Leather is just armor. Nothing more.", next = "BACK", reply = "Then you will never feel it.", fx = { align = { light = -1 } } },
         { text = "Show me your armor.", next = "BUSINESS" },
         { text = "Tell me the story of one of these pieces.", next = "story" },
         { text = "A Runetotem selling armor seems unusual.", next = "runetotem" },
@@ -2263,6 +2319,8 @@ P:NPC {
     third = "{name} met Dranh, the skinning trainer of Camp Taurajo.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Your knife is clean. Good. Sit; I'll teach you more." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Show me your knife. No. Not good enough." },
     { id = "g_default", text = "Show me your knife before you tell me your name. I learn more from the one than the other." },
     { id = "g_skin", when = { profession = "Skinning" }, text = "You have skinned before. The edge of your knife is worn on the right side, so you pull where you should draw. We will mend that." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back. Is the knife sharp, and have you kept it clean?" },
@@ -2286,6 +2344,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. A question is a clean cut, if it is asked well." },
       },
       choices = {
+        { text = "A clean knife makes a clean cut.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "Any knife will do.", next = "BACK", reply = "Then cut with any knife elsewhere.", fx = { align = { order = -1 } } },
         { text = "Teach me skinning.", next = "BUSINESS" },
         { text = "What makes a clean cut?", next = "cut" },
         { text = "You wipe that knife a great deal.", next = "knife" },
@@ -2359,6 +2419,8 @@ P:NPC {
     third = "{name} met Mahani, the tailoring trainer of Camp Taurajo.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Come in, friend! The tent smells sweet today, just for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in out of the wind. Learn, or go." },
     { id = "g_default", text = "Come in out of the wind, friend. You have found the one tent in Taurajo that does not smell of a tanning pit." },
     { id = "g_tailor", when = { profession = "Tailoring" }, text = "A tailor, here! Sit, sit. I so seldom have anyone to talk thread with who does not ask why I am not using sinew." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. Did the stitches hold in the wind? Show me, I shall not scold." },
@@ -2382,6 +2444,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. I have a long seam ahead and would like the company." },
       },
       choices = {
+        { text = "Tailoring is a fine craft.", next = "BACK", reply = "It is! You'd be good at it.", fx = { align = { order = 1 } } },
+        { text = "Tailoring is for those who can't fight.", next = "BACK", reply = "Then go fight.", fx = { align = { order = -1 } } },
         { text = "Teach me tailoring.", next = "BUSINESS" },
         { text = "Why weave cloth in a camp of leatherworkers?", next = "why" },
         { text = "What do the tauren make from cloth?", next = "make" },
@@ -2455,6 +2519,8 @@ P:NPC {
     third = "{name} met Gahroot, the butcher of Camp Taurajo.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ho, friend! I saved the best meat for you. Come, eat!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ho. Meat is here. Pay and go." },
     { id = "g_default", text = "Ho, traveller! You have the look of someone who has walked far on little. Come, there is meat, and it was running on the plains this morning." },
     { id = "g_cook", when = { profession = "Cooking" }, text = "A cook! Then you will know good meat when you see it. Look at the grain on this haunch and tell me I am not an honest butcher." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and hungry again, I hope. I think poorly of a guest who is not." },
@@ -2478,6 +2544,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. I never met a question that spoiled meat." },
       },
       choices = {
+        { text = "Nothing of the hunt should be wasted.", next = "BACK", reply = "It should not. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Take the best meat and leave the rest.", next = "BACK", reply = "Then the rest rots.", fx = { align = { honor = -1 } } },
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "How is the hunt shared out?", next = "share" },
         { text = "What game do the hunters bring you?", next = "game" },
@@ -2552,6 +2620,8 @@ P:NPC {
     third = "{name} banked with Zikkel, the nervous goblin at the second window of the bank in Ratchet.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Next! Oh, it's you. Welcome back, friend. Your vault is safe." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Next! State your business. Hands on the counter." },
     { id = "g_default", text = "Next! Step up, state your business, and keep your hands on the counter where I can count 'em, friend, it's nothin' personal." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it's you. Good, good, a known face. Your box is exactly as ya left it, I checked it this mornin', and again after lunch." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Whoa, whoa, not so close to the grille, pal. I know your line of work, I'm insured against your line of work, and the premiums are murder." },
@@ -2575,6 +2645,8 @@ P:NPC {
         { id = "h_again3", text = "What else, friend? I got a ledger open, but it ain't goin' anywhere, I locked it." },
       },
       choices = {
+        { text = "A banker must be careful with every coin.", next = "BACK", reply = "I am! Thank you for noticing.", fx = { align = { order = 1 } } },
+        { text = "Bankers are just thieves with ledgers.", next = "BACK", reply = "Hands on the counter, please.", fx = { align = { order = -1 } } },
         { text = "I'd like to see my vault.", next = "BUSINESS" },
         { text = "You seem worried about the vault.", next = "worry" },
         { text = "Horde and Alliance gold in one bank?", next = "both" },
@@ -2651,6 +2723,8 @@ P:NPC {
     third = "{name} met Ranik, who sells trade supplies out of Jazzik's store in Ratchet.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, friend! Over here! I saved the good stock for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ranik's Trade Supplies. Buy or move along." },
     { id = "g_default", text = "Hey, hey, over here, friend, not that counter, this counter! Ranik's Trade Supplies, thread, vials, dyes, flux, best selection north of Booty Bay and I mean that." },
     { id = "g_craft", when = { profession = { "Tailoring", "Alchemy", "Leatherworking", "Engineering", "Blacksmithing", "Cooking" } }, text = "A professional! Now we're talkin'. You make things, I sell the things ya make things with, and that right there is what I call a relationship." },
     { id = "g_back", when = { metBefore = true }, text = "My favourite customer! Don't tell the others, they all think it's them." },
@@ -2674,6 +2748,8 @@ P:NPC {
         { id = "h_again3", text = "Ask away, friend, askin's free. Everything else is itemised." },
       },
       choices = {
+        { text = "A clever trader always finds a deal.", next = "BACK", reply = "Ha! You get it, friend.", fx = { align = { honor = 1 } } },
+        { text = "Clever traders are just cheaters.", next = "BACK", reply = "Then buy somewhere else.", fx = { align = { honor = -1 } } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "You rent a corner of another goblin's shop?", next = "rent" },
         { text = "How do you stock what the faction towns can't?", next = "stock" },
@@ -2747,6 +2823,8 @@ P:NPC {
     third = "{name} met Vexspindle, the cloth and leather armor merchant of Plate-n-Chain in Ratchet.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend! You look marvellous today. Let me find you something worthy." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Plate-n-Chain. Cloth and leather. Buy, or go." },
     { id = "g_default", text = "Welcome to Plate-n-Chain, and before ya say it, yes, I sell neither. Cloth and leather, friend, the finer side of the shop. Grazlix has the scrap metal." },
     { id = "g_caster", when = { class = { "MAGE", "WARLOCK", "PRIEST" } }, text = "Ah, a robe wearer. Finally, somebody with taste. Step this way, pal, and try not to look at whatever Grazlix is hammerin'." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! And wearin' what I sold ya, I see. It suits ya, friend, I said it would." },
@@ -2770,6 +2848,8 @@ P:NPC {
         { id = "h_again3", text = "What else can I do for ya? Besides the obvious, which is the hat." },
       },
       choices = {
+        { text = "Good cloth makes a good impression.", next = "BACK", reply = "It does! You have taste.", fx = { align = { honor = 1 } } },
+        { text = "Looks don't matter on the road.", next = "BACK", reply = "Then you'll look terrible.", fx = { align = { honor = -1 } } },
         { text = "Show me your armor.", next = "BUSINESS" },
         { text = "The shop's name doesn't describe your half.", next = "name" },
         { text = "Where do you get your goods?", next = "goods" },
@@ -2843,6 +2923,8 @@ P:NPC {
     third = "{name} met Zizzek, who sells fishing supplies outside the Broken Keel Tavern in Ratchet.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, pal! Take your time, the fish ain't goin' anywhere." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Poles, line, lures. Buy and go." },
     { id = "g_default", text = "Hey, pal. Poles, line, lures, bait. Take a look, no rush, the fish ain't goin' anywhere and neither am I." },
     { id = "g_fish", when = { profession = "Fishing" }, text = "Now there's somebody who knows which end of a pole to hold. Pull up a crate, friend, tell me what's bitin'." },
     { id = "g_back", when = { metBefore = true }, text = "Hey, you're back. Catch anything? Go on, lie to me, everybody does." },
@@ -2866,6 +2948,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. Talkin' beats workin'." },
       },
       choices = {
+        { text = "Patience catches the most fish.", next = "BACK", reply = "It does, pal. Slow and steady.", fx = { align = { order = 1 } } },
+        { text = "Fishing's for lazy people.", next = "BACK", reply = "Hey, I resent that.", fx = { align = { order = -1 } } },
         { text = "Show me your fishing gear.", next = "BUSINESS" },
         { text = "You don't hustle like the other goblins here.", next = "hustle" },
         { text = "What's biting off Ratchet?", next = "biting" },
@@ -2939,6 +3023,8 @@ P:NPC {
     third = "{name} met Gagsprocket, who sells engineering supplies in Ratchet.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, friend! You can touch the red shelf today. Just kidding, don't." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Don't touch the red shelf. Or anything." },
     { id = "g_default", text = "Hey, welcome, come on in, and don't touch the red shelf. Everything else ya can touch. Gagsprocket's Engineering Supplies, what are ya buildin'?" },
     { id = "g_eng", when = { profession = "Engineering" }, text = "An engineer! Great, great, somebody who knows not to shake the merchandise. What's the project, pal? Go on, I love hearin' about a project." },
     { id = "g_back", when = { metBefore = true }, text = "Hey, you're back, and you're all there! So it worked, or it didn't work in a way ya could walk away from. Either's fine." },
@@ -2962,6 +3048,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. Nothin's tickin' that shouldn't be." },
       },
       choices = {
+        { text = "Good engineering supplies are hard to find.", next = "BACK", reply = "They are! I keep the best.", fx = { align = { honor = 1 } } },
+        { text = "Engineering supplies are overpriced junk.", next = "BACK", reply = "Then don't buy them.", fx = { align = { honor = -1 } } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "What's on the red shelf?", next = "red" },
         { text = "What happened to your ear?", next = "ear" },
@@ -3035,6 +3123,8 @@ P:NPC {
     third = "{name} met Vazario Linkgrease, the goblin engineering trainer in Ratchet.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, pal! Speak normal, I can hear you fine today!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Speak up, pal. I'm deaf this morning." },
     { id = "g_default", text = "Speak up, pal, I had a sapper charge go early this mornin' and I'm hearin' everything through a pillow! Vazario Linkgrease, goblin engineerin', the real thing." },
     { id = "g_card", when = { questActive = TODO_QUEST("Membership Card Renewal") }, text = "Lost your card, huh? Happens. Usually it's on fire at the time. The renewal fee's the renewal fee, pal, and then you're one of us again." },
     { id = "g_back", when = { metBefore = true }, text = "Hey, it's you! Still got ten fingers? Lemme see. Close enough!" },
@@ -3058,6 +3148,8 @@ P:NPC {
         { id = "h_again3", text = "Yeah? What else ya wanna know?" },
       },
       choices = {
+        { text = "Goblin engineering is the best in the world.", next = "BACK", reply = "Ha! You know it, pal!", fx = { align = { honor = 1 } } },
+        { text = "Gnomish engineering is better.", next = "BACK", reply = "Get out of my shop.", fx = { align = { honor = -1 } } },
         { text = "Teach me goblin engineering.", next = "BUSINESS" },
         { text = "What sets the goblin school apart?", next = "school" },
         { text = "Why does a school need membership cards?", next = "card" },
@@ -3131,6 +3223,8 @@ P:NPC {
     third = "{name} met Acolyte Fenrick, a young human warlock studying under Strahad Farsan in Ratchet.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Oh, it's you. You may step over the chalk; I trust you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Please mind the chalk. Please." },
     { id = "g_default", text = "Please mind the chalk, if you would. I have redrawn that line three times today, and Master Strahad notices if it is a hair out of true." },
     { id = "g_warlock", when = { class = "WARLOCK" }, text = "You practise the art as well, I can tell by how you looked at the circle before you looked at us. Are you here for the master, or for one of the others?" },
     { id = "g_back", when = { metBefore = true }, text = "Oh, hello again. I am still here, as you see. One does not leave in the middle of a binding." },
@@ -3154,6 +3248,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. Magaz says I talk too much, but she is not listening just now." },
       },
       choices = {
+        { text = "Careful study leads to great discoveries.", next = "BACK", reply = "It does! Master Strahd says so.", fx = { align = { order = 1 } } },
+        { text = "Study is a waste. Action matters.", next = "BACK", reply = "Please mind the chalk.", fx = { align = { order = -1 } } },
         { text = "What brought you to study under Strahad?", next = "why" },
         { text = "A human, an orc and a Forsaken share this circle.", next = "three" },
         { text = "You seem frightened of your own craft.", next = "fear" },
@@ -3441,6 +3537,8 @@ P:NPC {
     third = "{name} met Waldor, the tauren leatherworking trainer in the cave above the Wailing Caverns.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You climbed again, friend. Sit; I'll teach you something new." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You climbed a long way. Mind the hides." },
     { id = "g_default", text = "You have climbed a long way to find a leatherworker, friend. Sit, and mind the hides drying by the wall, for some of them are not quite like any you have seen." },
     { id = "g_lw", when = { profession = "Leatherworking" }, text = "Ah, one who knows the craft. Come and feel this scale, and tell me whether you have ever worked anything like it. I had not, before this place." },
     { id = "g_back", when = { metBefore = true }, text = "You have returned to the hill. Have you been below, and what did you bring up with you?" },
@@ -3464,6 +3562,8 @@ P:NPC {
         { id = "h_again3", text = "Ask. I have more questions than answers myself, but I will share what I have." },
       },
       choices = {
+        { text = "Leatherworking rewards patience.", next = "BACK", reply = "It does. You learn well.", fx = { align = { order = 1 } } },
+        { text = "Leatherworking's quick work.", next = "BACK", reply = "Then you'll ruin the hide.", fx = { align = { order = -1 } } },
         { text = "Teach me leatherworking.", next = "BUSINESS" },
         { text = "What are these deviate hides?", next = "deviate" },
         { text = "You share this cave with a night elf.", next = "kalldan" },
@@ -3541,6 +3641,8 @@ P:NPC {
     third = "{name} met Kalldan Felmoon, the night elf who sells leatherworking patterns above the Wailing Caverns.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You have found me again, friend. Handle the leather as you like today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You found me. Handle the leather with care." },
     { id = "g_default", text = "You have found me, then. I sell to those who work leather, and I ask only that you handle the patterns with clean hands." },
     { id = "g_elf", when = { race = "NightElf" }, text = "Ishnu-alah. It is long since I heard a voice from home on this hill. You have come about the dreamer, I think, or you would not be so far from the forest." },
     { id = "g_horde", when = { faction = "Horde" }, text = "You need not look for a blade in my hand. I have kept my stall among your people for some time now, and they have learned that I am here for the caverns and not for the war." },
@@ -3564,6 +3666,8 @@ P:NPC {
         { id = "h_again3", text = "Go on. I am listening." },
       },
       choices = {
+        { text = "Fine leather needs careful hands.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "Leather is tough. It can take rough handling.", next = "BACK", reply = "Not this leather.", fx = { align = { order = -1 } } },
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "A night elf, alone in the Barrens.", next = "alone" },
         { text = "Why sell patterns made from corrupted beasts?", next = "patterns" },

@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Evening. It's good to see you on these streets; they feel a little safer with you on them." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep to the lit streets, and keep out of trouble, because I'll know if you don't." },
     { id = "g_post", text = "Night Watch. Keep to the lit streets, and you'll be fine." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Stay safe out there; the woods are worse than they look." },
     { id = "g_ring", when = { questActive = TODO_QUEST("A Daughter's Love") }, text = "Please take it to him. I've wanted to for years, and I never could." },
@@ -117,6 +119,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You'd make a fine Watcher, and I'd be glad to stand a night beside you." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've made my job harder, and my job is hard enough already. Mind yourself in Darkshire." },
+    },
     background = { { id = "tp_bg", text = "A watcher of Darkshire, and the daughter who lived. People here use the second more than the first." } },
     advice = { { id = "tp_ad", text = "Talk to the people you love while you can. I didn't, and I've had years to regret it." } },
     ladimore = {

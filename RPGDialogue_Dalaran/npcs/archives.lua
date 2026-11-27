@@ -564,6 +564,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Ah, a customer. Those boots and that coat have never been introduced, have they?" },
     { id = "g_nightelf", when = { race = "NightElf" }, text = "Ishnu-alah. Yes, a kaldorei spellweaver; you may close your mouth now." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and I see you've kept the look. Good taste is catching." },
@@ -595,6 +597,8 @@ P:NPC {
         { id = "h_again", text = "Something else? Momo is asleep on the silk, so we'll have to talk until she moves." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How does a glamour work?", next = "glamour" },
         { text = "Why does a night elf weave spells here?", next = "why" },
         { text = "Whose cat is that on the silk?", next = "momo" },
@@ -731,6 +735,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Pull up a stool. The ale's warm and the company's worse." },
     { id = "g_green", when = { band = { "Greenhorn", "Blooded" } }, text = "Fresh off the road, are you? Sit, before you fall down." },
   },

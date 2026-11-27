@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You. Good. I've a head or two to collect, and I'd rather collect them with you." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak quickly, and then leave. I've no patience for you." },
     { id = "g_default", text = "Speak, and be quick about it. I have heads to collect." },
     { id = "g_back", when = { metBefore = true }, text = "You return. I hope you bring progress and not excuses." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}. Sharlindra asked where you were, and I had no answer to give her." },
@@ -141,6 +143,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're useful, and you're ruthless when it counts. The Dark Lady would approve." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've wasted my time, and my time is the Dark Lady's time. Mind that." },
+    },
     knows = { { id = "tp_knows", text = "I know Alterac, the ogres in it and the enemies of the Dark Lady. That will have to suffice." } },
     background = { { id = "tp_bg", text = "I serve Sharlindra, who serves the Dark Lady. That is all of me you need." } },
     advice = { { id = "tp_ad", text = "Thin the Crushridge before you strike at their chief. Ogres fight harder with friends around them." } },

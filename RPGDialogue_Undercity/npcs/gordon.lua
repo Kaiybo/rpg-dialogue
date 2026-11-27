@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. I'll say the prices aloud for you, out of fondness." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Prices are on the tags. Read them." },
     { id = "g_default", text = "Blades on the left, axes on the right, and the prices are on the tags, because I'm tired of saying them aloud." },
     { id = "g_dead", when = { race = "Scourge" }, text = "Ah, one of us. Come in out of the drip, friend, and let's talk steel like civilised corpses." },
     { id = "g_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Another warm one. Keep your breath off the polish, if you please; it fogs the steel and I have to do it all again." },
@@ -278,6 +280,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've a good eye for a blade, and that's rarer than you'd think." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rude in my shop, and the prices just went up." },
+    },
     background = { { id = "tp_bg", text = "Smith in the capital, then dead of the plague, then a smith again under it. The middle part was the least trouble." } },
     advice = { { id = "tp_ad", text = "Oil your blade every night and don't lend it to anyone who loves you. The second matters more." } },
     _none = { { id = "tp_none", text = "Steel I know, and grudges I know. Whatever that is, ask an apothecary; they like questions." } },

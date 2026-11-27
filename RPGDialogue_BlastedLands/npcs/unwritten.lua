@@ -13,6 +13,8 @@ P:NPC {
     third = "{name} spoke with a soldier of Nethergarde Keep.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
     { id = "g_default", text = "Halt, and state your business. Nethergarde doesn't get many visitors, and the ones we get are usually lost or mad." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the Keep, are you? Good to see a face that isn't red with dust or covered in scales." },
   },
@@ -26,6 +28,8 @@ P:NPC {
       lines = { { id = "h_default", text = "We hold Nethergarde for the Alliance and the mages, and we keep watch on the Dark Portal in case anything ever tries to come through it again. Most days it's ogres and dust, and most nights it's worse." } },
       again = { { id = "h_again", text = "Anything else? I'm due back on the wall." } },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Could the Dark Portal ever open again?", next = "portal" },
         { text = "What's the worst of the Blasted Lands?", next = "worst" },
         { text = "This posting must be miserable.", next = "posting" },
@@ -106,6 +110,8 @@ P:NPC {
     third = "{name} spoke with an officer of the Nethergarde garrison.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
     { id = "g_default", text = "You're not one of mine, so you must be a volunteer, a merchant or a fool. Which is it, then?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. If you're here to help, report to the quartermaster, and if you're here to talk, be brief." },
   },
@@ -121,6 +127,8 @@ P:NPC {
         { id = "ybblanethergardeofficer2", when = { class = "WARLOCK" }, text = "You'll know what's down there better than I do, I expect. I'd rather you didn't tell me." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -220,6 +228,8 @@ P:NPC {
     third = "{name} spoke with one of the clerics of Nethergarde Keep.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "The Light keep you, traveller. Are you hurt? Everyone who comes to Nethergarde is hurt somewhere, whether they know it or not." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back, and whole, I hope. The Light is generous, but I'd rather not test it." },
   },
@@ -233,6 +243,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I tend the wounded of Nethergarde, and I pray over the Portal each night, for whatever good it does. This land was torn by demon magic, and you can feel it in the soil and the air." } },
       again = { { id = "h_again", text = "What else troubles you, child?" } },
       choices = {
+        { text = "The Light forgives all who truly seek it.", next = "BACK", reply = "It does, and I pray we're all given the chance to seek.", fx = { align = { light = 1 } } }, -- dp_stance
+        { text = "Some deeds are beyond the Light's forgiveness.", next = "BACK", reply = "Careful, friend. That's a judgment best left to the Light itself.", fx = { align = { light = -1 } } }, -- dp_stance
         { text = "Can the Light heal this land?", next = "heal" },
         { text = "What wounds do you see most?", next = "wounds" },
         { text = "Do you ever regret coming here?", next = "regret" },
@@ -313,6 +325,8 @@ P:NPC {
     third = "{name} spoke with the foreman of the Nethergarde mines.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "If you're here to work, grab a pick, and if you're not, get out of the way of the carts." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still not holding a pick, I see. What is it this time?" },
   },
@@ -406,6 +420,8 @@ P:NPC {
     third = "{name} spoke with one of the miners of Nethergarde Keep.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Oh, a visitor! Talk slow, friend, it gives me a reason to rest my arms." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Nobody comes back to the mines unless they owe somebody money." },
   },
@@ -522,6 +538,8 @@ P:NPC {
     third = "{name} spoke with a Nethergarde Engineer in the mines of Nethergarde Keep.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Oh! Careful there, that's a live boiler. Nethergarde Keep, engineering division, at your service." },
     { id = "g_back", when = { metBefore = true }, text = "Hello again! Still in one piece? Good, good. That's always nice to see out here." },
   },

@@ -472,6 +472,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_default", text = "Stand up straight when you come into my watchtower." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "Here for training? Good; you're late." },
   },
@@ -489,6 +491,8 @@ P:NPC {
     dd_deaths = {
       lines = { { id = "dd_default", text = "Pride, most likely. The young ones who fall here fall because they won't step back from a fight they've already lost. Learn when to give ground, and you'll live long enough to learn the rest of what I teach." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'd rather fall than run from a fight.", next = "BACK", reply = "Then you'll fall, and often, and I'll admire it each time. Just know that the isle needs living warriors more than brave ones.", fx = { align = { honor = 1 } } },
         { text = "Then I'll give ground, and come back when it suits me.", next = "BACK", reply = "Good. A fight you walk away from is a fight you can win tomorrow, with friends at your back.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -591,6 +595,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_default", text = "<Tai'ree gives you a short nod and a long, measuring look.>" },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "There you are. Ready to work?" },
   },
@@ -610,6 +616,8 @@ P:NPC {
     dd_ursera = {
       lines = { { id = "du_default", text = "Hunger and desperation, the same as drives any of us. The isle's magic thins and the land gives less, and a beast doesn't understand pylons, only that the berries are gone. So we hunt them, and if we're any good, we take no pleasure in it." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then cull them cleanly and keep the village safe.", next = "BACK", reply = "That's the hunter's answer, and it's mine too, most days. Clean kills, and nothing wasted.", fx = { align = { order = 1 } } },
         { text = "Then we should leave them be and let the wild sort itself out.", next = "BACK", reply = "The wild will sort itself out, aye, and some of what it sorts will be children. Still, I'd rather you felt that way than not.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -752,6 +760,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Blades, mending, an honest opinion. Which will it be?" },
     { id = "g_broken", when = { durability = { max = 0.30 } }, text = "Winds above, what have you been hitting? Let me see that." },
   },
@@ -778,6 +788,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. Steel doesn't mind waiting." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your blades.", next = "BUSINESS" },
         { text = "What is the old style?", next = "style" },
         { text = "Where does a name like Thriceforged come from?", next = "name" },
@@ -855,6 +867,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Gale's greetings! Come in out of the wind and let me look at what you're wearing." },
     { id = "g_again", when = { metBefore = true }, text = "Back again, {name}? Don't tell me you've torn it already." },
   },
@@ -879,6 +893,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. The needle doesn't mind." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Where does your leather come from?", next = "leather" },
         { text = "Business must be good, with so many coming of age.", next = "trade" },
@@ -1012,6 +1028,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Gale's greetings. Mail, plate or a shield? I've all three, and none of them are pretty." },
     { id = "g_again", when = { metBefore = true }, text = "Back, are you? Let's see the dents, then." },
   },
@@ -1032,6 +1050,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, if you must. I'll keep working." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "What makes a good shield?", next = "shield" },
         { text = "Who's buying armor these days?", next = "buyers" },
@@ -1159,6 +1179,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
     { id = "g_default", text = "Shh! You'll scare it off, and Meeri will never let me hear the end of it." },
     { id = "g_again", when = { metBefore = true }, text = "It's still here! Come and look, but quietly." },
   },
@@ -1274,6 +1296,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hello again! You're my favourite grown-up, but don't tell my mum." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'm not playing with you today." },
     { id = "g_default", text = "Hello. Please whisper, because it doesn't like loud voices." },
     { id = "g_outsider", when = { ["not"] = { race = "Skyborne" } }, text = "Oh! You're not one of us. Did you come to see the spirit too?" },
   },

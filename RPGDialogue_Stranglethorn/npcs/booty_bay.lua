@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_bb_h", when = { rep = { faction = "Booty Bay", min = "Honored" } }, text = "You're good for business, pal, and Booty Bay remembers its friends. The bay's yours, within reason." },
+    { id = "dp_rep_bs", when = { rep = { faction = "Bloodsail Buccaneers", min = "Friendly" } }, text = "I hear the Bloodsail are fond of you, pal. That's a strange thing to bring into my office, and I'd think hard about it." },
     { id = "g_overheard", when = { overheard = "ex_revilgaz_seahorn" }, text = "You heard about the Bloodsail, then. Every sunk ship's money out of my pocket, friend, so keep your blade sharp and your rates reasonable." },
     { id = "g_hu_human", when = { race = "Human" }, priority = 5,
       text = "A human, is it? Your lords in Stormwind still owe this town for a decade of rum, friend, so you'll forgive me if I ask for coin before conversation." },
@@ -683,6 +685,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_bs", when = { rep = { faction = "Bloodsail Buccaneers", min = "Friendly" } }, text = "Bloodsail friend, are you? Then you've a lot of nerve standing in my office, pal." },
     { id = "g_hu_human", when = { race = "Human" }, priority = 5,
       text = "Ahoy, a human! You're not wearing Bloodsail red, so I'll not throw you down the stairs yet, but I'm watching your sleeves for a cutlass." },
     { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "seahorn_human_soft" }, priority = 10,
@@ -1500,6 +1503,7 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_bb_f", when = { rep = { faction = "Booty Bay", min = "Friendly" } }, text = "Booty Bay likes you, pal, and that means I like you too, mostly." },
     { id = "g_hu_human", when = { race = "Human" }, priority = 5,
       text = "A human! Pull up a chair, pal, and keep a hand on your purse like you're doing already, because I can see you doing it and I'm a little hurt." },
     { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "krazek_human_soft" }, priority = 10,
@@ -2465,6 +2469,11 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. Your usual seat's free, and I made sure of it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "There's a bed if you want it, but don't expect a smile with it." },
+    { id = "dp_pt_any", when = { party = true }, text = "Rooms for the whole crew? I'll charge per head, pal, but I'll throw in the view of the bay for free." },
+    { id = "dp_rep_bb", when = { rep = { faction = "Booty Bay", min = "Honored" } }, text = "The Baron says you're good for it, pal, and that's good enough for me. Best room in the house, nearest the bar." },
+    { id = "dp_rep_bs", when = { rep = { faction = "Bloodsail Buccaneers", min = "Neutral" } }, text = "I hear the Bloodsail think kindly of you these days. That's your business, pal, but keep it quiet in my inn." },
     { id = "g_op_bay", when = { gossip = { topic = "booty_bay", stance = "distrust" } }, text = "Krazek's been selling a story that you called us a den of thieves. Thieves keep the best rum, pal, so sit down anyway and I'll put the stool on your tab." },
     { id = "g_inn", text = "In you come, pal, out of the sun. Stools by the windows get the breeze and cost a copper more, and the sea air covers the smell of the fish for free." },
     { id = "g_home", when = { homeInn = { "Booty Bay", "The Salty Sailor Tavern" } }, text = "Your room's just as you left it, mostly, though the parrots got in again and I've added the feathers to your bill." },
@@ -4097,6 +4106,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_emporium", text = "Welcome to Drizzlik's Emporium, pal, the finest leather in the South Seas! The finest leather anywhere, if you ask me, and you are asking me, and the price reflects it." },
   },
 
@@ -4113,6 +4124,8 @@ P:NPC {
       big = true,
       lines = { { id = "xwarcl_default", text = "Is it any use! A good padded jerkin stops the rings biting and the rust spreading, and in this heat it's the difference between fighting all day and fainting by noon. I've dressed Blackwater bosuns who swore by it, and the ones too cheap to buy it swore at the heat instead." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Good armor is discipline. I look after mine properly.", next = "BACK", reply = "Good, pal, because it shows, and the rust'll leave you alone. Discipline in the oil, that's what I always say.", fx = { align = { order = 1 } } },
         { text = "I fight in whatever I've got and fix it when it breaks.", next = "BACK", reply = "Fix it when it breaks, sure, pal, if you're still alive to fix it. Come see me before it breaks.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Uma Bartulm, Theramore's herbalism and alchemy supplier.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Come in, friend! Shut the door, and I'll show you the fresh peacebloom." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in and shut the door. What are you after?" },
     { id = "g_default", text = "Come in and shut the door, please, the damp gets into the vials. What are you after?" },
     { id = "g_herb", when = { profession = "Herbalism" }, text = "You've been picking in the marsh, I can smell it on you. If there's liferoot in that bag, I'll have a look at it." },
   },
@@ -26,6 +28,8 @@ P:NPC {
         { id = "ybdwumabartulm2", when = { profession = "Herbalism" }, text = "If you find peacebloom on your travels, dry it before you bring it. I'll pay double for a good bundle." },
       },
       choices = {
+        { text = "Growing herbs in pots is clever work.", next = "BACK", reply = "It is! The damp won't stop me.", fx = { align = { order = 1 } } },
+        { text = "Herbs should be gathered wild.", next = "BACK", reply = "Then go and gather them wild.", fx = { align = { order = -1 } } },
         { text = "Do you ever go into the marsh yourself?", next = "ymarsh2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -130,6 +134,8 @@ P:NPC {
     third = "{name} met Marie Holdston, Theramore's blacksmithing trainer.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, you. Mind the sparks, but come in. I've something to teach you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the sparks. Blades on the rack. Buy or learn." },
     { id = "g_default", text = "Mind the sparks. If you want a blade, they're on the rack, and if you want to learn to make one, roll up your sleeves." },
   },
   notice = {
@@ -144,6 +150,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I came over with Lady Proudmoore's fleet and I've kept the garrison armed ever since. The damp here eats steel faster than any orc, so most of my day is fighting rust." } },
       again = { { id = "h_again", text = "Something else? The iron's cooling." } },
       choices = {
+        { text = "Keeping the garrison armed is hard work.", next = "BACK", reply = "It is. Lady Proudmoore relies on it.", fx = { align = { order = 1 } } },
+        { text = "The garrison could buy cheaper blades.", next = "BACK", reply = "Then they'd break. Mind the sparks.", fx = { align = { order = -1 } } },
         { text = "How do you fight rust?", next = "rust" },
         { text = "You sailed with the fleet from Lordaeron?", next = "fleet" },
         { text = "Who taught you to smith?", next = "xtaught" },
@@ -226,6 +234,8 @@ P:NPC {
     third = "{name} met Craig Nollward, the cook at the Theramore inn.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hungry? Of course you are. Sit, friend; there's real fish in today's pot." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hungry? Sit, if you must. Pay first." },
     { id = "g_default", text = "Hungry? You look hungry. Sit down, I've a pot of something that's nearly fish." },
   },
   notice = {
@@ -238,6 +248,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I feed the off-watch, the dock hands and anyone who wanders in out of the rain. I also teach a bit of cooking, if you've patience and a strong stomach." } },
       again = { { id = "h_again", text = "Anything else? The pot won't stir itself." } },
       choices = {
+        { text = "A hot meal keeps the off-watch cheerful.", next = "BACK", reply = "It does! You understand.", fx = { align = { light = 1 } } },
+        { text = "The soldiers should cook for themselves.", next = "BACK", reply = "They'd burn the place down. Pay first.", fx = { align = { light = -1 } } },
         { text = "Who's wrong about salt?", next = "stern" },
         { text = "What do you cook in a swamp?", next = "swamp" },
         { text = "What's the most popular dish on the docks?", next = "xdish" },
@@ -327,6 +339,8 @@ P:NPC {
     third = "{name} met Helenia Olden, who sells trade supplies near Theramore's docks.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Just off the boat again? Welcome back, friend. Directions are free, and so is a smile." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Just off the boat? Thread, dye, flux. Directions are free. That's all." },
     { id = "g_default", text = "Just off the boat? Everyone is, at first. I've thread, dye and flux, and directions are free." },
   },
   start = "hello",
@@ -335,6 +349,8 @@ P:NPC {
       lines = { { id = "h_default", text = "My shop's the first one off the dock, so I see every face that comes to Theramore. Most are lost, a few are trouble, and some just need a spool of thread." } },
       again = { { id = "h_again", text = "What else can I help you find?" } },
       choices = {
+        { text = "A friendly face makes a new town easier.", next = "BACK", reply = "It does. That's why I'm here.", fx = { align = { light = 1 } } },
+        { text = "Newcomers can find their own way.", next = "BACK", reply = "They can. Most get lost.", fx = { align = { light = -1 } } },
         { text = "Where should a newcomer go first?", next = "where" },
         { text = "What kind of trouble comes off the boat?", next = "trouble" },
         { text = "What do you sell the most of?", next = "xsell" },
@@ -424,6 +440,8 @@ P:NPC {
     third = "{name} met Timothy Worthington, Theramore's tailoring trainer.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, friend. You may keep your boots on; I trust you not to track mud." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Wipe your boots. Please." },
     { id = "g_default", text = "Please wipe your boots. I've mud enough from the soldiers, and I've only just finished brushing the bench." },
   },
   notice = {
@@ -438,6 +456,8 @@ P:NPC {
         { id = "ybdwtimothyworthington2", when = { profession = "Tailoring" }, text = "You'll know already, then. Never cut silk on a damp day, and keep your shears oiled, or the marsh will eat them by the season's end." },
       },
       choices = {
+        { text = "Good tailoring takes careful hands.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "Clothes are clothes. Just stitch them.", next = "BACK", reply = "Then stitch them yourself.", fx = { align = { order = -1 } } },
         { text = "Do you miss Dalaran?", next = "ydalaran" },
         { text = "Something else.", next = "BACK" },
       },
@@ -538,6 +558,8 @@ P:NPC {
     third = "{name} met Medic Helaina, a first aid medic on Theramore Isle.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Are you hurt? Sit, friend; I'll look at you even if you're not." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Are you hurt? Sit. I'll look, then you can go." },
     { id = "g_default", text = "Are you hurt? Sit down and let me look, even if you think it's nothing." },
     { id = "g_low", when = { health = { max = 0.5 } }, text = "You're bleeding on my floor. Sit, please, before you fall over." },
   },
@@ -551,6 +573,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I keep the garrison patched up and teach first aid to anyone who'll learn. In this marsh it's fever as often as swords, and fever doesn't care how brave you are." } },
       again = { { id = "h_again", text = "Anything else? I've a soldier with marsh rot waiting." } },
       choices = {
+        { text = "First aid saves more lives than swords.", next = "BACK", reply = "It does. Thank you for saying so.", fx = { align = { light = 1 } } },
+        { text = "First aid is for those who can't fight.", next = "BACK", reply = "Then you'll bleed when it matters. Sit.", fx = { align = { light = -1 } } },
         { text = "What's the worst you see here?", next = "worst" },
         { text = "Who taught you?", next = "teacher" },
         { text = "How did you become a medic?", next = "xhow" },
@@ -636,6 +660,8 @@ P:NPC {
     third = "{name} spoke with a Theramore Lieutenant on the isle.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, friend. Theramore is glad of your help, always." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "State your business on the isle, please." },
     { id = "g_default", text = "State your business on the isle, please. If it's honest, you'll find us glad of the help." },
   },
   start = "hello",
@@ -646,6 +672,8 @@ P:NPC {
         { id = "ybdwtheramorelieutenant2", when = { class = { "WARRIOR", "PALADIN" } }, text = "You've the look of someone who'd make my rotation. Ask at the citadel and I'll pencil you in for the north wall." },
       },
       choices = {
+        { text = "Theramore keeps the peace for everyone.", next = "BACK", reply = "It does. Lady Proudmoore sees to it.", fx = { align = { order = 1 } } },
+        { text = "Theramore should strike the Horde first.", next = "BACK", reply = "That's not our way. State your business.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -747,6 +775,8 @@ P:NPC {
     third = "{name} spoke with a Theramore Sentry.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Halt, and good day, friend. You're always welcome here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Halt. You're not a raptor, so you may pass. Barely." },
     { id = "g_default", text = "Halt, and good day. You're not a raptor, so you're welcome enough." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Quiet, please. You hear more of the marsh at night when nobody's talking." },
   },
@@ -758,6 +788,8 @@ P:NPC {
         { id = "ybdwtheramoresentry2", when = { pet = { type = "Beast" } }, text = "She'd love your animal. Bring it past the market one day, if you can, and keep it off the bread stall." },
       },
       choices = {
+        { text = "Standing guard keeps families safe.", next = "BACK", reply = "It does. My little girl sleeps soundly.", fx = { align = { order = 1 } } },
+        { text = "Guarding a gate is easy work.", next = "BACK", reply = "Try it in the fog with raptors about.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -849,6 +881,8 @@ P:NPC {
     third = "{name} spoke with a Brackenwall Enforcer of the Stonemaul.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Friend! Enforcer likes you. You can be good in Brackenwall." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You come in Brackenwall, you be good. Enforcer is watching." },
     { id = "g_default", text = "You come in Brackenwall, you be good. Enforcer is watching, and Enforcer has big mace." },
   },
   start = "hello",
@@ -857,6 +891,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Enforcer guards Brackenwall for the Stonemaul and for the Horde. Stonemaul used to live in the south, but the black dragons came and burned everything, so now we live here." } },
       again = { { id = "h_again", text = "You still talking? Enforcer is still listening." } },
       choices = {
+        { text = "Enforcer keeps Brackenwall safe.", next = "BACK", reply = "Yes! Enforcer does good work.", fx = { align = { order = 1 } } },
+        { text = "Brackenwall doesn't need an enforcer.", next = "BACK", reply = "Enforcer does not like you. Be good.", fx = { align = { order = -1 } } },
         { text = "The dragons drove you out?", next = "dragons" },
         { text = "Why do Stonemaul fight for the Horde?", next = "horde" },
         { text = "What does an Enforcer do all day?", next = "xjob" },
@@ -1058,6 +1094,8 @@ P:NPC {
     third = "{name} met Falgran Hastil, a tracker of the Theramore Guard.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Falgran Hastil. Ah, you. Glad of your help, friend." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Falgran Hastil. If it's the hoofprints, ask quickly." },
     { id = "g_default", text = "Falgran Hastil, Theramore Guard. If you've come about the hoofprints, I'm the one they're sending after them." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? I've not found where those tracks end yet, but I will." },
   },
@@ -1070,6 +1108,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Somebody left hoofprints by the burnt-out inn on the Barrens road, and the Lady Jaina wants to know whose they were. I'm to follow them wherever they go and report back to the citadel." } },
       again = { { id = "h_again", text = "Make it quick, friend. Tracks don't wait for anyone, least of all in a swamp." } },
       choices = {
+        { text = "Following orders keeps Theramore safe.", next = "BACK", reply = "It does. I follow mine.", fx = { align = { order = 1 } } },
+        { text = "Some orders are wrong. A soldier should think.", next = "BACK", reply = "Thinking is for captains. Ask quickly.", fx = { align = { order = -1 } } },
         { text = "Whose hoofprints do you think they are?", next = "whose" },
         { text = "How do you track anything in this mud?", next = "mud" },
         { text = "How long have you tracked for the Guard?", next = "xpast" },
@@ -1164,6 +1204,8 @@ P:NPC {
     third = "{name} met Medic Tamberlyn, a young First Aid medic on Theramore Isle.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Oh, it's you! I'm so glad. I've learned a new bandage; can I show you?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh. Hello. You're not bleeding, are you? Good. Please go." },
     { id = "g_default", text = "Oh, hello! You're not bleeding, are you? I mean, I could help if you were, I've been practising all week." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and still in one piece, which is the best kind of patient there is." },
   },
@@ -1176,6 +1218,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I'm Tamberlyn, and I'm learning field medicine here at Theramore, though I'm still a neophyte, so mostly I roll bandages and fetch water. My teacher says every medic starts that way, and I hope he's right." } },
       again = { { id = "h_again", text = "Anything else? I've a basket of linen to cut, but I can talk while I do it." } },
       choices = {
+        { text = "Practice makes a good medic.", next = "BACK", reply = "It does! I practice every day.", fx = { align = { order = 1 } } },
+        { text = "A medic is born, not made.", next = "BACK", reply = "Oh. I hope that's not true.", fx = { align = { order = -1 } } },
         { text = "Why become a medic?", next = "why" },
         { text = "What's the hardest part of the work?", next = "hard" },
         { text = "Who's your teacher?", next = "xteacher" },
@@ -1263,6 +1307,8 @@ P:NPC {
     third = "{name} spoke with one of the Theramore Guard.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back to Theramore, friend. Lady Proudmoore would be glad to see you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Theramore. Mind yourself; we keep the peace here." },
     { id = "g_default", text = "Welcome to Theramore, traveller. Lady Proudmoore keeps the peace here, and we keep it for her, so please do the same." },
   },
   notice = {
@@ -1274,6 +1320,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I'm with the Theramore Guard, and I'll point you to the inn, the docks or the citadel, wherever you need. Is there something I can help with?" } },
       again = { { id = "h_again", text = "Anything else? The marsh breeds trouble faster than flies." } },
       choices = {
+        { text = "Lady Proudmoore keeps the peace well.", next = "BACK", reply = "She does. We're proud to serve her.", fx = { align = { order = 1 } } },
+        { text = "Lady Proudmoore is too soft on the Horde.", next = "BACK", reply = "That's not your judgment to make. Mind yourself.", fx = { align = { order = -1 } } },
         { text = "I need directions.", next = "BUSINESS" },
         { text = "What's the trouble in the marsh?", next = "marsh" },
         { text = "How do you feel about peace with the Horde?", next = "peace" },

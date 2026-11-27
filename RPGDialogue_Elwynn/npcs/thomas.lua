@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. The bridge is quieter with you around, and I'm glad of it." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Cross the bridge, then, and keep walking." },
     { id = "hum_g1", when = { race = "Human" }, priority = 5,
       text = "A Stormwind citizen. Keep to the road, and if you see anything east of this bridge, report it to me before you tell the inn." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "My father died in the Second War under fire the Horde's warlocks called down. You'll stay on the east side of this bridge, and that's my last word." },
@@ -352,6 +354,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a decent sort, and I trust you more than most who cross this bridge." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to doubt you, and I've no patience for doubt on this bridge." },
+    },
     knows = {
       { id = "tp_knows", text = "Standing at this bridge all day, you hear a fair bit from the folk passing over. Ask me about any of this, and I'll tell you what I know." },
     },

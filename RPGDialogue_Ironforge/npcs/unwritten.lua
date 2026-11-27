@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Father Gavin, a priest of the Argent Dawn keeping watch at Misty Pine Refuge.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "The Light keep you warm, friend, for the mountains certainly won't." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. The kettle's cold, but the welcome isn't." },
   },
@@ -23,6 +25,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I am Father Gavin, and I serve the Argent Dawn. We go wherever the dead will not lie still, and you would be surprised how far into the snow that has brought me." } },
       again = { { id = "h_again", text = "What else weighs on you, child?" }, { id = "h_again2", text = "Ask, and I'll answer as well as an old priest can." } },
       choices = {
+        { text = "The Light forgives all who truly seek it.", next = "BACK", reply = "It does, and I pray we're all given the chance to seek.", fx = { align = { light = 1 } } }, -- dp_stance
+        { text = "Some deeds are beyond the Light's forgiveness.", next = "BACK", reply = "Careful, friend. That's a judgment best left to the Light itself.", fx = { align = { light = -1 } } }, -- dp_stance
         { text = "What is the Argent Dawn?", next = "dawn" },
         { text = "Why would the Dawn come this far into the snow?", next = "snow" },
         { text = "You've fought the Scourge yourself, then.", next = "fought" },
@@ -112,6 +116,8 @@ P:NPC {
     third = "{name} met Prospector Gehn of the Explorers' League at Gol'Bolar Quarry.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Mind the edge, {g:lad|lass}, the quarry's deeper than it looks." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? The stone hasn't moved since ye left, more's the pity." },
   },
@@ -210,6 +216,8 @@ P:NPC {
     third = "{name} met Avarus Kharag, a dwarf paladin standing guard at Gol'Bolar Quarry.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "The Light keep ye, traveller. Stay clear of the cuttin' face." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you again. Still in one piece, I see, and glad of it." },
   },
@@ -308,6 +316,8 @@ P:NPC {
     third = "{name} met Onin MacHammar, keeping watch over Gnomeregan from a tower in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Climbed all the way up, did ye? Then ye'd best have a reason." },
     { id = "g_back", when = { metBefore = true }, text = "Back for the view? It hasnae improved." },
   },
@@ -432,6 +442,8 @@ P:NPC {
     third = "{name} met Miner Grothor, working a seam north of Gol'Bolar Quarry.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Stand back a pace, the chips fly further than ye'd think." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The seam's still here, and so am I." },
   },
@@ -563,6 +575,8 @@ P:NPC {
     third = "{name} met Miner Grumnal, Grothor's talkative partner on a seam north of Gol'Bolar Quarry.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Oh, a visitor! Grothor, look, somebody new to talk to." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, Grothor's run out of things to say, as usual." },
   },
@@ -792,6 +806,8 @@ P:NPC {
     third = "{name} met Tog Rustsprocket, a gnome refugee from Gnomeregan living in Kharanos.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Oh, hello! Careful, that spring is under roughly forty pounds of tension." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! Good, I could use a second pair of hands, figuratively." },
   },
@@ -997,6 +1013,8 @@ P:NPC {
     third = "{name} met Wizbang Booms, a gnome who sells holiday fireworks in Ironforge.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Fireworks! Festive, colourful and only occasionally structural!" },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? I knew you had a spark in you!" },
   },
@@ -1006,6 +1024,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Wizbang Booms, pyrotechnician, at your service and slightly at your risk. Every rocket in this crate has been hand-tested by me, which is why I'm standing a little further from it than you are." } },
       again = { { id = "h_again", text = "What else can I light up for you?" }, { id = "h_again2", text = "Questions? Excellent, I have answers and matches." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Are these fireworks safe?", next = "safe" },
         { text = "Why sell fireworks in Ironforge?", next = "why" },
         { text = "How did you get into fireworks?", next = "xz_start" },
@@ -1427,6 +1447,8 @@ P:NPC {
     third = "{name} met Macey Jinglepocket of Smokywood Pastures, selling Winter Veil goods in Ironforge.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Happy Winter Veil, sweetheart! Everything's festive, and everything's for sale!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, pal? I knew you'd come round to the deluxe selection." },
   },
@@ -1436,6 +1458,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Macey Jinglepocket, Smokywood Pastures, premium holiday division. Wulmort sells the cheap stuff over there, and I sell the stuff people actually remember, at a price they'll also remember." } },
       again = { { id = "h_again", text = "What else can I wrap for ya?" }, { id = "h_again2", text = "Go on, ask, the meter's not running. Yet." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What is Smokywood Pastures?", next = "company" },
         { text = "Why is your stock dearer than Wulmort's?", next = "price" },
         { text = "What's your best-selling item?", next = "xc_best" },
@@ -1635,6 +1659,8 @@ P:NPC {
     third = "{name} met Lylandris, who recruits for the Silverwing Sentinels in Ironforge's Hall of Arms.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep your distance, and keep out of the way of real soldiers." },
     { id = "g_default", text = "Ishnu-alah. Have you come to fight for Ashenvale?" },
     { id = "g_back", when = { metBefore = true }, text = "You return. The Warsong are still cutting our trees." },
   },
@@ -1974,6 +2000,8 @@ P:NPC {
     third = "{name} met Donal Osgood, who recruits for the League of Arathor in Ironforge's Hall of Arms.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
     { id = "g_default", text = "For Arathor! Have you come to fight for the basin?" },
     { id = "g_back", when = { metBefore = true }, text = "Good to see you again. The Defilers haven't yet given up, and neither have we." },
   },
@@ -2312,6 +2340,8 @@ P:NPC {
     third = "{name} met Katrina Shimmerstar, who sells Hallow's End treats in Ironforge.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Trick or treat! Well, mostly treat, I'm saving the tricks." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more sweets? I knew you would be." },
   },
@@ -2321,6 +2351,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Katrina Shimmerstar, purveyor of Hallow's End sweets and masks! It's a holiday the Forsaken started, if you can believe it, but the candy's far too good to leave to them." } },
       again = { { id = "h_again", text = "What else, sweetie?" }, { id = "h_again2", text = "Go on, ask, before the candy runs out." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The Forsaken started this holiday?", next = "forsaken" },
         { text = "What can you tell me about the masks?", next = "masks" },
         { text = "What's your favourite treat to sell?", next = "xk2_fav" },
@@ -2541,6 +2573,8 @@ P:NPC {
     third = "{name} met Glordrum Steelbeard, who recruits for the Stormpike Guard in Ironforge's Hall of Arms.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome at our fire any night you like." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
     { id = "g_default", text = "Ho there! Ready to march on Alterac?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, the Frostwolves aren't givin' up, and neither are we." },
   },
@@ -3426,6 +3460,8 @@ P:NPC {
     third = "{name} met Greatfather Winter's goblin helper in the Commons of Ironforge.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "Happy Winter Veil, pal! Step right up, the big fella's taking requests and I'm handling the paperwork." },
     { id = "g_festival", when = { holiday = "winterveil" }, text = "Happy Winter Veil! Greatfather Winter's handing out gifts, and Smokywood Pastures has everything else you need." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, ya valued customer? Greatfather Winter never forgets a face, and I never forget a ledger." },
@@ -3662,6 +3698,8 @@ P:NPC {
     third = "{name} spoke with one of the Ironforge Guard.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep an eye open. Mind yourself." },
     { id = "g_default", text = "Halt and state yer business, then go on yer way, because the gates of Ironforge are open to friends of the mountain." },
   },
   notice = {
@@ -3673,6 +3711,8 @@ P:NPC {
       lines = { { id = "h_default", text = "I stand for King Magni Bronzebeard and the Ironforge Guard, and I'll point ye wherever ye need to go, from the Great Forge to the Hall of Explorers. What'll it be?" } },
       again = { { id = "h_again", text = "Anything else, then? Out with it." } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "I need directions.", next = "BUSINESS" },
         { text = "Any trouble in Dun Morogh?", next = "trouble" },
         { text = "You lot look proud of your king.", next = "magni" },
@@ -3777,6 +3817,8 @@ P:NPC {
     third = "{name} spoke with one of the Ironforge Mountaineers in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. The streets feel a little safer with you walking them." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
     { id = "g_default", text = "Cold enough to freeze the beard off a mountain goat, eh? Keep movin', friend, it's the only thing that keeps ye warm out here." },
   },
   notice = {
@@ -3788,6 +3830,8 @@ P:NPC {
       lines = { { id = "h_default", text = "The Mountaineers keep the roads of Dun Morogh, from Kharanos to the Gates and out to the North Gate Pass, and we shoot anythin' that wants to make trouble on 'em. What can I do for ye?" } },
       again = { { id = "h_again", text = "Somethin' else? Talk quick, me toes are goin' numb." } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What dangers are on these roads?", next = "roads" },
         { text = "How did you become a Mountaineer?", next = "joined" },
         { text = "What's the hardest part of the job?", next = "xm2_hard" },
@@ -3890,6 +3934,8 @@ P:NPC {
     third = "{name} met one of Gnomeregan's engineers in Dun Morogh.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Careful, careful, that pressure valve is at ninety-four percent of tolerance and climbing, so if you'd kindly stand to the left, that would be marvellous." },
   },
   notice = {

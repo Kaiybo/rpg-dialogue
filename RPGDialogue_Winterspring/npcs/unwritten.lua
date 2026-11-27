@@ -124,6 +124,8 @@ P:NPC {
     third = "{name} met Grum Redbeard, a dwarf who keeps warm in the barrow den at Starfall Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Shut the door, friend! Come in, sit by me, and I'll pour ye a warm one, on me!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Shut the door behind ye. It's cold out there, and it's not much warmer in here for ye." },
     { id = "g_default", text = "Shut the door behind ye, if ye can find it! It's cold enough out there to freeze a beard solid." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "A dwarf! In Winterspring! Come in, come in, there's a fire and nobody's usin' half of it." },
   },
@@ -237,6 +239,8 @@ P:NPC {
     third = "{name} met Umaron Stragarelm, a goblin of Everlook who watches the trade come and go.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, it's you! My favorite face in Everlook. Come, sit, I've been watching for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey, a face I know. Don't mind me, I'm just watching. Watching you, mostly." },
     { id = "g_default", text = "Hey, hey, a new face in Everlook! Don't mind me, I'm just watchin' the money move." },
   },
   start = "hello",
@@ -460,6 +464,8 @@ P:NPC {
     third = "{name} spoke with a Priestess of Elune in the snows of Winterspring.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Elune's light on you, friend. The moon shines kindly on you, and so do I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Elune's light on you, traveller. The moon watches all, and it sees what you've done." },
     { id = "g_default", text = "Elune's light on you, traveller. Winterspring is cold, but the moon is bright here." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The moon is up. On nights like this, I can almost hear her singing over the snow." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Elune sees you, even in the blizzard." },

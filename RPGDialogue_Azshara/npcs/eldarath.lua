@@ -470,6 +470,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Still alive, I see! I've crossed your name off my list for good. What can I teach you today, friend?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You again. I keep a list of names for the condolences, and yours is near the top. What do you want?" },
     { id = "g_default", text = "Here to hunt dragons? Leave me a name to send the condolences to." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive! I'll keep your name off the list by the fire a while longer, then." },
   },
@@ -620,6 +622,8 @@ P:NPC {
       again = { { id = "h_again", text = "What else? I've a hide soaking, so make it quick." },
                 { id = "h_again2", text = "Go on, I'm listening, and so's the dragon whelp up on the ridge, probably." } },
       choices = {
+        { text = "Hunting dragons takes caution as much as courage.", next = "BACK", reply = "That's the best lesson I teach, and few learn it before their funeral.", fx = { align = { order = 1 } } },
+        { text = "Fortune favors the reckless, not the careful.", next = "BACK", reply = "Fortune favors the reckless right into the dragon's mouth. I'll write your name down.", fx = { align = { order = -1 } } },
         { text = "You really keep a list of the dead?", next = "dd_dragons", when = { killed = { name = { "Dragonspawn", "Scalebane", "Magelord" }, min = 20 } } },
         { text = "Why work out here, of all places?", next = "why" },
         { text = "Is dragonscale worth the danger?", next = "scale" },

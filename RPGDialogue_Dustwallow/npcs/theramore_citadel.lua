@@ -377,6 +377,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ah, there ye are! Guns, powder, an' good advice, free today." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Guns an' powder. Advice costs extra." },
     { id = "g_hello", text = "Guns, powder, an' a bit o' good advice. Two o' those cost money." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter! Let's see that rifle, lad. Aye, it's been dragged through the marsh, I can smell it." },
   },
@@ -394,6 +396,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "What else, then?" } },
       choices = {
+        { text = "A gun takes skill to master.", next = "BACK", reply = "Aye, it does! Ye know your craft.", fx = { align = { honor = 1 } } },
+        { text = "A gun's just a loud stick.", next = "BACK", reply = "Then go buy a stick.", fx = { align = { honor = -1 } } },
         { text = "Show me your guns.", next = "BUSINESS" },
         { text = "You fought in the Third War?", next = "war" },
         { text = "Any advice for the marsh?", next = "marsh" },

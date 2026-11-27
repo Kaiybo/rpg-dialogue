@@ -86,6 +86,18 @@ B.npcName = function(ctx) return ctx.unit and C.Name(ctx.unit) end
 B.npcLevel = function(ctx) return ctx.unit and C.Level(ctx.unit) end
 -- 0.90.0: the unit's creature family ("Imp", "Voidwalker"...), and whether it is your own pet.
 B.npcFamily = function(ctx) return ctx.unit and C.Family(ctx.unit) or false end
+-- The NPC's race file token ("Dwarf", "Goblin"...) when UnitRace answers for it, else false.
+B.npcRace = function(ctx)
+  if not ctx.unit then return false end
+  local name, file = C.Race(ctx.unit)
+  return file or name or false
+end
+-- The localized race name with spaces stripped ("Night Elf" -> "NightElf"), else false.
+B.npcRaceName = function(ctx)
+  if not ctx.unit then return false end
+  local name = C.Race(ctx.unit)
+  return type(name) == "string" and (name:gsub("%s", "")) or false
+end
 B.npcMine = function(ctx)
   if not ctx.unit or not C.Exists("pet") then return false end
   local g = C.GUID(ctx.unit)
@@ -164,8 +176,33 @@ local function inRange(month, day, from, to)
   return v >= a or v <= b   -- wraps the new year
 end
 
+-- Easter Sunday (Gregorian, anonymous algorithm) -> month, day.
+local function easter(y)
+  local a, b, c = y % 19, math.floor(y / 100), y % 100
+  local d, e = math.floor(b / 4), b % 4
+  local f = math.floor((b + 8) / 25)
+  local g = math.floor((b - f + 1) / 3)
+  local h = (19 * a + b - d - g + 15) % 30
+  local i, k = math.floor(c / 4), c % 4
+  local l = (32 + 2 * e + 2 * i - h - k) % 7
+  local m = math.floor((a + 11 * h + 22 * l) / 451)
+  local month = math.floor((h + l - 7 * m + 114) / 31)
+  return month, (h + l - 7 * m + 114) % 31 + 1
+end
+
 function Ctx.FallbackHolidays(date)
   local out = {}
+  -- Noblegarden: the week ending on Easter Sunday, through the Monday after.
+  if date.year and date.month and date.day then
+    local em, ed = easter(date.year)
+    -- Easter is always in March or April, so a day count from 1 March is enough.
+    local function dayNum(mo, dd) return (mo == 3 and 0) or (mo == 4 and 31) or (mo == 5 and 61) or -999, dd end
+    local base = dayNum(date.month)
+    if base > -999 then
+      local t, te = base + date.day, dayNum(em) + ed
+      if t >= te - 6 and t <= te + 1 then out.noblegarden = true end
+    end
+  end
   for _, h in ipairs(W.HOLIDAYS) do
     if inRange(date.month, date.day, h.from, h.to) then out[h.id] = true end
   end
@@ -252,7 +289,7 @@ Ctx.DUMP_ORDER = {
   "name", "race", "class", "gender", "level", "band", "faction", "guild", "guildRank", "title",
   "money", "durability", "nearlyNaked", "tabard", "hardcore",
   "spec", "talentPoints", "pvpRank", "pvpRankName", "pvpFlagged", "honorKills", "dishonorKills",
-  "npcName", "npcID", "npcFamily", "npcMine", "npcLevel", "npcGender", "npcElite", "npcReaction", "npcSubtitle", "power", "levelDiff",
+  "npcName", "npcID", "npcFamily", "npcRace", "npcMine", "npcLevel", "npcGender", "npcElite", "npcReaction", "npcSubtitle", "power", "levelDiff",
   "zone", "subzone", "mapID", "capital", "resting", "atInn", "inInstance", "hour", "tod", "holiday",
   "party", "form", "mounted", "stealthed", "ghost", "pet", "debuffTypes", "resSick", "camping", "drunk", "outOfPlace",
 }

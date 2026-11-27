@@ -18,6 +18,8 @@ P:NPC {
     third = "{name} met Magrin Rivermane, who keeps a seat by the fire in the Bloodhoof Village inn.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Sit, friend, by me. The fire is better when shared with someone I'm glad to see." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "There is room by the fire, {class}, as there is for anyone. I've little else to offer you." },
     { id = "g_default", text = "Sit down by the fire, {class}, for there is room, and the plains will still be there when you are warm." },
     { id = "g_back", when = { metBefore = true }, text = "I thought we would see you at this fire again, because travellers who stop here once tend to." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "It is a good night to be under a roof. Kauth has built the fire high, and you are welcome to your share of it." },
@@ -39,6 +41,8 @@ P:NPC {
         { id = "h_again2", text = "I am listening, as I usually am." },
       },
       choices = {
+        { text = "Watching quietly and judging fairly is a rare gift.", next = "BACK", reply = "You are kind to say it. Fewer folk listen than you would think.", fx = { align = { honor = 1 } } },
+        { text = "An old tauren by the fire hears only gossip.", next = "BACK", reply = "Gossip, yes, and the truth hides inside it. You'd be surprised.", fx = { align = { honor = -1 } } },
         { text = "Who comes through this inn?", next = "who" },
         { text = "Strongbash says you hear everything.", next = "hear", when = { heardLine = "brave_strongbash.im_default" } },
         { text = "What do you make of the village's troubles?", next = "troubles" },

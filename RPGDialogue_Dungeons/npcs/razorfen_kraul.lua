@@ -18,6 +18,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Pal! My favourite rescuer in the world! Every time I see you, I feel about forty percent less likely to die." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. I'd rather you than a quilboar, pal, but honestly, not by much right now." },
     { id = "g_default", text = "Hey, hey, over here, pal! You're not a quilboar, which already makes you my favorite person in this whole thorny dump." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Willix the Importer") }, text = "Okay, we're doin' this, we're really doin' this, so stay close and keep those pigs off me, because I'm not built for runnin'." },
     { id = "g_done", when = { questDone = TODO_QUEST("Willix the Importer") }, text = "You came back in here on purpose? Friend, I don't know whether to admire you or bill you for my nerves." },
@@ -87,6 +89,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're a real lifesaver, pal, literally! When I'm back in business, there's a discount with your name on it." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been rough with me, pal, and I'm already tied up in a thorny hole. Lighten up a little." },
+    },
     charlga = { { id = "tp_ch", text = "Charlga Razorflank, the bossy old sow who runs this place. Scary lady, and I've met tax collectors." } },
     _none = { { id = "tp_none", text = "Pal, I'm a hostage, not an information broker, so ask me again when I'm free and charging." } },
   },

@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Altsoba Ragetotem, the tauren who sells weapons at Bloodvenom Post in Felwood.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You came back through the stink to see me. I respect that. Show me your weapon and I'll see what I can do." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hm. You. Buy or leave; I've got a forge to keep hot, and that's all I'll say." },
     { id = "g_default", text = "Hm. You'll want a weapon, coming through Felwood. Everyone does, sooner or later." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "One of the shu'halo, here in this sick place. The Earth Mother guard you, for this land will not." },
   },
@@ -23,6 +25,8 @@ P:NPC {
       narr = "He runs a whetstone down a long blade without looking at it.",
       lines = { { id = "xcame_default", text = "The Horde needed a smith who would not run from the stink. My tribe does not run. So I walked north from Mulgore, past the Barrens and through Ashenvale, and set my anvil here." } },
       choices = {
+        { text = "A smith who stays where others flee has earned respect.", next = "BACK", reply = "Hm. Most just complain about the smell. You are not most.", fx = { align = { honor = 1 } } },
+        { text = "Only a fool would set up shop in this rotting place.", next = "BACK", reply = "Then a fool is selling you your weapon. Pay me, and leave the fool to his work.", fx = { align = { honor = -1 } } },
         { text = "Was it a hard road?", next = "xroad" },
         { text = "Something else.", next = "BACK" },
       },

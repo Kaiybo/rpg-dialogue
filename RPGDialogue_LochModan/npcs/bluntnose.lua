@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Come in; you're one of the few who doesn't make me want to write to Ironforge." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Speak, and quickly, for I've a stack of grievances to Ironforge and you're not helping." },
     { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
       text = "A human! If ye're here for work, I'll pay ye when it's done, no' a copper before, an' if ye don't like that, the road tae Westfall's that way." },
     { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "bluntnose_human_soft" }, priority = 10,
@@ -345,6 +347,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You get things done, which is more than Ironforge does. I'd make you deputy if I could." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me another grievance to write, and I've plenty already." },
+    },
     knows = { { id = "tp_knows", text = "Every quarrel in Thelsamar reaches my table sooner or later, an' every rumour along wi' it. Ask." } },
     background = { { id = "tp_bg", text = "I've been magistrate here long enough tae remember when Thelsamar had more sheep than troubles." } },
     advice = { { id = "tp_ad", text = "Don't wait for help that's been promised, friend. Hire it, or be it." } },

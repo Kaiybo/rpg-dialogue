@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Hello there! Have you thought about taking up a trade yet? I'd be glad to point you toward the trainers." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did you find the trainer I sent you to, or shall I point again?" },
     { id = "g_grown", when = { metBefore = true, levelsSince = 8 }, text = "Look at you, grown strong enough to leave Deathknell well behind! I do hope you took a trade with you when you went." },
@@ -146,6 +148,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_default", text = "If you've come to learn herbs, then come and learn them properly." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Show me your hands; I want to see whether you've been tearing leaves." },
     { id = "g_alch", when = { profession = "Alchemy" }, text = "An alchemist. Then you'll want your herbs whole and not bruised, and for once I'll have a pupil who understands why it matters." },
@@ -167,6 +171,8 @@ P:NPC {
         { id = "jr_default", text = "Because I teach the first steps and no more, and I'm content with that. When you've learned what I know, Faruza in Brill will take you further, and after her there's Martha Alliestar in the Undercity's Apothecarium." },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "You don't want to teach the rest yourself?", next = "junior2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -308,6 +314,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_default", text = "Care to learn how to take leather from a beast, or do you need new tools?" },
     { id = "g_back", when = { metBefore = true }, text = "Hello again. Keep your knife sharp; a dull one ruins more hides than a careless hand." },
   },
@@ -330,6 +338,8 @@ P:NPC {
         { id = "h_again", text = "Anything else, dear?" },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me skinning.", next = "BUSINESS" },
         { text = "What's worth skinning around here?", next = "beasts" },
         { text = "What's the salt for?", next = "salt" },
@@ -452,6 +462,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_default", text = "How can I help you? If it's about rocks, I'm your man." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Found any good veins yet?" },
   },
@@ -474,6 +486,8 @@ P:NPC {
         { id = "h_again", text = "What else would you like to know?" },
       },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Teach me mining.", next = "BUSINESS" },
         { text = "Where's the ore around here?", next = "ore" },
         { text = "What do I do with ore?", next = "smelt" },
@@ -723,6 +737,8 @@ P:NPC {
     third = "{name} spoke with a Deathguard Veteran at the entrance to Deathknell.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
     { id = "g_default", text = "Newly risen, are you? Inside is the safe side of this gate, and outside is not, so keep that straight." },
     { id = "g_back", when = { metBefore = true }, text = "Still walking, I see. That's more than most manage their first week." },
   },
@@ -731,6 +747,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "A gatekeeper at the capital, if you can believe it. I let Prince Arthas through on the day he came home. I opened the gate myself and cheered. I've been standing at gates ever since, trying to do it properly this time." } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "You couldn't have known.", next = "yknown" },
         { text = "Something else.", next = "BACK" },
       },
@@ -832,6 +850,8 @@ P:NPC {
     third = "{name} spoke with an injured Deathguard kneeling in Deathknell.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep an eye open. Mind yourself." },
     { id = "g_default", text = "Don't mind me, I'm only resting, and I'll be back on my feet once someone sews my leg on properly." },
     { id = "g_back", when = { metBefore = true }, text = "Still kneeling, as you see. The stitches are taking their time." },
   },
@@ -840,6 +860,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "A stonemason, laying walls in Lordaeron. I know how a thing comes apart, and how to put it back. Shame I can't mortar myself. I've tried, mind. The apothecaries laughed." } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Who did this to you?", next = "ycaptain" },
         { text = "Something else.", next = "BACK" },
       },

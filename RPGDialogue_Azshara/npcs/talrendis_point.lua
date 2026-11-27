@@ -546,6 +546,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "There you are! My birds have missed you, if hippogryphs can miss anyone. Where to, friend?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Need a flight? Fine. Pay, mount, and spare me the talk today." },
     { id = "g_op_orcs", when = { gossip = { topic = "orcs", stance = "hate" } }, text = "Brinna says you'd drive the orcs out of Azshara. My birds would thank you, since the orcs' wind riders frighten them, though I'd not say the same about the orcs themselves." },
     { id = "g_default", text = "Ishnu-alah. If you need to fly, the hippogryphs are rested. Don't offer them bread, though; the Sentinels have spoiled them rotten." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back to the Point, and the hippogryphs lift their heads at your step. They choose their friends carefully." },
@@ -674,6 +676,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Is there more, or shall I call a hippogryph for the flight back to Ashenvale? Elune's light will see you home." } },
       choices = {
+        { text = "The orcs in Azshara should be driven out.", next = "BACK", reply = "Brinna will be pleased to hear it, and so will my birds.", fx = { align = { order = 1 } } },
+        { text = "The orcs have as much right to Azshara as anyone.", next = "BACK", reply = "My birds disagree, after the orcs shot three of them down. Pay for your flight.", fx = { align = { order = -1 } } },
         { text = "Why not fly over the bay?", next = "bay" },
         { text = "The hippogryphs don't seem to like Azshara.", next = "birds" },
         { text = "Show me where I can fly.", next = "BUSINESS" },

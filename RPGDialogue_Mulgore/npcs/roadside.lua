@@ -249,6 +249,8 @@ P:NPC {
     third = "{name} met Gennia Runetotem, the druid trainer at Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Peace to you, friend. The land is generous, and so is my heart when I see you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Peace to you, young one. The land is generous, though I am less so with those I'm unsure of." },
     { id = "g_hi", text = "Peace to you, young one. The grass is tall this season, and the land is glad." },
   },
   start = "hello",
@@ -456,6 +458,8 @@ P:NPC {
     third = "{name} met Yaw Sharpmane, the hunter trainer at Bloodhoof Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You walk softly, friend, like a true hunter. Come, sit, and tell me what you've tracked." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You walk softly enough. Good. Now let us see whether you listen as softly as you walk." },
     { id = "g_hi", text = "You walk softly enough, like a hunter who respects the grass. Good, because the plainstriders hear everything." },
     { id = "g_pet", when = { class = "HUNTER", pet = { type = "Beast" } }, text = "Let {pet} come forward and smell the grass with me. A beast that walks easy in Bloodhoof is a beast that is well kept." },
     { id = "g_young", when = { class = "HUNTER", minLevel = 10, maxLevel = 11, ["not"] = { pet = { type = "Beast" } } }, text = "You have reached your tenth season and still walk alone. Come, the plains have teachers waiting for you." },

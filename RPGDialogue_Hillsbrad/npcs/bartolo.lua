@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my most discerning patron! Come, behold my latest masterpiece, for you alone have the eye." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The great Bartolo has no time for the undiscerning today." },
     { id = "g_default", text = "You there! Yes, you! Come closer and behold the great Bartolo, for such chances are rare." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you return to bask in the greatness of Bartolo! Wise, very wise." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and still you come back to Bartolo. They always come back to Bartolo." },
@@ -146,6 +148,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You have taste, my friend, true taste! It is rare, and Bartolo treasures it." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You have insulted the great Bartolo, and the great Bartolo does not forgive so easily." },
+    },
     knows = { { id = "tp_knows", text = "Bartolo knows fabric, fur and the hearts of customers. Ask, and be dazzled." } },
     background = { { id = "tp_bg", text = "Born in Lordaeron, gifted at birth, and making cloaks since my hands could hold a needle." } },
     advice = { { id = "tp_ad", text = "Never wear wet wool in the hills. Wear Bartolo's cloak instead." } },

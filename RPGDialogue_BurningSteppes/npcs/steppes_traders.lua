@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Weapons sold, weapons mended, no complaints taken. What's broken?" },
     { id = "g_back", when = { metBefore = true }, text = "Back already? Let me guess: you hit something harder than your weapon." },
   },
@@ -116,6 +118,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Bread's hot, the water's warm, and there's no cold drink anywhere in these Steppes. Take it or don't." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Eat, before the goblins sell you something you don't need." },
   },
@@ -143,6 +147,8 @@ P:NPC {
         { id = "h_again2", text = "Speak. My hands are full, not my ears." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What have you got?", next = "BUSINESS" },
         { text = "What do you think of the Blackrock orcs?", next = "blackrock" },
         { text = "Where does the flour come from?", next = "flour" },

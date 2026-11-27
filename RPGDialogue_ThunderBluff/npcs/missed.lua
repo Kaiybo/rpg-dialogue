@@ -16,6 +16,8 @@ P:NPC {
     third = "{name} met Auctioneer Stampi, the livelier of Thunder Bluff's auctioneers.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in, come in, friend! For you, the best things on the board, and I'll point them out!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in, {class}. Things are on the board. Read them yourself." },
     { id = "g_hi", text = "Come in, come in, {class}! There are things on the floor today that I have never seen before, and I have been here since sunrise." },
     { id = "g_back", when = { metBefore = true }, text = "You are back! Have you brought anything from far away, or have you come to carry something off?" },
   },

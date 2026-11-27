@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "I'm Yanni Stoutheart, an' I sell general supplies, so if ye need it on the road, I've likely got it under this counter somewhere." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Let me guess: ye ran out o' somethin' ye swore ye had plenty of." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, were ye? Then yer pack's half empty, an' I'm glad tae see ye." },
@@ -43,6 +45,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, then. I'm only countin' nails, an' I've lost my place already." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "What do travellers always forget?", next = "forget" },
         { text = "What's the gossip at the inn?", next = "gossip" },
@@ -120,6 +124,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "I'm Drac Roughcut, an' I sell trade goods. If ye're makin' somethin', I've likely got the bit ye're missin'." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, for I've restocked the flux an' I'd like somebody tae buy it." },
   },
@@ -146,6 +152,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, then, but be quick about it, for there's a crate o' vials on the step that wants bringin' in before it rains." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your stock.", next = "BUSINESS" },
         { text = "Where do your goods come from?", next = "goods" },
         { text = "Who buys the most from you?", next = "buyers" },
@@ -243,6 +251,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "I'm Vrok Blunderblast, an' I sell guns an' shot, an' aye, the name's earned. Come in, an' don't touch anythin' that's pointed at ye." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more shot already? Ye've been busy, an' I like a busy customer." },
   },
@@ -270,6 +280,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask, an' mind ye stand clear o' the bench while ye do." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your wares.", next = "BUSINESS" },
         { text = "How did you earn the name Blunderblast?", next = "name" },
         { text = "Why guns, and not bows?", next = "guns" },
@@ -349,6 +361,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Ye're late, but come in. I cannae match colours by candle, mind, so dinnae ask me tae." },
     { id = "g_gnome", when = { race = "Gnome" }, text = "I'm Rann Flamespinner. Come in, wee friend, an' I'll show ye where I keep the short-cut patterns, for I had a gnome customer who taught me tae stock them." },
     { id = "g_default", text = "I'm Rann Flamespinner, an' I sell thread an' dye an' patterns. Come in, friend, an' mind ye don't tread on the bolts." },
@@ -379,6 +393,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. I'll keep spinnin' while ye think." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Let me see your supplies.", next = "BUSINESS" },
         { text = "Why 'Flamespinner'?", next = "name" },
         { text = "Who does tailoring in a mining town?", next = "who" },

@@ -416,6 +416,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep an eye open. Mind yourself." },
     { id = "g_default", text = "Keep moving, unless you need directions." },
     { id = "g_back", when = { metBefore = true }, text = "You again? Don't tell me you're still lost." },
     { id = "g_living", when = { race = { "Orc", "Troll", "Tauren" } }, text = "You're off the zeppelin, I take it. Brill is north and the Undercity is east of it, and that's two questions I've saved you asking." },
@@ -435,6 +437,8 @@ P:NPC {
         { id = "rd_default", text = "I don't. Deathguard Dillinger has the stretch west toward Deathknell, and the patrols from Brill pass me twice a watch. Gordo comes lumbering by as well, with his arms full of gloom weed for the apothecaries, and he's the only one who never asks me anything." },
       },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What comes down the road that shouldn't?", next = "road2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -708,6 +712,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Waiting for the zeppelin? It'll be late, because it's always late." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The zeppelin still isn't here, in case you wondered." },
     { id = "g_tauren", when = { race = "Tauren" }, text = "A tauren, and still on the platform after a whole minute. You've already outlasted the last one of your people I saw here." },
@@ -862,6 +868,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Hello there. Mind Max; he'll want to sniff you." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Max remembers you, I think; look at that tail." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter! Max, sit, and let the {class} see what a well-kept dog looks like. He's a little vain about his coat, I'm afraid." },
@@ -1027,6 +1035,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
     { id = "g_default", text = "Eyes east, {class}. That's where the trouble comes from." },
     { id = "g_back", when = { metBefore = true }, text = "Back at the wall? Rickard said you'd be back. Don't tell him he was right." },
     { id = "g_soldier", when = { class = { "WARRIOR", "PALADIN" } }, text = "You've stood a wall before, {class}, I can see it in your feet. Come and stand this one a minute and tell Rickard he's looking the wrong way." },
@@ -1046,6 +1056,8 @@ P:NPC {
         { id = "dw_default", text = "They're living folk, most of them, and paladins besides, and not five years ago their kind were burning ours on sight. But Argent Officer Garush pays in good coin for every Scourge trinket brought across this wall, and I've seen his people bleed beside ours." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "So which is it, pity or blessing?", next = "dawn2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1179,6 +1191,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. We could use a few more of your sort in the line." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear of the camp, unless you've orders to be here." },
     { id = "g_default", text = "Come round to my left side, would you? That's the one that works." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. I'd know that walk anywhere, even with one eye." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "Light feet, and coming up on my blind side. Try the other, friend, it's better manners and you'll get a straighter answer." },
@@ -1200,6 +1214,8 @@ P:NPC {
         { id = "ca_default", text = "It was. When the capital fell, the ones who got out alive were gathered here before they went south, and they say Uther himself stood guard over them. You can still find tent pegs in the ground if you kick about behind the wagons." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "And now the dead hold it against the dead.", next = "camp2" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1331,6 +1347,8 @@ P:NPC {
     third = "{name} spoke with a Vigilant Deathguard at the zeppelin landing south of Brill.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
     { id = "g_default", text = "State your business at the landing, and keep clear of the ropes when the zeppelin comes in." },
     { id = "g_back", when = { metBefore = true }, text = "Back for another flight? The goblins will be thrilled, or at least your coin will thrill them." },
   },
@@ -1343,6 +1361,8 @@ P:NPC {
     yfalls = {
       lines = { { id = "yfalls_x", text = "Then Tirisfal is cut off from Durotar, and the Horde has to trust the long road through the Barrens and the sea. The goblins say they'd rebuild in a week. I say a goblin's week is a month and a bill." } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Should the Forsaken build their own airships?", next = "yown" },
         { text = "Something else.", next = "BACK" },
       },
@@ -1441,6 +1461,8 @@ P:NPC {
     third = "{name} met the Knight of Mourning, a ghost bound by his oath to the mushroom ring in the Whispering Forest.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "My oath binds me to this place. What brings you here, to this Light-forsaken place?" },
     { id = "g_back", when = { metBefore = true }, text = "You return, traveller, and I am still here, as I must be." },
   },

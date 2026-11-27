@@ -12,6 +12,8 @@ P:NPC {
     third = "{name} met Vesprystus, who keeps the hippogryphs of Rut'theran Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ishnu-alah, friend. The wind is kind, and so are the birds to you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The hippogryphs are ready. Pay and fly." },
     { id = "g_default", text = "Ishnu-alah, traveler. The hippogryphs are ready, and the wind off the sea is kind today." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the roots of Teldrassil. Where will the wind take you this time?" },
     { id = "g_outsider", when = { race = { "Human", "Dwarf", "Gnome" } }, priority = 5,
@@ -115,6 +117,8 @@ P:NPC {
         { id = "ddf_default", text = "As safe as anything that flies. A hippogryph has never lost a rider who held on, and they know the way to Auberdine better than I know the steps of this dock. Falls happen on the ground, from cliffs and branches, where nobody is holding you up." },
       },
       choices = {
+        { text = "The hippogryphs connect our people.", next = "BACK", reply = "They do. You understand.", fx = { align = { order = 1 } } },
+        { text = "Hippogryphs are just mounts.", next = "BACK", reply = "Then walk.", fx = { align = { order = -1 } } },
         { text = "Then I'll trust the bird.", next = "BACK", fx = { affinity = 1 } },
         { text = "I'll keep both hands on the saddle, all the same.", next = "BACK", reply = "Wise. Every hippogryph prefers a rider who holds on tight." },
       },
@@ -282,6 +286,8 @@ P:NPC {
     third = "{name} met Ilyenia Moonfire, Darnassus' exacting weapon master.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Show me your stance. Good. You've improved, friend." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Show me your stance. No. Again." },
     { id = "g_default", text = "You wish to learn a new weapon? Show me your stance first." },
     { id = "g_back", when = { metBefore = true }, text = "You return. I trust you have been practicing, for the Sentinels practiced for a thousand years before they called themselves ready." },
   },
@@ -397,6 +403,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, but stand straight while you do." },
       },
       choices = {
+        { text = "A good stance is the foundation.", next = "BACK", reply = "It is. You understand.", fx = { align = { order = 1 } } },
+        { text = "Stance doesn't matter in a real fight.", next = "BACK", reply = "It does. Again.", fx = { align = { order = -1 } } },
         { text = "Teach me a weapon.", next = "BUSINESS" },
         { text = "What do the Sentinels favor?", next = "a" },
         { text = "You can't be the only trainer here.", next = "b" },
@@ -464,6 +472,9 @@ P:NPC {
     third = "{name} met Jeen'ra Nightrunner, a quiet hunter trainer of Darnassus.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Darnassus honors you, friend, and so do I. Walk with me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Darnassus honors you. I am less sure." },
+    { id = "g_rep1", when = { rep = { faction = "Darnassus", min = "Honored" } }, text = "Darnassus honours you, and the Sentinels know it. Walk these terraces as one of our own." },
     { id = "g_prej", when = { prejudiced = true }, text = "A human, come to learn the bow from me. I'll teach you, {class}, but you'll learn first that a hunter here kills to eat, and not to hang a head over the hearth." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, you again. You've never once brought a trophy head back from the hunt, and I've stopped expecting one." },
     { id = "g_default", text = "Speak softly. The beasts are listening, and so am I." },
@@ -497,6 +508,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They trust those who listen, and you seem to. I am more at ease with beasts than with people myself, and you may be the same." } },
       choices = {
+        { text = "A hunter guards the forest.", next = "BACK", reply = "We do. You understand.", fx = { align = { order = 1 } } },
+        { text = "A hunter hunts for himself.", next = "BACK", reply = "Then hunt alone.", fx = { align = { order = -1 } } },
         { text = "Then I will treat them gently, Jeen'ra.", next = "BACK", reply = "Gently is how they best understand us, shaman. The nightsabers will remember you for it, and so will I.", fx = { align = { honor = 1 } } },
         { text = "Beasts are beasts, Jeen'ra. I don't need their trust.", next = "BACK", reply = "Then they will treat you the same way, and a nightsaber that does not trust you is a very bad thing to meet. I hope you learn otherwise.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

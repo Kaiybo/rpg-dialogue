@@ -13,6 +13,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Psst, my friend! You be back, and Rinji be glad. Come close, I tell you a secret." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Rinji not want to talk to you, mon, bars or no bars." },
     { id = "g_cage", text = "Psst! You, mon, over here, by the bars. You be lookin' like someone who don't love elves." },
   },
 
@@ -195,6 +197,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You be a true friend to a troll in a cage, mon, and Rinji not forget it when he be free." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You treat Rinji like an animal, mon, and Rinji already be in a cage for that." },
+    },
     wildhammer = { { id = "tp_wildhammer", text = "The Wildhammer and the elves of Quel'Danil both hunt my people, mon, and they been doin' it longer than anybody remember. I'd take a dwarf's axe over an elf's cage, though, since at least the axe be quick." } },
     darkspear = { { id = "tp_darkspear", text = "The Darkspear be wise, mon, throwin' in with the orcs while the rest of us were busy starvin' in the hills. I'd walk all the way to their islands if somebody would open this cage." } },
     zul_gurub = { { id = "tp_zul_gurub", text = "The Gurubashi woke their blood god down south, mon, and the drums can be heard all the way up here at night. I want no part of it, and I'd be far away from it already if it weren't for these bars." } },

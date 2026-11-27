@@ -18,6 +18,8 @@ P:NPC {
     third = "{name} met Bor'zehn, a warrior of Moktar Krin's war party at Ironstone Camp.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Lok'tar, friend. Sit, and touch the kodo if you like. He likes you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Lok'tar. Sit if you want. Don't touch the kodo, and don't touch me." },
     { id = "g_default", text = "Lok'tar. Sit if you want, but don't touch the kodo." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The kodo remembers you, and he is not impressed." },
   },
@@ -138,6 +140,8 @@ P:NPC {
     third = "{name} met Nag'zehn, a hunter of Moktar Krin's war party.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. The cliffs have ears, but I trust yours more. Sit quiet with me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Quiet, stranger. The cliffs have ears, and so do I. I'm listening to you closely." },
     { id = "g_default", text = "Quiet, stranger. The cliffs have ears, and some of them have wings." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Still in one piece, I see." },
   },
@@ -244,6 +248,8 @@ P:NPC {
     third = "{name} met Tarkreu Shadowstalker, the scout of Moktar Krin's war party.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You walk softly now, friend. The mesa barely heard you. That's well done." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You walk loudly. The mesa heard you, and it doesn't care for you, nor do I." },
     { id = "g_default", text = "You walk loudly. Everything on this mesa heard you coming." },
     { id = "g_back", when = { metBefore = true }, text = "Quieter this time. A little." },
   },
@@ -520,6 +526,8 @@ P:NPC {
     third = "{name} met Rizzle Brassbolts, one of the gnome brothers who crew the Mirage Raceway's gnomish team.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, hello, friend! You can borrow the wrench, I trust you! Mind the oil, though." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh. Hello. Mind the oil, and the wrench is mine. Don't touch it." },
     { id = "g_default", text = "Oh! Hello! Mind the oil, it's slippery, and the wrench, it's mine." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did you come to see the car? Everyone comes to see the car." },
   },
@@ -626,6 +634,8 @@ P:NPC {
     third = "{name} met Drag Master Miglen, who times the gnomish team's runs at the Mirage Raceway.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you. You may stay trackside, friend. Just keep clear when the run comes through." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Off the track, please. Now. The next run is due shortly, and I'd rather you not be on it." },
     { id = "g_default", text = "Off the track, please! The next run is due in three minutes and forty seconds." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Do you have business, or are you blocking my sight line?" },
   },
@@ -728,6 +738,8 @@ P:NPC {
     third = "{name} met Race Master Kronkrider, who officiates the races at the Mirage Raceway.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Step right up, friend! The best seat at the Mirage Raceway is yours!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Step right up. Pay for your seat. The cheap ones are over there, for you." },
     { id = "g_default", text = "Step right up! The Mirage Raceway welcomes you to the fastest show on the flats!" },
     { id = "g_back", when = { metBefore = true }, text = "Back for more speed? I knew you had the fever!" },
   },
@@ -842,6 +854,8 @@ P:NPC {
     third = "{name} met Fobeed, an ogre who announces the races at the Mirage Raceway.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Fobeed say hello, friend! Fobeed say it loud and happy, because Fobeed like you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Fobeed say hello. Fobeed say it quiet, because Fobeed not sure about you." },
     { id = "g_default", text = "Fobeed say hello! Fobeed say it loud, because Fobeed always say it loud!" },
   },
   start = "hello",
@@ -957,6 +971,8 @@ P:NPC {
     third = "{name} met Zuzubee, an ogre who announces for the gnomes at the Mirage Raceway.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Zuzubee welcome friend! Zuzubee so happy! Gnomes go fast, and you here to watch!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Zuzubee welcome you. Zuzubee watch you. Gnomes go fast. You go somewhere else, maybe." },
     { id = "g_default", text = "Zuzubee welcome you! Gnomes go fast today! Maybe! Zuzubee hope so!" },
   },
   start = "hello",
@@ -1057,6 +1073,8 @@ P:NPC {
     third = "{name} met one of the gnomish pit crew at the Mirage Raceway.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you! Can't stop, but I can talk to you, friend! Hand me that, would you?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Can't stop, can't talk, and I don't want to. Move along, please." },
     { id = "g_default", text = "Can't stop, can't talk, well, I can talk, but I can't stop!" },
   },
   start = "hello",
@@ -1165,6 +1183,8 @@ P:NPC {
     third = "{name} met one of the goblin pit crew at the Mirage Raceway.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, pal! No tip needed from you, you're good people. Stick around." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey, you're in the pit. That'll cost you a tip and a sandwich. Two sandwiches." },
     { id = "g_default", text = "Hey, pal, you're in the pit. That'll cost you a tip, or a sandwich." },
   },
   start = "hello",
@@ -1276,6 +1296,8 @@ P:NPC {
     third = "{name} met Quentin, a night elf studying the soil of the Shimmering Flats.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend. I'm not here for the races, but I'm glad to see you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. I'm not here for the races, nor for idle talk with you." },
     { id = "g_default", text = "Ishnu-alah. Forgive me, I am not here for the races." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The salt hasn't changed since we spoke." },
   },
@@ -1476,6 +1498,8 @@ P:NPC {
     third = "{name} spoke with a Freewind Brave guarding the lifts of Freewind Post.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Peace, friend. The lift is sound and the post is above, and you're welcome at both." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Peace, {class}. The lift is sound. Use it, and keep the peace on the post above." },
     { id = "g_default", text = "Peace, {class}. The lift is sound, and the post is above, if you have business there." },
     { id = "g_alli", when = { faction = "Alliance" }, text = "Keep your weapons sheathed, stranger. Freewind Post does not welcome trouble, and I am the one who stops it." },
   },

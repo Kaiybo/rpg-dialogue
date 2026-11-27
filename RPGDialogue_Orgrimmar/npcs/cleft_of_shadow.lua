@@ -126,6 +126,8 @@ P:NPC {
     third = "{name} met Mirket, a warlock trainer in Orgrimmar's Cleft of Shadow.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you. Good. You're one of the few who comes here to learn instead of to gawk. Sit down." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "If you've come to stare again, the door is behind you. If you've come to learn, be quick." },
     { id = "g_hi", text = "If you've come to stare at the warlocks, there's a better view from the top of the ramp." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Another one for the Cleft. Your imp's been talking about you, and none of it was flattering." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and on time, which already puts you ahead of most of my students." },
@@ -349,6 +351,8 @@ P:NPC {
     third = "{name} met Kurgul, the demon trainer in Orgrimmar's Cleft of Shadow.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Bring your demon, friend. You've kept it well in hand, and that makes my work a pleasure." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bring me your demon. Let's see if it's learned more manners than its master." },
     { id = "g_hi", text = "Bring me your demon, and let's see what we can teach it this time." },
     { id = "g_imp", when = { pet = { family = "Imp" } }, text = "Oh, you've brought an imp, and it's pulling faces at me already. Hello, little one, and do stop that." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good, because I keep a list of demons who owe me an apology, and yours is near the top." },
@@ -544,6 +548,8 @@ P:NPC {
     third = "{name} met Rekkul, who sells poisons in Orgrimmar's Cleft of Shadow.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you may touch the jars, friend. You've clean hands and a careful eye." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Don't touch the jars. Don't even breathe on them. I've seen how you handle things." },
     { id = "g_hi", text = "Don't touch the jars, please, or at least wash your hands before you eat anything." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and you still have all your fingers. Good, that means you've been reading the labels." },
     { id = "g_cough", text = "Pardon the cough, friend, it's only the fumes, and it's been only the fumes for six years now. What can I find for you?" },
@@ -670,6 +676,8 @@ P:NPC {
     third = "{name} met Hagrus, who sells reagents to the spellcasters of Orgrimmar's Cleft of Shadow.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Reagents, friend, and I'll find you the fresh ones. You've earned better than the dregs." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Reagents. No, I've nothing stronger for you, and I wouldn't sell it to you if I had." },
     { id = "g_hi", text = "Reagents, yes, and no, I don't have anything stronger, so don't ask." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. You burn through powders faster than a mage in a bad temper." },
     { id = "g_count", text = "Hold on, I'm counting, forty-one, forty-two, and now I've lost it, so you'd better be buying something." },

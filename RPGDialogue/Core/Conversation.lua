@@ -452,6 +452,12 @@ function Conv.OpenFull(reason)
   -- Snapshot the states live reactions watch, so a change after this moment is seen.
   for _, k in ipairs(Conv.LIVE_KEYS) do local _ = s.ctx[k] end
   local start = (s.info.def and s.info.def.start) or "hello"
+  -- The talk key pressed again during a live visit: carry on from the node it was at (the
+  -- last thing shown), not the greeting.
+  if s.node and s.nodeDef and not s.ended then
+    Conv.ShowNode(s.node)
+    return
+  end
   Conv.ShowNode(start)
   ns.Fire("CONVERSATION_OPENED", s)
 end

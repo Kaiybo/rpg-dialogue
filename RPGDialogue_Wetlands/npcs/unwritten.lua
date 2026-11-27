@@ -124,6 +124,8 @@ P:NPC {
     third = "{name} met Mountaineer Grugelm at Dun Algaz.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
     { id = "g_default", text = "Halt there. Oh, ye're no orc, so ye can pass, but mind ye don't take Rharen's side in anything." },
   },
   start = "hello",
@@ -132,6 +134,8 @@ P:NPC {
       lines = { { id = "h_default", text = "Grugelm, mountaineer of Ironforge, and I guard Dun Algaz with that great lump Rharen. The pass is the only road between Loch Modan and the Wetlands, and the Dragonmaw would dearly love to own it." } },
       again = { { id = "h_again", text = "What else, {g:lad|lass}?" } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Tell me about the Dragonmaw.", next = "dragonmaw" },
         { text = "You and Rharen don't get along?", next = "rharen" },
         { text = "Why guard this pass?", next = "xpass" },
@@ -233,6 +237,8 @@ P:NPC {
     third = "{name} met Mountaineer Rharen at Dun Algaz.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. The streets feel a little safer with you walking them." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "State your business quickly, and then be on your way." },
     { id = "g_default", text = "Ho there, traveller! Don't mind Grugelm's scowl, he was born with it." },
   },
   start = "hello",
@@ -244,6 +250,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anythin' else, friend?" } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "What's the road north like?", next = "north" },
         { text = "Grugelm says you drank the last stout.", next = "stout" },
         { text = "How long have you guarded Dun Algaz?", next = "xlong" },
@@ -346,6 +354,8 @@ P:NPC {
     third = "{name} talked with a crewman of the Maiden's Virtue at Menethil Harbor.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Ahoy, friend! If you're for Theramore, you'll be waitin' on the tide like the rest of us." },
   },
   start = "hello",
@@ -465,6 +475,8 @@ P:NPC {
     third = "{name} spoke with Aman, an ancient spirit that answers in riddles.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Small one. You stand where the stones remember things your people have not yet learned to ask." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The stones noticed. They notice very little." },
   },

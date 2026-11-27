@@ -146,6 +146,8 @@ P:NPC {
     third = "{name} met Komin Winterhoof, the patient herbalism trainer of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back, friend. Breathe deep; the plants know you, and they're glad." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Holistic Herbalism. Breathe deep, and touch nothing." },
     { id = "g_hi", text = "Welcome to Holistic Herbalism. Breathe deep; the peacebloom is drying, and it is good for the spirit." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, you return, and with soil on your hooves, I hope." },
   },
@@ -235,6 +237,9 @@ P:NPC {
     third = "{name} met Brek Stonehoof, the mining trainer at Stonehoof Geology in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The whole bluff talks of you, friend, and kindly! Come, let's dig together." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The whole bluff talks of you. Not all of it is kind. I'll teach you anyway." },
+    { id = "g_rep1", when = { rep = { faction = "Thunder Bluff", min = "Honored" } }, text = "The whole bluff talks of you, and kindly! Even Karn grunted something good, I think." },
     { id = "g_hi", text = "Stonehoof Geology. If you want to learn what's under the grass, you've come to the right tent." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Let me see your pick; I can tell a lot from the edge on it." },
     { id = "g_away", when = { away = 14 }, text = "{away} gone, and the bluff has not fallen down. I checked this morning." },
@@ -379,6 +384,8 @@ P:NPC {
     third = "{name} met Mooranta, the blunt and careful skinning trainer of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend! Your knife is sharp, I can tell. Come, let's skin something." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "If you've come to learn skinning, sharpen your knife first. And your manners." },
     { id = "g_hi", text = "If you've come to learn skinning, sharpen your knife first. A dull blade dishonours the beast." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Show me your hands; I want to see if you've been working." },
     { id = "g_away", when = { away = 14 }, text = "{away}, and I hope you wasted nothing in all that time." },
@@ -529,6 +536,8 @@ P:NPC {
     third = "{name} met Netali Proudwind, who sells general goods on Spirit Rise.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome to Spirit Rise, friend! For you, the best thread, flasks, and flour!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Spirit Rise. Thread, flasks, flour. Pay for what you take." },
     { id = "g_hi", text = "Welcome to Spirit Rise! Thread, flasks, flour, flint, and whatever else a walker of the spirit world forgets to bring." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again! Did the flasks hold? They usually do." },
     { id = "g_away", when = { away = 14 }, text = "{away} since you were last up here. The rise has been dull without you." },
@@ -677,6 +686,9 @@ P:NPC {
     third = "{name} met Sunn Ragetotem, who sells staves and rainsticks on the High Rise.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The Earth Mother's people trust you, friend. That is an honor, and I share it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The Earth Mother's people trust you less than they once did. I am one of them." },
+    { id = "g_rep1", when = { rep = { faction = "Thunder Bluff", min = "Friendly" } }, text = "The Earth Mother's people trust you now. That is a fine thing to hear on the bluff." },
     { id = "g_hi", text = "Listen to this one. That is the sound of rain on the plains, held in a stick of cured wood." },
     { id = "g_back", when = { metBefore = true }, text = "Back for a staff, or back to hear the rain again? Both are welcome." },
     { id = "g_away", when = { away = 14 }, text = "{away} since you were on this rise. It has rained twice, and I claim no credit." },
@@ -820,6 +832,8 @@ P:NPC {
     third = "{name} met Jyn Stonehoof, the weapons merchant of Thunder Bluff's lower rise.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Weapons, friend, made on this bluff, and the best of them for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Weapons, made on this bluff. Full price, no haggling." },
     { id = "g_hi", text = "Weapons, friend, made on this bluff by Stonehoof hands. Pick one up; feel the balance before you look at the shine." },
     { id = "g_back", when = { metBefore = true }, text = "How's the blade holding? Bring it back if it isn't, and we'll see whose fault that is." },
     { id = "g_away", when = { away = 14 }, text = "{away} since you were last in. I hope whatever you bought has blood on it by now." },
@@ -964,6 +978,8 @@ P:NPC {
     third = "{name} met Fyr Mistrunner, who bakes and sells bread at Breads and Grains in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in from the wind, friend. The cornbread is warm, and it's yours." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in from the wind. The cornbread is warm. It costs the same as always." },
     { id = "g_hi", text = "Come in from the wind. The cornbread is still warm, and warm bread should not wait." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and hungry, I hope. I baked extra this morning." },
     { id = "g_away", when = { away = 14 }, text = "{away} without my bread. You look as though you felt it." },
@@ -1116,6 +1132,9 @@ P:NPC {
     third = "{name} met Atepa, one of the bankers of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The bluff speaks well of you, friend, and your coin is always welcome here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The bluff speaks of you, and not all of it well. Your coin is still accepted." },
+    { id = "g_rep1", when = { rep = { faction = "Thunder Bluff", min = "Friendly" } }, text = "The bluff speaks well of you, so your coin is welcome here, and so are you." },
     { id = "g_hi", text = "Be welcome to the bank of Thunder Bluff. What you leave with us will be here when you return, however long the road." },
     { id = "g_back", when = { metBefore = true }, text = "You have returned, and so has everything you left. I checked it myself this morning." },
     { id = "g_away", when = { away = 14 }, text = "{away} since you last stood at this counter. Nothing of yours has moved by so much as a finger's width." },
@@ -1255,6 +1274,8 @@ P:NPC {
     third = "{name} met Krumn, the guild master of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Well met, friend. You walk with honor, and that's well." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well met. Do you walk alone, or do you walk with trouble?" },
     { id = "g_hi", text = "Well met. Do you walk alone, or do you walk with others? It is my business to ask." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Tell me, have you found companions worth a charter yet?" },
     { id = "g_guild", when = { guild = true }, text = "You wear a guild's name, and I am glad to see it. May your fellowship stand as long as these bluffs." },
@@ -1394,6 +1415,8 @@ P:NPC {
     third = "{name} met Stampi, the auctioneer of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Buying or selling, friend? Speak up! I've got the best deals for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Buying or selling? Speak up. Quickly." },
     { id = "g_hi", text = "Buying or selling? Speak up, friend, I have been shouting since dawn and I am half deaf from it." },
     { id = "g_back", when = { metBefore = true }, text = "Back to the block! Have you brought me something, or come to take something away?" },
     { id = "g_away", when = { away = 14 }, text = "{away} since you last bid here. Prices have gone up, down and up again, so you have missed nothing." },
@@ -1534,6 +1557,8 @@ P:NPC {
     third = "{name} met Kuruk, who sells general goods on the High Rise of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. Rope, torches, and a little extra for your road." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Rope, torches, a waterskin. Pay, and go." },
     { id = "g_hi", text = "Welcome, friend. Rope, torches, a waterskin? Whatever you forgot to pack, I have probably got it." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. What was it this time, the flint or the bedroll?" },
     { id = "g_away", when = { away = 14 }, text = "{away} on the road. Your pack must be down to crumbs and string by now." },
@@ -1674,6 +1699,8 @@ P:NPC {
     third = "{name} met Tepa, the tailoring trainer of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in out of the wind, friend. Mind the loom, but you always do." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in out of the wind, and mind the loom. I've seen you be careless." },
     { id = "g_hi", text = "Come in out of the wind, and mind the loom. Have you come to learn, or only to be measured?" },
     { id = "g_back", when = { metBefore = true }, text = "You are back. Let me see your hems before you tell me how well they went." },
     { id = "g_away", when = { away = 14 }, text = "{away} since your last lesson. Your fingers will have stiffened, so we shall begin gently." },
@@ -1813,6 +1840,8 @@ P:NPC {
     third = "{name} met Pand Stonebinder, who teaches first aid on Spirit Rise in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hold still, friend. No, you're well. Good. Come, let's train." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hold still. You'll do. Nothing's broken, though I wonder why not." },
     { id = "g_hi", text = "Hold still a moment. No, you will do; nothing is bleeding that should not be. Now, what did you want?" },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and walking evenly. Good. Did the last bandage hold?" },
     { id = "g_away", when = { away = 14 }, text = "{away} since I saw you. Show me your hands; they tell me how the time went." },
@@ -1957,6 +1986,8 @@ P:NPC {
     third = "{name} met Torn, a young banker of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome to the bank of Thunder Bluff, friend! Your goods are safe and sound with me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to the bank of Thunder Bluff. Your goods are safe. Kindly don't linger." },
     { id = "g_hi", text = "Welcome to the bank of Thunder Bluff. Whatever you set down here will be waiting when you come back for it." },
     { id = "g_back", when = { metBefore = true }, text = "You have returned, and I have your tally by heart already. What shall I fetch for you?" },
     { id = "g_away", when = { away = 14 }, text = "{away} have passed since you leaned on this counter, and nothing of yours has moved by so much as a finger's width." },
@@ -2061,6 +2092,8 @@ P:NPC {
     third = "{name} met Thrumn, who sells tabards in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come closer, friend, and let me find the colours that suit you best. I know them well." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come closer, and let me see. Hmm. Dull colours, I think, suit you." },
     { id = "g_hi", text = "Come closer, and let me see what colours would suit you. A tabard is the first thing a stranger learns about you." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. Has the cloth held, or has Krumn sent you to quarrel with me on his behalf?" },
   },
@@ -2163,6 +2196,8 @@ P:NPC {
     third = "{name} met Auctioneer Gullem in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Step over here, friend, where you can hear yourself think. And hear me too." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Step over here. Hear yourself think, and think before you bid." },
     { id = "g_hi", text = "Step over here, where you can hear yourself think. What have you brought to sell, or what are you hoping to find?" },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. I kept an eye on the lots for you, as I do for everyone who is civil to me." },
   },
@@ -2266,6 +2301,8 @@ P:NPC {
     third = "{name} met Shadi Mistrunner, who sells trade goods in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Tell me your craft, friend, and I'll find you the best of everything." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Tell me your craft, and I'll tell you what you need, and what it costs." },
     { id = "g_hi", text = "Tell me your craft, and I will tell you what you have run out of. I am seldom wrong." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Then it was thread or it was vials, because it is always one of the two." },
   },
@@ -2287,6 +2324,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away, and pass me that spool while you do." },
       },
       choices = {
+        { text = "Supplying the crafters fairly is honest work.", next = "BACK", reply = "It is, and I am glad you see it. Few thank the one who sorts the spools.", fx = { align = { honor = 1 } } },
+        { text = "Middlemen only raise prices on the rest of us.", next = "BACK", reply = "Then go and dig your own salt, friend, and see what it costs you.", fx = { align = { honor = -1 } } },
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "There are Mistrunners on every rise.", next = "family" },
         { text = "What do crafters run short of most?", next = "short" },
@@ -2366,6 +2405,8 @@ P:NPC {
     third = "{name} met Chepi, the reagent vendor of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Be welcome, friend. The spirits are glad you've come, and I am too." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Be welcome. Tell me what you mean to ask of the spirits, and I'll decide if they'll answer." },
     { id = "g_hi", text = "Be welcome. Tell me what you mean to ask of the spirits, and I will find what they like to be given." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back, so the last of it was used. I hope it was used well." },
   },
@@ -2469,6 +2510,8 @@ P:NPC {
     third = "{name} met Pakwa, the bag vendor of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Look at you, friend! The straps fit fine now. You've been looking after yourself." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Look at those straps cutting into you. Set the pack down, and buy something better." },
     { id = "g_hi", text = "Look at those straps cutting into you! Set that pack down a moment, friend, and let us see what can be done." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon? Then you have filled it already, as I said you would." },
   },
@@ -2491,6 +2534,8 @@ P:NPC {
         { id = "h_again3", text = "Yes, friend?" },
       },
       choices = {
+        { text = "A tauren's pack is built on tradition. I trust it.", next = "BACK", reply = "Then you will carry well, friend, and your back will thank you.", fx = { align = { order = 1 } } },
+        { text = "A bag is a bag. Tradition doesn't matter to a strap.", next = "BACK", reply = "Say that to your shoulders at sundown, friend.", fx = { align = { order = -1 } } },
         { text = "Show me your bags.", next = "BUSINESS" },
         { text = "What makes a good pack?", next = "good" },
         { text = "You think I carry too much.", next = "much" },
@@ -2569,6 +2614,8 @@ P:NPC {
     third = "{name} met Hewa, who owns Hewa's Armory in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome to my armory, friend. The best cloth and leather, saved for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to my armory. Cloth on this side, leather on that. Don't mix them up." },
     { id = "g_hi", text = "Welcome to my armory. The cloth is on this side, the leather is Ahanu's, and the mail is Elki's, so tell me which of us you need." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back. I hope that means the last robe served you, and not that it fell apart." },
   },
@@ -2671,6 +2718,8 @@ P:NPC {
     third = "{name} met Elki, the mail armor merchant at Hewa's Armory.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. The mail is here, and you may try on whatever you like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. The mail is here. Try on what you need, and nothing more." },
     { id = "g_hi", text = "Welcome. The mail is here on my side, and you may lift any piece you like to feel its weight." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. Turn around and let me see how the rings have worn." },
   },
@@ -2692,6 +2741,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, and I will keep oiling while you do, if you do not mind." },
       },
       choices = {
+        { text = "Oiling every piece yourself shows real discipline.", next = "BACK", reply = "It shows I do not trust anyone else to do it, but thank you.", fx = { align = { order = 1 } } },
+        { text = "Mail is for those afraid to feel a blow.", next = "BACK", reply = "Then go without, friend, and tell me how it feels.", fx = { align = { order = -1 } } },
         { text = "Show me your mail.", next = "BUSINESS" },
         { text = "You oil every piece yourself.", next = "oil" },
         { text = "Who makes mail for the tauren?", next = "makes" },
@@ -2772,6 +2823,8 @@ P:NPC {
     third = "{name} met Thrag Stonehoof, a smith at Karn's Smithy in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Mind the sparks, friend! Come to learn the forge? I've been hoping you would!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the sparks. Come to learn the forge? Then pay attention, for once." },
     { id = "g_hi", text = "Mind the sparks, friend! Have you come to learn the hammer, or only to watch a Stonehoof swing one?" },
     { id = "g_back", when = { metBefore = true }, text = "There you are again. Show me your hands, and I will know whether you have been practising." },
   },
@@ -2795,6 +2848,8 @@ P:NPC {
         { id = "h_again3", text = "Yes, friend?" },
       },
       choices = {
+        { text = "Every great smith starts with the basics. I respect that.", next = "BACK", reply = "Good, then you will learn well, and you will not skip steps.", fx = { align = { order = 1 } } },
+        { text = "I'd rather learn from the masters, not the first teacher.", next = "BACK", reply = "Then go to Karn, and he will send you back to me.", fx = { align = { order = -1 } } },
         { text = "Teach me what you can of smithing.", next = "BUSINESS" },
         { text = "The Stonehoofs seem to own this corner.", next = "kin" },
         { text = "What is it like to learn under Karn?", next = "karn" },
@@ -2891,6 +2946,8 @@ P:NPC {
     third = "{name} met Taur Stonehoof, who sells smithing supplies in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome to the smithy, friend. Whatever you need, I'll find it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to the smithy. If the forge needs it, I sell it. Pay for it." },
     { id = "g_hi", text = "Welcome to the smithy. If the forge needs it, I sell it, and if I do not sell it, the forge does not need it." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more flux? You are using it faster than Thrag, and he spills half of his." },
   },
@@ -2912,6 +2969,8 @@ P:NPC {
         { id = "h_again2", text = "Ask it. The coal will not burn itself." },
       },
       choices = {
+        { text = "The one who hauls the coal deserves as much praise as the smith.", next = "BACK", reply = "You are kind to say so, and I will remember you said it.", fx = { align = { honor = 1 } } },
+        { text = "Coal-haulers aren't the ones anyone remembers.", next = "BACK", reply = "No, they are not. But the forge would go cold without them.", fx = { align = { honor = -1 } } },
         { text = "Show me your smithing supplies.", next = "BUSINESS" },
         { text = "You seem the quiet Stonehoof.", next = "quiet" },
         { text = "Where does the coal come from?", next = "coal" },
@@ -2991,6 +3050,8 @@ P:NPC {
     third = "{name} met Kurm Stonehoof, who sells mining supplies in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome to Stonehoof Geology, friend! Brek will teach you, and I'll sell you the best tools." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Stonehoof Geology. Brek teaches, I sell. Full price." },
     { id = "g_hi", text = "Welcome to Stonehoof Geology. Brek will teach you to find the ore, and I will sell you something to get it out with." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and that pick has seen some stone since I sold it. Good." },
   },
@@ -3098,6 +3159,8 @@ P:NPC {
     third = "{name} met Nan Mistrunner, the fruit vendor of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Smell that, friend! The ripest fruit, and I've saved the best for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Smell that. Ripe fruit. Pay, and you can have some." },
     { id = "g_hi", text = "Smell that, friend, and tell me it is not the ripest melon on the bluff. You cannot, can you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! I knew the apples would bring you, for they always do." },
     { id = "g_eve", when = { timeOfDay = "night" }, text = "You are shopping late. The fruit is cool from the evening air, which is when it is sweetest." },
@@ -3201,6 +3264,8 @@ P:NPC {
     third = "{name} met Naal Mistrunner, who sells cooking supplies in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome to Aska's Kitchen, friend! She cooks, I sell, and you eat well!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Aska's Kitchen. She cooks, I sell. You pay." },
     { id = "g_hi", text = "Welcome to Aska's Kitchen. She does the cooking and I sell the makings, so tell me what you are short of." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, so either the stew worked or you have burned it and need more spice." },
   },
@@ -3223,6 +3288,8 @@ P:NPC {
         { id = "h_again3", text = "Yes, friend?" },
       },
       choices = {
+        { text = "The one who fetches the herbs makes the dish possible.", next = "BACK", reply = "Thank you, friend. Tell Aska, would you? She never says it.", fx = { align = { honor = 1 } } },
+        { text = "A cook takes the credit. That's simply how it goes.", next = "BACK", reply = "It is, and I will go on being blamed for the salt, I suppose.", fx = { align = { honor = -1 } } },
         { text = "Show me your cooking supplies.", next = "BUSINESS" },
         { text = "It sounds as if Aska keeps you running.", next = "aska" },
         { text = "What do tauren season their food with?", next = "season" },
@@ -3302,6 +3369,8 @@ P:NPC {
     third = "{name} met Sewa Mistrunner, who sells fishing supplies in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hush, friend, there's one nosing the bait. Sit by me and watch." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hush. There's one nosing the bait. Don't scare it away." },
     { id = "g_hi", text = "Hush a moment, there is one nosing the bait. No, it has gone, so now you may tell me what you need." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. Did the line hold, or is there a fish somewhere wearing my hook?" },
   },
@@ -3406,6 +3475,8 @@ P:NPC {
     third = "{name} met Tand, the basket weaver of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Sit, friend, and forgive me if I keep weaving. Your company is always welcome." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Sit, if you wish, and forgive me if I keep weaving. And if I don't talk." },
     { id = "g_hi", text = "Sit, if you wish, and forgive me if I keep weaving. The reeds are wet, and they will not wait on manners." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. This is the same basket you saw before, and it is nearly a basket now." },
   },
@@ -3508,6 +3579,8 @@ P:NPC {
     third = "{name} met Halpa, who sells prairie dogs in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Step softly, friend, though they don't startle at you any more." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Step softly. They startle, and they startle worse at you." },
     { id = "g_hi", text = "Step softly, friend, for they startle. Once they have had a look at you they will come out again." },
     { id = "g_back", when = { metBefore = true }, text = "They remember you, I think. See how the brown one is standing up to look?" },
   },
@@ -3614,6 +3687,8 @@ P:NPC {
     third = "{name} met Kard Ragetotem, who sells swords and daggers in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome to the hall of the Ragetotem, friend. Pick up any weapon you like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to the hall of the Ragetotem. Pick up any weapon. Carefully." },
     { id = "g_hi", text = "Welcome to the hall of the Ragetotem. Pick up any blade you like, and I will learn more about you from that than from your name." },
     { id = "g_back", when = { metBefore = true }, text = "You have returned. Is the blade blooded yet, or has it only been admired?" },
   },
@@ -3717,6 +3792,8 @@ P:NPC {
     third = "{name} met Delgo Ragetotem, the axe merchant of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ha! Come in, friend, to the right side of the hall! The best weapons for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ha. Come in. The right side of the hall. Don't touch the left." },
     { id = "g_hi", text = "Ha! Come in, and come to the right side of the hall, where the real weapons are kept." },
     { id = "g_back", when = { metBefore = true }, text = "There you are! Tell me that axe has split something worth the telling." },
   },
@@ -3738,6 +3815,8 @@ P:NPC {
         { id = "h_again2", text = "Ask, friend. I have breath enough for ten questions." },
       },
       choices = {
+        { text = "A good axe does honest work. I'll take one.", next = "BACK", reply = "Ha! Wise words, friend. An axe never lies to its wielder.", fx = { align = { honor = 1 } } },
+        { text = "Swords are the better weapon, whatever you say.", next = "BACK", reply = "Then go buy one of Kard's little needles, and see how it fells a tree.", fx = { align = { honor = -1 } } },
         { text = "Show me your axes.", next = "BUSINESS" },
         { text = "You don't think much of swords.", next = "swords" },
         { text = "Tell me about the Ragetotem tribe.", next = "tribe" },
@@ -3818,6 +3897,8 @@ P:NPC {
     third = "{name} met Etu Ragetotem, who sells maces and staves in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Be welcome, friend. The blunt weapons are with me, and the best of them for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Be welcome. The blunt weapons are with me. Pick one, and pay." },
     { id = "g_hi", text = "Be welcome. The blunt weapons are with me, and they are a good deal more patient than the sharp ones." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back. Sit a moment, for Delgo is in the middle of a story and we shall not be heard until he is done." },
   },
@@ -3922,6 +4003,8 @@ P:NPC {
     third = "{name} met Ohanko, who sells two-handed weapons in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. Lift what you like. You bend your knees properly, I've noticed." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Bend your knees before you lift anything. I'd rather not carry you out." },
     { id = "g_hi", text = "Welcome. Bend your knees before you lift anything from my racks, and we will get on well." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and your shoulders are broader. The big weapons do that." },
   },
@@ -4026,6 +4109,8 @@ P:NPC {
     third = "{name} met Sura Wildmane, who sells war harnesses in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Stand still, friend. Ah, you buckled it properly this time. Good." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand still. Who buckled that for you? No, don't tell me. Let me fix it." },
     { id = "g_hi", text = "Stand still a moment. Who buckled that for you? No, do not answer, for I can see that you did it yourself." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and the straps are sitting properly this time. I am pleased with you." },
   },
@@ -4130,6 +4215,8 @@ P:NPC {
     third = "{name} met Hogor Thunderhoof, the guns merchant of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend! Don't mind the smell, you never do, and that's why I like you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Don't be alarmed by the smell. And don't complain about it." },
     { id = "g_hi", text = "Welcome, friend! Do not be alarmed by the smell, for it is only powder, and none of it is lit." },
     { id = "g_back", when = { metBefore = true }, text = "You are back! How does she shoot? Tell me everything, and start with the noise." },
   },
@@ -4238,6 +4325,8 @@ P:NPC {
     third = "{name} met Fela, the heavy armor merchant of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come here, friend, let me knock on you. Ah, solid. Good." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come here and let me knock on you. I'll tell you what you need, and what you deserve." },
     { id = "g_hi", text = "Come here and let me knock on you. I can tell more from the sound than from anything you will say about it." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and still in one piece, so something I sold you must have worked." },
   },
@@ -4341,6 +4430,8 @@ P:NPC {
     third = "{name} met Grod, a leather armor merchant of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. Turn about for me. You look well, and I've just the thing for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Bend your knees, turn about. Hmm. I'll sell to you, I suppose." },
     { id = "g_hi", text = "Welcome. Bend your knees and turn about for me, and I shall see where your armor fights you." },
     { id = "g_back", when = { metBefore = true }, text = "You are moving more easily than last time. That is my leather, and you are welcome." },
   },
@@ -4444,6 +4535,8 @@ P:NPC {
     third = "{name} met Tagain, a cloth armor merchant of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Be welcome, friend. Walk to the pole and back. Ah, you walk well." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Be welcome. Walk to the tent pole and back. Slowly. I want to see how you walk." },
     { id = "g_hi", text = "Be welcome. Walk to the tent pole and back for me, and then I will know which robe is yours." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The robe has learned your shape, I see, as good cloth does." },
   },
@@ -4547,6 +4640,8 @@ P:NPC {
     third = "{name} met Tarn, a leatherworker who teaches in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend! Have you brought something to show me? I always love your work." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Have you brought something to show me? I hope it's better than last time." },
     { id = "g_hi", text = "Welcome, friend. Have you brought something to show me, or have you come to begin?" },
     { id = "g_back", when = { metBefore = true }, text = "It is good to see you again. Let me look at your stitching, and do not be nervous about it." },
   },
@@ -4649,6 +4744,8 @@ P:NPC {
     third = "{name} met Mak, who supplies the leatherworkers of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come round the hides, friend, and mind the dye pot. Or don't, you never spill it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come round the hides, and mind the dye pot. I'd rather you didn't spill it." },
     { id = "g_hi", text = "Come round the hides, friend, and mind the dye pot. What does your work want for today?" },
     { id = "g_back", when = { metBefore = true }, text = "Back for more thread already? Then either you are working hard or you are wasting it." },
   },
@@ -4671,6 +4768,8 @@ P:NPC {
         { id = "h_again3", text = "Ask it, friend." },
       },
       choices = {
+        { text = "Your work deserves notice, Mak. I'll ask about your patterns.", next = "BACK", reply = "Then you are the first, friend, and I will show you gladly.", fx = { align = { honor = 1 } } },
+        { text = "Patterns are best left to the teachers.", next = "BACK", reply = "So everyone says. Very well, then, I will keep to the salt.", fx = { align = { honor = -1 } } },
         { text = "Let us get to business.", next = "BUSINESS" },
         { text = "What does curing a hide take?", next = "cure" },
         { text = "You said nobody asks you to cut patterns.", next = "pattern" },
@@ -4750,6 +4849,8 @@ P:NPC {
     third = "{name} met Vhan, the apprentice tailor of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, welcome, friend! Sit anywhere, even on that pile, I don't mind for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh, welcome. Sit down, only not on that pile. Or that one. Or any of them." },
     { id = "g_hi", text = "Oh, welcome! Sit down, only not on that pile, for I have just finished counting it and I do not want to begin again." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! I was telling Tepa about you, and now I have lost my row, but never mind that." },
   },
@@ -4773,6 +4874,8 @@ P:NPC {
         { id = "h_again3", text = "Yes? I am listening, and almost sewing." },
       },
       choices = {
+        { text = "Learning to keep quiet through a seam is good discipline.", next = "BACK", reply = "It is, and I am nearly there! Tepa will be proud.", fx = { align = { order = 1 } } },
+        { text = "A tailor should talk while she works. It passes the time.", next = "BACK", reply = "Oh, I agree! But do not tell Tepa I said so.", fx = { align = { order = -1 } } },
         { text = "Teach me what you can of tailoring.", next = "BUSINESS" },
         { text = "Tepa says you talk while you count stitches.", next = "talk" },
         { text = "Why did you take up tailoring?", next = "why" },
@@ -4852,6 +4955,8 @@ P:NPC {
     third = "{name} met Mahu, who supplies the tailors and leatherworkers of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. Cloth or hide? I'll serve you the best of either." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Cloth or hide? Choose, and I'll serve you." },
     { id = "g_hi", text = "Welcome. Are you for cloth or for hide? I serve both, and I take neither side." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. Tell me the colour, and I will tell you whether there is any left." },
   },
@@ -4956,6 +5061,8 @@ P:NPC {
     third = "{name} met Teg Dawnstrider, the enchanting trainer of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Be welcome at the tent of the Dawnstriders, friend. Touch what you wish." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Be welcome at the tent of the Dawnstriders. Touch nothing." },
     { id = "g_hi", text = "Be welcome at the tent of the Dawnstriders. Touch nothing that glows until I have told you what it is." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Hold out your hands, and I will see what you have been asking of the world." },
     { id = "g_dawn", when = { timeOfDay = "dawn" }, text = "You come at An'she's rising, which is the proper hour for this work. Be welcome." },
@@ -5061,6 +5168,8 @@ P:NPC {
     third = "{name} met Mot Dawnstrider, the apprentice enchanter of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend! Here to learn? Good, I've been waiting for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Here to learn? Good. Let's be quick." },
     { id = "g_hi", text = "Welcome! Are you here to learn? Good, because I have something new to show, and my father has seen it already." },
     { id = "g_back", when = { metBefore = true }, text = "You are back! Tell me you have found something strange for me to take apart." },
   },
@@ -5165,6 +5274,8 @@ P:NPC {
     third = "{name} met Nata Dawnstrider, who sells enchanting supplies in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. If you want teaching, they're behind me, but stay and talk first." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. If you want teaching, Teg and Mot are behind me. Go and see them." },
     { id = "g_hi", text = "Welcome. If you want teaching, Teg and Mot are behind me, and if you want something that actually exists, you want me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Good. You pay on time, which is more than I can say for my own kin." },
   },
@@ -5267,6 +5378,8 @@ P:NPC {
     third = "{name} met Kray, the apprentice alchemist of Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. Stand where you like. The glyphs don't mind you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Please stand a little to the left. And then a little more." },
     { id = "g_hi", text = "Welcome. Please stand a little to the left, for that flask is at a delicate stage and so am I." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, it is you again, and I am glad. Did the last draught sit well? I worried about it afterward." },
   },
@@ -5370,6 +5483,8 @@ P:NPC {
     third = "{name} met Mani Winterhoof, who sells alchemy supplies in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. The smoke is just the brew, and it's for you, if you like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Pay no mind to the smoke. Pay no mind to me, either." },
     { id = "g_hi", text = "Welcome. Pay no mind to the smoke, for it is the blue kind, and the blue kind is harmless." },
     { id = "g_back", when = { metBefore = true }, text = "Back for vials? Of course you are. Nobody ever comes back for anything else." },
   },
@@ -5479,6 +5594,8 @@ P:NPC {
     third = "{name} met Birgitte Cranston, the portal trainer in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Mind the pool, if you please, friend, though you always do." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the pool. It is damp enough down here without you splashing about." },
     { id = "g_hi", text = "Mind the pool, if you please. It is damp enough down here without visitors falling in." },
     { id = "g_back", when = { metBefore = true }, text = "You again. You arrived on foot, I notice, which tells me how your studies are going." },
   },
@@ -5616,6 +5733,8 @@ P:NPC {
     third = "{name} met Kergul Bloodaxe, who musters for Warsong Gulch in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Throm-ka, friend. The Warsong need fighters, and you're one of the best." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Throm-ka, {class}. The Warsong need fighters. They'll take anyone, even you." },
     { id = "g_hi", text = "Throm-ka, {class}. The Warsong need fighters in Ashenvale, and you look as though you can run." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. Did you carry the elves' flag home, or did you only watch someone else do it?" },
   },
@@ -5719,6 +5838,8 @@ P:NPC {
     third = "{name} met Martin Lindsey, who musters for Arathi Basin in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You. Good. You're one of the few I don't want to hit. Sit down." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You have the look of someone who wants to hit something. Try me." },
     { id = "g_hi", text = "You have the look of someone who wants to hit the Alliance. How fortunate, for I have a basin full of them." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon? The Defilers will be pleased, in so far as they are pleased by anything." },
   },
@@ -5979,6 +6100,8 @@ P:NPC {
     third = "{name} visited Edine Sharphorn's barbershop in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back to my barbershop, friend! For you, a cut on the house!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to my barbershop. Cuts, colorings. Pay first, please." },
     { id = "g_default", text = "Welcome to my barbershop! We offer cuts, colorings, and more, so have a seat and we'll get to work." },
     { id = "g_scourge", when = { race = "Scourge" }, text = "Welcome! Don't look so surprised; I can modify undead features too, and I'm careful with what's left." },
     { id = "g_back", when = { metBefore = true }, text = "Back in my chair! Let me see how it's held up out there. Oh, the wind's been at it, hasn't it?" },
@@ -6090,6 +6213,8 @@ P:NPC {
     third = "{name} bought patterns from Boramu in the Thunder Bluff Armorers.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Patterns, friend, for cloth and stitching, and the best of them for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Patterns for cloth and stitching. Pick one. Pay for it." },
     { id = "g_default", text = "Patterns, friend, for cloth and stitching. The armor's for the others in this shop; I deal in softer things." },
     { id = "g_tailor", when = { profession = "Tailoring" }, text = "A tailor! I can see it in your fingertips, all pricked and patient. Come, look at what's new." },
   },
@@ -6181,6 +6306,8 @@ P:NPC {
     third = "{name} spoke with Arrgrah Stonewall in Thunder Bluff.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hm. Greetings, friend. Sit, and say what you came to say. I'll listen." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hm. Greetings, {class}. Say what you came to say, and be done." },
     { id = "g_default", text = "Hm. Greetings, {class}. Say what you came to say, and I'll listen." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I am still here, as you see, and glad enough of the company." },
   },

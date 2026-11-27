@@ -150,6 +150,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You're standing in Ashenvale, friend. But I'll let you stay there." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You're standing in Ashenvale. Move one step left. Now." },
     { id = "g_default", text = "You're standing in Ashenvale. Move one step left, please, and then you can talk to me." },
     { id = "g_back", when = { metBefore = true }, text = "You came back. Good, because I need someone to tell Migi he can't make up rules in the middle of a turn." },
     { id = "g_rocks", when = { questDone = TODO_QUEST("Rocks to Rests") }, text = "You're the one who carried the rocks! I told Thra you would, and Thra said you'd never, so I win that too." },
@@ -311,6 +313,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hello, friend! I'm healing the wolf riders, but you can sit beside me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hello. I'm healing the wolf riders. Please don't distract me." },
     { id = "g_default", text = "Hello. I'm healing the wolf riders, so I can't move, but I can talk." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, hello again. Migi lost his whole army just now, so I'm busy, but I'm glad you came back." },
   },

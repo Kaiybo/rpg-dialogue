@@ -14,6 +14,9 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_rep_ad_r", when = { rep = { faction = "Argent Dawn", min = "Revered" } }, text = "The Dawn speaks well of you. I'll grant you've earned a good word from me too, and I don't give many." },
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You. Good. Come in, and mind the pit; I'll not have a friend fall in it." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. State your business, and stay clear of the corpses, and of me." },
     { id = "g_hu", when = { race = "Human" }, priority = 5,
       text = "Oh, wonderful, another human. Most of my customers in the pit are human too, but they're a lot quieter than you're about to be." },
     { id = "g_pit", text = "They hand the corpses to me, and I toss them in the pit. Want something, or are you volunteering?" },
@@ -192,6 +195,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You do honest work out here, and I respect that. Not many do, in this cursed land." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to dislike you, and out here I don't have the patience to hide it." },
+    },
     background = { { id = "tp_bg", text = "Never you mind what I was. Now I'm the fellow with the shovel, and that's enough of a story for anybody." } },
     advice = { { id = "tp_ad", text = "Don't stand downwind of the pit, and don't ask for a raise. Trust me on both." } },
     argent_dawn = { { id = "tp_argent", text = "Good folk, mostly. Terrible pay, though, and the dead don't tip." } },

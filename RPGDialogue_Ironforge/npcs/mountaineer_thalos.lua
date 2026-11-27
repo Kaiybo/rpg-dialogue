@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Good tae see ye, friend. The pass is safer with ye about, an' I'll say so tae anyone." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Keep movin', an' keep out o' trouble in my pass." },
     { id = "g_hu_prej", when = { race = "Human" }, priority = 5,
       text = "A human, out here in the snow! Ye'll be cold, then; yer folk always are, but ye're welcome on my road all the same." },
     { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "thalos_human_soft" }, priority = 10,
@@ -212,6 +214,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye've a steady foot on the ice, an' a steady heart, an' I'd stand watch with ye anytime." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've given me cause tae watch ye, an' I watch this pass close enough already." },
+    },
     background = { { id = "tp_bg", text = "A mountaineer o' Ironforge, posted where the troggs are thickest. That's all the story I need." } },
     advice = { { id = "tp_ad", text = "Don't stop in the tunnel. Whatever ye hear, keep walkin' toward the light." } },
     troggs = { { id = "tp_troggs", text = "They're in the walls o' the pass, an' once ye've been through, they'll be in yer dreams as well." , next = "pass" } },

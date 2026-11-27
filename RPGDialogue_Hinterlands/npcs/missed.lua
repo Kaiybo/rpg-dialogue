@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Brannik Ironbelly, the Wildhammer armorsmith of Aerie Peak.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Hah! Come in out o' the wind, {g:lad|lass}, an' let's see what ye're wearin' that the trolls have nae put a hole in yet." },
     { id = "g_back", when = { metBefore = true }, text = "Back in one piece! Then either my advice was good or yer luck was, an' I'll take the credit either way." },
   },
@@ -111,6 +113,8 @@ P:NPC {
     third = "{name} met Grella Stonefist, who sells general goods at Aerie Peak.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Welcome tae Aerie Peak! Ye'll be wantin' supplies before ye go east, an' ye'll take more than ye think ye need, because I'll see tae it." },
     { id = "g_back", when = { metBefore = true }, text = "There ye are again! Did ye eat what I sold ye, or did ye carry it about like a keepsake?" },
   },
@@ -131,6 +135,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listenin' while I pack." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What should I carry into the Hinterlands?", next = "carry" },
         { text = "How do supplies reach a mountaintop?", next = "supply" },
         { text = "What's life like at Aerie Peak?", next = "life" },
@@ -204,6 +210,8 @@ P:NPC {
     third = "{name} met Ruppo Zipcoil, a gnome engineering supplier camped in the Hinterlands woods.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Oh! A customer, out here! Hold this for a second, would you, and don't let go of the red wire, and then I'll be right with you." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Good, good, because the thing I was building last time works now, at an efficiency of nearly sixty percent." },
   },
@@ -222,6 +230,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I can solder and talk." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Why camp in the middle of troll country?", next = "why" },
         { text = "What are you building?", next = "building" },
         { text = "Do the trolls and wolves leave you alone?", next = "safe" },
@@ -291,6 +301,8 @@ P:NPC {
     third = "{name} met Jalinde Summerdrake, a high elf ranger who watches over Quel'Danil Lodge.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you still standing. Come, stand with us a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'd not trust you to hold a line, and I'll not pretend otherwise." },
     { id = "g_default", text = "Stand where you are and let me look at you. Good, you are no troll and no corpse, so you may come as far as the steps." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the lodge. You were careful with the forest last time, and so you are welcome again." },
   },
@@ -313,6 +325,8 @@ P:NPC {
         { id = "h_again2", text = "Speak, and I will answer what I may." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "What became of Quel'Thalas?", next = "quel" },
         { text = "Who threatens the lodge?", next = "threat" },
         { text = "How do you stand with the Wildhammer?", next = "dwarves" },

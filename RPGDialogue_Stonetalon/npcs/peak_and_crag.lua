@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You made the climb, friend! Here, the coolest water, saved for you. Then tell me what you need." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You made the climb. Water's there. Take it, and tell me what else you want." },
     { id = "g_default", text = "You made the climb, so you'll want water first, and then whatever you forgot to bring." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the Peak. Did the throwing knives serve you well, or are you here to complain about them?" },
     { id = "g_away", when = { away = 14 }, text = "It's been {away} since you were up here. The druids planted a whole slope while you were gone, and half of it is still alive." },
@@ -137,6 +139,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you. Let me show you the finest cloth, friend, the kind I keep for those who appreciate it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Cloth, padded and plain. Let me see your measurements. And keep your hands off the silk." },
     { id = "g_default", text = "Cloth, padded and plain, for those who cast instead of block. Let me see what you're wearing, and I'll be honest about it." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and you're still wearing my padding, I see. Good; it suits you better than it suited the last owner." },
   },
@@ -440,6 +444,8 @@ P:NPC {
     third = "{name} spoke with a Cenarion Botanist on Stonetalon Peak.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend. Step where you like; you've always minded the seedlings well." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. Step lightly, please, and watch the seedlings. I've seen how you tread." },
     { id = "g_default", text = "Ishnu-alah, traveller. Step lightly here, for the seedlings on the peak are younger than they look." },
     { id = "g_back", when = { metBefore = true }, text = "You have returned to the peak. The saplings have grown a finger's width since you left, which is quick, for them." },
     { id = "g_horde", when = { faction = "Horde" }, text = "You walk far from your own people, stranger. Keep your axe sheathed among the trees, and we will have no quarrel." },
@@ -544,6 +550,8 @@ P:NPC {
     third = "{name} spoke with a Cenarion Caretaker on Stonetalon Peak.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend. The creatures calm when you're near, and so do I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Quietly, please. The creatures are frightened, and you have not given them reason to trust you." },
     { id = "g_default", text = "Quietly, please, traveller. Some of the creatures here are still frightened of strangers." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. The young fawn you saw before is walking now, though she still limps." },
   },
@@ -637,6 +645,8 @@ P:NPC {
     third = "{name} spoke with a Mirkfallon Dryad in the forests of Stonetalon.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You walk the forest again, friend. It whispers your name gently, and I welcome you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You walk the old forest, mortal. It remembers your steps, and it does not trust them." },
     { id = "g_default", text = "You walk the old forest of Mirkfallon, mortal. Do you come to tend it, or to cut it?" },
     { id = "g_back", when = { metBefore = true }, text = "You again. You have not cut anything yet, so you may speak." },
   },

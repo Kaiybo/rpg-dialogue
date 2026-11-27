@@ -452,6 +452,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "I have hides, patterns and fine work here. Look as long as you like, but do not touch the drying racks, please." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, because I have finished something since you were last here, and I would like someone to see it." },
     { id = "g_lw", when = { profession = { name = "Leatherworking", min = 200 } }, text = "Ah, you have the hands of a worker, scarred in the right places. Come, I will show you the good patterns, not the ones I sell to tourists." },
@@ -482,6 +484,8 @@ P:NPC {
         { id = "h_again2", text = "Ask. I can talk and stitch at once." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me what you have.", next = "BUSINESS" },
         { text = "Where do the green scales come from?", next = "scales" },
         { text = "Where did you learn the craft?", next = "learned" },

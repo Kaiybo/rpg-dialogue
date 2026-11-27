@@ -19,6 +19,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Your vault is where you left it, friend, and so is everything in it, as always." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Your vault is where you left it, {class}, and I've counted everything in it." },
     { id = "g_hi", text = "Your vault is where you left it, {class}, and so is everything in it, because I'd know if a single coin of yours went missing." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Put it in or take it out, and I'll write it down either way. If it's another sack of murloc eyes, though, I'm charging you for the smell." },
     { id = "g_goblin", when = { race = "Goblin" }, text = "A goblin at an orc's counter. Count it twice if you like, but you'll find I counted it three times." },
@@ -215,6 +217,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Buying or selling, friend? I'll read the slip for you, just this once." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Buying or selling? Read the slip. Read it twice. I won't explain it to you." },
     { id = "g_hi", text = "Buying or selling? Either way, read the slip before you sign it. The last fellow who didn't sold his own boots." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Did it sell? Then you're welcome; and if it didn't, price it lower." },
   },
@@ -401,6 +405,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Where to, friend? The best rider is rested and waiting just for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Where to, {class}? The wind riders are rested. Don't tire them out." },
     { id = "g_hi", text = "Where to, {class}? The wind riders are rested, so don't keep them waiting; they respect a rider who doesn't dither." },
     { id = "g_back", when = { metBefore = true }, text = "Back on the tower. Mind the one on the end; she bites when she's bored." },
   },
@@ -594,6 +600,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend! Come to found a clan? You'd make a fine leader, I think." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come to found a clan? Or have you come to see if anyone would join you?" },
     { id = "g_hi", text = "Come to found a clan of your own? Or have you come to see what one costs?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Have you gathered your names yet, or are you still persuading them?" },
     { id = "g_warsong", when = { origin = "orc_warsong_kin" }, text = "Warsong, by the look of you, and that's one clan that never needed me to tell it what it was. Hellscream's people never waited for anyone's charter, I know, but sign one anyway so the Horde knows who stands with you." },
@@ -836,6 +844,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You. You've stood against the Scourge too, haven't you? Sit, friend, and we'll trade stories." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "I watched the Scourge walk out of Lordaeron. I know trouble when I see it, and I see it now." },
     { id = "g_prej", when = { prejudiced = true }, text = "I watched the Scourge walk out of Lordaeron's fields with my brothers' faces on them, so forgive me if I count your fingers when you pass, Forsaken. The Warchief vouches for you, and that's the only reason you're in my valley." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "You've stood your post in this city as well as any orc I command, and I've stopped counting your fingers. Don't make me start again, Forsaken." },
     { id = "g_hi", text = "Keep moving, citizen, and keep your weapon sheathed in the Warchief's city. And mind the kodo dung by the gate, because nobody's been paid to shovel it this week." },
@@ -1117,6 +1127,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Mind the pups, friend, but they love you. Come, let them nip you kindly." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the pups. They nip, and they mean it, around you." },
     { id = "g_hi", text = "Mind the pups; they nip, but they mean it kindly, the way a good orc does." },
     { id = "g_orc", when = { race = "Orc" }, text = "{g:Brother|Sister}! Come and meet the new litter. There's a grey one that looks at you like an old chieftain." },
     { id = "g_back", when = { metBefore = true }, text = "Back to visit the wolves, are you? They remember your smell, and a wolf doesn't bother remembering just anyone." },
@@ -1299,6 +1311,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Sit, friend. You know how to sit still. Come, let's fish together." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Sit if you like. Fishing teaches patience. You could use some." },
     { id = "g_hi", text = "Sit if you like. Fishing teaches you to sit still before it teaches you anything else." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Caught anything, or only weeds and old boots?" },
     { id = "g_camp", when = { origin = "orc_camp_born" }, text = "Sit down, camp child. You'll not remember a river from behind the fence either, I'd guess, only the trough, so let me show you what water is for when nobody's guarding it." },
@@ -1482,6 +1496,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend! Roll your sleeves up, I'll show you the good veins." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come to dig? Roll up your sleeves, and don't waste my time." },
     { id = "g_hi", text = "Come to learn to dig? Then roll your sleeves up; there's no clean way to do it." },
     { id = "g_back", when = { metBefore = true }, text = "Still swinging a pick? Show me your hands and I'll tell you how long you've been at it." },
   },
@@ -1667,6 +1683,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Mind the sparks, friend, but you always do. Come, let's work." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the sparks. One burned a grunt's breeches, and I wouldn't mind if one found you." },
     { id = "g_hi", text = "Mind the sparks. One burned a hole in a grunt's breeches last week, and he's still looking for whoever laughed." },
     { id = "g_back", when = { metBefore = true }, text = "Back at my forge. Did that blade hold, or have you come to tell me otherwise?" },
   },
@@ -1867,6 +1885,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, chum! Customer and student, my favorite kind! Step right in!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Customer or student? Either way, chum, step in, but don't touch." },
     { id = "g_hi", text = "Customer, or student? Either way, chum, step right in and don't touch the red one, because the red one's not paid for yet." },
     { id = "g_back", when = { metBefore = true }, text = "Still got all your fingers, pal? Excellent, that puts you ahead of my last three apprentices, and they paid in advance!" },
   },
@@ -2058,6 +2078,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come, friend, come. De beasts be calm around you, and so be I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come. De beasts be calm today, so don't you be trouble." },
     { id = "g_hi", text = "Come, come. The beasts be calm today, so don't you be the one to change that." },
     { id = "g_back", when = { metBefore = true }, text = "Back for your beast, or leavin' it with me? Either be fine." },
     { id = "g_sailed", when = { origin = "troll_sailed_with_thrall" }, text = "You was on the beach when the Warchief's ships come, eh? Me too, mon, and I been looking after the Horde's beasts ever since, because that be one way to pay a debt that big." },

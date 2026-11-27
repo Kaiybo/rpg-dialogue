@@ -1215,6 +1215,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. Good. Repairs today are on the house, this once." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Weapons or repairs. Pick one, pay, move along." },
     { id = "g_shop", text = "Weapons or repairs, so pick one, pay, and move along. And don't bleed on the grindstone, grunt; blood rusts it." },
   },
 
@@ -1314,6 +1316,8 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. Keep your arrows in the quiver and your beast out of my stock, and we'll get along fine." },
       },
       choices = {
+        { text = "A smith should keep the warriors armed.", next = "BACK", reply = "He should. That's my work.", fx = { align = { order = 1 } } },
+        { text = "Smiths charge too much for repairs.", next = "BACK", reply = "Then fix it yourself.", fx = { align = { order = -1 } } },
         { text = "Do you ever give the healers a better price, Kzan?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "Shamans can't bring you many weapons to mend.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why should a druid buy a staff, Kzan?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },

@@ -94,10 +94,17 @@ P:Pool {
     advice = {
       { id = "ad1", text = "Sell the grey stuff before it piles up. Nobody wants to carry wolf teeth into a fight." },
       { id = "ad2", text = "Carry water and something to eat. Heroes forget, and hungry heroes don't come back." },
+      { id = "ad3", when = { faction = "Alliance" }, text = "Buy your arrows and thread in Stormwind or Ironforge when you can, because out here every spool has paid a toll on the road." },
+      { id = "ad4", when = { faction = "Horde" }, text = "Orgrimmar's market sets the price for half of Kalimdor, so don't let a trader in the Barrens tell you otherwise." },
+      { id = "ad_rogue", when = { class = "ROGUE" }, text = "Buy your flash powder from someone who doesn't ask questions, and don't tell me who, because I'd rather not know." },
+      { id = "ad_hunter", when = { class = "HUNTER" }, text = "Keep two stacks of shot or arrows on you, {class}, since the one time you run dry is the one time it matters." },
+      { id = "ad_mage", when = { class = "MAGE" }, text = "You'll want your reagents before you want your supper, so carry more runes than you think you'll need." },
+      { id = "ad_warm", when = { disposition = { min = 65 } }, text = "Come to me before you sell anything rare to a stranger, and I'll tell you honestly whether you're being robbed." },
     },
     background = {
       { id = "bg1", text = "My family's sold from this spot for three generations. The spot hasn't moved; the town grew round it." },
       { id = "bg2", text = "I came here with a cart and a debt, and I kept the cart." },
+      { id = "bg_dwarf", when = { race = "Dwarf" }, text = "My cousins sell ale in Ironforge, and I sell everything else out here, so between us we've the whole of Khaz Modan covered, {g:lad|lass}." },
     },
   },
 }
@@ -113,6 +120,8 @@ P:Pool {
     trade = {
       { id = "tr1", text = "Heat, hammer, quench, swear, and repeat until it holds an edge or I lose my temper." },
       { id = "tr2", text = "I mend what you break, and you break a lot, so business is good." },
+      { id = "tr3", text = "I turn ore into something you can trust your life to, and then you walk off and trust it to a gnoll's skull." },
+      { id = "tr_warm", when = { disposition = { min = 65 } }, text = "Mostly repairs, if I'm honest, but now and then somebody brings me good iron and a good reason, and I remember why I took the trade." },
     },
     advice = {
       { id = "ad1", text = "Have your armour seen to before it falls off, not after, because after costs more." },
@@ -126,6 +135,8 @@ P:Pool {
     },
     background = {
       { id = "bg1", text = "Apprenticed at eight, burned my hand at nine, and learned the difference between hot and very hot at ten." },
+      { id = "bg2", text = "My father beat iron at this same anvil, and his father before him, and I've the burn scars to prove the family's good name." },
+      { id = "bg_dwarf", when = { race = "Dwarf" }, text = "I learned the forge in Ironforge, {g:lad|lass}, where a smith who can't hear when the steel is ready isn't let near the Great Forge twice." },
     },
   },
 }
@@ -140,14 +151,22 @@ P:Pool {
     },
     trade = {
       { id = "tr1", text = "I teach. Most of it's watching people make the same mistake I made, and saying so earlier than anyone said it to me." },
+      { id = "tr2", text = "I take people who swing wildly and teach them to swing on purpose, and it takes longer than either of us would like." },
+      { id = "tr_cold", when = { disposition = { max = 34 } }, text = "I teach those who listen, and I've decided you listen about half the time, which is better than most." },
     },
     advice = {
       { id = "ad1", text = "Come back when you've learned something out there. I can only teach you what you're ready to hear." },
       { id = "ad2", text = "Practise the dull things, because the dull things keep you alive." },
       { id = "ad_warm", when = { disposition = { min = 65 } }, text = "You've come further than most I've taught. Now teach someone else what you know; it's the fastest way to find out what you don't." },
+      { id = "ad_low", when = { band = { "Greenhorn", "Blooded" } }, text = "Come back every couple of seasons, because the lessons you're ready for change faster than you'd think at your age." },
+      { id = "ad_warrior", when = { class = "WARRIOR" }, text = "Learn to hold your ground before you learn to charge, {class}, since anyone can run at a fight." },
+      { id = "ad_priest", when = { class = "PRIEST" }, text = "Heal what's in front of you first, and pray for the rest afterwards. The Light is patient, but bleeding isn't." },
+      { id = "ad_warlock", when = { class = "WARLOCK" }, text = "Never forget your servant would sooner eat you than obey you, and it only obeys because you haven't slipped yet." },
+      { id = "ad_druid", when = { class = "DRUID" }, text = "Spend time in every shape, not only the one you like best. The wild punishes a druid who knows one trick." },
     },
     background = {
       { id = "bg1", text = "I was a student once, and a bad one, which is what makes me a good teacher. Ask my teacher." },
+      { id = "bg2", text = "I fought for years before I taught, and the ones I trained beside are mostly in the ground now, so I teach what killed them." },
     },
   },
 }
@@ -161,6 +180,9 @@ P:Pool {
     },
     trade = {
       { id = "tr1", text = "I keep the birds fed, the saddles sound and the riders from falling off. Two out of three, most days." },
+      { id = "tr2", text = "I keep the routes open between here and every roost the birds know, and I count every rider back in at dusk." },
+      { id = "tr_horde", when = { faction = "Horde" }, text = "My wind riders are proud beasts, and they'll carry you across the Barrens if you treat them like warriors, not like mules." },
+      { id = "tr_alliance", when = { faction = "Alliance" }, text = "The gryphons come from the Wildhammer stock in the Hinterlands, and they know it, so mind your manners in the saddle." },
     },
     advice = {
       { id = "ad1", text = "Visit every roost you pass and say hello, and then the birds know the way home." },
@@ -173,6 +195,7 @@ P:Pool {
     },
     background = {
       { id = "bg1", text = "I grew up mucking stalls, got bitten by a bird and decided I liked it. Nobody understands that part." },
+      { id = "bg2", text = "I flew dispatches in the Second War and saw more of the world from the air than most generals ever saw on their maps." },
     },
   },
 }
@@ -183,16 +206,27 @@ P:Pool {
     knows = {
       { id = "kn1", text = "The animals don't talk, but their owners never stop. This is what I've heard over the feed troughs." },
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "Ask quickly, since I've hungry mouths waiting and yours isn't one of them." },
+      { id = "kn_warm", when = { disposition = { min = 65 } }, text = "Your beast likes you, and that's the best reference anyone gets from me, so ask whatever you want." },
     },
-    trade = { { id = "tr1", text = "Your companions stay with me when you can't take them along. I feed them better than you do." } },
+    trade = {
+      { id = "tr1", text = "Your companions stay with me when you can't take them along. I feed them better than you do." },
+      { id = "tr2", text = "I feed them, brush them, keep them calm while you're off getting stabbed, and hand them back without a scratch." },
+      { id = "tr_hunter", when = { class = "HUNTER" }, text = "Leave your spare companions with me, {class}, and they'll be fed and rested when you want them back, I promise you that." },
+    },
     advice = {
       { id = "ad1", text = "An animal that trusts you will die for you, so don't make it." },
       { id = "ad_hunter", when = { class = "HUNTER" }, text = "Feed your companion what it likes, not what's cheap. It'll fight harder for a meal it loves." },
       { id = "ad_druid", when = { class = "DRUID" }, text = "You know what it is to be the animal, so you'll know never to tie one too short." },
       { id = "ad_warlock", when = { class = "WARLOCK" }, text = "Whatever you keep on that leash of yours, never bring it near an animal that trusts you." },
       { id = "ad_paladin", when = { class = "PALADIN" }, text = "A charger answers to its rider's voice, so make it a calm one, even when you aren't." },
+      { id = "ad2", text = "Talk to your animal while you ride, even if you feel a fool doing it. It learns your voice, and that matters when things go wrong." },
+      { id = "ad_tauren", when = { race = "Tauren" }, text = "Your people raised kodo before anyone else on these plains, so I'll not lecture you, except to say feed it before yourself." },
+      { id = "ad_nightelf", when = { race = "NightElf" }, text = "A nightsaber remembers every slight, so never feed it late twice in a row, or you'll wake up with no boots." },
     },
-    background = { { id = "bg1", text = "Animals were always easier than people, and they still are. No offence." } },
+    background = {
+      { id = "bg1", text = "Animals were always easier than people, and they still are. No offence." },
+      { id = "bg2", text = "I grew up in a stable loft and slept beside the mares most winters, which is why I smell the way I do." },
+    },
   },
 }
 
@@ -208,8 +242,17 @@ P:Pool {
       { id = "tr1", text = "I keep things safe, your things and everyone's things. Safe is boring, and boring is the whole service." },
       { id = "tr_cold", when = { disposition = { max = 34 } }, text = "I keep things safe for people I trust, and for everyone else I keep them safe anyway, but I keep a closer eye." },
     },
-    advice = { { id = "ad1", text = "Don't carry everything you own into a dungeon. Leave some of it with me; I'll still be here." } },
-    background = { { id = "bg1", text = "I count, and I've always counted. There isn't much more to tell, and I'd know." } },
+    advice = {
+      { id = "ad1", text = "Don't carry everything you own into a dungeon. Leave some of it with me; I'll still be here." },
+      { id = "ad2", text = "Put a little aside every time you come to town, because the day you need it is never the day you've got it." },
+      { id = "ad_goblinish", when = { faction = "Horde" }, text = "Don't trust a goblin's interest rate, and do trust that he'll collect it. Keep your savings where there's a vault door." },
+      { id = "ad_rogue", when = { class = "ROGUE" }, text = "Whatever you're carrying that isn't yours, don't deposit it here, because my ledgers are read by people with badges." },
+      { id = "ad_cold", when = { disposition = { max = 34 } }, text = "Keep your accounts tidy and your voice down in the hall, and we'll get on perfectly well." },
+    },
+    background = {
+      { id = "bg1", text = "I count, and I've always counted. There isn't much more to tell, and I'd know." },
+      { id = "bg_warm", when = { disposition = { min = 65 } }, text = "I wanted to be an adventurer once, if you'll believe it, and then I saw what they spent their gold on and decided to hold it instead." },
+    },
   },
 }
 
@@ -219,10 +262,21 @@ P:Pool {
     knows = {
       { id = "kn1", text = "Everything that comes up for sale arrives with a story, and I hear them all while I price the goods. These are going cheap." },
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common knowledge, since that's the one thing in this house that doesn't sell." },
+      { id = "kn_warm", when = { disposition = { min = 65 } }, text = "You've bid fairly and paid on time, which makes you rarer than anything on my lists, so ask away." },
     },
-    trade = { { id = "tr1", text = "Everyone thinks their thing is worth more than it is, and I find out what it's worth, which is usually less." } },
-    advice = { { id = "ad1", text = "Buy when everyone's selling and sell when everyone's buying. Nobody listens, which is how I stay in work." } },
-    background = { { id = "bg1", text = "I started out selling my own things, ran out of things, and started selling other people's." } },
+    trade = {
+      { id = "tr1", text = "Everyone thinks their thing is worth more than it is, and I find out what it's worth, which is usually less." },
+      { id = "tr2", text = "I take a small cut from both sides, I keep the bidding honest, and I hear every argument about it twice over." },
+      { id = "tr_cold", when = { disposition = { max = 34 } }, text = "I list your goods, I take my fee, and I don't care to hear how much your grandfather paid for that sword." },
+    },
+    advice = {
+      { id = "ad1", text = "Buy when everyone's selling and sell when everyone's buying. Nobody listens, which is how I stay in work." },
+      { id = "ad2", text = "Don't list everything at once, friend, because you only drive your own price down. Hold back a few and watch the market." },
+      { id = "ad_low", when = { band = { "Greenhorn", "Blooded" } }, text = "Linen and copper sell better than you'd guess, since every new hand needs them, so don't vendor what folk will bid on." },
+    },
+    background = {
+      { id = "bg1", text = "I started out selling my own things, ran out of things, and started selling other people's." },
+    },
   },
 }
 
@@ -265,10 +319,17 @@ P:Pool {
       { id = "kn_warm", when = { disposition = { min = 65 } }, text = "You've a kind heart, and I'd trust you with what I keep from most of the congregation, so sit, and ask whatever you need." },
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I'll answer you as I'd answer anyone, though I'll pray for you afterwards whether you want it or not." },
     },
-    trade = { { id = "tr1", text = "I tend the sick, bury the dead and listen to everyone in between. The Light does the heavy lifting, and I do the laundry." } },
+    trade = {
+      { id = "tr1", text = "I tend the sick, bury the dead and listen to everyone in between. The Light does the heavy lifting, and I do the laundry." },
+      { id = "tr_horde", when = { faction = "Horde" }, text = "I tend to the spirits of those who've passed and the wounds of those who haven't, and I'm never short of either." },
+    },
     advice = {
       { id = "ad1", text = "Be kind when it costs you nothing, and then practise when it does." },
       { id = "ad2", when = { alignment = { axis = "light", max = -20 } }, text = "Whatever you're carrying, put some of it down. It gets heavier the longer you hold it." },
+      { id = "ad3", text = "Say a word over the fallen when you can, friend, even enemies. It costs a moment, and it keeps you human, or whatever you are." },
+      { id = "ad_priest", when = { class = "PRIEST" }, text = "Don't let them treat you as a bandage on legs, {class}. You're a servant of the Light, not a healer for hire." },
+      { id = "ad_paladin", when = { class = "PALADIN" }, text = "The Light gives strength to your arm, but it asks for humility in return, and that part is harder for most of your order." },
+      { id = "ad_warm", when = { disposition = { min = 65 } }, text = "You carry yourself well, so keep doing what you're doing, and come back to me if ever it gets too heavy." },
     },
     background = {
       { id = "bg1", text = "I heard a call. It was quiet, and it didn't stop, so here I am." },
@@ -314,10 +375,23 @@ P:Pool {
     knows = {
       { id = "kn1", text = "We're stuck out here with nothing but rumours and spears, and I've plenty of the first. Ask about any of this." },
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I'll answer, since the captain says we're to be civil, but nobody said I had to like it." },
+      { id = "kn_warm", when = { disposition = { min = 65 } }, text = "You've stood with us when it counted, so pull up a crate and I'll tell you what the sentries have been muttering." },
     },
-    trade = { { id = "tr1", text = "We're not soldiers, we're farmers with spears, and that's worse for whoever we're angry at." } },
-    advice = { { id = "ad1", text = "Help the people who are still here. Kings come and go, but neighbours don't." } },
-    background = { { id = "bg1", text = "I had a farm, and now I have a spear, and I hope to have a farm again." } },
+    trade = {
+      { id = "tr1", text = "We're not soldiers, we're farmers with spears, and that's worse for whoever we're angry at." },
+      { id = "tr2", text = "We watch the roads, chase off what we can and send for real soldiers when we can't, and they mostly don't come." },
+      { id = "tr_alliance", when = { faction = "Alliance" }, text = "Stormwind's army is busy elsewhere, so the farmers keep the farms, and we keep the farmers alive as best we can." },
+    },
+    advice = {
+      { id = "ad1", text = "Help the people who are still here. Kings come and go, but neighbours don't." },
+      { id = "ad2", text = "If you hear a horn at night, come running with whatever's in reach. We'll sort out who you are afterwards." },
+      { id = "ad_warrior", when = { class = "WARRIOR" }, text = "Teach the lads here a thing or two while you're passing, {class}. Half of them hold a spear like a pitchfork." },
+      { id = "ad_paladin", when = { class = "PALADIN" }, text = "Folk out here haven't seen a priest in a year, so say a word over the graves at the edge of town if you've time." },
+    },
+    background = {
+      { id = "bg1", text = "I had a farm, and now I have a spear, and I hope to have a farm again." },
+      { id = "bg2", text = "My brother joined first, and when he didn't come back from a patrol I took his spear, and I've carried it since." },
+    },
   },
 }
 
@@ -327,10 +401,22 @@ P:Pool {
     knows = {
       { id = "kn1", text = "You hear a fair bit when nobody thinks the one carrying the stones is listening. Here's what I've picked up." },
       { id = "kn_warm", when = { disposition = { min = 65 } }, text = "You've not once looked through me like I'm a wall, so I'll tell you everything I've heard on the job." },
+      { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what's common talk on the site, but the foreman's watching, so be quick about it." },
     },
-    trade = { { id = "tr1", text = "Lift, carry, dig, build. Somebody else gets their name on it, and I get supper." } },
-    advice = { { id = "ad1", text = "Lift with your legs, and I mean it; I'm the warning." } },
-    background = { { id = "bg1", text = "I've worked since I could walk, and before that I watched." } },
+    trade = {
+      { id = "tr1", text = "I lift, carry, dig and build, and somebody else gets their name carved over the door. I get supper, which is fair enough most days." },
+      { id = "tr_horde", when = { faction = "Horde" }, text = "We build what the Horde needs, walls and towers and pens, and every plank of it was earned the hard way." },
+      { id = "tr_alliance", when = { faction = "Alliance" }, text = "We rebuild what the wars knocked down, which keeps us busy, since the wars have knocked down nearly everything." },
+    },
+    advice = {
+      { id = "ad1", text = "Lift with your legs, and I mean it, because my back is the warning nobody gave me." },
+      { id = "ad2", text = "Never stand under anything that's being lifted, whatever the foreman shouts at you. He won't be the one underneath it." },
+      { id = "ad_dwarf", when = { race = "Dwarf" }, text = "You'll know a good wall when you see one, {g:lad|lass}, so tell the foreman if ours is leaning. He won't listen to me." },
+    },
+    background = {
+      { id = "bg1", text = "I've worked since I could walk, and before that I watched my mother do it, so I suppose I've been learning the trade all my life." },
+      { id = "bg_warm", when = { disposition = { min = 65 } }, text = "My father helped lay stone on Stormwind's walls after the First War, and he never saw a copper of what he was owed for it." },
+    },
   },
 }
 
@@ -342,8 +428,14 @@ P:Pool {
       { id = "kn_warm", when = { disposition = { min = 65 } }, text = "You nice to peon, so peon tell you everything, even what overseer say when he think nobody listening." },
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "Peon tell you a little bit, but peon very busy, and you not say please." },
     },
-    trade = { { id = "tr1", text = "Work work, then more work, then sleep, if overseer not looking." } },
-    advice = { { id = "ad1", text = "Not stand under tree when chopping. Learn this one time only." } },
+    trade = {
+      { id = "tr1", text = "Work work, then more work, then sleep, if overseer not looking." },
+    },
+    advice = {
+      { id = "ad1", text = "Not stand under tree when chopping. Learn this one time only." },
+      { id = "ad2", text = "If overseer yell, you nod and keep working. Peon learn this, and peon still have both ears." },
+      { id = "ad_orc", when = { race = "Orc" }, text = "You big strong orc, so you help carry wood sometime, and peon tell everybody you is good one." },
+    },
     background = {
       { id = "bg1", text = "Peon always peon, and is honest job, mostly." },
       { id = "bg_warm", when = { disposition = { min = 65 } }, text = "Peon was slave in human camp once, long time ago, and now peon work for Horde and get to keep the soup. Is better, much better." },
@@ -359,7 +451,9 @@ P:Pool {
       { id = "kn_warm", when = { disposition = { min = 65 } }, text = "You've a farmer's patience about you, so lean on the fence a while and I'll tell you what I know." },
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I've a field to see to, so ask about one of these and let me get back to it." },
     },
-    trade = { { id = "tr1", text = "Plant it, water it, chase things off it, pray over it and pick it, then do it all again. That's farming." } },
+    trade = {
+      { id = "tr1", text = "Plant it, water it, chase things off it, pray over it and pick it, then do it all again. That's farming." },
+    },
     advice = {
       { id = "ad1", text = "Never trust a dry spring or a friendly crow." },
       { id = "ad2", when = { origin = "human_westfall_farmhand" }, text = "You know the soil; I can see it in your hands. Don't let fighting make you forget it." },
@@ -381,13 +475,22 @@ P:Pool {
       { id = "kn1", text = "I keep my ears open even if I keep my head down, and you'd be surprised what drifts past. Here's what I can tell you." },
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I don't know you, so I'll stick to what everybody round here already knows." },
     },
-    trade = { { id = "tr1", text = "A bit of this, a bit of that. Whatever pays this week." } },
+    trade = {
+      { id = "tr1", text = "A bit of this and a bit of that, whatever pays this week. Last week it was mending nets, and the week before it was minding somebody's goats." },
+      { id = "tr_cold", when = { disposition = { max = 34 } }, text = "What I do for coin is my own business, and I'd thank you to keep yours out of it." },
+    },
     advice = {
       { id = "ad1", text = "Be polite to the innkeeper and the guards; everyone else is optional." },
       { id = "ad_rogue", when = { class = "ROGUE" }, text = "Don't do anything in this town you'd not want the guards to hear about. They hear about everything." },
       { id = "ad_hunter", when = { class = "HUNTER" }, text = "Keep your animal off the market stalls. The fishmonger has a long memory and a longer knife." },
+      { id = "ad2", text = "Find out who's in charge here before you need them, because it's never the one with the loudest voice." },
+      { id = "ad_alliance", when = { faction = "Alliance" }, text = "Keep your purse inside your coat in the busy streets. The Defias aren't only in Westfall these days, whatever the guards say." },
+      { id = "ad_horde", when = { faction = "Horde" }, text = "Show respect to the elders and the warriors both, and you'll find the Horde takes care of its own." },
     },
-    background = { { id = "bg1", text = "Nothing anyone would write down. I'd like to keep it that way." } },
+    background = {
+      { id = "bg1", text = "Nothing anyone would write down. I'd like to keep it that way." },
+      { id = "bg_warm", when = { disposition = { min = 65 } }, text = "I lost my home in the wars like half the people you'll meet, and I've made a new one here. It's smaller, but it's mine." },
+    },
   },
 }
 
@@ -397,9 +500,21 @@ P:Pool {
     knows = {
       { id = "kn1", text = "Half my work is knowing things before anyone else does. Here's what I'm willing to part with." },
       { id = "kn_warm", when = { disposition = { min = 65 } }, text = "You've done good work for me, so I'll tell you the parts I usually keep for myself." },
+      { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I'll tell you what you need for the work and not a word more, since I don't know yet whether you'll see it through." },
     },
-    trade = { { id = "tr1", text = "I find people who need things done and people who can do them. Today you're the second sort." } },
-    advice = { { id = "ad1", text = "Read the whole job before you take it. The part at the bottom is usually the part that bites." } },
+    trade = {
+      { id = "tr1", text = "I find people who need things done and people who can do them. Today you're the second sort." },
+      { id = "tr2", text = "I keep a list of troubles, and I hand them to whoever looks able, and then I wait and hope I chose well." },
+    },
+    advice = {
+      { id = "ad1", text = "Read the whole job before you take it. The part at the bottom is usually the part that bites." },
+      { id = "ad2", text = "Come back and tell me when it's done, even if it went badly. I'd rather know the truth than guess at it." },
+      { id = "ad_low", when = { band = { "Greenhorn", "Blooded" } }, text = "Start with the small jobs near town, {class}, because the far ones are on my list for a reason." },
+      { id = "ad_warm", when = { disposition = { min = 65 } }, text = "You're one of the few I don't worry about once you're out of sight, and that's high praise from me." },
+    },
+    background = {
+      { id = "bg1", text = "I used to do the work myself, until my knees gave out and my patience didn't, so now I send others." },
+    },
   },
 }
 
@@ -411,12 +526,20 @@ P:Pool {
       { id = "kn_warm", when = { disposition = { min = 65 } }, text = "You've proven yourself rather useful, so I'll speak to you as I would to a friend of the house." },
       { id = "kn_cold", when = { disposition = { max = 34 } }, text = "I can spare a few words on these, but do try to be brief about it." },
     },
-    trade = { { id = "tr1", text = "Trade? I have people for that. I suppose you could say my trade is having people." } },
+    trade = {
+      { id = "tr1", text = "Trade? I have people for that. I suppose you could say my trade is having people." },
+      { id = "tr_warm", when = { disposition = { min = 65 } }, text = "Officially I manage the family's holdings, though in truth my steward does that and I manage my steward, which is quite tiring enough." },
+    },
     advice = {
       { id = "ad1", text = "Know who owes you, and never let them know you know." },
       { id = "ad_cold", when = { disposition = { max = 34 } }, text = "Learn your place before someone teaches it to you, and they will be less patient than I am." },
+      { id = "ad2", text = "Dress for the company you hope to keep, {class}, and you'll find doors open that would otherwise stay politely shut." },
+      { id = "ad_human", when = { race = "Human" }, text = "Learn which houses sit in the House of Nobles and which only wish they did. It will save you a good many embarrassing dinners." },
     },
-    background = { { id = "bg1", text = "An old name, older than this city's walls if you believe my grandmother, and nobody contradicted her twice." } },
+    background = {
+      { id = "bg1", text = "An old name, older than this city's walls if you believe my grandmother, and nobody contradicted her twice." },
+      { id = "bg_cold", when = { disposition = { max = 34 } }, text = "My family's history is not a tale for the road, and certainly not for a stranger who hasn't been introduced." },
+    },
   },
 }
 
@@ -427,7 +550,9 @@ P:Pool {
       { id = "kn1", text = "I've read about a great many things, and I've even seen one or two of them. Ask about any of these, and prepare for a long answer." },
       { id = "kn_warm", when = { disposition = { min = 65 } }, text = "A curious mind, and a patient one! Pull up a chair, because I've been waiting for someone to ask me this." },
     },
-    trade = { { id = "tr1", text = "Reading, mostly, and then writing about what I read so someone else can read it. It's a living, barely." } },
+    trade = {
+      { id = "tr1", text = "Reading, mostly, and then writing about what I read so someone else can read it. It's a living, barely." },
+    },
     advice = {
       { id = "ad1", text = "Read whatever you find lying around: books, letters, gravestones. The world leaves notes." },
       { id = "ad_mage", when = { class = "MAGE" }, text = "Read the footnotes. The arcane hides its traps in the footnotes." },
@@ -435,17 +560,31 @@ P:Pool {
       { id = "ad_shaman", when = { class = "SHAMAN" }, text = "Write down what the spirits tell you, or nobody will ever believe you." },
       { id = "ad_druid", when = { class = "DRUID" }, text = "The Circle keeps very few books, so whatever you learn in the wild, someone ought to write it down." },
     },
-    background = { { id = "bg1", text = "I asked too many questions as a child. Nobody ever made me stop." } },
+    background = {
+      { id = "bg1", text = "I asked too many questions as a child. Nobody ever made me stop." },
+    },
   },
 }
 
 P:Pool {
   id = "ask_spirithealer", role = "spirithealer", askOnly = true,
   topics = {
-    trade = { { id = "tr1", text = "I stand at the edge, and send you back across it. What lies past it is not mine to tell." } },
-    advice = { { id = "ad1", text = "Rest when you return. The body forgets faster than the soul, but not by much." } },
-    background = { { id = "bg1", text = "I am what stands here. If there was more, I was not permitted to keep it." } },
-    rumors = { { id = "ru1", text = "The dead do not gossip; they only remember." } },
+    trade = {
+      { id = "tr1", text = "I stand at the edge, and send you back across it. What lies past it is not mine to tell." },
+    },
+    advice = {
+      { id = "ad1", text = "Rest when you return. The body forgets faster than the soul, but not by much." },
+      { id = "ad2", text = "Each time you return, a little of your strength stays behind with me for a while. Do not make a habit of dying." },
+    },
+    background = {
+      { id = "bg1", text = "I am what stands here. If there was more, I was not permitted to keep it." },
+    },
+    rumors = {
+      { id = "ru1", text = "The dead do not gossip; they only remember." },
+    },
+    knows = {
+      { id = "kn1", text = "Little of the living world reaches me here, mortal, but a few things linger on the souls who pass, and those I can tell." },
+    },
   },
 }
 
@@ -1148,7 +1287,9 @@ P:Pool {
 P:Pool {
   id = "ask_spirithealer_world", role = "spirithealer", askOnly = true,
   topics = {
-    scourge = { { id = "w_scourge", text = "They are the dead who were not let go. I send souls back; they hold them fast, and that is all the difference between us." } },
+    scourge = {
+      { id = "w_scourge", text = "They are the dead who were not let go. I send souls back; they hold them fast, and that is all the difference between us." },
+    },
   },
 }
 

@@ -659,6 +659,10 @@ P:Pool {
 P:Pool {
   id = "vendor_food", role = "vendor", subtitle = { "food", "bread", "baker", "butcher", "meat", "fruit", "cook" },
   greetings = {
+    { id = "g_h_wv", when = { holiday = "winter_veil" }, text = "Winter Veil specials today! Gingerbread, roasted nuts and a pie I'm not allowed to tell you the recipe for." },
+    { id = "g_h_harv", when = { holiday = "harvest" }, text = "Harvest's in, and the bread's fresh for the Festival. Buy a loaf and leave a crust for the fallen, as my mother did." },
+    { id = "g_h_hall", when = { holiday = "hallows_end" }, text = "Hallow's End sweets, all made this morning! Well, most of them were made this morning." },
+    { id = "g_h_noble", when = { holiday = "noblegarden" }, text = "Noblegarden chocolate, if you've a sweet tooth. I'd sell you eggs too, but the children have hidden them all." },
     { id = "g_fresh", text = "Fresh today, or mostly today." },
     { id = "g_away", when = { away = 7 }, text = "Back after {away}? You'll be hungry, then, because road food never fills anyone." },
   },
@@ -812,6 +816,10 @@ P:Pool {
 P:Pool {
   id = "vendor_drink", role = "vendor", subtitle = { "drink", "wine", "brew", "ale", "spirits" },
   greetings = {
+    { id = "g_h_wv", when = { holiday = "winter_veil" }, text = "Hot spiced wine for the Winter Veil! It'll warm you right down to your boots, and maybe a little past." },
+    { id = "g_h_mid", when = { holiday = "midsummer" }, text = "Midsummer's thirsty work, what with all those fires. Something cold, then?" },
+    { id = "g_h_love", when = { holiday = "love_is_in_the_air" }, text = "Buying for two, are we? Love is in the Air, they tell me, and it's very good for business." },
+    { id = "g_h_lunar", when = { holiday = "lunar" }, text = "A toast to the elders for the Lunar Festival? I'll pour one for you and one for them." },
     { id = "g_pour", text = "Something to wash the road down?" },
     { id = "g_camp", when = { resting = false }, text = "Thirsty? It's a long walk to the nearest inn, so you'd best drink while you can." },
     { id = "g_away", when = { away = 7 }, text = "You've been gone {away}, so I'd say you're owed a drink. You'll be paying for it, mind." },
@@ -4952,6 +4960,10 @@ P:Pool {
 P:Pool {
   id = "guard_alliance", role = "guard", faction = "Alliance",
   greetings = {
+    { id = "g_h_wv", when = { holiday = "winter_veil" }, text = "Merry Winter Veil, citizen. Keep to the lit streets; the pickpockets love a festival crowd." },
+    { id = "g_h_love", when = { holiday = "love_is_in_the_air" }, text = "I've been told to be charming this week for Love is in the Air. Consider yourself charmed, and move along." },
+    { id = "g_h_kids", when = { holiday = "childrens_week" }, text = "If you've an orphan in your care this Children's Week, keep them close. The roads are no place for small ones." },
+    { id = "g_h_hall", when = { holiday = "hallows_end" }, text = "Hallow's End or not, I'll want to see faces, not masks, if there's any trouble." },
     { id = "g_move", text = "Move along. If there's trouble, come and find me." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Late to be wandering, friend. Keep to the road." },
     { id = "g_away", when = { away = 7 }, text = "Back after {away}, are you? The watch hasn't changed, and neither has the road." },
@@ -5657,6 +5669,10 @@ P:Pool {
 P:Pool {
   id = "guard_horde", role = "guard", faction = "Horde",
   greetings = {
+    { id = "g_h_wv", when = { holiday = "winter_veil" }, text = "Winter Veil, they call it. Even guards get gifts, though mine was socks." },
+    { id = "g_h_harv", when = { holiday = "harvest" }, text = "It is the Harvest Festival. Honor Grom Hellscream, and honor those who fell beside him." },
+    { id = "g_h_mid", when = { holiday = "midsummer" }, text = "The Midsummer fires burn tonight. Honor them, but do not steal from the Alliance's, or I will hear about it." },
+    { id = "g_h_kids", when = { holiday = "childrens_week" }, text = "An orphan follows you this Children's Week? Good. Teach them honor, and keep them away from the goblins." },
     { id = "g_strength", text = "Strength and honor. What is it you want?" },
     { id = "g_night", when = { timeOfDay = "night" }, text = "It's the night watch, so don't make it interesting." },
     { id = "g_away", when = { away = 7 }, text = "You've been gone {away}. The watch stood without you, but it's good to see you back." },

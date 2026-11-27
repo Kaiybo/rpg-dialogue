@@ -19,6 +19,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. Your vault is safe as the bluff itself." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Your vault is safe. Kindly don't linger." },
     { id = "g_hi", text = "Welcome, friend. Your vault is safe, as safe as a calf in the middle of the herd." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and your things have waited patiently for you. Shall I open the vault?" },
     { id = "g_walk", when = { origin = "tauren_long_migration" }, text = "Welcome, friend. You came here on the long walk, so you'll remember when everything a family owned fit on one kodo's back, and you'll forgive an old banker for marvelling at how full these vaults have grown." },
@@ -197,6 +199,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The wind is good, friend, and An'she is high. Where shall I send you?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The wind is good today. Where do you want to go?" },
     { id = "g_hi", text = "The wind is good today, and An'she is high. Where shall it carry you?" },
     { id = "g_back", when = { metBefore = true }, text = "Back on the tower. The wind riders remember you, friend." },
     { id = "g_windshaper", when = { origin = "skyborne_windshaper" }, text = "One of Ayessa's Windshapers, up on my tower again. You stand into the wind like my riders do, as if you're listening for something in it, and I hope one day it tells you what you want to hear." },
@@ -394,6 +398,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come to learn a new weapon, friend? Good! I've been hoping you'd come." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come to learn a new weapon? Good. Try not to drop it." },
     { id = "g_hi", text = "Come to learn a new weapon? Good; a warrior with only one is half armed, and the herd needs you whole." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Show me how your practice has gone." },
   },
@@ -556,6 +562,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in, friend! Test the draw on any of them. They're all good, for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in. Test the draw on any of them. Don't break any." },
     { id = "g_hi", text = "Come in, come in. Test the draw on any of them; that's what they're for, and the wood was given by the Earth Mother to be used." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter! You'll want arrows, I'd guess, and plenty of them. Hunters always run out of arrows first." },
   },
@@ -735,6 +743,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ho, friend. Come to learn the patient art? The lake is calm today, and so am I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ho. Come to learn the patient art? You could use it." },
     { id = "g_hi", text = "Ho, friend. Come to learn the patient art? The lakes of Mulgore are as calm as a sleeping kodo today." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Tell me what you caught, and don't make it bigger than it was." },
   },
@@ -917,6 +927,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You look hungry, friend. Here, the best bowl is yours." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You look hungry. Everyone does. Pay, and eat." },
     { id = "g_hi", text = "You look hungry. Everyone does, but you look hungrier than a kodo at the end of a dry season." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Have you been eating properly, or only that dry trail bread?" },
     { id = "g_fl", when = { flirt = true, chance = 0.4, ["not"] = { npcFlagBefore = "aska_fl_no" } }, text = "Well, look at you, all shoulders and no supper. Stand where I can see you, because somebody ought to be feeding you properly, and I've decided it might as well be me." },
@@ -1130,6 +1142,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you. Good. You've proved you're not slow. Come, let's work." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "I'm told you think the tauren are slow. Let's see how quick you are." },
     { id = "o_tau_soft", when = { gossip = { topic = "tauren", stance = "soft" } }, text = "I'm told you think the tauren are slow and sentimental. Perhaps we are, traveller, but we're still standing, and we're still kind to people who say so." },
     { id = "g_hi", text = "Mind the vials. Some of them are still warm." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Have you been practising, or only buying potions from merchants?" },
@@ -1362,6 +1376,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Bena speaks well of you, and so do I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "My cousin Bena tells me things about you. I'll train you, but I'll watch you." },
     { id = "o_fk_hate", when = { gossip = { topic = "forsaken", stance = "hate" } }, text = "My cousin Bena tells me you'd see the Forsaken gone from Mulgore. Be careful who you say that to, because the Chieftain gave them his word." },
     { id = "g_hi", text = "Welcome, friend. Come and smell the Peacebloom; it's fresh today." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Have you thanked the Earth Mother for what you've gathered?" },
@@ -1533,6 +1549,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in, friend. Mind the hides, but you always do." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in. Mind the hides drying on the poles. Each one is precious." },
     { id = "g_hi", text = "Come in. Mind the hides drying on the poles; each one was a gift from the Earth Mother." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back. Show me your stitching; I'll know whether you've practised." },
   },

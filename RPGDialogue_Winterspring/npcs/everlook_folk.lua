@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Cold enough for you, darling? Come here, I'll share my cup. You're too good to freeze." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Cold enough for you, darling? I'd offer you a cup, but I'm afraid I've just finished it." },
     { id = "g_default", text = "Cold enough for you, darling? I've had three cups of something hot at Vizzie's prices, and one of 'em was supposed to be for washing, and I still can't feel my ears." },
     { id = "g_scared", when = { questRecent = { TODO_QUEST("Are We There, Yeti?"), days = 7 } },
       text = "Don't you come near me with anything furry, you hear? I know it was you, darling, and I know who put you up to it, and I'd bet my last gold piece she didn't even pay you properly." },
@@ -212,6 +214,8 @@ P:NPC {
   },
 
   greetings = {
+
+    { id = "g_rep1", when = { rep = { faction = "Everlook", min = "Honored" } }, text = "Everlook speaks well of you, friend, and in a town this cold, that's a warm thing to hear." },
     { id = "g_default", text = "Careful, careful! Nothing on that bench is finished, and some of it is cold enough to take your skin off." },
     { id = "g_horns", when = { questActive = TODO_QUEST("Chillwind Horns") }, text = "Horns, uncracked horns! Tell me you didn't drop any of them on the way here." },
     { id = "g_away", when = { away = 14 }, text = "Careful, careful, you've been gone {away} and the bench is in a different order now! Don't touch anything until I tell you what's frozen." },
@@ -1231,6 +1235,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Flying, friend? The best rider's wrapped and ready for you. Stay warm up there." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Flying? The riders are ready. They hate the cold, and they'll hate carrying you too." },
     { id = "g_default", text = "Flying? The riders are wrapped and ready, though they hate this cold more than I do, and one of them bit me this morning for the cheek of it." },
   },
 
@@ -1415,6 +1421,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend. The gentlest hippogryph is yours. May the snow be kind on your journey." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. The hippogryphs are rested. Take one and leave the snow behind, please." },
     { id = "g_default", text = "Ishnu-alah. The hippogryphs are rested, if you wish to leave the snow behind." },
   },
 

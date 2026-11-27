@@ -539,6 +539,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You again! Fed and rested, the lot of them, and none bit me today. That must be your luck rubbing off." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Need a wind rider? Pay and go. And if one bites you, I won't be sorry." },
     { id = "g_default", text = "Need a wind rider? They're fed and rested, and only one of them bit me this morning." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The beasts know your smell now." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, but the beasts still know your smell, which I'd take as a warning about your bathing." },
@@ -664,6 +666,8 @@ P:NPC {
       },
       again = { { id = "h_again", text = "The wind riders are restless, and so am I. Say what you need, or climb on." } },
       choices = {
+        { text = "Wind riders deserve good care and good handlers.", next = "BACK", reply = "They do. Most riders think they're just beasts with wings. You know better.", fx = { align = { light = 1 } } },
+        { text = "A wind rider's a mount. Feed it and fly it.", next = "BACK", reply = "And it'll throw you off at the first chance. Pay and get on.", fx = { align = { light = -1 } } },
         { text = "Does the salt wind off the coast trouble the spirits too?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "The wind riders can't like it here.", next = "beasts" },
         { text = "Is it safe to fly over the coast?", next = "coast" },

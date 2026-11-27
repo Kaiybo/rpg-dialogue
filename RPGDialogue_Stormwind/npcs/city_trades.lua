@@ -12,6 +12,8 @@ P:NPC {
     third = "{name} met Tannysa, who teaches herbalism in Stormwind's Park.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_default", text = "Ishnu-alah. Have you come to learn which leaves heal and which ones kill?" },
     { id = "g_back", when = { metBefore = true }, text = "Elune's light on you again. Have your hands learned the difference between peacebloom and silverleaf yet, or must the moon turn a few more times?" },
   },
@@ -21,6 +23,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I think they hear it only faintly. The earth here is fenced and trimmed, and I suspect your spirits would find it as quiet as I do." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Even trimmed earth deserves care and respect, Tannysa.", next = "BACK", reply = "It does, and you are kind to say so. I tend these beds as gently as I would a grove, and some mornings they almost answer.", fx = { align = { order = 1 } } },
         { text = "Tidy gardens are dead gardens. Let them grow wild.", next = "BACK", reply = "They would, and the gardeners would weep, and the nobles would summon the guard. I let them grow a little wild where nobody looks.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -180,6 +184,8 @@ P:NPC {
     third = "{name} met Shaina Fuller, who teaches first aid in Stormwind.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Train if you must, and spare me the conversation." },
     { id = "g_default", text = "Hold still and watch my hands. Bandaging is easy until you're bleeding." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more lessons? Good, because a bandage you can tie is worth a priest you can't find." },
   },
@@ -189,6 +195,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "More refugees than soldiers these days, from Westfall and Redridge both. Whatever heals them, I'll welcome it, spirits included." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then I'll lend my healing wherever it's needed, Shaina.", next = "BACK", reply = "Good. I'll put you on the list for the refugee tents, and we'll see how you hold up.", fx = { align = { light = 1 } } },
         { text = "Refugees should go home. The city can't carry them.", next = "BACK", reply = "Home to what, the Defias and the burning fields? I'd send them if there were anything left.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -350,6 +358,8 @@ P:NPC {
     third = "{name} met Frederick Stover, a cheerful bowyer of the Trade District.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Bows and arrows, friend, the finest yew this side of the Greymane Wall!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Did that bow serve you well? Of course it did." },
   },
@@ -363,6 +373,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Patience and a cold winter, and a tree that grew slow and straight. Maybe your spirits know which trees grew honest." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Straight grain makes straight arrows. That's the right way.", next = "BACK", reply = "Right you are, friend, and you'll go far with that view. Straight grain never lies.", fx = { align = { order = 1 } } },
         { text = "Crooked wood can surprise you. Don't scorn it.", next = "BACK", reply = "Crooked wood? I suppose you're right, friend, though I'd not bet my supper on it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -522,6 +534,8 @@ P:NPC {
     third = "{name} met Felicia Gump, Stormwind's chatty florist.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. For a regular like you, I'll find the better stock from the back." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Flowers, herbs and seasonings, dear! Something for a sweetheart, or something for the pot?" },
     { id = "g_back", when = { metBefore = true }, text = "You again! Did your sweetheart like the roses? Or was it the pot, after all?" },
   },
@@ -535,6 +549,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Mourners, mostly, buying lilies for funerals, and fewer sweethearts buying roses. The city's a little sad, I think, and the flowers know it before anyone." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then sell them gently, Felicia. People need that kindness.", next = "BACK", reply = "I try, dear, I always try. People don't buy lilies on a happy day.", fx = { align = { light = 1 } } },
         { text = "Grief sells well. Raise your price on lilies.", next = "BACK", reply = "Raise my price on widows? Oh, dear, I'd never sleep again. No, the lilies stay where they are.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

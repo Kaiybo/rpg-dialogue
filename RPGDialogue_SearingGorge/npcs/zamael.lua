@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Praise Elune, you return. Come close; the bars are cold, but your company is warm." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I will speak with you, but my heart is guarded, as these bars are." },
     { id = "g_default", text = "Praise Elune, a visitor, and it has been many years since anyone stood at these bars without a whip in hand." },
     { id = "g_back", when = { metBefore = true }, text = "You return to an old ghost. The cage is the same, but your company makes it lighter." },
     { id = "g_away", when = { away = 21 }, text = "Three weeks or three years, {away} means little to the dead, but I noticed you were gone, and I am glad you came back." },
@@ -202,6 +204,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You have shown kindness to a ghost in a cage, and Elune sees it. So do I." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You have been cruel to a prisoner, and Elune sees that too." },
+    },
     background = { { id = "tp_ba", text = "A night elf of Darkshore, a servant of the Hammer, a penitent, and now a ghost, which is the most honest of the four." } },
     advice = { { id = "tp_ad", text = "Beware of people who befriend you quickly and ask you to change slowly, mortal. That is how I was lost." } },
     twilights_hammer = { { id = "tp_twilights_hammer", text = "The Hammer took me in when I was lost, and I served them with my whole heart. I was wrong, and this cage has given me years to measure how wrong." } },

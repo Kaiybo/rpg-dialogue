@@ -16,6 +16,10 @@ P:NPC {
   },
 
   greetings = {
+
+
+    { id = "g_rep2", when = { rep = { faction = "Cenarion Circle", min = "Exalted" } }, text = "If every sword at the Hold were half as steady as yours, I would sleep through the night. Welcome back." },
+    { id = "g_rep1", when = { rep = { faction = "Cenarion Circle", min = "Honored" } }, text = "The Hold owes you, and I keep a careful count of what the Hold owes. Report, friend." },
     { id = "g_prejlock1", when = { prejudiced = true }, text = "My forebears died at Hyjal to drive the Legion from this world, and you call its servants to your side. You will have the Circle's courtesy from me, and nothing warmer." },
     { id = "g_prejlock2", when = { prejudiced = true }, text = "Keep the demon at your heel outside my hall. The Hold has enough darkness pressing at its walls without you carrying more in." },
     { id = "g_prejlock_over", when = { prejudiced = "overcome" }, text = "You have bled for the Hold, and the Circle speaks well of you. I still do not trust what walks in your shadow, but I have begun to trust you." },
@@ -616,6 +620,8 @@ P:NPC {
   },
 
   greetings = {
+
+    { id = "g_rep1", when = { rep = { faction = "Cenarion Circle", min = "Honored" } }, text = "You again, and with the Circle's good word behind you. That makes you the only reliable thing in this desert." },
     { id = "g_default", text = "Mind the crates, friend; half of them are full of rocks, and the other half are full of more interesting rocks." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Come and listen to this sample and tell me I'm imagining things." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "It's quieter at night, so ye can hear it properly. Shh, now." },
@@ -1078,6 +1084,8 @@ P:NPC {
   },
 
   greetings = {
+
+    { id = "g_rep1", when = { rep = { faction = "Cenarion Circle", min = "Honored" } }, text = "The winds carry your name around the Hold now, and they carry it kindly. Come and sit by me." },
     { id = "g_default", text = "Welcome to Cenarion Hold, {class}. If you've come to lend a hand, I have several needing lent, and the Earth Mother knows I can't spare a single one." },
     { id = "g_back", when = { metBefore = true }, text = "Good to see you again. The caravans have been safer since your last visit, and I keep a tally, as carefully as my grandmother counted the herd." },
     { id = "g_done", when = { questDone = TODO_QUEST("Stepping Up Security") }, text = "The worms have learned to keep their distance from the road, {name}, and I know whom to thank." },
@@ -1100,8 +1108,8 @@ P:NPC {
       big = true,
       lines = { { id = "dr_pht_default", text = "Better than in Moonglade, if you'll believe it, because the silithid don't care whose druid they're biting. We eat from the same pot and stand the same watches, and I have seen a kaldorei elder carry a wounded young tauren druid back through the gate on her own back, which does more for the Circle than any council has." } },
       choices = {
-        { text = "Then the Hold is what the whole Circle ought to be.", next = "BACK", reply = "Provided we live long enough to teach it to the others, yes. I'd like Darnassus and the Bluff to see that gate one day.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "united" } } },
-        { text = "War makes allies. Peace will see them apart again.", next = "BACK", reply = "Perhaps, and I won't pretend I haven't wondered it myself. But the ones who were at that gate won't forget it, assuming they live to be old.", fx = { align = { order = 1 }, opinion = { druids = "divided" } } },
+        { text = "Then the Hold is what the whole Circle ought to be.", next = "BACK", reply = "Provided we live long enough to teach it to the others, yes. I'd like Darnassus and the Bluff to see that gate one day.", fx = { affinity = 1, align = { order = -1 }, opinion = { druids = "balance" } } },
+        { text = "War makes allies. Peace will see them apart again.", next = "BACK", reply = "Perhaps, and I won't pretend I haven't wondered it myself. But the ones who were at that gate won't forget it, assuming they live to be old.", fx = { align = { order = 1 }, opinion = { druids = "wary" } } },
         { text = "Something else, Windcaller.", next = "BACK" },
       },
     },
@@ -1368,6 +1376,8 @@ P:NPC {
   },
 
   greetings = {
+
+    { id = "g_rep1", when = { rep = { faction = "Cenarion Circle", min = "Revered" } }, text = "The guard salutes you when you pass, have you noticed? The Hold does not forget who has bled for it." },
     { id = "g_default", text = "You climbed all these stairs to talk to me? Then talk, and I'll listen, as my people have listened through ten thousand years of night." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good; the last one who climbed up here wanted directions to the privy." },
     { id = "g_deathclasp", when = { questDone = TODO_QUEST("Wanted - Deathclasp, Terror of the Sands") }, text = "The southern patrols came back whole this week. I counted twice." },
@@ -1633,6 +1643,8 @@ P:NPC {
   },
 
   greetings = {
+
+    { id = "g_rep1", when = { rep = { faction = "Cenarion Circle", min = "Honored" } }, text = "A friend of the Hold always gets the bed away from the wind. I have kept it aired for you." },
     { id = "o_fan_distrust", when = { gossip = { topic = "fandral", stance = "distrust" } }, text = "The Commander mentioned you've no great love for the Arch Druid. Hush now, the sand has ears in a place like this, and some of them are Darnassian." },
     { id = "g_default", text = "Oh, look at you, sand from head to foot! Ishnu-alah, dear, and come in out of the sun." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back to the oasis, dear. Your usual corner's free." },

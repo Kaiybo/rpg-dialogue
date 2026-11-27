@@ -245,6 +245,8 @@ P:NPC {
     third = "{name} met Joshua Maclure, who sells drink at the Maclure Vineyards and smooths over what Pa says.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_drink", text = "A drink for the road? The wine's ours and the water's from the well, and both are honest." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? I'll take that as a compliment to the grapes." },
   },
@@ -260,6 +262,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "He always does, because he has opinions about everything, especially the Stonefields. I'd rather pour wine and keep the peace." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Peace is worth pouring for, Joshua.", next = "BACK", reply = "Thank you, and I wish more folk felt the same, Pa especially. Have a glass and forget the feud for a moment.", fx = { align = { light = 1 } } },
         { text = "Your father's right to grumble. The Stonefields cause trouble.", next = "BACK", reply = "He'd be glad to hear you say it, so do me a kindness and don't. He's loud enough already.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

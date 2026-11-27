@@ -777,6 +777,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_counter", text = "Shady goods, as the sign says, and I'll never pretend they're anything else. What are you after?" },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and still breathing, so I assume you've been careful with what you bought last time. Good." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and I'd started to wonder whether you'd mixed something wrong. Glad to see you've still got all your fingers." },
@@ -814,6 +816,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, ask. I'd rather answer questions than have you guess." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "How does a man end up selling poison?", next = "origin" },
         { text = "Someone must buy all this from you.", next = "buyers" },

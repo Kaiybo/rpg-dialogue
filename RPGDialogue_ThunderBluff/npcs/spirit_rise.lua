@@ -19,6 +19,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The spirits are calm around you, friend. That is a good sign." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The spirits are restless this morning, and you're not helping." },
     { id = "g_hi", text = "The spirits are restless this morning, and the wind has a sharp tongue. Speak gently." },
     { id = "g_back", when = { metBefore = true }, text = "You return. The spirits remember you, and they do not remember every traveller who climbs to this rise." },
   },
@@ -152,6 +154,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Mind the shavings, friend, but you can stand close. I trust you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind the shavings. Totems don't carve themselves, and they don't like you near them." },
     { id = "g_hi", text = "Mind the shavings. Totems don't carve themselves, though the spirits in the wood would like you to think so." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Let me see your totems; they always tell me how you've been using them." },
   },
@@ -259,6 +263,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend! Bena speaks well of you. Come, let's train together!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bena says things about you. I'll train you, but I'm not sure about you." },
     { id = "o_fk_trust", when = { gossip = { topic = "forsaken", stance = "trust" } }, text = "Bena Winterhoof, the alchemist, says you count the Forsaken as Horde like any of us. The spirits below the rise would be glad of more like you, I think." },
     { id = "g_hi", text = "Oh, hello! Sorry, I was listening to the wind. It's chatty today." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Come and tell me where you've been." },
@@ -382,6 +388,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Ursyn says good things of you, and I'm inclined to agree." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ursyn says you admire the Kirin Tor. I'd like to hear why, but I doubt you'll explain." },
     { id = "o_kt_admire", when = { gossip = { topic = "kirin_tor", stance = "admire" } }, text = "Ursyn Ghull says you admire the Kirin Tor. They'd admire you right into a cell, if you were one of us, so think on that." },
     { id = "g_hi", text = "Mind the wards on the floor. They're not decorative, and I've no interest in scraping up another careless visitor." },
     { id = "g_back", when = { metBefore = true }, text = "Still unburned, I see. Your control must be improving, which is more than I expected of the living." },
@@ -558,6 +566,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, welcome, friend. Touch the notes if you like. You're careful." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ah, welcome. Please don't touch the notes. Any of them." },
     { id = "g_hi", text = "Ah, welcome. Please don't touch the notes, they're in an order." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. I've been rereading something you might find useful." },
   },
@@ -754,6 +764,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hello, hello, friend! Come in, come in! It's warm down here, and warmer with you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hello. Come in, I suppose. It's warm down here, and that's the only welcome you'll get." },
     { id = "g_hi", text = "Hello, hello! Come in, it's warmer down here than up on the rise, not that I'd know anymore." },
     { id = "g_back", when = { metBefore = true }, text = "There you are! I was just telling the walls about you." },
   },
@@ -940,6 +952,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend. The shadows are restful, and so is your company." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. The shadows are restful. Don't disturb them." },
     { id = "g_hi", text = "Welcome. The shadows down here are restful, if you let them be, and far more honest than the Light ever was." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. The shadow suits you better than it did." },
   },
@@ -1057,6 +1071,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Father Cobb speaks well of you. Come, let's talk." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Father Cobb tells me you pity the Scarlet Crusade. I'd like to know why." },
     { id = "o_sc_pity", when = { gossip = { topic = "scarlet_crusade", stance = "pity" } }, text = "Father Cobb tells me you pity the Scarlet Crusade. Pity them when they're tying you to the stake, and see how long it lasts." },
     { id = "g_hi", text = "Another visitor. State your business, and don't waste my time; I've already lost one life to fools." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Your devotion is noted." },
@@ -1213,6 +1229,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, my friend. Come in, and let's speak of the Light and the shadow." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Malakai tells me things about you. I'll hear you out, but I'll be watching." },
     { id = "o_light_hate", when = { gossip = { topic = "the_light", stance = "hate" } }, text = "Malakai Cross says you've turned your back on the Light. I'll not lecture you, child, but the chapel door is always open, even down here." },
     { id = "g_hi", text = "Come in, child, come in. Mind the step, it's slippery, and I've no longer the hands to catch anyone." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back, child. How have you been keeping? I ask everyone, though I've stopped expecting good answers." },
@@ -1547,6 +1565,8 @@ P:NPC {
     third = "{name} spoke with Gevreka on Spirit Rise.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Peace, friend. Spirit Rise is quiet, and you're welcome in it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Peace, {class}. Spirit Rise is a quiet place. Keep it so." },
     { id = "g_default", text = "Peace, {class}. Spirit Rise is a quiet place, and I try to keep it so." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "Mu'sha is bright tonight. On nights like this the spirits come close to the rise, and I like to be here when they do." },
     { id = "g_back", when = { metBefore = true }, text = "You came back to the rise. The wind is gentle today; stand with me a while." },

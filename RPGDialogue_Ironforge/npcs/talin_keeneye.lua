@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my friend! Fine day fer huntin', an' finer fer huntin' with you." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Hunt where ye like, but not near my traps." },
     { id = "g_lake", text = "Fine day fer huntin', wouldn't ye say? Mind where ye step; the boars are everywhere." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! Have ye come tae shoot somethin', or just tae watch me miss?" },
     { id = "g_hunt", when = { questActive = TODO_QUEST("The Boar Hunter") }, text = "How goes the hunt? I can still hear them grunting out there, so I'd guess there's a few left." },
@@ -139,6 +141,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye've a keen eye, an' a keener heart, an' I'd hunt with ye anytime." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've been careless in my huntin' grounds, an' the beasts remember." },
+    },
     background = { { id = "tp_bg", text = "I hunt, I eat what I hunt, an' I pass on Sten's mail when I have tae. It's a good life when there's fewer boars in it." } },
     advice = { { id = "tp_ad", text = "Step aside when it charges. That's all the advice a body needs in Coldridge." } },
     troggs = { { id = "tp_troggs", text = "I dinnae hunt troggs; there's no meat on them worth the name. Ask Balir Frosthammer at the camp, for he hates them enough fer the both of us." } },

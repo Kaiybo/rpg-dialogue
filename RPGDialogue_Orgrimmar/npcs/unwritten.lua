@@ -95,6 +95,8 @@ P:NPC {
     third = "{name} talked with one of the orphans of Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, it's you! Matron says you're nice! Can I touch your axe? Just once?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Is that a real axe? Matron says I can't touch real axes, or talk to strangers like you." },
     { id = "g_default", text = "Is that a real axe? Matron says I can't touch real axes until I'm bigger, but I'm bigger than I was last week." },
   },
   start = "hello",
@@ -1260,6 +1262,8 @@ P:NPC {
     third = "{name} met Commander Stronghammer, the Alliance ambassador who watches the Horde's war effort in Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Aye, I'm still a dwarf in Orgrimmar, but ye make it a sight easier." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Aye, I'm a dwarf, and aye, I'm in Orgrimmar. Ye can stop starin' now." },
     { id = "g_default", text = "Aye, aye, I'm a dwarf, and aye, I'm in Orgrimmar. Ye can stop starin' now, {class}." },
   },
   notice = {
@@ -2144,6 +2148,8 @@ P:NPC {
     third = "{name} met Penney Copperpinch, who sells Smokywood Pastures' budget Winter Veil goods.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey there, sweetheart! Winter Veil treats for my favorite customer, and cheap!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey there. Winter Veil treats at Winter Veil prices. Holiday markup, for you." },
     { id = "g_default", text = "Hey there, sweetheart! Winter Veil treats at Winter Veil prices, and that's a bargain, believe me." },
   },
   start = "hello",
@@ -2256,6 +2262,8 @@ P:NPC {
     third = "{name} met Rachelle Gothena, a Forsaken who sells Hallow's End treats in Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Happy Hallow's End, friend. For you, a treat, and no trick at all." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Happy Hallow's End, {class}. Would you care for a treat? Or perhaps a trick?" },
     { id = "g_default", text = "Happy Hallow's End, {class}. Would you care for a treat, or would you prefer a trick?" },
   },
   start = "hello",
@@ -2373,6 +2381,8 @@ P:NPC {
     third = "{name} met Alowicious Czervik, a goblin selling sweets in the Valley of Strength.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, pal! You need somethin' sweet, and I got the sweetest for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey, pal. You look like you need somethin' sweet. It'll cost ya." },
     { id = "g_default", text = "Hey, pal, you look like you need somethin' sweet! I got treats that'll make an ogre weep." },
   },
   start = "hello",
@@ -2498,6 +2508,8 @@ P:NPC {
     third = "{name} met Kizzak Sparks, a goblin who sells fireworks in the Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Fireworks, friend! The brightest ones, for you, at the best price!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Fireworks. Bright, loud, dangerous. Don't light 'em near me." },
     { id = "g_default", text = "Fireworks, pal! Bright ones, loud ones, ones that only sometimes explode early!" },
   },
   start = "hello",
@@ -2614,6 +2626,8 @@ P:NPC {
     third = "{name} met Ukra'nor, who sells staves at Skyfury Staves in Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome to Skyfury Staves, friend. For you, a staff worthy of the Horde." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Skyfury Staves, {class}. Every staff here was made with care. Handle them carefully." },
     { id = "g_default", text = "Welcome to Skyfury Staves, {class}. Every staff here was carved by hands that know the wood." },
   },
   notice = {
@@ -2737,6 +2751,8 @@ P:NPC {
     third = "{name} met Shim'la, a Darkspear troll in the Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, friend! You come to train, or just to watch de orcs? Either way, sit with me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey, mon. You come to train, or to watch? Either way, keep it quiet." },
     { id = "g_default", text = "Hey, mon. You come to train, or you come to watch de orcs sweat like I do?" },
   },
   start = "hello",
@@ -2849,6 +2865,8 @@ P:NPC {
     third = "{name} met Doyo'da, a troll who drinks at the Valley of Strength inn.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ey, friend! Sit, de drinks be cold and de stories be better with you here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ey, mon. Sit, if you want. De drinks be cold, and so be de company." },
     { id = "g_default", text = "Ey, mon. Sit down, de drinks be cold and de stories be warm." },
   },
   start = "hello",
@@ -2963,6 +2981,8 @@ P:NPC {
     third = "{name} met Kozish, a goblin who does his business at the inn.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, my friend! Pull up a chair. For you, the best deals in Orgrimmar!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey. Pull up a chair, if you want. I'm open for business, sort of." },
     { id = "g_default", text = "Hey, friend! Pull up a chair, I'm always open for business." },
   },
   start = "hello",
@@ -3075,6 +3095,8 @@ P:NPC {
     third = "{name} met Goma, a boastful orc at the inn.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ha! My favorite listener! Sit, and hear how I killed a quilboar, again!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ha. Another one. Sit, and listen, or don't. I'll talk anyway." },
     { id = "g_default", text = "Ha! Another one! Sit down and hear how I killed a quilboar with my bare hands!" },
   },
   start = "hello",
@@ -3189,6 +3211,8 @@ P:NPC {
     third = "{name} met Sarok, a quiet orc at the inn.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "If Goma's been talking, friend, I'm sorry. But I'm glad you're here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "If Goma has been talking to you, I'm sorry. For both of us." },
     { id = "g_default", text = "If Goma has been talking to you, I am sorry. He does not know when to stop." },
   },
   start = "hello",
@@ -3301,6 +3325,8 @@ P:NPC {
     third = "{name} met Zazo, a young orc at the inn.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you! Tell me more stories! You're the best adventurer I know!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Are you an adventurer? I've heard things. Maybe not good things." },
     { id = "g_default", text = "Are you an adventurer? Have you killed anything big? Tell me everything!" },
   },
   start = "hello",
@@ -3682,6 +3708,8 @@ P:NPC {
     third = "{name} met Great-father Winter's Helper in the Valley of Strength during the Feast of Winter Veil.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Happy Winter Veil, friend! Smokywood Pastures wishes you joy, and a little extra!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Happy Winter Veil. Smokywood Pastures wishes you joy. Some joy, anyway." },
     { id = "g_default", text = "Happy Winter Veil! Smokywood Pastures wishes you joy, cheer, and reasonable prices!" },
     { id = "g_festival", when = { holiday = "winterveil" }, text = "Winter Veil is here at last! Great-father Winter is in fine spirits, and so is Smokywood Pastures." },
     { id = "g_back", when = { metBefore = true }, text = "You again! Are you on the nice list? Don't answer that; it's above my pay grade." },
@@ -3796,6 +3824,8 @@ P:NPC {
     third = "{name} spoke with Raider Bork, war mount quartermaster of the Hall of Legends.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You stand before the Hall of Legends, warrior, and you belong here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You stand before the Hall of Legends. Only the worthy enter. I'm not sure that's you." },
     { id = "g_default", text = "You stand before the Hall of Legends, warrior. Only those who have proven themselves in battle may buy from me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Have you earned a better rank since we last spoke?" },
   },
@@ -3910,6 +3940,8 @@ P:NPC {
     third = "{name} met Sergeant Thunderhorn, quartermaster in the Hall of Legends.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, warrior. The Horde rewards those who fight for it, and you have." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome, warrior. The Horde rewards those who fight for it. Prove you have." },
     { id = "g_default", text = "Welcome, warrior. The Horde rewards those who fight for it, and I see that the rewards reach the right hands." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Your name grows on the battlefield, I hear." },
   },
@@ -4024,7 +4056,9 @@ P:NPC {
     first = "An Orgrimmar Grunt in spiked pauldrons blocks half the path without trying, axe resting on his shoulder, watching you with flat professional interest.",
     third = "{name} spoke with a grunt of Orgrimmar.",
   },
-  greetings = { { id = "g_default", text = "Lok'tar. Speak your business; the Warchief's city is busy." } },
+  greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Lok'tar, friend. The Warchief's city is glad of you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Lok'tar. Speak your business. The Warchief's city is busy." }, { id = "g_default", text = "Lok'tar. Speak your business; the Warchief's city is busy." } },
   start = "hello",
   nodes = {
     hello = {

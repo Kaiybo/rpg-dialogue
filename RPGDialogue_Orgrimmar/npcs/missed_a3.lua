@@ -16,6 +16,8 @@ P:NPC {
     third = "{name} met Asoran, who sells general goods at his market in the Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back, friend! If it fits in a pack, I'll find it, and I'll find it cheap for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Asoran's Market. If it fits in a pack, it's for sale, at the listed price." },
     { id = "g_default", text = "Welcome to Asoran's Market, {class}. If it fits in a pack and keeps you alive on the road, I probably have it." },
     { id = "g_back", when = { metBefore = true }, text = "You are back, and your pack looks lighter than when you left. Let us mend that." },
   },
@@ -123,6 +125,8 @@ P:NPC {
     third = "{name} met Magenius, the reagent seller in the Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Reagents for every art, and for you, the purest I have on the shelf." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Reagents for every art practised here, {class}. Please don't practise any of yours in my shop." },
     { id = "g_default", text = "Reagents for every art practised in Orgrimmar, {class}. Tell me what you mean to cast, and I will tell you what it burns." },
     { id = "g_back", when = { metBefore = true }, text = "You have used them all up already? Then they worked, and I am glad of it." },
   },
@@ -473,6 +477,8 @@ P:NPC {
     third = "{name} met Kithas, who sells enchanting supplies at Godan's Runeworks.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Rods, dusts and essences, and I'll weigh yours generously." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Rods, dusts and essences, {class}, weighed honestly. I'll weigh yours twice." },
     { id = "g_default", text = "Rods, dusts and essences, {class}, weighed honestly. Do not sneeze near the scale." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Tell me you have not come to return dust, because it does not go back in the jar." },
   },

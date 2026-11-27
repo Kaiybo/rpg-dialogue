@@ -13,6 +13,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. Step where I step, and I'll show you where the best rabbits run." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Step where you like, then; I'll not be warning you about the traps today." },
     { id = "g_traps", text = "Step where I step, friend. There are traps all through here." },
     { id = "g_fur", text = "Bring me something with fur on it." },
   },
@@ -241,6 +243,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've a good eye and a quiet foot, friend, and I'd hunt beside you any day." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've given me cause to mind my back, and I'd rather be minding the traps." },
+    },
     background = { { id = "tp_bg", text = "I'm a trapper and a skinner, here in Northshire, and that's the lot." } },
     advice = { { id = "tp_ad", text = "Feed your animal before yourself and clean your knife before you sleep, and never turn your back on a wolf that's stopped growling." } },
     kobolds = { { id = "t_kobolds", text = "Kobolds don't wear anything worth taking." } },

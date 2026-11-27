@@ -571,6 +571,8 @@ P:NPC {
     third = "{name} met Montarr, lorekeeper and reagent seller at Freewind Post.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Sit, friend, and I'll tell you a story. You've always listened well." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand, if you've come for reagents. I don't think you'd listen to a story." },
     { id = "g_hi", text = "Sit, if you have come for a story, and stand, if you have come for reagents. I have both, and the reagents are quicker." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Did you want the rest of the tale, or have you run out of ankhs?" },
     { id = "g_away", when = { away = 14 }, text = "{away} have gone by. I have kept your place in the story." },
@@ -711,6 +713,8 @@ P:NPC {
     third = "{name} met Starn, the gunsmith and bowyer of Freewind Post.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You, I trust to choose. Bow or gun?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bow or gun? Decide, and I'll decide whether to sell it." },
     { id = "g_hi", text = "Bow or gun? Decide before you answer, because I will ask you why." },
     { id = "g_back", when = { metBefore = true }, text = "You again. How did it shoot?" },
     { id = "g_away", when = { away = 14 }, text = "{away}. Your string will have stretched; let me see it." },
@@ -852,6 +856,8 @@ P:NPC {
     third = "{name} met Jawn Highmesa, who sells general goods at Freewind Post.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Up the lift and still on your feet, friend! Good! Sit down, I've a story for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Up the lift again. Still on your feet. Buy what you need and don't make me talk." },
     { id = "g_hi", text = "Up the lift and still on your feet! Good. Half my customers need a sit and a drink before they can say what they want." },
     { id = "g_back", when = { metBefore = true }, text = "Back up again, friend? The lift must be getting to know you." },
     { id = "g_away", when = { away = 14 }, text = "{away} down below. I hope you found some shade, because we have none to sell." },
@@ -992,6 +998,8 @@ P:NPC {
     third = "{name} met Laer Stepperunner, who sells food and drink at Whitereach Post.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back to Whitereach, friend. Come, sit, and tell me what you've seen in the canyon." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Whitereach. You've canyon dust to your knees. Do mind where you shake it." },
     { id = "g_hi", text = "Welcome to Whitereach, traveller. You have canyon dust to your knees, so sit, and I will bring you water before you say another word." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back down the canyon! Sit where you sat before, for I have kept the bread warm on the chance of it." },
     { id = "g_away", when = { away = 14 }, text = "{away} since you ate at my fire. Tell me where you have been, and whether the bread there was any good." },
@@ -1143,6 +1151,8 @@ P:NPC {
     third = "{name} met Synge, the goblin gunsmith at the Mirage Raceway.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, friend! For you, the best supplies for your long walk, and I'll throw in a sandwich!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey, step up. Supplies for the walk. Full price, no sandwich." },
     { id = "g_hi", text = "Hey, hey, step up, friend! Ya look like somebody with a long walk ahead and nothin' loud to take along, and I can fix exactly one of those." },
     { id = "g_back", when = { metBefore = true }, text = "My favourite repeat customer! Tell me she shot straight, because my returns policy is that I don't have one." },
     { id = "g_away", when = { away = 14 }, text = "{away}, pal, and still breathin', which I'm puttin' down to quality merchandise." },
@@ -1292,6 +1302,8 @@ P:NPC {
     third = "{name} met Riznek, the goblin drink vendor at the Mirage Raceway.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Thirsty, friend? For you, the coldest water, and only a little salt in it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Thirsty? Sure. Water's two silver. Salt's extra, and you'll get some whether you want it or not." },
     { id = "g_hi", text = "Thirsty, friend? Sure ya are, you're standin' on salt as far as the eye can see, and I'm the only fella out here with anything wet." },
     { id = "g_back", when = { metBefore = true }, text = "Look who's parched again! Step up, pal, your usual's waitin', whatever it turns out to be." },
     { id = "g_away", when = { away = 14 }, text = "{away} without one of my drinks? Pal, I'm amazed you're still upright." },
@@ -1432,6 +1444,8 @@ P:NPC {
     third = "{name} met Brivelthwerp, the gnome who sells ice cream at the Mirage Raceway.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you! Take your time, friend, the ice cream can wait for a good customer." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh, a customer. Please decide quickly. The ice cream melts, and my patience melts faster." },
     { id = "g_hi", text = "Oh, a customer, wonderful, please decide quickly! Every time I open the lid I lose roughly two percent of my cold, and I've none to spare." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, which my figures suggest means you liked it! Same again, I hope, since it's the only flavour I have." },
     { id = "g_away", when = { away = 14 }, text = "{away}! I've sold four hundred and twelve servings since you were last here, and lost nineteen to the sun, which is a record low." },
@@ -1591,6 +1605,8 @@ P:NPC {
     third = "{name} met Magus Tirth, a mage reduced to selling chickens at the Mirage Raceway.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, a worthy patron. Yes, the finest chickens, for one who appreciates a magus's work." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Yes, yes, I sell chickens. Buy one and leave me to my more important work." },
     { id = "g_hi", text = "Yes, yes, I sell chickens, and before you ask, I am also a magus of some standing. The two facts are connected by a run of very poor luck." },
     { id = "g_back", when = { metBefore = true }, text = "You again. If you have come about a chicken, they are there, and if you have come to ask how the races are treating me, kindly do not." },
     { id = "g_away", when = { away = 14 }, text = "{away}, is it? I have been here every day of it, in this heat, in these robes, with these birds." },

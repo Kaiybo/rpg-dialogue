@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Deathguard Bartrand, one of the Deathknell watch.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
     { id = "g_default", text = "Keep moving, {class}. Deathknell is a small place, and I like to know where everyone in it is standing." },
     { id = "g_back", when = { metBefore = true }, text = "You're still on your feet, I see. That puts you ahead of half the ones who climbed out with you." },
   },
@@ -27,6 +29,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "A sexton at the chapel here, when Deathknell was only a village with a big graveyard. I dug half these graves myself. It's a strange thing to watch the folk you buried climb back out and ask you for directions." } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Do you recognise any of them?", next = "yrecog" },
         { text = "Something else.", next = "BACK" },
       },
@@ -113,6 +117,8 @@ P:NPC {
     third = "{name} met Deathguard Oliver, a dry-humoured guard of the Deathknell watch.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
     { id = "g_default", text = "Welcome to Deathknell, {class}, where the air is foul and the company is worse. Mind the open graves on your way through." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? Most people only need to visit a graveyard once, and I include myself in that." },
   },
@@ -125,6 +131,8 @@ P:NPC {
     yking = {
       lines = { { id = "yking_x", text = "Terenas? I saw him once, at a parade, waving at the crowd from a white horse. He looked tired. I suppose kings do. I served his army nine years and never met him, which is the usual arrangement." } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Do you mourn him?", next = "ymourn" },
         { text = "Something else.", next = "BACK" },
       },
@@ -210,6 +218,8 @@ P:NPC {
     third = "{name} met Deathguard Phillip, a stern guard of the Deathknell watch.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You're welcome here, and I'll tell the others so if they ask." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Move along, and stay out of trouble. I'll know if you don't." },
     { id = "g_default", text = "State your business or walk on, {class}. The Crusade doesn't rest, and neither does this watch." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I hope you've been useful to someone since we last spoke." },
   },
@@ -226,6 +236,8 @@ P:NPC {
     yhard = {
       lines = { { id = "yhard_x", text = "Because soft recruits die twice. I lost a whole squad at the Scarlet camp to the north, because I let them stop to gawk at their old homes. Never again. A hard word now saves a burning later." } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "You can't blame them for looking back.", next = "ylook" },
         { text = "Something else.", next = "BACK" },
       },
@@ -303,6 +315,8 @@ P:NPC {
     third = "{name} met Deathguard Randolph, the oldest hand on the Deathknell watch.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
     { id = "g_default", text = "Easy now, {class}. There's no call to hurry in Deathknell, since everyone here has already been late for the last time." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, it's you. Stand a while if you like, for the hill is quiet tonight." },
   },
@@ -315,6 +329,8 @@ P:NPC {
     yold = {
       lines = { { id = "yold_x", text = "Sixty-eight winters, and still standing watch for the militia. I'd outlived my wife and both my brothers. I thought the plague would be the end of me, and so it was, and then it wasn't." } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Is the watch hard, at your age?", next = "ywatch" },
         { text = "Something else.", next = "BACK" },
       },
@@ -403,6 +419,8 @@ P:NPC {
     third = "{name} met Deathguard Lundmark, who patrols the Tirisfal road and points lost travellers on their way.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
     { id = "g_default", text = "Lost already, {class}? Walk with me a moment and say where you're bound, because I don't stop for anyone." },
     { id = "g_back", when = { metBefore = true }, text = "You found your way back to the road, then. That's more than some manage." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "The road's darker than it looks, and the hounds hunt it after sundown. Tell me where you're going and be quick." },
@@ -416,6 +434,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "A carter. I drove grain from Brill to the capital twice a week for twenty years. I knew every pothole and every inn. The grain was what killed us, in the end. I drove it myself." } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "You carried the plagued grain?", next = "ygrain" },
         { text = "Something else.", next = "BACK" },
       },
@@ -501,6 +521,8 @@ P:NPC {
     third = "{name} met Deathguard Kel, who holds the ground north of the Brill cemetery.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Go on through, friend; I'll not trouble you today." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
     { id = "g_default", text = "Mind where you tread, {class}. The dogs out here have the plague, and they don't care whose leg they take." },
     { id = "g_active", when = { questActive = TODO_QUEST("Garments of Darkness") }, text = "Beryl sent you, did she? Then do what you came to do, priest, because I've a hole in my side that's letting the wind in." },
     { id = "g_done", when = { questDone = TODO_QUEST("Garments of Darkness") }, text = "The priest who patched me up. I'm holding together well enough, and I told Beryl so." },
@@ -514,6 +536,8 @@ P:NPC {
     ylife = {
       lines = { { id = "ylife_x", text = "A bowyer in Brill, believe it or not. I made longbows for the Lordaeron militia. Now I carry a sword because my fingers can't hold a string any more. The rot started in the fingertips, the way it does." } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Does that weigh on you?", next = "yweigh" },
         { text = "Something else.", next = "BACK" },
       },
@@ -599,6 +623,8 @@ P:NPC {
     third = "{name} met Maquell Ebonwood, a sharp-tongued Forsaken woman of Deathknell.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Stand up straight, {class}. You may be dead, but there's no reason to look it." },
     { id = "g_back", when = { metBefore = true }, text = "You've come back, and with all your limbs. I had wondered." },
   },
@@ -778,6 +804,8 @@ P:NPC {
     third = "{name} met a captured dwarven mountaineer, held in the cellar of the Gallows' End Tavern in Brill.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've fought well, and the company remembers it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Say what you came to say, and then leave us to our work." },
     { id = "g_default", text = "Come tae gawp at the dwarf, have ye? Take a good long look, ye walking carcass, for I'm the liveliest thing in this whole stinking town." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "By my beard, a friendly face in this pit! Keep yer voice down, {g:lad|lass}, for the dead have ears even when they've nae got any." },
     { id = "g_pumpkin", when = { questActive = TODO_QUEST("A New Plague") }, text = "What's that ye've brought me, then? If it's food I'll take it, and if it's a trick I'm too hungry tae care." },
@@ -799,6 +827,8 @@ P:NPC {
         { id = "h_again2", text = "Say yer piece, then." },
       },
       choices = {
+        { text = "A soldier's word should be as strong as his shield.", next = "BACK", reply = "Aye, and the good ones are. I've stood beside a few.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever soldier lies to the enemy and lives.", next = "BACK", reply = "Maybe so, but don't make a habit of it with your friends.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "How were you taken?", next = "taken" },
         { text = "What do they want with you?", next = "want" },
         { text = "You're a long way from the mountains.", next = "mountains" },
@@ -847,6 +877,8 @@ P:NPC {
     third = "{name} met Ratslin Maime, a watchful Forsaken who keeps to himself in Brill.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "You've a heavy tread, {class}. I heard you coming from the road, and so did everyone else in Brill worth worrying about." },
     { id = "g_back", when = { metBefore = true }, text = "The same boots again. Sit, if you're staying, because standing over a man makes him nervous." },
   },

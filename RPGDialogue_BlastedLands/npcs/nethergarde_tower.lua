@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "You climbed all those stairs for vials? Good, because nobody else does, and I've got plenty." },
     { id = "g_back", when = { metBefore = true }, text = "Back up the tower again! Your legs must be stronger than mine by now." },
   },
@@ -35,6 +37,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "That something here wants to live badly enough to grow in fel-soaked ash. I've a notion your spirits would understand that better than the mages downstairs, who think everything outside the window is a hazard." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then the land isn't dead. It can still be healed.", next = "BACK", reply = "That's exactly what I've been trying to tell the Watchers, and they look at me like I've been at the firebloom. It can be healed, slowly.", fx = { align = { light = 1 } } },
         { text = "Anything that grows in fel should be burned, Nina.", next = "BACK", reply = "Burn it and you burn the only proof this land still wants to live. I'll take my chances with gloves and patience.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },

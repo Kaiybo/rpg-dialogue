@@ -5,6 +5,8 @@ local P = RPGDialogueAPI:Pack("rpgd.world")
 P:Pool {
   id = "passt_goldshire_citizen", role = "citizen", community = "goldshire",
   barks = {
+    { id = "b_h_noble0", when = { holiday = "noblegarden" }, text = "There are Noblegarden eggs hidden all through Goldshire, {class}. The children have been at it since dawn." },
+    { id = "b_h_hallo1", when = { holiday = "hallows_end" }, text = "The Lion's Pride has a bucket of Hallow's End sweets by the door, if you knock politely." },
     { id = "b_goldshire_1", text = "Mind the road past the Lion's Pride, friend; Marshal Dughan says the kobolds have been seen as far as the Fargodeep Mine." },
     { id = "b_goldshire_2", text = "If you're headed for Stormwind, it's straight up the road and you can't miss the gates." },
     { id = "b_goldshire_3", text = "The Defias have been bold of late, so keep an eye on your purse between here and the Westfall border." },
@@ -56,6 +58,7 @@ P:Pool {
 P:Pool {
   id = "passt_lakeshire_citizen", role = "citizen", community = "lakeshire",
   barks = {
+    { id = "b_h_love_6", when = { holiday = "love_is_in_the_air" }, text = "Love is in the Air in Lakeshire, {class}, which is lovely, because nothing else is." },
     { id = "b_lakeshire_1", text = "The Blackrock orcs burned the bridge again, and Magistrate Solomon's letters to Stormwind go unanswered." },
     { id = "b_lakeshire_2", text = "Mind the Redridge gnolls along the lake shore; they've been raiding the fishing huts all season." },
     { id = "b_lakeshire_3", text = "If you see Bellygrub the boar near the Lakeshire road, give him a wide berth; he's bigger than a cart." },
@@ -91,6 +94,7 @@ P:Pool {
 P:Pool {
   id = "passt_darkshire_citizen", role = "citizen", community = "darkshire",
   barks = {
+    { id = "b_h_hallo7", when = { holiday = "hallows_end" }, text = "Hallow's End in Darkshire is no great change, {class}. We've had real ghosts all year." },
     { id = "b_darkshire_1", text = "Don't stay out past dark, stranger; the worgen come down from the Raven Hill road when the moon is up." },
     { id = "b_darkshire_2", text = "Stitches walks the road from Raven Hill, and the Night Watch can't stop him alone." },
     { id = "b_darkshire_3", text = "Morbent Fel and his dead hold the Raven Hill cemetery, and no one sleeps soundly with that so near." },
@@ -160,6 +164,7 @@ P:Pool {
 P:Pool {
   id = "passt_menethil_citizen", role = "citizen", community = "menethil",
   barks = {
+    { id = "b_h_child8", when = { holiday = "childrens_week" }, text = "Children's Week brings the orphans through on the boats. Be kind to them if you pass." },
     { id = "b_menethil_1", text = "The ships to Auberdine and Theramore sail from the docks, and the Dragonmaw keep the road to Ironforge dangerous." },
     { id = "b_menethil_2", text = "The fog came in thick off the Wetlands bay again, and it smells like rot and old sails." },
     { id = "b_menethil_3", text = "The Dragonmaw orcs at Grim Batol have dragons, they say, so keep your eyes on the sky." },
@@ -194,6 +199,7 @@ P:Pool {
 P:Pool {
   id = "passt_southshore_citizen", role = "citizen", community = "southshore",
   barks = {
+    { id = "b_h_harve5", when = { holiday = "harvest" }, text = "We'll set a place for the fallen at the Harvest feast tonight. Too many of them were from Southshore." },
     { id = "b_southshore_1", text = "Tarren Mill's Forsaken are only a short ride north, and they've been poisoning our wells." },
     { id = "b_southshore_2", text = "The Syndicate prowls the hills around Durnholde Keep, so keep your purse close." },
     { id = "b_southshore_3", text = "Old Durnholde, where Thrall was kept as a slave, is full of Syndicate thieves now." },
@@ -245,6 +251,8 @@ P:Pool {
 P:Pool {
   id = "passt_kharanos_citizen", role = "citizen", community = "kharanos",
   barks = {
+    { id = "b_h_winte2", when = { holiday = "winter_veil" }, text = "Winter Veil in Kharanos, {g:lad|lass}! There's snow on the roofs and Thunderbrew in every hand." },
+    { id = "b_h_midsu3", when = { holiday = "midsummer" }, text = "Even in the snow we light a Midsummer fire. It's a dwarf's duty to defy the weather." },
     { id = "b_kharanos_1", text = "The troggs from Gnomeregan have been poking up all over Dun Morogh since the gnomes lost their city." },
     { id = "b_kharanos_2", text = "The Thunderbrew distillery's ale is the finest in Khaz Modan, an' I'll fight anyone who says otherwise." },
     { id = "b_kharanos_3", text = "Mind the Frostmane trolls in the hills; they've been raidin' the shepherds again." },
@@ -279,6 +287,7 @@ P:Pool {
 P:Pool {
   id = "passt_auberdine_citizen", role = "citizen", community = "auberdine",
   barks = {
+    { id = "b_h_lunar4", when = { holiday = "lunar" }, text = "The Lunar Festival calls many of us to Moonglade. Elune's blessing on your new year, traveler." },
     { id = "b_auberdine_1", text = "The furbolgs of the Blackwood have gone mad, and the druids cannot say what corrupts them." },
     { id = "b_auberdine_2", text = "The ships from Rut'theran and Menethil come and go, though the sea here is never truly calm." },
     { id = "b_auberdine_3", text = "The Twilight cultists gather in the ruins near the shore; the Sentinels watch them closely." },
@@ -347,6 +356,8 @@ P:Pool {
 P:Pool {
   id = "passt_booty_bay_citizen", role = "citizen", community = "booty_bay",
   barks = {
+    { id = "b_h_love_17", when = { holiday = "love_is_in_the_air" }, text = "Love is in the Air, they say, and every pirate in port is spending his wages on it." },
+    { id = "b_h_winte18", when = { holiday = "winter_veil" }, text = "Winter Veil in the jungle, {class}! Smokywood Pastures still somehow manages to sell us snow." },
     { id = "b_booty_bay_1", text = "Welcome to Booty Bay, pal! Everything's for sale here, so long as you can pay the markup." },
     { id = "b_booty_bay_2", text = "The Bloodsail Buccaneers have been hitting the shipping lanes hard, and insurance is through the roof." },
     { id = "b_booty_bay_3", text = "Mind the sharks off the dock, buddy; we lost three deckhands and a crate of rum last week." },
@@ -380,6 +391,7 @@ P:Pool {
 P:Pool {
   id = "passt_gadgetzan_citizen", role = "citizen", community = "gadgetzan",
   barks = {
+    { id = "b_h_midsu19", when = { holiday = "midsummer" }, text = "A Midsummer fire in Tanaris? As if the sun weren't hot enough already, {class}." },
     { id = "b_gadgetzan_1", text = "Welcome to Gadgetzan, pal! Water's expensive, but everything else is just very expensive." },
     { id = "b_gadgetzan_2", text = "Mind the Wastewander bandits in the dunes; they've been hitting the water caravans hard." },
     { id = "b_gadgetzan_3", text = "The sandstorms out of the Tanaris desert can strip a goblin's paint in minutes, so stay covered." },
@@ -413,6 +425,7 @@ P:Pool {
 P:Pool {
   id = "passt_everlook_citizen", role = "citizen", community = "everlook",
   barks = {
+    { id = "b_h_winte20", when = { holiday = "winter_veil" }, text = "Winter Veil in Everlook is a proper snowy one, {class}! The goblins charge double for the cocoa, though." },
     { id = "b_everlook_1", text = "Welcome to Everlook, pal! The furs are warm, the ale's cold, and everything's priced to sell." },
     { id = "b_everlook_2", text = "The Winterfall furbolgs have gone mad, and they've been raiding the trade routes all season." },
     { id = "b_everlook_3", text = "The snow in Winterspring never stops, chum, so keep your cloak close and your wallet closer." },
@@ -461,6 +474,8 @@ P:Pool {
 P:Pool {
   id = "passt_crossroads_citizen", role = "citizen", community = "crossroads",
   barks = {
+    { id = "b_h_midsu11", when = { holiday = "midsummer" }, text = "The Midsummer fire burns at the Crossroads tonight, {class}, and the caravans stop to honor it." },
+    { id = "b_h_child12", when = { holiday = "childrens_week" }, text = "An orphan came through on the Orgrimmar road with an adventurer. Good. Every child needs to see the world." },
     { id = "b_crossroads_1", text = "The Kolkar centaur raid the caravans at will, and Thork says the Horde must strike back soon." },
     { id = "b_crossroads_2", text = "Mind the Razormane quilboar to the south; they're bold since their thornweavers took the Barrens." },
     { id = "b_crossroads_3", text = "Water is scarce in the Barrens, so drink when you can and share when you must." },
@@ -495,6 +510,8 @@ P:Pool {
 P:Pool {
   id = "passt_razor_hill_citizen", role = "citizen", community = "razor_hill",
   barks = {
+    { id = "b_h_noble9", when = { holiday = "noblegarden" }, text = "Noblegarden eggs are hidden all over Razor Hill, {class}. Even the grunts are looking." },
+    { id = "b_h_harve10", when = { holiday = "harvest" }, text = "Grom's monument isn't far, {class}. Leave him something for the Harvest Festival." },
     { id = "b_razor_hill_1", text = "The Burning Blade cultists hide in the Dragonmaw Gates, and Gar'Thok wants them rooted out." },
     { id = "b_razor_hill_2", text = "The Kul Tiras marines at Tiragarde Keep keep landing on our shore, and we keep sending them back." },
     { id = "b_razor_hill_3", text = "Mind the scorpids in the canyons of Durotar; they hide in the sand and strike without warning." },
@@ -529,6 +546,8 @@ P:Pool {
 P:Pool {
   id = "passt_brill_citizen", role = "citizen", community = "brill",
   barks = {
+    { id = "b_h_hallo13", when = { holiday = "hallows_end" }, text = "Hallow's End is our night, {class}. Brill remembers what the Lich King took, and what we took back." },
+    { id = "b_h_winte14", when = { holiday = "winter_veil" }, text = "Winter Veil in Brill, {class}. The living hang ornaments; the rest of us watch and remember doing it." },
     { id = "b_brill_1", text = "The Scarlet Crusade grows bolder every week, and Brill is too close to their monastery for my taste." },
     { id = "b_brill_2", text = "The Gallows' End Tavern serves drinks to the living and the dead alike, though the dead enjoy it more." },
     { id = "b_brill_3", text = "The Royal Apothecary Society has been testing new plagues near the Agamand Mills." },
@@ -563,6 +582,7 @@ P:Pool {
 P:Pool {
   id = "passt_tarren_mill_citizen", role = "citizen", community = "tarren_mill",
   barks = {
+    { id = "b_h_hallo21", when = { holiday = "hallows_end" }, text = "Hallow's End, {class}. Tarren Mill was a human town once; tonight it remembers being free of both." },
     { id = "b_tarren_mill_1", text = "The humans of Southshore are just to the south, and they hate us as much as we hate them." },
     { id = "b_tarren_mill_2", text = "The Syndicate prowls the Alterac foothills, and they're no friends of the Forsaken." },
     { id = "b_tarren_mill_3", text = "The Royal Apothecary Society has us gathering samples for their newest plague." },
@@ -614,6 +634,8 @@ P:Pool {
 P:Pool {
   id = "passt_bloodhoof_citizen", role = "citizen", community = "bloodhoof",
   barks = {
+    { id = "b_h_harve15", when = { holiday = "harvest" }, text = "The Harvest is a time to thank the Earth Mother, {class}. Walk with her." },
+    { id = "b_h_lunar16", when = { holiday = "lunar" }, text = "Our elders are honored this Lunar Festival, {class}. Visit their resting places if you can." },
     { id = "b_bloodhoof_1", text = "The plains are gentle today, and the kodo graze in the tall grass by the Red Rocks." },
     { id = "b_bloodhoof_2", text = "The Venture Company drills at the Rock and the Fields, and the Earth Mother bleeds where they dig." },
     { id = "b_bloodhoof_3", text = "The Bael'dun dwarves tunnel into our hills without asking, and Cairne's patience grows thin as winter grass." },

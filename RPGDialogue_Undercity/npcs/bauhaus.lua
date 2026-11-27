@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. I'll even spell your name correctly this time, out of fondness." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "One of the living. Spell your name, and then go." },
     { id = "g_prej", when = { prejudiced = true }, text = "One of the living. How wonderful. You'll want to tell me your name, and then you'll spell it three different ways, and then you'll ask me why the census is so slow." },
     { id = "g_prej_over", when = { prejudiced = "overcome" }, text = "Ah, my favourite living visitor. You spelled your name the same way twice, which in my office counts as a kind of friendship." },
     { id = "g_census", text = "The census office. Do state your business, preferably in fewer words than I would use." },
@@ -180,6 +182,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You've been efficient, which is the highest praise I give." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've wasted my time, and my time is census time." },
+    },
     background = { { id = "tp_bg", text = "A clerk, before and after. The plague changed my circumstances but not my profession, and I've chosen to see that as a kind of stability." } },
     advice = { { id = "tp_ad", text = "Write things down. Memory is unreliable in the living and positively treacherous in the dead." } },
     forsaken = { { id = "tp_forsaken", text = "Every Forsaken has a name, and every name goes into my census, whether its owner remembers it or not. It is a very great work, and nobody appreciates it, and I've learned to live with that, so to speak." } },

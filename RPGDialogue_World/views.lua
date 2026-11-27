@@ -40,7 +40,7 @@ P:Views { topic = "_any", views = {
 
 -- "Their story": what the player says back to someone's life.
 P:Views { topic = "background", views = {
-  { id = "sorry", text = "That's a hard road. I'm sorry it went that way.", fx = { trait = { kind = 1 } }, replies = {
+  { id = "sorry", text = "That's a hard road. I'm sorry it went that way.", fx = { align = { light = 1 }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "Don't be. It's mine, and I'd not trade it for an easier one, most days.", fx = { affinity = 1 } },
     { id = "b", text = "Kind of you to say. Not many stop long enough to hear any of it.", fx = { affinity = 1 } },
     { id = "c", when = { disposition = { max = 34 } }, text = "I didn't tell you for your pity, {class}. You asked, and I answered." },
@@ -53,7 +53,7 @@ P:Views { topic = "background", views = {
     { id = "a", text = "No, I don't suppose it is. Nobody ends up out here because things went smoothly back home.", fx = { affinity = 1 } },
     { id = "b", when = { metBefore = false }, text = "Is that so? Then you'll understand why I don't tell it often." },
   } },
-  { id = "bored", text = "Everyone's got a sad story. Yours isn't the worst.", fx = { trait = { cruel = 1 } }, replies = {
+  { id = "bored", text = "Everyone's got a sad story. Yours isn't the worst.", fx = { align = { light = -1 }, trait = { cruel = 1 } }, replies = {
     { id = "a", text = "No, it isn't, and I never said it was. You asked, {class}, and next time I'll remember not to answer.", fx = { affinity = -1 } },
     { id = "b", text = "That's a cold thing to say to someone's face. True, maybe, but cold.", fx = { affinity = -1 } },
   } },
@@ -61,7 +61,7 @@ P:Views { topic = "background", views = {
 
 -- "Their work".
 P:Views { topic = "trade", views = {
-  { id = "admire", text = "Honest work, and you seem good at it.", fx = { trait = { kind = 1 } }, replies = {
+  { id = "admire", text = "Honest work, and you seem good at it.", fx = { align = { order = 1 }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "I'd better be, after all these years. It's nice to hear it from someone who isn't buying.", fx = { affinity = 1 } },
     { id = "b", text = "Good enough to eat on, anyway. That's all most of us ask of a trade." },
   } },
@@ -69,7 +69,7 @@ P:Views { topic = "trade", views = {
     { id = "a", text = "Then find someone patient and do as they say for a few years. That's the whole secret, and nobody likes hearing it." },
     { id = "b", when = { class = { "WARRIOR", "ROGUE", "HUNTER" } }, text = "You? With hands like that, you'd have it broken by supper. Still, everyone starts clumsy." },
   } },
-  { id = "dull", text = "Sounds dull. I'd go mad doing that every day.", fx = { trait = { brave = 1 } }, replies = {
+  { id = "dull", text = "Sounds dull. I'd go mad doing that every day.", fx = { align = { order = -1 }, trait = { brave = 1 } }, replies = {
     { id = "a", text = "Dull pays, and dull doesn't get you killed in a ditch. Ask me which of us sleeps better.", fx = { affinity = -1 } },
     { id = "b", text = "Maybe so, but somebody has to do it, or you'd have nothing to buy on your way to your adventures." },
   } },
@@ -77,11 +77,11 @@ P:Views { topic = "trade", views = {
 
 -- "A little advice".
 P:Views { topic = "advice", views = {
-  { id = "heed", text = "I'll remember that. Thank you.", fx = { trait = { cautious = 1 } }, replies = {
+  { id = "heed", text = "I'll remember that. Thank you.", fx = { align = { order = 1 }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "See that you do. Advice is only free the first time; after that you pay for it in bruises.", fx = { affinity = 1 } },
     { id = "b", text = "Good. I'd rather say it once and be heeded than say it at your grave." },
   } },
-  { id = "own_way", text = "I'll find my own way, but thanks all the same.", fx = { trait = { brave = 1 } }, replies = {
+  { id = "own_way", text = "I'll find my own way, but thanks all the same.", fx = { align = { order = -1 }, trait = { brave = 1 } }, replies = {
     { id = "a", text = "Everyone does, in the end. Just don't be too proud to turn back when the way runs out." },
     { id = "b", when = { disposition = { max = 44 } }, text = "Then why did you ask? Go on, then, and find it out for yourself like the rest of us had to.", fx = { affinity = -1 } },
   } },
@@ -97,11 +97,11 @@ P:Views { topic = "rumors", views = {
     { id = "a", text = "Do, and bring me back anything good. A rumor's worth more when it's shared.", fx = { affinity = 1 } },
     { id = "b", text = "You'll hear plenty, and most of it wrong. The trick is guessing which bits are true." },
   } },
-  { id = "gossip", text = "People talk too much. Most of it's nonsense.", fx = { trait = { skeptical = 1 } }, replies = {
+  { id = "gossip", text = "People talk too much. Most of it's nonsense.", fx = { align = { order = 1 }, trait = { skeptical = 1 } }, replies = {
     { id = "a", text = "Most of it, aye, but not all. The day you stop listening is the day the true one goes past you." },
     { id = "b", text = "Then you'll not mind if I stop telling you any. Suit yourself.", fx = { affinity = -1 } },
   } },
-  { id = "trouble", text = "Sounds like trouble. Good; I could use the work.", fx = { trait = { brave = 1 } }, replies = {
+  { id = "trouble", text = "Sounds like trouble. Good; I could use the work.", fx = { align = { honor = -1, order = -1 }, trait = { brave = 1 } }, replies = {
     { id = "a", text = "Ha! There's always trouble for those who go looking. Mind it doesn't find you first." },
     { id = "b", when = { class = { "PALADIN", "PRIEST" } }, text = "Work, you call it? I'd hoped your sort would call it duty. Still, I'll take the help either way." },
   } },

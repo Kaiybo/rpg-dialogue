@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Tomas, the cook in the back of the Lion's Pride Inn, who teaches cooking to anyone who'll stand still long enough.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_pot", text = "Mind the pot, it spits. Come in, if you can stand the heat." },
     { id = "g_cook", when = { profession = "Cooking" }, text = "A fellow cook! I can tell by the burns on your fingers; they never quite go away." },
   },
@@ -31,6 +33,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I cook for everyone who's hungry, because a full belly makes for a kinder world, and I'd guess your spirits would agree." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "A full belly and a kind heart. That's good work, Tomas.", next = "BACK", reply = "That's all a cook's after, and it's nice to hear somebody say it. Sit down and I'll fill you a bowl.", fx = { align = { light = 1 } } },
         { text = "Charge more. Kindness doesn't pay the butcher.", next = "BACK", reply = "Toddrick says the same, every week, and I keep not listening. A hungry man pays in other ways.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -225,6 +229,8 @@ P:NPC {
     third = "{name} met Kira Songshine, the baker who walks the roads around Goldshire selling bread and drink.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_bread", text = "Fresh bread, sweet water, and a smile thrown in! You won't find better between here and the city." },
     { id = "g_road", when = { metBefore = true }, text = "Twice in one week! Either you like my bread or you keep walking the same road I do." },
     { id = "g_flirt", when = { flirt = true, chance = 0.4, ["not"] = { npcFlag = "kira_flirt_no" } }, cooldown = "2d",
@@ -248,6 +254,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I walk every road in Elwynn with my basket. I've met every sort of traveller, and you're the first shaman. Here, take a loaf." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Thank you, Kira. Kindness on the road is a blessing.", next = "BACK", reply = "You're welcome, and I hope it keeps you warm on the road. Come find me again.", fx = { align = { light = 1 } } },
         { text = "I'll pay for the loaf. Charity's not needed.", next = "BACK", reply = "That's very proper of you, and I'll not argue with a paying customer. A copper, then.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -451,6 +459,8 @@ P:NPC {
     third = "{name} met Bo, a Goldshire boy who plays around the smithy and the pond with his friends Joshua and Mark.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hi! I've been practising being brave, just like you." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You're mean, and I'm telling." },
     { id = "g_run", text = "Can't stop, I'm it! Well, I can stop for a bit." },
     { id = "g_back", when = { metBefore = true }, text = "It's you again! Joshua didn't believe I talked to a real adventurer, so stay here while I fetch him." },
   },
@@ -600,6 +610,8 @@ P:NPC {
     third = "{name} met Matt, a Goldshire boy who fishes every day and catches very little.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
     { id = "g_fish", text = "Dang it, nothing biting here either. Shh, you'll scare them, if there's any to scare." },
   },
   notice = {

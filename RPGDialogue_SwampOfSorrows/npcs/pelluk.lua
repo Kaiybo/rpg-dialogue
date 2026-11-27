@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "You stopped again. Thank you, my friend; it means more than you know." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll speak with you, but please be gentle." },
     { id = "g_default", text = "You stopped. Most travellers walk faster when they see us, so I thank you for stopping." },
     { id = "g_back", when = { metBefore = true }, text = "You came back to the Harborage. That is a kind thing, and not a common one." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Taking the Bait Back") }, text = "Did you find it? The nets are empty without it, and the little ones are hungry." },
@@ -182,6 +184,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're kind to the Lost Ones, and few are. I'll remember it." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been unkind, and we've had enough unkindness." },
+    },
     background = { { id = "tp_bg", text = "I fish, I mend nets, I keep the fire. Before the Harborage there is not much I wish to tell." } },
     advice = { { id = "tp_ad", text = "Keep your bait where you can see it, and your friends where they can see you." } },
     _none = { { id = "tp_none", text = "I do not know that, friend. I know fish, and a little about nets." } },

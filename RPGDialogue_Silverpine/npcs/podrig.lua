@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, you. Forty-two... yes, come in, I'll find you something from the good stores." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Forty-one, forty-two... you. Don't make me lose my place." },
     { id = "g_count", text = "Forty-one, forty-two... yes? Speak up, but don't make me lose my place." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I've recounted since you were last here, so if anything's gone missing, I'll know." },
     { id = "g_order", when = { questActive = TODO_QUEST("Supplying the Sepulcher") }, text = "The order goes to Karos Razok first, for the bat, and then to Gordon Wendham in the Undercity. Don't lose it, because I'll have to write it again." },
@@ -134,6 +136,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're careful with the stores, and that's all I ask. Rare, these days." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been careless with my stores, and I've counted every one." },
+    },
     background = { { id = "tp_bg", text = "A soldier who turned out to be a better clerk. The Deathguard needs both, whatever the young ones think." } },
     advice = { { id = "tp_ad", text = "Count your arrows before the fight, not after, because after is too late to send for more." } },
     worgen = { { id = "tp_worgen", text = "The worgen cost me more blades than everything else in Silverpine put together, and I've the numbers to prove it." } },

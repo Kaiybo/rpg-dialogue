@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "It is a beautiful day, friend, and lovelier for your company. Sit, if you like." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "It is a beautiful day. Please, let me enjoy it alone." },
     { id = "g_default", text = "It's a beautiful day, is it not?" },
     { id = "g_back", when = { metBefore = true }, text = "You again, small one. Have you come to admire the day with me?" },
     { id = "g_night", when = { timeOfDay = "night" }, text = "A beautiful night, is it not? The marsh sings louder in the dark." },
@@ -60,6 +62,8 @@ P:NPC {
         { id = "wh_default", text = "Enjoying the day, as I said. The marsh is warm, the water is still, and nobody asks me to be anything but a large shape in the reeds. You would be surprised how rare that is." },
       },
       choices = {
+        { text = "There is wisdom in enjoying a quiet day.", next = "BACK", reply = "There is. Few understand it.", fx = { align = { light = 1 } } },
+        { text = "Sitting in the reeds all day is a waste of life.", next = "BACK", reply = "Perhaps. But it is my life to waste.", fx = { align = { light = -1 } } },
         { text = "Surely a dragon has more to do than sunbathe.", next = "why_more" },
         { text = "Something else.", next = "BACK" },
       },

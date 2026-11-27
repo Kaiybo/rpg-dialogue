@@ -427,6 +427,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my favourite guest. The fire's warm and the room's ready." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll rent you a room, but there'll be no trouble in my house tonight." },
     { id = "g_default", text = "Another explorer! Come in, come in, honey, and mind the smell, because it's the sea, mostly, and the sea doesn't pay for cleaning." },
     { id = "g_home", when = { homeInn = { "Powderfuse Port" } }, text = "Your room's ready, explorer! I aired it out, but the air came back in, so it smells like fish again, and I'm not knocking anything off for that." },
     { id = "g_away", when = { away = 14 }, text = "You're back after {away}, explorer, and right on time, because I aired your room this mornin' and only the fish smell came back, which is half the rent's worth of fresh air." },
@@ -1515,6 +1517,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Chum's fresh, kid, or as fresh as chum gets, and it's priced by the bucket." },
   },
 
@@ -1529,6 +1533,8 @@ P:NPC {
     dd_drown = {
       lines = { { id = "dd_default", text = "Most of 'em can't swim, kid, and they say that's on purpose: if ya go over, ya go quick and don't waste the sea's time. I learned anyway, because I'd rather argue with the sea than agree with it." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Then I'll learn to fight it, same as you.", next = "BACK", reply = "Good answer. Start in the shallows, and don't go past the wreckage until ya can swim back from it.", fx = { align = { order = -1 } } },
         { text = "I'll respect it and keep to the shore.", next = "BACK", reply = "Plenty of old fishermen say the same, and they're old for a reason, kid.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },

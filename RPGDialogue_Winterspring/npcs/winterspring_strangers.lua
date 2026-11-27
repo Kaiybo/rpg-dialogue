@@ -206,6 +206,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back, friend. Come in out of the cold, and rest a while with me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Starfall. Come in from the cold, if you need, but keep to yourself." },
     { id = "g_default", text = "Welcome to Starfall. Come in out of the cold; the snow will still be there when you leave." },
     { id = "g_back", when = { metBefore = true }, text = "Back safe from the hills. Elune be thanked, and come warm your hands." },
   },

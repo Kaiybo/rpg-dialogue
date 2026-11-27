@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I've heard enough about you to keep my distance." },
     { id = "g_default", text = "The zeppelin to Orgrimmar leaves soon, or late, or soon-ish anyway, pal, so stay near the tower and keep your ticket where you can find it!" },
     { id = "g_back", when = { metBefore = true }, text = "Back again! You're a regular, pal, and regulars get my best smile, which is free." },
   },
@@ -200,6 +202,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "The riders are ready when you are, {class}, so tell me where in the Horde's lands you need to go." },
     { id = "g_back", when = { metBefore = true }, text = "Welcome back. The riders are rested and fed, and so am I, for once, which is a small victory in this heat." },
   },
@@ -379,6 +383,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you, friend. I've been keeping an eye out for things you might want." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Bags, ammunition and drink, all of it off the zeppelin from Orgrimmar, so tell me what you need, grunt." },
     { id = "g_back", when = { metBefore = true }, text = "Back for more, then. Good, the jungle eats supplies faster than a warband eats a boar, and I can't stock them fast enough." },
   },
@@ -396,6 +402,8 @@ P:NPC {
       big = true,
       lines = { { id = "xfpala_default", text = "Less than anyone else, which is a pity for me. The jungle rots everything I sell, and you're the only customer who doesn't rot any faster than you already have, so take what you need and leave the rest for the living." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll take only what I need. Leave the rest for the living.", next = "BACK", reply = "That is more care than most of the living show my shelves. Take what you need, and leave the rest to rot with the others.", fx = { align = { honor = 1 } } },
         { text = "My coin's as good as theirs. I'll take what I please.", next = "BACK", reply = "Your coin spends the same as theirs, I won't deny it. I only wonder what a dead traveller does with all my bandages.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

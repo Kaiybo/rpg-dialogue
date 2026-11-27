@@ -14,6 +14,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Oh, it's you. I'm just watching the river, but I don't mind if you watch it with me." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching the river, and you're blocking the view." },
     { id = "g_river", text = "I'm just watching the river, that's all, nothing else at all." },
     { id = "g_sent", when = { questActive = TODO_QUEST("Young Lovers") }, text = "You've come from the Maclure vineyard; I can tell by the look of you." },
     { id = "g_after", when = { questDone = TODO_QUEST("The Escape") }, text = "Hello again! Isn't it a fine day? Every day's been a fine day lately." },
@@ -263,6 +265,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You're all right, you are. You don't tell Gramma what I'm watching the river for." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You've been mean, and I'm just a farmhand watching a river. Leave me be." },
+    },
     background = { { id = "tp_bg", text = "I was born a Stonefield and I'll have the farm one day, and that's my whole story, except the part that's across the river." } },
     advice = { { id = "tp_ad", text = "If you want to be somewhere you shouldn't, carry a hammer. Nobody asks a man with a hammer what he's doing." } },
     maybell_tommy = { { id = "tp_us", text = "She's the cleverest person in Elwynn and she likes me. I don't understand it either." } },

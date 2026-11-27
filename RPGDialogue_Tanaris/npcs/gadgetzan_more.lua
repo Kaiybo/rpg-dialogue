@@ -450,6 +450,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, it's my star pupil, sort of! Pull up a crate, pal, I got some new formulas you're gonna love." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh, it's you. Fine, I'll teach ya, pal, but I'm chargin' extra for the attitude." },
     { id = "g_default", text = "Let me break down a little math for ya, pal: goblin plus engineering equals know-how, baby!" },
     { id = "g_back", when = { metBefore = true }, text = "Back for more math? Good, because I've got a whole ledger of it, and it all adds up to explosions." },
   },
@@ -579,6 +581,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, hello, hello, my friend! I've a new gadget I've been dying to show you, and it hasn't exploded yet!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh. Hello. Mind the cables, please. I'll teach you what you need, I suppose." },
     { id = "g_default", text = "Oh, hello, hello! Mind the cables, they're not live, probably, but mind them anyway." },
     { id = "g_back", when = { metBefore = true }, text = "You came back! In one piece, too, which is always a good sign when you've used my transporter." },
   },
@@ -710,6 +714,8 @@ P:NPC {
     third = "{name} met Wrinkle Goodsteel, the armor seller of Gadgetzan and brother to Krinkle.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, my finest customer! For you, pal, the premium plate comes with a premium discount. Just this once." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Oh, you. Premium plate, premium prices, and I just made 'em more premium." },
     { id = "g_default", text = "Step in, pal, step in! That's premium plate you're looking at, and I've got your size, because I've got everybody's size." },
     { id = "g_2", when = { metBefore = true }, text = "Back so soon? Either the armor worked or you're here to complain, and I've got a form for complaints, buddy, with a small filing fee." },
   },
@@ -839,6 +845,8 @@ P:NPC {
     third = "{name} met Qizzik, a banker at the Bank of Gadgetzan.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, a trusted customer. You may lower your hands, actually. The Bruisers know you're good for it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Kindly keep your hands where the Bruisers can see them. Both hands, please. At all times." },
     { id = "g_default", text = "Welcome to the Bank of Gadgetzan, valued customer. Kindly keep your hands where the Bruisers can see 'em." },
     { id = "g_2", when = { metBefore = true }, text = "Ah, a returning account holder! That's my favorite kind, pal, on account of the paperwork's already done." },
   },
@@ -968,6 +976,8 @@ P:NPC {
     third = "{name} met Gikkix, the fisherman of Steamwheedle Port.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, pal, take a seat on the dock! The fish like you, and that's good enough for me." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Easy there, pal. Fish are skittish around trouble, and so am I." },
     { id = "g_default", text = "Easy there, pal, you'll scare the fish, and they're the only ones around here who owe me anything." },
     { id = "g_2", when = { metBefore = true }, text = "Hey, it's you again. Pull up a crate, friend, the tide's doing all the work today." },
   },

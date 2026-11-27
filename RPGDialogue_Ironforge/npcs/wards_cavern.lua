@@ -16,6 +16,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, friend. You're always welcome here." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'd rather you were brief today." },
     { id = "g_default", text = "Quietly, now; there's a bear sleepin' in the third stall, an' he's grumpy when he wakes." },
     { id = "g_back", when = { metBefore = true }, text = "Ah, back again. Yer beasts are fed an' well, if ye've any wi' me." },
   },
@@ -213,6 +215,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good, you're back. I've been looking forward to seeing how far you've come." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_default", text = "Well, hello there! Come to learn something sharp, have you? Sharp, balanced and properly weighted, I hope, because I can tell a dagger's balance point by eye to the width of a hair." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Have you been practicing? I can always tell when someone hasn't, because the wrist drops about two degrees." },
   },
@@ -230,6 +234,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Not mine, it never has! But a shaman threw an axe at a target down here last month and swore the wind carried it the last foot. I couldn't measure it and he wouldn't throw it again, which is very suspicious and very annoying." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Honest aim, not borrowed wind. That's how I fight.", next = "BACK", reply = "That's the spirit, and much easier to measure, so I'll put you on my target range and see how honest your aim really is.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "A little help from the wind never hurt anyone.", next = "BACK", reply = "Never hurt anyone, perhaps, but it's terrible for my data, so if you use it on my range, please write down which way it was blowing.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -408,6 +414,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_default", text = "Ye found the Forlorn Cavern, then. Most folk walk past it twice." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "One o' ours. Come in, an' keep yer voice down." },
   },
@@ -425,6 +433,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Aye, if the shaman could keep quiet, which few o' them can, what wi' all the thunder. Mind, a rogue who knew the very stones were listenin' would think twice about a job, for the earth's a witness who cannae be paid." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The earth sees everything. Rogues should remember that.", next = "BACK", reply = "I'll pass it on, though most o' my lot think the walls are already on their side.", fx = { align = { honor = 1 } } },
         { text = "For the right job, the earth and I could look away.", next = "BACK", reply = "Ha, now that's a shaman I could use, an' I'll remember yer face, for a job that needs the earth lookin' away is worth a great deal.", fx = { affinity = 1, align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -601,6 +611,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there you are. Come in; I'll teach you gladly, for you've earned it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. I'll teach you, since it's my duty, but I'll not waste kind words on you." },
     { id = "g_default", text = "Come tae learn the rod, have ye? Sit, then; fishin' starts wi' sittin'." },
     { id = "g_back", when = { metBefore = true }, text = "Back from the water, are ye? Sit an' tell me what was bitin', an' what got away." },
   },
@@ -618,6 +630,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "Every day, an' I've half a mind tae ask ye tae call some up for me. There's an old dwarf tale that the mountain once had rivers runnin' through its halls, before the forges dried them out. I've no idea if it's true, but I'd give my best rod tae fish one." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "The forges matter more. The rivers can stay outside.", next = "BACK", reply = "Fair enough, an' the forges have earned their place, but I'd still give a great deal tae hear a river runnin' through the Commons.", fx = { align = { order = 1 } } },
         { text = "The mountain should have its rivers back, Grimnur.", next = "BACK", reply = "I'll drink tae the day it does! Though I suspect the King would have a word or two about the forges.", fx = { affinity = 1, align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
@@ -797,6 +811,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Buy what you need and be on your way, if you please." },
     { id = "g_default", text = "Rods, bait, lures and bobbers! Everything a fisherman needs, and some things they don't yet, because I invented them on Tuesday." },
     { id = "g_back", when = { metBefore = true }, text = "You're back! Did the bobber float? I've been worried about that bobber." },
   },
@@ -814,6 +830,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "I've never thought to ask them! Grimnur says fish are fish and lures are lures, but if there's a spirit in the water deciding which bait it likes, that's a variable I've completely ignored. I'll need a new notebook." } },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Mind the water's balance, and the water will mind you.", next = "BACK", reply = "Oh, that's lovely, and I'll add balance to my variables, though I'm not quite sure how to measure it with a stopwatch.", fx = { affinity = 1, align = { honor = 1 } } },
         { text = "Fish are fish. Keep ticking, Tansy.", next = "BACK", reply = "Exactly what Grimnur says, and he's usually right, so I'll keep ticking and leave the spirits to the shamans.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },

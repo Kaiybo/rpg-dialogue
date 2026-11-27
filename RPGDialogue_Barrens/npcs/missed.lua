@@ -394,6 +394,8 @@ P:NPC {
     third = "{name} met Lanti'gah, the orc peon who keeps Regthar Deathgate's bunker and watches the Kolkar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You! Wipe your feet, but come in, friend. You're the only one who does." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Wipe your feet. This is a bunker." },
     { id = "g_default", text = "Wipe your feet, {class}. This is a bunker, I know, but somebody has to sweep it, and that somebody is me." },
     { id = "g_counter", when = { questActive = TODO_QUEST("Counterattack!") }, text = "Keep counting, {class}, you're only halfway there. The Kolkar got plenty more where those came from." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Regthar's in a mood, so nothing has changed since you left." },
@@ -411,6 +413,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, I'm listening with one ear." },
       },
       choices = {
+        { text = "A clean bunker keeps the soldiers healthy.", next = "BACK", reply = "It does! Finally, someone who understands.", fx = { align = { order = 1 } } },
+        { text = "A bunker doesn't need sweeping.", next = "BACK", reply = "Then you'll live in filth.", fx = { align = { order = -1 } } },
         { text = "What's wrong with the pigs?", next = "pigs" },
         { text = "How close do the Kolkar come?", next = "kolkar" },
         { text = "Regthar says you'd spare the centaur who run.", next = "spare" },
@@ -496,6 +500,8 @@ P:NPC {
     third = "{name} met Jorb, the ogre who guards the weapon merchant Lizzarik on the Ratchet road.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Jorb likes you. You can talk to little boss. Jorb will smile." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Jorb is looking at you. Jorb does not like what he sees." },
     { id = "g_default", text = "You talk to little boss if you want to buy. Jorb only stands here and looks at you." },
     { id = "g_back", when = { metBefore = true }, text = "Jorb knows your face now. You did not steal last time, so Jorb likes you a little." },
     { id = "g_big", when = { race = { "Tauren", "Orc" } }, text = "You are big, for a small one. Jorb is still bigger, so you be nice to little boss." },
@@ -513,6 +519,8 @@ P:NPC {
         { id = "h_again2", text = "Ask. Jorb listens and walks." },
       },
       choices = {
+        { text = "Jorb guards little boss well.", next = "BACK", reply = "Jorb does. Thank you.", fx = { align = { order = 1 } } },
+        { text = "Jorb should find a better boss.", next = "BACK", reply = "Jorb does not like that. Go away.", fx = { align = { order = -1 } } },
         { text = "Why does an ogre work for a goblin?", next = "why" },
         { text = "Have you ever had to fight for him?", next = "fight" },
         { text = "Where does an ogre come from, out here?", next = "from" },
@@ -596,6 +604,8 @@ P:NPC {
     third = "{name} met Pilot Wizzlecrank, a goblin shredder pilot who ran from the Venture Company with their plans.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hey, pal! Easy, you're one of the good ones. I can relax around you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Whoa, whoa, easy, pal. Keep your voice down." },
     { id = "g_default", text = "Whoa, whoa, easy, pal, I'm one of the good ones now, or good-adjacent anyway. Keep your voice down and we'll both live to see a payday." },
     { id = "g_escape", when = { questDone = TODO_QUEST("The Escape") }, text = "There's my escort! Listen, that was the best protection I never paid for, and I mean that as the highest compliment a goblin's got." },
     { id = "g_back", when = { metBefore = true }, text = "You again, good, good. You see anybody in Venture Company colors behind you on the way here?" },
@@ -613,6 +623,8 @@ P:NPC {
         { id = "h_again2", text = "Yeah, yeah, go on, I'm listening and watching the road." },
       },
       choices = {
+        { text = "Turning your life around takes courage.", next = "BACK", reply = "Thanks, pal. It's harder than it looks.", fx = { align = { honor = 1 } } },
+        { text = "Once a crook, always a crook.", next = "BACK", reply = "Hey, that's not fair, pal.", fx = { align = { honor = -1 } } },
         { text = "Why turn on the Venture Company?", next = "why" },
         { text = "What happens to the shredder?", next = "shredder" },
         { text = "Where do the plans go now?", next = "plans" },

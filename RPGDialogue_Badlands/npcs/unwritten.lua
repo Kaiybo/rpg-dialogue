@@ -13,6 +13,8 @@ P:NPC {
     third = "{name} met Thorkaf Dragoneye, the orc who teaches dragonscale leatherworking in the Badlands.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back, my student. You've the makings of something rare, and I mean that." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "My duty is to teach, not to like my students. Be grateful for the first." },
     { id = "g_default", text = "You walked a long way into dragon country, stranger, so either you are lost or you want to learn something worth the walk." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, and with all your limbs. The whelps must be getting slow, or you are getting quick." },
   },
@@ -27,6 +29,8 @@ P:NPC {
     ycamps = {
       lines = { { id = "ycamps_x", text = "Grey. Everything was grey, the walls, the food, our skin. The humans gave us knives only to tan the hides of cattle we were not allowed to eat. I learned the work there. I hated every hide. Now I love it. Strange." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Do you hate the humans still?", next = "yhate" },
         { text = "Something else.", next = "BACK" },
       },
@@ -106,6 +110,8 @@ P:NPC {
   temper = { "grim", "stern" }, values = { "honor", "duty" },
   notices = { "faction" },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Hail, friend. You've done right by this place, and the watch knows it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm watching you, so keep your hands where I can see them." },
     { id = "g_default", text = "You stand before the executioner of Kargath. Speak plainly, for I have little patience for wasted words." },
     { id = "g_alliance", when = { faction = "Alliance" }, text = "An Alliance face, this close to my axe. Speak your business and pray it is a good one." },
   },
@@ -114,6 +120,8 @@ P:NPC {
     yold = {
       lines = { { id = "yold_x", text = "I was a grunt under Kargath Bladefist himself, in the days of the Second War. He wore a blade where his hand had been. We named this place for him. Some say he went back through the Dark Portal before it closed, and no word has come since. His name on our gate reminds us who we were." } },
       choices = {
+        { text = "The law keeps us safe, and it should be obeyed.", next = "BACK", reply = "Well said. You'd be surprised how few people say it to a guard's face.", fx = { align = { order = 1 } } }, -- dp_stance
+        { text = "Some laws are worth breaking, if the cause is good.", next = "BACK", reply = "Then I hope you never break one on my watch, friend.", fx = { align = { order = -1 } } }, -- dp_stance
         { text = "Did any of his warriors stay behind?", next = "ybladefist" },
         { text = "Something else.", next = "BACK" },
       },

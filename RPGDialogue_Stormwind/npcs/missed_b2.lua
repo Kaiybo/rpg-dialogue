@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Steven Lohan, innkeeper of the Blue Recluse in Stormwind's Mage Quarter.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are! Sit down, and I'll bring the good stuff before the others see." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Pay first, if you please. I've learned that much about you." },
     { id = "g_default", text = "Welcome to the Blue Recluse! Find a seat that's staying where it is, friend, and I'll see somebody brings you a drink." },
     { id = "g_back", when = { metBefore = true }, text = "Good to see you again. Your usual table's free, and so far today nobody has enchanted it." },
     { id = "g_night", when = { timeOfDay = "night" }, text = "A late one, is it? The apprentices are only now getting loud, so you've come at the lively hour." },
@@ -203,6 +205,8 @@ P:NPC {
     third = "{name} met Master Wood, a stern old master who keeps watch outside Stormwind's Command Center.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's you again. It's good to see a friendly face." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Good day to you. You may approach, provided you remember your manners while you do it." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and you greeted me properly this time, which I shall count as progress." },
   },
@@ -313,6 +317,8 @@ P:NPC {
     third = "{name} met Wilhelm Strang, the mail armour merchant at Limited Immunity in Old Town.",
   },
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh, it's you. The prices are what they are, and I'm not in a haggling mood." },
     { id = "g_default", text = "Limited Immunity. The mail's with me and the plate's with Osric, and you're welcome to try the weight of either." },
     { id = "g_back", when = { metBefore = true }, text = "Good to see you back. Any broken links since last time, or have you been lucky?" },
   },
@@ -333,6 +339,8 @@ P:NPC {
         { id = "h_again2", text = "Go on. The links will wait." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Does Osric agree it's the better half?", next = "osric" },
         { text = "How do you judge good mail?", next = "judge" },
         { text = "Who buys mail these days?", next = "buyers" },

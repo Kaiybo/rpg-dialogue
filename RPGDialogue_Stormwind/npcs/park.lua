@@ -391,6 +391,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "It's good to see you. Few of my students listen as well as you do." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Speak your business. My patience with you is shorter than my lessons." },
     { id = "g_work", text = "I hope this interruption is for a good cause, because I was busy, and I have been busy since long before this city's first stone was laid." },
     { id = "g_sample", when = { questActive = TODO_QUEST("A Green Sample") }, text = "Well? Did you get into Dalaran, or did the Kirin Tor shoo you off?" },
   },
@@ -410,6 +412,8 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "One that grows only behind its walls, and I'll not say which until I trust you. The spirits might help, if they're not too crude." } },
       choices = {
+        { text = "Skill should be earned honestly, through hard work.", next = "BACK", reply = "That's the only kind that lasts, in my experience.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "Any trick that wins the fight is a good trick.", next = "BACK", reply = "It'll win you a fight or two, but it won't make you a master.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "I'll respect your secrets, Shylamiir, and help where I can.", next = "BACK", reply = "Good. That is the right beginning, and perhaps one day I will show you where the silverleaf grows.", fx = { align = { order = 1 } } },
         { text = "Crude spirits find what refined ones miss.", next = "BACK", reply = "Perhaps they do, and I have been unkind. Still, my secrets are mine until I know your hands.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },

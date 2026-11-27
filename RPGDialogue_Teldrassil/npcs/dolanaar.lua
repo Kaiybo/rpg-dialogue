@@ -1034,6 +1034,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ishnu-alah, friend. Your bed is ready, and the quiet is yours for as long as you wish." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ishnu-alah. The inn is open to all. I ask only that you keep the peace here." },
     { id = "g_inn", text = "Ishnu-alah, traveler. Rest a while; the inn is yours for as long as you need it, and Elune keeps the night watch so that you need not." },
     { id = "g_home", when = { homeInn = { "Dolanaar" } }, text = "Welcome home. The fire's low and warm, the way you like it." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone {away}, and you look as though the road took its toll. Sit, and the tea will be ready in a moment." },

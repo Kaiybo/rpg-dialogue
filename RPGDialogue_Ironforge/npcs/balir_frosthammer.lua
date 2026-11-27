@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, my friend! Come, grab a hammer, an' let's go teach those troggs some manners." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'm short o' arms, but I'm not that short. Go on, then." },
     { id = "g_post", text = "I hope ye're here tae lend us a hand, for we're short o' strong arms an' long on troggs." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Any sign o' them in the hills on yer way in?" },
     { id = "g_threat", when = { questActive = TODO_QUEST("A New Threat") }, text = "Tenacious wee buggers, these troggs, aren't they? Keep at it." },
@@ -123,6 +125,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye've a strong arm an' a good heart, an' that's all a dwarf needs in a friend." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've been no help at all, an' I've got troggs enough tae deal with." },
+    },
     background = { { id = "tp_bg", text = "I keep the camps an' the recruits in Coldridge. Lately that means countin' what the troggs took." } },
     advice = { { id = "tp_ad", text = "Kill the burly ones first. The rest lose their nerve once the big ones fall." } },
     troggs = { { id = "tp_troggs", text = "They're everywhere this year, an' I'd give a month's pay tae know why.", next = "where" } },

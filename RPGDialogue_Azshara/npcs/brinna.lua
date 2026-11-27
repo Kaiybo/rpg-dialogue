@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You're back. Good. I've a string set aside that's better than anything on my rack, and you may have it at cost." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bows and arrows, for the price on the tag. I don't haggle, and I don't chat." },
     { id = "g_default", text = "Bows, arrows, strings, as the Sentinels have carried since the War of the Ancients. If you need something else, you've come to the wrong tree." },
     { id = "g_back", when = { metBefore = true }, text = "You're back. Let me see how you're holding that bow; I'll know where you've been." },
     { id = "g_away", when = { away = 14 }, text = "Gone {away}, and you've come back with all your fingers. That's more than some." },
@@ -61,6 +63,8 @@ P:NPC {
           text = "That's why I won't cut a bow from Azshara's wood, {class}. A bow should be quiet in the hand, and I'd not trust one grown from that soil to stay quiet when it mattered." },
       },
       choices = {
+        { text = "Peace with the orcs is worth trying for.", next = "BACK", reply = "The young ones would agree with you. I'll keep my arrows fletched all the same.", fx = { align = { light = 1 } } },
+        { text = "The orcs will never change. We should drive them out.", next = "BACK", reply = "Perhaps. But talk like that has filled a lot of graves already. Pick your arrows.", fx = { align = { light = -1 } } },
         { text = "The dead deserved rest, even the Highborne.", next = "BACK", fx = { align = { light = 1 } } },
         { text = "The Highborne earned their torment. I did it for you.", next = "BACK", fx = { align = { light = -1 } } },
         { text = "Something else, Brinna.", next = "BACK" },

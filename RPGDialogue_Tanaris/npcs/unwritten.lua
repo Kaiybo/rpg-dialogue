@@ -265,6 +265,8 @@ P:NPC {
     third = "{name} found the Homing Robot OOX-17/TN in Tanaris.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Bzzt. Recognized: friendly unit. Morale subroutine engaged. Happy to see you, friend." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Bzzt. Recognized: unit of uncertain reliability. Proceeding with caution protocol." },
     { id = "g_default", text = "Bzzt. Distress mode active. Sand detected in all joints. Please notify Oglethorpe Obnoticus of Booty Bay." },
     { id = "yg_0", when = { race = "Goblin" }, text = "Bzzt. Goblin detected. Please do not attempt to sell this unit's components. They are not for sale. Please." },
   },
@@ -513,6 +515,8 @@ P:NPC {
     third = "{name} met Zalashji, a solitary naga on the Tanaris coast.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You return, land-dweller, and I find I am glad of it. Few stay to speak with me as you have." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You need not draw your weapon, land-dweller. I would rather you simply went your way." },
     { id = "g_default", text = "You need not draw your weapon, land-dweller. I have no quarrel with you, and no one else to quarrel with." },
     { id = "yg_0", when = { class = "PRIEST" }, text = "A priest. Do you pray to the moon, like the elves? My grandmother did, once, she told me. I do not know who I pray to." },
   },
@@ -635,6 +639,8 @@ P:NPC {
     third = "{name} met Torta, the turtle waiting for Tooga.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "<Torta looks at you, and then blinks slowly. It may be the warmest thing a turtle can do.> You are not Tooga, but you are acceptable." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "<Torta looks at you, and then pointedly away from you.> You are not Tooga. You are not anybody." },
     { id = "g_default", text = "<Torta looks at you, and then past you, and then back at you.> You are not Tooga." },
     { id = "g_done", when = { questDone = TODO_QUEST("Tooga's Quest") }, text = "Tooga is home, thanks to you. Torta is very cross with Tooga, and very glad." },
     { id = "yg_0", when = { race = "Tauren" }, text = "<Torta looks up at you for a very long time.> You are big, like a turtle. But not as slow. Torta forgives you." },
@@ -758,6 +764,8 @@ P:NPC {
     third = "{name} spoke with the Stone Watcher of Norgannon at the Uldum pedestal.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Discs accepted. Greetings, creature. Your record shows constructive interaction. Additional data may be shared." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Discs accepted. Greetings, creature. Your record shows irregularities. State your query precisely." },
     { id = "g_default", text = "Discs accepted. Greetings, creature. You have activated a record of the Keepers. State your inquiry." },
   },
   notice = {
@@ -1187,6 +1195,8 @@ P:NPC {
     third = "{name} met Quinn, a goblin of Gadgetzan who knows the town's gossip and its prices.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hot enough for you? Never mind, sit down in the shade, friend. You're good company in this heat." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hot enough for you? Don't answer that. Don't answer anything, actually." },
     { id = "g_default", text = "Hot enough for you? Don't answer that; out here it's always hot enough for everybody." },
     { id = "g_back", when = { metBefore = true }, text = "Still alive, I see. In Tanaris that's worth a compliment." },
     { id = "yg_0", when = { race = "Goblin" }, text = "A fellow goblin, outside the Cartel's books? Sit down, we'll gossip." },

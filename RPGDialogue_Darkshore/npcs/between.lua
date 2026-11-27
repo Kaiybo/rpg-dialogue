@@ -1180,8 +1180,8 @@ P:NPC {
       big = true,
       lines = { { id = "dr_sleep", text = "Oh, I hope not, or at least I hope you'll have someone to shake you awake the way Liladris shakes me. The old druids slept ten thousand years for the sake of the Dream, and I think it was noble, and I also think I've slept quite enough for one lifetime." } },
       choices = {
-        { text = "The long sleep was noble. I'd take it on.", next = "BACK", reply = "Then tie a bell to your ankle first, as Liladris once tied one to mine. It helped, a little.", fx = { align = { order = 1 }, opinion = { druids = "dreamers" } } },
-        { text = "Druids should wake and stay woken.", next = "BACK", reply = "Spoken like Liladris, and she's usually right, which is very annoying to someone as drowsy as I am.", fx = { align = { order = -1 }, opinion = { druids = "slept_too_long" } } },
+        { text = "The long sleep was noble. I'd take it on.", next = "BACK", reply = "Then tie a bell to your ankle first, as Liladris once tied one to mine. It helped, a little.", fx = { align = { order = 1 }, opinion = { druids = "admire" } } },
+        { text = "Druids should wake and stay woken.", next = "BACK", reply = "Spoken like Liladris, and she's usually right, which is very annoying to someone as drowsy as I am.", fx = { align = { order = -1 }, opinion = { druids = "wary" } } },
         { text = "Something else, Kerlonian.", next = "BACK" },
       },
     },

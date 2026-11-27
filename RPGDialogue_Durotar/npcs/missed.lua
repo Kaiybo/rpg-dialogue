@@ -16,6 +16,8 @@ P:NPC {
     third = "{name} met Magga of Razor Hill, who greets newcomers and trades vouchers for small companions.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Hello, friend! It's always a joy when you come up the road. Sit a while!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hello. Keep to the road, please." },
     { id = "g_default", text = "Hello, {class}! It's a pleasure to see a new face come up the road in one piece." },
     { id = "g_voucher", when = { questActive = TODO_QUEST("Welcome!") }, text = "Hello! Is that a voucher I see in your pack? Bring it here, because I've been keeping something for whoever carried it." },
     { id = "g_back", when = { metBefore = true }, text = "There you are again. Razor Hill's a little less dusty with you in it." },
@@ -33,6 +35,8 @@ P:NPC {
         { id = "h_again2", text = "Ask away. Welcoming people is the whole of my day." },
       },
       choices = {
+        { text = "Welcoming the recruits is good work.", next = "BACK", reply = "It is! They need a kind face after the valley.", fx = { align = { light = 1 } } },
+        { text = "Recruits should be hardened, not welcomed.", next = "BACK", reply = "They'll be hardened soon enough. Move along.", fx = { align = { light = -1 } } },
         { text = "What's in the basket?", next = "basket" },
         { text = "What should a newcomer know about Razor Hill?", next = "town" },
         { text = "How long have you welcomed newcomers?", next = "ylong" },
@@ -112,6 +116,8 @@ P:NPC {
     third = "{name} met Grunt Kor'ja, wounded on the road south of Razor Hill and still at her post.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. Good. Stand with me a moment, friend. I'll tell you what Tai'jin won't." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Keep walking, and don't stare." },
     { id = "g_default", text = "Keep walking, {class}, and don't stare. I've had worse than this and so has the other side." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "A priest, and not before time. I won't ask for it twice, but I wouldn't turn away your help either." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I'm still standing, in case you came to check." },
@@ -133,6 +139,8 @@ P:NPC {
         { id = "h_again2", text = "Speak, {class}." },
       },
       choices = {
+        { text = "A grunt's wounds are a mark of honor.", next = "BACK", reply = "They are. I wear mine proudly.", fx = { align = { honor = 1 } } },
+        { text = "Getting hurt is just carelessness.", next = "BACK", reply = "Then you've never stood in a real fight.", fx = { align = { honor = -1 } } },
         { text = "Who did that to you?", next = "who" },
         { text = "You should be in the barracks, not on the road.", next = "barracks" },
         { text = "How many marines did you face?", next = "ymany" },

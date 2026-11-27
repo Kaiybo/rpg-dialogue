@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Cenarion Emissary Jademoon, who speaks for the Cenarion Circle in Ironforge.",
   },
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Ishnu-alah, my friend. Even here among the anvils, it gladdens me to see you." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Speak, and be brief; the forge is loud enough without your noise." },
     { id = "g_default", text = "Ishnu-alah, {class}. The Cenarion Circle has need of willing hands, if you can hear me over the anvils." },
     { id = "g_back", when = { metBefore = true }, text = "We meet again, and the forge is no quieter for it. Neither, I regret to say, is the desert." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Taking Back Silithus") }, text = "You have not yet gone south, I see. The Circle's hold in Silithus will be watching the road for you." },
@@ -110,6 +112,12 @@ P:NPC {
     },
   },
   topics = {
+    regard = {
+      { id = "dp_rg", text = "You walk lightly even in a city of stone, and the Circle values that more than you might think." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "You have been careless with the balance, and the Circle notices such things." },
+    },
     background = { { id = "tp_bg", text = "I kept a grove in Ashenvale for longer than this city's king has lived. The Circle asked me to leave it and speak for them, and so I did." } },
     silithid = { { id = "tp_sil", text = "They are many and patient, and they do not tire. The Circle watches them from its hold in Silithus." } },
     _none = { { id = "tp_none", text = "That lies outside what the Circle sent me to speak of. Ask among the dwarves, whose mountain this is." } },

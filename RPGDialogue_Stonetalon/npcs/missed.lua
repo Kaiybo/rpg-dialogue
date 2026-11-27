@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Darn Talongrip, an orc at Malaka'jin with a grudge against the spiders of Sishir Canyon.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Throm-ka, friend. If you're bound for the canyon, I'll gladly tell you what waits." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Throm-ka, {class}. If you're bound for the canyon, go. I won't hold you back." },
     { id = "g_default", text = "Throm-ka, {class}. If you are bound for the canyon north of here, tell me now, because I would know who else is hunting there." },
     { id = "g_done", when = { questDone = TODO_QUEST("Arachnophobia") }, text = "They say you killed Besseleth. I would have had it be my axe, but she is dead, and I will not be small about how." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Have you been to the canyon, or do you only talk of it as the others do?" },
@@ -117,6 +119,8 @@ P:NPC {
     third = "{name} met Gatekeeper Kordurus, the keeper of the grove who guards the Talon Den on Stonetalon Peak.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. The Talon Den's doors open to you, as they should. Pass in peace." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hold, {class}. The Talon Den does not open freely to you. State your purpose." },
     { id = "g_default", text = "Hold, {class}. You stand at the door of the Talon Den, and none pass it who mean harm to this mountain." },
     { id = "g_back", when = { metBefore = true }, text = "You come again to the Den. Walk in peace, as you did before." },
   },

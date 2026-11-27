@@ -1494,6 +1494,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "There's my favorite guest! Sit down by the fire, friend, and I'll fetch you a bowl from the bottom of the pot, where the best meat settles." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "There's stew in the pot and a hide by the wall, same as for anyone. I'd only ask you keep the peace under my roof." },
     { id = "o_orcs_useful", when = { gossip = { topic = "orcs", stance = "useful" } }, text = "Krang Stonehoof's been growling about you all week, something about calling the orcs useful. He growls about everyone, so have some stew and don't let it spoil your appetite." },
     { id = "o_peace_war", when = { gossip = { topic = "peace", stance = "war" } }, text = "Baine's been quiet since you left, and word is you told him there'll be no peace with the humans. Eat something, at least, before you go off looking for a war." },
     { id = "g_inn", text = "Come in from the grass and the wind. There's stew, and a hide to sleep on, and the hide only smells a little of kodo." },

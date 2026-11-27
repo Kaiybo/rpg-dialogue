@@ -135,6 +135,8 @@ P:NPC {
     third = "{name} met Kelgruk Bloodaxe, a weapon crafter at the forges of the Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Throm-ka, friend. Tell me what you want made, and I'll give it my best steel." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Throm-ka, {class}. If you want a weapon made, speak up. I'll make it, but I won't enjoy it." },
     { id = "g_default", text = "Throm-ka, {class}. If you want a weapon made, speak up over the hammer." },
     { id = "g_back", when = { metBefore = true }, text = "You again. That makes forty axe-heads since you were last here, if you were wondering." },
   },
@@ -236,6 +238,8 @@ P:NPC {
     third = "{name} met Gorina, who sells mining supplies in the Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "A pick for a friend? I've the best ones put aside. Take your pick, so to speak." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "If you want a pick, you've come to the right place. Pay first." },
     { id = "g_default", text = "If you want a pick, {class}, you have come to the right orc. If you want anything else, you have come to the wrong valley." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon? Either you found a good vein or you broke something." },
   },
@@ -343,6 +347,8 @@ P:NPC {
     third = "{name} met Koru, who sells maces and staves in the Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Maces on the left, staves on the right, and the best of both for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Maces left, staves right. Pick one, pay for it, and move along." },
     { id = "g_default", text = "Maces on the left and staves on the right, {class}. Pick one up before you ask the price, because the hand knows before the head does." },
     { id = "g_back", when = { metBefore = true }, text = "You return. Has the last one broken, or have you grown into something heavier?" },
   },
@@ -456,6 +462,8 @@ P:NPC {
     third = "{name} met Kiro, the war harness maker of the Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in, friend. You've the shoulders for my finest work, and I'll fit it properly." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in, {class}, and stand where I can see you. Then don't move until I'm done." },
     { id = "g_default", text = "Come in, {class}, and stand where I can see the width of your shoulders. A harness is cut to the wearer or it is worthless." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. Turn around and let me see how the straps are wearing on you." },
   },

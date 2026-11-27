@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Gogo, a goblin woman with an ear for gossip in Everlook.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Well, hello there, sweetheart! Come here and get warm. I've been waiting for you!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Well, hello. You look half frozen. Go and warm yourself somewhere else, sweetheart." },
     { id = "g_default", text = "Well, hello there, sweetheart! You look half frozen and all the way lost, and I just love a new face in town." },
     { id = "g_back", when = { metBefore = true }, text = "Look who's back! I was just tellin' somebody about you, and don't worry, it was mostly nice." },
   },
@@ -115,6 +117,8 @@ P:NPC {
     third = "{name} met Jack Sterling, a human passing a very long winter in Everlook.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Pull up to the fire, friend. I've saved you a good spot, and a story or two." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Pull up to the fire, {class}, if you must. Nobody's in a hurry here, least of all to talk to you." },
     { id = "g_default", text = "Pull up to the fire, {class}. Nobody in Everlook is in a hurry, since there's nowhere to hurry to that isn't under snow." },
     { id = "g_back", when = { metBefore = true }, text = "Still in Winterspring, are you? It gets hold of a person, though I couldn't tell you why." },
   },
@@ -216,6 +220,8 @@ P:NPC {
     third = "{name} met Chal Fairwind of the Wintersaber Trainers, camped in the north-eastern hills of Winterspring.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Tread as you like. The frostsaber on the ridge seems to like you too." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Tread quietly, {class}. The frostsaber on the ridge is watching, and so am I." },
     { id = "g_default", text = "Tread quietly, {class}. There is a frostsaber on the ridge above us, and she has not yet decided what she thinks of you." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and the sabers did not trouble you on the way. That speaks well of you." },
   },
@@ -326,6 +332,8 @@ P:NPC {
     third = "{name} met Sar Browneye, a tauren hunter camped in northern Winterspring.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The winds bring you back, friend. Sit by the fire. It's warmer now that you're here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The winds bring you north, {class}. Sit if you need to. I'll not stop you." },
     { id = "g_default", text = "The winds bring you a long way north, {class}. Sit by the fire, for the Earth Mother sleeps very deeply under this snow and gives little warmth." },
     { id = "g_back", when = { metBefore = true }, text = "The snow has not kept you away. It is good to see a face I know." },
   },
@@ -427,6 +435,8 @@ P:NPC {
     third = "{name} met Rilan Howard, a Forsaken keeping watch in northern Winterspring.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You're shivering. Here, take my coat. Don't look so surprised, I don't do this for many." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You're shivering. Good. Maybe the cold will teach you something." },
     { id = "g_default", text = "You're shivering, {class}. I'd offer sympathy, but I gave up feeling the cold some years ago, along with most other things." },
     { id = "g_back", when = { metBefore = true }, text = "Back in the snow. You living do enjoy testing how much you can endure." },
   },
@@ -528,6 +538,8 @@ P:NPC {
     third = "{name} met Vi'el, an imp who sells exotic reagents at the bottom of Darkwhisper Gorge in Winterspring.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Oh, it's you! The big fellow lets you in now, I see. Good. Come, look at what I've got!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "What?! How did you get past the big fellow again? Never mind. What do you want?" },
     { id = "g_default", text = "What?! How did you get past the big fellow at the door? Oh, never mind, business has been dreadful, so come in and tell me which of your infernal needs I can meet." },
     { id = "g_back", when = { metBefore = true }, text = "You again, {name}! Yes, I know your name, I'm a demon, it's what we do, and I know your true one as well, so I'd buy something expensive." },
   },

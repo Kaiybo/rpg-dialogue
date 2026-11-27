@@ -135,6 +135,8 @@ P:NPC {
     third = "{name} met Sian'tsu, the troll shaman trainer in Grommash Hold.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey now, friend! You lookin' for a shaman? You found de best one for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Hey now. You lookin' for a shaman, or just lost again?" },
     { id = "g_default", text = "Hey now, you be lookin' for a shaman or just lost in de big orc house? Both happen here more than you think." },
     { id = "g_back", when = { metBefore = true }, text = "You be back, and still in one piece. De spirits must like you, mon." },
     { id = "g_troll", when = { race = "Troll" }, text = "A Darkspear, good, somebody in dis hall who knows how to smile. Sit, sit." },
@@ -261,6 +263,8 @@ P:NPC {
     third = "{name} met Zamja, the troll cooking trainer in the Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Stand close, friend, I trust you near de block. You want to learn? I teach you good." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand clear of de block. I be choppin', and my aim be bad around you." },
     { id = "g_default", text = "Stand clear of de block, I be choppin'. You want to learn cookin', or you just smell somethin' good?" },
     { id = "g_back", when = { metBefore = true }, text = "You be back! Did you burn anything since last time? Everybody does, so don't lie." },
   },
@@ -391,6 +395,8 @@ P:NPC {
     third = "{name} met Thuwd, the orc skinning trainer in the Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you. Mind the blood, friend, but don't mind me. What do you need?" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Mind your feet. There's blood on the stones, and I'd rather not add yours." },
     { id = "g_default", text = "Mind your feet, there's blood on the stones. If you're here to learn the knife, kneel down; if not, you're in my light." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Show me your hands, and I'll tell you how many hides you've ruined." },
   },
@@ -516,6 +522,8 @@ P:NPC {
     third = "{name} met Handor, who sells cloth and leather armor in the Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Your boots are worn, but I'll fix them for nothing. You deserve it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Kodohide Leatherworkers. Your boots are worn through. That'll cost you." },
     { id = "g_default", text = "Kodohide Leatherworkers. Your boots are worn through at the heel, by the way, so you came to the right shop." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Let me see how my leather held up, then." },
     { id = "g_away", when = { away = 14 }, text = "You've been gone a while, and your gear shows every mile of it. Stand still and let me see the damage." },
@@ -631,6 +639,8 @@ P:NPC {
     third = "{name} met Tor'phan, who sells armor at Magar's Cloth Goods in the Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back, friend! Whatever Handor told you, my leather's better, and for you, cheaper too." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to Magar's. Whatever Handor told you, I'll charge you more than he did." },
     { id = "g_default", text = "Welcome to Magar's! Whatever Handor told you, his leather creaks, and ours doesn't." },
     { id = "g_back", when = { metBefore = true }, text = "A returning customer, and a wise one. Come in, come in." },
     { id = "g_away", when = { away = 14 }, text = "My friend, where have you been? The whole season's cut has changed since you left, and you are wearing last season." },
@@ -748,6 +758,8 @@ P:NPC {
     third = "{name} met Kor'jus, who sells mushrooms at Dark Earth in the Cleft of Shadow.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Dark Earth, mushrooms, and the best of them saved for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Dark Earth. Mushrooms. Some of them are safe to eat. I'll let you guess which." },
     { id = "g_default", text = "Dark Earth, mushrooms of every kind that's safe to eat, and a few that are only mostly safe. What'll it be?" },
     { id = "g_back", when = { metBefore = true }, text = "Back for more? The spores have taken to you, I think." },
   },
@@ -869,6 +881,8 @@ P:NPC {
     third = "{name} met Muragus, the staff merchant in the Cleft of Shadow.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Staves, and for you, one with a little more in it than wood." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Staves. Oak, ironwood. Nothing special for you today." },
     { id = "g_default", text = "Staves. Oak, ironwood, and a few with more in them than wood, if you know what to look for." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. Did the last staff serve you, or break on something?" },
   },
@@ -994,6 +1008,8 @@ P:NPC {
     third = "{name} met Shan'ti, the orc fruit seller on the way to the Valley of Wisdom.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Fruit, friend! Fresh, sweet, and here, a little extra for you, on me!" },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Fruit. Fresh. Pay for it, please, and don't squeeze it." },
     { id = "g_default", text = "Fruit, fresh from the coast and the Barrens! Something sweet before you go back to all that meat." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, good. I kept the best apples aside, or I meant to." },
   },
@@ -1115,6 +1131,9 @@ P:NPC {
     third = "{name} met Stone Guard Zarg, who keeps the champions' weapons in the Hall of Legends.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "The guard knows you, friend, and so do I. Walk the city proudly." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The guard knows your name, {class}. Not for the reasons you'd like." },
+    { id = "g_rep1", when = { rep = { faction = "Orgrimmar", min = "Friendly" } }, text = "The guard knows your name, and they know it well. Walk the city with your head up." },
     { id = "g_default", text = "This is the Hall of Legends. Speak quietly, and only if you have earned the right to be here." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Have you climbed any higher since we last spoke?" },
     { id = "g_away", when = { away = 14 }, text = "You have been absent from the Hall. I trust the time was spent where the tally is kept, and not where it is talked about." },
@@ -1234,6 +1253,8 @@ P:NPC {
     third = "{name} met Brave Stonehide, the tauren quartermaster in the Hall of Legends.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Peace, friend. Even in the Hall of Legends, a friend is welcome." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Peace, traveler. Even in the Hall of Legends, I keep my eye on troublemakers." },
     { id = "g_default", text = "Peace, traveler. Even in the Hall of Legends, a little quiet is welcome." },
     { id = "g_back", when = { metBefore = true }, text = "You return. May the Earth Mother have kept you safe on the field." },
   },
@@ -1353,6 +1374,7 @@ P:NPC {
     third = "{name} met Nazgrel, the Frostwolf warrior who advises Thrall and commands the Warchief's guard in Grommash Hold.",
   },
   greetings = {
+    { id = "g_rep1", when = { rep = { faction = "Orgrimmar", min = "Honored" } }, text = "The city trusts you, and so I watch you a little less closely. Do not make me regret it." },
     { id = "g_default", text = "State your business in the Warchief's hall, and keep your hands where I can see them while you state it." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I remember your face, and I remember that you gave me no cause to." },
     { id = "g_orc", when = { race = "Orc" }, text = "Throm-ka. Stand straight, you are in Grommash Hold, and the name over the door was paid for in blood." },
@@ -1843,6 +1865,9 @@ P:NPC {
     third = "{name} met Barkeep Morag, who runs the taproom of the inn in Orgrimmar's Valley of Strength.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, my friend! Sit down, the grog's on me tonight. You've earned it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Sit down if you must. The grog costs the same for everyone, even you." },
+    { id = "g_rep1", when = { rep = { faction = "Orgrimmar", min = "Friendly" } }, text = "Orgrimmar likes you, so I like you. Sit down, the grog's poured already." },
     { id = "g_default", text = "Find a bench, if there is one. Meat's on the spit, ale's in the barrel, and fights are outside." },
     { id = "g_back", when = { metBefore = true }, text = "Back again. The usual, or have you finally got some coin?" },
     { id = "g_night", when = { timeOfDay = "night" }, text = "You've picked the loud hour. Shout your order, I'll not hear it otherwise." },
@@ -1948,6 +1973,8 @@ P:NPC {
     third = "{name} met Zayus, the Darkspear high priest who teaches in Orgrimmar's Valley of Spirits.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in, child, come in. De spirits be glad of you, and so be I." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in out of de sun, child. De spirits be watchin' you, and so be I." },
     { id = "g_default", text = "Come in out of de sun, child. De spirits be easier to hear in de shade, and so am I." },
     { id = "g_priest", when = { class = "PRIEST" }, text = "Ah. One who already walks between. Sit, and tell me which side you been leanin' toward since last de loa looked at you." },
     { id = "g_back", when = { metBefore = true }, text = "You come again. De loa noticed, and so did I." },
@@ -2049,6 +2076,8 @@ P:NPC {
     third = "{name} met Pephredo, a Darkspear mage who trains spellcasters in Orgrimmar's Valley of Spirits.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Stand where you like, friend. You know better than to scorch my floor." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stand dere, where de floor be scorched already. I'd rather not have more of it." },
     { id = "g_default", text = "Stand dere, where de floor be scorched already. Now, what you want from de mages, mon?" },
     { id = "g_mage", when = { class = "MAGE" }, text = "A student! Good, show me your hands. Hm. You been castin' angry, I can see de burn on de fingertips." },
     { id = "g_back", when = { metBefore = true }, text = "You be back. Deino said you would be, and Enyo said you wouldn't, so now Enyo owes me." },
@@ -2284,6 +2313,8 @@ P:NPC {
     third = "{name} met Koma, one of three brothers who keep the Bank of Orgrimmar and who all claim to have fought at Mount Hyjal.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend! The Bank of Orgrimmar welcomes you. Your goods are safe as my own." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The Bank of Orgrimmar. Your goods are safe here, more or less." },
     { id = "g_default", text = "The Bank of Orgrimmar. Your goods are as safe here as behind the line at Hyjal, and I should know, I stood in that line." },
     { id = "g_back", when = { metBefore = true }, text = "Back to the vault. Did I tell you about the infernal that came down beside me? No? Remind me after." },
     { id = "g_rich", when = { money = { min = 1000000 } }, text = "Now there's a purse with some weight to it. Step up, step up, the vault's got room for a hero's earnings." },
@@ -2385,6 +2416,8 @@ P:NPC {
     third = "{name} met Roxxik, the goblin who teaches engineering at Nogg's Machine Shop in Orgrimmar's Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Hey, pal! Pull any lever you like, I trust ya! Well, maybe not that one." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Whoa, whoa, don't touch any levers, pal. Not that one, not any of 'em." },
     { id = "g_default", text = "Whoa, whoa, not that lever, pal, that one's load-bearing. Now, what can Roxxik do for ya, and what's your budget?" },
     { id = "g_eng", when = { profession = "Engineering" }, text = "Hey, a colleague! Still got all ten fingers, I see, so you're either careful or new. Step up, I got schematics hot off the press." },
     { id = "g_back", when = { metBefore = true }, text = "Look who's back, my favourite repeat customer! That's a compliment and a billing category, friend." },
@@ -2490,6 +2523,8 @@ P:NPC {
     third = "{name} met Godan, the orc who teaches enchanting at Godan's Runeworks in Orgrimmar's Drag.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome back, friend. Touch what you like; you know what glows and what bites." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome to the Runeworks. Touch nothing. Not even the things that don't glow." },
     { id = "g_default", text = "Welcome to the Runeworks. Touch nothing that glows, and if something that did not glow begins to, tell me at once." },
     { id = "g_ench", when = { profession = "Enchanting" }, text = "There is dust on your cuffs, and it is the right kind. Come to the bench, and show me the last thing you took apart." },
     { id = "g_back", when = { metBefore = true }, text = "You have come back. The runes I showed you will have faded by now, so we begin by looking at how." },
@@ -2593,6 +2628,8 @@ P:NPC {
     third = "{name} met Deino, the most cautious of the three mage trainers in Orgrimmar's Valley of Spirits.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Come in, friend, and step where you like. You never smudge de chalk." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Come in slowly, mon, and mind de chalk. Dat circle be for you, if you mess it up." },
     { id = "g_default", text = "Come in slowly, mon, and mind de chalk on de floor. Dat circle took me all mornin' and I be not done checkin' it." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, as I told Pephredo you would. Sit, and show me your hands before you show me any spell." },
     { id = "g_mage", when = { class = "MAGE" }, text = "A mage of de Horde. Good, den you will know better dan to step across a line you did not draw yourself." },
@@ -2832,6 +2869,8 @@ P:NPC {
     third = "{name} met Enyo, the boldest of the three mage trainers in Orgrimmar's Valley of Spirits.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ha, it be you! Stand anywhere, friend, I be glad to have you here." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ha, you again. Stand dere, mon, and don't move. Not even a little." },
     { id = "g_default", text = "Ha, a new face! Stand dere, mon, a little to de left, because de last one stood where you be standin' and lost an eyebrow." },
     { id = "g_back", when = { metBefore = true }, text = "You be back! Pephredo bet me you would, so you have cost me a silver and I be glad to see you anyway." },
     { id = "g_mage", when = { class = "MAGE" }, text = "Now here be one of mine. Show me de biggest thing you can cast, and don't tell Deino I asked." },
@@ -3051,6 +3090,8 @@ P:NPC {
     third = "{name} met Thuul, the cautious troll who teaches portal magic in Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. You can stand where you like. De stones know you now." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Stay on dis side of de stones, mon. Dere be nothin' open for you over dere." },
     { id = "g_default", text = "Stay on dis side of de stones, mon. Dere be nothin' open just now, but I like to keep de habit." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Good, you came by de path and not through de air, so you have been listenin'." },
     { id = "g_away", when = { away = 14 }, text = "You have been far, I can tell. Tell me where, and I will tell you how close I could have set you down." },
@@ -3321,6 +3362,8 @@ P:NPC {
     third = "{name} met Ormok, who trains rogues for the Shattered Hand in Orgrimmar's Cleft of Shadow.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, you walk quietly now. Good, friend. I barely heard you, and that's high praise." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You walked in heel first again. I heard you from the top of the stair." },
     { id = "g_default", text = "You walked in heel first. I heard you from the top of the ramp, and so did everyone else in here." },
     { id = "g_back", when = { metBefore = true }, text = "You're quieter than last time. You're still not quiet, but I'll grant you quieter." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "One of ours. Stand out of the lamplight when you talk to me; it's a habit worth having." },
@@ -3440,6 +3483,8 @@ P:NPC {
     third = "{name} met Gest, the quiet rogue trainer of the Shattered Hand in Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Sit, friend. You're never in a hurry, and I'm glad of the company." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Sit if you must. Most who come down here are in a hurry. I hope you are." },
     { id = "g_default", text = "Sit, if you like. Most people who come down here are in a hurry, and I've found that it passes." },
     { id = "g_back", when = { metBefore = true }, text = "I thought you might come back. I had no reason to; I only waited, and here you are." },
     { id = "g_rogue", when = { class = "ROGUE" }, text = "You're one of the Hand's. Take the stool by the wall, it has the best view of the door." },
@@ -3750,6 +3795,8 @@ P:NPC {
     third = "{name} met Xor'juul, the Darkspear trapper who trains hunters in Orgrimmar's Valley of Honor.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, friend. Watch your feet, but you always do. Come, let's train." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Watch your feet, mon. Nothin' set on dis floor yet, but I could change dat." },
     { id = "g_default", text = "Watch your feet, mon. Dere be nothin' set on dis floor, but you did not know dat when you walked in." },
     { id = "g_back", when = { metBefore = true }, text = "You again, and you looked at de floor first dis time. Good, somethin' stuck." },
     { id = "g_hunter", when = { class = "HUNTER" }, text = "A hunter. Show me your hands, both sides, and I will tell you how careful you be." },
@@ -3954,6 +4001,8 @@ P:NPC {
     third = "{name} met Zel'mak, the Darkspear who trains warriors in Orgrimmar's Hall of the Brave.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ha! Come in, friend, and duck! You be always welcome here, mon." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ha. Come in, and duck. De ceiling be low, and so be my patience." },
     { id = "g_default", text = "Ha! Come in, come in, and duck, mon. De orcs built dis door for orcs." },
     { id = "g_back", when = { metBefore = true }, text = "You be back for more! Good, de last one I taught went home cryin' and I have been bored since." },
     { id = "g_warrior", when = { class = "WARRIOR" }, text = "A warrior! Put down dat pack and pick up a practice axe, we can talk while I hit you." },
@@ -4117,6 +4166,8 @@ P:NPC {
     third = "{name} met Grol'dar, an old orc warlock who trains in Orgrimmar's Cleft of Shadow.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "You may come past the brazier, friend. You've earned that much." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "You may come as far as the brazier, and no farther." },
     { id = "g_default", text = "You may come as far as the brazier, but past it I'll expect a reason." },
     { id = "g_back", when = { metBefore = true }, text = "You've returned. Either you've grown curious or you've grown careless, and I'll know which before you leave." },
     { id = "g_lock", when = { class = "WARLOCK" }, text = "Another who carries the fire. Come closer, then, and let me see how much of it is carrying you." },
@@ -4318,6 +4369,8 @@ P:NPC {
     third = "{name} met Thund, an orc engineer who teaches beginners at Nogg's Machine Shop in Orgrimmar.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Welcome, friend! Touch any of the red ones you like. Well, not that one. Or that one." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Don't touch the red one. Don't touch any of them." },
     { id = "g_default", text = "Welcome! Don't touch the red one. No, the other red one. Actually, keep your hands by your sides." },
     { id = "g_back", when = { metBefore = true }, text = "You're back, and I'm still here, so that's two pieces of good news." },
     { id = "g_eng", when = { profession = "Engineering" }, text = "An engineer! Count your fingers for me. All ten? You must be new, or very good." },

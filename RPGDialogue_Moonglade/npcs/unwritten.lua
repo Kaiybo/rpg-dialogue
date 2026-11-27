@@ -14,6 +14,8 @@ P:NPC {
     third = "{name} met Bessany Plainswind, a tauren of the Cenarion Circle in Nighthaven.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Peace, little one. I'm glad you've come back to us. The glade always seems kinder when you're in it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Peace, {class}. In Moonglade, even those I'm unsure of are given a quiet place to stand." },
     { id = "g_default", text = "Peace, little one. In Moonglade, no one needs a weapon in hand." },
     { id = "g_druid", when = { class = "DRUID" }, text = "A druid! Welcome home, then, for every druid's home is here, whatever their tribe." },
   },
@@ -113,6 +115,9 @@ P:NPC {
     third = "{name} spoke with a Moonglade Warden in Nighthaven.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, it's you. The other wardens speak well of you, and that is not a small thing in this glade. Walk in peace." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "The wardens have their eye on you. Walk the glade in peace, and see that you keep it." },
+    { id = "g_rep1", when = { rep = { faction = "Cenarion Circle", min = "Honored" } }, text = "The wardens know your name, friend of the Circle. Walk the glade in peace." },
     { id = "g_default", text = "Welcome to Moonglade, {class}. Here the Horde and the Alliance walk side by side, and the wardens see that it stays that way." },
   },
   notice = {

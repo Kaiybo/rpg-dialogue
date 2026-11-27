@@ -17,6 +17,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_warm", when = { metBefore = true, disposition = { min = 60 } }, text = "Good day to ye, friend. Mind the ropes, but I'll not mind ye; come aboard any time." },
+    { id = "dp_cold", when = { metBefore = true, disposition = { max = 34 } }, text = "Mind the ropes, and mind yer tongue on my pier." },
     { id = "g_day", text = "Good day to ye, {class}. Mind the ropes on this stretch of the pier, because my lads coil them wherever they please." },
     { id = "g_back", when = { metBefore = true }, text = "Good day to ye again, {class}. Ye've a habit of turning up, and I've decided I don't mind it." },
     { id = "g_away", when = { away = 14 }, text = "Back after {away}, are ye? The cove's not changed much, save the Bloodsail have grown bolder and the rum's grown dearer." },
@@ -61,6 +63,8 @@ P:NPC {
         { id = "h_again_done", when = { questDone = Q_REWARD }, text = "Ask what ye like. Anyone who brought Wendel home can have my ear as long as they want it." },
       },
       choices = {
+        { text = "A captain's word should be worth more than gold.", next = "BACK", reply = "Aye, and in Booty Bay it often is, which tells ye how little the gold's worth.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A clever captain keeps her word only when it pays.", next = "BACK", reply = "Ye'd fit right in on the Blackwater, friend, though I'd not lend ye my ship.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Who are you, Captain, and what's your ship?", next = "who" },
         { text = "Tell me about your crew.", next = "crew" },
         { text = "You seem to sail with the Blackwater Raiders.", next = "raiders" },
@@ -480,6 +484,12 @@ P:NPC {
   },
 
   topics = {
+    regard = {
+      { id = "dp_rg", text = "Ye're a fair sort, and ye'd make a fine hand on any ship of mine." },
+    },
+    grievance = {
+      { id = "dp_gv", text = "Ye've been trouble on my pier, and the Blackwater don't forget trouble." },
+    },
     background = { { id = "tp_bg", text = "A Westfall fisherman's daughter who followed the coin south and found a ship at the end of it.", next = "who" } },
     advice = { { id = "tp_ad", text = "Never sail on an empty stomach, never trust a red sail, and never let the cook go ashore alone." } },
     bloodsail = { { id = "tp_bloodsail", text = "They've cost me two good crewmen, and I'll see their red sails sunk before I'm done." } },

@@ -214,6 +214,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There you are. I was hoping you'd come by again." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Make it quick, if you please. I've no time for you." },
     { id = "g_default", text = "Another one who can see us. Leave me to my line, if you please." },
     { id = "g_back", when = { metBefore = true }, text = "You again. The fish haven't bitten since I died, in case you were wondering." },
     { id = "g_fisher", when = { profession = "Fishing" }, text = "You fish? Then you'll know the lake was good, once." },
@@ -353,6 +355,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you. Come, stay a while." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Say what you need, and then go." },
     { id = "g_default", text = "Busy day, busy day. Mind the bins, friend." },
     { id = "g_back", when = { metBefore = true }, text = "Back again? The Barov house never stops, so neither do I." },
     { id = "g_eng", when = { profession = "Engineering" }, text = "Now there's somebody who appreciates a well-built handcart, I can see it. Have a look at those axles, friend, greased this morning." },
@@ -499,6 +503,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Welcome back! You're one of the few who pays fair and talks civil, and I don't forget it." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Look, don't touch, and pay before you go. I've learned that much about you." },
     { id = "g_default", text = "Fresh from the oven! Well, fresh enough, it's been a busy morning." },
     { id = "g_back", when = { metBefore = true }, text = "Back again! You must like my rolls." },
     { id = "g_cook", when = { profession = "Cooking" }, text = "Another hand for the ovens? No, I can see you're only passing, dear, but you've a cook's eye for the crust, haven't you?" },
@@ -527,6 +533,8 @@ P:NPC {
         { id = "h_again3", text = "Yes, dear? Mind the peel, it's hot." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your bread.", next = "BUSINESS" },
         { text = "Who buys from you these days?", next = "customers" },
         { text = "You haven't noticed anything strange?", next = "strange" },
@@ -775,6 +783,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "There's my favourite customer. Come and look; I'll knock a little off for you, quietly." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "I'll sell to you, since that's my trade, but I'll not pretend I'm pleased about it." },
     { id = "g_default", text = "Aye, come in out of the wind. I've plans and recipes, good ones, and not a customer since I can't say when." },
     { id = "g_dwarf", when = { race = "Dwarf" }, text = "By my beard, a dwarf! Sit ye down, {g:lad|lass}. I've not heard a proper voice on this rock in an age." },
     { id = "g_back", when = { metBefore = true }, text = "Back again, are ye? Good. You're the only trade I've had all week, and I've stopped counting the weeks." },
@@ -802,6 +812,8 @@ P:NPC {
         { id = "h_again3", text = "Speak up, the bellows are loud. Or they were." },
       },
       choices = {
+        { text = "An honest price is worth more than a quick profit.", next = "BACK", reply = "Tell that to my competitors, friend, but I'm glad to hear you say it.", fx = { align = { honor = 1 } } }, -- dp_stance
+        { text = "A good bargain means someone else paid too much.", next = "BACK", reply = "Ha! You'd do well in trade, though I'll count my coins twice.", fx = { align = { honor = -1 } } }, -- dp_stance
         { text = "Show me your plans.", next = "BUSINESS" },
         { text = "What brought a dwarf to Caer Darrow?", next = "why" },
         { text = "Your forge is cold, Magnus.", next = "cold" },
@@ -887,6 +899,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Oh. It's you. Mum says I'm not to talk to you." },
     { id = "g_default", text = "Ready. Set. Oh! You made me lose my count. Are you racing, or are you just standing there?" },
     { id = "g_back", when = { metBefore = true }, text = "It's you again! I've beaten Sammy two more times since you went, and he says he wasn't ready, but he was." },
     { id = "g_tall", when = { race = { "Tauren", "Orc", "NightElf" } }, text = "You're very big. You can't race, it wouldn't be fair, but you can say go." },
@@ -1008,6 +1022,8 @@ P:NPC {
   },
 
   greetings = {
+    { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You came back! Do you want to see the thing I found? It's a secret." },
+    { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Go away. I don't like you very much." },
     { id = "g_default", text = "She cheated! Did you see? You were standing right there, you must have seen." },
     { id = "g_back", when = { metBefore = true }, text = "Oh, hello. I still haven't won. I nearly did, and then she tripped me, by accident she says." },
     { id = "g_soldier", when = { class = { "WARRIOR", "PALADIN" } }, text = "Are you a real soldier? With a real sword? Can I hold it? Only for a second. I'll be careful." },

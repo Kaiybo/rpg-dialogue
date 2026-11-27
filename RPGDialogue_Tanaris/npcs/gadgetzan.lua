@@ -15,6 +15,8 @@ P:NPC {
   },
 
   greetings = {
+
+    { id = "g_rep1", when = { rep = { faction = "Gadgetzan", min = "Honored" } }, text = "The town council likes you, which is rare, and I like you, which is rarer. What can I brew for you?" },
     { id = "g_hu_human", when = { race = "Human" }, priority = 5,
       text = "A human! Hot, isn't it, pal? Bet they don't make deserts like this in Elwynn, and bet your crown wouldn't let you buy elixirs like mine either, so let's keep this between us and the sand." },
     { id = "g_hu_soft", when = { race = "Human", npcFlagBefore = "marin_human_soft" }, priority = 10,
@@ -1428,6 +1430,8 @@ P:NPC {
   },
 
   greetings = {
+
+    { id = "g_rep1", when = { rep = { faction = "Gadgetzan", min = "Honored" } }, text = "A respected face in Gadgetzan! Respect means fewer questions about what you want with my reagents." },
     { id = "g_shop", text = "Vials, phials, the good flasks, whatever you're after, pal, priced fair and corked tight. Don't mind the rat; that's Rose, and she's my assistant, unpaid." },
   },
 
@@ -1973,6 +1977,10 @@ P:NPC {
   },
 
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 60 } }, text = "Ah, my favorite guest! Sit right down, the water's on the house, and I'll not even tell the Baron about it." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Room and water, at the usual price. And the usual price just went up a bit, I'm afraid." },
+
+    { id = "g_rep1", when = { rep = { faction = "Gadgetzan", min = "Friendly" } }, text = "Gadgetzan's own friend returns! Sit, sit, the water's on the house today, and that never happens." },
     { id = "g_flirt", when = { flirt = true, chance = 0.4 }, text = "Well, would you look at that, the desert finally sent me somethin' better than sand! Grab a stool, friend, and I'll pretend I'm not lookin' at you while I wipe the bar." },
     { id = "g_flirt_warm", when = { flirt = true, npcFlagBefore = "flirt_warm" }, text = "There you are, sweetheart! I swept the sand off your stool personally and put it on nobody's bill, which for me is practically a love letter." },
     { id = "g_flirt_cool", when = { flirt = true, npcFlagBefore = "flirt_declined", chance = 0.5 }, text = "Welcome back to the Road Warrior, pal! Drinks, rooms and gossip, and nothin' else on the menu, just like we agreed." },

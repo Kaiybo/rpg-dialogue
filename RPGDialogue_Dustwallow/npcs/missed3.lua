@@ -15,6 +15,8 @@ P:NPC {
     third = "{name} met Ghok'kah, the orc who sells tailoring supplies in Brackenwall Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Throm-ka, friend. I saved the good thread for you. Don't tell the others." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Throm-ka. Thread and dye. Buy or go." },
     { id = "g_default", text = "Throm-ka, {class}. I sell thread and dye, and if that makes you smile, go and smile somewhere else." },
     { id = "g_back", when = { metBefore = true }, text = "You are back. The swamp has rotted your stitching, as I said it would." },
   },
@@ -32,6 +34,8 @@ P:NPC {
         { id = "ybghokkah2", when = { race = "Orc" }, text = "You will know how it is, to live among strangers in a strange land. We are Horde, and we make it home anyway." },
       },
       choices = {
+        { text = "Brackenwall needs good supplies to keep order.", next = "BACK", reply = "It does. Ogres break everything.", fx = { align = { order = 1 } } },
+        { text = "The ogres should look after themselves.", next = "BACK", reply = "They do. Badly. Buy or go.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -120,6 +124,8 @@ P:NPC {
     third = "{name} met Ogg'marr, the ogre butcher of Brackenwall Village.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Ha! Friend! Ogg'marr saved the good meat for you, the kind Ogg'marr knows." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Ha. Hungry? Ogg'marr has meat. Pay first." },
     { id = "g_default", text = "Ha, a hungry one! Ogg'marr has meat, lots of meat, and some of it Ogg'marr even knows the name of." },
     { id = "g_back", when = { metBefore = true }, text = "You came back for more, so the last meat did not make you sick. Ogg'marr is happy and a little surprised." },
   },
@@ -137,6 +143,8 @@ P:NPC {
         { id = "yboggmarr2", when = { race = "Orc" }, text = "Orcs like it with blood still in. Ogg'marr makes it like that for orcs, with a sauce of the red mushrooms." },
       },
       choices = {
+        { text = "Crocolisk tail is a fine meal.", next = "BACK", reply = "Yes! Krog likes it too. You have good taste.", fx = { align = { light = 1 } } },
+        { text = "Ogre food is disgusting.", next = "BACK", reply = "Ogg'marr is sad now. Pay and go.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -225,6 +233,8 @@ P:NPC {
     third = "{name} met Kagoro, the orc tracker of Brackenwall Village, as he set out to follow the hoofprints from the Shady Rest Inn.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Speak, friend. Krog's trail can wait a moment for you." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Speak quickly. Mud does not hold a print for long." },
     { id = "g_default", text = "Speak quickly, {class}. Krog has given me a trail, and mud does not hold a print for long." },
     { id = "g_back", when = { metBefore = true }, text = "You again. I have not left yet, but I will not be here much longer." },
   },
@@ -240,6 +250,8 @@ P:NPC {
         { id = "ybkagoro2", when = { class = "HUNTER" }, text = "You know this already. The beast that hides is still a beast, and it must breathe and eat and leave a sign." },
       },
       choices = {
+        { text = "Patience finds every trail.", next = "BACK", reply = "It does. The swamp always speaks.", fx = { align = { order = 1 } } },
+        { text = "Rushing finds the trail faster.", next = "BACK", reply = "Rushing loses it. Speak quickly.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -329,6 +341,8 @@ P:NPC {
     third = "{name} met Paval Reethe, a deserter from the Theramore Guard hiding in Dustwallow Marsh.",
   },
   greetings = {
+    { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "You. All right. You're one of the few I trust. Come closer." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "That's close enough! Who sent you? Speak quickly." },
     { id = "g_default", text = "That's close enough, {class}! Tell me who sent you, and tell me quickly, because I've had a bad month and I'm not in a trusting mood." },
     { id = "g_back", when = { metBefore = true }, text = "You again. Nobody followed you this time either, I hope, or we'll both regret it." },
     { id = "g_horde", when = { faction = "Horde" }, text = "Horde! Easy, now, easy. I've no love for Theramore either these days, so there's no call for either of us to do anything hasty." },
@@ -352,6 +366,8 @@ P:NPC {
         { id = "h_again2", text = "Go on, but I'm watching the reeds while you talk." },
       },
       choices = {
+        { text = "Every man deserves a chance to clear his name.", next = "BACK", reply = "Thank you. That means more than you know.", fx = { align = { honor = 1 } } },
+        { text = "Deserters deserve what they get.", next = "BACK", reply = "Then leave me be, and go tell Theramore where I am.", fx = { align = { honor = -1 } } },
         { text = "Why did you desert?", next = "why" },
         { text = "The men at Lost Point threw you out.", next = "lost_point" },
         { text = "How did your badge end up at the inn?", next = "badge", when = { any = { { questActive = TODO_QUEST("Lieutenant Paval Reethe") }, { questDone = TODO_QUEST("Lieutenant Paval Reethe") } } } },
