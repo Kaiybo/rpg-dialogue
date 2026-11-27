@@ -10,6 +10,10 @@ No new files; a /reload is enough. A big writing pass over every pack.
 - **World talk rewritten.** About 340 weaker lines in views, asks, threads and letters are rewritten, with new views, asks, threads and letters for both factions.
 - **Lore fixes.** A few lines that reached past the Classic era (Garrosh in Durotar, Kezan) are corrected.
 
+## 0.116.1 (2026-11-27): No Hand Stayed
+- Fixed the "RPGDialogue has been blocked from an action" popup when the dialogue box or journal closed during combat.
+- New `/rpgd blocked`: if the game blocks the addon again, a chat line names what was blocked; `/rpgd blocked` lists recent ones, `/rpgd blocked log` turns on the game's taint log.
+
 ## 0.116.0 (2026-11-27): Word Gets Around
 **New files: restart the game fully (a /reload is not enough).** Overheard talk is off by default: turn it on in the settings or with `/rpgd overhear`.
 - **Overheard talk.** Now and then, NPCs near you talk to each other or remark as you pass, in every town and role. Named pairs have their own exchanges, and some townsfolk gossip about you. It's rare on purpose.
