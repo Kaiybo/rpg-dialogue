@@ -34,6 +34,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_diet = {
+      lines = {
+        { id = "w3_diet_1", text = "Beetles from the sewers, which they hunt themselves, and apples from the Tirisfal orchards, which I carry down in a sack every morning like a common grocer's boy. Michael insists on the apples because they keep the bats' wings glossy, and the bats insist on dropping the cores on my clean floor." },
+      },
+      choices = {
+        { text = "Glossy wings matter to a bat?", next = "w3_gloss" },
+        { text = "Sounds like the bats eat better than you.", next = "BACK", reply = "They do, and they've the manners of drunken sailors about it. A Garrett used to dine with candles, you know." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_gloss = {
+      lines = {
+        { id = "w3_gloss_1", text = "They matter to Michael, who says a dull-winged bat tires over the Hillsbrad hills and drops its rider in a pond. I've never seen it happen, but I've never wanted to be the Garrett who's to blame if it does, so I carry the apples." },
+      },
+      choices = {
+        { text = "Carry on carrying, then. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Patrick Garrett, of the Garretts, though you wouldn't know it to look at me now. Sweeping the bat pens with this broom is not befitting a Garrett, I assure you, but a man must earn his coin somehow." },
@@ -44,7 +62,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I can lean on my broom and talk for a while, it's my one luxury." },
-        { id = "h_again2", text = "Go on, the bats are asleep, more or less." },
+        { id = "h_again2", text = "Go on, the bats are asleep, more or less, and Lord Ashby snores." },
         { id = "h_again3", text = "By all means, ask. Conversation is the one thing down here that doesn't need sweeping." },
       },
       choices = {
@@ -56,6 +74,7 @@ P:NPC {
         { text = "You must see everyone who flies in.", next = "arrivals" },
         { text = "I've been inside Uldaman.", next = "been", when = { minLevel = 40 } },
         { text = "I work a pick myself. Tell me about the digging.", next = "dig", when = { profession = "Mining" } },
+        { text = "What do the bats eat, anyway?", next = "w3_diet" },
         { text = "I'll leave you to your sweeping.", next = "END" },
       },
     },
@@ -174,6 +193,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_grave = {
+      lines = {
+        { id = "w3_grave_1", text = "In the Brill churchyard, under a stone I paid for in the last good year. When the dead began to rise there, I went and looked at every face that came up out of that ground, and hers was not among them." },
+      },
+      choices = {
+        { text = "Were you glad of that?", next = "w3_glad" },
+        { text = "Then she's at rest, at least.", next = "BACK", reply = "I tell myself so. It's easier to believe on the days I don't walk past the churchyard." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_glad = {
+      lines = {
+        { id = "w3_glad_1", text = "I've never decided, and I've had a long time to try. If she had risen, I'd have had her back in some fashion, and she would have had to live with what Valdred did, as I do, and I wouldn't wish that on her." },
+      },
+      choices = {
+        { text = "That's a kind of love, Raleigh.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Raleigh Andrean, once a chef, and once a husband, and neither of those things is true any longer. The Scourge took me, the Dark Lady freed me, and somewhere in between I stopped feeling most of what a man ought to feel." },
@@ -184,7 +222,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something more? Ask it, then." },
-        { id = "h_again2", text = "I have nowhere to be. Go on." },
+        { id = "h_again2", text = "I have nowhere to be, and no one waiting. Go on." },
         { id = "h_again3", text = "Ask. It passes the time, and I've a great deal of that." },
       },
       choices = {
@@ -195,6 +233,7 @@ P:NPC {
         { text = "You stand a long way from any kitchen.", next = "kitchen" },
         { text = "I cook. What did you make best?", next = "best", when = { profession = "Cooking" } },
         { text = "I've stopped feeling things too.", next = "numb", when = { race = "Scourge" } },
+        { text = "Where does Deliah lie now?", next = "w3_grave" },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -307,6 +346,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_engrave = {
+      lines = {
+        { id = "w3_engrave_1", text = "No, and it used to be covered in it, lilies and lions for the Silver Hand, and a little hammer hidden in every piece where only the wearer would find it. I stopped when I came back, because I couldn't remember why anyone would bother." },
+      },
+      choices = {
+        { text = "Engrave something just for yourself.", next = "w3_self" },
+        { text = "Plain steel suits the Forsaken better anyway.", next = "BACK", reply = "That's what I tell people, and they nod, and none of us believes it. Still, it does save time." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_self = {
+      lines = {
+        { id = "w3_self_1", text = "For myself? I'd not know what to put. A grave, perhaps, or a sewer rat, and I'd laugh at it, which might be worth the trouble in itself. I'll think on it while I'm hammering, which is when I do all my thinking." },
+      },
+      choices = {
+        { text = "A rat with a little hammer. That's a start.", next = "BACK" },
+        { text = "Something else, Velora.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Velora Nitely, armorsmith, and I used to be the best in Lordaeron, or so the lords told me when they wanted a discount. These days I don't care much for my craft, but it beats being a mindless minion of the Scourge, I suppose." },
@@ -316,7 +374,7 @@ P:NPC {
           text = "How do the legguards fit? Let me know if you need any changes, I aim to please, or at least I used to aim to please." },
       },
       again = {
-        { id = "h_again", text = "What else? I'm listening, though I'm hammering too." },
+        { id = "h_again", text = "What else? I'm listening, though I'm hammering, and the hammer's louder." },
         { id = "h_again2", text = "Ask. If I don't know, I'll make something up, and it'll be funnier than the truth." },
       },
       choices = {
@@ -325,6 +383,7 @@ P:NPC {
         { text = "Who were you making armour for, before?", next = "before" },
         { text = "What makes armour brutal?", next = "brutal" },
         { text = "Can you show a smith your methods?", next = "methods", when = { profession = "Blacksmithing" } },
+        { text = "Your work has no engraving on it at all.", next = "w3_engrave" },
         { text = "I'll let you work.", next = "END" },
       },
     },

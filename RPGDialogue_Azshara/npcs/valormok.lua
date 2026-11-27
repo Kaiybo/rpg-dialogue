@@ -680,6 +680,7 @@ P:NPC {
         { text = "Do your wind riders fly well over Azshara?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Your riders seem to hate this place, Kroum.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
         { text = "Will your wind riders carry me, Kroum?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What did you do before Valormok?", next = "w_before" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -693,6 +694,26 @@ P:NPC {
     coast = {
       lines = { { id = "c_default", text = "Over the cliffs, yes. Over the bay, no: the storms come up out of nothing, and the elves' Sentinels shoot at anything with leathery wings, so we fly west and keep our heads down." } },
       choices = { { text = "West it is.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    w_before = {
+      lines = {
+        { id = "w_before_default", text = "Flew the wind riders out of the Crossroads, over the Barrens, where the air is dry and hot and the beasts love it. Then Ag'tor asked for a master here, and nobody else would come, so I came, and my riders have hated me for it ever since." },
+      },
+      choices = {
+        { text = "Do you hate it too?", next = "w_before2" },
+        { text = "Why did nobody else come?", next = "w_before2" },
+      },
+    },
+    w_before2 = {
+      lines = {
+        { id = "w_before2_default", text = "Every day, but I'd never leave. The grunts here need a way out when the naga come, and somebody has to keep the riders fit to carry them. I'll go back to the Barrens when Ag'tor sends a better master, and he won't, because there isn't one." },
+        { id = "w_before2_w1", when = { race = "Orc" }, text = "You'll know what duty is, then. It's doing the job nobody wants, in the place nobody likes, because somebody has to." },
+      },
+      choices = {
+        { text = "Duty is its own honour.", next = "BACK", fx = { align = { honor = 1 } }, reply = "It is. Doesn't make the salt taste any better." },
+        { text = "You should ask for a transfer.", next = "BACK", fx = { align = { honor = -1 } }, reply = "And leave the grunts with a worse master? No." },
+        { text = "Something else, Kroum.", next = "BACK" },
+      },
     },
   },
 

@@ -618,10 +618,27 @@ P:NPC {
         { text = "Priests can't carry many weapons worth writing down.", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "My sort probably doesn't belong in your study, Tatternack.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "What can a paladin teach you, Tatternack?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Who reads all these notes you keep?", next = "w5_pages" },
         { text = "I'll bring you something interesting.", next = "END", fx = { affinity = 2, trait = { curious = 1 } } },
       },
       again = {
         { id = "h_again", text = "Something else? My hands are busy, but my ears aren't." },
+      },
+    },
+    w5_pages = {
+      lines = { { id = "w5_pages_l", text = "A rider takes my pages north to Orgrimmar every new moon. Whether the Warchief reads them himself, I could not tell you, but somebody in Grommash Hold sends back questions, and they are good ones." } },
+      choices = {
+        { text = "What sort of questions come back?", next = "w5_pages2" },
+        { text = "Write down that tauren fight with what the land gives.", next = "BACK", when = { race = "Tauren" }, reply = "I already have. Three pages on the totem-club alone, and Ruga Ragetotem still says I got the grip wrong." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_pages2 = {
+      lines = { { id = "w5_pages2_l", text = "Last moon they asked how the tauren arm themselves, and whether a kodo can be taught to charge a wall. I am an orc writing down the habits of our allies for the Warchief, and I know how that sounds. I write it all the same." } },
+      choices = {
+        { text = "A wise chieftain knows his friends' weapons as well as his foes'.", next = "BACK", reply = "That is what I tell myself when the braves catch me measuring their spears.", fx = { align = { order = 1 } } },
+        { text = "Some things between allies should stay unwritten.", next = "BACK", reply = "Perhaps. But a thing unwritten is a thing forgotten, and the Horde has forgotten too much already.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     warrior = {

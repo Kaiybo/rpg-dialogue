@@ -105,6 +105,7 @@ P:NPC {
         { text = "I need my armour seen to.", next = "BUSINESS" },
         { text = "Who else in Lakeshire works the forge with you?", next = "d6_smiths" },
         { text = "What's it like, a dwarf in a human town?", next = "d6_dwarf" },
+        { text = "What's this pile of girdles waiting for you?", next = "e3_girdles" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -153,6 +154,24 @@ P:NPC {
       choices = {
         { text = "He did. He was brave to the end.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "I'll leave you be, Dorin.", next = "END" },
+      },
+    },
+    e3_girdles = {
+      lines = {
+        { id = "e3_girdles_l0", text = "Sword belts an' armour girdles for the guard, every one cracked at the buckle where the leather met the iron an' the rain got in. Clyde Ranthal sends me the leather, an' I put the iron on, an' between us the guard keeps its trousers up." },
+      },
+      choices = {
+        { text = "Why does the buckle always crack?", next = "e3_girdles2" },
+        { text = "A guard needs his belt, aye.", next = "BACK" },
+      },
+    },
+    e3_girdles2 = {
+      lines = {
+        { id = "e3_girdles2_l0", text = "Cheap rivets frae Stormwind, rusted through by the lake mist, which I've written tae the quartermaster about three times. I've started forgin' my own rivets o' a night, an' every belt I mend now will outlast the man wearin' it." },
+      },
+      choices = {
+        { text = "Good dwarven work. Something else.", next = "BACK" },
+        { text = "You'll never get through the pile.", next = "BACK" },
       },
     },
   },

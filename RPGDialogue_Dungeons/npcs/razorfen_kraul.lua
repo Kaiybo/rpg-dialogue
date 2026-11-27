@@ -34,6 +34,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_prof = {
+      lines = { { id = "w8_prof_a", text = "Profits? Pal, the quilboar ate the profits, smashed the profits and set fire to the profits, so first I'll be payin' off the losses. Then I'll buy a nice safe desk job in Ratchet, countin' other people's crates." } },
+      choices = {
+        { text = "You'll be bored in a week.", next = "w8_prof2" },
+        { text = "A desk job sounds wise.", next = "w8_prof2" },
+        { text = "Something else, Willix.", next = "BACK" },
+      },
+    },
+    w8_prof2 = {
+      lines = { { id = "w8_prof2_a", text = "Bored in a week and back on the road in two, sure, but this time I'm takin' the long way round the Kraul and payin' for guards. Guards are a cost, and dead importers are a much bigger cost, which I've only just started to appreciate." } },
+      choices = {
+        { text = "Guards are a good investment.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
 
     wx_ratchet = {
       lines = { { id = "wxr_1", text = "Half the town, pal, but mostly Gazlowe, because the boss of Ratchet likes his rum strong and his fireworks on time. I'm three days late now, so if he asks, I was kidnapped heroically, which is technically true." } },
@@ -78,6 +94,7 @@ P:NPC {
         { text = "Let's get you out of here.", next = "BUSINESS" },
         { text = "Who in Ratchet were you delivering to?", next = "wx_ratchet" },
         { text = "This place is a maze of thorns.", next = "wx_maze" },
+        { text = "What will you do with the profits, if you get out?", next = "w8_prof" },
         { text = "Good luck, Willix.", next = "END" },
       },
     },

@@ -52,7 +52,25 @@ P:NPC {
         { text = "Ironforge should have sent more soldiers sooner.", next = "late", when = { race = "Dwarf" } },
         { text = "How do you keep morale up out here?", next = "morale" },
         { text = "What do you think of the Cenarion Circle's rules?", next = "circle" },
+        { text = "What do you make of General Kirika?", next = "w9_kirika" },
         { text = "Back to the desert, then.", next = "END" },
+      },
+    },
+
+    w9_kirika = {
+      lines = { { id = "w9_kirika_d", text = "She's the reason the Horde got ahead of us, and I'll not pretend otherwise. She had her people on the silithyst while we were still arguing about whether the desert was worth the trouble, and a commander who moves first is a commander to be watched." } },
+      choices = {
+        { text = "Do you respect her?", next = "w9_kirika2" },
+        { text = "She's just an orc with a head start.", next = "w9_kirika2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_kirika2 = {
+      lines = { { id = "w9_kirika2_d", text = "Respect her, aye, the way ye'd respect a rival miner who found the seam first. If the truce at the Hold ever broke, I'd want her on the far side of a very wide dune, and I'd want every rifle I've got pointed at it." } },
+      choices = {
+        { text = "Then we'd better gather faster.", next = "BACK", reply = "That's the spirit! Back to the desert with ye." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     silithyst = {
@@ -329,7 +347,28 @@ P:NPC {
         { text = "Your ledger has more red ink than black.", next = "ledger" },
         { text = "Who do you bargain with at the Hold?", next = "bargain" },
         { text = "What would you have a crafter make first?", next = "crafter", when = { profession = { "Blacksmithing", "Leatherworking" } } },
+        { text = "Do you ever go out to the hives yourself?", next = "w9_front" },
         { text = "I'll leave you to your ledger.", next = "END" },
+      },
+    },
+
+    w9_front = {
+      lines = {
+        { id = "w9_front_d", text = "More than the captain would like. A lieutenant with a ledger is useful, but a lieutenant who knows what a silithid actually does to a shield is better, so I take a patrol out once a week and come back with notes, and bruises." },
+        { id = "w9_front_v1", when = { class = "PALADIN" }, text = "Of course, as you would, I expect. A paladin who never leaves the tent forgets what the Light is for, so once a week I take a patrol out to the hives, and I come back with notes, bruises and a little more faith." },
+      },
+      choices = {
+        { text = "What have you learned out there?", next = "w9_front2" },
+        { text = "Your captain is right to worry.", next = "w9_front2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_front2 = {
+      lines = { { id = "w9_front2_d", text = "That the drones go for the shield arm first, which no manual ever told us, and that our shields were too narrow for it. I've written to Ironforge for wider ones, and they've written back asking for the form I used, which I'm told doesn't exist yet." } },
+      choices = {
+        { text = "Then make one.", next = "BACK", reply = "I did. It's been lost on a ship, probably. Still, I'll make another." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     lost = {
@@ -465,7 +504,25 @@ P:NPC {
         { text = "For the Horde. I'll get to it.", next = "END", when = { faction = "Horde" } },
         { text = "What about the cult in the north of the desert?", next = "cult" },
         { text = "What happens to the Legion if the Alliance wins the race?", next = "race" },
+        { text = "What does Orgrimmar send you, besides orders?", next = "w9_org" },
         { text = "I'm going.", next = "END" },
+      },
+    },
+
+    w9_org = {
+      lines = { { id = "w9_org_d", text = "Recruits, too young, and rations, too few, and once a month a letter asking why I need more of both. The Warchief has a whole Horde to feed, so I do not blame him, but I do keep the letters, and I count them." } },
+      choices = {
+        { text = "Why count them?", next = "w9_org2" },
+        { text = "You could ask the Circle for help.", next = "w9_org2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_org2 = {
+      lines = { { id = "w9_org2_d", text = "Because when the gates open, someone will ask what the Legion was given and what it did with it, and I mean to have the answer written down. We have done more with less than any camp in this desert, and the dwarves know it." } },
+      choices = {
+        { text = "The Legion has done the Horde proud.", next = "BACK", reply = "It has. Now go and do your part of it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {

@@ -212,6 +212,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_fallen = {
+      lines = {
+        { id = "w3_fallen_1", text = "Plenty, {class}, and most of them stood up again, which is the advantage of teaching the dead. The worst was a mage who tried to teleport home at a full gallop and arrived in the Undercity without the horse, which carried on to the Bulwark on its own." },
+      },
+      choices = {
+        { text = "Did you get the horse back?", next = "w3_back" },
+        { text = "Falling's the first lesson, really.", next = "BACK", reply = "It's the lesson everyone learns whether I teach it or not. I just try to make sure they learn it on soft ground." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_back = {
+      lines = {
+        { id = "w3_back_1", text = "A Deathguard rode it back three days later, very pleased with himself, and Zachariah charged the mage for the inconvenience. The horse stood at the field gate for an hour after, as if it had enjoyed the trip and wanted another." },
+      },
+      choices = {
+        { text = "Perhaps it did. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Velma Warnam. I teach the riding of the dead horses that Zachariah Post sells, which is nothing like riding the live sort, and I'll thank you not to tell me how your uncle did it." },
@@ -219,7 +237,7 @@ P:NPC {
         { id = "h_young", when = { maxLevel = 39 }, text = "You're young yet for a saddle, {class}. Come back when you've seen more of the world, and the horses will still be here, since they don't age either." },
       },
       again = {
-        { id = "h_again", text = "Something else? The horses can wait. They're very good at it." },
+        { id = "h_again", text = "Something else? The horses can wait. They're very good at it, better than you." },
       },
       choices = {
         { text = "A rider should treat a dead horse as well as a living one.", next = "BACK", reply = "Exactly. They can't feel it, but they know it, in their way, and they'll carry you further for it.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -231,6 +249,7 @@ P:NPC {
         { text = "Tell me about Zachariah Post.", next = "zach" },
         { text = "Did you ride before you died, Velma?", next = "xlife", when = { race = "Scourge" } },
         { text = "Will a dead horse even carry one of the living?", next = "xliving", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "Has anyone ever fallen off one of your horses?", next = "w3_fallen" },
         { text = "I'll go.", next = "END" },
       },
     },

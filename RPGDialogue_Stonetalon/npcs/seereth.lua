@@ -73,10 +73,27 @@ P:NPC {
         { text = "Tell me about your vision.", next = "vision", when = { any = { { questActive = TODO_QUEST("Shredding Machines") }, { questDone = TODO_QUEST("Shredding Machines") } } } },
         { text = "I hear them too, Seereth.", next = "shaman_s", when = { class = "SHAMAN" } },
         { text = "What can I do?", next = "BUSINESS" },
+        { text = "How do you sleep, with the spirits so loud?", next = "w5_sleep" },
         { text = "May the spirits calm, Seereth.", next = "END" },
       },
     },
 
+    w5_sleep = {
+      lines = { { id = "w5_sleep_l", text = "Badly. I sleep on bare stone, because the earth spirits are quieter when I am close to them, and I wake at every shriek from the Charred Vale. Mor'rogal brought me a bedroll last moon. I gave it to a brave who needed it more." } },
+      choices = {
+        { text = "Is there no way to quiet them?", next = "w5_sleep2" },
+        { text = "I hear them too. Sleeping in running water helps a little.", next = "BACK", when = { class = "SHAMAN" }, reply = "Running water? I will try it. Thank you, {class}. A shaman's trick from one who knows." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_sleep2 = {
+      lines = { { id = "w5_sleep2_l", text = "Only by healing what makes them scream. The goblins are cutting the mountain to pieces, and the spirits cry out with every tree that falls. Until the cutting stops, the spirits will not rest, and neither will I. I am an orc. I can bear it longer than the trees can." } },
+      choices = {
+        { text = "Then stop the cutting, whatever it takes.", next = "BACK", reply = "That is what I tell the elders. They tell me to be patient. I am tired of patience.", fx = { align = { order = -1 } } },
+        { text = "Patience. The Horde must choose its battles carefully.", next = "BACK", reply = "Patience for whom? The spirits do not have it. But I hear you.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     spirits = {
       lines = {
         { id = "sp_default", text = "Mostly they scream, and the screaming has no words in it. But under it there's grief, the grief of trees that stood a thousand years and fell in an afternoon." },

@@ -848,7 +848,7 @@ P:NPC {
     leave_varian = {
       lines = { { id = "lv_default", text = "A guard who answers that in this room is a fool. I keep the room ready, and that's my answer." } },
       choices = {
-        { text = "A ready room is answer enough for me.", next = "BACK", reply = "Good. Then we understand each other.", fx = { align = { order = 1 } } },
+        { text = "A ready room is answer enough for me.", next = "BACK", reply = "Good. Then you know where you're standing, and so do I.", fx = { align = { order = 1 } } },
         { text = "A guard who won't answer is hiding something.", next = "BACK", reply = "Everyone in this room is hiding something. My job is to make sure it isn't a knife.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },

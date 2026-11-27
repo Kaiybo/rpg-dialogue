@@ -259,7 +259,25 @@ P:NPC {
         { text = "I'm an engineer too. Show me.", next = "xengineer", when = { profession = { name = "Engineering", min = 1 } } },
         { text = "Who else is out here in the glades with you?", next = "sf_neigh" },
         { text = "Your boots are singed right up to the ankle.", next = "sf_boom" },
+        { text = "How do you bottle swamp gas, anyway?", next = "w9_bottle" },
         { text = "Good luck with the future.", next = "END" },
+      },
+    },
+
+    w9_bottle = {
+      lines = { { id = "w9_bottle_d", text = "Very carefully, chum, upside down, with a funnel, a cork and absolutely no lanterns within forty yards. You hold the bottle over the bubbles, you count to ten, and you cork it before the gas changes its mind, which it does, often." } },
+      choices = {
+        { text = "What happens if it changes its mind?", next = "w9_bottle2" },
+        { text = "Is that where the singed boots came from?", next = "w9_bottle2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_bottle2 = {
+      lines = { { id = "w9_bottle2_d", text = "Then you learn to swim very fast, chum, because the pond's the safest place to be when the bottle goes. My boots are a record of every lesson, and I've learned a lot of lessons, and I'm about two lessons away from needing new boots." } },
+      choices = {
+        { text = "I'll keep my lantern away.", next = "BACK", reply = "Smart, chum! See, you're practically an investor already." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     engine = {
@@ -420,7 +438,25 @@ P:NPC {
         { text = "Here's a rank. Want to sign me?", next = "xpvp", when = { pvpRank = 3 } },
         { text = "Who's the best fighter you ever booked?", next = "jj_best" },
         { text = "That ogre Clubtoe would make a fine headliner.", next = "jj_ogre" },
+        { text = "What happens to fighters who lose?", next = "w9_lose" },
         { text = "I'll pass.", next = "END" },
+      },
+    },
+
+    w9_lose = {
+      lines = { { id = "w9_lose_d", text = "Depends how they lose, kid! A fighter who loses big, with a lot of blood and a good speech, sells more tickets the next time than the one who won quiet. A fighter who loses boring, well, he goes back to whatever he did before, and I never book him again." } },
+      choices = {
+        { text = "That's harsh.", next = "w9_lose2" },
+        { text = "So losing well is a skill?", next = "w9_lose2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_lose2 = {
+      lines = { { id = "w9_lose2_d", text = "It's show business, kid, and the show is the business. Win if you can, lose loud if you can't, and never, ever die before the second round, because refunds are murder on my margins." } },
+      choices = {
+        { text = "I'll keep it loud.", next = "BACK", reply = "That's my contender! I'll put your name on the posters already." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {

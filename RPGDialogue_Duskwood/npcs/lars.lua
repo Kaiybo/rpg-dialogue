@@ -95,7 +95,7 @@ P:NPC {
           text = "A hunter! Thank the Light, someone who knows which end of a rabbit to start on." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The pot won't stir itself." },
+        { id = "h_again", text = "Anything else? Ask while the rabbit's on, and mind the smoke; the wind's turning." },
         { id = "h_again2", text = "Go on, I'm listening, as long as you don't mind me skinning while you talk." },
       },
       choices = {
@@ -106,6 +106,7 @@ P:NPC {
         { text = "I'll help with the wolves.", next = "BUSINESS" },
         { text = "What does Sven do all day by that fire?", next = "lar_sv1" },
         { text = "How do you get supplies out here?", next = "lar_sup1" },
+        { text = "What's in the pot tonight?", next = "e3_stew" },
         { text = "Good hunting, Lars.", next = "END" },
       },
     },
@@ -151,6 +152,24 @@ P:NPC {
       choices = {
         { text = "Set it low, by the water, and use wire.", next = "BACK", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_stew = {
+      lines = {
+        { id = "e3_stew_l0", text = "Rabbit, if the snare was kind, and wolf, if it wasn't and the wolf came after my rabbit. Tonight it's a bit of both, with wild onion and a mushroom Scott Carevin swore was safe, so if I'm dead by morning, you know who to blame." },
+      },
+      choices = {
+        { text = "Does Sven ever eat?", next = "e3_stew2" },
+        { text = "Wolf stew. Fitting.", next = "BACK" },
+      },
+    },
+    e3_stew2 = {
+      lines = {
+        { id = "e3_stew2_l0", text = "When I put the bowl right in his hands and stand there, yes, and he says it's good, which from Sven is a speech. Some nights he even asks what's in it, and those are the nights I think he's coming back to us." },
+      },
+      choices = {
+        { text = "Keep cooking for him. Something else.", next = "BACK" },
+        { text = "He'll come back in his own time.", next = "BACK" },
       },
     },
   },

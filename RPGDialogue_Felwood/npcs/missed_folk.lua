@@ -47,6 +47,7 @@ P:NPC {
         { text = "Can the land itself be heard, under the taint?", next = "heard", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "Is anything that grows here still safe to use?", next = "safe", when = { profession = { "Herbalism", "Alchemy" } } },
         { text = "Is there work for me?", next = "BUSINESS" },
+        { text = "What's the first plant you ever saved here?", next = "w_first" },
         { text = "May your seedlings thrive, Ivy.", next = "END" },
       },
     },
@@ -122,6 +123,26 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    w_first = {
+      lines = {
+        { id = "w_first_default", text = "A single silverleaf, by the moonwell, that came up grey the first spring we were here. I watered it by hand with moonwell water for a whole season, and it turned green in the autumn, all at once, overnight. I sat beside it and wept." },
+      },
+      choices = {
+        { text = "Is it still growing?", next = "w_first2" },
+        { text = "One plant, after a season.", next = "w_first2" },
+      },
+    },
+    w_first2 = {
+      lines = {
+        { id = "w_first2_default", text = "It seeded, and there are eleven now in a little ring around the well. Tenell counts them, of course, because he counts everything. I tell him that eleven is more than one, and that is all the proof of hope anyone should need." },
+        { id = "w_first2_w1", when = { profession = "Herbalism" }, text = "You gather, so you will see it at once. Look at the ring by the well before you go. Those are the cleanest herbs in Felwood." },
+      },
+      choices = {
+        { text = "Eleven is more than one.", next = "BACK", fx = { align = { order = -1 } }, reply = "It is, and Tenell will agree, after he counts them again." },
+        { text = "Eleven plants won't save a forest.", next = "BACK", fx = { align = { order = 1 } }, reply = "Not yet. But nothing that saves a forest ever starts larger." },
+        { text = "Something else, Ivy.", next = "BACK" },
+      },
+    },
   },
   topics = {
     knows = { { id = "tp_knows", text = "I know this wood, what ails it, and the little that we have learned of mending it. Ask, and I shall share whatever may help." } },
@@ -166,8 +187,8 @@ P:NPC {
       },
       again = {
         { id = "hello_again1", text = "What more? I can talk and watch at once." },
-        { id = "hello_again2", text = "Ask. The road is empty for the moment." },
-        { id = "hello_again3", text = "Go on, I am listening." },
+        { id = "hello_again2", text = "Ask. The road through Felwood is empty for the moment, and I would rather talk than listen to it." },
+        { id = "hello_again3", text = "Go on. The Circle's ear is open, even here among the dead trees." },
       },
       choices = {
         { text = "The road must be watched, whatever it costs.", next = "BACK", reply = "It must. Someone has to stand here while the rest of the world forgets.", fx = { align = { order = 1 } } },
@@ -178,6 +199,7 @@ P:NPC {
         { text = "Guarding a garden is a waste of a good bow.", next = "waste" },
         { text = "What should I fear most on the road north?", next = "fear", when = { class = { "HUNTER", "ROGUE", "WARRIOR" } } },
         { text = "Does Darnassus send you any aid?", next = "aid", when = { race = "NightElf" } },
+        { text = "Who taught you the bow?", next = "w_bow" },
         { text = "Keep a good watch, Tenell.", next = "END" },
       },
     },
@@ -262,6 +284,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    w_bow = {
+      lines = {
+        { id = "w_bow_default", text = "A Sentinel at Astranaar, long ago, who said I held the bow like a man holding a spade. She was right; I had been a gardener before. She made me shoot a thousand arrows into a hay bale before I could touch a living target." },
+      },
+      choices = {
+        { text = "Did it work?", next = "w_bow2" },
+        { text = "A gardener with a bow.", next = "w_bow2" },
+      },
+    },
+    w_bow2 = {
+      lines = {
+        { id = "w_bow2_default", text = "Well enough that I am still alive in Felwood, which is a kind of proof. Ivy kept the gardening and I kept the bow, and between us we make one useful druid. I think the Sentinel would laugh to see me now, guarding a garden with what she taught me." },
+        { id = "w_bow2_w1", when = { class = "HUNTER" }, text = "You shoot; I can tell by your shoulders. If you go north, aim for the Deadwood's knees. They were people once, and they do not need to die to be stopped." },
+      },
+      choices = {
+        { text = "Every garden needs a guard.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else, Tenell.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_background", text = "I was a hunter in Ashenvale before the Circle called for hands. I came because Ivy came, and I have stayed because the work is worth doing." } },
@@ -319,6 +360,7 @@ P:NPC {
         { text = "Do the wild ones here still know themselves?", next = "wild", when = { class = "DRUID" } },
         { text = "My companion drank from a stream here. Will it sicken?", next = "hnt_water", when = { class = "HUNTER", pet = { type = "Beast" } } },
         { text = "The furbolgs here were never meant to be enemies.", next = "kal_furb", when = { race = "NightElf" } },
+        { text = "Which companion was hardest to save?", next = "w_hard" },
         { text = "Elune watch your charges, Nalesette.", next = "END" },
       },
     },
@@ -403,6 +445,25 @@ P:NPC {
       choices = {
         { text = "Then we should earn the Timbermaw's friendship.", next = "BACK", reply = "Yes, and slowly, because they have little reason to trust anyone now. Their gate is north of the Glade.", fx = { align = { honor = 1 } } },
         { text = "The Deadwood chose their cup. I'll not mourn them.", next = "BACK", reply = "They did not choose it, they were poisoned, but I see you have made up your mind. Be quick about it, then, and clean.", fx = { align = { honor = -1 } } },
+      },
+    },
+    w_hard = {
+      lines = {
+        { id = "w_hard_default", text = "A wolf, belonging to a dwarf hunter from Ironforge, who had drunk from the Bloodvenom and started snapping at his own master. I washed him in moonwell water every hour for three nights. The dwarf never left his side, and he never stopped talking to him." },
+      },
+      choices = {
+        { text = "Did the wolf recover?", next = "w_hard2" },
+        { text = "The dwarf sounds devoted.", next = "w_hard2" },
+      },
+    },
+    w_hard2 = {
+      lines = {
+        { id = "w_hard2_default", text = "He did, on the fourth morning, and licked the dwarf's face as if nothing had happened. The dwarf cried into his beard and tried to pay me with a whole bag of gold, and I took one coin, for the moonwell. I think the talking saved him as much as the water." },
+        { id = "w_hard2_w1", when = { race = "Dwarf" }, text = "One of your own, so you'll understand. Your folk do not give up on a friend, and I have come to love that about you." },
+      },
+      choices = {
+        { text = "Love heals, sometimes.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Nalesette.", next = "BACK" },
       },
     },
   },

@@ -55,7 +55,25 @@ P:NPC {
         { text = "Who betrayed you?", next = "traitor", when = { questDone = TODO_QUEST("Release Them") } },
         { text = "Let me tend your wounds.", next = "wounds" },
         { text = "Let me pray over you, at least.", next = "xpray", when = { class = { "PRIEST", "PALADIN", "SHAMAN" } } },
+        { text = "What were the Suntara Stones?", next = "w9_stones" },
         { text = "Rest. I'll see to your men.", next = "END" },
+      },
+    },
+
+    w9_stones = {
+      lines = { { id = "w9_stones_d", text = "Tablets from before the War of the Three Hammers, carved by dwarves who knew the mountain before it caught fire. Dorius believed they'd tell us how the Dark Irons and the rest of us came to be split, an' I believed Dorius, which is how I ended up here." } },
+      choices = {
+        { text = "Did you find any?", next = "w9_stones2" },
+        { text = "Was it worth it?", next = "w9_stones2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_stones2 = {
+      lines = { { id = "w9_stones2_d", text = "A corner of one, the size of my hand, with three words on it I couldnae read. The Hammer took it off me the day they took the rest, an' I'd give my last breath tae know what those three words said." } },
+      choices = {
+        { text = "Maybe I'll find it for you.", next = "BACK", reply = "Then read it aloud at my grave, friend. That'll do for me." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

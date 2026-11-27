@@ -59,7 +59,7 @@ P:Letter {
   id = "ho_mankrik", npc = "mankrik", delay = 3600,
   when = { questDone = TODO_QUEST("Lost in Battle"), faction = "Horde" },
   subject = "A cairn for Olgra",
-  body = "{name},\n\nI built a cairn for Olgra on the rise west of the Crossroads, where you can see the road coming from the south. It took me nine days, because the stones out here are either too small or too big, and she would have laughed at me for that and then carried the big ones herself.\n\nThe grunts leave me alone now when I stand at the gate. They used to ask me what I was looking at, and I think they know.\n\nYou brought her back to me, and I never thanked you properly, because I could not speak that day. I can speak now. Thank you. If you ever pass the cairn, put a stone on it, and if you knew anything about her, I would like to hear it.\n\nMankrik",
+  body = "{name},\n\nI built a cairn for Olgra on the rise west of the Crossroads, where you can see the road coming from the south. It took me nine days, because the stones out here are either too small or too big, and she would have laughed at me for that and then carried the big ones herself.\n\nThe grunts leave me alone now when I stand at the gate. They used to ask me what I was looking at, and I think they know.\n\nYou brought her back to me, and I never thanked you properly, because I could not speak that day. I can speak now, so thank you. If you ever pass the cairn, put a stone on it, and if you knew anything about her, I would like to hear it.\n\nMankrik",
   replies = {
     { id = "tell", text = "I'll tell you how she fought. She did not go down easily.", fx = { affinity = 1, letter = "ho_mankrik_2" } },
     { id = "stone", text = "I'll put a stone on her cairn whenever I pass the Crossroads.", fx = { affinity = 1, npcFlag = { set = "ho_olgra_stone" } } },
@@ -155,7 +155,7 @@ P:Letter {
 P:Letter {
   id = "ho_ahab_2_fence", npc = "ahab", delay = 4200,
   subject = "About the fence",
-  body = "Dear friend,\n\nI took your advice and fixed the fence. I sank the posts deep, I packed the ground with stones, and I asked one of the braves to help me stretch the hide properly, and it was the finest fence in Bloodhoof Village for very nearly a whole night.\n\nIn the morning Kyle was sitting on the outside of it looking at me, and I still do not know how. The brave thinks he jumped. Kauth thinks he climbed. I think he simply decided to be on the other side, and the fence had no say in it.\n\nHe's home now, at least, and asleep on my boots. I will leave the fence up, because it makes me feel better, but I don't think it makes him feel anything at all.\n\nAhab Wheathoof",
+  body = "Dear friend,\n\nI took your advice and fixed the fence. I sank the posts deep, I packed the ground with stones, and I asked one of the braves to help me stretch the hide properly, and it was the finest fence in Bloodhoof Village for very nearly a whole night.\n\nIn the morning Kyle was sitting on the outside of it looking at me, and I still do not know how. The brave thinks he jumped, and Kauth thinks he climbed. I think he simply decided to be on the other side, and the fence had no say in it.\n\nHe's home now, at least, and asleep on my boots. I will leave the fence up, because it makes me feel better, but I don't think it makes him feel anything at all.\n\nAhab Wheathoof",
 }
 
 P:Letter {
@@ -270,7 +270,7 @@ P:Letter {
 P:Letter {
   id = "ho_renferrel", npc = "renferrel", random = true, when = { faction = "Horde", minLevel = 16 },
   subject = "The damp, again",
-  body = "{name},\n\nThe roof of the Sepulcher has begun to drip directly onto my workbench, which I have mentioned to the High Executor four times and which he regards as less urgent than the worgen, the Dalaran wizards, the Scourge and the gnolls. He may have a point. I don't care.\n\nThree batches spoiled this week. One of them turned a shade of green I have never seen before, and the deathguard who touched it is now a shade of green I have never seen before, and we are both waiting to see what happens next.\n\nIf you are anywhere near Silverpine and find yourself with a few dry hours and a strong back, I have a great many crates that need moving away from the drip. I will not pay you, but I will be visibly less unpleasant, which the others here will tell you is a rare reward.\n\nApothecary Renferrel, the Sepulcher",
+  body = "{name},\n\nThe roof of the Sepulcher has begun to drip directly onto my workbench, which I have mentioned to the High Executor four times and which he regards as less urgent than the worgen, the Dalaran wizards, the Scourge and the gnolls. He may have a point, and I don't care.\n\nThree batches spoiled this week. One of them turned a shade of green I have never seen before, and the deathguard who touched it is now a shade of green I have never seen before, and we are both waiting to see what happens next.\n\nIf you are anywhere near Silverpine and find yourself with a few dry hours and a strong back, I have a great many crates that need moving away from the drip. I will not pay you, but I will be visibly less unpleasant, which the others here will tell you is a rare reward.\n\nApothecary Renferrel, the Sepulcher",
   replies = {
     { id = "crates", text = "I'll move your crates. Try to be visibly less unpleasant, then.", fx = { affinity = 1 } },
     { id = "deathguard", text = "How is the green deathguard? I'd like to know what happens.", fx = { npcFlag = { set = "ho_green_deathguard" } } },
@@ -313,7 +313,7 @@ P:Letter {
 P:Letter {
   id = "ho_seereth", npc = "seereth", random = true, when = { faction = "Horde", minLevel = 22 },
   subject = "The scream under the wind",
-  body = "{name},\n\nI wrote to you once before in my head, many times, and never on paper, so this is the first. I still do not sleep the whole night through. The spirits of Stonetalon still cry out where the goblins' machines cut the mountain, but the cry is thinner now, as though something has been taken off their chests.\n\nMagatha's answer came back from Elder Rise. She said a great deal and told me very little, as is her way, and I have read it so many times the ink has faded where my thumb holds it.\n\nIf you pass Sun Rock, sit with me at the edge of the retreat at dusk, and listen. Perhaps you will hear nothing. Perhaps that is better.\n\nSeereth Stonebreak, Sun Rock Retreat",
+  body = "{name},\n\nI wrote to you once before in my head, many times, and never on paper, so this is the first. I still do not sleep the whole night through. The spirits of Stonetalon still cry out where the goblins' machines cut the mountain, but the cry is thinner now, as though something has been taken off their chests.\n\nMagatha's answer came back from Elder Rise. She said a great deal and told me very little, as is her way, and I have read it so many times the ink has faded where my thumb holds it.\n\nIf you pass Sun Rock, sit with me at the edge of the retreat at dusk, and listen. Perhaps you will hear nothing, and perhaps that is better.\n\nSeereth Stonebreak, Sun Rock Retreat",
   replies = {
     { id = "sit", text = "I'll sit with you at dusk, Seereth, and listen as long as you need.", fx = { affinity = 1 } },
     { id = "magatha", text = "Be careful with Magatha. Her wisdom always comes with a price.", fx = { opinion = { grimtotem = "distrust" } } },
@@ -324,7 +324,7 @@ P:Letter {
 P:Letter {
   id = "ho_senani", npc = "senani", random = true, when = { faction = "Horde", minLevel = 20 },
   subject = "Colours in Ashenvale",
-  body = "{name},\n\nThe leaves along the Falfarren have begun to turn, gold and then red, and in the mornings the mist lies so thick between the trees that the Warsong cannot see what they are cutting. I have taken to walking out before the axes start, just to see the forest as it was meant to be seen.\n\nThe night elves shot at me last week. They missed, and I do not think they meant to hit me, and I do not blame them either way. If someone came to Mulgore and began cutting down the grass, I might shoot at them too.\n\nI know where I stand. I stand with the Horde. But I wanted to tell someone that it was beautiful this morning, and you seemed like someone who would understand.\n\nSenani Thunderheart, Splintertree Post",
+  body = "{name},\n\nThe leaves along the Falfarren have begun to turn, gold and then red, and in the mornings the mist lies so thick between the trees that the Warsong cannot see what they are cutting. I have taken to walking out before the axes start, just to see the forest as it was meant to be seen.\n\nThe night elves shot at me last week. They missed, and I do not think they meant to hit me, and I do not blame them either way. If someone came to Mulgore and began cutting down the grass, I might shoot at them too.\n\nI know where I stand, and I stand with the Horde. But I wanted to tell someone that it was beautiful this morning, and you seemed like someone who would understand.\n\nSenani Thunderheart, Splintertree Post",
   replies = {
     { id = "understand", text = "I understand. Tell me more about the forest when you can.", fx = { affinity = 1, letter = "ho_senani_2", opinion = { ashenvale = "compromise" } } },
     { id = "lumber", text = "The Horde needs that lumber. Beauty doesn't build Orgrimmar.", fx = { affinity = -1, opinion = { ashenvale = "necessary" } } },
@@ -377,7 +377,7 @@ P:Letter {
 P:Letter {
   id = "ho_hagar_2", npc = "hagar", delay = 6000,
   subject = "It cracked!",
-  body = "{name},\n\nIt cracked! You were not here, which I forgive you for, because the mail is slow and eggs are not. It happened just after An'she rose, with a sound like a stick snapping, and out came a very small, very wet, very angry wind serpent, no longer than my forearm.\n\nIt bit me. I had expected that. Then it climbed into my lap and went to sleep, which I had not expected at all, and now I cannot get up without waking it, and I am writing this letter on my knee.\n\nThe braves have stopped saying it was the shell cooling. I have not said anything to them about it, because I am above that, but I have looked at them meaningfully several times.\n\nHagar Lightninghoof, Freewind Post",
+  body = "{name},\n\nIt cracked! You were not here, which I forgive you for, because the mail is slow and eggs are not. It happened just after An'she rose, with a sound like a stick snapping, and out came a very small, very wet, very angry wind serpent, no longer than my forearm.\n\nIt bit me, which I had expected. Then it climbed into my lap and went to sleep, which I had not expected at all, and now I cannot get up without waking it, and I am writing this letter on my knee.\n\nThe braves have stopped saying it was the shell cooling. I have not said anything to them about it, because I am above that, but I have looked at them meaningfully several times.\n\nHagar Lightninghoof, Freewind Post",
   replies = {
     { id = "name", text = "Congratulations, Hagar. What will you name it?", fx = { affinity = 1 } },
     { id = "wild", text = "Let it fly free when it's grown. It belongs to the sky.", fx = { npcFlag = { set = "ho_serpent_free" } } },
@@ -440,7 +440,7 @@ P:Letter {
 P:Letter {
   id = "ho_lydon_2", npc = "lydon", delay = 4800,
   subject = "Umpi thanks you",
-  body = "{name},\n\nI passed on your regards to Umpi. She hopped to the left three times and then sat on the powdered bat, which I have decided to interpret as gratitude, because it is better than the alternative.\n\nYou are the first person to say anything kind about her. The deathguard call her the thing in the jar, and Darthalia calls her a waste of reagents, and none of them has ever asked how she was. I find I liked being asked, which is unsettling, and I will need to sit with it a while.\n\nShe is in the jar again now. It is her favourite jar. She'll be fine.\n\nApothecary Lydon",
+  body = "{name},\n\nI passed on your regards to Umpi. She hopped to the left three times and then sat on the powdered bat, which I have decided to interpret as gratitude, because it is better than the alternative.\n\nYou are the first person to say anything kind about her. The deathguard call her the thing in the jar, and Darthalia calls her a waste of reagents, and none of them has ever asked how she was. I find I liked being asked, which is unsettling, and I will need to sit with it a while.\n\nShe is in the jar again now. It is her favourite jar, and she'll be fine.\n\nApothecary Lydon",
 }
 
 P:Letter {
@@ -507,7 +507,7 @@ P:Letter {
 P:Letter {
   id = "ho_mokthardin", npc = "mokthardin", random = true, when = { faction = "Horde", minLevel = 34 },
   subject = "The spirits at Grom'gol",
-  body = "{name},\n\nThe spirits of the jungle speak loudly at Grom'gol, louder than they ever did in Durotar, and some nights I sit at the edge of the camp and simply listen. They are angry about many things. The trolls who carve up their own dead, the goblins who sell anything, the humans who hunt for sport. But they are not angry with us tonight, and I wanted to write that down somewhere.\n\nI was young when Gul'dan's warlocks turned our shamans from the spirits, and for a generation the elements did not answer us at all. Now I hear them every night, and I do not take a single word for granted.\n\nYou have walked through this camp with good intent. The spirits noticed. So did I.\n\nFar Seer Mok'thardin, Grom'gol Base Camp",
+  body = "{name},\n\nThe spirits of the jungle speak loudly at Grom'gol, louder than they ever did in Durotar, and some nights I sit at the edge of the camp and simply listen. They are angry about many things. The trolls who carve up their own dead, the goblins who sell anything, the humans who hunt for sport. But they are not angry with us tonight, and I wanted to write that down somewhere.\n\nI was young when Gul'dan's warlocks turned our shamans from the spirits, and for a generation the elements did not answer us at all. Now I hear them every night, and I do not take a single word for granted.\n\nYou have walked through this camp with good intent. The spirits noticed, and so did I.\n\nFar Seer Mok'thardin, Grom'gol Base Camp",
   replies = {
     { id = "listen", text = "Keep listening, Far Seer. Some of us are still learning how.", fx = { affinity = 1, opinion = { the_elements = "respect" } } },
     { id = "trolls", text = "Tell me more of what they say about the jungle trolls.", fx = { npcFlag = { set = "ho_mokthardin_trolls" } } },
@@ -518,7 +518,7 @@ P:Letter {
 P:Letter {
   id = "ho_nimboya", npc = "nimboya", random = true, when = { faction = "Horde", minLevel = 34 },
   subject = "Da chief's son",
-  body = "{name},\n\nNimboya don't write letters, so you know dis be important. Kin'weelay and me, we found more of da Bloodscalp paths through da jungle, de ones you helped us find, and dey lead further north than we think. Da chief's son be out dere still, maybe, or maybe his bones. Da spirits won't say which.\n\nKin'weelay say be patient. Kin'weelay always say be patient, because Kin'weelay sit in da camp with his scrolls while Nimboya walk da paths.\n\nYou be useful before. Maybe you be useful again. If you got da time, come to Grom'gol, and if you don't, then at least tell Nimboya you still be alive.\n\nNimboya, Grom'gol",
+  body = "{name},\n\nNimboya don't write letters, so you know dis be important. Kin'weelay and me, we found more of da Bloodscalp paths through da jungle, de ones you helped us find, and dey lead further north than we think. Da chief's son be out dere still, maybe, or maybe his bones. Da spirits won't say which.\n\nKin'weelay say be patient. Kin'weelay always say be patient, because Kin'weelay sit in da camp with his scrolls while Nimboya walk da paths.\n\nYou be useful before, mon, so maybe you be useful again. If you got da time, come to Grom'gol, and if you don't, then at least tell Nimboya you still be alive.\n\nNimboya, Grom'gol",
   replies = {
     { id = "help", text = "I'll come to Grom'gol and help you follow those paths north.", fx = { affinity = 1, letter = "ho_nimboya_2" } },
     { id = "alive", text = "Still alive, Nimboya. I hope you find the boy.", fx = { affinity = 1 } },
@@ -550,5 +550,84 @@ P:Letter {
   replies = {
     { id = "well", text = "I'm well, Hadoken, and the trick is yours to keep.", fx = { affinity = 1 } },
     { id = "line", text = "A line holds better than lone heroes. Tell them that as well.", fx = { npcFlag = { set = "ho_hadoken_line" } } },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Writing pass (World): more Horde folk who write once they know you
+---------------------------------------------------------------------------
+P:Letter {
+  id = "ho_w2_mull", npc = "mull", random = true, when = { faction = "Horde", minLevel = 8 },
+  subject = "The wells of Mulgore",
+  body = "{name},\n\nThe water in the eastern well ran clean this morning for the first time since the goblins came digging, and the children of Bloodhoof Village were down there with their cups before the sun was over the ridge. I stood and watched them drink, and I am not ashamed to say I wept a little, as old bulls sometimes do.\n\nThe Venture Company has not given up on Mulgore. They never give up on anything that might be dug or drained. But the land remembers who poisoned it and who brought it water, and so do I.\n\nMay the Earth Mother keep your road green and your waterskin full.\n\nMull Thunderhorn, Bloodhoof Village",
+  replies = {
+    { id = "drink", text = "I'm glad the children are drinking clean water again, Mull.", fx = { affinity = 1 } },
+    { id = "goblins", text = "If the Venture Company come back, send for me.", fx = { affinity = 1, opinion = { venture_company = "enemy" } } },
+    { id = "trade", text = "The goblins only wanted a fair price. Mulgore should have sold.", fx = { affinity = -2, opinion = { venture_company = "deal" } } },
+  },
+}
+
+P:Letter {
+  id = "ho_w2_magatha", npc = "magatha", random = true, when = { faction = "Horde", minLevel = 25 },
+  subject = "From Elder Rise",
+  body = "Child,\n\nThe wind on Elder Rise brought me your name today, carried up from the Barrens by a brave who would not stop talking of you. I thought you should know that you are spoken of, and that I am listening.\n\nCairne would tell you that a tauren's worth is measured by the herd she keeps. I tell you that a herd is only as strong as the one who decides where it grazes, and that it is a fine thing to be the one who decides. You may think on that or not, as you please.\n\nWhen next you pass through Thunder Bluff, come and sit with me on the Rise. I keep a pot of tea there for those I find interesting, and I find very few people interesting.\n\nMagatha Grimtotem",
+  replies = {
+    { id = "tea", text = "I'll come for your tea, Elder. I'm curious what you'll say.", fx = { affinity = 1, npcFlag = { set = "w2_tea_promised" } } },
+    { id = "cairne", text = "Cairne keeps the herd together. I'll stand with him, Elder.", fx = { affinity = -1, opinion = { cairne = "loyal" } } },
+    { id = "careful", text = "I'll think on it, Elder. Carefully." },
+  },
+}
+
+P:Letter {
+  id = "ho_w2_thalia", npc = "thalia", random = true, when = { faction = "Horde", minLevel = 25 },
+  subject = "The lifts at Freewind",
+  body = "{name},\n\nThe lift cables at Freewind Post snapped again in the storm last week, and for three days nobody could get up or down the mesa without climbing, and the young braves turned it into a contest. Two broke their horns and one broke his pride, and the healer says the pride will take longest to mend.\n\nLakota sits by the fire most evenings and listens to the wind come up the canyon. She does not speak of the pinnacle, and I do not ask her. But she laughs now, sometimes, and every laugh is a stone I can take back out of my heart.\n\nThe Earth Mother sees what you did for this family. So do I.\n\nThalia Amberhide, Freewind Post",
+  replies = {
+    { id = "lakota", text = "Give Lakota my greetings. I'm glad she laughs again.", fx = { affinity = 1 } },
+    { id = "braves", text = "Tell the braves the climb was the easy part. The falling's harder.", fx = { affinity = 1 } },
+    { id = "grimtotem", text = "The Grimtotem should answer for what they did to her.", fx = { opinion = { grimtotem = "justice" } } },
+  },
+}
+
+P:Letter {
+  id = "ho_w2_gadrin", npc = "gadrin", random = true, when = { faction = "Horde", minLevel = 10 },
+  subject = "Smoke over de Echo Isles",
+  body = "{name},\n\nDe smoke still rise over de Echo Isles every night, mon, and every night I sit on de shore at Sen'jin and watch it, and I count de drums. Zalazane be singin' to his puppets out there, and some of dem puppets were my students once, and dat be a hard thing for an old shadow hunter to listen to.\n\nI not be writin' to ask you for anything. Vol'jin say we wait, and so we wait. I just be writin' because a teacher should tell his students when he be proud of dem, and you were a good one, even if you never listen de first time.\n\nDe loa be watchin' you. Try to make dem laugh.\n\nMaster Gadrin, Sen'jin Village",
+  replies = {
+    { id = "isles", text = "When Vol'jin calls for the isles, I'll come running, Master Gadrin.", fx = { affinity = 1, opinion = { voljin = "loyal" } } },
+    { id = "listen", text = "I listened the second time, Master. That has to count for something.", fx = { affinity = 1 } },
+    { id = "wait", text = "Waiting won't free your students. Someone should go now.", fx = { opinion = { voljin = "impatient" } } },
+  },
+}
+
+P:Letter {
+  id = "ho_w2_drumfel", npc = "drumfel", random = true, when = { faction = "Horde", minLevel = 32 },
+  subject = "Hammerfall holds",
+  body = "{name},\n\nThe walls at Hammerfall still stand, and the Witherbark have learned to keep their distance, though they still howl at us from the hills at night as if howling ever won a war. We planted the low field below the wall this spring. It is the first crop grown by free orcs on this ground, and the grunts guard it like it was the Warchief's own tent.\n\nThe humans in Stromgarde squabble with the Syndicate over the ruins of their keep, and every week fewer of them come out to fight. I watch them from the wall and feel nothing, which surprises me. I thought it would feel like something.\n\nCome back when you can. There is always work, and now there will be bread as well.\n\nDrum Fel, Hammerfall",
+  replies = {
+    { id = "bread", text = "Save me a loaf from the first harvest, Drum Fel. I'll earn it.", fx = { affinity = 1 } },
+    { id = "nothing", text = "Feeling nothing is a kind of victory too. Hold on to it.", fx = { affinity = 1 } },
+    { id = "stromgarde", text = "Strike Stromgarde now, while they're weak and divided.", fx = { opinion = { stromgarde = "strike" } } },
+  },
+}
+
+P:Letter {
+  id = "ho_w2_adegwa", npc = "adegwa", random = true, when = { faction = "Horde", minLevel = 30 },
+  subject = "A warm fire in the highlands",
+  body = "Friend,\n\nThe rain has come to the Arathi Highlands, the cold grey rain that is nothing like the warm storms of Mulgore, and the orcs of Hammerfall huddle round my hearth and pretend they are not cold. I let them pretend. A guest's pride is a thing to be cared for, the same as a guest's supper.\n\nI have learned to make the stew the way the orcs like it, with more meat and less sense, and they tell me it is very good, which means I am doing it wrong by the standards of my mother. She would forgive me, I think, if she saw how they eat it.\n\nYour place by the fire is kept, friend, and the kodo hide is still warm. May the eternal sun find you even under these grey skies.\n\nAdegwa, the inn at Hammerfall",
+  replies = {
+    { id = "stew", text = "Your mother would be proud of that stew, Adegwa. I'm sure of it.", fx = { affinity = 1 } },
+    { id = "rain", text = "Mulgore's rain is better. I miss it too.", when = { race = "Tauren" }, fx = { affinity = 1 } },
+    { id = "soft", text = "Orcs shouldn't need a hearth to stay warm. Let them shiver.", fx = { affinity = -1 } },
+  },
+}
+
+P:Letter {
+  id = "ho_w2_torgan", npc = "torgan", random = true, when = { faction = "Horde", class = "SHAMAN", minLevel = 30 },
+  subject = "What de stones be sayin'",
+  body = "{name},\n\nYou be one who hears de spirits, so I tell you what I not tell de grunts. De earth under Hammerfall be quieter dis month, mon, quieter than I ever hear it. I sing to it every night like always, and for de first time it don't sing back about chains.\n\nMaybe it be de harvest, or maybe de spirits just be tired of grievin'. I don't know, and I been a shaman long enough to say dat out loud without shame.\n\nWhen you next speak to de earth wherever you be, tell it Hammerfall say thank you. It will know what dat mean, even if I don't.\n\nTor'gan, Hammerfall",
+  replies = {
+    { id = "earth", text = "I'll carry your thanks to the earth, Tor'gan. It's listening.", fx = { affinity = 1 } },
+    { id = "unsure", text = "Not knowing is honest, Tor'gan. The spirits respect honesty.", fx = { affinity = 1 } },
   },
 }

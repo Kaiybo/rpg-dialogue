@@ -21,6 +21,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_shrouds = {
+      lines = {
+        { id = "w3_shrouds_1", text = "A good many, back when I had needles and a shop. I see them come up from Deathknell sometimes, still in my stitching, and I know the hem before I know the face, and then I know the face, and I wish I didn't." },
+      },
+      choices = {
+        { text = "Do they know you made them?", next = "w3_know" },
+        { text = "Kava cuts them up for linen now.", next = "BACK", reply = "Does he? Good. That linen was meant to be put to rest, and it's had a rest, and now it can work like the rest of us." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_know = {
+      lines = {
+        { id = "w3_know_1", text = "One or two have recognised the stitch and come to thank me, which is the strangest thanks a seamstress can be given. I tell them it was a poor job, done in a hurry in a bad year, and they say it held, and I suppose it did." },
+      },
+      choices = {
+        { text = "It held. Something else.", next = "BACK" },
+      },
+    },
     ylooking = {
       lines = { { id = "ylooking_x", text = "My sister, Marla. She was buried here before the plague, of an ordinary fever. Her stone is the one with the lily carved on it. She never rose. I can't decide whether that's a mercy or a slight." } },
       choices = {
@@ -68,6 +86,7 @@ P:NPC {
         { text = "Who are you looking for?", next = "ylooking" },
         { text = "Who were you in life?", next = "ylife" },
         { text = "Do you know whose graves these are?", next = "ygraves" },
+        { text = "Did you sew any of the shrouds the risen wear?", next = "w3_shrouds" },
         { text = "I'll leave you to your stones.", next = "END" },
       },
     },
@@ -124,9 +143,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_bowen = {
+      lines = {
+        { id = "w3_bowen_1", text = "He does, and he'll have told you he dressed the court, which is very nearly true, and that I'm the apprentice, which is entirely true and he never lets me forget it. He fusses over a hem like a hen over an egg." },
+      },
+      choices = {
+        { text = "Do you two see each other often?", next = "w3_see" },
+        { text = "He was very taken with my clothes.", next = "BACK", reply = "Taken to pieces, I expect. He does it to everyone, and then he does it to me twice." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_see = {
+      lines = {
+        { id = "w3_see_1", text = "Once a month, when the cart goes to the city, and we take tea we can't drink and criticise each other's seams for an hour. It's the most pleasant hour of the month, and if you tell him I said so, I'll deny it in writing." },
+      },
+      choices = {
+        { text = "Your secret's safe. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Constance Brisboise, apprentice clothier, though the master I apprenticed under is two years dead and not the useful kind of dead. I sell robes and gloves that will keep the rain off, and very little else." } },
-      again = { { id = "h_again", text = "Anything else? I've hems to finish." }, { id = "h_again2", text = "Go on, then." } },
+      again = { { id = "h_again", text = "Anything else? I've hems to finish, and the light is going." }, { id = "h_again2", text = "Go on, then." } },
       choices = {
         { text = "A clothier should cut her cloth to fit the customer, not the price.", next = "BACK", reply = "Just so. My master taught me that before he died, and I mean the useful kind of teaching.", fx = { align = { honor = 1 } } }, -- dp_stance
         { text = "Cut the robes short and charge for the full length.", next = "BACK", reply = "And have them flap about the ankles of every mage in Brill? No, I'll cut them true.", fx = { align = { honor = -1 } } }, -- dp_stance
@@ -137,6 +174,7 @@ P:NPC {
         { text = "Who was your master?", next = "master" },
         { text = "Where do you find good cloth in Tirisfal?", next = "cloth" },
         { text = "Let me see your wares.", next = "BUSINESS" },
+        { text = "Your brother Bowen tailors in the Undercity.", next = "w3_bowen" },
         { text = "Good day to you.", next = "END" },
       },
     },
@@ -223,9 +261,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_gossip = {
+      lines = {
+        { id = "w3_gossip_1", text = "Mrs. Winters at the general goods, and I mean that as the highest praise in my line of work. She hears everything, repeats it to everyone, and never asks for a copper, which makes her my greatest competitor and the only one I can't undercut." },
+      },
+      choices = {
+        { text = "Do you trade news with her?", next = "w3_trade" },
+        { text = "You envy her.", next = "BACK", reply = "Envy? No, I admire her, the way a fox admires a hound. She's better at it, and she doesn't even know it's a trade." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_trade = {
+      lines = {
+        { id = "w3_trade_1", text = "Every morning, over a crock of that pumpkin of hers, which I can't taste and she won't stop offering. I give her one rumour, she gives me three, and I spend the rest of the day finding out which of hers are true." },
+      },
+      choices = {
+        { text = "Most of them, I'd wager. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Jamie Nore. I don't have a post, exactly; I make myself useful by knowing things before the people who ought to know them." } },
-      again = { { id = "h_again", text = "What else would you like to hear?" }, { id = "h_again2", text = "Ask away, quietly." } },
+      again = { { id = "h_again", text = "What else would you like to hear? I've a little of everything this week." }, { id = "h_again2", text = "Ask away, quietly." } },
       choices = {
         { text = "What does the magistrate want?", next = "xmag" },
         { text = "Who do you sell your news to?", next = "xsell" },
@@ -233,6 +289,7 @@ P:NPC {
         { text = { normal = "What's the news in Brill?", polite = "Might you share the news in Brill?", blunt = "What's going on in Brill?" }, next = "news" },
         { text = "You're a spy, then.", next = "spy" },
         { text = "Who pays for what you know?", next = "pay", when = { class = "ROGUE" } },
+        { text = "Who's the worst gossip in Brill?", next = "w3_gossip" },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -326,6 +383,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_flock = {
+      lines = {
+        { id = "w3_flock_1", text = "Scattered, when the plague came over the hills, and eaten, I'd think, by what came after. But there's one ewe I still see, now and then, on the high ground above the Brill road, grey and thin and alive somehow, and she runs when she sees me." },
+      },
+      choices = {
+        { text = "She doesn't know you any more.", next = "w3_know" },
+        { text = "Perhaps she remembers you, and that's why she runs.", next = "BACK", reply = "Perhaps. I'd rather think she remembers me than that she's only afraid of what I am. I'll keep thinking it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_know = {
+      lines = {
+        { id = "w3_know_1", text = "No, and I'd not expect her to. I smell of the grave now, and Elise always said the flock knew my step before they saw me. I leave a handful of grain on a stone where she grazes, and it's gone by morning." },
+      },
+      choices = {
+        { text = "That's a kindness, Sahvan. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "I was a shepherd on the hills above Brill. Elise kept the house and the bees, and I kept the sheep, and we had a slow, good life. Then the grain came. She went first, and she didn't stay down." } },
       choices = {
@@ -350,7 +425,7 @@ P:NPC {
         { id = "h_default", text = "Sahvan. The rest of the name I took after I woke, because the one I was born with belonged to a softer man." },
         { id = "yh_human", when = { race = "Human" }, text = "Sahvan. You're living, and human, and I'll try not to stare. My wife had hair your colour, once, and the rest of my name I took after I woke." },
       },
-      again = { { id = "h_again", text = "Anything else? We're nearly at the gate." } },
+      again = { { id = "h_again", text = "Anything else? We're nearly at the gate, and I'll stop at the stone again." } },
       choices = {
         { text = "What was your wife's name?", next = "xname" },
         { text = "Why walk so much?", next = "xwalkwhy" },
@@ -359,6 +434,7 @@ P:NPC {
         { text = "Why do you walk the town like this?", next = "walk" },
         { text = "What did you do in life?", next = "ylife" },
         { text = "Does anyone else keep watch at the graves?", next = "yvisit" },
+        { text = "What became of your flock?", next = "w3_flock" },
         { text = "Farewell, Sahvan.", next = "END" },
       },
     },
@@ -572,6 +648,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_ask = {
+      lines = {
+        { id = "w3_ask_1", text = "Where their house is, nine times in ten, because they remember Brill as it was and they've come home. I have to tell them that their house belongs to the Deathguard now, or the rats, or nobody, and I've learned to say it while I'm walking them toward the inn." },
+      },
+      choices = {
+        { text = "Does it ever get easier to tell them?", next = "w3_easier" },
+        { text = "At least someone tells them kindly.", next = "BACK", reply = "Kindly is the least I can do. The Deathguard would tell them with a pointed finger, and then go back to leaning." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_easier = {
+      lines = {
+        { id = "w3_easier_1", text = "No, but I've got quicker at it, which isn't the same. A schoolmistress learns to tell a child the answer is wrong without making them hate the sum, and that's all this is, really, with the whole of their old life for the sum." },
+      },
+      choices = {
+        { text = "That's a hard lesson to teach. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "The schoolmistress in Brill. I taught letters to farm children in the room above the smithy. I still welcome people the way I welcomed new pupils, with a list of rules and a firm smile." } },
       choices = {
@@ -597,7 +691,7 @@ P:NPC {
         { id = "h_undead", when = { race = "Scourge" }, text = "You've the look of someone fresh out of the Deathknell graves. Don't worry; the confusion wears off, and what's left after it is mostly bearable." },
         { id = "yh_tauren", when = { race = "Tauren" }, text = "A tauren. Welcome to Brill. Mind the inn's ceiling beams, the last of your kind left a horn-shaped dent and Innkeeper Renee hasn't forgiven him." },
       },
-      again = { { id = "h_again", text = "Anything else you need pointed at?" } },
+      again = { { id = "h_again", text = "Anything else you need pointed at? I know Brill better than its own maps." } },
       choices = {
         { text = "What's the Gallows' End like?", next = "xinn" },
         { text = "Why do you help newcomers?", next = "xwhy" },
@@ -607,6 +701,7 @@ P:NPC {
         { text = "Who's in charge here?", next = "charge" },
         { text = "Who were you before?", next = "ylife" },
         { text = "Is it hard, welcoming strangers?", next = "yhard" },
+        { text = "What do newcomers ask you most?", next = "w3_ask" },
         { text = "I'll find my own way.", next = "END" },
       },
     },
@@ -698,6 +793,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_plague = {
+      lines = {
+        { id = "w3_plague_1", text = "The Dawn's priests bless our water every morning, and we burn everything the Scourge touches, and we pray, mostly. I caught a touch of it once, at the edge of the Plaguelands, and a priest of the Dawn sat with me three days until the fever broke." },
+        { id = "w3_plague_2", when = { race = "Scourge" }, text = "You'll find that funny, I expect, since it's already had you. The Dawn's priests bless our water, we burn what the Scourge touches, and we pray, and I caught a touch of it once and lived only because a priest sat with me three days." },
+      },
+      choices = {
+        { text = "Did the priest catch it too?", next = "w3_priest" },
+        { text = "The Dawn looks after its own, then.", next = "BACK", reply = "It looks after anyone who fights the Scourge. That's the only rule we keep without arguing." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_priest = {
+      lines = {
+        { id = "w3_priest_1", text = "No, thank the Light, though she'd have stayed anyway, I think. She was a Forsaken, as it happens, one of the few the Dawn's taken in, and she held my hand the whole three days with hers as cold as a grave." },
+      },
+      choices = {
+        { text = "That changed your mind about the Forsaken? Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "A farmer's son from Hillsbrad. I joined the Lordaeron army too late to save anything. When the Argent Dawn formed, I took their tabard because it was the only banner left that fought the dead and not the living." } },
       choices = {
@@ -734,6 +848,7 @@ P:NPC {
         { text = "How do you feel about the Forsaken?", next = "forsaken" },
         { text = "Who were you before the Dawn?", next = "ylife" },
         { text = "What does the Dawn ask of its soldiers?", next = "yask" },
+        { text = "How do you keep from catching the plague out here?", next = "w3_plague" },
         { text = "Light keep you, Defender.", next = "END" },
       },
     },
@@ -817,6 +932,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_made = {
+      lines = {
+        { id = "w3_made_1", text = "Reeds from the banks of Brightwater and willow from the Whispering Forest, bound with twine and pitch, and every Forsaken in Brill who wishes it weaves one strand. My strand is at the left knee, and every year I find it before the burning." },
+      },
+      choices = {
+        { text = "What does weaving a strand mean?", next = "w3_strand" },
+        { text = "I'd like to weave one myself.", next = "BACK", when = { race = "Scourge" }, reply = "Then come to me before the next Hallow's End, and I'll show you where to tie it. The knee's taken, mind." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_strand = {
+      lines = {
+        { id = "w3_strand_1", text = "That you had a part in your own freedom, and that you'll watch it burn and know it was yours. The Lich King made us all one thing, and the Wicker Man is made of all of us separately, and that, {class}, is the whole of the difference." },
+      },
+      choices = {
+        { text = "A good difference. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "A watchman in Brill. Every autumn I carried a torch round the town, warding off spirits. Now I guard the Wicker Man so the spirits can have their festival. Funny how it goes." } },
       choices = {
@@ -864,6 +997,7 @@ P:NPC {
         { text = "Who were you before?", next = "ylife" },
         { text = "What's your role tonight?", next = "yrole" },
         { text = "Do the Scarlets ever try to stop the burning?", next = "yscarlet" },
+        { text = "What's the Wicker Man made of?", next = "w3_made" },
         { text = "I'll watch the burning, then.", next = "END" },
       },
     },

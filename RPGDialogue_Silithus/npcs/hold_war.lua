@@ -53,7 +53,25 @@ P:NPC {
         { text = "What are the Cenarion badges?", next = "badges" },
         { text = "Who are you fighting, exactly?", next = "enemy" },
         { text = "Where do I get gear for all this?", next = "gear", when = { questDone = TODO_QUEST("Field Duty") } },
+        { text = "How do you keep all those lists straight?", next = "w9_lists" },
         { text = "Leave me out of your lists.", next = "END" },
+      },
+    },
+
+    w9_lists = {
+      lines = { { id = "w9_lists_d", text = "By colour, by hand and by never trusting my memory. Red ink for the dead, green for the wounded, black for the fit, and a blue mark for anyone the Brigade and the Legion have both complained about, which is a short list but a lively one." } },
+      choices = {
+        { text = "Am I on the blue list?", next = "w9_lists2" },
+        { text = "Who's on the blue list?", next = "w9_lists2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_lists2 = {
+      lines = { { id = "w9_lists2_d", text = "Not yet, though I do keep a pen ready. Mostly it's goblins, who sell to both camps and then tell each camp the other paid more, and one orc who keeps stealing the dwarves' ale and leaving tusks in the barrel." } },
+      choices = {
+        { text = "I'll stay off it.", next = "BACK", reply = "See that you do. Blue ink is expensive out here." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -165,7 +183,28 @@ P:NPC {
         { text = "Tell me about your brother.", next = "brother" },
         { text = "Isn't poison a coward's weapon?", next = "coward" },
         { text = "Does Lord Ravenholdt know my name?", next = "ravenholdt", when = { class = "ROGUE" } },
+        { text = "You're very cheerful for a poisoner.", next = "w9_cheer" },
         { text = "I'll leave you to your vials.", next = "END" },
+      },
+    },
+
+    w9_cheer = {
+      lines = {
+        { id = "w9_cheer_d", text = "Why wouldn't I be, friend? I spend my days in the sun with the finest venoms on Azeroth, my brother does the sour work back at the manor, and nobody at the Hold has tried to stab me yet, which in my trade is practically a holiday." },
+        { id = "w9_cheer_v1", when = { class = "ROGUE" }, text = "You've met the manor's lot, so you'd know: we're cheerful because the alternative is paranoia, and paranoia ruins the hands. I've good sun, good venom, and nobody here has tried to stab me yet, which is a holiday for the likes of us." },
+      },
+      choices = {
+        { text = "Does anyone here try to stab you?", next = "w9_cheer2" },
+        { text = "A smile hides a lot.", next = "w9_cheer2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_cheer2 = {
+      lines = { { id = "w9_cheer2_d", text = "Not yet, though a Twilight fellow did ask me rather too closely what I'd sell him for a \"difficult rival.\" I told him the price was his name, his master's name and a week's head start for me, and he didn't care for the bargain." } },
+      choices = {
+        { text = "Smart of you.", next = "BACK", reply = "Ravenholdt teaches us to sell everything but ourselves, friend." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -275,7 +314,25 @@ P:NPC {
         { text = "You don't seem to like it here much.", next = "weary" },
         { text = "Any advice on working silithid plate?", next = "plate", when = { profession = { "Leatherworking", "Skinning" } } },
         { text = "Who else keeps this place?", next = "neighbors" },
+        { text = "What's the strangest hide anyone's brought you?", next = "w9_hide" },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+
+    w9_hide = {
+      lines = { { id = "w9_hide_d", text = "A hunter came in once with the skin of a sand worm, a young one, rolled up like a carpet and still twitching at one end. I told him it was dead, and he told me it didn't agree, and we spent a long afternoon finding out which of us was right." } },
+      choices = {
+        { text = "Which of you was?", next = "w9_hide2" },
+        { text = "What did you make from it?", next = "w9_hide2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_hide2 = {
+      lines = { { id = "w9_hide2_d", text = "Me, eventually, though it took salt, a rope and Layo Starstrike sitting on it. It made three pairs of boots that the sand can't get into, and I've never found another hide like it, which is probably for the best." } },
+      choices = {
+        { text = "Sounds like quite an afternoon.", next = "BACK", reply = "It was the most exciting thing to happen at Valor's Rest in a year." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     rest = {

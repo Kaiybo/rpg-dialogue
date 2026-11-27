@@ -66,7 +66,7 @@ P:NPC {
           text = "Worst hour of the night to be on this road. The worgen come down from the hills, and the dead come up out of Raven Hill, and I'm stuck between the two." },
       },
       again = {
-        { id = "h_again", text = "What else? Keep your voice down." },
+        { id = "h_again", text = "What else? Say it close and quiet, friend; the trees on this road have ears I don't trust." },
         { id = "h_again2", text = "Go on, but watch the trees while you talk." },
       },
       choices = {
@@ -77,6 +77,7 @@ P:NPC {
         { text = "This road seems lonely for one watchman.", next = "road" },
         { text = "What was in that Defias docket?", next = "docket", when = { questDone = TODO_QUEST("The Missing Diplomat") } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "What's at the old manor at the end of your road?", next = "e3_manor" },
         { text = "Watch yourself, Backus.", next = "END" },
       },
     },
@@ -120,6 +121,24 @@ P:NPC {
       lines = { { id = "d_default", text = "I shouldn't even have looked at it, and I only skimmed. Names, dates, and a plan that wanted something very badly. Don't tell me any more than that." },
       },
       choices = { { text = "I won't. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    e3_manor = {
+      lines = {
+        { id = "e3_manor_l0", text = "Nothing you'd want to meet, and nothing I'd want to name after dark. The windows stay black, the door stays shut, and every so often the crows go up off the roof all at once as if something inside had told them to." },
+      },
+      choices = {
+        { text = "Has anyone gone in?", next = "e3_manor2" },
+        { text = "Then I'll pass it by quickly.", next = "BACK" },
+      },
+    },
+    e3_manor2 = {
+      lines = {
+        { id = "e3_manor2_l0", text = "Two of the Watch, a year back, on a dare, and only one came out, and he's never said a word about it since. The Commander's ordered us to turn at the milestone, and I turn at the milestone, and I'm glad of the order." },
+      },
+      choices = {
+        { text = "Wise order. Something else.", next = "BACK" },
+        { text = "Someone should find out what's in there.", next = "BACK" },
+      },
     },
   },
 

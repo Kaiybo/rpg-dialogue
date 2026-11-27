@@ -10,7 +10,7 @@ P:Views { topic = "explorers_league", views = {
   } },
   { id = "graverobbers", text = "Grave-robbers with a royal charter, if you ask me.", fx = { align = { order = -1 }, opinion = { explorers_league = "distrust" }, trait = { skeptical = 1 } }, replies = {
     { id = "a", when = { race = "Dwarf" }, text = "Mind your tongue about the League, {g:lad|lass}. Those 'graves' hold the story of where every dwarf came from.", fx = { affinity = -1 } },
-    { id = "b", text = "There's some truth in that. Not every tomb they open ought to have been opened." },
+    { id = "b", text = "There's some truth in that, I'll admit, because not every tomb the League has opened ought to have been opened." },
     { id = "c", when = { faction = "Horde" }, text = "That's how the Horde sees them, and the trolls of Stranglethorn too. They dig, and they never ask whose ground it is." , fx = { affinity = 1 } },
   } },
   { id = "join", text = "I'd sign on with them myself, given a good map.", fx = { opinion = { explorers_league = "admire" }, trait = { brave = 1 } }, replies = {
@@ -62,7 +62,7 @@ P:Views { topic = "cenarion_circle", views = {
 -- The Wailing Caverns.
 P:Views { topic = "wailing_caverns", views = {
   { id = "pity", text = "Naralex only wanted to heal the land. I pity him, trapped in that nightmare.", fx = { align = { light = 1 }, opinion = { wailing_caverns = "pity" }, trait = { kind = 1 } }, replies = {
-    { id = "a", text = "So do I. A good heart, and look where it took him and every disciple who followed.", fx = { affinity = 1 } },
+    { id = "a", text = "So do I, for he had a good heart, and look where it led him and every disciple who followed him down there.", fx = { affinity = 1 } },
     { id = "b", text = "Pity him if you like, but his nightmare's spilling into the Barrens now. The raptors and the oases show it." },
   } },
   { id = "clear", text = "The Druids of the Fang need clearing out, and I'm the one to do it.", fx = { align = { light = -1 }, opinion = { wailing_caverns = "fight" }, trait = { brave = 1 } }, replies = {
@@ -145,7 +145,7 @@ P:Views { topic = "grimtotem", views = {
 
 -- The Mirage Raceway.
 P:Views { topic = "mirage_raceway", views = {
-  { id = "fun", text = "Rockets on a salt flat. That's the best idea I've heard all week.", fx = { align = { order = -1 }, opinion = { mirage_raceway = "admire" }, trait = { brave = 1 } }, replies = {
+  { id = "fun", text = "Rockets on a salt flat is the best idea I've heard all week.", fx = { align = { order = -1 }, opinion = { mirage_raceway = "admire" }, trait = { brave = 1 } }, replies = {
     { id = "a", text = "Ha! Then go and watch a race, and stand well back from the turns. The salt is full of bits of the last ones." },
     { id = "b", text = "Best idea, maybe, but second-worst result. Somebody explodes most weeks, and they call that a good crowd." },
   } },
@@ -185,8 +185,8 @@ P:Views { topic = "echo_isles", views = {
     { id = "a", text = "Many would, and Master Gadrin in Sen'jin Village first of all. Just watch for the hexed ones; they were Darkspear once.", fx = { affinity = 1 } },
     { id = "b", text = "Killing him's the easy part, if any of it's easy. Freeing the minds he's twisted is the long work." },
   } },
-  { id = "pity", text = "The Darkspear lost their home twice. That's hard on anyone.", fx = { align = { honor = -1 }, opinion = { echo_isles = "pity" }, trait = { kind = 1 } }, replies = {
-    { id = "a", text = "It is, and they carry it with a laugh, which is more grace than I'd manage. Thrall's debt to them runs deep for good reason.", fx = { affinity = 1 } },
+  { id = "pity", text = "The Darkspear lost their home twice, and that's hard on anyone.", fx = { align = { honor = -1 }, opinion = { echo_isles = "pity" }, trait = { kind = 1 } }, replies = {
+    { id = "a", text = "They carry it with a laugh, which is more grace than I'd manage in their place, and Thrall's debt to them runs deep for good reason.", fx = { affinity = 1 } },
     { id = "b", text = "Hard, aye, but trolls are tougher than they look. Sen'jin Village is proof of that." },
   } },
 } }
@@ -205,7 +205,7 @@ P:Views { topic = "scarlet_crusade", views = {
     { id = "a", text = "Too far is putting it gently. Ask Raleigh the Devout what he saw at the Monastery before you understand them too much." },
     { id = "b", text = "Understand it, aye, but don't wear the tabard. They'd call you plagued for a cough, and they'd mean it." },
   } },
-  { id = "zeal", text = "At least they never stopped fighting the Scourge. That counts for something.", fx = { opinion = { scarlet_crusade = "respect" }, trait = { stern = 1 }, align = { order = 2 } }, replies = {
+  { id = "zeal", text = "At least they never stopped fighting the Scourge, and that counts for something.", fx = { opinion = { scarlet_crusade = "respect" }, trait = { stern = 1 }, align = { order = 2 } }, replies = {
     { id = "a", when = { race = "Scourge" }, text = "It counts for a pyre with my name on it, {name}. Choose your admiration more carefully.", fx = { affinity = -1 } },
     { id = "b", text = "Something, aye, but they fight the innocent as gladly as the Scourge. The Argent Dawn does the job without the torches." },
     { id = "c", text = "It counts, I suppose, the way a fire counts as heating. They burn everything near them." },
@@ -218,12 +218,12 @@ P:Views { topic = "scarlet_crusade", views = {
 
 -- The Scarlet Monastery.
 P:Views { topic = "scarlet_monastery", views = {
-  { id = "storm", text = "A fortress of zealots in the middle of Tirisfal. It needs storming.", fx = { align = { honor = 1 }, opinion = { scarlet_monastery = "fight" }, trait = { brave = 1 } }, replies = {
+  { id = "storm", text = "A fortress of zealots in the middle of Tirisfal needs storming.", fx = { align = { honor = 1 }, opinion = { scarlet_monastery = "fight" }, trait = { brave = 1 } }, replies = {
     { id = "a", text = "Take a strong company, then. Those halls run deep, and every door has a fanatic behind it.", fx = { affinity = 1 } },
     { id = "b", when = { maxLevel = 25 }, text = "Storming, aye, but not by you yet. The Crusade's best wait in the cathedral, and they don't tire." },
   } },
-  { id = "pity", text = "It was a holy place once. That's the saddest part.", fx = { opinion = { scarlet_monastery = "pity" }, trait = { pious = 1 } }, replies = {
-    { id = "a", text = "It was, and it still has the bells and the windows. You'd almost believe it, if not for the cellars.", fx = { affinity = 1 } },
+  { id = "pity", text = "The saddest part is that it was a holy place once.", fx = { opinion = { scarlet_monastery = "pity" }, trait = { pious = 1 } }, replies = {
+    { id = "a", text = "It was once, and it still has the bells and the coloured windows, so you'd almost believe it still, if it weren't for what's in the cellars.", fx = { affinity = 1 } },
     { id = "b", when = { race = "Scourge" }, text = "Holy to whom, {name}? It was a Lordaeronian chapel, and Lordaeron is dead; I don't mourn its furniture." },
   } },
   { id = "loot", text = "Zealots always hoard the best arms. I'll take mine off their corpses.", fx = { align = { honor = -1 }, opinion = { scarlet_monastery = "profit" }, trait = { greedy = 1 } }, replies = {
@@ -238,7 +238,7 @@ P:Views { topic = "raleigh", views = {
     { id = "a", text = "I think so too. He saw what they did in the cellars, and he couldn't pretend after that.", fx = { affinity = 1 } },
     { id = "b", text = "It did, and it costs him still. Plenty in Southshore call him a deserter behind his back." },
   } },
-  { id = "deserter", text = "He swore an oath and broke it. That's a deserter, however he dresses it.", fx = { opinion = { raleigh = "distrust" }, trait = { stern = 1 }, align = { light = -1, order = 1 } }, replies = {
+  { id = "deserter", text = "He swore an oath and broke it, so he's a deserter however he dresses it.", fx = { opinion = { raleigh = "distrust" }, trait = { stern = 1 }, align = { light = -1, order = 1 } }, replies = {
     { id = "a", text = "Some oaths ought to be broken, {class}. Torturing farmers for a cough was never part of his.", fx = { affinity = -1 } },
     { id = "b", text = "That's exactly what Brother Anton of the Crusade says, word for word. Mind whose sermon you're repeating." },
   } },
@@ -266,7 +266,7 @@ P:Views { topic = "uldaman", views = {
 
 -- The Argent Dawn.
 P:Views { topic = "argent_dawn", views = {
-  { id = "admire", text = "Horde and Alliance fighting the Scourge together. That's how it should be.", fx = { opinion = { argent_dawn = "admire" }, trait = { kind = 1 }, align = { light = 1 } }, replies = {
+  { id = "admire", text = "Horde and Alliance fighting the Scourge side by side is how it should be.", fx = { opinion = { argent_dawn = "admire" }, trait = { kind = 1 }, align = { light = 1 } }, replies = {
     { id = "a", text = "Should be, aye, and so rarely is. Light's Hope Chapel may be the only place it is.", fx = { affinity = 1 } },
     { id = "b", text = "Lovely in a sermon, but try sharing a camp with someone whose kin killed yours. They manage it, mostly." },
   } },
@@ -280,7 +280,7 @@ P:Views { topic = "argent_dawn", views = {
   } },
   { id = "serve", text = "I'd stand a watch with them. The Scourge is everyone's enemy.", fx = { opinion = { argent_dawn = "trust" }, trait = { brave = 1 } }, replies = {
     { id = "a", text = "Then go north to the Plaguelands, or see Gregor Greystone in Everlook. They're always short of blades.", fx = { affinity = 1 } },
-    { id = "b", text = "Everyone's enemy, aye, and nobody's priority but theirs. Good on you." },
+    { id = "b", text = "Everyone's enemy, aye, and nobody's priority but their own, so good on you for paying them some mind." },
   } },
 } }
 
@@ -310,8 +310,8 @@ P:Views { topic = "camping", views = {
     { id = "a", text = "Can't argue with that. The trouble is that the inns stop where the interesting roads begin." },
     { id = "b", text = "Ha! There's a sensible soul, and innkeepers would like more of you about." },
   } },
-  { id = "share", text = "A shared fire makes friends of strangers. It's the best part of the road.", fx = { opinion = { camping = "admire" }, trait = { generous = 1 } }, replies = {
-    { id = "a", text = "It does, and you hear better stories there than in any tavern. Bring something for the pot and you're welcome.", fx = { affinity = 1 } },
+  { id = "share", text = "A shared fire makes friends of strangers, and it's the best part of the road.", fx = { opinion = { camping = "admire" }, trait = { generous = 1 } }, replies = {
+    { id = "a", text = "You'll hear better stories round that fire than in any tavern in the jungle, and if you bring something for the pot, you're welcome to sit.", fx = { affinity = 1 } },
     { id = "b", text = "Friends, or a knife in the night. Pick your fire carefully, and you'll mostly get the first." },
   } },
 } }
@@ -319,16 +319,16 @@ P:Views { topic = "camping", views = {
 -- Yenniku, son of Vol'jin.
 P:Views { topic = "yenniku", views = {
   { id = "save", when = { faction = "Horde" }, text = "He's Vol'jin's blood. The Horde owes it to the Darkspear to bring him home.", fx = { opinion = { yenniku = "pity" }, trait = { kind = 1 }, align = { honor = 1 } }, replies = {
-    { id = "a", text = "It does, and Nimboya at Grom'gol has taken a good many Gurubashi heads trying to find him.", fx = { affinity = 1 } },
+    { id = "a", text = "The Horde does owe it, and Nimboya at Grom'gol has taken a good many Gurubashi heads trying to pay that debt.", fx = { affinity = 1 } },
     { id = "b", text = "Owes it, aye, but the Gurubashi hold what they hold, and they don't sell it back cheap." },
   } },
-  { id = "lost", text = "Given away as a child by custom. That's a cruel tradition.", fx = { opinion = { yenniku = "pity" }, trait = { honest = 1 }, align = { honor = -1 } }, replies = {
+  { id = "lost", text = "Giving a child away by custom is a cruel tradition.", fx = { opinion = { yenniku = "pity" }, trait = { honest = 1 }, align = { honor = -1 } }, replies = {
     { id = "a", when = { race = "Troll" }, text = "It's old, older than both of us. Old and cruel walk together often, and this is no different." },
     { id = "b", text = "Cruel, aye. It was the price of peace with Zul'Gurub once, and now nobody remembers what it bought." },
   } },
   { id = "doubt", text = "After all this time among the Gurubashi, he may not want rescuing.", fx = { opinion = { yenniku = "doubt" }, trait = { skeptical = 1 } }, replies = {
     { id = "a", text = "That's the fear nobody says out loud at Grom'gol. Don't say it near Kin'weelay, the Darkspear priest there, either." , fx = { affinity = -1 } },
-    { id = "b", text = "Maybe so, but a father has to look. You'd do the same, {class}, if it were your blood." },
+    { id = "b", text = "A father has to look all the same, {class}, and you'd do no different if it were your own blood out there." },
   } },
 } }
 
@@ -343,7 +343,7 @@ P:Views { topic = "brotherhood_horse", views = {
     { id = "b", text = "Practical, maybe, but what home would they come back to? Their dead are buried in the Riverglades." },
   } },
   { id = "foes", when = { faction = "Horde" }, text = "Stubborn humans on horses, and stubborn foes are the ones worth fighting.", fx = { opinion = { brotherhood_horse = "respect" }, trait = { brave = 1 }, align = { honor = 1 } }, replies = {
-    { id = "a", text = "Worth fighting, aye, but worth leaving be while they're busy killing cultists.", fx = { affinity = 1 } },
+    { id = "a", text = "Worth fighting, aye, but there's sense in leaving them be while they're busy killing cultists for us.", fx = { affinity = 1 } },
     { id = "b", text = "Stubborn is right. They've sat on that island for twenty years and they've not blinked once." },
   } },
   { id = "relic", text = "An old knightly order, clinging to a war everyone else forgot.", fx = { opinion = { brotherhood_horse = "doubt" }, trait = { skeptical = 1 }, align = { honor = -1 } }, replies = {
@@ -390,7 +390,7 @@ P:Views { topic = "twilights_hammer", views = {
     { id = "a", text = "That's Demar Brant's view, near enough word for word. Most at Farholde share it.", fx = { affinity = 1 } },
     { id = "b", text = "Burn them, aye, but learn what they want first. Folk who die not knowing are the Hammer's favourite kind." },
   } },
-  { id = "know", text = "I'd like to know what they're waiting for. That's what frightens me.", fx = { opinion = { twilights_hammer = "fear" }, trait = { curious = 1 }, align = { light = -1 } }, replies = {
+  { id = "know", text = "What frightens me is not knowing what they're waiting for.", fx = { opinion = { twilights_hammer = "fear" }, trait = { curious = 1 }, align = { light = -1 } }, replies = {
     { id = "a", text = "So would Ashe Amberhall at Farholde, and she reads their scraps by candlelight. Mind the trinkets, though; some are cursed." },
     { id = "b", text = "Curiosity is how they recruit, {class}. Ask too long and they'll start answering." , fx = { affinity = -1 } },
   } },
@@ -406,12 +406,12 @@ P:Views { topic = "krol_dok", views = {
     { id = "a", text = "Many have said so, and the scouts who went in to prove it mostly didn't come back. Go in force.", fx = { affinity = 1 } },
     { id = "b", text = "Their own caves are where they're strongest, {class}. Bring a key, a plan and four friends." },
   } },
-  { id = "slaves", text = "There are prisoners in there. That matters more than the ogres.", fx = { align = { light = 1 }, opinion = { krol_dok = "pity" }, trait = { kind = 1 } }, replies = {
+  { id = "slaves", text = "There are prisoners in there, and they matter more than the ogres.", fx = { align = { light = 1 }, opinion = { krol_dok = "pity" }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "Aye, and one of the brutes is called the Slavecrusher, so you can guess what the prisoners are for.", fx = { affinity = 1 } },
-    { id = "b", text = "It does, and it's why the Brotherhood keeps sending scouts despite everything." },
+    { id = "b", text = "That's exactly why the Brotherhood keeps sending scouts up there, whatever it costs them." },
   } },
   { id = "avoid", text = "Ogres in a fortress under a hill. I'll take my coin elsewhere.", fx = { align = { light = -1 }, opinion = { krol_dok = "fear" }, trait = { cautious = 1 } }, replies = {
-    { id = "a", text = "No shame in that. The whole northwest of the Riverglades is ogre country now." },
+    { id = "a", text = "There's no shame in that, because the whole northwest of the Riverglades is ogre country now, and the ogres know it." },
     { id = "b", text = "Sensible, though the ogres won't stay in their hill forever, and they'll come out hungry." },
   } },
 } }
@@ -427,7 +427,7 @@ P:Views { topic = "fern_crimsonleaf", views = {
     { id = "b", text = "Don't let Gray hear you say it. He'll argue, and then he'll drink, and then he'll argue some more." },
   } },
   { id = "shadow", text = "A knife in the dark for the Brotherhood. I'd have liked to meet her.", fx = { opinion = { fern_crimsonleaf = "admire" }, trait = { curious = 1 } }, replies = {
-    { id = "a", text = "So would most rogues worth the name. They say she could vanish in a lit room." },
+    { id = "a", text = "So would any rogue worth the name, I'd think, since they say she could vanish in a lit room with the door shut." },
     { id = "b", when = { class = "ROGUE" }, text = "You'd have learned a thing or two, I'd wager. The tales make her sound better than any I've seen." },
   } },
 } }
@@ -484,7 +484,7 @@ P:Views { topic = "stonemasons", views = {
   } },
   { id = "walls", text = "Whatever came after, they built a fine city. I'll give them that.", fx = { opinion = { stonemasons = "respect" }, trait = { practical = 1 } }, replies = {
     { id = "a", text = "Fine walls, aye, built well and built twice. Baros Alexston, the city architect, still walks the walls checking their work." },
-    { id = "b", text = "They did, and every stone was a debt nobody paid. Stormwind's prettiest grudge, some call it." },
+    { id = "b", text = "They built every stone of it, and every stone was a debt that nobody paid, which is why some folk call the city Stormwind's prettiest grudge." },
   } },
 } }
 
@@ -506,7 +506,7 @@ P:Views { topic = "the_stockade", views = {
 
 -- The Valley of Heroes.
 P:Views { topic = "valley_of_heroes", views = {
-  { id = "proud", text = "Lothar and the Alliance's heroes in stone at the gate. It stirs the blood.", fx = { align = { order = 1 }, opinion = { valley_of_heroes = "admire" }, trait = { proud = 1 } }, replies = {
+  { id = "proud", text = "Lothar and the Alliance's heroes in stone at the gate stir the blood.", fx = { align = { order = 1 }, opinion = { valley_of_heroes = "admire" }, trait = { proud = 1 } }, replies = {
     { id = "a", text = "It's meant to, and it works. Every recruit straightens up walking past Lothar's statue.", fx = { affinity = 1 } },
     { id = "b", text = "It does, though the heroes themselves would rather we remembered why they fought than how they looked." },
   } },
@@ -522,8 +522,8 @@ P:Views { topic = "valley_of_heroes", views = {
 
 -- Heroes' Vigil.
 P:Views { topic = "heroes_vigil", views = {
-  { id = "insult", text = "Rogue mages squatting on a war memorial. That's an insult to the dead.", fx = { align = { honor = 1 }, opinion = { heroes_vigil = "hate" }, trait = { stern = 1 } }, replies = {
-    { id = "a", text = "It is, and Marshal Dughan knows it. The Stone of Remembrance deserves better company.", fx = { affinity = 1 } },
+  { id = "insult", text = "Rogue mages squatting on a war memorial is an insult to the dead.", fx = { align = { honor = 1 }, opinion = { heroes_vigil = "hate" }, trait = { stern = 1 } }, replies = {
+    { id = "a", text = "Marshal Dughan knows it as well as you do, and the Stone of Remembrance deserves better company than it's been getting.", fx = { affinity = 1 } },
     { id = "b", text = "An insult, aye, and a danger. Their fires burn the wrong colour at night." },
   } },
   { id = "visit", text = "I'd like to stand at that stone and read the names someday.", fx = { opinion = { heroes_vigil = "respect" }, trait = { pious = 1 } }, replies = {
@@ -539,7 +539,7 @@ P:Views { topic = "heroes_vigil", views = {
 -- The Brotherhood of Northshire.
 P:Views { topic = "brotherhood_northshire", views = {
   { id = "good", text = "Quiet monks training new recruits. The Abbey does good, honest work.", fx = { align = { light = 1 }, opinion = { brotherhood_northshire = "trust" }, trait = { kind = 1 } }, replies = {
-    { id = "a", text = "It does, and Brother Sammuel has turned out more good soldiers than any drill yard in Stormwind.", fx = { affinity = 1 } },
+    { id = "a", text = "Brother Sammuel has turned out more good soldiers than any drill yard in Stormwind, and he's done it with a smile and a sore throat.", fx = { affinity = 1 } },
     { id = "b", text = "Honest and patient, aye. They need to be, with farmhands who've never held a sword before." },
   } },
   { id = "pray", text = "Prayer and porridge won't stop the kobolds or the Defias.", fx = { align = { light = -1 }, opinion = { brotherhood_northshire = "doubt" }, trait = { skeptical = 1 } }, replies = {
@@ -570,11 +570,11 @@ P:Views { topic = "morbent_fel", views = {
 
 -- The Embalmer.
 P:Views { topic = "embalmer", views = {
-  { id = "pity", text = "He loved his wife too much to let her go. That's sad, not evil.", fx = { opinion = { embalmer = "pity" }, trait = { kind = 1 }, align = { light = -1 } }, replies = {
+  { id = "pity", text = "He loved his wife too much to let her go, which is sad, not evil.", fx = { opinion = { embalmer = "pity" }, trait = { kind = 1 }, align = { light = -1 } }, replies = {
     { id = "a", text = "Sad, aye, until the thing he stitched together walks into Darkshire. Then it's both.", fx = { affinity = -1 } },
-    { id = "b", text = "That's how the nannies tell it, and maybe they're right. Love's never been much good at stopping." },
+    { id = "b", text = "That's how the nannies tell it, and maybe they're right, because love has never been much good at knowing when to stop." },
   } },
-  { id = "abomination", text = "Whatever he made walks the road now. It has to be destroyed.", fx = { opinion = { embalmer = "hate" }, trait = { stern = 1 }, align = { light = 1 } }, replies = {
+  { id = "abomination", text = "Whatever he made walks the road now, and it has to be destroyed.", fx = { opinion = { embalmer = "hate" }, trait = { stern = 1 }, align = { light = 1 } }, replies = {
     { id = "a", text = "Aye, and the Night Watch will need every hand when it comes. They say it's huge and stinks of the grave.", fx = { affinity = 1 } },
     { id = "b", text = "Destroyed, and then buried deep, so nobody gets ideas. Duskwood's had enough grieving husbands." },
   } },
@@ -590,7 +590,7 @@ P:Views { topic = "dark_riders", views = {
     { id = "a", text = "Many have tried, and Deadwind Pass swallowed them. Go with friends and come back before dark.", fx = { affinity = 1 } },
     { id = "b", text = "Hunting them's one thing, and finding them is another. They ride where the road ends." },
   } },
-  { id = "fear", text = "Nobody knows what they really are. That's what bothers me.", fx = { opinion = { dark_riders = "fear" }, trait = { cautious = 1 } }, replies = {
+  { id = "fear", text = "What bothers me is that nobody knows what they really are.", fx = { opinion = { dark_riders = "fear" }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "It bothers all of Darkshire. Even the fortune-teller's cards go black when she asks about them." },
     { id = "b", text = "Some say they're Morbent's work and some say worse. Nobody's caught one to ask." },
   } },
@@ -612,7 +612,7 @@ P:Views { topic = "raven_hill", views = {
   } },
   { id = "avoid", text = "I'll take the long way round, thanks.", fx = { align = { honor = -1 }, opinion = { raven_hill = "fear" }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "Most do, and most live longer for it. There's no long way round Duskwood, though." },
-    { id = "b", text = "Ha! That's wise, because even the ravens look nervous on that road." },
+    { id = "b", text = "Ha! That's wise of you, because even the ravens look nervous on that road after dark." },
   } },
 } }
 

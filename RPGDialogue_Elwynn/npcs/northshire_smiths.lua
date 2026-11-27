@@ -312,6 +312,7 @@ P:NPC {
         { text = "Should a paladin wear the Abbey's colors, Dermot?", next = "xapala", when = { class = "PALADIN" } },
         { text = "You must run short of candles, mending at night.", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "The novices seem to tear a great many robes, Dermot.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Doesn't mending by candlelight ruin your eyes?", next = "e3_candle" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -333,6 +334,24 @@ P:NPC {
     leather_more = {
       lines = { { id = "lm_default", text = "Eagan Peltskinner down in Goldshire tans better than I ever could, I'll admit. When I've coin to spare I buy from him instead." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    e3_candle = {
+      lines = {
+        { id = "e3_candle_l0", text = "It does, slowly, and Brother Paxton says I'll be blind as a mole by fifty if I keep it up. But the novices tear their robes in the day and need them back by the morning prayers, so the work happens at night or not at all." },
+      },
+      choices = {
+        { text = "Couldn't the novices mend their own?", next = "e3_candle2" },
+        { text = "Your stitches are worth the squinting.", next = "BACK" },
+      },
+    },
+    e3_candle2 = {
+      lines = {
+        { id = "e3_candle2_l0", text = "I tried that once, with a needle and thread for every novice, and the next week I had twice as many robes with twice as many holes, and some of the thread was holding up a shoe. It's quicker for everyone if I just do it." },
+      },
+      choices = {
+        { text = "That's dedication. Something else.", next = "BACK" },
+        { text = "Teach them properly, then.", next = "BACK" },
+      },
     },
   },
   topics = {

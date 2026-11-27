@@ -31,6 +31,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2count = {
+      lines = { { id = "w2ct_default", text = "A good bolt of wool makes forty, if the cutter is careful and doesn't let the apprentices near the shears. Forty bandages is a bad afternoon in Ashenvale, or a quiet week in the Valley of Honor, whichever comes first." } },
+      choices = {
+        { text = "And how many bolts come in each week?", next = "w2count2" },
+        { text = "Forty seems like a great many.", next = "w2count2" },
+        { text = "Something else, Rashona.", next = "BACK" },
+      },
+    },
+    w2count2 = {
+      lines = {
+        { id = "w2ct2_aid", when = { profession = "First Aid" }, text = "Never enough, and you'd know it better than anyone, since you wrap them yourself. Tell the healers in the field to bring the bloody ones back if they can be boiled, because a washed bandage is still a bandage." },
+        { id = "w2ct2_default", text = "Never enough. I tell the healers in the field to bring the bloody ones back if they can be boiled, because a washed bandage is still a bandage, and the Horde can't afford to be proud about it." },
+      },
+      choices = { { text = "I'll bring you what I can.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     rs_strange = {
       lines = { { id = "rs_strange_l", text = "A human banner from Southshore, still with its lion on it, which a grunt brought in thinking it would be funny. I cut it up for bandages and sent it to the Valley of Honor, so it's doing more good now than it ever did on a pole." } },
       choices = {
@@ -88,6 +103,7 @@ P:NPC {
         { text = "I have cloth to give.", next = "BUSINESS" },
         { text = "What's the strangest cloth anyone's donated?", next = "rs_strange" },
         { text = "Do the other capitals collect cloth too?", next = "rs_cities" },
+        { text = "How many bandages does a bolt of cloth make?", next = "w2count" },
         { text = "For the Horde.", next = "END" },
       },
     },

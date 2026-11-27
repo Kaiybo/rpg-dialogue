@@ -31,6 +31,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_hear = {
+      lines = {
+        { id = "w3_hear_1", text = "More than you'd think, friend. The gulls tell me the weather an hour before it comes, the tide tells me when a boat's put in, and the murlocs tell me when someone's walking the shore, by going very quiet all at once." },
+      },
+      choices = {
+        { text = "What did they tell you about me?", next = "w3_me" },
+        { text = "That's a gift, in its way.", next = "BACK", reply = "A gift, or a habit forced on a man, and I've stopped trying to tell the difference. Either way, it keeps me fed." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_me = {
+      lines = {
+        { id = "w3_me_1", text = "That you walked the tide line rather than the road, and you stopped once, by the old boat, and then came on. Folk who stop by the boat are usually thinking about something, so I'll not ask what." },
+      },
+      choices = {
+        { text = "You're right not to. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Wallace, they call me, and the Blind, since they're being accurate. I sell blades to whoever walks through that door, and I've never once asked who they were." },
@@ -56,6 +74,7 @@ P:NPC {
         { text = "Do you know who your customers are?", next = "customers" },
         { text = "Tell me about this stretch of coast.", next = "coast" },
         { text = "Let me see your weapons.", next = "BUSINESS" },
+        { text = "You must hear a great deal from out here.", next = "w3_hear" },
         { text = "Good day, Wallace.", next = "END" },
       },
     },

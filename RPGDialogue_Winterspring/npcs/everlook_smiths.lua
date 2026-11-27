@@ -57,7 +57,28 @@ P:NPC {
         { text = "How does a troll end up in Everlook?", next = "everlook" },
         { text = "Who is Malyfous, that he needs three smiths?", next = "malyfous" },
         { text = "Do you miss the jungle, up here in the snow?", next = "snow" },
+        { text = "Do you sell your axes to both sides?", next = "w9_sides" },
         { text = "Later, Kilram.", next = "END" },
+      },
+    },
+
+    w9_sides = {
+      lines = {
+        { id = "w9_sides_d", text = "Kilram sell to whoever bring de thorium, mon, Horde or Alliance or goblin, because a good axe don't care who swing it. Dere be a dwarf paladin who buy from me every season and call me \"friend\" through his teeth, and I call him de same." },
+        { id = "w9_sides_v1", when = { faction = "Horde" }, text = "To everybody, cousin, and don't you look at Kilram like dat. A good axe don't care who swing it, and de dwarves pay in thorium just like de orcs, though dey grumble more about it." },
+      },
+      choices = {
+        { text = "Doesn't that bother the Horde?", next = "w9_sides2" },
+        { text = "An axe should fight for its own side.", next = "w9_sides2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_sides2 = {
+      lines = { { id = "w9_sides2_d", text = "Maybe, but dis be Everlook, mon, and de goblins make de rules here, and de rule be that coin got no colors. Kilram think if every warrior on both sides carry one of my axes, den at least de fight be a fair one." } },
+      choices = {
+        { text = "That's a strange kind of fairness.", next = "BACK", reply = "It be de only kind Kilram can forge, mon." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     scar = {
@@ -184,8 +205,8 @@ P:NPC {
           text = "The insignia. You actually did it. It should be obvious by now that a sword is always the best choice, so come here and let me show you what a real smith can do." },
       },
       again = {
-        { id = "h_again", text = "What else? Make it quick." },
-        { id = "h_again2", text = "Still here? Ask, then." },
+        { id = "h_again", text = "What else? Say it plainly, and don't let my forge go cold while you think." },
+        { id = "h_again2", text = "You're still standing there. Ask your question, then, and be done with it." },
         { id = "h_again_b1", text = "Ask, then, or go. I've steel waiting." },
       },
       choices = {
@@ -359,7 +380,25 @@ P:NPC {
         { text = "Do you dance in Undercity too?", next = "uc", when = { race = "Scourge" } },
         { text = "What's Seril Scourgebane like, from where you stand?", next = "seril" },
         { text = "Who were you, before the grave?", next = "before" },
+        { text = "Your hammer has a name, I imagine.", next = "w9_name" },
         { text = "I'll keep my distance.", next = "END" },
+      },
+    },
+
+    w9_name = {
+      lines = { { id = "w9_name_d", text = "Of course it does, darling, it's called Winifred, after a woman in my old town who used to slap the backs of children's heads in church. It has the same sense of timing, and a good deal more reach." } },
+      choices = {
+        { text = "Did Winifred ever slap you?", next = "w9_name2" },
+        { text = "That's oddly sentimental of you.", next = "w9_name2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_name2 = {
+      lines = { { id = "w9_name2_d", text = "Every Sunday, darling, and I never once forgave her, which is a lovely thing to have kept through the grave. Sentiment is all the dead have left, you see, and I choose to spend mine on grudges, because they're so much more durable than love." } },
+      choices = {
+        { text = "I'll be careful not to earn one.", next = "BACK", reply = "Oh, you'd be such fun to hold a grudge against. Stay just there." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dance = {

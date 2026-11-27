@@ -46,7 +46,23 @@ P:NPC {
         { text = "I should call the guards.", next = "guards", when = { faction = "Alliance" } },
         { text = "What's Northwatch like from the inside?", next = "inside" },
         { text = "How did you come to crew for the privateers?", next = "crew" },
+        { text = "What will you do if you ever get out?", next = "w5_after" },
         { text = "I'll leave you be.", next = "END" },
+      },
+    },
+    w5_after = {
+      lines = { { id = "w5_after_l", text = "Go back to Ratchet, find Captain Brightsun if he lives, and tell him what became of his crew. After that, I don't know. Every time I close my eyes I see the rocks below Northwatch, and the men in the water while the guns kept firing." } },
+      choices = {
+        { text = "Do you want to pay Northwatch back?", next = "w5_after2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_after2 = {
+      lines = { { id = "w5_after2_l", text = "Some nights I do, more than anything. Other nights I think the gunners were boys from Kul Tiras following orders, and they'll see those rocks in their sleep too. I can't decide which thought is the weaker one." } },
+      choices = {
+        { text = "Forgive them. Anger won't bring your crew back.", next = "BACK", reply = "Perhaps. I'd like to be the man who can. I'm not him yet.", fx = { align = { light = 1 } } },
+        { text = "Make Northwatch pay for every sailor they drowned.", next = "BACK", reply = "Don't say it so loudly. They'd hang me for agreeing with you, and I might.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {

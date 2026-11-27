@@ -32,6 +32,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_best = {
+      lines = { { id = "w8_best_a", text = "A chopper made from the biggest sawtooth claw I've ever seen, as long as my forearm, with a haft of swamp ironwood. I gave it to Katar, and he never says thank you, but I've seen him oil it every night by the fire." } },
+      choices = {
+        { text = "So Katar has a soft side.", next = "w8_best2" },
+        { text = "Where did you find a claw that size?", next = "w8_best2" },
+        { text = "I smith too. Claw holds an edge?", next = "w8_best2", when = { profession = "Blacksmithing" } },
+        { text = "Something else, Tok'Kar.", next = "BACK" },
+      },
+    },
+    w8_best2 = {
+      lines = {
+        { id = "w8_best2_a", text = "Soft? Don't let him hear you, or you'll be on night patrol till the tide stops. The claw came off a sawtooth that took two grunts and a whole afternoon to kill, and we ate the rest of it for a week." },
+        { id = "w8_best2_bs", when = { profession = "Blacksmithing" }, text = "Better than iron in this wet, because it doesn't rust, only dulls, and you can grind it back on beach stone. It cracks if you strike bone at the wrong angle, though, so it's a weapon for murlocs, not for ogres." },
+      },
+      choices = {
+        { text = "I'll keep that in mind.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -48,7 +68,7 @@ P:NPC {
           text = "A troll, and you'll know your way around a fish, I'd guess. Sit down, I want an opinion on this stew from someone who's eaten worse." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk while I stir." },
+        { id = "h_again", text = "What else? Talk while I stir the pot, and mind the sawtooth claws on the table." },
         { id = "h_again2", text = "Anything more? Talk while I stir, because this pot burns the moment I look away." },
       },
       choices = {
@@ -57,6 +77,7 @@ P:NPC {
         { text = "Tell me about the others here.", next = "camp" },
         { text = "What's in the stew?", next = "stew" },
         { text = "Show me how you work the claws.", next = "xsmith", when = { profession = "Blacksmithing" } },
+        { text = "What's the best weapon you've ever made from a claw?", next = "w8_best" },
         { text = "I'll let you get back to it.", next = "END" },
       },
     },

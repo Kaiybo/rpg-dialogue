@@ -754,7 +754,7 @@ P:NPC {
         { id = "hello_3", when = { questDone = TODO_QUEST("Klaven's Tower") }, text = "Agent Kearnen. You got Mortwake's journal out of his own chest, under his own nose. I told Shaw as much in my report, in one line, which is as much praise as he reads." },
       },
       again = {
-        { id = "hello_again1", text = "Anything else? Be quick about it." },
+        { id = "hello_again1", text = "Anything else? Say it in fewer words, and stay below the grass line." },
         { id = "hello_again2", text = "Go on, and keep it low." },
         { id = "hello_again3", text = "Ask." },
       },
@@ -766,6 +766,7 @@ P:NPC {
         { text = "What was in Mortwake's journal?", next = "journal", when = { class = "ROGUE", questDone = TODO_QUEST("Klaven's Tower") } },
         { text = "Does Sentinel Hill know you're out here?", next = "sentinel" },
         { text = "Who is Klaven Mortwake?", next = "mortwake" },
+        { text = "What do you eat, out here in the grass?", next = "e3_rations" },
         { text = "I was never here.", next = "END" },
       },
     },
@@ -837,6 +838,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    e3_rations = {
+      lines = {
+        { id = "e3_rations_l0", text = "Hard bread, dried apple and cold water, because a fire is a flag and a cooking smell carries further than a shout. I've had a craving for one of Heather's stews for eleven days, and I'll have it the night Shaw recalls me and not before." },
+        { id = "e3_rations_l1", when = { class = "ROGUE" }, text = "Hard bread, dried apple and cold water, as you'd expect. A fire is a flag and a cooking smell carries further than a shout, and I've been craving Heather's stew for eleven days." },
+      },
+      choices = {
+        { text = "I could bring you something from the inn.", next = "e3_rations2" },
+        { text = "Eleven days is a long watch.", next = "BACK" },
+      },
+    },
+    e3_rations2 = {
+      lines = {
+        { id = "e3_rations2_l0", text = "You could, and every Defias on that tower would watch you walk out here with a bowl. Bring me something that doesn't smell and doesn't steam, if you must, and leave it under the flat stone by the dead tree." },
+      },
+      choices = {
+        { text = "Under the flat stone. Understood. Something else.", next = "BACK" },
+        { text = "Then go hungry, Kearnen.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_background", text = "I work for Stormwind, in the part of it that doesn't wear a tabard. That's all there is to tell." } },
@@ -895,6 +915,7 @@ P:NPC {
         { text = "How does the militia train?", next = "train", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Who else guards the tower?", next = "others" },
         { text = "Has he tried to run?", next = "run" },
+        { text = "What kind of wheat did you grow?", next = "e3_wheat" },
         { text = "Keep a close watch, Protector.", next = "END" },
       },
     },
@@ -966,6 +987,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    e3_wheat = {
+      lines = {
+        { id = "e3_wheat_l0", text = "Westfall red, the old kind, with a stalk as tall as a boy and a head that bows when it's ripe. My grandfather brought the seed from Lordaeron, and I've a pouch of it still, sewn into my coat, in case the farm comes back to me." },
+      },
+      choices = {
+        { text = "You carry seed into battle?", next = "e3_wheat2" },
+        { text = "Westfall red. I'll remember the name.", next = "BACK" },
+      },
+    },
+    e3_wheat2 = {
+      lines = {
+        { id = "e3_wheat2_l0", text = "Every day. If I fall, somebody will find it and plant it, and the farm will come back to someone, if not to me. Stoutmantle knows, and he's promised me that much." },
+      },
+      choices = {
+        { text = "That's a fine promise. Something else.", next = "BACK" },
+        { text = "You'd best not fall, then.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_background", text = "A wheat farmer, with a spear. There's a great many of us in Westfall now." } },
@@ -1024,6 +1063,7 @@ P:NPC {
         { text = "That's a wagon, with outriders.", next = "wagon", when = { class = "HUNTER" } },
         { text = "What have you seen lately that worries you?", next = "worries" },
         { text = "Which farms are still worked?", next = "farms" },
+        { text = "Do you ever see ships past the lighthouse?", next = "e3_lighthouse" },
         { text = "Keep a sharp eye, Protector.", next = "END" },
       },
     },
@@ -1095,6 +1135,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    e3_lighthouse = {
+      lines = {
+        { id = "e3_lighthouse_l0", text = "Now and then, on a clear evening, a merchant sail going south toward Booty Bay, keeping well out from the coast. They used to put in at Westfall, years back, for grain, but nobody's selling grain now and the Defias would have the cargo before the ropes were tied." },
+      },
+      choices = {
+        { text = "Does the lighthouse still burn?", next = "e3_lighthouse2" },
+        { text = "One day they'll put in again.", next = "BACK" },
+      },
+    },
+    e3_lighthouse2 = {
+      lines = {
+        { id = "e3_lighthouse2_l0", text = "Some nights, and I don't know who lights it, since the keeper left. Gryan says it's best not to ask, and I've noticed he looks at it longer than at anything else from up here." },
+      },
+      choices = {
+        { text = "A mystery for another day. Something else.", next = "BACK" },
+        { text = "Someone should find out who.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_background", text = "My family farmed by the Gold Coast Quarry. I learned the land from our roof, mending thatch, and I've been looking at it from above ever since." } },
@@ -1153,6 +1211,7 @@ P:NPC {
         { text = "I'm fighting the Defias for Stoutmantle.", next = "militia", when = { questActive = TODO_QUEST("The People's Militia") } },
         { text = "Who do you stand watch with?", next = "with" },
         { text = "What's the best thing about Sentinel Hill?", next = "best" },
+        { text = "You were a fair hand with a scythe?", next = "e3_scythe" },
         { text = "Fight well, Protector.", next = "END" },
       },
     },
@@ -1224,6 +1283,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    e3_scythe = {
+      lines = {
+        { id = "e3_scythe_l0", text = "The best on the Furlbrow farm, three summers running, and I could cut an acre before noon without stopping for water. A scythe swings round your body like a dance, but a sword wants you to stop and poke, and my arms keep trying to waltz." },
+      },
+      choices = {
+        { text = "Have you thought of fighting with a polearm?", next = "e3_scythe2" },
+        { text = "You'll learn the sword in time.", next = "BACK" },
+      },
+    },
+    e3_scythe2 = {
+      lines = {
+        { id = "e3_scythe2_l0", text = "Captain Danuvin said the same, and there's a halberd in the armoury nobody's claimed. I've been practising with it after dark, and the gnolls don't seem to like it at all, which I'll count as a good sign." },
+      },
+      choices = {
+        { text = "Stick with the halberd. Something else.", next = "BACK" },
+        { text = "Master the sword first.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_background", text = "A reaper, at harvest, for any farm that'd hire me. There's no harvest now, so I reap gnolls." } },
@@ -1269,7 +1346,7 @@ P:NPC {
         { id = "hello_3", when = { faction = "Horde" }, text = "Protector Gariel, People's Militia. You've no business on this hill, and I've sixty reasons within shouting distance why you should leave it." },
       },
       again = {
-        { id = "hello_again1", text = "Anything else? There's a line forming." },
+        { id = "hello_again1", text = "Anything else? Speak up, friend; there's a farmer behind you with a grievance and muddy boots." },
         { id = "hello_again2", text = "Go on, but briefly." },
         { id = "hello_again3", text = "Yes?" },
       },
@@ -1283,6 +1360,7 @@ P:NPC {
         { text = "How did you hear the traitor, that night?", next = "hear", when = { class = "ROGUE" } },
         { text = "What's Stoutmantle like to serve under?", next = "gryan" },
         { text = "What does the militia need most?", next = "need" },
+        { text = "You kept the tally at the Moonbrook grain market?", next = "e3_tally" },
         { text = "Carry on, Protector.", next = "END" },
       },
     },
@@ -1352,6 +1430,24 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_tally = {
+      lines = {
+        { id = "e3_tally_l0", text = "Nine years, with a slate, a scale and a sharp eye, and I could tell you the weight of a sack from across the square. The market's gone now, with Moonbrook, and the scales are somewhere in the Defias' hands, weighing whatever they weigh these days." },
+      },
+      choices = {
+        { text = "What do you think they weigh?", next = "e3_tally2" },
+        { text = "You've turned that eye to good use here.", next = "BACK" },
+      },
+    },
+    e3_tally2 = {
+      lines = {
+        { id = "e3_tally2_l0", text = "Ore, if Alba Fairmoon's right, and stolen coin, and maybe men's lives by the pound. I'd give a good deal to stand at that scale one more time and see who's trading at it." },
+      },
+      choices = {
+        { text = "You may yet. Something else.", next = "BACK" },
+        { text = "Best stay at the door, Gariel.", next = "BACK" },
       },
     },
   },
@@ -1476,6 +1572,7 @@ P:NPC {
         { text = "Can I help?", next = "BUSINESS" },
         { text = "What did you find at the Jangolode Mine?", next = "d6_jango" },
         { text = "Who on the hill helps with your work?", next = "d6_help" },
+        { text = "How do you get on with the innkeeper?", next = "e3_inn" },
         { text = "I'll leave you to your vials.", next = "END" },
       },
     },
@@ -1527,6 +1624,24 @@ P:NPC {
         { id = "st_default", text = "Then the soil can recover, slowly, once the poison stops. If I'm wrong and we wait, it will be decades before anything worth eating grows here again." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    e3_inn = {
+      lines = {
+        { id = "e3_inn_l0", text = "Well, so long as I buy supper and don't leave anything in the soup bowls. She once found a sample vial in the bread basket and very nearly served it to Stoutmantle, and now she counts my vials before she clears the table." },
+      },
+      choices = {
+        { text = "What was in the vial?", next = "e3_inn2" },
+        { text = "A sensible precaution.", next = "BACK" },
+      },
+    },
+    e3_inn2 = {
+      lines = {
+        { id = "e3_inn2_l0", text = "Water from the Molsen well, with enough lead in it to turn a man's gums blue in a season. Stoutmantle took it with good grace when I told him, and then he went very quiet and asked how many farms drew from that well." },
+      },
+      choices = {
+        { text = "That's sobering. Something else.", next = "BACK" },
+        { text = "Lucky the innkeeper caught it.", next = "BACK" },
+      },
     },
   },
 

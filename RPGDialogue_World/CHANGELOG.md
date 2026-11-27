@@ -2,6 +2,9 @@
 
 The pack's own version is `version` in `pack.lua`; bump both together.
 
+## 1.60.0 (2026-11-27): Every Voice Its Own
+Rewrote weak lines in views, asks, threads and letters, and added new views, asks, threads and letters for both factions. No new files in this pack.
+
 ## 1.59.0 (2026-11-27): Word Gets Around
 Overheard exchanges, passing remarks and gossip about your stances (new files: full game restart). Townsfolk speak in their own race's voice; holiday lines for all eight Classic festivals; deeper views, Ask answers, threads and letters.
 

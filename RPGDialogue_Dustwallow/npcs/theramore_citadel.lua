@@ -394,7 +394,7 @@ P:NPC {
       lines = {
         { id = "h_default", key = true, text = "Torq Ironblast, gunsmith to the Theramore Guard an' anyone else wi' coin. Best guns this side o' the sea, an' I'll fight any gnome who says different." },
       },
-      again = { { id = "h_again", text = "What else, then?" } },
+      again = { { id = "h_again", text = "What else, then? Out wi' it; I've a barrel half-bored an' it'll warp if I let it cool too long." } },
       choices = {
         { text = "A gun takes skill to master.", next = "BACK", reply = "Aye, it does! Ye know your craft.", fx = { align = { honor = 1 } } },
         { text = "A gun's just a loud stick.", next = "BACK", reply = "Then go buy a stick.", fx = { align = { honor = -1 } } },
@@ -406,7 +406,36 @@ P:NPC {
         { text = "Which hold did ye learn yer trade in?", next = "dwarf", when = { race = "Dwarf" } },
         { text = "So you'll fight any gnome? Here I am.", next = "gnome", when = { race = "Gnome" } },
         { text = "What should a hunter carry in this swamp?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "What's the best gun you ever built?", next = "w7_best" },
         { text = "Farewell, Torq.", next = "END" },
+      },
+    },
+    w7_best = {
+      lines = {
+        { id = "w7_best_l1", text = "A long rifle I made for a dwarven sharpshooter at Thelsamar, wi' a barrel bored true from end tae end. She shot a crow off a weathervane at four hundred paces, an' then shot the weathervane for good measure." },
+      },
+      choices = {
+        { text = "Is she still using it?", next = "w7_best2" },
+        { text = "That's a lot of bragging for one gun.", next = "w7_best3" },
+        { text = "Something else, Torq.", next = "BACK" },
+      },
+    },
+    w7_best2 = {
+      lines = {
+        { id = "w7_best2_l1", text = "As far as I know. She sends a letter every year wi' a count o' what she's hit, an' the count's never short. I keep the letters in a box under the bench, an' when a gnome tells me gnomish rifles are better, I read him one." },
+        { id = "w7_best2_l2", when = { class = "HUNTER" }, text = "Aye, still huntin' the Loch wi' it. Ye'd appreciate her count, {g:lad|lass}. If ye ever want somethin' close tae that rifle, save yer coin for a season and come back; I'll bore ye one tae match." },
+      },
+      choices = {
+        { text = "I'll save up.", next = "BACK", reply = "Do. A good rifle's worth more than a good horse." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_best3 = {
+      lines = {
+        { id = "w7_best3_l1", text = "Bragging's only bragging if it's no' true, {g:lad|lass}. Ask anyone in Loch Modan about the weathervane." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     ear = {

@@ -69,6 +69,7 @@ P:NPC {
 
         { text = "Why did you come to Azshara?", next = "why" },
         { text = "How are the wounded?", next = "wounded" },
+        { text = "What keeps you going, out here?", next = "w_going" },
         { text = "Rest, Alexandra. I'll keep watch.", next = "END" },
       },
     },
@@ -90,6 +91,26 @@ P:NPC {
     wounded = {
       lines = { { id = "wo_default", text = "Most will live, if the fevers break. Some won't, and I'll bury them as gently as I can. The Light gives what it gives." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_going = {
+      lines = {
+        { id = "w_going_default", text = "The Light, and Patrick, and the sailors' faces in the morning when they find they're still alive. Bishop Farthing used to say a priest's strength is borrowed from the people she serves, and I never understood it until this beach." },
+      },
+      choices = {
+        { text = "Borrowed how?", next = "w_going2" },
+        { text = "Patrick seems very devoted.", next = "w_going2" },
+      },
+    },
+    w_going2 = {
+      lines = {
+        { id = "w_going2_default", text = "Every time one of them wakes and asks for water, I find I can stand a little longer. They think I'm keeping them alive. Some nights I think they're keeping me. That's the Light's arithmetic, Bishop Farthing would say, and it never comes out even." },
+        { id = "w_going2_w1", when = { class = "PRIEST" }, text = "You'll have felt it too, sister or brother of the Light. Tell me it gets easier. Or tell me it doesn't, and I'll believe you either way." },
+      },
+      choices = {
+        { text = "The Light gives back.", next = "BACK", fx = { align = { light = 1 } }, reply = "It does. I only wish it gave back faster, some nights." },
+        { text = "You're keeping yourself alive.", next = "BACK", fx = { align = { light = -1 } }, reply = "Perhaps. But I'd rather believe someone was helping." },
+        { text = "Something else, Alexandra.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -185,6 +206,7 @@ P:NPC {
         { text = "What brought a paladin to Azshara?", next = "why" },
         { text = "Why did you become a paladin?", next = "ylife" },
         { text = "What happened on the voyage?", next = "yvoyage" },
+        { text = "What would you do if Lindros betrays the camp?", next = "w_betray" },
         { text = "Farewell, Patrick.", next = "END" },
       },
     },
@@ -199,6 +221,26 @@ P:NPC {
     why = {
       lines = { { id = "wy_default", text = "Duty, of a sort, and I'll leave it at that. I'll tell you this much: Lindros knew more about where we were going than any of us did." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_betray = {
+      lines = {
+        { id = "w_betray_default", text = "Stop him, as gently as I can and as hard as I must. I've thought about it every night, standing watch. He's frightened, not wicked, I think, and frightened men do terrible things when they're cornered. I'd rather he wasn't cornered." },
+      },
+      choices = {
+        { text = "How do you keep him from being cornered?", next = "w_betray2" },
+        { text = "You've thought about this a lot.", next = "w_betray2" },
+      },
+    },
+    w_betray2 = {
+      lines = {
+        { id = "w_betray2_default", text = "I don't ask him questions in front of the sailors. I share my water with him. I let him keep his trunk. Alexandra says I'm being soft, and she's probably right, but the Light didn't ask me to judge him, only to stand between him and the worst of himself." },
+        { id = "w_betray2_w1", when = { class = "PALADIN" }, text = "You walk the same road. Tell me if I'm wrong to be gentle with him. I'll listen, brother or sister of the Hand." },
+      },
+      choices = {
+        { text = "Gentleness is strength.", next = "BACK", fx = { align = { light = 1 } }, reply = "I hope so. It's the only strength I've got that the naga can't take." },
+        { text = "Watch him closely instead.", next = "BACK", fx = { align = { light = -1 } }, reply = "I do, both ways. Being gentle doesn't mean being blind." },
+        { text = "Something else, Patrick.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -283,7 +325,7 @@ P:NPC {
         { id = "yh_human", when = { race = "Human" }, text = "Another human. If you're from Stormwind, tell no one there you saw me. If you're from Dalaran, tell them even less." },
       },
       again = {
-        { id = "h_again", text = "Is there more? Be brief." },
+        { id = "h_again", text = "Is there more? Be brief; I have no wish to be remembered on this shore." },
         { id = "h_again2", text = "You're persistent. Go on." },
       },
       choices = {
@@ -296,6 +338,7 @@ P:NPC {
         { text = "The others don't trust you, you know.", next = "trust" },
         { text = "Who sent you here, really?", next = "ysent" },
         { text = "Why don't you trust Patrick?", next = "ypatrick" },
+        { text = "What did you see in Dalaran, before?", next = "w_dalaran" },
         { text = "Fine. Keep your secrets.", next = "END" },
       },
     },
@@ -310,6 +353,26 @@ P:NPC {
     trust = {
       lines = { { id = "tr_default", text = "I know, and I do not care. I paid my fare like everyone else. If they need someone to blame for the wreck, they should look at the naga, not at me." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_dalaran = {
+      lines = {
+        { id = "w_dalaran_default", text = "Libraries that went down further than the city went up, and teachers who could make the rain fall upward for an afternoon's amusement. Then the Scourge came, and the Kirin Tor locked every door they had, and I was on the wrong side of most of them." },
+      },
+      choices = {
+        { text = "You were locked out?", next = "w_dalaran2" },
+        { text = "Do you miss it?", next = "w_dalaran2" },
+      },
+    },
+    w_dalaran2 = {
+      lines = {
+        { id = "w_dalaran2_default", text = "Locked out, and then forgotten, which is worse. A student without a library is only a man with a lot of questions. The Highborne ruins are the only library that hasn't closed its doors to me. That should tell you more than I meant to say." },
+        { id = "w_dalaran2_w1", when = { class = "MAGE" }, text = "You studied somewhere too, I imagine. Then you know what it is to love a library more than most people. Don't pretend you don't." },
+      },
+      choices = {
+        { text = "Knowledge isn't worth any price.", next = "BACK", fx = { align = { order = 1 } }, reply = "Spoken like someone who still has a library. Keep it." },
+        { text = "I'd have done the same.", next = "BACK", fx = { align = { order = -1 } }, reply = "Then you're more honest than the others on this beach." },
+        { text = "Something else, Lindros.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -334,7 +397,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Ishnu-alah. You have travelled far to find an old elf among old stones, and I thank you for it." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come round again, and the ancestors are near tonight. I am glad you came to honor them." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come round again, and the ancestors gather near the ruins tonight. I am glad you came to honor them." },
     { id = "g_back", when = { metBefore = true }, text = "The stars bring you back to me. Come, look up with me a while." },
   },
   start = "hello",
@@ -376,6 +439,7 @@ P:NPC {
         { text = "Are these the ruins of Queen Azshara's realm?", next = "queen", when = { race = "NightElf" } },
         { text = "Who were you in the old empire?", next = "ylife" },
         { text = "Did you know the Highborne?", next = "yhighborne" },
+        { text = "Did you ever see the Queen?", next = "w_queen" },
         { text = "Elune-adore, Elder.", next = "END" },
       },
     },
@@ -405,6 +469,25 @@ P:NPC {
     queen = {
       lines = { { id = "q_default", text = "They are, and her name still sits on this land like a curse. We do not speak it lightly, child, and you would do well not to either." } },
       choices = { { text = "I'll remember.", next = "BACK" } },
+    },
+    w_queen = {
+      lines = {
+        { id = "w_queen_default", text = "Once, child, from the lowest step of the temple at Eldarath, as she passed in a procession of lanterns. She was more beautiful than anything I have seen since, and she did not look at any of us. I remember thinking that the stars did not look at us either, and I forgave her for it." },
+      },
+      choices = {
+        { text = "Do you still forgive her?", next = "w_queen2" },
+        { text = "That's a strange memory to keep.", next = "w_queen2" },
+      },
+    },
+    w_queen2 = {
+      lines = {
+        { id = "w_queen2_default", text = "No. I forgave the woman who did not look at me. I cannot forgive the queen who opened the sky to the Legion. They were the same person, which is the hardest thing I have ever had to understand, and I have had ten thousand years to try." },
+        { id = "w_queen2_w1", when = { race = "NightElf" }, text = "You are of my people. Remember that the beautiful and the terrible can wear the same face. It is the oldest lesson our people learned, and the most costly." },
+      },
+      choices = {
+        { text = "That's a hard lesson.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -465,6 +548,7 @@ P:NPC {
         { text = "A fellow son of Khaz Modan! How fares the mountain?", next = "kin", when = { race = "Dwarf" } },
         { text = "How did you learn to fly?", next = "ylearn" },
         { text = "What's the most dangerous thing you've seen here?", next = "ydanger" },
+        { text = "What's the worst crash you've had?", next = "w_crash" },
         { text = "Safe flight, Xiggs.", next = "END" },
       },
     },
@@ -506,6 +590,25 @@ P:NPC {
     safe = {
       lines = { { id = "s_default", text = "Safer than walking through Azshara, lad, I'll promise you that much. The worst I've had is a fire in the engine and a soft landing in a lake." } },
       choices = { { text = "That's not as reassuring as you think.", next = "BACK" } },
+    },
+    w_crash = {
+      lines = {
+        { id = "w_crash_default", text = "Into the Bay of Storms, two summers back, when a gust came off the cliffs and flipped me tail over goggles. I swam to shore holding the propeller, because a dwarf doesnae leave his propeller, and a naga watched me the whole way without lifting a finger." },
+      },
+      choices = {
+        { text = "Why didn't it attack?", next = "w_crash2" },
+        { text = "You saved the propeller?", next = "w_crash2" },
+      },
+    },
+    w_crash2 = {
+      lines = {
+        { id = "w_crash2_default", text = "Couldnae say, lad. Maybe it was laughing, if naga laugh. I've a theory it thought I was too daft to be worth the bother. I rebuilt the whole 'copter round that propeller, and I've never flown as well since." },
+        { id = "w_crash2_w1", when = { race = "Dwarf" }, text = "Ye'll understand, bein' from the mountain. A dwarf's gear is half his soul, and the other half's in his beard." },
+      },
+      choices = {
+        { text = "Never leave the propeller.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Xiggs.", next = "BACK" },
+      },
     },
   },
   topics = {

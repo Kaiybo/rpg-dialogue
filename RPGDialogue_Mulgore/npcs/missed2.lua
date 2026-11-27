@@ -50,7 +50,36 @@ P:NPC {
         { text = "What's the strangest traveller you've seen here?", next = "strange" },
         { text = "Innkeeper Kauth keeps a warm fire.", next = "kauth" },
         { text = "Do many orcs come through Bloodhoof?", next = "orcs_through", when = { race = "Orc" } },
+        { text = "What have you learned from your seat by the fire?", next = "w7_learn" },
         { text = "I'll leave you to the fire.", next = "END" },
+      },
+    },
+    w7_learn = {
+      lines = {
+        { id = "w7_learn_l1", text = "That everyone carries something heavy, and most of them would like to set it down for an evening. An orc who lost his clan, a troll who misses the sea, a young tauren afraid of the road; I listen, and they set it down, and in the morning they pick it up again, a little lighter." },
+      },
+      choices = {
+        { text = "Do you ever tell them anything?", next = "w7_learn2" },
+        { text = "That sounds like a heavy seat.", next = "w7_learn3" },
+        { text = "Something else, Magrin.", next = "BACK" },
+      },
+    },
+    w7_learn2 = {
+      lines = {
+        { id = "w7_learn2_l1", text = "Rarely. People do not want advice by the fire; they want an ear. When someone does ask, I tell them what my mother told me: the grass bends under the herd, and it does not break." },
+        { id = "w7_learn2_l2", when = { race = "Tauren" }, text = "Rarely. But you, I will tell: the grass bends under the herd, and it does not break. You will carry heavy things on the road. Bend, cousin, and do not break." },
+      },
+      choices = {
+        { text = "Good words.", next = "BACK", reply = "My mother's. They have lasted longer than she did." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_learn3 = {
+      lines = {
+        { id = "w7_learn3_l1", text = "It is a seat by a fire. Nothing is heavy by a fire, for long." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     strange = {

@@ -432,6 +432,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_offwatch = {
+      lines = {
+        { id = "w3_offwatch_1", text = "I walk to Brill and stand in the inn, because Innkeeper Renee doesn't mind the dead taking up floor and the lamps are warmer than this bridge. Then I walk back, and stand here, and that's my life, and I'm not asking for sympathy." },
+      },
+      choices = {
+        { text = "Do you never sit down?", next = "w3_sit" },
+        { text = "A warm lamp's not nothing.", next = "BACK", reply = "No, it isn't, and don't tell Dillinger I said so. He thinks I'm made of stone." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_sit = {
+      lines = {
+        { id = "w3_sit_1", text = "Once, and my knees set like that for a whole day, and the Executor found me sitting and gave me a talk I'll never forget. I'd sooner stand for a year than sit for a minute, and I don't recommend you try it either." },
+      },
+      choices = {
+        { text = "Point taken. Something else.", next = "BACK" },
+      },
+    },
     road = {
       lines = {
         { id = "rd_default", text = "I don't. Deathguard Dillinger has the stretch west toward Deathknell, and the patrols from Brill pass me twice a watch. Gordo comes lumbering by as well, with his arms full of gloom weed for the apothecaries, and he's the only one who never asks me anything." },
@@ -502,6 +520,7 @@ P:NPC {
         { text = "You can't have this whole road to yourself.", next = "road" },
         { text = "People keep asking you the way, I gather.", next = "lost" },
         { text = "I've been inside the manor, Deathguard.", next = "inside", when = { minLevel = 8 } },
+        { text = "What do you do when your watch ends?", next = "w3_offwatch" },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -583,6 +602,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_spiders = {
+      lines = {
+        { id = "w3_spiders_1", text = "Big as a dog and twice as patient, and they hang their webs across the paths at head height, which is a bad joke to play on a scout. I've walked into three of them in a week, and the third had its owner at home." },
+      },
+      choices = {
+        { text = "What happened with the third?", next = "w3_third" },
+        { text = "I'll watch my head, then.", next = "BACK", reply = "Watch the ground too. The little ones live in holes, and they're the ones that bite through boots." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_third = {
+      lines = {
+        { id = "w3_third_1", text = "It bit me on the shoulder and I stabbed it in the eye, and we parted on bad terms. The poison doesn't do much to the dead, thankfully, but my arm went green for a week and the Executor said it was an improvement." },
+      },
+      choices = {
+        { text = "The Executor has a sense of humour? Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -593,7 +630,7 @@ P:NPC {
           text = "Their friars and zealots carry satchels with their deployment orders. Bring a copy to Deathguard Billmuth at Bandarion Keep, and he'll take it from there, so we can warn the Deathguard and set an ambush of our own." },
       },
       again = {
-        { id = "h_again", text = "What else? Keep your voice down." },
+        { id = "h_again", text = "Go on, but quietly. Sound carries in the Glades, and so do the things that hear it." },
       },
       choices = {
         { text = "What happened to you here?", next = "what" },
@@ -602,6 +639,7 @@ P:NPC {
         { text = "How do you feel about paladins now?", next = "paladins" },
         { text = "What is this place?", next = "vale" },
         { text = "Is Billmuth all right?", next = "billmuth" },
+        { text = "What are the spiders in this vale like?", next = "w3_spiders" },
         { text = "Stay safe, Falgan.", next = "END" },
       },
     },
@@ -730,6 +768,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_late = {
+      lines = {
+        { id = "w3_late_1", text = "Three days, after a storm over the Great Sea that the goblins swore they'd flown round and plainly hadn't. A troll, two orcs and a very unhappy tauren camped on this platform the whole while, and I counted every complaint, which came to two hundred and six." },
+      },
+      choices = {
+        { text = "What did they complain about most?", next = "w3_complaints" },
+        { text = "Did the goblins apologise?", next = "BACK", reply = "They offered a discount on the return flight, which nobody took, because none of them meant to fly again." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_complaints = {
+      lines = {
+        { id = "w3_complaints_1", text = "The fog, mostly, and the food, and the smell, which the orcs blamed on me until I explained that I was in fact the most pleasant-smelling thing on the tower. The tauren was gracious about it, and I added that to the tally as well." },
+      },
+      choices = {
+        { text = "A full report, then. Something else.", next = "BACK" },
+      },
+    },
     ride = {
       lines = {
         { id = "ri_default", text = "Never, and I never shall. I have already died once on solid ground, which was bad enough, and I see no reason to try it from a great height in a basket nailed together by goblins." },
@@ -796,6 +852,7 @@ P:NPC {
         { text = "You've never once ridden one.", next = "ride" },
         { text = "Do you keep a record of what comes through?", next = "tally" },
         { text = "I came in on that ship, and it was no accident.", next = "rode", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "What's the longest a zeppelin's ever been late?", next = "w3_late" },
         { text = "Goodbye, Deyrek.", next = "END" },
       },
     },
@@ -886,6 +943,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_hunt = {
+      lines = {
+        { id = "w3_hunt_1", text = "He catches rabbits in the bracken, and he brings every one to the cottage door and drops it at my feet, though he knows perfectly well I can't eat it. I thank him and give it back, and he eats it then, looking very pleased with himself for sharing." },
+      },
+      choices = {
+        { text = "He's trying to look after you.", next = "w3_care" },
+        { text = "Max would make a fine hunting hound.", next = "BACK", when = { class = "HUNTER" }, reply = "He would, wouldn't he? But he's retired, I think, and he'd only bring the deer back to me and wait to be thanked." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_care = {
+      lines = {
+        { id = "w3_care_1", text = "I think so too, and I don't know what I did to deserve it. Breton Samuels at the Keep says dogs choose the ones who need choosing, and I've decided not to argue with a paladin about it." },
+      },
+      choices = {
+        { text = "I'd not argue either. Something else.", next = "BACK" },
+      },
+    },
     feeding = {
       lines = {
         { id = "fe_default", text = "It was a puzzle at first, because I'd forgotten that anything needs breakfast. I set snares for the forest hares now, and I trade mushrooms in Brill for bones and scraps, and Innkeeper Renee puts aside what her living guests leave on the plate." },
@@ -951,6 +1026,7 @@ P:NPC {
         { text = "It can't be easy, feeding a living dog out here.", next = "feeding" },
         { text = "The forest keeps its distance from your door.", next = "quiet" },
         { text = "I know the faerie ring you mean, Relreo.", next = "ring", when = { class = "DRUID" } },
+        { text = "Does Max hunt for his own supper?", next = "w3_hunt" },
         { text = "Goodbye, Relreo, and goodbye to you too, Max.", next = "END" },
       },
     },
@@ -1051,6 +1127,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_derrington = {
+      lines = {
+        { id = "w3_derrington_1", text = "Hard, careful and never once surprised, which is the best you can ask of a commander on a wall like this. He'll stand with the Argent Dawn when it suits the Bulwark, and he makes sure they know it's only when it suits." },
+      },
+      choices = {
+        { text = "Do the Deathguard trust him?", next = "w3_trust" },
+        { text = "He sounds like a man worth serving.", next = "BACK", reply = "He is, and I'd not say so to his face, because he'd only find a reason to doubt it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_trust = {
+      lines = {
+        { id = "w3_trust_1", text = "We trust him to send us where we're needed and not one step further, and in this army that's rare enough to be worth a great deal. Rickard says he once stood in the mist for an hour so a patrol could find its way back by the sight of him." },
+      },
+      choices = {
+        { text = "Then he's earned it. Something else.", next = "BACK" },
+      },
+    },
     dawn = {
       lines = {
         { id = "dw_default", text = "They're living folk, most of them, and paladins besides, and not five years ago their kind were burning ours on sight. But Argent Officer Garush pays in good coin for every Scourge trinket brought across this wall, and I've seen his people bleed beside ours." },
@@ -1118,6 +1212,7 @@ P:NPC {
         { text = "You don't sound pleased to share the wall with the Dawn.", next = "dawn" },
         { text = "It must be a long watch out here.", next = "nights" },
         { text = "I mean to go east, Adelbert. What should I know?", next = "goeast", when = { minLevel = 45 } },
+        { text = "What's High Executor Derrington like?", next = "w3_derrington" },
         { text = "Goodbye, Adelbert.", next = "END" },
       },
     },
@@ -1209,6 +1304,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_past = {
+      lines = {
+        { id = "w3_past_1", text = "Once, on a patrol to Felstone Field, to see whether the farm there still stood. It did, more or less, and so did the farmer, after a fashion, and we put him down quickly, since he'd been a decent man and wouldn't have wanted to go on like that." },
+      },
+      choices = {
+        { text = "Did you know him?", next = "w3_knew" },
+        { text = "That's grim work, Rickard.", next = "BACK", reply = "It is, but it's honest work. Better a Deathguard does it than a Scarlet with a torch." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_knew = {
+      lines = {
+        { id = "w3_knew_1", text = "I'd bought cheese from him, years ago, at the market in the capital. He gave a good weight and never haggled, and I told Adelbert so on the walk back, and Adelbert, for once in his life, didn't say a word." },
+      },
+      choices = {
+        { text = "I'm sorry, Rickard. Something else.", next = "BACK" },
+      },
+    },
     camp = {
       lines = {
         { id = "ca_default", text = "It was. When the capital fell, the ones who got out alive were gathered here before they went south, and they say Uther himself stood guard over them. You can still find tent pegs in the ground if you kick about behind the wagons." },
@@ -1274,6 +1387,7 @@ P:NPC {
         { text = "This wall was a refugee camp once, I hear.", next = "camp" },
         { text = "The mist over the Plaguelands looks thinner than the stories say.", next = "mist" },
         { text = "What does your one eye make of that ridge today?", next = "ridge", when = { class = "HUNTER" } },
+        { text = "Have you ever been past the wall?", next = "w3_past" },
         { text = "Goodbye, Rickard.", next = "END" },
       },
     },
@@ -1354,6 +1468,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_flown = {
+      lines = {
+        { id = "w3_flown_1", text = "Never. I watch the ropes go up and the ships go out, and I come back to this post the next morning and watch them come in, and I don't need to see Durotar to know I'm guarding it." },
+        { id = "w3_flown_2", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Never, though you've come all that way on it. Tell me, is Durotar as red as the orcs say, or is that only how it looks from the deck?" },
+      },
+      choices = {
+        { text = "Durotar's red, all right, and hot.", next = "BACK", when = { race = { "Orc", "Troll", "Tauren" } }, reply = "Hot. I've forgotten what that's like, and I'm not sure I'd want to learn it again." },
+        { text = "What do you imagine it's like?", next = "w3_imagine" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_imagine = {
+      lines = {
+        { id = "w3_imagine_1", text = "Dry, and loud, and full of people who sweat, and that's how the goblins describe it too, so I'm probably close. I keep a picture of it in my head, and it's mostly of the zeppelin landing safely, which is all I need it to do." },
+      },
+      choices = {
+        { text = "That's a guard's way of seeing the world. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "A lookout on the walls of Lordaeron's capital. I watched the sky for gryphons and the road for orcs. Then the danger came walking through the front gate, and I was looking the wrong way. I don't look away from anything now." } },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -1390,6 +1523,7 @@ P:NPC {
         { text = "I've just come off the zeppelin from Durotar.", next = "durotar", when = { race = { "Orc", "Troll", "Tauren" } } },
         { text = "Who were you before?", next = "ylife" },
         { text = "What happens if the tower falls?", next = "yfalls" },
+        { text = "Have you ever flown the zeppelin yourself?", next = "w3_flown" },
         { text = "I'll be on my way.", next = "END" },
       },
     },

@@ -2092,6 +2092,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2herd = {
+      lines = {
+        { id = "w2hr_tauren", when = { race = "Tauren" }, text = "You know the grass there, so you know. We lived near Bloodhoof, below the mesas, and in the evenings my mother would sing the long song while the kodo came in, and my brothers and I would pretend we were too old to listen." },
+        { id = "w2hr_default", text = "Loud and warm. We lived near Bloodhoof, below the mesas, and in the evenings my mother would sing the long song while the kodo came in, and my brothers and I would pretend we were too old to listen." },
+      },
+      choices = {
+        { text = "Why not go back to them?", next = "w2herd2" },
+        { text = "It sounds like a good place to be from.", next = "w2herd2" },
+        { text = "Something else, Gamon.", next = "BACK" },
+      },
+    },
+    w2herd2 = {
+      lines = { { id = "w2hr2_default", text = "Because they'd sing the long song for me, and I couldn't bear it. One day, maybe, when I can stand up for a whole week without anyone knocking me over. That would be a good thing to walk home with." } },
+      choices = { { text = "I hope you get that week, Gamon.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
     dd_deaths = {
       lines = {
         { id = "dd_de_default", text = "The difference is you get back up and go somewhere, and I get back up and get knocked down again by the next grunt who wants to test his strength. My mother used to say the earth catches everyone who falls, but I don't think she meant for it to catch me quite this often." },
@@ -2207,6 +2222,7 @@ P:NPC {
         { text = "I could teach whoever keeps knocking you down a lesson.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Did you ever hunt, Gamon, before you ended up on this floor?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Something about me seems to frighten you, Gamon.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
+        { text = "What was your herd like, back in Mulgore?", next = "w2herd" },
         { text = "I won't hit you.", next = "END", fx = { affinity = 3, trait = { kind = 1 } } },
         { text = "You carry yourself like an old warrior, Gamon. What happened?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "I'd bet a mage has knocked you down before.", next = "xmage", when = { class = "MAGE", faction = "Horde" } },
@@ -2273,6 +2289,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2offwatch = {
+      lines = { { id = "w2ow_default", text = "I go to the Valley of Honor and fight the sparring posts until my arms shake. If I do not burn the rage out before I sleep, I wake in the night with my hands already reaching for an axe." } },
+      choices = {
+        { text = "Does it ever burn out completely?", next = "w2offwatch2" },
+        { text = "That sounds like no way to live.", next = "w2offwatch2" },
+        { text = "Something else, grunt.", next = "BACK" },
+      },
+    },
+    w2offwatch2 = {
+      lines = {
+        { id = "w2ow2_orc", when = { race = "Orc" }, text = "Never, brother, and you know it never does. It was in our fathers before the demons came and it will be in our sons. The only question an orc can answer is where he points it, and I point it at the doors of this hold." },
+        { id = "w2ow2_default", text = "Never. It was in my father before the demons ever came, and it will be in my sons. All an orc can choose is where he points it, and I point mine at the doors of this hold." },
+      },
+      choices = { { text = "Then point it well.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     eg_doors = {
       lines = { { id = "eg_doors_l", text = "They never will. Every soul who walks into Grommash Hold walks past me first, and I look at every face, and I remember it." } },
       choices = {
@@ -2327,6 +2358,7 @@ P:NPC {
         { text = "I'm a warrior too. Teach me that fury.", next = "fury", when = { class = "WARRIOR" } },
         { text = "Your eyes never leave the doors of the hold.", next = "eg_doors" },
         { text = "Do the other guards share your rage?", next = "eg_others" },
+        { text = "What do you do when your watch is over?", next = "w2offwatch" },
         { text = "Lok'tar ogar.", next = "END" },
       },
     },

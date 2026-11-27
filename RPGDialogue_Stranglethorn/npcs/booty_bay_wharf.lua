@@ -1005,6 +1005,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_un = {
+      lines = { { id = "w8_un_a", text = "They sit, friend, and then they sit a while longer, and then the Cartel sells them by the crate to the shops on the lower docks. A drowned man's boots are a hard sell, though you'd be surprised how often someone takes them in the end." } },
+      choices = {
+        { text = "Who would buy a drowned man's boots?", next = "w8_un2" },
+        { text = "That's a grim way to stock a shop.", next = "w8_un2" },
+        { text = "Every lot sells eventually. That's the Cartel way.", next = "w8_un2", when = { race = "Goblin" } },
+        { text = "Something else, Graves.", next = "BACK" },
+      },
+    },
+    w8_un2 = {
+      lines = {
+        { id = "w8_un2_a", text = "New arrivals off the Ratchet boat, mostly, who came south with nothing and mean to go up the jungle road tomorrow. I sell them the boots and I don't tell them where they came from, friend, and some of them come back to sell them to me again." },
+        { id = "w8_un2_gob", when = { race = "Goblin" }, text = "You know the house well, friend. Everything sells, and everything comes back, and the Cartel takes a cut each way, which is as close to a religion as this bay has." },
+      },
+      choices = {
+        { text = "And some of them don't come back at all.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     d6_odd = {
       lines = { { id = "d6_odd_a", text = "A ship's figurehead, friend, a mermaid with half her face gone, pulled off the reef after a storm. It sat behind the counter for thirty days and watched me while I worked, and I'll admit I didn't mind the company." } },
       choices = {
@@ -1070,6 +1090,7 @@ P:NPC {
         { text = "You look gloomy, Graves.", next = "gloom" },
         { text = "What's the oddest lot you've ever sold?", next = "d6_odd" },
         { text = "Do the Bruisers keep the peace in here?", next = "d6_peace" },
+        { text = "What happens to the lots nobody bids on?", next = "w8_un" },
         { text = "Nothing today. Good day, Graves.", next = "END" },
       },
     },
@@ -1145,6 +1166,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_sea = {
+      lines = { { id = "w8_sea_a", text = "Oh, oh, chief, you didn't hear it from me, but Fleet Master Seahorn's people have been buyin' every Bloodsail chart that turns up, every one, top bid, no haggling. Somebody up in the Baron's tower wants to know where those pirates sleep, and it ain't for a social call." } },
+      choices = {
+        { text = "Why would Seahorn want their charts?", next = "w8_sea2" },
+        { text = "You'll get yourself killed talking like that.", next = "w8_sea2" },
+        { text = "A rogue could fetch those charts cheaper.", next = "w8_sea2", when = { class = "ROGUE" } },
+        { text = "Something else, Kresky.", next = "BACK" },
+      },
+    },
+    w8_sea2 = {
+      lines = {
+        { id = "w8_sea2_a", text = "'Cause the Bloodsail want the Baron dead and the bay for themselves, chief, everybody knows it, and Seahorn means to hit 'em first. If you're lookin' for work and you don't mind pirates shootin' at ya, he's up the tower near the Baron, and he pays real coin." },
+        { id = "w8_sea2_rogue", when = { class = "ROGUE" }, text = "Cheaper, sure, and quieter, and then I lose my cut, chief, so let's pretend you didn't say that. But if you're the sort who slips aboard a Bloodsail ship at night, Seahorn up the tower would love to meet you, and I never said a word." },
+      },
+      choices = {
+        { text = "I'll go and see Seahorn.", next = "BACK" },
+        { text = "Your secret's safe. Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1164,6 +1205,7 @@ P:NPC {
         { text = "You look like you're scared of half of what you know.", next = "scared" },
         { text = "Any hot goods come through that nobody asks about?", next = "hot", when = { class = "ROGUE" } },
         { text = "What's the weirdest gear a gnome ever bought here?", next = "gnome", when = { race = "Gnome" } },
+        { text = "Who's bidding against the Bloodsail these days?", next = "w8_sea" },
         { text = "I'm not here to chat. Goodbye, Kresky.", next = "END" },
       },
     },
@@ -1280,6 +1322,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_ar = {
+      lines = { { id = "w8_ar_a", text = "Does it, champ! Every time Short John drops that chest in the pit, somebody fights their way to it, and somebody else stabs 'em on the way out, and the winner comes straight to O'reely to sell the prize. Blood on the lot, champ, and the bids go through the roof." } },
+      choices = {
+        { text = "Why does blood make the bids go up?", next = "w8_ar2" },
+        { text = "I'd sooner win the chest than buy it.", next = "w8_ar2" },
+        { text = "I've fought in that pit myself.", next = "w8_ar2", when = { class = "WARRIOR" } },
+        { text = "Something else, O'reely.", next = "BACK" },
+      },
+    },
+    w8_ar2 = {
+      lines = {
+        { id = "w8_ar2_a", text = "'Cause it's a story, champ, and a story's worth more than steel any day. Grandpa O'reely used to say a sword's just a sword until somebody died for it, and then it's an heirloom, and heirlooms sell at a premium." },
+        { id = "w8_ar2_war", when = { class = "WARRIOR" }, text = "Have you, champ! Then next time you come out of that pit with the chest, come straight here, still bleedin' if you can manage it, and I'll tell the whole room how you won it. That's worth a few extra bids, I promise ya." },
+      },
+      choices = {
+        { text = "Your grandfather sounds like quite a goblin.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1299,6 +1361,7 @@ P:NPC {
         { text = "You and Graves can't be much alike.", next = "graves" },
         { text = "Tell me about this famous ogre's axe.", next = "axe", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Got anything from the old dwarven holds?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Does anything from the Gurubashi Arena come across your counter?", next = "w8_ar" },
         { text = "I've heard enough stories. Goodbye, O'reely.", next = "END" },
       },
     },

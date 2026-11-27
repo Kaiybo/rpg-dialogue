@@ -215,6 +215,7 @@ P:NPC {
         { text = "What's a druid meant to do with a staff?", next = "staff", when = { class = "DRUID" } },
         { text = "You'd sell steel to the Horde?", next = "horde", when = { faction = "Horde" } },
         { text = "Show me your weapons.", next = "BUSINESS" },
+        { text = "What's the strangest thing anyone has asked you to make?", next = "w_strange" },
         { text = "Farewell, Meliri.", next = "END" },
       },
     },
@@ -307,6 +308,25 @@ P:NPC {
         { id = "ho_default", text = "Here, under the Keeper's peace, I sell to anyone who keeps it. Whether my blade ends up in Ashenvale afterwards is a question I try very hard not to ask, and I'd thank you not to answer it." },
       },
       choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+    w_strange = {
+      lines = {
+        { id = "w_strange_default", text = "A sword that couldn't cut, for a young druid who wanted to carry one into the glade without breaking the Keeper's peace. I made him a blade of blunt bronze with no edge at all, and he wore it proudly for a year and never once drew it." },
+      },
+      choices = {
+        { text = "Why would he want that?", next = "w_strange2" },
+        { text = "A sword that couldn't cut.", next = "w_strange2" },
+      },
+    },
+    w_strange2 = {
+      lines = {
+        { id = "w_strange2_default", text = "His father was a Sentinel who fell in Ashenvale, and he wanted to carry something of hers without bringing war into the glade. I've made three more since, for other children of the fallen. It's the best work I do, and I charge almost nothing for it." },
+        { id = "w_strange2_w1", when = { race = "NightElf" }, text = "If you've lost someone to the war, and you want one, come back and ask. I'll know what you mean." },
+      },
+      choices = {
+        { text = "That's a kind craft.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Meliri.", next = "BACK" },
+      },
     },
   },
 
@@ -539,6 +559,7 @@ P:NPC {
         { text = "What thread would you use for fine work?", next = "tailor", when = { profession = "Tailoring" } },
         { text = "My people dye with clay and roots.", next = "tauren", when = { race = "Tauren" } },
         { text = "Let me see your supplies.", next = "BUSINESS" },
+        { text = "Which dye is hardest to make?", next = "w_dye" },
         { text = "Good day, Darnall.", next = "END" },
       },
     },
@@ -626,6 +647,25 @@ P:NPC {
         { id = "tau_default", text = "So I've learned from your druids, who bring me red earth from Mulgore and ask whether I can match it. I can't, quite, and it vexes me more than I'd like to say." },
       },
       choices = { { text = "Some colours can't be bought. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    w_dye = {
+      lines = {
+        { id = "w_dye_default", text = "Moonlight silver, the one the priestesses want for their festival robes. It needs a lichen that grows only on the north face of the Stormrage Barrow Dens, gathered on the night of the full moon, and I'm far too old to climb there now." },
+      },
+      choices = {
+        { text = "Who gathers it, then?", next = "w_dye2" },
+        { text = "That sounds hard to get.", next = "w_dye2" },
+      },
+    },
+    w_dye2 = {
+      lines = {
+        { id = "w_dye2_default", text = "A young tauren druid in bird form, who flies up and brings it back in her beak. She refuses payment, so I dye her a scarf every year in whatever colour she likes, and she always picks red, which the old druids hate. I think she does it on purpose." },
+        { id = "w_dye2_w1", when = { class = "DRUID" }, text = "You could fly up there yourself, I suppose, if you have the shape for it. Bring me a beakful of lichen some full moon, and I'll dye you any colour you like, even red." },
+      },
+      choices = {
+        { text = "Red is a fine choice.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Darnall.", next = "BACK" },
+      },
     },
   },
 

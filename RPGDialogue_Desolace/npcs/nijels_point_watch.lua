@@ -455,7 +455,36 @@ P:NPC {
         { text = "Who keeps Nijel's Point standing?", next = "npoint" },
         { text = "You must see the demon fires from the air.", next = "fires" },
         { text = "Do the birds remember the forests of Ashenvale?", next = "hippo_home", when = { race = "NightElf" } },
+        { text = "How do you train a hippogryph to carry strangers?", next = "w7_train" },
         { text = "Farewell, Baritanas.", next = "END" },
+      },
+    },
+    w7_train = {
+      lines = {
+        { id = "w7_train_l1", text = "Patiently, and with a lot of fish. A young bird has to learn that a stranger on its back is a guest and not an attack, and that takes a season of short flights with me riding behind, whispering nonsense into its feathers." },
+      },
+      choices = {
+        { text = "What sort of nonsense?", next = "w7_train2" },
+        { text = "I'd rather a bird that didn't trust strangers.", next = "w7_train3" },
+        { text = "Something else, Baritanas.", next = "BACK" },
+      },
+    },
+    w7_train2 = {
+      lines = {
+        { id = "w7_train2_l1", text = "Names of stars, mostly, and the roads below, and sometimes a song I learned as a girl in Auberdine. The words don't matter; what matters is that my voice is the same every time, so the bird knows the sky is the same every time too." },
+        { id = "w7_train2_l2", when = { race = "NightElf" }, text = "Old star-names, the ones our grandmothers taught us under the boughs of Ashenvale. You know them, so if a bird ever balks under you, say Elune's names softly in its ear, and it will remember me." },
+      },
+      choices = {
+        { text = "I'll remember that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_train3 = {
+      lines = {
+        { id = "w7_train3_l1", text = "Then you'd walk to Feathermoon, friend, and it's a long, dry walk with centaur on it. A bird that trusts its rider gets you home; a bird that doesn't throws you off over Mannoroc." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     npoint = {

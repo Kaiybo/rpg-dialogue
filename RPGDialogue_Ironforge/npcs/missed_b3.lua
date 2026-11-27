@@ -29,13 +29,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_danger = {
+      lines = {
+        { id = "w2_danger_l0", text = "The wee blue bottle at the top, which Mistress Tally says I'm no' tae touch until I've been here five years. It's no' labelled, an' she won't tell me what it is, an' I dream about it." },
+      },
+      choices = {
+        { text = "Have you guessed?", next = "w2_danger_guess" },
+        { text = "Some things are better left on high shelves.", next = "BACK" },
+      },
+    },
+    w2_danger_guess = {
+      lines = {
+        { id = "w2_danger_guess_l0", text = "I think it's somethin' tae undo a bad brew, for she glances at it every time I make a mistake. Or it's somethin' tae undo me, if I make a big enough one. I'm takin' great care, as ye can see." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Vosur Brakthel, apprentice tae Mistress Tally Berryfizz. I measure what she tells me tae measure an' I wash a great many bottles, an' one day I'll make a healin' draught that doesnae taste o' boots." },
       },
       again = {
         { id = "h_again", text = "What else? This has tae steep a while yet." },
-        { id = "h_again2", text = "Go on, I'm listenin'." },
+        { id = "h_again2", text = "Mind the flask, I've both hands on it. Go on, though, I can listen an' pour." },
         { id = "h_again_x0", when = { profession = "Alchemy" }, text = "Back again? Come an' smell this, an' tell me if it's ready." },
       },
       choices = {
@@ -45,6 +62,7 @@ P:NPC {
         { text = "What's Mistress Tally like to work for?", next = "tally" },
         { text = "Swiftthistle goes in after the boil.", next = "BACK", when = { profession = "Alchemy" }, reply = "That's what my nose said! I'll tell Mistress Tally a fellow alchemist agrees wi' me, an' then I'll duck.", fx = { affinity = 1 } },
         { text = "Do the gnomes treat you well?", next = "gnomes", when = { race = "Dwarf" } },
+        { text = "What's the most dangerous thing on these shelves?", next = "w2_danger" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -125,6 +143,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_hard = {
+      lines = {
+        { id = "w2_hard_l0", text = "The ones who steal tae eat. I can catch a hungry gnome refugee wi' his hand in a baker's basket as easy as any cutpurse, but I'd sooner no'. The law doesnae care why, an' I'm meant tae be the law." },
+      },
+      choices = {
+        { text = "What do you do?", next = "w2_hard_do" },
+        { text = "The law is the law.", next = "BACK", reply = "Aye, an' I keep it, every time. But I dinnae have tae like it.", fx = { align = { order = 1 } } },
+        { text = "Let the hungry ones go.", next = "BACK", reply = "An' then the next hungry one, an' the next? Nae, friend. But I'll see they're fed after.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_hard_do = {
+      lines = {
+        { id = "w2_hard_do_l0", text = "Take them in, an' then pay their fine myself, an' then walk them tae the chapel where the priests feed refugees. It's no' in my orders, but nobody's ever told me tae stop." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Thief Catcher Farmountain. The guards on the gates watch for armies, an' I watch for the one wee hand in a crowd that's where it shouldnae be." },
@@ -143,6 +180,7 @@ P:NPC {
         { text = "What happens when you catch one?", next = "catch" },
         { text = "I'm no thief, I'll have you know.", next = "BACK", when = { class = "ROGUE" }, reply = "Then ye'll no' mind me watchin' yer hands while we talk. An honest dwarf has naethin' tae fear from a look." },
         { text = "Do you watch gnomes closer than dwarves?", next = "gnomes", when = { race = "Gnome" } },
+        { text = "What's the hardest part of your work?", next = "w2_hard" },
         { text = "Carry on, thief catcher.", next = "END" },
       },
     },
@@ -222,6 +260,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_miss = {
+      narr = "He is quiet for long enough that you think he will not answer.",
+      lines = {
+        { id = "w2_miss_l0", text = "Some nights. The thrill o' it, the waitin' in the dark, knowin' ye're cleverer than everyone in the room. Now I get the same thrill catchin' the ones who think they're cleverer than me, an' I sleep easier for it." },
+      },
+      choices = {
+        { text = "Did you choose to change, or were you caught?", next = "w2_miss_caught" },
+        { text = "A thief doesn't change his nature.", next = "BACK" },
+      },
+    },
+    w2_miss_caught = {
+      lines = {
+        { id = "w2_miss_caught_l0", text = "Both. I was caught, an' given a choice: the Stockade or the warrant. I chose the warrant, an' I've kept it twelve years now. The first year, I chose it every mornin' again. Now it's habit." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm a thief catcher, an' the name on my warrant doesnae matter much, for the folk I'm after never ask it. The others walk the middle o' the hall tae be seen, an' I walk the edge tae see." },
@@ -242,6 +298,7 @@ P:NPC {
         { text = "Night elves walk quieter still.", next = "BACK", when = { race = "NightElf" }, reply = "Aye, an' I've chased one or two through the Mystic Ward. They're quiet, but they're tall, an' tall shows." },
         { text = "Which part of the city sees the most thieving?", next = "d0_where" },
         { text = "You never stand with your back to a door.", next = "d0_back" },
+        { text = "Do you ever miss the other side of the work?", next = "w2_miss" },
         { text = "I'll leave you to the shadows.", next = "END" },
       },
     },
@@ -347,13 +404,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_cousins = {
+      lines = {
+        { id = "w2_cousins_l0", text = "Mind? Every Winter Veil they ask when I'm comin' home tae the vats, an' every Winter Veil I bring them a cutpurse story instead. Ragnar says I've wasted the family nose on the city." },
+      },
+      choices = {
+        { text = "Is your nose any good?", next = "w2_cousins_nose" },
+        { text = "The city needs you more than the vats do.", next = "BACK" },
+      },
+    },
+    w2_cousins_nose = {
+      lines = {
+        { id = "w2_cousins_nose_l0", text = "The best in the family, they say. I can tell ye what a dwarf drank last night from ten paces, which, as it happens, is very useful for catchin' thieves. Most o' them drink cheap ale before a job, for the courage." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Thief Catcher Thunderbrew, at yer service. I walk the wards an' keep the light-fingered honest, an' I do it wi' a smile, for a thief relaxes round a smilin' dwarf an' that's when I have him." },
       },
       again = {
         { id = "h_again", text = "What else? I've the Mystic Ward still tae walk." },
-        { id = "h_again2", text = "Go on, but walk wi' me." },
+        { id = "h_again2", text = "Go on, but walk wi' me, an' whistle if ye like; it puts the shopkeepers at ease." },
         { id = "h_again_x0", when = { race = "Dwarf" }, text = "Back again? Still nae barrel, before ye ask." },
       },
       choices = {
@@ -365,6 +439,7 @@ P:NPC {
         { text = "Walk me through your round.", next = "round" },
         { text = "You smile at thieves?", next = "smile", when = { class = "ROGUE" } },
         { text = "Can you get me a Thunderbrew barrel?", next = "BACK", when = { race = "Dwarf" }, reply = "Nae, I cannae, an' if I could, I'd have one under my own bed. Ask Ragnar in Kharanos, an' tell him I said nae." },
+        { text = "Do your Thunderbrew cousins mind that you don't brew?", next = "w2_cousins" },
         { text = "Good day, thief catcher.", next = "END" },
       },
     },
@@ -444,13 +519,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_hope = {
+      lines = {
+        { id = "w2_hope_l0", text = "My grandfather's old war-axe, that hangs over the hearth at home. It's never had a rune on it, an' he's too proud tae have a gnome do it. But he might let his grandson, if I'm ever good enough." },
+      },
+      choices = {
+        { text = "Will he let you?", next = "w2_hope_let" },
+        { text = "A plain axe has its own honour.", next = "BACK" },
+      },
+    },
+    w2_hope_let = {
+      lines = {
+        { id = "w2_hope_let_l0", text = "He's said \"maybe,\" which for him is near enough a yes. I've drawn the rune a thousand times on paper. When I can draw it in my sleep wi'out the line wobblin', I'll ask him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Thonys Pillarstone, apprentice enchanter. I came tae Master Gimble because I wanted tae know why a runed blade bites deeper, an' I've learned that the answer is long an' mostly in gnomish." },
       },
       again = {
         { id = "h_again", text = "What else? I'm only grindin' dust." },
-        { id = "h_again2", text = "Aye, go on." },
+        { id = "h_again2", text = "Aye, go on, an' if my beard starts glowin' again, tell me quick." },
         { id = "h_again_x0", when = { profession = "Enchanting" }, text = "Back again? Come an' see what I've broken down today." },
       },
       choices = {
@@ -462,6 +554,7 @@ P:NPC {
         { text = "Enchanting is just arcane bookkeeping.", next = "BACK", when = { class = "MAGE" }, reply = "That's what Master Gimble says, more or less. I'd only add that the books keep tryin' tae set my beard on fire." },
         { text = "What do you break down most often?", next = "d0_break" },
         { text = "Tilli Thistlefuzz speaks well of you.", next = "d0_tilli" },
+        { text = "What do you hope to enchant one day?", next = "w2_hope" },
         { text = "I'll let you get back to it.", next = "END" },
       },
     },
@@ -570,6 +663,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_home = {
+      lines = {
+        { id = "w2_home_l0", text = "Every time the tram bell rings, and every time I order another. My brother writes that the city's changed, with more guards and fewer friends, and I'm not sure I'd know my way to my own door." },
+      },
+      choices = {
+        { text = "What keeps you from going?", next = "w2_home_keep" },
+        { text = "A week in Ironforge became a life. It happens.", next = "BACK" },
+      },
+    },
+    w2_home_keep = {
+      lines = {
+        { id = "w2_home_keep_l0", text = "The letters, I suppose. Half the soldiers in Bruuk's can't write, and they bring me their words for home, and somebody has to put them down properly. If I left, who would they bring them to?" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Tisa Martine. I came up from Stormwind on the tram meaning to stay a week, and that was some while ago. The ale is better here, the beds are shorter, and nobody in Bruuk's has ever once asked me about the House of Nobles." },
@@ -587,6 +697,7 @@ P:NPC {
         { text = "What's the news from Stormwind?", next = "news" },
         { text = "How did Bruuk's drinking contest end?", next = "contest", when = { race = "Dwarf" } },
         { text = "Do you pray to the Light up here?", next = "BACK", when = { class = "PRIEST" }, reply = "When I remember, and the Mystic Ward's a fine place for it. The dwarves pray louder than we do in Stormwind, but the Light hears them just the same." },
+        { text = "Do you ever think of going home to Stormwind?", next = "w2_home" },
         { text = "Enjoy your ale, Tisa.", next = "END" },
       },
     },
@@ -670,6 +781,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_first = {
+      lines = {
+        { id = "w2_first_l0", text = "A blanket for a lamb, when I was a lad on the farm. It was too big, an' crooked, an' the lamb wouldnae wear it, so I wore it myself all winter. My mother still has it, folded in the chest." },
+      },
+      choices = {
+        { text = "And now you sew for the city.", next = "w2_first_city" },
+        { text = "A lamb blanket is a fine start.", next = "BACK" },
+      },
+    },
+    w2_first_city = {
+      lines = {
+        { id = "w2_first_city_l0", text = "Shirts for thanes' sons an' bedrolls for soldiers, aye. But every time Master Jormund lets me pick a cloth, I pick the one that feels like that blanket. Poranna says it's because I'm soft, an' she's likely right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Uthrar Threx, apprentice tae Master Jormund Stonebrow. I cut the linen, sew the plain seams an' sweep up the soot, an' when I've done all three right in one day, he lets me try a buttonhole." },
@@ -687,6 +815,7 @@ P:NPC {
         { text = "What does a tailor bring to a camp?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Tailoring") } },
         { text = "What do you sew, most days?", next = "d0_days" },
         { text = "Your hands look more like a herder's than a tailor's.", next = "d0_herd" },
+        { text = "What's the first thing you ever sewed?", next = "w2_first" },
         { text = "Mind your stitches, Uthrar.", next = "END" },
       },
     },

@@ -30,13 +30,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_useless = {
+      lines = {
+        { id = "w2_useless_l0", text = "A ten-foot pole, by a gnome who'd read that a proper adventurer always carries one. He couldnae get it out the door, an' I had tae saw it in half for him, an' then he bought a second one tae make it whole again." },
+      },
+      choices = {
+        { text = "Did he ever use it?", next = "w2_useless_use" },
+        { text = "I'd have bought one too.", next = "BACK" },
+      },
+    },
+    w2_useless_use = {
+      lines = {
+        { id = "w2_useless_use_l0", text = "He came back three weeks later an' said it saved his life in a troll cave, pokin' a trap he'd never have seen otherwise. I've stocked ten-foot poles ever since, an' I've sold four." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Adlin Pridedrift, an' this is the only general store between here an' Kharanos. Every recruit in Coldridge comes through my door sooner or later, mostly after they've found out what they forgot." },
       },
       again = {
         { id = "h_again", text = "What else can I do fer ye, {class}?" },
-        { id = "h_again2", text = "Aye, go on, I'm no' busy till the next cart comes in." },
+        { id = "h_again2", text = "Aye, go on, I'm no' busy till the next cart comes in, an' Nori's mule is always late." },
         { id = "h_again_x0", when = { race = "Gnome" }, text = "Need somethin' off the high shelf, friend? Say the word an' I'll fetch the ladder." },
       },
       choices = {
@@ -48,6 +65,7 @@ P:NPC {
         { text = "Do the gnome refugees shop here?", next = "refugees" },
         { text = "Who keeps a store this far up supplied?", next = "carts" },
         { text = "Do you sell arrows or shot?", next = "ammo", when = { class = "HUNTER" } },
+        { text = "What's the most useless thing a recruit's bought here?", next = "w2_useless" },
         { text = "I'll look over your shelves.", next = "END" },
       },
     },
@@ -325,6 +343,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_broken = {
+      lines = {
+        { id = "w2_broken_l0", text = "Mend it if I can, melt it if I cannae, an' keep the worst of it on that hook by the door. Every recruit who comes in sees it, an' every one asks, an' I tell them who was wearin' it." },
+      },
+      choices = {
+        { text = "Who was wearing that one?", next = "w2_broken_who" },
+        { text = "A grim lesson, but a fair one.", next = "BACK" },
+      },
+    },
+    w2_broken_who = {
+      lines = {
+        { id = "w2_broken_who_l0", text = "A lad who said he didnae need a helm, for he'd a hard head. The troll's club disagreed. He lived, mind, an' he's a Mountaineer now, an' he's never once taken his helm off on duty since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Grundel Harkin, armorer. I fit the recruits o' Coldridge wi' their first proper mail, an' I've the pleasure o' seein' what the valley does tae it afterward." },
@@ -343,6 +378,7 @@ P:NPC {
         { text = "Who taught you to make armor?", next = "taught" },
         { text = "What do you make of the Frostmane?", next = "frost" },
         { text = "Do you have anything in my size?", next = "small", when = { race = "Gnome" } },
+        { text = "What do you do with armour that comes back broken?", next = "w2_broken" },
         { text = "Let me see what you have.", next = "END" },
       },
     },
@@ -432,13 +468,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_back = {
+      lines = {
+        { id = "w2_back_l0", text = "All the time! A captain o' the Guard came in last month wi' the first axe I ever sold him, still sharp, an' asked me tae look at it. I nearly wept, an' then I charged him for the honin', for business is business." },
+      },
+      choices = {
+        { text = "That must have been a proud moment.", next = "w2_back_proud" },
+        { text = "You should have done it for free.", next = "BACK" },
+      },
+    },
+    w2_back_proud = {
+      lines = {
+        { id = "w2_back_proud_l0", text = "Proudest o' my life. He said that axe had seen him through two battles an' a bad marriage. I've hung his thanks on the wall, an' if ye squint, ye can see my tears on the parchment." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Rybrad Coldbank, an' these are the first weapons most o' Ironforge's soldiers ever paid fer. They're plain, an' they're honest, an' they'll outlast yer first three mistakes." },
       },
       again = {
         { id = "h_again", text = "What else, {class}? I could talk steel till the thaw." },
-        { id = "h_again2", text = "Go on, then, I'm listenin'." },
+        { id = "h_again2", text = "Go on, then, I'm listenin', an' I'll hand ye an axe tae hold while ye talk." },
         { id = "h_again_x0", when = { class = "WARRIOR" }, text = "Back tae heft somethin' heavier, are ye? Good, I've a new hammer that wants a strong arm." },
       },
       choices = {
@@ -450,6 +503,7 @@ P:NPC {
         { text = "You test every edge on your thumb?", next = "thumb" },
         { text = "Do the Frostmane carry good steel?", next = "steel" },
         { text = "Where would a hunter buy a gun around here?", next = "gun", when = { class = "HUNTER" } },
+        { text = "Do your old customers ever come back to see you?", next = "w2_back" },
         { text = "Show me the rack.", next = "END" },
       },
     },
@@ -539,6 +593,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_ear = {
+      lines = {
+        { id = "w2_ear_l0", text = "A wager wi' Shorty, that I could stand closer tae the mortar than him when she went off. I won by a full yard, an' I've been sayin' \"eh?\" ever since. Shorty paid up, mind, a whole barrel." },
+      },
+      choices = {
+        { text = "Was it worth it?", next = "w2_ear_worth" },
+        { text = "That's the daftest wager I've ever heard.", next = "BACK" },
+      },
+    },
+    w2_ear_worth = {
+      lines = {
+        { id = "w2_ear_worth_l0", text = "Eh? Oh, aye, worth it. I cannae hear Shorty's complainin' when he's on my left side, an' that's a blessin' that keeps on givin'. I make sure he always loads from that side now." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Angus, o' the mortar team. Shorty loads her an' I lay her on the target, an' between the pair of us we can put a shell on a trogg's hat from the far side o' a hill." },
@@ -556,6 +627,7 @@ P:NPC {
         { text = "Have you ever fired that mortar in a real fight?", next = "fight" },
         { text = "What's the loudest shot you ever fired?", next = "loud" },
         { text = "Couldn't a scope help your aim?", next = "scope", when = { profession = "Engineering" } },
+        { text = "How did you lose the hearing in your left ear?", next = "w2_ear" },
         { text = "Keep your powder dry.", next = "END" },
       },
     },
@@ -640,13 +712,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_else = {
+      lines = {
+        { id = "w2_else_l0", text = "Bake, I suppose, like my mother. Loadin' a shell's no' so different from fillin' a pie: ye measure careful, ye pack it firm, an' if ye get it wrong, somebody's havin' a bad afternoon." },
+      },
+      choices = {
+        { text = "Do you bake now and then?", next = "w2_else_bake" },
+        { text = "A gunner and a baker both.", next = "BACK" },
+      },
+    },
+    w2_else_bake = {
+      lines = {
+        { id = "w2_else_bake_l0", text = "On my days off, for the camp. Angus eats more than anybody an' complains the crust's too hard, an' then eats another. I put a wee bit o' powder in his once, as a joke. Only a wee bit." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "They call me Shorty, an' that's Angus's doin', for I've a full inch on him. I load the mortar an' he aims her, which means when we miss it's his fault." },
       },
       again = {
         { id = "h_again", text = "Aye? Quick, now, before Angus gets bored an' fires wi'out me." },
-        { id = "h_again2", text = "What else can I tell ye?" },
+        { id = "h_again2", text = "What else? Mind the mortar, it's loaded, an' I'd sooner it went off at troggs than at you." },
         { id = "h_again_x0", when = { race = "Gnome" }, text = "Still no improvements, mind. What else, wee one?" },
       },
       choices = {
@@ -657,6 +746,7 @@ P:NPC {
         { text = "Why put up with Angus all these years?", next = "angus" },
         { text = "Has the camp seen trouble from the pass?", next = "pass" },
         { text = "Which clan are you from, Shorty?", next = "clan", when = { race = "Dwarf" } },
+        { text = "What would you do if you weren't on the mortar?", next = "w2_else" },
         { text = "Carry on, Shorty.", next = "END" },
       },
     },
@@ -736,13 +826,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_post = {
+      lines = {
+        { id = "w2_post_l0", text = "Every time a shell lands too close, aye. But the truth is, I'm the only one who can see far enough tae spot for them, an' if I left, they'd be firin' blind. They'd hit the camp in a week." },
+      },
+      choices = {
+        { text = "So you stay to keep them safe.", next = "w2_post_stay" },
+        { text = "Let them fire blind. They earned it.", next = "BACK" },
+      },
+    },
+    w2_post_stay = {
+      narr = "He lowers the glass and scratches at the soot in his beard.",
+      lines = {
+        { id = "w2_post_stay_l0", text = "I stay because they're my friends, daft as they are. Dinnae tell them I said so, for they'd never stop aimin' at me after." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Spotter Klemmy. I stand where I can see the target an' tell Angus an' Shorty how far off they were, an' some days they're off by exactly the distance tae where I'm standin'." },
       },
       again = {
         { id = "h_again", text = "Aye, what else? Keep an ear out while we talk." },
-        { id = "h_again2", text = "Go on, I'm listenin', mostly." },
+        { id = "h_again2", text = "Go on. I've one eye on the glass an' one ear on you, an' that's the best I can do." },
         { id = "h_again_x0", when = { class = "HUNTER" }, text = "Ye're back, {class}. Ye've changed yer mind about spottin'? Nae, I thought not." },
       },
       choices = {
@@ -753,6 +861,7 @@ P:NPC {
         { text = "How did you come by such sharp eyes?", next = "eyes" },
         { text = "What have you seen in the pass lately?", next = "lately" },
         { text = "Is that a gnomish spyglass?", next = "glass", when = { race = "Gnome" } },
+        { text = "Have you ever thought of asking for another post?", next = "w2_post" },
         { text = "Keep your head down, Klemmy.", next = "END" },
       },
     },
@@ -836,13 +945,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_taught = {
+      lines = {
+        { id = "w2_taught_l0", text = "My grandmother, wi' a rifle older than she was, on the slopes above Kharanos. She'd make me wait a whole minute between breaths before she'd let me squeeze. She said a hurried shot was a wasted ball." },
+      },
+      choices = {
+        { text = "Is she still shooting?", next = "w2_taught_still" },
+        { text = "Wheeler would say a slow shot is a missed one.", next = "BACK" },
+      },
+    },
+    w2_taught_still = {
+      lines = {
+        { id = "w2_taught_still_l0", text = "She's ninety-one an' still takes a hare every week from her doorstep. Wheeler once challenged her tae a shoot, an' she beat him wi' her eyes half shut. He's never spoken of it since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Rifleman Middlecamp, Ironforge mountaineers. We hold this camp tae watch the Coldridge Pass, an' when the pass is quiet we shoot, because a rifleman who's out o' practice is only a dwarf wi' a heavy stick." },
       },
       again = {
         { id = "h_again", text = "Aye? Be brief, I'm next on the line." },
-        { id = "h_again2", text = "What else, {class}?" },
+        { id = "h_again2", text = "What else, {class}? Quietly, mind; Wheeler's on the line." },
         { id = "h_again_x0", when = { class = "HUNTER" }, text = "Back again, shooter? Mind yer breath while ye talk, it's good practice." },
       },
       choices = {
@@ -854,6 +980,7 @@ P:NPC {
         { text = "What happens if the pass is attacked?", next = "plan" },
         { text = "I squeeze, never pull.", next = "BACK", when = { class = "HUNTER" }, reply = "Then ye're a proper shot, an' I'd stand ye a pint if Wheeler werenae watchin'. Keep it that way.", fx = { affinity = 1 } },
         { text = "Do you build your own rifle?", next = "rifle", when = { profession = "Engineering" } },
+        { text = "Who taught you to shoot so carefully?", next = "w2_taught" },
         { text = "Good shooting, rifleman.", next = "END" },
       },
     },
@@ -936,13 +1063,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_worst = {
+      lines = {
+        { id = "w2_worst_l0", text = "Ha! Ye'll no' hear that from me. All right, then, one: I shot the hat clean off a visitin' thane in Kharanos, at a parade, aimin' for a pigeon. He kept the hat an' sent me the bill." },
+      },
+      choices = {
+        { text = "Did you hit the pigeon?", next = "w2_worst_pigeon" },
+        { text = "A fine story to tell at the inn.", next = "BACK" },
+      },
+    },
+    w2_worst_pigeon = {
+      lines = {
+        { id = "w2_worst_pigeon_l0", text = "I did, actually, wi' the same ball, which is why I wasnae flogged. The thane said any dwarf who could take a hat an' a pigeon in one shot was wasted on parades, an' sent me up here. So the worst shot o' my life was the best one." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Rifleman Wheeler, an' if ye need somethin' shot, I'm the dwarf fer it. We mind the Coldridge Pass from this camp, an' between watches I take Middlecamp's pride off him ten rounds at a time." },
       },
       again = {
         { id = "h_again", text = "What else, friend? I've a minute before my turn." },
-        { id = "h_again2", text = "Aye, go on!" },
+        { id = "h_again2", text = "Aye, go on! Talk quick, I'm up after Middlecamp an' I mean tae beat him." },
         { id = "h_again_x0", when = { class = "HUNTER" }, text = "Back already? Shot anythin' grand yet, {class}? I'll still have done better." },
       },
       choices = {
@@ -954,6 +1098,7 @@ P:NPC {
         { text = "What's the best shot you've ever made?", next = "best" },
         { text = "Care to settle who's the better shot?", next = "challenge", when = { class = "HUNTER" } },
         { text = "Gnomes make better rifles than dwarves.", next = "BACK", when = { race = "Gnome" }, reply = "Better? Lighter, an' louder, an' more likely tae go off in yer hands, aye. I'll take Ironforge steel, thank ye." },
+        { text = "What's the worst shot you've ever made?", next = "w2_worst" },
         { text = "Shoot straight, Wheeler.", next = "END" },
       },
     },

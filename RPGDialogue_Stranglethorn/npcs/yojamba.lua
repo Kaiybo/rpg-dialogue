@@ -253,6 +253,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_rep = {
+      lines = { { id = "w8_rep_a", text = "Dat depends entirely on you, outsider, and on how many heads you bring me. So far I have written dat you are useful and dat you talk too much, and both are true." } },
+      choices = {
+        { text = "Who reads these reports?", next = "w8_rep2" },
+        { text = "Write that I talk too much and kill well.", next = "w8_rep2" },
+        { text = "Something else, Exzhal.", next = "BACK" },
+      },
+    },
+    w8_rep2 = {
+      lines = { { id = "w8_rep2_a", text = "De king's speakers on Zandalar, and if dey are pleased, de king himself, who has never once in his long life read de name of an outsider. Bring me de priests' heads, and perhaps you will be de first, and you will have Exzhal to thank for it." } },
+      choices = {
+        { text = "I'd settle for being remembered.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     d6_molthor = {
       lines = { { id = "d6_molthor_a", text = "Molthor is de Hand of Rastakhan, and I am his servitor, so on dis isle de Hand commands. But de Hand is soft with prisoners and slow with heads, and when de king reads my report he will know who did de work." } },
       choices = {
@@ -308,6 +324,7 @@ P:NPC {
         { text = "Do the Zandalar look down on the Darkspear?", next = "darkspear", when = { race = "Troll" } },
         { text = "Who leads here, you or Molthor?", next = "d6_molthor" },
         { text = "Tell me about the high priests of Zul'Gurub.", next = "d6_priests" },
+        { text = "What will you write about me in your report?", next = "w8_rep" },
         { text = "I will go.", next = "END" },
       },
     },
@@ -403,6 +420,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_pray = {
+      lines = { { id = "w8_pray_a", text = "Every night, mon, though Exzhal says I waste Zanza's ears on traitors. De Gurubashi in dat city are trolls, and dey were our children once, and many of dem did not choose de priests who now feed dem to a god." } },
+      choices = {
+        { text = "Can any of them still be saved?", next = "w8_pray2" },
+        { text = "They chose Hakkar. They deserve no prayers.", next = "w8_pray2", fx = { align = { order = 1 } } },
+        { text = "Mercy for the common folk is right, even in war.", next = "w8_pray2", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_pray2 = {
+      lines = { { id = "w8_pray2_a", text = "Zanza does not tell me, and I do not ask him, because a servitor's prayer is a gift and not a bargain. When de priests fall and de loa go home, we will see who is left in Zul'Gurub, and den we will know." } },
+      choices = {
+        { text = "Then I'll help the priests fall.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     d6_elix3 = {
       lines = { { id = "d6_elix3_a", text = "He sleeps for a day and wakes up thinking he can wrestle a tiger, and sometimes he tries. Zanza's strength does not leave a body gently, so de Zandalar drink one, fight, and rest, and we laugh at de outsiders who do it de other way." } },
       choices = {
@@ -465,6 +499,7 @@ P:NPC {
         { text = "May an outsider pray at your altar?", next = "pray", when = { class = { "PRIEST", "SHAMAN", "DRUID" } } },
         { text = "How does Zanza's blessing get into a potion?", next = "d6_elix" },
         { text = "How did the Gurubashi Empire fall?", next = "d6_fall" },
+        { text = "Do you ever pray for the Gurubashi themselves?", next = "w8_pray" },
         { text = "I'll come back with coins.", next = "END" },
       },
     },
@@ -551,6 +586,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_forge = {
+      lines = { { id = "w8_forge_a", text = "We brought de smiths and de anvils across de sea in de long canoes, and we burn driftwood and Gurubashi bones in de forge. De bones burn hot, and de mojo in dem goes into de steel, which is why I tell you to bring me what you find." } },
+      choices = {
+        { text = "You burn their bones? That's grim.", next = "w8_forge2" },
+        { text = "Then the enemy forges your armor for you.", next = "w8_forge2" },
+        { text = "A paladin wonders if such steel is cursed.", next = "w8_forge2", when = { class = "PALADIN" } },
+        { text = "Something else, Jin'rokh.", next = "BACK" },
+      },
+    },
+    w8_forge2 = {
+      lines = {
+        { id = "w8_forge2_a", text = "Grim is a soft word for war, and de Gurubashi used our gods first. Every breastplate from my forge has a little of Hakkar's stolen strength turned against him, and Jin'rokh likes dat very much." },
+        { id = "w8_forge2_pal", when = { class = "PALADIN" }, text = "Cursed to Hakkar, maybe, but not to you, Light-warrior. De mojo in my steel hates de Blood God more dan you do, and it will be glad to sit on your shoulders while you crack his priests." },
+      },
+      choices = {
+        { text = "Then forge me something worth wearing.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     d6_only3 = {
       lines = { { id = "d6_only3_a", text = "Falthir de Sightless sees to de rogues and druids, and he sees more blind dan Exzhal does with two eyes. Maywiki of Zuldazar sees to de hunters and shamans, and she talks to de spirits so much dat I have stopped trying to talk to her." } },
       choices = {
@@ -623,6 +678,7 @@ P:NPC {
         { text = "What armor does the tribe make for my kind?", next = "armor", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Have you fought inside Zul'Gurub yourself?", next = "d6_fought" },
         { text = "Why only warriors and paladins?", next = "d6_only" },
+        { text = "How does the tribe forge armor this far from Zandalar?", next = "w8_forge" },
         { text = "I'll bring you what you want.", next = "END" },
       },
     },

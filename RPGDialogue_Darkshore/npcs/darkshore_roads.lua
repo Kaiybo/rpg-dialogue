@@ -55,6 +55,7 @@ P:NPC {
         { text = "Why not go back to Auberdine and report?", next = "stay" },
         { text = "What does the Light mean to you?", next = "light" },
         { text = "What did the parchments say?", next = "parchment", when = { questDone = TODO_QUEST("The Tower of Althalaxx") } },
+        { text = "What do you do on the long nights of watching?", next = "w_nights" },
         { text = "I'll keep my head down.", next = "END" },
       },
     },
@@ -154,6 +155,26 @@ P:NPC {
     parchment = {
       lines = { { id = "pa_default", text = "Pieces of a ritual, and names, and a place far to the south where they meant to gather. Delgren will make more sense of it than I can, so my letter goes to him at Maestra's Post, far south in Ashenvale, and the sooner the better." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_nights = {
+      lines = {
+        { id = "w_nights_default", text = "Pray, mostly, in the way Delgren taught me, which is less like asking and more like standing very still and remembering why I am here. Then I count the lights in the tower windows, and I write the number down." },
+      },
+      choices = {
+        { text = "What do the numbers tell you?", next = "w_nights2" },
+        { text = "That sounds lonely.", next = "w_nights2" },
+      },
+    },
+    w_nights2 = {
+      lines = {
+        { id = "w_nights2_default", text = "That there are more of them each week, and that they never sleep at the same hours twice, as if someone is teaching them to be careful. Whoever leads the Dark Strand has done this before. That frightens me more than the fel fire." },
+        { id = "w_nights2_w1", when = { class = "PALADIN" }, text = "You walk the Light's road as Delgren does. When you see him, tell him I am still watching, and that I have not stopped praying in his way, or in Elune's." },
+      },
+      choices = {
+        { text = "The Light keeps those who keep watch.", next = "BACK", fx = { align = { light = 1 } }, reply = "I hope so. On the worst nights, I am certain it does." },
+        { text = "Prayer won't stop warlocks.", next = "BACK", fx = { align = { light = -1 } }, reply = "No, but it keeps me from running. Someone else can bring the swords." },
+        { text = "Something else, Balthule.", next = "BACK" },
+      },
     },
   },
 }

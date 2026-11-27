@@ -33,6 +33,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_sew = {
+      lines = { { id = "w8_sew_a", text = "Nobody with a license, pal, which is the charm of the place! A couple of rogues sell maps they drew themselves, a fella sells rat-on-a-stick that glows a little, and I sell everything else, at very competitive rates." } },
+      choices = {
+        { text = "Glowing rat on a stick?", next = "w8_sew2" },
+        { text = "So you're the queen of the sewers.", next = "w8_sew2" },
+        { text = "I'm a rogue. I could sell maps down here too.", next = "w8_sew2", when = { class = "ROGUE" } },
+        { text = "Something else, Rexxie.", next = "BACK" },
+      },
+    },
+    w8_sew2 = {
+      lines = {
+        { id = "w8_sew2_a", text = "Arcane leakage, sweetheart, it gets into everything, and the rats are the tastiest part of it, or so I'm told by people braver than me. Queen's a big word, pal, I prefer 'leading independent retailer of the lower city'." },
+        { id = "w8_sew2_rog", when = { class = "ROGUE" }, text = "Sure you could, and you'd be competition, and I'd have to undercut ya, and then we'd both be poor. Tell ya what, sell maps to everybody but my customers, and I'll send ya the ones who can't afford mine." },
+      },
+      choices = {
+        { text = "I'll keep that deal in mind.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     rex_pipe1 = {
       lines = {
         { id = "rex_pipe1_1", text = "Sure did, pal, through the old sewers under the city, which the mages built for magic runoff and then forgot about. There's tunnels down there wide enough to roll a cart through, and nobody guarding 'em but the rats and the odd glowing puddle." },
@@ -105,6 +125,7 @@ P:NPC {
         { text = "Need a partner, Rexxie?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "You came in through the plumbing, you said.", next = "rex_pipe1" },
         { text = "That gold paint trick sounds like an old one.", next = "rex_gold1" },
+        { text = "Who else trades down here in the sewers?", next = "w8_sew" },
         { text = "See you around, Rexxie.", next = "END" },
       },
     },

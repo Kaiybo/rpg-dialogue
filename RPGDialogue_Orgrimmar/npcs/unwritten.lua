@@ -24,6 +24,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2spoon = {
+      lines = { { id = "w2sp_default", text = "Stirring the stew, and pointing at children, and once, only once, for rapping a grunt across the knuckles when he tried to recruit one of my boys at the door. Word went round the barracks, and I have not had to raise it since." } },
+      choices = {
+        { text = "The grunt let you strike him?", next = "w2spoon2" },
+        { text = "A spoon is a fine weapon in the right hands.", next = "w2spoon2" },
+        { text = "Something else, Matron.", next = "BACK" },
+      },
+    },
+    w2spoon2 = {
+      lines = {
+        { id = "w2sp2_orc", when = { race = "Orc" }, text = "He was raised by an orc mother like you were, {class}, so he knew better than to argue with a spoon. He came back the next week with a sack of turnips and an apology, and the children named him Turnip until he left for the Barrens." },
+        { id = "w2sp2_default", text = "He had an orc mother once, so he knew better than to argue with a spoon. He came back the next week with a sack of turnips and an apology, and the children called him Turnip until he left for the Barrens." },
+      },
+      choices = { { text = "Turnip. I like that.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     mb_tosamina = {
       lines = { { id = "mb_tosamina_l", text = "She is, and she is younger than I am, which helps more than she knows. Tosamina chases them over the rooftops while I chase them through their lessons, and between us we lose one child a week for an hour, which is a good record." } },
       choices = {
@@ -68,6 +83,7 @@ P:NPC {
         { text = "I was raised without parents too.", next = "orphan", when = { race = "Orc" } },
         { text = "Tosamina seems tireless with the children.", next = "mb_tosamina" },
         { text = "What do the children fear most?", next = "mb_fear" },
+        { text = "What's the wooden spoon in your belt for?", next = "w2spoon" },
         { text = "Farewell, Matron.", next = "END" },
       },
     },
@@ -134,6 +150,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2thrall = {
+      lines = { { id = "w2th_default", text = "Once! I climbed on a crate outside Grommash Hold and he walked right past, and he's bigger than the door, nearly. He looked at me and nodded, like I was a grunt, and I didn't wash that side of my face for a week." } },
+      choices = {
+        { text = "Did he say anything to you?", next = "w2thrall2" },
+        { text = "You should wash your face, little one.", next = "w2thrall2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2thrall2 = {
+      lines = { { id = "w2th2_default", text = "He said, 'Get down before you fall,' which Matron says is the most sensible thing anybody important has ever said. But he said it to me, and nobody else, so it counts." } },
+      choices = { { text = "It certainly counts.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I live at the orphanage with Matron Battlewail and about a hundred other kids, or maybe forty, I always lose count. When I grow up I'm going to be a warrior like the Warchief, and nobody's going to cage me ever." } },
       again = { { id = "h_again", text = "Are you still here? Tell me about a fight you won, please!" } },
@@ -146,6 +174,7 @@ P:NPC {
         { text = "Who's your best friend here?", next = "y_friend" },
         { text = "What scares you?", next = "y_scared" },
         { text = "Do you know any trolls?", next = "y_trolls" },
+        { text = "Have you ever seen the Warchief?", next = "w2thrall" },
         { text = "Run along now.", next = "END" },
       },
     },
@@ -260,6 +289,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2fresh = {
+      lines = { { id = "w2fr_default", text = "In packed salt, in sealed jars, out of the sun, as one would keep any specimen of value. The orcs laughed at the jars until a crate left in the open rotted to brown slime in two days, and now they carry the jars for me." } },
+      choices = {
+        { text = "Do you lose many shipments?", next = "w2fresh2" },
+        { text = "Salt for flowers? Unusual.", next = "w2fresh2" },
+        { text = "Something else, Apothecary.", next = "BACK" },
+      },
+    },
+    w2fresh2 = {
+      lines = {
+        { id = "w2fr2_herb", when = { profession = "Herbalism" }, text = "Fewer than the Society expected, which irritates them. You pick, so take this advice for free: cut the lotus at the stem, never pull it, and it will keep a week longer than anyone believes possible." },
+        { id = "w2fr2_default", text = "Fewer than the Society expected, which irritates them, since they expected to blame the orcs. My ledger says one crate in thirty, and my ledger has never once lied to me." },
+      },
+      choices = { { text = "A careful method.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Apothecary Jezel of the Royal Apothecary Society, lent to the war effort by the Dark Lady herself. The Horde is gathering supplies for a war in Silithus, and my part of it is purple lotus." } },
       again = { { id = "h_again", text = "Something further? I have a ledger to keep." }, { id = "h_again2", text = "Speak. The dead have patience, but not unlimited amounts of it." } },
@@ -271,6 +315,7 @@ P:NPC {
         { text = "I serve the Dark Lady too, Apothecary.", next = "kin", when = { race = "Scourge" } },
         { text = "Who were you before the plague?", next = "y_past" },
         { text = "What worries you about this war?", next = "y_worry" },
+        { text = "How do you keep the lotus fresh in this heat?", next = "w2fresh" },
         { text = "Good day, Apothecary.", next = "END" },
       },
     },
@@ -356,6 +401,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2meal = {
+      lines = { { id = "w2ml_default", text = "Boiled kodo, on my first week with the pot, before anyone told me that kodo wants a day of smoke and not an hour of water. The grunts ate it, because grunts eat anything, and they chewed it for the rest of the march." } },
+      choices = {
+        { text = "Did they forgive you?", next = "w2meal2" },
+        { text = "I've eaten worse in the field.", next = "w2meal2" },
+        { text = "Something else, Bloodguard.", next = "BACK" },
+      },
+    },
+    w2meal2 = {
+      lines = {
+        { id = "w2ml2_cook", when = { profession = "Cooking" }, text = "Never, and you'll know why if you've fed soldiers: they remember a bad stew longer than a good battle. I still hear about that kodo, and it was three years ago." },
+        { id = "w2ml2_default", text = "Never. Soldiers remember a bad stew longer than a good battle, and they still call it Rawtar's boots at the Valley of Honor fires, three years on." },
+      },
+      choices = { { text = "Your steaks will make up for it.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Bloodguard Rawtar, and I feed the soldiers who will march to Silithus. Lean wolf steaks keep well in the heat and make a grunt strong, so that is what I collect." } },
       again = { { id = "h_again", text = "What else? The fire needs tending." } },
@@ -367,6 +427,7 @@ P:NPC {
         { text = "Who eats your cooking, then?", next = "grunts" },
         { text = "Were you at Hyjal with Grom's Warsong?", next = "hyjal", when = { race = "Orc" } },
         { text = "I am a warrior. What should I eat before battle?", next = "warfood", when = { class = "WARRIOR" } },
+        { text = "What's the worst meal you've ever served?", next = "w2meal" },
         { text = "Farewell, Bloodguard.", next = "END" },
       },
     },
@@ -453,6 +514,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2fish = {
+      lines = {
+        { id = "w2fs_tauren", when = { race = "Tauren" }, text = "You will have heard my tribe's elders tell it, I think, and make it larger every winter. A great old salmon in the cold river below the Alterac hills, longer than a brave lying down, and it pulled me into the water before I pulled it out." },
+        { id = "w2fs_default", text = "A great old salmon in a cold river below the Alterac hills, longer than a brave lying down. It pulled me into the water before I pulled it out, and the young ones of my tribe still laugh about it." },
+      },
+      choices = {
+        { text = "Did you land it in the end?", next = "w2fish2" },
+        { text = "I think the elders made it larger.", next = "w2fish2" },
+        { text = "Something else, Chief.", next = "BACK" },
+      },
+    },
+    w2fish2 = {
+      lines = { { id = "w2fs2_default", text = "No. I let it go, because a fish that old has earned its river, and my net was torn besides. The Earth Mother gives a fisher many small fish, young one, and one great one that he should leave for the story." } },
+      choices = { { text = "A fine story to keep.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Sharpclaw, chief of a small tribe of fishers, and Cairne asked me to gather food for the Horde's march into Silithus. Baked salmon keeps well and feeds a warrior through a long day, and so salmon is what I ask for." } },
       again = { { id = "h_again", text = "What else would you ask? There is no hurry, the river runs on regardless." } },
@@ -465,6 +541,7 @@ P:NPC {
         { text = "I fish too. Where do you cast your line?", next = "cast", when = { profession = "Fishing" } },
         { text = "Do you have family among the young ones?", next = "y_kin" },
         { text = "Are orc rivers good for fishing?", next = "y_orcs" },
+        { text = "What's the largest fish you ever caught?", next = "w2fish" },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
     },
@@ -556,6 +633,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2patient = {
+      lines = { { id = "w2pt_default", text = "Favourite is a strong word for something I find mildly less tedious. There is an orc grunt who returns to me every month with a new wound in a new place, and he describes each injury with such pride that I have begun to keep a chart." } },
+      choices = {
+        { text = "What's on the chart so far?", next = "w2patient2" },
+        { text = "Do you worry about him?", next = "w2patient2" },
+        { text = "Something else, Doctor.", next = "BACK" },
+      },
+    },
+    w2patient2 = {
+      lines = { { id = "w2pt2_default", text = "Eleven stitches, three arrowheads, and a bite from something he insists was a crocolisk and I suspect was a goblin. I do not worry, {class}; worry is for the living. But I keep the chart beside my bench, and I would notice if it stopped." } },
+      choices = { { text = "That sounds like caring, Doctor.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Doctor Serratus, physician to the Royal Apothecary Society and, for my sins, collector of hides for the war effort. Armor and bandages and stretchers all need rugged leather, and soldiers need all three." } },
       again = { { id = "h_again", text = "Is there more? I am counting hides." } },
@@ -569,6 +658,7 @@ P:NPC {
         { text = "I skin hides myself. Any advice?", next = "skin", when = { profession = "Skinning" } },
         { text = "Who stitched your own skin?", next = "y_stitch" },
         { text = "Do you still treat the plague?", next = "y_plague" },
+        { text = "Do you have a favourite patient here?", next = "w2patient" },
         { text = "Good day, Doctor.", next = "END" },
       },
     },
@@ -669,6 +759,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2pouch = {
+      lines = {
+        { id = "w2pc_tauren", when = { race = "Tauren" }, text = "Bandages, a bone needle, a little earthroot, and a smooth red stone from beside Stonebull Lake. You may carry something like it yourself, friend; my mother put it in my hand when I left Mulgore so that I would never be far from home." },
+        { id = "w2pc_default", text = "Bandages, a bone needle, a little earthroot, and a smooth red stone from beside Stonebull Lake in Mulgore. My mother put it in my hand when I left home, so that I would never be far from it." },
+      },
+      choices = {
+        { text = "Does the stone help with healing?", next = "w2pouch2" },
+        { text = "A stone is a heavy thing to carry for comfort.", next = "w2pouch2" },
+        { text = "Something else, Healer.", next = "BACK" },
+      },
+    },
+    w2pouch2 = {
+      lines = { { id = "w2pc2_default", text = "Not the wounds, but it helps the healer. When a grunt is dying under my hands, I hold the stone in the other one, and I remember the lake, and my hands stop shaking long enough to finish the work." } },
+      choices = { { text = "Then it's worth its weight.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Longrunner, a healer of Thunder Bluff, and I gather wool bandages for the Horde's army. When the gates in Silithus open, our warriors will bleed, and I would rather they bled into clean wool." } },
       again = { { id = "h_again", text = "What else, friend? I can listen and roll bandages at once." } },
@@ -681,6 +786,7 @@ P:NPC {
         { text = "I'm a shaman. The spirits mend wounds too.", next = "spirits", when = { class = "SHAMAN" } },
         { text = "Who taught you to heal?", next = "y_teach" },
         { text = "Are you afraid of Silithus?", next = "y_fear" },
+        { text = "What do you carry in your healer's pouch?", next = "w2pouch" },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
     },
@@ -775,6 +881,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2flower = {
+      lines = { { id = "w2fw_default", text = "The little white ones that grow on the mesa tops above Bloodhoof, too small and too bitter to be any use to an alchemist. Nobody gathers them, and so they cover the stone every spring like a fall of snow." } },
+      choices = {
+        { text = "Why love a flower that's no use?", next = "w2flower2" },
+        { text = "I'd like to see that.", next = "w2flower2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2flower2 = {
+      lines = {
+        { id = "w2fw2_herb", when = { profession = "Herbalism" }, text = "Because everything else I touch is picked for someone's wound, friend, as you will know. Those are the only flowers I have ever been allowed simply to look at, and I keep one pressed between the pages of my ledger." },
+        { id = "w2fw2_default", text = "Because everything else I touch is picked for someone's wound. Those are the only flowers I have ever been allowed simply to look at, and I keep one pressed between the pages of my ledger." },
+      },
+      choices = { { text = "Everyone needs one of those.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Proudfeather, and I gather peacebloom for the Horde's healing draughts. It is a humble flower, but a thousand humble flowers will keep an army on its feet." } },
       again = { { id = "h_again", text = "What else? The flowers will keep a moment longer." } },
@@ -787,6 +908,7 @@ P:NPC {
         { text = "I gather herbs as well.", next = "herbs", when = { profession = "Herbalism" } },
         { text = "Who taught you herbs?", next = "y_teach" },
         { text = "Have you ever failed a patient?", next = "y_fail" },
+        { text = "Which flower do you love most?", next = "w2flower" },
         { text = "May the Earth Mother keep you.", next = "END" },
       },
     },
@@ -881,6 +1003,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2gown = {
+      lines = { { id = "w2gn_default", text = "With a needle, nightly, as any lady's maid would have done for me once. It is Lordaeron silk, the last of my wardrobe, and the Durotar dust is a war I fight every evening and lose every morning." } },
+      choices = {
+        { text = "Why not wear something more practical?", next = "w2gown2" },
+        { text = "You mend it yourself? I'm surprised.", next = "w2gown2" },
+        { text = "Something else, my lady.", next = "BACK" },
+      },
+    },
+    w2gown2 = {
+      lines = {
+        { id = "w2gn2_scourge", when = { race = "Scourge" }, text = "You know the answer, I think. We lost our faces and our names and our families; I will not lose my gown as well. It is the last thing that still remembers who I was." },
+        { id = "w2gn2_default", text = "Because I lost my face and my name and my family, and I will not lose my gown as well. It is the last thing in this world that still remembers who I was." },
+      },
+      choices = { { text = "Then keep mending it.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Lady Callow, once of a house in Lordaeron whose name no longer matters. I collect mageweave bandages for the Horde's march on Silithus, because the Dark Lady asked it and because I have nothing better to do with eternity." } },
       again = { { id = "h_again", text = "Is there more you wish to say? Be brief." } },
@@ -893,6 +1030,7 @@ P:NPC {
         { text = "I'm a tailor. I can stitch mageweave.", next = "tailor", when = { profession = "Tailoring" } },
         { text = "Did you love anyone, in life?", next = "y_love" },
         { text = "Do the orcs treat you as a lady?", next = "y_orcs" },
+        { text = "How do you keep that gown so well?", next = "w2gown" },
         { text = "Good day, my lady.", next = "END" },
       },
     },
@@ -987,6 +1125,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2vein = {
+      lines = { { id = "w2vn_default", text = "Silver, in the Alterac foothills, a seam as wide as my hand running straight down into the dark. The lord took every ounce of it and gave each of us an extra loaf that week, and I thought that was generous, then." } },
+      choices = {
+        { text = "And now?", next = "w2vein2" },
+        { text = "A loaf for a fortune. That stings.", next = "w2vein2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2vein2 = {
+      lines = {
+        { id = "w2vn2_miner", when = { profession = "Mining" }, text = "Now I dig for the Horde, and every bar I collect goes where I can see it go. You mine, so you'll know the feeling of a good seam under the pick. It is the same alive or dead, and it is still the best feeling I have left." },
+        { id = "w2vn2_default", text = "Now I dig for the Horde, and every bar I collect goes where I can see it go. That is worth more to me than any silver ever was, though I would not refuse the loaf." },
+      },
+      choices = { { text = "A fair trade at last.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Cromwell, and I was a miner before I died and I am a miner still. The war effort needs copper bars for arrowheads and fittings and a hundred other things, so I collect them." } },
       again = { { id = "h_again", text = "What else? Talk is cheap, copper is not." } },
@@ -999,6 +1152,7 @@ P:NPC {
         { text = "Did you rise there, in the shafts?", next = "rose", when = { race = "Scourge" } },
         { text = "Was there anyone with you in the shaft?", next = "y_crew" },
         { text = "Does the work still mean anything to you?", next = "y_mean" },
+        { text = "What's the best vein you ever struck?", next = "w2vein" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1093,6 +1247,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2hide = {
+      lines = { { id = "w2hd_default", text = "Pinch it at the edge and pull. A good thick hide fights your fingers like a stubborn recruit, and a bad one gives way and stretches like a coward. I can tell a Badlands hide from a Barrens one with my eyes shut." } },
+      choices = {
+        { text = "Prove it, then.", next = "w2hide2" },
+        { text = "You make it sound like drill.", next = "w2hide2" },
+        { text = "Something else, Sergeant.", next = "BACK" },
+      },
+    },
+    w2hide2 = {
+      lines = {
+        { id = "w2hd2_lw", when = { profession = { "Leatherworking", "Skinning" } }, text = "Hand me one, then, and close your own eyes while you're at it, since you work hides yourself. The Badlands ones smell of dust and heat; the Barrens ones smell of grass. A good leatherworker uses every sense the spirits gave her." },
+        { id = "w2hd2_default", text = "Some other day, when I've the time to humiliate you properly. The Badlands hides smell of dust and heat, and the Barrens ones of grass, and a good sergeant uses every sense she has." },
+      },
+      choices = { { text = "I'll take your word for it.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Sergeant Umala, and I gather thick leather for the armor of the Horde's soldiers. When the gates of Ahn'Qiraj open, our grunts will need every hide we can stitch together." } },
       again = { { id = "h_again", text = "Well? What else?" } },
@@ -1105,6 +1274,7 @@ P:NPC {
         { text = "What armor would you trust in battle?", next = "armor", when = { class = "WARRIOR" } },
         { text = "Which recruit do you remember most?", next = "y_recruit" },
         { text = "Tell me about your tribe.", next = "y_tribe" },
+        { text = "How do you judge a hide by touch?", next = "w2hide" },
         { text = "Farewell, Sergeant.", next = "END" },
       },
     },
@@ -1199,6 +1369,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2carve = {
+      lines = { { id = "w2cv_default", text = "I carve little kodo from the soft stone the peons throw away, and I give them to the orphans who come through the valley. Matron Battlewail says I am spoiling them, but she keeps one on her own windowsill." } },
+      choices = {
+        { text = "May I see one?", next = "w2carve2" },
+        { text = "A guard should keep her hands free.", next = "w2carve2" },
+        { text = "Something else, Stoneguard.", next = "BACK" },
+      },
+    },
+    w2carve2 = {
+      lines = {
+        { id = "w2cv2_tauren", when = { race = "Tauren" }, text = "Here, shu'halo, take this one, the one with the broken horn. Every calf on the bluffs is given a carved kodo, as you surely were, and it seemed wrong that these little ones should have none." },
+        { id = "w2cv2_default", text = "Here, take this one, the one with the broken horn. Every calf on the bluffs of Thunder Bluff is given a carved kodo, and it seemed wrong that these little ones should have none." },
+      },
+      choices = { { text = "Thank you, Clayhoof.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Clayhoof of the stoneguard, and I gather runecloth bandages for the march on Ahn'Qiraj. Runecloth holds best of all, and the best is what our warriors deserve." } },
       again = { { id = "h_again", text = "What else? I am in no hurry." } },
@@ -1212,6 +1397,7 @@ P:NPC {
         { text = "Have you ever left your post?", next = "y_post" },
         { text = "What do you fear?", next = "y_fear" },
         { text = "Is there trouble in Thunder Bluff?", next = "y_magatha" },
+        { text = "What do you do when the crates are quiet?", next = "w2carve" },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
     },
@@ -1304,6 +1490,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2count = {
+      lines = { { id = "w2cn_default", text = "Orcs don't count, lad, they heap. Ask a grunt how much copper's in the crate an' he'll say 'a lot', an' ask a troll an' he'll say 'enough', an' the tauren just look at ye kindly an' say the Earth Mother provides." } },
+      choices = {
+        { text = "So how do you get a number?", next = "w2count2" },
+        { text = "Maybe 'a lot' is good enough.", next = "w2count2" },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    w2count2 = {
+      lines = { { id = "w2cn2_default", text = "I count it meself, every bar, while they stand there watchin' me like I'm mad. Funny thing is, the heaps are always bigger than Ironforge expected, an' I've had to write that down more than once, which pains me." } },
+      choices = { { text = "Honest of you to write it.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm Commander Stronghammer of Ironforge, sent to see that the Horde pulls its weight for the war in Silithus. Ye've got yer collectors, we've got ours, an' I'm here to make sure nobody's cheatin'." } },
       again = { { id = "h_again", text = "Anythin' else? I've numbers to check." } },
@@ -1316,6 +1514,7 @@ P:NPC {
         { text = "Who counts the Horde's effort in Ironforge?", next = "y_other" },
         { text = "Do the orcs give you trouble?", next = "y_trouble" },
         { text = "I'm a dwarf too, Commander.", next = "y_dwarf", when = { race = "Dwarf" } },
+        { text = "What's hardest about counting for the Horde?", next = "w2count" },
         { text = "Good day, dwarf.", next = "END" },
       },
     },
@@ -1427,6 +1626,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2bow = {
+      lines = { { id = "w2bw_default", text = "Because a gun tells everyone in the jungle where you are, and an arrow tells only the one it finds. The goblins in Booty Bay offered me a fine rifle once, and I traded it for a crate of thorium before it was dark." } },
+      choices = {
+        { text = "Do the goblins think you're mad?", next = "w2bow2" },
+        { text = "Guns hit harder, though.", next = "w2bow2" },
+        { text = "Something else, Kolark.", next = "BACK" },
+      },
+    },
+    w2bow2 = {
+      lines = {
+        { id = "w2bw2_hunter", when = { class = "HUNTER" }, text = "They think every tauren is mad, so I am in good company. You hunt, so you know: what matters is the quarry never hearing you, and the bow is the quietest way the Earth Mother gave us to ask a life of the world." },
+        { id = "w2bw2_default", text = "They think every tauren is mad, so I am in good company. A gun hits harder, yes, but the quarry that never hears you coming does not need to be hit hard." },
+      },
+      choices = { { text = "A patient way to hunt.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Kolark, and I hunt for bounties wherever the Horde will pay for them. I have travelled to the South Seas and back, and there I learned to make arrows tipped with thorium that will pierce a dragon's scale." } },
       again = { { id = "h_again", text = "What else, friend? I am patient as a stalking cat." } },
@@ -1439,6 +1653,7 @@ P:NPC {
         { text = "Do you miss Mulgore, brother?", next = "mulgore", when = { race = "Tauren" } },
         { text = "Who hires you, Kolark?", next = "y_who" },
         { text = "What did you do with the Bloodsail captain?", next = "y_captain" },
+        { text = "Why arrows, and not a gun?", next = "w2bow" },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
     },
@@ -1532,6 +1747,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2sayge = {
+      lines = { { id = "w2sy_default", text = "Their fortunes, friend, in the form of hard questions! He asks you what you would do if your village were burning, and the answer you give decides the blessing you leave with. Half the grunts I send him come back very quiet." } },
+      choices = {
+        { text = "Is he a true seer?", next = "w2sayge2" },
+        { text = "A tent full of questions sounds like a trick.", next = "w2sayge2" },
+        { text = "Something else, Kruban.", next = "BACK" },
+      },
+    },
+    w2sayge2 = {
+      lines = { { id = "w2sy2_default", text = "I have worked for the Faire for nine years and I still cannot say. But he asked me once what I would do if I could leave the camps, and I said I would go wherever there was laughter, and here I am, shouting about it." } },
+      choices = { { text = "Then he was right about you.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Kruban Darkblade, and I cry the news of the Darkmoon Faire to every orc, troll and tauren who will listen. Silas Darkmoon's wonders come to Mulgore and Elwynn in turn, and I make sure the Horde knows when." } },
       again = { { id = "h_again", text = "More questions? Good, curiosity sells tickets!" } },
@@ -1544,6 +1771,7 @@ P:NPC {
         { text = "It comes near Mulgore? Near my home?", next = "mulgore", when = { race = "Tauren" } },
         { text = "Do you ever miss the soldier's life?", next = "y_miss" },
         { text = "Is there a darker side to the Faire?", next = "y_dark" },
+        { text = "What does Sayge tell the people who visit him?", next = "w2sayge" },
         { text = "Some other time.", next = "END" },
       },
     },
@@ -1644,6 +1872,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2miss = {
+      lines = { { id = "w2ms_default", text = "The workshop, pal, I'll admit it. Big as a barn, every tool you ever dreamed of, and a furnace that could melt a shredder in an afternoon. Nogg's got a bench and a stool and a hole in the roof I keep meanin' to fix." } },
+      choices = {
+        { text = "Would you ever go back?", next = "w2miss2" },
+        { text = "A good workshop isn't worth a bad boss.", next = "w2miss2" },
+        { text = "Something else, Rilli.", next = "BACK" },
+      },
+    },
+    w2miss2 = {
+      lines = {
+        { id = "w2ms2_eng", when = { profession = "Engineering" }, text = "Not for all the tools in Kalimdor! You build things, pal, so you get it: what's the point of a great furnace if the fella next to it owns everything you make in it? Here, at least, the bombs are mine." },
+        { id = "w2ms2_default", text = "Not for all the tools in Kalimdor. Here I own what I build, and nobody pours oil in a creek because of something I drew on a napkin, and that's worth a hole in the roof." },
+      },
+      choices = { { text = "A good trade.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "Name's Rilli, and I work for Nogg now, which is a lot better than workin' for the Venture Company, believe you me. Over there it was all shouting and quotas, and Boss Copperplug never once said thank you." } },
       again = { { id = "h_again", text = "Somethin' else? Talk fast, I got a bomb in the oven." } },
@@ -1656,6 +1899,7 @@ P:NPC {
         { text = "What did you invent for the Venture Company?", next = "y_invent" },
         { text = "How did Nogg take you in?", next = "y_nogg" },
         { text = "Where do you sleep, with thugs after you?", next = "y_sleep" },
+        { text = "Do you miss anything about the Venture Company?", next = "w2miss" },
         { text = "Never mind.", next = "END" },
       },
     },
@@ -1750,6 +1994,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2trust = {
+      lines = { { id = "w2tr_default", text = "De one dat works too fast, mon. A slow poison you can steer, but a fast one be a wild raptor in a bottle, an' I seen it splash back on de rogue who threw it more times dan I like to remember." } },
+      choices = {
+        { text = "So you avoid fast poisons altogether?", next = "w2trust2" },
+        { text = "A fast poison ends a fight quickly.", next = "w2trust2" },
+        { text = "Something else, Zando'zan.", next = "BACK" },
+      },
+    },
+    w2trust2 = {
+      lines = {
+        { id = "w2tr2_rogue", when = { class = "ROGUE" }, text = "No, cousin, I just respect dem. You be one of us, so learn dis: coat your blade in de open air, never in a closed room, an' keep your mouth shut while you do it, because de fumes like to go where de breath goes." },
+        { id = "w2tr2_default", text = "No, mon, I just respect dem. Coat de blade in de open air, never in a closed room, an' keep your mouth shut while you do it, because de fumes like to go where de breath goes." },
+      },
+      choices = { { text = "Good advice for anyone.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I be Zando'zan, and I deal in de quiet arts, mon. Poisons, knives, secrets, whatever de Horde needs done in de dark." } },
       again = { { id = "h_again", text = "Still here, mon? De shadows be waitin'." } },
@@ -1762,6 +2021,7 @@ P:NPC {
         { text = "How did you come to the Cleft?", next = "y_how" },
         { text = "What troubles you in the shadows?", next = "y_trouble" },
         { text = "How do you learn a poison's taste?", next = "y_poison_test" },
+        { text = "Which poison do you trust least?", next = "w2trust" },
         { text = "Leave me out of your dark business.", next = "END" },
       },
     },
@@ -1856,6 +2116,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2heroes = {
+      lines = { { id = "w2hr_default", text = "Most of them are hungry, which is what I look for. A hero who is satisfied stops at the gates of Stratholme, and a hungry one walks through them. I keep their names in a book, and I watch which ones keep climbing." } },
+      choices = {
+        { text = "And what do you do with the names?", next = "w2heroes2" },
+        { text = "Keeping a book of names sounds like a spy.", next = "w2heroes2" },
+        { text = "Something else, Mokvar.", next = "BACK" },
+      },
+    },
+    w2heroes2 = {
+      lines = { { id = "w2hr2_default", text = "Nothing, yet. But one day the Warchief will need a hundred champions at once, and on that day I will be the orc who already knows where every one of them sleeps. That is not spying, {class}; it is preparation." } },
+      choices = { { text = "Preparation, then.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Mokvar, and I serve those who serve the Horde best. There are heroes whose armor was won in Stratholme and Scholomance, and I know of a way to make it stronger still." } },
       again = { { id = "h_again", text = "What else? My proposition stands." } },
@@ -1868,6 +2140,7 @@ P:NPC {
         { text = "How did you come to this work?", next = "y_how" },
         { text = "What do you gain from this?", next = "y_gain" },
         { text = "Tell me about Anthion Harmon.", next = "y_harmon" },
+        { text = "What do you make of the heroes who come to you?", next = "w2heroes" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1926,7 +2199,7 @@ P:NPC {
     y_plot = {
       lines = { { id = "y_plot_d", text = "It is planning, {class}. The Horde was nearly destroyed by orcs who plotted with demons. I plot with heroes. Is ambition dangerous to the Horde, or does the Horde need it?" } },
       choices = {
-        { text = "The Horde needs ambitious orcs.", next = "BACK", reply = "Good. Then we understand each other.", fx = { align = { order = -1 } } },
+        { text = "The Horde needs ambitious orcs.", next = "BACK", reply = "Then you and I will get along, {class}. Grommash Hold was built by orcs who wanted more.", fx = { align = { order = -1 } } },
         { text = "Ambition nearly destroyed us once.", next = "BACK", reply = "True. I watch my own as closely as I watch yours.", fx = { align = { order = 1 } } },
       },
     },
@@ -2076,9 +2349,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2pricey = {
+      lines = { { id = "w2pr_default", text = "You'd never guess, pal: the big warlords from Grommash Hold. They come down here grumbling about goblin nonsense, and then they buy the gilded snowglobe with the little Orgrimmar inside it, the one that costs a month's pay." } },
+      choices = {
+        { text = "Who do they buy it for?", next = "w2pricey2" },
+        { text = "A snowglobe for a warlord? Unlikely.", next = "w2pricey2" },
+        { text = "Something else, Kaymard.", next = "BACK" },
+      },
+    },
+    w2pricey2 = {
+      lines = { { id = "w2pr2_default", text = "Their mothers, every time, and they make me wrap it so nobody can see. Gold says one thing and a sad face says another, pal, but I've never met an orc who could resist a gift for his mother." } },
+      choices = { { text = "That's sweet, actually.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "Kaymard Copperpinch, at your service! I handle the fancy goods for Smokywood Pastures, while my cousin Penney handles the cheap stuff, and between us we sell Winter Veil to the whole Horde." } },
-      again = { { id = "h_again", text = "Anything else, valued customer?" } },
+      again = { { id = "h_again", text = "Anything else, pal? Fancy goods don't sell themselves, and Penney's stall is stealin' my foot traffic as we speak." } },
       choices = {
         { text = "What do you sell?", next = "BUSINESS" },
         { text = "What's Smokywood Pastures?", next = "smokywood" },
@@ -2088,6 +2373,7 @@ P:NPC {
         { text = "How did you get into the holiday trade?", next = "y_how" },
         { text = "What's the worst season you've had?", next = "y_worst" },
         { text = "I'm a goblin too. What's the real margin?", next = "y_gob", when = { race = "Goblin" } },
+        { text = "Who buys your most expensive gifts?", next = "w2pricey" },
         { text = "Not interested.", next = "END" },
       },
     },
@@ -2101,7 +2387,7 @@ P:NPC {
     alliance = {
       lines = { { id = "a_default", text = "Of course! Gold doesn't care who spends it. There's a Smokywood stall in Ironforge too, run by my other cousin." } },
       choices = {
-        { text = "That's just smart business.", next = "BACK", reply = "Now you're talkin'! You'd make a fine goblin.", fx = { align = { honor = -1 } } },
+        { text = "That's just smart business.", next = "BACK", reply = "See? You've got a head for numbers, pal. The Cartel could use you.", fx = { align = { honor = -1 } } },
         { text = "Selling to our enemies is treachery.", next = "BACK", reply = "Treachery? It's commerce, friend!", fx = { align = { honor = 1 } } },
       },
     },
@@ -2187,6 +2473,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2odd = {
+      lines = { { id = "w2od_default", text = "A tauren who wanted a Winter Veil gift for his kodo, sweetheart! I sold him a red ribbon and a bag of candied apples, and he tied the ribbon round the beast's horn right there in the street." } },
+      choices = {
+        { text = "Did the kodo like it?", next = "w2odd2" },
+        { text = "A gift for a kodo seems a waste.", next = "w2odd2" },
+        { text = "Something else, Penney.", next = "BACK" },
+      },
+    },
+    w2odd2 = {
+      lines = { { id = "w2od2_default", text = "It ate the apples and the bag and then the ribbon, sweetheart, so I'd say yes. Now I keep a kodo bundle on the shelf every year, and Kaymard's furious he didn't think of it." } },
+      choices = { { text = "Good business.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "Penney Copperpinch, Smokywood Pastures, best deals in Orgrimmar! My cousin Kaymard sells the fancy stuff, but I sell what folks actually buy." } },
       again = { { id = "h_again", text = "What else, sweetheart?" } },
@@ -2200,6 +2498,7 @@ P:NPC {
         { text = "What do you do when it's not Winter Veil?", next = "y_off" },
         { text = "Any secrets about Smokywood?", next = "y_secret" },
         { text = "Do you have family in Booty Bay?", next = "y_booty" },
+        { text = "What's the strangest request you've had?", next = "w2odd" },
         { text = "Bye, Penney.", next = "END" },
       },
     },
@@ -2301,9 +2600,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2treats = {
+      lines = { { id = "w2tt_default", text = "Sugar, flour, a little cinnamon from the goblins, and the recipe from my old bakery in Brill, my dear. I cannot taste them anymore, so I make them by memory and watch the faces of those who eat them." } },
+      choices = {
+        { text = "How do you know they're good?", next = "w2treats2" },
+        { text = "Treats from the dead feel risky.", next = "w2treats2" },
+        { text = "Something else, Rachelle.", next = "BACK" },
+      },
+    },
+    w2treats2 = {
+      lines = {
+        { id = "w2tt2_scourge", when = { race = "Scourge" }, text = "The same way you know a joke has landed, dear, by the faces. We cannot taste, but we can watch, and I have watched an orc grunt close his eyes over my honey cake. That is enough to bake for." },
+        { id = "w2tt2_default", text = "By the faces, dear. I watched an orc grunt close his eyes over my honey cake last year, and a dead woman can live on that sort of thing for a good long while." },
+      },
+      choices = { { text = "I'll take one, then.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Rachelle, and I bring the Forsaken's own holiday to the orcs. Hallow's End is the day we celebrate our freedom from the Lich King, and the candy is a lovely bonus." } },
-      again = { { id = "h_again", text = "Something else, my dear?" } },
+      again = { { id = "h_again", text = "Something else, my dear? Do take a treat while you think; I baked them myself, mostly." } },
       choices = {
         { text = "What is Hallow's End?", next = "hallow" },
         { text = "Show me your treats.", next = "BUSINESS" },
@@ -2313,6 +2627,7 @@ P:NPC {
         { text = "We Forsaken have earned this feast.", when = { race = "Scourge" }, next = "xkin" },
         { text = "What happened to your husband?", next = "y_husband" },
         { text = "Does anyone disapprove of Hallow's End?", next = "y_dis" },
+        { text = "What's really in your treats?", next = "w2treats" },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -2420,6 +2735,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2seller = {
+      lines = { { id = "w2sl_default", text = "Ogre Weepers, pal! Black toffee so hard you suck on it for an hour, and so sweet it makes your eyes water. The grunts on the gate buy 'em by the bag for the long watch, and the dentists in Ratchet send me thank-you notes." } },
+      choices = {
+        { text = "Do ogres really weep at them?", next = "w2seller2" },
+        { text = "Toffee that hard sounds dangerous.", next = "w2seller2" },
+        { text = "Something else, Alowicious.", next = "BACK" },
+      },
+    },
+    w2seller2 = {
+      lines = { { id = "w2sl2_default", text = "Never met an ogre who'd try one, pal, but it's a great name, and that's half of candy. The other half is sugar, and the third half is standin' outside the inn when the grunts come out happy." } },
+      choices = { { text = "That's three halves.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "Alowicious Czervik, purveyor of sweets and treats! Orcs got a sweet tooth under all that grumbling, and I'm here to feed it." } },
       again = { { id = "h_again", text = "Somethin' else, pal? The candy's not gettin' any fresher." } },
@@ -2432,6 +2759,7 @@ P:NPC {
         { text = "I'm a cook. What's your secret ingredient?", when = { profession = "Cooking" }, next = "xcook" },
         { text = "How'd a goblin end up selling in Orgrimmar?", next = "y_how" },
         { text = "Got any competition?", next = "y_rival" },
+        { text = "What's your best-selling sweet?", next = "w2seller" },
         { text = "No thanks.", next = "END" },
       },
     },
@@ -2547,6 +2875,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2colour = {
+      lines = { { id = "w2cl_default", text = "Blue, pal, every time! Red's easy, gold's easy, green just needs a little copper, but blue burns out before it gets high enough to see. I've been chasin' a proper blue rocket since before I lost my first eyebrow." } },
+      choices = {
+        { text = "Have you ever got close?", next = "w2colour2" },
+        { text = "Nobody would notice a missing blue.", next = "w2colour2" },
+        { text = "Something else, Kizzak.", next = "BACK" },
+      },
+    },
+    w2colour2 = {
+      lines = {
+        { id = "w2cl2_eng", when = { profession = "Engineering" }, text = "Once, for about a heartbeat, over the Southfury, and then it went purple and set fire to a fishing boat. You build things, pal, so you know: the one that nearly works is the one that keeps you up at night." },
+        { id = "w2cl2_default", text = "Once, for about a heartbeat, over the Southfury, and then it went purple and set fire to a fishing boat. I paid for the boat. I'd pay for ten more to see that blue again." },
+      },
+      choices = { { text = "I hope you find your blue.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "Kizzak Sparks, fireworks specialist and part-time eyebrow donor! When there's a holiday in Orgrimmar, I'm the one makin' the sky go boom." } },
       again = { { id = "h_again", text = "Still here? Careful, that crate's a little warm." } },
@@ -2559,6 +2902,7 @@ P:NPC {
         { text = "I'm an engineer. Let's talk powder.", when = { profession = "Engineering" }, next = "xeng" },
         { text = "Has a show ever gone really wrong?", next = "y_wrong" },
         { text = "Why fireworks, of all things?", next = "y_why" },
+        { text = "Which colour is hardest to make in the sky?", next = "w2colour" },
         { text = "I'll keep my distance.", next = "END" },
       },
     },
@@ -2668,6 +3012,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2long = {
+      lines = { { id = "w2lg_default", text = "One for an old far seer, half a year in the making, from a single length of Mulgore ash. He wanted the spirits of all four elements carved along it, and he wanted each one to look as though it disagreed with the others." } },
+      choices = {
+        { text = "Did you manage it?", next = "w2long2" },
+        { text = "Half a year for one staff seems slow.", next = "w2long2" },
+        { text = "Something else, Ukra'nor.", next = "BACK" },
+      },
+    },
+    w2long2 = {
+      lines = {
+        { id = "w2lg2_shaman", when = { class = "SHAMAN" }, text = "He said I did, shaman, and he would know better than I. The fire looks angry at the water and the earth looks tired of the wind, which is how he told me they behave. You may have noticed the same." },
+        { id = "w2lg2_default", text = "He said I did. The fire looks angry at the water and the earth looks tired of the wind, which is how he told me the spirits behave, and I took him at his word." },
+      },
+      choices = { { text = "It sounds like a fine staff.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Ukra'nor, and I sell staves to shamans, mages and anyone who would rather hit from a distance. The wood comes from Ashenvale and Mulgore, and I carve it myself." } },
       again = { { id = "h_again", text = "What else? A good staff waits for no one." } },
@@ -2681,6 +3040,7 @@ P:NPC {
         { text = "Do you carve anything besides staves?", next = "y_other" },
         { text = "Is the Ashenvale wood hard to come by?", next = "y_ashen" },
         { text = "Why call the shop Skyfury Staves?", next = "y_skyfury" },
+        { text = "Which staff took you longest to carve?", next = "w2long" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2790,9 +3150,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2bet = {
+      lines = { { id = "w2bt_default", text = "Every day, mon, wit' de off-duty grunts, a copper a bout. I always bet on de small ones, 'cause de orcs always bet on de big ones, an' de small ones win more dan you think." } },
+      choices = {
+        { text = "Are you winning overall?", next = "w2bet2" },
+        { text = "Betting on the underdog is a fool's game.", next = "w2bet2" },
+        { text = "Something else, Shim'la.", next = "BACK" },
+      },
+    },
+    w2bet2 = {
+      lines = {
+        { id = "w2bt2_troll", when = { race = "Troll" }, text = "Ahead by forty coppers, cousin, an' de grunts can't work out how. You know how: de small ones dodge, like we Darkspear do, an' de big ones swing until dey get tired." },
+        { id = "w2bt2_default", text = "Ahead by forty coppers, mon, an' de grunts can't work out how. De small ones dodge an' wait, an' de big ones swing until dey be tired, an' den it be over." },
+      },
+      choices = { { text = "I'll remember that.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I be Shim'la of de Darkspear, and I like to watch de warriors train in dis valley. De orcs be fierce, but dey don't know how to have fun with it." } },
-      again = { { id = "h_again", text = "Somethin' else, mon?" } },
+      again = { { id = "h_again", text = "Somethin' else, mon? Talk while we watch dat big one fall over, he does it every hour." } },
       choices = {
         { text = "Do trolls train differently?", next = "trolls" },
         { text = "Why are you in Orgrimmar?", next = "why" },
@@ -2802,6 +3177,7 @@ P:NPC {
         { text = "Do you fight, Shim'la?", next = "y_fight" },
         { text = "What do you worry about?", next = "y_worry" },
         { text = "Do you like Orgrimmar?", next = "y_city" },
+        { text = "Do you ever bet on the sparring?", next = "w2bet" },
         { text = "See you, Shim'la.", next = "END" },
       },
     },
@@ -2904,6 +3280,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2mug = {
+      lines = { { id = "w2mg_default", text = "Cactus wine from Sen'jin, mon, sour as a witch doctor an' twice as strong. De innkeeper keeps one barrel just for me, an' de orcs who try it come back down de stairs on deir hands." } },
+      choices = {
+        { text = "Could I try some?", next = "w2mug2" },
+        { text = "That sounds like poison.", next = "w2mug2" },
+        { text = "Something else, Doyo'da.", next = "BACK" },
+      },
+    },
+    w2mug2 = {
+      lines = { { id = "w2mg2_default", text = "Small sip, mon, an' sit down first. Dis be what we drank de night after Hyjal, all of us dat were left, an' every time I drink it I remember dem, so it be a good wine for restin' wit'." } },
+      choices = { { text = "To those who didn't come back.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I be Doyo'da, and I be restin', mon. I fought at Mount Hyjal and I been restin' ever since, and nobody's told me to stop yet." } },
       again = { { id = "h_again", text = "Somethin' else, mon? Don't make me sit up." } },
@@ -2915,6 +3303,7 @@ P:NPC {
         { text = "Trolls don't drink like orcs.", next = "xdrink" },
         { text = "What did you do before Hyjal?", next = "y_before" },
         { text = "What's the innkeeper think of you?", next = "y_inn" },
+        { text = "What's in that mug of yours?", next = "w2mug" },
         { text = "Enjoy your rest.", next = "END" },
       },
     },
@@ -3020,9 +3409,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2odd = {
+      lines = { { id = "w2od_default", text = "A kodo skull, pal, with a map scratched on the inside of it, sold to me by a tauren who swore it showed the way to the Kolkar treasure. I sold it to a Forsaken collector, he sold it back to me, and I've now sold it four times." } },
+      choices = {
+        { text = "Did anyone ever follow the map?", next = "w2odd2" },
+        { text = "Selling the same skull four times is a swindle.", next = "w2odd2" },
+        { text = "Something else, Kozish.", next = "BACK" },
+      },
+    },
+    w2odd2 = {
+      lines = { { id = "w2od2_default", text = "One fella did, and came back with a centaur arrow in his hat and nothin' else. He sold me the hat. I've learned that a good story is worth more than any treasure, pal, because a story sells again and again." } },
+      choices = { { text = "Spoken like a broker.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "Name's Kozish, and I buy, I sell and I broker, mostly from this table. You need somethin' found, I know a guy, and if I don't, I know a guy who knows a guy." } },
-      again = { { id = "h_again", text = "Anything else, valued customer?" } },
+      again = { { id = "h_again", text = "Anything else, friend? Make it worth my while, or at least make it interesting; this table's rented by the hour." } },
       choices = {
         { text = "What kind of business?", next = "business" },
         { text = "Why do business in an inn?", next = "inn" },
@@ -3031,6 +3432,7 @@ P:NPC {
         { text = "I'm a rogue. Got any work for me?", when = { class = "ROGUE" }, next = "xrogue" },
         { text = "How did you start out, Kozish?", next = "y_start" },
         { text = "Ever had a deal go bad?", next = "y_bad" },
+        { text = "What's the oddest thing you've ever brokered?", next = "w2odd" },
         { text = "Not interested.", next = "END" },
       },
     },
@@ -3134,6 +3536,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2sarok = {
+      lines = { { id = "w2sk_default", text = "Ha! Sarok tells no stories, which is why I must tell them for both of us! But if he did, he would tell about the Crossroads, when the centaur came over the wall and I stood in the gate and roared until they ran." } },
+      choices = {
+        { text = "Is that really what happened?", next = "w2sarok2" },
+        { text = "I think Sarok might remember it differently.", next = "w2sarok2" },
+        { text = "Something else, Goma.", next = "BACK" },
+      },
+    },
+    w2sarok2 = {
+      lines = { { id = "w2sk2_default", text = "Hm. I roared, yes. And Sarok stood behind me and did all the killing while I roared, and when it was over he said nothing, and he has said nothing since. That is why I talk so much, if you must know; somebody should." } },
+      choices = { { text = "That's a good friend to have.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Goma, and I have killed more quilboar than any orc in this inn. Ask anyone, they will tell you, unless they were lying about their own." } },
       again = { { id = "h_again", text = "More? I have more stories than you have ears!" } },
@@ -3145,6 +3559,7 @@ P:NPC {
         { text = "I'm a warrior. Try me with a real tale.", when = { class = "WARRIOR" }, next = "xwarrior" },
         { text = "What did you do before the inn?", next = "y_before" },
         { text = "Is there a fight you don't talk about?", next = "y_quiet" },
+        { text = "What's the best story Sarok could tell about you?", next = "w2sarok" },
         { text = "I'll leave you to your grog.", next = "END" },
       },
     },
@@ -3250,6 +3665,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2story = {
+      lines = { { id = "w2st_default", text = "One, once a year, on the night we left the camp. I tell it to Goma, and he is quiet for the whole of it, which is the only time each year that he is." } },
+      choices = {
+        { text = "Will you tell it to me?", next = "w2story2" },
+        { text = "What does Goma say when it ends?", next = "w2story2" },
+        { text = "Something else, Sarok.", next = "BACK" },
+      },
+    },
+    w2story2 = {
+      lines = { { id = "w2st2_default", text = "No. It is his story as much as mine, and it is the one story he has never told in this inn. When it ends, he says 'Again next year', and we drink, and then he starts lying about a quilboar." } },
+      choices = { { text = "Keep that one between you.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Sarok, and I fought beside Goma for six years. Half his stories are true, and I will not tell you which half." } },
       again = { { id = "h_again", text = "What else? Speak before Goma starts again." } },
@@ -3262,6 +3689,7 @@ P:NPC {
         { text = "What did you do after the camps?", next = "y_after" },
         { text = "Goma told me about a human guard.", next = "y_guard" },
         { text = "Where do you go when Goma sleeps?", next = "y_quiet" },
+        { text = "Do you ever tell a story of your own?", next = "w2story" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -3364,6 +3792,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2axe = {
+      lines = { { id = "w2ax_default", text = "Quilboar-Ender! Or Centaur-Splitter. Or maybe Grom, because Gorehowl is already taken, and Goma says you shouldn't name an axe after a living orc in case he wants it back." } },
+      choices = {
+        { text = "Why does an axe need a name?", next = "w2axe2" },
+        { text = "Name it after your father.", next = "w2axe2" },
+        { text = "Something else, Zazo.", next = "BACK" },
+      },
+    },
+    w2axe2 = {
+      lines = {
+        { id = "w2ax2_warrior", when = { class = "WARRIOR" }, text = "Because then it's yours, and nobody else's! What did you name yours? Does it have a name? Tell me, and I'll tell Goma, and he'll pretend he knew already." },
+        { id = "w2ax2_default", text = "Because then it's yours, and nobody else's, and when you die it gets told with your story. Sarok says his axe has no name, but I heard him call it something once when he thought nobody was listening." },
+      },
+      choices = { { text = "A good name will come to you.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Zazo, and I am going to be the greatest warrior in the Horde, just like Goma. I am only waiting until I am old enough to join the army." } },
       again = { { id = "h_again", text = "Tell me more! Please!" } },
@@ -3376,6 +3819,7 @@ P:NPC {
         { text = "What does your mother think of this?", next = "y_mother" },
         { text = "Have you ever been in a fight?", next = "y_fight" },
         { text = "Where would you go first, as a warrior?", next = "y_first" },
+        { text = "What will you name your first axe?", next = "w2axe" },
         { text = "Good luck, Zazo.", next = "END" },
       },
     },
@@ -3474,7 +3918,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Peace to you, child. Even in a city of iron and smoke, the ancestors find a place to stand." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come round again, and the ancestors are near tonight. I am glad you came to honor them." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The new moon has turned, child, and an old matron has walked back across the long plains to stand by the Warchief's door. Come, sit with me while the city lights its lanterns." },
     { id = "g_back", when = { metBefore = true }, text = "You return to me. Good. A spirit is only as strong as those who remember her." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Darkhorn the Elder") }, text = "You seek the elders this year. Come, and take the blessing I have to give." },
   },
@@ -3484,6 +3928,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2elders = {
+      lines = {
+        { id = "w2el_tauren", when = { race = "Tauren" }, text = "Some, child, and you would know their names from the fireside tellings. Old ones stand at the Crossroads, and in Thunder Bluff, and out on the edge of the Barrens where the herds once ran, and we feel one another the way a herd feels its far edge." },
+        { id = "w2el_default", text = "Some of them. Old ones stand at the Crossroads, and in Thunder Bluff, and out on the edge of the Barrens where the herds once ran, and we feel one another the way a herd feels its far edge." },
+      },
+      choices = {
+        { text = "Do you ever speak to one another?", next = "w2elders2" },
+        { text = "It must be lonely, standing apart.", next = "w2elders2" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    w2elders2 = {
+      lines = { { id = "w2el2_default", text = "Through the living who walk between us, child, carrying our blessings from place to place. When you go to the next elder, you carry a little of me with you, and that is how the dead keep company." } },
+      choices = { { text = "Then I'll carry it gladly.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     ed_orcs = {
       lines = { { id = "ed_orcs_l", text = "Most do, child, for they are busy with the living, as they should be. But every festival one or two stop and ask who I was, and those are the ones I came back for." } },
       choices = {
@@ -3535,6 +3994,7 @@ P:NPC {
         { text = "I am of the Bloodhoof's people, Elder.", next = "kin", when = { race = "Tauren" } },
         { text = "The orcs walk past you without a second look.", next = "ed_orcs" },
         { text = "Who did you lead through those winters?", next = "ed_young" },
+        { text = "Do you know the other elders who return?", next = "w2elders" },
         { text = "Rest well, Elder.", next = "END" },
       },
     },
@@ -3599,6 +4059,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2dress = {
+      lines = { { id = "w2dr_default", text = "In your brightest colours, friend, and something that catches the moonlight! The elders say they see us better when we shine, and I have stitched little silver beads into my own mane for the purpose." } },
+      choices = {
+        { text = "Where would I find something festive?", next = "w2dress2" },
+        { text = "I'd rather go as I am.", next = "w2dress2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2dress2 = {
+      lines = { { id = "w2dr2_default", text = "The festival vendors in Moonglade sell fine robes for the purpose, and lanterns too. But truly, friend, the elders care that you came and not what you wore, so come as you are if you must." } },
+      choices = { { text = "I'll come either way.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "Each year at the new moon, the spirits of our elders return, and the druids of Moonglade open their glade to all. Go to the Valley of Wisdom and speak with the festival's harbinger there." } },
       again = { { id = "h_again", text = "Anything else, friend? There are more to greet today." } },
@@ -3610,6 +4082,7 @@ P:NPC {
         { text = "Who is the elder you remember most?", next = "y_elder" },
         { text = "Do you ever wish the elders would stay?", next = "y_stay" },
         { text = "Do the orcs honour the elders?", next = "y_orcs2" },
+        { text = "How should I dress for the festival?", next = "w2dress" },
         { text = "I'll go to the valley.", next = "END" },
       },
     },
@@ -3693,6 +4166,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2city = {
+      lines = { { id = "w2ct_default", text = "Gladly. When the young Warchief first stood in this canyon, he did not name the city for himself, as a human king would. He named it for his old master, Orgrim Doomhammer, who died freeing him, so that every orc who says the city's name says a dead friend's name too." } },
+      choices = {
+        { text = "Is that tale true?", next = "w2city2" },
+        { text = "A grim thing, naming a city for the dead.", next = "w2city2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2city2 = {
+      lines = { { id = "w2ct2_default", text = "True enough that the orcs never correct me, friend. And grim, perhaps, but I am dead myself, and I find it a comfort: a city that speaks a dead man's name every day has not forgotten that the dead were once loved." } },
+      choices = { { text = "A good tale, well told.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "The Midsummer Fire Festival, friend, when every city lights its great flame against the dark. And I am here to tell the tales that go with it, the bolder the better." } },
       again = {
@@ -3706,6 +4191,7 @@ P:NPC {
         { text = "I'm Forsaken too. The fire troubles me.", next = "fear", when = { race = "Scourge" } },
         { text = "Who were you, before you died?", next = "y_life" },
         { text = "Do the orcs like your tales?", next = "y_orcs" },
+        { text = "Tell me a tale of Orgrimmar itself.", next = "w2city" },
         { text = "Some other time.", next = "END" },
       },
     },
@@ -3789,6 +4275,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2pocket = {
+      lines = { { id = "w2pk_default", text = "This? Emergency candy canes, pal. When an orc child starts cryin' in the line, you hand one over quick, and when a grunt starts growlin' in the line, you hand him two. I go through a pocketful an hour." } },
+      choices = {
+        { text = "Does Smokywood pay for those?", next = "w2pocket2" },
+        { text = "Bribing grunts with candy seems unwise.", next = "w2pocket2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2pocket2 = {
+      lines = { { id = "w2pk2_default", text = "Ha! They come out of my wages, pal, which is the worst deal I ever made. But I tell myself it's an investment in a quiet line, and a quiet line means the Great-father keeps smilin', and his smile is the only thing in this job that's free." } },
+      choices = { { text = "Here's to a quiet line.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I help Great-father Winter with the gifts and the crowds and the occasional angry grunt. It's a busy season, but the tips are good!" } },
       again = { { id = "h_again", text = "What else? Quick, the Great-father is waving at me." } },
@@ -3800,6 +4298,7 @@ P:NPC {
         { text = "I'm a goblin's best customer, you know.", when = { profession = "Engineering" }, next = "xgoblin" },
         { text = "How did you get this job?", next = "y_job" },
         { text = "What's the hardest part of the season?", next = "y_hard" },
+        { text = "What's that sticking out of your pocket?", next = "w2pocket" },
         { text = "Happy Winter Veil.", next = "END" },
       },
     },
@@ -3904,6 +4403,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2feed = {
+      lines = { { id = "w2fd_default", text = "Raw meat for the wolves, grain and hay for the kodo, and the raptors eat whatever they can catch, which some days includes the stable boys. I keep the raptors' pen furthest from the door, and I don't turn my back on it." } },
+      choices = {
+        { text = "Have they ever caught a stable boy?", next = "w2feed2" },
+        { text = "A raptor knows only hunger.", next = "w2feed2" },
+        { text = "Something else, Raider.", next = "BACK" },
+      },
+    },
+    w2feed2 = {
+      lines = {
+        { id = "w2fd2_hunter", when = { class = "HUNTER" }, text = "Nipped, not caught, brother, and the boy deserved it for turning his back. You keep a beast, so you know: a raptor respects the hand that feeds it only as long as the hand stays in front of it." },
+        { id = "w2fd2_default", text = "Nipped, not caught, and the boy deserved it for turning his back. A raptor respects the hand that feeds it only as long as that hand stays in front of its eyes." },
+      },
+      choices = { { text = "I'll keep my hands in front.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Raider Bork, and I keep the war mounts for the Horde's greatest champions. Wolves, kodo and raptors, all bred for battle against the Alliance." } },
       again = { { id = "h_again", text = "What else, warrior? Speak quickly." } },
@@ -3915,6 +4429,7 @@ P:NPC {
         { text = "I have earned an officer's rank.", when = { pvpRank = 6 }, next = "xrank" },
         { text = "Does the Hall of Legends honor the fallen?", next = "y_fallen" },
         { text = "Do you still raid?", next = "y_raid" },
+        { text = "What do you feed the war mounts?", next = "w2feed" },
         { text = "Lok'tar, Raider.", next = "END" },
       },
     },
@@ -4023,9 +4538,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2fit = {
+      lines = { { id = "w2ft_default", text = "With patience and a great deal of leather. The orc smiths forge for orc shoulders, so every tauren piece must be let out at the seams and given a higher collar, and a helm that leaves room for horns is a craft of its own." } },
+      choices = {
+        { text = "Who does that work?", next = "w2fit2" },
+        { text = "Why not have tauren smiths make it?", next = "w2fit2" },
+        { text = "Something else, Sergeant.", next = "BACK" },
+      },
+    },
+    w2fit2 = {
+      lines = {
+        { id = "w2ft2_tauren", when = { race = "Tauren" }, text = "I do, young one, with these hands, in the evenings. When you earn your rank, come to me and I will fit it myself, so that you go into Warsong Gulch in armour made for a child of Mulgore and not a borrowed orc's shell." },
+        { id = "w2ft2_default", text = "I do, with these hands, in the evenings. Taruk taught me, and it is a small way to keep him near, so I have never asked anyone else to do it." },
+      },
+      choices = { { text = "That is good work.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Sergeant Thunderhorn, and I keep the arms and armour granted to the Horde's ranked warriors. Your rank decides what you may claim." } },
-      again = { { id = "h_again", text = "Anything else, warrior?" } },
+      again = { { id = "h_again", text = "Ask what more you would, warrior. These racks will stand a while yet, and so will I." } },
       choices = {
         { text = "What kind of equipment do you keep?", next = "gear" },
         { text = "A tauren in an orc hall. How did you end up here?", next = "tauren" },
@@ -4035,6 +4565,7 @@ P:NPC {
         { text = "Have you lost anyone to this war?", next = "y_lost" },
         { text = "Do you approve of the Warlords' ranks?", next = "y_ranks" },
         { text = "Tell me of the Thunderhorn tribe.", next = "y_thunderhorn" },
+        { text = "How do you fit armour for a tauren champion?", next = "w2fit" },
         { text = "Farewell, Sergeant.", next = "END" },
       },
     },
@@ -4134,6 +4665,18 @@ P:NPC {
     { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Lok'tar. Speak your business. The Warchief's city is busy." }, { id = "g_default", text = "Lok'tar. Speak your business; the Warchief's city is busy." } },
   start = "hello",
   nodes = {
+    w2ogre = {
+      lines = { { id = "w2og_default", text = "Wandered in from the Barrens with a caravan, drank three barrels of grog at the inn and tried to marry the bank. Took six of us to talk him out of it, and he cried the whole way to the gate." } },
+      choices = {
+        { text = "Marry the bank?", next = "w2ogre2" },
+        { text = "Six grunts against one ogre is fair odds.", next = "w2ogre2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2ogre2 = {
+      lines = { { id = "w2og2_default", text = "He said it was the most beautiful building he'd ever seen, and that it held all the gold, and that was what he wanted in a wife. Koma stood in the doorway the whole time telling him about Hyjal, which didn't help." } },
+      choices = { { text = "Orgrimmar is never dull.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = { { id = "h_default", text = "I keep the peace in Orgrimmar, by the Warchief's order. Brawlers, thieves, and the odd drunk ogre; I've seen all of them on these streets before noon." } },
       again = { { id = "h_again", text = "Anything else? Keep it short." } },
@@ -4146,6 +4689,7 @@ P:NPC {
         { text = "How long have you been a grunt?", next = "y_long" },
         { text = "What's the worst part of the job?", next = "y_worst" },
         { text = "What's the Drag like for a grunt?", next = "y_drag" },
+        { text = "What did the drunk ogre do?", next = "w2ogre" },
         { text = "For the Horde.", next = "END" },
       },
     },

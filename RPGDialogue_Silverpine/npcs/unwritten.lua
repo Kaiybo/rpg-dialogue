@@ -18,6 +18,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_bent = {
+      lines = {
+        { id = "w3_bent_1", text = "Like a current running the wrong way, mortal, pulling against the slope of the land. I knew the shore and the fish and the reeds, and I struck at them all, and I could not tell why, only that I was too heavy with something that was not mine." },
+        { id = "w3_bent_2", when = { class = "SHAMAN" }, text = "You know, shaman, for you have felt an element pulled out of its nature. I was a current running against the slope, striking at the reeds and the fish I loved, heavy with something that was never water." },
+      },
+      choices = {
+        { text = "And now that it's gone?", next = "w3_gone" },
+        { text = "I'm sorry you suffered.", next = "BACK", reply = "Water does not suffer as you do, mortal. It remembers, which is slower, and lasts longer." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_gone = {
+      lines = {
+        { id = "w3_gone_1", text = "Now I am light again, and I carry only what the rain gives me. But the poison is still on the land above, and every rain will bring a little down to me, until those who brew it learn to keep it." },
+      },
+      choices = {
+        { text = "Then I'll carry that warning. Something else.", next = "BACK" },
+      },
+    },
     ywar = {
       lines = {
         { id = "ybspminormanifestationwater1", text = "The water remembers every war. Men in armour fell into the lake, and orcs, and the dead. Their blood ran into me, and I carried it to the sea. I am still carrying some of it." },
@@ -68,6 +87,7 @@ P:NPC {
         { text = "How old are you?", next = "yold" },
         { text = "What do you see in the lake?", next = "ysee" },
         { text = "Do you remember the war?", next = "ywar" },
+        { text = "What was it like, to be bent by the poison?", next = "w3_bent" },
         { text = "I'll leave you to the tide.", next = "END" },
       },
     },
@@ -128,6 +148,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_worst = {
+      lines = {
+        { id = "w3_worst_1", text = "The night the Moonrage came down the road in a pack of twenty, howling under a full moon, and we held the gate with eight. They didn't break through, because they weren't trying to; they were just letting us know they could." },
+      },
+      choices = {
+        { text = "Why would they do that?", next = "w3_why" },
+        { text = "Eight against twenty is a good stand.", next = "BACK", reply = "It's a good story, now. At the time it felt like waiting to be eaten, which it was." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_why = {
+      lines = {
+        { id = "w3_why_1", text = "Arugal's teaching them, I think, the way a cruel man teaches a dog. Wolves don't taunt, but men do, and those things are still men enough to enjoy our fear." },
+      },
+      choices = {
+        { text = "Then don't give them any. Something else.", next = "BACK" },
+      },
+    },
     ygilneans = {
       lines = {
         { id = "ybsildeathguard1", text = "They shut their wall while Lordaeron burned. I stood on the gate and watched refugees die who could have fled south to them. If Greymane's wall ever comes down, I'll be first through it." },
@@ -162,6 +200,7 @@ P:NPC {
         { text = "Why do you serve Sylvanas?", next = "serve" },
         { text = "Who were you, in life?", next = "ylife" },
         { text = "What do you think of the Gilneans?", next = "ygilneans" },
+        { text = "What's the worst watch you've stood out here?", next = "w3_worst" },
         { text = "Carry on, Deathguard.", next = "END" },
       },
     },

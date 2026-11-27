@@ -41,6 +41,7 @@ P:NPC {
         { text = "What happened to your farm?", next = "y_farm" },
         { text = "Do you know any Defias by name?", next = "y_names" },
         { text = "Who else walks your road?", next = "y_road" },
+        { text = "Tell me about the Furlbrows' dog.", next = "e3_dog" },
         { text = "Safe patrol, Protector.", next = "END" },
       },
     },
@@ -90,6 +91,24 @@ P:NPC {
     y_road = {
       lines = { { id = "y_road_d", text = "Merchants who are lost, adventurers who are bored, and the Furlbrow family's dog, which follows me halfway every morning and then goes home. The dog's the only one I trust." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    e3_dog = {
+      lines = {
+        { id = "e3_dog_l0", text = "A big shaggy grey thing with one ear up and one ear down, and he trots beside me as far as the old well and then sits and waits there till I come back. Verna says he used to walk the farm boundary with her husband every evening, before they lost the farm." },
+      },
+      choices = {
+        { text = "He's still walking the boundary, then.", next = "e3_dog2" },
+        { text = "A dog makes good company on a patrol.", next = "BACK" },
+      },
+    },
+    e3_dog2 = {
+      lines = {
+        { id = "e3_dog2_l0", text = "Aye, a boundary that isn't there any more, and I suppose so am I. Some mornings I think he's the only one on this road who still knows what it was for." },
+      },
+      choices = {
+        { text = "You both know. Something else.", next = "BACK" },
+        { text = "Westfall will be farmed again, Dorana.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -182,6 +201,7 @@ P:NPC {
         { text = "I'm a hunter. I could track who's out there.", next = "BACK", when = { class = "HUNTER" }, reply = "Would you? Then follow the road out and tell me what you find. I'd sleep better knowing whose tracks those are." },
         { text = "What do you carry with you on the road?", next = "d6_kit" },
         { text = "What does Stoutmantle ask of the militia?", next = "d6_gryan" },
+        { text = "You said you've seen candles in empty farmhouses.", next = "e3_candle" },
         { text = "Safe walking, Korelor.", next = "END" },
       },
     },
@@ -226,6 +246,24 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_candle = {
+      lines = {
+        { id = "e3_candle_l0", text = "In the Molsen kitchen window, twice, past midnight, and when I went in at dawn there was wax on the sill and nobody inside. The Defias don't leave candles burning, and they don't leave the floor swept, either." },
+      },
+      choices = {
+        { text = "Could it be the Molsens, slipping back?", next = "e3_candle2" },
+        { text = "Ghosts, or squatters.", next = "BACK" },
+      },
+    },
+    e3_candle2 = {
+      lines = {
+        { id = "e3_candle2_l0", text = "That's what I hope, and I've stopped telling the others about it in case it isn't. I leave a loaf on the table now, and when it's gone, I feel a little better about the whole road." },
+      },
+      choices = {
+        { text = "That's a good kindness. Something else.", next = "BACK" },
+        { text = "Find out who it is, Korelor.", next = "BACK" },
       },
     },
   },
@@ -292,7 +330,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "Protector Deni, People's Militia. I watch the mill, because what little grain Westfall still grows comes through it, and the Brotherhood would love to burn it." } },
       again = {
-        { id = "h_again", text = "What else would you like to know?" },
+        { id = "h_again", text = "What else? Ask while the sails are turning; they're louder when they stop." },
         { id = "h_again2", text = "Go on, ask. It's a quiet hour." },
       },
       choices = {
@@ -306,6 +344,7 @@ P:NPC {
         { text = "I'm a paladin. Can I help defend the mill?", next = "BACK", when = { class = "PALADIN" }, reply = "Help would be welcome. Walk the mill with me at dusk, and if you hear anything, give me a shout and a bit of Light." },
         { text = "What does the mill grind these days?", next = "d6_grind" },
         { text = "Would you ever go back to Moonbrook?", next = "d6_return" },
+        { text = "How do you keep the mill's sails turning?", next = "e3_sails" },
         { text = "Good day, Protector.", next = "END" },
       },
     },
@@ -359,6 +398,24 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_sails = {
+      lines = {
+        { id = "e3_sails_l0", text = "With canvas patched from tents and flour sacks, and a carpenter's grease Leick sends over from his pile. The sails took a crossbow volley last winter, and we've stitched every hole, so from a distance it looks like a quilt going round." },
+      },
+      choices = {
+        { text = "Did your father build this mill?", next = "e3_sails2" },
+        { text = "A quilt-mill. I like it.", next = "BACK" },
+      },
+    },
+    e3_sails2 = {
+      lines = {
+        { id = "e3_sails2_l0", text = "No, this one was Salma Saldean's grandfather's, and he built it crooked on purpose so it catches the sea wind better. My father's is in Moonbrook, and I've never seen another mill turn so sweet." },
+      },
+      choices = {
+        { text = "You'll see it again. Something else.", next = "BACK" },
+        { text = "This one will do for now.", next = "BACK" },
       },
     },
   },
@@ -425,7 +482,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "Protector Leick, People's Militia, and guardian of the lumber. Laugh if you like, but every wall and roof on this hill came out of this pile." } },
       again = {
-        { id = "h_again", text = "What else? I'm not going anywhere, as you can see." },
+        { id = "h_again", text = "What else? Ask away; the woodpile and I have nowhere to be but here, and it's a poor talker." },
         { id = "h_again2", text = "Ask away. The wood doesn't talk back much." },
       },
       choices = {
@@ -439,6 +496,7 @@ P:NPC {
         { text = "A dwarf could teach you a thing about stacking.", next = "BACK", when = { race = "Dwarf" }, reply = "Ha! Then show me. I've been stacking it the Moonbrook way, and Stoutmantle says it leans." },
         { text = "What were the carpenters of Moonbrook like?", next = "d6_carp" },
         { text = "What would you build first, if peace came?", next = "d6_build" },
+        { text = "What was the best chair you ever made?", next = "e3_chair" },
         { text = "Good luck with the pile.", next = "END" },
       },
     },
@@ -494,6 +552,24 @@ P:NPC {
         { text = "They chose banditry. They're past saving now.", next = "BACK", reply = "Maybe so. But I'll still hope for a few.", fx = { align = { light = -1 } } },
       },
     },
+    e3_chair = {
+      lines = {
+        { id = "e3_chair_l0", text = "A rocking chair for the Moonbrook miller's wife, out of one piece of oak with not a single nail in it, and she rocked in it every evening on the porch. When the Defias took the town, I heard they burned every chair in it but that one, because their captain liked it." },
+      },
+      choices = {
+        { text = "A Defias sits in your chair?", next = "e3_chair2" },
+        { text = "A good chair is hard to burn.", next = "BACK" },
+      },
+    },
+    e3_chair2 = {
+      lines = {
+        { id = "e3_chair2_l0", text = "That's what they tell me, and I've not decided whether it's an insult or a compliment. Either way, I mean to get it back, and I'll be very cross if he's put his boots on the arms." },
+      },
+      choices = {
+        { text = "I'll keep an eye out for it. Something else.", next = "BACK" },
+        { text = "Let him keep it. It's only a chair.", next = "BACK" },
+      },
+    },
   },
   topics = {
     moonbrook = { { id = "tp_xmoonbrook", text = "My old workshop's there, if it's still standing." } },
@@ -515,7 +591,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Ah, a visitor. You climbed a long way, little one, and I am glad of it." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "The new moon of the year is upon us, and the Lunar Festival with it. Few walk this far to honor an elder, and I will not forget it." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "Mu'sha's new moon rises, little one, and the elders walk again for the Lunar Festival. You climbed far to greet an old star-watcher, and the winds will carry the memory home." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the tower. The wind is kinder up here than down among the fields." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Skychaser the Elder") }, text = "You seek the elders, I see. Come, the Earth Mother's blessing is yours." },
   },
@@ -586,6 +662,7 @@ P:NPC {
         { text = "These are my people's farms, Elder.", next = "farms", when = { race = "Human" } },
         { text = "What did you see in Kalimdor's skies, in life?", next = "d6_sky" },
         { text = "What do you make of the harvest golems below?", next = "d6_golems" },
+        { text = "Do you miss Mulgore, Elder?", next = "e3_mulgore" },
         { text = "Farewell, Elder.", next = "END" },
       },
     },
@@ -614,6 +691,24 @@ P:NPC {
     farms = {
       lines = { { id = "fm_default", text = "Then I pray they bloom again. The land wants to give, child; it only needs hands willing to work it." } },
       choices = { { text = "I'll do what I can. Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    e3_mulgore = {
+      lines = {
+        { id = "e3_mulgore_l0", text = "I miss the sound of the wind across the long grass, little one, which is like nothing in these dry fields. In life I would lie on the high ground above Bloodhoof Village and count the stars until the kodo came lowing in for the morning." },
+      },
+      choices = {
+        { text = "Will your spirit return there after the festival?", next = "e3_mulgore2" },
+        { text = "These fields could be green again.", next = "BACK" },
+      },
+    },
+    e3_mulgore2 = {
+      lines = {
+        { id = "e3_mulgore2_l0", text = "Yes, when Mu'sha turns her face and the festival ends, my spirit will go home on the winds. But I will remember this tower, and the young ones who climbed it to greet an old star-watcher." },
+      },
+      choices = {
+        { text = "Walk with the Earth Mother, Elder. Something else.", next = "BACK" },
+        { text = "I'm glad I climbed it.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -651,6 +746,7 @@ P:NPC {
         { text = "I'm from Stormwind. We haven't forgotten you.", next = "BACK", when = { race = "Human" }, reply = "Kind of you to say. I'll believe it when the king sends something besides tax collectors, but kind all the same." },
         { text = "Do you have family out here?", next = "y_family" },
         { text = "Have the Defias ever asked you to join?", next = "y_asked" },
+        { text = "That axe has seen some years.", next = "e3_axe" },
         { text = "Good luck with the work.", next = "END" },
       },
     },
@@ -725,6 +821,24 @@ P:NPC {
       choices = {
         { text = "Name him. The farms need protecting.", next = "BACK", reply = "Aye. I'll walk up the hill tonight.", fx = { align = { order = 1 } } },
         { text = "Keep quiet. His family needs him.", next = "BACK", reply = "That's how I feel too. Doesn't make it right.", fx = { align = { order = -1 } } },
+      },
+    },
+    e3_axe = {
+      lines = {
+        { id = "e3_axe_l0", text = "Twenty, near enough, and two new heads and four new hafts, so I suppose it's not the same axe at all, but it feels like it. My father swung it before me, building the Furlbrow barn, which is ash now along with everything else he built." },
+      },
+      choices = {
+        { text = "What would you build, if the farms came back?", next = "e3_axe2" },
+        { text = "A good axe outlasts a lot.", next = "BACK" },
+      },
+    },
+    e3_axe2 = {
+      lines = {
+        { id = "e3_axe2_l0", text = "Barns first, because a farm without a barn is just a field waiting to be robbed. Then a cradle for my youngest's children, if she has any, and a proper door for my own house that doesn't let the dust in." },
+      },
+      choices = {
+        { text = "Good plans, all. Something else.", next = "BACK" },
+        { text = "Start with the door.", next = "BACK" },
       },
     },
   },

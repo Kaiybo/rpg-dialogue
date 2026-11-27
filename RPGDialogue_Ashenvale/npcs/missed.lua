@@ -42,6 +42,7 @@ P:NPC {
         { text = "A druid grieves with you, Krolg.", next = "druid", when = { class = "DRUID" } },
         { text = "Krolg's hut is well hidden. How do you live?", next = "hut" },
         { text = "Are there other furbolgs still free of the sickness?", next = "others" },
+        { text = "What did the Foulweald sing at the full moon?", next = "w_song" },
         { text = "Stay hidden, Krolg, and stay well.", next = "END" },
       },
     },
@@ -109,6 +110,25 @@ P:NPC {
         { text = "Something else, Krolg.", next = "BACK" },
       },
     },
+    w_song = {
+      lines = {
+        { id = "w_song_default", text = "A song about the honey trees, and the bees that live in them, and the bear spirit who taught the first furbolgs to share. Krolg sings it alone now, very quietly, so the sick ones do not hear him and come." },
+      },
+      choices = {
+        { text = "Will you sing it for me?", next = "w_song2" },
+        { text = "I'm sorry you sing alone.", next = "w_song2" },
+      },
+    },
+    w_song2 = {
+      lines = {
+        { id = "w_song2_default", text = "Krolg will sing one line. The honey is sweet when it is shared, and bitter when it is hoarded, and the bear spirit sleeps in every tree. That is all Krolg will sing, because the rest makes him too sad, and he has to keep listening for the sick ones." },
+        { id = "w_song2_w1", when = { class = "DRUID" }, text = "The tree-speakers knew this song once. Maybe you will find a tree-speaker who still knows the rest, and they will sing it to the Foulweald one day." },
+      },
+      choices = {
+        { text = "It's a beautiful song.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Krolg.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "Krolg was a honey gatherer of the Foulweald. Now he is only Krolg, and the hut is his whole tribe." } },
@@ -155,6 +175,7 @@ P:NPC {
         { text = "A druid's healing may still reach you.", next = "druid", when = { class = "DRUID" } },
         { text = "What were these woods like, before the satyrs came?", next = "before" },
         { text = "Is there anything you would have me do, besides the Branch?", next = "wish" },
+        { text = "What was your favourite place in these woods?", next = "w_place" },
         { text = "Rest now. I will find him.", next = "END" },
       },
     },
@@ -210,6 +231,24 @@ P:NPC {
       choices = {
         { text = "I'm a druid. Your father's forest will remember you.", next = "BACK", reply = "Then I shall not be wholly gone. That is a sweet thing to hear at the end.", when = { class = "DRUID" } },
         { text = "I'll tell her. Something else.", next = "BACK" },
+      },
+    },
+    w_place = {
+      lines = {
+        { id = "w_place_default", text = "A pool below the falls at Raynewood, where the light came down through the leaves in long green ribbons. Illiyana and I would lie on the stones there all afternoon and argue about which ribbon was the brightest, and she always won by cheating." },
+      },
+      choices = {
+        { text = "How do you cheat at that?", next = "w_place2" },
+        { text = "It sounds lovely.", next = "w_place2" },
+      },
+    },
+    w_place2 = {
+      lines = {
+        { id = "w_place2_default", text = "By changing her answer whenever the sun moved, and then saying she had meant that one all along. Take her there, if you can, when this is over. Tell her to pick the brightest ribbon for me, and that I will not argue." },
+      },
+      choices = {
+        { text = "I'll take her there.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Rest now, Anilia.", next = "BACK" },
       },
     },
   },

@@ -27,6 +27,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_read = {
+      lines = {
+        { id = "w2_read_l0", text = "Never. A courier who reads is a courier who talks, an' a courier who talks is soon a courier wi'out a satchel. But I can tell what's in them by the faces o' the ones who open them." },
+      },
+      choices = {
+        { text = "And what do the faces say?", next = "w2_read_faces" },
+        { text = "A sealed letter is a sacred trust.", next = "BACK", reply = "Aye, an' I've kept every one o' them sealed for twelve years.", fx = { align = { honor = 1 } } },
+        { text = "One peek wouldn't hurt anyone.", next = "BACK", reply = "One peek, an' I'd never stop peekin'. I know myself well enough for that.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_read_faces = {
+      lines = {
+        { id = "w2_read_faces_l0", text = "That the war's no' going the way the songs say. Too many faces go grey at the second line. But now an' then someone laughs, or weeps for joy, an' that keeps my feet movin'." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hf_paladin = {
       lines = { { id = "hfp_default", text = "Then the Light needs ye in the Plaguelands more than anywhere, for the dead walk there by the thousand. Commander Ashlam Valorfist at Chillwind would be glad of a {g:brother|sister} of the Light who doesnae flinch at a ghoul." } },
       choices = { { text = "I won't flinch. Something else.", next = "BACK" } },
@@ -51,6 +70,7 @@ P:NPC {
         { text = "Do you never rest?", next = "rest" },
         { text = "A paladin goes where the Light is needed.", next = "hf_paladin", when = { class = "PALADIN" } },
         { text = "Send me to the Hinterlands, among the Wildhammer.", next = "hf_dwarf", when = { race = "Dwarf" } },
+        { text = "Do you ever read the letters you carry?", next = "w2_read" },
         { text = "I'll let you get on.", next = "END" },
       },
     },
@@ -139,13 +159,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_best = {
+      lines = {
+        { id = "w2_best_l0", text = "The wee lass at the far dummy, who strikes slower than the rest but never once in the wrong place. The fast ones get noticed first. The careful ones are still alive ten years later." },
+      },
+      choices = {
+        { text = "Have you told her?", next = "w2_best_told" },
+        { text = "Speed wins fights.", next = "BACK" },
+      },
+    },
+    w2_best_told = {
+      lines = {
+        { id = "w2_best_told_l0", text = "Nae, an' I'll no'. If she thought she was good, she'd start tryin' tae be fast. I'll tell her when she comes back from her first season, if she comes back, an' I think she will." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Demnul Farmountain. I've spent a good many years in this Hall, and these days I mostly watch the young ones drill and remember when my own knees bent that easily." },
       },
       again = {
-        { id = "h_again", text = "What else is on yer mind?" },
-        { id = "h_again2", text = "Go on, I can watch and listen both." },
+        { id = "h_again", text = "Out wi' it. That recruit by the dummy's about tae drop his axe, an' I'll want tae see it." },
+        { id = "h_again2", text = "Go on, I can watch and listen both, and that lad's stance is wrong again." },
       },
       choices = {
         { text = "A fair fight in the Hall teaches more than a dirty win.", next = "BACK", reply = "It does, and the masters would tell ye the same, though they'd shout it louder.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -155,6 +192,7 @@ P:NPC {
         { text = "This hall has a proud feel to it.", next = "hall" },
         { text = "Did you serve in the field yourself?", next = "xd_field" },
         { text = "I'm a warrior. Any advice from the old guard?", next = "xd_warr", when = { class = "WARRIOR" } },
+        { text = "Which recruit here do you think will go furthest?", next = "w2_best" },
         { text = "I'll leave you to your watching.", next = "END" },
       },
     },
@@ -242,13 +280,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_rob = {
+      lines = {
+        { id = "w2_rob_l0", text = "Three times in my years, an' none got further than the second door. The last was a gnome who tunnelled up from Tinker Town an' came through the floor of an empty box. He'd measured wrong by one row." },
+      },
+      choices = {
+        { text = "What happened to him?", next = "w2_rob_gnome" },
+        { text = "Your vault must be well built.", next = "BACK" },
+      },
+    },
+    w2_rob_gnome = {
+      lines = {
+        { id = "w2_rob_gnome_l0", text = "He's in the Stockade in Stormwind, an' he writes to me now an' then to ask which row he should have aimed for. I write back every time, very politely, an' I never tell him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Dinita Stonemantle, Vault Administrator. The counters are my kin's work, and mine is everythin' behind them: the deep boxes, the League's holdings, and the ledger that says where each coin sleeps." },
       },
       again = {
         { id = "h_again", text = "Is there more? I've a column to close." },
-        { id = "h_again2", text = "Go on, briefly." },
+        { id = "h_again2", text = "Go on, briefly. Every minute I'm talkin', a ledger is waitin'." },
       },
       choices = {
         { text = "The High Explorer sent me with a note.", next = "note", when = { questActive = TODO_QUEST("The Platinum Discs") } },
@@ -258,6 +313,7 @@ P:NPC {
         { text = "What keeps you up at night?", next = "ysleep" },
         { text = "Who holds the deepest boxes?", next = "ydeep" },
         { text = "Does the Vault serve gnomes as well?", next = "BACK", when = { race = "Gnome" }, reply = "It does, and it opened their boxes free the season Gnomeregan fell. I signed that order myself, and I'd sign it again." },
+        { text = "Has anyone ever tried to rob the Vault?", next = "w2_rob" },
         { text = "I'll trouble the bankers instead.", next = "END" },
       },
     },
@@ -354,13 +410,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_long = {
+      lines = {
+        { id = "w2_long_l0", text = "A month, if I'm left alone, an' I'm never left alone. Ten thousand rings, an' I count them in fifties, an' every time Olthran asks me a question I lose the count an' start the fifty over." },
+      },
+      choices = {
+        { text = "Have you told him to stop asking?", next = "w2_long_ask" },
+        { text = "A month for one shirt is too slow.", next = "BACK" },
+      },
+    },
+    w2_long_ask = {
+      narr = "He smiles into the chain.",
+      lines = {
+        { id = "w2_long_ask_l0", text = "Forty years I've told him, an' forty years he's asked anyway. I think he does it so I'll talk. A dwarf can go a whole day wi' nothin' but rings for company, an' my brother doesnae like tae see it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Dolkin Craghelm, mail armour. A good shirt of chain is ten thousand rings, each one riveted shut by hand, and I've checked every ring in every shirt on that wall." },
       },
       again = {
         { id = "h_again", text = "Anythin' else ye'd know?" },
-        { id = "h_again2", text = "Aye, go on." },
+        { id = "h_again2", text = "Aye, go on, an' I'll keep my fingers on the links while ye talk." },
       },
       choices = {
         { text = "Mail should be riveted properly, every link, even where nobody looks.", next = "BACK", reply = "Every link, aye, for the one ye skip is always the one the arrow finds.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -370,6 +444,7 @@ P:NPC {
         { text = "How do you and Olthran get along?", next = "olthran" },
         { text = "Which of you is the better smith, truly?", next = "xo_better" },
         { text = "I'm a hunter. How should mail sit for archery?", next = "xo_hunt", when = { class = "HUNTER" } },
+        { text = "How long does one shirt of mail take you?", next = "w2_long" },
         { text = "I'll see the shirts.", next = "END" },
       },
     },
@@ -460,6 +535,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_unwanted = {
+      lines = {
+        { id = "w2_unwanted_l0", text = "I talk tae them. Friendly-like, for a long while, till they've forgotten why they came an' remembered somewhere else they'd rather be. It's surprisin' how few folk need more than that." },
+      },
+      choices = {
+        { text = "And the ones who do?", next = "w2_unwanted_more" },
+        { text = "Talk is a gentle weapon.", next = "BACK" },
+      },
+    },
+    w2_unwanted_more = {
+      lines = {
+        { id = "w2_unwanted_more_l0", text = "Then they meet the guards, by accident, at the top o' the stair. I've never once laid a hand on anyone in this cavern, an' I'll no' start. There are easier ways tae make a path inconvenient." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Durtham Greldon, and that's as much as most folk get. I stand here and I watch who comes and goes, and I've never yet been paid to talk about it." },
@@ -475,6 +567,7 @@ P:NPC {
         { text = "The guards don't care for this cavern.", next = "guards" },
         { text = "Do you ever get bored, just watching?", next = "xr_bored" },
         { text = "I'm one of you. Any word from the Circle?", next = "xr_rogue", when = { class = "ROGUE" } },
+        { text = "What do you do when someone comes down here who shouldn't?", next = "w2_unwanted" },
         { text = "I was only passing.", next = "END" },
       },
     },
@@ -567,12 +660,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_start = {
+      lines = {
+        { id = "w2_start_l0", text = "A murloc hatchling washed up on the shore at Menethil when I was a lad, all eyes an' fins an' noise. Everyone else wanted tae stamp on it, an' I carried it back tae the water in my hat." },
+      },
+      choices = {
+        { text = "Did it survive?", next = "w2_start_survive" },
+        { text = "Most dwarves would have stamped on it.", next = "BACK" },
+      },
+    },
+    w2_start_survive = {
+      lines = {
+        { id = "w2_start_survive_l0", text = "I like tae think so. My hat smelled o' fish for a year, an' my mother made me sleep in the shed till it stopped. I've never regretted it, though, an' I never bought another hat." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Garel Redrock, and this quiet fellow beside me is Ransin Donner. We keep an eye out for travellers from far-off gatherin's, and between times I talk to anyone who'll hear me about the creatures of the world." },
       },
       again = {
-        { id = "h_again", text = "What else can I tell ye?" },
+        { id = "h_again", text = "Ask on, friend. My wee visitors are late today, so I've the time." },
         { id = "h_again2", text = "Aye, go on, I've time enough." },
       },
       choices = {
@@ -581,6 +691,7 @@ P:NPC {
         { text = "Why wait down here, of all places?", next = "here" },
         { text = "Who exactly are you waiting for?", next = "xa_wait" },
         { text = "I've a pet of my own. Like it?", next = "xa_pet", when = { class = "HUNTER" } },
+        { text = "Where did your love of strange creatures start?", next = "w2_start" },
         { text = "Good day to you both.", next = "END" },
       },
     },

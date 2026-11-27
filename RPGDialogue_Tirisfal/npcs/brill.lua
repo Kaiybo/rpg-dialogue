@@ -952,6 +952,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_yvette = {
+      lines = {
+        { id = "w3_yvette_1", text = "She speaks to me plenty, friend, only none of it is warm, and I can't fault her for that. I worked her into the Agamands' household with my own hands, hoping she'd marry above us, and now she sits across the tavern from a father who got her killed." },
+      },
+      choices = {
+        { text = "She doesn't blame you, surely.", next = "w3_blame" },
+        { text = "She seems to have her own grief.", next = "BACK", reply = "She does, for Thurman, and she won't share it, and I've stopped asking. A girl's entitled to keep something to herself, even dead." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_blame = {
+      lines = {
+        { id = "w3_blame_1", text = "Not in words. But she sits with her back to the fire so she needn't look at me, and I sit with my face to it so I needn't look at her, and between us we keep that fire very well attended." },
+      },
+      choices = {
+        { text = "Maybe one day you'll both turn round. Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I blame the Agamands, mostly, since it was them who asked us to stay. But the Light was meant to watch over the faithful, and I was faithful enough, so I'd like to know where it was the night I died, and maybe you can tell me." } },
@@ -1011,6 +1029,7 @@ P:NPC {
         { text = "I could set a demon loose in the Agamands' parlour, Coleman.", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "Should I hunt the Darkhounds near the mills, Coleman?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "You seem to blame the Light for what happened at the mills.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Yvette doesn't seem to speak to you much.", next = "w3_yvette" },
         { text = "I'll go to the mills.", next = "END", fx = { affinity = 2 } },
       },
       again = {
@@ -1113,6 +1132,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_farm = {
+      lines = {
+        { id = "w3_farm_1", text = "Small, dear, on the edge of the Brightwater, with a cow called Patience and a kitchen garden I was very proud of. The beetles have it now, great black ones the size of loaves, and I hear they've dug the cellar out entirely." },
+      },
+      choices = {
+        { text = "Would you go back, if they were gone?", next = "w3_back" },
+        { text = "A cow called Patience?", next = "BACK", reply = "She had none at all, which was the joke. She kicked the pail over every morning for nine years, and I'd give anything to have her do it once more." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_back = {
+      lines = {
+        { id = "w3_back_1", text = "I've thought about it, by this fire, but I don't think I would. I'd stand in that kitchen and feel nothing, not the stove, not the draught under the door, and it would be worse than not knowing." },
+      },
+      choices = {
+        { text = "I understand, Gretchen. Something else.", next = "BACK" },
+      },
+    },
     dd_family = {
       lines = { { id = "dd_family_default", text = "The Agamands owned the mills and half the fields around Brill, and everyone in this tavern knew them while we were all still breathing. Now they walk their own land with nothing behind their eyes, and Coleman couldn't bring himself to put them down." } },
       choices = {
@@ -1178,6 +1215,7 @@ P:NPC {
         { text = "A demon's fire burns hot, Gretchen. Shall I let you feel it?", next = "xwarlock", when = { class = "WARLOCK", faction = "Horde" } },
         { text = "I've tracked through snow, Gretchen. Shall I tell you about it?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Would you want to feel the Light, even if it burned?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What was your old farm like, Gretchen?", next = "w3_farm" },
         { text = "I'll be back with it.", next = "END", fx = { affinity = 1 } },
         { text = "Why would Coleman go quiet over the Agamands?", next = "dd_family", when = { questDone = TODO_QUEST("Deaths in the Family") } },
       },

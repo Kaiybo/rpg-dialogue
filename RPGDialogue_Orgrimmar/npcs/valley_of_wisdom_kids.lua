@@ -377,6 +377,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2game = {
+      lines = { { id = "w2gm_default", text = "A leaf and a song. I put the leaf on the wound and sing the song my grandmother hums when she's cooking, and then they're better, except Migi, who always says he needs a second leaf." } },
+      choices = {
+        { text = "Does Migi really need the second leaf?", next = "w2game2" },
+        { text = "That sounds like real healing to me.", next = "w2game2" },
+        { text = "Something else, Puk.", next = "BACK" },
+      },
+    },
+    w2game2 = {
+      lines = {
+        { id = "w2gm2_shaman", when = { class = "SHAMAN" }, text = "No, he just likes the song. Is that how it is when you heal people for real? Do some of them only pretend to be hurt so you'll sing to them?" },
+        { id = "w2gm2_default", text = "No, he just likes the song, I think. I don't mind, because a shaman shouldn't be stingy with leaves. There are lots of leaves." },
+      },
+      choices = { { text = "Keep singing, Puk.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       hub = true,
       lines = {
@@ -399,6 +414,7 @@ P:NPC {
         { text = "Have you ever watched a real healer work?", next = "healers" },
         { text = "Do you want to see a real totem, Puk?", next = "totem", when = { class = "SHAMAN" } },
         { text = "Could you heal someone like me?", next = "undead", when = { race = "Scourge" } },
+        { text = "What do you heal them with, in the game?", next = "w2game" },
         { text = "Take care of them, healer.", next = "END" },
       },
     },

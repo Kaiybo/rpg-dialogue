@@ -236,6 +236,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_sew = {
+      lines = { { id = "w8_sew_a", text = "Wedding cloaks, mostly, in blue and white for the Windshaper families and gold for the High Order ones, with feathers worked into the hem. I was good at it, and I'd give a great deal to sew one more wedding cloak instead of another grey robe." } },
+      choices = {
+        { text = "You still could, one day.", next = "w8_sew2" },
+        { text = "You chose grey over gold.", next = "w8_sew2" },
+        { text = "I'm a tailor. Show me your feather stitch.", next = "w8_sew2", when = { profession = "Tailoring" } },
+        { text = "Something else, Brother.", next = "BACK" },
+      },
+    },
+    w8_sew2 = {
+      lines = {
+        { id = "w8_sew2_a", text = "I chose to live, and grey was the colour of living that season, and I've regretted the colour every day since. If the Al'Aketh ever fall apart, I'll go back to Falaath and sew the first wedding cloak for free, and that's a promise." },
+        { id = "w8_sew2_tl", when = { profession = "Tailoring" }, text = "A colleague, out here! Look, the needle goes under two threads and over one, and you turn the feather a quarter with each pass, so it catches the wind when the bride walks. Nobody in the cult has ever once asked me about it." },
+      },
+      choices = {
+        { text = "I hope you sew that cloak.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     zen_pile1 = {
       lines = {
         { id = "zen_pile1_1", text = "I do, a mountain of them, because the cult ordered for a congregation it hasn't got any more. Lorthuna wanted every faithful soul in grey, and the faithful have been dying faster than I can cut cloth for them." },
@@ -297,6 +317,7 @@ P:NPC {
         { text = "I wore the grey robes too, Zendraas.", next = "xalaketh", when = { origin = "skyborne_former_alaketh" } },
         { text = "You keep a pile of unsold robes.", next = "zen_pile1" },
         { text = "Do the Peacekeepers know you're out here?", next = "zen_pk1" },
+        { text = "What did you sew before the cult came?", next = "w8_sew" },
         { text = "Farewell, Brother.", next = "END" },
       },
     },
@@ -722,6 +743,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_bait = {
+      lines = { { id = "w8_bait_a", text = "Crushed flutterfly, if you can catch them, and a little dough rolled in stormapple juice if you can't. The fish here have been fed by the wind for a thousand years, and they like sweet things that look like they've fallen out of the sky." } },
+      choices = {
+        { text = "Flutterflies? Isn't that cruel?", next = "w8_bait2" },
+        { text = "Sweet bait for sky fish. Makes sense.", next = "w8_bait2" },
+        { text = "I fish below. We use worms.", next = "w8_bait2", when = { profession = "Fishing" } },
+        { text = "Something else, Baelann.", next = "BACK" },
+      },
+    },
+    w8_bait2 = {
+      lines = {
+        { id = "w8_bait2_a", text = "The ones I use are already dead, from the cold mornings, so I call it tidy. Sit by me with a line and stormapple dough, and if you can keep quiet for an hour, you'll go home with supper." },
+        { id = "w8_bait2_fish", when = { profession = "Fishing" }, text = "Worms! I've heard of them but never seen one, and I'd like to know whether they'd work up here. Bring me a jar of them one day, and we'll find out together whether a sky fish has any taste." },
+      },
+      choices = {
+        { text = "I'll sit quietly, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Baelann Swiftcurrent. I fish, and I sell what a fisher needs, and if you're willing to sit still and say nothing for an hour, I'll show you how it's done." },
@@ -738,6 +779,7 @@ P:NPC {
         { text = "Will you ever leave Zephras?", next = "leave" },
         { text = "I've fished the waters below the clouds.", next = "xbelow", when = { ["not"] = { race = "Skyborne" } } },
         { text = "On the Echo Isles, we fish with spears, mon.", next = "xtroll", when = { race = "Troll" } },
+        { text = "What bait works best up here?", next = "w8_bait" },
         { text = "Good fishing, Baelann.", next = "END" },
       },
     },
@@ -850,6 +892,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_inv = {
+      lines = { { id = "w8_inv_a", text = "The wind-kettle! It catches the breeze in a little sail, turns a fan, and the fan blows on the coals, so I never have to puff at the fire myself. It boils water in eleven minutes, which is four minutes slower than puffing, but it's eleven minutes I spend thinking." } },
+      choices = {
+        { text = "So it's slower, but more thoughtful.", next = "w8_inv2" },
+        { text = "Does it ever blow the fire out?", next = "w8_inv2" },
+        { text = "I'm an engineer. Add a second sail for gusts.", next = "w8_inv2", when = { profession = "Engineering" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_inv2 = {
+      lines = {
+        { id = "w8_inv2_a", text = "Exactly, you understand completely! It blew the fire out twice, and once it blew the kettle off the hook and into the stream, but the tea that day was very cold and very refreshing, so I count it as a feature." },
+        { id = "w8_inv2_eng", when = { profession = "Engineering" }, text = "A second sail! Feathered, on a counter-pivot, so a gust spins it the other way and evens out the draught, oh, that's lovely, that's very lovely. I'll have to pretend I thought of it, of course, but I'll think of you fondly while I pretend." },
+      },
+      choices = {
+        { text = "Enjoy your tea.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       hub = true,
       lines = {
@@ -868,7 +930,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Ask quickly, before I get distracted by something shiny, which happens about every forty seconds." },
-        { id = "h_again2", text = "Go on, go on, I'm listening with at least sixty percent of my attention." },
+        { id = "h_again2", text = "Go on, go on, ask away, and if I stare at a squirrel halfway through, it's purely scientific interest." },
       },
       choices = {
         { text = "How does a gnome end up on a floating island?", next = "arrive" },
@@ -877,6 +939,7 @@ P:NPC {
         { text = "What are you building?", next = "build" },
         { text = "Teach me to engineer a proper camp.", next = "camp", when = { profession = "Engineering" } },
         { text = "Gnomeregan fell. Did you know?", next = "xgnome", when = { race = "Gnome" } },
+        { text = "What's your proudest invention up here?", next = "w8_inv" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },

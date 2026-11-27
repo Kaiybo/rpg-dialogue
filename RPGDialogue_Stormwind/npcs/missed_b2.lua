@@ -34,7 +34,7 @@ P:NPC {
         { id = "h_default", text = "Steven Lohan, and I keep the Blue Recluse. Joachim pours, Angus cooks and thinks he's the reason anyone comes, and I count the mugs at closing to see how many have been turned into something else." },
       },
       again = {
-        { id = "h_again", text = "What else can I do for you, friend?" },
+        { id = "h_again", text = "What else, friend? Ask quick, before somebody's chair starts floating again." },
         { id = "h_again2", text = "Go on, the counter's quiet for a moment." },
       },
       choices = {
@@ -44,6 +44,7 @@ P:NPC {
         { text = "Does Erich really bring in customers?", next = "x_erich" },
         { text = "Mages should pay for the damage they cause.", next = "x_stance" },
         { text = "A dwarf would want stronger ale than this.", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "Erich says mages leave strange tips.", next = "e3_tips" },
         { text = "I'll find a seat. Thanks.", next = "END" },
       },
     },
@@ -107,6 +108,25 @@ P:NPC {
       },
       choices = {
         { text = "Pour me one. Something else.", next = "BACK" },
+      },
+    },
+    e3_tips = {
+      lines = {
+        { id = "e3_tips_l0", text = "They do, and I keep them in a jar under the counter, because I've learned not to spend anything that might still be enchanted. There's a copper in there that's warm to the touch, a button that hums on rainy days, and a coin from Dalaran nobody in the city will take." },
+        { id = "e3_tips_l1", when = { class = "MAGE" }, text = "They do, and your colleagues are the worst for it, begging your pardon. I've a copper in a jar that's always warm, a button that hums on rainy days, and a Dalaran coin no merchant in the city will take, and I'd be glad if you'd tell me which of them is dangerous." },
+      },
+      choices = {
+        { text = "Why won't anyone take the Dalaran coin?", next = "e3_tips2" },
+        { text = "A humming button sounds harmless enough.", next = "BACK" },
+      },
+    },
+    e3_tips2 = {
+      lines = {
+        { id = "e3_tips2_l0", text = "Because it's stamped with the Kirin Tor's seal, and folk say Dalaran money carries the city's bad luck with it. An old mage offered me a gold for it once, which made me certain I should keep it." },
+      },
+      choices = {
+        { text = "Wise of you. Something else.", next = "BACK" },
+        { text = "Bad luck is just superstition.", next = "BACK" },
       },
     },
   },
@@ -194,6 +214,7 @@ P:NPC {
         { text = "Did you really lose that sewing kit?", next = "kit", when = { questDone = TODO_QUEST("Package for Thurman") } },
         { text = "What's the hardest thing she's taught you?", next = "d6_hard" },
         { text = "Who comes to Larson Clothiers to buy?", next = "d6_cust" },
+        { text = "Where do the griffons go when they fly over the shop?", next = "e3_griffons" },
         { text = "Back to your hems, Thurman.", next = "END" },
       },
     },
@@ -229,6 +250,24 @@ P:NPC {
     kit = {
       lines = { { id = "k_default", text = "I didn't lose it exactly, I just left it under my bed at home, on purpose, where I knew where it was. I thought she'd send me home if I had nothing to sew with, and my mother worked it out before the day was over." } },
       choices = { { text = "Mothers usually do. Something else.", next = "BACK" } },
+    },
+    e3_griffons = {
+      lines = {
+        { id = "e3_griffons_l0", text = "To the Dwarven District roost, I think, and then out to Lakeshire and Sentinel Hill and Ironforge, because I've asked every rider who comes in for a cloak. One of them said I could feed his griffon one day if I finished my apprenticeship, and I'm holding him to it." },
+      },
+      choices = {
+        { text = "Then you'd better finish the apprenticeship.", next = "e3_griffons2" },
+        { text = "Griffons bite, you know.", next = "BACK" },
+      },
+    },
+    e3_griffons2 = {
+      lines = {
+        { id = "e3_griffons2_l0", text = "That's what Mistress Larson said, nearly word for word, when I told her about it. She said a rider needs a good cloak, and the best way to meet riders is to make the cloaks, which is either very clever or a trick." },
+      },
+      choices = {
+        { text = "It's probably both. Something else.", next = "BACK" },
+        { text = "Back to your hems, then.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -274,6 +313,7 @@ P:NPC {
         { text = "How long have you stood at this door?", next = "x_long" },
         { text = "Manners are a courtesy, not a duty.", next = "x_stance" },
         { text = "I'm a warrior. Judge my greeting.", next = "x_war", when = { class = "WARRIOR" } },
+        { text = "Do you remember the names of those you've judged?", next = "e3_names" },
         { text = "Good day, Master Wood.", next = "END" },
       },
     },
@@ -342,6 +382,24 @@ P:NPC {
         { text = "I'll tell him. Something else.", next = "BACK" },
       },
     },
+    e3_names = {
+      lines = {
+        { id = "e3_names_l0", text = "Every one who came back to greet me properly the second time, and a few of those who never did. There is a list in the Command Center of those who trained here and fell, and I read it once a month, aloud, to whoever is in the yard." },
+      },
+      choices = {
+        { text = "Is that why the recruits stand so straight?", next = "e3_names2" },
+        { text = "That must be a long list now.", next = "BACK" },
+      },
+    },
+    e3_names2 = {
+      lines = {
+        { id = "e3_names2_l0", text = "Partly, and partly because Wu Shen tells them I can see a slouch through a wall. I cannot, though I have never corrected him, for a lie that keeps a recruit's back straight is one I can forgive." },
+      },
+      choices = {
+        { text = "A fair lie. Something else, Master Wood.", next = "BACK" },
+        { text = "Truth should be enough, surely.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I have taught in Old Town since this quarter was rebuilt, and I shall stand here until I cannot." } },
@@ -378,7 +436,7 @@ P:NPC {
         { id = "h_default", text = "Wilhelm Strang. Mail is my side of the family trade, and I'll tell you plainly it's the better half, because it bends where a body bends and you can mend it by a campfire with a pair of pliers." },
       },
       again = {
-        { id = "h_again", text = "What else can I tell you?" },
+        { id = "h_again", text = "What else? Ask while I count these links, and if I stop talking, I've found a bad one." },
         { id = "h_again2", text = "Go on. The links will wait." },
       },
       choices = {
@@ -390,6 +448,7 @@ P:NPC {
         { text = "How did the Strangs come to Limited Immunity?", next = "x_family" },
         { text = "Fine armour should go to whoever can pay for it.", next = "x_stance" },
         { text = "I'm a blacksmith. What do you look for in a link?", next = "x_smith", when = { profession = "Blacksmithing" } },
+        { text = "Can I really mend mail by a campfire?", next = "e3_mend" },
         { text = "Good day, Wilhelm.", next = "END" },
       },
     },
@@ -456,6 +515,24 @@ P:NPC {
       },
       choices = {
         { text = "I'll check my own work. Something else.", next = "BACK" },
+      },
+    },
+    e3_mend = {
+      lines = {
+        { id = "e3_mend_l0", text = "You can, with round-nosed pliers, a bag of spare rings and a good deal of patience, and I sell all three except the patience. Open the broken ring, thread the new one through its four neighbours, close and pinch it, and you'll be wearing it again by morning." },
+      },
+      choices = {
+        { text = "What if the whole coat is shredded?", next = "e3_mend2" },
+        { text = "I'll buy the pliers and the rings.", next = "BACK" },
+      },
+    },
+    e3_mend2 = {
+      lines = {
+        { id = "e3_mend2_l0", text = "Then bring it to me, and I'll tell you honestly whether it's worth mending or melting. A coat that's turned an orc's axe has done its job, and there's no shame in giving it a decent burial at the forge." },
+      },
+      choices = {
+        { text = "A decent burial for armour. Something else.", next = "BACK" },
+        { text = "I'd keep it, shredded or not.", next = "BACK" },
       },
     },
   },

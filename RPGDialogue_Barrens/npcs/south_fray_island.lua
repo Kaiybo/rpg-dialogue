@@ -246,7 +246,23 @@ P:NPC {
         { text = "I'd bet some of these fights get fixed, Twiggy.", next = "fixed", when = { class = "ROGUE" } },
         { text = "Klannoc seems to run the fighting, not you.", next = "klannoc" },
         { text = "Who comes all this way to watch?", next = "crowd" },
+        { text = "What's the biggest upset you've ever seen on Fray Island?", next = "w5_upset" },
         { text = "See you at ringside, Twiggy.", next = "END" },
+      },
+    },
+    w5_upset = {
+      lines = { { id = "w5_upset_l", text = "Skinny Darkspear kid, pal, with a stick and a bad attitude. The book had him at forty to one against a challenger twice his size, and he knocked the big fella flat in the third round. I paid out more that afternoon than I took all season." } },
+      choices = {
+        { text = "Did you pay out in full?", next = "w5_upset2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_upset2 = {
+      lines = { { id = "w5_upset2_l", text = "Every copper, and it about killed me. Half the island was waitin' to see if Twiggy would welsh, and Klannoc was standin' right there with his arms folded. The book's only worth something if people believe it pays." } },
+      choices = {
+        { text = "Always pay out. The book's word is all you've got.", next = "BACK", reply = "That's what I told myself while I was cryin' into the cash box. Still true.", fx = { align = { honor = 1 } } },
+        { text = "The house always wins, one way or another.", next = "BACK", reply = "Usually, sure. That day the house lost its shirt, and I'm still wearin' a cheaper one.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     odds = {

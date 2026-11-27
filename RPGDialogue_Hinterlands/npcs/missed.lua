@@ -30,10 +30,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_dents = {
+      lines = {
+        { id = "w2_dents_l", text = "Every day! Look at this one, a rider's breastplate wi' a Vilebranch spearhead still stuck in it, right o'er the heart. He wants it mended, an' I want tae hang it on the wall as advertisin'." },
+      },
+      choices = {
+        { text = "Who won the argument?", next = "w2_dents2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_dents2 = {
+      lines = {
+        { id = "w2_dents2_l", text = "He did, for it's his plate an' his heart. But I kept the spearhead, an' it hangs over the forge now, an' every young rider who comes in asks about it. Best advertisin' I've ever had, an' it cost me nothin'." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_metal = {
+      lines = {
+        { id = "w2_metal_l", text = "Mithril, when the Thane can buy it, an' thorium, when he cannae. Both come in by gryphon from the Wetlands or Ironforge, an' I weigh every sack twice, for a gryphon will drop the heavy ones if it's in a mood." },
+      },
+      choices = {
+        { text = "Have you lost a shipment that way?", next = "w2_metal2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_metal2 = {
+      lines = {
+        { id = "w2_metal2_l", text = "One, intae the gorge below the Peak. The rider says the bird slipped. Agnar says the bird was annoyed wi' the rider. I've a fair idea which is true, an' there's still a sack o' good mithril down there for any fool who wants it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Brannik Ironbelly, armorsmith tae the Wildhammer! I make mail for the gryphon riders an' plate for them that fight afoot, an' every piece is hammered up here where the air's clean an' the fire burns true." } },
       again = {
-        { id = "h_again", text = "Aye, what else? Shout up, the forge is roarin'." },
+        { id = "h_again", text = "Aye, what else? Shout up, {g:lad|lass}, the forge is roarin' an' so am I." },
         { id = "h_again2", text = "Go on, {g:lad|lass}!" },
       },
       choices = {
@@ -42,6 +76,8 @@ P:NPC {
         { text = "Wildhammer smithing differs from Ironforge's?", next = "ironforge" },
         { text = "How did you become an armorsmith?", next = "y_how" },
         { text = "What's the worst armor you ever made?", next = "y_worst" },
+        { text = "Do the riders ever come back with armor I could see?", next = "w2_dents" },
+        { text = "What metal do you work, up here?", next = "w2_metal" },
         { text = "Show me your armor.", next = "END" },
       },
     },
@@ -128,10 +164,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_patrol = {
+      lines = {
+        { id = "w2_patrol_l", text = "Oatcakes, dried mutton an' a flask o' Truk's ale, which they swear keeps the cold out. I pack every bag myself, an' I tuck a spare bandage in the bottom o' each, for they never think tae ask for one." },
+      },
+      choices = {
+        { text = "Do they know about the bandages?", next = "w2_patrol2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_patrol2 = {
+      lines = {
+        { id = "w2_patrol2_l", text = "Only when they need one, an' then they come back an' thank me as if I'd saved their lives. Sometimes I have, dearie. A rider bleedin' over Jintha'Alor doesnae have time tae fly home for linen." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_most = {
+      lines = {
+        { id = "w2_most_l", text = "Blankets, believe it or no'. The nights up here bite, an' every traveller who comes up the road thinks he'll be warm enough in what he's wearin'. He isnae, an' he's back at my counter by mornin'." },
+      },
+      choices = {
+        { text = "Do you warn them?", next = "w2_most2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_most2 = {
+      lines = {
+        { id = "w2_most2_l", text = "I did, at first. Nobody listened, so now I keep the blankets by the door an' smile when they come back shiverin'. It's no' cruel, it's commerce, an' the blankets are very good ones." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm Grella Stonefist, an' I keep the stores here. The Hinterlands are a week across on foot an' full o' trolls from end tae end, so nobody leaves my counter wi' an empty pack if I've aught tae say about it." } },
       again = {
-        { id = "h_again", text = "What else, dearie?" },
+        { id = "h_again", text = "What else, dearie? I've packs tae fill an' a gryphon load due in before supper." },
         { id = "h_again2", text = "Go on, I'm listenin' while I pack." },
       },
       choices = {
@@ -143,6 +213,8 @@ P:NPC {
         { text = "Have you always lived at the Peak?", next = "y_always" },
         { text = "Has a traveller ever not come back?", next = "y_lost" },
         { text = "What's in Wildhammer ale?", next = "y_ale" },
+        { text = "What do riders take with them on a long patrol?", next = "w2_patrol" },
+        { text = "What do you sell most of?", next = "w2_most" },
         { text = "Let me see your goods.", next = "END" },
       },
     },
@@ -223,10 +295,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_perfect = {
+      lines = {
+        { id = "w2_perfect_l", text = "Once! A trap-springing mechanism that went off exactly when the owlbeast stepped on it. The owlbeast was very surprised. So was I, because I'd built it for wolves and had set it facing the wrong way." },
+      },
+      choices = {
+        { text = "So it worked by accident?", next = "w2_perfect2" },
+        { text = "Gigget's a good business partner.", next = "BACK" },
+      },
+    },
+    w2_perfect2 = {
+      lines = {
+        { id = "w2_perfect2_l", text = "Engineering is mostly a series of fortunate accidents, documented afterward to look like intention. Mekkatorque said that once, or something like it. I've written it on the inside of my toolbox lid." },
+        { id = "w2_perfect2_l1", when = { race = "Gnome" }, text = "Every gnome knows that engineering is a series of fortunate accidents, documented afterward to look like intention. I've written it on the inside of my toolbox lid, right under my Gnomeregan guild number." },
+      },
+      choices = {
+        { text = "Gigget's a good business partner.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Ruppo Zipcoil, engineering supplies! Gigget handles the general trade goods and I handle anything with a spring in it, and between us we've got the only parts depot in the whole of the Hinterlands." } },
       again = {
-        { id = "h_again", text = "Yes, yes, what else? I'm listening with at least one ear." },
+        { id = "h_again", text = "Yes, yes, what else? I'm listening with at least one ear, the other one's still ringing from the last test." },
         { id = "h_again2", text = "Go on, I can solder and talk." },
       },
       choices = {
@@ -239,6 +329,7 @@ P:NPC {
         { text = "Did you leave Gnomeregan in time?", next = "y_gnomer" },
         { text = "Who buys engineering parts in troll country?", next = "rz_who" },
         { text = "What do you make of the high elves at Quel'Danil?", next = "rz_elves" },
+        { text = "Has anything you built ever worked perfectly?", next = "w2_perfect" },
         { text = "Let me see your parts.", next = "END" },
       },
     },
@@ -356,10 +447,44 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_train = {
+      lines = {
+        { id = "w2_train_l", text = "As we always have: at dawn, at a hundred paces, against targets carved from fallen wood. The young ones grumble that the Highvale's trees are not the Eversong's. I tell them a troll does not care which tree hides the archer." },
+      },
+      choices = {
+        { text = "Are the young ones good?", next = "w2_train2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_train2 = {
+      lines = {
+        { id = "w2_train2_l", text = "Better than I was at their age, though I would not tell them so. They shoot with anger, which makes them quick. I am trying to teach them to shoot with patience, which makes them live." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_dwarves = {
+      lines = {
+        { id = "w2_dwarves_l", text = "Their riders land on the lower meadow when the weather turns, and we share our fires. They are loud and they drink, and they once taught three of my rangers a song I have since forbidden at the lodge." },
+      },
+      choices = {
+        { text = "What was the song about?", next = "w2_dwarves2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_dwarves2 = {
+      lines = {
+        { id = "w2_dwarves2_l", text = "An elf, a gryphon and a barrel of ale, and how the elf came to be inside the barrel. I will say no more. The Wildhammer have been good friends to my people, and I forgive them their poetry." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Jalinde Summerdrake, ranger of the Highvale. This lodge has sheltered our people since long before the Scourge marched on Quel'Thalas, and now it is one of the few homes that the high elves have left." } },
       again = {
-        { id = "h_again", text = "What more would you ask? My watch is not ended." },
+        { id = "h_again", text = "What more would you ask? Be brief, for my watch is not ended and the trees are restless today." },
         { id = "h_again2", text = "Speak, and I will answer what I may." },
       },
       choices = {
@@ -371,6 +496,8 @@ P:NPC {
         { text = "Did you lose anyone when Quel'Thalas fell?", next = "y_lost" },
         { text = "What troubles you about the lodge?", next = "y_trouble" },
         { text = "Tell me of the Highvale.", next = "y_highvale" },
+        { text = "How do your rangers train, so far from home?", next = "w2_train" },
+        { text = "Do the Wildhammer ever come to the lodge?", next = "w2_dwarves" },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },

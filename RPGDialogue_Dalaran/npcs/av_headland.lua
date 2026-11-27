@@ -340,7 +340,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The drums do not wait." },
-        { id = "h_again2", text = "Speak, and then go and fight." },
+        { id = "h_again2", text = "Speak, and then take your axe to Dun Baldar. The Frostwolves are not won by talking." },
       },
       choices = {
         { text = "You don't trust the Forsaken, Warmaster.", next = "prej", when = { prejudiced = true } },

@@ -33,6 +33,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_walk = {
+      lines = {
+        { id = "w3_walk_1", text = "Walk the length of Ivar's farm in broad daylight, with my hood down, just to prove to myself that I can. After that, I'll go back to the Pyrewood watch with Rane, and I'll let her lecture me for an hour about farmyards." },
+      },
+      choices = {
+        { text = "Rane will lecture you?", next = "w3_rane" },
+        { text = "Daylight and no hood seems bold.", next = "BACK", reply = "It's not bold, it's spite. Ivar's farmhands taught me fear, and I mean to give it back to the field." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_rane = {
+      lines = {
+        { id = "w3_rane_1", text = "At length, and fairly, and I'll deserve every word. She's been sitting at my bedside in her spare hours, pretending to read reports, and I've watched her turn the same page eleven times." },
+      },
+      choices = {
+        { text = "She cares for you. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Quinn Yorick, deathstalker, currently a deathstalker who can't stalk anything. Ivar the Foul and his farmhands caught me in the yard, and I crawled up here to wait for Rane." },
@@ -51,7 +69,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I'm not going anywhere, which you'll have gathered." },
-        { id = "h_again2", text = "Please, go on. Talking is the only exercise I'm allowed." },
+        { id = "h_again2", text = "Please, go on. Talking is the only exercise I'm allowed, and I'm getting very good at it." },
       },
       choices = {
         { text = "What happened with Ivar?", next = "ivar" },
@@ -59,6 +77,7 @@ P:NPC {
         { text = "Who is Rane?", next = "rane" },
         { text = "Let me look at that wound.", next = "wound", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "What will you do first, once you can walk?", next = "w3_walk" },
         { text = "Rest well, Quinn.", next = "END" },
       },
     },

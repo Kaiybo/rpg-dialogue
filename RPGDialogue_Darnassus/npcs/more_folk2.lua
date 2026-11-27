@@ -42,9 +42,9 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Tolon, and with Golothas and Cazarez I keep the auction house. Everything that the terraces cannot use and somebody else might is brought to us. We find it a new owner, and the house keeps a small part for the trouble." },
       },
       again = {
-        { id = "h_again", text = "What else may I do for you?" },
+        { id = "h_again", text = "Will there be another lot to post, or are you only watching the bids today?" },
         { id = "h_again2", text = "I am at your service. Ask." },
-        { id = "h_again3", text = "Yes?" },
+        { id = "h_again3", text = "Yes? The house is at your service." },
       },
       choices = {
         { text = "A formal auction is a fair auction.", next = "BACK", reply = "It is. Thank you.", fx = { align = { order = 1 } } },
@@ -55,6 +55,7 @@ P:NPC {
         { text = "How do the three of you share the work?", next = "three" },
         { text = "How do our houses compare with yours?", next = "xout", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Did our people always trade this way?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "What happens to lots that never sell?", next = "w_unsold" },
         { text = "Good day, Auctioneer.", next = "END" },
       },
     },
@@ -127,6 +128,26 @@ P:NPC {
         { text = "Some habits deserve to outlast the coin. Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
+    w_unsold = {
+      lines = {
+        { id = "w_unsold_default", text = "They come back to their owners after the set term, with the house's apology and none of its fee. A few are never collected, and those wait in the back room for a full year before we offer them again." },
+      },
+      choices = {
+        { text = "And after a year?", next = "w_unsold2" },
+        { text = "That's generous of the house.", next = "w_unsold2" },
+      },
+    },
+    w_unsold2 = {
+      lines = {
+        { id = "w_unsold2_default", text = "Then they go to the Temple, to be given where they are needed. There is a cloak in that room now that a Sentinel posted before she went to Ashenvale, and she has not come back for it, and I find I cannot yet bring myself to send it on." },
+        { id = "w_unsold2_w1", when = { class = "WARRIOR" }, text = "You fight for a living, so you will understand why I keep it a little longer than the rule allows. I would rather break a rule than her hope." },
+      },
+      choices = {
+        { text = "Keep it a while longer.", next = "BACK", fx = { align = { order = -1 } }, reply = "I think I shall. The rule can be patient with me this once." },
+        { text = "A rule kept is a rule trusted.", next = "BACK", fx = { align = { order = 1 } }, reply = "You are right, and that is why it troubles me. I will send it on at the new moon." },
+        { text = "I hope she comes for it.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -174,7 +195,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Golothas. Tolon speaks for this house and Cazarez smiles for it, and I count for it. Every bid and every sale in Darnassus passes under my pen, and my columns have agreed with one another for a very long time." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
+        { id = "h_again", text = "What else? I can answer and add a column at once." },
         { id = "h_again2", text = "Ask it, and I shall answer what I can." },
         { id = "h_again3", text = "Yes. Go on." },
       },
@@ -189,6 +210,7 @@ P:NPC {
         { text = "I can read a ledger from any side.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "How long have you kept the house's columns?", next = "go_long" },
         { text = "Do Tolon and Cazarez ever trouble your counting?", next = "go_others" },
+        { text = "What's the oldest entry in your columns?", next = "w_first" },
         { text = "I'll leave you to your columns.", next = "END" },
       },
     },
@@ -288,6 +310,24 @@ P:NPC {
         { text = "I never heard it from you. Something else.", next = "BACK", fx = { trait = { witty = 1 } } },
       },
     },
+    w_first = {
+      lines = {
+        { id = "w_first_default", text = "A bundle of eight arrows, sold for four copper on the house's opening night, to a Sentinel named in my column as Shaylara. The buyer paid with a silver piece and refused the change, and I have never quite reconciled that line." },
+      },
+      choices = {
+        { text = "You never found her to give it back?", next = "w_first2" },
+        { text = "Four copper's change can't matter much.", next = "w_first2" },
+      },
+    },
+    w_first2 = {
+      lines = {
+        { id = "w_first2_default", text = "It matters to the column, which is the same thing. I set the change aside in a little purse, and it has waited ever since. If you meet a Shaylara of the Sentinels, tell her the house owes her six copper, and that it would like to be square." },
+      },
+      choices = {
+        { text = "I'll ask after her.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "You're very particular.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -340,7 +380,7 @@ P:NPC {
         { id = "h_again3", text = "Something more, my friend?" },
       },
       choices = {
-        { text = "Curiosity makes a good auctioneer.", next = "BACK", reply = "It does! You understand.", fx = { align = { light = 1 } } },
+        { text = "Curiosity makes a good auctioneer.", next = "BACK", reply = "It does! Ask enough questions about a lot and you learn who will bid on it before they know it themselves.", fx = { align = { light = 1 } } },
         { text = "An auctioneer should just sell.", next = "BACK", reply = "Then talk to Golothas.", fx = { align = { light = -1 } } },
         { text = "I'd like to see the auctions.", next = "BUSINESS" },
         { text = "Collecting the whole world?", next = "collect" },
@@ -350,6 +390,7 @@ P:NPC {
         { text = "Have you ever left the tree?", next = "left" },
         { text = "What have you learned about the dwarves?", next = "cz_dwarves" },
         { text = "Do the Sentinels ever sell through the house?", next = "cz_sentinels" },
+        { text = "What would you buy, if you could bid yourself?", next = "w_bid" },
         { text = "Until next time, Cazarez.", next = "END" },
       },
     },
@@ -449,6 +490,25 @@ P:NPC {
         { text = "A dock is as good a classroom as any. Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
+    w_bid = {
+      lines = {
+        { id = "w_bid_default", text = "A map, and a good one, of anywhere I have not been, which is everywhere. Last spring a human sold a sea chart of the coast of Stranglethorn, and I watched it go to a dwarf for nine silver and I have not stopped thinking about it." },
+      },
+      choices = {
+        { text = "Why not bid on it?", next = "w_bid2" },
+        { text = "You'd never use a sea chart.", next = "w_bid2" },
+      },
+    },
+    w_bid2 = {
+      lines = {
+        { id = "w_bid2_default", text = "The house's rule, and a good one: no auctioneer bids on what passes through our hands. Tolon would forgive me and Golothas would not, and it is Golothas who keeps the columns, so I keep my hands folded and my curiosity behind my teeth." },
+        { id = "w_bid2_w1", when = { race = "Human" }, text = "Unless you have such a chart yourself and would like to describe it to me, at very great length? I promise to listen to every word." },
+      },
+      choices = {
+        { text = "Some rules keep a house honest.", next = "BACK" },
+        { text = "You could always just go and see it.", next = "BACK", fx = { trait = { brave = 1 } } },
+      },
+    },
   },
 
   topics = {
@@ -496,12 +556,12 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Ealyshia Dewwhisper. Merelyssa beside me sells the lighter blades, and Glorandiir the axes. Mine are the long arms, the ones that end a fight in one stroke or leave you open if they do not." },
       },
       again = {
-        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again", text = "Ask on. A greatsword buyer should have all her questions answered before she swings." },
         { id = "h_again2", text = "Ask. I have the time." },
-        { id = "h_again3", text = "Yes?" },
+        { id = "h_again3", text = "Yes? Step back a little; I am swinging this one." },
       },
       choices = {
-        { text = "A two-handed weapon demands discipline.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "A two-handed weapon demands discipline.", next = "BACK", reply = "It does. A two-handed blade punishes every lazy step, and it punishes them at once.", fx = { align = { order = 1 } } },
         { text = "A big weapon just needs a strong arm.", next = "BACK", reply = "Then hit yourself with it.", fx = { align = { order = -1 } } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "Why would you ask what I'll do with it?", next = "why" },
@@ -509,6 +569,7 @@ P:NPC {
         { text = "Who buys from you, these days?", next = "buys" },
         { text = "Watch my cut, then, and judge.", next = "xwar", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Which staff for a druid who fights?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "You said you fought beside humans and orcs.", next = "w_hyjal" },
         { text = "Elune guide your arm, Ealyshia.", next = "END" },
       },
     },
@@ -581,6 +642,25 @@ P:NPC {
         { text = "Plain ash, shod at both ends. Thank you.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    w_hyjal = {
+      lines = {
+        { id = "w_hyjal_default", text = "At Mount Hyjal, against the Legion, when Archimonde climbed for the World Tree. I held a greatsword on the slopes below Nordrassil, and the orc beside me held an axe, and neither of us had a word of the other's tongue." },
+      },
+      choices = {
+        { text = "What was it like, fighting with an orc?", next = "w_hyjal2" },
+        { text = "I didn't expect you to speak of Hyjal.", next = "w_hyjal2" },
+      },
+    },
+    w_hyjal2 = {
+      lines = {
+        { id = "w_hyjal2_default", text = "Loud. He shouted at every stroke and I thought it foolish, until I saw that it made the demons look at him and not at me. When it was done he nodded to me once and walked away, and I never learned his name, and I have never felt the same about the Horde since, in either direction." },
+        { id = "w_hyjal2_w1", when = { race = "Orc" }, text = "You are one of his people, so perhaps you will understand me when I say that I hate what your Warsong do in Ashenvale and I would still stand beside that one again." },
+      },
+      choices = {
+        { text = "Old allies can still be enemies.", next = "BACK" },
+        { text = "Something else, Ealyshia.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -629,12 +709,12 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Merelyssa. I sell the blades a person can actually move with, which sets me apart from Ealyshia and her great slabs, and from Glorandiir, who thinks an axe is a subtle instrument. We three share the terrace in perfect contempt." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
+        { id = "h_again", text = "What else? Ask quickly, before Ealyshia comes over to interrupt." },
         { id = "h_again2", text = "Ask, and be quick, as a blade should be." },
         { id = "h_again3", text = "Go on. I am only sharpening." },
       },
       choices = {
-        { text = "A blade should be kept sharp and clean.", next = "BACK", reply = "It should. You understand.", fx = { align = { order = 1 } } },
+        { text = "A blade should be kept sharp and clean.", next = "BACK", reply = "It should. A dull edge in a sheath is a lie you tell yourself until the day you need it.", fx = { align = { order = 1 } } },
         { text = "A blade is a blade.", next = "BACK", reply = "Then buy one elsewhere.", fx = { align = { order = -1 } } },
         { text = "Show me your blades.", next = "BUSINESS" },
         { text = "Perfect contempt, all three of you?", next = "contempt" },
@@ -642,6 +722,7 @@ P:NPC {
         { text = "You judge everyone by their sword.", next = "judge" },
         { text = "Who taught you about paired daggers?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "How should I grip it, then?", next = "xwar", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
+        { text = "You said you were more dangerous once.", next = "w_once" },
         { text = "Stay sharp, Merelyssa.", next = "END" },
       },
     },
@@ -714,6 +795,26 @@ P:NPC {
         { text = "Like a bird. I'll practise it. Something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    w_once = {
+      lines = {
+        { id = "w_once_default", text = "I was a Sentinel for a long age, and a quick one, and I liked it rather too much. A captain told me that I fought like someone trying to win an argument, and she was right, and she sent me home before it got me killed." },
+      },
+      choices = {
+        { text = "Do you resent her for it?", next = "w_once2" },
+        { text = "You still sound like you're arguing.", next = "w_once2" },
+      },
+    },
+    w_once2 = {
+      lines = {
+        { id = "w_once2_default", text = "I did, for a century, and then I saw what happened to the others who fought as I did. So now I sell blades instead, and I argue with Ealyshia and Glorandiir, and nobody bleeds for it but my pride." },
+        { id = "w_once2_w1", when = { class = "ROGUE" }, text = "You fight from the shadows, so I suspect you argue the same way I did, only more quietly. Be careful with it." },
+      },
+      choices = {
+        { text = "Your captain did you a kindness.", next = "BACK", fx = { align = { order = 1 } }, reply = "She did, and I have told her so, though not graciously. I am working on graciously." },
+        { text = "A fighter should fight her own way.", next = "BACK", fx = { align = { order = -1 } }, reply = "She should, until her way buries her. I was lucky enough to be told before it did." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -762,12 +863,12 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Kieran. The others on this terrace each sell one sort of weapon and know everything about it. I sell a little of every sort and know enough. Most people, I find, only need enough." },
       },
       again = {
-        { id = "h_again", text = "What else can I do for you?" },
-        { id = "h_again2", text = "Ask away." },
-        { id = "h_again3", text = "Yes, friend?" },
+        { id = "h_again", text = "Anything more from the racks? I have plain steel and nothing fancy, which is how I like it." },
+        { id = "h_again2", text = "Ask away. I'll give you plain answers, as I give plain steel." },
+        { id = "h_again3", text = "Yes, friend? Nothing fancy here, but ask." },
       },
       choices = {
-        { text = "Plain weapons are honest weapons.", next = "BACK", reply = "They are. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Plain weapons are honest weapons.", next = "BACK", reply = "They are. A plain blade does not pretend to be more than it is, and neither should the one who carries it.", fx = { align = { honor = 1 } } },
         { text = "Fancy weapons are better.", next = "BACK", reply = "Then go see Ealyshia.", fx = { align = { honor = -1 } } },
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "You send customers to your rivals?", next = "rivals" },
@@ -777,6 +878,7 @@ P:NPC {
         { text = "What's simplest for someone who isn't a fighter?", next = "xpriest", when = { class = { "PRIEST", "DRUID", "MAGE", "WARLOCK" } } },
         { text = "Who on the terrace sells the finest blades?", next = "ki_finest" },
         { text = "Do outlanders buy differently than kaldorei?", next = "ki_outlanders" },
+        { text = "Which weapon do you carry yourself?", next = "w_own" },
         { text = "Good day, Kieran.", next = "END" },
       },
     },
@@ -876,6 +978,24 @@ P:NPC {
         { text = "A short mace, then. Thank you.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    w_own = {
+      lines = {
+        { id = "w_own_default", text = "A short sword from the second barrel by the post, the cheapest blade I sell. It is the one I trust, because I have watched a hundred like it go out and come back, and I know exactly how it will fail when it fails." },
+      },
+      choices = {
+        { text = "Doesn't a merchant want the best?", next = "w_own2" },
+        { text = "You know your stock better than anyone.", next = "w_own2" },
+      },
+    },
+    w_own2 = {
+      lines = {
+        { id = "w_own2_default", text = "A merchant wants to know what he is selling. If I carried Merelyssa's finest, I would start believing that everyone ought to, and then I should be a worse merchant and a poorer friend to the young ones who come in with a few copper." },
+      },
+      choices = {
+        { text = "That's honest sense.", next = "BACK", fx = { trait = { practical = 1 } } },
+        { text = "Something else, Kieran.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -925,10 +1045,10 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? I can throw and talk." },
         { id = "h_again2", text = "Ask! And mind your head." },
-        { id = "h_again3", text = "Something more?" },
+        { id = "h_again3", text = "Something more? I can hit that knot while you think." },
       },
       choices = {
-        { text = "Throwing weapons take great skill.", next = "BACK", reply = "They do! You understand.", fx = { align = { honor = 1 } } },
+        { text = "Throwing weapons take great skill.", next = "BACK", reply = "They do! Anyone can stab, but a glaive that comes back to your hand takes years to learn.", fx = { align = { honor = 1 } } },
         { text = "Throwing weapons are toys.", next = "BACK", reply = "Then don't throw them.", fx = { align = { honor = -1 } } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Can you hit that knot every time?", next = "knot" },
@@ -938,6 +1058,7 @@ P:NPC {
         { text = "Dwarves throw hammers. It's true.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Who are your best customers?", next = "tu_customers" },
         { text = "Do the Sentinels ever practise with you?", next = "tu_sentinels" },
+        { text = "Teach me one throwing trick.", next = "w_trick" },
         { text = "Throw true, Turian.", next = "END" },
       },
     },
@@ -1039,6 +1160,25 @@ P:NPC {
         { text = "We just carry a second hammer.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
+    w_trick = {
+      lines = {
+        { id = "w_trick_default", text = "Very well, one trick, and the simplest: look where you want it to land, not at the knife. Everyone watches the blade leave their hand, as though it might change its mind, and it goes wherever their eyes went, which is usually the floor." },
+        { id = "w_trick_w1", when = { class = "HUNTER" }, text = "You will know this already from the bow, I think. The eye leads and the hand follows, and the arrow only obeys the pair of them." },
+      },
+      choices = {
+        { text = "And if I miss anyway?", next = "w_trick2" },
+        { text = "That's simpler than I expected.", next = "w_trick2" },
+      },
+    },
+    w_trick2 = {
+      lines = {
+        { id = "w_trick2_default", text = "Then you pick it up and you try again, and you do not tell Landria about it. She keeps a tally of my misses on a board by her stall, and she would be delighted to add yours." },
+      },
+      choices = {
+        { text = "I'll practise where she can't see.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Turian.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -1086,9 +1226,9 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Glorandiir. I sell axes in a city grown inside a tree, among a people who have never forgiven the axe for anything. Ealyshia and Merelyssa think I do it to be contrary. They are partly right about that." },
       },
       again = {
-        { id = "h_again", text = "What else can I tell you?" },
+        { id = "h_again", text = "Something more? Mind your fingers near the rack; the bearded ones are newly honed." },
         { id = "h_again2", text = "Ask! I am not proud." },
-        { id = "h_again3", text = "Go on, friend." },
+        { id = "h_again3", text = "Go on, friend. My axes are patient listeners." },
       },
       choices = {
         { text = "An axe is a fine weapon for anyone.", next = "BACK", reply = "It is! You understand.", fx = { align = { honor = 1 } } },
@@ -1099,6 +1239,7 @@ P:NPC {
         { text = "Who buys an axe in Darnassus?", next = "buys" },
         { text = "The balance is fair. The beard's a touch thin.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Do the druids trouble you over this?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Have you ever used one of your axes in earnest?", next = "w_used" },
         { text = "Good day, Glorandiir.", next = "END" },
       },
     },
@@ -1171,6 +1312,26 @@ P:NPC {
         { text = "It is. Thank you for the plain answer.", next = "BACK", fx = { learn = { "cenarion_circle" } } },
       },
     },
+    w_used = {
+      lines = {
+        { id = "w_used_default", text = "Once, in Ashenvale, when a satyr came out of the trees at a caravan I was guarding. I had a glaive and dropped it, and the nearest weapon was an orc axe some Sentinel had taken as a trophy, so I used that." },
+      },
+      choices = {
+        { text = "And did it serve?", next = "w_used2" },
+        { text = "A strange way to come to your trade.", next = "w_used2" },
+      },
+    },
+    w_used2 = {
+      lines = {
+        { id = "w_used2_default", text = "Better than I wanted it to. That is half of why I sell them, if I am honest: an axe is a good, plain tool for a terrible moment, and it is not the axe's fault who first carried it. The Temple does not quite agree, but the Temple was not on that road." },
+        { id = "w_used2_w1", when = { race = "Dwarf" }, text = "Your people never had to make peace with the axe, I know. You will think the whole question very strange." },
+      },
+      choices = {
+        { text = "A tool is only as good as its wielder.", next = "BACK", fx = { align = { order = -1 } }, reply = "Just so. I say it to every matron who glares at my stall, and they never agree." },
+        { text = "Some weapons carry their history with them.", next = "BACK", fx = { align = { order = 1 } }, reply = "They do, and I remember it every time I hang one up. I simply sell them anyway." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -1219,12 +1380,12 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Mythidan. Andrus, beside me, sells the staves of the scholars and the druids. I sell the working staff and the mace, to the priestesses of the Temple above all. A Sister of Elune may fight, and many have, but she does it without an edge." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask?" },
-        { id = "h_again2", text = "Please, go on." },
-        { id = "h_again3", text = "Yes?" },
+        { id = "h_again", text = "What else would you ask of an old mace-seller?" },
+        { id = "h_again2", text = "Please, go on, and take your time with it." },
+        { id = "h_again3", text = "Yes? A question is a fine thing to carry." },
       },
       choices = {
-        { text = "A weapon that doesn't draw blood is still a weapon.", next = "BACK", reply = "It is. You understand.", fx = { align = { light = 1 } } },
+        { text = "A weapon that doesn't draw blood is still a weapon.", next = "BACK", reply = "It is. A mace does its work through the armor, and the armor never notices until too late.", fx = { align = { light = 1 } } },
         { text = "Only blades matter in battle.", next = "BACK", reply = "Then go to Merelyssa.", fx = { align = { light = -1 } } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Why do the priestesses fight without an edge?", next = "edge" },
@@ -1234,6 +1395,7 @@ P:NPC {
         { text = "Our paladins carry the hammer as holy.", next = "xpala", when = { class = "PALADIN" } },
         { text = "Do the druids buy your staves?", next = "my_druids" },
         { text = "What do the priestesses fight, with a mace?", next = "my_fight" },
+        { text = "Have you ever seen a priestess fight?", next = "w_saw" },
         { text = "Elune light your way, Mythidan.", next = "END" },
       },
     },
@@ -1333,6 +1495,25 @@ P:NPC {
         { text = "The Light and Elune agree on that much.", next = "BACK", fx = { affinity = 1, trait = { pious = 1 } } },
       },
     },
+    w_saw = {
+      lines = {
+        { id = "w_saw_default", text = "Once, in Darkshore, near the ruins of Ameth'Aran, when the dead elves of that place rose against a party of pilgrims. A young Sister I had sold a mace to only a month before stood in front of them all and did not give a step." },
+      },
+      choices = {
+        { text = "Did she bring them through?", next = "w_saw2" },
+        { text = "Ameth'Aran is a sad place.", next = "w_saw2" },
+      },
+    },
+    w_saw2 = {
+      lines = {
+        { id = "w_saw2_default", text = "Every one, and she was weeping the whole while, because the dead she fought had once been her own people. She came back to my stall a year later to have the grip rewrapped, and she would not speak of it, and she did not need to." },
+        { id = "w_saw2_w1", when = { class = "PRIEST" }, text = "You are a healer yourself, so you may know what it costs to strike when every part of you was made to mend. I think of her when I sell to your kind." },
+      },
+      choices = {
+        { text = "Courage often comes with tears.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Mythidan.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -1382,12 +1563,12 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Andrus, and I carve staves for the druids and the learned of Darnassus. Mythidan, at the next stall, sells the kind one walks and fights with. Mine are for standing with, and for remembering who one is." },
       },
       again = {
-        { id = "h_again", text = "What else may I tell you?" },
+        { id = "h_again", text = "Ask on. Every staff on this wall would tell you something, if staves could talk." },
         { id = "h_again2", text = "Ask. I am happy to explain." },
-        { id = "h_again3", text = "Yes? Go on." },
+        { id = "h_again3", text = "Yes? Go on; I was only polishing." },
       },
       choices = {
-        { text = "Every staff carries a story.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "Every staff carries a story.", next = "BACK", reply = "It does. This one walked from Ashenvale in an old druid's hand, and it still leans a little to the south.", fx = { align = { order = 1 } } },
         { text = "A staff is just a stick.", next = "BACK", reply = "Then use a stick.", fx = { align = { order = -1 } } },
         { text = "Show me your staves.", next = "BUSINESS" },
         { text = "What do the carvings say?", next = "carve" },
@@ -1395,6 +1576,7 @@ P:NPC {
         { text = "Have you ever refused a buyer?", next = "refuse" },
         { text = "What would you carve for a druid of the claw?", next = "xdruid", when = { class = "DRUID" } },
         { text = "And what is my staff for, to your eye?", next = "xmage", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "What staff are you carving now?", next = "w_now" },
         { text = "Good day, Andrus.", next = "END" },
       },
     },
@@ -1469,6 +1651,25 @@ P:NPC {
         { text = "Quiet has its uses. Something else.", next = "BACK", fx = { learn = { "highborne" } } },
       },
     },
+    w_now = {
+      lines = {
+        { id = "w_now_default", text = "One for a druid of the Enclave who lost her mentor in Ashenvale this winter. She asked me to carve his name into it, and I have been three weeks on the first letter, because I keep asking her questions about him and she keeps answering." },
+      },
+      choices = {
+        { text = "What have you learned of him?", next = "w_now2" },
+        { text = "Three weeks for one letter seems slow.", next = "w_now2" },
+      },
+    },
+    w_now2 = {
+      lines = {
+        { id = "w_now2_default", text = "That he laughed at his own jokes before he finished telling them, and that he planted an oak at every camp he slept in. I mean to carve a small acorn under his name, and I have not told her yet, and I hope it will be right." },
+        { id = "w_now2_w1", when = { class = "DRUID" }, text = "You are of the Circle, so perhaps you knew him, or knew someone like him. There are fewer of them every year." },
+      },
+      choices = {
+        { text = "She'll treasure it.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Andrus.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -1517,12 +1718,12 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Caynrus, and I sell shields. The three along the terrace sell the means of ending a fight, and I sell the means of living through one. They have the more exciting stalls. Mine has the more grateful customers." },
       },
       again = {
-        { id = "h_again", text = "What else do you need?" },
-        { id = "h_again2", text = "Ask. I am in no hurry." },
-        { id = "h_again3", text = "Yes?" },
+        { id = "h_again", text = "What else? I have nothing to guard here but shields, and they guard themselves." },
+        { id = "h_again2", text = "Take your time. A shield buyer who hurries is usually back within the week." },
+        { id = "h_again3", text = "Yes? I am standing ready, as a shield should." },
       },
       choices = {
-        { text = "A shield protects more than its bearer.", next = "BACK", reply = "It does. You understand.", fx = { align = { honor = 1 } } },
+        { text = "A shield protects more than its bearer.", next = "BACK", reply = "It does. Raise it for the one behind you and you have done more good than any sword.", fx = { align = { honor = 1 } } },
         { text = "Shields slow you down.", next = "BACK", reply = "Then you'll be quick, and dead.", fx = { align = { honor = -1 } } },
         { text = "Show me your shields.", next = "BUSINESS" },
         { text = "The only honest weapon, you say?", next = "honest" },
@@ -1530,6 +1731,7 @@ P:NPC {
         { text = "What's the worst mark you've seen on a shield?", next = "mark" },
         { text = "How do I stop raising it late?", next = "xwar", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Would you ever sell me one?", next = "xnone", when = { class = { "ROGUE", "HUNTER", "MAGE", "WARLOCK", "PRIEST", "DRUID" } } },
+        { text = "Who taught you to make shields?", next = "w_teach" },
         { text = "Stand fast, Caynrus.", next = "END" },
       },
     },
@@ -1602,6 +1804,26 @@ P:NPC {
         { text = "Close to the tall shield. I'll remember.", next = "BACK", fx = { trait = { practical = 1 } } },
       },
     },
+    w_teach = {
+      lines = {
+        { id = "w_teach_default", text = "An old Sentinel at Auberdine who made them for the women of her company, and who said she had never once made a shield for herself. I asked her why, and she said that the one who makes them ought to be standing behind the line, not in it." },
+      },
+      choices = {
+        { text = "Do you believe that?", next = "w_teach2" },
+        { text = "She sounds like a wise woman.", next = "w_teach2" },
+      },
+    },
+    w_teach2 = {
+      lines = {
+        { id = "w_teach2_default", text = "I did, and then I did not, and now I am not sure. I have stood behind a counter for a long time and sold my shields to people going where I am not. Some days that feels like wisdom, and some days it feels like hiding." },
+        { id = "w_teach2_w1", when = { class = "WARRIOR" }, text = "You stand in the line, warrior. Tell me honestly, would you rather your shieldmaker were beside you, or safe at home making the next one?" },
+      },
+      choices = {
+        { text = "Safe at home, making the next one.", next = "BACK", fx = { align = { order = 1 } }, reply = "Then I shall keep my bench, and think of you when I sand the rims." },
+        { text = "Beside us, where shields are needed.", next = "BACK", fx = { align = { order = -1 } }, reply = "That is what the young part of me hoped you would say. I shall think about it." },
+        { text = "That's not for me to say.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -1649,7 +1871,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Melea. I sold mail to the Sentinels for a long age, from the quartermaster's side of the table. Now I sell it from this side, to them and to anyone else who is going where the arrows are." },
       },
       again = {
-        { id = "h_again", text = "What else do you need to know?" },
+        { id = "h_again", text = "Anything further? Mail is heavy talk, but I do not mind the weight of it." },
         { id = "h_again2", text = "Ask it. I can fit and talk at once." },
         { id = "h_again3", text = "Yes? Quickly, now." },
       },
@@ -1662,6 +1884,7 @@ P:NPC {
         { text = "Who else sells armor on this terrace?", next = "others" },
         { text = "How do I keep mail quiet?", next = "xhunter", when = { class = { "HUNTER", "WARRIOR", "ROGUE" } } },
         { text = "What's wrong with mixing links?", next = "xdwarf", when = { race = { "Dwarf", "Human", "Gnome" } } },
+        { text = "What is it like, selling to people you once outfitted?", next = "w_sell" },
         { text = "Good day, Melea.", next = "END" },
       },
     },
@@ -1733,6 +1956,24 @@ P:NPC {
         { text = "Like to like, then. I'll mind it. Something else.", next = "BACK", fx = { trait = { curious = 1 } } },
       },
     },
+    w_sell = {
+      lines = {
+        { id = "w_sell_default", text = "Strange, and better than I expected. As a quartermaster I handed out what I had, and some of it did not fit, and some of them did not come back. Now I can take the time to see that it fits, and that is a small kind of making amends." },
+      },
+      choices = {
+        { text = "Amends for what?", next = "w_sell2" },
+        { text = "You couldn't help what you had to give.", next = "w_sell2" },
+      },
+    },
+    w_sell2 = {
+      lines = {
+        { id = "w_sell2_default", text = "For the shirts that were too short at the hip, in the Third War, because we had no more mail and no time. I have no reason to think any of them died of it, and I still count them, because a quartermaster always counts." },
+      },
+      choices = {
+        { text = "You did what you could.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Melea.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -1784,11 +2025,11 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else may I show you?" },
-        { id = "h_again2", text = "Please, ask." },
-        { id = "h_again3", text = "Yes?" },
+        { id = "h_again2", text = "Please, ask. I see you are wondering about the gloves." },
+        { id = "h_again3", text = "Yes? Tell me who you mean to be seen by." },
       },
       choices = {
-        { text = "Cloth armor is graceful and practical.", next = "BACK", reply = "It is. You understand.", fx = { align = { order = 1 } } },
+        { text = "Cloth armor is graceful and practical.", next = "BACK", reply = "It is, and the priestesses have known it for ten thousand years. Steel is not the only way to be protected.", fx = { align = { order = 1 } } },
         { text = "Cloth is no protection at all.", next = "BACK", reply = "Then wear mail.", fx = { align = { order = -1 } } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "Why ask what company I keep?", next = "company" },
@@ -1798,6 +2039,7 @@ P:NPC {
         { text = "You'd sell to me without a single question?", next = "xlock", when = { class = "WARLOCK" } },
         { text = "How do you choose your colours?", next = "vi_colours" },
         { text = "Who buys from you, most often?", next = "vi_buys" },
+        { text = "What would you put me in, if I let you?", next = "w_dress" },
         { text = "Good day, Vinasia.", next = "END" },
       },
     },
@@ -1898,6 +2140,26 @@ P:NPC {
         { text = "Grey, to be overlooked. That's shrewd.", next = "BACK", fx = { trait = { cunning = 1 } } },
       },
     },
+    w_dress = {
+      lines = {
+        { id = "w_dress_default", text = "That depends on who you want to be mistaken for, and it is not always who you are. A young priestess I dressed last spring wanted to look older, and I put her in grey, and the matrons at the Temple began asking her opinion." },
+        { id = "w_dress_w1", when = { class = "MAGE" }, text = "You carry the arcane about you, and in Darnassus you will want something that does not announce it. Deep violet, and no silver thread at all." },
+      },
+      choices = {
+        { text = "Is that not a kind of deceit?", next = "w_dress2" },
+        { text = "You dress people for their hopes.", next = "w_dress2" },
+      },
+    },
+    w_dress2 = {
+      lines = {
+        { id = "w_dress2_default", text = "Everyone dresses for someone, and I only make it deliberate. The priestess had good opinions all along; she simply needed the matrons to look up long enough to hear them. Cloth cannot make anyone wise, but it can make the wise harder to ignore." },
+      },
+      choices = {
+        { text = "Appearances do matter.", next = "BACK", fx = { align = { order = 1 } }, reply = "They do, for good or ill. I would rather they matter for good." },
+        { text = "People should be judged on deeds alone.", next = "BACK", fx = { align = { order = -1 } }, reply = "They should. Until they are, I shall keep selling grey." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -1945,12 +2207,12 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Anadyia, and I sell the robe as it ought to be. Vinasia beside me attends to mantles and gloves, and Trianna on the terrace below is busy improving what needs no improvement. I keep to the old patterns, and I am never short of buyers." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask?" },
-        { id = "h_again2", text = "Speak. I am listening." },
-        { id = "h_again3", text = "Yes?" },
+        { id = "h_again", text = "Is there something else you wish to see? The violet ones are new." },
+        { id = "h_again2", text = "Speak freely. I can listen and pin a hem at once." },
+        { id = "h_again3", text = "Yes? Do not touch the silver hems." },
       },
       choices = {
-        { text = "The old ways of cutting robes are best.", next = "BACK", reply = "They are. You understand.", fx = { align = { order = 1 } } },
+        { text = "The old ways of cutting robes are best.", next = "BACK", reply = "They are. A robe cut the old way falls like moonlight, and the new ways only imitate it.", fx = { align = { order = 1 } } },
         { text = "New styles are better than old.", next = "BACK", reply = "Then you will look foolish.", fx = { align = { order = -1 } } },
         { text = "Show me your robes.", next = "BUSINESS" },
         { text = "What makes the old pattern right?", next = "pattern" },
@@ -1960,6 +2222,7 @@ P:NPC {
         { text = "Remind me of the drape, then.", next = "xnelf", when = { race = "NightElf" } },
         { text = "How long does a robe take to make?", next = "an_long" },
         { text = "What do the priestesses wear for ceremony?", next = "an_ceremony" },
+        { text = "Who taught you the old pattern?", next = "w_teach" },
         { text = "Elune-adore, Anadyia.", next = "END" },
       },
     },
@@ -2060,6 +2323,25 @@ P:NPC {
         { text = "Left over right. Forgive me, Anadyia.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },
       },
     },
+    w_teach = {
+      lines = {
+        { id = "w_teach_default", text = "My grandmother, in the forest of Ashenvale, before there were cities. She cut by moonlight with a bone knife on a flat stone by a stream, and she never measured anything, because her hands had done it ten thousand times." },
+      },
+      choices = {
+        { text = "Do you measure?", next = "w_teach2" },
+        { text = "That's a long line of tailors.", next = "w_teach2" },
+      },
+    },
+    w_teach2 = {
+      lines = {
+        { id = "w_teach2_default", text = "I do, and she would have laughed at me for it. My hands have done it only a few thousand times, which is not enough to stop checking. Trianna does not measure at all, which is why her robes are so interesting and mine are so correct." },
+        { id = "w_teach2_w1", when = { profession = "Tailoring" }, text = "You sew yourself, so you will know the difference between a hand that is certain and a hand that only hopes. Measure until you stop hoping." },
+      },
+      choices = {
+        { text = "There's comfort in a careful hand.", next = "BACK" },
+        { text = "Something else, Anadyia.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -2108,12 +2390,12 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Yldan, and I sell bags. It is not a trade that anybody sings about. But everything else on this terrace must be carried home in something, and when that something splits on the road to Dolanaar, I am the one they remember." },
       },
       again = {
-        { id = "h_again", text = "What else do you need?" },
+        { id = "h_again", text = "What more do you need carried? I have a bag for nearly everything." },
         { id = "h_again2", text = "Ask. I shall be here." },
-        { id = "h_again3", text = "Yes?" },
+        { id = "h_again3", text = "Yes? I will judge your pack later." },
       },
       choices = {
-        { text = "A good bag saves much trouble.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "A good bag saves much trouble.", next = "BACK", reply = "It does. Half the adventurers who come back hurt lost something because they had nowhere to put it.", fx = { align = { order = 1 } } },
         { text = "Any bag will do.", next = "BACK", reply = "Then lose your things.", fx = { align = { order = -1 } } },
         { text = "Show me your bags.", next = "BUSINESS" },
         { text = "A pack is a person's character?", next = "character" },
@@ -2123,6 +2405,7 @@ P:NPC {
         { text = "What's wrong with a strap on the bias?", next = "xtailor", when = { profession = "Tailoring" } },
         { text = "What makes a good bag?", next = "yl_good" },
         { text = "What's the strangest thing someone carried in your bag?", next = "yl_strange" },
+        { text = "What's in your own pack?", next = "w_pack" },
         { text = "Good day, Yldan.", next = "END" },
       },
     },
@@ -2223,6 +2506,24 @@ P:NPC {
         { text = "A straight tape inside. I'll do that. Something else.", next = "BACK", fx = { affinity = 1 } },
       },
     },
+    w_pack = {
+      lines = {
+        { id = "w_pack_default", text = "A spare strap, a needle with waxed thread, two days' bread and one river stone from Lake Al'Ameth. The stone is the only thing in there that has no use at all, and so it is the only thing I would grieve to lose." },
+      },
+      choices = {
+        { text = "Why that stone?", next = "w_pack2" },
+        { text = "I would have guessed more straps.", next = "w_pack2" },
+      },
+    },
+    w_pack2 = {
+      lines = {
+        { id = "w_pack2_default", text = "My sister gave it to me before she went to Ashenvale with the Sentinels. She said a pack with nothing useless in it belonged to someone with nobody to miss, and she wanted me to have something useless." },
+      },
+      choices = {
+        { text = "She sounds like she knew you well.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Yldan.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -2270,12 +2571,12 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Ellandrieth. I sell the plain things that everybody needs and nobody remembers to bring. And since everyone must pass my stall to reach the auction house, I see the whole of Darnassus go by in a day." },
       },
       again = {
-        { id = "h_again", text = "What else can I help you with?" },
+        { id = "h_again", text = "What else for the road? Flint, rope and bread are the three I would never leave without." },
         { id = "h_again2", text = "Ask me anything. I shall very likely know." },
         { id = "h_again3", text = "Yes, dear?" },
       },
       choices = {
-        { text = "Being prepared keeps travelers safe.", next = "BACK", reply = "It does! You understand.", fx = { align = { order = 1 } } },
+        { text = "Being prepared keeps travelers safe.", next = "BACK", reply = "It does! A traveler with dry tinder and a full waterskin has already won half her battles.", fx = { align = { order = 1 } } },
         { text = "I'll manage without supplies.", next = "BACK", reply = "Then you'll go hungry.", fx = { align = { order = -1 } } },
         { text = "Show me your goods.", next = "BUSINESS" },
         { text = "Where is everything in this city?", next = "where" },
@@ -2283,6 +2584,7 @@ P:NPC {
         { text = "What's the talk of the terrace, lately?", next = "talk" },
         { text = "Truly, will the tree not fall?", next = "xout", when = { race = { "Human", "Dwarf", "Gnome" } } },
         { text = "Is it true we were happier in the forest?", next = "xnelf", when = { race = "NightElf" } },
+        { text = "Who's the strangest person to pass your stall?", next = "w_strange" },
         { text = "Thank you, Ellandrieth. Farewell.", next = "END" },
       },
     },
@@ -2365,6 +2667,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    w_strange = {
+      lines = {
+        { id = "w_strange_default", text = "A gnome, last month, who walked up from the portal backwards so that he could map the route as he went. He asked me for a pencil, and then for directions, and then whether the tree had ever been measured, and he was gone before I could answer any of it." },
+      },
+      choices = {
+        { text = "Had the tree been measured?", next = "w_strange2" },
+        { text = "Gnomes are like that, I hear.", next = "w_strange2" },
+      },
+    },
+    w_strange2 = {
+      lines = {
+        { id = "w_strange2_default", text = "Not that anyone would admit to. The Enclave would think it impertinent and the Temple would think it unnecessary, which means he is probably measuring it now. I hope he comes back and tells me, though I shall never tell Fandral I asked." },
+        { id = "w_strange2_w1", when = { race = "Gnome" }, text = "You are one of his people, so perhaps you can tell me why he walked backwards. I have thought about it all week." },
+      },
+      choices = {
+        { text = "Some questions are worth asking.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Something else, Ellandrieth.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -2415,7 +2736,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else can I bring you?" },
         { id = "h_again2", text = "Ask. I have nowhere to be." },
-        { id = "h_again3", text = "Yes, friend?" },
+        { id = "h_again3", text = "Yes, friend? Sit, if you like; the bench is warm." },
       },
       choices = {
         { text = "A moment's rest is good for the soul.", next = "BACK", reply = "It is. Sit, then.", fx = { align = { light = 1 } } },
@@ -2426,6 +2747,7 @@ P:NPC {
         { text = "What do you overhear, standing here?", next = "hear" },
         { text = "Is the moonberry wine strong?", next = "xdwarf", when = { race = { "Dwarf", "Human", "Gnome" } } },
         { text = "How did you know where I'd been?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What do you give someone who's had bad news?", next = "w_bad" },
         { text = "Thank you, Dendrythis.", next = "END" },
       },
     },
@@ -2507,6 +2829,25 @@ P:NPC {
         { text = "I'm glad Mathrengyl says so. Something else.", next = "BACK", fx = { learn = { "cenarion_circle" } } },
       },
     },
+    w_bad = {
+      lines = {
+        { id = "w_bad_default", text = "Warm milk with honey, and no questions. People who have just been told something hard at the Temple do not want to talk; they want something in their hands that is warm and asks nothing of them." },
+      },
+      choices = {
+        { text = "Do they ever talk anyway?", next = "w_bad2" },
+        { text = "That's a kindness.", next = "w_bad2" },
+      },
+    },
+    w_bad2 = {
+      lines = {
+        { id = "w_bad2_default", text = "Sometimes, after the cup is half gone. A young Sentinel sat on that bench for an hour last week and told me her mother had not come back from Ashenvale. Then she stood up, thanked me for the milk and walked back to the boats, and I have thought about her every day since." },
+        { id = "w_bad2_w1", when = { race = "NightElf" }, text = "You are kaldorei, and you will know how quietly we grieve. I think the milk gives people somewhere to put their hands while they do it." },
+      },
+      choices = {
+        { text = "Grief needs a quiet place.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Dendrythis.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -2555,12 +2896,12 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Kyrai. I sell poisons to those whom this city has trained to use them, and to nobody else. Syurna, Erion and Anishar teach in these rooms, and the druids overhead have agreed not to ask what is kept in the cellar." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
+        { id = "h_again", text = "What else? Speak low; the vials do not like a loud voice." },
         { id = "h_again2", text = "Ask it plainly." },
-        { id = "h_again3", text = "Yes?" },
+        { id = "h_again3", text = "Yes? Keep your hands where I can see them, please." },
       },
       choices = {
-        { text = "Plain speech serves everyone.", next = "BACK", reply = "It does. You understand.", fx = { align = { honor = 1 } } },
+        { text = "Plain speech serves everyone.", next = "BACK", reply = "It does, and I will speak plainly: these vials are not toys, and I do not sell them to the careless.", fx = { align = { honor = 1 } } },
         { text = "Poison is a coward's weapon.", next = "BACK", reply = "Then don't buy it.", fx = { align = { honor = -1 } } },
         { text = "Show me your wares.", next = "BUSINESS" },
         { text = "How does a night elf come to sell poison?", next = "come" },
@@ -2568,6 +2909,7 @@ P:NPC {
         { text = "Where do your ingredients come from?", next = "source" },
         { text = "How should I clean a coated blade?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "A healer's apprentice, you said?", next = "xalch", when = { profession = { "Alchemy", "Herbalism" } } },
+        { text = "What's the most dangerous thing on your shelves?", next = "w_danger" },
         { text = "I'll leave you to your vials.", next = "END" },
       },
     },
@@ -2640,6 +2982,26 @@ P:NPC {
         { text = "The dose makes the poison, as they say.", next = "BACK", fx = { learn = { "sisterhood_of_elune" } } },
       },
     },
+    w_danger = {
+      lines = {
+        { id = "w_danger_default", text = "Not what you would think. The deadly ones are clearly marked and kept high. The dangerous one is a mild sleeping draught, because people think it harmless and use too much of it, on themselves and on others." },
+      },
+      choices = {
+        { text = "Have you seen that happen?", next = "w_danger2" },
+        { text = "That's an odd thing to fear.", next = "w_danger2" },
+      },
+    },
+    w_danger2 = {
+      lines = {
+        { id = "w_danger2_default", text = "Once, a student who wanted to sleep through a hard week and did not wake for three days. Since then I sell it only to those Syurna sends me, and only with a word of warning that the students find tiresome. I would rather be tiresome." },
+        { id = "w_danger2_w1", when = { class = "ROGUE" }, text = "You are of this trade, so hear it from me: the poison you respect will never hurt you. It is the one you stop thinking about." },
+      },
+      choices = {
+        { text = "Caution saves lives.", next = "BACK", fx = { align = { order = 1 } }, reply = "It does, though it never earns any thanks. I have made my peace with that." },
+        { text = "Students should learn from their own mistakes.", next = "BACK", fx = { align = { order = -1 } }, reply = "They do. I would only like them to survive the lesson." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -2689,8 +3051,8 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else may I find for you?" },
-        { id = "h_again2", text = "Ask, friend." },
-        { id = "h_again3", text = "Yes?" },
+        { id = "h_again2", text = "Ask, friend. A question asked kindly is half answered." },
+        { id = "h_again3", text = "Yes? Each question is a seed, so plant it carefully." },
       },
       choices = {
         { text = "The druids' work is important.", next = "BACK", reply = "It is. I supply them gladly.", fx = { align = { light = 1 } } },
@@ -2703,6 +3065,7 @@ P:NPC {
         { text = "The lower shelf, out of his sight?", next = "xmage", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "Which reagent is hardest to come by?", next = "cy_hard" },
         { text = "Do the students make many mistakes?", next = "cy_students" },
+        { text = "What reagent do you keep for yourself?", next = "w_self" },
         { text = "Walk with the forest, Cyroen.", next = "END" },
       },
     },
@@ -2803,6 +3166,25 @@ P:NPC {
         { text = "Well shelved. Thank you for it.", next = "BACK", fx = { trait = { witty = 1 }, learn = { "cenarion_circle" } } },
       },
     },
+    w_self = {
+      lines = {
+        { id = "w_self_default", text = "A single seed of the old forest, from a tree that stood in Ashenvale before the Sundering. It will never be planted, because there is no soil left that it remembers, and I keep it in a small wooden box behind the counter." },
+      },
+      choices = {
+        { text = "Why keep a seed you'll never plant?", next = "w_self2" },
+        { text = "That seed must be very old.", next = "w_self2" },
+      },
+    },
+    w_self2 = {
+      lines = {
+        { id = "w_self2_default", text = "Because it is a promise that was never kept, and I think somebody ought to hold one of those, so that we remember how many there were. The druids would call it sentiment. I call it bookkeeping of a gentler kind." },
+        { id = "w_self2_w1", when = { class = "DRUID" }, text = "You may feel it if you hold the box; most druids say it is very faint and very far away, like a voice at the bottom of a well." },
+      },
+      choices = {
+        { text = "Some things should be remembered.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Cyroen.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -2851,12 +3233,12 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Ellaercia. Lysheana registers the guilds of Darnassus, Shalumon sells the cloth, and I design what is to be put on it. A tabard is a promise worn on the outside, and I try to see that the promise can be read." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask?" },
-        { id = "h_again2", text = "Go on. I am listening." },
-        { id = "h_again3", text = "Yes?" },
+        { id = "h_again", text = "What else would you have on your banner?" },
+        { id = "h_again2", text = "Tell me more. A good tabard begins with listening to the ones who will wear it." },
+        { id = "h_again3", text = "Yes? Tell me what your company stands for." },
       },
       choices = {
-        { text = "A tabard should show what a company stands for.", next = "BACK", reply = "It should. You understand.", fx = { align = { honor = 1 } } },
+        { text = "A tabard should show what a company stands for.", next = "BACK", reply = "It should. A company that cannot say in colour what it believes will not say it in battle either.", fx = { align = { honor = 1 } } },
         { text = "A tabard is just colours.", next = "BACK", reply = "Then pick any colours.", fx = { align = { honor = -1 } } },
         { text = "I'd like a tabard designed.", next = "BUSINESS" },
         { text = "Why ask what a company has sworn?", next = "sworn" },
@@ -2864,6 +3246,7 @@ P:NPC {
         { text = "How do you three share the work?", next = "three" },
         { text = "Draw me the something better.", next = "xhuman", when = { race = "Human" } },
         { text = "What reads at a hundred paces?", next = "xwar", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
+        { text = "What's the worst design you ever refused?", next = "w_worst" },
         { text = "Thank you, Ellaercia. Farewell.", next = "END" },
       },
     },
@@ -2934,6 +3317,26 @@ P:NPC {
       },
       choices = {
         { text = "Smoked glass. That's a clever test.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    w_worst = {
+      lines = {
+        { id = "w_worst_default", text = "A company that wanted a dragon breathing fire over a burning forest, in Darnassus, in red and gold. I asked them what they were sworn to, and they said glory, and I told them that I could not draw glory, only what they did to get it." },
+      },
+      choices = {
+        { text = "Did they find someone else?", next = "w_worst2" },
+        { text = "That's harsh for a tabard maker.", next = "w_worst2" },
+      },
+    },
+    w_worst2 = {
+      lines = {
+        { id = "w_worst2_default", text = "A human in Stormwind made it for them, and they wore it to Ashenvale, and the Sentinels at Astranaar would not let them past the bridge. They came back to me a season later and asked for an oak leaf on green, and I made it gladly." },
+        { id = "w_worst2_w1", when = { race = "Human" }, text = "No offence to your city's craftsmen, of course. I am told they will draw anything at all, which is a kind of courage." },
+      },
+      choices = {
+        { text = "An emblem should tell the truth.", next = "BACK", fx = { align = { order = 1 } }, reply = "It should, and it should tell it to strangers at a distance, which is harder." },
+        { text = "A company's emblem is its own business.", next = "BACK", fx = { align = { order = -1 } }, reply = "It is, until they wear it where others must look at it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
   },

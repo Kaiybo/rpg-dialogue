@@ -80,6 +80,7 @@ P:NPC {
         { text = "Do you trust Teldrassil?", next = "y_tree" },
         { text = "Should the young go to war?", next = "y_stance" },
         { text = "I'm kaldorei. Do you remember Hyjal?", next = "BACK", when = { race = "NightElf" }, reply = "I remember the fire. I try not to. Sit with me, kin, and let us talk of gentler things." },
+        { text = "What do you do in Dolanaar all day?", next = "w_day" },
         { text = "Rest well, Melarith.", next = "END" },
       },
     },
@@ -103,6 +104,24 @@ P:NPC {
       choices = {
         { text = "I am sorry for what you lost.", next = "BACK", reply = "Thank you. It was long ago as you count such things, and only yesterday as I do.", fx = { affinity = 1 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_day = {
+      lines = {
+        { id = "w_day_default", text = "I sit on the bench outside the inn and watch the road, and when the young ones come back from the Ban'ethil side I count them. I do not tell anyone the number, because I am not a Sentinel, but I count, and lately the number is sometimes short." },
+      },
+      choices = {
+        { text = "Who do you tell, then?", next = "w_day2" },
+        { text = "Counting is a kind of keeping.", next = "w_day2" },
+      },
+    },
+    w_day2 = {
+      lines = {
+        { id = "w_day2_default", text = "Sentinel Kyra, when it is more than one. She listens, and she does not tell me to mind my own business, which I appreciate. Before the tree, I counted the children of Saelanar the same way, and I lost count only once, at the very end." },
+      },
+      choices = {
+        { text = "You still keep watch, in your way.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Melarith.", next = "BACK" },
       },
     },
   },
@@ -190,6 +209,7 @@ P:NPC {
         { text = "Tell me about Moon Priestess Amara.", next = "y_amara" },
         { text = "Tell me about your saber.", next = "y_saber" },
         { text = "Can the Gnarlpine be saved?", next = "y_stance" },
+        { text = "What do you and Nhemai do when the road is quiet?", next = "w_quiet" },
         { text = "Safe riding, huntress.", next = "END" },
       },
     },
@@ -215,6 +235,25 @@ P:NPC {
     hunter = {
       lines = { { id = "hu_default", text = "It should, and if you look you will see claw marks high on the trunks where they climb. Read those as you would a deer trail, and you will know where the next ambush waits before it knows you." } },
       choices = { { text = "I see them now. Something else.", next = "BACK" } },
+    },
+    w_quiet = {
+      lines = {
+        { id = "w_quiet_default", text = "Argue about sabers, mostly. She thinks hers is faster and I know mine is, and Amara settles it every few weeks by saying they are both beautiful and making us walk the last mile. It is the closest thing either of us has to a holiday." },
+      },
+      choices = {
+        { text = "Whose saber is faster?", next = "w_quiet2" },
+        { text = "Amara sounds wise.", next = "w_quiet2" },
+      },
+    },
+    w_quiet2 = {
+      lines = {
+        { id = "w_quiet2_default", text = "Mine, Shalana, by a nose, though if you ask Nhemai she will look at you without blinking until you take it back. We have ridden together a long time. You learn to love someone who never says a word you do not need." },
+        { id = "w_quiet2_w1", when = { class = "HUNTER" }, text = "You ride with a companion too. Tell me, does your beast argue with you, or only with everyone else?" },
+      },
+      choices = {
+        { text = "Shalana, by a nose.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Huntress.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -268,6 +307,7 @@ P:NPC {
         { text = "Elune's grace will see you mended.", next = "priest", when = { class = "PRIEST" } },
         { text = "Who else patrols this stretch?", next = "sh_others" },
         { text = "What do you know of the Gnarlpine?", next = "sh_gnarl" },
+        { text = "What do you miss most about the city?", next = "w_city" },
         { text = "Hold your post, Sentinel.", next = "END" },
       },
     },
@@ -342,6 +382,26 @@ P:NPC {
       lines = { { id = "p_default", text = "I do not doubt it, and I have never refused the Goddess's gifts, only the bed that the priestesses want to go with them. Heal what you can where I stand, and I will thank you and Elune both." } },
       choices = { { text = "Where you stand, then. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    w_city = {
+      lines = {
+        { id = "w_city_default", text = "Nothing, and I will not pretend otherwise. I was posted in Darnassus once, on the Temple steps, and I counted the hours until I could leave. A Sentinel belongs where something might come out of the trees." },
+      },
+      choices = {
+        { text = "Something always does, out here.", next = "w_city2" },
+        { text = "Darnassus is beautiful, though.", next = "w_city2" },
+      },
+    },
+    w_city2 = {
+      lines = {
+        { id = "w_city2_default", text = "Beautiful and still, and stillness rots a Sentinel faster than any wound. Out here I hear the Gnarlpine before I see them, and I know my ground, and if I fall I fall where I was useful. That is all I ask of Elune." },
+        { id = "w_city2_w1", when = { class = "WARRIOR" }, text = "You fight too, so you will understand me. A soldier on parade is only a statue that eats." },
+      },
+      choices = {
+        { text = "A soldier belongs on the front.", next = "BACK", fx = { align = { honor = 1 } }, reply = "She does, and with both arms, as soon as you finish fussing over this one." },
+        { text = "Every post deserves to be guarded.", next = "BACK", fx = { align = { honor = -1 } }, reply = "Perhaps. But someone else may guard the Temple steps, and gladly." },
+        { text = "Something else, Sentinel.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I have been a Sentinel for longer than this tree has stood. I have been wounded worse, and I walked those off too." } },
@@ -388,6 +448,7 @@ P:NPC {
         { text = "The Gnarlpine were friends of the Circle once.", next = "druid", when = { class = "DRUID" } },
         { text = "Your people don't often trust outsiders this far in.", next = "outsider", when = { ["not"] = { race = "NightElf" } } },
         { text = "I'll get you out of here.", next = "BUSINESS" },
+        { text = "How do you keep joking at a time like this?", next = "w_joke" },
         { text = "Hold on a little longer.", next = "END" },
       },
     },
@@ -443,6 +504,25 @@ P:NPC {
     outsider = {
       lines = { { id = "ou_default", text = "We don't, and you'll hear plenty of grumbling in Dolanaar about it. But I'm in a hole full of angry furbolgs, so I'm not choosing my rescuers by the shape of their ears." } },
       choices = { { text = "Fair enough. Something else.", next = "BACK" } },
+    },
+    w_joke = {
+      lines = {
+        { id = "w_joke_default", text = "Because if I stop, I'll start counting the furbolgs, and then I'll start thinking about Ilthara, and that won't get either of us out. My mother told me that a joke is a way of holding your breath without anyone noticing." },
+      },
+      choices = {
+        { text = "Your mother sounds wise.", next = "w_joke2" },
+        { text = "I'll laugh, if it helps.", next = "w_joke2" },
+      },
+    },
+    w_joke2 = {
+      lines = {
+        { id = "w_joke2_default", text = "She was a Sentinel at Astranaar, and she joked all through the Third War, and they say she was laughing when the orcs came over the bridge. I used to think that was terrible. Now I think she was holding her breath for everyone." },
+        { id = "w_joke2_w1", when = { race = "NightElf" }, text = "You're kaldorei; perhaps you know a Sentinel joke or two. Tell me one on the way out, would you? Make it a bad one." },
+      },
+      choices = {
+        { text = "Laughter is a kind of courage.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Let's get you out first.", next = "BACK" },
+      },
     },
   },
 

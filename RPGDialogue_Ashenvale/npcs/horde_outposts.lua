@@ -69,6 +69,7 @@ P:NPC {
         { text = "Why do the naga want those sapphires?", next = "sapphires" },
         { text = "Why should the Horde care about elf ruins?", next = "xwhy", when = { faction = "Horde" } },
         { text = "The elves pray to their moon. Does anything answer?", next = "moon" },
+        { text = "How did you come to the Earthen Ring?", next = "w_ring" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -154,6 +155,25 @@ P:NPC {
       choices = {
         { text = "Then the elves should help clean it.", next = "BACK", reply = "Dey should, mon, and maybe one day dey will. Da water don't care who start da cleanin'.", fx = { align = { honor = 1 } } },
         { text = "Let the elves rot. We fix what's ours.", next = "BACK", reply = "Ours be the whole coast, mon, whether we like it or no. Sick water swim to Zoram'gar too.", fx = { align = { honor = -1 } } },
+      },
+    },
+    w_ring = {
+      lines = {
+        { id = "w_ring_default", text = "I be a boy on de Echo Isles when de spirits first speak to me, mon, and I t'ink dey be my grandmot'er's ghost. She laugh at me and take me to an old shaman who tell me no, dat be de water itself, and it want to be heard." },
+      },
+      choices = {
+        { text = "Was the water happy to be heard?", next = "w_ring2" },
+        { text = "Your grandmother sounds like a character.", next = "w_ring2" },
+      },
+    },
+    w_ring2 = {
+      lines = {
+        { id = "w_ring2_default", text = "De water be many t'ings, but happy not be one of dem, not here. On de Isles it was warm and loud. Here it be cold and frightened, and somet'ing under Blackfathom keep it frightened. I listen anyway, because somebody must." },
+        { id = "w_ring2_w1", when = { class = "SHAMAN" }, text = "You hear it too, I t'ink. When you go down to de strand tonight, put your hand in de surf and tell me if it be shakin'." },
+      },
+      choices = {
+        { text = "The water needs a friend.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Je'neu.", next = "BACK" },
       },
     },
   },
@@ -244,6 +264,7 @@ P:NPC {
         { text = "You watch the water more than you watch me.", next = "watch" },
         { text = "That drowned city is no place for the living.", next = "city" },
         { text = "The spirits of this shore are uneasy.", next = "xsham", when = { class = "SHAMAN" } },
+        { text = "Who's the best fighter in Zoram'gar?", next = "w_best" },
         { text = "I'll go down to the strand.", next = "END" },
       },
     },
@@ -275,6 +296,26 @@ P:NPC {
     isles = {
       lines = { { id = "is_default", text = "Every day, mon, every day. Da water here be cold and da trees be too tall and da elves be too quiet, and none of it smell like home." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_best = {
+      lines = {
+        { id = "w_best_default", text = "Karang, but don't tell him I say so, mon, or he be unbearable for a week. He hold dis strip of beach wit' twenty grunts and a stubborn streak as wide as de sea, and he never once ask for help from Orgrimmar." },
+      },
+      choices = {
+        { text = "Why not ask for help?", next = "w_best2" },
+        { text = "Twenty grunts against the naga?", next = "w_best2" },
+      },
+    },
+    w_best2 = {
+      lines = {
+        { id = "w_best2_default", text = "Pride, mostly, and a little sense. Orgrimmar got Warsong camps to feed and Barrens roads to guard, and if Karang ask, dey send him somebody's leftovers. He'd rather keep de grunts he trust. I'd rather he asked, but I be just a troll counting heads." },
+        { id = "w_best2_w1", when = { race = "Orc" }, text = "You be orc, so you know dat kind of pride. Maybe you talk to him, warrior to warrior. He won't listen to me." },
+      },
+      choices = {
+        { text = "Pride keeps a post standing.", next = "BACK", fx = { align = { honor = 1 } }, reply = "Maybe. Or it keep it standing right up until it fall over." },
+        { text = "Pride gets people killed.", next = "BACK", fx = { align = { honor = -1 } }, reply = "Dat's what I say, mon. Say it to Karang, and duck." },
+        { text = "Something else, Marukai.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -353,7 +394,7 @@ P:NPC {
       },
       again = {
         { id = "h_again3", text = "Sit, mon, and ask. Marukai do da glaring for both of us, so I got time." },
-        { id = "h_again", text = "What else, mon?" },
+        { id = "h_again", text = "What else, mon? De charms be on my mind, but I listen." },
         { id = "h_again2", text = "Ask. Talking of dem keep dem close." },
       },
       choices = {
@@ -364,6 +405,7 @@ P:NPC {
         { text = "You've hung something over the door already.", next = "door" },
         { text = "Your sister sang. Tell me what she sang.", next = "sister", when = { race = "Troll" } },
         { text = "I can speak the rites for them, if you wish.", next = "xpriest", when = { class = { "PRIEST", "SHAMAN" } } },
+        { text = "What will you do with the charms, once they're back?", next = "w_charms" },
         { text = "I'll bring the charms back.", next = "END" },
       },
     },
@@ -392,6 +434,25 @@ P:NPC {
         { text = "Blood for blood. Your kin deserve it.", next = "BACK", reply = "Ya, mon, part of me want dat too. But blood don't bring nobody home, it only make more empty beds.", fx = { align = { light = -1 } } },
         { text = "Bring the charms home. Let the dead rest.", next = "BACK", reply = "Ya, mon, dat be what my heart say on da quiet days. Bring dem home, and da spirits will do da rest.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_charms = {
+      lines = {
+        { id = "w_charms_default", text = "Burn dem on de beach at dusk, mon, one for each of my kin, and sing de old boat song while dey go. De smoke carry dem home to de loa, de witch doctors say, and den dey not be wanderin' in dis cold forest no more." },
+      },
+      choices = {
+        { text = "Will you sing it alone?", next = "w_charms2" },
+        { text = "They'll rest easier then.", next = "w_charms2" },
+      },
+    },
+    w_charms2 = {
+      lines = {
+        { id = "w_charms2_default", text = "Wik'Tar say he come and sing too, and he got de worst voice on de whole strand. Kil'Hiwana say nothing, but I t'ink she come. Dat be enough. De loa don't mind a bad voice, only an empty beach." },
+        { id = "w_charms2_w1", when = { race = "Troll" }, text = "You be Darkspear too. If you be on de strand dat night, come stand wit' us. You don't have to know de words." },
+      },
+      choices = {
+        { text = "I'll stand with you.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Mitsuwa.", next = "BACK" },
       },
     },
   },
@@ -453,6 +514,7 @@ P:NPC {
         { text = "What is Zoram'gar doing on this beach?", next = "outpost" },
         { text = "What will you do now she's dead?", next = "after", when = { questDone = TODO_QUEST("Vorsha the Lasher") } },
         { text = "A shaman could ask the waters where she sleeps.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "What was Gorlash like?", next = "w_gorlash" },
         { text = "I'll help you kill her.", next = "END" },
       },
     },
@@ -517,6 +579,26 @@ P:NPC {
     shaman = {
       lines = { { id = "sh_default", text = "Je'neu tried it, and the waters told him she sleeps deep and wakes hungry, which I already knew. The spirits don't like hydras any better than I do, shaman, so if they'll help you aim, let them." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_gorlash = {
+      lines = {
+        { id = "w_gorlash_default", text = "Louder than me and twice as stupid, and he'd have told you the same about me. In the camps he used to steal bread from the guards' table and split it with the whole pen, and he took three beatings for it and never once stopped." },
+      },
+      choices = {
+        { text = "He sounds brave.", next = "w_gorlash2" },
+        { text = "You miss him.", next = "w_gorlash2" },
+      },
+    },
+    w_gorlash2 = {
+      lines = {
+        { id = "w_gorlash2_default", text = "Every day. He was the first through the gate the night Thrall broke us out, and he waited on the other side for me, because I was slow. I didn't wait for him when the boat went over. I couldn't, but I didn't. That's why I needed Vorsha dead." },
+        { id = "w_gorlash2_w1", when = { race = "Orc" }, text = "You were in the camps too, maybe, or your father was. Then you know a brother like that is worth more than any blood oath." },
+      },
+      choices = {
+        { text = "You honoured him. Let it rest.", next = "BACK", fx = { align = { honor = 1 } }, reply = "I'm trying. The sea's quieter now, at least. So am I." },
+        { text = "You owe the dead nothing more.", next = "BACK", fx = { align = { honor = -1 } }, reply = "Maybe. But he'd have laughed at me for saying so." },
+        { text = "Something else, Muglash.", next = "BACK" },
+      },
     },
   },
 }
@@ -591,7 +673,7 @@ P:NPC {
       },
       again = {
         { id = "h_again3", text = "Ask, and I'll answer while I count. I can do both, which is why they gave me the job." },
-        { id = "h_again", text = "What else? Make it quick." },
+        { id = "h_again", text = "What else? Make it quick, I've saw blades to count before dark." },
         { id = "h_again2", text = "Go on. Then go find my supplies." },
       },
       choices = {
@@ -602,6 +684,7 @@ P:NPC {
         { text = "Mastok counts the wagons, and you fill them?", next = "mastok" },
         { text = "You were in the camps yourself.", next = "camps", when = { race = "Orc" } },
         { text = "I've hauled worse loads than a crate of axes.", next = "xwar", when = { class = { "WARRIOR", "SHAMAN" }, faction = "Horde" } },
+        { text = "What's the worst thing you've lost on the road?", next = "w_worst" },
         { text = "I'll find your supplies.", next = "END" },
       },
     },
@@ -635,6 +718,25 @@ P:NPC {
       choices = {
         { text = "Their land is theirs. We should have asked.", next = "BACK", reply = "Maybe we should have, and maybe they'd have said no. Either way, the Warchief needs timber.", fx = { align = { honor = 1 } } },
         { text = "Land belongs to those who can hold it.", next = "BACK", reply = "Aye, and that's how the Horde's lived since the camps. I'll not apologise for surviving.", fx = { align = { honor = -1 } } },
+      },
+    },
+    w_worst = {
+      lines = {
+        { id = "w_worst_default", text = "A whole wagon of saw blades, horses and all, two months back near the Silverwind road. Found the wagon a week later with the blades bent double and stuck in the trees in a circle around it, like a warning. The horses were never found." },
+      },
+      choices = {
+        { text = "The elves did that?", next = "w_worst2" },
+        { text = "Bent double? That's not just thieves.", next = "w_worst2" },
+      },
+    },
+    w_worst2 = {
+      lines = {
+        { id = "w_worst2_default", text = "Elves, or something they keep in those woods. Mastok says ancients, the walking trees, and I laughed until I saw the size of the footprints. I haven't sent a wagon by that road since, and I've told every runner why." },
+        { id = "w_worst2_w1", when = { class = "SHAMAN" }, text = "You talk to the spirits. Ask them what walks near Silverwind at night, and tell me before I send my next wagon." },
+      },
+      choices = {
+        { text = "Good to warn your runners.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else, Locke.", next = "BACK" },
       },
     },
   },
@@ -706,8 +808,8 @@ P:NPC {
           text = "Alive again, and walking on your own legs. Good, because I'd have had words with the elves if you weren't." },
       },
       again = {
-        { id = "h_again", text = "Anything else? The pot won't stir itself." },
-        { id = "h_again2", text = "What else can I do for you?" },
+        { id = "h_again", text = "Anything else? The pot won't stir itself, and I have hungry grunts." },
+        { id = "h_again2", text = "What else can I do for you, before the next patrol comes in starving?" },
       },
       choices = {
         { text = "A warm bowl keeps the raiders fighting.", next = "BACK", reply = "That it does. Torek's lads would be dead without my stew.", fx = { align = { order = 1 } } },
@@ -862,8 +964,8 @@ P:NPC {
           text = "You're a long way past the treeline for one of the Alliance, and my riders don't carry your kind. Say what you came to say, and keep your hands where the birds can see them." },
       },
       again = {
-        { id = "h_again", text = "Anything else before you fly?" },
-        { id = "h_again2", text = "What else?" },
+        { id = "h_again", text = "Anything else before you fly? The wind riders grow impatient on the perch." },
+        { id = "h_again2", text = "What else? Thunder is getting restless on the perch." },
       },
       choices = {
         { text = "A wind rider deserves a careful rider.", next = "BACK", reply = "They do. Most don't hold on properly.", fx = { align = { light = 1 } } },
@@ -874,6 +976,7 @@ P:NPC {
         { text = "You fly the wounded out?", next = "wounded" },
         { text = "Where did the Horde find wind riders?", next = "origin" },
         { text = "I've ridden wolves all my life. Birds are different.", next = "wolves", when = { race = "Orc" } },
+        { text = "Do your wind riders have names?", next = "w_names" },
         { text = "Thanks.", next = "END" },
       },
     },
@@ -929,6 +1032,25 @@ P:NPC {
       lines = { { id = "wl_default", text = "They are. A wolf runs with you, but a wind rider carries you, and it can drop you any time it likes. The first time up, every orc grips too hard and shouts, and the bird remembers it for a week." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    w_names = {
+      lines = {
+        { id = "w_names_default", text = "They do, and they're their own names, not mine. The old grey one is Thunder, because that's what he sounds like when he's angry, and he's angry most mornings. The young female I call Ashes, because she was born the night the Warsong camp burned." },
+      },
+      choices = {
+        { text = "The camp burned?", next = "w_names2" },
+        { text = "Thunder and Ashes. Good names.", next = "w_names2" },
+      },
+    },
+    w_names2 = {
+      lines = {
+        { id = "w_names2_default", text = "Two winters back, when the Sentinels came in the night and fired the storehouses. I flew the wounded out until dawn, with Ashes still in her shell in the nest. She hatched in the smoke, and she's never been afraid of anything since." },
+        { id = "w_names2_w1", when = { class = "HUNTER" }, text = "You're a hunter; you'll know how a beast's first day shapes it. Ashes was born to fly through fire, and she does." },
+      },
+      choices = {
+        { text = "A brave beast for a brave keeper.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else, Vhulgra.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -974,7 +1096,7 @@ P:NPC {
           text = "Ah, a Darkspear, far from da Echo Isles like me! Qeeju, and dese be my stables, and you be welcome to sit wit' da beasts any time you miss da sound of da sea, because dey breathe slow like da tide." },
       },
       again = {
-        { id = "h_again", text = "What else, mon?" },
+        { id = "h_again", text = "What else, mon? De boar be wantin' his song soon." },
         { id = "h_again2", text = "Ask. Da beasts don't mind." },
       },
       choices = {
@@ -987,6 +1109,7 @@ P:NPC {
         { text = "How did a Darkspear end up in Ashenvale?", next = "home" },
         { text = "My pet's been off its food lately.", next = "pet_sick", when = { class = "HUNTER" } },
         { text = "What does a hunter's beast need in elf country?", next = "hnt_elf", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Which beast here is your favourite?", next = "w_fav" },
         { text = "Thanks.", next = "END" },
       },
     },
@@ -1048,6 +1171,25 @@ P:NPC {
     hnt_elf = {
       lines = { { id = "hel_d", text = "Quiet, mon, more than anything. The elves' cats can hear a wolf pant from across the river, so teach yours to lie still in the brush, and feed it before you go out, because a hungry beast be a noisy beast." } },
       choices = { { text = "Fed and quiet. Thanks, Qeeju.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    w_fav = {
+      lines = {
+        { id = "w_fav_default", text = "De old boar in de corner pen, mon, de one wit' de broken tusk. His hunter go into Blackfathom Deeps a year ago and not come back. Nobody come for him, so I keep him, and he follow me around de post like a big ugly shadow." },
+      },
+      choices = {
+        { text = "You never found his hunter?", next = "w_fav2" },
+        { text = "He's lucky to have you.", next = "w_fav2" },
+      },
+    },
+    w_fav2 = {
+      lines = {
+        { id = "w_fav2_default", text = "Never. Somebody say she drown, somebody say de naga take her. De boar still look at de path every evening, waitin'. I sit wit' him and I sing de tide song, and he lean on me till I fall over. Dat be our arrangement." },
+        { id = "w_fav2_w1", when = { class = "HUNTER" }, text = "You got a beast too. If you ever don't come back, mon, I promise yours get de same as him. Not that I want you not to come back." },
+      },
+      choices = {
+        { text = "That's a kindness.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Qeeju.", next = "BACK" },
+      },
     },
   },
 

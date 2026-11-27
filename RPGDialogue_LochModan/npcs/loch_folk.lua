@@ -37,6 +37,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_after = {
+      lines = {
+        { id = "w2_after_l0", text = "I've no' thought that far. Maybe drive carts for Hearthstove, or haul for the dam crew. My mother wants me tae be a baker like my uncle, an' some days, after the gully, I think she might have the right of it." },
+      },
+      choices = {
+        { text = "You'd make a fine baker.", next = "BACK", reply = "Ye think so? Bread doesnae ambush ye from the rocks, at least.", fx = { affinity = 1 } },
+        { text = "You've too much nerve to bake bread.", next = "w2_after_nerve" },
+      },
+    },
+    w2_after_nerve = {
+      narr = "He laughs, a little too loud.",
+      lines = {
+        { id = "w2_after_nerve_l0", text = "Nerve? Me? I've checked these straps more times than I've breathed today. But I'll take it, friend, an' I'll tell my mother ye said so." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     dw_di = {
       lines = {
         { id = "dw_di_default", text = "I worry, an' I'm only a hauler. The Dark Irons have hated us since the War o' the Three Hammers, an' my grandda used tae say they'd come back for Ironforge one day, an' I used tae laugh at him." },
@@ -72,6 +90,7 @@ P:NPC {
         { text = "What's Prospector Ironband like?", next = "ironband" },
         { text = "You seem nervous, Miran.", next = "nerves" },
         { text = "Dark Irons this close to Thelsamar? Should we worry?", next = "dw_di" },
+        { text = "What will you do when the dig closes?", next = "w2_after" },
         { text = "I have to go, Miran.", next = "END" },
       },
     },
@@ -194,6 +213,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_trouble = {
+      lines = {
+        { id = "w2_trouble_l0", text = "Old Stubbin, the grey one by the trough. He's broken the gate four times, eaten half o' Kali's herb garden, an' once got intae the inn's cellar, where my brother found him asleep on a barrel o' stout." },
+      },
+      choices = {
+        { text = "Why keep him?", next = "w2_trouble_keep" },
+        { text = "He sounds like a proper Thelsamar dwarf.", next = "BACK" },
+      },
+    },
+    w2_trouble_keep = {
+      lines = {
+        { id = "w2_trouble_keep_l0", text = "Because he was my first, an' he carried me over the pass in a blizzard when I was a girl, an' he's never once let a rider fall. A ram like that can eat all the herbs he likes, an' Kali knows it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -214,6 +250,7 @@ P:NPC {
         { text = "Any advice for keeping a pet in these hills?", next = "advice", when = { class = "HUNTER" } },
         { text = "How do you care for a ram in these hills?", next = "lh_ram" },
         { text = "What do travellers ride through Thelsamar?", next = "lh_ride" },
+        { text = "Which of your rams is the most trouble?", next = "w2_trouble" },
         { text = "Good day, Lina.", next = "END" },
       },
     },

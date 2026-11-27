@@ -27,7 +27,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Bor'zehn, of Moktar Krin's war party. We hunt the beasts of the Needles for Orgrimmar, and we have found more of them than we came for." } },
-      again = { { id = "h_again", text = "What else? The fire needs feeding." } },
+      again = { { id = "h_again", text = "What else? Speak, but hand me that log first. The fire needs feeding, and so does Grumbak." } },
       choices = {
         { text = "What does Moktar Krin hunt?", next = "hunt" },
         { text = "Who is Nag'zehn to you?", next = "nag" },
@@ -36,7 +36,36 @@ P:NPC {
         { text = "Where did you fight before this?", next = "xwar", when = { race = "Orc" } },
         { text = "What troubles you about the Grimtotem?", next = "ygrim" },
         { text = "Tell me about your kodo.", next = "ykodo" },
+        { text = "What will you do when the hunt ends?", next = "w7_end" },
         { text = "Good hunting.", next = "END" },
+      },
+    },
+    w7_end = {
+      lines = {
+        { id = "w7_end_l1", text = "Take the meat home to Orgrimmar, drink with my brother at the Broken Tusk, and argue about who killed the biggest cat. Then Moktar will find a new reason to send us out, and we will go, because sitting in the city makes an orc soft." },
+      },
+      choices = {
+        { text = "Is the city really so bad?", next = "w7_end2" },
+        { text = "Some would envy a quiet life.", next = "w7_end3" },
+        { text = "Something else, Bor'zehn.", next = "BACK" },
+      },
+    },
+    w7_end2 = {
+      lines = {
+        { id = "w7_end2_l1", text = "The city is good, but it is walls, and I spent too long behind walls in the camps. Out here the sky is open and the beasts are honest, and I sleep better on the ground than I ever did in a bed." },
+        { id = "w7_end2_l2", when = { race = "Orc" }, text = "You know it as well as I do, brother. Walls are walls, even when we built them ourselves. The camps taught me to hate a roof, and the Needles have no roof at all." },
+      },
+      choices = {
+        { text = "I understand that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_end3 = {
+      lines = {
+        { id = "w7_end3_l1", text = "Then let them have it, and I will bring them meat. Every orc chooses how to spend the freedom the Warchief gave us, and I chose this." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     hunt = {
@@ -149,7 +178,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Nag'zehn. My brother Bor'zehn guards the fire, Tarkreu guards the shadows, and I watch the sky. Between us, nothing reaches Moktar unseen." } },
-      again = { { id = "h_again", text = "Anything else? Keep your voice low." } },
+      again = { { id = "h_again", text = "Anything else? Low, stranger, low. Sound climbs these cliffs faster than any orc." } },
       choices = {
         { text = "What comes from the sky?", next = "sky" },
         { text = "Who else hunts the Needles?", next = "others" },
@@ -157,7 +186,36 @@ P:NPC {
         { text = "What do you think of the tauren here?", next = "xtauren" },
         { text = "A hunter's advice for a fellow hunter?", next = "xhunt", when = { class = "HUNTER" } },
         { text = "What do you see at night from the cliffs?", next = "ynight" },
+        { text = "How do you tell a harpy from a serpent at a distance?", next = "w7_tell" },
         { text = "I'll keep quiet.", next = "END" },
+      },
+    },
+    w7_tell = {
+      lines = {
+        { id = "w7_tell_l1", text = "By the wings, first. A serpent's wings beat slow and wide and it glides on the heat, and a harpy flaps fast and drops like a stone, screeching before it hits. If you hear it before you see it, it is a harpy." },
+      },
+      choices = {
+        { text = "And if you see it before you hear it?", next = "w7_tell2" },
+        { text = "I'd just shoot whatever comes.", next = "w7_tell3" },
+        { text = "Something else, Nag'zehn.", next = "BACK" },
+      },
+    },
+    w7_tell2 = {
+      lines = {
+        { id = "w7_tell2_l1", text = "Then it is a serpent, and you have a moment, no more, before it breathes. Get behind rock or behind your kodo, and if Grumbak bites you for it, take the bite; it is kinder than the wind." },
+        { id = "w7_tell2_l2", when = { class = "HUNTER" }, text = "Then it is a serpent, and your pet should go low before you do. A wolf will try to jump at it, and the breath will throw him off the ledge, so call him back the moment you see wings." },
+      },
+      choices = {
+        { text = "I'll remember.", next = "BACK", reply = "Good. Remembering is the difference between hunters and meat." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_tell3 = {
+      lines = {
+        { id = "w7_tell3_l1", text = "Then you would waste arrows on vultures and miss the serpent behind them. The sky rewards patience, and punishes everyone else." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     sky = {
@@ -397,7 +455,7 @@ P:NPC {
         { id = "h_q", when = { questActive = TODO_QUEST("Calling in the Reserves") }, text = "You carry the call for reserves? Then Freewind's need is greater than I feared. Go quickly." },
       },
       again = {
-        { id = "h_again", text = "What else? I must run again soon." },
+        { id = "h_again", text = "What else? Quickly, friend, my legs are cooling and the next message will not carry itself." },
         { id = "h_again2", text = "Speak, while I catch my breath." },
       },
       choices = {
@@ -407,7 +465,36 @@ P:NPC {
         { text = "Do the runners still honour the old paths?", next = "paths", when = { race = "Tauren" } },
         { text = "Has the road ever nearly taken you?", next = "ynear" },
         { text = "Who waits for you at home?", next = "yhome" },
+        { text = "What message do you dread carrying?", next = "w7_dread" },
         { text = "Safe running.", next = "END" },
+      },
+    },
+    w7_dread = {
+      lines = {
+        { id = "w7_dread_l1", text = "The ones wrapped in black cord, which mean a brave has fallen and the family must be told. I carry them to Thunder Bluff, and I always run slower with those, though I know I should not." },
+      },
+      choices = {
+        { text = "Why slower?", next = "w7_dread2" },
+        { text = "It's not your fault what the message says.", next = "w7_dread3" },
+        { text = "Something else, Grish.", next = "BACK" },
+      },
+    },
+    w7_dread2 = {
+      lines = {
+        { id = "w7_dread2_l1", text = "Because as long as I am running, the family still has their son, and when I arrive, they do not. It is a foolish thing, and the elders would scold me for it, but I give them one more hour if I can." },
+        { id = "w7_dread2_l2", when = { race = "Tauren" }, text = "You understand, I think. Our people say the spirit walks on until the family knows, and I would let it walk a little longer, under the open sky, before I hand them the cord." },
+      },
+      choices = {
+        { text = "That is a kindness.", next = "BACK", reply = "A small one. It is all a runner has to give." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_dread3 = {
+      lines = {
+        { id = "w7_dread3_l1", text = "No, it is not, but they look at me as though it is, and I cannot blame them. A runner's face is the first face of grief." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     road = {
@@ -491,7 +578,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask. The wind is not in a hurry, though it always seems so." },
-        { id = "h_again2", text = "What more would you know?" },
+        { id = "h_again2", text = "What more would you know, child? The clouds over the needles are slow today, so I have time to read them and you both." },
       },
       choices = {
         { text = "Why is air the hardest element?", next = "air" },
@@ -625,7 +712,7 @@ P:NPC {
         { id = "h_default", text = "Rizzle Brassbolts, engineer extraordinaire, and brother to Fizzle and Wizzle. We build the fastest car on the flats, and we'll prove it as soon as the goblins stop cheating." },
         { id = "h_gnome", when = { race = "Gnome" }, text = "A fellow gnome! Now you can see the finest engineering south of Ironforge, and a little north of it too." },
       },
-      again = { { id = "h_again", text = "What else? I can talk and tighten at once!" } },
+      again = { { id = "h_again", text = "What else? Talk fast, I can tighten a bolt every three words and I'm at bolt nineteen!" } },
       choices = {
         { text = "How do the goblins cheat?", next = "cheat" },
         { text = "What makes your car fast?", next = "car" },
@@ -633,7 +720,36 @@ P:NPC {
         { text = "What was Gnomeregan like?", next = "xgnomer" },
         { text = "Fellow gnome! Can I help the team?", next = "xhelp", when = { race = "Gnome" } },
         { text = "What would you build, with unlimited funds?", next = "ydream" },
+        { text = "What about Zamek? He seems to get around.", next = "w7_zamek" },
         { text = "Good luck in the race.", next = "END" },
+      },
+    },
+    w7_zamek = {
+      lines = {
+        { id = "w7_zamek_l1", text = "Zamek! Don't say that name too loudly near the hut, he's probably listening. He's a goblin with no team and too many friends, and the last time he came by our garage, I spent an hour chasing what I thought was a fire and was actually a smoke bomb." },
+      },
+      choices = {
+        { text = "Why would he do that?", next = "w7_zamek2" },
+        { text = "Sounds like he got you good.", next = "w7_zamek3" },
+        { text = "Something else, Rizzle.", next = "BACK" },
+      },
+    },
+    w7_zamek2 = {
+      lines = {
+        { id = "w7_zamek2_l1", text = "Because someone paid him to, and I'd bet my best wrench it was Pozzik! While I was outside, somebody went through my blueprints, and now the goblin car has a new fuel injector that looks suspiciously like one I drew last month." },
+        { id = "w7_zamek2_l2", when = { profession = "Engineering" }, text = "Because Pozzik paid him, obviously, and you'll understand how it hurts: my fuel injector diagram, the one with the double-swirl intake, turned up on the goblin car a week later, painted red, with the swirl backwards. Backwards!" },
+      },
+      choices = {
+        { text = "That's terrible.", next = "BACK", reply = "It is! And it still runs, which is worse!" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_zamek3 = {
+      lines = {
+        { id = "w7_zamek3_l1", text = "He did, and I'll admit it was a very well-built smoke bomb. I've kept the casing to study, purely for defensive purposes." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     cheat = {
@@ -730,7 +846,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Drag Master Miglen. I time the runs, I keep the records, and I make sure the goblins' numbers are as fake as I think they are." } },
-      again = { { id = "h_again", text = "Quickly now, the clock is running." } },
+      again = { { id = "h_again", text = "Quickly now, the clock is running, and I've already lost four seconds to your hesitation." } },
       choices = {
         { text = "Are the goblins' times fake?", next = "fake" },
         { text = "What's a drag master?", next = "drag" },
@@ -738,7 +854,36 @@ P:NPC {
         { text = "Have the gnomes ever won?", next = "xwon" },
         { text = "I'm a gnome. Are we winning?", next = "xgnome", when = { race = "Gnome" } },
         { text = "What happened to you in Gnomeregan?", next = "ygnomer" },
+        { text = "What's the fastest run you ever timed?", next = "w7_fast" },
         { text = "I'll clear the track.", next = "END" },
+      },
+    },
+    w7_fast = {
+      lines = {
+        { id = "w7_fast_l1", text = "Eleven point four three seconds over the quarter mile, gnomish team, two seasons ago, with a tailwind I've since accounted for. The goblins claim they did ten point nine the next week, but their timing was done by a goblin with a sundial." },
+      },
+      choices = {
+        { text = "A sundial? Really?", next = "w7_fast2" },
+        { text = "Maybe they really were faster.", next = "w7_fast3" },
+        { text = "Something else, Miglen.", next = "BACK" },
+      },
+    },
+    w7_fast2 = {
+      lines = {
+        { id = "w7_fast2_l1", text = "An enormously confident goblin with a sundial and a very loud voice, which Kronkrider accepted because there were spectators who'd bet on it. I've kept a formal objection on file ever since, in triplicate." },
+        { id = "w7_fast2_l2", when = { race = "Gnome" }, text = "A sundial, my friend, and you'll appreciate the horror. A sundial has an error margin of minutes, and they claimed a result to a tenth of a second. I filed an objection in triplicate and copied it to Tinker Town for posterity." },
+      },
+      choices = {
+        { text = "I'd file it too.", next = "BACK", reply = "Thank you! At last, someone with standards." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_fast3 = {
+      lines = {
+        { id = "w7_fast3_l1", text = "Possibly, but unverifiably, and unverifiable is the same as untrue, as far as the records are concerned. The record stays with us." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     fake = {
@@ -834,7 +979,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Race Master Kronkrider, keeper of the rules and waver of the flag. The gnomes and goblins race, and I make sure neither blows up the other on purpose." } },
-      again = { { id = "h_again", text = "What else? The flag's getting heavy." } },
+      again = { { id = "h_again", text = "What else, friend? Talk fast, the flag's getting heavy and the crowd's getting restless." } },
       choices = {
         { text = "Who usually wins?", next = "wins" },
         { text = "Are there any rules at all?", next = "rules" },
@@ -842,7 +987,36 @@ P:NPC {
         { text = "What's the worst crash you've seen?", next = "xcrash" },
         { text = "Who pays you?", next = "xpay" },
         { text = "Does anyone ever get badly hurt?", next = "yhurt" },
+        { text = "How do you settle a disputed finish?", next = "w7_dispute" },
         { text = "Enjoy the race.", next = "END" },
+      },
+    },
+    w7_dispute = {
+      lines = {
+        { id = "w7_dispute_l1", text = "Loudly, friend, and in public, so everybody hears it at once and nobody can claim I said something else in private. I stand on the barrel by the finish line, I wave the flag twice for the winner, and then I duck." },
+      },
+      choices = {
+        { text = "Why duck?", next = "w7_dispute2" },
+        { text = "You should use Miglen's timer.", next = "w7_dispute3" },
+        { text = "Something else, Kronkrider.", next = "BACK" },
+      },
+    },
+    w7_dispute2 = {
+      lines = {
+        { id = "w7_dispute2_l1", text = "Because the losing side throws things, pal, usually wrenches, sometimes sandwiches, and once a whole rocket nozzle. I've got a helmet under the barrel for close calls, and I've needed it four times this season." },
+        { id = "w7_dispute2_l2", when = { class = "WARRIOR" }, text = "Because the losing side throws things, and you'd be amazed how hard a gnome can throw a wrench. You look like someone who could stand beside me on finish day and make 'em think twice." },
+      },
+      choices = {
+        { text = "Sounds like a dangerous job.", next = "BACK", reply = "Every job on the flats is, friend. Mine just comes with a flag." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_dispute3 = {
+      lines = {
+        { id = "w7_dispute3_l1", text = "And have the goblins call me a gnome-lover? No, pal, a fair race needs a judge both sides hate equally, and I work very hard at it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     wins = {
@@ -949,7 +1123,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Fobeed is announcer! Fobeed shout who is winning and who is on fire. Goblins pay Fobeed in meat, and Fobeed very happy." } },
-      again = { { id = "h_again", text = "You want more Fobeed talk? Fobeed have lots." } },
+      again = { { id = "h_again", text = "You want more Fobeed talk? Fobeed have so much talk, Fobeed save it up all night for when friend come!" } },
       choices = {
         { text = "How did an ogre get this job?", next = "job" },
         { text = "Do you know Zuzubee?", next = "zuzu" },
@@ -958,7 +1132,35 @@ P:NPC {
         { text = "Do you like the goblins?", next = "xgob" },
         { text = "What happens when a car crashes?", next = "ycrash" },
         { text = "Can you say something quietly, Fobeed?", next = "yquiet" },
+        { text = "How does Fobeed get so loud?", next = "w7_loud" },
         { text = "Enjoy the race, Fobeed.", next = "END" },
+      },
+    },
+    w7_loud = {
+      lines = {
+        { id = "w7_loud_l1", text = "Fobeed practise every morning! Fobeed go to big rock and shout at sun until sun come up. Goblins say sun come up anyway, but Fobeed not take chances." },
+      },
+      choices = {
+        { text = "Does it work?", next = "w7_loud2" },
+        { text = "Fobeed scares the vultures, I bet.", next = "w7_loud3" },
+        { text = "Something else, Fobeed.", next = "BACK" },
+      },
+    },
+    w7_loud2 = {
+      lines = {
+        { id = "w7_loud2_l1", text = "Sun come up every day, so yes! Fobeed never miss one morning, and sun never miss one either. Zuzubee say this is not how sun work, but Zuzubee not shout at sun, so what Zuzubee know?" },
+      },
+      choices = {
+        { text = "Keep shouting, Fobeed.", next = "BACK", reply = "Fobeed always shout! Thank you, friend!" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_loud3 = {
+      lines = {
+        { id = "w7_loud3_l1", text = "Vultures afraid of Fobeed, yes! Fobeed shout once, and all vultures fly away to Tanaris. Goblins say this good for business, because vultures eat crowd's lunch." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     job = {
@@ -1066,7 +1268,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Zuzubee shout for gnomes. Gnomes give Zuzubee shiny hat that makes voice big. Zuzubee likes shiny hat very much." } },
-      again = { { id = "h_again", text = "More talk? Zuzubee likes talk." } },
+      again = { { id = "h_again", text = "More talk? Good, good, Zuzubee likes talk almost as much as Zuzubee likes shiny hat!" } },
       choices = {
         { text = "Why cheer for the gnomes?", next = "why" },
         { text = "Does the hat ever explode?", next = "hat" },
@@ -1075,7 +1277,36 @@ P:NPC {
         { text = "Do the gnomes treat you well?", next = "xtreat" },
         { text = "Do you ever miss Feralas?", next = "ymiss" },
         { text = "What's the best race you ever saw?", next = "ybest" },
+        { text = "What do you do when there's no race?", next = "w7_rest" },
         { text = "Go gnomes.", next = "END" },
+      },
+    },
+    w7_rest = {
+      lines = {
+        { id = "w7_rest_l1", text = "Zuzubee polish hat! Then Zuzubee help gnomes carry big heavy parts, because gnomes very small and parts very big. Gnomes say Zuzubee best lifting machine, and Zuzubee very proud." },
+      },
+      choices = {
+        { text = "That's helpful of you.", next = "w7_rest2" },
+        { text = "They're just using you.", next = "w7_rest3" },
+        { text = "Something else, Zuzubee.", next = "BACK" },
+      },
+    },
+    w7_rest2 = {
+      lines = {
+        { id = "w7_rest2_l1", text = "Zuzubee like being help! In Feralas, nobody say thank you. Here, little gnomes say thank you every time, and one gnome even write song about Zuzubee, with only a few rude words." },
+        { id = "w7_rest2_l2", when = { race = "Gnome" }, text = "You gnome! You know, then! Gnomes say thank you every time, and gnome named Tobble write song about Zuzubee. Song is very nice, and Zuzubee hum it while carrying engines." },
+      },
+      choices = {
+        { text = "I'd like to hear it.", next = "BACK", reply = "Zuzubee sing it later, after race, very loud!" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_rest3 = {
+      lines = {
+        { id = "w7_rest3_l1", text = "Maybe. But they use Zuzubee nicely, with thank you and food. Big ogres in Feralas use Zuzubee badly. Zuzubee know difference." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -1168,7 +1399,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Pit crew, gnomish team. We fix the car between runs, which means we fix the car all the time, because it breaks all the time." } },
-      again = { { id = "h_again", text = "Something else? Quickly, please." } },
+      again = { { id = "h_again", text = "Something else? Quickly, please, I've a gasket in one hand and a very short temper in the other." } },
       choices = {
         { text = "What breaks most?", next = "breaks" },
         { text = "What do you think of the goblin crew?", next = "goblins" },
@@ -1178,7 +1409,36 @@ P:NPC {
         { text = "What was your worst run?", next = "xworst" },
         { text = "Is the race worth the danger?", next = "yworth" },
         { text = "What's your name, anyway?", next = "yname" },
+        { text = "What tool would you never part with?", next = "w7_tool" },
         { text = "I'll let you work.", next = "END" },
+      },
+    },
+    w7_tool = {
+      lines = {
+        { id = "w7_tool_l1", text = "This adjustable spanner, which I rescued from Gnomeregan on the day we evacuated. I had to choose between it and my second-best hat, and I've never once regretted the hat." },
+      },
+      choices = {
+        { text = "What happened to the rest of your things?", next = "w7_tool2" },
+        { text = "It's just a spanner.", next = "w7_tool3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_tool2 = {
+      lines = {
+        { id = "w7_tool2_l1", text = "Still down there, I expect, under the radiation and the troggs. My workbench, my notebooks, a half-finished clockwork owl. Some nights I dream I go back for the owl, and it's still ticking." },
+        { id = "w7_tool2_l2", when = { race = "Gnome" }, text = "Still down there, like yours, I'd wager. You'll know the feeling: you think about the one thing you left on the bench, every day. Mine was a half-finished clockwork owl. I hope it's still ticking." },
+      },
+      choices = {
+        { text = "Maybe one day you'll get it back.", next = "BACK", reply = "Maybe. High Tinker Mekkatorque says we will. I'd like that." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_tool3 = {
+      lines = {
+        { id = "w7_tool3_l1", text = "It's never just a spanner! This one adjusts in thirty-two increments and has a calibrated grip, and it's the only thing I own that's older than the raceway." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     breaks = {
@@ -1278,7 +1538,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Pit crew for Pozzik. We make the car go, and when it stops going, we make it go again, usually with a hammer." } },
-      again = { { id = "h_again", text = "What else? My sandwich is getting warm." } },
+      again = { { id = "h_again", text = "What else, pal? Talk fast, my sandwich is gettin' warm and so's the fuel tank, and only one of 'em's gonna explode." } },
       choices = {
         { text = "What's in the fuel?", next = "fuel" },
         { text = "What about the gnome crew?", next = "gnomes" },
@@ -1286,7 +1546,35 @@ P:NPC {
         { text = "Have you ever lost a race?", next = "xlost" },
         { text = "Goblin to goblin: is the race rigged?", next = "xrig", when = { race = "Goblin" } },
         { text = "What did you do before the raceway?", next = "ybefore" },
+        { text = "What's in the sandwich, anyway?", next = "w7_sand" },
         { text = "Enjoy your sandwich.", next = "END" },
+      },
+    },
+    w7_sand = {
+      lines = {
+        { id = "w7_sand_l1", text = "Salted plainstrider, a slice of somethin' Riznek swears is cheese, and a pickle I bought off a dwarf in Gadgetzan. It's the best thing on the whole salt flat, and I eat one every heat for luck." },
+      },
+      choices = {
+        { text = "Does it bring luck?", next = "w7_sand2" },
+        { text = "Sounds disgusting.", next = "w7_sand3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_sand2 = {
+      lines = {
+        { id = "w7_sand2_l1", text = "Every heat I eat one, the car comes back in one piece or close enough, pal. The one heat I skipped it, we lost a fender, a wheel and Grizzik's left eyebrow, and I ain't takin' that chance again." },
+      },
+      choices = {
+        { text = "I'm not laughing.", next = "BACK", reply = "Good. A fella's luck ain't a joke, pal." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_sand3 = {
+      lines = {
+        { id = "w7_sand3_l1", text = "Disgusting? Pal, this is fine dining out here. You should see what Pozzik eats, he dips his bread in engine grease and says it adds flavour." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     fuel = {
@@ -1395,7 +1683,7 @@ P:NPC {
         { id = "h_default", text = "I am Quentin. I came to see whether these flats could ever bear life again. Once, I believe, there was water here, and where there was water, there can be soil." },
         { id = "h_ne", when = { race = "NightElf" }, text = "A kinsman, so far from home! You will understand, then, why I cannot look at a dead land and simply walk past it." },
       },
-      again = { { id = "h_again", text = "What else? The salt is patient, and so am I." } },
+      again = { { id = "h_again", text = "What else? Speak, but softly. I am listening to the salt crack in the heat, and it tells me things." } },
       choices = {
         { text = "Can anything grow here?", next = "grow" },
         { text = "What do you make of the races?", next = "races" },
@@ -1404,7 +1692,36 @@ P:NPC {
         { text = "A druid could help you here.", next = "xdruid", when = { class = "DRUID" } },
         { text = "Do the racers harm the flats?", next = "xraces2" },
         { text = "Have you found any sign of life?", next = "ysign" },
+        { text = "What have you learned from the salt?", next = "w7_salt" },
         { text = "Good luck with your work.", next = "END" },
+      },
+    },
+    w7_salt = {
+      lines = {
+        { id = "w7_salt_l1", text = "That it is not all one thing. Beneath the white crust there are layers, like the rings of a tree, and in some of them I find the shells of creatures that lived in the sea that once filled this basin. They were small and many, and they are all gone." },
+      },
+      choices = {
+        { text = "Could the sea ever return?", next = "w7_salt2" },
+        { text = "Shells won't bring anything back.", next = "w7_salt3" },
+        { text = "Something else, Quentin.", next = "BACK" },
+      },
+    },
+    w7_salt2 = {
+      lines = {
+        { id = "w7_salt2_l1", text = "Not in our lifetimes, and I say that as one of my people, who live a long time. But water still moves beneath the flats, and I believe a time will come when it rises again, and I want to have the seeds ready." },
+        { id = "w7_salt2_l2", when = { class = "DRUID" }, text = "You know the Dream better than I, so you may know the answer better too. I believe water still moves beneath us, and that one day it will rise. When it does, I mean to have the seeds waiting." },
+      },
+      choices = {
+        { text = "I hope you're right.", next = "BACK", reply = "Elune willing. The Circle will remember who waited." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_salt3 = {
+      lines = {
+        { id = "w7_salt3_l1", text = "No, but they tell me what lived, and what lived once can live again. That is all my work is, really: reading what was, so I can guess what will be." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     grow = {
@@ -1491,7 +1808,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Elune-adore, traveller. You find me in an odd place this year, among the dust and the engines." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come round again, and the ancestors are near tonight. I am glad you came to honor them." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The moon has turned the year again, and Elune's light reaches even this old seabed tonight. I am glad you came so far through the dust to find me." },
     { id = "g_back", when = { metBefore = true }, text = "You return, and the salt flats are no quieter. Still, I am glad of the company." },
     { id = "g_done", when = { questDone = TODO_QUEST("Morningdew the Elder") }, text = "You have paid your respects, and my coin travels with you now. Ishnu-alah." },
   },
@@ -1511,7 +1828,36 @@ P:NPC {
         { text = "Elune keep you, Elder. My family also served the Goddess.", next = "kin", when = { race = "NightElf" } },
         { text = "What did this land look like, back then?", next = "yland" },
         { text = "Do the goblins disturb your rest?", next = "ygoblins" },
+        { text = "Do you remember the sea that was here?", next = "w7_sea" },
         { text = "Rest well, Elder.", next = "END" },
+      },
+    },
+    w7_sea = {
+      lines = {
+        { id = "w7_sea_l1", text = "I remember its sound more than its look. The waves came in slow and long over the shallows where the needles stand now, and at night they glowed faintly, as if the moon had dropped some of her light into them." },
+      },
+      choices = {
+        { text = "What happened to it?", next = "w7_sea2" },
+        { text = "It's hard to picture, with all this salt.", next = "w7_sea3" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    w7_sea2 = {
+      lines = {
+        { id = "w7_sea2_l1", text = "The Sundering, and the long ages after it. The waters drew back and left the salt behind, and what was a shore became a desert. I was already with the ancestors by then, and I watched it happen as one watches a slow tide." },
+        { id = "w7_sea2_l2", when = { race = "NightElf" }, text = "The Sundering broke the land, {g:brother|sister}, and the seas shifted for ages after. You will have heard the priestesses speak of it; I watched it from among the ancestors, and I grieved, as you would." },
+      },
+      choices = {
+        { text = "I'm sorry.", next = "BACK", reply = "Do not be. Grief is only love that has outlived its object." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_sea3 = {
+      lines = {
+        { id = "w7_sea3_l1", text = "It is, and yet if you stand very still at night and listen past the goblins, the wind in the needles makes the same sound the waves once did. The land has not forgotten." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     life = {
@@ -1605,7 +1951,36 @@ P:NPC {
         { text = "How did you come to guard Freewind?", next = "xhow" },
         { text = "What lies below in the canyons?", next = "xbelow" },
         { text = "What do you think of the Raceway?", next = "xrace" },
+        { text = "What's the hardest part of guarding the lifts?", next = "w7_lift" },
         { text = "Farewell, brave.", next = "END" },
+      },
+    },
+    w7_lift = {
+      lines = {
+        { id = "w7_lift_l1", text = "The nights, {class}. In the dark, every creak of the rope sounds like an enemy climbing, and every gust sounds like a harpy diving, and I must stand still and listen and decide which is which." },
+      },
+      choices = {
+        { text = "How do you tell?", next = "w7_lift2" },
+        { text = "I'd trust my eyes, not my ears.", next = "w7_lift3" },
+        { text = "Something else, brave.", next = "BACK" },
+      },
+    },
+    w7_lift2 = {
+      lines = {
+        { id = "w7_lift2_l1", text = "The rope creaks in a rhythm when the counterweight shifts, and a climber breaks that rhythm. My father taught me to hum along with it, so when the hum goes wrong, I know before I see anything." },
+        { id = "w7_lift2_l2", when = { race = "Tauren" }, text = "You will know the old herding hum, the low one. My father taught me to hum it with the rope, and when the rhythm breaks, a climber is there. Learn it, and you will never be surprised on a lift." },
+      },
+      choices = {
+        { text = "Clever.", next = "BACK", reply = "Not clever. Patient. The Earth Mother rewards patience." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_lift3 = {
+      lines = {
+        { id = "w7_lift3_l1", text = "Then you would see nothing until it was beside you. The canyon at night is black as a kodo's eye, and eyes are no use in it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     threats = {
@@ -1700,7 +2075,7 @@ P:NPC {
         { id = "h_default", text = "Johnson's the name, though the racing crowd calls me Plucky, which I suppose I've earned. I was apprenticed to Magus Tirth, and I am hiding from him, and a chicken is the last place he would look." },
         { id = "h_q", when = { questActive = TODO_QUEST("Get the Scoop") }, text = "You're asking about the Magus's business? Bawk. Then you'd better hear the whole sorry tale from me first." },
       },
-      again = { { id = "h_again", text = "Anything else? Quietly, please. Bawk." } },
+      again = { { id = "h_again", text = "Anything else? Whisper it, please, and cluck now and then so the goblins think we're discussing grain. Bawk." } },
       choices = {
         { text = "Why hide from your own master?", next = "tirth" },
         { text = "Can you turn yourself back?", next = "back" },
@@ -1709,7 +2084,36 @@ P:NPC {
         { text = "What's it like being a chicken?", next = "xlife" },
         { text = "Do you have any friends here?", next = "xfriends" },
         { text = "I'm a mage. Could I break the spell?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What will you do if Tirth finds you?", next = "w7_found" },
         { text = "Don't worry. Your secret is safe.", next = "END" },
+      },
+    },
+    w7_found = {
+      lines = {
+        { id = "w7_found_l1", text = "Run, bawk, as fast as these legs allow, which is surprisingly fast. And then, if he catches me, I suppose I'll apologise properly for the chair and offer to scrub his laboratory for a year." },
+      },
+      choices = {
+        { text = "He might forgive you.", next = "w7_found2" },
+        { text = "You should face him now.", next = "w7_found3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_found2 = {
+      lines = {
+        { id = "w7_found2_l1", text = "He might, he's not a cruel man, only a very frustrated one. But every day I wait, I imagine his face getting redder, and the apology getting longer, and the year of scrubbing becoming two. Bawk." },
+        { id = "w7_found2_l2", when = { class = "MAGE" }, text = "He might; you'd know better than I how a magus's temper runs. Do you think a written apology, with diagrams of how I'd fix the chair, would help? He likes diagrams. Bawk." },
+      },
+      choices = {
+        { text = "It's worth a try.", next = "BACK", reply = "Then I'll start drafting. With my beak. Bawk." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_found3 = {
+      lines = {
+        { id = "w7_found3_l1", text = "Now? Bawk, I'm a chicken, I'd have to un-chicken first, and that takes nerve, which I haven't got, which is how I became a chicken in the first place." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     tirth = {

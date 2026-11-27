@@ -43,7 +43,22 @@ P:NPC {
         { text = "A city of hunters shouldn't need a market.", next = "x_st" },
         { text = "I'm a goblin, and I know a good deal.", next = "x_gb", when = { race = "Goblin" } },
         { text = "Do Forsaken trade with you?", next = "x_fs", when = { race = "Scourge" } },
+        { text = "What would you most like to see come across the floor?", next = "w5_wish" },
         { text = "Good trading, Stampi.", next = "END" },
+      },
+    },
+    w5_wish = {
+      lines = { { id = "w5_wish_l", text = "Something from far, far away. A gnome's clockwork bird that sings. A pearl from the depths off Ratchet. A sword from the old wars that a dwarf brought home and his grandson does not want. I would shout so loud for that, they would hear me in Bloodhoof!" } },
+      choices = {
+        { text = "Gullem would hate the shouting, I think.", next = "w5_wish2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_wish2 = {
+      lines = { { id = "w5_wish2_l", text = "Gullem would sigh, and then he would sell it quietly to the highest bidder while I was still shouting. That is why we are partners. I bring the crowd and he brings the sense. Between us, nobody misses a bid, and nobody leaves without a story." } },
+      choices = {
+        { text = "Noise and sense. That's a fine partnership.", next = "BACK", reply = "It is! Though I am the one people remember, of course." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     strange = {

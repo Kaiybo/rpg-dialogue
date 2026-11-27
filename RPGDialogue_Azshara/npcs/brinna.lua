@@ -90,6 +90,7 @@ P:NPC {
         { text = "Let me see your bows.", next = "BUSINESS" },
         { text = "This was the Queen's own land. Do you feel it?", next = "kal_queen", when = { race = "NightElf" } },
         { text = "What do the Sentinels here need from a hunter?", next = "hnt_need", when = { class = "HUNTER", faction = "Alliance" } },
+        { text = "How did you come to Talrendis Point?", next = "w_came" },
         { text = "Farewell, Brinna.", next = "END" },
       },
     },
@@ -138,6 +139,25 @@ P:NPC {
     hnt_need = {
       lines = { { id = "hne_d", text = "Eyes in the trees above the Haldarr camps, and arrows that do not waste themselves on satyr hide, which turns all but the best heads. Buy the heavy points from me, aim for the throat, and keep your beast away from the Shadowsong Shrine, because the ghosts there frighten them half to death." } },
       choices = { { text = "Heavy points, and the throat. Something else.", next = "BACK", fx = { trait = { cautious = 1 } } } },
+    },
+    w_came = {
+      lines = {
+        { id = "w_came_default", text = "I asked for the hardest posting the Sentinels had, after my sister fell in Ashenvale, and they gave me this one. I think they meant it as a kindness, sending me where I'd be too busy to grieve. They were half right." },
+      },
+      choices = {
+        { text = "Which half?", next = "w_came2" },
+        { text = "I'm sorry about your sister.", next = "w_came2" },
+      },
+    },
+    w_came2 = {
+      lines = {
+        { id = "w_came2_default", text = "I'm too busy, most days. But the nights here are long and very quiet, and the old Highborne terraces glow in the moonlight, and I find myself thinking of her anyway. I make a bow every night until the grief goes quiet. I have a great many bows." },
+        { id = "w_came2_w1", when = { class = "HUNTER" }, text = "You're a hunter. Take one of the night bows, if you'd like. They're the best I've made, and I'd rather they went to someone who'll use them." },
+      },
+      choices = {
+        { text = "Grief makes good bows.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Brinna.", next = "BACK" },
+      },
     },
   },
 

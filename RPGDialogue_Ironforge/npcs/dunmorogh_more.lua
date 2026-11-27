@@ -33,6 +33,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_after = {
+      lines = {
+        { id = "w2_after_l0", text = "Take back every bench an' every barrel, an' then put a wall across that bottom seam so thick no trogg could dig through it in a hundred years. After that, I'll have a drink, an' then another, an' then I'll go back tae work." },
+      },
+      choices = {
+        { text = "And your crew?", next = "w2_after_crew" },
+        { text = "Maybe the troggs will come back anyway.", next = "BACK" },
+      },
+    },
+    w2_after_crew = {
+      lines = {
+        { id = "w2_after_crew_l0", text = "Half o' them have gone tae Ironforge, an' I'll go fetch every one by the ear if I must. A quarry wi'out its crew is only a hole, an' I'll no' be foreman o' a hole." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -55,6 +72,7 @@ P:NPC {
         { text = "What about the blasting powder?", next = "powder" },
         { text = "Gnomeregan's troggs came from below too, Foreman.", next = "gnome", when = { race = "Gnome" } },
         { text = "I've swung a pick in a quarry myself, Foreman.", next = "dw_pick", when = { race = "Dwarf" } },
+        { text = "What will you do once the quarry's cleared?", next = "w2_after" },
         { text = "I'll go and hurt some troggs.", next = "END" },
       },
     },
@@ -162,6 +180,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_friends = {
+      lines = {
+        { id = "w2_friends_l0", text = "Oh, a few! There's a dwarf at Anvilmar who brings me soup and never asks me to talk, which I appreciate, because I always talk anyway. And a rabbit who comes by in the mornings. I'm fairly sure it's the same rabbit." },
+      },
+      choices = {
+        { text = "A rabbit counts.", next = "BACK", fx = { affinity = 1 } },
+        { text = "What do you talk about with the dwarf?", next = "w2_friends_dwarf" },
+      },
+    },
+    w2_friends_dwarf = {
+      lines = {
+        { id = "w2_friends_dwarf_l0", text = "Gears, mostly, and he nods at all the right places. Yesterday he asked what a torque converter was, and I explained it for an hour, and at the end he said it sounded like a very fine thing. I think he might have been asleep for part of it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -183,6 +218,7 @@ P:NPC {
         { text = "We'll get our city back, Felix.", next = "gnome", when = { race = "Gnome" } },
         { text = "What was your work in Gnomeregan?", next = "d0_work" },
         { text = "Coldridge must feel very strange after home.", next = "d0_cold" },
+        { text = "Have you made any friends since you came here?", next = "w2_friends" },
         { text = "Take care of yourself, Felix.", next = "END" },
       },
     },

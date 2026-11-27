@@ -4120,6 +4120,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_pir = {
+      lines = { { id = "w8_pir_a", text = "The Blackwater boys do, pal, and they pay in coin that's only a little bit stolen, which is good enough for me. The Bloodsail lot can't set foot on the docks without the Baron's Bruisers throwing them in the bay, so they'll have to go barefoot, poor dears." } },
+      choices = {
+        { text = "What does a sailor want from a pair of boots?", next = "w8_pir2" },
+        { text = "Sea water must ruin good leather.", next = "w8_pir2" },
+        { text = "I work leather myself. How do you seal it against salt?", next = "w8_pir2", when = { profession = "Leatherworking" } },
+        { text = "Something else, Drizzlik.", next = "BACK" },
+      },
+    },
+    w8_pir2 = {
+      lines = {
+        { id = "w8_pir2_a", text = "Grip on a wet deck and no squeak in the rigging, chum, and salt's the enemy of both. I rub every pair with crocolisk oil three times over, which costs me a fortune in oil and costs you a fortune in boots, and that's what I call a healthy economy." },
+        { id = "w8_pir2_lw", when = { profession = "Leatherworking" }, text = "A colleague, and asking for trade secrets, the nerve! Fine, fine, it's crocolisk oil, three coats, rubbed in warm, and if you tell anybody in Ratchet I'll deny it and charge you for the slander." },
+      },
+      choices = {
+        { text = "Three coats of oil. I'll remember that.", next = "BACK" },
+        { text = "Enough leather talk. Something else.", next = "BACK" },
+      },
+    },
+
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Is it any use! A good padded jerkin stops the rings biting and the rust spreading, and in this heat it's the difference between fighting all day and fainting by noon. I've dressed Blackwater bosuns who swore by it, and the ones too cheap to buy it swore at the heat instead." } },
@@ -4209,7 +4229,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER" }, text = "A hunter! You've brought me hides, I hope, because I can turn a raptor skin into a jerkin that would make a Stormwind tailor faint dead away." },
       },
       again = {
-        { id = "h_again", text = "More? Ask anything you like, pal, but touch nothing, because touching's extra." },
+        { id = "h_again", text = "More? Ask anything you like, pal, but keep your mitts off the panther hide, because fingerprints come out of your purse." },
         { id = "h_again2", text = "Something else? Make it quick, chum; that raptor hide won't stretch itself and time's money in this shop." },
       },
       choices = {
@@ -4225,6 +4245,7 @@ P:NPC {
         { text = "Is your leather any use under a warrior's mail, Drizzlik?", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Which jungle hides make the best leather, Drizzlik?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why would a paladin need your leather under his plate, Drizzlik?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Do the pirates in this port buy your boots?", next = "w8_pir" },
         { text = "Later.", next = "END" },
       },
     },

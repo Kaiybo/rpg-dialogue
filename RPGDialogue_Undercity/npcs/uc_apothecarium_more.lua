@@ -30,6 +30,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_comfort = {
+      lines = {
+        { id = "w3_comfort_1", text = "As comfortable as a tauren can be in a cellar with no sky, which she tells me is not very. I've had a pallet of straw brought down from Brill and a window painted on the wall by a Deathguard with some talent, and she says the clouds are the wrong shape, but she looks at them." },
+        { id = "w3_comfort_2", when = { race = "Tauren" }, text = "Not very, she tells me, and you'll understand that better than I can. I had straw brought down from Brill and a sky painted on the wall, and she says the clouds are the wrong shape, but I've seen her look at them for hours." },
+      },
+      choices = {
+        { text = "The painted sky was a kind thought.", next = "BACK", reply = "It was a practical one, friend. A calm patient gives cleaner samples, but I won't pretend I didn't enjoy watching it go up." },
+        { text = "Does she talk about home?", next = "w3_home" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_home = {
+      lines = {
+        { id = "w3_home_1", text = "Of Mulgore, every evening, and of a herd of plainstriders she used to count from a hill near Bloodhoof Village. I write down everything she says, because her colour changes when she speaks of it, and that is the most interesting thing her blood has done all week." },
+      },
+      choices = {
+        { text = "Even her homesickness is data to you. Something else.", next = "BACK" },
+      },
+    },
     d2_notes = {
       lines = {
         { id = "d2_notes_1", text = "Master Apothecary Faranell reads every note this bench produces, which is a great honour and a great deal of pressure. He returned my last report with one word written in the margin, and the word was 'more.'" },
@@ -86,7 +105,7 @@ P:NPC {
           text = "Thersa drank the elixir and she's still standing, which I count as a success, though I've written it down as a partial one. Thank you for your help with her." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I have notes to write, but I can write and talk at once." },
+        { id = "h_again", text = "Anything else? I have notes to write, but I can write and talk at once, and Thersa's dozing." },
         { id = "h_again2", text = "Yes? Ask away, I love a question." },
       },
       choices = {
@@ -97,6 +116,7 @@ P:NPC {
         { text = "Who reads your notes on Thersa?", next = "d2_notes" },
         { text = "Azshara is a long way from here.", next = "d2_azshara" },
         { text = "I could ease her nausea, at least.", next = "d2_heal", when = { class = { "PRIEST", "SHAMAN", "DRUID" } } },
+        { text = "Is Thersa comfortable here, at least?", next = "w3_comfort" },
         { text = "I'll leave you to your patient.", next = "END" },
       },
     },
@@ -174,6 +194,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_zinge = {
+      lines = {
+        { id = "w3_zinge_1", text = "Apothecary Zinge, who keeps the Apothecarium's stores and counts every vial that goes out of them twice. Her assistants are clumsy, bless them, and what they spill is the best food my jars get all week, so I've never once complained to her about the floor." },
+      },
+      choices = {
+        { text = "She must know you feed her spills to oozes.", next = "w3_secret" },
+        { text = "A tidy stores room is a safe one.", next = "BACK", reply = "A tidy stores room is a dull one, friend, but I take your point, and so does Zinge, constantly." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_secret = {
+      lines = {
+        { id = "w3_secret_1", text = "She suspects, and she has never asked, and I've never offered. Between Society colleagues that's very nearly a friendship, and I'd hate to spoil it by explaining the brick on the jar." },
+      },
+      choices = {
+        { text = "I won't mention it. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Chemist Fuely, of the Royal Apothecary Society. Lady Sylvanas has ordered the investigation of the natural phenomena of Azeroth, because she feels there's something great to be learned from its secretive past, and I'm investigating slimes." },
@@ -195,6 +233,7 @@ P:NPC {
         { text = "You and your brother share this bench.", next = "brother" },
         { text = "That jar is climbing its own glass.", next = "jar" },
         { text = "I'd like to see your testing equipment.", next = "equip", when = { profession = { "Alchemy", "Engineering" } } },
+        { text = "Who is Zinge?", next = "w3_zinge" },
         { text = "I'll leave you to your jars.", next = "END" },
       },
     },

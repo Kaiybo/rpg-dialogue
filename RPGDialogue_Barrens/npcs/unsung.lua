@@ -135,7 +135,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "The wind riders smell you before they see you, stranger, so wait at the foot of the tower while I calm them down." },
       },
       choices = {
-        { text = "Wind riders should be treated with respect.", next = "BACK", reply = "They should. You understand.", fx = { align = { light = 1 } } },
+        { text = "Wind riders should be treated with respect.", next = "BACK", reply = "They should. A wyvern remembers a kick longer than any orc remembers a grudge.", fx = { align = { light = 1 } } },
         { text = "Wind riders are just mounts.", next = "BACK", reply = "Then they'll throw you.", fx = { align = { light = -1 } } },
         { text = "You must feel the air spirits up here on the roost.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do the wind riders fly over the Wailing Caverns, Devrak?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -680,7 +680,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK", faction = "Horde" }, text = "You've something to stand in front of you, I'd guess, so you don't need a gun. You'd be surprised how many of your sort buy one anyway." },
       },
       choices = {
-        { text = "A ranged weapon keeps you safe in the Barrens.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "A ranged weapon keeps you safe in the Barrens.", next = "BACK", reply = "Keeps you alive, which is better. A quilboar can't gore what it can't reach.", fx = { align = { order = 1 } } },
         { text = "A real warrior fights up close.", next = "BACK", reply = "Then get close, and die.", fx = { align = { order = -1 } } },
         { text = "Which hits harder, lightning or a bullet, Uthrok?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Do your hunters ever take more game than the plains can spare?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -857,7 +857,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE", faction = "Horde" }, text = "A mage at Taurajo. The wind riders don't mind your magic, though they snort at the smell of the burning." },
       },
       choices = {
-        { text = "The wind riders are gifts of the Earth Mother.", next = "BACK", reply = "They are. You understand.", fx = { align = { light = 1 } } },
+        { text = "The wind riders are gifts of the Earth Mother.", next = "BACK", reply = "They are. Each one has a name, and each one answers to it when the wind is kind.", fx = { align = { light = 1 } } },
         { text = "Wind riders are just beasts.", next = "BACK", reply = "Then fly with respect, or don't fly.", fx = { align = { light = -1 } } },
         { text = "The dwarves seem to be disturbing something at Bael Modan.", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "What are the dwarves digging for at Bael Modan, Omusa?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
@@ -1197,7 +1197,7 @@ P:NPC {
         { id = "h_lockcl", when = { class = "WARLOCK" }, text = "A warlock! Now, your sort doesn't need a blade, I know, chum, but one with a good dagger doesn't panic when the imp dies, and that's what I call an investment." },
       },
       choices = {
-        { text = "A good weapon is worth a good price.", next = "BACK", reply = "It is, friend! You get it.", fx = { align = { honor = 1 } } },
+        { text = "A good weapon is worth a good price.", next = "BACK", reply = "Ha! Now you sound like a buyer. Every notch on that edge is worth a coin, friend.", fx = { align = { honor = 1 } } },
         { text = "Your weapons are overpriced.", next = "BACK", reply = "Then buy elsewhere.", fx = { align = { honor = -1 } } },
         { text = "Does copper really carry lightning, Ironzar?", next = "xhsham", when = { class = "SHAMAN" } },
         { text = "Why would a druid buy a staff instead of using claws, Ironzar?", next = "xdruid", when = { class = "DRUID" } },

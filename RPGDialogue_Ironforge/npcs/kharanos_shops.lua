@@ -630,6 +630,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_thanks = {
+      lines = {
+        { id = "w2_thanks_l0", text = "More than ye'd think. A Mountaineer stopped in last week wi' the very jerkin I sold him eight years ago, patched an' faded an' still on his back. He said it had kept him warm through two winters on the North Gate." },
+      },
+      choices = {
+        { text = "That must have been a fine moment.", next = "w2_thanks_fine" },
+        { text = "A good jerkin should last.", next = "BACK" },
+      },
+    },
+    w2_thanks_fine = {
+      lines = {
+        { id = "w2_thanks_fine_l0", text = "Finest o' my year. I offered tae make him a new one, an' he wouldnae have it. Said the old one knew his shape. I've thought about that since; a good piece o' leather does learn ye, in a way." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xdsham = {
       big = true,
       lines = { { id = "xdsham_default", text = "I've never asked them, an' it's a strange question tae hear in my own shop. The trappers say they thank the beast before they skin it, an' I always took that for an old mountain habit. Ye'd tell me it's more than habit, would ye no'?" } },
@@ -714,7 +731,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anythin' else I can help ye with, recruit?" },
-        { id = "h_again2", text = "Go on, ask." },
+        { id = "h_again2", text = "Go on, ask, an' come stand by the stove while ye do." },
       },
       choices = {
         { text = "Show me what you have.", next = "BUSINESS" },
@@ -728,6 +745,7 @@ P:NPC {
         { text = "What's the danger here in Coldridge, Durnan?", next = "xapala", when = { class = "PALADIN" } },
         { text = "Do you wish the recruits respected the cold more?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Do you think the beasts mind being worn, Durnan?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "Do any recruits come back to thank you?", next = "w2_thanks" },
         { text = "Thanks, Durnan.", next = "END" },
       },
     },

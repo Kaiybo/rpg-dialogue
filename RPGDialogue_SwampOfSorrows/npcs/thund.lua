@@ -31,6 +31,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_mul = {
+      lines = { { id = "w8_mul_a", text = "The grass, friend, high as my shoulder in the summer, and the sound of the wind going through it like a herd that never stops. My mother sang to the kodo in the evenings, and I can still hear the tune if the swamp is quiet enough." } },
+      choices = {
+        { text = "Will you sing it for me?", next = "w8_mul2" },
+        { text = "This swamp must feel far from home.", next = "w8_mul2" },
+        { text = "The grass still grows high in Mulgore, Thund.", next = "w8_mul2", when = { race = "Tauren" } },
+        { text = "Something else, Corporal.", next = "BACK" },
+      },
+    },
+    w8_mul2 = {
+      lines = {
+        { id = "w8_mul2_a", text = "A dead tauren's voice is a poor thing, but I will hum it, softly, so the captain doesn't wake. There, that is the whole of it, and now it is a little bit yours as well." },
+        { id = "w8_mul2_tau", when = { race = "Tauren" }, text = "Does it? Then the Earth Mother keeps her promises, even to those of us who walked away. Run through it for me when you're home, and I'll feel it somehow, I think." },
+      },
+      choices = {
+        { text = "Rest easy, Thund.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     op_horde = {
       lines = {
         { id = "oph_default", text = "I've had a long while on this road to think about it, and I still go back and forth like a kodo at a river crossing. The orcs saved Mulgore, and then they sent me here to die. What do you think, friend?" },
@@ -76,6 +96,7 @@ P:NPC {
         { text = "Tell me about your captain.", next = "captain" },
         { text = "How did a tauren come to serve in Thrall's Grasp?", next = "grasp" },
         { text = "The Earth Mother waits for you, Thund.", next = "xtauren", when = { race = "Tauren" } },
+        { text = "What do you remember of Mulgore, Thund?", next = "w8_mul" },
         { text = "Rest well, Corporal.", next = "END" },
       },
     },

@@ -186,6 +186,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2mywolf = {
+      lines = { { id = "w2mw_default", text = "An old grey bitch called Ash, who carried me across the Barrens when the Horde first marched and is too stiff now to carry anyone. She lies by the gate of the yard and bites any young wolf that forgets its manners." } },
+      choices = {
+        { text = "Do you still ride her?", next = "w2mywolf2" },
+        { text = "So she teaches as well as you do.", next = "w2mywolf2" },
+        { text = "Something else, Kildar.", next = "BACK" },
+      },
+    },
+    w2mywolf2 = {
+      lines = {
+        { id = "w2mw2_orc", when = { race = "Orc" }, text = "Once a year, a slow walk to the Southfury and back, and she sulks for days if I miss it. You've wolf-riders in your blood, so you'll know you don't put down a wolf like that; you let her decide when she's done." },
+        { id = "w2mw2_default", text = "Once a year, a slow walk to the Southfury and back, and she sulks for days if I miss it. A wolf like that decides for herself when she's done, and I'll not take that from her." },
+      },
+      choices = { { text = "She's earned that.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     kd_ogunaro = {
       lines = { { id = "kd_ogunaro_l", text = "They are, because Ogunaro breeds them from the best of the wolves that came over with the Frostwolves. A wild Durotar wolf is lean and mean, and one of Ogunaro's is lean and mean and twice the size." } },
       choices = {
@@ -224,7 +239,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else do you want to know? The wolves are getting restless." },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again2", text = "Speak up, and don't mind the growling; it's the black one in the end pen, and he growls at me too." },
       },
       choices = {
         { text = "Why do orcs ride wolves?", next = "wolves" },
@@ -234,6 +249,7 @@ P:NPC {
         { text = "I'm ready to learn.", next = "BUSINESS", when = { minLevel = 40 } },
         { text = "Ogunaro's wolves seem bigger than the ones in Durotar.", next = "kd_ogunaro" },
         { text = "What's the hardest part of riding a wolf?", next = "kd_hard" },
+        { text = "Do you have a wolf of your own?", next = "w2mywolf" },
         { text = "Farewell, Kildar.", next = "END" },
       },
     },

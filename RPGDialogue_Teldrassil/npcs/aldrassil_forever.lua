@@ -48,6 +48,7 @@ P:NPC {
         { text = "Where are the trainers?", next = "where" },
         { text = "Which craft would you choose?", next = "choose" },
         { text = "Which crafts suit a druid?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Do you have a craft of your own?", next = "w_mine" },
         { text = "Thank you, Sylassa.", next = "END" },
       },
     },
@@ -128,6 +129,25 @@ P:NPC {
       },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    w_mine = {
+      lines = {
+        { id = "w_mine_default", text = "Only a small one. I press flowers, from every corner of the glade, and I keep them in a book by the trainers' doors so that the young ones can see what grows here before they go out and pick the wrong thing." },
+      },
+      choices = {
+        { text = "Can I see the book?", next = "w_mine2" },
+        { text = "That's a gentle craft.", next = "w_mine2" },
+      },
+    },
+    w_mine2 = {
+      lines = {
+        { id = "w_mine2_default", text = "Of course, it's just there. That pale one is peacebloom, and that is silverleaf, and the brown one at the back is earthroot, which Eleyna says nobody ever recognises in time. I have pressed a few herbs that I couldn't name, too, and left space for someone to tell me." },
+        { id = "w_mine2_w1", when = { profession = "Herbalism" }, text = "You gather already! Then perhaps you can fill one of my empty spaces. Look at the last page and tell me what that is." },
+      },
+      choices = {
+        { text = "I'd like to fill one of those spaces.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Sylassa.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -174,7 +194,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I could talk about plants all night, and often do." },
-        { id = "h_again2", text = "What else would you like to know?" },
+        { id = "h_again2", text = "Is there another leaf you want to know the name of? I have learned most of them now." },
         { id = "h_again3", text = "Go on, ask me another. The silverleaf won't mind waiting." },
       },
       choices = {
@@ -339,7 +359,7 @@ P:NPC {
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "Fanorran Stilloak, and yes, I teach mining, even to dwarves who were born with a pick in their fist. I'd ask you to be kind about my methods, but I suspect you won't." },
       },
       again = {
-        { id = "h_again", text = "Anything else?" },
+        { id = "h_again", text = "Anything else, before I go back to sharpening picks for a forest with no ore?" },
         { id = "h_again2", text = "What more can I tell you?" },
         { id = "h_again3", text = "Go on. I've nothing to dig today." },
       },
@@ -351,6 +371,7 @@ P:NPC {
         { text = "What does a new miner need?", next = "kit" },
         { text = "You don't seem very happy here.", next = "gloomy" },
         { text = "A dwarf could teach you a thing or two.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "What's the best ore you've ever found?", next = "w_best" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -446,6 +467,26 @@ P:NPC {
       },
       choices = { { text = "Fair enough. Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    w_best = {
+      lines = {
+        { id = "w_best_default", text = "A seam of true silver in a cave above Auberdine, the first year I crossed the sea. I sat in front of it for an hour without lifting my pick, because I had never seen metal growing in the stone, and I wanted to look at it before I took it." },
+      },
+      choices = {
+        { text = "Did you take it?", next = "w_best2" },
+        { text = "An hour is a long time to stare.", next = "w_best2" },
+      },
+    },
+    w_best2 = {
+      lines = {
+        { id = "w_best2_default", text = "I took half and left half, which the dwarves would think madness. Some of it became the arrowheads of a Sentinel company in Ashenvale. I like to think the other half is still there, waiting for someone else to sit and look at it." },
+        { id = "w_best2_w1", when = { race = "Dwarf" }, text = "You will think I am a fool, I expect, for leaving good silver in the rock. Your people would have had the whole seam and the cave walls too." },
+      },
+      choices = {
+        { text = "Leaving some was wise.", next = "BACK", fx = { align = { order = 1 } }, reply = "The druids would say so. I only know it felt right at the time." },
+        { text = "You should've taken it all.", next = "BACK", fx = { align = { order = -1 } }, reply = "A dwarf said that to me once, at length. I still do not regret it." },
+        { text = "Something else, Fanorran.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -491,7 +532,7 @@ P:NPC {
         { id = "h_hunter", when = { class = "HUNTER" }, text = "A hunter, so you'll be bringing me plenty of hides before long. I'll teach you to take them cleanly, and Ayanna will teach you to deserve them." },
       },
       again = {
-        { id = "h_again", text = "Something else?" },
+        { id = "h_again", text = "Something else? I'll keep my knife still while you ask." },
         { id = "h_again2", text = "Ask, and I'll answer as best I can." },
         { id = "h_again3", text = "Go on. The knife can wait." },
       },
@@ -503,6 +544,7 @@ P:NPC {
         { text = "What beasts should I start with?", next = "beasts" },
         { text = "What becomes of the hides?", next = "hides" },
         { text = "Does it trouble a druid to skin a beast?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "What's your knife made of?", next = "w_knife" },
         { text = "Farewell, Terunne.", next = "END" },
       },
     },
@@ -595,6 +637,24 @@ P:NPC {
         { id = "xd_default", text = "Some of them say it does, and then I see them in good boots, so I've stopped asking. You'll wear a beast's shape and a beast's hide both, and only you can decide how that sits with you." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_knife = {
+      lines = {
+        { id = "w_knife_default", text = "A blade of dark steel, from Auberdine, set in a handle of nightsaber bone that my grandfather carved. The steel has been replaced four times since, but the handle is the same, and I think of it as the same knife." },
+      },
+      choices = {
+        { text = "Is it the same knife, then?", next = "w_knife2" },
+        { text = "Four blades in one handle.", next = "w_knife2" },
+      },
+    },
+    w_knife2 = {
+      lines = {
+        { id = "w_knife2_default", text = "The druids say a forest is the same forest though every tree in it has fallen and grown again, so I suppose they would say yes. My grandfather would have said that a knife is whatever your hand remembers, and my hand remembers this one." },
+      },
+      choices = {
+        { text = "Your hand knows best.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Terunne.", next = "BACK" },
+      },
     },
   },
 

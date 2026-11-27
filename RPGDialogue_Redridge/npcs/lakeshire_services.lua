@@ -46,7 +46,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else, love? I've hay to fork." },
-        { id = "h_again2", text = "Go on, ask." },
+        { id = "h_again2", text = "Go on, ask, love, only mind the straw and the goat." },
       },
       choices = {
         { text = "I'd like to stable a beast.", next = "BUSINESS", when = { class = "HUNTER" } },
@@ -56,6 +56,7 @@ P:NPC {
         { text = "You've got a goat eating your hat, Penny.", next = "goat" },
         { text = "Would you stable a ram from Dun Morogh?", next = "ram", when = { race = { "Dwarf", "Gnome" } } },
         { text = "My warhorse needs a good brushing. Can you help?", next = "warhorse", when = { class = "PALADIN", minLevel = 40 } },
+        { text = "Tell me more about Bramble the goat.", next = "e3_bramble" },
         { text = "Goodbye, Penny.", next = "END" },
       },
     },
@@ -129,6 +130,24 @@ P:NPC {
       lines = { { id = "wa_default", text = "A paladin's charger, here in my stables? Oh, I'd be honored. I'll brush him down myself and give him the good oats, and I'll not let the goat near him." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
     },
+    e3_bramble = {
+      lines = {
+        { id = "e3_bramble_l0", text = "She's a little brown nanny with one torn ear, and she came down off the hills the week after the gnolls burned the Hollister farm, so I reckon she was theirs. I've asked all over town and nobody's claimed her, so now she sleeps in the hay and eats my hats." },
+      },
+      choices = {
+        { text = "Will you keep her for good?", next = "e3_bramble2" },
+        { text = "A goat needs a home too.", next = "BACK" },
+      },
+    },
+    e3_bramble2 = {
+      lines = {
+        { id = "e3_bramble2_l0", text = "I suppose I already have, love, since I've built her a little pen and given her a name. The horses like her, which is the main thing, because a goat in the stable calms them when the wind brings the orc smell down." },
+      },
+      choices = {
+        { text = "Good for Bramble. Something else.", next = "BACK" },
+        { text = "Keep your hats higher, Penny.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -182,7 +201,7 @@ P:NPC {
           text = "You're out late, dear. I'll stay open a little longer; Ashlock's on the night watch anyway, and I don't sleep until he's home." },
       },
       again = {
-        { id = "h_again", text = "Anything else, dear?" },
+        { id = "h_again", text = "Anything else, dear? Ask, and I'll keep half an eye on the bridge while you do." },
         { id = "h_again2", text = "Ask away, I'm just restocking." },
       },
       choices = {
@@ -195,6 +214,7 @@ P:NPC {
         { text = "You keep looking out the window at the bridge.", next = "window" },
         { text = "Do you carry any reagents for spellwork?", next = "reagents", when = { class = { "MAGE", "WARLOCK", "PRIEST", "SHAMAN", "DRUID" } } },
         { text = "I'm a long way from home, Lindsay.", next = "far", when = { race = { "NightElf", "Gnome", "Dwarf" } } },
+        { text = "What do you pack in Ashlock's lunch?", next = "e3_lunch" },
         { text = "Goodbye, Lindsay.", next = "END" },
       },
     },
@@ -259,6 +279,24 @@ P:NPC {
     far = {
       lines = { { id = "fa_default", text = "You are, and it's good of you to come so far to help folk you've never met. Take some salt and a spare flint with you, because the hills aren't kind to strangers, and I'd hate to think of you cold." } },
       choices = { { text = "Something else.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    e3_lunch = {
+      lines = {
+        { id = "e3_lunch_l0", text = "Bread and a wedge of cheese, a boiled egg when the hens oblige, and a little cake if he's been good, which he always has, the poor dear. I wrap it in a cloth with a knot he can undo one-handed, so he needn't set down his spear to eat." },
+      },
+      choices = {
+        { text = "Does he ever bring the cloth back?", next = "e3_lunch2" },
+        { text = "He's a lucky man.", next = "BACK" },
+      },
+    },
+    e3_lunch2 = {
+      lines = {
+        { id = "e3_lunch2_l0", text = "Every evening, folded small, and sometimes there's a flower in it he's picked off the bank, which he thinks I don't know is from Alma Jainrose's garden. I've never told him, and I never will." },
+      },
+      choices = {
+        { text = "Your secret's safe. Something else.", next = "BACK" },
+        { text = "Alma would want to know.", next = "BACK" },
+      },
     },
   },
 
@@ -462,7 +500,7 @@ P:NPC {
           text = "A hunter, good! You'll have plenty of hides to practise on, and you'll know not to waste them." },
       },
       again = {
-        { id = "h_again", text = "Something else?" },
+        { id = "h_again", text = "Something else? Ask it while I've the knife in my hand, I'm not stopping." },
         { id = "h_again2", text = "Ask. I'm listening while I scrape." },
       },
       choices = {
@@ -475,6 +513,7 @@ P:NPC {
         { text = "Those are worg pelts on your rack.", next = "worg" },
         { text = "My people thank the beast before we skin it.", next = "thanks", when = { race = { "NightElf", "Tauren" } } },
         { text = "I don't like seeing beasts skinned.", next = "druid", when = { class = "DRUID" } },
+        { text = "You left your best knife in Render's Valley?", next = "e3_knife" },
         { text = "Goodbye, Wilma.", next = "END" },
       },
     },
@@ -545,6 +584,24 @@ P:NPC {
         { text = "You should come back to town, where it's safe.", next = "BACK", reply = "Safe in town, is it, with the bridge broken and the orcs on the ridge? I'll stay with my hides, thank you, where the only one who bothers me is you.", fx = { align = { order = 1 } } },
         { text = "Good. Don't let anyone drive you off your land.", next = "BACK", reply = "That's the first sensible thing anyone's said to me this season. The gnolls tried once, and now I've got a very nice dog-hide rug.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_knife = {
+      lines = {
+        { id = "e3_knife_l0", text = "A bone-handled one my father gave me, ground so thin you could read through it, and I dropped it when the arrow hit my pack. I've a new one now, good steel from Dorin Songblade, but it doesn't know my hand yet." },
+      },
+      choices = {
+        { text = "Would you go back for it?", next = "e3_knife2" },
+        { text = "Dorin's steel will learn your hand.", next = "BACK" },
+      },
+    },
+    e3_knife2 = {
+      lines = {
+        { id = "e3_knife2_l0", text = "Not while the Blackrock camp's down there, and not alone. If you ever go through, look by the big split rock above the stream, and if it's lying there, bring it back and I'll skin anything you like for nothing." },
+      },
+      choices = {
+        { text = "I'll keep an eye out. Something else.", next = "BACK" },
+        { text = "Let it go, Wilma.", next = "BACK" },
       },
     },
   },

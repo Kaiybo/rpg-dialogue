@@ -30,6 +30,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_worst = {
+      lines = {
+        { id = "w3_worst_1", text = "The Deathguard, every one of them, who say \"put it on the Executor's account\" as if such a thing existed. I've a ledger of it all the same, and one day I'll walk it up to the Executor myself and watch his face." },
+      },
+      choices = {
+        { text = "Will he pay?", next = "w3_pay" },
+        { text = "Brave of you, crossing the Executor.", next = "BACK", reply = "Not brave, dear, only tired of losing thread to men who don't sew. There's a difference, and it's about four silver." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_pay = {
+      lines = {
+        { id = "w3_pay_1", text = "He'll pay in motivation, I expect, and I'll be the one motivated. Still, I'd like to see him read it, because half the entries are signed \"Deathguard Dillinger\" and Dillinger can't write." },
+      },
+      choices = {
+        { text = "Ha. Something else.", next = "BACK" },
+      },
+    },
     prices = {
       lines = { { id = "pr_default", text = "I keep them fair, which looks sharp to people who remember what things cost before the plague. Every spool on that shelf came up a road with Scarlet scouts on it, and the driver wants paying for his nerve as well as his cart." } },
       choices = {
@@ -73,7 +91,7 @@ P:NPC {
         { id = "h_scourge", when = { race = "Scourge" }, text = "One of the newly risen, and in need of everything, I expect. The dead go through thread like nothing else, because none of us notice when we've torn something." },
       },
       again = {
-        { id = "h_again", text = "What else? I've stock to count." },
+        { id = "h_again", text = "What else? I've stock to count, and the cart's late again." },
         { id = "h_again2", text = "Go on, then, but make it quick." },
         { id = "h_again3", text = "Is there more? Ask it while I'm measuring, I can do both." },
       },
@@ -85,6 +103,7 @@ P:NPC {
         { text = "You keep your prices sharp, for a small town.", next = "prices" },
         { text = "Who else on this street do you deal with?", next = "street" },
         { text = "I craft for my living too, Abigail.", next = "crafter", when = { profession = { "Tailoring", "Leatherworking", "Blacksmithing", "Alchemy" } } },
+        { text = "Who's your worst customer?", next = "w3_worst" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -159,6 +178,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_back = {
+      lines = {
+        { id = "w3_back_1", text = "A crock of Tirisfal pumpkin, stewed soft, and a loaf or two from the zeppelin when the goblins remember to bring them. The pumpkin I make myself, dear, by smell, since that's the one sense that came back to me, and the orcs say it's the best thing in Brill." },
+        { id = "w3_back_2", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Pumpkin, dear, stewed soft, and a loaf from the zeppelin when the goblins remember. You'll try a spoonful before you go, won't you? I make it by smell, and nobody's told me yet whether it tastes of anything." },
+      },
+      choices = {
+        { text = "You can still smell?", next = "w3_smell" },
+        { text = "Pumpkins grow in Tirisfal still?", next = "BACK", reply = "Oh, everywhere, dear, the fields are thick with them. The plague didn't seem to mind pumpkins, and the pumpkins didn't mind it back." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_smell = {
+      lines = {
+        { id = "w3_smell_1", text = "A little, and only some things, and pumpkin is one of them, along with rain and woodsmoke. Abe says I've a nose like a hound now, and I tell him it's the only part of me that's improved since the grave." },
+      },
+      choices = {
+        { text = "Then keep cooking, Mrs. Winters. Something else.", next = "BACK" },
+      },
+    },
     send = {
       lines = { { id = "se_default", text = "Well, of course I do, dear. If you want armor you go to my Abe, and if you want leather you go to Eliza Callen, and Abigail Shiel has the thread and vials, though you mustn't let her tell you the price before you've sat down." } },
       choices = {
@@ -202,7 +240,7 @@ P:NPC {
         { id = "h_young", when = { maxLevel = 8 }, text = "Oh, you're fresh from Deathknell, aren't you? Buy yourself a bag, dear; you'll be amazed what you end up carrying." },
       },
       again = {
-        { id = "h_again", text = "Anything else, dear? Take your time." },
+        { id = "h_again", text = "Anything else, dear? Take your time, and mind the step on the way out." },
         { id = "h_again2", text = "Go on, I've nowhere to be." },
         { id = "h_again3", text = "What else can I tell you, dear? I do like a chat between customers." },
       },
@@ -214,6 +252,7 @@ P:NPC {
         { text = "You send everyone on to the next shop, I hear.", next = "send" },
         { text = "Your husband says you hear everything in Brill.", next = "news", when = { heardLine = "tir_abe.h_default" } },
         { text = "Who looks after the newly risen when they arrive?", next = "risen" },
+        { text = "What do you keep in the back for the living?", next = "w3_back" },
         { text = "Goodbye, Mrs. Winters.", next = "END" },
       },
     },
@@ -284,12 +323,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_hardest = {
+      lines = {
+        { id = "w3_hardest_1", text = "A bear, belonging to a troll hunter who swore it was gentle as a lamb. It ate a saddle, half a door and the better part of a Deathguard's boot, and then it lay down in the straw and slept for two days, and I've never seen a beast look so content." },
+        { id = "w3_hardest_2", when = { class = "HUNTER" }, text = "A bear, and you'll understand why. A troll hunter swore it was gentle, and it ate a saddle, half a door and a Deathguard's boot, and then slept two days. I've kept a spare door since, just in case yours turns out the same." },
+      },
+      choices = {
+        { text = "What did the troll say?", next = "w3_troll" },
+        { text = "I'd have charged double.", next = "BACK", reply = "I did charge double, and the troll paid it laughing, which told me he'd been expecting worse." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_troll = {
+      lines = {
+        { id = "w3_troll_1", text = "He said the bear was teaching me the true value of a door, and that I'd thank him for it in time. I haven't yet, but I've stopped leaving saddles where anything can reach them." },
+      },
+      choices = {
+        { text = "A useful lesson, then. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Morganus. I keep the stables, for the hunters and their beasts, and I keep the Deathguard's horses shod, though they've no hooves left worth the name." },
       },
       again = {
-        { id = "h_again", text = "Something else? I've feed to measure." },
+        { id = "h_again", text = "Something else? I've feed to measure, and the hounds can count it better than I can." },
         { id = "h_again2", text = "Go on. The beasts don't mind the talk." },
       },
       choices = {
@@ -301,6 +359,7 @@ P:NPC {
         { text = "How should I care for a beast in this fog?", next = "care" },
         { text = "My companion's restless here. Any advice?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "My people raise kodo. These beasts seem unhappy.", next = "xtauren", when = { race = "Tauren" } },
+        { text = "What's the hardest beast you've ever stabled?", next = "w3_hardest" },
         { text = "Good day.", next = "END" },
       },
     },

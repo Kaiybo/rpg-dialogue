@@ -32,6 +32,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_hat = {
+      lines = {
+        { id = "w3_hat_1", text = "A big lad up from Deathknell last week, a farmhand by his hands, who holds his shield over his head every time I shout \"brace.\" He's lost two fingers to the dummy finding the gap, and he still does it, because his last memory is of the roof coming down on his farm." },
+      },
+      choices = {
+        { text = "Can you train it out of him?", next = "w3_train" },
+        { text = "That's a sad reason for a bad habit.", next = "BACK", reply = "Most bad habits have sad reasons, {class}. My job is to replace them with good ones before the Scarlets do it with a sword." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_train = {
+      lines = {
+        { id = "w3_train_1", text = "I'll train it into a use, which is better. When the Scourge drops from the rafters in Stratholme, as I'm told it does, he'll be the only man in the line with his shield already in the right place." },
+      },
+      choices = {
+        { text = "A good plan, Austil. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Austil de Mon. I drilled Lordaeron's footmen when they still bled, and now I train the warriors of Brill, if you've the stomach for it and the coin." },
@@ -63,6 +81,7 @@ P:NPC {
         { text = "I'm here to train.", next = "BUSINESS" },
         { text = "How do I fight a Scarlet footman?", next = "w_footman", when = { class = "WARRIOR" } },
         { text = "What comes after Brill for a warrior?", next = "w_after", when = { class = "WARRIOR", minLevel = 8 } },
+        { text = "Tell me about the recruit who thinks a shield is a hat.", next = "w3_hat" },
         { text = "I'll get out of your way.", next = "END" },
       },
     },

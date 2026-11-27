@@ -50,7 +50,25 @@ P:NPC {
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "Who are your customers here, mostly?", next = "customers" },
         { text = "What's the Hold like to live in?", next = "living" },
+        { text = "You could close the shop and go home.", next = "w9_home" },
         { text = "Good luck with the shipment.", next = "END" },
+      },
+    },
+
+    w9_home = {
+      lines = { { id = "w9_home_d", text = "I think about it every night, and every morning a soldier comes in needing thread for a torn tabard, or a cook needs salt, and I'm still here. Feathermoon has rain and trees and customers who don't track sand across my floor, and I miss all three terribly." } },
+      choices = {
+        { text = "Then why stay?", next = "w9_home2" },
+        { text = "Someone else could do this job.", next = "w9_home2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_home2 = {
+      lines = { { id = "w9_home2_d", text = "Because nobody else applied, mostly, and because the one time I left for a week, the Hold ran out of flux and Vargus was so cross that the anvil cracked. I'm not saying it was my fault, but I'm not saying it wasn't, either." } },
+      choices = {
+        { text = "The Hold needs you.", next = "BACK", reply = "That's what everyone says, and nobody brings salt." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     goblin = {

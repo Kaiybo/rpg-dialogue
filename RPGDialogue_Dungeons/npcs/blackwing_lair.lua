@@ -31,6 +31,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_how = {
+      lines = { { id = "w8_how_a", text = "I came alone, mortals, because I thought one red dragon could do what an army could not. He let me reach this hall, and then the chains rose from the floor, and I understood that he had been waiting for me." } },
+      choices = {
+        { text = "You came to stop him alone? Brave.", next = "w8_how2" },
+        { text = "Why didn't the red flight come with you?", next = "w8_how2" },
+        { text = "Ask me something else.", next = "BACK" },
+      },
+    },
+    w8_how2 = {
+      lines = { { id = "w8_how2_a", text = "Brave, or proud, and in the end they are the same thing in Blackrock. My flight is scattered and chained in Grim Batol, and there was no one else to come, so I came, and now you have come too." } },
+      choices = {
+        { text = "Then we'll finish what you started.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Vaelastrasz, consort of the red flight, and I came to this lair to stop Nefarian's work. He captured me instead and fed his corruption into my blood, so that I would guard his halls against the very heroes I hoped to aid." },
@@ -47,6 +62,7 @@ P:NPC {
         { text = "What would you have us do?", next = "fight" },
         { text = "Tell me of the red flight, while you can.", next = "yred" },
         { text = "What message should I carry to Alexstrasza?", next = "ymessage" },
+        { text = "How did Nefarian take you, Vaelastrasz?", next = "w8_how" },
       },
     },
     work = {

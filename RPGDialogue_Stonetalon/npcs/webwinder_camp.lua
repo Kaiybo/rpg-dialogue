@@ -62,10 +62,26 @@ P:NPC {
         { text = "How do you and Kaela get along?", next = "kaela_g" },
         { text = "Show me what you're building.", next = "eng_gx", when = { any = { { profession = "Engineering" }, { race = "Gnome" } } } },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "What's the biggest explosion you've ever set off here?", next = "w5_boom" },
         { text = "Good luck, Gaxim.", next = "END" },
       },
     },
 
+    w5_boom = {
+      lines = { { id = "w5_boom_l", text = "A cluster of charges under a Venture Company shredder depot, with a forty percent margin for error, which is generous for me. It took out three shredders, a supply tent and about half of my eyebrows. Kaela said it was too much." } },
+      choices = {
+        { text = "Was it too much?", next = "w5_boom2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_boom2 = {
+      lines = { { id = "w5_boom2_l", text = "Statistically? Yes. Philosophically? Also yes. But it worked! The Venture crew pulled back a whole mile, and three acres of saplings got another season to grow. I'll take a little too much if it means the forest gets a little more." } },
+      choices = {
+        { text = "A bit of excess saves the forest. It worked.", next = "BACK", reply = "Exactly! See, I keep telling Kaela, results matter. She just glares at me.", fx = { align = { order = -1 } } },
+        { text = "Kaela's right. Big explosions hurt the forest too.", next = "BACK", reply = "Hm. That's a fair point. I'll recalibrate. Probably. With a slightly smaller margin.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     eaaaes = {
       lines = {
         { id = "ea_default", text = "A society of the finest minds who refuse to choose between the arcane, the alchemical and the mechanical. Most gnomes pick one, which is fine, I suppose, if you like being bored." },
@@ -224,10 +240,25 @@ P:NPC {
         { text = "What do you need?", next = "BUSINESS" },
         { text = "Sun Rock is close. Do the Sentinels watch the Horde here?", next = "sunrock" },
         { text = "What does Elune's eye see in this valley?", next = "elune" },
+        { text = "What would you do if you were called back to Ashenvale?", next = "w5_called" },
         { text = "Elune keep you, Kaela.", next = "END" },
       },
     },
 
+    w5_called = {
+      lines = { { id = "w5_called_l", text = "Go, and gladly. Then I'd spend every night in Astranaar wondering what Gaxim had blown up. I've grown used to this valley. I've grown used to him, too, though I'll deny it if you repeat that." } },
+      choices = {
+        { text = "You'd miss Gaxim?", next = "w5_called2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_called2 = {
+      lines = { { id = "w5_called2_l", text = "I'd miss the noise. The forest's been quiet a long time, the bad kind of quiet. Gaxim is the only living thing in this valley louder than the Venture Company's saws. When he's not blowing something up, I start to worry." } },
+      choices = {
+        { text = "Then I hope you're not called back too soon.", next = "BACK", reply = "So do I, though I wouldn't say it to my captain. Elune keep you, {class}." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     vale = {
       lines = {
         { id = "va_default", text = "The goblins came for the trees and found more than they bargained for, and when the Vale fought back, they burned it. The first time I saw it, {class}, I almost wept." },

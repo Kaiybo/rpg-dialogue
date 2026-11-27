@@ -38,6 +38,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_lis = {
+      lines = { { id = "w8_lis_a", text = "Mostly the sprites, which sound like a kettle that never quite boils. Once in a long while there's something deeper underneath them, like a breath held in a very large chest, and then it's gone before I'm sure I heard it." } },
+      choices = {
+        { text = "Could it be one of the old spirits?", next = "w8_lis2" },
+        { text = "Maybe it's only the wind.", next = "w8_lis2" },
+        { text = "I'm a shaman. Let me listen with you.", next = "w8_lis2", when = { class = "SHAMAN" } },
+        { text = "Something else, Yala.", next = "BACK" },
+      },
+    },
+    w8_lis2 = {
+      lines = {
+        { id = "w8_lis2_a", text = "I've told Rorian, and he wrote it down and told me to keep listening, which is what he says about everything. I'd like it to be a spirit, and I'm afraid it's something the Al'Aketh have woken instead." },
+        { id = "w8_lis2_sham", when = { class = "SHAMAN" }, text = "Would you? Stand here, where the third stone leans, and close your eyes. If you hear the deep breath, tell me whether it sounds glad or angry, because I've never been able to tell." },
+      },
+      choices = {
+        { text = "Keep listening, Yala.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Yala Windwatcher, and Rorian the Dayseeker sent me to watch the winds at these stones. The wind spirits have left us, and what remains here are only mindless echoes, and lately those echoes have turned angry." },
@@ -60,6 +80,7 @@ P:NPC {
         { text = "Does Rorian keep you busy?", next = "rorian" },
         { text = "Do you think the true spirits will return?", next = "spirits" },
         { text = "The spirits still answer me, Yala.", next = "xshaman", when = { class = "SHAMAN", ["not"] = { race = "Skyborne" } } },
+        { text = "What do you hear when you listen to the stones?", next = "w8_lis" },
         { text = "Winds guide you, Yala.", next = "END" },
       },
     },
@@ -366,6 +387,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_rng = {
+      lines = { { id = "w8_rng_a", text = "Seven, counting me, and two of them are barely past their coming of age. We used to be twenty, before the young ones started leaving for the mainland and the old ones started being too old." } },
+      choices = {
+        { text = "Seven isn't many for a whole grove.", next = "w8_rng2" },
+        { text = "Do you blame the ones who left?", next = "w8_rng2" },
+        { text = "I'm a hunter. I'll walk a watch with you.", next = "w8_rng2", when = { class = "HUNTER" } },
+        { text = "Something else, Valreaa.", next = "BACK" },
+      },
+    },
+    w8_rng2 = {
+      lines = {
+        { id = "w8_rng2_a", text = "It isn't, and we know every path because we have to. I don't blame anyone for going below the clouds, but I'd be lying if I said I didn't count the empty bunks some nights." },
+        { id = "w8_rng2_hu", when = { class = "HUNTER" }, text = "Then take the southwest path at dusk, where the ursera come closest, and keep your companion upwind. If you do, I'll count eight on the roster tonight, and that'll be the first time in a season." },
+      },
+      choices = {
+        { text = "The grove is well guarded, even so.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     val_xy1 = {
       lines = {
         { id = "val_xy1_1", text = "Patient with beasts and impatient with rangers, which is the wrong way round for a man who lives in a village. He thinks we cull too quickly, and he's told me so in front of the whole grove, and I've told him he's welcome to stand between an ursera and a child." },
@@ -422,7 +463,7 @@ P:NPC {
           text = "A druid. Xyton, our druid trainer, would say the ursera are only doing what hunger tells them, and he's right, but hunger doesn't care whose child is in the way." },
       },
       again = {
-        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again", text = "What else would you know? Ask while the grove is quiet; the wind changes quickly here." },
         { id = "h_again2", text = "Ask. I've a moment before my watch." },
       },
       choices = {
@@ -432,6 +473,7 @@ P:NPC {
         { text = "Couldn't a druid calm the ursera?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Xyton sounds a patient sort of druid.", next = "val_xy1" },
         { text = "The children play by the elder tree, you said.", next = "val_tree1" },
+        { text = "How many rangers guard Thendal Grove?", next = "w8_rng" },
         { text = "Winds be with you, Valreaa.", next = "END" },
       },
     },

@@ -239,7 +239,28 @@ P:NPC {
         { text = "Why 'Raincaller'? There's no rain here.", next = "name" },
         { text = "What should a traveller carry in Winterspring?", next = "advice" },
         { text = "Darnassus is well. The Tree still stands tall.", next = "darnassus", when = { race = "NightElf" } },
+        { text = "What's in the kettle?", next = "w9_kettle" },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+
+    w9_kettle = {
+      lines = {
+        { id = "w9_kettle_d", text = "Icecap, mostly, the pale little flower that grows in the high snows, with a pinch of mountain silversage for warmth. It tastes of frost and honey, and it keeps the cold out of your chest better than any cloak in Starfall." },
+        { id = "w9_kettle_v1", when = { profession = "Herbalism" }, text = "Icecap and a little mountain silversage, which you'll know by the leaf, I expect. Pick the icecap young, before the frost burns the petals brown, and it brews sweeter than anything in Ashenvale." },
+      },
+      choices = {
+        { text = "Where do you find the icecap?", next = "w9_kettle2" },
+        { text = "May I have a cup?", next = "w9_kettle2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_kettle2 = {
+      lines = { { id = "w9_kettle2_d", text = "Along the ridges above the lake, where the snow lies thinnest, though the Winterfall go there too, and lately they are not friendly about sharing. Sit, have a cup, and drink it slowly, because that is half of what makes it work." } },
+      choices = {
+        { text = "Thank you, Natheril.", next = "BACK", reply = "Elune keep you warm. Come back when the cup is empty." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     village = {
@@ -371,7 +392,25 @@ P:NPC {
         { text = "The Sentinels would want a word with you.", next = "kal", when = { race = "NightElf" } },
         { text = "You travel this road every day?", next = "road" },
         { text = "You seem to know the Winterfall well.", next = "winterfall" },
+        { text = "You have very fine manners.", next = "w9_manners" },
         { text = "Good day to you, Artorius.", next = "END" },
+      },
+    },
+
+    w9_manners = {
+      lines = { { id = "w9_manners_d", text = "Why, thank you, friend! I have studied manners in many courts, in many places very far from here, and I have found that a pleasant word opens more doors than a battering ram, and leaves the doors in much better condition." } },
+      choices = {
+        { text = "What courts were those?", next = "w9_manners2" },
+        { text = "Manners can hide a great deal.", next = "w9_manners2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_manners2 = {
+      lines = { { id = "w9_manners2_d", text = "Oh, far courts, very old ones, where the lords smile and the servants burn. You wouldn't know them, friend, and I do hope, for your sake, that you never will. *His smile holds a beat too long.*" } },
+      choices = {
+        { text = "I think I know exactly what you are.", next = "BACK", reply = "Do you? How delightful. Do keep it to yourself a little longer." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {

@@ -33,7 +33,7 @@ P:NPC {
         { id = "h_default", text = "I am Worb Strongstitch, and the name was my mother's before it was mine. I sell armor for those who must move quickly, and I pull every seam myself before it goes on the rack." },
       },
       again = {
-        { id = "h_again", text = "Is there more I can tell you?" },
+        { id = "h_again", text = "Is there more? Ask while I pull this seam; my mother said a stitch tested in company is a stitch tested twice." },
         { id = "h_again2", text = "Take your time. I always do." },
       },
       choices = {
@@ -44,7 +44,36 @@ P:NPC {
         { text = "Do you make all of this yourself?", next = "make" },
         { text = "What wears armor out fastest here?", next = "wear" },
         { text = "Light armor seems a risk against ogres.", next = "ogres" },
+        { text = "What's the hardest repair you've ever done?", next = "w7_repair" },
         { text = "Winds be at your back, Worb.", next = "END" },
+      },
+    },
+    w7_repair = {
+      lines = {
+        { id = "w7_repair_l1", text = "A brave's jerkin that a Gordunni had torn clean down the back, with the brave still in it. He came back to camp bleeding and wouldn't let the healers touch him until I promised to mend it, because his mate had made it for him." },
+      },
+      choices = {
+        { text = "Did you mend it?", next = "w7_repair2" },
+        { text = "He should have seen the healers first.", next = "w7_repair3" },
+        { text = "Something else, Worb.", next = "BACK" },
+      },
+    },
+    w7_repair2 = {
+      lines = {
+        { id = "w7_repair2_l1", text = "Every stitch, by firelight, with my mother's needle. He wears it still, and you cannot see the seam unless you know where to look, and when he catches me looking, he nods and goes on." },
+        { id = "w7_repair2_l2", when = { profession = { "Leatherworking", "Tailoring" } }, text = "Every stitch. You'll know the trick: work from the inside out, so the scar is hidden in the lining, and match the stitch length to the maker's own. His mate never knew it had been torn." },
+      },
+      choices = {
+        { text = "That's fine work.", next = "BACK", reply = "It was my mother's work, through my hands." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_repair3 = {
+      lines = {
+        { id = "w7_repair3_l1", text = "He should have, and he did, once I had the needle in my hand. Some wounds heal faster when the heart is not worrying." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     make = {
@@ -143,7 +172,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask again, young one. Remembering is slow, but it comes." },
-        { id = "h_again2", text = "What else would you draw out of an old bull?" },
+        { id = "h_again2", text = "What else would you draw out of an old bull? Pull gently; some memories come up with their roots still on." },
       },
       choices = {
         { text = "The old ways must be remembered.", next = "BACK", reply = "Yes. Someone must remember, when the young forget.", fx = { align = { order = 1 } } },
@@ -153,7 +182,36 @@ P:NPC {
         { text = "What do you remember that Mojache needs?", next = "remember" },
         { text = "This forest makes you uneasy.", next = "forest" },
         { text = "Tell me about the other sage, Korolusk.", next = "korolusk" },
+        { text = "What is the oldest thing you remember?", next = "w7_oldest" },
         { text = "Rest well, elder.", next = "END" },
+      },
+    },
+    w7_oldest = {
+      lines = {
+        { id = "w7_oldest_l1", text = "The sound of my grandmother's drum, young one, beating the herd forward through a dust storm on the plains. I was too small to see anything, and so I held her tail and walked into the dark, and the drum was the only thing in the world." },
+      },
+      choices = {
+        { text = "Where were you going?", next = "w7_oldest2" },
+        { text = "You remember a drum, not a face?", next = "w7_oldest3" },
+        { text = "Something else, Sage.", next = "BACK" },
+      },
+    },
+    w7_oldest2 = {
+      lines = {
+        { id = "w7_oldest2_l1", text = "Away from the centaur, as always in those years. We walked three days in the storm, and when it cleared we were at the edge of Mulgore, and my grandmother said this would be our home. She was right, though she did not live to see it." },
+        { id = "w7_oldest2_l2", when = { race = "Tauren" }, text = "Away from the centaur, toward Mulgore, though none of us knew it then. You have walked there, I think; when you next stand on the high grass, remember a small calf holding a tail in the dark, and know the land was dearly bought." },
+      },
+      choices = {
+        { text = "I'll remember.", next = "BACK", reply = "Then the drum still beats a little, in you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_oldest3 = {
+      lines = {
+        { id = "w7_oldest3_l1", text = "The face is gone, but the drum remains. Memory keeps what the heart held tightest, and I held that sound." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     remember = {
@@ -257,7 +315,7 @@ P:NPC {
         { id = "h_default", text = "I be Orik'ando, of de Darkspear. I came down from Durotar to see dis jungle everyone talks about, and I been here longer dan I planned, because it reminds me of a home we don't have no more." },
       },
       again = {
-        { id = "h_again", text = "What else you want to know, mon?" },
+        { id = "h_again", text = "What else, mon? Ask quick, before de rain starts again and I go back under my leaf." },
         { id = "h_again2", text = "Go on, I got nowhere to be." },
       },
       choices = {
@@ -268,7 +326,36 @@ P:NPC {
         { text = "The forest reminds you of home?", next = "home" },
         { text = "How do you find living among tauren?", next = "tauren" },
         { text = "You watch people closely.", next = "watch" },
+        { text = "What do you do all day in Mojache?", next = "w7_day" },
         { text = "Stay sharp, Orik'ando.", next = "END" },
+      },
+    },
+    w7_day = {
+      lines = {
+        { id = "w7_day_l1", text = "I fish de river in de mornin', mon, and I nap in de afternoon when it rains, and in de evenin' I tell de tauren calves stories about de Echo Isles until dey fall asleep. Dey never fall asleep, though, dey just ask for more." },
+      },
+      choices = {
+        { text = "What stories do you tell?", next = "w7_day2" },
+        { text = "That's a lazy life.", next = "w7_day3" },
+        { text = "Something else, Orik'ando.", next = "BACK" },
+      },
+    },
+    w7_day2 = {
+      lines = {
+        { id = "w7_day2_l1", text = "Raptor hunts, mostly, and de time my uncle wrestled a crocolisk in de shallows and lost his loincloth. De calves love dat one, and de elders pretend not to listen, but I see dem smilin'." },
+        { id = "w7_day2_l2", when = { race = "Troll" }, text = "De old ones, mon, de raptor hunts and de crocolisk wrestle. You know dem too, I bet. Come tell one tonight; de calves be tired of my voice, and a new Darkspear be a big event here." },
+      },
+      choices = {
+        { text = "I'd like to hear one.", next = "BACK", reply = "Den sit by de fire tonight, mon, and bring an appetite for lies." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_day3 = {
+      lines = {
+        { id = "w7_day3_l1", text = "Lazy? Mon, dis be de best work I ever had. Nobody be tryin' to kill me, and de calves be payin' me in berries." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     home = {
@@ -366,7 +453,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Was there more? There usually is." },
-        { id = "h_again2", text = "Do go on. I have nothing but time, as you may imagine." },
+        { id = "h_again2", text = "Do go on. Time is the one thing the Dark Lady gave me in abundance, and I am spending it on ferns." },
       },
       choices = {
         { text = "The Dark Lady's orders must be followed.", next = "BACK", reply = "They must. Even to the far end of the world.", fx = { align = { order = 1 } } },
@@ -377,7 +464,36 @@ P:NPC {
         { text = "What brings the Forsaken to Feralas?", next = "why" },
         { text = "The tauren seem to treat you well.", next = "tauren" },
         { text = "You don't care for the forest.", next = "forest" },
+        { text = "What do you do to pass the time out here?", next = "w7_pass" },
         { text = "I'll leave you to your ferns.", next = "END" },
+      },
+    },
+    w7_pass = {
+      lines = {
+        { id = "w7_pass_l1", text = "I keep a ledger of every plant that has tried to grow on me, with dates and species. So far I have seventeen entries, and the tauren find this extremely funny, which is why I no longer show it to them." },
+      },
+      choices = {
+        { text = "Seventeen? Really?", next = "w7_pass2" },
+        { text = "That's a strange hobby.", next = "w7_pass3" },
+        { text = "Something else, Blaise.", next = "BACK" },
+      },
+    },
+    w7_pass2 = {
+      lines = {
+        { id = "w7_pass2_l1", text = "Seventeen, including one mushroom that sprouted on my shoulder overnight. I scraped it off, of course, but I kept a sketch. One must have records, or one is merely suffering without documentation." },
+        { id = "w7_pass2_l2", when = { race = "Scourge" }, text = "Seventeen, and you will understand the indignity better than any living soul here. Our flesh is a garden to this place; keep moving, friend, and scrape often. I recommend a stiff brush." },
+      },
+      choices = {
+        { text = "Documentation is important.", next = "BACK", reply = "At last, someone who understands bureaucracy." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_pass3 = {
+      lines = {
+        { id = "w7_pass3_l1", text = "Strange? I was a notary, remember. Keeping careful records of my own misery is the closest thing I have to joy." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -494,7 +610,36 @@ P:NPC {
         { text = "Who fights in this pit?", next = "fighters" },
         { text = "How does a goblin end up in Dire Maul?", next = "how" },
         { text = "You're taking bets, aren't you.", next = "bets" },
+        { text = "What do you eat down here?", next = "w7_eat" },
         { text = "Enjoy the show.", next = "END" },
+      },
+    },
+    w7_eat = {
+      lines = {
+        { id = "w7_eat_l1", text = "Whatever the ogres drop, pal, and they drop a lot. Ogres eat like they fight, messy and with a lot of yellin', and a small fella with a sack can live like a trade prince off the scraps under the stands." },
+      },
+      choices = {
+        { text = "That's disgusting.", next = "w7_eat2" },
+        { text = "Smart business.", next = "w7_eat3" },
+        { text = "Something else, Griniblix.", next = "BACK" },
+      },
+    },
+    w7_eat2 = {
+      lines = {
+        { id = "w7_eat2_l1", text = "Disgusting? Friend, I've eaten in Booty Bay. This is fine dining by comparison, and nobody here tries to charge me for it. You gotta look at the margins." },
+        { id = "w7_eat2_l2", when = { race = "Dwarf" }, text = "Disgusting? Pal, you people eat cave mushrooms and stout for breakfast, don't lecture me. A roast leg of somethin' dropped from an ogre's plate is cleaner than half the taverns in Ironforge, and I'd know." },
+      },
+      choices = {
+        { text = "If you say so.", next = "BACK", reply = "I do say so. Want a bite? First one's free." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_eat3 = {
+      lines = {
+        { id = "w7_eat3_l1", text = "Now you're thinkin' like a goblin, pal! Overhead is nothing, revenue is fun, and the show comes with lunch." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     fighters = {

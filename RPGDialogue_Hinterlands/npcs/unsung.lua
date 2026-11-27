@@ -476,6 +476,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_mule = {
+      lines = {
+        { id = "w2_mule_l", text = "Probability! Because she's usually going to do what I expect, and sometimes, statistically, she doesn't. She carried my whole stock up from the Wetlands without complaint and then refused to cross a puddle." },
+      },
+      choices = {
+        { text = "How did you get her across?", next = "w2_mule2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_mule2 = {
+      lines = {
+        { id = "w2_mule2_l", text = "I calculated the puddle's depth, its width and the mule's stubbornness, and concluded that I'd have to carry the stock across myself. Then she followed me. Ruppo says I'm the only gnome ever outwitted by a mule." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -486,7 +503,7 @@ P:NPC {
           text = "Gigget Zipcoil, trade supplies! You're with the Revantusk on the coast, I expect, and not the ones in the ruins. I can tell because you haven't thrown anything, and I do appreciate it." },
       },
       again = {
-        { id = "h_again", text = "What else can I tell you? I do like questions." },
+        { id = "h_again", text = "What else can I tell you? I do like questions, they're the only thing out here that doesn't need dusting." },
         { id = "h_again2", text = "Go on! I've nobody to talk to out here but the mule, and she's a poor conversationalist." },
         { id = "h_again3", text = "Yes? Ask away, I can talk and take inventory at the same time, within a small margin of error." },
       },
@@ -500,6 +517,7 @@ P:NPC {
         { text = "What's a gnome trader's life, since Gnomeregan?", next = "x_gnome", when = { race = "Gnome" } },
         { text = "You mentioned a pattern with feathers.", next = "x_lw", when = { profession = "Leatherworking" } },
         { text = "What sells best to people like me?", next = "x_craft", when = { profession = { "Tailoring", "Blacksmithing", "Engineering", "Alchemy" } } },
+        { text = "What's the mule's name?", next = "w2_mule" },
         { text = "Good trading, Gigget.", next = "END" },
       },
     },

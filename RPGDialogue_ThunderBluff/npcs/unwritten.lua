@@ -57,7 +57,22 @@ P:NPC {
         { text = "How's business?", next = "x_biz" },
         { text = "Where did you grow up?", next = "ylife" },
         { text = "What's the hardest part of the job?", next = "yhard" },
+        { text = "What do the tauren children make of your bell?", next = "w5_bell" },
         { text = "Let me see your treats.", next = "END" },
+      },
+    },
+    w5_bell = {
+      lines = { { id = "w5_bell_l", text = "Oh, they love it. The little calves follow the cart up and down the rise, and every time I ring it they stamp their hooves. Their mothers are a lot less charmed. I've started giving out free cookies to the mothers, which works better than the bell." } },
+      choices = {
+        { text = "Does the bell ever bring in business?", next = "w5_bell2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_bell2 = {
+      lines = { { id = "w5_bell2_l", text = "The bell brings the calves, the calves bring the mothers, and the mothers bring their purses. That's sales, sweetheart. Whulwert says the bell is tacky. Whulwert's cart is very quiet and very empty most afternoons." } },
+      choices = {
+        { text = "So the bell is a sales strategy.", next = "BACK", reply = "Everything's a sales strategy, sweetheart. Even the cheer." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     tauren = {
@@ -183,7 +198,22 @@ P:NPC {
         { text = "What would suit a tauren?", next = "x_ta", when = { race = "Tauren" } },
         { text = "How did you get into fine goods?", next = "ylife" },
         { text = "Does your Venture cousin worry you?", next = "yventure" },
+        { text = "What's your finest piece this season?", next = "w5_finest" },
         { text = "Show me your wares.", next = "END" },
+      },
+    },
+    w5_finest = {
+      lines = { { id = "w5_finest_l", text = "A carved music box from Gadgetzan, plays three songs and only catches fire on the fourth. Lacquered, gilded, velvet-lined. I have had exactly one tauren look at it, for a full minute, and walk away. They do not appreciate gilding up here." } },
+      choices = {
+        { text = "Why bring it to Thunder Bluff, then?", next = "w5_finest2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_finest2 = {
+      lines = { { id = "w5_finest2_l", text = "Because one day, a chieftain's mate will want something nobody else on the bluff has. When that day comes, I will be standing here, and Seersa will be ringing her bell over there, and I will make in one sale what she makes in a season of cookies." } },
+      choices = {
+        { text = "Patience is the quality end of selling.", next = "BACK", reply = "Exactly. You have the soul of a fine-goods merchant. I will not charge you for saying it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     prices = {
@@ -287,7 +317,23 @@ P:NPC {
         { text = "Why do you stay, if you dislike it here?", next = "x_stay" },
         { text = "I'm tauren. Do you hate me?", next = "x_ta", when = { race = "Tauren" } },
         { text = "I'm an orc. Do the Grimtotem hate us?", next = "x_orc", when = { race = "Orc" } },
+        { text = "What does a Grimtotem see when he watches these bridges?", next = "w5_bridges" },
         { text = "I'll walk softly.", next = "END" },
+      },
+    },
+    w5_bridges = {
+      lines = { { id = "w5_bridges_l", text = "Strangers walking on our sacred mesa as if it were a market. Orcs who burned the forest of the night elves. The dead from Lordaeron, buying candles. Cairne opened the gates to all of them, and calls it strength. I call it forgetting." } },
+      choices = {
+        { text = "Forgetting what?", next = "w5_bridges2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_bridges2 = {
+      lines = { { id = "w5_bridges2_l", text = "That the tauren survived for a thousand years before the Horde. We did not need orcs to teach us war, or the dead to teach us magic. Magatha remembers. When the city is full of strangers and the tauren are guests in their own lodges, the others will remember too." } },
+      choices = {
+        { text = "The tauren should look to themselves first.", next = "BACK", reply = "So you listen. That is more than most. Speak with Magatha, if you have the courage.", fx = { align = { order = -1 } } },
+        { text = "Cairne is right. The Horde is the tauren's strength.", next = "BACK", reply = "Then go and walk on his bridges, and see how long the orcs remember they owe us.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     horde = {
@@ -401,7 +447,7 @@ P:NPC {
         { id = "h_default", text = "I am Gorm. I guard Magatha's lodges, though no one in this city would dare trouble them. It gives my hands something to do while the council talks." },
         { id = "yh_orc", when = { race = "Orc" }, text = "An orc. Thrall's people. You eat at Cairne's fire and call it home. Hmph. Speak, then." },
       },
-      again = { { id = "h_again_x", text = "Still here? Ask, then." }, { id = "h_again", text = "More questions? Ask, then." } },
+      again = { { id = "h_again_x", text = "Still here? Then ask. Few visitors linger this close to a Grimtotem." }, { id = "h_again", text = "More questions? Ask. The club is getting sharper either way." } },
       choices = {
         { text = "Why guard what nobody threatens?", next = "guard" },
         { text = "Where do the Grimtotem come from?", next = "tribe" },
@@ -411,7 +457,22 @@ P:NPC {
         { text = "I'm a warrior. Is that club good?", next = "x_wa", when = { class = "WARRIOR" } },
         { text = "Where did you grow up?", next = "ylife" },
         { text = "What would make you leave this post?", next = "yleave" },
+        { text = "How long have you been sharpening that club?", next = "w5_club" },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+    w5_club = {
+      lines = { { id = "w5_club_l", text = "Since the morning. I sharpen it every day, though I have not struck anything with it in two seasons. A Grimtotem club is not for show. If the day ever comes, it will be ready. If it never comes, it will be the sharpest club on the Elder Rise." } },
+      choices = {
+        { text = "Which day are you waiting for?", next = "w5_club2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_club2 = {
+      lines = { { id = "w5_club2_l", text = "The day Magatha asks. Not before. I am a guard, not a fool. There are many on these rises who would like to see a Grimtotem lose his temper, so they could call us savages. I give them nothing. I only sharpen." } },
+      choices = {
+        { text = "Patience is a kind of strength too.", next = "BACK", reply = "Hmph. You talk like the Bloodhoof. But you are not wrong." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     guard = {
@@ -536,7 +597,23 @@ P:NPC {
         { text = "Do the Forsaken come to the fires?", next = "x_fs", when = { race = "Scourge" } },
         { text = "Where do you go after the festival?", next = "yafter" },
         { text = "Has the festival ever gone wrong?", next = "ywrong" },
+        { text = "Which festival fire was the finest you've seen?", next = "w5_fire" },
         { text = "Show me your wares.", next = "END" },
+      },
+    },
+    w5_fire = {
+      lines = { { id = "w5_fire_l", text = "Here, on the bluff, two summers past. The tauren built the bonfire so high you could see it from the Barrens, and when the sun went down the shamans walked straight through the flames and came out singing. I nearly dropped my whole tray of ribbons." } },
+      choices = {
+        { text = "Walked through the fire?", next = "w5_fire2" },
+        { text = "I am of the earth and fire both. The flames know us.", next = "BACK", when = { class = "SHAMAN" }, reply = "Then you'll have to show me, one year. I'll hold your ribbons." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_fire2 = {
+      lines = { { id = "w5_fire2_l", text = "Through it, and out the other side, and not a hair singed. An old shaman told me the fire knew them, so it let them pass. I've followed the festival a long time, and I've never seen anything like it. I come back to this bluff every year hoping to see it again." } },
+      choices = {
+        { text = "I hope they walk the fire again this year.", next = "BACK", reply = "So do I! If they do, buy a ribbon and throw it in after them. It's good luck." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     festival = {
@@ -640,7 +717,22 @@ P:NPC {
         { text = "Who else donates?", next = "x_who" },
         { text = "I'm a tailor. What's needed most?", next = "x_tl", when = { profession = "Tailoring" } },
         { text = "I'm tauren. Do we give much?", next = "x_ta", when = { race = "Tauren" } },
+        { text = "What's the largest donation you've ever recorded?", next = "w5_largest" },
         { text = "Let's talk donations.", next = "END" },
+      },
+    },
+    w5_largest = {
+      lines = { { id = "w5_largest_l", text = "A tauren tailor brought me forty bolts of runecloth on a single kodo, and would not let me write her name. \"Write Mulgore,\" she said. So the hide-strip says forty bolts, Mulgore, and I think of her every time I read it." } },
+      choices = {
+        { text = "Why wouldn't she give her name?", next = "w5_largest2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_largest2 = {
+      lines = { { id = "w5_largest2_l", text = "She said the cloth was not hers to boast of. Her husband had died at the Crossroads, and the cloth was what he would have given, if he had lived to give it. I wrote Mulgore, and I drew a small kodo beside it. I do not do that for anyone else." } },
+      choices = {
+        { text = "A gift given in someone else's name. That's rare.", next = "BACK", reply = "It is. Thunder Bluff remembers every bundle, but some it remembers a little longer." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     use = {
@@ -742,7 +834,22 @@ P:NPC {
         { text = "How long have you served?", next = "x_serve" },
         { text = "I'm tauren. What can I give?", next = "x_ta", when = { race = "Tauren" } },
         { text = "I'm a warrior. Put me to work.", next = "x_wa", when = { class = "WARRIOR" } },
+        { text = "How does Thunder Bluff compare to the other cities' collections?", next = "w5_compare" },
         { text = "Not today, sergeant.", next = "END" },
+      },
+    },
+    w5_compare = {
+      lines = { { id = "w5_compare_l", text = "Orgrimmar has more grunts and more noise. The Undercity sends its supplies in boxes that smell, and nobody asks why. We send what we can, and we send it on time, and we send it with a note of thanks to whoever will carry it. That is the tauren way." } },
+      choices = {
+        { text = "Is Thunder Bluff falling behind?", next = "w5_compare2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_compare2 = {
+      lines = { { id = "w5_compare2_l", text = "In herbs, never. In bandages, never. In copper bars, a little, because the elders do not like mining the Earth Mother. I have spoken to Brek Stonehoof about it. He gave me a long look and then sent up twenty bars, which I am told is a lot, from Brek." } },
+      choices = {
+        { text = "Twenty bars from Brek is a victory, sergeant.", next = "BACK", reply = "It is! I have written it in my report in larger letters than usual." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     war = {
@@ -863,7 +970,7 @@ P:NPC {
         { id = "h_default", text = "We watch the bridges and the lifts, and we watch the plains for the Grimtotem and the Venture Company. Cairne Bloodhoof asks for vigilance, and we give it gladly." },
         { id = "yh_orc", when = { race = "Orc" }, text = "Lok'tar, friend of Thrall. We watch the bridges and the lifts, and the plains below for the Grimtotem and the Venture Company. Walk carefully near the edges." },
       },
-      again = { { id = "h_again_x", text = "Anything more, traveller?" }, { id = "h_again", text = "Is there more you need?" } },
+      again = { { id = "h_again_x", text = "Anything more, traveller?" }, { id = "h_again", text = "Is there more you need? Mind the edge while you think of it." } },
       choices = {
         { text = "Do you trust the Grimtotem on the bluffs?", next = "grim" },
         { text = "Where can I find the elevators?", next = "lift" },
@@ -873,7 +980,22 @@ P:NPC {
         { text = "I'm a stranger. Where should I go?", next = "x_str", when = { faction = "Horde" } },
         { text = "What do you fear most, watching?", next = "yfear" },
         { text = "Who taught you to watch?", next = "yteacher" },
+        { text = "What's the hardest part of standing watch on the bluff?", next = "w5_hard" },
         { text = "Walk with the Earthmother.", next = "END" },
+      },
+    },
+    w5_hard = {
+      lines = { { id = "w5_hard_l", text = "The wind, in winter. It comes off the plains with ice in it, and the edge of the mesa catches all of it. A Bluffwatcher stands still for hours with his halberd planted, and the cold climbs up the shaft into his hands. You learn to think about warm things." } },
+      choices = {
+        { text = "What do you think about?", next = "w5_hard2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_hard2 = {
+      lines = { { id = "w5_hard2_l", text = "Fyr Mistrunner's bread, mostly, which she brings to the bridges at dusk. The fire on the Elder Rise. My mother's tent, before there was a city. By the time I have thought of all three, the next watch is coming up the bridge, and I can go and stand by a real fire." } },
+      choices = {
+        { text = "Bread, fire and home. That's a good list.", next = "BACK", reply = "It is the only list a Bluffwatcher needs. Walk carefully near the edge, traveller." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     grim = {
@@ -986,7 +1108,7 @@ P:NPC {
         { id = "h_default", text = "We are sworn to Cairne Bloodhoof and to his house. Where he sits, we stand, and where he walks, we walk a step behind." },
         { id = "yh_troll", when = { race = "Troll" }, text = "A troll of the Darkspear. You stand before the guard of the High Chieftain. Speak with respect, and keep your voice low." },
       },
-      again = { { id = "h_again_x", text = "Ask, traveller. Speak respectfully." }, { id = "h_again", text = "What more do you ask?" } },
+      again = { { id = "h_again_x", text = "Ask, traveller. Speak respectfully." }, { id = "h_again", text = "What more do you ask? The High Chieftain's door will not move while we talk." } },
       choices = {
         { text = "What does it mean to be an Honor Guard?", next = "honor" },
         { text = "Where is the High Chieftain?", next = "cairne" },
@@ -996,7 +1118,23 @@ P:NPC {
         { text = "I'm an orc. Cairne honours Thrall.", next = "x_orc", when = { race = "Orc" } },
         { text = "Do you have family?", next = "yfamily" },
         { text = "What is Cairne like, away from the council?", next = "ycairne" },
+        { text = "Has anyone ever tried to reach the High Chieftain by force?", next = "w5_force" },
         { text = "I'll go in peace.", next = "END" },
+      },
+    },
+    w5_force = {
+      lines = { { id = "w5_force_l", text = "Once, before your time here. A Grimtotem brave came up the lift with a knife in his sleeve. He did not reach the lodge door. We did not kill him. Cairne asked that he be brought inside, and spoke with him for an hour, alone." } },
+      choices = {
+        { text = "What did Cairne say to him?", next = "w5_force2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_force2 = {
+      lines = { { id = "w5_force2_l", text = "We were not told. The brave walked out of the lodge, down the lift, and onto the plains, and he has not come back. Some say Cairne shamed him. Some say he showed him mercy. I think it was both, and I think that is why we would die for the High Chieftain." } },
+      choices = {
+        { text = "Mercy to an enemy is a chieftain's greatest strength.", next = "BACK", reply = "It is the strength that makes his guard proud to stand here.", fx = { align = { light = 1 } } },
+        { text = "He should have been punished. Mercy invites the next knife.", next = "BACK", reply = "Perhaps. That is why we stand here. Cairne may be merciful because we are not.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     honor = {

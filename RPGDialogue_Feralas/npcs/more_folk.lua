@@ -194,7 +194,36 @@ P:NPC {
         { text = "Your nets have been mended many times.", next = "nets" },
         { text = "Who buys from you besides the Sentinels?", next = "buyers" },
         { text = "What's the finest fish these waters give?", next = "finest", when = { profession = { "Fishing", "Cooking" } } },
+        { text = "Have you ever sailed to the mainland yourself?", next = "w7_sail" },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    w7_sail = {
+      lines = {
+        { id = "w7_sail_l1", text = "Only as far as the Forgotten Coast, and only when the fish run thin by the isle. I take the little skiff along the shore at dawn and come back before the sea giants wake, and I have never yet seen one stir before noon." },
+      },
+      choices = {
+        { text = "Sea giants? Near the coast?", next = "w7_sail2" },
+        { text = "You'd see more fish further out.", next = "w7_sail3" },
+        { text = "Something else, Harklane.", next = "BACK" },
+      },
+    },
+    w7_sail2 = {
+      lines = {
+        { id = "w7_sail2_l1", text = "Wading in the shallows south of the dock, vast and slow, with weed in their hair like old nets. They have never troubled us, but a skiff that bumps one by accident would be a skiff no more." },
+        { id = "w7_sail2_l2", when = { race = "NightElf" }, text = "You will have heard the Sentinels' tales of them. They are older than the stronghold, perhaps older than our own memory of this coast; I keep my oars quiet and my eyes on the water, and they pay me no mind." },
+      },
+      choices = {
+        { text = "I'll steer well clear.", next = "BACK", reply = "Wise. They are the one thing in these waters I will not argue with." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_sail3 = {
+      lines = {
+        { id = "w7_sail3_l1", text = "And meet more naga, and a few things larger than naga. Elune made the shallows for fishers like me, and the deep for things that do not need me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     naga = {
@@ -314,7 +343,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Is there more? Speak softly; the nightsaber is sleeping." },
-        { id = "h_again2", text = "Ask, if you wish. I have time." },
+        { id = "h_again2", text = "Ask, if you wish, softly. The pens are quiet now, and I would keep them so a little longer." },
         { id = "h_again_b1", text = "The beasts are fed and the pens are quiet, so I can spare you a little longer." },
         { id = "h_again_b2", text = "Go on, then, but keep your voice as low as mine." },
       },
@@ -330,7 +359,36 @@ P:NPC {
         { text = "Do the beasts know a druid when they see one?", next = "druidq", when = { class = "DRUID" } },
         { text = "What should a hunter never tame in Feralas?", next = "hnt_never", when = { class = "HUNTER" } },
         { text = "That old saber. Was she at Hyjal?", next = "kal_saber", when = { race = "NightElf" } },
+        { text = "What do you feed the beasts on an island?", next = "w7_feed" },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    w7_feed = {
+      lines = {
+        { id = "w7_feed_l1", text = "Fish, chiefly, which the cats accept with an air of great sacrifice, and whatever game the Sentinels bring back from the mainland. Harklane sets aside the heads and tails for me, and I trade him the hippogryph feathers that moult in spring for his lures." },
+      },
+      choices = {
+        { text = "The cats dislike fish?", next = "w7_feed2" },
+        { text = "An island's no place to keep beasts.", next = "w7_feed3" },
+        { text = "Something else, Antarius.", next = "BACK" },
+      },
+    },
+    w7_feed2 = {
+      lines = {
+        { id = "w7_feed2_l1", text = "They eat it, but they want me to know they deserve better. The old saber turns her back on her bowl every evening until I have apologised to her, and then she eats every scrap and washes her face at me." },
+        { id = "w7_feed2_l2", when = { class = "HUNTER" }, text = "They eat it, and sulk, as yours will if you leave them here long. Bring something fresh from the mainland when you collect your companion, a hare or a bird, and it will forgive you the crossing." },
+      },
+      choices = {
+        { text = "She has you well trained.", next = "BACK", reply = "She does. I would not have it otherwise." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_feed3 = {
+      lines = {
+        { id = "w7_feed3_l1", text = "Perhaps not for good, but for a while it is safer than anywhere on the mainland. No Gordunni come across the water, and the naga have no interest in cats." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     crossing = {
@@ -468,7 +526,36 @@ P:NPC {
         { text = "You keep a bow beside your reagent crates.", next = "bow" },
         { text = "What lies on the coast across the water?", next = "coast" },
         { text = "You'd notice if someone came ashore unseen.", next = "unseen", when = { class = "ROGUE" } },
+        { text = "Who brings your reagents across the water?", next = "w7_supply" },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    w7_supply = {
+      lines = {
+        { id = "w7_supply_l1", text = "The boat from Auberdine brings most, when the season allows, and the rest I gather myself along the shore at low tide. There are salts and powders in the rocks here that the mages in Darnassus pay well for, and I send them back in the same boats." },
+      },
+      choices = {
+        { text = "What grows on the shore?", next = "w7_supply2" },
+        { text = "You must know every ship by sight.", next = "w7_supply3" },
+        { text = "Something else, Jadenvis.", next = "BACK" },
+      },
+    },
+    w7_supply2 = {
+      lines = {
+        { id = "w7_supply2_l1", text = "Sea salt crusted on the black rocks, which a priestess can bless for her rites, and a pale moss that shines faintly when crushed. I have never learned its name, but the mages call it 'dock-light' after me, which I take as a sort of honour." },
+        { id = "w7_supply2_l2", when = { class = { "MAGE", "PRIEST", "SHAMAN", "WARLOCK" } }, text = "Salts for your rites and a pale shining moss that the mages in Darnassus prize. You might try it yourself, crushed into a candle; it burns cleaner than wax and the light does not flicker in the sea wind." },
+      },
+      choices = {
+        { text = "Dock-light suits it.", next = "BACK", reply = "It does, though I would never say so to the mages." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_supply3 = {
+      lines = {
+        { id = "w7_supply3_l1", text = "Every ship, every sail and every captain's temper. The one from Auberdine runs late and arrives apologising; the one from the Forgotten Coast is always early and never says why." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     watch = {
@@ -598,7 +685,36 @@ P:NPC {
         { text = "You bake for a great many mouths alone.", next = "alone" },
         { text = "Who in camp is hardest to feed?", next = "hardest" },
         { text = "Would you share the secret of your bread?", next = "secret", when = { profession = "Cooking" } },
+        { text = "What do you bake on feast days?", next = "w7_feast" },
         { text = "Walk with the Earth Mother.", next = "END" },
+      },
+    },
+    w7_feast = {
+      lines = {
+        { id = "w7_feast_l1", text = "Sweet bread with honey from the wild hives west of camp, little one, and a corn cake my mother made in Mulgore that the braves eat until they cannot stand. The honey is the hard part, because the bees in Feralas are as large as my thumb." },
+      },
+      choices = {
+        { text = "Who gathers the honey?", next = "w7_feast2" },
+        { text = "That's a lot of trouble for one cake.", next = "w7_feast3" },
+        { text = "Something else, Loorana.", next = "BACK" },
+      },
+    },
+    w7_feast2 = {
+      lines = {
+        { id = "w7_feast2_l1", text = "Hadoken Swiftstrider, when I ask him nicely, and he comes back stung from his horns to his hooves and pretends it does not hurt. I give him the first cake as payment, and he says it was worth every sting." },
+        { id = "w7_feast2_l2", when = { race = "Tauren" }, text = "Hadoken Swiftstrider, who should know better at his age. You will remember the corn cakes from home, I think; come back when the camp holds its next feast, and I will save you one with the honey still warm." },
+      },
+      choices = {
+        { text = "I'll come back for that.", next = "BACK", reply = "Then come hungry, little one. Nobody leaves my feast with an empty belly." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_feast3 = {
+      lines = {
+        { id = "w7_feast3_l1", text = "It is, and it is worth it. A camp this far from home needs one day when it tastes Mulgore again, or it starts to forget why it came." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     flour = {
@@ -721,7 +837,7 @@ P:NPC {
           text = "You are not of the Horde, but you are standing very still, which is wise in this camp. Speak, and then go on your way." },
       },
       again = {
-        { id = "h_again", text = "There is more? Speak; my seeds are patient." },
+        { id = "h_again", text = "There is more? Speak, friend. My seeds are patient, and the rain will not come for another hour." },
         { id = "h_again2", text = "Ask. The forest has given me time to answer." },
         { id = "h_again_b1", text = "The seeds can wait a little longer. What would you ask?" },
       },
@@ -735,7 +851,36 @@ P:NPC {
         { text = "You dry your herbs under the open sky.", next = "drying" },
         { text = "Who in camp uses what you gather?", next = "users" },
         { text = "Do the spirits of this forest speak to you?", next = "spirits", when = { class = { "SHAMAN", "DRUID" }, faction = "Horde" } },
+        { text = "What's the rarest thing you've found in this forest?", next = "w7_rare" },
         { text = "May the sun shine on you, Tarhus.", next = "END" },
+      },
+    },
+    w7_rare = {
+      lines = {
+        { id = "w7_rare_l1", text = "A flower that grows only on the stones of the old elven ruins, white as moonlight, which closes when anyone speaks near it. I found it once near Isildien and have looked for it every season since, and I have never seen another." },
+      },
+      choices = {
+        { text = "Did you bring it back?", next = "w7_rare2" },
+        { text = "It's probably just a common bloom.", next = "w7_rare3" },
+        { text = "Something else, Tarhus.", next = "BACK" },
+      },
+    },
+    w7_rare2 = {
+      lines = {
+        { id = "w7_rare2_l1", text = "No. I sat beside it for an evening without speaking, and when I stood to go, it opened for me. I left it where it grew, because some things are given to be seen and not to be carried." },
+        { id = "w7_rare2_l2", when = { class = "DRUID" }, text = "No, and you will understand why. I sat beside it in silence, and it opened, and the spirit in it was older than any I have felt in a plant. Some things the forest shows you once, as a gift, and you leave them." },
+      },
+      choices = {
+        { text = "That was wise.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_rare3 = {
+      lines = {
+        { id = "w7_rare3_l1", text = "Perhaps. But I have walked these woods for years, and I have not seen one like it, and I will go on looking." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     forest = {
@@ -854,7 +999,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The wolves are hungry." },
-        { id = "h_again2", text = "Ask. I have time until feeding." },
+        { id = "h_again2", text = "Ask, then. The wolves eat at dusk, and they will tell me if you talk past it." },
         { id = "h_again_b1", text = "More talk? Fine, but the wolves eat when I say, and I say soon." },
       },
       choices = {
@@ -868,7 +1013,36 @@ P:NPC {
         { text = "Who brings beasts to you here?", next = "bring" },
         { text = "What beast would you tame in Feralas?", next = "tame_here", when = { class = "HUNTER", faction = "Horde" } },
         { text = "The elves on Feathermoon tame beasts too. Are they better at it?", next = "hnt_elves", when = { class = "HUNTER", faction = "Horde" } },
+        { text = "Which beast in your pens is the hardest to handle?", next = "w7_hard" },
         { text = "Farewell.", next = "END" },
+      },
+    },
+    w7_hard = {
+      lines = {
+        { id = "w7_hard_l1", text = "A raptor a troll left with me last moon, a red one with a split crest. It bites everything, the bars, the bowl, my boots, and it has decided it hates kodo more than anything alive, which in a tauren camp is a problem." },
+      },
+      choices = {
+        { text = "Why did the troll leave it?", next = "w7_hard2" },
+        { text = "Raptors are just bad-tempered.", next = "w7_hard3" },
+        { text = "Something else, Shyrka.", next = "BACK" },
+      },
+    },
+    w7_hard2 = {
+      lines = {
+        { id = "w7_hard2_l1", text = "He went north to the ogre ruins with his raptor saying no, and he was right to listen. It came back alone that night, bloody and limping, and it has not stopped watching the north road since." },
+        { id = "w7_hard2_l2", when = { race = "Troll" }, text = "He was one of yours, and he went north into the Gordunni ruins without it. It came back alone. If you know a troll named Zul'mak, tell his family his raptor waits here, and that I feed it well." },
+      },
+      choices = {
+        { text = "That's a sad beast.", next = "BACK", reply = "It is a loyal one. Loyal beasts are always the sad ones." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_hard3 = {
+      lines = {
+        { id = "w7_hard3_l1", text = "Some are. This one is grieving, which looks the same from the outside and is nothing like it within." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -1198,7 +1372,36 @@ P:NPC {
         { text = "Is a relic like that safe to study?", next = "safe", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
         { text = "Does the General approve of your digging?", next = "general", when = { race = "NightElf" } },
         { text = "What do you need done?", next = "BUSINESS" },
+        { text = "Your wife Angelas disagrees with you, you said.", next = "w7_angelas" },
         { text = "Elune light your studies, Troyas.", next = "END" },
+      },
+    },
+    w7_angelas = {
+      lines = {
+        { id = "w7_angelas_l1", text = "Often, and always usefully. Angelas is a Sentinel, and she sees every relic I find as a weapon someone else might use, where I see a page in a book nobody else can read. We are both right, which makes for very long suppers." },
+      },
+      choices = {
+        { text = "Who usually wins?", next = "w7_angelas2" },
+        { text = "She sounds more sensible than you.", next = "w7_angelas3" },
+        { text = "Something else, Troyas.", next = "BACK" },
+      },
+    },
+    w7_angelas2 = {
+      lines = {
+        { id = "w7_angelas2_l1", text = "Jewel, usually, who sits on the very map we are arguing over until we give up and go to bed. Angelas says the cat is the only true scholar in the house, since she has never once disturbed a relic." },
+        { id = "w7_angelas2_l2", when = { class = "WARRIOR" }, text = "You're a soldier, so you will take her side, I suspect. Most do. She says a scholar's curiosity has killed more Sentinels than the naga, and I cannot honestly say she is wrong." },
+      },
+      choices = {
+        { text = "Jewel is wise.", next = "BACK", reply = "Wiser than either of us, and she knows it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_angelas3 = {
+      lines = {
+        { id = "w7_angelas3_l1", text = "More sensible, certainly. Less curious, also certainly. A marriage of the two keeps at least one of us alive." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     stone = {
@@ -1540,7 +1743,7 @@ P:NPC {
         { id = "hello_4", when = { questDone = TODO_QUEST("Wandering Shay") }, text = "Shay sits by Rockbiter's foot now and counts flowers. Rockbiter does not move that foot, in case she forgets that it is there." },
       },
       again = {
-        { id = "hello_again1", text = "What more does the small one ask?" },
+        { id = "hello_again1", text = "What more does the small one ask? Rockbiter has time. Rockbiter has had time since the hills were young." },
         { id = "hello_again2", text = "Rockbiter is listening. Rockbiter is always listening, because it is easier than talking." },
       },
       choices = {
@@ -1549,7 +1752,36 @@ P:NPC {
         { text = "You must have seen a great deal from up there.", next = "seen" },
         { text = "The stone of you is very old.", next = "old", when = { class = { "DRUID", "SHAMAN" } } },
         { text = "How can I help you?", next = "BUSINESS" },
+        { text = "Do you ever sleep, Rockbiter?", next = "w7_sleep" },
         { text = "Farewell, Rockbiter.", next = "END" },
+      },
+    },
+    w7_sleep = {
+      lines = {
+        { id = "w7_sleep_l1", text = "Rockbiter rests, but Rockbiter does not sleep like small ones. When Rockbiter rests, the moss grows on Rockbiter's shoulders, and the birds come and build, and Rockbiter does not move until they go." },
+      },
+      choices = {
+        { text = "How long do you rest?", next = "w7_sleep2" },
+        { text = "You can't rest while you guard Shay.", next = "w7_sleep3" },
+        { text = "Something else, Rockbiter.", next = "BACK" },
+      },
+    },
+    w7_sleep2 = {
+      lines = {
+        { id = "w7_sleep2_l1", text = "A season, sometimes, or two. Once Rockbiter rested so long that a tree grew in the crack of Rockbiter's foot, and the elves came and asked if Rockbiter was dead. Rockbiter was not dead. Rockbiter was only thinking." },
+        { id = "w7_sleep2_l2", when = { class = { "DRUID", "SHAMAN" } }, text = "A season, or a year. You hear the stone, so you know: stone thinks slowly, and Rockbiter thinks slow thoughts. Once a tree grew on Rockbiter while Rockbiter was thinking about the rain." },
+      },
+      choices = {
+        { text = "What were you thinking about?", next = "BACK", reply = "The rain. It was a very long thought, and a good one." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_sleep3 = {
+      lines = {
+        { id = "w7_sleep3_l1", text = "That is true. So now Rockbiter rests with one eye open, which is hard for a giant, but Shay is worth it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     shay = {
@@ -1680,7 +1912,36 @@ P:NPC {
         { text = "An elixir could win a battle before it starts.", next = "power" },
         { text = "What is the hardest thing you brew?", next = "hardest", when = { profession = "Alchemy" } },
         { text = "Your students seem to come from everywhere.", next = "students" },
+        { text = "What happened to your last careless student?", next = "w7_careless" },
         { text = "Elune guide your hand, Kylanna.", next = "END" },
+      },
+    },
+    w7_careless = {
+      lines = {
+        { id = "w7_careless_l1", text = "He was a gnome from Ironforge who measured everything to the grain and stirred nothing. A flask of his went cloudy, then green, then very loud, and the lower shelf you see now is the one we built after." },
+      },
+      choices = {
+        { text = "Was he hurt?", next = "w7_careless2" },
+        { text = "I'll take that warning seriously.", next = "w7_careless3" },
+        { text = "Something else, Kylanna.", next = "BACK" },
+      },
+    },
+    w7_careless2 = {
+      lines = {
+        { id = "w7_careless2_l1", text = "Only his eyebrows and his pride, and both grew back in time. He went home a far better alchemist than he arrived, which is more than I can say for the shelf." },
+        { id = "w7_careless2_l2", when = { race = "Gnome" }, text = "Only his eyebrows, and you may know him, for he talks of it still in Tinker Town. He wrote me afterward, very formally, with a corrected measurement. I keep the letter beside the new shelf." },
+      },
+      choices = {
+        { text = "He learned, then.", next = "BACK", reply = "They all do, eventually. Some sooner than others." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_careless3 = {
+      lines = {
+        { id = "w7_careless3_l1", text = "Good. A warning heeded is a lesson I do not have to teach with fire." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     here = {
@@ -1821,7 +2082,36 @@ P:NPC {
         { text = "Fishing looks like idleness with a stick.", next = "idle" },
         { text = "Is there anything rare in these waters?", next = "rare", when = { profession = { "Fishing", "Cooking" } } },
         { text = "The Sentinels come to you to rest, you said.", next = "rest" },
+        { text = "Where's the best spot on this dock?", next = "w7_spot" },
         { text = "May your line stay tight, Brannock.", next = "END" },
+      },
+    },
+    w7_spot = {
+      lines = {
+        { id = "w7_spot_l1", text = "The third plank from the end, on the left, where the old piling leans. The fish shelter under it from the current, and the plank is worn smooth from all the Sentinels who have sat there before you." },
+      },
+      choices = {
+        { text = "Can I sit there?", next = "w7_spot2" },
+        { text = "One plank's as good as another.", next = "w7_spot3" },
+        { text = "Something else, Brannock.", next = "BACK" },
+      },
+    },
+    w7_spot2 = {
+      lines = {
+        { id = "w7_spot2_l1", text = "You may, if you keep still and say nothing for the length of one tide. Most cannot manage it; the last who tried was Latronicus Moonspear, and he lasted until the first gull landed beside him." },
+        { id = "w7_spot2_l2", when = { profession = "Fishing" }, text = "You may, and you will catch something, since you know how to wait. Cast under the piling, not beside it, and let the line drift. Then tell me what you caught, and I will tell you how big it really was." },
+      },
+      choices = {
+        { text = "I'll keep still.", next = "BACK", reply = "Then the plank is yours, friend, until the tide turns." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_spot3 = {
+      lines = {
+        { id = "w7_spot3_l1", text = "To someone who has never fished, yes. To the fish, never." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     bites = {
@@ -1962,7 +2252,36 @@ P:NPC {
         { text = "Soldiers should eat plainly. Comfort makes them soft.", next = "plain" },
         { text = "How do you keep bread from going damp here?", next = "damp", when = { profession = "Cooking" } },
         { text = "Do you ever cook for the General's guests?", next = "guests" },
+        { text = "What was the worst meal you ever served?", next = "w7_worst" },
         { text = "Thank you, Mardrack.", next = "END" },
+      },
+    },
+    w7_worst = {
+      lines = {
+        { id = "w7_worst_l1", text = "A stew I made for a dwarven envoy, with eel I was assured was fresh and was not. He ate every bite out of courtesy, and spent the night in the latrine, and the next morning signed the trade agreement without reading it." },
+      },
+      choices = {
+        { text = "Did anyone find out?", next = "w7_worst2" },
+        { text = "That's one way to win a treaty.", next = "w7_worst3" },
+        { text = "Something else, Mardrack.", next = "BACK" },
+      },
+    },
+    w7_worst2 = {
+      lines = {
+        { id = "w7_worst2_l1", text = "Shandris did, of course, because Shandris knows everything that happens on this isle. She came down to my kitchen herself and told me I had served the Alliance well and must never do it again." },
+        { id = "w7_worst2_l2", when = { race = "Dwarf" }, text = "The General did, and you'll be glad to know the agreement was a fair one, so your envoy lost nothing but a night's sleep. If you know him, tell him the eel was not my choice, and I am still sorry." },
+      },
+      choices = {
+        { text = "She has a sense of humour, then.", next = "BACK", reply = "A very quiet one. You have to listen for it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_worst3 = {
+      lines = {
+        { id = "w7_worst3_l1", text = "I would rather not make a habit of it. The Alliance has enough enemies without its cooks making more." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     flour = {
@@ -2275,7 +2594,36 @@ P:NPC {
         { text = "What would you hunt here, in my place?", next = "hunt", when = { class = "HUNTER" } },
         { text = "Do the braves practise at a mark?", next = "mark" },
         { text = "Would you sell me the bow you'd carry yourself?", next = "hnt_own", when = { class = "HUNTER", faction = "Horde", minLevel = 45 } },
+        { text = "Do you ever hunt yourself?", next = "w7_self" },
         { text = "May your aim be true, Cawind.", next = "END" },
+      },
+    },
+    w7_self = {
+      lines = {
+        { id = "w7_self_l1", text = "Once a season, to remember why I make bows. I go out alone to the edge of the Verdantis and wait for a stag, and if one comes, I take it; and if none comes, I come home and make a better bow." },
+      },
+      choices = {
+        { text = "What if one comes and you miss?", next = "w7_self2" },
+        { text = "A bowyer should hunt every day.", next = "w7_self3" },
+        { text = "Something else, Cawind.", next = "BACK" },
+      },
+    },
+    w7_self2 = {
+      lines = {
+        { id = "w7_self2_l1", text = "Then the bow was wrong, or my arms were, and I learn which. I missed a great white stag once, three years ago, and I have made every bow since with that stag in my mind." },
+        { id = "w7_self2_l2", when = { class = "HUNTER" }, text = "Then I learn, as you do. You have missed, I think, and remember it. I missed a white stag once at the Verdantis; I have built every bow since with that miss in my hands, and they draw truer for it." },
+      },
+      choices = {
+        { text = "That's a good teacher.", next = "BACK", reply = "The best I have had, and the most patient." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_self3 = {
+      lines = {
+        { id = "w7_self3_l1", text = "Then who would make the bows? A hunter's work is the hunt, and mine is the bow, and the Earth Mother gave us each one trade so that neither does both badly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     rifles = {
@@ -2420,7 +2768,36 @@ P:NPC {
         { text = "A strong potion matters more than a careful one.", next = "strong" },
         { text = "Which herb here is worth the most trouble?", next = "worth", when = { profession = { "Alchemy", "Herbalism" } } },
         { text = "Who buys the most from you?", next = "buyers" },
+        { text = "What do you do with a potion that goes wrong?", next = "w7_wrong" },
         { text = "May your vials never crack, Bronk.", next = "END" },
+      },
+    },
+    w7_wrong = {
+      lines = {
+        { id = "w7_wrong_l1", text = "I bury it, far from camp, under a stone I mark with a cross. There is a whole field of crosses west of the palisade now, and the braves call it Bronk's Graveyard, which I do not find as funny as they do." },
+      },
+      choices = {
+        { text = "Does anything grow there?", next = "w7_wrong2" },
+        { text = "You should sell them to the orcs.", next = "w7_wrong3" },
+        { text = "Something else, Bronk.", next = "BACK" },
+      },
+    },
+    w7_wrong2 = {
+      lines = {
+        { id = "w7_wrong2_l1", text = "Something does, and that is what worries me. The grass there grows blue, and the mushrooms glow at night, and last week Tarhus found a fern that turned to follow him as he walked past." },
+        { id = "w7_wrong2_l2", when = { profession = "Herbalism" }, text = "Something does, and you would find it interesting: blue grass, glowing mushrooms, and a fern that follows your steps. I have been taking notes, but I am afraid to pick any of it." },
+      },
+      choices = {
+        { text = "Maybe leave it alone.", next = "BACK", reply = "That is my plan, friend, and I am sticking to it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_wrong3 = {
+      lines = {
+        { id = "w7_wrong3_l1", text = "Krueg has asked. I told him that a potion I would not drink myself is not one I will sell, and he said that was very tauren of me, and I agreed." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     gather = {
@@ -2562,7 +2939,36 @@ P:NPC {
         { text = "A post this small can't be worth holding.", next = "worth" },
         { text = "How long have you kept this roost?", next = "long", when = { race = "NightElf" } },
         { text = "Where do your birds fly from here?", next = "routes" },
+        { text = "What do your birds do in a storm?", next = "w7_storm" },
         { text = "Fair winds, Thyssiana.", next = "END" },
+      },
+    },
+    w7_storm = {
+      lines = {
+        { id = "w7_storm_l1", text = "They tuck their heads under their wings and refuse to listen to me until it passes. A hippogryph will fly through rain without complaint, but thunder makes them sit very still and very cross." },
+      },
+      choices = {
+        { text = "Do you fly in storms yourself?", next = "w7_storm2" },
+        { text = "They should be trained to fly through it.", next = "w7_storm3" },
+        { text = "Something else, Thyssiana.", next = "BACK" },
+      },
+    },
+    w7_storm2 = {
+      lines = {
+        { id = "w7_storm2_l1", text = "Once, when a courier came in wounded with word from Feathermoon that could not wait. I took the oldest bird and we went low over the trees, and the lightning lit up every ruin in Feralas below us." },
+        { id = "w7_storm2_l2", when = { race = "NightElf" }, text = "Once, with urgent word for the General. You will know the old saying, that Elune lights the way for those who must go; that night I believed it, for every flash of lightning showed me the next clearing." },
+      },
+      choices = {
+        { text = "That was brave.", next = "BACK", reply = "It was necessary. Brave is what we call it afterward." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_storm3 = {
+      lines = {
+        { id = "w7_storm3_l1", text = "Some things should not be trained out of a creature. A bird that fears thunder lives long enough to carry many messages." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     east = {

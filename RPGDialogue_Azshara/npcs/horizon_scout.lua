@@ -66,6 +66,7 @@ P:NPC {
         { text = "Why not swim down and get them?", next = "swim" },
         { text = "What were you doing in Azshara?", next = "why" },
         { text = "How long can a ward like that hold?", next = "ward", when = { class = "MAGE" } },
+        { text = "How did you come to sail?", next = "w_sail" },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -126,6 +127,25 @@ P:NPC {
         { text = "Not much longer, I fear.", next = "BACK", fx = { trait = { stern = 1 } } },
       },
     },
+    w_sail = {
+      lines = {
+        { id = "w_sail_default", text = "My father fished out of Menethil, and I swore I'd never touch a boat, and then I was sixteen and the Horizon Scout needed a deck hand. Twelve years later I was second mate, and the captain called me the stubbornest sailor on the Great Sea." },
+      },
+      choices = {
+        { text = "Was he right?", next = "w_sail2" },
+        { text = "Twelve years at sea.", next = "w_sail2" },
+      },
+    },
+    w_sail2 = {
+      lines = {
+        { id = "w_sail2_default", text = "He was, and it's why I'm still on this beach. I'll not leave a single one of my crew in that hull, not while there's breath in Roland and a chance in you. My father would have done the same, and he'd have told me so before I asked." },
+        { id = "w_sail2_w1", when = { race = "Human" }, text = "You're from the Eastern Kingdoms too. If you ever see a fishing boat out of Menethil with a blue stripe on the bow, that's my father's. Tell him I'm still stubborn." },
+      },
+      choices = {
+        { text = "Stubborn is good, here.", next = "BACK", fx = { trait = { brave = 1 } } },
+        { text = "Something else, Shandril.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -181,6 +201,7 @@ P:NPC {
         { text = "What was aboard that the naga wanted?", next = "cargo" },
         { text = "Who's down here with you?", next = "crew" },
         { text = "Can't Gnomeregan's engineers do something?", next = "gnomer", when = { race = "Gnome" } },
+        { text = "What will you do first when you're out?", next = "w_out" },
         { text = "Hold on, Roland. I'll go.", next = "END" },
       },
     },
@@ -230,6 +251,25 @@ P:NPC {
     gnomer = {
       lines = { { id = "gn_default", text = "Gnomeregan's engineers are all in Ironforge, or still in Gnomeregan, which is worse, and none of them know I'm here. If you're ever in Tinker Town, do tell someone. I'd like to be rescued by a gnome, if I'm to be rescued at all." } },
       choices = { { text = "I'll tell them.", next = "BACK", fx = { affinity = 1, trait = { kind = 1 } } } },
+    },
+    w_out = {
+      lines = {
+        { id = "w_out_default", text = "Breathe, obviously, real air, great big lungfuls of it, and then sneeze as much as I like, and then write a paper. Underwater Ward Maintenance Under Duress, by R. Geardabbler, with diagrams. I've been composing it in my head all week." },
+      },
+      choices = {
+        { text = "A paper? Now?", next = "w_out2" },
+        { text = "You've been composing it all week?", next = "w_out2" },
+      },
+    },
+    w_out2 = {
+      lines = {
+        { id = "w_out2_default", text = "What else is there to do, down here? Holding a ward is mostly boredom with moments of sheer terror, and the boredom wants filling. I've got three chapters and a very rude footnote about the naga. Tinker Town will love it, if I live to deliver it." },
+        { id = "w_out2_w1", when = { race = "Gnome" }, text = "You're a gnome! You'll read it, then? Promise you'll read it. Nobody else in Tinker Town ever reads past the first diagram." },
+      },
+      choices = {
+        { text = "I'll read it.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Hold on, Roland.", next = "BACK" },
+      },
     },
   },
 

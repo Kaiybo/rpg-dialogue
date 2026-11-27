@@ -31,6 +31,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_sp = {
+      lines = { { id = "w8_sp_a", text = "Plenty, mon, plenty! The river spirit be grumpy, the tree spirits be gossips, and there be one old panther spirit up the hill who never say nothing, just watch Unbagwa with one yellow eye." } },
+      choices = {
+        { text = "What does the panther spirit want?", next = "w8_sp2" },
+        { text = "Gossiping trees? You're having me on.", next = "w8_sp2" },
+        { text = "The loa speak through many beasts, cousin.", next = "w8_sp2", when = { race = "Troll" } },
+        { text = "Something else, Unbagwa.", next = "BACK" },
+      },
+    },
+    w8_sp2 = {
+      lines = {
+        { id = "w8_sp2_a", text = "Unbagwa think it want the Gurubashi to stop making its cousins into monsters in that big city, mon. The priests of Zul'Gurub twist the panther loa, and the old spirit up the hill be very, very angry about it, and Unbagwa don't blame it." },
+        { id = "w8_sp2_tr", when = { race = "Troll" }, text = "They do, cousin, they do, and you know it in your bones like Unbagwa. That old panther spirit be angry at the Gurubashi priests for twisting its loa in Zul'Gurub, so if you go there, maybe you bring it some peace." },
+      },
+      choices = {
+        { text = "Maybe I'll go and see Zul'Gurub one day.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -53,6 +73,7 @@ P:NPC {
         { text = "Do the apes ever hurt you?", next = "danger" },
         { text = "The spirits must tell you many things, Unbagwa.", next = "xshaman", when = { class = { "SHAMAN", "PRIEST" }, race = { "Troll", "Orc", "Tauren" } } },
         { text = "Let my beast stand guard.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Do any other spirits live in Mistvale besides gorillas?", next = "w8_sp" },
         { text = "I'll be back, witch doctor.", next = "END" },
       },
     },

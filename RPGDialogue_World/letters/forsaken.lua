@@ -169,7 +169,7 @@ P:Letter {
   id = "origin_forsaken_hillsbrad_militia_2", from = "Corporal Tobias Fenn", stranger = true, delay = 2400,
   when = { origin = "forsaken_hillsbrad_militia", minLevel = 30 },
   subject = "A letter from Southshore",
-  body = "{name},\n\nA strange thing happened. A letter came over the hills from Southshore, smuggled by a goblin who charged us double for the privilege, and it was from your cousin Bess. She heard from someone in the inn that you'd been seen alive, more or less, and wanted to know if it was true.\n\nI didn't know what to tell her. I wrote back that you were well and serving the Dark Lady, and that you were fiercer than the militia ever made us. I left out the part about the skin.\n\nShe hasn't answered. Perhaps she won't. But I thought you deserved to know someone over there still says your name without spitting.\n\nTobias",
+  body = "{name},\n\nA strange thing happened. A letter came over the hills from Southshore, smuggled by a goblin who charged us double for the privilege, and it was from your cousin Bess. She heard from someone in the inn that you'd been seen alive, more or less, and wanted to know if it was true.\n\nI didn't know what to tell her. I wrote back that you were well and serving the Dark Lady, and that you were fiercer than the militia ever made us. I left out the part about the skin.\n\nShe hasn't answered, and perhaps she won't. But I thought you deserved to know someone over there still says your name without spitting.\n\nTobias",
 }
 
 ---------------------------------------------------------------------------

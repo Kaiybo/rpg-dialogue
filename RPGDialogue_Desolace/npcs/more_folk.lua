@@ -187,7 +187,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Make it quick, darling, I have notes to burn... to write, I mean." },
-        { id = "h_again2", text = "Go on, ask. I'll decide whether to answer." },
+        { id = "h_again2", text = "Go on, ask, darling. I'll decide whether you deserve an answer once I hear the question." },
       },
       choices = {
         { text = "What are you looking for in Maraudon?", next = "carvings" },
@@ -196,7 +196,37 @@ P:NPC {
         { text = "You've strange neighbours out here.", next = "neighbours" },
         { text = "The Dark Lady's interest reaches a long way.", next = "lady", when = { race = "Scourge" } },
         { text = "The elements don't care for what you study.", next = "elements", when = { class = "SHAMAN" } },
+        { text = "What do you write in all those notebooks?", next = "w7_notes" },
         { text = "I'll leave you to your research.", next = "END" },
+      },
+    },
+    w7_notes = {
+      lines = {
+        { id = "w7_notes_l1", text = "Observations, darling, purely scientific ones: the colour of the crystal veins, the depth of the poisoned water, the way the stone sings at certain hours. Nothing that would interest a sword-swinger like you." },
+        { id = "w7_notes_l2", when = { class = { "MAGE", "WARLOCK", "PRIEST" } }, text = "Observations, darling, and you of all people should know better than to peer over a scholar's shoulder. Although I suppose someone with your training might find the patterns... stimulating." },
+      },
+      choices = {
+        { text = "The stone sings?", next = "w7_notes2" },
+        { text = "You're keeping something from me.", next = "w7_notes3" },
+        { text = "Something else, Willow.", next = "BACK" },
+      },
+    },
+    w7_notes2 = {
+      lines = {
+        { id = "w7_notes2_l1", text = "Deep in Maraudon, when the earth shifts, there's a hum that goes right through your teeth, and it comes from no rock that I can find. I write down when it starts and when it stops, and one day I'll understand who is singing. For science, of course." },
+      },
+      choices = {
+        { text = "Of course. For science.", next = "BACK", reply = "I do love a quick study. Off you go now, darling." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_notes3 = {
+      lines = {
+        { id = "w7_notes3_l1", text = "Everyone keeps something, darling, and the ones who claim otherwise keep the most. Bibbly keeps a bag of gold under his bedroll, the centaur keep their dead in the valley, and I keep my notebooks. Shall we leave it there?" },
+      },
+      choices = {
+        { text = "Fine. For now.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     carvings = {
@@ -319,7 +349,7 @@ P:NPC {
       again = {
         { id = "h_again3", text = "Yes? Speak softly, the old one is sleeping." },
         { id = "h_again", text = "What else? The beasts can wait a moment." },
-        { id = "h_again2", text = "Ask. I am in no hurry." },
+        { id = "h_again2", text = "Ask, and speak low. The young kodo spooks at loud voices, and I have only just got her settled." },
       },
       choices = {
         { text = "Every creature deserves kindness, even in Desolace.", next = "BACK", reply = "Especially in Desolace. Here, kindness is rare.", fx = { align = { light = 1 } } },
@@ -332,7 +362,36 @@ P:NPC {
         { text = "The sea air can't be good for a kodo.", next = "sea" },
         { text = "My beast has been uneasy since we crossed into Desolace.", next = "pet", when = { class = "HUNTER" } },
         { text = "The graveyard is sacred ground to our people.", next = "sacred", when = { race = "Tauren" } },
+        { text = "What do you sing to the beasts at night?", next = "w7_song" },
         { text = "Farewell, Aboda.", next = "END" },
+      },
+    },
+    w7_song = {
+      lines = {
+        { id = "w7_song_l1", text = "Old herding songs from Mulgore, the ones my grandmother sang to the kodo when the herds moved between Red Rocks and the lake. The words do not matter to the beasts, I think, but a slow voice tells them nobody here is afraid." },
+        { id = "w7_song_l2", when = { race = "Tauren" }, text = "The herding songs from Mulgore, the slow ones. You will know them, I think, from your own grandmother; the beasts do not need the words, only the voice that says the plains are still beneath them." },
+      },
+      choices = {
+        { text = "Would you sing one for me?", next = "w7_song2" },
+        { text = "Singing to animals seems a waste of breath.", next = "w7_song3" },
+        { text = "Something else, Aboda.", next = "BACK" },
+      },
+    },
+    w7_song2 = {
+      lines = {
+        { id = "w7_song2_l1", text = "Not here, with the trolls listening from the dock; they laugh at a tauren's singing and say it sounds like a kodo with a cold. Come back at dusk when the boats are in, and sit by the stalls, and you will hear it whether I mean you to or not." },
+      },
+      choices = {
+        { text = "I'll come at dusk, then.", next = "BACK", reply = "Bring nothing loud with you. The beasts will know you by your quiet." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_song3 = {
+      lines = {
+        { id = "w7_song3_l1", text = "Perhaps, but I have watched a wolf from Ghost Walker Post stop shaking at the sound of it, and I have no better use for my breath. A beast that sleeps well works well, and that is worth more than all my silence." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     hard = {
@@ -489,7 +548,36 @@ P:NPC {
         { text = "You miss the Echo Isles, I think.", next = "home" },
         { text = "I've pulled fish from waters all over Kalimdor.", next = "skill", when = { profession = { name = "Fishing", min = 150 } } },
         { text = "The Darkspear fished long before this village.", next = "troll", when = { race = "Troll" } },
+        { text = "What's the biggest fish you ever lost?", next = "w7_lost" },
         { text = "Later, Lui'Mala.", next = "END" },
+      },
+    },
+    w7_lost = {
+      lines = {
+        { id = "w7_lost_l1", text = "Ahh, you ask de wrong question, mon, because now I got to tell it. A grey thing longer dan Thalon's wind rider, off de rocks south of de dock, and it took my best line and towed me halfway to de breakers before de knot gave." },
+      },
+      choices = {
+        { text = "Longer than a wind rider? Really?", next = "w7_lost2" },
+        { text = "Every fisher has a story like that.", next = "w7_lost3" },
+        { text = "Something else, Lui'Mala.", next = "BACK" },
+      },
+    },
+    w7_lost2 = {
+      lines = {
+        { id = "w7_lost2_l1", text = "Maybe a little shorter, mon, since you be lookin' at me like dat. Mai'Lahii says it was a log with ambitions, but logs don't swim against de tide, and I still go back to dat rock every new moon to see if it's hungry." },
+        { id = "w7_lost2_l2", when = { profession = { name = "Fishing", min = 100 } }, text = "You fish, so you know a fish gets bigger every time you tell it. But dis one I measured against de dock posts as it went by, mon, and it covered three of dem, and I don't lie about dock posts." },
+      },
+      choices = {
+        { text = "I hope you land it one day.", next = "BACK", reply = "When I do, mon, you be de first one I show, before Mai'Lahii can call it a log." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_lost3 = {
+      lines = {
+        { id = "w7_lost3_l1", text = "Ya, but mine be true, and dat's de difference, mon. Every fisher on dis dock got a story, and every one of dem be lyin' except me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     water = {
@@ -627,7 +715,7 @@ P:NPC {
       again = {
         { id = "h_again3", text = "Ya? Talk, I can cut and listen." },
         { id = "h_again", text = "What else, mon? The knife be gettin' bored." },
-        { id = "h_again2", text = "Go on, I be listenin'." },
+        { id = "h_again2", text = "Go on, mon. I keep my eyes on de knife and my ears on you." },
       },
       choices = {
         { text = "A good skinner wastes nothin' of de beast.", next = "BACK", reply = "Dat be right. Waste is an insult to de kill.", fx = { align = { honor = 1 } } },
@@ -640,7 +728,36 @@ P:NPC {
         { text = "Have you skinned anything out of Mannoroc?", next = "demon" },
         { text = "I make my own leather from what I skin.", next = "lw", when = { profession = "Leatherworking" } },
         { text = "A Darkspear and his knife. I know how that is.", next = "troll", when = { race = "Troll" } },
+        { text = "How do you keep a hide from rotting in this sea air?", next = "w7_salt" },
         { text = "Later, Malux.", next = "END" },
+      },
+    },
+    w7_salt = {
+      lines = {
+        { id = "w7_salt_l1", text = "Salt, mon, and a lot of it, rubbed in de same day you take de hide, before de flies find it. De sea air be wet and de land be dry, so a hide on dis coast don't know whether to rot or crack, and you got to make up its mind for it." },
+      },
+      choices = {
+        { text = "Where does the salt come from?", next = "w7_salt2" },
+        { text = "Seems like a lot of fuss for leather.", next = "w7_salt3" },
+        { text = "Something else, Malux.", next = "BACK" },
+      },
+    },
+    w7_salt2 = {
+      lines = {
+        { id = "w7_salt2_l1", text = "Lah'Mawhani sells it, and she gets it from de flats inland where de water dried up long ago. She charges me too much and I tell her so every week, and she tells me to go scrape it off de sea rocks myself if I be so clever." },
+        { id = "w7_salt2_l2", when = { profession = "Skinning" }, text = "From Lah'Mawhani, who gets it from de dry flats inland. Buy yours from her too, mon, and rub it in thick along de belly first, because dat's where a hide always goes bad before you notice." },
+      },
+      choices = {
+        { text = "I'll remember the belly.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_salt3 = {
+      lines = {
+        { id = "w7_salt3_l1", text = "It be fuss, mon, or it be stink, and de tauren up at Ghost Walker Post don't pay for stink. Narv sends back anything dat smells wrong with a note, and his notes be very polite and very long." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     worth = {
@@ -773,7 +890,7 @@ P:NPC {
       again = {
         { id = "h_again3", text = "Yes? Speak, the glue needs a moment to take." },
         { id = "h_again", text = "What else? I have a haft to wrap." },
-        { id = "h_again2", text = "Ask, friend." },
+        { id = "h_again2", text = "Ask, friend, and keep your hands off the hafts on the rack. The glue is still deciding whether to hold." },
       },
       choices = {
         { text = "A well-made mace honors the one who made it.", next = "BACK", reply = "Yes! You understand craft. Few do.", fx = { align = { honor = 1 } } },
@@ -786,7 +903,36 @@ P:NPC {
         { text = "Let me feel the weight of one.", next = "weight", when = { class = { "WARRIOR", "SHAMAN", "DRUID" } } },
         { text = "I've smithed. Tell me how you set the head.", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "A tauren's weapon, the mace.", next = "tauren", when = { race = "Tauren" } },
+        { text = "Where does a macecrafter find wood in Desolace?", next = "w7_wood" },
         { text = "Farewell, Muuran.", next = "END" },
+      },
+    },
+    w7_wood = {
+      lines = {
+        { id = "w7_wood_l1", text = "Not here, friend, that much is plain to anyone with eyes. My hafts come from Feralas by kodo, good ironwood from the south, and I pay the drovers well because one bad haft breaks in a brave's hand and I would carry that for the rest of my life." },
+      },
+      choices = {
+        { text = "Has one ever broken?", next = "w7_wood2" },
+        { text = "I'd use bone, if wood's so dear.", next = "w7_wood3" },
+        { text = "Something else, Muuran.", next = "BACK" },
+      },
+    },
+    w7_wood2 = {
+      lines = {
+        { id = "w7_wood2_l1", text = "Once, years ago, before I came here, and I will not tell you the name of the brave who held it. Since then I test every haft across my own knee before I fit a head, and if it bends more than a hair, it goes in Harnor's cookfire." },
+      },
+      choices = {
+        { text = "That's a heavy thing to carry.", next = "BACK", reply = "It is. It is also why my maces do not break." },
+        { text = "A hard lesson, but it made you better.", next = "BACK", reply = "Better, yes. I would still trade the lesson back, if I could." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_wood3 = {
+      lines = {
+        { id = "w7_wood3_l1", text = "Bone splinters across the grain, friend, and the kodo bone round here belongs to the dead in the graveyard. Narv would never speak to me again, and Gurda Wildmane would do worse than that." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -924,7 +1070,7 @@ P:NPC {
       again = {
         { id = "h_again3", text = "Yes? Talk away, the rings won't oil themselves but they'll wait." },
         { id = "h_again", text = "What else? Mind the oil pot." },
-        { id = "h_again2", text = "Go on, friend." },
+        { id = "h_again2", text = "Go on, friend, ask away. I've an hour of oiling ahead of me and nobody to complain to but the rings." },
       },
       choices = {
         { text = "Captain Pentigast keeps the post in good order.", next = "BACK", reply = "He does, though don't tell him I said so. He'd get a big head.", fx = { align = { order = 1 } } },
@@ -938,7 +1084,36 @@ P:NPC {
         { text = "I need mail that will last out here.", next = "last", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
         { text = "I've forged a few rings myself.", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "You've a captive market in the garrison.", next = "profit" },
+        { text = "Do you ever get letters from Stormwind?", next = "w7_mail" },
         { text = "Farewell, Maxton.", next = "END" },
+      },
+    },
+    w7_mail = {
+      lines = {
+        { id = "w7_mail_l1", text = "When a hippogryph comes in from Stonetalon there's sometimes a sack for the garrison, and now and then there's something in it for me. My sister writes, mostly to tell me what the rent on my old shop in the Dwarven District has gone up to." },
+      },
+      choices = {
+        { text = "Do you mean to go back to that shop?", next = "w7_mail2" },
+        { text = "Your sister sounds practical.", next = "w7_mail3" },
+        { text = "Something else, Maxton.", next = "BACK" },
+      },
+    },
+    w7_mail2 = {
+      lines = {
+        { id = "w7_mail2_l1", text = "Every winter I mean to, and every spring Pentigast's lot need new hauberks, so here I stay. Some smith from Ironforge has the shop now, and my sister says he does decent work, which I'm told is meant to make me feel better." },
+        { id = "w7_mail2_l2", when = { race = "Human" }, text = "Every winter I mean to. You'll know how it is, I expect: you leave Stormwind for a season's coin, and the season turns into years, and then Stormwind's moved on without you and nobody saved your stool at the Pig and Whistle." },
+      },
+      choices = {
+        { text = "Stormwind will still be there.", next = "BACK", reply = "That's what worries me, friend. It'll be there, and I won't." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_mail3 = {
+      lines = {
+        { id = "w7_mail3_l1", text = "Practical as a hammer, and about as soft. She sends socks every autumn with a note that says 'wool, not mail, you fool', and I wear them under my boots and never tell her." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -1080,7 +1255,7 @@ P:NPC {
       },
       again = {
         { id = "h_again3", text = "Yes? Speak gently, the mare is newly calmed." },
-        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again", text = "What else would you know? Ask it gently, for the saber in the far stall is only pretending to sleep." },
         { id = "h_again2", text = "Ask, if you wish, for I have time." },
       },
       choices = {
@@ -1094,7 +1269,36 @@ P:NPC {
         { text = "The Legion never truly left this land.", next = "legion" },
         { text = "My companion has been restless since Sargeron.", next = "pet", when = { class = "HUNTER" } },
         { text = "Ishnu-alah, sister. It is long since Ashenvale.", next = "elf", when = { race = "NightElf" } },
+        { text = "Where do you go when the Point grows too loud?", next = "w7_quiet" },
         { text = "Farewell, Shelgrayn.", next = "END" },
+      },
+    },
+    w7_quiet = {
+      lines = {
+        { id = "w7_quiet_l1", text = "To the cliffs above the sea, west of the outpost, where the wind comes clean from the water and nobody is sharpening anything. I take the sabers with me when they grow restless, and we sit there until the moon rises over the Great Sea." },
+        { id = "w7_quiet_l2", when = { race = "NightElf" }, text = "To the cliffs west of the Point, where the moon rises over the water. You will understand, {g:brother|sister}, why one of us needs to see Elune's light on something other than grey dust now and then." },
+      },
+      choices = {
+        { text = "Is it safe up there?", next = "w7_quiet2" },
+        { text = "You need the quiet more than the beasts do.", next = "w7_quiet3" },
+        { text = "Something else, Shelgrayn.", next = "BACK" },
+      },
+    },
+    w7_quiet2 = {
+      lines = {
+        { id = "w7_quiet2_l1", text = "Safer than the road, less safe than a temple. The harpies of Stonetalon sometimes drift that far south, and once a Kolkar scout came up the slope and stopped dead when he saw three nightsabers watching him, which was wise of him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_quiet3 = {
+      lines = {
+        { id = "w7_quiet3_l1", text = "Perhaps you are right, and perhaps I would not admit it to Captain Pentigast. A keeper of beasts must be calm for them, and calm in Desolace has to be fetched from somewhere and carried home." },
+      },
+      choices = {
+        { text = "Then fetch it often.", next = "BACK", reply = "I will try. Elune keep you, friend." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -1238,7 +1442,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else would you know? I answer what I safely can." },
         { id = "h_again2", text = "Ask. My reading will wait a little longer." },
-        { id = "h_again3", text = "Yes?" },
+        { id = "h_again3", text = "Yes? Speak plainly; I have a ward half-drawn and I would rather not lose my place." },
       },
       choices = {
         { text = "What is the Argent Dawn doing in Desolace?", next = "dawn" },
@@ -1248,7 +1452,36 @@ P:NPC {
         { text = "One mage to another: what are you truly after?", next = "mage", when = { class = "MAGE" } },
         { text = "I've walked among demons, and some walk with me. Ask what you like.", next = "lock", when = { class = "WARLOCK" } },
         { text = "Does the Dawn take oaths from such as me?", next = "oath", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "Do the naga ever test your door?", next = "w7_door" },
         { text = "Keep your wards strong, Azore.", next = "END" },
+      },
+    },
+    w7_door = {
+      lines = {
+        { id = "w7_door_l1", text = "Twice in my first month, and once since, which tells you something about how quickly the Slitherblade learn. The first time I sent them back down the stair with their scales smoking, and the second time they brought a sorceress, which was more interesting." },
+      },
+      choices = {
+        { text = "What happened with the sorceress?", next = "w7_door2" },
+        { text = "You sound almost fond of them.", next = "w7_door3" },
+        { text = "Something else, Azore.", next = "BACK" },
+      },
+    },
+    w7_door2 = {
+      lines = {
+        { id = "w7_door2_l1", text = "She spoke to me through the keyhole for an hour, very sweetly, about how the tower had belonged to her ancestors and how she only wished to see it again. I took notes on her grammar, which was archaic, and then I put out the lamp and let her talk to the dark." },
+        { id = "w7_door2_l2", when = { class = "MAGE" }, text = "She tried to unpick my ward from the outside, thread by thread, and I confess I sat and watched her do it for a while, because her method was ten thousand years old. Then I tied the last thread to the stair, and she fell down it." },
+      },
+      choices = {
+        { text = "Highborne grammar from a naga. Telling.", next = "BACK", reply = "Quite. Whatever they became, they remember what they were." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_door3 = {
+      lines = {
+        { id = "w7_door3_l1", text = "Fond is too warm a word for a scholar. I respect them, which is more useful, and I never forget that they were Highborne once, and that the Highborne are why this land is grey." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     dawn = {
@@ -1396,7 +1629,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, pal? Time's money, but I got a little of both." },
         { id = "h_again2", text = "Go on, ask, I'm only countin' jars." },
-        { id = "h_again3", text = "Yeah?" },
+        { id = "h_again3", text = "Yeah, yeah, what is it, pal? Talk fast, the jars are glowin' and that's never a good sign for long." },
       },
       choices = {
         { text = "What is ghost-o-plasm, exactly?", next = "plasm" },
@@ -1405,7 +1638,35 @@ P:NPC {
         { text = "You said something about your sister.", next = "sister" },
         { text = "How do those magnets work?", next = "magnet", when = { profession = "Engineering" } },
         { text = "The dead aren't merchandise, goblin.", next = "dead", when = { class = { "SHAMAN", "PRIEST", "PALADIN" } } },
+        { text = "Who else is selling in the Kodo Graveyard?", next = "w7_rival" },
         { text = "Good luck with your ghosts, Hornizz.", next = "END" },
+      },
+    },
+    w7_rival = {
+      lines = {
+        { id = "w7_rival_l1", text = "Smeed Scrabblescrew, that's who, a cut-rate bone man with a cart and no class, sittin' on the far side of the graveyard sellin' to anybody who waves a copper. He undercuts me on bone, I undercut him on nothin', 'cause I sell ghosts and he don't." },
+      },
+      choices = {
+        { text = "Do you two ever do business together?", next = "w7_rival2" },
+        { text = "Sounds like he's eating your lunch.", next = "w7_rival3" },
+        { text = "Something else, Hornizz.", next = "BACK" },
+      },
+    },
+    w7_rival2 = {
+      lines = {
+        { id = "w7_rival2_l1", text = "Once, pal, and never again. We split a load of plasm and bone for a Gadgetzan buyer, and he swapped half the jars for painted water on the road, and when I complained he said the buyer couldn't tell the difference, which, fair, but it's the principle." },
+      },
+      choices = {
+        { text = "You're both rogues, by the sound of it.", next = "BACK", reply = "Rogue's a strong word, pal. I prefer 'competitive'." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_rival3 = {
+      lines = {
+        { id = "w7_rival3_l1", text = "My lunch? Friend, Smeed eats crumbs. I got a niche market, repeat customers and a product nobody else in Kalimdor can supply, and he's got a cart with a wobbly wheel." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     plasm = {
@@ -1545,7 +1806,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, what else? I got a rhythm goin'." },
         { id = "h_again2", text = "Ask, pal, I can jig and listen." },
-        { id = "h_again3", text = "Yeah?" },
+        { id = "h_again3", text = "Yeah, pal? Talk, talk, I'm still movin' but the ears are open for business." },
       },
       choices = {
         { text = "Who buys kodo bones?", next = "buyer" },
@@ -1554,7 +1815,35 @@ P:NPC {
         { text = "The tauren won't thank you for this.", next = "tauren" },
         { text = "Those are my people's dead you're pricing.", next = "mine", when = { race = "Tauren" } },
         { text = "I could get in and out without waking anything.", next = "sneak", when = { class = "ROGUE" } },
+        { text = "How do you get the bones all the way to Booty Bay?", next = "w7_ship" },
         { text = "Keep dancing, Bibbly.", next = "END" },
+      },
+    },
+    w7_ship = {
+      lines = {
+        { id = "w7_ship_l1", text = "Ah, now that's the clever part, pal, so pay attention. I crate 'em up as 'decorative ceramics', haul 'em down to Shadowprey, and pay a Darkspear fisher to row 'em out to the Steamwheedle boats that pass along the coast." },
+      },
+      choices = {
+        { text = "Do the trolls know what's in the crates?", next = "w7_ship2" },
+        { text = "Lying on the manifest? That's risky.", next = "w7_ship3" },
+        { text = "Something else, Bibbly.", next = "BACK" },
+      },
+    },
+    w7_ship2 = {
+      lines = {
+        { id = "w7_ship2_l1", text = "The trolls know the crates are heavy and the coin is good, friend, and that's all a sensible boatman wants to know. Jinar'Zillen once asked, and I told him it was ceramics, and he looked at me for a long time and then asked for double." },
+      },
+      choices = {
+        { text = "Smart troll.", next = "BACK", reply = "Too smart, pal. I'm still payin' double." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_ship3 = {
+      lines = {
+        { id = "w7_ship3_l1", text = "Risky? Pal, risky is pickin' bones in a graveyard full of angry ghosts. Lyin' on a manifest is just the cost of doin' business, and it's a cheap one." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     buyer = {
@@ -1684,7 +1973,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? I listen while the hide soaks." },
         { id = "h_again2", text = "Ask. There is no hurry in this work." },
-        { id = "h_again3", text = "Yes?" },
+        { id = "h_again3", text = "Yes? Speak, but keep your voice level; a hide stretched too tight can split at a shout." },
       },
       choices = {
         { text = "Nothing of the beast should be wasted.", next = "BACK", reply = "Yes. That is the first lesson, and the last.", fx = { align = { honor = 1 } } },
@@ -1696,7 +1985,36 @@ P:NPC {
         { text = "Who else keeps this post?", next = "post" },
         { text = "Show me how scorpid shell is worked.", next = "scorpid", when = { profession = "Leatherworking" } },
         { text = "I'd say the words with you, if you'll teach them.", next = "words", when = { race = "Tauren" } },
+        { text = "Your needles look like they're made of bone.", next = "w7_tools" },
         { text = "Walk with the Earth Mother, Narv.", next = "END" },
+      },
+    },
+    w7_tools = {
+      lines = {
+        { id = "w7_tools_l1", text = "They are, and each one was given to me, never taken. Gurda Wildmane carved the long one from a kodo that died in her arms, and the small curved one came from a scorpid that Maurin Bonesplitter killed on the road to Thunder Axe." },
+      },
+      choices = {
+        { text = "Why use bone instead of steel?", next = "w7_tools2" },
+        { text = "Metal needles would last longer.", next = "w7_tools3" },
+        { text = "Something else, Narv.", next = "BACK" },
+      },
+    },
+    w7_tools2 = {
+      lines = {
+        { id = "w7_tools2_l1", text = "Steel is cold in the hand and it remembers nothing. When I sew with the kodo's own bone, the leather it holds together is a little less of a stranger to it, and I think the work comes out kinder." },
+        { id = "w7_tools2_l2", when = { race = "Tauren" }, text = "You know why, I think, even if no one taught you the words for it. Steel is the orcs' gift and a good one, but bone remembers the herd, and leather sewn with it remembers too." },
+      },
+      choices = {
+        { text = "That's a good way to work.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_tools3 = {
+      lines = {
+        { id = "w7_tools3_l1", text = "Longer, yes, and Muuran has offered me a set more than once, with a face that says he thinks me foolish. I thank him and keep my bone, and we both stay friends." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     speak = {
@@ -1835,7 +2153,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, mon? I got time, and you got coin." },
         { id = "h_again2", text = "Ask, ask. Talk be free, it's de only thing here dat is." },
-        { id = "h_again3", text = "Ya?" },
+        { id = "h_again3", text = "Ya, mon? Quick, before somebody else drips on my thread." },
       },
       choices = {
         { text = "A good craftsman buys good parts and wastes none.", next = "BACK", reply = "Dat be a smart one. You keep comin' back, mon.", fx = { align = { honor = 1 } } },
@@ -1847,7 +2165,36 @@ P:NPC {
         { text = "Tell me the news of the village.", next = "news", when = { race = "Troll" } },
         { text = "What sells to a crafter passing through?", next = "sells", when = { profession = { "Leatherworking", "Tailoring", "Blacksmithing", "Alchemy" } } },
         { text = "Do you think of this as home?", next = "home" },
+        { text = "What's the strangest thing anyone's sold you?", next = "w7_odd" },
         { text = "Good trading, Lah'Mawhani.", next = "END" },
+      },
+    },
+    w7_odd = {
+      lines = {
+        { id = "w7_odd_l1", text = "Ahh, dat be easy, mon. A Forsaken from de Undercity came through last year and sold me a jar of eyes, he said for alchemy, and I bought dem because he gave me a good price and I was too scared to say no." },
+      },
+      choices = {
+        { text = "What did you do with them?", next = "w7_odd2" },
+        { text = "You should have told him no.", next = "w7_odd3" },
+        { text = "Something else, Lah'Mawhani.", next = "BACK" },
+      },
+    },
+    w7_odd2 = {
+      lines = {
+        { id = "w7_odd2_l1", text = "Sold dem to a goblin from Kormek's Hut for twice what I paid, mon, and he didn't ask what dey were for either. Dat's trade: a thing goes from somebody who don't want it to somebody who does, and I keep de little bit in de middle." },
+        { id = "w7_odd2_l2", when = { race = "Scourge" }, text = "Sold dem on, mon, and don't look at me like dat; I know your people need such things for de potions. It was de jar I didn't like, all dose eyes lookin' at me from de shelf while I counted thread." },
+      },
+      choices = {
+        { text = "That's trade, I suppose.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_odd3 = {
+      lines = {
+        { id = "w7_odd3_l1", text = "Ya, maybe, but a merchant who says no to a bargain be a merchant who starves, mon. And de eyes didn't complain, so who was I to fuss?" },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     reach = {
@@ -1978,7 +2325,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, mon? De tide's slow today, so I got time." },
         { id = "h_again2", text = "Ask. I be only mendin' net." },
-        { id = "h_again3", text = "Ya?" },
+        { id = "h_again3", text = "Ya, mon? Talk while I tie, my fingers don't need my ears." },
       },
       choices = {
         { text = "De sea gives to dose who respect it.", next = "BACK", reply = "You talk like a fisherman, mon. De spirits like dat.", fx = { align = { light = 1 } } },
@@ -1990,7 +2337,36 @@ P:NPC {
         { text = "What bait takes the big ones here?", next = "bait", when = { profession = "Fishing" } },
         { text = "Which loa watches fishers?", next = "loa", when = { race = "Troll" } },
         { text = "Who shares the dock with you?", next = "dock" },
+        { text = "Teach me to tie one of those knots.", next = "w7_knot" },
         { text = "Fair tides, Mai'Lahii.", next = "END" },
+      },
+    },
+    w7_knot = {
+      lines = {
+        { id = "w7_knot_l1", text = "Ha! You want to learn de net knot, mon, or de charm knot? De net knot I teach anybody, because de more nets get mended de more fish we eat. De charm knot be my grandmother's, and she'd come back and pinch me if I gave it away." },
+      },
+      choices = {
+        { text = "The net knot, then.", next = "w7_knot2" },
+        { text = "Charms are just thread and wishful thinking.", next = "w7_knot3" },
+        { text = "Something else, Mai'Lahii.", next = "BACK" },
+      },
+    },
+    w7_knot2 = {
+      lines = {
+        { id = "w7_knot2_l1", text = "Over, under, round de back, and pull it tight against your thumb, not your finger, or it slips in de water. Dere, you got it, mon, and now you owe me one evenin' of mendin' on de dock when de boats come in torn." },
+        { id = "w7_knot2_l2", when = { profession = "Fishing" }, text = "You tie it already, almost. Just pull against de thumb, mon, not de finger, and it holds wet. Now you be a real Shadowprey fisher, and real fishers mend nets on de dock when de boats come in torn." },
+      },
+      choices = {
+        { text = "I'll mend nets if I'm passing.", next = "BACK", reply = "Dat be all I ask, mon. Bring a knife and a lot of patience." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_knot3 = {
+      lines = {
+        { id = "w7_knot3_l1", text = "Maybe, mon, and maybe Lui'Mala just loses lines because she casts like a tauren. But I never had a naga cut mine, and I be keepin' my wishful thinkin', thank you." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     charm = {
@@ -2122,7 +2498,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, child? I am only sorting salt." },
         { id = "h_again2", text = "Ask, and hand me that jar while you do." },
-        { id = "h_again3", text = "Yes?" },
+        { id = "h_again3", text = "Yes, child? Out with it; the salt will not sort itself while you stand there thinking." },
       },
       choices = {
         { text = "A good meal is worth the coin.", next = "BACK", reply = "It is. And I am glad someone remembers that.", fx = { align = { honor = 1 } } },
@@ -2134,7 +2510,36 @@ P:NPC {
         { text = "What would you do with Desolace's game?", next = "game", when = { profession = "Cooking" } },
         { text = "Does Sikewa miss Mulgore's cooking fires?", next = "miss", when = { race = "Tauren" } },
         { text = "Tell me about Innkeeper Sikewa.", next = "sikewa" },
+        { text = "What did you cook on the Echo Isles?", next = "w7_isles" },
         { text = "Thank you, Wulan.", next = "END" },
+      },
+    },
+    w7_isles = {
+      lines = {
+        { id = "w7_isles_l1", text = "Crab with lime and fire-pepper, boar on the spit, and mango so ripe you ate it over the sea so the juice fell in the water. We had green things there, child, more than we could eat, and I did not know to be grateful." },
+        { id = "w7_isles_l2", when = { race = "Troll" }, text = "You will remember, I think: crab with lime and fire-pepper, and the smoke of the boar-pits along the beach at dusk. Every Darkspear here can taste it still, and that is why they complain about my fish." },
+      },
+      choices = {
+        { text = "Can you make anything like it here?", next = "w7_isles2" },
+        { text = "The Echo Isles will be ours again someday.", next = "w7_isles3" },
+        { text = "Something else, Wulan.", next = "BACK" },
+      },
+    },
+    w7_isles2 = {
+      lines = {
+        { id = "w7_isles2_l1", text = "Something like it, once a season, when the caravan brings limes from Ratchet and Lui'Mala lands enough crab. I make it in the big pot at Sikewa's, and the whole village comes, and for one night nobody talks about the naga." },
+      },
+      choices = {
+        { text = "I'd like to be here for that.", next = "BACK", reply = "Then come back at midsummer, child, and come hungry." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_isles3 = {
+      lines = {
+        { id = "w7_isles3_l1", text = "Vol'jin says so, and I believe him. But I am old, and I cook for the village I have, not the one I lost, and the fish here do not care whose island it is." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     came = {
@@ -2266,7 +2671,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, mon? De tide's not goin' anywhere fast." },
-        { id = "h_again2", text = "Ask away, I be listenin'." },
+        { id = "h_again2", text = "Ask away, mon, I be countin' torches but I can count and listen at once." },
         { id = "h_again3", text = "Ya, mon?" },
       },
       choices = {
@@ -2279,7 +2684,36 @@ P:NPC {
         { text = "Do the naga trouble your trade?", next = "naga" },
         { text = "Sen'jin still smells of smoked fish.", next = "senjin", when = { race = "Troll" } },
         { text = "What should I carry for kodo?", next = "kodo", when = { class = "HUNTER" } },
+        { text = "What do travellers usually forget to buy?", next = "w7_forget" },
         { text = "Stay easy, Tukk.", next = "END" },
+      },
+    },
+    w7_forget = {
+      lines = {
+        { id = "w7_forget_l1", text = "Rope, mon, every single time. Dey come down from Ghost Walker Post with water and torches, all proud of demselves, and den dey get to Maraudon and find a hole with no bottom, and suddenly Tukk be de most important troll in Desolace." },
+      },
+      choices = {
+        { text = "Is Maraudon really that deep?", next = "w7_forget2" },
+        { text = "I'll buy rope before you can sell it to me.", next = "w7_forget3" },
+        { text = "Something else, Tukk.", next = "BACK" },
+      },
+    },
+    w7_forget2 = {
+      lines = {
+        { id = "w7_forget2_l1", text = "Deeper dan anybody who came back could tell me, mon. De centaur go in at de top and de purple water runs out at de bottom, and somewhere in between be de princess de dryads keep talkin' about, de one made of stone." },
+        { id = "w7_forget2_l2", when = { class = "ROGUE" }, text = "Deep, mon, and full of ledges a clever {class} could climb with a good rope and a better excuse. I don't ask what you be lookin' for down dere; I just sell you de rope." },
+      },
+      choices = {
+        { text = "Then I'll take some rope.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_forget3 = {
+      lines = {
+        { id = "w7_forget3_l1", text = "Ha! Dat's de spirit, mon. Most people don't learn till dey be hangin' off a ledge shoutin' my name." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     uses = {
@@ -2430,7 +2864,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Talk while de steel cools." },
         { id = "h_again2", text = "Go on, mon, I can hammer and hear." },
-        { id = "h_again3", text = "Ya?" },
+        { id = "h_again3", text = "Ya? Speak up, mon, de bellows be louder dan you." },
       },
       choices = {
         { text = "A warrior should master one weapon well.", next = "BACK", reply = "Yes! Like a smith should master one craft. You understand.", fx = { align = { order = 1 } } },
@@ -2442,7 +2876,36 @@ P:NPC {
         { text = "What do you make of Desolace?", next = "land" },
         { text = "Fit an axe to my reach, then.", next = "reach", when = { class = { "WARRIOR", "SHAMAN", "HUNTER" } } },
         { text = "Lah'Mawhani says you complain about her flux.", next = "flux", when = { profession = { "Blacksmithing", "Mining" } } },
+        { text = "What's the best axe you ever made?", next = "w7_best" },
         { text = "Strong steel to you, Hae'Wilani.", next = "END" },
+      },
+    },
+    w7_best = {
+      lines = {
+        { id = "w7_best_l1", text = "De one I never sold, mon. A two-hand axe with a head of good Ratchet steel and a haft of Feralas ironwood, and when I finished it I knew I would never make a better one, so I hung it on de wall where I can see it." },
+      },
+      choices = {
+        { text = "Why not sell it?", next = "w7_best2" },
+        { text = "An axe on a wall is a waste of steel.", next = "w7_best3" },
+        { text = "Something else, Hae'Wilani.", next = "BACK" },
+      },
+    },
+    w7_best2 = {
+      lines = {
+        { id = "w7_best2_l1", text = "Because a smith needs somethin' to beat, mon. Every axe I make, I hold it up next to dat one, and every one comes out a little short, and dat keeps me hungry. De day I make a better one, I give de old one to whoever needs it most." },
+        { id = "w7_best2_l2", when = { class = "WARRIOR" }, text = "Because I haven't met de warrior it belongs to yet, mon. Maybe one day somebody walks in and stands right, and I take it off de wall without thinkin', but it won't be today, so don't stand any straighter." },
+      },
+      choices = {
+        { text = "That's a smith's pride.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_best3 = {
+      lines = {
+        { id = "w7_best3_l1", text = "Maybe, mon, but dat's my waste to choose. And it be de only steel in Shadowprey de salt never touches, because I oil it every night like it was my own child." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     only = {

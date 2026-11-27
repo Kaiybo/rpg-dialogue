@@ -680,7 +680,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something more, friend? I'll keep measuring you while you think of it." },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again2", text = "Go on. I'll hear you out, and I'll have your measurements by the time you've finished." },
       },
       choices = {
         { text = "Show me what you have.", next = "BUSINESS" },

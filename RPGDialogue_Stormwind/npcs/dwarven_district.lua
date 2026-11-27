@@ -346,7 +346,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman, an' a dwarf! Ye'll find proper goods here, straight from Ironforge on the tram an' no' Trade District rubbish, an' yer spirits will know good iron." },
       },
       again = {
-        { id = "h_again", text = "What else, {g:lad|lass}?" },
+        { id = "h_again", text = "What else, {g:lad|lass}? Ask me, an' no' some Trade District peddler wi' his thumb on the scales." },
       },
       choices = {
         { text = "Let me see your wares.", next = "BUSINESS" },

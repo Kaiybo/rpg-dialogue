@@ -33,7 +33,7 @@ P:Views { topic = "kobolds", views = {
     { id = "a", text = "Don't. A kobold will steal the boots off a sleeping miner and then shout about it, and that's the friendly ones." },
     { id = "b", text = "Ha! It's a strange thing to die over, a candle stub, but they seem to mean every word." },
   } },
-  { id = "why", text = "Something's driving them up out of the deep. That worries me more.", fx = { opinion = { kobolds = "doubt" }, trait = { curious = 1 } }, replies = {
+  { id = "why", text = "What worries me more is whatever's driving them up out of the deep.", fx = { opinion = { kobolds = "doubt" }, trait = { curious = 1 } }, replies = {
     { id = "a", text = "Now that's a thought most folk don't have. Kobolds don't usually come up to the light unless something below wants their tunnels." },
     { id = "b", text = "Maybe so, or maybe they've just run out of room. Either way, the miners want them gone before supper." },
   } },
@@ -62,7 +62,7 @@ P:Views { topic = "hogger", views = {
   } },
   { id = "legend", text = "Hogger eating whole patrols? Those stories grow every time they're told.", fx = { opinion = { hogger = "doubt" }, trait = { skeptical = 1 } }, replies = {
     { id = "a", text = "Some of them do. The one where he eats the Watch's patrols is true, though, and I've seen the gear they left behind." },
-    { id = "b", text = "Go and check, then. I'll wait here and listen for the screaming.", fx = { affinity = -1 } },
+    { id = "b", text = "Go and check for yourself, then, and I'll wait right here and listen for the screaming.", fx = { affinity = -1 } },
   } },
   { id = "joke", text = "I'm a little impressed. One gnoll has made fools of the whole Watch.", fx = { align = { honor = -1 }, opinion = { hogger = "admire" }, trait = { witty = 1 } }, replies = {
     { id = "a", text = "Don't let a guard hear you. I've had the same thought myself, late at night with a drink in hand." },
@@ -117,7 +117,7 @@ P:Views { topic = "gold_dust", views = {
 
 P:Views { topic = "northshire_abbey", views = {
   { id = "home", text = "Northshire feels like the safest place left in the kingdom.", fx = { opinion = { northshire_abbey = "admire" }, trait = { kind = 1 } }, replies = {
-    { id = "a", text = "It is, and the brothers work hard to keep it so. Every recruit from there walks out a little steadier than they went in.", fx = { affinity = 1 } },
+    { id = "a", text = "The brothers work hard to keep it that way, and every recruit who leaves those walls walks a little steadier than when they came in.", fx = { affinity = 1 } },
     { id = "b", text = "Safe for now. There are kobolds in the hills behind it and Defias in the vineyards, so don't get too comfortable." },
   } },
   { id = "faith", text = "The Light is strong there. You can feel it in the bells.", fx = { opinion = { northshire_abbey = "pious" }, align = { light = 1 }, trait = { pious = 1 } }, replies = {
@@ -126,7 +126,7 @@ P:Views { topic = "northshire_abbey", views = {
   } },
   { id = "soft", text = "It's a nursery for recruits. Real fighting happens elsewhere.", fx = { opinion = { northshire_abbey = "doubt" }, align = { light = -1 }, trait = { proud = 1 } }, replies = {
     { id = "a", text = "Everyone starts somewhere, {class}, and I'd wager you did too. The Abbey's trained more heroes than you've met.", fx = { affinity = -1 } },
-    { id = "b", text = "Maybe so, but somebody has to teach the young ones which end of the sword to hold." },
+    { id = "b", text = "Somebody has to teach the young ones which end of the sword to hold, {class}, and better it's done in Northshire than in a ditch in Westfall." },
   } },
 } }
 
@@ -154,9 +154,9 @@ P:Views { topic = "maybell_tommy", views = {
     { id = "a", text = "Old-fashioned of you, but there are those who'd agree. The farms have run on family for generations." },
     { id = "b", text = "And keep the feud going another generation? Somebody has to be the one who stops it.", fx = { affinity = -1 } },
   } },
-  { id = "sweet", text = "Secret notes and moonlit meetings. It's like something from a ballad.", fx = { opinion = { maybell_tommy = "admire" }, trait = { witty = 1 } }, replies = {
-    { id = "a", text = "It is, and most ballads end badly, which is what worries me. I hope theirs doesn't." },
-    { id = "b", text = "Ha! Don't tell Tommy Joe that. He's insufferable enough already." },
+  { id = "sweet", text = "Secret notes and moonlit meetings sound like something out of a ballad.", fx = { opinion = { maybell_tommy = "admire" }, trait = { witty = 1 } }, replies = {
+    { id = "a", text = "Like a ballad, aye, and that's what worries me, because most ballads end badly. I hope theirs is the other kind." },
+    { id = "b", text = "Ha! Don't let Tommy Joe hear you say that, because he's insufferable enough already." },
   } },
 } }
 
@@ -181,7 +181,7 @@ P:Views { topic = "tome_of_divinity", views = {
     { id = "b", text = "Many young paladins say so. Brother Wilhelm can tell you which ones meant it, and the list is shorter." },
   } },
   { id = "respect", text = "A book that can steady a paladin's faith is a real treasure.", fx = { opinion = { tome_of_divinity = "respect" }, align = { light = 1 }, trait = { pious = 1 } }, replies = {
-    { id = "a", text = "It is, and the Church guards it like one. Not just anyone is allowed a look inside.", fx = { affinity = 1 } },
+    { id = "a", text = "The Church guards it like a treasure, too, and not just anyone is allowed so much as a look inside the cover.", fx = { affinity = 1 } },
     { id = "b", text = "Well said. Faith that's never been tested isn't faith yet, and the Tome is mostly about the testing." },
   } },
   { id = "words", text = "It's just words on a page. Deeds are what matter.", fx = { opinion = { tome_of_divinity = "doubt" }, align = { light = -1 }, trait = { practical = 1 } }, replies = {
@@ -199,7 +199,7 @@ P:Views { topic = "lost_footmen", views = {
     { id = "a", text = "Cold, {class}, but likely true. Don't say it in front of Thomas, though, because he's still hoping.", fx = { affinity = -1 } },
     { id = "b", text = "Soldiers don't leave their own in the mud, dead or not. That's the whole point of being soldiers." },
   } },
-  { id = "blame", text = "Two men sent alone up a dangerous river. That was a poor order.", fx = { opinion = { lost_footmen = "blame" }, trait = { stern = 1 } }, replies = {
+  { id = "blame", text = "Sending two men alone up a dangerous river was a poor order.", fx = { opinion = { lost_footmen = "blame" }, trait = { stern = 1 } }, replies = {
     { id = "a", text = "Thomas knows it, and he can barely look anyone in the eye for it. Don't make it heavier for him." },
     { id = "b", text = "It was all the men he had. The Watch has never had enough hands for Elwynn." },
   } },
@@ -208,7 +208,7 @@ P:Views { topic = "lost_footmen", views = {
 P:Views { topic = "eastvale", views = {
   { id = "honest", text = "Good honest work, those logging camps. Elwynn runs on that timber.", fx = { align = { order = 1 }, opinion = { eastvale = "respect" }, trait = { practical = 1 } }, replies = {
     { id = "a", text = "So does Stormwind, though the city never says thank you for it. The loggers will appreciate hearing it.", fx = { affinity = 1 } },
-    { id = "b", text = "It does, and the quotas never shrink, even when the wolves and the gnolls grow." },
+    { id = "b", text = "Elwynn runs on it, right enough, and the quotas never shrink, not even when the wolves and the gnolls grow bolder." },
   } },
   { id = "trees", text = "They'll cut that forest down to stumps if nobody stops them.", fx = { align = { order = -1 }, opinion = { eastvale = "disapprove" }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "There's a lot of forest, and a lot of houses to rebuild. Still, I take your point." },
@@ -227,7 +227,7 @@ P:Views { topic = "morganth", views = {
     { id = "a", text = "Theocritus has said as much every day since Stonewatch fell under that man's sorcery, and he's earned the right.", fx = { affinity = 1 } },
     { id = "b", text = "Quickly, aye, and carefully. Warlocks never fight fair, and they rarely fight alone." },
   } },
-  { id = "pity_teacher", text = "I pity his teacher. That's a hard failure to carry.", fx = { opinion = { morganth = "pity" }, trait = { kind = 1 } }, replies = {
+  { id = "pity_teacher", text = "I pity his teacher, because that's a hard failure to carry.", fx = { opinion = { morganth = "pity" }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "That's a kind thought. Theocritus doesn't sleep well, and I think you've guessed why." },
     { id = "b", text = "Don't say failure in front of him, though. He already believes it, and that's the trouble." },
   } },
@@ -251,7 +251,7 @@ P:Views { topic = "blackrock", views = {
     { id = "b", text = "They'd say we went soft. Let them say it from under their mountain, then, while we build a homeland." },
   } },
   { id = "respect", text = "Say what you like, they're disciplined fighters. I'd not underestimate them.", fx = { opinion = { blackrock = "respect" }, trait = { cautious = 1 } }, replies = {
-    { id = "a", text = "Nobody in Redridge does, not anymore. The keep fell in one night." },
+    { id = "a", text = "Nobody in Redridge does, not anymore, because the keep fell in a single night and nobody's forgotten it." },
     { id = "b", when = { faction = "Horde" }, text = "They are, and that's the pity of it. All that strength wasted on a dragon's errands and a dead war." },
   } },
   { id = "talk", text = "Hate breeds hate. Maybe some of them could be reasoned with.", fx = { opinion = { blackrock = "mercy" }, align = { order = -1, light = 1 }, trait = { kind = 1 } }, replies = {
@@ -271,7 +271,7 @@ P:Views { topic = "everstill_bridge", views = {
     { id = "b", text = "Maybe it will. Then they'll build it a fourth time, and that's Redridge for you." },
   } },
   { id = "help", text = "Somebody should guard those workers so they can finish it.", fx = { opinion = { everstill_bridge = "protect" }, trait = { brave = 1 } }, replies = {
-    { id = "a", text = "Somebody should, and the militia's thin as it is. Talk to Marshal Marris if you mean it." },
+    { id = "a", text = "Somebody should, and Redridge's militia is stretched thin enough already, so talk to Marshal Marris in Lakeshire if you mean it." },
     { id = "b", text = "Gnolls keep stealing the tools, too, so watch for that. They'll take anything that isn't nailed down, and some things that are." },
   } },
 } }
@@ -317,7 +317,7 @@ P:Views { topic = "keeshan", views = {
   } },
   { id = "lucky", text = "Lucky more than brave, I'd say. Most men in his boots died.", fx = { align = { honor = -1 }, opinion = { keeshan = "doubt" }, trait = { skeptical = 1 } }, replies = {
     { id = "a", text = "Luck's part of it. Don't say so to his face, though, unless you want to hear the whole escape again.", fx = { affinity = -1 } },
-    { id = "b", text = "Luck favors the stubborn, and he's the most stubborn man in Redridge." },
+    { id = "b", text = "Luck favors the stubborn, they say, and he's the most stubborn man between Lakeshire and the Burning Steppes." },
   } },
 } }
 
@@ -332,7 +332,7 @@ P:Views { topic = "westfall", views = {
     { id = "a", text = "Patience is easy to ask of people who aren't hungry. I hope you're right, though, for their sake." },
     { id = "b", text = "In time, aye, but the Defias won't wait, and neither will the harvest watchers.", fx = { affinity = -1 } },
   } },
-  { id = "help", text = "Then the people should help themselves. That's what the militia is for.", fx = { opinion = { westfall = "self_reliance" }, align = { order = -1 }, trait = { practical = 1 } }, replies = {
+  { id = "help", text = "Then the people should help themselves, which is what the militia is for.", fx = { opinion = { westfall = "self_reliance" }, align = { order = -1 }, trait = { practical = 1 } }, replies = {
     { id = "a", text = "Gryan Stoutmantle couldn't have put it better. Sentinel Hill is proof that farmers can hold a line when they have to." },
     { id = "b", text = "Helping themselves is how some of them ended up Defias. It cuts both ways." },
   } },
@@ -344,10 +344,10 @@ P:Views { topic = "westfall", views = {
 
 P:Views { topic = "people_militia", views = {
   { id = "admire", text = "Farmers who picked up swords to protect their own. I admire that.", fx = { opinion = { people_militia = "admire" }, align = { honor = 1, order = -1 }, trait = { kind = 1 } }, replies = {
-    { id = "a", text = "So do I. Stoutmantle took men who'd never held a spear and made them hold the hill.", fx = { affinity = 1 } },
+    { id = "a", text = "So do I, {class}. Stoutmantle took men who'd never held a spear in their lives and made them hold that hill against the Defias.", fx = { affinity = 1 } },
     { id = "b", text = "They'd rather be holding hoes, though. Nobody joins the militia because they want to." },
   } },
-  { id = "vigilante", text = "Armed peasants with no royal charter. That's how rebellions start.", fx = { opinion = { people_militia = "distrust" }, align = { order = 1 }, trait = { stern = 1 } }, replies = {
+  { id = "vigilante", text = "Armed peasants with no royal charter is how rebellions start.", fx = { opinion = { people_militia = "distrust" }, align = { order = 1 }, trait = { stern = 1 } }, replies = {
     { id = "a", text = "Some of the nobles say so, oddly enough, about the only people in Westfall actually fighting the Defias.", fx = { affinity = -1 } },
     { id = "b", text = "They've had no help from the crown, so where would the charter come from? Still, I take your point about rebellions." },
   } },
@@ -367,7 +367,7 @@ P:Views { topic = "harvest_watchers", views = {
     { id = "b", text = "Scrap's good money, too, if you can find someone who'll buy it without asking where it came from." },
   } },
   { id = "creepy", text = "I hate walking past them at dusk. Something's watching through those eyes.", fx = { opinion = { harvest_watchers = "fear" }, trait = { cautious = 1 } }, replies = {
-    { id = "a", text = "You're not the only one. The farmers say they move when your back's turned, and I half believe them." },
+    { id = "a", text = "You're not the only one who thinks so. The farmers swear they move when your back's turned, and on a dark night I half believe them." },
     { id = "b", text = "Then don't walk past them at dusk. Simplest advice I'll give you today." },
   } },
 } }
@@ -383,12 +383,12 @@ P:Views { topic = "riverpaw", views = {
   } },
   { id = "careful", text = "They hit hard for gnolls. I've seen their brutes up close.", fx = { opinion = { riverpaw = "respect" }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "Then you've been lucky. Their taskmasters are worse, and they never come alone." },
-    { id = "b", text = "They do. Go in pairs, and watch the ridgelines for archers." },
+    { id = "b", text = "They do, so go in pairs and keep an eye on the ridgelines, because that's where the archers like to sit." },
   } },
 } }
 
 P:Views { topic = "moonbrook", views = {
-  { id = "sad", text = "A whole town gone to the Defias. That breaks my heart.", fx = { opinion = { moonbrook = "pity" }, trait = { kind = 1 } }, replies = {
+  { id = "sad", text = "A whole town gone over to the Defias breaks my heart.", fx = { opinion = { moonbrook = "pity" }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "Mine too. It was a good little town once, with a smithy and a town hall and children in the lanes.", fx = { affinity = 1 } },
     { id = "b", text = "The towns that come back are the ones folk refuse to give up on, and Westfall's farmers are a stubborn lot." },
   } },
@@ -439,7 +439,7 @@ P:Views { topic = "two_orders", views = {
     { id = "a", text = "Dalaran seems to think so, and they've made the Sky Enclave welcome. Time will tell the rest.", fx = { affinity = 1 } },
     { id = "b", text = "Chose well for themselves, perhaps. I'd not say so too loudly near their cousins." },
   } },
-  { id = "windshapers", when = { faction = "Horde" }, text = "The Windshapers honor the spirits. That's a path the Horde understands.", fx = { opinion = { two_orders = "windshapers" }, align = { order = -1 }, trait = { pious = 1 } }, replies = {
+  { id = "windshapers", when = { faction = "Horde" }, text = "The Windshapers honor the spirits, and that's a path the Horde understands.", fx = { opinion = { two_orders = "windshapers" }, align = { order = -1 }, trait = { pious = 1 } }, replies = {
     { id = "a", text = "It is. The Earthen Ring brought them to us, and Thunder Bluff vouched for them, and that's enough for me.", fx = { affinity = 1 } },
     { id = "b", text = "We understand the spirits, aye. Whether the spirits understand them is another matter, since their own spirits went quiet." },
   } },
@@ -462,14 +462,14 @@ P:Views { topic = "shal_nan", views = {
     { id = "a", text = "Some of them grumble that too, though never loudly. Others would say the Shal'nan had reasons we can't see.", fx = { affinity = -1 } },
     { id = "b", text = "Nobody knows if it was walking away or being taken. That's the bitter part." },
   } },
-  { id = "mystery", text = "A golden mask and a vanishing. That's a story I'd like to finish.", fx = { opinion = { shal_nan = "curious" }, trait = { curious = 1 } }, replies = {
+  { id = "mystery", text = "A golden mask and a vanishing make a story I'd like to finish.", fx = { opinion = { shal_nan = "curious" }, trait = { curious = 1 } }, replies = {
     { id = "a", text = "You and every scholar in Dalaran, I imagine. Bring me the ending if you find it." },
-    { id = "b", text = "Careful. Some stories don't like being finished by strangers." },
+    { id = "b", text = "Careful, {class}, because some stories don't like being finished by strangers." },
   } },
 } }
 
 P:Views { topic = "windstones", views = {
-  { id = "useful", text = "Power and coin in one stone. That's clever.", fx = { align = { light = -1 }, opinion = { windstones = "admire" }, trait = { practical = 1 } }, replies = {
+  { id = "useful", text = "Power and coin in one stone is a clever bit of business.", fx = { align = { light = -1 }, opinion = { windstones = "admire" }, trait = { practical = 1 } }, replies = {
     { id = "a", text = "Clever until the pylons fail, and then it's a pocket full of pretty rocks. Still, I'd take a few." },
     { id = "b", text = "It is. A goblin would sell his own grandmother for the secret of making them." },
   } },
@@ -486,9 +486,9 @@ P:Views { topic = "windstones", views = {
 -- Duskwood ---------------------------------------------------------------------
 
 P:Views { topic = "night_watch", views = {
-  { id = "honor", text = "Volunteers holding lamps against the dark. That's the bravest thing I've seen.", fx = { opinion = { night_watch = "admire" }, align = { honor = 1 }, trait = { kind = 1 } }, replies = {
+  { id = "honor", text = "Volunteers holding lamps against the dark is the bravest thing I've seen.", fx = { opinion = { night_watch = "admire" }, align = { honor = 1 }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "Commander Ebonlocke would be glad to hear it. They don't get thanked often, and they're rarely paid.", fx = { affinity = 1 } },
-    { id = "b", text = "Brave, and outnumbered. Most of them have buried someone they patrolled with." },
+    { id = "b", text = "Brave, aye, and badly outnumbered, and most of them have buried someone they used to patrol with." },
   } },
   { id = "useless", text = "Waiting behind lamps won't win anything. Somebody has to hunt the evil down.", fx = { opinion = { night_watch = "doubt" }, align = { order = -1 }, trait = { brave = 1 } }, replies = {
     { id = "a", text = "That's what Calor and the Carevins say in Darkshire. Maybe you're right, but someone has to keep the lamps lit while the hunters hunt.", fx = { affinity = -1 } },
@@ -503,7 +503,7 @@ P:Views { topic = "night_watch", views = {
 P:Views { topic = "worgen", views = {
   { id = "beasts", text = "Monsters, plain and simple. Kill them before they kill us.", fx = { align = { order = 1 }, opinion = { worgen = "hate" }, trait = { brave = 1 } }, replies = {
     { id = "a", text = "Plain enough, and there's no shame in it. Bring silver if you can, and never walk Brightwood Grove alone." },
-    { id = "b", text = "Simple until you meet one. They're smarter than wolves, and crueler." },
+    { id = "b", text = "It sounds simple until you meet one, because they're smarter than wolves and a good deal crueler." },
   } },
   { id = "source", text = "They didn't come from nowhere. Something in these woods made them.", fx = { align = { order = -1 }, opinion = { worgen = "curious" }, trait = { curious = 1 } }, replies = {
     { id = "a", text = "Calor says they come out of thin air, and he's tracked them longer than anyone. Find where they start and you'll find the rot." },
@@ -531,20 +531,20 @@ P:Views { topic = "stalvan", views = {
 } }
 
 P:Views { topic = "carevins", views = {
-  { id = "hunters", text = "Hunting evil instead of waiting for it. That's the right way.", fx = { opinion = { carevins = "admire" }, align = { order = -1 }, trait = { brave = 1 } }, replies = {
+  { id = "hunters", text = "Hunting evil down instead of waiting for it is the right way.", fx = { opinion = { carevins = "admire" }, align = { order = -1 }, trait = { brave = 1 } }, replies = {
     { id = "a", text = "Jonathan Carevin would shake your hand for that. Calor too, and he doesn't shake hands with just anyone.", fx = { affinity = 1 } },
     { id = "b", text = "Right, or reckless. The Night Watch would tell you hunters leave the town unguarded." },
   } },
-  { id = "zealots", text = "They sound more like zealots than heroes. That worries me.", fx = { opinion = { carevins = "distrust" }, align = { order = 1 }, trait = { cautious = 1 } }, replies = {
+  { id = "zealots", text = "They sound more like zealots than heroes, and that worries me.", fx = { opinion = { carevins = "distrust" }, align = { order = 1 }, trait = { cautious = 1 } }, replies = {
     { id = "a", text = "They'd call it faith. 'Trust none who won't aid our cause' is a hard creed to live next to, though.", fx = { affinity = -1 } },
-    { id = "b", text = "Maybe so, but zealots are useful in a place like this. The question is what they do when the monsters run out." },
+    { id = "b", text = "Zealots have their uses in a place like Duskwood, I'll grant you, but I wonder what they'll do with themselves when the monsters run out." },
   } },
-  { id = "light", text = "They fight for the Light and feed those who help. That's decent.", fx = { opinion = { carevins = "respect" }, align = { light = 1 }, trait = { pious = 1 } }, replies = {
+  { id = "light", text = "They fight for the Light and feed whoever helps, which is decent of them.", fx = { opinion = { carevins = "respect" }, align = { light = 1 }, trait = { pious = 1 } }, replies = {
     { id = "a", text = "It is. Elaine Carevin sends supplies to people the town has forgotten, and that counts for a lot.", fx = { affinity = 1 } },
     { id = "b", when = { race = "Scourge" }, text = "Kind words, {class}, though I'd not let them see you too closely if I were you. Their creed covers the undead." },
   } },
   { id = "secret", text = "A family that keeps its own counsel is hiding something.", fx = { opinion = { carevins = "suspicion" }, align = { light = -1 }, trait = { skeptical = 1 } }, replies = {
-    { id = "a", text = "Everyone in Darkshire is hiding something, {class}. It's that sort of town." },
+    { id = "a", text = "Everyone in Darkshire is hiding something, {class}, and after a few nights there you'll understand why." },
     { id = "b", text = "Maybe, though in Duskwood privacy is how you stay alive. I'd not read too much into it." },
   } },
 } }
@@ -554,13 +554,13 @@ P:Views { topic = "ladimore", views = {
     { id = "a", text = "He does, and those who knew him before the war say so too. Sirra Von'Indi, the town's historian, still keeps his story.", fx = { affinity = 1 } },
     { id = "b", text = "Laid to rest, aye. He's killed watchmen since, though, so don't let pity slow your hand." },
   } },
-  { id = "murderer", text = "Grief or not, he killed. That makes him a murderer.", fx = { opinion = { ladimore = "condemn" }, align = { light = -1 }, trait = { stern = 1 } }, replies = {
-    { id = "a", text = "It does, and the dead stay dead whatever his reasons. Still, it's a sad thing to say of one of Uther's knights." },
+  { id = "murderer", text = "Grief or not, he killed, and that makes him a murderer.", fx = { opinion = { ladimore = "condemn" }, align = { light = -1 }, trait = { stern = 1 } }, replies = {
+    { id = "a", text = "The dead stay dead whatever his reasons were, and that's the truth of it, though it's a sad thing to say of one of Uther's own knights." },
     { id = "b", text = "Spoken plainly. Most in Darkshire can't bring themselves to say it so bluntly.", fx = { affinity = -1 } },
   } },
   { id = "warning", text = "That could be any soldier coming home. War breaks people.", fx = { opinion = { ladimore = "warning" }, trait = { honest = 1 } }, replies = {
     { id = "a", text = "It could. That's why folk tell the story, I think, and why they don't tell it lightly." },
-    { id = "b", text = "It does, and it'll keep doing it. Mind your own heart when you come back from the woods." },
+    { id = "b", text = "It will keep doing it, too, so mind your own heart when you come back out of those woods, {class}." },
   } },
 } }
 
@@ -571,11 +571,11 @@ P:Views { topic = "gnomeregan", views = {
     { id = "a", text = "That's the spirit Mekkatorque is counting on. Every gnome in Ironforge says it, and one day it'll be true.", fx = { affinity = 1 } },
     { id = "b", text = "Brave words. Just remember how many walked out of that city and how many didn't." },
   } },
-  { id = "tragedy", text = "A whole city lost in a single night. That's a terrible thing.", fx = { opinion = { gnomeregan = "pity" }, align = { light = 1 }, trait = { kind = 1 } }, replies = {
+  { id = "tragedy", text = "Losing a whole city in a single night is a terrible thing.", fx = { opinion = { gnomeregan = "pity" }, align = { light = 1 }, trait = { kind = 1 } }, replies = {
     { id = "a", text = "Terrible, and still in their eyes, if you look. Tinker Town's full of gnomes who left everything behind.", fx = { affinity = 1 } },
-    { id = "b", text = "It was, and the radiation means nobody can even go back for the dead." },
+    { id = "b", text = "It was a terrible thing, and the radiation means nobody can so much as go back for the dead." },
   } },
-  { id = "fault", text = "Flooding your own city with radiation. That was a reckless plan.", fx = { opinion = { gnomeregan = "blame" }, align = { light = -1 }, trait = { honest = 1 } }, replies = {
+  { id = "fault", text = "Flooding your own city with radiation was a reckless plan.", fx = { opinion = { gnomeregan = "blame" }, align = { light = -1 }, trait = { honest = 1 } }, replies = {
     { id = "a", text = "Reckless, aye, but what else was there? The troggs would have taken the whole city anyway.", fx = { affinity = -1 } },
     { id = "b", text = "Don't say it in Tinker Town. They know it better than you do." },
   } },

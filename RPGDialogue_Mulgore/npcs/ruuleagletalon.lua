@@ -53,7 +53,36 @@ P:NPC {
         { text = "What else threatens Bloodhoof besides harpies?", next = "threats" },
         { text = "How should I fight the Windfury?", next = "tactics" },
         { text = "Can my pet fight the harpies with me?", next = "pet_harpy", when = { class = "HUNTER" } },
+        { text = "How did you get that scar on your arm?", next = "w7_scar" },
         { text = "Farewell, Ruul.", next = "END" },
+      },
+    },
+    w7_scar = {
+      lines = {
+        { id = "w7_scar_l1", text = "A Windfury matriarch, years ago, when I was as young and as sure as you. She came down on me from above while I was watching the three in front, and her talons opened me from shoulder to wrist." },
+      },
+      choices = {
+        { text = "How did you survive?", next = "w7_scar2" },
+        { text = "You should have watched the sky.", next = "w7_scar3" },
+        { text = "Something else, Ruul.", next = "BACK" },
+      },
+    },
+    w7_scar2 = {
+      lines = {
+        { id = "w7_scar2_l1", text = "My brother Eyahn, who was watching the sky when I was not. He put a spear through her before she could come back for my throat, and then he carried me down to Bloodhoof and complained about my weight the whole way." },
+        { id = "w7_scar2_l2", when = { class = "WARRIOR" }, text = "Eyahn, who watched the sky for me. You'll learn this, as I did: a warrior is only as safe as the one at his back. Find someone who will watch your sky, and watch theirs." },
+      },
+      choices = {
+        { text = "He sounds like a good brother.", next = "BACK", reply = "The best, though I will never tell him so to his face." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_scar3 = {
+      lines = {
+        { id = "w7_scar3_l1", text = "I should have, and now I do. That is why I send the young against the harpies first: they teach you to look up." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     threats = {

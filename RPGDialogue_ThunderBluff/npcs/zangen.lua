@@ -54,7 +54,22 @@ P:NPC {
         { text = "How can I help?", next = "BUSINESS" },
         { text = "What do you ask the ancestors for?", next = "ancestors" },
         { text = "The fire seems to be the heart of the rise.", next = "heart" },
+        { text = "Have you ever missed lighting the fire?", next = "w5_missed" },
         { text = "Earth Mother watch over you.", next = "END" },
+      },
+    },
+    w5_missed = {
+      lines = { { id = "w5_missed_l", text = "Once, many winters ago. I was sick with fever, and I could not climb to the rise. When I woke the next morning I was afraid that something had happened in the night, some harm the ancestors had not seen coming. Nothing had. The bluff was quiet." } },
+      choices = {
+        { text = "So the fire wasn't needed after all?", next = "w5_missed2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_missed2 = {
+      lines = { { id = "w5_missed2_l", text = "Fyr Mistrunner told me later that she had lit it herself, with a coal from her oven, when she saw it was dark. She did not know the words. She only said, \"Watch over us, please.\" I think the ancestors heard her better than they have ever heard me." } },
+      choices = {
+        { text = "Then the words matter less than the asking.", next = "BACK", reply = "Yes. I still say the words. But I say them more simply now." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     ancestors = {

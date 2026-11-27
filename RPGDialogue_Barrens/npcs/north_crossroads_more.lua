@@ -47,7 +47,23 @@ P:NPC {
         { text = "What's to the north of here?", next = "north" },
         { text = "Brine says the Horde needs menders more than burners.", next = "brine" },
         { text = "What happens to the young ones who fail the fire?", next = "fail" },
+        { text = "Your children run wild around the homestead.", next = "w5_kids" },
         { text = "I'll leave you to your fire.", next = "END" },
+      },
+    },
+    w5_kids = {
+      lines = { { id = "w5_kids_l", text = "They do. Karu cooks, Okla gathers stones, and Trok runs from bees, as he is doing now. Their mother went to the ancestors when Trok was small, and the spirits keep me on the hill more than a father should be away. They raise each other, mostly. They do it well." } },
+      choices = {
+        { text = "Will any of them follow the fire?", next = "w5_kids2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_kids2 = {
+      lines = { { id = "w5_kids2_l", text = "Trok has the hunger for it. He is reckless, and fire loves the reckless. Karu has the patience for water, I think, and Okla listens to stones the way I once listened to flame. I could teach them all fire, as I was taught. I am not sure that I should." } },
+      choices = {
+        { text = "Let each child find their own element.", next = "BACK", reply = "Yes. The spirits choose. A father only makes the choosing harder if he pushes.", fx = { align = { order = -1 } } },
+        { text = "Teach them fire. A father passes on what he knows.", next = "BACK", reply = "That is the old way, and it made me. But I look at Trok and I see what fire did to me first.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     fire = {
@@ -151,7 +167,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Anything else? The beasts need their evening walk soon." } },
       choices = {
-        { text = "Good stables keep the Crossroads strong.", next = "BACK", reply = "They do. You understand.", fx = { align = { order = 1 } } },
+        { text = "Good stables keep the Crossroads strong.", next = "BACK", reply = "They do. A rider who walks home because his wolf went lame is no use to anyone.", fx = { align = { order = 1 } } },
         { text = "Stables are just barns.", next = "BACK", reply = "Then sleep in one.", fx = { align = { order = -1 } } },
         { text = "I'd like to stable my companion.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "What beasts do the Barrens hunters tame?", next = "beasts" },

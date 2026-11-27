@@ -296,7 +296,25 @@ P:NPC {
         { text = "What's devilsaur leather actually worth, Quixxil?", next = "dd_devilsaur", when = { killed = { name = "Devilsaur", min = 10 } } },
         { text = "How do the goods get out of the crater?", next = "ramp" },
         { text = "Williden seems to trust you more than he should.", next = "williden" },
+        { text = "What do you think of Gibbert's prices?", next = "w9_gib" },
         { text = "I'll be on my way, Quixxil.", next = "END" },
+      },
+    },
+
+    w9_gib = {
+      lines = { { id = "w9_gib_d", text = "Gibbert? Listen, listen, the man's an artist, pal, he sells a sword at a price that makes a devilsaur blush and the customer thanks him for it. I send folks his way, he sends folks mine, and we both get a little finder's fee, which is just neighbourly." } },
+      choices = {
+        { text = "So you're in business together?", next = "w9_gib2" },
+        { text = "That sounds like collusion.", next = "w9_gib2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_gib2 = {
+      lines = { { id = "w9_gib2_d", text = "Collusion's a strong word, friend, I prefer \"regional cooperation.\" The scientists need blades and supplies, we supply both, and if anybody wants to undercut us, they're welcome to haul a cart down the ramp past the raptors themselves." } },
+      choices = {
+        { text = "Fair enough.", next = "BACK", reply = "See? You get it, pal. You'd do great in the Cartel." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dd_devilsaur = {
@@ -443,7 +461,28 @@ P:NPC {
         { text = "Let me see your weapons.", next = "BUSINESS" },
         { text = "Who's this Shizzle, anyway?", next = "kid" },
         { text = "Do you ever go down into the crater yourself?", next = "down" },
+        { text = "What's the worst seller on your rack?", next = "w9_worst" },
         { text = "Later, Gibbert.", next = "END" },
+      },
+    },
+
+    w9_worst = {
+      lines = {
+        { id = "w9_worst_d", text = "Spears, pal, every time, and it breaks my heart! A spear's perfect for a raptor, keeps it at arm's length and then some, but everybody who comes down here wants a big axe, 'cause they've heard the word \"devilsaur\" and they've stopped thinking." },
+        { id = "w9_worst_v1", when = { class = "HUNTER" }, text = "Spears, and you of all people oughta know better, pal! A spear keeps a raptor at a nice long distance, but every hunter who comes through wants an axe for when the beast gets close, and the beast always gets close." },
+      },
+      choices = {
+        { text = "Why not drop the price?", next = "w9_worst2" },
+        { text = "An axe does sound better.", next = "w9_worst2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_worst2 = {
+      lines = { { id = "w9_worst2_d", text = "Drop the price? On a quality spear? Friend, I'd sooner drop the spear on my foot. No, I wait, and sooner or later somebody comes back from the jungle missin' a chunk of shoulder, and that's the fella who buys a spear." } },
+      choices = {
+        { text = "That's dark, Gibbert.", next = "BACK", reply = "That's retail, pal. Same thing, mostly." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     best = {

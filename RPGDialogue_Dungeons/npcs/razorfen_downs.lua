@@ -30,6 +30,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_watch = {
+      lines = { { id = "w8_watch_a", text = "Since the cold first crept south from the barrows, and the thorns began to grey at their tips. I have watched quilboar die and rise, and I have counted every one, and the number grows each night." } },
+      choices = {
+        { text = "Why not call for help sooner?", next = "w8_watch2" },
+        { text = "You've carried this alone too long.", next = "w8_watch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_watch2 = {
+      lines = { { id = "w8_watch2_a", text = "I did call, and the Crossroads sent scouts, and the scouts went into the thorns and did not come out. So I waited for someone who would get this far on their own, and here you stand." } },
+      choices = {
+        { text = "Then let's finish this together.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", key = true, text = "My name is Belnistrasz. The Scourge have come here to the Downs and made a bargain with the quilboar, and they are using a great idol to spread their plague through the thorns." } },
       again = { { id = "h_again", text = "Ask what you must, but quickly." }, { id = "h_again2", text = "Is there something more you need to know?" } },
@@ -41,6 +57,7 @@ P:NPC {
         { text = "My elders say Agamaggan's blood made these thorns.", next = "agamaggan", when = { race = "Tauren" } },
         { text = "There's something unnatural about you, Belnistrasz.", next = "sense", when = { class = { "MAGE", "DRUID", "PRIEST" } } },
         { text = "I'll help you destroy the idol.", next = "BUSINESS" },
+        { text = "How long have you watched the Downs?", next = "w8_watch" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -136,9 +153,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_meal = {
+      lines = { { id = "w8_meal_a", text = "A shark-fin soup in a Booty Bay galley during a storm, with the whole ship rolling and the captain shouting for it, and I never spilled a drop! The crew called it the best thing they'd eaten in a year, and then they all got seasick, so I never knew if they meant it." } },
+      choices = {
+        { text = "That's a cook's victory, either way.", next = "w8_meal2" },
+        { text = "Shark-fin soup? What's the secret?", next = "w8_meal2" },
+        { text = "I cook too. I'd love that recipe.", next = "w8_meal2", when = { profession = "Cooking" } },
+        { text = "Something else, Henry.", next = "BACK" },
+      },
+    },
+    w8_meal2 = {
+      lines = {
+        { id = "w8_meal2_a", text = "A splash of rum and a fistful of goldthorn, which is the real reason I'm tied to a post in a field of dead pigs. Every recipe's got a price, friend, and that one's cost me more than most." },
+        { id = "w8_meal2_cook", when = { profession = "Cooking" }, text = "Untie me and it's yours, friend, every pinch and splash of it! Rum, goldthorn and a slow simmer, and never, ever add salt until the end, which is what every galley cook gets wrong." },
+      },
+      choices = {
+        { text = "Let's get you out of here first.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", key = true, text = "Henry Stern, cook and collector of recipes, though right now I'm more of a collector of bruises. The quilboar caught me looking for goldthorn, and I've been here long enough to stop counting the days." } },
-      again = { { id = "h_again", text = "What else can I tell you, friend?" } },
+      again = { { id = "h_again", text = "What else can I tell you, friend? Talking keeps my mind off the ropes, and off the dead pigs." } },
       choices = {
         { text = "What recipes do you know?", next = "recipes" },
         { text = "Why come into the Downs at all?", next = "why" },
@@ -148,6 +185,7 @@ P:NPC {
         { text = "A shaman knows a good root when he sees one.", next = "darkspear", when = { class = "SHAMAN" } },
         { text = "Can you teach me something?", next = "BUSINESS" },
         { text = "Who are you cooking for, back home?", next = "yhome" },
+        { text = "What's the best meal you ever cooked?", next = "w8_meal" },
         { text = "Stay safe, Henry.", next = "END" },
       },
     },

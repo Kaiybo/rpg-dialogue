@@ -120,7 +120,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. I remember when this forest was green. Do your spirits remember too?" },
       },
       again = {
-        { id = "h_again", text = "What else do you want to know?" },
+        { id = "h_again", text = "What else? Ask it. It makes no difference to me, though I'll answer." },
         { id = "h_again2", text = "Ask, then. The fire's not going anywhere, and neither am I." },
       },
       choices = {

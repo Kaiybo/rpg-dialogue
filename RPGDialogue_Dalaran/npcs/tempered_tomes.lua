@@ -31,6 +31,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_best = {
+      lines = { { id = "w8_best_a", text = "A book of human children's rhymes, with little pictures of farms and sheep, and La'tanja says it has nothing to do with our isles and I should put it back. I've read it nine times, and I think I'd like to see a sheep before I go home." } },
+      choices = {
+        { text = "There are sheep in Elwynn, near Stormwind.", next = "w8_best2" },
+        { text = "La'tanja has a point.", next = "w8_best2" },
+        { text = "I grew up near farms like that.", next = "w8_best2", when = { race = "Human" } },
+        { text = "Something else, Kae'la.", next = "BACK" },
+      },
+    },
+    w8_best2 = {
+      lines = {
+        { id = "w8_best2_a", text = "Then I'll go to Elwynn, and I'll stand in a field, and I'll look at a sheep, and it will be the best day I've had on Azeroth! La'tanja can come too, if she promises not to bring the list." },
+        { id = "w8_best2_hu", when = { race = "Human" }, text = "Did you really? Do the sheep say 'baa' the way the book says, or is that just a human joke? Oh, tell me it's true, I'll be so pleased." },
+      },
+      choices = {
+        { text = "They do say baa.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -53,6 +73,7 @@ P:NPC {
         { text = "What's Azeroth like, after the sky?", next = "azeroth" },
         { text = "Which isle are you from?", next = "xskyborne", when = { race = "Skyborne" } },
         { text = "I studied with the Kirin Tor, as it happens.", next = "xmage", when = { class = "MAGE" } },
+        { text = "What's the best book you've found in Dalaran?", next = "w8_best" },
         { text = "Happy reading, Kae'la.", next = "END" },
       },
     },
@@ -190,6 +211,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_free = {
+      lines = { { id = "w8_free_a", text = "Write letters home that I'm not sure will arrive, and walk the city's walls to see how the Kirin Tor anchored them. I'm told that's not a hobby, but it's the closest thing I have." } },
+      choices = {
+        { text = "What have you learned from the walls?", next = "w8_free2" },
+        { text = "You should rest sometimes.", next = "w8_free2" },
+        { text = "Something else, La'tanja.", next = "BACK" },
+      },
+    },
+    w8_free2 = {
+      lines = { { id = "w8_free2_a", text = "That the Kirin Tor anchored the stones to each other and not to the ground, which is the opposite of what we tried on Zephras. I've written it down three times in case I forget, and once more for Kae'la, who will lose it." } },
+      choices = {
+        { text = "That sounds like a real find.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -212,6 +249,7 @@ P:NPC {
         { text = "What happened between your people and the Windshapers?", next = "windshapers" },
         { text = "The pylons near the landing looked weak.", next = "xskyborne", when = { race = "Skyborne" } },
         { text = "Ask me your question about wards.", next = "xmage", when = { class = "MAGE" } },
+        { text = "What do you do when you're not reading?", next = "w8_free" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -349,6 +387,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_fam = {
+      lines = { { id = "w8_fam_a", text = "Not by name, but there's a line in a human traveller's journal about a magister of Eldre'Thalas who wore a brooch like my grandmother's. It might mean nothing, and I've read it so often that the page has gone soft." } },
+      choices = {
+        { text = "It might mean everything.", next = "w8_fam2" },
+        { text = "Have you asked Ranath about it?", next = "w8_fam2" },
+        { text = "Something else, Ysa'bel.", next = "BACK" },
+      },
+    },
+    w8_fam2 = {
+      lines = { { id = "w8_fam2_a", text = "I've asked him, and he looked at the brooch for a long time and said that many magisters wore such things. That's the closest he's come to telling me anything, and I think it was meant kindly." } },
+      choices = {
+        { text = "Keep asking. He'll tell you one day.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -371,6 +425,7 @@ P:NPC {
         { text = "How do you three get along?", next = "friends" },
         { text = "What do you remember of the old days?", next = "xnightelf", when = { race = "NightElf" } },
         { text = "What do you hope to find, cousin?", next = "xskyborne", when = { race = "Skyborne" } },
+        { text = "Is there a book here that names your family?", next = "w8_fam" },
         { text = "Winds be with you.", next = "END" },
       },
     },

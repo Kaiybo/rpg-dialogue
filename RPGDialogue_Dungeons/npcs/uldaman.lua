@@ -22,6 +22,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_eat = {
+      lines = { { id = "w8_eat_a", text = "Whatever I carry in from Kargath or the dwarven camp at the dig, and dried fruit, and a great deal of tea. The League's cooks leave a pot out by the entrance some nights, and I pretend it's for the troggs and take it anyway." } },
+      choices = {
+        { text = "Do the League know you take it?", next = "w8_eat2" },
+        { text = "You could just ask them for a meal.", next = "w8_eat2" },
+        { text = "Something else, Annora.", next = "BACK" },
+      },
+    },
+    w8_eat2 = {
+      lines = { { id = "w8_eat2_a", text = "Of course they do, and they pretend not to, and that's the most civilised arrangement I've had with anyone in years. If I asked, they'd want conversation with it, and I've come a long way to avoid conversation." } },
+      choices = {
+        { text = "And yet here we are, talking.", next = "BACK", reply = "Yes, well, you got past the scorpids, so I'll allow it. Don't make a habit of it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", key = true, text = "I'm Annora, and I teach the higher arts of enchanting to those who are clever and brave enough to find me. These ruins are quiet, the scorpids keep the curious away, and the titans' stone hums with old magic." } },
       again = {
@@ -40,6 +56,7 @@ P:NPC {
         { text = "What do you make of the troggs down here?", next = "xtrogg" },
         { text = "I'm a mage. Could I learn enchanting from you?", next = "xmage", when = { class = "MAGE" } },
         { text = "These are my people's halls. You're a guest.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "What do you eat, down here in the ruins?", next = "w8_eat" },
         { text = "I'll leave you be.", next = "END" },
       },
     },

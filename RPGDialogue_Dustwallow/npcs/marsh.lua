@@ -821,7 +821,7 @@ P:NPC {
         { id = "h_kills", tags = { "news" }, when = { killed = { name = "Bloodfen", min = 30 } }, text = "The lads on the tower say the raptor calls have gone quiet along the road, and I think we have you to thank. It's the first quiet night we've had in a month." },
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. You'll be asking the stones what I saw, then, and I'll tell you what I told everyone else: nothing out of the ordinary." },
       },
-      again = { { id = "h_again", text = "Anything else, citizen?" }, { id = "h_again2", text = "Make it quick; I'm on watch." } },
+      again = { { id = "h_again", text = "Anything else, citizen? State it plainly; I've a patrol log to keep and the deserters don't log themselves." }, { id = "h_again2", text = "Make it quick; I'm on watch." } },
       choices = {
         { text = "What does the fog hide out here, Private?", next = "druid_q", when = { class = "DRUID" } },
         { text = "What happened at the Shady Rest?", next = "b1_1" },

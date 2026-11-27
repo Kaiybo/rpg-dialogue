@@ -36,6 +36,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_water = {
+      lines = {
+        { id = "w2_water_l0", text = "From the spring above Anvilmar, an' I'll no' use anythin' else. Snow-water's too flat, an' the stream by the troll caves tastes o' troll, which I'll no' describe tae ye." },
+      },
+      choices = {
+        { text = "You walk to the spring every morning?", next = "w2_water_walk" },
+        { text = "Water's water.", next = "BACK" },
+      },
+    },
+    w2_water_walk = {
+      lines = {
+        { id = "w2_water_walk_l0", text = "Every mornin' before dawn, wi' two buckets an' a lantern. The recruits think I'm daft, but they line up for the brew all the same, so I reckon I'm daft in a useful way." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Nori Pridedrift, an' this is Scalding Mornbrew, the finest thing tae happen tae a cold mornin' since fire. Everyone in the valley drinks it, an' everyone in the valley wants it now." },
@@ -58,6 +75,7 @@ P:NPC {
         { text = "You must have a few regular customers.", next = "customers" },
         { text = "Couldn't a mage just warm the cup?", next = "mage", when = { class = "MAGE" } },
         { text = "I can run it for you.", next = "BUSINESS" },
+        { text = "Where do you get your water for the mornbrew?", next = "w2_water" },
         { text = "I'll let you get on, Nori.", next = "END" },
       },
     },

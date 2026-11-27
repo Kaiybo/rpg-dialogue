@@ -58,7 +58,22 @@ P:NPC {
         { text = "I've killed my share of Alliance soldiers, Borook.", next = "dd_honor", when = { honorKills = { min = 100 } } },
         { text = "Who fights for the Darkspear Raiders?", next = "raiders" },
         { text = "This wind would drive any troll mad.", next = "wind" },
+        { text = "What do the tauren make of a troll recruiting them?", next = "w5_tauren" },
         { text = "Another time, Borook.", next = "END" },
+      },
+    },
+    w5_tauren = {
+      lines = { { id = "w5_tauren_l", text = "At first dey look at Borook like he be a strange bird blown up de cliff. Den dey hear about de islands, how Theramore's men burn de huts an' shoot de raptors, an' dey get quiet. Tauren know about bein' driven from home, mon." } },
+      choices = {
+        { text = "So they fight for the islands as their own?", next = "w5_tauren2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_tauren2 = {
+      lines = { { id = "w5_tauren2_l", text = "Some do. Some fight because Cairne say de Horde stand together. A few just like to hit humans, an' Borook don't ask too many questions. When a big tauren come back from de islands an' tell Borook he saw de sea for de first time, dat be a good day." } },
+      choices = {
+        { text = "A tauren who has seen the sea. That's a good day.", next = "BACK", reply = "It be, mon. He say it look like Mulgore, only wetter an' angrier." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     raiders = {

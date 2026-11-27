@@ -74,7 +74,28 @@ P:NPC {
         { text = "What happened to the town?", next = "town" },
         { text = "Who comes through the Vigil these days?", next = "folk" },
         { text = "Do you know anything about Marshal Windsor?", next = "windsor", when = { questBefore = Q_JAILBREAK } },
+        { text = "Where does a cheese come from, up here?", next = "w9_cheese" },
         { text = "I'll be on my way.", next = "END" },
+      },
+    },
+
+    w9_cheese = {
+      lines = {
+        { id = "w9_cheese_d", text = "Lakeshire, love, on Borgus Stoutarm's gryphons, wrapped in three layers of cloth so it doesn't come out of the sky tasting of ash. Half of it still does, and I tell the soldiers it's smoked on purpose, and they're too hungry to argue." },
+        { id = "w9_cheese_v1", when = { race = "Human" }, text = "Redridge, the same as you'd buy at home, flown in on Borgus's gryphons and wrapped three times against the ash. You'll taste a bit of smoke in it, love, but you'll taste home too, and that's worth more than the copper." },
+      },
+      choices = {
+        { text = "Does Borgus mind carrying cheese?", next = "w9_cheese2" },
+        { text = "Smoked on purpose. Clever.", next = "w9_cheese2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_cheese2 = {
+      lines = { { id = "w9_cheese2_d", text = "He grumbles that his gryphons smell of it for days and the black dragons can follow the scent, which I don't believe for a moment. I give him the first slice of every wheel, and he's stopped grumbling, mostly." } },
+      choices = {
+        { text = "Bribery works wonders.", next = "BACK", reply = "It's not bribery, love, it's hospitality. There's a difference, somewhere." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

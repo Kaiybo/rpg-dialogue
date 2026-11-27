@@ -82,7 +82,7 @@ P:NPC {
           text = "It gets cold by the water at night, and the wolves come down to drink. I keep very still and hope they think I'm a log." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'm not going anywhere." },
+        { id = "h_again", text = "Anything else? Ask it slow; the leg sets the pace round here, not me." },
         { id = "h_again2", text = "Ask away. It takes my mind off the leg." },
       },
       choices = {
@@ -93,6 +93,7 @@ P:NPC {
         { text = "Can I help?", next = "BUSINESS" },
         { text = "How are things in Goldshire these days?", next = "d6_gold" },
         { text = "What's on the far side of the lake?", next = "d6_lake" },
+        { text = "You've been counting the ducks, I hear.", next = "e3_ducks" },
         { text = "Rest easy, Roberts.", next = "END" },
       },
     },
@@ -152,6 +153,24 @@ P:NPC {
         { text = "The Light asks nothing of you. Just breathe.", next = "BACK", reply = "Breathing I can manage, mostly, though the ribs have opinions about it. Go on, then, and I'll try not to flinch where you can see.", fx = { align = { light = 1 }, affinity = 2 } },
         { text = "It'll hurt. Pain means you're still alive.", next = "BACK", reply = "Then I must be very much alive right now, thank you kindly. Get on with it before I lose my nerve and my breakfast both.", fx = { align = { light = -1 }, affinity = 1 } },
         { text = "Maybe later.", next = "BACK" },
+      },
+    },
+    e3_ducks = {
+      lines = {
+        { id = "e3_ducks_l0", text = "Eleven of them, and I've named every one after a sergeant who ever shouted at me, which passes the time better than you'd think. The fat one that won't share the bread is Sergeant Willem, and if you tell the Deputy, I'll deny it." },
+      },
+      choices = {
+        { text = "Which one's Marshal Dughan?", next = "e3_ducks2" },
+        { text = "Your secret's safe with the ducks.", next = "BACK" },
+      },
+    },
+    e3_ducks2 = {
+      lines = {
+        { id = "e3_ducks2_l0", text = "None of them, because a man has to draw a line somewhere, and the Marshal's the one who'll be signing my sick pay. There's a heron by the reeds, though, very tall and very tired, that I've been tempted to name after him." },
+      },
+      choices = {
+        { text = "The heron it is. Something else.", next = "BACK" },
+        { text = "Best keep the Marshal off the list.", next = "BACK" },
       },
     },
   },

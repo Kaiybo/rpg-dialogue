@@ -62,7 +62,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Talk while I watch the road." },
-        { id = "h_again2", text = "Go on, but keep your voice down." },
+        { id = "h_again2", text = "Go on, but quietly. SI:7 didn't keep me alive this long by talking loud in camps." },
       },
       choices = {
         { text = "You had a file on Araj?", next = "dd_araj", when = { killed = { name = "Araj" } } },
@@ -270,7 +270,28 @@ P:NPC {
         { text = "What do you make of Chillwind Camp?", next = "camp" },
         { text = "Who told you about this murdered mage?", next = "ai_rumour" },
         { text = "You don't walk like a soldier.", next = "ai_trade" },
+        { text = "What's the finest weapon you've ever seen?", next = "w9_finest" },
         { text = "Safe travels, Alexia.", next = "END" },
+      },
+    },
+
+    w9_finest = {
+      lines = {
+        { id = "w9_finest_d", text = "A dwarven war axe in a Southshore tavern, owned by a fella who couldnae lift it, an' I've thought about the balance o' that thing ever since. Whoever forged it knew the steel the way a mother knows a bairn, an' I'd walk to Hearthglen twice tae see another like it." },
+        { id = "w9_finest_v1", when = { race = "Dwarf" }, text = "A war axe from yer own forges, kinsman, hangin' in a Southshore tavern on a fella who couldnae lift it. Whoever forged it knew the steel like a mother knows a bairn, an' I'd wager it came out o' the Great Forge itself." },
+      },
+      choices = {
+        { text = "What happened to it?", next = "w9_finest2" },
+        { text = "You sound more trader than soldier.", next = "w9_finest2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_finest2 = {
+      lines = { { id = "w9_finest2_d", text = "He lost it at cards tae a Stromgarde mercenary, an' it went east, an' I lost the trail at Refuge Pointe. That's the trouble wi' fine things, they never stay where ye leave 'em, which is why I'm after these Scarlet ones before somebody else is." } },
+      choices = {
+        { text = "I hope you find them first.", next = "BACK", reply = "So do I. Keep an eye out for me, an' I'll no' forget it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

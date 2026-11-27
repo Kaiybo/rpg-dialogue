@@ -35,6 +35,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_dng = {
+      lines = { { id = "w8_dng_a", text = "Mikhail, behind the bar, because he hears everything and forgets nothing and pours the drinks that loosen tongues. After him, the quiet dwarf by the fire who's been nursing the same mug for three hours, because nobody drinks that slowly unless they're working." } },
+      choices = {
+        { text = "Who's the dwarf working for?", next = "w8_dng2" },
+        { text = "And where do you rank, Slim?", next = "w8_dng2" },
+        { text = "A rogue would sit by the fire too.", next = "w8_dng2", when = { class = "ROGUE" } },
+        { text = "Something else, Slim.", next = "BACK" },
+      },
+    },
+    w8_dng2 = {
+      lines = {
+        { id = "w8_dng2_a", text = "I've no idea, friend, and that's what makes him dangerous. Me, I'm the least dangerous man in the room, which is a reputation I've worked very hard for and intend to keep." },
+        { id = "w8_dng2_rog", when = { class = "ROGUE" }, text = "Exactly, which is why I sit by the door and you're sitting with me. Between the two of us we've covered both exits, friend, and that's the closest thing to friendship our trade allows." },
+      },
+      choices = {
+        { text = "I'll keep an eye on the dwarf.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -58,6 +78,7 @@ P:NPC {
         { text = "What brings you to Menethil?", next = "menethil" },
         { text = "Why do you sit by the door?", next = "door" },
         { text = "How does a rogue earn a living here?", next = "trade", when = { class = "ROGUE" } },
+        { text = "Who's the most dangerous person in this tavern?", next = "w8_dng" },
         { text = "Enjoy your drink, Slim.", next = "END" },
       },
     },
@@ -187,6 +208,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_wst = {
+      lines = { { id = "w8_wst_a", text = "A guard with a crocolisk's tooth broken off in his calf, still in there, an inch and a half long, and he'd walked from the marsh on it! I extracted it with a pair of pliers I'd adjusted for the angle, and he kept the tooth on a string, which was a much better outcome than he deserved." } },
+      choices = {
+        { text = "Pliers? That sounds painful.", next = "w8_wst2" },
+        { text = "He's lucky you were here.", next = "w8_wst2" },
+        { text = "I'm a gnome too. What did you adjust on the pliers?", next = "w8_wst2", when = { race = "Gnome" } },
+        { text = "Something else, Fremal.", next = "BACK" },
+      },
+    },
+    w8_wst2 = {
+      lines = {
+        { id = "w8_wst2_a", text = "Extremely, but only for four seconds, which I timed, and a bandage done properly takes the rest of the pain away in a day. People think healing is gentle, but sometimes it's just very quick violence followed by very careful linen." },
+        { id = "w8_wst2_gn", when = { race = "Gnome" }, text = "The jaw angle, twelve degrees, and a little ratchet so they wouldn't slip, which nobody here appreciated at all! You'd have appreciated it, I can tell, so come by later and I'll show you the drawings." },
+      },
+      choices = {
+        { text = "Quick violence, careful linen. Noted.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -197,7 +238,7 @@ P:NPC {
           text = "A healer, and you still want bandages? Good, because the Light gets tired and the linen never does." },
       },
       again = {
-        { id = "h_again", text = "What else? Ask quickly, I've a sailor upstairs with a fishhook in his thumb." },
+        { id = "h_again", text = "What else? Ask quickly, I've a sailor upstairs with a fishhook in his thumb and a very precise plan for getting it out." },
       },
       choices = {
         { text = "A healer should tend anyone who's hurt, whoever they are.", next = "BACK", reply = "Exactly so, and I'd bandage a Dark Iron if he stumbled in bleeding, though I'd watch his hands.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -208,6 +249,7 @@ P:NPC {
         { text = "Where can I learn more after you?", next = "further" },
         { text = "Who are your patients, mostly?", next = "fd_patients" },
         { text = "You talk about bandages like engineering.", next = "fd_engine" },
+        { text = "What's the worst wound you've ever patched?", next = "w8_wst" },
         { text = "Thanks, Fremal.", next = "END" },
       },
     },
@@ -328,6 +370,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_tch = {
+      lines = { { id = "w8_tch_a", text = "To kneel and wait before they cut anything, and to look at the plant as if it might look back. The humans find it foolish, and the dwarves find it slow, and the ones who do it anyway become the best gatherers in the harbor." } },
+      choices = {
+        { text = "Why does waiting matter?", next = "w8_tch2" },
+        { text = "It does sound a little foolish.", next = "w8_tch2" },
+        { text = "I've done it the druid's way since I was young.", next = "w8_tch2", when = { class = "DRUID" } },
+        { text = "Something else, Telurinon.", next = "BACK" },
+      },
+    },
+    w8_tch2 = {
+      lines = {
+        { id = "w8_tch2_a", text = "Because in the moment of waiting you see the root, the seed head and the young shoot beside it, and you take the one that can be spared. A hasty hand takes all three and comes back next season to an empty bank." },
+        { id = "w8_tch2_dr", when = { class = "DRUID" }, text = "Then you have little to learn from me, and much to remind my other students of. Come and kneel beside them one morning, druid, and they will believe you sooner than they believe an old elf." },
+      },
+      choices = {
+        { text = "I'll practice the waiting.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -338,7 +400,7 @@ P:NPC {
           text = "A druid of the Circle, here among the reeds. You will know already that a plant cut carelessly does not grow back as it was." },
       },
       again = {
-        { id = "h_again", text = "Is there something more? I have time, as my people always do." },
+        { id = "h_again", text = "Is there something more? The herbs on the racks dry slowly, and I have learned to keep their pace." },
       },
       choices = {
         { text = "An herbalist takes only what the marsh can spare.", next = "BACK", reply = "That is the Kaldorei way, and it is good to hear it in a human harbor.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -348,6 +410,7 @@ P:NPC {
         { text = "What grows in the Wetlands?", next = "herbs" },
         { text = "Do you work with Dewin Shimmerdawn?", next = "tm_dewin" },
         { text = "What does the marsh need from those who gather here?", next = "tm_need" },
+        { text = "What do you teach first to a new herbalist?", next = "w8_tch" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -462,6 +525,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_lost = {
+      lines = { { id = "w8_lost_a", text = "One, an' I'll no' forget it, a hunter's cat that slipped its stall in a storm an' went for the water. We found it by the dock in the mornin', drowned, an' I've had iron latches on every stall since." } },
+      choices = {
+        { text = "That wasn't your fault.", next = "w8_lost2" },
+        { text = "What did the hunter say?", next = "w8_lost2" },
+        { text = "Something else, Bethaine.", next = "BACK" },
+      },
+    },
+    w8_lost2 = {
+      lines = { { id = "w8_lost2_a", text = "He said nothin' at all, which was worse than shoutin', an' then he paid his bill an' left. I've been the hardest stable master in the Wetlands ever since, an' if ye think I'm fierce about mud, that's why." } },
+      choices = {
+        { text = "Your beasts are lucky to have you.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -470,7 +549,7 @@ P:NPC {
           text = "A hunter! Bring yer beast in, an' tell me if it's been near the murlocs, for I'll no' have that smell in my barn." },
       },
       again = {
-        { id = "h_again", text = "What else? Make it quick, the hay's gettin' damp just listenin' tae us." },
+        { id = "h_again", text = "What else? Make it quick, for the hay's gettin' damp just listenin' tae us, an' I'll no' pay for more." },
       },
       choices = {
         { text = "I need to stable a pet.", next = "BUSINESS" },
@@ -478,6 +557,7 @@ P:NPC {
         { text = "What troubles the animals here?", next = "trouble" },
         { text = "What animals do you keep here?", next = "bf_keep" },
         { text = "You look at owners like suspects.", next = "bf_owners" },
+        { text = "Have you ever lost a beast in your care?", next = "w8_lost" },
         { text = "Good day, Bethaine.", next = "END" },
       },
     },
@@ -592,6 +672,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_mrl = {
+      lines = { { id = "w8_mrl_a", text = "Steal it, eat it and once tried to sell it back to me, if you'll believe it, or that's how it looked with all the gurgling. I keep a club by the bait barrel now, and the gulls are more of a menace than the murlocs these days." } },
+      choices = {
+        { text = "A murloc tried to sell you fish?", next = "w8_mrl2" },
+        { text = "Gulls worse than murlocs?", next = "w8_mrl2" },
+        { text = "I fish. Do the murlocs scare off the bass?", next = "w8_mrl2", when = { profession = "Fishing" } },
+        { text = "Something else, Stuart.", next = "BACK" },
+      },
+    },
+    w8_mrl2 = {
+      lines = {
+        { id = "w8_mrl2_a", text = "It held it out and waved it, and I'll swear it looked hopeful, but I wasn't paying a murloc for my own snapper. The gulls just take it and laugh, and you can't hit a gull with a club, I've tried more than I'd like to admit." },
+        { id = "w8_mrl2_fish", when = { profession = "Fishing" }, text = "They scare off everything near the Bluegill shore, which is why the best bass are off this dock at dawn, before they wake. Cast long and quiet, and if you hear gurgling, reel in and walk away." },
+      },
+      choices = {
+        { text = "I'll mind the gulls.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -610,6 +710,7 @@ P:NPC {
         { text = "What's that wreck in the bay?", next = "wreck" },
         { text = "Who buys your fish?", next = "sf_buyers" },
         { text = "Tell me a fishing story.", next = "sf_story" },
+        { text = "Do the murlocs ever steal your catch?", next = "w8_mrl" },
         { text = "So long, Stuart.", next = "END" },
       },
     },
@@ -726,6 +827,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_mtn = {
+      lines = { { id = "w8_mtn_a", text = "New straps, every time, for the Wetlands eats leather faster than it eats steel. Thar an' his lads come down from Dun Algaz wi' their buckles hangin' by a thread, an' I tell them off like a grandmother an' they take it like grandsons." } },
+      choices = {
+        { text = "Do they listen to you?", next = "w8_mtn2" },
+        { text = "A strap's a small thing to fuss over.", next = "w8_mtn2" },
+        { text = "I'm a warrior. My straps take a beating too.", next = "w8_mtn2", when = { class = "WARRIOR" } },
+        { text = "Something else, Brahnmar.", next = "BACK" },
+      },
+    },
+    w8_mtn2 = {
+      lines = {
+        { id = "w8_mtn2_a", text = "No' a word, but they come back, so somethin' sticks. A strap's a small thing till yer breastplate falls off in front o' a Dragonmaw axe, an' then it's the only thing in the world." },
+        { id = "w8_mtn2_war", when = { class = "WARRIOR" }, text = "I can see that from here, an' it's a disgrace. Off wi' it an' onto the bench, for I'll no' have a warrior walk out o' my shop wi' a buckle that's held on by hope." },
+      },
+      choices = {
+        { text = "I'll take better care of my straps.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -734,7 +855,7 @@ P:NPC {
           text = "Heavy armour on ye, an' some o' it's been through the wars, I'd say. Off wi' it, let me see the straps." },
       },
       again = {
-        { id = "h_again", text = "What else? I'm oilin' either way, so talk." },
+        { id = "h_again", text = "What else? I'm oilin' this mail either way, so talk while I work." },
       },
       choices = {
         { text = "A smith should tell you plainly when a blade's past saving.", next = "BACK", reply = "Aye, an' I'll tell ye even if it costs me a sale, for rust doesnae lie.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -744,6 +865,7 @@ P:NPC {
         { text = "Who buys armor here?", next = "buyers" },
         { text = "Do you work with Brak Durnad?", next = "bm_brak" },
         { text = "What's the hardest armour to keep in this weather?", next = "bm_hard" },
+        { text = "What do the Mountaineers ask you for most?", next = "w8_mtn" },
         { text = "Good day.", next = "END" },
       },
     },

@@ -673,6 +673,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_boom = {
+      lines = {
+        { id = "w3_boom_1", text = "Barrels, mon, good goblin powder from Ratchet, and a long fuse if you be smart and a short one if you be my cousin. We roll dem down the beach at the Theramore camp and run back up de hill laughing, and nobody on de islands sleeps easy after." },
+      },
+      choices = {
+        { text = "What happened to your cousin?", next = "w3_cousin" },
+        { text = "Sounds like a fine way to fight.", next = "BACK", reply = "It be de best way, mon, because you don't even need to see de enemy, you only need to hear him swear." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_cousin = {
+      lines = {
+        { id = "w3_cousin_1", text = "He still got one eyebrow and all ten fingers, which be more than de barrel had. He calls himself Boomsecond now, out of respect for de family, and he wants to go back to de islands as soon as de ringing in his ears stops." },
+      },
+      choices = {
+        { text = "Give him my regards. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -680,8 +698,8 @@ P:NPC {
         { id = "h_forsaken", when = { race = "Scourge" }, text = "The dead come to fight for troll islands, eh? I like that, mon, because you don't get tired and you don't get seasick, and you scare the Theramore boys something awful." },
       },
       again = {
-        { id = "h_again", text = "What else you want to know, mon?" },
-        { id = "h_again2", text = "Ask quick, the next boat be leaving soon." },
+        { id = "h_again", text = "Ha! Ask on, Rugbul got all day for questions, so long as dey end with somethin' going boom." },
+        { id = "h_again2", text = "Ask quick, mon, de next boat be leavin' soon and Rugbul don't swim." },
       },
       choices = {
         { text = "What happens on the Darkspear Islands?", next = "islands" },
@@ -689,6 +707,7 @@ P:NPC {
         { text = "Why wear a Warsong tabard?", next = "tabard" },
         { text = "Why recruit in the Undercity?", next = "undercity" },
         { text = "Send me to the islands.", next = "BUSINESS", when = { minLevel = 30 } },
+        { text = "How does a raider make things go boom, Rugbul?", next = "w3_boom" },
         { text = "Not today, Rugbul.", next = "END" },
       },
     },

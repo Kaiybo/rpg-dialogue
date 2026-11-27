@@ -267,6 +267,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_boom = {
+      lines = { { id = "w8_boom_a", text = "Pal, pal, define 'blown up', because there's a big difference between a little flash and a whole customer goin' missing! One blunderbuss went off backwards on a dwarf last spring, and he lost his eyebrows and half his beard, and then he bought two more." } },
+      choices = {
+        { text = "Why would he buy two more?", next = "w8_boom2" },
+        { text = "You should be ashamed to sell faulty guns.", next = "w8_boom2" },
+        { text = "I build guns myself. Bad powder, or a cracked barrel?", next = "w8_boom2", when = { profession = "Engineering" } },
+        { text = "Something else, Mazk.", next = "BACK" },
+      },
+    },
+    w8_boom2 = {
+      lines = {
+        { id = "w8_boom2_a", text = "He said the one that blew up was the loudest gun he'd ever owned, chum, and a dwarf respects loud. I gave him a fresh set of eyebrows on the house, which is to say I sold him a hat, and we parted friends." },
+        { id = "w8_boom2_eng", when = { profession = "Engineering" }, text = "Cracked barrel, between you and me, from a batch I bought cheap off a fella who swore it was Ironforge steel. Don't tell anybody, pal, but the whole batch went back in the bay, and I've been buyin' honest ever since, mostly." },
+      },
+      choices = {
+        { text = "I'll check my barrels twice.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "You pull a raptor off the healer from across the clearing, that's what, and then it comes running at you instead of at somebody squishy. Every warrior I've sold a blunderbuss to has come back for more shot, which is what I call recurring revenue." } },
@@ -380,6 +400,7 @@ P:NPC {
         { text = "A gun seems a noisy choice for a hunter, Mazk.", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Why would a druid ever buy a gun from you, Mazk?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Why would a paladin ever trade his hammer for a gun, Mazk?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "Has one of your guns ever blown up on a customer?", next = "w8_boom" },
         { text = "Not today.", next = "END" },
       },
     },

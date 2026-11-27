@@ -49,7 +49,26 @@ P:NPC {
         { text = "What do you think happens to you now?", next = "fate" },
         { text = "I'm Horde. You betrayed my people.", next = "xhorde", when = { faction = "Horde" } },
         { text = "The Blackrock will use you and discard you.", next = "xorc", when = { race = "Orc" } },
+        { text = "Who in Kargath trusted you most?", next = "w9_trust" },
         { text = "Enough talk.", next = "END" },
+      },
+    },
+
+    w9_trust = {
+      lines = { { id = "w9_trust_d", text = "Galamav, the fool, who used to share his watch fire with me and tell me how many patrols went out each night. Every word he said went into the Blackrock's ears, and he still thinks I was his friend, which is the best joke I know." } },
+      choices = {
+        { text = "You used a friend's trust?", next = "w9_trust2" },
+        { text = "He'll never forgive that.", next = "w9_trust2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_trust2 = {
+      lines = { { id = "w9_trust2_d", text = "Trust is a weapon, slave of Thrall, like any other, and Galamav left his lying around. I don't need his forgiveness, and when the Blackrock take Kargath, I'll make sure he sees whose idea it was." } },
+      choices = {
+        { text = "Betraying a friend is the lowest crime.", next = "BACK", fx = { align = { honor = 1 } }, reply = "Spoken like someone who's never been offered anything worth the price." },
+        { text = "In war, every advantage is fair.", next = "BACK", fx = { align = { honor = -1 } }, reply = "Ha! At last, a grunt with some sense. Pity you serve the wrong chief." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

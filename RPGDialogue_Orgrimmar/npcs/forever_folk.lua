@@ -35,6 +35,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2pack = {
+      lines = {
+        { id = "w2p_wolf", when = { pet = { family = "Wolf" } }, text = "About as much as he minds yours, which is to say he looks once and decides he's the eldest. Ogunaro's young wolves down in the Valley of Honor all lower their heads when he walks past the pens, and I'll admit it does me good to see." },
+        { id = "w2p_default", text = "He likes to walk past Ogunaro's pens in the Valley of Honor and let the young mount wolves get a good look at him. Every one of them lowers its head, and I'll admit that does me good to see." },
+      },
+      choices = {
+        { text = "Would you ever buy a wolf from Ogunaro?", next = "w2pack2" },
+        { text = "A bought wolf is still a good wolf.", next = "w2pack2" },
+        { text = "Something else, An'drak.", next = "BACK" },
+      },
+    },
+    w2pack2 = {
+      lines = { { id = "w2p2_default", text = "Ogunaro raises them well, and I'd not say otherwise to his face. But a wolf you buy knows your coin, and a wolf you found starving in a gully knows your smell, and those are two different kinds of loyalty." } },
+      choices = { { text = "That's a fair difference.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     an_stare = {
       lines = { { id = "an_stare_l", text = "They do, and he lets them, which surprises everyone who knew him as a young wolf. He used to growl at anyone who came within an axe's length of me, and now he lies in the sun and lets children count his scars." } },
       choices = {
@@ -100,6 +115,7 @@ P:NPC {
         { text = "Any advice for a hunter and a beast?", next = "x_hunter", when = { class = "HUNTER" } },
         { text = "The young ones stare at Evermore a lot.", next = "an_stare" },
         { text = "Where did you two hunt in the Barrens?", next = "an_barrens" },
+        { text = "Does Evermore mind the mount wolves in the Valley?", next = "w2pack" },
         { text = "Good hunting, An'drak.", next = "END" },
       },
     },
@@ -190,6 +206,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2song = {
+      lines = {
+        { id = "w2s_troll", when = { race = "Troll" }, text = "You know we do, mon, and you probably know the words better than half these orcs. Gruga leads the old fishing song from the islands, only we change the fish to humans, and the boats start rockin' before we even leave the dock." },
+        { id = "w2s_default", text = "Every time, mon, and loud enough to scare the gulls. Gruga leads the old fishing song from the islands, only we change the fish to humans, and the orcs in the hall pretend they don't stamp along." },
+      },
+      choices = {
+        { text = "Will you teach me the song?", next = "w2song2" },
+        { text = "Singing seems a poor way to sneak up on Theramore.", next = "w2song2" },
+        { text = "Something else, Gruga.", next = "BACK" },
+      },
+    },
+    w2song2 = {
+      lines = { { id = "w2s2_default", text = "Ha! Nobody sneak up on Theramore, mon, they got lookouts on every rock. Better they hear us comin' and lose their sleep over it, and when you come back from the islands with a scar, Gruga teach you the last verse himself." } },
+      choices = { { text = "I'll hold you to that verse.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       hub = true,
       lines = {
@@ -212,6 +243,7 @@ P:NPC {
         { text = "What does the Horde gain from those islands?", next = "xgain" },
         { text = "Who were the Darkspear before Thrall came?", next = "xpast" },
         { text = "I am a shaman. Do the spirits favour the islands?", when = { class = "SHAMAN" }, next = "xshaman" },
+        { text = "Do the Raiders sing before they fight?", next = "w2song" },
         { text = "Another time, Gruga.", next = "END" },
       },
     },
@@ -340,6 +372,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2cust = {
+      lines = { { id = "w2c_default", text = "A tauren brave, mon, who wanted his shoulders to look smaller so the orcs would stop asking him to carry things. Mon'ye wove him the slimmest pauldrons this side of Silvermoon, and they still had to send for a second mirror." } },
+      choices = {
+        { text = "Did it work?", next = "w2cust2" },
+        { text = "That seems like an odd thing to hide.", next = "w2cust2" },
+        { text = "Something else, Mon'ye.", next = "BACK" },
+      },
+    },
+    w2cust2 = {
+      lines = {
+        { id = "w2c2_tauren", when = { race = "Tauren" }, text = "For a week, until he lifted a cart out of the Drag mud in front of everybody. You tauren can look like whatever you please, mon, but you can't help bein' helpful, and no weaving in the world hides that." },
+        { id = "w2c2_default", text = "For a week, until he lifted a cart out of the mud in front of half the Drag. Mon'ye can change how a body looks, mon, but never what it does, and that be the first lesson of the weaving." },
+      },
+      choices = { { text = "A good lesson for anyone.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       hub = true,
       lines = {
@@ -361,6 +408,7 @@ P:NPC {
         { text = "Did the witch doctors mind you selling their tricks?", next = "witch", when = { race = "Troll" } },
         { text = "Could you make me look alive again?", next = "undead", when = { race = "Scourge" } },
         { text = "Show me what you can do.", next = "BUSINESS" },
+        { text = "Who is your most difficult customer?", next = "w2cust" },
         { text = "Not today, Mon'ye.", next = "END" },
       },
     },

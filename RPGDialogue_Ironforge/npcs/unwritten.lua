@@ -21,9 +21,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_seen = {
+      lines = {
+        { id = "w2_seen_l0", text = "In Lordaeron, before the Dawn was formed. I stood in a village chapel while the dead walked past the windows, men I had married and baptised, and they did not know me. That is why I serve." },
+      },
+      choices = {
+        { text = "How do you bear it?", next = "w2_seen_bear" },
+        { text = "The dead should be burned, every one.", next = "BACK", reply = "They should be laid to rest. Burning is sometimes the kindest way, but it is not vengeance.", fx = { align = { light = 1 } } },
+        { text = "Better to fight them than to pray over them.", next = "BACK", reply = "We do both, friend. The prayer is for us, so that we fight them without becoming them.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_seen_bear = {
+      lines = {
+        { id = "w2_seen_bear_l0", text = "By remembering that they were loved once, and that somewhere the Light still remembers them as they were. I pray for them by name when I can. It is all I can give them now." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Father Gavin, and I serve the Argent Dawn. We go wherever the dead will not lie still, and you would be surprised how far into the snow that has brought me." } },
-      again = { { id = "h_again", text = "What else weighs on you, child?" }, { id = "h_again2", text = "Ask, and I'll answer as well as an old priest can." } },
+      again = { { id = "h_again", text = "What else weighs on you, child? Sit by the brazier, and ask it." }, { id = "h_again2", text = "Ask, and I'll answer as well as an old priest can." } },
       choices = {
         { text = "The Light can redeem even those who've fallen into darkness.", next = "BACK", reply = "It can, friend, and the Argent Dawn exists because we believe that, whatever the Scourge may do.", fx = { align = { light = 1 } } }, -- dp_stance
         { text = "Some souls are too far gone for the Light to save.", next = "BACK", reply = "Some are, perhaps, but the Dawn leaves that judgment to the Light, not to tired men in the mountains.", fx = { align = { light = -1 } } }, -- dp_stance
@@ -34,6 +53,7 @@ P:NPC {
         { text = "What do you watch for, here at Misty Pine?", next = "ywatch" },
         { text = "Do the dwarves trust the Dawn?", next = "ytrust" },
         { text = "A dwarf priest, me. Can I help the Dawn?", next = "BACK", when = { race = "Dwarf" }, reply = "You can. Your people know these hills, and the Dawn needs eyes that see a sick wanderer as more than a stranger." },
+        { text = "Have you seen the Scourge with your own eyes?", next = "w2_seen" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -123,15 +143,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_lost = {
+      lines = {
+        { id = "w2_lost_l0", text = "Copy every wall before the troggs ruin it. I've three notebooks full already, an' if they push us off the ridge for good, those notebooks are all anyone will have of what's down there." },
+      },
+      choices = {
+        { text = "What is down there?", next = "w2_lost_what" },
+        { text = "Stone is stone. Let the miners have it.", next = "BACK" },
+      },
+    },
+    w2_lost_what = {
+      lines = {
+        { id = "w2_lost_what_l0", text = "Layers, friend, laid down like pages in a book, an' some o' them wi' markin's that I swear were made by hands. Not dwarven hands. Older. I've sent copies tae Ironforge, an' I've had nae answer." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Gehn's the name, prospector for the Explorers' League. I'm here to read the quarry's walls before the miners knock them all down for building stone." } },
-      again = { { id = "h_again", text = "What else, then?" }, { id = "h_again2", text = "Go on, I've a moment between hammer strokes." } },
+      again = { { id = "h_again", text = "What else, then? Speak up; I'm halfway through a sketch o' the north wall." }, { id = "h_again2", text = "Go on, I've a moment between hammer strokes." } },
       choices = {
         { text = "What do the quarry walls tell you?", next = "walls" },
         { text = "Who works the quarry?", next = "miners" },
         { text = "Troggs have been seen near the quarry.", next = "troggs" },
         { text = "What's the best find you've made here?", next = "xp_find" },
         { text = "I'm an archaeologist of sorts myself.", next = "xp_dwarf", when = { race = "Dwarf" } },
+        { text = "What will the League do if the quarry is lost to troggs?", next = "w2_lost" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -223,15 +261,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_pray = {
+      lines = {
+        { id = "w2_pray_l0", text = "For the miners, first, by name. Then for the Silver Hand, that it might be whole again. And last, for the patience to stand here another day when my heart tells me there are bigger battles elsewhere." },
+      },
+      choices = {
+        { text = "Do you regret not being elsewhere?", next = "w2_pray_regret" },
+        { text = "The Light chose this post for you.", next = "BACK" },
+      },
+    },
+    w2_pray_regret = {
+      lines = {
+        { id = "w2_pray_regret_l0", text = "Some days. Then a trogg comes over the ridge at dusk, and a miner's still alive at dawn because I was here, and I remember that the Light doesn't measure a battle by its size." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Avarus Kharag, of the Silver Hand, or what's left of it. The miners here need a strong arm against the troggs, and I'd rather be useful in the snow than idle in a chapel." } },
-      again = { { id = "h_again", text = "Speak, friend." }, { id = "h_again2", text = "Aye, what else?" } },
+      again = { { id = "h_again", text = "Speak, friend, but keep one eye on the ridge with me." }, { id = "h_again2", text = "Aye, what else?" } },
       choices = {
         { text = "What's left of the Silver Hand?", next = "hand" },
         { text = "How bad are the troggs here?", next = "troggs" },
         { text = "I bear the Light as you do.", next = "brother", when = { class = "PALADIN" } },
         { text = "Why guard miners instead of a city?", next = "xv_why" },
         { text = "I'm a dwarf. My kin need protecting too.", next = "xv_dwarf", when = { race = "Dwarf" } },
+        { text = "What do you pray for, standing watch here?", next = "w2_pray" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -323,9 +379,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_strange = {
+      lines = {
+        { id = "w2_strange_l0", text = "Lights, deep in the night, movin' in a pattern at the city's gate. Green, then blue, then green again. It's no' the troggs, an' it's no' the leper gnomes. Somethin' in there still runs, an' somebody still runs it." },
+      },
+      choices = {
+        { text = "Have you reported it?", next = "w2_strange_report" },
+        { text = "Some gnome machinery left running, likely.", next = "BACK" },
+      },
+    },
+    w2_strange_report = {
+      lines = {
+        { id = "w2_strange_report_l0", text = "Every time, an' every time Ironforge writes back that they'll look intae it. I've a feelin' the only one who'll ever look intae it is whoever's brave or foolish enough tae walk through those gates." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Onin MacHammar, and aye, I've heard what folk whisper about my complexion. I watch Gnomeregan for Ironforge, since somebody has to keep an eye on what crawls out of that hole." } },
-      again = { { id = "h_again", text = "Anythin' else, while I've got ye?" }, { id = "h_again2", text = "Ask away, the gates aren't goin' anywhere." } },
+      again = { { id = "h_again", text = "Anythin' else, while I've got ye? I dinnae get many visitors who climb this high." }, { id = "h_again2", text = "Ask away, the gates aren't goin' anywhere." } },
       choices = {
         { text = "What crawls out of Gnomeregan?", next = "gnomeregan" },
         { text = "People whisper about your complexion?", next = "skin" },
@@ -334,6 +407,7 @@ P:NPC {
         { text = "How did your mother come to Ironforge?", next = "ymother" },
         { text = "Who brings your supplies?", next = "ysupply" },
         { text = "A Dark Iron in the King's service? Truly?", next = "BACK", when = { race = "Dwarf" }, reply = "Half, and aye. Ye'll hear worse from the old clans, but the King knows my record." },
+        { text = "What's the strangest thing you've seen from this tower?", next = "w2_strange" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -449,9 +523,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_why = {
+      lines = {
+        { id = "w2_why_l0", text = "Because a seam doesnae care what the troggs are doin' below it, an' neither do I. Copper's copper, an' a dwarf who stops swingin' is a dwarf who starts thinkin', an' I've no use for that." },
+      },
+      choices = {
+        { text = "What would you think about?", next = "w2_why_think" },
+        { text = "Stubbornness is a dwarven virtue.", next = "BACK" },
+      },
+    },
+    w2_why_think = {
+      narr = "He pauses mid-swing, just for a moment.",
+      lines = {
+        { id = "w2_why_think_l0", text = "The lads below. Three o' them didnae get out when the troggs came up. I swing, an' I dinnae think about it. Ask Grumnal about somethin' else, for he talks enough for the both of us." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Grothor, miner, and that's the whole of my story. The quarry's cut for buildin' stone, but up here there's copper and tin in the rock, and I mean to have them out before the snows close the path." } },
-      again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "Aye, go on." } },
+      again = { { id = "h_again", text = "What else? Ask it between swings." }, { id = "h_again2", text = "Aye, go on." } },
       choices = {
         { text = "Is the seam a good one?", next = "seam" },
         { text = "You work alongside Miner Grumnal?", next = "grumnal" },
@@ -461,6 +553,7 @@ P:NPC {
         { text = "What do you do after a shift?", next = "yshift" },
         { text = "Is the quarry safe?", next = "ysafe" },
         { text = "A warrior could guard you from the troggs.", next = "BACK", when = { class = "WARRIOR" }, reply = "Could, aye, and I'd nae turn ye away. But I've guarded myself for thirty years." },
+        { text = "Why do you keep working when the quarry's closed?", next = "w2_why" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -582,9 +675,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_talk = {
+      lines = {
+        { id = "w2_talk_l0", text = "Once a year, on the night o' the first snow, he'll drink three ales an' talk for an hour about his grandmother's goats. Then he's quiet again till next winter. I look forward tae it like Winter Veil." },
+      },
+      choices = {
+        { text = "Goats?", next = "w2_talk_goats" },
+        { text = "Some dwarves prefer silence.", next = "BACK" },
+      },
+    },
+    w2_talk_goats = {
+      lines = {
+        { id = "w2_talk_goats_l0", text = "Aye, he loved them goats. There was one called Old Iron that he says could climb a sheer cliff face, an' I believe him, for Grothor's never told a lie in his life. He doesnae talk enough tae bother." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Grumnal's the name, and I've been diggin' this mountain since before my beard reached my belt. Don't mind Grothor, he thinks every word spoken is a swing of the pick wasted." } },
-      again = { { id = "h_again", text = "What else can I tell ye?" }, { id = "h_again2", text = "Go on, ask, I've nowhere to be." } },
+      again = { { id = "h_again", text = "What else? Ask me anythin' ye like, so long as I can keep leanin' on this pick while I answer." }, { id = "h_again2", text = "Go on, ask, I've nowhere to be." } },
       choices = {
         { text = "Where do the troggs come from?", next = "troggs" },
         { text = "What's Grothor like to work with?", next = "grothor" },
@@ -593,6 +703,7 @@ P:NPC {
         { text = "Tell me about the time Grothor saved you.", next = "ysaved" },
         { text = "Do you have family?", next = "yfam" },
         { text = "I'm a dwarf too. Any tales of the old tunnels?", next = "BACK", when = { race = "Dwarf" }, reply = "Aye, they say the Earthen dug them before any dwarf was born. I dinnae believe it, but I'll tell ye the tale over an ale." },
+        { text = "Does Grothor ever talk about anything?", next = "w2_talk" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -705,9 +816,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_rather = {
+      lines = {
+        { id = "w2_rather_l0", text = "Truthfully? Mapmakin'. I've been drawin' the valley in the margins o' my reports, every rock an' path, an' Senir told me the reports were meant tae be about trolls, no' about rocks." },
+      },
+      choices = {
+        { text = "Show me your map.", next = "w2_rather_map" },
+        { text = "A scout who maps is a better scout.", next = "BACK" },
+      },
+    },
+    w2_rather_map = {
+      narr = "He unfolds the map, which is much larger than it needs to be, and points with obvious pride.",
+      lines = {
+        { id = "w2_rather_map_l0", text = "There's Anvilmar, an' the troll caves, an' this here's a path the trolls use that nobody else knows about. I found it myself. If I can prove the maps help, maybe they'll let me make more." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm Soren, apprentice to the mountaineers, and I'm keepin' watch on the Frostmane trolls. I've been told to learn what they're plannin', which is a great deal easier to say than to do." } },
-      again = { { id = "h_again", text = "What else did ye want to know?" }, { id = "h_again2", text = "Sorry, where were we?" } },
+      again = { { id = "h_again", text = "What else did ye want tae know? Quick, before I have tae look back at the caves." }, { id = "h_again2", text = "Sorry, where were we?" } },
       choices = {
         { text = "What are the Frostmane planning?", next = "plans" },
         { text = "Who sent you out here?", next = "sent" },
@@ -716,6 +845,7 @@ P:NPC {
         { text = "What do you do when your watch ends?", next = "ywatch" },
         { text = "Who trains you at Anvilmar?", next = "ytrain" },
         { text = "Want a hunter's advice on watching?", next = "BACK", when = { class = "HUNTER" }, reply = "Aye, please! I'll take any advice that doesnae involve standin' still in the snow for longer." },
+        { text = "What would you rather be doing than watching trolls?", next = "w2_rather" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -813,15 +943,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_dwarves = {
+      lines = {
+        { id = "w2_dwarves_l0", text = "They're very kind and very loud, and they put ale in everything, including, once, my tea. I like them more than I expected to. But I miss being the tallest one in a room, which only happened about twice, but still." },
+      },
+      choices = {
+        { text = "The tallest gnome in a room?", next = "w2_dwarves_tall" },
+        { text = "You'll get used to their noise.", next = "BACK" },
+      },
+    },
+    w2_dwarves_tall = {
+      lines = {
+        { id = "w2_dwarves_tall_l0", text = "In a meeting of the third division, when everyone else was sitting down. It was a very good afternoon. I proposed three new pumps and they were all approved, and I've always suspected the height helped." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Tog Rustsprocket, formerly of Gnomeregan's third pneumatics division, currently of a bench in Kharanos. The dwarves have been very kind, though I do miss having a ceiling that isn't made of snow." } },
-      again = { { id = "h_again", text = "What else can I tell you?" }, { id = "h_again2", text = "Sorry, I was calibrating, go on." } },
+      again = { { id = "h_again", text = "What else? Ask quickly, before I lose count of these gear teeth." }, { id = "h_again2", text = "Sorry, I was calibrating, go on." } },
       choices = {
         { text = "What happened to Gnomeregan?", next = "fall" },
         { text = "What are you building?", next = "gadget" },
         { text = "I made it out of Gnomeregan too.", next = "kin", when = { race = "Gnome" } },
         { text = "What did the third pneumatics division do?", next = "xt_div" },
         { text = "I'm an engineer. Need a hand?", next = "xt_eng", when = { profession = "Engineering" } },
+        { text = "Do you like living among the dwarves?", next = "w2_dwarves" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -913,9 +1061,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_make = {
+      lines = {
+        { id = "w2_make_l0", text = "Blankets first, then clothes for the children, then bandages for the ones who keep going back into the city. Every bolt has a label saying where it went, and I can tell you the name of the gnome who's wearing it now." },
+      },
+      choices = {
+        { text = "You keep track of every bolt?", next = "w2_make_track" },
+        { text = "A good use for spare cloth.", next = "BACK" },
+      },
+    },
+    w2_make_track = {
+      lines = {
+        { id = "w2_make_track_l0", text = "Every one. When Gnomeregan is ours again, I want every donor to know exactly whom they helped. A ledger is a promise, you see, and I don't break promises. I only file them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Bubulo Acerbus, cloth quartermaster for the Gnomeregan Exiles. Our people came out of the city with nothing, so I collect wool and silk and turn them into blankets, coats and a little dignity." } },
-      again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "Any other questions? I do love questions." } },
+      again = { { id = "h_again", text = "What else, friend? I'll just note the time of your visit." }, { id = "h_again2", text = "Any other questions? I do love questions." } },
       choices = {
         { text = "Why does Tinker Town need cloth?", next = "why" },
         { text = "Do you collect silk as well?", next = "silk" },
@@ -924,6 +1089,7 @@ P:NPC {
         { text = "What did you do before the fall?", next = "ybefore" },
         { text = "Who gets cloth first?", next = "yfirst" },
         { text = "Do you have mage robes to spare?", next = "BACK", when = { class = "MAGE" }, reply = "Spare? Goodness, no, but the tailors will happily take an apprentice's order if you bring the cloth yourself." },
+        { text = "What do you make with all this cloth?", next = "w2_make" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1020,6 +1186,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_guards = {
+      lines = {
+        { id = "w2_guards_l0", text = "Twice! Once for setting off a rocket inside the Commons, which was an accident, and once for setting off a rocket inside the Commons, which was not. The second one spelled out \"Midsummer\" in the air, and they let me off." },
+      },
+      choices = {
+        { text = "Spelled it out?", next = "w2_guards_spell" },
+        { text = "Indoors is no place for rockets.", next = "BACK" },
+      },
+    },
+    w2_guards_spell = {
+      lines = {
+        { id = "w2_guards_spell_l0", text = "Well, \"Midsumer,\" with one m. The second m went into the auction house. Nobody was hurt, and the auctioneers are still talking about it, though not fondly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Wizbang Booms, pyrotechnician, at your service and slightly at your risk. Every rocket in this crate has been hand-tested by me, which is why I'm standing a little further from it than you are." } },
       again = { { id = "h_again", text = "What else can I light up for you?" }, { id = "h_again2", text = "Questions? Excellent, I have answers and matches." } },
@@ -1033,6 +1216,7 @@ P:NPC {
         { text = "What's your proudest firework?", next = "yproud" },
         { text = "Who buys the most?", next = "ybuyers" },
         { text = "A mage could light your rockets from afar.", next = "BACK", when = { class = "MAGE" }, reply = "Oh, don't! Last time a mage tried that, he lit the whole crate. Matches only, please." },
+        { text = "Have the guards ever stopped your fireworks?", next = "w2_guards" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1147,9 +1331,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_miss = {
+      lines = {
+        { id = "w2_miss_l0", text = "The harbour, mostly. The smell of the sea and the gulls shouting at the fishermen. In Ironforge it smells of iron and ale, and the only thing that shouts is the forge. It's a good place, but it's not home." },
+      },
+      choices = {
+        { text = "Will you go back after the war?", next = "w2_miss_back" },
+        { text = "Ironforge suits a soldier better.", next = "BACK" },
+      },
+    },
+    w2_miss_back = {
+      lines = {
+        { id = "w2_miss_back_l0", text = "If there's an after. That's what the iron's for, isn't it? So there's an after, for the lads going south. Then I'll go home and I'll sit by the harbour and I won't count anything for a month." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Corporal Carnes, collecting iron bars for the war effort. The Field Marshal says the army marching south will need more steel than Ironforge has ever forged, and I believe him." } },
-      again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "Go on, I can count and talk at once." } },
+      again = { { id = "h_again", text = "What else, friend? I'll add a tick for you while we talk." }, { id = "h_again2", text = "Go on, I can count and talk at once." } },
       choices = {
         { text = "What war is this for?", next = "war" },
         { text = "How many bars do you need?", next = "count" },
@@ -1158,6 +1359,7 @@ P:NPC {
         { text = "How did a Stormwind soldier end up here?", next = "yhow" },
         { text = "What worries you most?", next = "yworry" },
         { text = "Can a warrior join the march south?", next = "BACK", when = { class = "WARRIOR" }, reply = "They'll take every warrior who can lift a shield. Speak to the Field Marshal, and tell him Carnes sent you." },
+        { text = "What do you miss about Stormwind?", next = "w2_miss" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1255,15 +1457,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_how = {
+      lines = {
+        { id = "w2_how_l0", text = "I was a foreman in the mines o' Dun Morogh, shoutin' over drills for thirty years. The Faire came through Kharanos, an' Silas heard me call a shift change from across the valley, an' hired me on the spot." },
+      },
+      choices = {
+        { text = "Do you miss the mines?", next = "w2_how_miss" },
+        { text = "A voice like that would be wasted underground.", next = "BACK" },
+      },
+    },
+    w2_how_miss = {
+      lines = {
+        { id = "w2_how_miss_l0", text = "Some days. The Faire's all colour an' noise an' sweets, an' the mine was dark an' honest. But I see more o' the world now than any miner ever did, an' I get tae make bairns laugh. That's worth a seam or two." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Melnan Darkstone, barker for the Darkmoon Faire! Wonders, prizes, games of skill and chance, all a short walk out of the city, and ye'd be daft to miss them." } },
-      again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "More questions? I'm a barker, I love questions." } },
+      again = { { id = "h_again", text = "What else, friend? Ask loud, I'm used tae shoutin' over crowds!" }, { id = "h_again2", text = "More questions? I'm a barker, I love questions." } },
       choices = {
         { text = "Where is the Faire set up?", next = "where" },
         { text = "What can I win at the Faire?", next = "prizes" },
         { text = "You've got a voice for a barker.", next = "voice" },
         { text = "A gnome running a faire? I've never heard of him.", next = "gnome", when = { race = "Gnome" } },
         { text = "Fortune tellers at a faire? I trust only the Light.", next = "fortune", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "How did a dwarf end up barking for the Faire?", next = "w2_how" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1346,9 +1566,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_worry = {
+      lines = {
+        { id = "w2_worry_l0", text = "The bandages, frankly. Iron and copper come in by the cartload because the dwarves love to mine, but runecloth takes patience and silk takes time, and the figures show a deficit of eleven point three percent." },
+      },
+      choices = {
+        { text = "Can it be made up in time?", next = "w2_worry_time" },
+        { text = "Numbers can't win a war.", next = "BACK" },
+      },
+    },
+    w2_worry_time = {
+      lines = {
+        { id = "w2_worry_time_l0", text = "If the trend holds and every tailor in the Alliance does their part, yes. If not, then some soldier in Silithus will bleed when he needn't have. I don't like it when numbers have faces." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Master Sergeant Fizzlebolt, logistics and tallies for the Alliance war effort. Every bar, bandage and fish brought to the Military Ward is counted by me, personally, twice." } },
-      again = { { id = "h_again", text = "What else? Be brief, I'm mid-calculation." }, { id = "h_again2", text = "Go on, the numbers can wait a moment." } },
+      again = { { id = "h_again", text = "What else? Be brief, I'm mid-calculation, and if you make me lose a decimal, I'll be cross." }, { id = "h_again2", text = "Go on, the numbers can wait a moment." } },
       choices = {
         { text = "How is the war effort going?", next = "tally" },
         { text = "What are all these supplies for?", next = "supplies" },
@@ -1357,6 +1594,7 @@ P:NPC {
         { text = "What would happen if the tallies were wrong?", next = "ywrong" },
         { text = "How did you come to logistics?", next = "ylog" },
         { text = "Gnome to gnome, how's morale in Tinker Town?", next = "BACK", when = { race = "Gnome" }, reply = "Up three points since the call went out. We've something to build for again, and that's worth more than any pay." },
+        { text = "Which collection worries you most?", next = "w2_worry" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1454,9 +1692,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_think = {
+      lines = {
+        { id = "w2_think_l0", text = "Honestly? Best season of the year. Everybody's in a giving mood, which means everybody's in a buying mood. But between you and me, I like the snow, too. Kezan doesn't get snow." },
+      },
+      choices = {
+        { text = "You like the snow?", next = "w2_think_snow" },
+        { text = "So it's all about the profit.", next = "BACK" },
+      },
+    },
+    w2_think_snow = {
+      narr = "She looks up at the high vault of the Commons, where no snow falls, then shrugs.",
+      lines = {
+        { id = "w2_think_snow_l0", text = "First time I saw it, I stood out in it for an hour and missed a whole shipment. Don't tell Wulmort. He'd dock my pay and then charge me for the story." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Macey Jinglepocket, Smokywood Pastures, premium holiday division. Wulmort sells the cheap stuff over there, and I sell the stuff people actually remember, at a price they'll also remember." } },
-      again = { { id = "h_again", text = "What else can I wrap for ya?" }, { id = "h_again2", text = "Go on, ask, the meter's not running. Yet." } },
+      again = { { id = "h_again", text = "What else can I wrap for ya? Ribbon's extra, but it's worth it." }, { id = "h_again2", text = "Go on, ask, the meter's not running. Yet." } },
       choices = {
         { text = "A holiday gift should be sold for what it's really worth.", next = "BACK", reply = "Aw, you're sweet, pal, and I'll admit Smokywood's prices are fair, mostly, give or take the wrapping.", fx = { align = { honor = 1 } } }, -- dp_stance
         { text = "Mark everything up. Folk will pay anything at Winter Veil.", next = "BACK", reply = "Now you're talkin' my language, sweetheart, though Wulmort over there would call it a disgrace.", fx = { align = { honor = -1 } } }, -- dp_stance
@@ -1467,6 +1723,7 @@ P:NPC {
         { text = "How's business against Wulmort?", next = "ywulmort" },
         { text = "Do you ever give anything away?", next = "ygive" },
         { text = "I'm a rogue. How do you stop thieves?", next = "BACK", when = { class = "ROGUE" }, reply = "Locked crates, a bell on every ribbon, and a very large dwarf who owes me a favour. Don't test it." },
+        { text = "What do goblins actually think of Winter Veil?", next = "w2_think" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1581,15 +1838,33 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_helper = {
+      lines = {
+        { id = "w2_helper_l0", text = "He doesn't, really. He keeps telling me Winter Veil isn't about sales, and I keep telling him it is now. We've had this argument every year for six years, and I think he's starting to enjoy it." },
+      },
+      choices = {
+        { text = "Who's winning?", next = "w2_helper_win" },
+        { text = "Maybe he's right.", next = "BACK" },
+      },
+    },
+    w2_helper_win = {
+      lines = {
+        { id = "w2_helper_win_l0", text = "Him, mostly. Last year I caught myself giving a kid a free toy, and I don't even know why. I blame the hat. There's something in the hat, I swear it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Wulmort Jinglepocket, Goblin Resources Director for Smokywood Pastures, which means I do everything nobody else wants to. Right now that means sellin' cookies and tellin' everybody Greatfather Winter's in town." } },
-      again = { { id = "h_again", text = "What else, buddy?" }, { id = "h_again2", text = "Listen, listen, I've got a minute, ask away." } },
+      again = { { id = "h_again", text = "What else, buddy? Make it quick, I've got a sale ending in five minutes. It ends every five minutes." }, { id = "h_again2", text = "Listen, listen, I've got a minute, ask away." } },
       choices = {
         { text = "Who is Greatfather Winter?", next = "winter" },
         { text = "What's a Goblin Resources Director?", next = "job" },
         { text = "You look tired.", next = "tired" },
         { text = "Ironforge celebrates Winter Veil louder than anywhere.", next = "dwarves", when = { race = "Dwarf" } },
         { text = "Do the Horde get Greatfather Winter too?", next = "horde", when = { faction = "Alliance" } },
+        { text = "How does Greatfather Winter's helper put up with you?", next = "w2_helper" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1666,9 +1941,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_city = {
+      lines = {
+        { id = "w2_city_l0", text = "It is warm, and loud, and full of people who mean well. But there is no sky. I go up to the gates each evening to see the stars, and the guards have stopped asking me why." },
+      },
+      choices = {
+        { text = "Does it trouble you, the stone overhead?", next = "w2_city_stone" },
+        { text = "You'll grow used to it.", next = "BACK" },
+      },
+    },
+    w2_city_stone = {
+      lines = {
+        { id = "w2_city_stone_l0", text = "It troubles me less than I feared. The dwarves love their mountain as we love our forest, and I can hear something like a heartbeat in the forge. But I will be glad to see Ashenvale again, whatever the orcs have done to it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Lylandris of the Silverwing Sentinels. The Warsong orcs are tearing at the edge of Ashenvale, and I am gathering those willing to stop them at the gulch." } },
-      again = { { id = "h_again", text = "Speak." }, { id = "h_again2", text = "What else would you ask of me?" } },
+      again = { { id = "h_again", text = "Speak, and quickly. The Sentinels are counting on every blade." }, { id = "h_again2", text = "What else would you ask? The Sentinels have need of me elsewhere before long." } },
       choices = {
         { text = "What happens at Warsong Gulch?", next = "gulch" },
         { text = "Why recruit in Ironforge?", next = "ironforge" },
@@ -1677,6 +1969,7 @@ P:NPC {
         { text = "What do you think of the Horde here?", next = "yhorde" },
         { text = "How did you come to the Silverwing?", next = "yjoin" },
         { text = "A warrior's shield, at your service.", next = "BACK", when = { class = "WARRIOR" }, reply = "Then you may hold the flag room while I hunt. Elune will be glad of a strong arm at the gate." },
+        { text = "What do you think of Ironforge?", next = "w2_city" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1792,9 +2085,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_after = {
+      lines = {
+        { id = "w2_after_l0", text = "Go south with them, to Silithus. I will not let them go without me. Some of these hands that wrap the wounded have done it before, against the same foe, and I would not leave them to learn it alone." },
+      },
+      choices = {
+        { text = "You'll fight?", next = "w2_after_fight" },
+        { text = "Your place is surely here, organising.", next = "BACK" },
+      },
+    },
+    w2_after_fight = {
+      lines = {
+        { id = "w2_after_fight_l0", text = "I will heal. I am too old to hold the line, but not too old to stand behind it. There is a kind of courage in that, the younger Sentinels tell me, though I think they say it only to be kind." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Keeper Moonshade, and I gather runecloth bandages for the army that will march to Silithus. My people have fought the qiraji before, long ago, and I remember what that war cost." } },
-      again = { { id = "h_again", text = "What else would you know?" }, { id = "h_again2", text = "Ask, and I will answer." } },
+      again = { { id = "h_again", text = "What more would you know? I have bandages to count, but they can wait." }, { id = "h_again2", text = "Ask, and I will answer." } },
       choices = {
         { text = "You fought the qiraji before?", next = "before" },
         { text = "Why bandages, rather than swords?", next = "bandages" },
@@ -1803,6 +2113,7 @@ P:NPC {
         { text = "How old are you, Keeper?", next = "yage" },
         { text = "What do you remember of the old war?", next = "ywar" },
         { text = "I'm a druid. What do the Keepers do?", next = "BACK", when = { class = "DRUID" }, reply = "We remember, and we teach, and we watch. Moonglade would welcome you, young one, if you have not yet been." },
+        { text = "What will you do when the bandages are all gathered?", next = "w2_after" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1899,9 +2210,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_matter = {
+      lines = {
+        { id = "w2_matter_l0", text = "Every potion of healing, every elixir of strength, needs it in some measure. An army that marches with good potions comes home. An army without them comes home in fewer carts." },
+      },
+      choices = {
+        { text = "Then why is it so scarce?", next = "w2_matter_scarce" },
+        { text = "Better to rely on priests than potions.", next = "BACK" },
+      },
+    },
+    w2_matter_scarce = {
+      lines = {
+        { id = "w2_matter_scarce_l0", text = "Because it grows only where it chooses, and only for those patient enough to find it. You cannot farm it, you cannot rush it. Like peace, it seems; it comes when it will, and it is easily trampled." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Master Nightsong, and I gather purple lotus for the alchemists who will brew the army's potions. It is a scarce flower, and the war has made it scarcer still." } },
-      again = { { id = "h_again", text = "What else?" }, { id = "h_again2", text = "I am listening." } },
+      again = { { id = "h_again", text = "What else? Ask softly; the petals bruise if you breathe on them." }, { id = "h_again2", text = "I am listening." } },
       choices = {
         { text = "Where does purple lotus grow?", next = "where" },
         { text = "Is the collection going well?", next = "going" },
@@ -1910,6 +2238,7 @@ P:NPC {
         { text = "How do you find the dwarves?", next = "ydwarves" },
         { text = "What would you do after the war?", next = "yafter" },
         { text = "Brother, how fares Darnassus?", next = "BACK", when = { race = "NightElf" }, reply = "Growing, slowly. The great tree is young, and so are its people, in their way." },
+        { text = "Why does lotus matter so much to the war?", next = "w2_matter" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2007,9 +2336,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_before = {
+      lines = {
+        { id = "w2_before_l0", text = "Fields of barley, golden to the hills, and the sound of the mill wheels. My father farmed near the basin, and I'd ride with him to market in Stromgarde on feast days. It was the best place in the world, to a boy." },
+      },
+      choices = {
+        { text = "And now?", next = "w2_before_now" },
+        { text = "Every soldier remembers his home that way.", next = "BACK" },
+      },
+    },
+    w2_before_now = {
+      lines = {
+        { id = "w2_before_now_l0", text = "Now the Forsaken's Defilers burn the fields, and the ogres hold the hills, and Stromgarde is half rubble. But the land's still there under the ash. That's what I tell the recruits: we're not fighting for what's left, we're fighting for what can grow back." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Donal Osgood, of the League of Arathor. Arathi Basin was once the breadbasket of Stromgarde, and the Forsaken's Defilers mean to take it, so we mean to take it first." } },
-      again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "Go on, I've time." } },
+      again = { { id = "h_again", text = "What else, friend? For Arathor, ask away." }, { id = "h_again2", text = "Go on, I've time." } },
       choices = {
         { text = "What's in Arathi Basin?", next = "basin" },
         { text = "Is Stromgarde your home?", next = "home" },
@@ -2018,6 +2364,7 @@ P:NPC {
         { text = "Do you have family in Arathi?", next = "yfam" },
         { text = "How goes the fighting in the basin?", next = "ygoes" },
         { text = "A dwarf fighting for Stromgarde? Would you have me?", next = "BACK", when = { race = "Dwarf" }, reply = "Gladly. Thoradin's people and yours were allies once, and the basin remembers it." },
+        { text = "What do you remember of Stromgarde before the wars?", next = "w2_before" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2133,9 +2480,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_rather = {
+      lines = {
+        { id = "w2_rather_l0", text = "Guarding something, honestly. Something that matters, like a gate or a bridge. Instead I'm counting leather and smelling like a tannery. My mother would be proud if she didn't know." },
+      },
+      choices = {
+        { text = "Counting leather matters too.", next = "w2_rather_matter" },
+        { text = "Then ask for a transfer.", next = "BACK" },
+      },
+    },
+    w2_rather_matter = {
+      lines = {
+        { id = "w2_rather_matter_l0", text = "That's what the Corporal says. \"Every hide's a saddle, every saddle's a horse, every horse is a soldier who gets there faster.\" He says it so often I've started believing it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Private Porter, Stormwind regulars, assigned to leather collection, which isn't the glory I signed up for. Still, boots and saddles and armour straps all need leather, and somebody's got to count it." } },
-      again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "Anything more?" } },
+      again = { { id = "h_again", text = "What else, friend? Mind you don't trip on the hides." }, { id = "h_again2", text = "Anything more?" } },
       choices = {
         { text = "Where's the best leather?", next = "leather" },
         { text = "You don't sound happy about this post.", next = "post" },
@@ -2144,6 +2508,7 @@ P:NPC {
         { text = "Did you ever see real fighting?", next = "yfight" },
         { text = "What do you miss about home?", next = "ymiss" },
         { text = "Human to human, how's the Stormwind Guard?", next = "BACK", when = { race = "Human" }, reply = "Stretched thin and grumbling, same as ever. The Stockade's full again, so somebody's busy." },
+        { text = "What would you rather be doing?", next = "w2_rather" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2240,9 +2605,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_worst = {
+      lines = {
+        { id = "w2_worst_l0", text = "A raptor someone had roasted with its feathers still on. Feathers, dear! The smell filled the whole ward, and the Field Marshal came out to see if the Horde had attacked. I sent it to the guards' kennels." },
+      },
+      choices = {
+        { text = "Did the dogs eat it?", next = "w2_worst_dogs" },
+        { text = "At least they tried.", next = "BACK" },
+      },
+    },
+    w2_worst_dogs = {
+      lines = {
+        { id = "w2_worst_dogs_l0", text = "Every scrap, and then looked up at me for more. I've learned that dogs are much less fussy than soldiers. Soldiers will tell you if it's dry; dogs only tell you if it's gone." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Sarah Sadwhistle, collecting roast raptor for the troops. An army marches on its stomach, as they say, and raptor keeps for weeks if you roast it right and salt it well." } },
-      again = { { id = "h_again", text = "What else can I tell you?" }, { id = "h_again2", text = "Anything more, dear?" } },
+      again = { { id = "h_again", text = "What else, dear? Ask before this raptor goes cold, it smells lovely warm." }, { id = "h_again2", text = "Anything more, dear?" } },
       choices = {
         { text = "Why raptor?", next = "why" },
         { text = "Do you cook it yourself?", next = "cook" },
@@ -2251,6 +2633,7 @@ P:NPC {
         { text = "What was your Gnomeregan kitchen like?", next = "ykitchen" },
         { text = "Who are your best suppliers?", next = "ysuppliers" },
         { text = "A hunter could bring you fresh raptor.", next = "BACK", when = { class = "HUNTER" }, reply = "Fresh is lovely, dear, but cooked is what I need. Find a cook to roast it, and bring me both of you." },
+        { text = "What's the worst parcel anyone's brought you?", next = "w2_worst" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2347,9 +2730,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_trick = {
+      lines = {
+        { id = "w2_trick_l0", text = "Filling a whole crate of \"candy apples\" with turnips painted red, and leaving it outside the Thunderbrew stall. Three dwarves bit in before anyone noticed, and the third one said it was the best apple he'd ever had." },
+      },
+      choices = {
+        { text = "He liked it?", next = "w2_trick_liked" },
+        { text = "That's a cruel trick.", next = "BACK" },
+      },
+    },
+    w2_trick_liked = {
+      lines = {
+        { id = "w2_trick_liked_l0", text = "He came back the next day and asked to buy the rest of the crate. I sold him the turnips at apple prices, and he left happy, and I'm still not sure who tricked whom." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Katrina Shimmerstar, purveyor of Hallow's End sweets and masks! It's a holiday the Forsaken started, if you can believe it, but the candy's far too good to leave to them." } },
-      again = { { id = "h_again", text = "What else, sweetie?" }, { id = "h_again2", text = "Go on, ask, before the candy runs out." } },
+      again = { { id = "h_again", text = "What else, sweetie? Pick a sweet while you ask, but mind the green ones." }, { id = "h_again2", text = "Go on, ask, before the candy runs out." } },
       choices = {
         { text = "Hallow's End sweets should be sold as plainly as their wrappers say.", next = "BACK", reply = "Of course, which is why every wrapper lists exactly what's inside, down to the last pinch of sugar.", fx = { align = { honor = 1 } } }, -- dp_stance
         { text = "Hide a trick in every sweet. That's the holiday spirit.", next = "BACK", reply = "It's the Forsaken spirit, perhaps, but not the one I want my customers taking home.", fx = { align = { honor = -1 } } }, -- dp_stance
@@ -2360,6 +2760,7 @@ P:NPC {
         { text = "Do you ever get trouble from the guards?", next = "yguards" },
         { text = "Where does the candy come from?", next = "ycandy" },
         { text = "A rogue could use one of those masks.", next = "BACK", when = { class = "ROGUE" }, reply = "Oh, I know exactly what you could use them for, sweetie, and I'm pretending I didn't hear that." },
+        { text = "What's the best trick you've ever played?", next = "w2_trick" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2472,9 +2873,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_march = {
+      lines = {
+        { id = "w2_march_l0", text = "Every day. But a Field Marshal who marches leaves the supply line tae someone who doesnae understand it, an' an army wi'out supplies is a graveyard on the march. I'll go when my work here is done, an' no' a day before." },
+      },
+      choices = {
+        { text = "Will that day come in time?", next = "w2_march_time" },
+        { text = "The front needs commanders more than clerks.", next = "BACK" },
+      },
+    },
+    w2_march_time = {
+      lines = {
+        { id = "w2_march_time_l0", text = "It'll come when the last crate leaves this ward. Then I'll take my old hammer off the wall an' follow it south, an' the young ones will laugh at an old dwarf on the road, an' I'll let them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Field Marshal Snowfall, commandin' the Alliance war effort. The insects of Ahn'Qiraj are wakin' in Silithus, and when the Scarab Wall falls, I mean for us to be ready." } },
-      again = { { id = "h_again", text = "What else? Be quick." }, { id = "h_again2", text = "Out with it." } },
+      again = { { id = "h_again", text = "What else? Be quick about it, soldier; the war doesn't stop for talk." }, { id = "h_again2", text = "Out with it." } },
       choices = {
         { text = "What's happening in Silithus?", next = "silithus" },
         { text = "How are the collections going?", next = "collections" },
@@ -2483,6 +2901,7 @@ P:NPC {
         { text = "What does a Field Marshal fear?", next = "yfear" },
         { text = "How did you earn your rank?", next = "yrank" },
         { text = "Can a hunter serve in this war?", next = "BACK", when = { class = "HUNTER" }, reply = "Aye, the scouts will want ye first. Report to Swiftriver if ye can tolerate the fish." },
+        { text = "Do you ever wish you were marching south yourself?", next = "w2_march" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2580,9 +2999,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_worst = {
+      lines = {
+        { id = "w2_worst_l0", text = "The cold, an' I'm a dwarf, so ye know it's cold. Yer beard freezes tae yer helm, yer powder cakes, an' the Frostwolves know every pass in those mountains better than we do. But we're learnin'." },
+      },
+      choices = {
+        { text = "Do you respect the Frostwolves?", next = "w2_worst_wolves" },
+        { text = "The cold should suit a Stormpike.", next = "BACK" },
+      },
+    },
+    w2_worst_wolves = {
+      lines = {
+        { id = "w2_worst_wolves_l0", text = "Aye, an' I'll say it plain. They fight for their home, same as us. That doesnae mean I'll let them have it, but I'll no' pretend they're cowards. Drek'Thar's no coward." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Glordrum Steelbeard, Stormpike Guard. We've an expedition in Alterac Valley diggin' for iron, and the Frostwolf orcs say it's their ancestral land, so we've been settlin' the matter with axes." } },
-      again = { { id = "h_again", text = "What else, friend?" }, { id = "h_again2", text = "Speak up, I'm half deaf from the cannons." } },
+      again = { { id = "h_again", text = "What else, friend? Stand straight; the Guard's always watchin'." }, { id = "h_again2", text = "Speak up, I'm half deaf from the cannons." } },
       choices = {
         { text = "Why fight over Alterac?", next = "why" },
         { text = "Who leads the Stormpike?", next = "vanndar" },
@@ -2591,6 +3027,7 @@ P:NPC {
         { text = "Do you have family in the Stormpike?", next = "yfam" },
         { text = "What brought the Stormpike to Alterac?", next = "ycame" },
         { text = "I'm a hunter. Need scouts in Alterac?", next = "BACK", when = { class = "HUNTER" }, reply = "Desperately! The Frostwolves know every ridge, and we need eyes that can match theirs." },
+        { text = "What's the worst thing about fighting in Alterac?", next = "w2_worst" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2706,9 +3143,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_finest = {
+      lines = {
+        { id = "w2_finest_l0", text = "A bolt o' Darnassian silk, brought by a night elf who'd carried it all the way from Teldrassil. It was so fine I couldnae bring myself tae cut it for months. In the end it became a hundred bandages." },
+      },
+      choices = {
+        { text = "Was that a shame?", next = "w2_finest_shame" },
+        { text = "Silk that fine belonged in a gown.", next = "BACK" },
+      },
+    },
+    w2_finest_shame = {
+      lines = {
+        { id = "w2_finest_shame_l0", text = "I thought so, till I saw a lad from the Wetlands patched up wi' a strip of it. He said it was the softest thing he'd ever felt. There's nae better use for a fine thing than tae comfort somebody who needs it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Mistina Steelshield, cloth quartermaster for Ironforge. I gather wool and silk from anyone kind enough to give it, and the city turns it into blankets, uniforms and bandages for those who need them." } },
-      again = { { id = "h_again", text = "What else, {g:lad|lass}?" }, { id = "h_again2", text = "Aye, go on." } },
+      again = { { id = "h_again", text = "What else, {g:lad|lass}? I've a bolt o' linen tae measure, but I can do that wi' half my mind." }, { id = "h_again2", text = "Aye, go on." } },
       choices = {
         { text = "What's the cloth used for?", next = "cloth" },
         { text = "Do the gnomes have their own quartermaster?", next = "gnomes" },
@@ -2717,6 +3171,7 @@ P:NPC {
         { text = "Have you always been a quartermaster?", next = "ypast" },
         { text = "Who gives the most?", next = "ygive" },
         { text = "Do the priests need cloth for the sick?", next = "BACK", when = { class = "PRIEST" }, reply = "Aye, always. I set aside a bolt a week for the Mystic Ward, and they never thank me, which is how I know they need it." },
+        { text = "What's the finest cloth anyone's donated?", next = "w2_finest" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2814,9 +3269,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_pile = {
+      lines = {
+        { id = "w2_pile_l0", text = "Because copper's the dwarven contribution, an' I'll no' have the elves' lotus beat it. A tall pile says Ironforge pulled its weight, an' I'll have every soldier in the Alliance see it when they pass." },
+      },
+      choices = {
+        { text = "Is it a rivalry?", next = "w2_pile_rival" },
+        { text = "Pride's a good fuel for hard work.", next = "BACK" },
+      },
+    },
+    w2_pile_rival = {
+      lines = {
+        { id = "w2_pile_rival_l0", text = "A friendly one. Master Nightsong comes by every evenin' an' looks at the pile, an' says nothin', an' then goes back tae his flowers. I think he's countin' too, an' I think he's worried." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Sergeant Stonebrow, collectin' copper bars for the war effort, and doin' it better than anyone else in this ward. Copper's for buckles and rivets and fittin's, and an army can't march without a thousand of each." } },
-      again = { { id = "h_again", text = "What else, soldier?" }, { id = "h_again2", text = "Out with it, I've copper to count." } },
+      again = { { id = "h_again", text = "What else, soldier? Admire the pile while ye ask, it's earned it." }, { id = "h_again2", text = "Out with it, I've copper to count." } },
       choices = {
         { text = "Your pile is the tallest here.", next = "pile" },
         { text = "What's copper used for in war?", next = "use" },
@@ -2825,6 +3297,7 @@ P:NPC {
         { text = "Have you always been a soldier?", next = "ysoldier" },
         { text = "Have you ever been to war?", next = "ywar" },
         { text = "Got any copper advice for a fellow dwarf?", next = "BACK", when = { race = "Dwarf" }, reply = "Smelt in the Great Forge, nae in Kharanos. The heat's purer, and the bars come out cleaner. That's dwarf wisdom, that." },
+        { text = "Why does the tallest pile matter so much to you?", next = "w2_pile" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -2921,9 +3394,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_going = {
+      lines = {
+        { id = "w2_going_l0", text = "Tea, mostly, and stubbornness. And I remember the ones who walked out of my tent, not the ones who didn't. There are far more of the first than the second, though the second are louder in my dreams." },
+      },
+      choices = {
+        { text = "Do you ever think of retiring?", next = "w2_going_retire" },
+        { text = "You've given enough.", next = "BACK" },
+      },
+    },
+    w2_going_retire = {
+      lines = {
+        { id = "w2_going_retire_l0", text = "Every war, I say it'll be my last. Then a young soldier comes in with a cut he's too proud to show me, and I find myself rolling bandages again. I suppose I'll retire when the wars do." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm Nurse Stonefield, from Stormwind, and I collect silk bandages for the army going south. I've nursed soldiers from every war since the Second, and I've never once had enough bandages." } },
-      again = { { id = "h_again", text = "What else, dear?" }, { id = "h_again2", text = "Anything else I can help you with?" } },
+      again = { { id = "h_again", text = "What else, dear? Hold your arm still if you're bleeding while you ask." }, { id = "h_again2", text = "Anything else I can help you with?" } },
       choices = {
         { text = "You've nursed in every war since the Second?", next = "wars" },
         { text = "Why silk rather than linen?", next = "silk" },
@@ -2932,6 +3422,7 @@ P:NPC {
         { text = "What was the Third War like for a nurse?", next = "ythird" },
         { text = "Do you have family in Stormwind?", next = "yfam" },
         { text = "Gnomes heal differently. Curious?", next = "BACK", when = { race = "Gnome" }, reply = "Oh, dear, I've seen gnomish medicine. Lovely gadgets. I'll stick to silk and sense, if you don't mind." },
+        { text = "How do you keep going, after so many wars?", next = "w2_going" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -3029,9 +3520,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_tell = {
+      lines = {
+        { id = "w2_tell_l0", text = "Bend it. Good leather folds soft an' springs back; bad leather cracks along the bend like old bread. An' smell it, for a hide that wasnae cured right smells o' the beast still, an' no amount o' oil will hide it." },
+      },
+      choices = {
+        { text = "Have many tried to pass off bad leather?", next = "w2_tell_bad" },
+        { text = "Everyone should learn that trick.", next = "BACK" },
+      },
+    },
+    w2_tell_bad = {
+      lines = {
+        { id = "w2_tell_bad_l0", text = "A few, an' I send them back wi' a lesson in curin' for free. Most just didnae know better. The ones who did know, I send back wi' a lesson in manners, an' that one isnae free." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Bonnie Stoneflayer, collectin' light leather for the troops. My family's been skinnin' and tannin' in Dun Morogh for six generations, so I know a good hide when I see one." } },
-      again = { { id = "h_again", text = "What else, {g:lad|lass}?" }, { id = "h_again2", text = "Go on, ask away." } },
+      again = { { id = "h_again", text = "Anythin' more, {g:lad|lass}? Mind the hides, they're stacked higher than you are." }, { id = "h_again2", text = "Go on, ask away." } },
       choices = {
         { text = "Your family are skinners?", next = "family" },
         { text = "What's light leather used for?", next = "use" },
@@ -3040,6 +3548,7 @@ P:NPC {
         { text = "What's the war really costing Dun Morogh?", next = "ycost" },
         { text = "Do you hunt your own hides?", next = "yhunt" },
         { text = "A hunter's hides should help. What do you need?", next = "BACK", when = { class = "HUNTER" }, reply = "Clean ones, cut along the belly. Bring me a stack and I'll stand ye a pint at the Stonefire." },
+        { text = "How can you tell good leather from bad at a glance?", next = "w2_tell" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -3137,9 +3646,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_hunt = {
+      lines = {
+        { id = "w2_hunt_l0", text = "Every day. But the hunt will be waiting when this is done, and the army will not. My nightsaber reminds me of it every evening, when she paces by the door and looks at me as if I had forgotten what I am." },
+      },
+      choices = {
+        { text = "What do you tell her?", next = "w2_hunt_tell" },
+        { text = "Duty first, the hunt after.", next = "BACK" },
+      },
+    },
+    w2_hunt_tell = {
+      lines = {
+        { id = "w2_hunt_tell_l0", text = "That the desert will have prey enough for both of us soon. She does not believe me, I think, but she lies down again. Cats are patient when they must be, and so are Sentinels." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Huntress Swiftriver, and I collect spotted yellowtail for the army. A huntress gathering fish, I know, but war has made stranger tasks of better warriors than me." } },
-      again = { { id = "h_again", text = "What else would you know?" }, { id = "h_again2", text = "Speak, I'm listening." } },
+      again = { { id = "h_again", text = "Ask what you like. The fish are salted and patient, and so am I." }, { id = "h_again2", text = "Speak, I'm listening." } },
       choices = {
         { text = "Why fish for an army?", next = "why" },
         { text = "Where do yellowtail run?", next = "where" },
@@ -3148,6 +3674,7 @@ P:NPC {
         { text = "Tell me about your cat.", next = "ycat" },
         { text = "What do you think of the dwarves?", next = "ydwarves" },
         { text = "Sister, how are the Sentinels faring?", next = "BACK", when = { race = "NightElf" }, reply = "Stretched thin, from Ashenvale to Feralas. But we hold, as we have always held." },
+        { text = "Do you miss hunting while you count fish?", next = "w2_hunt" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -3243,9 +3770,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_surprise = {
+      lines = {
+        { id = "w2_surprise_l0", text = "The forge. I expected a city of stone and suspicion, and I found that, but I also found a fire older than my Warchief's people, kept burning by smiths who sing while they work. Orgrimmar has nothing like it." },
+      },
+      choices = {
+        { text = "Would you say that to the dwarves?", next = "w2_surprise_say" },
+        { text = "The Horde has its own fires.", next = "BACK" },
+      },
+    },
+    w2_surprise_say = {
+      lines = {
+        { id = "w2_surprise_say_l0", text = "I have, to one old smith, who looked at me a long time and then handed me a hammer. I struck the anvil once. He nodded, and went back to his work. It was the best conversation I have had in this city." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am General Zog, sent by the Warchief to share the Horde's tallies with your Field Marshal. The qiraji threaten us all, and Thrall would rather the Alliance be ready than dead." } },
-      again = { { id = "h_again", text = "Speak." }, { id = "h_again2", text = "What else?" } },
+      again = { { id = "h_again", text = "Speak, then. I have stood here long enough to be patient." }, { id = "h_again2", text = "What else?" } },
       choices = {
         { text = "Why does the Horde share its tallies?", next = "why" },
         { text = "How is the Horde's effort going?", next = "tally" },
@@ -3255,6 +3799,7 @@ P:NPC {
         { text = "What do you think of Ironforge?", next = "ycity" },
         { text = "Do any dwarves treat you well?", next = "ywell" },
         { text = "Lok'tar. Do you miss Orgrimmar?", next = "BACK", when = { race = "Orc" }, reply = "I miss the heat, and the noise of the drums. This mountain is too quiet for an orc's ears." },
+        { text = "Has anything here surprised you, General?", next = "w2_surprise" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -3365,6 +3910,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_oldest = {
+      lines = {
+        { id = "w2_oldest_l0", text = "That the first flame was a gift tae the world from somethin' greater, before dwarves or elves or men, an' that every fire since is a wee piece o' that first one. Midsummer's when we remember it, an' feed it, so it doesnae forget us." },
+      },
+      choices = {
+        { text = "Do you believe it?", next = "w2_oldest_believe" },
+        { text = "Only a tale for children.", next = "BACK" },
+      },
+    },
+    w2_oldest_believe = {
+      lines = {
+        { id = "w2_oldest_believe_l0", text = "I believe that a good tale's worth keepin' whether it's true or no'. An' I'll say this: on Midsummer night, standin' by the bonfire, it's hard tae believe anythin' else." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm a loremaster of the Midsummer Fire Festival, and it's my duty to keep the old tales of the flame from being forgotten. Every people in this world lights fires on the longest day, ye know, even the Horde in their dusty cities." } },
       again = { { id = "h_again", text = "What else would ye know? Ask away while the fire's hot." } },
@@ -3374,6 +3936,7 @@ P:NPC {
         { text = "Tell me a festival tale.", next = "tale" },
         { text = "Do dwarves have their own fire tales?", next = "xf_dwarf" },
         { text = "I'm a shaman. The flame speaks to me too.", next = "xf_shaman", when = { class = "SHAMAN" } },
+        { text = "What's the oldest fire tale you know?", next = "w2_oldest" },
         { text = "A good festival to you.", next = "END" },
       },
     },
@@ -3471,6 +4034,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_kids = {
+      lines = {
+        { id = "w2_kids_l0", text = "Mechanical squirrels, snowballs that don't melt, and in one case, a real dragon. I wrote them all down. The squirrels I can source wholesale. The dragon's going to be a problem for the big fella." },
+      },
+      choices = {
+        { text = "What will you tell the dragon kid?", next = "w2_kids_dragon" },
+        { text = "Snowballs that don't melt?", next = "BACK" },
+      },
+    },
+    w2_kids_dragon = {
+      lines = {
+        { id = "w2_kids_dragon_l0", text = "I already told her: dragons are on back order, but here's a lovely whelp plushie in the meantime. She seemed satisfied. Between you and me, I'm a little relieved. Dragons have terrible return policies." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm one of Greatfather Winter's little helpers, contracted for the season through Smokywood Pastures, and let me tell ya, the hours are brutal. Toys, treats, wrapping, and every kid in Ironforge wantin' a mechanical squirrel." } },
       again = { { id = "h_again", text = "Something else, chum? Make it quick, the queue's backin' up past the bank." } },
@@ -3482,6 +4062,7 @@ P:NPC {
         { text = "How did you end up working for Smokywood?", next = "yhired" },
         { text = "What's the hardest part of the job?", next = "yhard" },
         { text = "Goblins and gnomes working together? How's that go?", next = "BACK", when = { race = "Gnome" }, reply = "Better than you'd think, chum. Your lot build the toys, my lot price 'em. Everybody wins, mostly us." },
+        { text = "What do the kids ask for most this year?", next = "w2_kids" },
         { text = "Merry Winter Veil.", next = "END" },
       },
     },
@@ -3597,6 +4178,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_gift = {
+      lines = {
+        { id = "w2_gift_l0", text = "Ho ho, so many! But there was a little dwarf girl, many winters ago, who asked for nothing for herself and only a warm coat for her grandfather. I brought her both, of course. I always bring two when someone asks for one." },
+      },
+      choices = {
+        { text = "Did she ever find out?", next = "w2_gift_found" },
+        { text = "That's a lovely story.", next = "BACK" },
+      },
+    },
+    w2_gift_found = {
+      lines = {
+        { id = "w2_gift_found_l0", text = "She's grown now, with grandchildren of her own, and every year she brings them to see me. She always winks at me as if we share a secret, and I suppose we do. That is the best part of Winter Veil, you know: the secrets kept kindly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I am Greatfather Winter, and I come every year at the turning of the season, when the nights are longest and folk need a little warmth most of all. Have you come for a gift, or only to talk with an old man by the fire?" } },
       narr = "His eyes crinkle above the snowy beard, and a faint smell of pine and peppermint hangs about him.",
@@ -3612,6 +4210,7 @@ P:NPC {
         { text = "Where do you go when the season ends?", next = "yaway" },
         { text = "What do you wish for, Greatfather?", next = "ywish" },
         { text = "Do dwarves keep Winter Veil differently?", next = "BACK", when = { race = "Dwarf" }, reply = "Oh, louder, little one! More ale, more song, and a roast boar the size of a ram. Ironforge does the Feast properly." },
+        { text = "Which gift do you remember best from all your years?", next = "w2_gift" },
         { text = "Merry Winter Veil, Greatfather.", next = "END" },
       },
     },
@@ -3707,9 +4306,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_common = {
+      lines = {
+        { id = "w2_common_l0", text = "Drunks in the Commons an' cutpurses in the crowds, mostly. An' recruits who get lost between the Military Ward an' the Mystic Ward an' end up askin' us where the mountain went." },
+      },
+      choices = {
+        { text = "Where did the mountain go?", next = "w2_common_lost" },
+        { text = "Better that than an army at the gates.", next = "BACK" },
+      },
+    },
+    w2_common_lost = {
+      lines = {
+        { id = "w2_common_lost_l0", text = "It's right above ye, friend, all of it. We tell them tae follow the ring an' they'll come back round where they started. Half do; the other half end up in the Deeprun Tram an' we hear about it from the gnomes." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I stand for King Magni Bronzebeard and the Ironforge Guard, and I'll point ye wherever ye need to go, from the Great Forge to the Hall of Explorers. What'll it be?" } },
-      again = { { id = "h_again", text = "Anything else, then? Out with it." } },
+      again = { { id = "h_again", text = "Anything else, then? Out with it, an' keep yer hand off yer weapon while ye speak." } },
       choices = {
         { text = "The king's law keeps Ironforge safe, and every dwarf should follow it.", next = "BACK", reply = "Aye, for King Magni's law is what keeps the gates open to friends and shut to the Dark Irons.", fx = { align = { order = 1 } } }, -- dp_stance
         { text = "Some laws are written by fools. A good dwarf breaks those.", next = "BACK", reply = "Then that dwarf can explain himself to the guard captain, for I'll be bringin' him there myself.", fx = { align = { order = -1 } } }, -- dp_stance
@@ -3721,6 +4337,7 @@ P:NPC {
         { text = "What's the worst thing you've seen on duty?", next = "yworst" },
         { text = "Who's your captain?", next = "ycaptain" },
         { text = "I'm a paladin. Is there a chapel in Ironforge?", next = "BACK", when = { class = "PALADIN" }, reply = "Aye, the Mystic Ward has the priests and the High Seat has the King. Ye'll find Light enough in both." },
+        { text = "What's the city's most common trouble?", next = "w2_common" },
         { text = "Thank you, guard.", next = "END" },
       },
     },
@@ -3826,9 +4443,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_road = {
+      lines = {
+        { id = "w2_road_l0", text = "The climb up past the Gates in winter, when the snow comes sideways an' ye cannae see yer own rifle. Many's the night we've dug a traveller out o' a drift an' carried them up tae the gates on our backs." },
+      },
+      choices = {
+        { text = "That's a heavy duty.", next = "w2_road_duty" },
+        { text = "Travellers should stay off the roads in a storm.", next = "BACK" },
+      },
+    },
+    w2_road_duty = {
+      lines = {
+        { id = "w2_road_duty_l0", text = "Heavy, aye, but there's nae better feelin' than handin' a half-frozen gnome tae the guards at the gate an' seein' him wake up warm. That's what the King's Mountaineers are for." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "The Mountaineers keep the roads of Dun Morogh, from Kharanos to the Gates and out to the North Gate Pass, and we shoot anythin' that wants to make trouble on 'em. What can I do for ye?" } },
-      again = { { id = "h_again", text = "Somethin' else? Talk quick, me toes are goin' numb." } },
+      again = { { id = "h_again", text = "Somethin' else? Talk quick, me toes are goin' numb, an' I've a mile o' road before I can thaw them." } },
       choices = {
         { text = "The Mountaineers keep the roads safe by keeping the law.", next = "BACK", reply = "Aye, and that's what keeps the troggs and the Frostmane off the roads, every season.", fx = { align = { order = 1 } } }, -- dp_stance
         { text = "Out here, a ranger makes his own law.", next = "BACK", reply = "Out here, a ranger who makes his own law usually makes himself a grave, and I've dug a few.", fx = { align = { order = -1 } } }, -- dp_stance
@@ -3840,6 +4474,7 @@ P:NPC {
         { text = "Do the Mountaineers ever get leave?", next = "yleave" },
         { text = "Any word from Loch Modan?", next = "yloch" },
         { text = "I'm a dwarf too. Who's your clan?", next = "BACK", when = { race = "Dwarf" }, reply = "Stoneshield, out of Kharanos. If ye're ever in the Thunderbrew, ask for my uncle, and he'll stand ye an ale." },
+        { text = "What's the hardest stretch of road you patrol?", next = "w2_road" },
         { text = "Stay warm.", next = "END" },
       },
     },
@@ -3944,6 +4579,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_device = {
+      lines = {
+        { id = "w2_device_l0", text = "Filter the radiation from Gnomeregan's water, eventually. At present it filters about thirty percent of the radiation and seventy percent of the water, which is the wrong way round, and I'm working on it." },
+      },
+      choices = {
+        { text = "Could it save the city?", next = "w2_device_save" },
+        { text = "Thirty percent is a start.", next = "BACK" },
+      },
+    },
+    w2_device_save = {
+      lines = {
+        { id = "w2_device_save_l0", text = "Not alone. But if we can clean the water, we can clean the pipes, and if we can clean the pipes, we can start on the lower levels. Every great project starts with one leaky valve, that's what my old supervisor said." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "I'm an engineer of Gnomeregan, though these days that mostly means I'm an engineer of somewhere else, working out of crates in the snow. We're building devices to help High Tinker Mekkatorque take our city back, and I'm almost certain this one won't explode." } },
       again = { { id = "h_again", text = "Yes, yes, what else? I've three calculations running in my head at once." } },
@@ -3955,6 +4607,7 @@ P:NPC {
         { text = "Where do you sleep these days?", next = "ybed" },
         { text = "Do you know the Tinker Town engineers?", next = "ytinker" },
         { text = "Can a warrior help in the reclamation?", next = "BACK", when = { class = "WARRIOR" }, reply = "Help? You'd be indispensable! Somebody has to stand at the front while we fiddle with the valves." },
+        { text = "What's your contraption meant to do?", next = "w2_device" },
         { text = "I'll leave you to your valve.", next = "END" },
       },
     },

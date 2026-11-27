@@ -28,13 +28,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2mourn = {
+      lines = {
+        { id = "w2m_tauren", when = { race = "Tauren" }, text = "Every one of them, and you would too if you had to carry their names home. When I return to Thunder Bluff I stand at the foot of the elder rise and speak each name aloud to the wind, so that the Earth Mother knows who has come back to her." },
+        { id = "w2m_default", text = "Every one of them. When I return to Thunder Bluff I speak each name aloud to the wind from the high rises, so that the Earth Mother knows which of her children have come home to her by another road." },
+      },
+      choices = {
+        { text = "Does it ever make you doubt sending them?", next = "w2mourn2" },
+        { text = "That is a heavy thing to carry alone.", next = "w2mourn2" },
+        { text = "Something else, Chieftain.", next = "BACK" },
+      },
+    },
+    w2mourn2 = {
+      lines = { { id = "w2m2_default", text = "I do not carry it alone. The mothers carry it, and Cairne carries it, and the officers here carry it too, though they hide it behind their shouting. What I doubt is not the sending, friend, but whether the ones who send them ever walk out to the fields where they fell." } },
+      choices = { { text = "Then I will remember them as well. Another matter.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_tauren", when = { race = "Tauren" }, text = "I am Earthbind, and I speak in this hall for the tribes of Thunder Bluff. Cairne sent me so that when the Horde counts its spears, someone remembers which of them were carried by our braves." },
         { id = "h_default", text = "I am Chieftain Earthbind, and I speak in this hall for the tauren of Thunder Bluff. My people are slow to come to war, friend, but we have never yet left one before our allies did." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask of me?" },
+        { id = "h_again", text = "Ask what lies on your heart, young one. I have stood in this hall long enough to hear most things twice." },
         { id = "h_again2", text = "Speak, and take your time over it. This hall has stood through longer silences than yours." },
       },
       choices = {
@@ -44,6 +59,7 @@ P:NPC {
         { text = "How did the tauren join the Horde?", next = "xjoin" },
         { text = "Do you trust the orcs, Chieftain?", next = "xtrust" },
         { text = "I am a druid. What would you ask of me?", when = { class = "DRUID" }, next = "xdruid" },
+        { text = "Do you mourn the braves who never come back?", next = "w2mourn" },
         { text = "Walk with the Earth Mother, Chieftain.", next = "END" },
       },
     },
@@ -144,6 +160,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2wolf = {
+      lines = {
+        { id = "w2w_hunter", when = { class = "HUNTER" }, text = "You would understand it better than most, hunter. Every Frostwolf rider raises a pup from the kennels in the village, and the two of them grow up eating the same meat and sleeping in the same snow, until neither remembers which of them is the beast." },
+        { id = "w2w_default", text = "The white wolves of Alterac gave my clan its name, and they are no mounts to be bought in a market. Every rider raises a pup from the kennels in Frostwolf Village, and they grow up sharing meat and snow until neither one would ever leave the other behind." },
+      },
+      choices = {
+        { text = "Could an outsider ever earn one?", next = "w2wolf2" },
+        { text = "Our raptors and kodos would be wasted in that snow.", next = "w2wolf2" },
+        { text = "Something else, Ambassador.", next = "BACK" },
+      },
+    },
+    w2wolf2 = {
+      lines = { { id = "w2w2_default", text = "Fight for the clan until the kennel masters know your face and Drek'Thar speaks your name with something other than suspicion. That is a long road, {class}, and I have seen strong warriors fall off it in their first season. Most who start it are buried in the valley long before they reach the end." } },
+      choices = { { text = "Then I'll start walking it. Something else.", next = "BACK" }, { text = "Another matter.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_orc", when = { race = "Orc" }, text = "I am Rokhstrom, and I speak in Orgrimmar for the Frostwolf clan. You know whose clan that is, {class}, and so you know why its valley must not fall to a pack of dwarves with shovels." },
@@ -159,6 +190,7 @@ P:NPC {
         { text = "I will fight for the Frostwolf.", next = "BUSINESS" },
         { text = "Those furs must be a torment in this heat.", next = "furs" },
         { text = "I was born in the internment camps. Would the Frostwolves have me?", next = "camps", when = { race = "Orc" } },
+        { text = "Tell me about the wolves your clan rides.", next = "w2wolf" },
         { text = "Not today, Ambassador.", next = "END" },
       },
     },

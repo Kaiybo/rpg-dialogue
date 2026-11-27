@@ -57,7 +57,25 @@ P:NPC {
         { text = "What became of the Barov family?", next = "sons" },
         { text = "I was raised in a house like this one.", next = "noble", when = { origin = "human_minor_noble" } },
         { text = "How can I help you?", next = "BUSINESS" },
+        { text = "You still carry the keys to the house.", next = "w9_keys" },
         { text = "Good day, Lucien.", next = "END" },
+      },
+    },
+
+    w9_keys = {
+      lines = { { id = "w9_keys_d", text = "Every one of them, the wine cellar, the silver closet and the master's study, because a butler who loses a key loses his position. I check them every morning, though I no longer know which doors are left to open." } },
+      choices = {
+        { text = "Which key matters most?", next = "w9_keys2" },
+        { text = "You could set them down now.", next = "w9_keys2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_keys2 = {
+      lines = { { id = "w9_keys2_d", text = "The cellar key, which I gave up to Master Alexei on the night he made his bargain, and then found again on my ring the morning after I died. I have never used it since, and I will not, whatever is waiting below." } },
+      choices = {
+        { text = "Keep it locked.", next = "BACK", reply = "I intend to. Eva says it's the only stubborn thing about me." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

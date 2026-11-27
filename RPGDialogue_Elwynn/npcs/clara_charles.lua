@@ -95,6 +95,7 @@ P:NPC {
         { text = "I've been watching the men by your well.", next = "ambush", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "How do you get the apples to the city?", next = "d6_market" },
         { text = "Are the men by the well from Westfall?", next = "d6_westfall" },
+        { text = "Is there a Mister Charles about the farm?", next = "e3_husband" },
         { text = "Good day, Clara.", next = "END" },
       },
     },
@@ -140,6 +141,24 @@ P:NPC {
       choices = {
         { text = "I'll wait until the boy is inside.", next = "BACK", fx = { affinity = 2, trait = { cautious = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_husband = {
+      lines = {
+        { id = "e3_husband_l0", text = "There was, dear, until the fever came through Goldshire three winters back and took him and half the farmhands along this road. I kept the farm because it was his and because Markus was born in that room, and I'll not be shifted off it by two men in masks at my well." },
+      },
+      choices = {
+        { text = "That's brave, alone out here.", next = "e3_husband2" },
+        { text = "I'm sorry for your loss, Clara.", next = "BACK" },
+      },
+    },
+    e3_husband2 = {
+      lines = {
+        { id = "e3_husband2_l0", text = "It's not bravery, it's apples, and the apples don't care who's watching from the bushes. The farm down the road sends a boy round on market days, and his mother sends a pie whether I've asked or not." },
+      },
+      choices = {
+        { text = "Good neighbours count. Something else.", next = "BACK" },
+        { text = "Still, the guards should do more.", next = "BACK" },
       },
     },
   },

@@ -71,7 +71,7 @@ P:NPC {
         { id = "h_default", text = "My brother keeps watch over this land and counts its wounds. I am not so patient, so I walk the strand and the hills and try to make something grow." },
       },
       again = {
-        { id = "h_again", text = "Is there more you would ask a dryad, traveller?" },
+        { id = "h_again", text = "Is there more, traveller? Ask, and forgive me if I keep my hands in the soil while you do." },
         { id = "h_again2", text = "I am listening, though I may be planting while I do it." },
       },
       choices = {
@@ -81,7 +81,36 @@ P:NPC {
         { text = "What did you plant today?", next = "y_plant" },
         { text = "What of the centaur?", next = "y_centaur" },
         { text = "Should the Circle heal the land faster?", next = "y_stance" },
+        { text = "Where do you find seeds in a land this dry?", next = "w7_seed" },
         { text = "May your seeds take root.", next = "END" },
+      },
+    },
+    w7_seed = {
+      lines = {
+        { id = "w7_seed_l1", text = "I carry them, mostly, in a pouch my brother laughs at, from Feralas and Stonetalon and once from Ashenvale itself. The rest I take from the few things that already grow here, because a seed that was born in Desolace knows how to be stubborn." },
+      },
+      choices = {
+        { text = "Could I bring you seeds from elsewhere?", next = "w7_seed2" },
+        { text = "You're wasting them on dead ground.", next = "w7_seed3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_seed2 = {
+      lines = {
+        { id = "w7_seed2_l1", text = "You could, and I would be glad of them, though I cannot promise they will live. Bring something hardy, a thistle or a mountain grass, and not a flower; flowers have been spoiled by the kind places they come from." },
+        { id = "w7_seed2_l2", when = { class = "DRUID" }, text = "You could, and you would know better than most which ones to bring. Seeds from the Moonglade would be a gift, though I fear they would grieve here; bring me something from Feralas's hills instead, something that has known a dry summer." },
+      },
+      choices = {
+        { text = "I'll keep an eye out.", next = "BACK", reply = "Then I will keep a place for them, by the stone shaped like a sleeping kodo." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_seed3 = {
+      lines = {
+        { id = "w7_seed3_l1", text = "Perhaps, but a seed in a pouch is already a wasted seed. In the ground it has a chance, and I would rather lose a hundred that tried than keep one that never did." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     land = {
@@ -443,7 +472,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "I guard dis village and de docks for de Horde, and de sea gives us more trouble than de centaur do. De Kolkar come from de north, but de naga come from de water, and dat be worse." } },
-      again = { { id = "h_again", text = "Anything else you want from a tired guard, mon?" } },
+      again = { { id = "h_again", text = "Anything else, mon? Ask quick, I got sand in my boots and de tide comin' in." } },
       choices = {
         { text = "Naga come here?", next = "naga" },
         { text = "Who runs Shadowprey?", next = "who" },
@@ -454,7 +483,36 @@ P:NPC {
         { text = "Where were you before Shadowprey?", next = "y_hist" },
         { text = "What do the loa tell you?", next = "y_loa" },
         { text = "Should Shadowprey strike the naga first?", next = "y_stance" },
+        { text = "What's the worst part of a night watch here?", next = "w7_watch" },
         { text = "Stay sharp.", next = "END" },
+      },
+    },
+    w7_watch = {
+      lines = {
+        { id = "w7_watch_l1", text = "De fog, mon. It comes in off de sea after midnight so thick you can't see de end of de dock, and every slap of water on de posts sounds like somethin' climbin' up." },
+      },
+      choices = {
+        { text = "What do you do when the fog comes?", next = "w7_watch2" },
+        { text = "A real guard isn't afraid of fog.", next = "w7_watch3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_watch2 = {
+      lines = {
+        { id = "w7_watch2_l1", text = "We whistle, mon, one guard to de next, all down de beach. As long as de whistles keep comin' back, everybody be alive, and de night one of dem don't come back, we know where to run." },
+        { id = "w7_watch2_l2", when = { race = "Troll" }, text = "We whistle down de line, mon, de old Echo Isles calls. You know dem, so if you ever stand watch with us, you answer with de heron call, and nobody stabs you in de fog by mistake." },
+      },
+      choices = {
+        { text = "Clever.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_watch3 = {
+      lines = {
+        { id = "w7_watch3_l1", text = "Den you never stood in dis fog, mon. Afraid keeps you alive. De brave ones be de ones we buried on de strand." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     naga = {

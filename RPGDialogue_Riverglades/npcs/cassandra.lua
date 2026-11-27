@@ -73,7 +73,25 @@ P:NPC {
         { text = "What's the gossip around the counter?", next = "gossip" },
         { text = "Do you remember the siege?", next = "siege" },
         { text = "Let me see what you have.", next = "BUSINESS" },
+        { text = "What's in the stew today?", next = "w9_stew" },
         { text = "Thanks, Cassandra.", next = "END" },
+      },
+    },
+
+    w9_stew = {
+      lines = { { id = "w9_stew_d", text = "Crawdad from the river, boar if the hunters were lucky, and onions, because onions are always lucky, love. There's a little of everything in it, and if you ask what the green bits are, I'll tell you they're herbs and you'll believe me." } },
+      choices = {
+        { text = "What are the green bits?", next = "w9_stew2" },
+        { text = "It smells wonderful.", next = "w9_stew2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_stew2 = {
+      lines = { { id = "w9_stew2_d", text = "Herbs, love, I just told you. Well, mostly herbs, and a bit of riverweed that Bertrand swears by, and he's the only one in Farholde who's never once been sick, so I trust him on it." } },
+      choices = {
+        { text = "Then I'll have a bowl.", next = "BACK", reply = "Good, sit down. You look like you've been living on hope and hardtack." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

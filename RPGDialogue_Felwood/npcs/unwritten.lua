@@ -60,7 +60,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Altsoba of the Ragetotem. I sell weapons to those who pass through Bloodvenom Post, and I keep them sharp, because in Felwood a dull blade is a death sentence." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
+        { id = "h_again", text = "What else, young one? My whetstone is never far from my hand." },
         { id = "h_again2", text = "Speak. I am listening, though my hands are busy." },
       },
       choices = {
@@ -73,6 +73,7 @@ P:NPC {
         { text = "What makes Felwood so dangerous?", next = "danger" },
         { text = "The Ragetotem? I don't know that tribe.", next = "tribe" },
         { text = "Show me your weapons.", next = "BUSINESS" },
+        { text = "What's the best blade you ever made?", next = "w_best" },
         { text = "Farewell, Altsoba.", next = "END" },
       },
     },
@@ -95,6 +96,26 @@ P:NPC {
       lines = { { id = "tr_default", text = "We are warriors, mostly, and few in number. My tribe taught me that a weapon is a promise you make to yourself, so I make my promises well." } },
       choices = { { text = "Something else.", next = "BACK" } },
     },
+    w_best = {
+      lines = {
+        { id = "w_best_default", text = "A great axe for my father, before he went to the Barrens to fight the centaur, young one. I quenched it in the river at the foot of Thunder Bluff, and I sang the Ragetotem war song over it until my voice broke." },
+      },
+      choices = {
+        { text = "Does he still carry it?", next = "w_best2" },
+        { text = "A proud thing to make for a father.", next = "w_best2" },
+      },
+    },
+    w_best2 = {
+      lines = {
+        { id = "w_best2_default", text = "He fell at the Stagnant Oasis, with the axe in his hands, and the Kolkar did not take it from him. A Bloodhoof hunter carried it home to my mother. It hangs in our lodge now, and I have never made a better one, though I try every season." },
+        { id = "w_best2_w1", when = { race = "Tauren" }, text = "You are Shu'halo. When you are in Thunder Bluff, stop at the Ragetotem lodge and look at it. Tell my mother her son still sings over every blade." },
+      },
+      choices = {
+        { text = "He died well.", next = "BACK", fx = { align = { honor = 1 } }, reply = "He did. That is the only comfort a warrior's son is given." },
+        { text = "No axe is worth a father.", next = "BACK", fx = { align = { honor = -1 } }, reply = "No. But he chose his road, and I chose mine." },
+        { text = "Something else, Altsoba.", next = "BACK" },
+      },
+    },
   },
   topics = {
     ragetotem = { { id = "tp_xrage", text = "My tribe. Warriors first, smiths second, and talkers never." } },
@@ -114,7 +135,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Be welcome, traveller, though this is no glad place to meet. The forest weeps around us." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "Another Lunar Festival, and another year turned. The ancestors smile on those who seek out their elders." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "Another year turned and another festival come. Even in this poisoned wood, the ancestors find their way to those who remember them." },
     { id = "g_back", when = { metBefore = true }, text = "You come back to this blighted wood. That takes courage, or foolishness." },
     { id = "g_quest", when = { questActive = TODO_QUEST("Nightwind the Elder") }, text = "You seek the elders' blessing, even here. Then you shall have mine." },
   },
@@ -137,6 +158,7 @@ P:NPC {
         { text = "I am a druid. Can the wood be healed?", next = "druid", when = { class = "DRUID" } },
         { text = "What was this forest like, before?", next = "before" },
         { text = "Why do the elders gather each new year?", next = "festival" },
+        { text = "Who did you love, here?", next = "w_love" },
         { text = "Farewell, Elder.", next = "END" },
       },
     },
@@ -204,6 +226,25 @@ P:NPC {
       lines = { { id = "fs3_default", text = "You need not thank me, child of Elune. Carry this forest in your memory as I do, and when you are old, come back and stand here in my place. That is the only thanks an elder ever asks." } },
       choices = { { text = "I'll remember. Something else.", next = "BACK" } },
     },
+    w_love = {
+      lines = {
+        { id = "w_love_default", text = "A woman who kept bees in the hollows of the old oaks near Constellas, child. She sold honey at the shrine and laughed at the Sentinels when they tried to buy it with arrows. She went to Hyjal with the rest of us, and she did not come back." },
+      },
+      choices = {
+        { text = "Do you see her, at the festival?", next = "w_love2" },
+        { text = "I'm sorry.", next = "w_love2" },
+      },
+    },
+    w_love2 = {
+      lines = {
+        { id = "w_love2_default", text = "Not yet, in all these years. Perhaps she is honoured in some other place, by some other village, and comes back there instead. I like to think so. The oaks where her bees lived are black now, and I stand beside them every year and wait." },
+        { id = "w_love2_w1", when = { class = "PRIEST" }, text = "You serve Elune. If ever she shows you a woman with honey on her fingers, among the elders, tell her Nightwind still waits by the oaks." },
+      },
+      choices = {
+        { text = "She'll find you one day.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "A kaldorei elder who loved Felwood when it was green." } },
@@ -248,6 +289,7 @@ P:NPC {
         { text = "Who is Rakaiah?", next = "rakaiah" },
         { text = "Where will you go now?", next = "home" },
         { text = "I carry the Light, as Trey did.", next = "light", when = { class = "PALADIN" } },
+        { text = "What was Trey like, outside the fighting?", next = "w_trey" },
         { text = "I'll go back in.", next = "END" },
       },
     },
@@ -324,6 +366,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    w_trey = {
+      lines = {
+        { id = "w_trey_default", text = "Terrible at cooking, and worse at being quiet. He sang hymns of the Light badly at every campfire, and he insisted on learning our words for things, and he got every one of them wrong. I called him a fool every day, and I loved him like a brother." },
+      },
+      choices = {
+        { text = "What word did he get most wrong?", next = "w_trey2" },
+        { text = "He sounds like a good friend.", next = "w_trey2" },
+      },
+    },
+    w_trey2 = {
+      lines = {
+        { id = "w_trey2_default", text = "Ishnu-alah. He said it like a sneeze, every morning, very solemnly. I never corrected him, because I liked hearing it. Now I can't say it myself without hearing his version, and I don't know if I want to laugh or weep." },
+        { id = "w_trey2_w1", when = { class = "PALADIN" }, text = "You serve the Light, as he did. Say a prayer for him in your own words, sometime. He'd have liked that more than any of ours." },
+      },
+      choices = {
+        { text = "Remember him with laughter.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Arko'narin.", next = "BACK" },
+      },
+    },
   },
   topics = {
     shadow_hold = { { id = "tp_yshadow_hold", text = "The Shadow Council's cave in Jaedenar. Eleven days in a cage." } },
@@ -383,6 +444,7 @@ P:NPC {
 
         { text = "Search the body.", next = "search" },
         { text = "Say a prayer over him.", next = "pray" },
+        { text = "Look at the ground around him.", next = "w_ground" },
         { text = "Leave him for now.", next = "END" },
       },
     },
@@ -434,6 +496,24 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_ground = {
+      lines = {
+        { id = "w_ground_default", text = "The floor is scored by boots, many of them, all facing his body in a half circle. A broken shield lies a pace to his left, split clean through. Whoever fought him came in numbers, and they did not get close easily." },
+      },
+      choices = {
+        { text = "Look at the shield.", next = "w_ground2" },
+        { text = "Count the boot marks.", next = "w_ground2" },
+      },
+    },
+    w_ground2 = {
+      lines = {
+        { id = "w_ground2_default", text = "The shield bears the hammer of the Silver Hand, and beside it someone has scratched a small crescent moon into the stone, a kaldorei mark. Arko'narin's, perhaps, made through the bars of a cage. It is the only thing in the cave that looks like a prayer." },
+      },
+      choices = {
+        { text = "Leave the shield where it lies.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Step back from the body.", next = "BACK" },
       },
     },
   },

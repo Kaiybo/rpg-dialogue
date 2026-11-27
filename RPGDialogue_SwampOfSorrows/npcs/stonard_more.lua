@@ -272,6 +272,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_fav = {
+      lines = { { id = "w8_fav_a", text = "An old female with a torn ear called Grey-Wing, who's flown the Kargath route more times than I've eaten supper. She coughs the worst of all of them in the mornings, and she's the first to lift her head when a passenger needs flying." } },
+      choices = {
+        { text = "How did she tear her ear?", next = "w8_fav2" },
+        { text = "She sounds like a fine beast.", next = "w8_fav2" },
+        { text = "I'm a hunter. Let me look at her cough.", next = "w8_fav2", when = { class = "HUNTER" } },
+        { text = "Something else, Breyk.", next = "BACK" },
+      },
+    },
+    w8_fav2 = {
+      lines = {
+        { id = "w8_fav2_a", text = "A black drake over the Burning Steppes, years back, came at her from the clouds, and she turned and stung it and brought her rider home bleeding. She's earned her cough and her bad temper both, and I'd not hear a word against her." },
+        { id = "w8_fav2_hu", when = { class = "HUNTER" }, text = "Would you? She'll snap at you, mind, because she snaps at everyone but me. If you can get her to breathe some steam off a pot of Rogvar's fever draught, she settles for a day, and I'd be grateful for the help." },
+      },
+      choices = {
+        { text = "Give her my respects.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "They'll fly you, but they'll fuss about it. They know the smell of the dead and they know the shine of the Light, and they've never had both on their backs at once, so be gentle with the reins." } },
@@ -383,6 +403,7 @@ P:NPC {
         { text = "How do you keep beasts healthy in this swamp, Breyk?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "What does the swamp do to the wind riders, Breyk?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Will your riders fly a Forsaken paladin, Breyk?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Which of your wind riders is your favourite?", next = "w8_fav" },
         { text = "Not now.", next = "END" },
       },
     },
@@ -544,7 +565,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You're no warlock, and the Light on you makes my books itch. A Forsaken paladin, of all things, so what do you want?" },
       },
       again = {
-        { id = "h_again", text = "What else? Be brief." },
+        { id = "h_again", text = "What else? Be brief, because my patience is shorter than the swamp's summer." },
         { id = "h_again2", text = "You're still here, so ask your question." },
       },
       choices = {

@@ -97,7 +97,7 @@ P:NPC {
           text = "You should not be here, and I have nothing to say to you. Leave Hammerfall before someone louder than I notices." },
       },
       again = {
-        { id = "h_again", text = "What else would you know? Ask quietly." },
+        { id = "h_again", text = "What else would you know? Ask it softly, for the Lady's business is not shouted in an orc fort." },
         { id = "h_again2", text = "I am listening, {class}. The stones are, too." },
       },
       choices = {

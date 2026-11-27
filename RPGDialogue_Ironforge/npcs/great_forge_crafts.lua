@@ -207,7 +207,7 @@ P:NPC {
           text = "Bengus Deepforge, an' this is the Great Forge, which has burned since before yer goddess had a temple in it. Yer folk usually stand at the edge an' look at it like it's a house on fire, so ye'll forgive me if I dinnae stop hammerin'." },
       },
       again = {
-        { id = "h_again", text = "Speak up, the bellows are loud." },
+        { id = "h_again", text = "Louder, an' keep yer soft hands off my anvil while ye do it." },
         { id = "h_again2", text = "What else? Mind the sparks off the Great Anvil, for they'll singe a beard." },
       },
       choices = {
@@ -504,7 +504,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anythin' else? I've a seam map tae finish." },
-        { id = "h_again2", text = "Go on, I'm listenin'." },
+        { id = "h_again2", text = "Ask away, so long as it's no' about troggs. I've had my fill o' troggs." },
       },
       choices = {
         { text = "Teach me what you can.", next = "BUSINESS" },

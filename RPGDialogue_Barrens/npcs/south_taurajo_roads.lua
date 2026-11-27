@@ -339,7 +339,23 @@ P:NPC {
         { text = "You'd use their own explosives against them?", next = "blast", when = { questDone = TODO_QUEST("Gann's Reclamation") } },
         { text = "Who is this Prospector Khazgorm?", next = "khaz" },
         { text = "Does Thunder Bluff know what's happening here?", next = "bluff" },
+        { text = "What did these hills look like before the dwarves came?", next = "w5_before" },
         { text = "I'll leave you to your road.", next = "END" },
+      },
+    },
+    w5_before = {
+      lines = { { id = "w5_before_l", text = "Green in the hollows, gold on the slopes, with springs where the hills folded together. My grandmother's grandmother is buried on the ridge above Bael Modan. I cannot visit her now without walking past a dwarf with a rifle." } },
+      choices = {
+        { text = "Could there ever be peace with them?", next = "w5_before2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_before2 = {
+      lines = { { id = "w5_before2_l", text = "If they stopped the blasting, I would sit at a fire with them. I told them so, once. They thanked me politely and set off another charge before I had reached the bottom of the hill. I do not know what peace looks like with someone who cannot hear you over their own powder." } },
+      choices = {
+        { text = "If they stop blasting, offer them peace. Grief needn't become war.", next = "BACK", reply = "You are kinder than I have the strength to be today. But I will keep the offer open.", fx = { align = { light = 1 } } },
+        { text = "Drive them out of the hills. They had their chance.", next = "BACK", reply = "I have thought it many nights. And each morning I remember how many of my people that would cost.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     tribe = {

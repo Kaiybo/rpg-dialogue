@@ -180,6 +180,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2bowl = {
+      lines = { { id = "w2bw_default", text = "A young rogue of Ormok's, who leaves a bowl by my foot every evening and thinks I don't know which one he is. He walks like a boar with a sore hoof, and he breathes through his mouth, and I have never once told him." } },
+      choices = {
+        { text = "Why not thank him?", next = "w2bowl2" },
+        { text = "Kindness in the Cleft is rare.", next = "w2bowl2" },
+        { text = "Something else, Cazul.", next = "BACK" },
+      },
+    },
+    w2bowl2 = {
+      lines = {
+        { id = "w2bw2_lock", when = { class = "WARLOCK" }, text = "Because a gift that is noticed becomes a bargain, warlock, and you of all people should understand the difference. I would rather owe him nothing and let him feel he owes me nothing either." },
+        { id = "w2bw2_default", text = "Because a gift that is noticed becomes a bargain, and I have made enough bargains for one lifetime. Let the boy think he does it unseen; that is a kind of power too, and it costs him nothing." },
+      },
+      choices = { { text = "A strange sort of kindness.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     cz_ganrul = {
       lines = { { id = "cz_ganrul_l", text = "He does, when they need something he can't be bothered to explain. Gan'rul teaches the binding of demons, and I teach the cost of it, and the young ones generally like his lessons better." } },
       choices = {
@@ -231,6 +246,7 @@ P:NPC {
         { text = "Why does an old orc sit down here in the dark?", next = "dark" },
         { text = "Gan'rul Bloodeye sends students your way, I gather.", next = "cz_ganrul" },
         { text = "You hear everything that passes in the Cleft, I'd wager.", next = "cz_hear" },
+        { text = "Who brings you food, down here in the dark?", next = "w2bowl" },
         { text = "I'll leave you in peace, old one.", next = "END" },
       },
     },
@@ -308,6 +324,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2others = {
+      lines = { { id = "w2ot_default", text = "Some evenings a tauren mother comes, whose son rides with the Crossroads patrols, and we stand together without talking. She brought me milk tea once, and I brought her a cushion for the rock, and that's how we say it." } },
+      choices = {
+        { text = "That sounds like a good friendship.", next = "w2others2" },
+        { text = "Does it help, waiting together?", next = "w2others2" },
+        { text = "Something else, Zankaja.", next = "BACK" },
+      },
+    },
+    w2others2 = {
+      lines = { { id = "w2ot2_default", text = "A little. When a rider comes in, we watch each other's faces as well as the sky, and if the news is bad for one of us, the other is already there. The bluffs are less lonely with two." } },
+      choices = { { text = "I'm glad you have her.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     zk_riders = {
       lines = { { id = "zk_riders_l", text = "They do, and I've learned to tell from how they fly whether the news is good. A wind rider that comes in low and slow is carrying the wounded, and one that comes in high and fast is carrying orders." } },
       choices = {
@@ -357,6 +385,7 @@ P:NPC {
         { text = "Did you believe Gan'rul?", next = "truth", when = { class = "WARLOCK", questDone = TODO_QUEST("Love's Gift") } },
         { text = "The wind riders come in tired from the south.", next = "zk_riders" },
         { text = "What do you do when you're not up here?", next = "zk_work" },
+        { text = "Does anyone else wait up here with you?", next = "w2others" },
         { text = "I hope he comes home soon.", next = "END" },
       },
     },

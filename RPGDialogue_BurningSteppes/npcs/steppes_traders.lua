@@ -50,7 +50,25 @@ P:NPC {
         { text = "How did a Stormwind smith end up here?", next = "past" },
         { text = "Who keeps the Vigil supplied?", next = "fs_supply" },
         { text = "What breaks most often up here?", next = "fs_breaks" },
+        { text = "Who's the best fighter at the Vigil?", next = "w9_best" },
         { text = "Later, Felder.", next = "END" },
+      },
+    },
+
+    w9_best = {
+      lines = { { id = "w9_best_d", text = "Marshal Maxwell, if you ask him, and Oralius, if you ask anyone else. Oralius goes through more shields than the rest of the Vigil put together, because he walks straight at an ogre and expects the ogre to be the one who steps aside." } },
+      choices = {
+        { text = "Does the ogre usually step aside?", next = "w9_best2" },
+        { text = "You don't sound impressed.", next = "w9_best2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_best2 = {
+      lines = { { id = "w9_best2_d", text = "So far, aye, which is the only reason he's still alive and still breaking my shields. I mend them without complaint, mostly, because a man who stands that close to the Firegut is worth a lot of hammering." } },
+      choices = {
+        { text = "Keep his shields coming.", next = "BACK", reply = "I will. He keeps me in work, and I keep him in one piece." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     fs_supply = {
@@ -195,7 +213,25 @@ P:NPC {
         { text = "Who comes through Flame Crest?", next = "visitors" },
         { text = "What do the goblins here trade?", next = "gu_goblins" },
         { text = "How did you come to Flame Crest?", next = "gu_came" },
+        { text = "Your hands are burned all over.", next = "w9_hands" },
         { text = "I'll be off.", next = "END" },
+      },
+    },
+
+    w9_hands = {
+      lines = { { id = "w9_hands_d", text = "The ground oven bites, and it bites harder than any Blackrock blade I've faced. Every orc who bakes at Flame Crest has hands like these, and the goblins laugh and offer me gloves at three times the price." } },
+      choices = {
+        { text = "Why not buy the gloves?", next = "w9_hands2" },
+        { text = "Do the burns ever heal?", next = "w9_hands2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_hands2 = {
+      lines = { { id = "w9_hands2_d", text = "Because a baker who can't feel the bread can't tell when it's done, and a burn heals, but bad bread is remembered. My mother baked in the camps with hands worse than mine, and the guards never once tasted a bad loaf from her." } },
+      choices = {
+        { text = "She taught you well.", next = "BACK", reply = "She did. Eat, and you'll taste it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     gu_goblins = {

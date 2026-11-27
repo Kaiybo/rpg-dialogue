@@ -48,7 +48,23 @@ P:NPC {
         { text = "Who will test me after you?", next = "after" },
         { text = "The elements must weigh on you, out here alone.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Our people were hunted here once. I know the stories.", next = "tauren", when = { race = "Tauren" } },
+        { text = "What test do you set yourself, out here?", next = "w5_self" },
         { text = "Earth Mother guide you, Braug.", next = "END" },
+      },
+    },
+    w5_self = {
+      lines = { { id = "w5_self_l", text = "Every morning I ask myself whose fault the world's pain is, and every morning I answer honestly. Some days it is the goblins. Some days the night elves. Some days the orcs, or my own people. The test is in not choosing the same answer twice in a row." } },
+      choices = {
+        { text = "And who is to blame today?", next = "w5_self2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_self2 = {
+      lines = { { id = "w5_self2_l", text = "Today, me. I sat by this tunnel yesterday and watched a Venture Company crew cut down a tree I have known for twenty years, and I did nothing but think. Thinking is not nothing. But it is not much, either." } },
+      choices = {
+        { text = "Thinking first is wise. Rash action causes more pain.", next = "BACK", reply = "Perhaps. It is the answer I give myself on easier days.", fx = { align = { order = 1 } } },
+        { text = "Then act. Thinking alone saves no trees.", next = "BACK", reply = "Yes. That is the answer that keeps me awake at night.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     test = {
@@ -338,7 +354,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else, friend? I'm on the clock here." },
         { id = "h_again2", text = "Ask, but make it quick, the foreman counts my minutes." },
-        { id = "h_again3", text = "Yeah?" },
+        { id = "h_again3", text = "Yeah? Make it a short one. Foreman's got a sand-glass on me." },
       },
       choices = {
         { text = "Show me your weapons.", next = "BUSINESS" },
@@ -349,7 +365,22 @@ P:NPC {
         { text = "I know machines. Those shredders run rough.", next = "shred", when = { profession = "Engineering" } },
         { text = "What's the quality like on Company steel?", next = "stock" },
         { text = "Who buys from you out here?", next = "customers" },
+        { text = "Does your foreman ever come and check on you out here?", next = "w5_foreman" },
         { text = "We're done here, Veenix.", next = "END" },
+      },
+    },
+    w5_foreman = {
+      lines = { { id = "w5_foreman_l", text = "Every third day, pal, on the dot. He counts my stock, counts my coin, counts my minutes, and then he looks at the stumps and tells me the view's improving. I nod. You always nod at the foreman." } },
+      choices = {
+        { text = "Do you think the view's improving?", next = "w5_foreman2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_foreman2 = {
+      lines = { { id = "w5_foreman2_l", text = "Between you and me, friend? It looked better with the trees. But I'm a salesman, not a forester. I sell the axes that cut the trees that pay for the axes. Somebody smarter than me figured out that circle, and I just stand in the middle of it." } },
+      choices = {
+        { text = "You know exactly what you're standing in, though.", next = "BACK", reply = "Yeah. That's the trouble with knowing things. They don't go away." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     company = {
@@ -496,7 +527,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? Speak up, the wheel's loud!" },
         { id = "h_again2", text = "Ask, friend, but keep an eye behind me, would ya?" },
-        { id = "h_again3", text = "Yeah?" },
+        { id = "h_again3", text = "Yeah? Louder, pal! That wheel's got lungs!" },
       },
       choices = {
         { text = "Show me your armour.", next = "BUSINESS" },
@@ -506,7 +537,22 @@ P:NPC {
         { text = "If this wheel came down, where would you go?", next = "down", when = { faction = "Horde" } },
         { text = "The druids at the Peak mean to stop all this.", next = "peak", when = { faction = "Alliance" } },
         { text = "Where does your stock come from?", next = "stock" },
+        { text = "Why do you flinch every time the wheel groans?", next = "w5_flinch" },
         { text = "Watch your footing, Nizzik.", next = "END" },
+      },
+    },
+    w5_flinch = {
+      lines = { { id = "w5_flinch_l", text = "'Cause the last fella who had this platform is somewhere at the bottom of Cragpool, pal. A strut went, the wheel lurched, and splash. The Company sent me up the next morning with his stock and his apron. The apron still smells like him." } },
+      choices = {
+        { text = "Why take the job, knowing that?", next = "w5_flinch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_flinch2 = {
+      lines = { { id = "w5_flinch2_l", text = "The Company pays double for dangerous postings, and I owe a fella in Booty Bay exactly double what a normal posting pays. Funny how that works out. I flinch, I sell, I count the days. Another season and I'm clear, and then somebody else can have the apron." } },
+      choices = {
+        { text = "I hope the struts hold till then.", next = "BACK", reply = "Me too, pal. Me too. Say a word to whatever you pray to, would ya?" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     wheel = {

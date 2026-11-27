@@ -34,6 +34,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_danger = {
+      lines = {
+        { id = "w2_danger_l0", text = "Coarse blasting powder in the back, packed in sawdust. One crate o' it would take the Depot roof off, an' I've six. I sleep above the shop, which tells ye how much I trust my own packin'." },
+      },
+      choices = {
+        { text = "Isn't that reckless?", next = "w2_danger_reckless" },
+        { text = "A merchant who trusts his own goods. I like it.", next = "BACK" },
+      },
+    },
+    w2_danger_reckless = {
+      lines = {
+        { id = "w2_danger_reckless_l0", text = "Reckless would be lettin' Steelgrill's apprentices near it, an' I dinnae. Every crate's signed for, every grain's counted, an' anyone who strikes a spark near my shop gets thrown out on their ear before the spark lands." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     lr_gnome = {
       lines = { { id = "lrg_default", text = "Bought? They bought half my stock every season, an' paid on time, which is more than I can say for dwarves. Since the city fell, the ones in Tinker Town buy scrap an' fuses an' talk about goin' home, an' I sell it tae them cheap an' dinnae argue." } },
       choices = {
@@ -64,6 +81,7 @@ P:NPC {
         { text = "What goes into a crate for Hegnar?", next = "crate" },
         { text = "Gnomeregan's engineers must have bought from you once.", next = "lr_gnome", when = { race = "Gnome" } },
         { text = "I shoot one of Hegnar's guns myself.", next = "lr_hunter", when = { class = "HUNTER" } },
+        { text = "What's the most dangerous thing you stock?", next = "w2_danger" },
         { text = "Good day, Loslor.", next = "END" },
       },
     },
@@ -143,6 +161,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_refuse = {
+      lines = {
+        { id = "w2_refuse_l0", text = "Twice. Once tae a dwarf who'd beaten his pony lame, an' once tae a human merchant who wanted a ram tae pull a cart. An Amberstill ram carries a rider; it's no' a mule." },
+      },
+      choices = {
+        { text = "Was the merchant angry?", next = "w2_refuse_merchant" },
+        { text = "A breeder should know where his beasts go.", next = "BACK", reply = "Aye, every one o' them. I could tell ye the rider o' every ram I've ever sold.", fx = { align = { honor = 1 } } },
+        { text = "Coin is coin. Sell to whoever pays.", next = "BACK", reply = "Then ye'd best buy yer ram somewhere else, for that's no' how this ranch runs.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_refuse_merchant = {
+      lines = {
+        { id = "w2_refuse_merchant_l0", text = "Furious. He offered me twice the price, then three times, an' then he called me a stubborn old goat, which I took as a compliment, for I've bred goats as well, an' they're grand animals." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Veron Amberstill. My family's bred rams on this ground since before Ironforge had a king, an' Rudra does the raisin' while I see who's fit tae buy. I'll no' sell a ram tae just anybody wi' gold." },
@@ -150,7 +187,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The rams are in nae hurry, an' neither am I." },
-        { id = "h_again2", text = "Aye, ask." },
+        { id = "h_again2", text = "Aye, ask, an' dinnae mind the grey one leanin' on the fence; he's only curious." },
       },
       choices = {
         { text = "A ram should be sold with its true temper told plain.", next = "BACK", reply = "Aye, for a ram that bucks on the mountain pass is a dwarf in a ravine, an' I'll no' have it.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -162,6 +199,7 @@ P:NPC {
         { text = "Which ram would you pick for me?", next = "pick" },
         { text = "What does a ram eat through a Dun Morogh winter?", next = "d0_feed" },
         { text = "Your niece Yarlyn has lost her rabbit again.", next = "d0_yarlyn" },
+        { text = "Have you ever refused to sell someone a ram?", next = "w2_refuse" },
         { text = "Good day, Veron.", next = "END" },
       },
     },
@@ -270,6 +308,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_fall = {
+      lines = {
+        { id = "w2_fall_l0", text = "Number two hundred an' six, off a young ram called Thistle intae a frozen pond. I learned that a ram will always stop at the edge o' ice, an' that a rider who's no' holdin' on will always keep goin'." },
+      },
+      choices = {
+        { text = "Did you go through the ice?", next = "w2_fall_ice" },
+        { text = "Two hundred and six falls is a lot of learning.", next = "BACK" },
+      },
+    },
+    w2_fall_ice = {
+      lines = {
+        { id = "w2_fall_ice_l0", text = "Clean through, an' Thistle stood at the edge lookin' down at me wi' the face o' a ram who'd done nothin' wrong. Veron fished me out wi' a crook, an' I rode Thistle home, for ye always get back on." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Ultham Ironhorn. Veron sells the rams an' I teach folk tae stay on top o' them, which is the harder trade. I've been thrown four hundred times, near enough, an' I can tell ye exactly what I did wrong each time." },
@@ -288,6 +343,7 @@ P:NPC {
         { text = "Which ram should a beginner ask for?", next = "which" },
         { text = "What's the worst ground to ride a ram over?", next = "d0_country" },
         { text = "You rode with the mountaineers once.", next = "d0_mount" },
+        { text = "Which of your falls taught you the most?", next = "w2_fall" },
         { text = "Good day, Ultham.", next = "END" },
       },
     },
@@ -482,7 +538,7 @@ P:NPC {
         { id = "rd_default", text = "A long road, an' I've walked most of it. Ye keep the beast, ye learn yer aspects an' yer stings, an' somewhere around thirty seasons ye learn tae fall down dead an' get up again, which I'll explain if ye ask." },
         { id = "rd_high", when = { minLevel = 40 }, text = "Ye've come a long way since the boar, I can see it in the mail on yer back an' the way the beast watches yer hands. What d'ye want tae know from an old dwarf on a hill?" },
       },
-      again = { { id = "rd_again", text = "What else about the road?" } },
+      again = { { id = "rd_again", text = "What else? Ask it out here, where the beasts can hear an' the guards cannae." } },
       choices = {
         { text = "How do I keep my beast loyal?", next = "loyal" },
         { text = "What's this about falling down dead?", next = "feign", when = { minLevel = 24 } },
@@ -622,12 +678,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_turned = {
+      lines = {
+        { id = "w2_turned_l0", text = "One, last winter. A young dwarf who prayed beautifully an' could heal a cut in a breath, but who wouldnae kneel by a wounded trogg tae ease its death. The Light's no' only for our own." },
+      },
+      choices = {
+        { text = "Isn't mercy for troggs too much to ask?", next = "w2_turned_trogg" },
+        { text = "You were right to refuse him.", next = "BACK", reply = "I hope so. I pray for him still, that he'll come back changed.", fx = { align = { light = 1 } } },
+        { text = "You were too hard on him. Troggs are beasts.", next = "BACK", reply = "Perhaps they are. But a priest who chooses who deserves the Light isnae servin' it.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_turned_trogg = {
+      lines = {
+        { id = "w2_turned_trogg_l0", text = "It's no' too much tae ask; it's the whole of it. Anyone can bless their friends. The Light asks ye tae carry it where it's hardest tae carry, an' a dying enemy is the hardest place I know." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Maxan Anvol, priest o' the Light. I teach above a tavern, which wasnae my choice, but Belm brings me the mountaineers the troggs have chewed, an' my students learn their healin' on real wounds. There's nae better school." },
       },
       again = {
-        { id = "h_again", text = "What else would ye ask?" },
+        { id = "h_again", text = "Ask, an' I'll answer, though I'll want tae see what ye've learned before I teach ye more." },
         { id = "h_again2", text = "Aye. Speak, I've a dressing tae change after." },
       },
       choices = {
@@ -640,6 +715,7 @@ P:NPC {
         { text = "What should a priest carry on the road?", next = "road" },
         { text = "You and Thamner Pol share the wounded, I hear.", next = "d0_thamner" },
         { text = "Where should a priest go after your teaching?", next = "d0_after" },
+        { text = "Have you ever turned a student away?", next = "w2_turned" },
         { text = "Light keep you, Maxan.", next = "END" },
       },
     },
@@ -751,13 +827,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_pranks = {
+      lines = {
+        { id = "w2_pranks_l0", text = "Every winter, an' I encourage it. Last year they filled my boots wi' snow an' replaced my prayer book wi' a cookery book from the Anvilmar kitchen. I read the whole mornin' service from a recipe for boar stew." },
+      },
+      choices = {
+        { text = "Did anyone notice?", next = "w2_pranks_notice" },
+        { text = "Pranks in a holy place?", next = "BACK" },
+      },
+    },
+    w2_pranks_notice = {
+      lines = {
+        { id = "w2_pranks_notice_l0", text = "Only when I got tae \"add salt tae taste,\" an' then the whole hall was laughin', an' I was laughin' hardest. A frightened novice cannae laugh, an' a laughin' one isnae frightened. That's the whole trick." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Branstock Khalder, an' I teach the new priests their first prayers. Coldridge is where a dwarf finds out what he's made of, an' my part is seein' that the gentle ones dinnae think they're made o' less than the rest." },
       },
       again = {
         { id = "h_again", text = "What else? I've nae more jokes ready, so ye're safe." },
-        { id = "h_again2", text = "Aye, ask away." },
+        { id = "h_again2", text = "Aye, ask away, an' if I cannae answer, I'll tell ye a joke instead, which is worse." },
       },
       choices = {
         { text = "A priest should be honest with the sick, even about bad news.", next = "BACK", reply = "Aye, for a frightened dwarf deserves the truth, even if it's wrapped in a joke.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -769,6 +862,7 @@ P:NPC {
         { text = "What do you tell a novice who's afraid to fight?", next = "afraid" },
         { text = "What's the worst wound you've seen come in?", next = "d0_wound" },
         { text = "You'd make a fine innkeeper, with all those jokes.", next = "d0_inn" },
+        { text = "Do your novices ever play jokes on you?", next = "w2_pranks" },
         { text = "Light be with you, Branstock.", next = "END" },
       },
     },
@@ -880,12 +974,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_vows = {
+      lines = {
+        { id = "w2_vows_l0", text = "A paladin in Stormwind's colours, on the Ironforge road, when I was a mountaineer. A trogg had my sergeant pinned, an' she walked up, laid a hand on him, an' he stood. I'd never seen anythin' like it, an' I've chased that sight since." },
+      },
+      choices = {
+        { text = "Who was she?", next = "w2_vows_who" },
+        { text = "A fine reason to take the vows.", next = "BACK" },
+      },
+    },
+    w2_vows_who = {
+      lines = {
+        { id = "w2_vows_who_l0", text = "I never learned her name. She rode on before we could thank her, an' I've asked every paladin I've met since. Maybe that's for the best; I'd hate tae find she was ordinary." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Azar Stronghammer, o' the Silver Hand. I take the young paladins after Bromos Grummner's done wi' them at Anvilmar, an' I get them ready for Ironforge. I teach on a tavern landing, an' the Light's never complained." },
       },
       again = {
-        { id = "h_again", text = "What else can I tell ye?" },
+        { id = "h_again", text = "What else? Ask me plain, an' I'll answer as plain as my vows allow." },
         { id = "h_again2", text = "Aye, ask! I like a question." },
         { id = "h_again3", text = "Aye, go on, I'm glad o' the company." },
       },
@@ -900,6 +1011,7 @@ P:NPC {
         { text = "What do you do when a student doubts?", next = "doubt" },
         { text = "What's the road to Ironforge like these days?", next = "d0_road" },
         { text = "You must miss the mountaineers.", next = "d0_mtn" },
+        { text = "What made you take the Silver Hand's vows?", next = "w2_vows" },
         { text = "Light be with you, Azar.", next = "END" },
       },
     },
@@ -1008,6 +1120,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_accident = {
+      lines = {
+        { id = "w2_accident_l0", text = "The Tuesday a student cast Frost Nova while a paladin was mid-blessing. Froze him solid, hammer raised, and Azar had to thaw him out with the Light while I held the bucket. We now have a rule: no casting during prayers." },
+      },
+      choices = {
+        { text = "Did the paladin forgive him?", next = "w2_accident_forgive" },
+        { text = "Frost Nova indoors is asking for it.", next = "BACK" },
+      },
+    },
+    w2_accident_forgive = {
+      lines = {
+        { id = "w2_accident_forgive_l0", text = "He did, very graciously, though he still flinches when anyone says the word \"nova.\" The student's in Ironforge now, studying under Bink, and I've heard he's much more careful about his footing." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     mgs_poly = {
       big = true,
       lines = { { id = "mgsp_default", text = "Sheep, yes, and you'll want to practise on something that doesn't mind, and nothing in Dun Morogh minds less than a boar with a full belly. Please don't practise on the Thunderbrews' ram, because I did that once by accident and I'm still paying for the fence." } },
@@ -1059,6 +1188,7 @@ P:NPC {
         { text = "Frost or fire, Magis, for a gnome my size?", next = "mgs_size", when = { race = "Gnome", class = "MAGE", maxLevel = 15 } },
         { text = "Do your students laugh at a dwarf mage, Magis?", next = "mgs_dwarf", when = { race = "Dwarf", class = "MAGE" } },
         { text = "When should I go on to Ironforge?", next = "mgs_bink", when = { class = "MAGE", minLevel = 8 } },
+        { text = "What's the worst accident on this landing?", next = "w2_accident" },
         { text = "Goodbye, Magis.", next = "END" },
       },
     },
@@ -1141,12 +1271,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_learn = {
+      narr = "He keeps peeling, and the peel comes off in one unbroken curl.",
+      lines = {
+        { id = "w2_learn_l0", text = "In the alleys o' Stormwind, before the second war, from a human who could take a ring off yer finger while shakin' yer hand. I was a dwarf in a city o' men, an' nobody ever looks down far enough tae see a dwarf comin'." },
+      },
+      choices = {
+        { text = "Why come back to Dun Morogh?", next = "w2_learn_back" },
+        { text = "A thief's training, then.", next = "BACK" },
+      },
+    },
+    w2_learn_back = {
+      lines = {
+        { id = "w2_learn_back_l0", text = "Because Stormwind got too fond o' its prisons, an' because the mountain's mine. Somebody here ought tae teach the young ones what I know, an' better me than some cutthroat who'd teach them the rest." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Hogral Bakkan. Officially I help in Belm's kitchen. I also teach a certain sort o' recruit a certain sort o' skill, for folk in Ironforge who prefer no' tae be named over a pot o' stew." },
       },
       again = {
-        { id = "h_again", text = "What else? Keep it low." },
+        { id = "h_again", text = "What else? Quiet, now, Belm's listenin' through the door, an' I've potatoes tae finish." },
         { id = "h_again2", text = "Aye. Go on, an' pass me that knife. The wee one." },
       },
       choices = {
@@ -1159,6 +1307,7 @@ P:NPC {
         { text = "What's the first lesson for a new rogue?", next = "lesson" },
         { text = "What does a kitchen hand overhear at the Thunderbrew?", next = "d0_hear" },
         { text = "You keep a very sharp set of knives.", next = "d0_knives" },
+        { text = "Where did you learn your trade?", next = "w2_learn" },
         { text = "I was never here, Hogral.", next = "END" },
       },
     },
@@ -1274,6 +1423,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_lost = {
+      lines = {
+        { id = "w2_lost_l0", text = "Once, in eleven years, an' I'll never forgive him for it. It was about whether a ram could swim, an' he took one down tae the loch tae prove it. The ram swam, an' then it bit me." },
+      },
+      choices = {
+        { text = "So rams can swim?", next = "w2_lost_ram" },
+        { text = "Belm sounds a worthy opponent.", next = "BACK" },
+      },
+    },
+    w2_lost_ram = {
+      lines = {
+        { id = "w2_lost_ram_l0", text = "That one could. I still say it was an exceptional ram, an' I've said so every evenin' since, so as far as I'm concerned the argument's still goin'. Belm says that's no' how winnin' works." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kogan Forgestone. I've sat on this stool every evenin' since Belm bought the place, an' I've been right about everythin' the whole time, which he'll no' admit. Ask me aught ye like about Kharanos, for I ken who owes what tae whom." },
@@ -1288,6 +1454,7 @@ P:NPC {
         { text = "How bad are the Frostmane trolls?", next = "trolls" },
         { text = "You know the brewers' feud, I take it.", next = "feud" },
         { text = "What should a newcomer do first here?", next = "first" },
+        { text = "Have you ever lost an argument to Belm?", next = "w2_lost" },
         { text = "Good evening, Kogan.", next = "END" },
       },
     },
@@ -1372,13 +1539,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_cheap = {
+      lines = {
+        { id = "w2_cheap_l0", text = "Salt. Ye cannae cure a hide nor keep meat through the winter wi'out it, an' every grain comes up from the coast at a dear price. Anybody who sells salt cheap is either a fool or sellin' sand." },
+      },
+      choices = {
+        { text = "Has anyone tried to sell you sand?", next = "w2_cheap_sand" },
+        { text = "A fair price for a fair need.", next = "BACK" },
+      },
+    },
+    w2_cheap_sand = {
+      lines = {
+        { id = "w2_cheap_sand_l0", text = "A goblin, last year, wi' a cart full o' \"Booty Bay sea salt.\" I licked one grain an' told him it was the Barrens he'd scooped it from, an' he left in such a hurry he forgot his cart. I've the cart still." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Golorn Frostbeard, tradesman. I dinnae make anythin' myself, an' I sell the wee things that them who do cannae work wi'out. Naebody ever plans tae run out o' thread, an' everybody does, an' it's a long cold walk tae Ironforge." },
       },
       again = {
         { id = "h_again", text = "What else? I'm countin', but I can count an' listen." },
-        { id = "h_again2", text = "Aye, ask." },
+        { id = "h_again2", text = "Aye, ask, an' I'll answer for free, which is the only free thing in this stall." },
       },
       choices = {
         { text = "A tradesman should sell good flux and fair thread to all.", next = "BACK", reply = "Aye, for my livin' depends on folk comin' back, an' they'll only come back if I'm honest.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -1391,6 +1575,7 @@ P:NPC {
         { text = "What news comes up with the wagon?", next = "wagon" },
         { text = "Who comes in asking for things you don't stock?", next = "d0_ask" },
         { text = "Your scales look older than the stall.", next = "d0_scales" },
+        { text = "What's the one thing you'll never sell cheap?", next = "w2_cheap" },
         { text = "Good day, Golorn.", next = "END" },
       },
     },
@@ -1496,13 +1681,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_lost = {
+      lines = {
+        { id = "w2_lost_l0", text = "One, a gnome lad in his first winter out o' Gnomeregan, who wouldnae buy a cloak because he said he'd make himself a heated one. They found him near the Grizzled Den wi' a half-finished coil o' copper wire in his hands." },
+      },
+      choices = {
+        { text = "I'm sorry.", next = "w2_lost_after" },
+        { text = "Pride kills more than the cold does.", next = "BACK" },
+      },
+    },
+    w2_lost_after = {
+      lines = {
+        { id = "w2_lost_after_l0", text = "So am I. Since then I've given a cheap cloak tae every gnome who comes through, whether they want it or no'. Most o' them take it apart tae see how it works, but they put it back together warmer." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gamili Frosthide. I sell leather an' cloth, an' I line it all wi' Amberstill fleece, for I've seen what Dun Morogh does tae folk who dress for Elwynn. Durnan Furcutter outfits the recruits at Anvilmar, an' I finish the job when they get here." },
       },
       again = {
         { id = "h_again", text = "What else? Are ye warm enough there?" },
-        { id = "h_again2", text = "Aye, ask away." },
+        { id = "h_again2", text = "Aye, ask away, but come in out o' that draught while ye do." },
       },
       choices = {
         { text = "Cloth and leather should be sold warm enough for this country.", next = "BACK", reply = "Aye, for a coat that lets the wind through out here is a death sentence, an' I'll no' sell one.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -1515,6 +1717,7 @@ P:NPC {
         { text = "Who else outfits travellers in Kharanos?", next = "shops" },
         { text = "Where do your travellers come from?", next = "d0_travel" },
         { text = "You sew right here at the counter, I see.", next = "d0_sew" },
+        { text = "Have you ever lost a customer to the cold?", next = "w2_lost" },
         { text = "Stay warm, Gamili.", next = "END" },
       },
     },
@@ -1620,13 +1823,32 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_wrong = {
+      lines = {
+        { id = "w2_wrong_l0", text = "Tognus does it every day, an' every day I move it back. He says he does it tae keep me young. I say I'll be grey before my time, an' it's his doin'." },
+      },
+      choices = {
+        { text = "Have you tried hiding the hammers?", next = "w2_wrong_hide" },
+        { text = "Order is the backbone of good work.", next = "BACK", reply = "Aye, an' a smith who cannae find his hammer is only half a smith.", fx = { align = { order = 1 } } },
+        { text = "A little disorder never hurt a forge.", next = "BACK", reply = "Tell that tae the lad who grabbed the hot tongs instead o' the cold ones last winter.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_wrong_hide = {
+      lines = {
+        { id = "w2_wrong_hide_l0", text = "Once. He spent the whole mornin' lookin', an' then made a new one from scrap out o' spite, an' it was a better hammer than mine. It hangs at the end o' the row now, where I can glare at it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Thrawn Boltar. I supply the forge here: Tognus Flintfire does the teachin' an' the hammerin', an' I see he's somethin' tae hammer wi'. Kharanos has the one smithy, an' it shoes the rams, mends the rifles an' fixes every pot in the valley." },
       },
       again = {
         { id = "h_again", text = "What else? I've coal tae weigh." },
-        { id = "h_again2", text = "Aye. Go on." },
+        { id = "h_again2", text = "Aye. Go on, but dinnae touch the wall while ye talk." },
       },
       choices = {
         { text = "A smith's tools should be sold sound, without hidden cracks.", next = "BACK", reply = "Aye, for a cracked hammer head flies off at the worst moment, an' I've seen the scars it leaves.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -1639,6 +1861,7 @@ P:NPC {
         { text = "Which hammer should a beginner buy?", next = "hammer" },
         { text = "What was it like striking at the Great Forge?", next = "d0_forge" },
         { text = "Golorn says you two shook on who sells what.", next = "d0_golorn" },
+        { text = "What happens if someone hangs a hammer back in the wrong place?", next = "w2_wrong" },
         { text = "Good day, Thrawn.", next = "END" },
       },
     },
@@ -1750,7 +1973,7 @@ P:NPC {
         { id = "h_default", text = "Peria Lamenur. Grif Wildheart teaches the hunters, up on the hill, an' I teach their beasts, down here where it's warm. Truth be told I teach the hunters as well, for a beast learns nothin' that its keeper doesnae ken how tae ask for." },
       },
       again = {
-        { id = "h_again", text = "What else would ye ask?" },
+        { id = "h_again", text = "What else? Keep yer beast by yer side while ye ask, an' I'll answer the both o' ye." },
         { id = "h_again2", text = "Go on, softly." },
       },
       choices = {
@@ -1881,6 +2104,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_control = {
+      lines = {
+        { id = "w2_control_l0", text = "Once, in Gnomeregan, long before the fall. An imp that I had bound badly, through impatience, set fire to my master's library. I put it out with my own robe and spent a year copying the books he had lost." },
+      },
+      choices = {
+        { text = "And your master?", next = "w2_control_master" },
+        { text = "Every warlock must make a mistake once.", next = "BACK" },
+      },
+    },
+    w2_control_master = {
+      lines = {
+        { id = "w2_control_master_l0", text = "He forgave me, eventually, and made me teach the lesson to every student after. Now I teach it to you: the demon is not the danger. Your hurry is the danger. The demon only takes advantage." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       narr = "He's standing over a chalk circle with a brass rule, measuring its radius for what is clearly not the first time today.",
       lines = {
@@ -1903,6 +2143,7 @@ P:NPC {
         { text = "Why would a gnome take up this craft?", next = "why" },
         { text = "Who shares this back room with you?", next = "dannie" },
         { text = "Do you blame the dwarves for leaving Gnomeregan to its fate?", next = "blame", when = { race = "Gnome" } },
+        { text = "Have you ever lost control of a demon?", next = "w2_control" },
         { text = "I'll leave you to it, Gimrizz.", next = "END" },
       },
     },
@@ -2004,6 +2245,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_fav = {
+      lines = {
+        { id = "w2_fav_l0", text = "Oh, I shouldn't, but I do. There was a felhunter last spring who kept bringing me the inn's mice, very proudly, as if he'd caught them for me. He was dreadful and slavering and I adored him." },
+      },
+      choices = {
+        { text = "What happened to him?", next = "w2_fav_after" },
+        { text = "A felhunter isn't a pet, Dannie.", next = "BACK" },
+      },
+    },
+    w2_fav_after = {
+      lines = {
+        { id = "w2_fav_after_l0", text = "His warlock went to the Wetlands and took him along, of course. I wrote his name in my notebook with a little heart beside it. Gimrizz saw it and said nothing, which for Gimrizz is practically a lecture." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       narr = "She's sitting cross-legged on an upturned keg with a fat notebook open on her knees and a pencil behind each ear.",
       lines = {
@@ -2026,6 +2284,7 @@ P:NPC {
         { text = "What do you keep in that notebook?", next = "notes" },
         { text = "Does the brimstone bother the brewers?", next = "brewers" },
         { text = "Which demon should a young warlock master first?", next = "imp" },
+        { text = "Do you have a favourite demon?", next = "w2_fav" },
         { text = "Goodbye, Dannie.", next = "END" },
       },
     },
@@ -2138,13 +2397,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_mend = {
+      lines = {
+        { id = "w2_mend_l0", text = "A gnome's clockwork leg, which he'd lost below the knee in Gnomeregan. I'd never seen the like, but he talked me through it piece by piece, an' when it walked again, he did a wee dance right here on the forge floor." },
+      },
+      choices = {
+        { text = "You learned clockwork from him?", next = "w2_mend_clock" },
+        { text = "A dwarf forge mending a gnome leg. That's Dun Morogh.", next = "BACK" },
+      },
+    },
+    w2_mend_clock = {
+      lines = {
+        { id = "w2_mend_clock_l0", text = "Enough tae keep it goin'. He comes in every season for a tune-up, an' he always brings a pie, an' I always lose the pie tin. There's a stack o' them at his house that I'm told is quite a sight." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Tognus Flintfire, smith o' Kharanos. I teach the craft tae any who'll learn, an' between lessons I do the valley's mendin'. There's a ram wantin' shoes, a mountaineer's rifle wi' a bent lock, an' Belm's best kettle, an' I've forgotten which I promised first." },
       },
       again = {
         { id = "h_again", text = "What else? I'm listenin', I'm only lookin' for my tongs." },
-        { id = "h_again2", text = "Aye, ask!" },
+        { id = "h_again2", text = "Aye, ask! An' if ye see my ball-peen hammer while ye're at it, shout." },
       },
       choices = {
         { text = "A smith should own up to mistakes in the forge.", next = "BACK", reply = "Aye, an' I own up tae a great many, for I lose a hammer every hour an' I tell everyone.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -2158,6 +2434,7 @@ P:NPC {
         { text = "What's the hardest thing you've mended?", next = "hard" },
         { text = "What was it like learning under Bengus Deepforge?", next = "d0_bengus" },
         { text = "What's the best piece you've ever made?", next = "d0_best" },
+        { text = "What's the strangest thing anyone's brought you to mend?", next = "w2_mend" },
         { text = "Keep your fire hot, Tognus.", next = "END" },
       },
     },
@@ -2260,6 +2537,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_sent = {
+      lines = {
+        { id = "w2_sent_l0", text = "Nobody sends my meals back. A human once tried tae, sayin' the boar was underdone. I came out o' the kitchen wi' the cleaver still in my hand, an' he decided he liked it rare after all." },
+      },
+      choices = {
+        { text = "Was it underdone?", next = "w2_sent_truth" },
+        { text = "A cook ought to take a complaint gracefully.", next = "BACK" },
+      },
+    },
+    w2_sent_truth = {
+      lines = {
+        { id = "w2_sent_truth_l0", text = "Aye, a wee bit, an' I knew it. I cooked him a fresh plate after an' gave it tae him for nothin', an' told him never tae tell anyone. Ye're the first I've told, so dinnae make me regret it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gremlock Pilsnor, an' this is my kitchen, whatever Belm tells ye about ownin' the buildin'. I cook for the inn, for Maxan's wounded upstairs an' for every mountaineer who comes in frozen, an' I teach the craft tae them that'll listen." },
@@ -2279,6 +2573,7 @@ P:NPC {
         { text = "Who are your regulars?", next = "regulars" },
         { text = "What did you cook for a mountaineer company?", next = "d0_company" },
         { text = "Ragnar's ale goes into half your dishes.", next = "d0_ale" },
+        { text = "What's the worst meal anyone's sent back?", next = "w2_sent" },
         { text = "Thank you, Gremlock.", next = "END" },
       },
     },
@@ -2384,13 +2679,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_case = {
+      lines = {
+        { id = "w2_case_l0", text = "A mountaineer brought in wi' a troll spear through the thigh, an' the head barbed so it couldnae be pulled back. I had tae push it through the other way while Maxan held him down an' prayed loud enough tae drown the screamin'." },
+      },
+      choices = {
+        { text = "Did he live?", next = "w2_case_live" },
+        { text = "Grim work.", next = "BACK" },
+      },
+    },
+    w2_case_live = {
+      lines = {
+        { id = "w2_case_live_l0", text = "He walks wi' a stick an' complains about the weather in his leg, so aye, he lived. He comes by every week tae tell me I ruined him, an' then he buys me an ale. That's how ye ken ye did right by a dwarf." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Thamner Pol, physician. I teach bandagin' an' the settin' o' bones, an' I practise both on whoever the mountaineers carry in. Maxan Anvol has the cots upstairs an' the Light. I've a table, a kettle o' boilin' water an' a great deal o' linen." },
       },
       again = {
         { id = "h_again", text = "What else? Talk while I roll these." },
-        { id = "h_again2", text = "Aye. Go on." },
+        { id = "h_again2", text = "Aye. Go on, an' wash yer hands if ye're touchin' anythin'." },
       },
       choices = {
         { text = "A physician should treat the wounded in order of need, not rank.", next = "BACK", reply = "Aye, for a bleedin' miner's as worthy as a bleedin' senator, an' the wound doesnae care.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -2403,6 +2715,7 @@ P:NPC {
         { text = "How should I treat frostbite?", next = "frost" },
         { text = "What did the mountaineers teach you about healing?", next = "d0_company" },
         { text = "Belm sits up with the bad ones himself, you said.", next = "d0_belm" },
+        { text = "What's the hardest case you've seen this winter?", next = "w2_case" },
         { text = "Good day, Physician.", next = "END" },
       },
     },
@@ -2649,6 +2962,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_before = {
+      lines = {
+        { id = "w2_before_l0", text = "Advanced theory, if you can believe it, to the best students in the city. I had a study with a window onto the great gears and a cabinet full of brandy I've been trying to replace, cup by cup, ever since." },
+      },
+      choices = {
+        { text = "Do you miss it?", next = "w2_before_miss" },
+        { text = "Coldridge must feel a long way down from there.", next = "BACK" },
+      },
+    },
+    w2_before_miss = {
+      narr = "He looks at his mug for a long moment before he answers.",
+      lines = {
+        { id = "w2_before_miss_l0", text = "Every day. But I'd rather teach first spells to frightened children in Coldridge than advanced theory to ghosts. Most of my old students didn't get out, you see. These ones I can still keep alive." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     mk_water = {
       lines = { { id = "mkw_default", text = "You cup your hands and think of the coldest, cleanest water you've ever tasted, and the spell does the rest, though I'd advise you not to think about ale, because I tried that once and got something very disappointing. It'll keep you alive on the road, and it costs you nothing but a little mana." } },
       choices = {
@@ -2707,6 +3038,7 @@ P:NPC {
         { text = "Frost Armor feels like wearing a snowbank.", next = "mk_armor", when = { class = "MAGE" } },
         { text = "I'm a dwarf from Coldridge. Do I belong among mages?", next = "mk_dwarf", when = { race = "Dwarf", class = "MAGE", maxLevel = 15 } },
         { text = "My family didn't make it out of Gnomeregan.", next = "mk_gnome", when = { race = "Gnome", class = "MAGE" } },
+        { text = "What did you teach in Gnomeregan, before?", next = "w2_before" },
         { text = "Farewell, Marryk.", next = "END" },
       },
     },
@@ -2805,12 +3137,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_never = {
+      lines = {
+        { id = "w2_never_l0", text = "Then I'll feed whoever's left until there's naebody left tae feed, an' then I'll go back tae Ironforge an' open a stall in the Commons. But I'll no' leave while there's a crew sittin' on this ridge." },
+      },
+      choices = {
+        { text = "The crew is lucky to have you.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Will the King's men ever clear it?", next = "w2_never_king" },
+      },
+    },
+    w2_never_king = {
+      lines = {
+        { id = "w2_never_king_l0", text = "Stonehallow says the request's gone up tae the Council, an' the Council says the Mountaineers are wanted at the front. So the troggs keep the quarry, an' we keep the ridge, an' we all keep waitin'." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Kazan Mogosh. I've fed the Gol'Bolar crews for nine years, an' I'm still feedin' them, though there's been nae stone cut since the troggs came up through the floor. Foreman Stonebrow shouts at the pit, the lads sit about, an' I keep the pot goin'." },
       },
       again = {
-        { id = "h_again", text = "What else, friend?" },
+        { id = "h_again", text = "What else, friend? Mind ye dinnae sit on the bread basket, it's the last one." },
         { id = "h_again2", text = "Aye, ask. I've nae rush on." },
       },
       choices = {
@@ -2824,6 +3173,7 @@ P:NPC {
         { text = "Where do your supplies come from now?", next = "supply" },
         { text = "What was Gol'Bolar like before the troggs?", next = "d0_before" },
         { text = "The quarry's gone very quiet.", next = "d0_quiet" },
+        { text = "What will you do if the quarry never reopens?", next = "w2_never" },
         { text = "Good day, Kazan.", next = "END" },
       },
     },
@@ -2926,13 +3276,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_secret = {
+      lines = {
+        { id = "w2_secret_l0", text = "Time, an' whatever the crew brought back that mornin'. Yesterday it was a boar an' a bag o' mushrooms. The day before it was snowhare an' a boot, but the boot came out before servin'." },
+      },
+      choices = {
+        { text = "A boot?", next = "w2_secret_boot" },
+        { text = "Every cook says time is the secret.", next = "BACK" },
+      },
+    },
+    w2_secret_boot = {
+      lines = {
+        { id = "w2_secret_boot_l0", text = "Fell off a miner who was leanin' over the kettle tae smell it. He was very sorry, an' he got the first bowl tae make up for it, an' he said it was the best stew I'd ever made. I've no' tried a boot on purpose since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Cook Ghilm, they call me, an' I've stopped answerin' tae anythin' else. I cook for the Gol'Bolar crews, an' since they've nae stone tae cut, I've started teachin' them tae cook as well. It keeps their hands busy an' their minds off troggs." },
       },
       again = {
         { id = "h_again", text = "What else? Mind the kettle, it spits." },
-        { id = "h_again2", text = "Aye, ask away!" },
+        { id = "h_again2", text = "Aye, ask away! An' grab a bowl while ye're at it, there's always enough." },
       },
       choices = {
         { text = "A cook should feed the whole crew the same, from boss to digger.", next = "BACK", reply = "Aye, an' I do, for the boss eats from the same pot as the diggers, whatever he might wish.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -2945,6 +3312,7 @@ P:NPC {
         { text = "What's the crew's favourite dish?", next = "favourite" },
         { text = "You were a quarryman before you took the kettle.", next = "d0_quarry" },
         { text = "What do you suppose the troggs eat?", next = "d0_troggs" },
+        { text = "What's the secret ingredient in your stew?", next = "w2_secret" },
         { text = "Thank you, Ghilm.", next = "END" },
       },
     },
@@ -3047,12 +3415,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_below = {
+      lines = {
+        { id = "w2_below_l0", text = "I'm sure of it. We broke intae an old seam on the bottom bench, the week before they came, an' there was a draught comin' up through it that smelled o' wet stone an' nothin' else. We should've filled it in." },
+      },
+      choices = {
+        { text = "Why didn't you?", next = "w2_below_why" },
+        { text = "No one could have known.", next = "BACK" },
+      },
+    },
+    w2_below_why = {
+      lines = {
+        { id = "w2_below_why_l0", text = "Because there was copper in it, the richest I've seen in thirty years, an' I wanted it. Sixty years o' teachin' patience an' I forgot all of it for one seam. That's on me, an' I'll no' leave this edge till it's put right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Dank Drizzlecut. I've taught the pick at Gol'Bolar for sixty years. I cut the first bench o' this quarry wi' my own hands, an' I'll no' be shifted off it by a pack o' rock-eatin' vermin. I teach at the edge now. It's a longer walk tae the stone." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak up." },
+        { id = "h_again", text = "Speak up, I've had a pick ringin' in my ears for sixty years an' troggs howlin' in them for one." },
         { id = "h_again2", text = "Aye. Go on, an' stand up straight." },
       },
       choices = {
@@ -3067,6 +3452,7 @@ P:NPC {
         { text = "What should a young miner learn first?", next = "first" },
         { text = "Who are the best miners you ever taught?", next = "d0_best" },
         { text = "That pick looks older than the quarry.", next = "d0_pick" },
+        { text = "Do you think the troggs dug up from below?", next = "w2_below" },
         { text = "Good day, Dank.", next = "END" },
       },
     },
@@ -3172,12 +3558,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_first = {
+      lines = {
+        { id = "w2_first_l0", text = "A dagger, out o' a broken pick head, when I was fourteen. It had a wobble in the blade an' a handle that gave splinters, an' my master hung it over his forge tae remind me where I started." },
+      },
+      choices = {
+        { text = "Is it still there?", next = "w2_first_still" },
+        { text = "Every smith starts somewhere.", next = "BACK" },
+      },
+    },
+    w2_first_still = {
+      lines = {
+        { id = "w2_first_still_l0", text = "Still there, an' he writes tae say he looks at it every mornin' an' thinks o' me out here. I think he means it kindly, though wi' him ye can never quite tell." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Frast Dokner, apprentice weaponsmith. I came out tae Gol'Bolar tae sharpen picks an' mend drill steel, an' then the troggs came, an' now every dwarf in camp wants an axe. I'm only an apprentice. I do my best, an' I check every piece twice." },
       },
       again = {
-        { id = "h_again", text = "What else can I do for ye?" },
+        { id = "h_again", text = "Is there more, then? I've axes tae spare, an' I'm sorry tae say it." },
         { id = "h_again2", text = "Aye, ask, please." },
       },
       choices = {
@@ -3191,6 +3594,7 @@ P:NPC {
         { text = "How do you forge without a proper smithy?", next = "forge" },
         { text = "What will you take back to Ironforge from here?", next = "d0_learn" },
         { text = "Senator Stonehallow's hammer caught your eye.", next = "d0_hammer" },
+        { text = "What's the first weapon you ever made?", next = "w2_first" },
         { text = "Good luck, Frast.", next = "END" },
       },
     },
@@ -3300,6 +3704,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_grow = {
+      lines = {
+        { id = "w2_grow_l0", text = "A rabbit rancher, with a hundred rabbits and a big fence that Fluffy can't get through. Or a Mountaineer. Or a cook like at the inn. Or all of them, but mostly the rabbits." },
+      },
+      choices = {
+        { text = "All of them at once?", next = "w2_grow_all" },
+        { text = "A rabbit rancher sounds perfect.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    w2_grow_all = {
+      lines = {
+        { id = "w2_grow_all_l0", text = "Why not? Uncle Veron says I can't do everything, but Uncle Veron sells rams AND goats, so I think he's just saying that. Have you got a carrot? Fluffy might come back for a carrot." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Yarlyn Amberstill and I'm seven and I sell rabbits. Real ones, snowshoe ones, in a crate so they don't get cold. Fluffy's not for sale, though, because she's mine, and anyway I can't find her." },
@@ -3319,6 +3740,7 @@ P:NPC {
         { text = "Who buys your rabbits?", next = "buyers" },
         { text = "Who's your Da, Yarlyn?", next = "d0_da" },
         { text = "You know a lot about rabbits for seven.", next = "d0_know" },
+        { text = "What will you be when you grow up, Yarlyn?", next = "w2_grow" },
         { text = "Good luck catching Fluffy.", next = "END" },
       },
     },

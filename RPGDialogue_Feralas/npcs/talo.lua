@@ -61,7 +61,36 @@ P:NPC {
         { text = "I am a hunter too. Teach me something.", next = "teach", when = { class = "HUNTER" } },
         { text = "Edana is dead, Talo.", next = "after", when = { questDone = TODO_QUEST("Dark Heart") } },
         { text = "What would you have me do?", next = "BUSINESS" },
+        { text = "Who else at Mojache was a hunter in your day?", next = "w7_peers" },
         { text = "Farewell, elder.", next = "END" },
+      },
+    },
+    w7_peers = {
+      lines = {
+        { id = "w7_peers_l1", text = "Hadoken Swiftstrider, though he was a calf then and followed me about with a stick for a spear. And Rok Orhan's father, an orc who came with the first caravan and hunted beside us before his knees gave out." },
+      },
+      choices = {
+        { text = "Hadoken followed you?", next = "w7_peers2" },
+        { text = "And now they lead, and you sit.", next = "w7_peers3" },
+        { text = "Something else, elder.", next = "BACK" },
+      },
+    },
+    w7_peers2 = {
+      lines = {
+        { id = "w7_peers2_l1", text = "Everywhere, young one, until I let him carry my waterskin to be rid of him. He became a far better hunter than I was, and he still brings me the first cut of every great cat he takes, which I pretend I do not need." },
+        { id = "w7_peers2_l2", when = { class = "HUNTER" }, text = "Everywhere, until I let him carry my water. You remind me of him, a little; you have the same way of looking at the treeline. Go and ask him what he learned from me, and he will tell you more than I would." },
+      },
+      choices = {
+        { text = "He honours you.", next = "BACK", reply = "He does. It is the best thing I ever made, that young hunter." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_peers3 = {
+      lines = {
+        { id = "w7_peers3_l1", text = "Yes, and that is as it should be. The grass grows, and the old grass makes room, and an elder's work is to tell the stories." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     ambush = {

@@ -56,6 +56,7 @@ P:NPC {
         { text = "Warriors don't smile. Why do you?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "The spirits here must trouble you.", next = "spirits", when = { class = { "SHAMAN", "PRIEST" } } },
         { text = "What can I do for Valormok?", next = "BUSINESS" },
+        { text = "What did you and Ag'tor do as boys?", next = "w_boys" },
         { text = "Farewell, Haggrum.", next = "END" },
       },
     },
@@ -117,6 +118,26 @@ P:NPC {
     spirits = {
       lines = { { id = "sp_default", text = "Every night, a little. There's an old sorrow in this ground, older than us and older than the elves' mistakes, and I talk over it with stories so the grunts don't hear it." } },
       choices = { { text = "Keep telling stories, Haggrum.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    w_boys = {
+      lines = {
+        { id = "w_boys_default", text = "Fought, mostly, behind the fence in the camps, over who got the last of the gruel and who had to stand at the front during inspection. He always won, and he always gave me the gruel afterward. He still thinks I don't know he let me have it." },
+      },
+      choices = {
+        { text = "Do you ever tell him?", next = "w_boys2" },
+        { text = "A good brother.", next = "w_boys2" },
+      },
+    },
+    w_boys2 = {
+      lines = {
+        { id = "w_boys2_default", text = "Never. A brother needs his small secrets, and Ag'tor needs more than most. He carries this camp on his shoulders and those dead elves on his conscience, and the gruel is the one thing he can still give away without counting the cost." },
+        { id = "w_boys2_w1", when = { race = "Orc" }, text = "You'll have a brother or a cousin like that, maybe, from the camps. Then you know what I mean about letting them keep the secret." },
+      },
+      choices = {
+        { text = "Let him keep the secret.", next = "BACK", fx = { align = { honor = 1 } }, reply = "I will, friend, for as long as we both draw breath." },
+        { text = "Tell him. He'd want to know.", next = "BACK", fx = { align = { honor = -1 } }, reply = "Maybe, on the day one of us is dying. Not before." },
+        { text = "Something else, Haggrum.", next = "BACK" },
+      },
     },
   },
 

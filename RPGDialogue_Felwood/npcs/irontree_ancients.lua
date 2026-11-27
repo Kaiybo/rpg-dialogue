@@ -248,6 +248,7 @@ P:NPC {
         { text = "My people still remember the Ancients, Hastat.", next = "kal", when = { race = "NightElf" } },
         { text = "What does an Ancient see in Felwood now?", next = "sees" },
         { text = "Do the Deadwood furbolgs ever come near you?", next = "deadwood" },
+        { text = "How do you pass the time, as a spirit?", next = "w_time" },
         { text = "I'll let you rest, Ancient.", next = "END" },
       },
     },
@@ -319,6 +320,25 @@ P:NPC {
         { text = "Something else, Hastat.", next = "BACK" },
       },
     },
+    w_time = {
+      lines = {
+        { id = "w_time_default", text = "Hm. I count the arrows the young hunters loose at the Deadwood, small one, and I note which fletchings fly true. Most of them do not. Hm, hm. I have opinions about goose feathers that nobody living wishes to hear." },
+      },
+      choices = {
+        { text = "I'd like to hear them.", next = "w_time2" },
+        { text = "Goose feathers?", next = "w_time2" },
+      },
+    },
+    w_time2 = {
+      lines = {
+        { id = "w_time2_default", text = "Hm! Then you are rarer than a clean stream in this wood. Grey goose for the long shot, and never white, for white feathers are soft and remember the wet. The kaldorei knew this once, and now they buy their arrows from Auberdine and forget." },
+        { id = "w_time2_w1", when = { class = "HUNTER" }, text = "Hm. You are a hunter. Bring me one of your arrows, small one, and I shall tell you everything wrong with it. You will hate it, and you will shoot better." },
+      },
+      choices = {
+        { text = "Grey goose, never white.", next = "BACK", fx = { trait = { patient = 1 } } },
+        { text = "Something else, Ancient.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -372,6 +392,7 @@ P:NPC {
         { text = "Does it matter that I'm not kaldorei?", next = "outsider", when = { class = "HUNTER", ["not"] = { race = "NightElf" } } },
         { text = "My people remember those who fell at Hyjal.", next = "hyjal_kin", when = { race = "NightElf" } },
         { text = "The Circle in Moonglade would want word of you.", next = "druid_kin", when = { class = "DRUID" } },
+        { text = "What did you do before Hyjal?", next = "w_before" },
         { text = "I'll leave you to your silence.", next = "END" },
       },
     },
@@ -424,6 +445,25 @@ P:NPC {
     outsider = {
       lines = { { id = "o_d", text = "Hrm. The Legion did not ask whom it burned at Hyjal, so we do not ask whom we arm against it." } },
       choices = { { text = "That's a generous answer.", next = "BACK", reply = "It is a true one. Generous is Hastat's work.", fx = { affinity = 1 } } },
+    },
+    w_before = {
+      lines = {
+        { id = "w_before_default", text = "Hrm. Stood. Listened. Bound strings for the archers of the old forest, and sheltered their children in my roots when storms came. I stood in the same place for four thousand years, small one, and it was not dull." },
+      },
+      choices = {
+        { text = "What did you hear in all that time?", next = "w_before2" },
+        { text = "Four thousand years in one place.", next = "w_before2" },
+      },
+    },
+    w_before2 = {
+      lines = {
+        { id = "w_before2_default", text = "Hrm. Every song the kaldorei sang to the moon, and every quarrel they had beneath my branches. I remember a girl who carved her name in my bark and was scolded for it. She stood with the Sentinels at Hyjal. Her name is still in my bark. Hrm." },
+        { id = "w_before2_w1", when = { race = "NightElf" }, text = "Hrm. Perhaps she was your grandmother's grandmother, small one. If you come close, you may read it. Do not carve your own." },
+      },
+      choices = {
+        { text = "I won't carve mine.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Ancient.", next = "BACK" },
+      },
     },
   },
 

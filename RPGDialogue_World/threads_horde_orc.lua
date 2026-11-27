@@ -142,3 +142,65 @@ P:Thread {
     },
   },
 }
+
+-- Hammerfall (Horde, ~30-40). The camp in Arathi built where the humans once kept orcs in
+-- chains, a short ride from the rotting walls of Stromgarde. Drum Fel, Tor'gan, Innkeeper
+-- Adegwa and Korin Fel; the Witherbark, the Syndicate and the Stromgarde remnant are the
+-- canon neighbours; Call to Arms (the Witherbark) is the resolving quest. The beats invent no events and say nothing of what comes later.
+P:Thread {
+  id = "hammerfall_chains",
+  theme = "Hammerfall stands where the humans kept orcs in chains, and everyone in it remembers a different part of that.",
+  title = "The ground at Hammerfall",
+  story = {   -- the journal's Stories page, by state
+    stirring = { first = "Drum Fel told me Hammerfall is built where the humans once kept his people in chains, and that the Horde means to prosper on the same ground. Tor'gan says the spirits there still remember the fence.",
+      third = "{name} learned that Hammerfall was built on the ground where humans once kept orcs in chains." },
+    unfolding = { first = "Korin Fel will not let a warlock near her husband, because Gul'dan's kind sold her people to the demons once and the camps came after. Adegwa keeps the fire warm for everyone who walks in, and says the plains taught her that grief needs a hearth more than a wall.",
+      third = "{name} heard how the people of Hammerfall carried the memory of the camps, each in their own way." },
+    resolved = { first = "The Witherbark have been driven back from the hills around Hammerfall, and Drum Fel says the camp will have its harvest. He didn't smile when he said it, but he stood a little straighter, and so did the grunts on the wall.",
+      third = "{name} answered Drum Fel's call to arms against the Witherbark, and Drum Fel stood a little straighter for it." },
+  },
+  npcs = { "drumfel", "torgan", "korinfel", "adegwa" },
+  states = { "dormant", "stirring", "unfolding", "resolved" },
+  endings = {
+    resolved = "Hammerfall holds its hills, and the people who once sat behind a human fence on that ground mean to prosper there.",
+  },
+  pacing = { minConversations = 2, minSeconds = 900 },
+  reflection = {
+    first = "Everyone at Hammerfall remembers the camps, and not one of them remembers it the same way twice.",
+    third = "{name} had heard the camps remembered four different ways in Hammerfall.",
+  },
+  beats = {
+    {
+      id = "b1_drumfel", npc = "drumfel",
+      when = { faction = "Horde", minLevel = 28, thread = { id = "hammerfall_chains", notBeat = "b1_drumfel" } },
+      text = "The humans built a pen on this ground once, {class}, and they filled it with orcs who'd forgotten how to stand. We tore the fence down and built a wall in its place, and every grunt on that wall knows exactly what it's keeping out.",
+      fx = { thread = { id = "hammerfall_chains", beat = "b1_drumfel", state = "stirring" }, learn = { "internment" } },
+    },
+    {
+      id = "b2_torgan", npc = "torgan",
+      when = { faction = "Horde", thread = { id = "hammerfall_chains", notBeat = "b2_torgan" } },
+      text = "De ground here be heavy, mon, and de spirits under it don't sleep easy. They remember de fence and de lethargy and de long years in de mud, and I sing to them every night so they know de orcs walkin' over them now be free.",
+      fx = { thread = { id = "hammerfall_chains", beat = "b2_torgan", state = "stirring" } },
+    },
+    {
+      id = "b3_korinfel", npc = "korinfel",
+      when = { any = { { thread = { id = "hammerfall_chains", beat = "b1_drumfel" } }, { thread = { id = "hammerfall_chains", beat = "b2_torgan" } } },
+               ["not"] = { thread = { id = "hammerfall_chains", beat = "b3_korinfel" } } },
+      text = "My husband was in the camp that stood here, and some nights he still wakes reaching for a chain that isn't there. Drum Fel builds walls and Tor'gan sings, and I keep the warlocks away from his door, because it was their kind who led us to the fence in the first place.",
+      fx = { thread = { id = "hammerfall_chains", beat = "b3_korinfel", state = "unfolding" } },
+    },
+    {
+      id = "b4_adegwa", npc = "adegwa",
+      when = { any = { { thread = { id = "hammerfall_chains", beat = "b3_korinfel" } }, { thread = { id = "hammerfall_chains", beat = "b2_torgan" } } },
+               ["not"] = { thread = { id = "hammerfall_chains", beat = "b4_adegwa" } } },
+      text = "My people never knew the camps, friend, but we knew the centaur, and the long running from one dry plain to the next. I keep this fire warm for the orcs who remember the fence, because I have learned that grief needs a hearth more than it needs a wall.",
+      fx = { thread = { id = "hammerfall_chains", beat = "b4_adegwa", state = "unfolding" } },
+    },
+    {
+      id = "b5_drumfel", npc = "drumfel",
+      when = { questDone = TODO_QUEST("Call to Arms"), thread = { id = "hammerfall_chains", notBeat = "b5_drumfel" } },
+      text = "The Witherbark have pulled back into their hills, and the fields around Hammerfall are ours to farm. Half my grunts sat behind a fence on this ground once, {class}, and now they'll bring in a harvest from it, and I can think of no better answer to give the humans.",
+      fx = { thread = { id = "hammerfall_chains", beat = "b5_drumfel", state = "resolved" } },
+    },
+  },
+}

@@ -57,7 +57,25 @@ P:NPC {
         { text = "What happens when the towers burn?", next = "towers", when = { questDone = TODO_QUEST("Squire Maltrake") } },
         { text = "Your master isn't what he seems.", next = "xpaladin", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "Whoever you serve, Maltrake, he's more than a man.", next = "truth", when = { questDone = TODO_QUEST("Squire Maltrake") } },
+        { text = "What does a squire do for your master each day?", next = "w9_day" },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+
+    w9_day = {
+      lines = { { id = "w9_day_d", text = "I keep his fire lit and his blade oiled, and I watch the road for travellers worthy of his attention, which are fewer than you'd think. At night I sit beside him while he looks toward Blackrock Mountain, and I don't speak, because he doesn't need me to." } },
+      choices = {
+        { text = "What does he look for, at the mountain?", next = "w9_day2" },
+        { text = "That sounds lonely.", next = "w9_day2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_day2 = {
+      lines = { { id = "w9_day2_d", text = "What he's lost, I think, and what he means to take back, though he's never told me plainly. A squire doesn't need to be told, only to be there when his master decides, and I will be there, whatever it costs." } },
+      choices = {
+        { text = "Loyalty like that is rare.", next = "BACK", reply = "It is the only thing I have that's worth anything to him." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

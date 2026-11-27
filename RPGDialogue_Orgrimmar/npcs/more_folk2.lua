@@ -33,6 +33,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2keep = {
+      lines = { { id = "w2kp_default", text = "A tin disc with a number stamped on it, the one the guards hung round my neck in the internment camp. Karus threw his in the sea the day we crossed, and Koma uses his as a counter at knucklebones, but mine stays in the vault." } },
+      choices = {
+        { text = "Why keep something from that place?", next = "w2keep2" },
+        { text = "I'd have thrown mine in the sea too.", next = "w2keep2" },
+        { text = "Something else, Soran.", next = "BACK" },
+      },
+    },
+    w2keep2 = {
+      lines = {
+        { id = "w2kp2_orc", when = { race = "Orc" }, text = "So that I remember what I was worth to them, and what I'm worth now. You're young, and the camps may be only a story to you, but keep one thing that tells you how far your people have come, and look at it on the bad days." },
+        { id = "w2kp2_default", text = "So that I remember what I was worth to them, and what I'm worth now. On the bad days I go down to the vault and hold it, and then I come back up and open the counter." },
+      },
+      choices = { { text = "That's a hard kind of wisdom.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     so_watch = {
       lines = { { id = "so_watch_l", text = "I do. Karus counts the coin and Koma talks to the customer, so somebody has to look at the customer's hands. A lie shows in the fingers before it shows in the face." } },
       choices = {
@@ -70,7 +85,7 @@ P:NPC {
         { id = "h_orc", when = { race = "Orc", maxLevel = 20 }, text = "I'm Soran. You're young, so I'll tell you what I tell every young orc at this counter. Keep one thing safe that you never mean to sell." },
       },
       again = {
-        { id = "h_again", text = "Is there something more?" },
+        { id = "h_again", text = "Was there something more? Take your time over it. Coin keeps, and so do I." },
         { id = "h_again2", text = "Go on. I'm not in a hurry." },
         { id = "h_again3", text = "Ask, if you like. I'll answer what I can." },
       },
@@ -83,6 +98,7 @@ P:NPC {
         { text = "My tribe stood on that mountain beside yours.", next = "troll", when = { race = "Troll" } },
         { text = "You watch the customers more than the coins.", next = "so_watch" },
         { text = "Who works the armory while you're at the bank?", next = "so_armory" },
+        { text = "What's the one thing you keep and never mean to sell?", next = "w2keep" },
         { text = "Keep well, Soran.", next = "END" },
       },
     },
@@ -189,6 +205,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2bid = {
+      lines = { { id = "w2bd_default", text = "Once, friend, and never again! A great Mulgore war drum came up, painted all over with thunderbirds, and I bid on it from my own platform while I was calling it. I won, and Grimful wrote me up for it in the ledger in red ink." } },
+      choices = {
+        { text = "Was the drum worth it?", next = "w2bid2" },
+        { text = "Bidding on your own lot seems a little crooked.", next = "w2bid2" },
+        { text = "Something else, Wabang.", next = "BACK" },
+      },
+    },
+    w2bid2 = {
+      lines = { { id = "w2bd2_default", text = "Every copper! I beat it at dawn before the house opens, so the whole valley wakes up to it, and the grunts on the gate have started calling it Wabang's alarm. Thathung says it's the best thing I ever did for punctuality." } },
+      choices = { { text = "A loud way to start the day.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     wb_peon = {
       lines = { { id = "wb_peon_l", text = "Carrying rocks for these very walls, friend, from dawn to dusk while the foremen shouted. I learned that a voice that can be heard over a quarry can be heard over anything, so when the house needed a crier, I put my hand up." } },
       choices = {
@@ -239,6 +267,7 @@ P:NPC {
         { text = "I craft goods. How should I price them?", next = "crafter", when = { any = { { profession = "Blacksmithing" }, { profession = "Leatherworking" }, { profession = "Tailoring" }, { profession = "Alchemy" }, { profession = "Engineering" } } } },
         { text = "You said you were a peon before this.", next = "wb_peon" },
         { text = "What's the strangest thing ever sold here?", next = "wb_strange" },
+        { text = "Do you ever bid on anything yourself?", next = "w2bid" },
         { text = "Good bidding, Wabang.", next = "END" },
       },
     },
@@ -342,6 +371,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2error = {
+      lines = { { id = "w2er_default", text = "Once, in the second year. A single copper, missing from a sale of linen, and I could not find it. I went through every entry for three nights before I found that I had written a seven where I meant a one." } },
+      choices = {
+        { text = "Three nights for one copper?", next = "w2error2" },
+        { text = "Everyone makes small mistakes.", next = "w2error2" },
+        { text = "Something else, Grimful.", next = "BACK" },
+      },
+    },
+    w2error2 = {
+      lines = { { id = "w2er2_default", text = "For one copper, yes, because a ledger with one wrong figure is a ledger nobody need believe. Wabang laughed until he wept, and I have never once written a seven since without crossing it." } },
+      choices = { { text = "Then your ledger is worth trusting.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     gf_old = {
       lines = { { id = "gf_old_l", text = "Forever, or as near as the shelves allow. Every sale since the house opened is written in the back room, and when two orcs come to blows over a bargain made three seasons ago, I fetch the book and the quarrel ends." } },
       choices = {
@@ -392,6 +433,7 @@ P:NPC {
         { text = "I've nothing to hide in what I sell.", next = "rogue", when = { class = "ROGUE" } },
         { text = "How long do you keep the old ledgers?", next = "gf_old" },
         { text = "Thathung explains the rules. What's he like?", next = "gf_thathung" },
+        { text = "Have you ever made a mistake in the ledger?", next = "w2error" },
         { text = "Keep your columns straight, Grimful.", next = "END" },
       },
     },
@@ -493,6 +535,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2gift = {
+      lines = { { id = "w2gf_default", text = "A little blanket, mon, worn half through, from an old orc woman who had nothin' else to give. She said it kept her son warm in de camps, an' her son be gone now, so it should keep a Darkspear child warm instead." } },
+      choices = {
+        { text = "What did you do with it?", next = "w2gift2" },
+        { text = "Worn cloth seems a poor gift.", next = "w2gift2" },
+        { text = "Something else, Vehena.", next = "BACK" },
+      },
+    },
+    w2gift2 = {
+      lines = {
+        { id = "w2gf2_troll", when = { race = "Troll" }, text = "I gave it to a little one in Sen'jin whose mother was taken by de hexed ones, cousin. She sleeps wit' it every night, an' I told her an orc mother sent it, so she would know de Horde be her family too." },
+        { id = "w2gf2_default", text = "I gave it to a little one in Sen'jin whose mother was taken by de hexed ones. She sleeps wit' it every night, an' I told her an orc mother sent it, so she would know de Horde be her family too." },
+      },
+      choices = { { text = "That's worth more than silk.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
     vh_need = {
       lines = { { id = "vh_need_l", text = "Wool, mon, for de winter nights on de coast, which be colder dan de orcs believe. De young ones sleep on de sand in de raptor pens to keep de beasts calm, and dey need blankets more dan anything." } },
       choices = {
@@ -544,6 +601,7 @@ P:NPC {
         { text = "I sew. Is there work I can do beyond giving?", next = "tailor", when = { profession = "Tailoring" } },
         { text = "Which cloth does the tribe need most right now?", next = "vh_need" },
         { text = "The watchers at Sen'jin must wear out bandages quickly.", next = "vh_watchers" },
+        { text = "What's the most precious gift of cloth you've had?", next = "w2gift" },
         { text = "Spirits keep you, Vehena.", next = "END" },
       },
     },
@@ -647,6 +705,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2flux = {
+      lines = { { id = "w2fx_default", text = "By the smell, first, because bad flux smells of nothing at all. Good flux bites at the back of your nose, and if it doesn't, somebody has cut it with chalk to stretch the sacks." } },
+      choices = {
+        { text = "Has anyone ever tried to sell you chalk?", next = "w2flux2" },
+        { text = "I'd never have thought to smell it.", next = "w2flux2" },
+        { text = "Something else, Sumi.", next = "BACK" },
+      },
+    },
+    w2flux2 = {
+      lines = {
+        { id = "w2fx2_smith", when = { profession = "Blacksmithing" }, text = "A goblin out of Ratchet, my first year. You'll know what happens when you weld with chalk, smith: the seam looks fine and then it parts the first time it's struck. I sent his sacks back to him and told my father, which was worse for the goblin." },
+        { id = "w2fx2_default", text = "A goblin out of Ratchet, my first year, and I sent his sacks back to him and told my father. My father walked to the gate and spoke to the goblin, and we've had honest flux from Ratchet ever since." },
+      },
+      choices = { { text = "Saru makes a good guard.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     su_father = {
       lines = { { id = "su_father_l", text = "He looks at every crate that comes in and grunts at it, and if he doesn't grunt, I send it back. Saru Steelfury can tell bad flux by the smell, and he's never been wrong yet, which is very annoying." } },
       choices = {
@@ -684,7 +757,7 @@ P:NPC {
         { id = "h_low", when = { maxLevel = 12 }, text = "I'm Sumi. If you're new to the forge, buy the cheap hammer. You'll ruin the first one whatever it cost, so let it be a cheap one." },
       },
       again = {
-        { id = "h_again", text = "What else do you need?" },
+        { id = "h_again", text = "What else? You're short of something, I can see it in your face, so out with it." },
         { id = "h_again2", text = "Go on. I've a coal cart due, but not yet." },
         { id = "h_again3", text = "Ask. I'll keep counting while you do." },
       },
@@ -697,6 +770,7 @@ P:NPC {
         { text = "What does a new smith always forget to buy?", next = "forget", when = { profession = "Blacksmithing" } },
         { text = "What does your father think of your stock?", next = "su_father" },
         { text = "Who are the best customers in the valley?", next = "su_best" },
+        { text = "How do you tell good flux from bad?", next = "w2flux" },
         { text = "I'll be back for flux, Sumi.", next = "END" },
       },
     },
@@ -805,6 +879,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2regret = {
+      lines = { { id = "w2rg_default", text = "Once, pal, and it still bugs me. A fella in a red hood bought every blasting cap I had, cash, no haggling, and a goblin who don't haggle is a goblin who should've asked more questions." } },
+      choices = {
+        { text = "Who was he?", next = "w2regret2" },
+        { text = "A sale is a sale, surely.", next = "w2regret2" },
+        { text = "Something else, Sovik.", next = "BACK" },
+      },
+    },
+    w2regret2 = {
+      lines = {
+        { id = "w2rg2_eng", when = { profession = "Engineering" }, text = "Burning Blade, from the Cleft, the guards said later. You know what a box of caps can do, pal, so you know why I don't sleep great. Now anybody in red pays full price and answers three questions first." },
+        { id = "w2rg2_default", text = "Burning Blade, the guards said later, from down in the Cleft. Now anybody in red pays full price and answers three questions first, and I don't care how much it costs me." },
+      },
+      choices = { { text = "A wise new rule.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     sv_box = {
       lines = { { id = "sv_box_l", text = "Five locks, pal, and one of 'em's a decoy that squirts dye on ya. Every goblin in Orgrimmar knows I keep the shop's coin in there, so I figure the dye's an investment in identifyin' my competitors." } },
       choices = {
@@ -855,6 +944,7 @@ P:NPC {
         { text = "Which is better made, goblin parts or gnomish?", next = "schools", when = { profession = "Engineering" } },
         { text = "You keep a lot of locks on that strongbox.", next = "sv_box" },
         { text = "What does Nogg actually do around here?", next = "sv_nogg" },
+        { text = "Ever sold something you wished you hadn't?", next = "w2regret" },
         { text = "Keep your eyebrows, Sovik.", next = "END" },
       },
     },
@@ -964,6 +1054,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2source = {
+      lines = { { id = "w2so_default", text = "The scouts, Stronghand and Tharr, who both swear they never say a word! They each come in for thread twice a week, and each one tells me what the other one missed on his round, and then they ask me not to repeat it." } },
+      choices = {
+        { text = "And do you repeat it?", next = "w2source2" },
+        { text = "Scouts gossiping? I don't believe it.", next = "w2source2" },
+        { text = "Something else, Borya.", next = "BACK" },
+      },
+    },
+    w2source2 = {
+      lines = { { id = "w2so2_default", text = "Only the harmless parts, and only to Magar, who pretends not to listen. The rest I keep, because a gossip who tells everything soon has nothing told to him, and then where would the Drag get its news?" } },
+      choices = { { text = "A careful sort of gossip.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     br_cart = {
       lines = { { id = "br_cart_l", text = "Oh, it tipped over coming down through the gate, a whole cart of blue from the coast! The street ran blue for a day, and three grunts on watch went the color of the sea to their knees." } },
       choices = {
@@ -1014,6 +1116,7 @@ P:NPC {
         { text = "What should a tailor keep stocked?", next = "tailor", when = { profession = "Tailoring" } },
         { text = "What happened with the dye cart?", next = "br_cart" },
         { text = "Does Magar ever tell you to stop talking?", next = "br_magar" },
+        { text = "Who brings you the best gossip?", next = "w2source" },
         { text = "Keep talking, Borya.", next = "END" },
       },
     },
@@ -1123,6 +1226,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2supper = {
+      lines = { { id = "w2sp_default", text = "Fish head soup, mon, de way my mother made it, wit' de eyes still in. De orcs say it looks at dem, an' dat be true, but it also be de best thing you ever put in your mouth." } },
+      choices = {
+        { text = "Would you share a bowl?", next = "w2supper2" },
+        { text = "I'll take your word for it.", next = "w2supper2" },
+        { text = "Something else, Xen'to.", next = "BACK" },
+      },
+    },
+    w2supper2 = {
+      lines = {
+        { id = "w2sp2_cook", when = { profession = "Cooking" }, text = "For a cook, always, mon! Come by after de Drag closes, an' I show you how to boil de heads slow so de broth turns white. Zamja says it be a crime, but she always has two bowls." },
+        { id = "w2sp2_default", text = "Come by after de Drag closes an' I give you a bowl, mon, an' you can decide for yourself. Zamja says it be a crime against fish, an' she always eats two bowls." },
+      },
+      choices = { { text = "I'll be there.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     xe_hot = {
       lines = { { id = "xe_hot_l", text = "A little red pepper from de coast below Sen'jin, mon, so hot dat de trolls who dry it wear gloves. I sell one pinch to a customer, never more, and I make dem promise not to touch deir eyes." } },
       choices = {
@@ -1173,6 +1291,7 @@ P:NPC {
         { text = "I cook. What would you put in my pack?", next = "cook", when = { profession = "Cooking" } },
         { text = "What's the hottest thing you sell?", next = "xe_hot" },
         { text = "Do the grunts on the wall buy from you?", next = "xe_grunts" },
+        { text = "What do you cook for yourself at night?", next = "w2supper" },
         { text = "Eat well, Xen'to.", next = "END" },
       },
     },
@@ -1285,6 +1404,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2return = {
+      lines = { { id = "w2rt_default", text = "It goes back to the smith who made it, with a cord tied round every ring I found wanting. Some of them laugh at the cords. The ones who stop laughing are the ones whose work I buy the following season." } },
+      choices = {
+        { text = "Do any of the smiths resent you for it?", next = "w2return2" },
+        { text = "A cord on every bad ring is very exact.", next = "w2return2" },
+        { text = "Something else, Sana.", next = "BACK" },
+      },
+    },
+    w2return2 = {
+      lines = {
+        { id = "w2rt2_mail", when = { class = { "HUNTER", "SHAMAN", "WARRIOR" } }, text = "Some do. You will wear mail into places where one weak ring is the difference, so you understand what they forget: I am not insulting their work, I am standing between it and your ribs." },
+        { id = "w2rt2_default", text = "Some do. I am not insulting their work, I am standing between it and the ribs of whoever wears it, and the smiths who understand that have become my best suppliers." },
+      },
+      choices = { { text = "Someone has to be exact.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     sa_morgum = {
       lines = { { id = "sa_morgum_l", text = "He does, because he knows I am listening, and he wants me to see him win. He has asked me more than once to teach him how to hold a price, and then he cannot do it for longer than a breath." } },
       choices = {
@@ -1322,7 +1456,7 @@ P:NPC {
         { id = "h_light", when = { class = { "MAGE", "PRIEST", "WARLOCK", "ROGUE" } }, text = "I am Sana. Mail is not for you, and I will not pretend it is in order to make a sale. If you want leather, Morgum has it, and he will be glad of someone new to talk at." },
       },
       again = {
-        { id = "h_again", text = "Is there something further?" },
+        { id = "h_again", text = "Is there something further? Ask it plainly, and I will give you the answer once." },
         { id = "h_again2", text = "Go on, though I would ask you to be brief." },
         { id = "h_again3", text = "Ask, and I will give you a straight answer." },
       },
@@ -1335,6 +1469,7 @@ P:NPC {
         { text = "I hunt in mail. What should I ask of it?", next = "hunter", when = { class = "HUNTER" } },
         { text = "Morgum keeps glancing at you while he haggles.", next = "sa_morgum" },
         { text = "Who makes the mail you sell?", next = "sa_smith" },
+        { text = "What happens to the mail you send back?", next = "w2return" },
         { text = "I'll take up no more of your morning.", next = "END" },
       },
     },
@@ -1450,6 +1585,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2own = {
+      lines = { { id = "w2on_default", text = "None that you can see, which is the point of it. A seller of knives who wears one on his belt is advertising, and a seller who wears none is either a fool or very careful." } },
+      choices = {
+        { text = "And which are you?", next = "w2own2" },
+        { text = "So there's one in your boot.", next = "w2own2" },
+        { text = "Something else, Kareth.", next = "BACK" },
+      },
+    },
+    w2own2 = {
+      lines = {
+        { id = "w2on2_rogue", when = { class = "ROGUE" }, text = "You'd have found it already if you were looking properly. Left boot, short and plain, and it has never once left the sheath. That's the best compliment a knife can have." },
+        { id = "w2on2_default", text = "I'll not say where it is. It's short and plain, and it has never once left its sheath, which is the best compliment a knife can have." },
+      },
+      choices = { { text = "May it stay there.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     ka_forge = {
       lines = { { id = "ka_forge_l", text = "I finish them myself, from blanks the smiths of the Valley of Honor send down. A smith makes a blade to be seen, so I take off the shine and dull the guard and give it a grip that won't slip in a wet hand." } },
       choices = {
@@ -1487,7 +1637,7 @@ P:NPC {
         { id = "h_loud", when = { class = { "WARRIOR", "PALADIN" } }, text = "I'm Kareth. There's nothing here longer than your forearm, so I doubt I can help you. Though I've sold a boot-knife to more than one warrior who never mentioned it to his friends." },
       },
       again = {
-        { id = "h_again", text = "Is there something else?" },
+        { id = "h_again", text = "Something else? Say it quietly, and look at the blades while you do, so nobody wonders what we're discussing." },
         { id = "h_again2", text = "Go on, and keep your voice at that level." },
         { id = "h_again3", text = "Ask, and I'll answer what's mine to answer." },
       },
@@ -1500,6 +1650,7 @@ P:NPC {
         { text = "What should I look for in a dagger?", next = "rogue", when = { class = "ROGUE" } },
         { text = "Who forges your blades?", next = "ka_forge" },
         { text = "The Cleft is quiet today.", next = "ka_quiet" },
+        { text = "What blade do you carry yourself?", next = "w2own" },
         { text = "I was never here, Kareth.", next = "END" },
       },
     },
@@ -1603,6 +1754,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2fail = {
+      lines = { { id = "w2fl_default", text = "Once, in this shop. A young warlock fired a wand he'd bought elsewhere and it split down the middle with a sound like a whip, and the bolt went into the ceiling instead of the target. There's still a scorch mark above the door." } },
+      choices = {
+        { text = "What made it split?", next = "w2fail2" },
+        { text = "I'll look up on my way out.", next = "w2fail2" },
+        { text = "Something else, Katis.", next = "BACK" },
+      },
+    },
+    w2fail2 = {
+      lines = {
+        { id = "w2fl2_caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "The wood was green, dried in a hurry to sell sooner. You would feel it in the hand if you held one, I think, a kind of restlessness. I can't feel it myself, so I buy only from those who wait the years." },
+        { id = "w2fl2_default", text = "The wood was green, dried in a hurry so it could be sold sooner. I can't feel the difference myself, so I buy only from wandmakers who wait the years, and I ask every caster to tell me if a wand feels wrong." },
+      },
+      choices = { { text = "Patience again, then.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     kt_muragus = {
       lines = { { id = "kt_muragus_l", text = "He does, and I'm grateful for it. Muragus can talk a warlock into a staff he doesn't need, and I'd be lost without him on the busy days, though I wish he'd lower his voice now and then." } },
       choices = {
@@ -1653,6 +1819,7 @@ P:NPC {
         { text = "Shall I tell you how this one feels in the hand?", next = "caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
         { text = "Muragus seems to enjoy talking for you.", next = "kt_muragus" },
         { text = "Which wand sells best?", next = "kt_best" },
+        { text = "Have you ever seen a wand fail?", next = "w2fail" },
         { text = "Thank you, Katis. I'll go quietly.", next = "END" },
       },
     },
@@ -1759,6 +1926,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2order = {
+      lines = { { id = "w2or_default", text = "A troll from Sen'jin who wanted a scorpid, whole, shell and stinger and all. He said his grandmother boiled them in the shell like crabs, and he cracked it open on my block and ate it right there." } },
+      choices = {
+        { text = "Did you try it?", next = "w2order2" },
+        { text = "That sounds disgusting.", next = "w2order2" },
+        { text = "Something else, Olvia.", next = "BACK" },
+      },
+    },
+    w2order2 = {
+      lines = {
+        { id = "w2or2_cook", when = { profession = "Cooking" }, text = "A claw, and it was sweeter than boar, which I'll deny if you tell anyone. You cook, so you'll understand why I keep a pot for them now, out the back, for the trolls who know to ask." },
+        { id = "w2or2_default", text = "A claw, and it was sweeter than boar, which I'll deny to anyone who asks. I keep a pot out the back for them now, for the trolls who know to ask." },
+      },
+      choices = { { text = "Your secret's safe.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     ol_block = {
       lines = { { id = "ol_block_l", text = "It is, and I'll keep it so. A dirty block makes for sick grunts, and sick grunts make for an angry Warchief, and I've no wish to explain myself to him." } },
       choices = {
@@ -1809,6 +1991,7 @@ P:NPC {
         { text = "What should I feed a hungry beast?", next = "pet", when = { class = "HUNTER" } },
         { text = "Your block is cleaner than most tables.", next = "ol_block" },
         { text = "Who buys the most from the Chophouse?", next = "ol_buyers" },
+        { text = "What's the strangest order you've had?", next = "w2order" },
         { text = "I'll let you get back to the block.", next = "END" },
       },
     },
@@ -1912,6 +2095,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2pack = {
+      lines = { { id = "w2pk_default", text = "This one, under the counter. I've been stitching it for myself for six years, a little at a time, with a pocket for every place in my book. It's never had anything in it, and it's the best pack I've ever made." } },
+      choices = {
+        { text = "Why not fill it and go?", next = "w2pack2" },
+        { text = "Six years is a long time to wait.", next = "w2pack2" },
+        { text = "Something else, Gotri.", next = "BACK" },
+      },
+    },
+    w2pack2 = {
+      lines = { { id = "w2pk2_default", text = "One day I will. I'll start with the Crossroads, because everyone starts there, and then I'll go wherever the first traveler I meet on the road tells me to. Until then, your stories fill the pockets well enough." } },
+      choices = { { text = "Start with Thunder Bluff.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     go_young = {
       lines = { { id = "go_young_l", text = "The small pouch, because it's cheap, and then the slightly bigger pouch a week later, because the small one wasn't enough. I tell them to buy the bigger one first, and they never listen, so I've stopped telling them and just keep both in stock." } },
       choices = {
@@ -1962,6 +2157,7 @@ P:NPC {
         { text = "I've been to the far side of the sea. Shall I tell you?", next = "tell", when = { minLevel = 30 } },
         { text = "Which pack sells best to the young ones?", next = "go_young" },
         { text = "What's the farthest place in your book?", next = "go_far" },
+        { text = "If you ever left, what would you take?", next = "w2pack" },
         { text = "I'll bring you a tale next time.", next = "END" },
       },
     },
@@ -2065,6 +2261,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2source = {
+      lines = { { id = "w2sr_default", text = "Everywhere. Ankhs from the Darkspear carvers at Sen'jin, who make them from fish bone, candles from the Forsaken by way of the zeppelin, and arcane powder from a goblin in Ratchet who I trust about as far as I could throw him." } },
+      choices = {
+        { text = "Why buy from him at all?", next = "w2source2" },
+        { text = "Fish bone ankhs? Do they work?", next = "w2source2" },
+        { text = "Something else, Horthus.", next = "BACK" },
+      },
+    },
+    w2source2 = {
+      lines = {
+        { id = "w2sr2_shaman", when = { class = "SHAMAN" }, text = "They work, as you'll know better than I, since you've died on one. As for the goblin, he's the only seller in Kalimdor whose powder weighs what it says, and I weigh every bag twice to keep him honest." },
+        { id = "w2sr2_default", text = "Because he's the only seller in Kalimdor whose powder weighs what it says on the bag. I weigh every bag twice anyway, and he knows I do, and that keeps us both honest." },
+      },
+      choices = { { text = "Sound business.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     ho_scales = {
       lines = { { id = "ho_scales_l", text = "They are, and they cost me a season's profit, from a goblin in Ratchet who swore they'd never be off by a grain. They haven't been, which is more than I can say for any goblin I've ever bought anything else from." } },
       choices = {
@@ -2116,6 +2327,7 @@ P:NPC {
         { text = "What should a shaman never run short of?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Your scales look very precise.", next = "ho_scales" },
         { text = "Do the warlocks of the Cleft buy from you?", next = "ho_warlocks" },
+        { text = "Where do your reagents come from?", next = "w2source" },
         { text = "I'll buy double next time, Horthus.", next = "END" },
       },
     },
@@ -2225,6 +2437,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2hands = {
+      lines = { { id = "w2hn_default", text = "Look for yourself. Salt cracks on the knuckles from the leatherworkers' sacks, a dye stain under the nails that won't come out, and a burn on the thumb from flux I tested too close to a brazier." } },
+      choices = {
+        { text = "So you know every craft a little.", next = "w2hands2" },
+        { text = "Hard hands for a shopkeeper.", next = "w2hands2" },
+        { text = "Something else, Shimra.", next = "BACK" },
+      },
+    },
+    w2hands2 = {
+      lines = { { id = "w2hn2_default", text = "Enough of each to know when I'm being sold rubbish. I tested everything I sell on my own skin before I'd let a customer have it, and Trak'gen says I look like I've been in six trades and lost all of them." } },
+      choices = { { text = "Honest hands, at least.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     sm_trakgen = {
       lines = { { id = "sm_trakgen_l", text = "He does, and he always will, and I've given up trying to change him. So I keep the accounts for both halves of the store, quietly, and I make sure his kindness never costs more than my side can cover." } },
       choices = {
@@ -2262,7 +2486,7 @@ P:NPC {
         { id = "h_none", when = { maxLevel = 12 }, text = "I'm Shimra. You've no trade yet, by your hands. Pick one soon, young one. A fighter who can also make something is never hungry for long." },
       },
       again = {
-        { id = "h_again", text = "What else are you short of?" },
+        { id = "h_again", text = "What else? Look along the shelf and tell me which jar you'll be cursing next week." },
         { id = "h_again2", text = "Go on and ask, though I'll go on counting." },
         { id = "h_again3", text = "Ask it. I can do two things at once, unlike Trak'gen." },
       },
@@ -2275,6 +2499,7 @@ P:NPC {
         { text = "Read my hands, then, and tell me what I lack.", next = "crafter", when = { any = { { profession = "Tailoring" }, { profession = "Blacksmithing" }, { profession = "Alchemy" }, { profession = "Leatherworking" }, { profession = "Engineering" } } } },
         { text = "Trak'gen gives away more than he sells, it seems.", next = "sm_trakgen" },
         { text = "What runs out first on your side of the line?", next = "sm_runout" },
+        { text = "What do your own hands say about you?", next = "w2hands" },
         { text = "I'll be back when the jar's empty.", next = "END" },
       },
     },
@@ -2378,6 +2603,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2weary = {
+      lines = { { id = "w2wy_default", text = "A Forsaken, of all people, who walked here from the zeppelin tower in the noon sun because he'd never been told how hot Durotar was. He came in grey and swaying, and I sat him down and gave him water before I remembered he might not need it." } },
+      choices = {
+        { text = "Did he drink it?", next = "w2weary2" },
+        { text = "A kind mistake.", next = "w2weary2" },
+        { text = "Something else, Trak'gen.", next = "BACK" },
+      },
+    },
+    w2weary2 = {
+      lines = {
+        { id = "w2wy2_scourge", when = { race = "Scourge" }, text = "He poured it over his head, which I suppose is the same thing for your people. He comes in every time he passes through now, and sits on that stool, and we talk about nothing for an hour. You're welcome to the stool as well." },
+        { id = "w2wy2_default", text = "He poured it over his head, which seemed to do him good. He comes in every time he passes through now, and sits on that stool, and we talk about nothing at all for an hour." },
+      },
+      choices = { { text = "Everyone needs a stool somewhere.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     tg_gryshka = {
       lines = { { id = "tg_gryshka_l", text = "She does, and I send mine to her, which keeps us both in business. Gryshka runs the inn as if every traveler were her own child home from the war, and she feeds them until they can't stand up." } },
       choices = {
@@ -2415,7 +2655,7 @@ P:NPC {
         { id = "h_veteran", when = { minLevel = 40 }, text = "I'm Trak'gen. You've been everywhere, by the look of you, and still you need bread like the rest of us. Sit down and tell me how it goes in the wide world." },
       },
       again = {
-        { id = "h_again", text = "What else can I find for you?" },
+        { id = "h_again", text = "Something else, friend? Sit a moment longer, and we'll find it between us." },
         { id = "h_again2", text = "Go on and ask, friend, because I'm never too busy." },
         { id = "h_again3", text = "Ask away, and take a seat while you do." },
       },
@@ -2428,6 +2668,7 @@ P:NPC {
         { text = "I've little coin. What do I truly need?", next = "poor", when = { maxLevel = 12 } },
         { text = "Gryshka sends her guests to you, you said.", next = "tg_gryshka" },
         { text = "What do the veterans ask you for?", next = "tg_vets" },
+        { text = "Who's the most tired traveler you ever helped?", next = "w2weary" },
         { text = "Thank you for the welcome, Trak'gen.", next = "END" },
       },
     },
@@ -2531,6 +2772,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2refuse = {
+      lines = { { id = "w2rf_default", text = "Once. A band of young orcs wanted a burning blade on a black field, and they said it was only a fierce design. I knew whose sign that was, and I told them so, and I told the guard at the gate as well." } },
+      choices = {
+        { text = "What became of them?", next = "w2refuse2" },
+        { text = "Maybe it truly was only a design.", next = "w2refuse2" },
+        { text = "Something else, Garyl.", next = "BACK" },
+      },
+    },
+    w2refuse2 = {
+      lines = { { id = "w2rf2_default", text = "Two came back a month later and asked for a plain wolf's head instead, and I made it for them for nothing. The others I never saw again, and I don't ask, because some colors should never be sewn twice." } },
+      choices = { { text = "You did right.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     ga_stitch = {
       lines = { { id = "ga_stitch_l", text = "Every one, and I won't let anyone else touch the borders. My grandmother taught me the border stitch, the one that holds the whole cloth together, and it's the one thing I refuse to hurry." } },
       choices = {
@@ -2568,7 +2821,7 @@ P:NPC {
         { id = "h_young", when = { maxLevel = 15 }, text = "I am Garyl. You're young, and likely you've no guild yet. Don't hurry it. Choose the ones you'd bleed for, and then come and see me about the colors." },
       },
       again = {
-        { id = "h_again", text = "Is there more you'd ask?" },
+        { id = "h_again", text = "Ask what you like, but slowly. I'm matching reds, and a hasty question makes for a hasty shade." },
         { id = "h_again2", text = "Go on, I'm only sorting thread by shade." },
         { id = "h_again3", text = "Ask, and I'll give it proper thought." },
       },
@@ -2581,6 +2834,7 @@ P:NPC {
         { text = "What makes a guild's tabard serve it well?", next = "mine", when = { guild = true } },
         { text = "Do you stitch every tabard yourself?", next = "ga_stitch" },
         { text = "What's the strangest emblem anyone's asked for?", next = "ga_strange" },
+        { text = "Have you ever refused to make a tabard?", next = "w2refuse" },
         { text = "Lok'tar, Garyl.", next = "END" },
       },
     },

@@ -38,6 +38,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_best = {
+      lines = {
+        { id = "w2_best_l0", text = "Honestly? My grandmother, an' she's been dead thirty years. The Barleybrews make the second best, an' the Thunderbrews make the most, which isnae the same thing, though ye'd never know it from the way they talk." },
+      },
+      choices = {
+        { text = "What made your grandmother's so good?", next = "w2_best_gran" },
+        { text = "Thunderbrew's on every table for a reason.", next = "BACK" },
+      },
+    },
+    w2_best_gran = {
+      lines = {
+        { id = "w2_best_gran_l0", text = "Patience an' spite, she said. She'd let a cask sit a full year just tae spite the Thunderbrews, who'd sell theirs after a season. Nobody's had the patience since; we've only kept the spite." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -51,7 +68,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, then? Keep yer voice down, the Thunderbrews have ears." },
-        { id = "h_again2", text = "Go on, ask. I've time, an' I've ale." },
+        { id = "h_again2", text = "Go on, ask. I've time, an' I've ale, an' neither one's got Thunderbrew on the barrel." },
       },
       choices = {
         { text = "Why the feud with the Thunderbrews?", next = "feud" },
@@ -60,6 +77,7 @@ P:NPC {
         { text = "Tell me about Brewnall Village.", next = "brewnall" },
         { text = "My clan drinks Thunderbrew, Marleth.", next = "clan", when = { race = "Dwarf" } },
         { text = "Why pick me for the job, Marleth?", next = "fl_why", when = { flirt = true } },
+        { text = "Who makes the best ale in Dun Morogh, honestly?", next = "w2_best" },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -176,6 +194,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_else = {
+      lines = {
+        { id = "w2_else_l0", text = "Brewin'. I've a recipe in my head for a dark stout wi' honey an' smoke in it, an' Ragnar won't let me near a vat till I've \"proved my responsibility,\" which means standin' here dry till I'm grey." },
+      },
+      choices = {
+        { text = "Tell me about the stout.", next = "w2_else_stout" },
+        { text = "Prove him wrong, then. Stand your watch.", next = "BACK" },
+      },
+    },
+    w2_else_stout = {
+      narr = "He lowers his voice as if the barrels might report him.",
+      lines = {
+        { id = "w2_else_stout_l0", text = "Pine smoke from Coldridge, heather honey from the Barleybrew side o' the hills, an' a Gnomeregan trick for coolin' the wort that I'll no' tell ye. I'd call it Cellar Watch, an' I'd drink the first barrel alone." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -200,6 +236,7 @@ P:NPC {
         { text = "Do the Thunderbrews ever bless their vats?", next = "priest", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "It's a long watch down here.", next = "watch" },
         { text = "A dwarf who can't drink has my sympathy.", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "What would you be doing if you weren't guarding the cellar?", next = "w2_else" },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -469,6 +506,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_recomb = {
+      lines = {
+        { id = "w2_recomb_l0", text = "Recombobulating, obviously! It takes something that's been knocked out of true, a gear or a valve or an idea, and puts it back the way it was before, only slightly better. Razzle says that last part is optimistic." },
+      },
+      choices = {
+        { text = "Could it fix Gnomeregan?", next = "w2_recomb_gnomer" },
+        { text = "Every tinker's dream is a machine that undoes mistakes.", next = "BACK" },
+      },
+    },
+    w2_recomb_gnomer = {
+      narr = "He goes very still for a gnome, which is to say he only fidgets with one hand.",
+      lines = {
+        { id = "w2_recomb_gnomer_l0", text = "If I made one the size of a mountain, perhaps. I've done the sums. It would take forty years and every gear in Ironforge, and Mekkatorque would have to sign for the parts, so I've put it on my list for later." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     dd_oz_leper = {
       lines = {
         { id = "dd_oz_leper1", text = "I know, and I know you had to, because they're past reasoning with while the sickness is in them. That's exactly why Razzle and I work through the night on the Recombobulator, so one day nobody will have to choose between their own skin and a sick neighbour's." },
@@ -506,6 +561,7 @@ P:NPC {
         { text = "Can the leper gnomes really be cured?", next = "cure" },
         { text = "I lost my workshop in the city too.", next = "workshop", when = { race = "Gnome" } },
         { text = "Could magic scrub the radiation instead?", next = "magic", when = { class = { "MAGE", "WARLOCK" } } },
+        { text = "What's the Recombobulator for?", next = "w2_recomb" },
         { text = "I'll let you get back to work.", next = "END" },
       },
     },
@@ -601,6 +657,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_forget = {
+      lines = {
+        { id = "w2_forget_l0", text = "More than ye'd think. There's a boar in the back pen who's been waitin' on his hunter since last spring, an' I've stopped expectin' her back. Some go intae Gnomeregan or the Wetlands an' simply don't come home." },
+      },
+      choices = {
+        { text = "What happens to the boar?", next = "w2_forget_boar" },
+        { text = "A hunter who abandons her beast deserves no second one.", next = "BACK", reply = "Aye, if she abandoned him. I'd like tae think she didnae have the choice.", fx = { align = { honor = 1 } } },
+        { text = "Hunters die. The beasts go on.", next = "BACK", reply = "They do, an' it's my job tae see that they go on fed.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_forget_boar = {
+      lines = {
+        { id = "w2_forget_boar_l0", text = "He stays, an' he eats, an' every mornin' he stands by the gate an' looks down the road. I'll keep him till he stops lookin', an' I suspect that'll be never." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -621,6 +696,7 @@ P:NPC {
         { text = "Did my cat give you trouble too?", next = "elf", when = { race = "NightElf" } },
         { text = "Would you stable a mechanostrider?", next = "strider", when = { race = "Gnome" } },
         { text = "Which beast should a new hunter tame here?", next = "tame", when = { class = "HUNTER" } },
+        { text = "Do the hunters ever forget to collect their beasts?", next = "w2_forget" },
         { text = "I'll be going.", next = "END" },
       },
     },

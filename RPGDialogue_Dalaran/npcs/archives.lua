@@ -428,6 +428,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_tr = {
+      lines = { { id = "w8_tr_a", text = "A door, as it happens, or the lintel of one, carried up from the ruins under the old city in three pieces. It says 'enter and be welcome', and below that, in a smaller and later hand, 'unless you are Harlan', and I have been laughing about it for a week." } },
+      choices = {
+        { text = "Who was Harlan?", next = "w8_tr2" },
+        { text = "A ghost who laughs. That's a surprise.", next = "w8_tr2" },
+        { text = "I'm a mage. Can you show me the script?", next = "w8_tr2", when = { class = "MAGE" } },
+        { text = "Something else, Ranath.", next = "BACK" },
+      },
+    },
+    w8_tr2 = {
+      lines = {
+        { id = "w8_tr2_a", text = "Nobody knows, and nobody ever will, and that is the best kind of mystery, because it cannot disappoint. The dead laugh more than you would think, mortal; we have outlived most of the things that made us solemn." },
+        { id = "w8_tr2_mage", when = { class = "MAGE" }, text = "Look, but do not touch, and do not try to read it aloud, because the grammar has teeth. See how the second hand presses harder on the stone? Whoever wrote 'unless you are Harlan' meant it very much." },
+      },
+      choices = {
+        { text = "Poor Harlan.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -450,6 +470,7 @@ P:NPC {
         { text = "The Skyborne say they descend from the Highborne.", next = "skyborne" },
         { text = "Why would a kaldorei be glad to see you?", next = "xnightelf", when = { race = "NightElf" } },
         { text = "What did your people know of magic that we don't?", next = "xmage", when = { class = "MAGE" } },
+        { text = "What are you translating at the moment?", next = "w8_tr" },
         { text = "I'll leave you to your reading.", next = "END" },
       },
     },

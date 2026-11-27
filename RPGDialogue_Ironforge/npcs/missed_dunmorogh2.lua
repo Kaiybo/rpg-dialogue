@@ -28,13 +28,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_student = {
+      lines = {
+        { id = "w2_student_l0", text = "A self-loadin' rifle that loaded itself, aimed itself an' fired itself, all in the one motion, at me. It got the tankard right out o' my hand. I passed him for the aimin' an' failed him for the rest." },
+      },
+      choices = {
+        { text = "Where is he now?", next = "w2_student_now" },
+        { text = "At least it worked.", next = "BACK" },
+      },
+    },
+    w2_student_now = {
+      lines = {
+        { id = "w2_student_now_l0", text = "Tinker Town, makin' toys for gnome bairns, an' doin' very well at it. His wind-up rams are the best-sellin' thing in the Commons at Winter Veil, an' none o' them has shot anybody yet." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Bronk Guzzlegear, engineer. I teach the craft here at the Depot, where the siege engines come tae be mended an' there's always scrap fer a student tae ruin." },
       },
       again = {
         { id = "h_again", text = "What else, {class}? Speak up, the boiler's deafened me." },
-        { id = "h_again2", text = "Aye, I'm listenin', keep talkin' while I tighten this." },
+        { id = "h_again2", text = "Aye, I'm listenin', keep talkin' while I tighten this, an' if it hisses, duck." },
         { id = "h_again_x0", when = { race = "Gnome" }, text = "Back at my bench, wee one? Dinnae touch anythin' till I've hidden the good tools." },
       },
       choices = {
@@ -46,6 +63,7 @@ P:NPC {
         { text = "You mended steam tanks in the war?", next = "tanks" },
         { text = "What does Beldin Steelgrill make of you?", next = "beldin" },
         { text = "Does an engineer need a miner?", next = "ore", when = { profession = "Mining" } },
+        { text = "What's the worst thing a student's ever built here?", next = "w2_student" },
         { text = "I'll let you get back to it.", next = "END" },
       },
     },
@@ -133,12 +151,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_fall = {
+      lines = {
+        { id = "w2_fall_l0", text = "The stone tells ye, if ye've the ears. It creaks first, a long, low sound like a door no one's opened in years, an' then little bits o' grit start fallin' on yer helmet like rain. When ye hear the creak, ye run." },
+      },
+      choices = {
+        { text = "And if you don't hear it?", next = "w2_fall_miss" },
+        { text = "Some miners swear by canaries.", next = "BACK" },
+      },
+    },
+    w2_fall_miss = {
+      lines = {
+        { id = "w2_fall_miss_l0", text = "Then ye're one o' the friends I've buried. I teach every student tae stop swingin' once an hour an' listen for a full minute. Most think it's an old dwarf's fancy, till the first time it saves them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Yarr Hammerstone. I teach folk tae find ore an' tae get it out wi'out bringin' the roof down, which are two different skills an' I've buried friends who only had the first." },
       },
       again = {
-        { id = "h_again", text = "What else would ye know, {class}?" },
+        { id = "h_again", text = "What else would ye know, {class}? Ask slow, an' I'll answer slow, the way stone likes it." },
         { id = "h_again2", text = "Take yer time. Stone's never in a hurry, an' neither am I." },
         { id = "h_again_x0", when = { profession = "Mining" }, text = "Back wi' more questions? Good, a miner who stops askin' is a miner who stops breathin'." },
       },
@@ -152,6 +187,7 @@ P:NPC {
         { text = "Is there anything richer than copper here?", next = "rich" },
         { text = "My family were never miners.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye've a whole mountain o' catchin' up tae do, {g:lad|lass}. Pick up a pick, an' the stone will forgive yer kin." },
         { text = "What ore should a smith look for?", next = "smithore", when = { profession = "Blacksmithing" } },
+        { text = "How can you tell when a tunnel's about to fall?", next = "w2_fall" },
         { text = "Stone keep you, Yarr.", next = "END" },
       },
     },
@@ -242,13 +278,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_finest = {
+      lines = {
+        { id = "w2_finest_l0", text = "A snow leopard's, brought down from the high peaks by a trapper who'd tracked it a fortnight. I made a cloak o' it for a thane's daughter in Ironforge, an' I've no' had a hide like it since." },
+      },
+      choices = {
+        { text = "Would you work another, if I brought one?", next = "w2_finest_bring" },
+        { text = "A leopard that fine should have been left alive.", next = "BACK" },
+      },
+    },
+    w2_finest_bring = {
+      lines = {
+        { id = "w2_finest_bring_l0", text = "Bring me one clean, wi' nae holes but the one that killed it, an' I'll pay ye a fair price an' make somethin' ye'll be proud tae have carried. But the high peaks are no' kind, an' the leopards up there are fewer every year." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Burdrak Harglhelm, leather goods. Brewnall's a brewin' village an' naebody comes here fer armor, so I sell tae the hunters an' trappers who come fer the ale an' leave wi' a jerkin." },
       },
       again = {
         { id = "h_again", text = "Anythin' else I can tell ye?" },
-        { id = "h_again2", text = "Aye, {class}, what is it?" },
+        { id = "h_again2", text = "Aye, {class}, what is it? Speak up over the wind; it whistles through the hides." },
         { id = "h_again_x0", when = { class = "HUNTER" }, text = "Back from the hills, {class}? Show me what ye brought down." },
       },
       choices = {
@@ -260,6 +313,7 @@ P:NPC {
         { text = "Why do trappers come here for ale?", next = "trappers" },
         { text = "What armor suits someone who works quietly?", next = "quiet", when = { class = { "ROGUE", "HUNTER" } } },
         { text = "I skin hides myself. Would you buy them?", next = "skin", when = { profession = "Skinning" } },
+        { text = "What's the finest hide you've ever worked?", next = "w2_finest" },
         { text = "Let me see your stock.", next = "END" },
       },
     },
@@ -354,13 +408,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_strong = {
+      lines = {
+        { id = "w2_strong_l0", text = "Rejold's Old Cask, which he brews once every four years an' swears is made wi' nothin' but barley an' honey. I've watched grown Mountaineers sit down after one cup an' no' stand up till mornin'." },
+      },
+      choices = {
+        { text = "I'll try it.", next = "w2_strong_try", when = { race = "Dwarf" } },
+        { text = "Keep it well away from me.", next = "BACK" },
+      },
+    },
+    w2_strong_try = {
+      lines = {
+        { id = "w2_strong_try_l0", text = "Ha! A dwarf after my own heart. But I'll pour ye half a cup, an' ye'll thank me for it in the mornin', for even yer grandfather couldnae have finished a whole one wi' his dignity on." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Keeg Gibn, purveyor o' ale an' wine. The Barleybrews make it an' I sell it, an' we both think we've the better half o' the bargain." },
       },
       again = {
         { id = "h_again", text = "What else, friend? I've all day an' a full cask." },
-        { id = "h_again2", text = "Aye, go on, I like a customer who talks." },
+        { id = "h_again2", text = "Aye, go on, I like a customer who talks, an' I like one who drinks even better." },
         { id = "h_again_x0", when = { race = "Dwarf" }, text = "Back fer another, {g:lad|lass}? Have ye settled the Barleybrew question yet?" },
       },
       choices = {
@@ -373,6 +444,7 @@ P:NPC {
         { text = "Who drinks here most?", next = "patrons" },
         { text = "Pour me another, Keeg!", next = "drunk", when = { drunk = true } },
         { text = "Night elves don't drink moonlight, you know.", next = "BACK", when = { race = "NightElf" }, reply = "No? Well, then I've been misinformed, an' I'll be glad tae see what ye do drink. Try the stout, an' sip it." },
+        { text = "What's the strongest drink you've got?", next = "w2_strong" },
         { text = "I'll take a look at your casks.", next = "END" },
       },
     },
@@ -457,13 +529,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_trouble = {
+      lines = {
+        { id = "w2_trouble_l0", text = "Once, two winters back. A pack o' wolves came down off the hills in a storm, so hungry they ignored the fires, an' took two o' Keeg's goats an' a dog before the village woke. Naebody saw them comin'." },
+      },
+      choices = {
+        { text = "And now you watch so it won't happen again.", next = "w2_trouble_watch" },
+        { text = "Wolves are part of life in these hills.", next = "BACK" },
+      },
+    },
+    w2_trouble_watch = {
+      lines = {
+        { id = "w2_trouble_watch_l0", text = "Aye, for it was my dog, an' I'd heard him growlin' at the road all evenin' an' told him tae hush. I'll no' tell anythin' tae hush again. If somethin's comin', I want tae know first." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Tristane Shadowstone. I've nae shop an' nae post, but somebody in this village ought tae know what's comin' up the road before it arrives, an' the brewers never look up from their vats." },
       },
       again = {
         { id = "h_again", text = "Aye? Be quick, I'm due another look at the road." },
-        { id = "h_again2", text = "What else would ye ask?" },
+        { id = "h_again2", text = "Ask, then, while I walk. I cannae stand still for long these days." },
         { id = "h_again_x0", when = { class = "HUNTER" }, text = "Ye're back, {class}. Any more prints on the road, or only mine?" },
       },
       choices = {
@@ -473,6 +562,7 @@ P:NPC {
         { text = "Why does the road fall to you?", next = "why" },
         { text = "What do you do once it's dark?", next = "night" },
         { text = "I could walk the road with you a while.", next = "walk", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } } },
+        { text = "Has the road ever brought trouble to Brewnall?", next = "w2_trouble" },
         { text = "Keep a good watch.", next = "END" },
       },
     },
@@ -557,6 +647,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_through = {
+      lines = {
+        { id = "w2_through_l0", text = "Paxton, twice, an' both times he came up holdin' his rod an' complainin' that he'd lost the fish. I pulled him out by the beard the second time, an' he's no' let me forget how much it stung." },
+      },
+      choices = {
+        { text = "And you still let him sit out there?", next = "w2_through_let" },
+        { text = "Iceflow Lake isn't safe for anyone.", next = "BACK" },
+      },
+    },
+    w2_through_let = {
+      lines = {
+        { id = "w2_through_let_l0", text = "Let him? Ye couldnae stop that man fishin' wi' a team o' rams. I just make sure his hole's cut where the ice is thickest, an' I keep a rope handy, an' I dinnae tell him about the rope." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_done", when = { questDone = TODO_QUEST("Frosthowl") }, text = "Gretta Ganter, an' business is good now that naethin' large an' white is helpin' itself tae my catch. I've started sleepin' through the night again." },
@@ -564,7 +671,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, {class}? My feet are cold, so be quick about it." },
-        { id = "h_again2", text = "Aye, go on, the fish can wait." },
+        { id = "h_again2", text = "Aye, go on, the fish can wait, an' so can Paxton." },
       },
       choices = {
         { text = "Why fish out here on the ice?", next = "ice" },
@@ -573,6 +680,7 @@ P:NPC {
         { text = "What bait do the fish take here?", next = "bait", when = { profession = "Fishing" } },
         { text = "Who else lives out here by the lake?", next = "d0_neighbours" },
         { text = "Your hands must be frozen raw.", next = "d0_hands" },
+        { text = "Has anyone ever gone through the ice?", next = "w2_through" },
         { text = "Show me your tackle.", next = "END" },
       },
     },
@@ -678,12 +786,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_think = {
+      lines = {
+        { id = "w2_think_l0", text = "Nothin' at all, an' that's the joy o' it. Ye watch the line, ye listen tae the ice settle, an' after a while ye forget there's troggs an' trolls an' wars. Then Gretta shouts that supper's ready, an' ye remember." },
+      },
+      choices = {
+        { text = "That sounds peaceful.", next = "w2_think_peace" },
+        { text = "A dwarf should think about the wars.", next = "BACK" },
+      },
+    },
+    w2_think_peace = {
+      lines = {
+        { id = "w2_think_peace_l0", text = "It is. I've a nephew at the front, an' sometimes I think o' him while I fish, an' hope he's somewhere quiet. Then a fish bites, an' I'm glad o' the distraction." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Paxton Ganter. I teach the fishin', an' my Gretta sells the tackle, an' she'll tell ye I'm the idle half o' the arrangement, which is true an' I'm content wi' it." },
       },
       again = {
-        { id = "h_again", text = "Aye? Softly, mind, there's one circlin'." },
+        { id = "h_again", text = "Aye? Softly, mind, there's one circlin', an' I'll no' lose this one." },
         { id = "h_again2", text = "What else, friend? I've naewhere tae be." },
         { id = "h_again_x0", when = { profession = "Fishing" }, text = "Back on the ice, {g:lad|lass}? Sit an' fish, an' we'll talk between bites." },
       },
@@ -696,6 +821,7 @@ P:NPC {
         { text = "Tell me about the big one under the east shelf.", next = "bigone" },
         { text = "How did you meet Gretta?", next = "gretta" },
         { text = "How do you cook an Iceflow trout?", next = "cook", when = { profession = "Cooking" } },
+        { text = "What do you think about, out here all day?", next = "w2_think" },
         { text = "I'll leave you to your line.", next = "END" },
       },
     },

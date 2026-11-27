@@ -712,7 +712,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else, love? I've six mugs in each hand." },
-        { id = "h_again2", text = "What else can I get you?" },
+        { id = "h_again2", text = "What else, love? I've a tray on my hip and three tables waiting, so be quick." },
       },
       choices = {
         { text = "Let me see your drinks.", next = "BUSINESS" },
@@ -1298,7 +1298,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman. Keep your hands where I can see them and your spirits quiet. Rogues don't care much for things that whisper." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Quietly, now." },
+        { id = "h_again", text = "Something more? Keep it low, and keep your hands where I can count them." },
         { id = "h_again2", text = "Keep talking. Old Town has ears, so choose your words with that in mind." },
       },
       choices = {

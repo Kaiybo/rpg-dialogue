@@ -188,7 +188,7 @@ P:Letter {
 P:Letter {
   id = "nt_sputtervalve", npc = "sputtervalve", random = true, when = { minLevel = 18 },
   subject = "About the samophlange (again)",
-  body = "{name}!\n\nIt's me, Sputtervalve, from Ratchet, the one with the samophlange, you remember, and I just wanted to say thank you again, pal, because it's back on the bench and it's working, mostly, and I've had it apart twice already to see what the Venture Co. did to it, which was nothin' good, I'll tell you that for free.\n\nOnly now I've a new problem, which is that it makes this noise at night, a sort of a whine, like a kettle that's thinking about something sad, and I can't sleep, and Gazlowe says if I bring it into the office once more he'll throw it in the harbour. Do you know anything about samophlanges? Anything at all? Even a rumour would help.\n\nSputtervalve, Ratchet",
+  body = "{name}!\n\nIt's me, Sputtervalve, from Ratchet, the one with the samophlange, you remember, and I just wanted to say thank you again, pal, because it's back on the bench and it's working, mostly, and I've had it apart twice already to see what the Venture Co. did to it, which was nothin' good, I'll tell you that for free.\n\nOnly now I've a new problem, which is that it makes this noise at night, a sort of a whine, like a kettle that's thinking about something sad, and I can't sleep, and Gazlowe says if I bring it into the office once more he'll throw it in the harbour. Do you know anything about samophlanges? Anything at all, even a rumour, would help.\n\nSputtervalve, Ratchet",
   replies = {
     { id = "hit", text = "Have you tried hitting it? That fixes most things I own.", fx = { affinity = 1, letter = "nt_sputtervalve_2" } },
     { id = "nothing", text = "I don't know a thing about samophlanges, sorry.", fx = {} },
@@ -398,7 +398,7 @@ P:Letter {
 P:Letter {
   id = "st_priest", from = "Aldous Penrose", stranger = true, random = true, when = { class = "PRIEST", faction = "Alliance", minLevel = 30 },
   subject = "A prayer for my brother",
-  body = "Father, Mother, or whatever I ought to call you,\n\nMy brother Jory went north to the Plaguelands six months ago with a band of volunteers who meant to join the Argent Dawn. I've had one letter, from Chillwind Camp, and nothing since. The camp says they've no record of him past the river.\n\nI'm not a praying man. I never was. But I'd be grateful if someone who is would say one for him, wherever he is, and for me, too, because I've started dreaming of him walking toward me in the dark, and I don't like the way he walks.\n\nAldous Penrose, Darkshire",
+  body = "Father, Mother, or whatever I ought to call you,\n\nMy brother Jory went north to the Plaguelands six months ago with a band of volunteers who meant to join the Argent Dawn. I've had one letter, from Chillwind Camp, and nothing since. The camp says they've no record of him past the river.\n\nI'm not a praying man, and I never was. But I'd be grateful if someone who is would say one for him, wherever he is, and for me, too, because I've started dreaming of him walking toward me in the dark, and I don't like the way he walks.\n\nAldous Penrose, Darkshire",
   replies = {
     { id = "pray", text = "I'll pray for Jory, and for you. You aren't alone in this.", fx = { align = { light = 1 } } },
     { id = "truth", text = "Prepare yourself, Aldous. Few come back from past the river.", fx = { align = { light = -1 } } },
@@ -486,13 +486,13 @@ P:Letter {
 P:Letter {
   id = "junk_fortune", from = "Madame Zelphine, Fortunes by Post", stranger = true, random = true, junk = true, when = { minLevel = 12 },
   subject = "Your future, revealed (first page free)",
-  body = "Dearest {name},\n\nThe cards have spoken, and they spoke your name! I see a long road ahead of you, a great many monsters, and a sum of gold that rises and falls, and rises, and falls again, mostly at the auction house. I see a tall stranger. I see a short stranger. I see a stranger of medium height who owes you money.\n\nFor the second page of your fortune, which contains the important part, simply send three silver to Madame Zelphine, care of the Darkmoon Faire, wherever it happens to be this month.\n\nThe spirits await your payment!",
+  body = "Dearest {name},\n\nThe cards have spoken, and they spoke your name! I see a long road ahead of you, a great many monsters, and a sum of gold that rises and falls, and rises, and falls again, mostly at the auction house. I see a tall stranger and a short stranger, and I see a stranger of medium height who owes you money.\n\nFor the second page of your fortune, which contains the important part, simply send three silver to Madame Zelphine, care of the Darkmoon Faire, wherever it happens to be this month.\n\nThe spirits await your payment!",
 }
 
 P:Letter {
   id = "junk_beard", from = "Thick-as-Stone Beard Restorer", stranger = true, random = true, junk = true,
   subject = "Is yer beard lettin' ye down?",
-  body = "Attention, friend!\n\nIs yer beard thin, patchy, or singed from too many evenings at the forge? Are the lads in the Stonefire Tavern laughin' behind their mugs? Then ye need THICK-AS-STONE BEARD RESTORER, brewed in Dun Morogh from a secret family recipe and only a wee bit of troll sweat.\n\nResults in three days or yer money back, provided ye can find us. Not for use on eyebrows, horses, or night elves, who have complained.\n\nRub in twice daily. Do not drink. Do not let a gnome drink it, either, for we're still payin' for the last one.",
+  body = "Attention, friend!\n\nIs yer beard thin, patchy, or singed from too many evenings at the forge? Are the lads in the Stonefire Tavern laughin' behind their mugs? Then ye need THICK-AS-STONE BEARD RESTORER, brewed in Dun Morogh from a secret family recipe and only a wee bit of troll sweat.\n\nResults in three days or yer money back, provided ye can find us. Not for use on eyebrows, horses, or night elves, who have complained.\n\nRub in twice daily, an' do not drink it. Do not let a gnome drink it, either, for we're still payin' for the last one.",
   replies = {
     { id = "gnome", text = "What happened to the gnome? I need to know.", fx = {} },
   },
@@ -514,5 +514,30 @@ P:Letter {
   body = "YOU BUY CANDLE!\n\nKobold Kandle Kompany make finest candles in all of the deep dark mines. Candle make light. Light good. Dark bad. Candle burn on head, so hands free for digging and for poking!\n\nSpecial deal: buy one candle, get one candle. Buy two candle, get two candle. You NO take candle without buying. We know where you live, because we dig under it.\n\nKobold Kandle Kompany. Is not stolen wax.",
   replies = {
     { id = "take", text = "I took a candle. I'm not sorry.", fx = {} },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Writing pass (World): more of Nesingwary's camp
+---------------------------------------------------------------------------
+P:Letter {
+  id = "nt_w2_erlgadin", npc = "erlgadin", random = true, when = { minLevel = 35 },
+  subject = "A letter I did not send",
+  body = "{class},\n\nMy solicitor in Stormwind has written again to inform me that my cousin has taken my seat in the House of Nobles, my house on the Canal, and my second-best hunting dog, and that if I wish to contest any of these I should return at once. I have written back to say that he may keep the seat and the house, and that I would like the dog sent south on the next ship out of the harbour.\n\nI find, to my own surprise, that I do not miss any of it. The panthers here are cruel and hungry and they do not pretend otherwise, and after twenty years among the nobility, that is very restful company.\n\nIf you see my cousin, do not give him my regards.\n\nSir S. J. Erlgadin, formerly of Stormwind",
+  replies = {
+    { id = "dog", text = "I hope the dog makes it south, Sir Erlgadin. It sounds loyal.", fx = { affinity = 1 } },
+    { id = "seat", text = "You should go back and fight for your seat, Sir Erlgadin.", fx = { affinity = -1 } },
+    { id = "cousin", text = "If I meet your cousin, I'll pass on nothing at all.", fx = { affinity = 1 } },
+  },
+}
+
+P:Letter {
+  id = "nt_w2_ajeck", npc = "ajeck", random = true, when = { minLevel = 35 },
+  subject = "Tracks by the river",
+  body = "{class},\n\nI found her tracks by the river this morning, Sin'Dall's, deeper than any tiger's I have ever seen, and so fresh the water was still running into them. I followed them for half a day before they vanished into the rocks above Kurzen's old camp, and I came back to the fire empty-handed and happier than I have been in a month.\n\nMy father used to say that the hunt is mostly waiting, and that a hunter who hates waiting should take up farming. I am learning to love the waiting, I think. It is the only time I feel he is still beside me.\n\nIf you come this way again, I will show you the tracks. I have marked them with a stone.\n\nAjeck Rouack",
+  replies = {
+    { id = "tracks", text = "Keep the stone in place, Ajeck. I'd like to see those tracks.", fx = { affinity = 1 } },
+    { id = "father", text = "Your father would be proud of how you hunt her, Ajeck.", fx = { affinity = 1 } },
+    { id = "leave", text = "Maybe Sin'Dall deserves to be left alone, Ajeck.", fx = { affinity = -1, opinion = { big_game_hunting = "distaste" } } },
   },
 }

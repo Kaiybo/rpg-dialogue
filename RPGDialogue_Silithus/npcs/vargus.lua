@@ -51,7 +51,25 @@ P:NPC {
         { text = "Fix my gear, Vargus.", next = "BUSINESS" },
         { text = "Your father was a hunter, you said?", next = "father" },
         { text = "The stone giants. What do they break?", next = "giants" },
+        { text = "Does the Brigade ever bring you their armor?", next = "w9_brig" },
         { text = "Thank you, Vargus.", next = "END" },
+      },
+    },
+
+    w9_brig = {
+      lines = { { id = "w9_brig_d", text = "Rarely. The dwarves have their own smiths outside Hive'Zora, and they would sooner wear a dent home than let a tauren put a hammer to Ironforge steel. Once, though, a rifleman came in with his breastplate split down the middle and no smith left alive in his camp." } },
+      choices = {
+        { text = "Did you fix it?", next = "w9_brig2" },
+        { text = "Dwarves are proud about their steel.", next = "w9_brig2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_brig2 = {
+      lines = { { id = "w9_brig2_d", text = "I did, and I did it the Ironforge way, with the rivets where their smiths put them, though I think my way is better. He looked at the seam a long while, said it would do, and came back the next week with his friend's helm, which from a dwarf is the warmest praise there is." } },
+      choices = {
+        { text = "A craftsman's respect crosses any line.", next = "BACK", reply = "It does. The anvil has no banner, friend, only the work." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     sand = {

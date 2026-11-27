@@ -27,6 +27,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_practise = {
+      lines = {
+        { id = "w3_practise_1", text = "I chalk one on the floor of my room every night and say every word of the binding except the last. Nothing comes, of course, because nothing is called, but I've drawn the circle four hundred times now, and I could draw it in the dark." },
+      },
+      choices = {
+        { text = "What happens when you finally say the last word?", next = "w3_last" },
+        { text = "That's either discipline or obsession.", next = "BACK", reply = "Mistress Pruitt says they're the same thing with different results, and she hasn't yet told me which one I've got." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_last = {
+      lines = {
+        { id = "w3_last_1", text = "Something answers, and it looks at me, and it decides whether I'm worth obeying. I've rehearsed what I'll say to it so often that I'm afraid I'll sound rehearsed, and Winifred says demons can smell a speech the way a dog smells fear." },
+      },
+      choices = {
+        { text = "Then speak plainly when it comes. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "A copyist in Lordaeron, if you can believe it, paid by the page to write out other men's sermons. I learned every word the Church had to say about demons, and I find most of it was wrong in very interesting ways." } },
       choices = {
@@ -57,7 +75,7 @@ P:NPC {
         { id = "yh_human", when = { race = "Human" }, text = "A living human at a demon lesson in the Undercity. Either you're very brave or very lost, and Mistress Pruitt will want to know which before I say another word." },
       },
       again = {
-        { id = "h_again", text = "Ask quickly, before she summons the next one." },
+        { id = "h_again", text = "Ask quickly, before she summons the next one and I have to look clever." },
         { id = "h_again2", text = "Something else? I can listen to you and to her at once, provided neither of you says anything difficult." },
       },
       choices = {
@@ -68,6 +86,7 @@ P:NPC {
         { text = "What were you before you died?", next = "ylife" },
         { text = "What would you summon first, given the chance?", next = "ywant" },
         { text = "Is Jezelle Pruitt a good teacher?", next = "ypruitt" },
+        { text = "How do you practise without a circle of your own?", next = "w3_practise" },
         { text = "I'll leave you to your lesson.", next = "END" },
       },
     },
@@ -129,6 +148,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_list = {
+      lines = {
+        { id = "w3_list_1", text = "I know he does, and I've told him that if my name goes on it, he's to spell it right and write \"fought well\" next to it. He went very quiet when I said that, and then he wrote it down in the margin, to be ready." },
+      },
+      choices = {
+        { text = "That's grim, Alyssa.", next = "w3_grim" },
+        { text = "He'll never need to write it.", next = "BACK", reply = "You don't know that, and nor does he. But I'll do my part to keep him from it, starting with my elbow." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_grim = {
+      lines = {
+        { id = "w3_grim_1", text = "It's soldiering, and I'd rather know where I stand than pretend. Eldin works out the odds and Travist doesn't want to hear them, and I want to beat them, and between the three of us I think we make one whole recruit." },
+      },
+      choices = {
+        { text = "One whole recruit is a good start. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "A miller's girl from outside Andorhal. I carried flour sacks all day and wished somebody would hand me a sword instead. Then the plague came through and somebody did, though it took dying first." } },
       choices = {
@@ -160,7 +197,7 @@ P:NPC {
         { id = "yh_orc", when = { race = "Orc" }, text = "An orc, watching me drill? Don't tell Houser you saw my footwork, he'll say I've shamed the whole Undercity in front of the Horde." },
       },
       again = {
-        { id = "h_again", text = "Go on, then. I can listen and strike at once." },
+        { id = "h_again", text = "Go on, then. I can listen and strike at once, and the dummy won't mind." },
         { id = "h_again2", text = "What else? The sergeant is looking the other way for the moment." },
       },
       choices = {
@@ -171,6 +208,7 @@ P:NPC {
         { text = "Who were you before you died?", next = "ylife" },
         { text = "What are you afraid of, out there?", next = "yfear" },
         { text = "I'm a warrior. Want a tip?", next = "ytip", when = { class = "WARRIOR" } },
+        { text = "Eldin keeps a list of recruits who don't come back.", next = "w3_list" },
         { text = "Back to your drill, recruit.", next = "END" },
       },
     },
@@ -232,6 +270,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_loud = {
+      lines = {
+        { id = "w3_loud_1", text = "Marla Fowler, and it's not close, friend, since she can make herself heard through three walls and a summoning. We've bet against each other every bout for a season, and we're so even that neither of us has made a copper, which is a great nuisance and the best fun I have." },
+      },
+      choices = {
+        { text = "Why not bet on the same side?", next = "w3_side" },
+        { text = "You two sound like old friends.", next = "BACK", reply = "Friends? We're rivals, and I'll thank you not to say otherwise in front of her, or she'll never let me hear the end of it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_side = {
+      lines = {
+        { id = "w3_side_1", text = "Then who would I shout at? A bout's only half a bout if you've nobody to be wrong at, and Marla is wrong more beautifully than anyone in the Undercity. Chloe Curthas says we're both wrong, every time, and she's usually right, which is the worst of it." },
+      },
+      choices = {
+        { text = "Chloe does seem to know her fights. Something else.", next = "BACK" },
+      },
+    },
     ybets = {
       lines = { { id = "ybets_x", text = "Every bout, and Brother Malach takes my coin with that pious face of his. I'm down eleven silver this month alone, but I'm due a turn, I can feel it in my bones, what's left of them." } },
       choices = {
@@ -262,7 +318,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Go on, but talk while I watch, because I'll not turn my back on the sand." },
-        { id = "h_again2", text = "What else? Be quick, they're about to start again." },
+        { id = "h_again2", text = "Out with it, then, and quickly, because the next pair are already chalking their blades and I mean to see the first cut." },
       },
       choices = {
         { text = "What do they fight?", next = "bouts" },
@@ -272,6 +328,7 @@ P:NPC {
         { text = "Do you place bets on these bouts?", next = "ybets" },
         { text = "What did you do before you died?", next = "ylife" },
         { text = "Ever thought of fighting yourself?", next = "yfight" },
+        { text = "Who shouts loudest at the rail?", next = "w3_loud" },
         { text = "Enjoy the show.", next = "END" },
       },
     },
@@ -330,6 +387,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_royal = {
+      lines = {
+        { id = "w3_royal_1", text = "Twice a week, to the guards at the throne room door, who take the satchel and give me nothing back but a nod. I never go further, and I never look at the dreadlord, because he notices people who look at him." },
+      },
+      choices = {
+        { text = "What do you carry to the throne room?", next = "w3_carry" },
+        { text = "You sound afraid of Varimathras.", next = "BACK", reply = "I'm sensible of him. The Dark Lady trusts him, and I trust the Dark Lady, and that's where I leave it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_carry = {
+      lines = {
+        { id = "w3_carry_1", text = "Reports, sealed in Master Faranell's wax, and once a small cold box that hummed against my back all the way up the stairs. I didn't ask, and nobody told me, and that's the whole secret of keeping this position." },
+      },
+      choices = {
+        { text = "Wise. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "An apothecary's daughter in Stratholme. I mixed tinctures for my father's customers until the grain came. He made a cure that didn't work, and sold it to half the city. I've never been able to make myself forget that." } },
       choices = {
@@ -370,6 +445,7 @@ P:NPC {
         { text = "What were you before the Society?", next = "ylife" },
         { text = "What's the worst thing you've carried?", next = "yworst" },
         { text = "Why won't you slow down?", next = "yslow" },
+        { text = "Do you ever deliver to the Royal Quarter?", next = "w3_royal" },
         { text = "I won't keep you.", next = "END" },
       },
     },

@@ -32,6 +32,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_gryphon = {
+      lines = {
+        { id = "w2_gryphon_l", text = "She lived, bless her, which is more than I deserved. Swam out o' that swamp an' flew home tae the Peak on her own, an' Agnar says she still won't take another rider. Loyal as a hound, she is, an' twice as smart as me." },
+      },
+      choices = {
+        { text = "Do you ever visit her?", next = "w2_gryphon2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_gryphon2 = {
+      lines = {
+        { id = "w2_gryphon2_l", text = "Once. She looked at me, an' then she looked at the bottle in my hand, an' then she turned her back. A gryphon's no' a fool, friend. I've been tryin' tae dry out ever since, hic, mostly on Tuesdays." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -49,7 +66,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, hic? Ask before I forget the question." },
-        { id = "h_again2", text = "Go on, I'm listenin', mostly." },
+        { id = "h_again2", text = "Go on, hic, I'm listenin', or at least one ear is, an' it's the better one." },
       },
       choices = {
         { text = "Why did Aerie Peak let you go?", next = "grounded" },
@@ -57,6 +74,7 @@ P:NPC {
         { text = "Tell me about your brews.", next = "brews" },
         { text = "What's the elf next door selling?", next = "gilveradin" },
         { text = "I ride gryphons too, Rhapsody.", next = "rider", when = { origin = "dwarf_wildhammer_kin" } },
+        { text = "What happened to your gryphon?", next = "w2_gryphon" },
         { text = "Take care, Rhapsody.", next = "END" },
       },
     },
@@ -185,6 +203,40 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_meet = {
+      lines = {
+        { id = "w2_meet_l", text = "He fell out of the sky into my cart outside Aerie Peak, smelling of stout and swamp. I offered him a bottle by way of condolence, he offered me his opinion of my bottle, and we have been inseparable ever since." },
+      },
+      choices = {
+        { text = "What was his opinion?", next = "w2_meet2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_meet2 = {
+      lines = {
+        { id = "w2_meet2_l", text = "That it was the finest thing he had ever tasted and also, somehow, a crime against the brewer's art. Both were true. I have never been so accurately described in a single sentence by a dwarf, drunk or sober." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_miss = {
+      lines = {
+        { id = "w2_miss_l", text = "The light, chiefly. Silvermoon in the late afternoon was the colour of good honey. I left for Dalaran as a young man, and then for everywhere else, and I had not been home in two centuries when the Scourge came through the gates." },
+      },
+      choices = {
+        { text = "Have you been back since?", next = "w2_miss2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_miss2 = {
+      lines = {
+        { id = "w2_miss2_l", text = "Because there is so little to go back to, and I spent two hundred years arranging not to be the elf my family wanted. I tell myself I would have gone home one day. Here, at least, I am merely charming, and nobody asks." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -199,7 +251,7 @@ P:NPC {
           text = "An emissary of the Horde! I have orcish friends in Orgrimmar, which shocks my kin no end, and I delight in shocking my kin." },
       },
       again = {
-        { id = "h_again", text = "What else may I illuminate for you?" },
+        { id = "h_again", text = "What else may I illuminate for you? Do ask; I am rarely asked anything but the price." },
         { id = "h_again2", text = "Pray continue. I am at leisure, as ever." },
       },
       choices = {
@@ -208,6 +260,8 @@ P:NPC {
         { text = "Selling empty bottles sounds like a swindle.", next = "swindle" },
         { text = "What brings a high elf out here?", next = "here" },
         { text = "Shouldn't you be with the other elves at Quel'Danil?", next = "queldanil", when = { faction = "Alliance" } },
+        { text = "How did you meet Rhapsody?", next = "w2_meet" },
+        { text = "What does a high elf miss about Quel'Thalas?", next = "w2_miss" },
         { text = "Farewell, Gilveradin.", next = "END" },
       },
     },

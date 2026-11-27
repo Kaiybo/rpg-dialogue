@@ -99,6 +99,7 @@ P:NPC {
         { text = "Lord Ebonlocke has sent me after Dextren Ward.", next = "dextren", when = { questActive = TODO_QUEST("Crime and Punishment") } },
         { text = "Who keeps the town's ledgers?", next = "rol_led1" },
         { text = "What would you do with Stormwind's help, if it came?", next = "rol_sw1" },
+        { text = "Who waits in the council's queue?", next = "e3_queue" },
         { text = "Good day, Deputy Mayor.", next = "END" },
       },
     },
@@ -142,6 +143,24 @@ P:NPC {
       lines = { { id = "dx_default", text = "Good. Every councilman in this hall knows he's alive in that Stockade, and nobody will say it aloud, because Stormwind's nobles took him out of our justice." },
       },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    e3_queue = {
+      lines = {
+        { id = "e3_queue_l0", text = "Farmers asking for the Watch to guard their last fields, widows asking for the Watch's pensions, and the Watch asking for more oil. Every one of them has a right to be heard, and every one leaves without what they came for, because the council has nothing left to give." },
+      },
+      choices = {
+        { text = "What do you tell them?", next = "e3_queue2" },
+        { text = "That's a hard queue to face.", next = "BACK" },
+      },
+    },
+    e3_queue2 = {
+      lines = {
+        { id = "e3_queue2_l0", text = "The truth, mostly, because they can smell anything else. I write their names down, and once a month I read the list aloud to the council, and once a month Lord Ello thumps the table and nothing changes." },
+      },
+      choices = {
+        { text = "Keep reading it. Something else.", next = "BACK" },
+        { text = "The truth won't feed them.", next = "BACK" },
+      },
     },
   },
 

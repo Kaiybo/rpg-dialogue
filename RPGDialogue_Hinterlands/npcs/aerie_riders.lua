@@ -38,6 +38,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_bird = {
+      lines = {
+        { id = "w2_bird_l", text = "Her name's Skyrender, an' she's bitten me more times than any troll's speared me. Agnar raised her from the egg, an' she chose me when I was sixteen by landin' on my head an' refusin' tae move." },
+      },
+      choices = {
+        { text = "Has she ever saved your life?", next = "w2_bird2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_bird2 = {
+      lines = {
+        { id = "w2_bird2_l", text = "Twice over Jintha'Alor, once over the Overlook Cliffs, an' once in the stable when a Bronzebeard visitor tried tae pat her. That last one was his life, mind, no' mine. She's particular about who touches her." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     wing = {
       lines = {
         { id = "wg_default", text = "Six of us, when we're all whole, under Gryphon Master Talonaxe's eye. Kerr Ironsight spots for us from the wall, an' Guthrum Thunderfist keeps the birds fed an' shod, which is a harder job than mine." },
@@ -105,7 +122,7 @@ P:NPC {
           text = "Ye fell, didn't ye? I can always tell, for folk who've fallen look at a gryphon the way a drowned man looks at a boat." },
       },
       again = {
-        { id = "h_again", text = "What else? Make it quick, I've a patrol." },
+        { id = "h_again", text = "What else? Quick, now; I've a patrol over Jintha'Alor an' Skyrender's already pawin' the stones." },
         { id = "h_again2", text = "Aye? Out wi' it, the bird's gettin' restless." },
         { id = "h_again3", text = "Go on, then, but I'll no' promise a long answer." },
       },
@@ -114,6 +131,7 @@ P:NPC {
         { text = "What's it like riding a gryphon into a fight?", next = "flight" },
         { text = "Which tribe is worst?", next = "worst" },
         { text = "Where do you patrol?", next = "patrol" },
+        { text = "Tell me about your gryphon.", next = "w2_bird" },
         { text = "Good hunting, Doran.", next = "END" },
         { text = "You fly with a wing of riders, I take it.", next = "wing" },
         { text = "High elves keep a lodge in these hills.", next = "lodge" },
@@ -203,6 +221,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_strange = {
+      lines = {
+        { id = "w2_strange_l", text = "A gnome in a flyin' contraption, coughin' smoke, who landed on the wall an' asked me the way tae Booty Bay. I pointed south. He took off north. I've no' seen him since, an' I've no' stopped wonderin'." },
+      },
+      choices = {
+        { text = "Did you report him?", next = "w2_strange2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_strange2 = {
+      lines = {
+        { id = "w2_strange2_l", text = "I wrote him down, same as I write everythin' down. 'One gnome, airborne, lost, harmless.' Talonaxe read it an' laughed for a full minute, an' then he asked me tae count gnomes from now on. I've counted three." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     riders = {
       lines = {
         { id = "ri_default", text = "Better than they'd like. Doran Steelwing dives too early an' gets away wi' it, the young ones bank left when they're frightened, an' Talonaxe hasnae flown a patrol since Sharpbeak was taken, which tells ye all ye need." },
@@ -268,7 +303,7 @@ P:NPC {
           text = "I've watched ye from the air, workin' through the Witherbark villages, an' I counted for a while before I lost track. Ye fight like ye've a grudge, an' I'd no' want tae be the one ye're holdin' it against." },
       },
       again = {
-        { id = "h_again", text = "Anythin' else? I'm still watchin', mind." },
+        { id = "h_again", text = "Anythin' else? I've an eye on ye an' the other on that ridge, an' the ridge is winnin'." },
         { id = "h_again2", text = "Go on. I can listen an' watch at once, it's the talkin' that costs me." },
         { id = "h_again3", text = "Aye? Ask, an' I'll keep one eye on ye an' one on the road." },
       },
@@ -281,6 +316,7 @@ P:NPC {
         { text = "What lies beyond the passes you watch?", next = "beyond" },
         { text = "You never saw me come up the pass, did you?", next = "xrogue", when = { class = "ROGUE" } },
         { text = "What would a hunter look for in these hills?", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "What's the strangest thing you've seen come up the pass?", next = "w2_strange" },
         { text = "Keep watching, Kerr.", next = "END" },
       },
     },
@@ -533,6 +569,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_claira = {
+      lines = {
+        { id = "w2_claira_l", text = "On the roost ladder, forty years back! I was climbin' up, she was climbin' down, an' neither of us would give way, so we stood on the same rung an' talked till the gryphons got hungry an' complained." },
+      },
+      choices = {
+        { text = "Who gave way in the end?", next = "w2_claira2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_claira2 = {
+      lines = {
+        { id = "w2_claira2_l", text = "Neither! I climbed down wi' her, an' then back up wi' her, an' I've been walkin' beside her ever since. She says I followed her home like a lost chick. She's right, an' I'd do it again." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     rounds = {
       lines = {
         { id = "ro_default", text = "All of it, twice before noon! Up past the hall where the Thane shouts, round by Guthrum's roost, down tae Killium's stables, an' back by Harggan's forge for the warm. Every door has someone worth a hello behind it." },
@@ -596,7 +649,7 @@ P:NPC {
           text = "Ye're the one who brought Sharpbeak home! Claira's no' stopped smilin' since, an' I've been round the keep twice tellin' everyone about it, which is two more times than usual." },
       },
       again = {
-        { id = "h_again", text = "What else? I've a few more laps in me." },
+        { id = "h_again", text = "What else? I've a few more laps in me, an' half the keep still hasnae had its hello today." },
         { id = "h_again2", text = "Aye? I can talk an' walk on the spot, I've had the practice." },
         { id = "h_again3", text = "Go on, then. Claira says I never run out, an' she's right." },
       },
@@ -609,6 +662,7 @@ P:NPC {
         { text = "I hear Talonaxe owes you a hello.", next = "xclaira", when = { heardLine = "claira.ft_default" } },
         { text = "A Bronzebeard could use a guide up here, Howin.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Walk with me a while, and tell me where to hunt.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Where did you and Claira meet?", next = "w2_claira" },
         { text = "Enjoy your walk, Howin.", next = "END" },
       },
     },

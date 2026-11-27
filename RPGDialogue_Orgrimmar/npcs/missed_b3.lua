@@ -26,6 +26,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2river = {
+      lines = {
+        { id = "w2rv_fisher", when = { profession = "Fishing" }, text = "Every dawn before the shop opens, if you must know, and you'll understand why once you try it. The current runs muddy and fast below the city walls, and the fish that live in it fight like they have something to prove." },
+        { id = "w2rv_default", text = "Every dawn before the shop opens. The Southfury runs muddy and fast below the walls, and the fish that live in it fight like they have something to prove, which this pond's fish never do." },
+      },
+      choices = {
+        { text = "Isn't the river dangerous?", next = "w2river2" },
+        { text = "I'd rather fish somewhere quiet, like this pond.", next = "w2river2" },
+        { text = "Something else, Shankys.", next = "BACK" },
+      },
+    },
+    w2river2 = {
+      lines = { { id = "w2rv2_default", text = "There are crocolisks in the reeds, and they think anything standing still on the bank is breakfast. I stand still anyway, with an axe across my knees, and so far it's the crocolisks who have learned something." } },
+      choices = { { text = "That's one way to fish.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Shankys. Lumak teaches the fishing and I sell what it takes, and between us we have put a pole in the hands of more grunts than you would believe." },
@@ -41,6 +56,7 @@ P:NPC {
         { text = "I fish. What bait do you swear by?", next = "bait", when = { profession = "Fishing" } },
         { text = "Why did you choose a quiet life?", next = "y_quiet" },
         { text = "Who is Lumak to you?", next = "y_lumak" },
+        { text = "Do you ever fish the Southfury River?", next = "w2river" },
         { text = "Good catching, Shankys.", next = "END" },
       },
     },
@@ -129,6 +145,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2feed = {
+      lines = { { id = "w2fd_default", text = "The roaches eat whatever the cooks of the Drag throw out, and the snakes eat the roaches, and the prairie dogs eat my bread when I am not watching. It is a small war, and I am the only one in it who goes hungry." } },
+      choices = {
+        { text = "Does Zas'Tysh help with the feeding?", next = "w2feed2" },
+        { text = "So the snakes eat your other charges?", next = "w2feed2" },
+        { text = "Something else, Tharl.", next = "BACK" },
+      },
+    },
+    w2feed2 = {
+      lines = {
+        { id = "w2fd2_hunter", when = { class = "HUNTER" }, text = "He helps by giving them all names, which makes it very hard to feed the roaches to the snakes. You keep a beast, hunter, so you know: once a thing has a name, it is family, and you cannot feed family to anyone." },
+        { id = "w2fd2_default", text = "He helps by giving them all names, which makes it very hard to feed the roaches to the snakes. Once a thing has a name it is family, and an orc does not feed family to anyone." },
+      },
+      choices = { { text = "A hard problem for a warrior.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Tharl Stonebleeder. Zas'Tysh and I keep the small beasts here, the ones too little for war and too stubborn to die, and if you laugh I will put you in the pond." },
@@ -145,6 +176,7 @@ P:NPC {
         { text = "Which walls did you break?", next = "y_walls" },
         { text = "Do any of the beasts worry you?", next = "y_worry" },
         { text = "Tell me about Zas'Tysh.", next = "y_zastysh" },
+        { text = "What do you feed all these creatures?", next = "w2feed" },
         { text = "I'll step carefully. Farewell.", next = "END" },
       },
     },
@@ -227,12 +259,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2names = {
+      lines = { { id = "w2nm_default", text = "Every one of them, and grand ones! That roach is Doomhammer, the prairie dog is Cairne, and the little snake that only likes Tharl is called Thrall, because she broke out of her crate on the very first night." } },
+      choices = {
+        { text = "What does Tharl think of the names?", next = "w2names2" },
+        { text = "Naming a roach after Doomhammer seems unwise.", next = "w2names2" },
+        { text = "Something else, Zas'Tysh.", next = "BACK" },
+      },
+    },
+    w2names2 = {
+      lines = {
+        { id = "w2nm2_troll", when = { race = "Troll" }, text = "He grumbles, of course, but I hear him calling Doomhammer when he thinks I've gone home. You are Darkspear, cousin, so you know a name has power in it, and a roach with a great name walks a little taller." },
+        { id = "w2nm2_default", text = "He grumbles that it shames the heroes, and then I hear him calling Doomhammer to supper when he thinks I've gone home. A great name makes even a roach walk a little taller, I say." },
+      },
+      choices = { { text = "I'll greet Doomhammer properly, then.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Zas'Tysh, and these are my charges. Tharl and I look after the little beasts of Orgrimmar, and he pretends it is a solemn duty while I admit that I simply like them." },
       },
       again = {
-        { id = "h_again", text = "What else would you like to know? I have plenty of time." },
+        { id = "h_again", text = "More questions? Wonderful! Ask away, and if one of the little ones climbs your leg while you do, just stand still and smile." },
         { id = "h_again2", text = "Ask away, {class}." },
       },
       choices = {
@@ -242,6 +289,7 @@ P:NPC {
         { text = "Where do the creatures come from?", next = "xfrom" },
         { text = "I'm a hunter. Could any of these become a companion?", when = { class = "HUNTER" }, next = "xhunter" },
         { text = "Some would say beasts belong in the wild.", next = "xwild" },
+        { text = "Do your creatures have names?", next = "w2names" },
         { text = "Take care of them, Zas'Tysh.", next = "END" },
       },
     },
@@ -334,6 +382,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2venom = {
+      lines = {
+        { id = "w2vn_lock", when = { class = "WARLOCK" }, text = "Your kind come askin', mon, but not for company. Dey want de venom milked out for dere rituals, an' Xan'tish tell dem every time dat his snakes be pets, not reagent jars." },
+        { id = "w2vn_default", text = "Dey come askin', mon, but not for company. Dey want de venom milked out for dere rituals, an' Xan'tish tell dem every time dat his snakes be pets, not reagent jars." },
+      },
+      choices = {
+        { text = "Do they take no for an answer?", next = "w2venom2" },
+        { text = "Venom fetches a good price, though.", next = "w2venom2" },
+        { text = "Something else, Xan'tish.", next = "BACK" },
+      },
+    },
+    w2venom2 = {
+      lines = { { id = "w2vn2_default", text = "Most do. One came back at night to take what I wouldn't sell, an' de crimson one was waitin' in de basket for him. He went to Tai'jin in Razor Hill with a hand like a melon, an' he never come back." } },
+      choices = { { text = "She's a good guard, then.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     xt_orcs = {
       lines = { { id = "xt_orcs_l", text = "Some do, mon, de old ones especially, who remember snakes in de human camps. Dey tell me de guards used to throw adders into de pens for fun, so I don't blame dem for jumpin'." } },
       choices = {
@@ -369,7 +432,7 @@ P:NPC {
         { id = "h_default", text = "I be Xan'tish, and I sell snakes: the black, the brown and the crimson. I track them and catch them myself and I teach them manners, which is more than anyone ever did for me." },
       },
       again = {
-        { id = "h_again", text = "What else ya want to know, mon?" },
+        { id = "h_again", text = "Ask, mon, but slow an' quiet. De crimson one don't like a fast question." },
         { id = "h_again2", text = "Ask. The snakes don't mind waiting, they be good at it." },
       },
       choices = {
@@ -381,6 +444,7 @@ P:NPC {
         { text = "Do the loa favour snakes?", next = "loa", when = { race = "Troll" } },
         { text = "The orcs in the valley still step around you.", next = "xt_orcs" },
         { text = "Where do the best snakes hide?", next = "xt_where" },
+        { text = "Do the warlocks of the Cleft buy from you?", next = "w2venom" },
         { text = "Mind your fingers, Xan'tish.", next = "END" },
       },
     },
@@ -447,6 +511,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2night = {
+      lines = { { id = "w2nt_default", text = "Up on the walls above the Valley of Honor, where the torchlight ends and the cliffs begin. Anything that wants into this city quietly will come over the rock in the dark, not through the gate in daylight." } },
+      choices = {
+        { text = "Have you ever seen anything up there?", next = "w2night2" },
+        { text = "Nothing could climb those cliffs.", next = "w2night2" },
+        { text = "Something else, scout.", next = "BACK" },
+      },
+    },
+    w2night2 = {
+      lines = {
+        { id = "w2nt2_rogue", when = { class = { "ROGUE", "HUNTER" } }, text = "Once, a shape at the top of the cliff that stood still too long to be a bird. You know the trick of it yourself, I'd guess: be patient, and the stillness gives the watcher away. By the time the grunts came, it was gone." },
+        { id = "w2nt2_default", text = "Once, a shape at the top of the cliff that stood still too long to be a bird. By the time the grunts came with torches it was gone, and I have walked that wall every night since." },
+      },
+      choices = { { text = "I'll keep my eyes on the cliffs.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Scout Stronghand. The grunts hold the gates, and we scouts walk everything between them, because an enemy who gets past a gate will not stay near it." },
@@ -462,6 +541,7 @@ P:NPC {
         { text = "What enemies come for Orgrimmar?", next = "xenemies" },
         { text = "I move quietly too. Could I scout for the Horde?", when = { class = { "ROGUE", "HUNTER" } }, next = "xrogue" },
         { text = "Your feet must ache by nightfall.", next = "xfeet" },
+        { text = "Where do you walk when night falls?", next = "w2night" },
         { text = "I'll not slow you. Go well.", next = "END" },
       },
     },
@@ -550,6 +630,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2odd = {
+      lines = { { id = "w2od_default", text = "A goblin in the Cleft selling maps of Ragefire Chasm to young warriors, at five silver each. I bought one myself to see, and it showed a door and a smiling face and the words 'treasure here', and nothing else." } },
+      choices = {
+        { text = "Did you arrest him?", next = "w2odd2" },
+        { text = "Five silver for a smiling face is a fair joke.", next = "w2odd2" },
+        { text = "Something else, scout.", next = "BACK" },
+      },
+    },
+    w2odd2 = {
+      lines = { { id = "w2od2_default", text = "I cannot arrest a fool for selling to fools, more's the pity. I told him that if one young warrior died following his map, I would personally walk him into Ragefire with it, and he left the city that afternoon." } },
+      choices = { { text = "A sensible warning.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Scout Tharr. I walk from the front gate to the Valley of Wisdom and back again by a different road each time, so that nobody watching can learn my habits." },
@@ -565,6 +657,7 @@ P:NPC {
         { text = "Do merchants ever cheat in the Drag?", next = "xcheat" },
         { text = "You don't seem to trust the Forsaken.", next = "xforsaken" },
         { text = "Which way should a newcomer walk first?", when = { maxLevel = 15 }, next = "xnew" },
+        { text = "What's the strangest thing you've seen on your round?", next = "w2odd" },
         { text = "Keep to your round, scout.", next = "END" },
       },
     },
@@ -654,6 +747,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2barrens = {
+      lines = { { id = "w2br_default", text = "The Crossroads stands, and it will stand as long as there are grunts to hold it! The centaur raid the roads from the south, the quilboar of the Razorfen grow bolder every season, and the Venture Company tears at the hills as though they owned them." } },
+      choices = {
+        { text = "Which of those is the worst threat?", next = "w2barrens2" },
+        { text = "That sounds like too many enemies for one plain.", next = "w2barrens2" },
+        { text = "Something else, Warcaller.", next = "BACK" },
+      },
+    },
+    w2barrens2 = {
+      lines = {
+        { id = "w2br2_warrior", when = { class = "WARRIOR" }, text = "Whichever one you meet first, warrior! The centaur are the fiercest and the quilboar the most numerous, but a warrior does not choose his enemies, he only chooses where to stand. Go to the Crossroads, and they will give you a place." },
+        { id = "w2br2_default", text = "Whichever one you meet first! The centaur are the fiercest and the quilboar the most numerous, but Thork at the Crossroads will tell you where the Horde needs you, and he will not waste your time." },
+      },
+      choices = { { text = "Then I'll go to the Crossroads.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Warcaller Gorlach, and I carry word from every front the Horde holds. The Warchief cannot send a rider to each of you, so he sends me to shout it in the streets until somebody listens." },
@@ -668,6 +776,7 @@ P:NPC {
         { text = "I'm ready for the worst of it.", next = "plague", when = { minLevel = 50 } },
         { text = "Does anybody actually listen to you?", next = "listen" },
         { text = "You must have a voice of iron.", next = "voice" },
+        { text = "What news do you carry from the Barrens?", next = "w2barrens" },
         { text = "For the Horde, Warcaller.", next = "END" },
       },
     },

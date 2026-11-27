@@ -2383,6 +2383,7 @@ P:NPC {
         { text = "(Lie in the grass and watch the spirit.)", next = "watch" },
         { text = "What do you hunt, here in the glade?", next = "hunt" },
         { text = "(Ask about the moon on the lake.)", next = "moon" },
+        { text = "(Ask what the cat dreams of.)", next = "w_dream" },
         { text = "(Leave the great cat to its waiting.)", next = "END" },
       },
     },
@@ -2458,6 +2459,25 @@ P:NPC {
       choices = {
         { text = "I'm a night elf. Elune watches us from that same lake.", next = "BACK", reply = "Then you know her better than I do, little one, and I am a little jealous. Go and sit by her a while.", when = { race = "NightElf" } },
         { text = "Something else, great cat.", next = "BACK" },
+      },
+    },
+    w_dream = {
+      lines = {
+        { id = "w_dream_default", text = "The spirit stretches, long and slow, until its claws catch the moonlight. It dreams of the first hunt, little claw, before there were kaldorei or tauren to learn from it, when the whole world was grass and shadow and every leap was new." },
+      },
+      choices = {
+        { text = "(Ask whether it misses that world.)", next = "w_dream2" },
+        { text = "(Lie still and listen.)", next = "w_dream2" },
+      },
+    },
+    w_dream2 = {
+      lines = {
+        { id = "w_dream2_default", text = "The cat's ears flatten, then rise. Miss it? A cat does not miss, little one; a cat waits. The world will be grass and shadow again one day, long after all of you, and I will leap through it as though no time had passed at all." },
+        { id = "w_dream2_w1", when = { class = "DRUID" }, text = "It looks at you with sudden, piercing interest. You will leap through it too, if you learn well enough to stop counting time. That is the last lesson, and nobody learns it quickly." },
+      },
+      choices = {
+        { text = "(Bow your head to the cat.)", next = "BACK", fx = { trait = { patient = 1 } } },
+        { text = "(Rise from the grass.)", next = "BACK" },
       },
     },
   },

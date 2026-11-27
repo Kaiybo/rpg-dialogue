@@ -31,6 +31,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2after = {
+      lines = { { id = "w2af_default", text = "Dey never be done, mon, dat be de first thing he taught me. But one day I want my own hut in de Cleft, next to his, wit' my own jars an' my own careless student to shout at." } },
+      choices = {
+        { text = "Will you be as hard as he is?", next = "w2after2" },
+        { text = "You'll need to stop getting stung first.", next = "w2after2" },
+        { text = "Something else, Rhinag.", next = "BACK" },
+      },
+    },
+    w2after2 = {
+      lines = {
+        { id = "w2af2_troll", when = { race = "Troll" }, text = "Harder, cousin, because now I know why he does it. You'd do de same; a Darkspear teacher who goes soft be a teacher wit' dead students. But I'll sit by deir mats when dey get stung, like he sat by mine." },
+        { id = "w2af2_default", text = "Harder, mon, because now I know why he does it. But I'll sit by deir mats when dey get stung, like he sat by mine, an' I won't tell dem either." },
+      },
+      choices = { { text = "A good teacher, then.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     rh_rituals = {
       lines = { { id = "rh_rituals_l", text = "Because he say a troll who wants the old knowledge must prove he can hunt, and not just fight. Boars, then scorpids, then things that think back at you, mon, and every one with a ritual before and after." } },
       choices = {
@@ -85,6 +100,7 @@ P:NPC {
         { text = "I'll see what needs doing.", next = "BUSINESS" },
         { text = "Why do you hunt boars for Kor'ghan?", next = "rh_rituals" },
         { text = "The farm seems quiet, apart from the scorpids.", next = "rh_quiet" },
+        { text = "What will you do, once Kor'ghan's lessons are done?", next = "w2after" },
         { text = "Hold on, Rhinag.", next = "END" },
       },
     },

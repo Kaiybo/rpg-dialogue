@@ -205,6 +205,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_fletch = {
+      lines = {
+        { id = "w2_fletch_l", text = "Gryphon feathers, mon, when de Wildhammer drop dem, 'cause de Vilebranch hate de birds more dan dey hate us. Dey see de feather comin' an' dey duck, an' a duckin' troll can't throw a spear." },
+      },
+      choices = {
+        { text = "Where do you find the feathers?", next = "w2_fletch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_fletch2 = {
+      lines = {
+        { id = "w2_fletch2_l", text = "On de shore under de cliffs, where de birds fly over. Some nights a whole gryphon fall dere, shot by somebody, an' I take de feathers an' leave de rest for de crabs. De dwarves would not like dat, so you don't tell dem." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     village = {
       lines = {
         { id = "vi_default", text = "Primal Torntusk, first an' last, since dey took de Elder. Smith Slagtree keep de blades sharp, Lard keep de inn an' de pot, an' Katoom bring de fish in. Gorkas fly de wind riders out, so we not be cut off like before." },
@@ -267,7 +284,7 @@ P:NPC {
           text = "Renn'az, an' I sell de arrows dat keep de Vilebranch off our platforms. Every one I sell be one less dey get to climb past." },
       },
       again = {
-        { id = "h_again", text = "What else? De arrows don't sell demselves." },
+        { id = "h_again", text = "What else, mon? De arrows don't sell demselves, an' de Vilebranch don't wait for me to finish talkin'." },
         { id = "h_again2", text = "Go on, mon. I can fletch an' listen." },
         { id = "h_again3", text = "Ask, den. De tide be slow today an' so be de trade." },
       },
@@ -280,6 +297,7 @@ P:NPC {
         { text = "What do the hunters shoot at, besides Vilebranch?", next = "game" },
         { text = "I draw a bow myself. Which arrows for these hills?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "How do the Revantusk like the Horde so far?", next = "xhorde", when = { race = { "Orc", "Tauren", "Scourge" } } },
+        { text = "How do you make an arrow the Vilebranch fear?", next = "w2_fletch" },
         { text = "Later, Renn'az.", next = "END" },
       },
     },

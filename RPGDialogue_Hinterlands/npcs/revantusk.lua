@@ -1918,6 +1918,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_feed = {
+      lines = {
+        { id = "w2_feed_l", text = "Fish, mostly, which is the one good thing about being posted to a pier. The wind riders took to it faster than I thought they would, and now they sit on the rail and watch me cast, waiting for scraps." },
+      },
+      choices = {
+        { text = "Do they steal your catch?", next = "w2_feed2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_feed2 = {
+      lines = {
+        { id = "w2_feed2_l", text = "Every time I turn my back. One of them swallowed a snapper off my hook last week, line and all, and I had to fly it to Hammerfall with a fishing line hanging out of its beak. Urda's never let me forget it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "Everything scares off my grouper, so I'd not single out the Light. Still, I've sat on this pier a long time, and I'd rather blame a paladin than admit I'm a poor fisherman, so do me the kindness of standing further down." } },
@@ -1999,7 +2016,7 @@ P:NPC {
           text = "You fell off a cliff, didn't you? There's a lot of them in the Hinterlands, and my wind riders would have carried you past every one for a few coins." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Be quick; the line's twitching." },
+        { id = "h_again", text = "Anything else? Be quick, and keep your shadow off the water; the line's twitching." },
         { id = "h_again2", text = "Speak up, but quietly." },
       },
       choices = {
@@ -2014,6 +2031,7 @@ P:NPC {
         { text = "Have you tried baiting your grouper, Gorkas?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Should we take the biggest grouper on the coast?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "Do you think the Light scares off your grouper, Gorkas?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What do the wind riders eat on this coast?", next = "w2_feed" },
         { text = "Goodbye, Gorkas.", next = "END" },
       },
     },

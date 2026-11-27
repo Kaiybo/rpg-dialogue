@@ -51,10 +51,25 @@ P:NPC {
         { text = "Train me.", next = "BUSINESS", when = { profession = "Enchanting" } },
         { text = "Kulwia sells your students their rods, she says.", next = "kulwia" },
         { text = "What do your students go on to?", next = "students" },
+        { text = "What do you see from this ledge, on a clear day?", next = "w5_view" },
         { text = "I'll climb back down. Farewell.", next = "END" },
       },
     },
 
+    w5_view = {
+      lines = { { id = "w5_view_l", text = "The whole of Stonetalon, laid out like an old map. Sun Rock below, Mirkfallon's green, the black scar of the Charred Vale, and on the far side, the smoke of the Venture Company's camps. On the clearest days, the Barrens beyond, yellow as old parchment." } },
+      choices = {
+        { text = "Does the view comfort you, or grieve you?", next = "w5_view2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_view2 = {
+      lines = { { id = "w5_view2_l", text = "Both, each day in a different measure. I came here to keep the work clean, but I find I watch the smoke more than I enchant. An enchanter must see the world as it is before he asks anything of it. From here, the world is very honest." } },
+      choices = {
+        { text = "An honest view is worth the climb.", next = "BACK", reply = "It is. That is why I do not remind people of the path. Those who find it should have earned it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     ledge = {
       big = true,
       lines = {

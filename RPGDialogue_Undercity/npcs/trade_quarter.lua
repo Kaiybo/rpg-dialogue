@@ -352,6 +352,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_fees = {
+      lines = {
+        { id = "w3_fees_1", text = "We pay none and we charge none, only a fee for the space, since every box in these vaults takes a slice of what used to be a crypt. You'd be surprised how many Forsaken pay a year in advance, as if they've lost the habit of expecting to be here next month." },
+      },
+      choices = {
+        { text = "What's the largest deposit you've taken?", next = "w3_largest" },
+        { text = "That's a sad thing to notice about people.", next = "BACK", reply = "Banking is the art of noticing sad things about people and keeping them to oneself. I'm very good at it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_largest = {
+      lines = {
+        { id = "w3_largest_1", text = "By weight, an orc who deposited forty-one axes taken off the Scarlet Crusade and asked us to hold them until he'd collected fifty. By value, I couldn't possibly say, but by weight the axes win, and they took two abominations to carry down." },
+      },
+      choices = {
+        { text = "Has he reached fifty yet?", next = "BACK", reply = "Forty-seven, as of Tuesday. William and I have a wager on whether he lives to finish." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Ophelia Montague, of the bank. I keep the vaults with William, and before you ask, yes, we share a name, and no, I'm not going to tell you what else we share." },
@@ -359,7 +378,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I've a ledger that's begging to be balanced, and the dead keep dreadful accounts." },
-        { id = "h_again2", text = "Go on. Whatever you ask, I'll keep it as carefully as anything in the vaults." },
+        { id = "h_again2", text = "Go on. Whatever you ask, I'll keep as carefully as the vaults, and twice as quietly." },
       },
       choices = {
         { text = "Are you and William related?", next = "william" },
@@ -367,6 +386,7 @@ P:NPC {
         { text = "What do the dead bother to keep?", next = "keep" },
         { text = "These locks wouldn't stop me for long.", next = "locks", when = { class = "ROGUE" } },
         { text = "Open my vault.", next = "BUSINESS" },
+        { text = "Does the bank charge the dead interest?", next = "w3_fees" },
         { text = "Good evening, Ophelia.", next = "END" },
       },
     },
@@ -466,6 +486,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_students = {
+      lines = {
+        { id = "w3_students_1", text = "Forsaken, mostly, and they're wonderful, because they've usually lost a finger already and so they aren't frightened of losing another. Now and then an orc comes down from the zeppelin wanting to know how to make a bigger bomb, and I always say yes, and then we talk about fuses for three hours." },
+        { id = "w3_students_2", when = { race = { "Orc", "Troll", "Tauren" } }, text = "Forsaken mostly, and the odd one of you living folk from the zeppelin, which I adore, because you've all still got your eyebrows and you look so surprised when you lose them. Stay a while and I'll show you!" },
+      },
+      choices = {
+        { text = "Three hours on fuses seems a lot.", next = "w3_fuses" },
+        { text = "Your students sound braver than they should be.", next = "BACK", reply = "Bravery is just ignorance with good timing, and I teach the timing!" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_fuses = {
+      lines = {
+        { id = "w3_fuses_1", text = "It isn't nearly enough! The fuse is the whole conversation between you and the bang, and if you get the fuse wrong, the bang has the last word. Franklin says I should have a sign about it, and I would, if I could stop setting fire to the signs." },
+      },
+      choices = {
+        { text = "Fair point. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Graham Van Talen, engineer. I teach anyone who isn't afraid of a loud noise how to make one, and the Forsaken make excellent students, since we can't go deaf twice." },
@@ -485,6 +524,7 @@ P:NPC {
         { text = "Gnomish or goblin engineering, Graham?", next = "school", when = { profession = { name = "Engineering", min = 200 } } },
         { text = "Why not just use magic to blow things up?", next = "magic", when = { class = "MAGE" } },
         { text = "Teach me engineering.", next = "BUSINESS", when = { profession = "Engineering" } },
+        { text = "Who comes to you to learn engineering?", next = "w3_students" },
         { text = "I'll leave before something explodes.", next = "END" },
       },
     },
@@ -582,13 +622,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_leftover = {
+      lines = {
+        { id = "w3_leftover_1", text = "Their kin bring it back, sometimes, in the same sack I sold it in, and I buy it back for half, because I'd rather it sat on my shelf than in somebody's cellar. Then I rub out their mark on the wall and make a new one, slightly larger, and that's the end of it." },
+      },
+      choices = {
+        { text = "That's thoughtful, in a grim way.", next = "BACK", reply = "Grim's the only way I know how to be thoughtful. Graham does cheerful, and look where it's got his fingers." },
+        { text = "Do you check the powder they bring?", next = "w3_check" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_check = {
+      lines = {
+        { id = "w3_check_1", text = "Every grain, because a man who knew he'd never come back might have mixed something into it out of spite. It's happened once, a Syndicate fellow's widow with a bag of powder cut with ground glass, and I sent her to the Deathguard in the same sack." },
+      },
+      choices = {
+        { text = "Good riddance. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Franklin Lloyd. I sell engineering supplies, and I keep the shop right next to Graham's, which is either very convenient or very foolish, depending on the day." },
         { id = "h_eng", when = { profession = "Engineering" }, text = "An engineer, so you'll know to keep your powder dry and your bench clear. Graham knows it too; he simply doesn't believe it applies to him." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I'll be here until the next explosion." },
+        { id = "h_again", text = "Anything else? I'll be here until the next explosion, and so will the wall." },
         { id = "h_again2", text = "Go on. I've nowhere to be, and if Graham's fuse is as long as he says, neither have you." },
       },
       choices = {
@@ -600,6 +658,7 @@ P:NPC {
         { text = "Any advice for a fellow engineer?", next = "advice", when = { profession = "Engineering" } },
         { text = "I've died more times than I can count, Franklin.", next = "deaths", when = { deaths = { min = 25 } } },
         { text = "Show me your wares.", next = "BUSINESS" },
+        { text = "What happens to powder whose owner never comes back?", next = "w3_leftover" },
         { text = "Goodbye, Franklin.", next = "END" },
       },
     },
@@ -696,13 +755,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_dan = {
+      lines = {
+        { id = "w3_dan_1", text = "He cuts a decent strap and a poor seam, which is the right way round for a beginner, since straps keep armour on and seams only keep it handsome. I give him the jobs Gillian Moore sends over, and I check every one before it goes back." },
+      },
+      choices = {
+        { text = "You sound proud of him.", next = "BACK", reply = "Don't you tell him so. A proud apprentice starts cutting corners, and then I'm sewing his mistakes at midnight." },
+        { text = "What does he do wrong, mostly?", next = "w3_dan2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_dan2 = {
+      lines = {
+        { id = "w3_dan2_1", text = "He hurries the oiling, because it's dull, and a hide he's hurried creaks at the knee for a month. I made him wear a pair of his own boots round the quarter for a week, and he's not hurried one since." },
+      },
+      choices = {
+        { text = "A good lesson. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Arthur Moore, leatherworker. I tanned hides in the capital for thirty years, and I'll tell you the truth, the worst part of the job was always the smell, and now I don't have that problem." },
         { id = "h_tauren", when = { race = "Tauren" }, text = "A tauren, in a leatherworker's shop. I'll not ask what you think of my work, since you're the only one in here who's ever been a cow's neighbour." },
       },
       again = {
-        { id = "h_again", text = "Something else? These hides won't scrape themselves." },
+        { id = "h_again", text = "Something else? These hides won't scrape themselves, and Dan's no help today." },
         { id = "h_again2", text = "Go on, then, but I'm working while you talk. A hide doesn't wait for conversation." },
       },
       choices = {
@@ -714,6 +791,7 @@ P:NPC {
         { text = "What do you think of Brisboise, the tailor?", next = "tailor" },
         { text = "I'm a druid. I wear a bear sometimes.", next = "druid", when = { class = "DRUID" } },
         { text = "Teach me leatherworking.", next = "BUSINESS", when = { profession = "Leatherworking" } },
+        { text = "How is Dan Golthas getting on?", next = "w3_dan" },
         { text = "Good day, Arthur.", next = "END" },
       },
     },
@@ -809,6 +887,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_fingers = {
+      lines = {
+        { id = "w3_fingers_1", text = "By eye, my dear, and by a thimble on every finger, which makes me look like a very small knight. I used to feel a bad stitch before I saw it, and now I hold each seam up to the lamp and squint at it like an old woman reading a letter." },
+      },
+      choices = {
+        { text = "A thimble on every finger? Show me.", next = "w3_thimbles" },
+        { text = "You'd never know it from your work.", next = "BACK", reply = "Oh, you darling. Say that again, louder, so that Arthur Moore can hear it through the wall." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_thimbles = {
+      lines = {
+        { id = "w3_thimbles_1", text = "There, ten of them, silver and brass, and that one on the thumb was my mother's, though I couldn't tell you her face any more. I'd rather lose the face than the thimble, if I'm honest, and isn't that a dreadful thing to say?" },
+      },
+      choices = {
+        { text = "It isn't dreadful. It's honest. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Bowen Brisboise, tailor. I made coats for the court of Lordaeron, back when the court still needed coats, and now I teach the Forsaken to sew, which is a different sort of challenge." },
@@ -816,7 +912,7 @@ P:NPC {
         { id = "h_tauren", when = { race = "Tauren" }, text = "Goodness, the yardage! I could dress three of the Dark Lady's guards from one of your robes, and I should very much like to try." },
       },
       again = {
-        { id = "h_again", text = "Something else? I've a robe on the table that needs its sleeves reattached." },
+        { id = "h_again", text = "Something else? I've a robe on the table whose sleeves are threatening to leave it." },
         { id = "h_again2", text = "Yes, my dear? Do stand up straight while you ask; it does wonders for the drape." },
       },
       choices = {
@@ -828,6 +924,7 @@ P:NPC {
         { text = "What's wrong with my clothes, exactly?", next = "outfit" },
         { text = "Cloth is all I can wear, Bowen.", next = "caster", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
         { text = "Teach me tailoring.", next = "BUSINESS", when = { profession = "Tailoring" } },
+        { text = "How do you sew with fingers that can't feel?", next = "w3_fingers" },
         { text = "Good day, Bowen.", next = "END" },
       },
     },

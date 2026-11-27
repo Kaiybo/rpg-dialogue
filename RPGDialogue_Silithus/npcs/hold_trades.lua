@@ -144,7 +144,25 @@ P:NPC {
         { text = "An enchanter can't do much for a warrior, I'd guess.", next = "xwarcl", when = { class = "WARRIOR" } },
         { text = "Can enchanting do anything for a hunter, Kania?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "Is an enchanter's craft like the Light, Kania?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What's the rarest formula you keep?", next = "w9_rare" },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+
+    w9_rare = {
+      lines = { { id = "w9_rare_d", text = "There are a few I keep folded in my sleeve rather than on the table, formulae the Circle trusts only to those who have done the Hold real service. I won't name them to just anyone, but they bind the desert's own strength into steel, and I am proud of every line." } },
+      choices = {
+        { text = "How do I earn a look at them?", next = "w9_rare2" },
+        { text = "Why hide them at all?", next = "w9_rare2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_rare2 = {
+      lines = { { id = "w9_rare2_d", text = "By standing with the Circle long enough that the druids say your name kindly, and then a little longer. Magic like that is a trust, not a trade, and I would rather sell nothing than sell it to someone who would carry it to the cult." } },
+      choices = {
+        { text = "Trust is worth more than coin.", next = "BACK", reply = "It is, though I'd thank you not to tell my creditors." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     upstairs = {
@@ -310,7 +328,25 @@ P:NPC {
         { text = "What did the hunters teach you on the road from Mulgore?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "How can you sell poison with a clear conscience, Khur?", next = "xapala", when = { class = "PALADIN" } },
         { text = "What are the Ravenholdt brothers brewing, Khur?", next = "dd_poison", when = { questDone = TODO_QUEST("The Perfect Poison") } },
+        { text = "Where does your scorpid venom come from?", next = "w9_venom" },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+
+    w9_venom = {
+      lines = { { id = "w9_venom_d", text = "From the scorpids themselves, friend, milked at dawn when they are slow from the night's cold. I pin the tail with a forked stick, press the gland, and thank the creature before I let it go, because it gave me something it needed." } },
+      choices = {
+        { text = "You let them go?", next = "w9_venom2" },
+        { text = "That sounds dangerous.", next = "w9_venom2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_venom2 = {
+      lines = { { id = "w9_venom2_d", text = "A dead scorpid gives venom once, and a living one gives it every week, so letting them go is only good sense, and good manners besides. I have been stung four times, and each time I deserved it, for I hurried." } },
+      choices = {
+        { text = "Patience is its own protection.", next = "BACK", reply = "It is, friend. The Earth Mother teaches it slowly, and with a sting." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dd_poison = {

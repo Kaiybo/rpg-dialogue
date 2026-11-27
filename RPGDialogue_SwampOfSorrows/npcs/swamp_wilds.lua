@@ -380,7 +380,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "You are dead, as I am, and yet the Light burns in you. I did not think such a thing was possible, and I do not know whether to envy you." },
       },
       again = {
-        { id = "h_again", text = "What more would you hear?" },
+        { id = "h_again", text = "What more would you hear from a coward's ghost? Ask, and I will answer if I can." },
         { id = "h_again2", text = "Ask, then. The dead have nothing but time." },
       },
       choices = {

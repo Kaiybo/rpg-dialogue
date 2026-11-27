@@ -166,6 +166,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_price = {
+      lines = {
+        { id = "w3_price_1", text = "Depends on the secret, friend, and on who you are. For a stranger, a silver, and I'll give you one that's worth about that much, which is that you're not the only one in this quarter who watches feet." },
+      },
+      choices = {
+        { text = "Who else watches feet?", next = "w3_gothard" },
+        { text = "I'll keep my silver.", next = "BACK", reply = "Wise. Most secrets down here are worth less than the coin, and the rest are worth more than your life." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_gothard = {
+      lines = {
+        { id = "w3_gothard_1", text = "Gothard Winslow, the old tracker, who reads the floor the way I read faces. We've never spoken, him and me, but we nod, and I'd wager he knows I've been talking to you before you've reached the end of the bridge." },
+      },
+      choices = {
+        { text = "Then I'll walk carefully. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "Where did I live? Why does anyone ask that, here? Stratholme, since you insist, over a chandler's shop on the market road. I watched the square from my window for thirty years, and I never got out of the habit." } },
       choices = {
@@ -196,7 +214,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Still here? Ask, then, and I'll see whether it's worth an answer." },
-        { id = "h_again2", text = "Go on. I've walked this round a thousand times, and it can spare me a minute." },
+        { id = "h_again2", text = "Go on. The round can spare me a minute, and so can the eyes on it." },
       },
       choices = {
         { text = "What do you do down here?", next = "work" },
@@ -206,6 +224,7 @@ P:NPC {
         { text = "Where did you live before?", next = "ylife" },
         { text = "What's the worst thing you've seen here?", next = "yworst" },
         { text = "Do you work for the Dark Lady's spies?", next = "yspies" },
+        { text = "What would a secret of yours cost me?", next = "w3_price" },
         { text = "Mind how you go, Cedric.", next = "END" },
       },
     },
@@ -264,6 +283,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_bets = {
+      lines = {
+        { id = "w3_bets_1", text = "Of course they do, and Andrew and Marla bet against each other every round and lose to each other in turns. I never wager a copper, because I know who'll win, and knowing takes all the fun out of losing money." },
+      },
+      choices = {
+        { text = "If you know, why not bet and win?", next = "w3_win" },
+        { text = "You don't seem to enjoy much at all.", next = "BACK", reply = "I enjoy being right. It's a quieter pleasure than shouting at the sand, but it lasts longer." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_win = {
+      lines = {
+        { id = "w3_win_1", text = "Because then they'd stop asking my opinion and start asking for my winnings back, and I'd rather be listened to than rich. Besides, Brother Malach doesn't care for wagering, and I'd not like him to summon something just for me." },
+      },
+      choices = {
+        { text = "Sensible. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "I sold ribbons in a Lordaeron market and watched the tourney grounds every holiday. I knew every knight's colours and every flaw in their seat. Nobody ever asked my opinion then, either." } },
       choices = {
@@ -296,7 +333,7 @@ P:NPC {
         { id = "yh_warrior", when = { class = "WARRIOR" }, text = "A warrior. Finally, someone who might agree with me that Edward drops his guard on every third swing." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk while they're resetting the sand." },
+        { id = "h_again", text = "What else? Talk while they're resetting the sand, and watch Tyler's left foot." },
         { id = "h_again2", text = "Go on, but I'm watching the gate while I listen." },
       },
       choices = {
@@ -307,6 +344,7 @@ P:NPC {
         { text = "What did you do in life?", next = "ylife" },
         { text = "Does Angela take you seriously?", next = "yangela" },
         { text = "Would you fight if Malach let you?", next = "ymalach" },
+        { text = "Do people bet on these bouts?", next = "w3_bets" },
         { text = "Enjoy the bout.", next = "END" },
       },
     },
@@ -365,6 +403,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_gossip = {
+      lines = {
+        { id = "w3_gossip_1", text = "Royal Overseer Bauhaus fined a goblin from the zeppelin tower for spitting in the canal, and the goblin paid in copper pieces, one at a time, while singing. It took an hour and a half, and I've not enjoyed anything so much since I died." },
+      },
+      choices = {
+        { text = "What did Bauhaus do?", next = "w3_bauhaus" },
+        { text = "You live for scandal, Hickson.", next = "BACK", reply = "I live for nothing, strictly speaking, but scandal makes a very fine substitute." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_bauhaus = {
+      lines = {
+        { id = "w3_bauhaus_1", text = "He counted every coin aloud, and wrote a receipt, and thanked the fellow for his custom, which is either the driest joke in the Undercity or no joke at all. Selina insists it was a joke, and Reginald insists Bauhaus has never made one, and we've talked of nothing else for two laps." },
+      },
+      choices = {
+        { text = "I'd side with Reginald. Something else.", next = "BACK" },
+        { text = "I'd side with Selina. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "A gentleman of leisure in Lordaeron, which is to say my father had money and I had opinions. I walked the capital's gardens every afternoon. Now I walk its cellars, and I find the company improved." } },
       choices = {
@@ -394,7 +451,7 @@ P:NPC {
         { id = "yh_tauren", when = { race = "Tauren" }, text = "A tauren, down in the city! Selina, look, they've let the mountains in. Forgive me, friend, but you are the most interesting thing on today's walk." },
       },
       again = {
-        { id = "h_again", text = "What else shall we talk of? We've the whole ring ahead of us." },
+        { id = "h_again", text = "What else shall we talk of? We've the whole ring ahead of us, and Reginald has nothing." },
         { id = "h_again2", text = "Do go on. Reginald has run out of things to say, and I welcome the change." },
       },
       choices = {
@@ -405,6 +462,7 @@ P:NPC {
         { text = "What were you in life?", next = "ylife" },
         { text = "Does anything in the city worry you?", next = "yworry" },
         { text = "What do you think of the Royal Quarter?", next = "yroyal" },
+        { text = "What's the talk on your round today?", next = "w3_gossip" },
         { text = "Enjoy your walk.", next = "END" },
       },
     },
@@ -463,6 +521,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_lifts = {
+      lines = {
+        { id = "w3_lifts_1", text = "That whoever rigged them knew his pulleys and didn't trust his ropes, which is the right way round. I ride them every day and listen to the winch, and the day it changes its tune, I'll be taking the stairs with the living." },
+        { id = "w3_lifts_2", when = { profession = "Mining" }, text = "The same as you would, I'd guess: good pulleys, honest counterweights, and rope I'd check twice before I hung a lamp from it. The day that winch changes its tune, I'm taking the stairs." },
+      },
+      choices = {
+        { text = "Who looks after the winches?", next = "w3_winch" },
+        { text = "I'll take the stairs as well, then.", next = "BACK", reply = "Do, if you like, but the stairs have ghouls' worth of steps in them, and Mattie won't manage them." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_winch = {
+      lines = {
+        { id = "w3_winch_1", text = "The abominations turn the great wheels when the power falters, and a pair of old engineers grease them under Graham Van Talen's eye. I've a word with them now and then about the ropes, and they listen, which is more than Brom ever does." },
+      },
+      choices = {
+        { text = "Then the city's in good hands. Something else.", next = "BACK" },
+      },
+    },
     yfamily = {
       lines = { { id = "yfamily_x", text = "The Killians worked the hills around Lordaeron for four generations. Brom teaches the pick now, and Sarah sells the tools. We all woke dead within a month of each other, which Sarah calls the family's last great coincidence." } },
       choices = {
@@ -493,7 +570,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, then? Keep up while you ask it." },
-        { id = "h_again2", text = "Go on. Mattie doesn't mind, and I mind only a little." },
+        { id = "h_again2", text = "Go on. Mattie doesn't mind, and I mind only a little, so long as we keep walking." },
       },
       choices = {
         { text = "Killian. Like the mining trainer?", next = "family" },
@@ -503,6 +580,7 @@ P:NPC {
         { text = "Tell me about your family.", next = "yfamily" },
         { text = "What's Mattie Alred like?", next = "ymattie" },
         { text = "I'm a miner. Any advice?", next = "ymining", when = { profession = "Mining" } },
+        { text = "What does an old miner make of the lifts?", next = "w3_lifts" },
         { text = "I'll let you walk.", next = "END" },
       },
     },
@@ -561,6 +639,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_lost = {
+      lines = {
+        { id = "w3_lost_1", text = "Once. A zombie went down and I turned to the next, and it wasn't as down as I thought, and it put its teeth through my calf to the bone. Tyler finished it, and Malach stitched me, and I walk a little stiff on that side now." },
+      },
+      choices = {
+        { text = "And what did you learn from it?", next = "w3_learn" },
+        { text = "Tyler had your back. That's what counts.", next = "BACK", reply = "He did, and he's never once mentioned it, which is how I know he's a friend." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_learn = {
+      lines = {
+        { id = "w3_learn_1", text = "That nothing on the sand is dead until it's in pieces, and the crowd cheering doesn't mean it's over. I finish everything now, twice, and the rail calls me slow for it." },
+      },
+      choices = {
+        { text = "Let them call you slow. Something else.", next = "BACK" },
+      },
+    },
     ywhy = {
       lines = { { id = "ywhy_x", text = "Because it keeps my hands steady. Out in the Plaguelands a man freezes, thinking of his old life. Down here there's only the gate and whatever comes through it, and I like that very much." } },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -592,8 +688,8 @@ P:NPC {
         { id = "yh_warrior", when = { class = "WARRIOR" }, text = "Another warrior, watching. Good. Watch his left side, he always drops it." },
       },
       again = {
-        { id = "h_again", text = "What else? Be quick about it." },
-        { id = "h_again2", text = "Go on, while the gate's still shut." },
+        { id = "h_again", text = "Something more? Say it plain; Malach's circle is warming again and I'll need both hands." },
+        { id = "h_again2", text = "Go on, while the gate's still shut and Tyler's still stretching." },
       },
       choices = {
         { text = "What does he send in?", next = "sends" },
@@ -603,6 +699,7 @@ P:NPC {
         { text = "Why do you fight in the pit?", next = "ywhy" },
         { text = "Who were you before?", next = "ylife" },
         { text = "What do you fear most down there?", next = "yfear" },
+        { text = "Have you ever lost a bout on the sand?", next = "w3_lost" },
         { text = "Watch the gate, Edward.", next = "END" },
       },
     },

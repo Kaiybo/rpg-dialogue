@@ -201,7 +201,28 @@ P:NPC {
         { text = "Has anyone else visited?", next = "y_visit" },
         { text = "Will you ever go back to work?", next = "y_back" },
         { text = "I'm an engineer myself.", next = "BACK", when = { profession = "Engineering" }, reply = "Oh dear. Please don't tell me what you're working on. I'll want to help, and then I'll be working." },
+        { text = "What do you eat out here on your own?", next = "w9_eat" },
         { text = "Enjoy the sun, Winkey.", next = "END" },
+      },
+    },
+
+    w9_eat = {
+      lines = {
+        { id = "w9_eat_d", text = "Crab, mostly, and fish when I can be bothered, and the occasional coconut that floats in from somewhere very far away. I built a little grill out of a ship's lantern and some pipe, and it holds a perfect cooking temperature, plus or minus two degrees." },
+        { id = "w9_eat_v1", when = { race = "Gnome" }, text = "Crab, fish and the odd lost coconut, same as any gnome on holiday would, I imagine! I built a grill from a ship's lantern and some pipe, and you'll appreciate this, it holds temperature to within two degrees without a single valve." },
+      },
+      choices = {
+        { text = "Two degrees? I thought you were resting.", next = "w9_eat2" },
+        { text = "Sounds like a good life.", next = "w9_eat2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_eat2 = {
+      lines = { { id = "w9_eat2_d", text = "I am resting, I promise! I just rest more precisely than most people. Besides, if I let the grill wander about, the crab comes out like boot leather, and nobody swims all the way out here for boot leather." } },
+      choices = {
+        { text = "I'd swim out for good crab.", next = "BACK", reply = "Then you're welcome any time! Bring your own plate, though." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     island = {

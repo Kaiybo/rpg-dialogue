@@ -50,10 +50,26 @@ P:NPC {
         { text = "What's in all those jars?", next = "pots" },
         { text = "You don't think much of shaman, then?", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Where did an orc learn troll magic?", next = "home", when = { race = "Troll" } },
+        { text = "What would you do with a master, if you found one?", next = "w5_master" },
         { text = "I'll leave you to your jars.", next = "END" },
       },
     },
 
+    w5_master = {
+      lines = { { id = "w5_master_l", text = "Learn the curse that turns a man's boots into frogs, first. Then everything else. I've read about it in an old book I got off a trader in Ratchet. Nobody here will teach me. They say I'd use it on the innkeeper." } },
+      choices = {
+        { text = "Would you use it on the innkeeper?", next = "w5_master2" },
+        { text = "I'm a troll too. That book sounds like nonsense.", next = "BACK", when = { race = "Troll" }, reply = "It probably is, mon. But it's my nonsense, and it's better than sitting up here waiting." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_master2 = {
+      lines = { { id = "w5_master2_l", text = "Only once. Maybe twice. He charges me rent for this room and won't fix the roof. Frogs would teach him humility. Jayka says that's exactly why nobody will teach me, and she's right, and I still want the frogs." } },
+      choices = {
+        { text = "Frogs for the innkeeper. A worthy goal.", next = "BACK", reply = "Finally! Someone who understands me. Buy something, and I'll tell you if I ever find a master." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     master = {
       lines = {
         { id = "ma_default", text = "Witch Doctor Jin'Zil, down at Malaka'jin where the Barrens road climbs into the mountains. I've written to him three times asking to be his apprentice, and the only answer I ever got was a frog in a box, and I still can't decide whether that was a yes." },
@@ -407,10 +423,25 @@ P:NPC {
         { text = "How did a troll learn to brew like this?", next = "learn" },
         { text = "Do you know herbs, like I do?", next = "xherb", when = { profession = { "Herbalism", "Alchemy" } } },
         { text = "Let's get to it.", next = "BUSINESS" },
+        { text = "Who drinks the most of your draughts?", next = "w5_drinks" },
         { text = "Farewell, Ken'zigla.", next = "END" },
       },
     },
 
+    w5_drinks = {
+      lines = { { id = "w5_drinks_l", text = "De braves who go into de spider canyon, mon, an' de ones who come back out. Darn Talongrip drink one every morning, an' he don't go in yet. I think he be drinkin' for courage, not for de wounds." } },
+      choices = {
+        { text = "Will he ever go in?", next = "w5_drinks2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_drinks2 = {
+      lines = { { id = "w5_drinks2_l", text = "When he ready, mon. Ken'zigla don't push. A troll learn early dat grief got its own clock. I keep his draught warm, an' I make it a little stronger each week, so when he finally walk into dat canyon, he walk in steady." } },
+      choices = {
+        { text = "You're brewing his courage slowly.", next = "BACK", reply = "Ya, mon. Slow brews be de strongest. Every witch doctor know dat." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     brew = {
       lines = { { id = "br_default", text = "Bitterroot from the slopes, kingsblood when I can get it, and a few things I keep in my own pouch, mon. It closes a wound from the inside, but it pulls the strength out of you to do it, which be why you only give half." } },
       choices = {

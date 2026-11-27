@@ -51,7 +51,25 @@ P:NPC {
         { text = "Is there anyone I should carry word to?", next = "thaltrak" },
         { text = "What were the ogres doing up here?", next = "ritual" },
         { text = "I can feel the spirits restless here.", next = "xspirit", when = { class = { "SHAMAN", "PRIEST" } } },
+        { text = "How did you meet Thal'trak?", next = "w9_met" },
         { text = "Rest easy, Sha'ni.", next = "END" },
+      },
+    },
+
+    w9_met = {
+      lines = { { id = "w9_met_d", text = "He tried to scout a ridge I was already scoutin', mon, and he was so loud dat I had to knock him down to keep de ogres from hearin'. He looked up at me from de dirt and asked me to marry him, and I said only if he learned to walk quiet." } },
+      choices = {
+        { text = "Did he learn?", next = "w9_met2" },
+        { text = "That's a fine story.", next = "w9_met2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_met2 = {
+      lines = { { id = "w9_met2_d", text = "Never, mon, not once, and I married him anyway, because a loud man be an honest man. Tell him I said dat, if you see him, and tell him to stop standin' at his post starin' at de road, because I ain't comin' down it." } },
+      choices = {
+        { text = "I'll tell him gently.", next = "BACK", reply = "Gentle be good. He always cried at de sad songs, my Thal'trak." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

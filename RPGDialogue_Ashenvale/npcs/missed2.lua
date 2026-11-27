@@ -32,7 +32,7 @@ P:NPC {
         { id = "h_default", text = "I am Fahrak. I came to Ashenvale to fight elves, and instead I guard wagons and count logs, so forgive me if I am poor company." },
       },
       again = {
-        { id = "h_again", text = "What else?" },
+        { id = "h_again", text = "What else? Better talk than another hour counting logs." },
         { id = "h_again2", text = "Speak. The axe is sharp enough for now." },
       },
       choices = {
@@ -43,6 +43,7 @@ P:NPC {
         { text = "You sound eager for a battle.", next = "eager" },
         { text = "What is there to fight around here?", next = "fight" },
         { text = "Guarding wagons is honest duty.", next = "duty" },
+        { text = "What would you do with a real battle?", next = "w_battle" },
         { text = "Lok'tar, Fahrak.", next = "END" },
       },
     },
@@ -102,6 +103,26 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    w_battle = {
+      lines = {
+        { id = "w_battle_default", text = "Charge the Silverwing Outpost at the head of the line, with my axe high and my father's name on my lips, and let the elves see an orc who is not afraid of their trees. Then come back with a scar Ertog would envy." },
+      },
+      choices = {
+        { text = "And if you don't come back?", next = "w_battle2" },
+        { text = "Your father would be proud.", next = "w_battle2" },
+      },
+    },
+    w_battle2 = {
+      lines = {
+        { id = "w_battle2_default", text = "Then my name goes on the runner's list, and some young grunt hears it and wants to be me. That is not the worst way to be remembered. But I would rather come back. I have not yet eaten Kaylisk's good stew, the one she makes for victories." },
+        { id = "w_battle2_w1", when = { class = "WARRIOR" }, text = "You are a warrior. Have you ever charged a line? Tell me what it feels like, the moment before. Nobody here will." },
+      },
+      choices = {
+        { text = "Glory is earned, not sought.", next = "BACK", fx = { align = { honor = 1 } }, reply = "Then I will earn it, and stop seeking. Ertog would say the same." },
+        { text = "Live first. Glory later.", next = "BACK", fx = { align = { honor = -1 } }, reply = "Ha! Spoken like someone who has had their fill of it." },
+        { text = "Something else, Fahrak.", next = "BACK" },
+      },
+    },
   },
   topics = {
     splintertree_post = { { id = "tp_ysplintertree_post", text = "The Horde's post in Ashenvale. I guard wagons here, and wait." } },
@@ -152,6 +173,7 @@ P:NPC {
         { text = "How do the Darkspear find Ashenvale?", next = "ashenvale" },
         { text = "You do not seem busy.", next = "busy" },
         { text = "Can the spirits here be calmed?", next = "spirits", when = { class = { "SHAMAN", "PRIEST" } } },
+        { text = "What do you dream of, here?", next = "w_dream" },
         { text = "Stay out of the sun, Framnali.", next = "END" },
       },
     },
@@ -215,6 +237,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    w_dream = {
+      lines = {
+        { id = "w_dream_default", text = "Sometimes de Echo Isles, warm sand and de sound of drums. Sometimes a great green tree, older dan anyt'ing, wit' eyes in de bark, lookin' at me like I be a question it can't answer. Dat one come more often now, mon." },
+      },
+      choices = {
+        { text = "Do you know what it means?", next = "w_dream2" },
+        { text = "A tree with eyes?", next = "w_dream2" },
+      },
+    },
+    w_dream2 = {
+      lines = {
+        { id = "w_dream2_default", text = "De elves call dem ancients, I t'ink. I t'ink one of dem be awake near here and wonderin' about us. I tell de saw crews to leave de biggest trees alone, and dey laugh, and den one of dem quietly move his saw." },
+        { id = "w_dream2_w1", when = { race = "Troll" }, text = "You be Darkspear; you know de loa talk in dreams. Maybe you dream of dis tree too, if you sleep here long enough. Tell me if you do." },
+      },
+      choices = {
+        { text = "The forest is watching.", next = "BACK", fx = { trait = { cautious = 1 } } },
+        { text = "Something else, Framnali.", next = "BACK" },
+      },
+    },
   },
   topics = {
     sen_jin_village = { { id = "tp_ysen_jin_village", text = "Home, mon. De sea and de sun and Vol'jin's voice." } },
@@ -265,6 +306,7 @@ P:NPC {
         { text = "You miss Mulgore.", next = "mulgore" },
         { text = "The Horde needs this lumber.", next = "lumber" },
         { text = "How does a druid serve here?", next = "druid", when = { class = "DRUID" } },
+        { text = "What would you plant, if you could?", next = "w_plant" },
         { text = "Walk with the Earth Mother, Har'alen.", next = "END" },
       },
     },
@@ -328,6 +370,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    w_plant = {
+      lines = {
+        { id = "w_plant_default", text = "An oak for every stump between here and the Barrens, young one, and grass between them, so that the land would remember being a meadow while the trees grow. I have a pouch of acorns from the Raynewood, and I plant three every evening." },
+      },
+      choices = {
+        { text = "Do the saw crews mind?", next = "w_plant2" },
+        { text = "Three a night is a slow forest.", next = "w_plant2" },
+      },
+    },
+    w_plant2 = {
+      lines = {
+        { id = "w_plant2_default", text = "They do not notice, mostly, and those who do pretend not to. A young grunt asked me once why I bothered, and I told him that his grandchildren would need wood too. He thought about it for a long while and then helped me dig." },
+        { id = "w_plant2_w1", when = { race = "Tauren" }, text = "You are Shu'halo; come and plant with me some evening. The Earth Mother does not mind which hands are in the soil, only that they are gentle." },
+      },
+      choices = {
+        { text = "Every seed is a promise.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Har'alen.", next = "BACK" },
+      },
+    },
   },
   topics = {
     cenarion_circle = { { id = "tp_ycenarion_circle", text = "The druids of the Circle. I have seen one of their kaldorei here, tending the trees." } },
@@ -367,8 +428,8 @@ P:NPC {
         { id = "h_default", text = "I am Vera Nightshade, of the Forsaken. Innkeeper Kaylisk feeds everyone who walks in under the Horde's colours, and since I do not eat, she is not certain what to do with me, so I sit and I observe." },
       },
       again = {
-        { id = "h_again", text = "Was there something more?" },
-        { id = "h_again2", text = "Do go on. I have nothing but time, as you may imagine." },
+        { id = "h_again", text = "Was there something more you wanted from the dead?" },
+        { id = "h_again2", text = "Do go on. I have nothing but time, as you may imagine, and very little else." },
       },
       choices = {
         { text = "The Forsaken serve the Horde well enough.", next = "BACK", reply = "We do. The orcs would not admit it, of course.", fx = { align = { order = 1 } } },
@@ -379,6 +440,7 @@ P:NPC {
         { text = "The orcs do not seem to trust you.", next = "trust" },
         { text = "What do you observe?", next = "observe" },
         { text = "Does the Undercity miss you?", next = "undercity", when = { race = "Scourge" } },
+        { text = "What do the living do that amuses you most?", next = "w_amuse" },
         { text = "I will leave you to your corner.", next = "END" },
       },
     },
@@ -445,6 +507,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    w_amuse = {
+      lines = {
+        { id = "w_amuse_default", text = "They sleep, every night, for hours, as if the world will politely wait for them. The orcs here snore in a chorus that would wake the dead, and I say that with some authority. I sit by the fire and listen, and it is the nearest thing I have to music." },
+      },
+      choices = {
+        { text = "Do you envy them?", next = "w_amuse2" },
+        { text = "That's oddly fond.", next = "w_amuse2" },
+      },
+    },
+    w_amuse2 = {
+      lines = {
+        { id = "w_amuse2_default", text = "Envy is a strong word for something I no longer feel strongly. I remember that sleep was pleasant, that waking beside someone was pleasant. Now I sit up and count snores. It passes the night, and nights are long when one has no need to end them." },
+        { id = "w_amuse2_w1", when = { race = "Scourge" }, text = "You will know the long nights yourself. What do you do with yours? I collect the answers, out of a curiosity that has outlived most other things." },
+      },
+      choices = {
+        { text = "The nights must be very long.", next = "BACK" },
+        { text = "Something else, Vera.", next = "BACK" },
+      },
+    },
   },
   topics = {
     royal_apothecary_society = { { id = "tp_yroyal_apothecary_society", text = "I collect for them. What they do with it is their own affair." } },
@@ -482,7 +563,7 @@ P:NPC {
         { id = "h_default", text = "I am Feran Strongwind. Splintertree lies up the road, and this camp is its eyes on the southern trees, so I sit, and I watch, and I keep Gurda Ragescar from taking her shredder apart with a rock." },
       },
       again = {
-        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again", text = "What else would you know, stranger? The wind is good for talking today." },
         { id = "h_again2", text = "Ask, friend. The fire has a while to burn yet." },
       },
       choices = {
@@ -493,6 +574,7 @@ P:NPC {
         { text = "What do you watch for out here?", next = "watch" },
         { text = "Gurda seems worried about her machine.", next = "gurda" },
         { text = "A tauren beside a shredder is a strange sight.", next = "strange" },
+        { text = "What was Garn like?", next = "w_garn" },
         { text = "May the winds favor you, Feran.", next = "END" },
       },
     },
@@ -552,6 +634,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    w_garn = {
+      lines = {
+        { id = "w_garn_default", text = "Loud, for a tauren, and quick to laugh, and quicker to fight. He wanted to see everything, the forests, the sea, the cities of the elves. He used to say that the Earth Mother made the world wide so that her children would wander it." },
+      },
+      choices = {
+        { text = "Did he see the sea?", next = "w_garn2" },
+        { text = "He sounds like good company.", next = "w_garn2" },
+      },
+    },
+    w_garn2 = {
+      lines = {
+        { id = "w_garn2_default", text = "Once, at Zoram'gar, a month before he fell. He stood in the surf to his knees and laughed like a calf. I carved that day into the bark of his tree, so that whoever finds it knows he was happy at least once in this forest." },
+        { id = "w_garn2_w1", when = { race = "Tauren" }, text = "You are Shu'halo, so you will understand: when I go back to Mulgore, I will take a handful of the earth from his tree. He should rest in two places." },
+      },
+      choices = {
+        { text = "He'll rest in two places.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Feran.", next = "BACK" },
+      },
+    },
   },
   topics = {
     warsong_gulch = { { id = "tp_ywarsong_gulch", text = "Where my brother fell. I buried him under an oak there." } },
@@ -602,6 +703,7 @@ P:NPC {
         { text = "Apothecary to apothecary, what have you found?", next = "alch", when = { profession = "Alchemy" } },
         { text = "This new plague. Should anyone be making such a thing?", next = "plague" },
         { text = "How did you come to be an apothecary?", next = "trade" },
+        { text = "Do you ever enjoy this work?", next = "w_enjoy" },
         { text = "I will leave you to your samples.", next = "END" },
       },
     },
@@ -663,6 +765,26 @@ P:NPC {
         { text = "Something else, Falthis.", next = "BACK" },
       },
     },
+    w_enjoy = {
+      lines = {
+        { id = "w_enjoy_default", text = "Enjoy is a word for the living. I find it satisfying, which is better, because satisfaction does not depend on the weather. A residue that behaves as predicted is as close to a pleasant afternoon as I am likely to come." },
+      },
+      choices = {
+        { text = "And when it doesn't behave?", next = "w_enjoy2" },
+        { text = "That sounds bleak.", next = "w_enjoy2" },
+      },
+    },
+    w_enjoy2 = {
+      lines = {
+        { id = "w_enjoy2_default", text = "Then I have learned something, which is more valuable still, and the elves' sacred weeds are somewhat less sacred. The Society does not reward failure, but it reads it carefully. So do I. It is the only honest part of the work." },
+        { id = "w_enjoy2_w1", when = { profession = "Alchemy" }, text = "You are an alchemist yourself. Tell me: have you ever made something that should not have worked, and did? Write it down. I would like to read it." },
+      },
+      choices = {
+        { text = "Knowledge has a price.", next = "BACK", fx = { align = { order = 1 } }, reply = "Everything has a price. I simply keep better records than most." },
+        { text = "Some things should stay unknown.", next = "BACK", fx = { align = { order = -1 } }, reply = "Spoken like someone who still has a pulse. It will pass." },
+        { text = "Something else, Apothecary.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I was an herbalist in Brill before the Plague. Death has improved my focus considerably." } },
@@ -699,8 +821,8 @@ P:NPC {
         { id = "h_default", text = "I am Darkslayer Mordenthal. The apothecaries work, and I see that nothing living interrupts them, which in this forest means elves by day and worse things by night." },
       },
       again = {
-        { id = "h_again", text = "What else? Be brief." },
-        { id = "h_again2", text = "Speak, then." },
+        { id = "h_again", text = "What else? Be brief, for the dead do not wait and neither do I." },
+        { id = "h_again2", text = "Speak, then, and be brief about it." },
       },
       choices = {
         { text = "The apothecaries' work serves the Dark Lady.", next = "BACK", reply = "It does. Their work will change the world.", fx = { align = { order = 1 } } },
@@ -710,6 +832,7 @@ P:NPC {
         { text = "What are the apothecaries brewing?", next = "brewing" },
         { text = "What worse things come by night?", next = "night" },
         { text = "Darkslayer is a heavy title.", next = "title" },
+        { text = "What do you think of this forest?", next = "w_forest" },
         { text = "Guard it well, Darkslayer.", next = "END" },
       },
     },
@@ -770,6 +893,25 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_forest = {
+      lines = {
+        { id = "w_forest_default", text = "It is too green and too loud and too full of things that want to kill the apothecaries. Lordaeron had forests too, once, before the plague, and I walked them as a guard. I do not miss them. I simply remember them, which is worse." },
+      },
+      choices = {
+        { text = "Why is remembering worse?", next = "w_forest2" },
+        { text = "This forest isn't Lordaeron.", next = "w_forest2" },
+      },
+    },
+    w_forest2 = {
+      lines = {
+        { id = "w_forest2_default", text = "Because I remember without feeling, and that is a theft the Scourge made from me. I see a tree and know it is beautiful, the way I know a sum is correct. The apothecaries tell me this is clarity. I am not sure that clarity is a gift." },
+        { id = "w_forest2_w1", when = { race = "Scourge" }, text = "You will understand me, I think. Tell me, when you see something lovely now, what do you feel? I ask out of curiosity, not hope." },
+      },
+      choices = {
+        { text = "Clarity is a kind of freedom.", next = "BACK" },
+        { text = "Something else, Darkslayer.", next = "BACK" },
       },
     },
   },

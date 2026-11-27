@@ -61,7 +61,7 @@ P:NPC {
       },
       choices = {
         { text = "Keep the dock open. We need allies.", next = "BACK", reply = "Yes. Even the noisy ones. Especially the noisy ones, perhaps.", fx = { align = { order = 1 } } },
-        { text = "Close it. Kaldorei should guard their own.", next = "BACK", reply = "I understand. I do not agree, but I understand.", fx = { align = { order = -1 } } },
+        { text = "Close it. Kaldorei should guard their own.", next = "BACK", reply = "I hear you. I think you are wrong, but I have heard worse from wiser mouths.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -81,6 +81,7 @@ P:NPC {
         { text = "What of the murlocs?", next = "y_murloc" },
         { text = "Should the dock stay open to outlanders?", next = "y_stance" },
         { text = "I'm kaldorei too.", next = "BACK", when = { race = "NightElf" }, reply = "Then you know the grey of this place hides more than it shows. Welcome home, or near enough." },
+        { text = "What did Auberdine look like before?", next = "w_before" },
         { text = "Fair evenings to you, Yalda.", next = "END" },
       },
     },
@@ -102,6 +103,24 @@ P:NPC {
     stay = {
       lines = { { id = "st_default", text = "Because it is grey in the way a moonstone is grey, if you wait for the light. Darnassus is fairer, and I visit, but I was born to the sound of this surf and I sleep badly without it." } },
       choices = { { text = "Then you are where you belong. Something else.", next = "BACK" } },
+    },
+    w_before = {
+      lines = {
+        { id = "w_before_default", text = "Smaller, and brighter, and full of the smell of kelp drying on the racks. Children swam off the long pier in summer, and nobody worried about what was under the water, and the lamps were for beauty and not for keeping things out." },
+      },
+      choices = {
+        { text = "Do the children still swim?", next = "w_before2" },
+        { text = "It sounds like a lovely town.", next = "w_before2" },
+      },
+    },
+    w_before2 = {
+      lines = {
+        { id = "w_before2_default", text = "Not anymore. Sentinel Glynda forbade it after a boy was pulled under by something near the shallows, and the Sentinels brought him back, but he does not talk about it. Now the children watch the water from the dock, the way I do." },
+      },
+      choices = {
+        { text = "One day they'll swim again.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Yalda.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -192,6 +211,7 @@ P:NPC {
         { text = "Do the Twilight's Hammer frighten you?", next = "y_twilight" },
         { text = "Should the grove be closed?", next = "y_stance" },
         { text = "I'm a druid. How is Onu?", next = "BACK", when = { class = "DRUID" }, reply = "Troubled, as you would expect. Speak to him. He will be glad of a druid's ear." },
+        { text = "What do you weave in the evenings?", next = "w_weave" },
         { text = "Peace to you and the grove.", next = "END" },
       },
     },
@@ -213,6 +233,25 @@ P:NPC {
     south = {
       lines = { { id = "s_default", text = "More forest, Blackwood furbolgs who are no longer safe to greet, and at last the border of Ashenvale. Sentinels ride that road, but not often enough, so travel it by day and with your weapon loose.", fx = { learn = { "ashenvale" } } } },
       choices = { { text = "My thanks for the warning. Something else.", next = "BACK" } },
+    },
+    w_weave = {
+      lines = {
+        { id = "w_weave_default", text = "A long band, as wide as my hand, with a little picture of the grove for every season I have lived here. Onu in the spring, the furbolgs in the autumn before they changed, and now the cultists' fires in the south, in grey thread." },
+      },
+      choices = {
+        { text = "Why put the fires in it?", next = "w_weave2" },
+        { text = "It must be very long by now.", next = "w_weave2" },
+      },
+    },
+    w_weave2 = {
+      lines = {
+        { id = "w_weave2_default", text = "Because a weaving that leaves out the sad parts is a lie, and Onu taught me that the grove remembers everything. If the fires go out one day, I shall weave that too, in the brightest green I have." },
+        { id = "w_weave2_w1", when = { profession = "Tailoring" }, text = "You work cloth yourself, so you will know: grey is the hardest colour to weave beautifully. I have been trying for years." },
+      },
+      choices = {
+        { text = "Weave the green soon.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Ullanna.", next = "BACK" },
+      },
     },
   },
   topics = {

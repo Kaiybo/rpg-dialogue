@@ -744,8 +744,8 @@ P:NPC {
           text = "You know the way home as well as I do. Auberdine first, then the boat to Rut'theran and the great tree." },
       },
       again = {
-        { id = "h_again", text = "What else would you know?" },
-        { id = "h_again2", text = "Ask, if there is more." },
+        { id = "h_again", text = "What else would you know? I will trade you an answer for something of your human ways." },
+        { id = "h_again2", text = "Ask, if there is more; your kind are always in such haste, and I find I do not mind it." },
       },
       choices = {
         { text = "What's in Auberdine?", next = "auberdine" },
@@ -1337,7 +1337,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you know? The trees in this city are poor company." },
-        { id = "h_again2", text = "Ask, if you wish. I have time." },
+        { id = "h_again2", text = "Ask, if you wish. The city rushes past, but I am rooted here a while yet." },
       },
       choices = {
         { text = "Who are these statues?", next = "statues" },

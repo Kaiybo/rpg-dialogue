@@ -369,6 +369,7 @@ P:NPC {
         { text = "Do you really only use fallen wood for your bows?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Why keep my companion away from your staves, Bhaldaran?", next = "xlock", when = { class = "WARLOCK", faction = "Alliance" } },
         { text = "I'd have thought a shaman had no need of a bow, Bhaldaran.", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What's the oldest wood you've ever worked?", next = "w_old" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -394,6 +395,25 @@ P:NPC {
       },
       choices = {
         { text = "Understood.", next = "BACK" },
+      },
+    },
+    w_old = {
+      lines = {
+        { id = "w_old_default", text = "A fallen limb from an oak that stood before the Sundering, near the old ruins at Raynewood. It took me three years to season it, and I made one bow from it, and I've never sold it, and I never will." },
+      },
+      choices = {
+        { text = "Why not sell it?", next = "w_old2" },
+        { text = "Three years for one bow.", next = "w_old2" },
+      },
+    },
+    w_old2 = {
+      lines = {
+        { id = "w_old2_default", text = "Because it's not mine. The oak gave it up, and the bow belongs to whoever the oak would have wanted, and I haven't met that person yet. When I do, I'll know, and I'll hand it over and not charge a copper." },
+        { id = "w_old2_w1", when = { class = "HUNTER" }, text = "You might be the one, for all I know. Let me watch you shoot some time, and we'll see what the wood thinks." },
+      },
+      choices = {
+        { text = "The wood will choose.", next = "BACK", fx = { trait = { patient = 1 } } },
+        { text = "Something else, Bhaldaran.", next = "BACK" },
       },
     },
   },

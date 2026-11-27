@@ -317,6 +317,7 @@ P:NPC {
         { text = "What do you do with them?", next = "keeping" },
         { text = "Can you feel the corruption in them?", next = "xsham", when = { class = { "SHAMAN", "DRUID" } } },
         { text = "I've seen things like this in the Plaguelands.", next = "xpriest", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "How did you learn to read totems?", next = "w_learn" },
         { text = "That's all for now, Kernda.", next = "END" },
       },
     },
@@ -424,6 +425,25 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    w_learn = {
+      lines = {
+        { id = "w_learn_default", text = "From Kernda's grandmother, who carved them for the whole hold, before the sickness. She sat Kernda on her knee and made her trace every line with a claw until she could feel the prayer under her fingers. Kernda did not understand it then." },
+      },
+      choices = {
+        { text = "Do you understand it now?", next = "w_learn2" },
+        { text = "Your grandmother sounds wise.", next = "w_learn2" },
+      },
+    },
+    w_learn2 = {
+      lines = {
+        { id = "w_learn2_default", text = "Now Kernda feels the prayer even in the Deadwood totems, buried under the demon's cuts like a voice under water. That is the worst part. The Deadwood still pray, outsider. Their prayers have only been taught to say the wrong things." },
+        { id = "w_learn2_w1", when = { class = "SHAMAN" }, text = "You speak with spirits. Hold one of the Deadwood totems some time, and you will feel the old prayer underneath, and you will know why Kernda cannot burn them." },
+      },
+      choices = {
+        { text = "Their prayers aren't lost.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Kernda.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -487,6 +507,7 @@ P:NPC {
         { text = "Let me see what you have.", next = "BUSINESS" },
         { text = "What is the hold like inside, beyond the tunnels?", next = "hold" },
         { text = "Who are Grazle and Nafien?", next = "gate" },
+        { text = "Which piece took you longest to make?", next = "w_long" },
         { text = "Farewell, Meilosh.", next = "END" },
       },
     },
@@ -572,6 +593,26 @@ P:NPC {
       lines = { { id = "gt2_default", text = "The Deadwood wear headdresses of feathers when they go to war, and a feather is easy to carry and hard to lie about. The elders count them, and every feather means one Deadwood who will not come against the hold. Meilosh does not like counting, but he likes fewer Deadwood." } },
       choices = {
         { text = "I'm a druid. I'll bring feathers, and remember the Deadwood kindly.", next = "BACK", reply = "Hm. Meilosh did not expect a furless to say that. Good. Maybe you are a friend after all.", when = { class = "DRUID" } },
+        { text = "Something else, Meilosh.", next = "BACK" },
+      },
+    },
+    w_long = {
+      lines = {
+        { id = "w_long_default", text = "A cloak of winter bear for the eldest of the hold, outsider, which took Meilosh three seasons. Every stitch was blessed and every patch came from a bear that died of age in the high snows, so that nothing was killed for it." },
+      },
+      choices = {
+        { text = "Does the elder still wear it?", next = "w_long2" },
+        { text = "Three seasons for one cloak.", next = "w_long2" },
+      },
+    },
+    w_long2 = {
+      lines = {
+        { id = "w_long2_default", text = "Every winter, and the elder says it is warmer than any fire. When the elder dies, it will be wrapped around them and buried in the hold, and Meilosh will begin another for the next eldest. That is how Meilosh's work is meant to end, not in a trader's pack." },
+        { id = "w_long2_w1", when = { profession = "Leatherworking" }, text = "You work leather. Then you know that the best things are not made to be sold. Meilosh trades the rest so that he has time to make the best." },
+      },
+      choices = {
+        { text = "Some work isn't for sale.", next = "BACK", fx = { align = { order = 1 } }, reply = "Yes. Meilosh is glad an outsider understands." },
+        { text = "Good work should be shared.", next = "BACK", fx = { align = { order = -1 } }, reply = "Meilosh shares it, with the hold. That is enough sharing." },
         { text = "Something else, Meilosh.", next = "BACK" },
       },
     },

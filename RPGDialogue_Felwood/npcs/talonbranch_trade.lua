@@ -53,6 +53,7 @@ P:NPC {
         { text = "Let me see your goods.", next = "BUSINESS" },
         { text = "Who are the two drivers you lost?", next = "drivers" },
         { text = "Do the Horde at Bloodvenom ever trade with you?", next = "bloodvenom" },
+        { text = "What would you sell if the forest were clean?", next = "w_clean" },
         { text = "Farewell, Malygen.", next = "END" },
       },
     },
@@ -141,6 +142,25 @@ P:NPC {
         { text = "Something else, Malygen.", next = "BACK" },
       },
     },
+    w_clean = {
+      lines = {
+        { id = "w_clean_default", text = "Fresh fruit, friend, from the trees outside my door, instead of bread hauled up from Ashenvale. I used to sell nightberries by the basket before the forest turned. Now I can't even look at the berry bushes without thinking of the Sentinel who ate from them." },
+      },
+      choices = {
+        { text = "What happened to her?", next = "w_clean2" },
+        { text = "Nightberries. I'd like to taste one.", next = "w_clean2" },
+      },
+    },
+    w_clean2 = {
+      lines = {
+        { id = "w_clean2_default", text = "She lived, thanks to the Emerald Circle, but her hands still shake. She comes by for bread every week and never looks at the bushes. When the druids say the berries are clean again, I'll give her the first basket, and I won't charge her a copper." },
+        { id = "w_clean2_w1", when = { class = "DRUID" }, text = "You're of the Circle, so you might be the one who tells me the berries are safe. Come back when you are sure, and not a day sooner." },
+      },
+      choices = {
+        { text = "I'll hold you to that basket.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Malygen.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -200,6 +220,7 @@ P:NPC {
         { text = "Show me your weapons.", next = "BUSINESS" },
         { text = "That humming sword in the back. Can I see it?", next = "sword" },
         { text = "Where does your steel come from?", next = "forge" },
+        { text = "How do you keep steel clean in Felwood?", next = "w_clean" },
         { text = "I'll be going, Mylini.", next = "END" },
       },
     },
@@ -285,6 +306,25 @@ P:NPC {
       lines = { { id = "fg2_default", text = "They hold an edge, I'll give the dwarves that, but they rust like any other, and they're heavy as sin. A dwarf came through last season and laughed at my swords, and then he bought one, because his axe had gone green from haft to blade." } },
       choices = {
         { text = "I'm a dwarf. Our axes don't go green.", next = "BACK", reply = "Give it a month in Felwood, and we'll see. Come back when it does, and I'll be gracious about it.", when = { race = "Dwarf" } },
+        { text = "Something else, Mylini.", next = "BACK" },
+      },
+    },
+    w_clean = {
+      lines = {
+        { id = "w_clean_default", text = "Oil, three times a day, and a wax made from the beeswax the Emerald Circle sends up, which the damp can't seem to get through. I tried the dwarves' grease once, and it turned green in a week. The forest eats anything it doesn't recognise." },
+      },
+      choices = {
+        { text = "And the beeswax holds?", next = "w_clean2" },
+        { text = "Three times a day is a lot of work.", next = "w_clean2" },
+      },
+    },
+    w_clean2 = {
+      lines = {
+        { id = "w_clean2_default", text = "Mostly. The bees are from the Sanctuary's own hives, fed on cleansed flowers, and whatever is in them keeps the taint off. I can't prove it, and Golhine thinks I'm superstitious. But my stock doesn't rust, and his does." },
+        { id = "w_clean2_w1", when = { class = "WARRIOR" }, text = "You'll take a blade into Jaedenar, I expect. Wax it before you go, and again when you come out, and don't skip the second time." },
+      },
+      choices = {
+        { text = "Wax before and after.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "Something else, Mylini.", next = "BACK" },
       },
     },

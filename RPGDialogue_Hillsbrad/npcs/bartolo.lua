@@ -35,6 +35,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_complaint = {
+      lines = {
+        { id = "w3_complaint_1", text = "Complained? About a Ginsetti cloak? Once, a dwarf said it was too warm, which Bartolo took as the finest compliment of his career and had written on a sign, though the dwarf was very angry about it." },
+      },
+      choices = {
+        { text = "Where's the sign now?", next = "w3_sign" },
+        { text = "A dwarf, too warm? That is praise.", next = "BACK", reply = "Is it not! The dwarves live in a mountain of snow, and still Bartolo's cloak was too much for him. Bartolo weeps with pride." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_sign = {
+      lines = {
+        { id = "w3_sign_1", text = "Over the door, my friend, beneath the lamp, so that every fisherman in Southshore reads it on his way to the docks. \"Too warm,\" it says, \"by order of Ironforge,\" and the dwarf has never come back to Southshore, which is his loss." },
+      },
+      choices = {
+        { text = "Bartolo, you're incorrigible. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -62,6 +80,7 @@ P:NPC {
         { text = "Do you sell to anyone outside Southshore?", next = "fame" },
         { text = "Why do you talk about yourself like that?", next = "third" },
         { text = "I'm a tailor too, Bartolo.", next = "tailor", when = { profession = { name = "Tailoring" } } },
+        { text = "Has anyone ever complained about a cloak?", next = "w3_complaint" },
         { text = "Farewell, great Bartolo.", next = "END" },
       },
     },

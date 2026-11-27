@@ -55,7 +55,23 @@ P:NPC {
         { text = "I've got work in me.", next = "BUSINESS" },
         { text = "Keeping the tower looks like a lonely post.", next = "tower" },
         { text = "What's down at the Raptor Grounds?", next = "grounds" },
+        { text = "What if the silver never turns up?", next = "w5_never" },
         { text = "Good luck with the lizards.", next = "END" },
+      },
+    },
+    w5_never = {
+      lines = { { id = "w5_never_l", text = "Then I pay it back myself, out of my own wages, one coin at a time. It'll take me four years. Thork says it wasn't my fault. Thork also hasn't offered to pay it for me, I notice." } },
+      choices = {
+        { text = "Should you have to pay it back at all?", next = "w5_never2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_never2 = {
+      lines = { { id = "w5_never2_l", text = "Raptors took it on my watch. Raptors, of all things. Every grunt at this post knows it, and every grunt looks at me on payday. If I pay it back, maybe they stop looking. If I don't, I'm the orc who lost the silver forever." } },
+      choices = {
+        { text = "A keeper answers for his box, whatever took it. Pay it back.", next = "BACK", reply = "Aye. That's the hard road, and the only one where I can look them in the eye.", fx = { align = { honor = 1 } } },
+        { text = "The Horde should cover it. You aren't to blame for raptors.", next = "BACK", reply = "Tell that to Thork, and loudly, because he hasn't heard it from me yet.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     raptors = {

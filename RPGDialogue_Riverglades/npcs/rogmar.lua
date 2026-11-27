@@ -518,7 +518,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Ask while the light's good." },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again2", text = "Go on, I'm listening, but keep your voice down; game hears further than you'd think." },
       },
       choices = {
         { text = "What do you hunt out here?", next = "hunt" },
@@ -527,7 +527,28 @@ P:NPC {
         { text = "Do you ever hunt with spears?", next = "tanjani" },
         { text = "How does my beast measure up?", next = "xpet", when = { class = "HUNTER" } },
         { text = "My poisons kill faster than yours.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "What do you make of the humans at Farholde?", next = "w9_humans" },
         { text = "Good hunting.", next = "END" },
+      },
+    },
+
+    w9_humans = {
+      lines = {
+        { id = "w9_humans_d", text = "They ride well, and they shoot badly, and they build walls faster than I'd like. Their scouts come into the glades in pairs, and they never look up, which is how I've kept them from finding the camp." },
+        { id = "w9_humans_v1", when = { faction = "Alliance" }, text = "Your people at Farholde ride well, I'll give them that, and they shoot badly, and they never look up when they walk the glades. I'd not say that to your face if the camp were in danger, so take it as a compliment." },
+      },
+      choices = {
+        { text = "You've never fought them?", next = "w9_humans2" },
+        { text = "Never looking up is a fatal habit.", next = "w9_humans2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_humans2 = {
+      lines = { { id = "w9_humans2_d", text = "Once, when two of their riders followed a boar too far, and we ran them off with arrows into the ground ahead of their horses. I could have killed them, and Krom'rosh asked me why I didn't, and I told him a dead scout brings a living army." } },
+      choices = {
+        { text = "Wise restraint.", next = "BACK", reply = "It's not restraint. It's counting the cost, which orcs often forget to do." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     hunt = {
@@ -666,7 +687,7 @@ P:NPC {
         { id = "h_magecl", when = { class = "MAGE" }, text = "A mage! Ya could set my spears on fire, mon, and den I really be stickin' 'em good." },
       },
       again = {
-        { id = "h_again", text = "What else ya want to know, mon?" },
+        { id = "h_again", text = "What else, mon? Ask quick, de spears be gettin' lonely without Tan'jani." },
         { id = "h_again2", text = "Ask away, ask away." },
       },
       choices = {
@@ -676,7 +697,25 @@ P:NPC {
         { text = "What comes after the spears?", next = "after", when = { questDone = TODO_QUEST("Fetch 'n' Fletch") } },
         { text = "You must miss the Echo Isles.", next = "xhome", when = { race = "Troll" } },
         { text = "Those loggers aren't soldiers, Tan'jani.", next = "xloggers", when = { faction = "Alliance" } },
+        { text = "What's the best spear you ever threw?", next = "w9_best" },
         { text = "Later, Tan'jani.", next = "END" },
+      },
+    },
+
+    w9_best = {
+      lines = { { id = "w9_best_d", text = "A long one of black ash, mon, back on de Echo Isles, and I threw it clean through a coconut, a parrot's nest and my uncle's hat, all in one go. My uncle didn't speak to me for a week, but he kept de hat, with de hole in it, and he wore it proud." } },
+      choices = {
+        { text = "Was the parrot all right?", next = "w9_best2" },
+        { text = "That sounds like a tall tale.", next = "w9_best2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_best2 = {
+      lines = { { id = "w9_best2_d", text = "De parrot be fine, mon, and he never come back to dat tree, so he learned somethin' too. Maybe it be a tall tale, but every headhunter got one, and dat be mine, and I tell it better every year." } },
+      choices = {
+        { text = "Keep telling it.", next = "BACK", reply = "Heh, I will, mon, and next year de hat gonna have two holes." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     headhunter = {
@@ -816,7 +855,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The iron's cooling while we talk." },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again2", text = "Go on. Talk while I work; my hands don't need my ears." },
       },
       choices = {
         { text = "Mugg's dead. Who's arming his ogres now?", next = "dd_mugg", when = { questDone = TODO_QUEST("Eye of Mugg") } },
@@ -826,7 +865,25 @@ P:NPC {
         { text = "Working a forge out here can't be easy.", next = "forge" },
         { text = "Will this key really open Krol'dok?", next = "key_after", when = { questDone = TODO_QUEST("Key Ingredients") } },
         { text = "I've worked a forge myself.", next = "xsmith", when = { profession = { name = "Blacksmithing", min = 1 } } },
+        { text = "What's the worst blade a grunt's ever handed you?", next = "w9_worst" },
         { text = "Keep the fire hot, Kreza.", next = "END" },
+      },
+    },
+
+    w9_worst = {
+      lines = { { id = "w9_worst_d", text = "An axe that had been used as a shovel, a tent peg and, by the smell, a cooking spit, all in one season. The grunt wanted it sharpened by morning, and I told him I could sharpen it or I could bury it, and he'd have to choose." } },
+      choices = {
+        { text = "Which did he choose?", next = "w9_worst2" },
+        { text = "Grunts have to make do out here.", next = "w9_worst2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_worst2 = {
+      lines = { { id = "w9_worst2_d", text = "He chose sharpen, and I did it, and it held for a week, which is about what that iron deserved. Then he came back and asked for a new one, and now he cleans it every night, because I watch him, and he knows it." } },
+      choices = {
+        { text = "Lesson learned.", next = "BACK", reply = "For him, yes. There's always another grunt." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     mould = {

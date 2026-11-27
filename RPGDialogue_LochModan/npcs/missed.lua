@@ -28,6 +28,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_winter = {
+      lines = {
+        { id = "w2_winter_l0", text = "Whatever the hunters bring and whatever I have salted away in autumn. Boar mostly, bear when Marek is feeling bold, and fish from the loch when the ice lets us. I put herbs in all of it, and the dwarves pretend not to notice." },
+      },
+      choices = {
+        { text = "Do they really not notice?", next = "w2_winter_herbs" },
+        { text = "Boar every night sounds like a hardship.", next = "BACK" },
+      },
+    },
+    w2_winter_herbs = {
+      narr = "A small smile.",
+      lines = {
+        { id = "w2_winter_herbs_l0", text = "Marek asked me last winter why the stew tasted \"of a garden,\" and I told him it was the bear. He has eaten three helpings every night since, and I have not corrected him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_sooty", when = { questDone = TODO_QUEST("Vyrin's Revenge") },
@@ -43,6 +61,7 @@ P:NPC {
         { text = "A high elf, keeping a dwarven lodge?", next = "elf" },
         { text = "Tell me about the hunting here.", next = "hunting" },
         { text = "I hunt myself. What should I go after first?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "What does the lodge eat, through the winter?", next = "w2_winter" },
         { text = "Thank you, Vyrin. I'll rest a while.", next = "END" },
       },
     },
@@ -155,6 +174,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_bench = {
+      narr = "He crouches, peers, and straightens with a grunt.",
+      lines = {
+        { id = "w2_bench_l0", text = "A lynx kit some hunter brought in wi' a broken leg, an' then left, for she said she'd nae use for a lame cat. The leg's mended now, an' she's no' lame, an' she's no' that hunter's either." },
+      },
+      choices = {
+        { text = "Will you keep her?", next = "w2_bench_keep" },
+        { text = "A hunter shouldn't abandon an injured beast.", next = "BACK", reply = "Aye, an' if that one comes back for her, she'll hear it from me first.", fx = { align = { honor = 1 } } },
+        { text = "A lame beast is no use to a hunter.", next = "BACK", reply = "Then that hunter's nae use tae a beast, an' I'll thank ye no' tae say it again near the kit.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_bench_keep = {
+      lines = {
+        { id = "w2_bench_keep_l0", text = "Till the right hunter walks in, one who'll sit down on the floor tae meet her instead o' lookin' down at her. She'll pick them; I'll only agree." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Claude Erksine. I teach beasts their manners an' their hunters a bit o' sense, an' I'll tell ye plainly the beasts learn quicker." } },
       again = {
@@ -170,6 +209,7 @@ P:NPC {
         { text = "How do I keep my beast loyal, Claude?", next = "hp", when = { class = "HUNTER" } },
         { text = "Train my companion, Claude.", next = "BUSINESS", when = { class = "HUNTER" } },
         { text = "Does a dwarf's beast differ from anyone else's?", next = "hp_dwarf", when = { race = "Dwarf", class = "HUNTER" } },
+        { text = "What's asleep under the bench right now?", next = "w2_bench" },
         { text = "Good day, Claude.", next = "END" },
       },
     },
@@ -265,6 +305,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_nights = {
+      lines = {
+        { id = "w2_nights_l0", text = "Writing letters to my sister in Lakeshire, mostly, which she reads aloud to the whole town. By now there are people by Lake Everstill who know more about Loch Modan than most dwarves do." },
+      },
+      choices = {
+        { text = "What do you tell her?", next = "w2_nights_tell" },
+        { text = "Lakeshire must think you've lost your mind.", next = "BACK" },
+      },
+    },
+    w2_nights_tell = {
+      lines = {
+        { id = "w2_nights_tell_l0", text = "The truth, mostly. The colour of the water, the dwarves' songs, the bear Daryl didn't kill. She writes back that Lakeshire has its own trouble with gnolls, and asks when I'm coming home, and I never quite answer." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Kelt Thomasin. I've hunted most things that walk on this continent, and I've come to Loch Modan for the one that swims." } },
       again = {
@@ -276,6 +333,7 @@ P:NPC {
         { text = "One hunter to another: is it worth the wait?", next = "ykelt_hunter", when = { class = "HUNTER" } },
         { text = "What is it you're watching for?", next = "watch" },
         { text = "The dwarves speak well of your hunting.", next = "dwarves" },
+        { text = "How do you pass the nights at the lodge?", next = "w2_nights" },
         { text = "Good luck with your watch.", next = "END" },
       },
     },
@@ -386,10 +444,36 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_ore = {
+      lines = {
+        { id = "w2_ore_l0", text = "Silver Stream Mine, once, before the troggs took it. Now it comes by cart from Ironforge, slow an' dear, an' I've started buyin' from any miner who walks through the gate wi' a full pack." },
+      },
+      choices = {
+        { text = "I could bring you ore.", next = "w2_ore_bring", when = { profession = "Mining" } },
+        { text = "Can't the Mountaineers clear the mine?", next = "w2_ore_mine" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_ore_bring = {
+      lines = {
+        { id = "w2_ore_bring_l0", text = "Then bring it, friend, an' I'll pay ye better than Ironforge pays for the same, for every lump o' copper I dinnae have tae wait on is a sword I can sell this week." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_ore_mine = {
+      lines = {
+        { id = "w2_ore_mine_l0", text = "They've cleared it twice, an' twice the troggs came back up from below. There's somethin' under Loch Modan that keeps sendin' them, an' nae number o' Mountaineers can fight the whole underneath." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Thorvald Deepforge, smith. I sell swords, axes, maces an' staves, an' I make them here in the valley, where a dwarf cannae do shoddy work wi' those two lookin' down at him." } },
       again = {
-        { id = "h_again", text = "What else can I tell ye?" },
+        { id = "h_again", text = "What else? Ask under the statues, they've heard worse." },
         { id = "h_again2", text = "Go on, I can talk an' hammer both." },
       },
       choices = {
@@ -401,6 +485,7 @@ P:NPC {
         { text = "Those two? The statues?", next = "statues" },
         { text = "Who buys weapons out here?", next = "buys" },
         { text = "You carry a wide range for one smith.", next = "range" },
+        { text = "Where do you get your ore out here?", next = "w2_ore" },
         { text = "Good day, Thorvald.", next = "END" },
       },
     },
@@ -508,11 +593,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_slept = {
+      lines = {
+        { id = "w2_slept_l0", text = "Once, the summer before last, when the inn was full o' Mountaineers an' I could hear them snorin' through the wall. Somethin' about a hundred armed dwarves snorin' is the most comfortin' sound I know." },
+      },
+      choices = {
+        { text = "You could sleep at the inn every night.", next = "w2_slept_inn" },
+        { text = "Fear is a hard thing to sleep through.", next = "BACK" },
+      },
+    },
+    w2_slept_inn = {
+      lines = {
+        { id = "w2_slept_inn_l0", text = "On whose coin? Hearthstove charges by the night, an' Vrok says if I'm payin' tae sleep next tae soldiers, I'd may as well join them. I've thought about it, mind; the rifle's no' the problem, it's the dark." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = { { id = "h_default", text = "Dakk Blunderblast, an' aye, I'm Vrok's kin, before ye ask. He got the shop an' the steady hands, an' I got a bedroom on the side o' the house that faces the woods." } },
       again = {
         { id = "h_again", text = "What else? Talk a while, it keeps me awake." },
-        { id = "h_again2", text = "Go on, I'm listenin', mostly." },
+        { id = "h_again2", text = "Go on. I'm awake, near enough, an' that's more than I can say for most nights." },
       },
       choices = {
         { text = "What's wrong with facing the woods?", next = "woods" },
@@ -520,6 +622,7 @@ P:NPC {
         { text = "Tell me about Vrok.", next = "vrok" },
         { text = "Have you told the mountaineers about the spiders?", next = "db_told" },
         { text = "What do you do in Thelsamar?", next = "db_work" },
+        { text = "Have you ever slept well in Thelsamar?", next = "w2_slept" },
         { text = "Get some rest, Dakk.", next = "END" },
       },
     },

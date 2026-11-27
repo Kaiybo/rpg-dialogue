@@ -36,7 +36,25 @@ P:NPC {
         { text = "Three gnomes? Who are the other two?", next = "count", when = { race = "Gnome" } },
         { text = "Why join the Brigade, Enkles?", next = "y_why" },
         { text = "Any trouble with the ledgers?", next = "y_trouble" },
+        { text = "Your title seems longer than your camp.", next = "w9_title" },
         { text = "Farewell, Enkles.", next = "END" },
+      },
+    },
+
+    w9_title = {
+      lines = { { id = "w9_title_d", text = "It is, and I'm very proud of that, thank you for noticing! I started as Junior Requisitioner, was promoted to Requisitioner, then Senior, then Expeditionary, then Chief, and each time the Brigade gave me a longer title instead of a raise." } },
+      choices = {
+        { text = "Wouldn't you rather have the raise?", next = "w9_title2" },
+        { text = "It does have a ring to it.", next = "w9_title2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_title2 = {
+      lines = { { id = "w9_title2_d", text = "A raise gets spent, but a title gets written on every single form, eleven characters wide, in triplicate, forever. The Captain keeps threatening to make me Supreme Chief Expeditionary Requisitioner, and I've already measured whether it fits on the receipts." } },
+      choices = {
+        { text = "And does it fit?", next = "BACK", reply = "Only if I write very small, which I'm prepared to do." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     silithyst = {
@@ -140,7 +158,28 @@ P:NPC {
         { text = "Silithyst. A warlock could find uses for that.", next = "warlock", when = { class = "WARLOCK" } },
         { text = "Who were you in life?", next = "y_life" },
         { text = "What have you learned of silithyst?", next = "y_learned" },
+        { text = "Do the orcs here trust you?", next = "w9_trust" },
         { text = "Farewell, apothecary.", next = "END" },
+      },
+    },
+
+    w9_trust = {
+      lines = {
+        { id = "w9_trust_d", text = "They trust me to keep the stores and distrust everything else about me, which is a sensible division. The grunts make warding signs when they think I'm not looking, and the shamans say I smell of the grave, which is accurate, if unkind." },
+        { id = "w9_trust_v1", when = { race = "Scourge" }, text = "You know the answer already, I should think. They trust us as far as they can throw us, and orcs can throw a long way, so it's more than you'd expect. The shamans say we smell of the grave, which we do, and of the Society, which is worse." },
+      },
+      choices = {
+        { text = "And General Kirika?", next = "w9_trust2" },
+        { text = "You hardly seem to mind.", next = "w9_trust2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_trust2 = {
+      lines = { { id = "w9_trust2_d", text = "The general cares that the stores are full and the reports are honest, and both are true, so we get along splendidly. I find orcs refreshingly simple to work beside, since they only want to know whether a thing will help them kill the insects." } },
+      choices = {
+        { text = "And will it?", next = "BACK", reply = "Eventually. Science is patient. Insects are not." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     study = {
@@ -237,7 +276,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I collected iron for the war effort back in Ironforge, and when it was done they sent me out here with the bars. It turns out the bug war needs sergeants more than ledgers." } },
-      again = { { id = "h_again", text = "Anything else, soldier?" } },
+      again = { { id = "h_again", text = "Out with it, soldier, and stand up straight while you're at it." } },
       choices = {
         { text = "How's the fighting at Hive'Zora?", next = "zora" },
         { text = "A human in the Ironforge Brigade?", next = "human" },
@@ -247,7 +286,25 @@ P:NPC {
         { text = "I'm a dwarf. How do you find the Brigade?", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Where were you before the war effort?", next = "y_before" },
         { text = "What keeps you up at night?", next = "y_night" },
+        { text = "What do new recruits get wrong out here?", next = "w9_rec" },
         { text = "Carry on, sergeant.", next = "END" },
+      },
+    },
+
+    w9_rec = {
+      lines = { { id = "w9_rec_d", text = "Water, first, because they drink it all by noon and spend the afternoon seeing things. Then they take their helms off for the breeze, and a silithid flier finds out how soft a human skull is, and I write another letter." } },
+      choices = {
+        { text = "How do you stop them?", next = "w9_rec2" },
+        { text = "They'll learn, like you did.", next = "w9_rec2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_rec2 = {
+      lines = { { id = "w9_rec2_d", text = "I shout, mostly, and I count their water skins every morning like they were iron bars in a ledger. The ones who hate me live, and the ones who think I'm a kind old man end up on my list, so I'd rather be hated." } },
+      choices = {
+        { text = "Better hated than burying them.", next = "BACK", reply = "That's the job, soldier. Nobody thanks you for it, and that's fine." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     zora = {
@@ -353,7 +410,25 @@ P:NPC {
         { text = "I'm a mage. Could magic reveal their purpose?", next = "xmage", when = { class = "MAGE" } },
         { text = "What brought you from home?", next = "y_home" },
         { text = "Does anything here frighten you?", next = "y_fright" },
+        { text = "What do you do when the sandstorms come?", next = "w9_storm" },
         { text = "Good luck.", next = "END" },
+      },
+    },
+
+    w9_storm = {
+      lines = { { id = "w9_storm_d", text = "I lie down on my notes, mostly, and pray to the Light that the stakes hold. The last storm pulled up half my baseline and buried the rest, and I spent four days re-measuring the Colossus's left foot, which I'm fairly sure moved." } },
+      choices = {
+        { text = "The foot moved?", next = "w9_storm2" },
+        { text = "Four days for one foot?", next = "w9_storm2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_storm2 = {
+      lines = { { id = "w9_storm2_d", text = "Two inches, by my count, or else my first measurement was wrong, and I'm very careful never to be wrong. Nestor says it's the sand shifting beneath it, and Eazel says it's me shifting, and I've written down both opinions under \"inconclusive.\"" } },
+      choices = {
+        { text = "I'd trust your measurements.", next = "BACK", reply = "Thank you. That's more confidence than I've had all week." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     learned = {
@@ -460,7 +535,25 @@ P:NPC {
         { text = "I'm a gnome. Tell me about the resonator.", next = "xgnome", when = { race = "Gnome" } },
         { text = "What did you lose in Gnomeregan?", next = "y_lost" },
         { text = "What if the Colossus woke?", next = "y_woke" },
+        { text = "Sophia's measurements disagree with yours, I hear.", next = "w9_soph" },
         { text = "Carry on.", next = "END" },
+      },
+    },
+
+    w9_soph = {
+      lines = { { id = "w9_soph_d", text = "Only by four percent, which in colossus terms is practically agreement! She measures with ropes and rods, which is lovely and traditional, and I measure with resonance, which is accurate, and somewhere between us is the truth, probably nearer my end." } },
+      choices = {
+        { text = "And what does Eazel measure with?", next = "w9_soph2" },
+        { text = "Ropes don't explode.", next = "w9_soph2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_soph2 = {
+      lines = { { id = "w9_soph2_d", text = "His hands and a hammer, and a great deal of grumbling, and the infuriating thing is that he's usually right. We meet once a fortnight at the Hold to compare notes, and it ends in an argument every time, which I've come to think is the best part of my month." } },
+      choices = {
+        { text = "You sound fond of them both.", next = "BACK", reply = "Terribly! Though I'd never tell them. It would skew the data." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     hum = {
@@ -560,7 +653,28 @@ P:NPC {
         { text = "I'm a warlock. Do you sense magic in the stone?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "Do you have family still in the Mountain?", next = "y_family" },
         { text = "What would you do if Ragnaros fell?", next = "y_rag" },
+        { text = "What tools does a Dark Iron use on titan stone?", next = "w9_tools" },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+
+    w9_tools = {
+      lines = {
+        { id = "w9_tools_d", text = "A hammer the size of yer forearm, a set of chisels I forged meself in Shadowforge, and a pair of ears, because ye learn more from how stone rings than from how it looks. Tap it right and it tells ye where it's weak, and this stone's got no weak places I can find." },
+        { id = "w9_tools_v1", when = { race = "Dwarf" }, text = "Same as yer lot, Bronzebeard, only better made, since I forged 'em in Shadowforge where we still know how. A hammer, chisels and good ears, for stone tells ye its secrets in how it rings, and this stone rings like nothin' I've heard." },
+      },
+      choices = {
+        { text = "What does it sound like?", next = "w9_tools2" },
+        { text = "You still use tools from Shadowforge?", next = "w9_tools2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_tools2 = {
+      lines = { { id = "w9_tools2_d", text = "Like a bell that's been rung once, a long time ago, and never stopped. I'll not lie to ye, it puts the fear in me some nights, because stone's meant to be quiet, and this is the only stone I've ever met that sounds like it's waitin'." } },
+      choices = {
+        { text = "Then don't strike it too hard.", next = "BACK", reply = "Aye. I've thought the same, and I'll keep thinkin' it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     darkiron = {
@@ -660,7 +774,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I am Warden Haro. The qiraji leave their treasures in the ruins, and I make those treasures into weapons that can be turned against them." } },
-      again = { { id = "h_again", text = "Ask what you would, young one." } },
+      again = { { id = "h_again", text = "Ask, young one. The forge will hold its heat while we speak, and so will I." } },
       choices = {
         { text = "Is it safe to use qiraji things?", next = "safe" },
         { text = "What do you need from me?", next = "need" },
@@ -671,7 +785,25 @@ P:NPC {
         { text = "Do you have family back home?", next = "y_family" },
         { text = "Has a relic ever resisted you?", next = "y_resist" },
         { text = "How do you and Keyl work together?", next = "y_keyl" },
+        { text = "What happens to the relics you can't use?", next = "w9_relic" },
         { text = "Walk with the Earth Mother.", next = "END" },
+      },
+    },
+
+    w9_relic = {
+      lines = { { id = "w9_relic_d", text = "Some are cracked past mending, and some carry a hatred in them that no blessing will wash out. Those I bury far from the Hold, wrapped in hide and marked with the Earth Mother's sign, so that the sand may take them slowly." } },
+      choices = {
+        { text = "Why not destroy them?", next = "w9_relic2" },
+        { text = "Someone might dig them up.", next = "w9_relic2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_relic2 = {
+      lines = { { id = "w9_relic2_d", text = "I have tried, young one, and my hammer rang off a qiraji idol as if it had struck a mountain. Some things are not ours to break, only to put out of reach, and the desert is very good at keeping what it is given." } },
+      choices = {
+        { text = "Better buried than in a cultist's hand.", next = "BACK", reply = "That is my thought exactly, and my fear also." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     safe = {
@@ -768,7 +900,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I make cloaks from qiraji relics and silks, blessed by the Circle. The insects weave stronger cloth than any loom I know of, and it seems a waste not to use it." } },
-      again = { { id = "h_again", text = "Speak, then." } },
+      again = { { id = "h_again", text = "Speak, then, but let me finish this seam first. The silk does not forgive a needle left idle." } },
       choices = {
         { text = "Qiraji silk?", next = "silk" },
         { text = "Do you work with Warden Haro?", next = "haro" },
@@ -778,7 +910,25 @@ P:NPC {
         { text = "I'm a night elf too. Where did you train?", next = "xelf", when = { race = "NightElf" } },
         { text = "Has the work ever gone wrong?", next = "y_wrong" },
         { text = "What do you miss most here?", next = "y_miss" },
+        { text = "Your needle looks very old.", next = "w9_needle" },
         { text = "Elune keep you.", next = "END" },
+      },
+    },
+
+    w9_needle = {
+      lines = { { id = "w9_needle_d", text = "It is older than Cenarion Hold, carved from the antler of a stag that fell in Ashenvale before the Sundering's scars had healed. My teacher gave it to me in Astranaar, and I have broken a hundred steel needles on qiraji silk while this one has never bent." } },
+      choices = {
+        { text = "Why does bone hold where steel breaks?", next = "w9_needle2" },
+        { text = "That's a precious thing to bring here.", next = "w9_needle2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_needle2 = {
+      lines = { { id = "w9_needle2_d", text = "Because the silk was made by living things, and I think it yields more readily to something that was once alive. Haro laughs at that and says it is only good antler, but he has never offered to lend me his hammer for the work, either." } },
+      choices = {
+        { text = "Perhaps you're both right.", next = "BACK", reply = "Perhaps. Do not tell him I said so." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     silk = {
@@ -881,7 +1031,25 @@ P:NPC {
         { text = "I'm a priest. Do your songs ever find hope?", next = "xpriest", when = { class = "PRIEST" } },
         { text = "Did you lose anyone to the plague?", next = "y_lost" },
         { text = "Does anyone here like your songs?", next = "y_audience" },
+        { text = "Do the night elves have songs of this place?", next = "w9_elves" },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+
+    w9_elves = {
+      lines = { { id = "w9_elves_d", text = "They do, and they're older than any song I know, which is saying something. Elder Bladesing comes to the Hold at the turn of the year, and the druids say she once sang a war chant here that was ten thousand years old, and I'd give my lute to have heard it." } },
+      choices = {
+        { text = "Have you asked her to teach you?", next = "w9_elves2" },
+        { text = "Some songs aren't meant for strangers.", next = "w9_elves2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_elves2 = {
+      lines = { { id = "w9_elves2_d", text = "I asked a Sentinel to hum me a line of it, once, and she looked at me like I'd asked to borrow her grandmother's bones. Maybe some songs should stay with the people who bled for them, though the singer in me can't quite believe that." } },
+      choices = {
+        { text = "Then write your own song of this place.", next = "BACK", reply = "I'm trying, friend. It keeps coming out as a dirge." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     hives = {
@@ -891,7 +1059,7 @@ P:NPC {
     strange = {
       lines = { { id = "st_default", text = "Strange places make the best songs. Nobody writes a ballad about a nice afternoon in Goldshire." } },
       choices = {
-        { text = "Darkness makes good music. I agree.", next = "BACK", reply = "Finally, someone who understands.", fx = { affinity = 1, align = { light = -1 } } },
+        { text = "Darkness makes good music. I agree.", next = "BACK", reply = "At last, a listener who doesn't flinch at a minor key. Sit a while.", fx = { affinity = 1, align = { light = -1 } } },
         { text = "Write something hopeful for once.", next = "BACK", reply = "Maybe one day, if I ever find hope out here.", fx = { align = { light = 1 } } },
       },
     },
@@ -978,7 +1146,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I guard the Brigade's camp and the silithyst that comes into it. The bugs come up from below and the Horde come from the west, and I'm not sure which I'd rather see." } },
-      again = { { id = "h_again", text = "Aye? What else?" } },
+      again = { { id = "h_again", text = "Aye? Out with it, then, before the sand fills me ears again." } },
       choices = {
         { text = "How do you stand the heat?", next = "heat" },
         { text = "Who commands here?", next = "who" },
@@ -989,7 +1157,25 @@ P:NPC {
         { text = "Do you have family back in Dun Morogh?", next = "y_family" },
         { text = "What's the worst you've seen here?", next = "y_worst" },
         { text = "Where does your ale come from out here?", next = "y_ale" },
+        { text = "What do you do on watch at night?", next = "w9_watch" },
         { text = "Hold fast.", next = "END" },
+      },
+    },
+
+    w9_watch = {
+      lines = { { id = "w9_watch_d", text = "Count the stars, curse the cold, and listen to the hive, because at night ye can hear it humming under yer boots like a forge bellows. The silithid come up in the dark more often than the light, so a dwarf on night watch learns to listen with his feet." } },
+      choices = {
+        { text = "What does the hum tell you?", next = "w9_watch2" },
+        { text = "Cold? In this desert?", next = "w9_watch2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_watch2 = {
+      lines = { { id = "w9_watch2_d", text = "When it gets louder, they're comin', and when it stops all at once, they're already here. Captain Blackanvil laughed at me the first week I said so, and now he posts me at the north stake every night and doesnae laugh at all." } },
+      choices = {
+        { text = "Good ears are worth a rifle.", next = "BACK", reply = "Aye, that's what I keep tellin' the quartermaster." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     heat = {
@@ -1080,7 +1266,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I throw axes for de Legion, at bugs, mostly. De bugs be big and slow and dey make a good target, so dis be de best job I ever had." } },
-      again = { { id = "h_again", text = "What else, mon?" } },
+      again = { { id = "h_again", text = "What else, mon? Ask quick, de bugs don't take a break for talkin'." } },
       choices = {
         { text = "How many have you hit?", next = "count" },
         { text = "Why are trolls here?", next = "why" },
@@ -1091,7 +1277,25 @@ P:NPC {
         { text = "Do you miss the Echo Isles?", next = "y_isles" },
         { text = "What do you think of the Alliance here?", next = "y_alliance" },
         { text = "Which loa do you sing to?", next = "y_loa" },
+        { text = "Where do you get new axes out here?", next = "w9_axes" },
         { text = "Good aim to you.", next = "END" },
+      },
+    },
+
+    w9_axes = {
+      lines = { { id = "w9_axes_d", text = "From de Legion's stores, when dey have dem, and from de bugs' backs when dey don't, mon. Every axe I throw I got to go and fetch, so I count my axes better dan I count my kills." } },
+      choices = {
+        { text = "You go out and fetch them?", next = "w9_axes2" },
+        { text = "What happens when you lose one?", next = "w9_axes2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_axes2 = {
+      lines = { { id = "w9_axes2_d", text = "Every night, mon, when de sand be cool and de bugs be sleepy. I lost three in de first week, and de quartermaster made me pay for dem out of my pay, so now I sing to every axe before I throw it, and dey come back more often." } },
+      choices = {
+        { text = "The loa must like your singing.", next = "BACK", reply = "Or de bugs hate it, mon. Either way, I keep my axes." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     count = {
@@ -1186,7 +1390,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I am here at the king's order, to break the qiraji lines with fire and frost. The insects do not fear steel the way they fear flame." } },
-      again = { { id = "h_again", text = "Yes? Be quick." } },
+      again = { { id = "h_again", text = "Yes? Be quick, please. Every moment I spend talking is a moment the wards spend without me." } },
       choices = {
         { text = "How goes the war?", next = "war" },
         { text = "Do the qiraji use magic?", next = "magic" },
@@ -1196,7 +1400,28 @@ P:NPC {
         { text = "I'm a warlock. Would you use my fire?", next = "xwarlock", when = { class = "WARLOCK" } },
         { text = "What happened to you in Dalaran?", next = "y_dalaran" },
         { text = "What worries you about the gates?", next = "y_gates" },
+        { text = "Do you trust the Circle's druids?", next = "w9_druid" },
         { text = "Light be with you.", next = "END" },
+      },
+    },
+
+    w9_druid = {
+      lines = {
+        { id = "w9_druid_d", text = "I trust their courage and doubt their methods. They speak of balance and the land's health while the qiraji pour out of the sand, and a druid who hesitates to burn a hive is a druid who will watch it hatch." },
+        { id = "w9_druid_v1", when = { class = "DRUID" }, text = "You'll forgive me, druid, but I trust your courage and doubt your methods. Your Circle speaks of balance while the qiraji pour out of the sand, and I have never seen a hive brought into balance by patience." },
+      },
+      choices = {
+        { text = "Their caution kept this place sealed for a thousand years.", next = "w9_druid2" },
+        { text = "Fire is the only answer here.", next = "w9_druid2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_druid2 = {
+      lines = { { id = "w9_druid2_d", text = "Perhaps it did, and perhaps the wall would have held another thousand if nobody had come prying. But we are here now, and the Circle's caution and Dalaran's fire must learn to work together, or both will be buried in this sand." } },
+      choices = {
+        { text = "Then make peace with them.", next = "BACK", reply = "I am trying. They make it very difficult, and I suspect they say the same of me." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     war = {
@@ -1299,7 +1524,25 @@ P:NPC {
         { text = "I'm a paladin. My charger hates the sand too.", next = "xpaladin", when = { class = "PALADIN" } },
         { text = "Did you serve before this war?", next = "y_before" },
         { text = "Is Bracken getting too old for this?", next = "y_old" },
+        { text = "What do the horses eat out here?", next = "w9_feed" },
         { text = "Ride well.", next = "END" },
+      },
+    },
+
+    w9_feed = {
+      lines = { { id = "w9_feed_d", text = "Oats from Westfall, shipped through Booty Bay and carted across from Gadgetzan, and by the time they reach us they're worth more than my saddle. Bracken eats better than I do, which is exactly right, because she does more of the work." } },
+      choices = {
+        { text = "What happens if the oats stop coming?", next = "w9_feed2" },
+        { text = "Do the goblins overcharge you?", next = "w9_feed2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_feed2 = {
+      lines = { { id = "w9_feed2_d", text = "Then we cut rations, ours first and the horses' last, and if it comes to that, the cavalry walks. The goblins charge whatever they please, and the quartermaster pays it, because a cavalryman without a horse is just a man with very heavy boots." } },
+      choices = {
+        { text = "Your priorities are sound.", next = "BACK", reply = "Horse first, man second. My father taught me that." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     horses = {
@@ -1397,7 +1640,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I call on the land's strength, and turn it against those who would poison it. This desert is sick to its roots, and the hives are the sickness." } },
-      again = { { id = "h_again", text = "Speak, young one." } },
+      again = { { id = "h_again", text = "Speak, young one. The earth here is quiet, and I can spare it my ears a while." } },
       choices = {
         { text = "Can the land heal?", next = "heal" },
         { text = "Why did the tribes come?", next = "why" },
@@ -1408,7 +1651,28 @@ P:NPC {
         { text = "Who are you, among your tribe?", next = "y_who" },
         { text = "What troubles you about this place?", next = "y_trouble" },
         { text = "What was Moonglade like?", next = "y_moonglade" },
+        { text = "What do you carry into battle?", next = "w9_carry" },
         { text = "Walk with the Earth Mother.", next = "END" },
+      },
+    },
+
+    w9_carry = {
+      lines = {
+        { id = "w9_carry_d", text = "A totem carved by my grandmother, a spear of Mulgore ash, and a small pouch of soil from the plains near Bloodhoof Village. The soil is the most important, for when this land goes silent beneath me, I hold it and remember what living earth feels like." },
+        { id = "w9_carry_v1", when = { race = "Tauren" }, text = "You know it already, I think, for many of our people carry the same. A totem, a spear of Mulgore ash, and a pouch of soil from the plains, so that when this sick land goes silent, I can hold a little of home and remember." },
+      },
+      choices = {
+        { text = "Does it help, here?", next = "w9_carry2" },
+        { text = "May I see the soil?", next = "w9_carry2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_carry2 = {
+      lines = { { id = "w9_carry2_d", text = "It reminds me why I came, which is enough. If the qiraji wake fully, they will spread until no plains are left anywhere, and this pouch will be the last of Mulgore some of us ever touch." } },
+      choices = {
+        { text = "Then we'll make sure they don't.", next = "BACK", reply = "May the Earth Mother hear you say it, young one." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     heal = {
@@ -1514,7 +1778,25 @@ P:NPC {
         { text = "What was your life like, Elder?", next = "y_life" },
         { text = "Do you regret the wall?", next = "y_regret" },
         { text = "What was here before Cenarion Hold?", next = "y_hold" },
+        { text = "The Hold's druids must seem very young to you.", next = "w9_young" },
         { text = "Farewell, Elder.", next = "END" },
+      },
+    },
+
+    w9_young = {
+      lines = { { id = "w9_young_d", text = "Young, and very earnest, and quicker to argue than we were, which may be no bad thing. When I stood here, the druids were Cenarius's own students, and they did not ask the soldiers' leave for anything." } },
+      choices = {
+        { text = "Were they better, in your day?", next = "w9_young2" },
+        { text = "Earnest is good, surely.", next = "w9_young2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_young2 = {
+      lines = { { id = "w9_young2_d", text = "Not better, only surer, and sureness is a dangerous thing to carry into a war. These young ones doubt themselves, and they argue with the dwarves and the orcs, and they listen, and I think they will be harder to fool than we were." } },
+      choices = {
+        { text = "Doubt keeps you careful.", next = "BACK", reply = "It does, child. Keep a little of it always." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     war = {
@@ -1610,7 +1892,25 @@ P:NPC {
         { text = "Where are you from, Sergeant?", next = "xfrom" },
         { text = "You seem tired of counting crates.", next = "xtired" },
         { text = "I'm a shaman. The spirits speak of this war?", next = "xshaman", when = { class = "SHAMAN" } },
+        { text = "What's the strangest thing anyone's donated?", next = "w9_odd" },
         { text = "Farewell, Sergeant.", next = "END" },
+      },
+    },
+
+    w9_odd = {
+      lines = { { id = "w9_odd_d", text = "A goblin brought me forty crates of rockets, mon, and swore dey was for de war effort, and den asked for a receipt so he could charge de Cartel. A Forsaken brought a box of fingers once, for \"de surgeons,\" and I still not be sure what she meant by it." } },
+      choices = {
+        { text = "What did you do with the rockets?", next = "w9_odd2" },
+        { text = "Fingers?", next = "w9_odd2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_odd2 = {
+      lines = { { id = "w9_odd2_d", text = "De rockets went to de Legion, and two of dem went off in de crates on de way, so now de Legion got one less wagon. De fingers I gave back, mon, very politely, and I wash my hands every time I think about it." } },
+      choices = {
+        { text = "The Horde's generosity has strange shapes.", next = "BACK", reply = "Ya, mon, and I count every one of dem." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     need = {
@@ -1702,7 +2002,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I am Gorchuk, warlord of the Horde's war effort. Every crate, every blade and every warrior that leaves Orgrimmar for Silithus goes through me." } },
-      again = { { id = "h_again", text = "Speak, then." } },
+      again = { { id = "h_again", text = "Speak, then, and make it worth my time. The gates do not wait for talk." } },
       choices = {
         { text = "How goes the war?", next = "war" },
         { text = "Will the gates open?", next = "gates" },
@@ -1710,7 +2010,28 @@ P:NPC {
         { text = "Why do you hate the qiraji?", next = "xhate" },
         { text = "Who fights beside the Horde against the bugs?", next = "xallies" },
         { text = "I am an orc warrior. Point me at the enemy.", next = "xorc", when = { race = "Orc" } },
+        { text = "Those scars weren't all from bugs.", next = "w9_scars" },
         { text = "I'll go.", next = "END" },
+      },
+    },
+
+    w9_scars = {
+      lines = {
+        { id = "w9_scars_d", text = "No. This one is from a Stormwind knight at Blackrock Spire, in the Second War, and this one from a camp guard's whip, after. The bugs gave me only the small ones, so far, though I expect they will try harder." },
+        { id = "w9_scars_v1", when = { race = "Orc" }, text = "You know the marks, then, as any orc of my age carries them. One from a Stormwind knight in the Second War, one from a camp guard's whip, and only the small ones from the bugs, so far." },
+      },
+      choices = {
+        { text = "What do you think of the camps now?", next = "w9_scars2" },
+        { text = "And what do you remember of the war?", next = "w9_scars2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_scars2 = {
+      lines = { { id = "w9_scars2_d", text = "I remember that the Warchief broke the camps, and that I swore I would never wear a chain again for any master. That is why I will fight these qiraji to the last orc, because they would make slaves of every living thing, and I have already been a slave once." } },
+      choices = {
+        { text = "Then lead us through the gates.", next = "BACK", reply = "I will, when the gong is struck. Lok'tar ogar." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     war = {
@@ -1792,7 +2113,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Jalia, scout of the Cenarion Circle. I've been watching Hive'Ashi for days, and I've seen things Cenarion Hold needs to know." } },
-      again = { { id = "h_again", text = "Yes? Keep your voice down." } },
+      again = { { id = "h_again", text = "Yes? Softly, please, the drones have been restless since dawn." } },
       choices = {
         { text = "What have you seen?", next = "seen" },
         { text = "Should I take your report back?", next = "report" },
@@ -1802,7 +2123,25 @@ P:NPC {
         { text = "I'm a night elf too. Elune guide you, sister.", next = "xelf", when = { race = "NightElf" } },
         { text = "What will you do when this is over?", next = "y_after" },
         { text = "Has the hive ever nearly caught you?", next = "y_caught" },
+        { text = "What do you eat while you're watching?", next = "w9_food" },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+
+    w9_food = {
+      lines = { { id = "w9_food_d", text = "Dried fruit, hard bread and whatever water I can carry, because I cannot light a fire this close to Hive'Ashi without every drone for a mile coming to see it. Garon at the Hold sets aside a clean waterskin for me, which is the kindest thing anyone has done for me in months." } },
+      choices = {
+        { text = "That's no way to live for weeks.", next = "w9_food2" },
+        { text = "I could bring you something fresh.", next = "w9_food2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_food2 = {
+      lines = { { id = "w9_food2_d", text = "It isn't living, it's watching, and they are not the same. When I am relieved, I mean to eat a whole roast at the inn in Astranaar and sleep for three days, and nobody will be allowed to say the word \"hive\" in my hearing." } },
+      choices = {
+        { text = "You've earned it.", next = "BACK", reply = "Tell my captain that. Kindly, and often." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     seen = {
@@ -1908,7 +2247,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Rifleman of the Ironforge Brigade, at yer service. We're here to shoot bugs, and there's no shortage of bugs." } },
-      again = { { id = "h_again", text = "Aye? What is it?" } },
+      again = { { id = "h_again", text = "Aye? Speak up, {g:lad|lass}, I'm halfway through this barrel." } },
       choices = {
         { text = "How are the silithid to fight?", next = "fight" },
         { text = "Do you miss Ironforge?", next = "home" },
@@ -1918,7 +2257,28 @@ P:NPC {
         { text = "I'm a hunter. What gun do you favour?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Who taught you to shoot?", next = "y_taught" },
         { text = "Any trouble with the Horde out here?", next = "y_horde" },
+        { text = "What's that drinking song you're humming?", next = "w9_song" },
         { text = "Good hunting.", next = "END" },
+      },
+    },
+
+    w9_song = {
+      lines = {
+        { id = "w9_song_d", text = "\"The Thane's Last Barrel,\" an old one from Dun Morogh about a thane who drinks his own keep dry rather than let the trolls have a drop of it. There are thirty verses, and every one gets ruder, and I've only been allowed to sing the first four in camp." },
+        { id = "w9_song_v1", when = { race = "Dwarf" }, text = "Ye know it, surely! \"The Thane's Last Barrel,\" the one about the thane who drank his keep dry before the trolls could have it. I've only been allowed the first four verses in camp, which ye'll agree is a crime." },
+      },
+      choices = {
+        { text = "Why only four?", next = "w9_song2" },
+        { text = "Sing me the fifth.", next = "w9_song2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_song2 = {
+      lines = { { id = "w9_song2_d", text = "Because Lieutenant Stouthammer is a paladin of the Silver Hand, and the fifth verse rhymes \"Light\" with something no paladin should hear before supper. Come find me after the war, in a tavern with a door that shuts, and ye'll get all thirty." } },
+      choices = {
+        { text = "I'll hold you to it.", next = "BACK", reply = "Aye, and bring a full barrel. It's a thirsty song." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     fight = {

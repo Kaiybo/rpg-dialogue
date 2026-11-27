@@ -56,6 +56,7 @@ P:NPC {
         { text = "He told me he was going home to Auberdine.", next = "auberdine" },
         { text = "What's Maestra's Post like?", next = "post" },
         { text = "Was it worth the wait?", next = "after", when = { questDone = TODO_QUEST("The Sleeper Has Awakened") } },
+        { text = "What will you two do now?", next = "w_now" },
         { text = "I'll keep an eye out for him.", next = "END" },
       },
     },
@@ -128,6 +129,25 @@ P:NPC {
     after = {
       lines = { { id = "af_default", text = "He woke up properly this morning and looked at me as if no time had passed, and asked if I'd waited long. I told him no, which is the first lie I've ever told him, and I think he knew." } },
       choices = { { text = "Something else.", next = "BACK", fx = { trait = { kind = 1 } } } },
+    },
+    w_now = {
+      lines = {
+        { id = "w_now_default", text = "Go home to Auberdine, eventually, by the slowest road there is, so that I can keep him awake the whole way. I've bought a bell from that goblin who sells gingerbread to the Sentinels, and I mean to ring it every time his eyes start to close." },
+      },
+      choices = {
+        { text = "He'll love that.", next = "w_now2" },
+        { text = "A bell seems cruel.", next = "w_now2" },
+      },
+    },
+    w_now2 = {
+      lines = {
+        { id = "w_now2_default", text = "He'll hate it, and he'll deserve it, and then he'll take it from me and ring it at me while I'm trying to sleep, and we'll laugh about it. That's what I missed most while he was in the Dream: someone to be annoyed with properly." },
+        { id = "w_now2_w1", when = { class = "DRUID" }, text = "You walk the Dream too, so promise me you'll set a bell of your own before you go too deep. Someone out here will be waiting for you." },
+      },
+      choices = {
+        { text = "Annoyance is a kind of love.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Liladris.", next = "BACK" },
+      },
     },
   },
 }
@@ -215,6 +235,7 @@ P:NPC {
         { text = "This well is the only clean thing for miles.", next = "well" },
         { text = "I walk the Dream's edge myself, sister.", next = "xdruid", when = { class = "DRUID" } },
         { text = "You've never seen one of my kind, have you?", next = "xrace", when = { race = { "Dwarf", "Gnome", "Human" } } },
+        { text = "Do you ever leave this well?", next = "w_leave" },
         { text = "I'll come back with the pieces.", next = "END" },
       },
     },
@@ -265,6 +286,25 @@ P:NPC {
       choices = {
         { text = "That must have been something to see.", next = "BACK", fx = { trait = { curious = 1 }, learn = { "cenarion_circle" } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_leave = {
+      lines = {
+        { id = "w_leave_default", text = "Not far, and not often. The well is the only clean water I can feel for a mile in any direction, and if I go too far from it, I start to feel sick the way the treants do. I'm not brave enough to find out how far is too far." },
+      },
+      choices = {
+        { text = "That sounds lonely.", next = "w_leave2" },
+        { text = "You're braver than you think.", next = "w_leave2" },
+      },
+    },
+    w_leave2 = {
+      lines = {
+        { id = "w_leave2_default", text = "It is, a little, but Raene's scouts stop to drink and tell me what they've seen. And the birds still come. When the forest is well again, I want to walk the whole of it, root to root, and see everything I've only heard about." },
+        { id = "w_leave2_w1", when = { race = "NightElf" }, text = "You're kaldorei; you'll have seen the parts of Ashenvale I haven't. Tell me about one place I should go first, when I can." },
+      },
+      choices = {
+        { text = "You'll walk it one day.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Shael'dryn.", next = "BACK" },
       },
     },
   },
@@ -329,7 +369,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Ask quickly, I don't like talking about her for long." },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again2", text = "Go on. I am listening, and the forest is listening with me." },
       },
       choices = {
         { text = "Shael'dryn told me about the corruption in her grove.", next = "dd_raene", when = { questDone = TODO_QUEST("Raene's Cleansing") } },
@@ -339,6 +379,7 @@ P:NPC {
         { text = "Does killing them really help?", next = "help" },
         { text = "Who else guards Aessina's shrine?", next = "shrine" },
         { text = "Raene Wolfrunner speaks well of you.", next = "raene" },
+        { text = "What will you do when the satyrs are gone?", next = "w_after" },
         { text = "I'll hunt the satyr for you.", next = "END" },
       },
     },
@@ -397,6 +438,24 @@ P:NPC {
       lines = { { id = "ra2_default", text = "Once, and the bridges made me nervous, all that water and no roots. Raene carries too much, and she laughs anyway, which is how you know she's carrying it well. If you're one of her people, be kind to her, because no one else remembers to." } },
       choices = {
         { text = "I'm a druid. I'll stand with you at the shrine.", next = "BACK", reply = "Then stand quietly, and don't step on the moss, and we'll get on fine.", when = { class = "DRUID" } },
+        { text = "Something else, Illiyana.", next = "BACK" },
+      },
+    },
+    w_after = {
+      lines = {
+        { id = "w_after_default", text = "Go back to laughing, I hope, the way dryads are meant to. Anilia used to say I laughed like a stream over stones, and I haven't laughed like that since Xavian. I'm afraid I've forgotten how, and I'm too proud to ask anyone to teach me." },
+      },
+      choices = {
+        { text = "You'll remember.", next = "w_after2" },
+        { text = "Grief takes time.", next = "w_after2" },
+      },
+    },
+    w_after2 = {
+      lines = {
+        { id = "w_after2_default", text = "Perhaps. Therysil laughs for both of us, these days, and sometimes I catch myself smiling at her and stop. I think Anilia would be cross with me for stopping. She was always cross with me for something." },
+      },
+      choices = {
+        { text = "She'd want you to laugh.", next = "BACK", fx = { trait = { kind = 1 } } },
         { text = "Something else, Illiyana.", next = "BACK" },
       },
     },
@@ -492,6 +551,7 @@ P:NPC {
         { text = "This camp is very close to the naga.", next = "camp" },
         { text = "I know a little of Highborne wards.", next = "xmage", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "The Explorers' League would pay well for this.", next = "xdwarf", when = { race = { "Dwarf", "Gnome" } } },
+        { text = "What's the most beautiful thing you've found in Zoram?", next = "w_found" },
         { text = "I'll see what I can find.", next = "END" },
       },
     },
@@ -533,6 +593,25 @@ P:NPC {
       choices = {
         { text = "That's a good enough reason.", next = "BACK", fx = { trait = { curious = 1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_found = {
+      lines = {
+        { id = "w_found_default", text = "A mosaic, on the floor of a drowned house, of a woman feeding birds from her hand. I only saw it once, at the lowest tide of the year, for an hour. Then the water came back and I haven't been able to find the house again." },
+      },
+      choices = {
+        { text = "You never found it again?", next = "w_found2" },
+        { text = "An hour of beauty.", next = "w_found2" },
+      },
+    },
+    w_found2 = {
+      lines = {
+        { id = "w_found2_default", text = "Not yet. I've drawn it from memory twenty times, and every drawing is a bit different, and I'm beginning to worry I'm drawing what I want it to be. That's the trouble with old things. You fall in love with them, and then you can't see them clearly." },
+        { id = "w_found2_w1", when = { class = "MAGE" }, text = "You know a little of the Highborne, you said. Would they have made a mosaic like that, of something so simple? I want to think there was some gentleness in them." },
+      },
+      choices = {
+        { text = "Keep looking for the house.", next = "BACK", fx = { trait = { curious = 1 } } },
+        { text = "Something else, Talen.", next = "BACK" },
       },
     },
   },
@@ -583,7 +662,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Speak softly." },
-        { id = "h_again2", text = "What else can I do for you?" },
+        { id = "h_again2", text = "What else may I do for you, before the next rider comes in?" },
       },
       choices = {
         { text = "A companion left in good hands rests easier.", next = "BACK", reply = "It does. I treat each one as my own.", fx = { align = { light = 1 } } },
@@ -594,6 +673,7 @@ P:NPC {
         { text = "Astranaar seems a strange place for stables.", next = "island" },
         { text = "How would I find a companion of my own?", next = "find", when = { class = "HUNTER" } },
         { text = "The Horde ride wolves here too. Do you hate them?", next = "wolves", when = { faction = "Horde" } },
+        { text = "Do you have a companion of your own?", next = "w_own" },
         { text = "Thank you.", next = "END" },
       },
     },
@@ -665,6 +745,25 @@ P:NPC {
     wolves = {
       lines = { { id = "wo_default", text = "Hate them? No. A wolf doesn't choose its rider, any more than my sabers choose theirs, and I've seen Horde wolves loose in the forest that were as frightened as anything of ours. It's the riders I have opinions about, and I keep them to myself." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_own = {
+      lines = {
+        { id = "w_own_default", text = "An old owl, who sleeps in the rafters of the stable and has not flown in years. She was a Sentinel's scout once, and her Sentinel did not come back from the Barrens. She came here on her own and has never left." },
+      },
+      choices = {
+        { text = "She came back alone?", next = "w_own2" },
+        { text = "That's a sad story.", next = "w_own2" },
+      },
+    },
+    w_own2 = {
+      lines = {
+        { id = "w_own2_default", text = "She did, on a stormy night, soaked through, and landed on my shoulder as though she knew me. I suppose she knew the stable. I feed her by hand, and she watches over the young beasts at night, and I think she has decided that is her duty now." },
+        { id = "w_own2_w1", when = { class = "HUNTER" }, text = "You have a companion. Think about what they would do if you did not come home. Then come home, if you can, for their sake." },
+      },
+      choices = {
+        { text = "She found a new duty.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Maluressian.", next = "BACK" },
+      },
     },
   },
 

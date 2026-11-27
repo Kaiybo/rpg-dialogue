@@ -284,7 +284,25 @@ P:NPC {
         { text = "What does the chapel run short of?", next = "short" },
         { text = "Who is this Jase Farlane you want linen from?", next = "mb_jase" },
         { text = "Your ledger must tell the whole story of this war.", next = "mb_ledger" },
+        { text = "Does anything ever go missing from the stores?", next = "w9_missing" },
         { text = "I'll be on my way.", next = "END" },
+      },
+    },
+
+    w9_missing = {
+      lines = { { id = "w9_missing_d", text = "Every week, an' always the same thing: the dwarven stout we keep for the medics' tinctures. The medics swear they need every drop, an' half the wounded on the cots swear they've never touched it, an' my ledger an' I both know better." } },
+      choices = {
+        { text = "Who's taking it?", next = "w9_missing2" },
+        { text = "Surely the wounded deserve a drink.", next = "w9_missing2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_missing2 = {
+      lines = { { id = "w9_missing2_d", text = "The medics, mostly, wi' a cup for the cot o' whoever's worst off, an' I'll no' pretend I havenae looked the other way. A soldier who's been under an abomination needs a wee dram more than the ledger needs balancin', but don't ye dare tell them I said so." } },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK", reply = "Good. I'll put ye down as \"careful,\" which isnae a column I use often." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

@@ -79,6 +79,7 @@ P:NPC {
         { text = "Isn't killing him a matter for the courts?", next = "courts" },
         { text = "I've been in the Stockade. I know the cells.", next = "stockade", when = { questDone = TODO_QUEST("What Comes Around...") } },
         { text = "I'll deal with him.", next = "BUSINESS" },
+        { text = "The sergeant owes you four silver?", next = "e3_sergeant" },
         { text = "Carry on, Guard.", next = "END" },
       },
     },
@@ -122,6 +123,24 @@ P:NPC {
       lines = { { id = "s_default", text = "Then you saw what passes for justice in there: killers fed and housed while the families in Lakeshire bury what's left. I hope you didn't stay long." },
       },
       choices = { { text = "Not long. Something else.", next = "BACK" } },
+    },
+    e3_sergeant = {
+      lines = {
+        { id = "e3_sergeant_l0", text = "From a wager on whether the Blackrock would raid before the full moon, which they did, two nights early. He says the bet was for the full moon exactly and not before, which is the sort of argument a man makes when he hasn't got four silver." },
+      },
+      choices = {
+        { text = "Will you collect?", next = "e3_sergeant2" },
+        { text = "Betting on raids is grim sport.", next = "BACK" },
+      },
+    },
+    e3_sergeant2 = {
+      lines = {
+        { id = "e3_sergeant2_l0", text = "I'll collect when he's paid at quarter's end, or I'll take it out of his hide on the practice yard. It's not the silver, mind, it's the principle, and the principle is that a man pays what he owes." },
+      },
+      choices = {
+        { text = "Spoken like a guard. Something else.", next = "BACK" },
+        { text = "Let him off. It's only silver.", next = "BACK" },
+      },
     },
   },
 

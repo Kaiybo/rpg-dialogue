@@ -26,6 +26,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_shot = {
+      lines = { { id = "w8_shot_a", text = "Roggo Harlbarrow, an' he'll no' thank me for sayin' it. He's got eyes like a hawk an' a temper tae match, an' he hasnae missed a Dark Iron on that wall since the Span fell." } },
+      choices = {
+        { text = "And the second best?", next = "w8_shot2" },
+        { text = "A good shot needs a good gunsmith.", next = "w8_shot2" },
+        { text = "I'm a hunter. I could give Roggo a contest.", next = "w8_shot2", when = { class = "HUNTER" } },
+        { text = "Something else, Ashlan.", next = "BACK" },
+      },
+    },
+    w8_shot2 = {
+      lines = {
+        { id = "w8_shot2_a", text = "Me, though only at a target that holds still, which a Dark Iron rarely does. I'd sooner make the guns than fire them, an' every one I mend is a few more shots for Roggo, so we're both doin' our bit." },
+        { id = "w8_shot2_hu", when = { class = "HUNTER" }, text = "Ha! I'd pay tae see that, {g:lad|lass}, if I'd any coin left. Go an' tell him so, an' stand well back when ye do, for Roggo doesnae laugh at much these days." },
+      },
+      choices = {
+        { text = "I'll leave Roggo to his count.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "Ashlan Stonesmirk, gunsmith. I had a proper shop inside those walls a while back, an' now I've a crate, a file an' a tarpaulin, an' the Dark Irons have the shop.", fx = { learn = { "dark_iron" } } } },
       again = {
@@ -41,6 +61,7 @@ P:NPC {
         { text = "What was your shop like inside the walls?", next = "yshop" },
         { text = "What worries you most in camp?", next = "yworry" },
         { text = "I'm a hunter. Can you look at my rifle?", next = "BACK", when = { class = "HUNTER" }, reply = "Hand it over. Aye, the marsh has been at yer lock. Oil it nightly or it'll rust shut by the week's end." },
+        { text = "Who's the best shot in the garrison?", next = "w8_shot" },
         { text = "Keep them firing, Ashlan.", next = "END" },
       },
     },

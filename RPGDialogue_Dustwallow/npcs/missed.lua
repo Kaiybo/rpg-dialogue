@@ -80,7 +80,7 @@ P:NPC {
         { id = "h_default", text = "Mikal Pierce. My wife Amie and I came over the sea with Lady Proudmoore's fleet, and both our children were born inside these walls. Theramore's all the home they've ever known, and I mean to keep it standing for them." },
       },
       again = {
-        { id = "h_again", text = "What else can I tell you?" },
+        { id = "h_again", text = "What else can I tell you? Ask, though if Dahne comes in waving a stick, I'll have to break off and rescue the furniture." },
         { id = "h_again2", text = "Go on, while the house is quiet." },
       },
       choices = {
@@ -91,7 +91,36 @@ P:NPC {
         { text = "Do you fear for Theramore?", next = "yfear" },
         { text = "Could you use a blessing on the house?", next = "BACK", when = { class = { "PALADIN", "PRIEST" } }, reply = "I would, and Amie would be glad of it. Say it by the children's door, if you would." },
         { text = "What is the house like at night?", next = "ynight" },
+        { text = "What are you building at the moment?", next = "w7_build" },
         { text = "Light keep your family.", next = "END" },
+      },
+    },
+    w7_build = {
+      lines = {
+        { id = "w7_build_l1", text = "A cradle, though Amie doesn't know it yet, so keep it under your hat. My cousin's wife is expecting in the spring, and they've no carpenter, and I've a piece of good Ashenvale wood I've been saving since the crossing." },
+      },
+      choices = {
+        { text = "That's a fine gift.", next = "w7_build2" },
+        { text = "Ashenvale wood? How'd you get that?", next = "w7_build3" },
+        { text = "Something else, Mikal.", next = "BACK" },
+      },
+    },
+    w7_build2 = {
+      lines = {
+        { id = "w7_build2_l1", text = "It's the only thing I've ever made that I've wanted to be perfect. Every child born on this isle is a sign that we're staying, that Theramore is a home and not a camp, and I want that child to sleep in something that will last." },
+        { id = "w7_build2_l2", when = { profession = "Blacksmithing" }, text = "You make things, so you'll understand: some work you do for coin, and some you do because it has to be right. This cradle's the second kind. I've rebuilt the rockers three times." },
+      },
+      choices = {
+        { text = "It'll be beautiful.", next = "BACK", reply = "Thank you. I hope so, Light willing." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_build3 = {
+      lines = {
+        { id = "w7_build3_l1", text = "Traded for it from a night elf off a Menethil boat, three barrels of nails for one plank. Amie thought I'd been robbed, and maybe I was, but it's the best wood I've ever touched." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     crossing = {
@@ -198,7 +227,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Was there something else? I'm listening, even if I'm looking at the children." },
-        { id = "h_again2", text = "Go on, dear." },
+        { id = "h_again2", text = "Go on, dear, I'm listening. Just keep half an eye on Dahne for me; he's very quiet, and that's never good." },
       },
       choices = {
         { text = "Tell me about your children.", next = "children" },
@@ -210,7 +239,36 @@ P:NPC {
         { text = "I'm from Stormwind. Do you miss the east?", next = "BACK", when = { race = "Human" }, reply = "Every day, dear, though it's Lordaeron I miss and not Stormwind. Still, it's good to hear a voice from the old kingdoms." },
         { text = "I'll say a word for this house.", next = "BACK", when = { class = "PRIEST" }, reply = "Bless you. I'll tell the children a priest prayed over them, and they'll sit still for nearly an hour." },
         { text = "What's a good day in this house?", next = "ygoodday" },
+        { text = "What do you cook for the family?", next = "w7_cook" },
         { text = "Good day, Mistress Pierce.", next = "END" },
+      },
+    },
+    w7_cook = {
+      lines = {
+        { id = "w7_cook_l1", text = "Fish, mostly, because Mikal brings it home from the docks in trade for mending, and a pie on rest days when the Menethil ship's been in with flour. Sara won't eat anything green, and Dahne won't eat anything Sara will, so supper is a negotiation." },
+      },
+      choices = {
+        { text = "How do you win the negotiation?", next = "w7_cook2" },
+        { text = "Children should eat what's put in front of them.", next = "w7_cook3" },
+        { text = "Something else, Mistress Pierce.", next = "BACK" },
+      },
+    },
+    w7_cook2 = {
+      lines = {
+        { id = "w7_cook2_l1", text = "I tell Sara the guards eat their greens to see in the fog, and I tell Dahne that Sara doesn't want him to have the last of the pie. Between those two lies, I've raised two healthy children, and I'll answer to the Light for both." },
+        { id = "w7_cook2_l2", when = { class = "PRIEST" }, text = "I tell little lies, and I'll ask you to forgive them, since you've the Light's ear. Sara thinks greens let the guards see in fog, and Dahne thinks his sister wants the last of the pie. They both eat." },
+      },
+      choices = {
+        { text = "The Light will understand.", next = "BACK", reply = "I'm counting on it, dear. Every mother on the island is." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_cook3 = {
+      lines = {
+        { id = "w7_cook3_l1", text = "They should, and they don't, and you'll learn that the day you have your own. Until then, I'll keep my little lies." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     children = {
@@ -321,7 +379,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask me something else! I know lots of things." },
-        { id = "h_again2", text = "What else, what else?" },
+        { id = "h_again2", text = "What else, what else? I've got about a hundred more things to tell you, and Dahne only listens to three!" },
       },
       choices = {
         { text = "Show me your salute.", next = "salute" },
@@ -331,7 +389,36 @@ P:NPC {
         { text = "What's outside the walls you want to see?", next = "youtside" },
         { text = "Want to see a real sword drill?", next = "BACK", when = { class = { "WARRIOR", "PALADIN" } }, reply = "Yes! Do it slow so I can copy it. Wait, Dahne, come and watch, it's a real one!" },
         { text = "Do you go to lessons?", next = "ylessons" },
+        { text = "What would you do if you met a dragon?", next = "w7_dragon" },
         { text = "Carry on, Guard Sara.", next = "END" },
+      },
+    },
+    w7_dragon = {
+      lines = {
+        { id = "w7_dragon_l1", text = "I'd salute it first, because you're supposed to be polite to important things, and then I'd hit it right on the nose. Papa says dragons don't have noses, but they have to, or how do they smell the people they eat?" },
+      },
+      choices = {
+        { text = "Dragons do have noses.", next = "w7_dragon2" },
+        { text = "Maybe you should just run.", next = "w7_dragon3" },
+        { text = "Something else, Sara.", next = "BACK" },
+      },
+    },
+    w7_dragon2 = {
+      lines = {
+        { id = "w7_dragon2_l1", text = "I knew it! I'm going to tell Papa he's wrong, and then he'll have to make me a sword, because I was right and that's the rule. Will you tell him too, so he believes me?" },
+        { id = "w7_dragon2_l2", when = { class = { "WARRIOR", "PALADIN", "HUNTER" } }, text = "I knew it! You've fought monsters, so you'd know. Will you tell Papa? If he hears it from a real fighter, he'll have to make me a real sword, a little one." },
+      },
+      choices = {
+        { text = "I'll tell him.", next = "BACK", reply = "Promise? Pinky promise? All right, I believe you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_dragon3 = {
+      lines = {
+        { id = "w7_dragon3_l1", text = "Real guards don't run! Well, Mama says real guards run when they need to, but I think that's just something mamas say." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     salute = {
@@ -439,7 +526,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Um, did you want to ask something else?" },
-        { id = "h_again2", text = "I'm still here." },
+        { id = "h_again2", text = "I'm still here. I didn't go anywhere, I promise, I was only looking at your boots." },
       },
       choices = {
         { text = "That's a fine sword. Do you practise?", next = "sword" },
@@ -449,7 +536,36 @@ P:NPC {
         { text = "What does your Papa do?", next = "ypapa" },
         { text = "I'm short like you, and I'm a grown-up.", next = "BACK", when = { race = { "Gnome", "Dwarf" } }, reply = "Really? Then maybe I'll be a grown-up before I'm tall. I'm going to tell Sara that, because she says I have to wait." },
         { text = "What's your sword's name?", next = "yname" },
+        { text = "What's in your pocket, Dahne?", next = "w7_pocket" },
         { text = "Goodbye, Dahne.", next = "END" },
+      },
+    },
+    w7_pocket = {
+      lines = {
+        { id = "w7_pocket_l1", text = "A rock that looks like a fish, a button from Captain Thomas' coat that I found in the yard, and a piece of bread for later. The button's a secret, so don't tell anyone, because I think he might want it back." },
+      },
+      choices = {
+        { text = "You should give the button back.", next = "w7_pocket2" },
+        { text = "That's a good collection.", next = "w7_pocket3" },
+        { text = "Something else, Dahne.", next = "BACK" },
+      },
+    },
+    w7_pocket2 = {
+      lines = {
+        { id = "w7_pocket2_l1", text = "I know. I'm going to, when I'm brave enough. Sara says he'll shout, but Mama says he only shouts at soldiers, and I'm not a soldier yet." },
+        { id = "w7_pocket2_l2", when = { race = { "Gnome", "Dwarf" } }, text = "I know. Would you come with me, since you're a grown-up who's little like me? If he shouts, he'll shout at both of us, and then it's only half as loud." },
+      },
+      choices = {
+        { text = "I'm sure he won't shout.", next = "BACK", reply = "Really? Then I'll give it back tomorrow. Maybe the day after." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_pocket3 = {
+      lines = {
+        { id = "w7_pocket3_l1", text = "Thank you! Sara says it's just rubbish, but she doesn't have a fish rock, so she's only jealous." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     sword = {
@@ -556,7 +672,36 @@ P:NPC {
         { text = "Do you remember the night of the fire?", next = "yfire" },
         { text = "Jim, you can rest now. Go to the Light.", next = "BACK", when = { class = { "PRIEST", "PALADIN" } }, reply = "Rest? I can't rest, friend, not with the hearth to keep. Lynn will be home soon, and someone must have the kettle on." },
         { text = "What's your favourite part of the job?", next = "yfav" },
+        { text = "What's on your menu tonight, Jim?", next = "w7_menu" },
         { text = "Rest easy, Jim.", next = "END" },
+      },
+    },
+    w7_menu = {
+      lines = {
+        { id = "w7_menu_l1", text = "Oh, the best of everything, friend! Lynn's made her marsh pie, and there's a ham hanging since market day, and I've a cask of Thunderbrew that came in on the Menethil boat. Sit, sit, and I'll bring you a plate." },
+      },
+      choices = {
+        { text = "I'll take the pie.", next = "w7_menu2" },
+        { text = "Jim, there's no kitchen here.", next = "w7_menu3" },
+        { text = "Something else, Jim.", next = "BACK" },
+      },
+    },
+    w7_menu2 = {
+      lines = {
+        { id = "w7_menu2_l1", text = "An excellent choice! Lynn will be so pleased. She always says a guest who chooses the pie is a guest who'll come back. Here you are, friend, mind, it's hot, it's always hot." },
+        { id = "w7_menu2_l2", when = { class = { "PRIEST", "PALADIN" } }, text = "An excellent choice! Lynn says a priest at the table is a blessing on the whole house, and the pie always comes out better on those nights. Mind, it's hot." },
+      },
+      choices = {
+        { text = "Thank you, Jim.", next = "BACK", reply = "Not at all, not at all. That's what the Shady Rest is for." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_menu3 = {
+      lines = {
+        { id = "w7_menu3_l1", text = "No kitchen? Of course there is, it's just there, behind... behind the... I'll go and see where Lynn's got to. She'll know. She always knows." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     inn = {
@@ -658,7 +803,7 @@ P:NPC {
         { id = "h_default", text = "Ingo Woolybush, of the Explorers' League, at yer service. The League sent me west to see what's under all this mud, and I'll tell ye, there's a good deal more than the humans think." },
       },
       again = {
-        { id = "h_again", text = "What else are ye after? I've maps for most of it." },
+        { id = "h_again", text = "What else are ye after, {g:lad|lass}? I've a map for nearly everything in this bog, and a guess for the rest." },
         { id = "h_again2", text = "Aye, go on, I can talk and draw." },
       },
       choices = {
@@ -669,7 +814,36 @@ P:NPC {
         { text = "What news would you send Ironforge?", next = "BACK", when = { race = "Dwarf" }, reply = "That the marsh hides more than mud, and I need more paper and another pair o' boots. Tell Magellas I'm still alive, if ye see him." },
         { text = "Tell me about Lillian at the inn.", next = "ylillian" },
         { text = "Have you found anything valuable?", next = "yvaluable" },
+        { text = "What does the League think of your findings?", next = "w7_league" },
         { text = "I'll mind the maps. Farewell.", next = "END" },
+      },
+    },
+    w7_league = {
+      lines = {
+        { id = "w7_league_l1", text = "Not much, yet, since half my letters never reach Ironforge. The ones that do come back with notes from Brann's people saying 'more drawings, fewer opinions', which I take as a compliment to my opinions." },
+      },
+      choices = {
+        { text = "What are your opinions?", next = "w7_league2" },
+        { text = "You should send more drawings.", next = "w7_league3" },
+        { text = "Something else, Ingo.", next = "BACK" },
+      },
+    },
+    w7_league2 = {
+      lines = {
+        { id = "w7_league2_l1", text = "That there's titan work under this marsh, older than the ogre mounds and older than the dragons, and that the black flight knows it. Why else would a broodmother settle in a bog, when she could have a mountain?" },
+        { id = "w7_league2_l2", when = { race = "Dwarf" }, text = "That there's titan work under this marsh, and that the black dragons know it. Ye'll understand, bein' one of us; we were made from the stone, and I can feel it humming under the peat at night. Somethin's down there." },
+      },
+      choices = {
+        { text = "That's a bold theory.", next = "BACK", reply = "Aye, and I'll prove it, if the bog doesnae swallow me first." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_league3 = {
+      lines = {
+        { id = "w7_league3_l1", text = "I do, and they're grand drawings, if I say so myself. But a drawing of a stone doesnae tell ye what the stone means, and that's the bit I care about." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     under = {
@@ -759,7 +933,7 @@ P:NPC {
         { id = "h_default", text = "Jensen Farran, bowyer. I string for the Theramore Guard and for any hunter with sense enough to come by, and I've not had a bow come back broken that wasn't the owner's fault." },
       },
       again = {
-        { id = "h_again", text = "What else did you want to know?" },
+        { id = "h_again", text = "What else did you want to know? Ask, while I've a fletching between my teeth and can't argue back." },
         { id = "h_again2", text = "Go on, I'm only fletching." },
       },
       choices = {
@@ -770,7 +944,36 @@ P:NPC {
         { text = "Do you sell to the Horde hunters too?", next = "BACK", when = { class = "HUNTER" }, reply = "Not over the counter, no. If one came to the door I'd give him a fair word, mind, under the Lady's peace." },
         { text = "What wood do you use here?", next = "ywood" },
         { text = "Do you have family on the island?", next = "yfamily" },
+        { text = "What's the hardest bow you ever made?", next = "w7_hard" },
         { text = "Straight shooting, Jensen.", next = "END" },
+      },
+    },
+    w7_hard = {
+      lines = {
+        { id = "w7_hard_l1", text = "A longbow for the Admiral himself, taller than I am, from a stave of Kul Tiran yew that took two years to season. He drew it once on the deck of the flagship, said it would do, and I've never been prouder of anything." },
+      },
+      choices = {
+        { text = "What happened to it?", next = "w7_hard2" },
+        { text = "Pride's a dangerous thing.", next = "w7_hard3" },
+        { text = "Something else, Jensen.", next = "BACK" },
+      },
+    },
+    w7_hard2 = {
+      lines = {
+        { id = "w7_hard2_l1", text = "It went down with him, off the coast of Durotar. I think about it some nights, lying at the bottom of the sea with the string rotted off, and I wonder if he had it in his hand at the end." },
+        { id = "w7_hard2_l2", when = { class = "HUNTER" }, text = "It went down with him off Durotar. You'll know what it is to lose a weapon you trusted; I lost one I made and never held again. Every bow since, I've made a little better, for him." },
+      },
+      choices = {
+        { text = "I'm sorry.", next = "BACK", reply = "Don't be. It's a good place for a bow to end, with a good man." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_hard3 = {
+      lines = {
+        { id = "w7_hard3_l1", text = "It is, but a craftsman without a little pride makes nothing worth keeping." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     guard = {
@@ -869,7 +1072,7 @@ P:NPC {
         { id = "h_default", text = "Decedra Willham, and I see that folk get on the right ship and off at the right end. The vessel from this pier crosses to Menethil Harbor in the Wetlands, and she's the only regular passage east we have." },
       },
       again = {
-        { id = "h_again", text = "Anything else before she sails?" },
+        { id = "h_again", text = "Anything else before she sails? Quickly, now; the captain hates a slow gangplank more than a storm." },
         { id = "h_again2", text = "Quick as you like, I've an eye on the tide." },
       },
       choices = {
@@ -880,7 +1083,36 @@ P:NPC {
         { text = "What's Menethil Harbor like?", next = "ymenethil" },
         { text = "Has anyone missed the ship badly?", next = "ymissed" },
         { text = "Any news of Ironforge off the boat?", next = "BACK", when = { race = "Dwarf" }, reply = "Only that the Menethil road's still bad and the dwarves at the Thandol Span are complaining about it. Same as last season, so I suppose that's good news." },
+        { text = "What's the strangest passenger you've seen board?", next = "w7_odd" },
         { text = "Thank you. Fair tides.", next = "END" },
+      },
+    },
+    w7_odd = {
+      lines = {
+        { id = "w7_odd_l1", text = "A goblin with a crate of live crabs he swore were trained, a night elf priestess who wouldn't step on the deck until it had been blessed, and once a dwarf who tried to bring his ram aboard and wouldn't take no for an answer." },
+      },
+      choices = {
+        { text = "Did the ram sail?", next = "w7_odd2" },
+        { text = "That's a busy pier.", next = "w7_odd3" },
+        { text = "Something else, Decedra.", next = "BACK" },
+      },
+    },
+    w7_odd2 = {
+      lines = {
+        { id = "w7_odd2_l1", text = "It did, tied to the mast, and it was sick the whole way to Menethil, and so was the dwarf. They both came back three months later on the return voyage, looking very pleased with themselves." },
+        { id = "w7_odd2_l2", when = { race = "Dwarf" }, text = "It did, tied to the mast. One of your lot, he was, and I'll say this for dwarves: you're loyal to your rams to a fault. If you meet a dwarf named Brodun in Menethil with a seasick ram, tell him I said hello." },
+      },
+      choices = {
+        { text = "I'll tell him.", next = "BACK", reply = "And tell him the mast still smells of goat." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_odd3 = {
+      lines = {
+        { id = "w7_odd3_l1", text = "Busy, and odd, and never the same twice. That's why I keep the job." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     crossing = {
@@ -951,7 +1183,7 @@ P:NPC {
         { id = "ybdwanewertle2", when = { race = "Dwarf" }, text = "For a dwarf, I'd roast a ram, if I had one. I'll settle for a boar and a barrel, and you'll not complain." },
       },
       choices = {
-        { text = "A good feast keeps the town cheerful.", next = "BACK", reply = "It does! You understand.", fx = { align = { light = 1 } } },
+        { text = "A good feast keeps the town cheerful.", next = "BACK", reply = "It does, and a cheerful garrison eats its greens without complaint. A feast is the cheapest morale there is, if you know how to stretch it.", fx = { align = { light = 1 } } },
         { text = "A feast is a waste of good supplies.", next = "BACK", reply = "Then you'll not be at my table. Out of the doorway.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
@@ -978,7 +1210,7 @@ P:NPC {
         { id = "h_default", text = "Dwane Wertle, chef to the citadel, and before you ask, yes, it's my name and my father wanted a boy. I feed the Theramore Guard three times a day, and not a man of them has gone on watch with an empty belly." },
       },
       again = {
-        { id = "h_again", text = "What else? Talk while I stir." },
+        { id = "h_again", text = "What else? Talk while I stir, and don't mind the steam; it's mostly onion and a little bit of Kul Tiran pepper." },
         { id = "h_again2", text = "Go on, and pass me that ladle." },
       },
       choices = {
@@ -989,7 +1221,36 @@ P:NPC {
         { text = "What's the strangest dish you've made?", next = "ystrange" },
         { text = "I'll eat anything. What's your spiciest?", next = "BACK", when = { race = "Troll" }, reply = "A pepper stew that made a marine weep in front of the whole mess hall. I'll make you a bowl and watch." },
         { text = "What do you cook on feast days?", next = "yfeast" },
+        { text = "What did you cook for the Admiral's crew?", next = "w7_crew" },
         { text = "I'll get out of your doorway.", next = "END" },
+      },
+    },
+    w7_crew = {
+      lines = {
+        { id = "w7_crew_l1", text = "Salt pork and hard bread, mostly, because that's what keeps at sea. But on feast nights I'd make a fish pie with the last of the butter, and the Admiral would come below and eat with the men, which most admirals never did." },
+      },
+      choices = {
+        { text = "He ate with the crew?", next = "w7_crew2" },
+        { text = "Sounds like you miss him.", next = "w7_crew3" },
+        { text = "Something else, Dwane.", next = "BACK" },
+      },
+    },
+    w7_crew2 = {
+      lines = {
+        { id = "w7_crew2_l1", text = "Every feast night, and he'd ask after their families by name. He was a hard man and he went too far at the end, but he was never too proud to sit on a barrel and eat a cook's pie." },
+        { id = "w7_crew2_l2", when = { faction = "Alliance" }, text = "Every feast night. You'll have heard both sides of him here, I'm sure. I'll only say he never once complained about my cooking, and that's more than I can say for the current garrison." },
+      },
+      choices = {
+        { text = "That's a good memory.", next = "BACK", reply = "It's one I keep. Pass the ladle, would you?" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_crew3 = {
+      lines = {
+        { id = "w7_crew3_l1", text = "I miss the feasts. The man, I mourn, which is different." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     eat = {
@@ -1070,7 +1331,36 @@ P:NPC {
         { text = "What do you keep in all these ledgers?", next = "ledgers" },
         { text = "You must know everyone on the island.", next = "everyone" },
         { text = "Do the records say who burned the inn?", next = "inn" },
+        { text = "What's the oldest entry in your ledgers?", next = "w7_first" },
         { text = "That's all, Clerk.", next = "END" },
+      },
+    },
+    w7_first = {
+      lines = {
+        { id = "w7_first_l1", text = "The first page of the first book, written aboard ship before we even landed: the names of everyone who sailed west with the Lady. Two thousand and sixty-one names, and I've marked a small cross beside every one who has died since." },
+      },
+      choices = {
+        { text = "How many crosses are there?", next = "w7_first2" },
+        { text = "That's a grim way to keep a record.", next = "w7_first3" },
+        { text = "Something else, Clerk.", next = "BACK" },
+      },
+    },
+    w7_first2 = {
+      lines = {
+        { id = "w7_first2_l1", text = "Four hundred and twelve, as of this morning. I check it every week, and every week I hope there won't be a new one, and some weeks there isn't." },
+        { id = "w7_first2_l2", when = { race = "Human" }, text = "Four hundred and twelve, as of this morning. Many of them were Lordaeron folk like you, perhaps, or kin of folk you knew. If you'd like me to look up a name, I can; it's what the book is for." },
+      },
+      choices = {
+        { text = "That's a heavy book.", next = "BACK", reply = "It is. But someone must carry it, or the names are lost." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_first3 = {
+      lines = {
+        { id = "w7_first3_l1", text = "Grim, perhaps, but honest. A town that forgets its dead forgets why it's here." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     hyal = {

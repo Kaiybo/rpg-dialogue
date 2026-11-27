@@ -256,6 +256,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_refuse = {
+      lines = {
+        { id = "w2_refuse_l0", text = "Fadeleaf, unless I've seen what he means tae do wi' it. He once brewed a draught that made him invisible for an hour, an' spent it hidin' in the kitchen eatin' the pie I'd made for the Mountaineers." },
+      },
+      choices = {
+        { text = "That seems a fair rule.", next = "w2_refuse_pie" },
+        { text = "Herbs should go to whoever pays for them.", next = "BACK", reply = "Coin doesnae make a fool safe wi' fadeleaf. I sell what I'd be happy tae see used.", fx = { align = { order = -1 } } },
+        { text = "An herbalist should know where her herbs end up.", next = "BACK", reply = "Aye, that's my whole trade in a sentence.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_refuse_pie = {
+      lines = {
+        { id = "w2_refuse_pie_l0", text = "He'd say no', but the crumbs on his beard said yes. I made him bake the next one himself, an' it came out o' the oven green, an' we dinnae talk about that either." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -279,6 +298,7 @@ P:NPC {
         { text = "I'd like some training.", next = "BUSINESS" },
         { text = "What does Ghak brew from your herbs?", next = "kh_brew" },
         { text = "Are the woods safe for gathering?", next = "kh_woods" },
+        { text = "Is there a herb you won't sell to Ghak?", next = "w2_refuse" },
         { text = "Good day, Kali.", next = "END" },
       },
     },

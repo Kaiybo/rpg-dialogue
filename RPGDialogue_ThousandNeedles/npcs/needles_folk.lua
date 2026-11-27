@@ -282,7 +282,7 @@ P:NPC {
         { id = "h_fpaladin", when = { class = "PALADIN", faction = "Horde" }, text = "A Forsaken paladin. Your charger would be welcome in my stable, if you keep one, and you would be welcome to rest beside it." },
       },
       again = {
-        { id = "h_again", text = "Is there more you would like to know about the stables?" },
+        { id = "h_again", text = "Is there more you'd like to know, friend? Ask softly; the young wolf in the end stall startles at every new voice." },
         { id = "h_again2", text = "Take your time; the animals aren't going anywhere, and the Earth Mother made them patient." },
       },
       choices = {
@@ -296,7 +296,36 @@ P:NPC {
         { text = "I like animals, Awenasa.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Do the stabled beasts ever fear warriors, Awenasa?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do the beasts in your stables fear the dead, Awenasa?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Which beast here is your favourite?", next = "w7_fav" },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+    w7_fav = {
+      lines = {
+        { id = "w7_fav_l1", text = "I am not meant to have one, but I do: an old grey wolf a hunter left with me three seasons ago and never came back for. He sleeps by the stable door every night as though he is still waiting, and I let him." },
+      },
+      choices = {
+        { text = "What happened to his hunter?", next = "w7_fav2" },
+        { text = "He's yours now.", next = "w7_fav3" },
+        { text = "Something else, Awenasa.", next = "BACK" },
+      },
+    },
+    w7_fav2 = {
+      lines = {
+        { id = "w7_fav2_l1", text = "The braves say she went down to the Grimtotem camps and did not come up again. I tell the wolf nothing, because he would not understand, and I sit with him in the evenings so he is not waiting alone." },
+        { id = "w7_fav2_l2", when = { class = "HUNTER" }, text = "The braves say she went to the Grimtotem camps and did not come back. You know what a beast feels when its hunter does not return; if you sit with him a while, he might like that. He knows the smell of a hunter." },
+      },
+      choices = {
+        { text = "That's a sad story.", next = "BACK", reply = "It is. But he is fed and warm, and that is something." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_fav3 = {
+      lines = {
+        { id = "w7_fav3_l1", text = "He is, I suppose, though I would never say it to him. A wolf can only belong to the one who tamed him; the rest of us are just good company." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     lift = {

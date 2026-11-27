@@ -36,7 +36,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The fire's hot and I don't like wasting it." },
-        { id = "h_again2", text = "Go on, I can listen and hammer both." },
+        { id = "h_again2", text = "Go on, I can listen and strike both, and the iron won't mind your questions." },
       },
       choices = {
         { text = "Who was Galvan?", next = "galvan" },
@@ -44,6 +44,7 @@ P:NPC {
         { text = "I'm a smith. Test me.", next = "test", when = { profession = "Blacksmithing" } },
         { text = "That anvil's seen a lot of years.", next = "anvil" },
         { text = "I wear plate. What should I look for?", next = "plate", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "What makes you send a smith away?", next = "e3_fail" },
         { text = "I'll leave you to your fire.", next = "END" },
       },
     },
@@ -120,6 +121,25 @@ P:NPC {
         { text = "Something else, Hank.", next = "BACK" },
       },
     },
+    e3_fail = {
+      lines = {
+        { id = "e3_fail_l0", text = "Rushing, mostly, and pride, which is rushing with its chest puffed out. I had a lad last spring hand me six bracers that shone like a noble's teapot, and every one of them split at the second rivet when I bent it over my knee." },
+      },
+      choices = {
+        { text = "Did he come back and try again?", next = "e3_fail2" },
+        { text = "Shine sells, though. Not every buyer bends bracers.", next = "BACK" },
+      },
+    },
+    e3_fail2 = {
+      lines = {
+        { id = "e3_fail2_l0", text = "He did, three months later, with burns on both hands and bracers that looked like nothing at all. I sent him south to Booty Bay with my mark on his letter, and McGavan wrote back that the boy hammers like a dwarf." },
+        { id = "e3_fail2_l1", when = { race = "Dwarf" }, text = "He did, and he'd been up to Ironforge in between to watch your folk at the Great Forge, which did him more good than anything I said. McGavan wrote back that the boy hammers like a dwarf now, and from a dwarf that's no small thing." },
+      },
+      choices = {
+        { text = "That's a good end to it. Something else.", next = "BACK" },
+        { text = "Burns teach better than words, I suppose.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I was a blacksmith's boy in this city until a dwarf saw something in me. Everything since has been hammering." } },
@@ -161,7 +181,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Is there something further? I have three districts' worth of births to file." },
-        { id = "h_again2", text = "Yes? Please be brief, and precise if you can." },
+        { id = "h_again2", text = "Yes? State your query in full, please, as I would prefer to file it only once." },
       },
       choices = {
         { text = "I have a parcel for an Emma Felstone.", next = "felstone", when = { questActive = TODO_QUEST("Better Late Than Never") } },
@@ -169,6 +189,7 @@ P:NPC {
         { text = "What do you mean, arcane means?", next = "arcane" },
         { text = "Am I in your records?", next = "me" },
         { text = "You must know everyone's secrets.", next = "secrets" },
+        { text = "Has a record of yours ever been wrong?", next = "e3_errors" },
         { text = "Good day, Factor.", next = "END" },
       },
     },
@@ -233,6 +254,24 @@ P:NPC {
         { text = "Something else.", next = "BACK" },
       },
     },
+    e3_errors = {
+      lines = {
+        { id = "e3_errors_l0", text = "Once, and I remember the date, the hour, and the name of the clerk who caused it. A man from Goldshire was entered as deceased because his cousin shared his name, and he came here in person, quite alive and very cross, to dispute it." },
+      },
+      choices = {
+        { text = "How do you prove a man is alive?", next = "e3_errors2" },
+        { text = "A small error, surely, in five years.", next = "BACK" },
+      },
+    },
+    e3_errors2 = {
+      lines = {
+        { id = "e3_errors2_l0", text = "With great difficulty, because the record said otherwise, and the record is meant to be right. In the end I had the priest of Northshire attest to him in writing, and the clerk now files births in the Dwarven District, where I hope he is very unhappy." },
+      },
+      choices = {
+        { text = "Harsh, but I suppose accuracy matters. Something else.", next = "BACK" },
+        { text = "That poor clerk.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "A clerk who was very good at counting, and was punished for it by promotion." } },
@@ -280,6 +319,7 @@ P:NPC {
         { text = "Why does SI:7 keep a doctor in the cellar?", next = "cellar" },
         { text = "Fellow gnome. Do you miss Gnomeregan?", next = "gnomeregan", when = { race = "Gnome" } },
         { text = "What's in the green flask?", next = "green" },
+        { text = "Who else comes down here for treatment?", next = "e3_patients" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -337,6 +377,25 @@ P:NPC {
     gnomeregan = {
       lines = { { id = "gn_default", text = "Every day, and the laboratories most of all, which had proper ventilation and no spiders. But a physician goes where the patients are, and these days they're in Stormwind, so here I am, under a barracks.", fx = { learn = { "gnomeregan" } } } },
       choices = { { text = "We'll take it back one day.", next = "BACK", reply = "Of course we will! I've already drawn up the plans for my new laboratory, with a window for the squirrel." } },
+    },
+    e3_patients = {
+      lines = {
+        { id = "e3_patients_l0", text = "Agents with knife wounds that won't close, couriers who drank something in Booty Bay they shouldn't have, and once a priest who'd been reading a book he'd been told not to. I don't keep names, only symptoms, which is a great deal more interesting and a great deal safer." },
+        { id = "e3_patients_l1", when = { class = "ROGUE" }, text = "People in your line of work, mostly, which you'd have guessed. Shaw's agents come in at odd hours with odd wounds, and I patch them up without asking where they got them, because frankly I don't want to know." },
+      },
+      choices = {
+        { text = "What happened to the priest?", next = "e3_patients2" },
+        { text = "You'd make a poor witness in court, Doc.", next = "BACK" },
+      },
+    },
+    e3_patients2 = {
+      lines = {
+        { id = "e3_patients2_l0", text = "He recovered, mostly, apart from a habit of reciting verses backwards when he's tired, which the Cathedral tells me is quite harmless. I keep a jar of his first symptoms on the top shelf, and the squirrel won't go near it, which tells you everything." },
+      },
+      choices = {
+        { text = "I'll not ask what's in the jar. Something else.", next = "BACK" },
+        { text = "I'd trust the squirrel on that one.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -420,6 +479,7 @@ P:NPC {
         { text = "I'm a tailor. Cloth is my living, Clavicus.", next = "tailor", when = { profession = "Tailoring" } },
         { text = "Who sorts all these donations?", next = "d6_sort" },
         { text = "What are the refugee houses like?", next = "d6_refugee" },
+        { text = "How does the cloth reach you from the farms now?", next = "e3_wagon" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -466,6 +526,24 @@ P:NPC {
         { text = "You're right. I'll give what I can.", next = "BACK", reply = "Thank you, friend. Stormwind remembers who carried cloth in its lean years.", fx = { align = { light = 1 }, affinity = 1 } },
         { text = "I'll give when it pays. Not before.", next = "BACK", reply = "It does pay, in respect, if not in coin. Come back when you've decided it's worth it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_wagon = {
+      lines = {
+        { id = "e3_wagon_l0", text = "By any wagon that'll take it, friend, and by fewer every season. The Westfall carts stopped when the Defias took the roads, so now it's Elwynn sheep from around Goldshire and the Maclure farm, and the odd bale off a ship from Menethil." },
+      },
+      choices = {
+        { text = "Then the Westfall road needs clearing before anything else.", next = "e3_wagon2" },
+        { text = "Menethil wool must cost twice as much.", next = "BACK" },
+      },
+    },
+    e3_wagon2 = {
+      lines = {
+        { id = "e3_wagon2_l0", text = "You'll get no argument from me, and you'll find plenty of folk at Sentinel Hill who say the same. Gryan Stoutmantle takes volunteers, I hear, and every bandit he puts away is another cart of wool I might see again." },
+      },
+      choices = {
+        { text = "Perhaps I'll visit Sentinel Hill. Something else.", next = "BACK" },
+        { text = "I'll leave the road to the soldiers.", next = "BACK" },
       },
     },
   },
@@ -700,6 +778,7 @@ P:NPC {
         { text = "Does the library keep any spellbooks?", next = "spellbooks", when = { class = { "MAGE", "WARLOCK", "PRIEST" } } },
         { text = "What's Milton Sheaf like to work beside?", next = "d6_milton" },
         { text = "Who reads in the library most?", next = "d6_readers" },
+        { text = "How do you keep the old books from falling apart?", next = "e3_care" },
         { text = "I'll let you get back to your shelves.", next = "END" },
       },
     },
@@ -744,6 +823,24 @@ P:NPC {
         { text = "Then open the doors to anyone who wants to read.", next = "BACK", reply = "I would, if I could keep the pages from walking out. Someday, perhaps.", fx = { align = { light = 1 } } },
         { text = "Some books aren't meant for everyone, Donyal.", next = "BACK", reply = "Some aren't, which is why they're kept further in. But the law isn't one of them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_care = {
+      lines = {
+        { id = "e3_care_l0", text = "Dry air, no candles near the shelves, and turning the pages with a bone knife rather than a wet thumb. The damp off the harbor is the real enemy, and every autumn I lose a little sleep watching the mould creep along the bottom of the eastern stacks." },
+      },
+      choices = {
+        { text = "Couldn't a mage ward them against the damp?", next = "e3_care2" },
+        { text = "A library sounds like a battle you fight every day.", next = "BACK" },
+      },
+    },
+    e3_care2 = {
+      lines = {
+        { id = "e3_care2_l0", text = "They could, and Garion Wendell says so every time we meet, but a ward wants paying for and the crown's purse is closed. I've asked three times in writing, and I've had two replies telling me my request has been filed, which, I'll admit, amuses me." },
+      },
+      choices = {
+        { text = "Filed, like everything else. Something else.", next = "BACK" },
+        { text = "Keep asking. Something else.", next = "BACK" },
       },
     },
   },
@@ -801,6 +898,7 @@ P:NPC {
         { text = "You speak of lost books as if they were people.", next = "people" },
         { text = "I've found books in stranger places than tombs.", next = "finds", when = { class = "MAGE", minLevel = 30 } },
         { text = "My people kept libraries before yours had letters.", next = "elves", when = { race = "NightElf" } },
+        { text = "Is there a book you've been hoping someone will find?", next = "e3_lost" },
         { text = "Good day, Garion.", next = "END" },
       },
     },
@@ -874,6 +972,25 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_lost = {
+      lines = {
+        { id = "e3_lost_l0", text = "There is, though I hardly dare say it aloud: a copy of the Dalaran register of apprentices, which went missing in the burning of the city. Half the mages who came south don't know which of their old classmates lived, and that register would tell them." },
+        { id = "e3_lost_l1", when = { class = "MAGE" }, text = "There is, and you might be the one to find it: a copy of the Dalaran register of apprentices, lost when the city burned. You'd likely see your own masters' names in it, and the names of a great many who never came south." },
+      },
+      choices = {
+        { text = "Where would a book like that turn up?", next = "e3_lost2" },
+        { text = "Some things are better left unknown.", next = "BACK" },
+      },
+    },
+    e3_lost2 = {
+      lines = {
+        { id = "e3_lost2_l0", text = "Anywhere the refugees passed, I'd think, so the Hillsbrad farms, the Alterac roads, or some looter's pack in the Arathi Highlands. If you ever find a book with the Kirin Tor's seal on its spine, bring it here before you sell it, I beg you." },
+      },
+      choices = {
+        { text = "I'll keep an eye out for that seal.", next = "BACK" },
+        { text = "Something else, Garion.", next = "BACK" },
       },
     },
   },

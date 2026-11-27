@@ -588,7 +588,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Talk does not fill bellies." },
-        { id = "h_again2", text = "Ask, then, but be quick about it." },
+        { id = "h_again2", text = "Ask, outsider, and keep your eyes on the ridge while you do; the pigs never stop for talk." },
       },
       choices = {
         { text = "I killed Orgrul's outcasts. They were Magram once.", next = "dd_outcasts", when = { questDone = TODO_QUEST("Outcast Necromancers") } },

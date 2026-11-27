@@ -52,7 +52,28 @@ P:NPC {
         { text = "How did a tailor end up here?", next = "tailor" },
         { text = "I'm a tailor myself. Is the ogre suit good work?", next = "gt_stitch", when = { profession = "Tailoring" } },
         { text = "Will the Cartel even pay to get you back?", next = "gt_cartel", when = { race = "Goblin" } },
+        { text = "What's the worst thing you've sewn for an ogre?", next = "w9_worst" },
         { text = "Sit tight, Knot.", next = "END" },
+      },
+    },
+
+    w9_worst = {
+      lines = {
+        { id = "w9_worst_d", text = "A wedding gown, pal, for a two-headed lady ogre who couldn't agree with herself on the neckline. One head wanted lace and the other wanted spikes, and I ended up sewin' both, and I've never been so proud and so ashamed of a garment in my life." },
+        { id = "w9_worst_v1", when = { profession = "Tailoring" }, text = "A wedding gown, colleague, for a two-headed lady ogre, and you'll appreciate the problem: two necklines, two opinions and one budget, which was zero. I did lace on the left and spikes on the right, and it's the finest compromise I ever stitched." },
+      },
+      choices = {
+        { text = "Did they pay for it?", next = "w9_worst2" },
+        { text = "Two heads, two necklines. Clever.", next = "w9_worst2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_worst2 = {
+      lines = { { id = "w9_worst2_d", text = "Pay? They chained me tighter, so I'd be handy for the christening, which is the ogre idea of a tip. That's when I knew I had to get out, pal, because no tailor should ever have to make a christening robe for something with four eyes." } },
+      choices = {
+        { text = "Then let's get you out.", next = "BACK", reply = "Now you're talkin'! Find that key and I'll owe ya one, which from a goblin is practically a contract." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     suit = {
@@ -149,7 +170,25 @@ P:NPC {
         { text = "Why didn't you ever want to be king?", next = "ynever" },
         { text = "What happens to old kings?", next = "yold" },
         { text = "A rogue appreciates a crafty ogre.", next = "BACK", when = { class = "ROGUE" }, reply = "Mizzle sees you, sneaky one. Mizzle likes sneaky. Sneaky lives longer than smashy." },
+        { text = "Does Mizzle have any friends among the Gordok?", next = "w9_friends" },
         { text = "Carry on, Mizzle.", next = "END" },
+      },
+    },
+
+    w9_friends = {
+      lines = { { id = "w9_friends_d", text = "Mizzle has many friends, king, as long as Mizzle has tribute to share. The guards like Mizzle because Mizzle tells them when the king is in a bad mood, and the king likes Mizzle because Mizzle never tells the king what the guards say." } },
+      choices = {
+        { text = "So you're everyone's friend.", next = "w9_friends2" },
+        { text = "That sounds like a dangerous game.", next = "w9_friends2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_friends2 = {
+      lines = { { id = "w9_friends2_d", text = "Everyone's friend is nobody's enemy, king, and nobody's enemy lives a long time in Dire Maul. Kings come and kings get smashed, but the ogre who knows everyone's secrets is the one they all forget to smash." } },
+      choices = {
+        { text = "Crafty indeed.", next = "BACK", reply = "That is why they call Mizzle the Crafty, king, and not the Smashed." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     king = {

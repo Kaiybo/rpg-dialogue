@@ -713,7 +713,7 @@ P:NPC {
         { id = "h_huntcl", when = { class = "HUNTER", faction = "Horde" }, text = "A hunter. You'll want a gun or a bow from somebody else, but you'll want something for close work from me." },
       },
       choices = {
-        { text = "A sharp blade honors the smith.", next = "BACK", reply = "It does. You understand.", fx = { align = { honor = 1 } } },
+        { text = "A sharp blade honors the smith.", next = "BACK", reply = "It does. A dull blade shames the smith before it shames the warrior.", fx = { align = { honor = 1 } } },
         { text = "Any blade will do.", next = "BACK", reply = "Then buy any blade elsewhere.", fx = { align = { honor = -1 } } },
         { text = "Why are priests so fond of maces, Uhgar?", next = "xhpriest", when = { class = "PRIEST", race = { "Troll", "Scourge" } } },
         { text = "What weapon suits a shaman, Uhgar?", next = "xhsham", when = { class = "SHAMAN" } },
@@ -1367,7 +1367,7 @@ P:NPC {
     xorig_bwon = {
       lines = { { id = "xbw_default", text = "Then you carry a heavy song, mon, and I hear you at the fires some nights when the wind come in off the sea. My brother fell on those isles when Zalazane turned, so if you ever have a verse to spare, would you sing his name for me?" } },
       choices = {
-        { text = "Healing serves de whole Horde.", next = "BACK", reply = "It do, mon. You understand.", fx = { align = { light = 1 } } },
+        { text = "Healing serves de whole Horde.", next = "BACK", reply = "Every one of dem, mon, orc an' troll an' tauren alike. A wound don't ask which tribe it be in.", fx = { align = { light = 1 } } },
         { text = "Healers should only help their own.", next = "BACK", reply = "Den you not understand de Light, mon.", fx = { align = { light = -1 } } },
         { text = "I'll sing it tonight, Tai'jin.", next = "BACK", fx = { affinity = 2, trait = { kind = 1 } } },
         { text = "Bwonsamdi already knows his name, Tai'jin.", next = "BACK", fx = { trait = { stern = 1 } } },
@@ -1548,7 +1548,7 @@ P:NPC {
     xorig_zand = {
       lines = { { id = "xzd_default", text = "Zandalari scrolls, mon? Un'Thuwa would trade his best robe for one page of those, and you learned from them before you were half grown. The Zandalari be the oldest of all the trolls, so tell me, do you still have them?" } },
       choices = {
-        { text = "The arcane needs careful study.", next = "BACK", reply = "It do, mon. You learn well.", fx = { align = { order = 1 } } },
+        { text = "The arcane needs careful study.", next = "BACK", reply = "Careful, an' slow, an' wit' de door shut, mon. De arcane don't forgive a hurry.", fx = { align = { order = 1 } } },
         { text = "The arcane should be used, not studied.", next = "BACK", reply = "Den you set somethin' on fire.", fx = { align = { order = -1 } } },
         { text = "They're safe, and they're staying that way.", next = "BACK", fx = { trait = { cautious = 1 } } },
         { text = "Some. Others burned when I got a spell wrong.", next = "BACK", fx = { affinity = 1, trait = { witty = 1 } } },

@@ -33,6 +33,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_hand = {
+      lines = { { id = "w8_hand_a", text = "Uther's voice in the chapel at Hearthglen, and the oath we took with our hands on the hammer, and the feeling that the Light was very near. It was a brotherhood, before the plague, and I thought nothing in the world could break it." } },
+      choices = {
+        { text = "The order still stands in Stormwind.", next = "w8_hand2" },
+        { text = "Arthas broke more than a city.", next = "w8_hand2" },
+        { text = "I'm a paladin. The oath still holds me.", next = "w8_hand2", when = { class = "PALADIN" } },
+        { text = "Something else, Aurius.", next = "BACK" },
+      },
+    },
+    w8_hand2 = {
+      lines = {
+        { id = "w8_hand2_a", text = "It does, I am told, and I am glad of it, though I could not go back and stand among them. I have taken a smaller oath since, to see the Baron answer for this city, and I mean to keep it before I keep any other." },
+        { id = "w8_hand2_pal", when = { class = "PALADIN" }, text = "Then you are my brother in it, or my sister, and I am not as alone in this city as I believed. Keep the oath, whatever Stratholme shows you, because I have seen what happens to those who let it go." },
+      },
+      choices = {
+        { text = "The Baron will answer.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Aurius. I served the Silver Hand before Arthas broke it, and I came back to Stratholme because the man who rules its dead, Baron Rivendare, still sits on the throne of my city." },
@@ -40,7 +60,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask what you must. Then go carefully." },
-        { id = "h_again2", text = "I am still here. What else?" },
+        { id = "h_again2", text = "I am still here, and the dead are still walking. What else would you ask?" },
       },
       choices = {
         { text = "Who is Baron Rivendare?", next = "rivendare" },
@@ -50,6 +70,7 @@ P:NPC {
         { text = "I'm of the Light too. Ride with me against him.", next = "paladin", when = { class = { "PALADIN", "PRIEST" } } },
         { text = "I was one of this city's dead once.", next = "forsaken", when = { race = "Scourge" } },
         { text = "What do you need done?", next = "BUSINESS" },
+        { text = "What do you remember of the Silver Hand?", next = "w8_hand" },
         { text = "Stay safe, paladin.", next = "END" },
       },
     },
@@ -146,6 +167,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_sane = {
+      lines = { { id = "w8_sane_a", text = "I recited the names of every street in Stratholme, from the gate to the cathedral, and then the names of the bakers on each one. When I forgot one, I cried, and when I remembered it, I started over." } },
+      choices = {
+        { text = "That was clever.", next = "w8_sane2" },
+        { text = "Did you forget many?", next = "w8_sane2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_sane2 = {
+      lines = { { id = "w8_sane2_a", text = "Only three, by the end, and I'll find them again somewhere far away from here. Anthion will know the rest, because he knew every baker in the city by name, and every one of them knew him." } },
+      choices = {
+        { text = "Then let's get you to him.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "My name is Ysida Harmon. The Baron kept me alive for his amusement, to watch what he did to the others. I'm not sure how long I was in there." },
@@ -162,6 +199,7 @@ P:NPC {
         { text = "I was of Lordaeron once, like you.", next = "forsaken", when = { race = "Scourge" } },
         { text = "May the Light give you strength, Ysida.", next = "light", when = { class = { "PRIEST", "PALADIN" } } },
         { text = "What will you do, once you're free?", next = "yfree" },
+        { text = "How did you stay sane in that cage?", next = "w8_sane" },
         { text = "Let's get you out of here.", next = "END" },
       },
     },

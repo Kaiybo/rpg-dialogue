@@ -30,6 +30,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2read = {
+      lines = {
+        { id = "w2rd_shaman", when = { class = "SHAMAN" }, text = "Dat you walk like one who listens, young shaman, but you lean forward too much, always in a hurry to hear de next thing. Stand back on your heels a little, an' de earth will come to you." },
+        { id = "w2rd_default", text = "Dat you walk heavy on de left foot, mon, like somebody who expects to be hit from dat side. De earth don't judge it, but it notices, an' so do I." },
+      },
+      choices = {
+        { text = "What else does it notice?", next = "w2read2" },
+        { text = "That sounds like guesswork.", next = "w2read2" },
+        { text = "Something else, Canaga.", next = "BACK" },
+      },
+    },
+    w2read2 = {
+      lines = { { id = "w2rd2_default", text = "Dat you came back to dis valley when you didn't have to, which most young ones never do. De earth likes dose who return, mon. It be de one thing it can't do for itself." } },
+      choices = { { text = "Then I'll keep coming back.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -53,6 +68,7 @@ P:NPC {
         { text = "Why felstalker hooves?", next = "felstalkers", when = { class = "SHAMAN" } },
         { text = "What's a sapta?", next = "sapta", when = { class = "SHAMAN" } },
         { text = "How do the trolls fare among orcs here?", next = "trolls" },
+        { text = "What does the earth tell you about me?", next = "w2read" },
         { text = "Farewell, Canaga.", next = "END" },
       },
     },

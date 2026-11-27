@@ -49,7 +49,25 @@ P:NPC {
         { text = "I've done nothing to the Cartel.", next = "innocent", when = { reputation = { faction = "Everlook", min = "friendly" } } },
         { text = "What sort of trouble gets a person barred from Everlook?", next = "trouble" },
         { text = "Who actually runs Everlook?", next = "runs" },
+        { text = "Who are your worst repeat customers?", next = "w9_repeat" },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+
+    w9_repeat = {
+      lines = { { id = "w9_repeat_d", text = "There's a dwarf, pal, who's punched the same Bruiser four times since spring, and every time he comes in here with runecloth and an apology that sounds an awful lot like a threat. I've started keepin' his bundle size on file, so he don't even have to ask." } },
+      choices = {
+        { text = "Why does he keep doing it?", next = "w9_repeat2" },
+        { text = "Sounds like he's your best customer.", next = "w9_repeat2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_repeat2 = {
+      lines = { { id = "w9_repeat2_d", text = "Says the Bruiser looked at his beard funny, and the Bruiser says he never, and I say both of 'em are worth more to me angry than friendly. Redemption's a subscription business, chum, and the trick is never to forgive anybody all the way." } },
+      choices = {
+        { text = "That's a cynical way to sell forgiveness.", next = "BACK", reply = "Cynical's just honest with a winter coat on, pal." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     price = {
@@ -175,7 +193,28 @@ P:NPC {
         { text = "Armor's a crutch. A good fighter doesn't get hit.", next = "crutch" },
         { text = "What's out there that can crack plate?", next = "crack", when = { class = { "WARRIOR", "PALADIN", "SHAMAN" } } },
         { text = "Who forges your stock?", next = "forges", when = { profession = "Blacksmithing" } },
+        { text = "What do the yetis do to armor?", next = "w9_yeti" },
         { text = "Stay warm, Nixxrak.", next = "END" },
+      },
+    },
+
+    w9_yeti = {
+      lines = {
+        { id = "w9_yeti_d", text = "Four claws, pal, straight down the front, like they're signing it! The Ice Thistle yetis up in the hills hit like a falling mine cart, and every second customer comes back with the same four grooves across the breastplate and the same sorry look." },
+        { id = "w9_yeti_v1", when = { class = "WARRIOR" }, text = "Four claws, straight down the front, and you warriors always take it on the chest, 'cause you're too proud to sidestep! The Ice Thistle yetis hit like a falling mine cart, buddy, and I've hammered those four grooves out of more plate than I can count." },
+      },
+      choices = {
+        { text = "Can you hammer those out?", next = "w9_yeti2" },
+        { text = "Maybe I'll just dodge.", next = "w9_yeti2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_yeti2 = {
+      lines = { { id = "w9_yeti2_d", text = "Hammer 'em out, sure, at a modest fee, or leave 'em in, and every yeti that sees 'em knows you lived through the last one. Personally I'd leave 'em, pal, 'cause a scarred breastplate scares bandits better than a new one, and it's cheaper." } },
+      choices = {
+        { text = "I'll keep my scars, then.", next = "BACK", reply = "Ha! Now you're thinkin' like a real Everlook customer." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     freeze = {
@@ -295,7 +334,7 @@ P:NPC {
       again = {
         { id = "hello_again1", text = "Something else, friend? Ask, ask, I worry when it's quiet." },
         { id = "hello_again2", text = "Go on, pal. I'm listening and I'm restocking." },
-        { id = "hello_again3", text = "Yeah? What else do ya need?" },
+        { id = "hello_again3", text = "Yeah? What else, pal? Gloves, a hood, a scarf? Ya look cold just standin' there." },
       },
       choices = {
         { text = "Show me what you've got.", next = "BUSINESS" },
@@ -304,7 +343,25 @@ P:NPC {
         { text = "Light armor is for people who plan to run.", next = "run" },
         { text = "What would you put on a spellcaster up here?", next = "caster", when = { class = { "MAGE", "PRIEST", "WARLOCK", "DRUID" } } },
         { text = "Do you buy from crafters?", next = "crafters", when = { profession = { "Tailoring", "Leatherworking" } } },
+        { text = "Do the Timbermaw ever buy from you?", next = "w9_timber" },
         { text = "Thanks, Blixxrak.", next = "END" },
+      },
+    },
+
+    w9_timber = {
+      lines = { { id = "w9_timber_d", text = "Oh, pal, the Timbermaw are my favorite customers, because they pay in honey and they never haggle! The trouble is the sizes, 'cause nothing I stock fits a furbolg, so mostly they buy scarves and wear 'em as belts." } },
+      choices = {
+        { text = "Scarves as belts?", next = "w9_timber2" },
+        { text = "You should stock bigger sizes.", next = "w9_timber2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_timber2 = {
+      lines = { { id = "w9_timber2_d", text = "They look very distinguished, too, I won't hear a word against it! I asked Nixxrak to forge me a bigger mannequin so I could cut furbolg patterns, and he laughed so hard he burned his own apron, so now it's a family matter." } },
+      choices = {
+        { text = "Keep at it. They'll come around.", next = "BACK", reply = "That's what I keep tellin' myself, pal, and my ledger agrees." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     sells = {
@@ -433,7 +490,25 @@ P:NPC {
         { text = "Goblin engineering is just gnomish with the safety off.", next = "gnomish" },
         { text = "Anything special under the counter?", next = "special", when = { profession = "Engineering" } },
         { text = "Do you sell much to Alliance tinkers?", next = "alliance", when = { race = { "Gnome", "Dwarf" } } },
+        { text = "Who's your biggest customer?", next = "w9_cust" },
         { text = "Keep your powder dry, Xizzer.", next = "END" },
+      },
+    },
+
+    w9_cust = {
+      lines = { { id = "w9_cust_d", text = "Zap Farflinger, pal, by a mile, and also my biggest headache, because he buys on credit and pays in promises about his imploder. Every week he comes in for another crate of fuses, and every week something across town goes bang, and I add it to his tab." } },
+      choices = {
+        { text = "Does he ever pay?", next = "w9_cust2" },
+        { text = "Why keep selling to him?", next = "w9_cust2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_cust2 = {
+      lines = { { id = "w9_cust2_d", text = "Twice, both times in gold that smelled like ozone, which I didn't ask about. I keep selling to him because if that imploder ever works, I want to be the guy who sold him the parts, and if it doesn't, well, I'll have the best explosion story in Winterspring." } },
+      choices = {
+        { text = "Smart investment.", next = "BACK", reply = "High risk, high return, friend. That's engineering and banking both." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     cold = {
@@ -554,7 +629,7 @@ P:NPC {
       again = {
         { id = "hello_again1", text = "Is there something further? I am in no haste." },
         { id = "hello_again2", text = "Ask, by all means. The scales will keep." },
-        { id = "hello_again3", text = "Yes? I am listening." },
+        { id = "hello_again3", text = "Yes? I am listening, though I will keep to my weighing as you speak; the scales do not rest." },
       },
       choices = {
         { text = "Show me your supplies.", next = "BUSINESS" },
@@ -563,7 +638,25 @@ P:NPC {
         { text = "Goblins and honest weights don't usually mix.", next = "weights" },
         { text = "What's the secret to working thorium?", next = "thorium", when = { profession = { "Blacksmithing", "Mining" } } },
         { text = "Did you know Lordaeron before the plague?", next = "lordaeron", when = { race = "Human" } },
+        { text = "Your stall is tidier than anything in Everlook.", next = "w9_tidy" },
         { text = "Good trading, Daleohm.", next = "END" },
+      },
+    },
+
+    w9_tidy = {
+      lines = { { id = "w9_tidy_d", text = "It is the one discipline I brought with me from the south, and I find it steadies me. Every ingot squared, every sack of coal tied the same way, and when the goblins see it, they assume I am hiding something behind all that order." } },
+      choices = {
+        { text = "Are you hiding something?", next = "w9_tidy2" },
+        { text = "The goblins seem unsettled by it.", next = "w9_tidy2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_tidy2 = {
+      lines = { { id = "w9_tidy2_d", text = "Only that I have nothing left to hide, which is a stranger thing than any secret. The Scourge took my house and my ledgers and my name in the Silvermoon markets, and a tidy stall is a small, honest thing that no one can burn." } },
+      choices = {
+        { text = "That's a fine thing to hold on to.", next = "BACK", reply = "It is what I have. I would not trade it for warmth." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     far = {
@@ -691,7 +784,25 @@ P:NPC {
         { text = "The goblins at Everlook would undercut you.", next = "goblins" },
         { text = "What do crafters ask you for most?", next = "ask", when = { profession = { "Tailoring", "Leatherworking", "Skinning" } } },
         { text = "Do you miss the green of Ashenvale?", next = "green", when = { race = "NightElf" } },
+        { text = "Who are your few customers?", next = "w9_cust" },
         { text = "Elune keep you warm, Syurana.", next = "END" },
+      },
+    },
+
+    w9_cust = {
+      lines = { { id = "w9_cust_d", text = "The Sentinels, who need thread for their cloaks and never complain about the price, and Natheril, who buys salt and gives me tea in return. Now and then one of Jaron Stoneshaper's diggers climbs up for a new pick handle and tracks snow across my whole floor." } },
+      choices = {
+        { text = "Do you mind the dwarves?", next = "w9_cust2" },
+        { text = "It sounds like a lonely trade.", next = "w9_cust2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_cust2 = {
+      lines = { { id = "w9_cust2_d", text = "I mind their boots, not their company, and they sing very badly on their way back down, which I have come to look forward to. A shop on a hill teaches you to value every voice, even the ones out of tune." } },
+      choices = {
+        { text = "I'll mind my boots, then.", next = "BACK", reply = "Thank you. The broom is behind the door, if you forget." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     shop = {

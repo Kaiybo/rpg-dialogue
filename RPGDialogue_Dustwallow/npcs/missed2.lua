@@ -82,7 +82,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Be quick, they slack off when I turn my back." },
-        { id = "h_again2", text = "Speak up, over the hammering." },
+        { id = "h_again2", text = "Speak up, over the hammering, and stand where I can see both you and those slackers by the dummies." },
       },
       choices = {
         { text = "What do you teach them first?", next = "first" },
@@ -92,7 +92,36 @@ P:NPC {
         { text = "Do you and Szigeti agree on much?", next = "yszigeti" },
         { text = "Run me through your drill.", next = "BACK", when = { class = "WARRIOR" }, reply = "Shield up, feet wide, and take my count. Not bad. Not good, but not bad, and better than this lot by a mile." },
         { text = "What's the worst recruit you ever had?", next = "yworst" },
+        { text = "What makes a recruit worth keeping?", next = "w7_keep" },
         { text = "Carry on, Combat Master.", next = "END" },
+      },
+    },
+    w7_keep = {
+      lines = {
+        { id = "w7_keep_l1", text = "Getting up. I don't care if they fall, I don't care if they cry, I care whether they get up again before I've finished shouting. The ones who stay down I send to Thomas for desk work, and the ones who get up I keep." },
+      },
+      choices = {
+        { text = "Have you ever been wrong about one?", next = "w7_keep2" },
+        { text = "That's harsh.", next = "w7_keep3" },
+        { text = "Something else, Combat Master.", next = "BACK" },
+      },
+    },
+    w7_keep2 = {
+      lines = {
+        { id = "w7_keep2_l1", text = "Once. A girl from the fishing boats who stayed down three times her first morning, and I sent her off. Narrisha, her name was. Thomas took her, and now she's the best of his Blues and won't let me forget it." },
+        { id = "w7_keep2_l2", when = { class = "WARRIOR" }, text = "Once, and it still stings. Narrisha stayed down three times and I sent her away; Thomas made her a Blue, and she's the cleverest fighter in the yard. You'll know the lesson: getting up isn't the only kind of courage." },
+      },
+      choices = {
+        { text = "Even you learn something.", next = "BACK", reply = "Don't tell the recruits. They'll want to teach me more." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_keep3 = {
+      lines = {
+        { id = "w7_keep3_l1", text = "The marsh is harsher, and the dragons harsher still. I'd rather they cry in my yard than die out there." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     first = {
@@ -198,7 +227,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask, and I'll answer between bouts." },
-        { id = "h_again2", text = "Yes, what else would you ask?" },
+        { id = "h_again2", text = "Yes, what else would you ask? Quietly, please; I listen better than I shout, which surprises Criton daily." },
       },
       choices = {
         { text = "You don't shout the way Criton does.", next = "quiet" },
@@ -208,7 +237,36 @@ P:NPC {
         { text = "What do you think of the Red and Blue teams?", next = "yteams" },
         { text = "My people fought the undead too.", next = "BACK", when = { race = "NightElf" }, reply = "I saw your sentinels at Hyjal only in the stories the Lady's guards told. If half of it is true, I'd learn a great deal from watching one of you." },
         { text = "Why did you choose the sword?", next = "ychoose" },
+        { text = "What do you do after the recruits leave the yard?", next = "w7_after" },
         { text = "I'll stand clear. Good day.", next = "END" },
+      },
+    },
+    w7_after = {
+      lines = {
+        { id = "w7_after_l1", text = "I practise alone, by lamplight, the forms my father taught me. Most of them are useless against an ogre or a dragon, but they keep my hands honest, and they remind me of who I was before the plague." },
+      },
+      choices = {
+        { text = "Teach me one of them.", next = "w7_after2" },
+        { text = "Forms won't save you in a real fight.", next = "w7_after3" },
+        { text = "Something else, Szigeti.", next = "BACK" },
+      },
+    },
+    w7_after2 = {
+      lines = {
+        { id = "w7_after2_l1", text = "There is one called the Courtier's Bow, where you bend as if in greeting and come up inside your opponent's guard. My father thought it very elegant. I think it very rude, and therefore very useful." },
+        { id = "w7_after2_l2", when = { class = { "ROGUE", "WARRIOR" } }, text = "The Courtier's Bow. You have quick hands, so watch: bend as in greeting, come up inside the guard, and the blade is already where it needs to be. My father used it at court. I used it on the walls." },
+      },
+      choices = {
+        { text = "A rude bow. I like it.", next = "BACK", reply = "Practise it on Criton. He'll never see it coming." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_after3 = {
+      lines = {
+        { id = "w7_after3_l1", text = "No, but they will save me from forgetting. Some nights that is the harder fight." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     quiet = {
@@ -315,7 +373,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Keep an eye on the bout while you ask." },
-        { id = "h_again2", text = "Go on, quickly now." },
+        { id = "h_again2", text = "Go on, quickly now, before Thomas chalks another point while I'm not looking." },
       },
       choices = {
         { text = "Who's winning, Red or Blue?", next = "winning" },
@@ -325,7 +383,36 @@ P:NPC {
         { text = "Do you ever lose sleep over the real fight?", next = "ysleep" },
         { text = "I'd spar with your Reds.", next = "BACK", when = { class = "WARRIOR" }, reply = "Would you? Then come by at dawn and take Jarad, and don't go easy, for he'll learn more from losing to you than winning against Edward." },
         { text = "How did you come to Theramore?", next = "ycame" },
+        { text = "What do you tell your Reds before a bout?", next = "w7_speech" },
         { text = "Good luck to the Reds, Captain.", next = "END" },
+      },
+    },
+    w7_speech = {
+      lines = {
+        { id = "w7_speech_l1", text = "That the Blues are clever, and cleverness is a fine thing until someone hits it very hard. Then I tell Jarad not to hit anyone very hard, and Tark not to think too much, and Lana to keep them both honest." },
+      },
+      choices = {
+        { text = "Does it work?", next = "w7_speech2" },
+        { text = "That's not much of a speech.", next = "w7_speech3" },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    w7_speech2 = {
+      lines = {
+        { id = "w7_speech2_l1", text = "About as often as it doesn't. But they go in laughing, and a soldier who's laughing isn't frightened, and a soldier who isn't frightened fights better than any drill can teach." },
+        { id = "w7_speech2_l2", when = { class = { "WARRIOR", "PALADIN" } }, text = "About half the time. You've stood in a line; you'll know that a laughing soldier is a brave one. Thomas thinks I'm not serious, but I'm serious about keeping them unafraid." },
+      },
+      choices = {
+        { text = "Good approach.", next = "BACK", reply = "Tell Thomas you said so. He'll put it on his slate." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_speech3 = {
+      lines = {
+        { id = "w7_speech3_l1", text = "It's not meant to be. Speeches are for the real fight. In the yard, I'd rather they laughed." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     winning = {
@@ -431,7 +518,7 @@ P:NPC {
         { id = "h_default", text = "Captain Thomas, Blue Team. Edward, Kahil and Narrisha train under me, and we meet Andrews' Reds in the yard most days. He believes in spirit and I believe in drill, and the slate will show you which wins more often." },
       },
       again = {
-        { id = "h_again", text = "What else can I tell you?" },
+        { id = "h_again", text = "What else can I tell you? Precisely, please; I'll need to note the time of any question that interrupts the tally." },
         { id = "h_again2", text = "Go on. I can count and listen." },
       },
       choices = {
@@ -442,7 +529,36 @@ P:NPC {
         { text = "What happens if a bout goes too far?", next = "yfar" },
         { text = "Your Blues could use some Light-forged discipline.", next = "BACK", when = { class = "PALADIN" }, reply = "They could use any discipline at all on a hot afternoon. Come and show them how a paladin holds a line, and I'll put it on the slate." },
         { text = "How did you come to Theramore?", next = "ycame" },
+        { text = "What did Sara Pierce say to you?", next = "w7_sara" },
         { text = "Good luck to the Blues, Captain.", next = "END" },
+      },
+    },
+    w7_sara = {
+      lines = {
+        { id = "w7_sara_l1", text = "She informed me she'd be joining the Blues in eight years, and asked whether there'd be a place for her brother as flag-bearer. I told her I'd need it in writing, and the next morning there was a note under my door, spelled very creatively." },
+      },
+      choices = {
+        { text = "Did you keep the note?", next = "w7_sara2" },
+        { text = "She'll make a fine guard.", next = "w7_sara3" },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    w7_sara2 = {
+      lines = {
+        { id = "w7_sara2_l1", text = "It's in my ledger, between the bout tallies for the spring and summer. Andrews says it's the only interesting page I've ever written. He may be right, though I'd never say so in his hearing." },
+        { id = "w7_sara2_l2", when = { race = "Human" }, text = "In my ledger, on its own page. You'll remember being that age, perhaps, and being sure of what you'd become. I mean to hold her to it, if she still wants it when she's old enough." },
+      },
+      choices = {
+        { text = "I hope she joins.", next = "BACK", reply = "So do I. The Blues could use her nerve." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_sara3 = {
+      lines = {
+        { id = "w7_sara3_l1", text = "She will, if she keeps half that nerve. I'll see she gets her chance." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     slate = {
@@ -502,7 +618,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've a Blue to flatten." },
-        { id = "h_again2", text = "Go on, be quick about it." },
+        { id = "h_again2", text = "Go on, be quick about it; my arms are warmed up, and they'll cool if you make me stand here thinking." },
       },
       choices = {
         { text = "Strength is what wins fights.", next = "BACK", reply = "That's what I keep telling everyone!", fx = { align = { honor = 1 } } },
@@ -513,7 +629,36 @@ P:NPC {
         { text = "Have you ever lost a bout?", next = "xlost" },
         { text = "Strength isn't everything in a fight.", next = "xnot" },
         { text = "I'm a warrior too. Show me your stance.", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "What do you lift to stay so strong?", next = "w7_lift" },
         { text = "Go flatten your Blue.", next = "END" },
+      },
+    },
+    w7_lift = {
+      lines = {
+        { id = "w7_lift_l1", text = "Barrels at the docks, mostly, for the dock master, who pays me in fish. I carry two at a time from the ship to the warehouse every morning before drill, and Kahil says I'm the only guard who trains by doing chores." },
+      },
+      choices = {
+        { text = "Does the dock master mind?", next = "w7_lift2" },
+        { text = "Strength alone won't beat Kahil.", next = "w7_lift3" },
+        { text = "Something else, Jarad.", next = "BACK" },
+      },
+    },
+    w7_lift2 = {
+      lines = {
+        { id = "w7_lift2_l1", text = "He loves it. I'm cheaper than a mule and I don't bite, and he's started saving the heaviest casks for when I come by. Last week I carried one that turned out to be full of iron nails, and I didn't notice until I put it down." },
+        { id = "w7_lift2_l2", when = { class = "WARRIOR" }, text = "He's delighted. You'd like it too, I bet; nothing builds the arms like a full cask of Kul Tiran rum. Come down one morning and we'll race to the warehouse." },
+      },
+      choices = {
+        { text = "Sounds like good training.", next = "BACK", reply = "The best! And you get fish at the end." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_lift3 = {
+      lines = {
+        { id = "w7_lift3_l1", text = "So everyone tells me. But I'll beat him one day, and I'll do it by lifting something heavier than he can run from." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     hardest = {
@@ -602,7 +747,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? I'm next up." },
-        { id = "h_again2", text = "Go on, I am listening." },
+        { id = "h_again2", text = "Go on, quickly; I'm next in the ring, and if Jarad does something foolish while I'm talking, I'll want to have seen it." },
       },
       choices = {
         { text = "A level head is worth more than a strong arm.", next = "BACK", reply = "It is. Jarad doesn't think so.", fx = { align = { order = 1 } } },
@@ -613,7 +758,36 @@ P:NPC {
         { text = "Has Red Team been winning lately?", next = "xmud2" },
         { text = "You seem to watch the whole yard.", next = "xwatch" },
         { text = "I'm a paladin. Do you fight with faith?", next = "xpaladin", when = { class = "PALADIN" } },
+        { text = "Who would you be if you weren't a guard?", next = "w7_else" },
         { text = "Good fortune in the next bout.", next = "END" },
+      },
+    },
+    w7_else = {
+      lines = {
+        { id = "w7_else_l1", text = "A sailmaker, probably, like my mother, sitting on the docks with a needle and a mouthful of complaints. I'd have been good at it, too, but I'd have spent every day watching the guards drill and wishing." },
+      },
+      choices = {
+        { text = "Do you ever regret it?", next = "w7_else2" },
+        { text = "Sailmaking sounds safer.", next = "w7_else3" },
+        { text = "Something else, Lana.", next = "BACK" },
+      },
+    },
+    w7_else2 = {
+      lines = {
+        { id = "w7_else2_l1", text = "Only on the wet mornings, when the yard is mud and Jarad is in a mood. My mother still makes my tabard every year, and she sews a little anchor into the hem, so I don't forget where I came from." },
+        { id = "w7_else2_l2", when = { class = "PALADIN" }, text = "Only on the wet mornings. My mother sews an anchor into my tabard hem every year, and I wear it like you'd wear a holy symbol, I suppose. It reminds me who I'm guarding." },
+      },
+      choices = {
+        { text = "That's a fine custom.", next = "BACK", reply = "It is. Don't tell Narrisha; she'd want one too." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_else3 = {
+      lines = {
+        { id = "w7_else3_l1", text = "Safer, aye. But someone has to stand between the sailmakers and the marsh." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     mud = {
@@ -740,7 +914,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I can think and talk." },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again2", text = "Go on, I'm listening, and I'm guessing what you'll ask next, so don't take offence if I answer early." },
       },
       choices = {
         { text = "Does it work?", next = "work" },
@@ -750,7 +924,36 @@ P:NPC {
         { text = "You'd make a fine engineer.", next = "BACK", when = { profession = "Engineering" }, reply = "I've thought about it. Gears are only bouts that hold still. Maybe when I'm too old to spar." },
         { text = "What would you change about the Reds?", next = "ychange" },
         { text = "What do you think of Captain Andrews?", next = "yandrews" },
+        { text = "How do you predict what an opponent will do?", next = "w7_predict" },
         { text = "I'll let you think.", next = "END" },
+      },
+    },
+    w7_predict = {
+      lines = {
+        { id = "w7_predict_l1", text = "Same way you'd guess how a hull will flex in a heavy sea: watch the joints. Where a fighter puts his weight, where his eyes go before his feet, which shoulder he drops when he's tired. People are boats, more or less, and they all lean before they turn." },
+      },
+      choices = {
+        { text = "Does it work on everyone?", next = "w7_predict2" },
+        { text = "That's a cold way to see people.", next = "w7_predict3" },
+        { text = "Something else, Tark.", next = "BACK" },
+      },
+    },
+    w7_predict2 = {
+      lines = {
+        { id = "w7_predict2_l1", text = "Everyone except Narrisha. She leans one way and goes the other, every single time, and I still can't tell when she's going to stop doing it. I've filled half a notebook on her and it's all question marks." },
+        { id = "w7_predict2_l2", when = { class = "ROGUE" }, text = "Everyone except Narrisha, and probably you. You've the look of someone who leans on purpose. I'd fill a notebook on you, if you'd stand in the ring a while." },
+      },
+      choices = {
+        { text = "Maybe someday.", next = "BACK", reply = "I'll hold you to that. I've a fresh page waiting." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_predict3 = {
+      lines = {
+        { id = "w7_predict3_l1", text = "Cold, maybe, but useful. And I still like people. I just like knowing which way they'll fall." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     work = {
@@ -853,7 +1056,7 @@ P:NPC {
         { id = "h_default", text = "I serve under Captain Thomas, with Kahil and Narrisha. They do the clever part, and my part is to hold the middle and not fall down, which I'm told I'm good at." },
       },
       again = {
-        { id = "h_again", text = "Was there something else?" },
+        { id = "h_again", text = "Was there something else? Take your time; I'm not going anywhere, and standing still is what I'm best at." },
         { id = "h_again2", text = "Go on, I've a moment before the next bout." },
       },
       choices = {
@@ -864,7 +1067,36 @@ P:NPC {
         { text = "Shield to shield, then?", next = "BACK", when = { class = { "WARRIOR", "PALADIN" } }, reply = "Any time, if you can stand still long enough. Most people who spar with me get bored and walk around." },
         { text = "What does the Blue Team do off duty?", next = "yoffduty" },
         { text = "What do you think of Captain Thomas?", next = "ythomas" },
+        { text = "How do you hold the middle when Jarad hits?", next = "w7_hold" },
         { text = "Hold the middle, Edward.", next = "END" },
+      },
+    },
+    w7_hold = {
+      lines = {
+        { id = "w7_hold_l1", text = "I bend my knees and think of my father. He used to say a guard's only job is to still be there when the fighting stops, and the easiest way to still be there is not to fall over." },
+      },
+      choices = {
+        { text = "That's simple advice.", next = "w7_hold2" },
+        { text = "You should hit back harder.", next = "w7_hold3" },
+        { text = "Something else, Edward.", next = "BACK" },
+      },
+    },
+    w7_hold2 = {
+      lines = {
+        { id = "w7_hold2_l1", text = "It is, and that's why I can remember it when Jarad's coming at me like a falling wall. The clever advice goes out of my head in a fight, but 'don't fall over' stays put." },
+        { id = "w7_hold2_l2", when = { class = { "WARRIOR", "PALADIN" } }, text = "It is, and you'll know why it works. When the shield takes the blow, your knees take it after; bend them, and you stay. Kahil laughs at me, but Kahil's been knocked flat more often than I have." },
+      },
+      choices = {
+        { text = "Good advice.", next = "BACK", reply = "It was my father's. I just keep it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_hold3 = {
+      lines = {
+        { id = "w7_hold3_l1", text = "Captain Thomas says the same, and I'm working on it. But my job is to stand, and Kahil's is to win, and that's how we beat the Reds." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     jarad = {
@@ -929,7 +1161,7 @@ P:NPC {
         { id = "h_default", text = "I'm one of Captain Thomas' Blues. Edward stands, Narrisha plans, and I run rings around whoever's in front of me until they're too tired to lift a sword." },
       },
       again = {
-        { id = "h_again", text = "What else? Keep it lively!" },
+        { id = "h_again", text = "What else? Keep it lively, or I'll start bouncing again, and Captain Thomas says I wear out the boards." },
         { id = "h_again2", text = "Go on, I'm listening, I'm only bouncing." },
       },
       choices = {
@@ -941,7 +1173,36 @@ P:NPC {
         { text = "Where did you learn to fight?", next = "xwhere" },
         { text = "You never seem to stand still.", next = "xstill" },
         { text = "I'm a rogue. Speed is my trade too.", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Do you still visit the alleys in Stormwind?", next = "w7_alleys" },
         { text = "Keep moving, Kahil.", next = "END" },
+      },
+    },
+    w7_alleys = {
+      lines = {
+        { id = "w7_alleys_l1", text = "Not since I joined. I write to a friend from the old days, a lad who runs messages in the Old Town, and he writes back about who's been nicked by the watch and who's gone straight. More of them have gone straight than you'd think." },
+      },
+      choices = {
+        { text = "Do you miss that life?", next = "w7_alleys2" },
+        { text = "Once a thief, always a thief.", next = "w7_alleys3" },
+        { text = "Something else, Kahil.", next = "BACK" },
+      },
+    },
+    w7_alleys2 = {
+      lines = {
+        { id = "w7_alleys2_l1", text = "The freedom, sometimes. Not the hunger, never. The Guard feeds me three times a day and nobody chases me, and if I miss running, I can always run rings around Jarad." },
+        { id = "w7_alleys2_l2", when = { race = "Human" }, text = "The freedom, a little. You'll know the Old Town, I'd guess; if you're ever there, tell a boy named Pip that Kahil said to keep his head down and his boots clean. He'll know." },
+      },
+      choices = {
+        { text = "I'll find him.", next = "BACK", reply = "Thanks. He's a good lad, under the grime." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_alleys3 = {
+      lines = {
+        { id = "w7_alleys3_l1", text = "Maybe, but now I steal points off the Reds instead of apples off carts, and the Captain counts it as service." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     tired = {
@@ -1075,7 +1336,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Was there something more you wanted?" },
-        { id = "h_again2", text = "Go on, I am listening." },
+        { id = "h_again2", text = "Go on. I'm listening, and I'm already deciding how this conversation will end." },
       },
       choices = {
         { text = "Tark says he can't read you.", next = "tark" },
@@ -1085,7 +1346,36 @@ P:NPC {
         { text = "What's between you and Lana?", next = "ylana" },
         { text = "How would I fight you, then?", next = "BACK", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, reply = "Quickly, and from far away, I expect. I'd close the distance before your first spell, and if I failed, I'd lose. Shall we try it one day?" },
         { text = "Do you ever think of leaving Theramore?", next = "yleave" },
+        { text = "Criton sent you away once, didn't he?", next = "w7_criton" },
         { text = "I'll watch from the other side.", next = "END" },
+      },
+    },
+    w7_criton = {
+      lines = {
+        { id = "w7_criton_l1", text = "He did, on my first morning, after I stayed down three times. I lay in the mud and worked out how each of the three had knocked me over, and by the time I got up I knew how to beat all of them. Criton didn't wait to find that out." },
+      },
+      choices = {
+        { text = "Do you resent him?", next = "w7_criton2" },
+        { text = "He was right to test you.", next = "w7_criton3" },
+        { text = "Something else, Narrisha.", next = "BACK" },
+      },
+    },
+    w7_criton2 = {
+      lines = {
+        { id = "w7_criton2_l1", text = "Not any more. He apologised, in his way, which was to shout at me less than at the others for a whole season. And Captain Thomas took me, and Thomas thinks the way I do, so it was the best thing that could have happened." },
+        { id = "w7_criton2_l2", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "Not any more. You'll understand, I think, since your kind fight with the mind as much as the hands. Criton measures by the arm; Thomas measures by the head. I'm glad I ended up being measured properly." },
+      },
+      choices = {
+        { text = "It worked out well.", next = "BACK", reply = "It did. Though I still beat Criton's recruits whenever I can." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_criton3 = {
+      lines = {
+        { id = "w7_criton3_l1", text = "He was, and he tested the wrong thing. That's not resentment, it's an observation." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     tark = {
@@ -1191,7 +1481,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask away, I can talk between shots." },
-        { id = "h_again2", text = "Go on, I'm only nocking." },
+        { id = "h_again2", text = "Go on, I'm only nocking. Talk at a steady pace, please; it helps me find my rhythm between shots." },
       },
       choices = {
         { text = "Don't you ever rest?", next = "rest" },
@@ -1201,7 +1491,36 @@ P:NPC {
         { text = "Do you mean to stay a guard?", next = "ystay" },
         { text = "My people are fine archers. Any advice?", next = "BACK", when = { race = "NightElf" }, reply = "I've only heard of your sentinels, never seen them. If you'll loose a few at my straw, I'll learn more from watching you than a year of practice." },
         { text = "What bow do you use?", next = "ybow" },
+        { text = "What's the longest shot you've made?", next = "w7_long" },
         { text = "I'll leave you to the target.", next = "END" },
+      },
+    },
+    w7_long = {
+      lines = {
+        { id = "w7_long_l1", text = "From the north wall to a murloc on the far rocks, past the breakers, maybe three hundred paces in a crosswind. I didn't see it land, but the murloc stopped shouting, and the sentry next to me swore and bought me a drink." },
+      },
+      choices = {
+        { text = "That's impressive.", next = "w7_long2" },
+        { text = "Murlocs are easy targets.", next = "w7_long3" },
+        { text = "Something else, Lasiter.", next = "BACK" },
+      },
+    },
+    w7_long2 = {
+      lines = {
+        { id = "w7_long2_l1", text = "Lucky, I think, though I'll never say so in the barracks. Farran says there's no such thing as luck past two hundred paces, only practice and wind. I'd like to believe him." },
+        { id = "w7_long2_l2", when = { class = "HUNTER" }, text = "Lucky, honestly. You'd know better than anyone: past two hundred paces, the wind decides as much as your hand. I'd like to see you try it from the wall someday; I'll buy the drink if you make it." },
+      },
+      choices = {
+        { text = "You've got a deal.", next = "BACK", reply = "Bring your best arrows. The wind's never kind on that wall." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_long3 = {
+      lines = {
+        { id = "w7_long3_l1", text = "Not at three hundred paces in a crosswind, they're not. Try it sometime." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     rest = {
@@ -1300,7 +1619,7 @@ P:NPC {
         { id = "h_default", text = "I am called Pained. I stand where the Lady stands, and I see that those who come before her leave as peacefully as they arrived. That is all you need to know of my duties." },
       },
       again = {
-        { id = "h_again", text = "Ask, if you must." },
+        { id = "h_again", text = "Ask, if you must. Briefly; the Lady's stair has many steps, and I like to hear every one of them." },
         { id = "h_again2", text = "Speak. I am listening, and watching." },
       },
       choices = {
@@ -1311,7 +1630,36 @@ P:NPC {
         { text = "What do you make of Theramore's guards?", next = "yguards" },
         { text = "Do you miss Ashenvale, sister?", next = "BACK", when = { race = "NightElf" }, reply = "Every day, and I do not speak of it. Elune watches here as well, though she shows herself less among the stone walls." },
         { text = "Do you ever rest?", next = "yrest" },
+        { text = "What do you think of Theramore's tower?", next = "w7_tower" },
         { text = "I'll give you no trouble.", next = "END" },
+      },
+    },
+    w7_tower = {
+      lines = {
+        { id = "w7_tower_l1", text = "It is stone on stone, built quickly by a people in a hurry, and it smells of ink and arcane dust. The Lady loves it. I stand in its corridors and think of the boughs of Ashenvale, and I do not tell her." },
+      },
+      choices = {
+        { text = "Do you miss Ashenvale?", next = "w7_tower2" },
+        { text = "You could ask for leave to go home.", next = "w7_tower3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_tower2 = {
+      lines = {
+        { id = "w7_tower2_l1", text = "Every day, as one misses breath. But I made a choice at Hyjal, and a Sentinel does not unmake her choices because the stone is cold." },
+        { id = "w7_tower2_l2", when = { race = "NightElf" }, text = "Every day, as you must too, so far from the trees. You understand, I think, without my saying it. Elune's light reaches even a stone tower, if the window faces east, and mine does." },
+      },
+      choices = {
+        { text = "Elune keep you.", next = "BACK", reply = "And you. Go quietly on the stair." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_tower3 = {
+      lines = {
+        { id = "w7_tower3_l1", text = "I could. I will not. That is all I will say." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     name = {
@@ -1411,7 +1759,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Keep your voice down, it carries over the water." },
-        { id = "h_again2", text = "Go on, I've one eye on the road." },
+        { id = "h_again2", text = "Go on, I've one eye on the road and one on you, and the road's more likely to surprise me." },
       },
       choices = {
         { text = "What's the road north like?", next = "road" },
@@ -1420,7 +1768,36 @@ P:NPC {
         { text = "Do you ever see the Horde on this road?", next = "yhorde" },
         { text = "What's south down the causeway?", next = "ysouth" },
         { text = "I'm Horde. Am I welcome past your tower?", next = "BACK", when = { faction = "Horde" }, reply = "You're welcome to walk the road north, under the Lady's peace, and I'll keep to it as long as you do. Don't take it further than that." },
+        { text = "How many men hold this tower?", next = "w7_men" },
         { text = "Keep a sharp watch, Captain.", next = "END" },
+      },
+    },
+    w7_men = {
+      lines = {
+        { id = "w7_men_l1", text = "Eight, when they're all well, and five, on a fever week. It's enough to watch, not enough to fight, and every man here knows that if something big comes up the causeway, our job is to light the beacon and run." },
+      },
+      choices = {
+        { text = "Has the beacon ever been lit?", next = "w7_men2" },
+        { text = "That's not much of a garrison.", next = "w7_men3" },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    w7_men2 = {
+      lines = {
+        { id = "w7_men2_l1", text = "Once, by accident, when a recruit knocked a lantern into the kindling. Half of Theramore turned out on the walls, and the Lady herself came down to the gate, and I spent the next week writing apologies." },
+        { id = "w7_men2_l2", when = { race = "Human" }, text = "Once, by mistake. You'll know what a beacon means to Lordaeron folk; we all remember the ones that went up the night the plague came. The whole town went white. I made sure it never happened again." },
+      },
+      choices = {
+        { text = "That's an honest mistake.", next = "BACK", reply = "Honest, and loud. The recruit's still on latrine duty." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_men3 = {
+      lines = {
+        { id = "w7_men3_l1", text = "It isn't. It's a tripwire with eight men attached, and I'm the one who has to pull it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     road = {

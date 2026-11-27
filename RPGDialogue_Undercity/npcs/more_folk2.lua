@@ -34,15 +34,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_silence = {
+      lines = {
+        { id = "w3_silence_1", text = "The flask doesn't care, strictly, but I do, because I count the drops by ear and a careless word costs me the count. A cough in the third minute is a ruined batch, and a ruined batch of something I'm brewing costs more than your boots." },
+      },
+      choices = {
+        { text = "Has anyone ever ruined one?", next = "w3_ruined" },
+        { text = "Counting drops by ear is impressive.", next = "BACK", reply = "It is, and you're the first to say so this month. Do mention it to Felben." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_ruined = {
+      lines = {
+        { id = "w3_ruined_1", text = "A student of Marsh's who sneezed in the seventh minute and then apologised in the eighth, which ruined it twice. I sent him back to Doctor Marsh with a note explaining what he'd done, and Marsh has not spoken to me since, which I count as a second success." },
+      },
+      choices = {
+        { text = "You and Marsh don't get on. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Doctor Herbert Halsey. I teach alchemy to those who have already learned everything Felben and Marsh can give them, and I ask only that you measure twice and speak half as often." },
         { id = "hello_2", when = { profession = "Alchemy" }, text = "Doctor Herbert Halsey. If you have come up through Felben and Marsh, you will have their bad habits, and I shall spend the first month removing them before I teach you anything at all." },
       },
       again = {
-        { id = "hello_a1", text = "Was there something further? The flask will not watch itself." },
+        { id = "hello_a1", text = "Was there something further? The flask will not watch itself, and I won't trust it to." },
         { id = "hello_a2", text = "Go on, then, but keep your sleeves away from the burner." },
-        { id = "hello_a3", text = "Ask, and be brief about it." },
+        { id = "hello_a3", text = "Put your question, and kindly keep it shorter than my last lecture." },
       },
       choices = {
         { text = "An alchemist should publish his findings with his own name on them.", next = "BACK", reply = "Yes, and nobody else's. Some of us were robbed of that privilege.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -52,6 +70,7 @@ P:NPC {
         { text = "I heard some of your notes went missing.", next = "notes" },
         { text = "What does the Society have you brewing?", next = "work" },
         { text = "Would you ever study under a witch doctor?", next = "troll", when = { race = "Troll" } },
+        { text = "Why does a distillation need silence?", next = "w3_silence" },
         { text = "I'll leave you to your flasks.", next = "END" },
       },
     },
@@ -705,7 +724,7 @@ P:NPC {
         { id = "hello_2", when = { profession = "Tailoring" }, text = "Rhiannon Davis. If Victor Ward's had you, you'll know a running stitch from a backstitch. I'll teach you to line a coat and set a sleeve, and neither's as dull as it sounds." },
       },
       again = {
-        { id = "hello_a1", text = "What else can I tell you?" },
+        { id = "hello_a1", text = "Anything more you'd like to learn? I've time before the next one comes down the stair." },
         { id = "hello_a2", text = "Go on. The hem will keep." },
         { id = "hello_a3", text = "Ask, and hand me those shears while you're at it." },
       },
@@ -979,6 +998,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_quiver = {
+      lines = {
+        { id = "w3_quiver_1", text = "Much better! The first one had the opening at the bottom, which Arthur says is a common mistake, though he'd never seen anyone make it before me. This one opens at the top and only drops an arrow when you bend over, which is nearly right." },
+        { id = "w3_quiver_2", when = { class = "HUNTER" }, text = "Oh, you're a hunter! Then you'll know exactly what's wrong with this one, won't you? It only drops an arrow when you bend over, and Arthur says no hunter has ever bent over, which I think is a joke." },
+      },
+      choices = {
+        { text = "Fix the stitching at the base.", next = "BACK", when = { class = "HUNTER" }, reply = "The base! Of course, the base. Thank you, I'll tell Arthur I thought of it myself and he'll know I didn't." },
+        { text = "Who's it for?", next = "w3_for" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_for = {
+      lines = {
+        { id = "w3_for_1", text = "Nobody yet, which is just as well. Arthur says I'm to keep it until I can make three that hold, and then he'll let me sell the fourth to a real hunter, and I'll stand at the counter and watch them walk off with it and not bend over." },
+      },
+      choices = {
+        { text = "I'll come back for the fourth. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Dan Golthas. I teach the first part of leatherworking, the cutting and punching and the plain stitches, and Arthur Moore teaches everything after. I'm still learning from him myself, between you and me." },
@@ -986,7 +1024,7 @@ P:NPC {
       },
       again = {
         { id = "hello_a1", text = "What else? I like the company." },
-        { id = "hello_a2", text = "Go on, I'm only waiting for this to dry." },
+        { id = "hello_a2", text = "Go on, I'm only waiting for this to dry, and it's taking forever." },
         { id = "hello_a3", text = "Ask me anything. Well, anything about leather." },
       },
       choices = {
@@ -998,6 +1036,7 @@ P:NPC {
         { text = "I heard about a satchel with the strap inside.", next = "satchel", when = { heardLine = "uc_chambers.m2_default" } },
         { text = "Why do the leatherworkers sit in the Rogues' Quarter?", next = "place" },
         { text = "Hides don't offend us, if they're honoured.", next = "tauren", when = { race = "Tauren" } },
+        { text = "How's the quiver coming along?", next = "w3_quiver" },
         { text = "I'll leave you to it, Dan.", next = "END" },
       },
     },
@@ -1100,6 +1139,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_stage = {
+      lines = {
+        { id = "w3_stage_1", text = "Because a summoning is a performance, and the audience is the demon. A creature of the Nether respects presence long before it respects power, and a summoner who mumbles will find herself giving orders to something that has stopped listening." },
+      },
+      choices = {
+        { text = "And the imp heckles you?", next = "w3_heckle" },
+        { text = "Presence over power. I'll remember that.", next = "BACK", reply = "Do, and stand up straight while you remember it. The voidwalker notices posture, oddly enough." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_heckle = {
+      lines = {
+        { id = "w3_heckle_1", text = "Every lecture, from the moment the circle closes. I let it, because the students must learn to work through an imp's commentary, and because now and then it says something about Adrian that I'd never permit myself to say aloud." },
+      },
+      choices = {
+        { text = "You enjoy that. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Jezelle Pruitt. I teach the summoning of demonic servants, from the imp to the felsteed, to Victor Bartholomew, Winifred Kerwin and Adrian Bartlett, who between them have very nearly mastered the imp." },
@@ -1107,7 +1164,7 @@ P:NPC {
       },
       again = {
         { id = "hello_a1", text = "Another question? Good. My students never have any." },
-        { id = "hello_a2", text = "Go on. The circle will hold a while longer." },
+        { id = "hello_a2", text = "Go on. The circle will hold a while longer, and the imp is quiet, for once." },
         { id = "hello_a3", text = "Ask it, and step back from the chalk when you do." },
       },
       choices = {
@@ -1116,6 +1173,7 @@ P:NPC {
         { text = "The orcs paid dearly for this knowledge.", next = "price" },
         { text = "I sense no magic in you at all.", next = "mana", when = { class = { "WARLOCK", "MAGE", "PRIEST" } } },
         { text = "We stand by the door for good reason.", next = "orc", when = { race = "Orc" } },
+        { text = "You lecture like someone on a stage.", next = "w3_stage" },
         { text = "I'll leave you to your class.", next = "END" },
       },
     },
@@ -1232,6 +1290,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_city = {
+      lines = {
+        { id = "w3_city_1", text = "A great dark lake full of small cold lights, which are the Forsaken, and here and there a warm one moving quickly, which is one of the living hurrying to be elsewhere. The throne room has a hole in it the shape of wings, which is the dreadlord, and beside it a light so bright and cold it hurts." },
+      },
+      choices = {
+        { text = "The Dark Lady?", next = "w3_lady" },
+        { text = "And this quarter?", next = "BACK", reply = "Full of holes, {class}, small ones and large ones, and Carendin's flame stitched round them like a hem. It is a comfort to me." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_lady = {
+      lines = {
+        { id = "w3_lady_1", text = "I believe so, though I've only felt it from the bridge, and I've never asked to go nearer. It is the only light in this city that does not flicker, and I find that both reassuring and very frightening." },
+      },
+      choices = {
+        { text = "I can understand that. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       narr = "He turns his face toward you a moment before you speak, his clouded eyes fixed a little to the left of yours.",
       lines = {
@@ -1252,6 +1328,7 @@ P:NPC {
         { text = "Why the hearts of the pure? Is innocence so sweet to her?", next = "hearts", when = { class = "WARLOCK" } },
         { text = "Farsan. I've met a Farsan in Ratchet.", next = "name", when = { class = "WARLOCK" } },
         { text = "You tend the circles by touch.", next = "circles" },
+        { text = "What does the Undercity look like, to your sight?", next = "w3_city" },
         { text = "I'll go quietly, Godrick.", next = "END" },
       },
     },
@@ -1387,6 +1464,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_owes = {
+      lines = {
+        { id = "w3_owes_1", text = "A Deathstalker who went into Shadowfang Keep with my best set and a promise to bring them back, and who's been gone four months. I've not written him off, because Mennet hasn't, but I've written the picks off, and I've told the new ones his name as a lesson." },
+      },
+      choices = {
+        { text = "What lesson?", next = "w3_lesson" },
+        { text = "Perhaps he'll walk back yet.", next = "BACK", reply = "Perhaps. If he does, he'll find a bill on his bunk before he finds his boots, and I'll be glad to see it paid." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_lesson = {
+      lines = {
+        { id = "w3_lesson_1", text = "That the Keep keeps things, dear, picks and people alike, and that nobody goes in there with anything they can't afford to lose. They nod, and they go in anyway, and I hand them the cheap set." },
+      },
+      choices = {
+        { text = "Sensible. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Estelle Gendry. I keep the Deathstalkers in picks, wire, wax and soft-soled boots, and I keep a list of who has what. Mennet Carkad sends them to me, and I send them out able to open a door without knocking." },
@@ -1394,7 +1489,7 @@ P:NPC {
         { id = "hello_3", when = { questDone = TODO_QUEST("Tools of the Trade") }, text = "Estelle Gendry, and you came back from Ambermill with the report and my picks both. That's twice as much as I get from most of them." },
       },
       again = {
-        { id = "hello_a1", text = "What else, dear? I'm counting." },
+        { id = "hello_a1", text = "What else, dear? I'm counting, and you've just made me lose my place." },
         { id = "hello_a2", text = "Go on, but I'm not lending anything." },
         { id = "hello_a3", text = "Ask away. Talk's the one thing I don't have to inventory." },
       },
@@ -1403,6 +1498,7 @@ P:NPC {
         { text = "Tell me about locks.", next = "locks", when = { class = "ROGUE" } },
         { text = "How do you get on with Mennet Carkad?", next = "mennet" },
         { text = "Everyone in this quarter watches everyone else.", next = "quarter" },
+        { text = "Who owes you the most picks?", next = "w3_owes" },
         { text = "I'll keep my hands to myself. Farewell.", next = "END" },
       },
     },
@@ -1508,6 +1604,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_sky = {
+      lines = {
+        { id = "w3_sky_1", text = "He did, or a Deathguard did for him, and it was kindly meant. The clouds are the wrong shape, for they are Lordaeron clouds, low and grey and in a hurry, and the clouds over Mulgore are tall and slow and white as a kodo's milk." },
+        { id = "w3_sky_2", when = { race = "Tauren" }, text = "He did, and you will see at once what is wrong with it. The clouds are Lordaeron clouds, low and grey and hurrying, and ours stand tall and slow over the plains, as if they had all afternoon." },
+      },
+      choices = {
+        { text = "Could you show him the right shape?", next = "w3_show" },
+        { text = "It's still a sky to look at.", next = "BACK", reply = "It is, and I look at it more than I would tell him. The wrong sky is better than a ceiling." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_show = {
+      lines = {
+        { id = "w3_show_1", text = "I tried once, with a stick of chalk, and he wrote down every line I drew and then asked whether my hand trembled from the sickness or from feeling. I told him both, which pleased him, and I stopped drawing after that." },
+      },
+      choices = {
+        { text = "I'm sorry, Thersa. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "I am Thersa Windsong, of Thunder Bluff. I fought the naga on the shores of Azshara, and afterward I drank from a tide pool, being thirsty and foolish. Whatever was in that water has not left me since." },
@@ -1525,6 +1640,7 @@ P:NPC {
         { text = "The chemists seem very taken with you.", next = "chemists" },
         { text = "You are a long way from Mulgore.", next = "home" },
         { text = "The water was awake, you say.", next = "listen", when = { class = { "DRUID", "SHAMAN" } } },
+        { text = "Chemist Cuely painted a sky on your wall.", next = "w3_sky" },
         { text = "Rest, Thersa. I'll go.", next = "END" },
       },
     },
@@ -2345,7 +2461,7 @@ P:NPC {
         { id = "hello_2", when = { profession = "Tailoring" }, text = "Millie Gregorian. You'll want bleach, dye and a good stock of thread, and I've all three. I'll tell you which of the others has been buying the same, if you want to know what's in fashion." },
       },
       again = {
-        { id = "hello_a1", text = "Anything else, love?" },
+        { id = "hello_a1", text = "What else, my sweet? Thread, dye, or a little gossip about who bought the crimson?" },
         { id = "hello_a2", text = "Go on, I've all day and no customers but you." },
         { id = "hello_a3", text = "Ask away. I like a chat." },
       },

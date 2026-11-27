@@ -43,6 +43,7 @@ P:NPC {
         { text = "How did you come to teach?", next = "x_teach" },
         { text = "Children shouldn't hear about the wars so young.", next = "x_stance" },
         { text = "I'm a priest. The Cathedral is a fine stop.", next = "x_priest", when = { class = "PRIEST" } },
+        { text = "Have you ever lost a pupil on one of these walks?", next = "e3_lost" },
         { text = "I won't keep your class, Miss Danna.", next = "END" },
       },
     },
@@ -109,6 +110,24 @@ P:NPC {
       },
       choices = {
         { text = "I'll be glad to. Something else.", next = "BACK" },
+      },
+    },
+    e3_lost = {
+      lines = {
+        { id = "e3_lost_l0", text = "Once, for the better part of an hour, and it was Steven, whom I found halfway up the ramp of the Mage Tower asking an apprentice for lessons. Since then I count them at every corner, aloud, and the children have learned to answer to their numbers like recruits." },
+      },
+      choices = {
+        { text = "Which number is Twain?", next = "e3_lost2" },
+        { text = "Counting aloud sounds wise.", next = "BACK" },
+      },
+    },
+    e3_lost2 = {
+      lines = {
+        { id = "e3_lost2_l0", text = "Seven, and he insists it is lucky, though I chose it because it falls just behind Pat, who reports everything he does. Teaching, you will find, is mostly a matter of where one places the children." },
+      },
+      choices = {
+        { text = "Spoken like a general. Something else.", next = "BACK" },
+        { text = "Poor Twain never stood a chance.", next = "BACK" },
       },
     },
   },
@@ -193,6 +212,7 @@ P:NPC {
         { text = "What's your house like?", next = "yhouse" },
         { text = "Who's your best friend in class?", next = "yfriend" },
         { text = "What will you be when you grow up?", next = "ygrow" },
+        { text = "What's the best thing your dad sells?", next = "e3_candle" },
         { text = "Chin up, Mikey. It's nearly over.", next = "END" },
       },
     },
@@ -226,6 +246,24 @@ P:NPC {
       choices = {
         { text = "Stand up to him, Mikey. Bullies back down.", next = "BACK", reply = "All right, but if he pokes me again I'm telling you.", fx = { align = { honor = 1 } } },
         { text = "Just stay out of his way.", next = "BACK", reply = "That's what I've been doing, and it isn't working.", fx = { align = { honor = -1 } } },
+      },
+    },
+    e3_candle = {
+      lines = {
+        { id = "e3_candle_l0", text = "The big beeswax ones that go in the Cathedral, because they smell like honey and they cost a whole silver each. I'm not allowed to touch them, but I'm allowed to sweep up the drips, and I keep the best drips in a tin." },
+      },
+      choices = {
+        { text = "What do you do with the drips?", next = "e3_candle2" },
+        { text = "A whole silver for a candle is a lot.", next = "BACK" },
+      },
+    },
+    e3_candle2 = {
+      lines = {
+        { id = "e3_candle2_l0", text = "I melt them on the stove and make tiny candles for my room, only they never stay lit because the wicks are thread. Dad says I'll be a candlemaker one day, but I still think I'd rather be a guard." },
+      },
+      choices = {
+        { text = "You could be both. Something else.", next = "BACK" },
+        { text = "Use proper wick next time.", next = "BACK" },
       },
     },
   },
@@ -299,7 +337,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Can I ask you something now, or do you want another turn?" },
-        { id = "h_again2", text = "What else do you want to know?" },
+        { id = "h_again2", text = "What else? I'll trade you a question for a question, that's fair." },
       },
       choices = {
         { text = "Which heroes are you choosing between?", next = "heroes" },
@@ -310,6 +348,7 @@ P:NPC {
         { text = "I've been to Ironforge. The gryphon riders are real.", next = "x_dwarf", when = { race = "Dwarf" } },
         { text = "Who else is in Miss Danna's class?", next = "d6_class" },
         { text = "What do you want to be when you're grown?", next = "d6_grow" },
+        { text = "Do you write down everything you learn?", next = "e3_notes" },
         { text = "Good luck with your report.", next = "END" },
       },
     },
@@ -358,6 +397,25 @@ P:NPC {
       },
       choices = {
         { text = "They don't bite friends. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    e3_notes = {
+      lines = {
+        { id = "e3_notes_l0", text = "Yes, in a book Miss Danna gave me with a ribbon in it, and I'm on the fourth page of the Cathedral already. I write down what people tell me, and then I write down if I believe them, with a little mark." },
+        { id = "e3_notes_l1", when = { class = "PRIEST" }, text = "Yes, and you'll be in it, because priests are my favourite thing to write about. I've got four pages on the Cathedral, and every one has a little mark next to what I don't believe yet, so you'll have to tell me true things." },
+      },
+      choices = {
+        { text = "What gets a mark?", next = "e3_notes2" },
+        { text = "That's a good habit for a scholar.", next = "BACK" },
+      },
+    },
+    e3_notes2 = {
+      lines = {
+        { id = "e3_notes2_l0", text = "Twain's stories, all of them, and Justin's cousin's ones about the crocolisks, and one thing Brother Kristoff said about the bell being as old as the city. I'm going to ask in the Royal Library about the bell, because librarians have to tell you the truth." },
+      },
+      choices = {
+        { text = "Ask Donyal Tovald; he'll know. Something else.", next = "BACK" },
+        { text = "Librarians make mistakes too, Pat.", next = "BACK" },
       },
     },
   },
@@ -423,7 +481,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Do you know anything else about the tower?" },
-        { id = "h_again2", text = "What else?" },
+        { id = "h_again2", text = "What else? Is it about the tower? Please let it be about the tower." },
       },
       choices = {
         { text = "Why the Mage Tower?", next = "tower" },
@@ -433,6 +491,7 @@ P:NPC {
         { text = "Magic is dangerous. Maybe pick something else.", next = "x_stance" },
         { text = "What's your family like?", next = "yfamily" },
         { text = "Do you know any mages?", next = "yknow" },
+        { text = "Have you tried any other spells besides the porridge?", next = "e3_spell" },
         { text = "I hope you see it one day, Steven.", next = "END" },
       },
     },
@@ -470,6 +529,25 @@ P:NPC {
       choices = {
         { text = "Study hard and it's the best calling there is.", next = "BACK", reply = "I will! I'll study harder than Pat even.", fx = { align = { order = -1 } } },
         { text = "Listen to the grown-ups. They know the danger.", next = "BACK", reply = "Oh. All right, but I'm still going to try.", fx = { align = { order = 1 } } },
+      },
+    },
+    e3_spell = {
+      lines = {
+        { id = "e3_spell_l0", text = "I tried to make a candle light by pointing at it, like the mage with the light on his finger, and I pointed for so long my arm went to sleep. Mikey says it went a bit brighter, but I think he was only being nice." },
+        { id = "e3_spell_l1", when = { class = "MAGE" }, text = "I tried to light a candle by pointing at it, the way you'd do it, I bet, and I pointed for so long my arm went to sleep. Is there a trick to it, or do you have to be a grown-up before the magic comes?" },
+      },
+      choices = {
+        { text = "Magic needs study first, not pointing.", next = "e3_spell2" },
+        { text = "Mikey's a good friend to say so.", next = "BACK" },
+      },
+    },
+    e3_spell2 = {
+      lines = {
+        { id = "e3_spell2_l0", text = "That's what my cousin Jerod says, and he says the first year in the tower is all reading and no fire at all. I don't mind reading, so long as there's fire at the end of it." },
+      },
+      choices = {
+        { text = "That's the right attitude. Something else.", next = "BACK" },
+        { text = "There's always fire at the end, Steven.", next = "BACK" },
       },
     },
   },
@@ -547,6 +625,7 @@ P:NPC {
         { text = "Picking on Mikey isn't fair.", next = "x_stance" },
         { text = "What does your dad do?", next = "ydad" },
         { text = "What do you know about Booty Bay?", next = "ybooty" },
+        { text = "Where did you find that stick?", next = "e3_stick" },
         { text = "Behave yourself, Twain.", next = "END" },
       },
     },
@@ -584,6 +663,24 @@ P:NPC {
       choices = {
         { text = "Being bigger doesn't make it right. Stop it.", next = "BACK", reply = "Fine. I'll stop for now, but only because you said.", fx = { align = { light = 1 } } },
         { text = "Better him than you, I suppose.", next = "BACK", reply = "That's what I said! See, the {class} gets it.", fx = { align = { light = -1 } } },
+      },
+    },
+    e3_stick = {
+      lines = {
+        { id = "e3_stick_l0", text = "In the canal by the Trade District bridge, floating along like it was waiting for me. It's a good one, see, with a knot at the end like a mace, and I'm calling it Lothar." },
+      },
+      choices = {
+        { text = "Lothar was a great man. Treat the stick with respect.", next = "e3_stick2" },
+        { text = "It looks more like a soggy branch.", next = "BACK" },
+      },
+    },
+    e3_stick2 = {
+      lines = {
+        { id = "e3_stick2_l0", text = "I do, I only poke Mikey with the pointy end, never the Lothar end. Miss Danna says if I hit anything with it she'll throw it back in the canal, so it's mostly for show now." },
+      },
+      choices = {
+        { text = "That's probably for the best. Something else.", next = "BACK" },
+        { text = "Good. Mikey will thank you.", next = "BACK" },
       },
     },
   },
@@ -632,6 +729,7 @@ P:NPC {
         { text = "What's the biggest thing you've seen in the canal?", next = "x_big" },
         { text = "Justin's stories are just harmless fun.", next = "x_stance" },
         { text = "Rangers like me know crocolisks. Want to know the signs?", next = "x_hunt", when = { class = "HUNTER" } },
+        { text = "Tell me about the shadow you saw under the water.", next = "e3_shadow" },
         { text = "Good luck with the fish.", next = "END" },
       },
     },
@@ -689,6 +787,25 @@ P:NPC {
       },
       choices = {
         { text = "Ripples against the current. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    e3_shadow = {
+      lines = {
+        { id = "e3_shadow_l0", text = "It was by the grate under the Mage Quarter bridge, where the water goes dark, and it was as long as Brandon and twice as quiet. It went past, and then it came back, slower, as if it was having a look at us." },
+        { id = "e3_shadow_l1", when = { class = "HUNTER" }, text = "It was by the grate under the Mage Quarter bridge, as long as Brandon and twice as quiet, and it came back slower the second time. You'd know, being a hunter, if that's how a thing moves when it's deciding whether you're dinner." },
+      },
+      choices = {
+        { text = "Stay back from that grate, Roman.", next = "e3_shadow2" },
+        { text = "It was probably a big carp.", next = "BACK" },
+      },
+    },
+    e3_shadow2 = {
+      lines = {
+        { id = "e3_shadow2_l0", text = "I do now, and I made us move to this spot, only I said it was because the sun's better here. If it was a crocolisk, Justin will be right, and he'll be insufferable for a whole year." },
+      },
+      choices = {
+        { text = "That's a fair price for safety. Something else.", next = "BACK" },
+        { text = "Clever thinking. Keep your secret.", next = "BACK" },
       },
     },
   },
@@ -754,6 +871,7 @@ P:NPC {
         { text = "What will you do when you're grown?", next = "ygrown" },
         { text = "Want a tip on running corners?", next = "BACK", when = { class = "ROGUE" }, reply = "Yes! Quick, tell me, before she catches up. Oh, that's clever. I'm using that." },
         { text = "What about your family?", next = "yfamily" },
+        { text = "Which corner is your favourite for losing Donna?", next = "e3_corners" },
         { text = "Run, then. She's coming.", next = "END" },
       },
     },
@@ -794,6 +912,24 @@ P:NPC {
       choices = {
         { text = "Give it back now and say sorry.", next = "BACK", reply = "Oh, fine, but she has to say I'm fast first.", fx = { align = { honor = 1 } } },
         { text = "Make her work for it. It's a fair race.", next = "BACK", reply = "That's what I think! Got to go!", fx = { align = { honor = -1 } } },
+      },
+    },
+    e3_corners = {
+      lines = {
+        { id = "e3_corners_l0", text = "The one by the Gilded Rose where the barrels are stacked, because I can duck behind them and she runs straight past. It worked twice, but the third time the innkeeper came out and told us both off, so it's spoiled now." },
+      },
+      choices = {
+        { text = "Where will you go now that it's spoiled?", next = "e3_corners2" },
+        { text = "You should stop running and say sorry.", next = "BACK" },
+      },
+    },
+    e3_corners2 = {
+      lines = {
+        { id = "e3_corners2_l0", text = "Old Town, maybe, because the alleys there go every which way. Only my mum says not to go past the Slaughtered Lamb, and Old Town is right next to that, so I'd have to be quick." },
+      },
+      choices = {
+        { text = "Listen to your mum. Something else.", next = "BACK" },
+        { text = "Donna might wait for you there.", next = "BACK" },
       },
     },
   },
@@ -844,6 +980,7 @@ P:NPC {
         { text = "Who do ye sell the gun barrels to?", next = "x_who" },
         { text = "Dwarves should arm the humans for free, as allies.", next = "x_stance" },
         { text = "Ironforge sends its best, eh?", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "Ye said the tram brings yer coal?", next = "e3_tram" },
         { text = "Keep your fire hot, Morgg.", next = "END" },
       },
     },
@@ -910,6 +1047,24 @@ P:NPC {
       },
       choices = {
         { text = "I'll look them up. Something else.", next = "BACK" },
+      },
+    },
+    e3_tram = {
+      lines = {
+        { id = "e3_tram_l0", text = "Aye, crates o' good Dun Morogh coal, rattlin' under the harbor in the gnomes' contraption, an' I'll grant it's a marvel even if it does squeal like a stuck boar. Afore the tram I had tae buy human coal, which burns like wet sheep." },
+      },
+      choices = {
+        { text = "And if the tram breaks down?", next = "e3_tram2" },
+        { text = "Wet sheep. That's harsh on the humans, Morgg.", next = "BACK" },
+      },
+    },
+    e3_tram2 = {
+      lines = {
+        { id = "e3_tram2_l0", text = "Then I shout at a gnome until it doesnae, which is how most things in this district get done. Last time it stopped for three days, an' I made horseshoes from scrap an' cursed every one o' them in Dwarvish." },
+      },
+      choices = {
+        { text = "Cursed horseshoes. Lucky cavalry. Something else.", next = "BACK" },
+        { text = "Shouting at gnomes seldom helps.", next = "BACK" },
       },
     },
   },

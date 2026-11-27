@@ -694,6 +694,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_prd = {
+      lines = { { id = "w8_prd_a", text = "A swamp-fever draught, made from Sungrass and a little blindweed, which has kept half the garrison on its feet through the wet season. Nobody thanks an alchemist for a fever that didn't happen, but I count the grunts on the wall every morning, and there are more than there were." } },
+      choices = {
+        { text = "That's real work for the Horde.", next = "w8_prd2" },
+        { text = "Does it taste as bad as it sounds?", next = "w8_prd2" },
+        { text = "I brew too. How do you stop the blindweed curdling?", next = "w8_prd2", when = { profession = "Alchemy" } },
+        { text = "Something else, Rogvar.", next = "BACK" },
+      },
+    },
+    w8_prd2 = {
+      lines = {
+        { id = "w8_prd2_a", text = "Worse, and that's how they know it's working! Thrall asked me to understand what grows here, and I've come to love this stinking swamp for it, because every root in it is a cure waiting for somebody patient." },
+        { id = "w8_prd2_alc", when = { profession = "Alchemy" }, text = "Cool it in the jar before you add the Sungrass, never after, and stir the other way round, which I swear makes a difference and can't prove. Come and try it at my bench, and we'll see whose hands are steadier." },
+      },
+      choices = {
+        { text = "Keep brewing, Rogvar.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -717,6 +737,7 @@ P:NPC {
         { text = "Do you brew for anyone in Stonard?", next = "bengor" },
         { text = "Do the spirits mind you boiling their roots?", next = "xshaman", when = { class = "SHAMAN" } },
         { text = "I've heard the Undercity's apothecaries trade in swamp herbs.", next = "xforsaken", when = { race = "Scourge" } },
+        { text = "What potion are you proudest of?", next = "w8_prd" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -874,6 +895,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_came = {
+      lines = { { id = "w8_came_a", text = "I asked the Warchief where shamans were most needed and least wanted, and he smiled and said Stonard. The orcs here held this fortress through the camps, and many of them still do not trust the spirits, because they remember the warlocks." } },
+      choices = {
+        { text = "Do they trust you now?", next = "w8_came2" },
+        { text = "That's a hard place to teach.", next = "w8_came2" },
+        { text = "Something else, Haromm.", next = "BACK" },
+      },
+    },
+    w8_came2 = {
+      lines = { { id = "w8_came2_a", text = "Some of them, and their children more, because the children have never known anything but the water and me. Trust grows slowly in a swamp, like everything else, but it does grow." } },
+      choices = {
+        { text = "Then it was worth coming.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hrm_far1 = {
       lines = {
         { id = "hrm_far1_1", text = "It is, for the elements here are not the elements of Durotar, and my students must learn them all again. The fire is damp, the earth is soft, and the air is heavy, and only the water is strong, though it is strong with grief." },
@@ -930,7 +967,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you ask? The water is patient, and so am I." },
-        { id = "h_again2", text = "Speak. I am listening." },
+        { id = "h_again2", text = "Speak, and the spirits and I will listen together." },
       },
       choices = {
         { text = "The elements answer those who honour them with patience.", next = "BACK", reply = "They do. The water remembers kindness, even here, where it has known so little of it.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -942,6 +979,7 @@ P:NPC {
         { text = "What troubles the spirits near the temple?", next = "temple" },
         { text = "Is it hard to teach shamans so far from Orgrimmar?", next = "hrm_far1" },
         { text = "What does the water tell you, when you listen?", next = "hrm_wat1" },
+        { text = "How did you come to the swamp, Haromm?", next = "w8_came" },
         { text = "Farewell, Haromm.", next = "END" },
       },
     },

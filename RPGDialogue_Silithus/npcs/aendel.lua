@@ -50,7 +50,25 @@ P:NPC {
         { text = "Let me see your patterns.", next = "BUSINESS" },
         { text = "What was your work like, at Southwind?", next = "work" },
         { text = "The Cenarion Hold seems a long way from your home.", next = "hold" },
+        { text = "Your house is full of beetles.", next = "w9_beetle" },
         { text = "Rest well, Aendel.", next = "END" },
+      },
+    },
+
+    w9_beetle = {
+      lines = { { id = "w9_beetle_d", text = "It is, and they have been my only company for most of the years since Southwind fell. They eat the old leather in the corners, which I resented at first, and now I find I rather like hearing them work while I do." } },
+      choices = {
+        { text = "Don't they damage your work?", next = "w9_beetle2" },
+        { text = "You could ask the druids to clear them out.", next = "w9_beetle2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_beetle2 = {
+      lines = { { id = "w9_beetle2_d", text = "Only the scraps, never the patterns, and I think they know the difference, which is more than some of my old apprentices did. The druids have offered, but I told them the dead should not be choosy about their neighbours, and the beetles at least never ask why I came back." } },
+      choices = {
+        { text = "Then I'll mind where I step.", next = "BACK", reply = "Thank you. The small brown ones are the oldest, and the least nimble." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {

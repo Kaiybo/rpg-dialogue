@@ -740,7 +740,25 @@ P:NPC {
         { text = "Are the animals well cared for in this cold?", next = "xdruid", when = { class = "DRUID" } },
         { text = "The last paladin who stabled here must have left an impression.", next = "xapala", when = { class = "PALADIN" } },
         { text = "Someone's stealing from your feed bins, Azzleby?", next = "xrogue", when = { class = "ROGUE" } },
+        { text = "Which beast here is your favourite?", next = "w9_fav" },
         { text = "Goodbye.", next = "END" },
+      },
+    },
+
+    w9_fav = {
+      lines = { { id = "w9_fav_d", text = "The old grey wolf in the end stall, pal, whose hunter went out to Frostwhisper Gorge one morning and never came back for him. That was two winters ago, and he still sits up every time the gate opens, just in case." } },
+      choices = {
+        { text = "What will happen to him?", next = "w9_fav2" },
+        { text = "You've kept him all this time?", next = "w9_fav2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_fav2 = {
+      lines = { { id = "w9_fav2_d", text = "Nothing, pal, he stays right here, and I feed him on my own coin, 'cause no ledger's got a column for loyalty. Some days I think he's waiting for his hunter, and some days I think he's waiting for me to be done with work, and either way he's good company." } },
+      choices = {
+        { text = "Give him a scratch from me.", next = "BACK", reply = "I will. He's partial to behind the left ear." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     warm = {

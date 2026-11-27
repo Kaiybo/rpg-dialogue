@@ -57,7 +57,23 @@ P:NPC {
         { text = "How do I keep the nightmare out of my own sleep?", next = "d_sleep", when = { class = "DRUID", minLevel = 15 } },
         { text = "I've seen the caverns. Naralex still sleeps.", next = "naralex", when = { cleared = "Wailing Caverns" } },
         { text = "What can I do?", next = "BUSINESS" },
+        { text = "What do you do, the moment you wake from those dreams?", next = "w5_wake" },
         { text = "Sleep well, Nara.", next = "END" },
+      },
+    },
+    w5_wake = {
+      lines = { { id = "w5_wake_l", text = "I walk. Out across the bridge to the edge of Elder Rise, where the wind comes straight off the plains, and I stand there until I can smell grass instead of the cavern damp. Some nights the Honor Guard pretend not to see me. Some nights they bring me a blanket." } },
+      choices = {
+        { text = "Does it help, standing in the wind?", next = "w5_wake2" },
+        { text = "My grandmother walked the rises at night too.", next = "BACK", when = { race = "Tauren" }, reply = "Then perhaps it is in our blood, this walking. I find that a comfort, strangely." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_wake2 = {
+      lines = { { id = "w5_wake2_l", text = "It reminds me which world I am in. In the dream, the Barrens are green and wrong and whispering. Out on the rise, Mulgore is only Mulgore, golden and quiet, with the kodo lowing far below. I hold on to that until the sun comes up, and then I go back to my studies." } },
+      choices = {
+        { text = "Hold on to the wind, then. It's real.", next = "BACK", reply = "I will. Thank you. It helps to hear someone else say it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     fang = {

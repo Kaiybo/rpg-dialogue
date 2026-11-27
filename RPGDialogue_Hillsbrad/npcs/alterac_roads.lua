@@ -760,6 +760,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_wrong = {
+      lines = {
+        { id = "w3_wrong_1", text = "It goes wrong very quickly and very loudly, and then I write down what I did so that I can do it again on purpose. The scar on my wrist is from the first one, and the scorch on the ceiling is from the second, and the third I'm still trying to find." },
+      },
+      choices = {
+        { text = "Still trying to find?", next = "w3_third" },
+        { text = "That's a brave way to do alchemy.", next = "BACK", reply = "It's the only way. A man who only brews what he's sure of brews nothing worth having." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_third = {
+      lines = {
+        { id = "w3_third_1", text = "It went up through the roof and over the hill toward Southshore, and I'm told the Southshore militia reported a green comet that night. I've never confessed to it, and Lydon has never asked, and the comet is now in a Stormwind almanac." },
+      },
+      choices = {
+        { text = "I'll never tell. Something else.", next = "BACK" },
+      },
+    },
     xfpala = {
       big = true,
       lines = { { id = "xfpala_default", text = "I'd brew them for anyone who pays, and I'd think nothing of it, but you might. The Light was never fond of poison, I'm told, though I've noticed the Light was never asked to hold Tarren Mill against Southshore either." } },
@@ -870,6 +888,7 @@ P:NPC {
         { text = "What do you make from the beasts I bring you, Hinott?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "You brew with the land's herbs. Do you waste them?", next = "xdruid", when = { class = "DRUID", faction = "Horde" } },
         { text = "I doubt you'd brew poisons for a paladin's blade, Serge.", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "What happens when one of your flasks goes wrong?", next = "w3_wrong" },
         { text = "Good day.", next = "END" },
       },
       again = { { id = "h_again", text = "Something else? The flask on the left is about to do something, and when it does, I intend to be standing behind you." } },

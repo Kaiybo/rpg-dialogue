@@ -46,7 +46,25 @@ P:NPC {
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Where do your riders fly most often?", next = "routes" },
         { text = "How does a tauren end up in the desert?", next = "tauren" },
+        { text = "Have you ever lost a rider to a storm?", next = "w9_lost" },
         { text = "Farewell, Runk.", next = "END" },
+      },
+    },
+
+    w9_lost = {
+      lines = { { id = "w9_lost_d", text = "One, my second season here, a young rider named Grey-Wing who flew for Gadgetzan an hour before the wind turned. The storm came off the Scarab Wall like a stampede, and we found the saddle two days later, and nothing else." } },
+      choices = {
+        { text = "What do you do differently now?", next = "w9_lost2" },
+        { text = "That wasn't your fault, Runk.", next = "w9_lost2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_lost2 = {
+      lines = { { id = "w9_lost2_d", text = "I watch the south sky before every flight, and if the horizon turns the colour of old hide, nobody leaves the Hold, not even for gold. The riders have learned to trust my nose, and I have learned that a grounded flight is better than an empty saddle." } },
+      choices = {
+        { text = "A wise rule.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     sand = {
@@ -172,7 +190,28 @@ P:NPC {
         { text = "I need a flight.", next = "BUSINESS" },
         { text = "Feathermoon is a long flight from here.", next = "feathermoon" },
         { text = "Which of your hippogryphs is the bravest?", next = "bravest" },
+        { text = "Do the Twilight cultists ever shoot at your birds?", next = "w9_twi" },
         { text = "Farewell, Cloud.", next = "END" },
+      },
+    },
+
+    w9_twi = {
+      lines = {
+        { id = "w9_twi_d", text = "They did, once, from the ridge above their camp to the northwest, and my poor Thistle came home with a crossbow bolt through her tail feathers. Now every flight swings wide of the Twilight camps, which costs us a little time and saves us a great deal of grief." },
+        { id = "w9_twi_v1", when = { class = "HUNTER" }, text = "A hunter would ask that! They did, from the ridge above their camp, and Thistle came home with a bolt through her tail feathers. You'd have found the shooter in an hour, I imagine, but I only had a bucket of salve and a very cross bird." },
+      },
+      choices = {
+        { text = "Is Thistle all right now?", next = "w9_twi2" },
+        { text = "The Circle should drive them out.", next = "w9_twi2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_twi2 = {
+      lines = { { id = "w9_twi2_d", text = "She's perfectly well, and very vain about the new feathers, which came in darker than the old ones. As for the cultists, the Circle says they're watching them, and I say a lot of watching is going on in Silithus and not much flying straight." } },
+      choices = {
+        { text = "Give Thistle my regards.", next = "BACK", reply = "I will! She'll pretend not to care, but she'll preen all evening." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     desert = {

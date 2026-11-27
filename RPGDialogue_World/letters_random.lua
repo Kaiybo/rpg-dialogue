@@ -78,7 +78,7 @@ P:Letter {
 P:Letter {
   id = "rand_secret_admirer", from = "A friend", stranger = true, random = true, when = { minLevel = 20 },
   subject = "Unsigned",
-  body = "{name},\n\nYou won't know me, and it's better that way, but I saw you once from across a crowded square and I've thought about it more than is sensible. You were helping someone who couldn't pay you, and you didn't make a show of it.\n\nThat's all. I don't want anything. I only thought someone ought to tell you that it was noticed.\n\nA friend",
+  body = "{name},\n\nYou won't know me, and it's better that way, but I saw you once from across a crowded square and I've thought about it more than is sensible. You were helping someone who couldn't pay you, and you didn't make a show of it.\n\nThat's all, and I don't want anything. I only thought someone ought to tell you that it was noticed.\n\nA friend",
   replies = {
     { id = "noticed", text = "Thank you, friend. I'd have done it whether anyone noticed or not." },
     { id = "meet", text = "Whoever you are, I'd like to meet you someday.", fx = { letter = "rand_secret_admirer_re_meet" } },
@@ -609,7 +609,7 @@ P:Letter {
 P:Letter {
   id = "rand_hunter_pies", from = "Mabel Hargrove", stranger = true, random = true, when = { class = "HUNTER", minLevel = 10 },
   subject = "Regarding your animal",
-  body = "To the {class} with the animal,\n\nWhile you were in the village last week buying arrows, your animal came round the back of my cottage and ate four pies from the windowsill, one blackberry and three meat, and then it lay down in my vegetable patch and went to sleep on the cabbages.\n\nI don't blame the animal. Animals will be animals. I blame you, because you were standing right there talking to the fletcher about feathers and didn't once look round.\n\nI'll accept six silver for the pies, and the cabbages can be forgiven, since it was very sweet asleep. Please pass on my regards to the animal, but not to you.\n\nMabel Hargrove",
+  body = "To the {class} with the animal,\n\nWhile you were in the village last week buying arrows, your animal came round the back of my cottage and ate four pies from the windowsill, one blackberry and three meat, and then it lay down in my vegetable patch and went to sleep on the cabbages.\n\nI don't blame the animal, because animals will be animals. I blame you, because you were standing right there talking to the fletcher about feathers and didn't once look round.\n\nI'll accept six silver for the pies, and the cabbages can be forgiven, since it was very sweet asleep. Please pass on my regards to the animal, but not to you.\n\nMabel Hargrove",
   replies = {
     { id = "sorry", text = "I'm sorry about the pies, Mrs. Hargrove. My animal is sorry too." },
     { id = "sill", text = "Pies on a windowsill are practically an invitation, Mrs. Hargrove." },
@@ -620,7 +620,7 @@ P:Letter {
 P:Letter {
   id = "rand_forsaken_neighbour", from = "Wilfred Ashby", stranger = true, random = true, when = { race = "Scourge" },
   subject = "Have we met before?",
-  body = "{name},\n\nForgive me for writing out of nowhere. I was standing by the canals in the Undercity last week when you passed, and I could swear I knew your face, or what is left of it. I think we may have lived on the same street in Lordaeron, before. I kept a little bookshop with a green door, three houses down from the baker.\n\nI don't remember much from then. None of us do, I suppose. But I remember the green door, and I remember the smell of the bread in the mornings, and I thought, if it was you, you might remember something too.\n\nIf you do, write back. If you don't, I understand. There's very little in this life that can't be forgotten, and that's both the mercy and the curse of it.\n\nWilfred Ashby, the Magic Quarter, Undercity",
+  body = "{name},\n\nForgive me for writing out of nowhere. I was standing by the canals in the Undercity last week when you passed, and I could swear I knew your face, or what is left of it. I think we may have lived on the same street in Lordaeron, before. I kept a little bookshop with a green door, three houses down from the baker.\n\nI don't remember much from then. None of us do, I suppose. But I remember the green door, and I remember the smell of the bread in the mornings, and I thought, if it was you, you might remember something too.\n\nIf you do, write back, and if you don't, I understand. There's very little in this life that can't be forgotten, and that's both the mercy and the curse of it.\n\nWilfred Ashby, the Magic Quarter, Undercity",
   replies = {
     { id = "door", text = "I remember a green door, Wilfred. I think I stood in your shop.", fx = { letter = "rand_forsaken_neighbour_re_door" } },
     { id = "visit", text = "I don't remember, Wilfred, but I'd like to visit your shelf." },
@@ -694,7 +694,7 @@ P:Letter {
 P:Letter {
   id = "rand_child_re_big", from = "Pip", stranger = true, delay = 3600,
   subject = "the beetle",
-  body = "dear hero,\n\nI showed my brother your letter and he said you were lying because heroes always say their sword is big, and I said heroes do not lie because they are heroes, and then Mum came in and said nobody is eating any beetles in her house.\n\nSo we went outside. My brother ate the beetle. He said it tasted like a walnut but he made a face that said it did not.\n\nnow I want to know how many monsters you have killed and if any of them were bigger than a house. Mum says I am not allowed to ask you to write again but I am asking anyway.\n\nfrom Pip (age 7 and a half now)",
+  body = "dear hero,\n\nI showed my brother your letter and he said you were lying because heroes always say their sword is big, and I said heroes do not lie because they are heroes, and then Mum came in and said nobody is eating any beetles in her house.\n\nSo we went outside, and my brother ate the beetle. He said it tasted like a walnut but he made a face that said it did not.\n\nnow I want to know how many monsters you have killed and if any of them were bigger than a house. Mum says I am not allowed to ask you to write again but I am asking anyway.\n\nfrom Pip (age 7 and a half now)",
   replies = {
     { id = "house", text = "A few were bigger than a house, Pip. Don't tell your mum.", fx = { letter = "rand_child_re_big_re_house" } },
     { id = "brave", text = "Tell your brother he was very brave about the beetle." },
@@ -744,7 +744,7 @@ P:Letter {
 P:Letter {
   id = "rand_renato_re_westfall", npc = "renato", delay = 4800,
   subject = "A grave misunderstanding",
-  body = "My dear, dear {name},\n\nI have read your letter four times, and each time I have had to sit down. You say the Westfall wine is not bad. Not bad! My grandmother overheard me reading it and has not spoken to anyone since, except to ask whether you are eating well, because she believes only a hungry person could say such a thing.\n\nYou have been deceived, my friend, and I do not blame you. The Westfall wine is made by hungry men in a hard season from grapes that have seen nothing but dust and Defias, and of course it tastes of something. It tastes of sorrow. Ours tastes of sunshine.\n\nCome to the Trade District and I will pour them side by side, and then you will write me a very different letter.\n\nYour wounded but devoted friend, Renato Gallina",
+  body = "My dear, dear {name},\n\nI have read your letter four times, and each time I have had to sit down. You say the Westfall wine is not bad. Not bad! My grandmother overheard me reading it and has not spoken to anyone since, except to ask whether you are eating well, because she believes only a hungry person could say such a thing.\n\nYou have been deceived, my friend, and I do not blame you. The Westfall wine is made by hungry men in a hard season from grapes that have seen nothing but dust and Defias, and of course it tastes of something. It tastes of sorrow, and ours tastes of sunshine.\n\nCome to the Trade District and I will pour them side by side, and then you will write me a very different letter.\n\nYour wounded but devoted friend, Renato Gallina",
   replies = {
     { id = "fair", text = "Pour them side by side, Renato, and I'll judge fairly.", fx = { affinity = 1 } },
     { id = "cheese", text = "Sorrow pairs well with cheese, Renato. I stand by what I said." },
@@ -828,5 +828,61 @@ P:Letter {
   replies = {
     { id = "shelf", text = "I'll come and stand by your shelf, Wilfred. I might even buy something." },
     { id = "small", text = "Keep the small things, Wilfred. The Dark Lady needn't know." },
+  },
+}
+
+---------------------------------------------------------------------------
+-- Writing pass (World): strangers who write to a particular sort of adventurer
+---------------------------------------------------------------------------
+P:Letter {
+  id = "rand_w2_shaman_spirits", from = "Grukka", stranger = true, random = true, when = { faction = "Horde", class = "SHAMAN", minLevel = 12 },
+  subject = "I hear them too",
+  body = "Shaman,\n\nYou do not know me. I am a young orc at Razor Hill, and I carry water for the barracks, and lately when I carry it the water talks to me. Not in words, but I know when it is happy and when it is not, and yesterday it was not, and an hour later the well cracked.\n\nThe grunts laugh at me. The old shaman here says it is the spirits calling and that I should be patient, but he is very old and very slow, and I saw you pass through and thought you would answer faster.\n\nIs it always like this, the beginning? Did the water talk to you too, or was it something else?\n\nGrukka, water carrier, Razor Hill",
+  replies = {
+    { id = "patient", text = "Listen to your old shaman, Grukka. The spirits never hurry.", fx = { trait = { patient = 1 } } },
+    { id = "fire", text = "For me it was fire, Grukka. Listen to the water, and don't be afraid.", fx = { trait = { kind = 1 } } },
+    { id = "laugh", text = "Let the grunts laugh. They won't laugh when you call the rain.", fx = { trait = { proud = 1 } } },
+  },
+}
+
+P:Letter {
+  id = "rand_w2_priest_deathguard", from = "Deathguard Burgess", stranger = true, random = true, when = { race = "Scourge", class = "PRIEST", minLevel = 10 },
+  subject = "Regarding the shadows in Brill",
+  body = "Priest,\n\nYou passed through Brill some weeks ago and set your hand on my shoulder when the Scarlet arrow went in, and said a word I did not catch, and the wound closed over cold and clean. I had not thought there was anything left in this body to mend. I write to say that there was, and that I noticed.\n\nI do not know what you call on when you pray. The Light of my old life would not look at me now, I think, and the shadow you carry is a colder thing. But it held, and so did I, and the Scarlet zealot who loosed the arrow is buried under the field behind the inn, which I find I enjoy rather more than a dead man ought.\n\nThe Dark Lady keeps her own counsel. So do I. Consider this a debt acknowledged.\n\nDeathguard Burgess, Brill",
+  replies = {
+    { id = "debt", text = "There's no debt, Burgess. Hold the line at Brill.", fx = { trait = { kind = 1 } } },
+    { id = "shadow", text = "The shadow answers whoever is hungry enough. Remember that, Deathguard.", fx = { trait = { stern = 1 } } },
+  },
+}
+
+P:Letter {
+  id = "rand_w2_druid_calf", from = "Little Tahna", stranger = true, random = true, when = { race = "Tauren", class = "DRUID", minLevel = 10 },
+  subject = "a question",
+  body = "Dear druid,\n\nMy grandmother is writing this for me because my hand is too big for the brush. I saw you turn into a bear by the Bloodhoof well and then turn back again, and I have been trying to do it ever since, and I cannot.\n\nI have tried growling. I have tried eating berries. I have tried sleeping all afternoon, which my grandmother says is not the same as being a bear but is a good start. My cousin says only druids can do it and that I am too small, and I said that bears start small too, and he could not answer that.\n\nPlease write back and tell me the secret. I promise I will not turn into a bear indoors.\n\nYour friend,\nTahna, Bloodhoof Village\n\n(Her grandmother adds: Walk with the Earth Mother, and forgive the child. She has been growling at the kodo for a week.)",
+  replies = {
+    { id = "secret", text = "Tell Tahna the secret is listening to the land, and growing patient.", fx = { trait = { kind = 1 } } },
+    { id = "bears", text = "Tell her she's right: bears start small, and so do druids.", fx = { trait = { kind = 1 } } },
+    { id = "kodo", text = "Tell her to stop growling at the kodo. They have long memories.", fx = { trait = { witty = 1 } } },
+  },
+}
+
+P:Letter {
+  id = "rand_w2_hunter_sentinel", from = "Sentinel Ilyara Moonshade", stranger = true, random = true, when = { race = "NightElf", class = "HUNTER", minLevel = 12 },
+  subject = "Your cat at Dolanaar",
+  body = "Hunter,\n\nYour nightsaber was seen again at Dolanaar three nights past, sitting on the roof of the inn and watching the road, and when the moon came up she went back into the trees without a sound. I would not trouble you with it, except that the children of the village have begun leaving her offerings of fish on the doorstep, and the innkeeper has complained to me of the smell.\n\nI do not think she has forgotten you, whatever the stablemasters tell you about beasts that are set free. A nightsaber remembers the hand that fed her for longer than most of us remember our own oaths.\n\nIf you would like her back at your side, she is waiting. If not, she has the whole of Teldrassil, and I think she will be content.\n\nElune light your path,\nSentinel Ilyara Moonshade, Dolanaar",
+  replies = {
+    { id = "fish", text = "Tell the children to keep the fish coming. She deserves them.", fx = { trait = { kind = 1 } } },
+    { id = "free", text = "She's free now. Let her have Teldrassil, Sentinel.", fx = { trait = { patient = 1 } } },
+  },
+}
+
+P:Letter {
+  id = "rand_w2_gnome_warlock", from = "Fizzlewick Gearbottom", stranger = true, random = true, when = { race = "Gnome", class = "WARLOCK", minLevel = 12 },
+  subject = "Re: the imp (again)",
+  body = "Neighbour,\n\nI write in my capacity as the occupant of the bunk immediately below yours in Tinker Town, and as the former owner of a very fine set of calibrated spanners, to inform you that your imp has once again been in my toolbox.\n\nI have inventoried the damage. Three spanners are melted, one is missing, and one has been bent into a shape I can only describe as rude. My notebook on gyroscopic stabilisers has been set on fire in a manner that I must concede was very precise, but I would have preferred it not to happen at all.\n\nI am aware that the Gnomeregan exile committee asks us all to be tolerant of one another's research in these difficult times, and I am trying, I truly am. But if the imp does it again, I am going to build a bucket that throws itself, and I am going to aim it at your bunk.\n\nRegards, with reservations,\nFizzlewick Gearbottom",
+  replies = {
+    { id = "sorry", text = "My apologies, Fizzlewick. I'll keep the imp on a shorter leash.", fx = { trait = { kind = 1 } } },
+    { id = "bucket", text = "Build the bucket. I'd honestly like to see it work.", fx = { trait = { witty = 1 } } },
+    { id = "research", text = "The imp was assisting my research. Your spanners were a regrettable loss.", fx = { trait = { proud = 1 } } },
   },
 }

@@ -31,6 +31,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_family = {
+      lines = {
+        { id = "w3_family_1", text = "Gregor Agamand thought a miller's daughter was very well in her place, and her place was behind a flour sack. Thurman's brothers laughed at us, and his mother was civil, and Thurman didn't care, which was the whole of why I loved him and the whole of why he stayed behind." },
+      },
+      choices = {
+        { text = "He stayed out of duty to them.", next = "w3_duty" },
+        { text = "Gregor sounds a hard man.", next = "BACK", reply = "He was, and now he walks his mill with his eyes empty, and I find that I don't pity him as much as I ought to." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_duty = {
+      lines = {
+        { id = "w3_duty_1", text = "Duty, and fear of his father, and the hope that they'd come round in time, which they didn't. I told him duty would get him killed, and I was right, and I'll take no pleasure in that, though I'll not pretend I wasn't right." },
+      },
+      choices = {
+        { text = "You warned him. That's something. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Yvette Farthing. My father worked the Agamands' mills, and I meant to marry into the family that owned them, and now we sit in the Gallows' End because there's nowhere else that will have us." },
@@ -40,7 +58,7 @@ P:NPC {
           text = "I've read it twice, which is once more than I should have. Regrets are for the weak, and I've no use for them, but I'm glad to know what became of him." },
       },
       again = {
-        { id = "h_again", text = "Something else? Be quick about it, or be quiet." },
+        { id = "h_again", text = "Something else? Be quick about it, or be quiet, and mind my father's chair." },
         { id = "h_again2", text = "Go on. My father's asleep in his chair, or doing whatever it is we do instead." },
       },
       choices = {
@@ -48,6 +66,7 @@ P:NPC {
         { text = "Who was Thurman Agamand?", next = "thurman" },
         { text = "You came from Agamand Mills?", next = "mills" },
         { text = "Your father looks like he carries a heavy load.", next = "father" },
+        { text = "What did Thurman's family make of you?", next = "w3_family" },
         { text = "Nothing more. Good evening.", next = "END" },
       },
     },
@@ -331,6 +350,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_words = {
+      lines = {
+        { id = "w3_words_1", text = "They ask whether it's morning, nine times in ten, because the last thing they saw was lamplight in a sickroom. I tell them it's whatever time they need it to be, and then I tell them the truth, which is that it's been years." },
+        { id = "w3_words_2", when = { race = "Scourge" }, text = "They ask whether it's morning, as you may have done, because the last thing they saw was a sickroom lamp. I told you whatever you needed to hear, I expect, and then the truth." },
+      },
+      choices = {
+        { text = "How do they take the truth?", next = "w3_truth" },
+        { text = "That's a gentle way to wake someone.", next = "BACK", reply = "It's the only gentle thing they'll get today, so I try to make it last." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_truth = {
+      lines = {
+        { id = "w3_truth_1", text = "Some weep, without tears, and some laugh, and one or two lie back down in the earth and wait for me to cover them again. Those I take to the crypt, and they are the reason I keep its door." },
+      },
+      choices = {
+        { text = "Then you keep both kinds safe. Something else.", next = "BACK" },
+      },
+    },
     wentback = {
       lines = { { id = "wb_default", text = "I did, and it is the truth. Not everyone who wakes in the Shadow Grave wants what they wake to, and a few of them walk back to the earth and ask to be let lie, and the Dark Lady does not chain them the way the Lich King would have." } },
       choices = {
@@ -375,7 +413,7 @@ P:NPC {
           text = "One of the living, walking among our graves. You'll forgive me if I don't ask whose dead you've come to see." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask the caretaker?" },
+        { id = "h_again", text = "What else would you ask the caretaker? The ground is quiet for once." },
         { id = "h_again2", text = "Speak. The crypt isn't going anywhere." },
         { id = "h_again3", text = "Ask what you came to ask. I have stood here long enough to learn patience, and I have a great deal of it left." },
       },
@@ -386,6 +424,7 @@ P:NPC {
         { text = "You said some rose and went back down.", next = "wentback" },
         { text = "This graveyard is busier than most towns.", next = "yard" },
         { text = "I remember being buried here, Caretaker.", next = "buried", when = { race = "Scourge" } },
+        { text = "What do people say when they first rise?", next = "w3_words" },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -626,6 +665,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_before = {
+      lines = {
+        { id = "w3_before_1", text = "A clerk of some sort, I believe, since I dream of forms in triplicate and wake reaching for a quill. The Executor says it shows, and he does not intend it kindly, though I've chosen to take it that way." },
+      },
+      choices = {
+        { text = "Forms in triplicate?", next = "w3_forms" },
+        { text = "A clerk makes a thorough guard.", next = "BACK", reply = "Thank you. I have often thought so, and nobody else has ever said it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_forms = {
+      lines = {
+        { id = "w3_forms_1", text = "Requisitions, I think, for lamp oil and boots, signed and countersigned and stamped with a seal I can almost see. I keep a log of the Brill watch in that same hand, and nobody reads it, but I like to know it would pass inspection." },
+      },
+      choices = {
+        { text = "I'm sure it would. Something else.", next = "BACK" },
+      },
+    },
     trainers = {
       lines = {
         { id = "tr_default", text = "The Gallows' End houses most of them. Rupert Boch teaches warlocks and Cain Firesong teaches mages, Marion Call sees to the rogues, and Austil de Mon drills warriors with more shouting than I think is strictly required." },
@@ -674,8 +731,8 @@ P:NPC {
         { id = "h_forsaken", when = { race = "Scourge" }, text = "Deathguard Cyrus, on watch in Brill. You are new to the town, I think, so note where the Executor stands and where the inn is, because everything else in Brill is found by walking from one to the other." },
       },
       again = {
-        { id = "h_again", text = "Anything further?" },
-        { id = "h_again2", text = "Go on. I'm listening, and watching." },
+        { id = "h_again", text = "Anything further? I'll note it in the log, whatever it is." },
+        { id = "h_again2", text = "Go on. I'm listening, and watching, and keeping count of both." },
         { id = "h_again3", text = "Is there another location you require? I know them all, and the distances between them." },
       },
       choices = {
@@ -685,6 +742,7 @@ P:NPC {
         { text = "I need a trainer, Deathguard.", next = "trainers" },
         { text = "You keep a close eye on the other guards.", next = "others" },
         { text = "How does Brill look to one of the living?", next = "living", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "What were you before the Deathguard?", next = "w3_before" },
         { text = "That's all, Deathguard.", next = "END" },
       },
     },
@@ -757,6 +815,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_lean = {
+      lines = {
+        { id = "w3_lean_1", text = "Right here, against the post by the well, where the wall keeps the wind off and you can see both ends of the street. I've tried them all, mind, and the one by the stable smells of Morganus's hounds, and the one by the inn has Cyrus." },
+      },
+      choices = {
+        { text = "Cyrus spoils a good spot?", next = "w3_cyrus" },
+        { text = "You've given this a great deal of thought.", next = "BACK", reply = "A guard has a great deal of time, {class}, and very little to spend it on except the quality of his posts." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_cyrus = {
+      lines = {
+        { id = "w3_cyrus_1", text = "He stands so straight beside it that leaning near him feels like a confession. I'm sure he means well, and I'm sure he's writing me down even now, from across the square, without looking up." },
+      },
+      choices = {
+        { text = "He probably is. Something else.", next = "BACK" },
+      },
+    },
     view = {
       lines = { { id = "v_default", text = "It does, and I've earned it. From here I can see the Gallows' End door, the Executor's back and the road in from Deathknell, which is all three of the things a guard in Brill needs to keep an eye on." } },
       choices = {
@@ -811,6 +887,7 @@ P:NPC {
         { text = "This wall of yours has a fine view.", next = "view" },
         { text = "What do the other guards make of you?", next = "guards" },
         { text = "I stood watches myself, once.", next = "soldier", when = { class = { "WARRIOR", "PALADIN" } } },
+        { text = "Where's the best leaning spot in Brill?", next = "w3_lean" },
         { text = "Carry on, Lawrence.", next = "END" },
       },
     },
@@ -883,6 +960,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_step = {
+      lines = {
+        { id = "w3_step_1", text = "An abomination came up to fetch me for the Executor, a year past, and the step went under it like a biscuit. Nobody's mended it, and I've never asked, because now I hear anyone coming a good while before they arrive." },
+      },
+      choices = {
+        { text = "You like knowing who's coming.", next = "w3_hear" },
+        { text = "Shall I tell the Executor it's broken?", next = "BACK", reply = "Please don't. He'd have it mended, and then I'd have nothing to listen for." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_hear = {
+      lines = {
+        { id = "w3_hear_1", text = "I do. Most climb up cursing when they reach it, which tells me they've come for business, and one or two hop over it, which tells me they've been up before. You stepped over it neatly, so I suppose you're getting to know me." },
+      },
+      choices = {
+        { text = "I suppose I am. Something else.", next = "BACK" },
+      },
+    },
     window = {
       lines = { { id = "wi_default", text = "North as far as the fences at Garren's Haunt on a clear day, and east to where the road bends toward Brightwater Lake. On a clear night I can see the lanterns at the Scarlet tower away to the west, and I count them, for something to do." } },
       choices = {
@@ -928,7 +1023,7 @@ P:NPC {
         { id = "h_back", when = { metBefore = true }, text = "Still Deathguard Mort, and still at the window. The road to Garren's Haunt hasn't moved since you were last up here, and neither have I." },
       },
       again = {
-        { id = "h_again", text = "Something else, while you're up here?" },
+        { id = "h_again", text = "Something else, while you're up here? Mind the step going down." },
         { id = "h_again2", text = "Go on. It's quiet, which is how I like it." },
         { id = "h_again3", text = "Ask, if there's more. I'll keep one eye on the road while you do." },
       },
@@ -939,6 +1034,7 @@ P:NPC {
         { text = "You can see a long way from this window.", next = "window" },
         { text = "Why did the Executor move you up here?", next = "moved" },
         { text = "I've been out to Garren's Haunt myself.", next = "beenthere", when = { minLevel = 8 } },
+        { text = "What happened to the third step?", next = "w3_step" },
         { text = "I'll leave you to your window.", next = "END" },
       },
     },
@@ -1011,6 +1107,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_rat = {
+      lines = {
+        { id = "w3_rat_1", text = "He comes out from behind the third cask at closing and sits on the bottom stair, and he never touches a barrel, which is more than I can say for the Deathguard. I've named him Sergeant, because he outranks half the town in discipline." },
+      },
+      choices = {
+        { text = "You talk to him, don't you?", next = "w3_talk" },
+        { text = "A rat in a cellar ought to be killed.", next = "BACK", reply = "Then you'd lose me my only reliable colleague, and I'd have to talk to Lawrence instead. Leave Sergeant be." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_talk = {
+      lines = {
+        { id = "w3_talk_1", text = "Every night, and he's a better listener than Renee, who's always busy upstairs. I tell him what I've heard through the ceiling, and he twitches his whiskers at the parts that matter, and so far he's never been wrong." },
+      },
+      choices = {
+        { text = "A good sergeant indeed. Something else.", next = "BACK" },
+      },
+    },
     stores = {
       lines = { { id = "st_default", text = "Renee's casks, for the living guests and for the dead ones who like to hold a mug. Past those are the Executor's stores for the town, lamp oil and bandages and arrows, which are the real reason a Deathguard stands on these stairs." } },
       choices = {
@@ -1057,7 +1171,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Keep your voice down; it carries." },
-        { id = "h_again2", text = "Go on, then." },
+        { id = "h_again2", text = "Go on, then, while the cellar's quiet." },
         { id = "h_again3", text = "What else do you want to know? I've a whole cellar of time down here." },
       },
       choices = {
@@ -1067,6 +1181,7 @@ P:NPC {
         { text = "What's actually kept down here?", next = "stores" },
         { text = "You hear the whole tavern through that ceiling.", next = "ceiling" },
         { text = "Ageron's shelf upstairs is full of fire. Does that worry you?", next = "ageron", when = { class = "WARLOCK" } },
+        { text = "Tell me about the rat with good manners.", next = "w3_rat" },
         { text = "I'll go back up.", next = "END" },
       },
     },
@@ -1139,6 +1254,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_mend = {
+      lines = {
+        { id = "w3_mend_1", text = "When it's worth mending, which most of it isn't by the time it reaches me. There's a Deathguard whose belt I've restitched three times, because it was his father's, and I've told him the fourth time it goes in the brazier and he'll have to grieve like the rest of us." },
+      },
+      choices = {
+        { text = "Would you really burn it?", next = "w3_burn" },
+        { text = "Some things are worth mending forever.", next = "BACK", reply = "Then bring me those things and a full purse, and I'll mend them forever. That's what I'm here for." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_burn = {
+      lines = {
+        { id = "w3_burn_1", text = "No, and he knows it, and I know he knows it. I'll stitch it a fourth time and complain the whole while, and he'll pay me double and pretend not to notice that I've lined it with new leather." },
+      },
+      choices = {
+        { text = "That's kind of you, Eliza. Something else.", next = "BACK" },
+      },
+    },
     boots = {
       lines = { { id = "bo_default", text = "I do, because boots tell the truth. A purse can be borrowed and a sword can be stolen, but nobody walks in from the Glades with good soles unless they've had the sense to look after themselves." } },
       choices = {
@@ -1197,6 +1330,7 @@ P:NPC {
         { text = "You judge a customer by the boots, I'm told.", next = "boots" },
         { text = "Who else in Brill works leather?", next = "trade" },
         { text = "I skin my own kills, Eliza.", next = "skinner", when = { profession = "Skinning" } },
+        { text = "Do you mend old leather as well?", next = "w3_mend" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1263,6 +1397,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_master = {
+      lines = {
+        { id = "w3_master_1", text = "He'd swear at the temper of every blade and then hang one on the wall without telling me, which is what he did with the first knife I ever made. I keep a half-finished sword of his under the bench, and I've never had the nerve to finish it." },
+      },
+      choices = {
+        { text = "Why not finish it?", next = "w3_finish" },
+        { text = "He'd be proud of you, I think.", next = "BACK", reply = "Maybe. He'd never have said so, though, and I'd not know what to do if he had." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_finish = {
+      lines = {
+        { id = "w3_finish_1", text = "Because whatever I did to it, it would become mine, and then there'd be nothing left in Brill that was his. One day, when I'm good enough, I'll finish it properly, and I'll hang it on the wall without telling anyone." },
+      },
+      choices = {
+        { text = "That's fitting. Something else.", next = "BACK" },
+      },
+    },
     ambition = {
       lines = { { id = "am_default", text = "I do, and I don't see why not. A living smith gets forty good years at the anvil if his back holds, and I've got as long as my arms stay on, so all I need is somebody to show me what I'm doing wrong." } },
       choices = {
@@ -1308,8 +1460,8 @@ P:NPC {
         { id = "h_smith", when = { profession = "Blacksmithing" }, text = "Oliver Dwor, apprentice weaponsmith, and it's good to meet someone else who works a forge. My master didn't come back from the Plague, so I'm apprenticed to the work itself and to anyone who'll talk shop with me." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've an edge to finish." },
-        { id = "h_again2", text = "Go on. I can talk and file." },
+        { id = "h_again", text = "More? Go on, then, but I've a blade on the wheel that wants its edge before the next patrol." },
+        { id = "h_again2", text = "Go on. I can talk and file, though the file's louder." },
         { id = "h_again3", text = "What else can I tell you? Ask me while this cools." },
       },
       choices = {
@@ -1319,6 +1471,7 @@ P:NPC {
         { text = "You mean to be a master one day.", next = "ambition" },
         { text = "What do people in Brill ask you for most?", next = "custom" },
         { text = "I work a forge myself, Oliver.", next = "shop", when = { profession = "Blacksmithing" } },
+        { text = "What would your master make of your work?", next = "w3_master" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1385,6 +1538,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_tasty = {
+      lines = {
+        { id = "w3_tasty_1", text = "The brown caps, friend, fried in a little fat, which is what my old neighbours swore by, though I can't taste a thing now and have to take their word. The pale ones are better for broth, and the ones with the purple gills are for the apothecaries and nobody else." },
+        { id = "w3_tasty_2", when = { race = { "Orc", "Troll", "Tauren" } }, text = "For you, the brown caps, fried quick in fat, and tell me afterwards what they taste of, because I've not tasted one since I died. The purple-gilled ones are for the apothecaries, mind, so leave those in the basket." },
+      },
+      choices = {
+        { text = "What happens if I eat a purple one?", next = "w3_purple" },
+        { text = "I'll try the brown ones.", next = "BUSINESS" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_purple = {
+      lines = {
+        { id = "w3_purple_1", text = "I'm not entirely sure, which is why I don't sell them to anybody but the apothecaries. One of the orcs from the zeppelin ate one for a wager and sang to the Brill windmill for an hour, and he seemed to enjoy it." },
+      },
+      choices = {
+        { text = "I'll stick to the brown. Something else.", next = "BACK" },
+      },
+    },
     barley = {
       lines = { { id = "ba_default", text = "I did, on a good piece of land that drained well and caught the morning sun. It's all grey stubble now, and the last time I walked out to look at it there were duskbats roosting in what's left of my barn." } },
       choices = {
@@ -1442,6 +1614,7 @@ P:NPC {
         { text = "You farmed barley out past Brightwater, you said.", next = "barley" },
         { text = "Tell me about this cellar of yours.", next = "cellar" },
         { text = "Half the farms out there still have farmers on them.", next = "farmers", when = { minLevel = 5 } },
+        { text = "Which of these would a living person enjoy most?", next = "w3_tasty" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1508,6 +1681,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_dannal = {
+      lines = {
+        { id = "w3_dannal_1", text = "The warrior trainer at Deathknell, who takes the newly risen and teaches them which end of the sword to hold. He sends them to me afterwards, still blinking, and I fit them out while they ask me whether it's normal to have forgotten their own names." },
+        { id = "w3_dannal_2", when = { class = { "WARRIOR", "PALADIN" } }, text = "Your trainer, if I've read you right, and he'll have taught you which end of a sword to hold before he sent you here. He's hard on his pupils, and fair, and his are the only ones whose armour I don't have to refit twice." },
+      },
+      choices = {
+        { text = "What do you tell them, about the names?", next = "w3_names" },
+        { text = "He sounds a good teacher.", next = "BACK", reply = "He is, and don't tell him I said so. We've an understanding, and it relies on neither of us praising the other." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_names = {
+      lines = {
+        { id = "w3_names_1", text = "That it's normal, and that a name's not much use to a man in a fight anyway. Then I stamp a number on the inside of their bracers so I'll know whose armour comes back, and some of them end up going by the number." },
+      },
+      choices = {
+        { text = "That's grim and practical. Something else.", next = "BACK" },
+      },
+    },
     fitting = {
       lines = { { id = "fi_default", text = "It's awkward more than thankless. Nobody comes back the size they went in, so a man who was fitted for his own mail in life finds it hangs off him like a sack, and I have to tell him why." } },
       choices = {
@@ -1553,7 +1745,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else? There's a line behind you, or there will be." },
-        { id = "h_again2", text = "Go on." },
+        { id = "h_again2", text = "Go on, and stand still while you talk, or I'll fit you crooked." },
         { id = "h_again3", text = "What else? Ask quick, the iron's hot." },
       },
       choices = {
@@ -1563,6 +1755,7 @@ P:NPC {
         { text = "Fitting the newly risen must be thankless work.", next = "fitting" },
         { text = "Who else keeps shop in Deathknell?", next = "shops" },
         { text = "Was any of this Scarlet iron once paladin's plate?", next = "plate", when = { class = "PALADIN" } },
+        { text = "Who's this Dannal Stern?", next = "w3_dannal" },
         { text = "Not now.", next = "END" },
       },
     },
@@ -1629,6 +1822,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_missus = {
+      lines = {
+        { id = "w3_missus_1", text = "Every noon, with a bowl of her pumpkin stew, which neither of us can taste and both of us pretend to enjoy. We sit on the bench out front and look at the street, and she tells me who's bought what, and I nod, and that's the best hour of my day." },
+      },
+      choices = {
+        { text = "That sounds like a marriage to me.", next = "BACK", reply = "It's the only kind we've got, and I've decided it's a good one." },
+        { text = "Who eats the stew, then?", next = "w3_stew" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_stew = {
+      lines = {
+        { id = "w3_stew_1", text = "The orc who sweeps the zeppelin platform, mostly, who's taken to coming by at half past noon. The missus says it's a shame to waste good food, and the orc says it's the best thing he's eaten in Lordaeron, which I believe, since it's the only thing." },
+      },
+      choices = {
+        { text = "Then nothing goes to waste. Something else.", next = "BACK" },
+      },
+    },
     before = {
       lines = { { id = "be_default", text = "A clerk, if you can credit it. I kept the tally books for the grain merchants in this very town, and I could tell you the price of a bushel in any month of the last ten years I was breathing." } },
       choices = {
@@ -1680,7 +1891,7 @@ P:NPC {
         { id = "h_back", when = { metBefore = true }, text = "Abe Winters, still an apprentice and still polishing. What can I do for you this time?" },
       },
       again = {
-        { id = "h_again", text = "Anything else?" },
+        { id = "h_again", text = "Anything else? I've armour to polish and a stew to look forward to." },
         { id = "h_again2", text = "Go on, I'm only polishing." },
         { id = "h_again3", text = "What else can I tell you? Ask away, the rust will wait." },
         { id = "h_again4", when = { class = { "MAGE", "PRIEST", "WARLOCK" } }, text = "Anything more? I can't sell you much, but talk costs nothing." },
@@ -1693,6 +1904,7 @@ P:NPC {
         { text = "Who taught you, if not a master?", next = "taught" },
         { text = "Brill's shopkeepers seem to stand together.", next = "street" },
         { text = "I work metal too, Abe. Show me your rivets.", next = "rivets", when = { profession = "Blacksmithing" } },
+        { text = "Does Mrs. Winters ever visit the shop?", next = "w3_missus" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1930,6 +2142,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_wake = {
+      lines = {
+        { id = "w3_wake_1", text = "It whispers, generally, and it whispers to whoever is nearest, which is why I keep a chair between the shelf and the door. Once a grimoire on the binding of a succubus spoke all night to Ageron's cat, and the cat has been insufferable ever since." },
+      },
+      choices = {
+        { text = "What did it tell the cat?", next = "w3_cat" },
+        { text = "I'll keep my voice down near the shelf.", next = "BACK", reply = "Do, and keep your hands off it as well. A book that's been woken by a voice can be woken by a finger." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_cat = {
+      lines = {
+        { id = "w3_cat_1", text = "I've no idea, and the cat won't say, but it walks past me now as though it knows something I don't. Ageron says I'm imagining it, and Ageron has not been looked at by that cat the way I have." },
+      },
+      choices = {
+        { text = "I'd watch that cat. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Gina Lang, and I sell the books that teach a bound demon new work. Ageron Kargal does the same downstairs, so you may take it that Brill has more warlocks than its size would suggest." },
@@ -1950,6 +2180,7 @@ P:NPC {
         { text = "Where do the books come from?", next = "books" },
         { text = "How will I know when my demon is ready for heavier chains?", next = "ready", when = { class = "WARLOCK" } },
         { text = "You keep the succubus books on the top shelf.", next = "succ", when = { class = "WARLOCK", minLevel = 16 } },
+        { text = "What happens if a top-shelf book wakes?", next = "w3_wake" },
         { text = "I'll leave you to your reading.", next = "END" },
       },
     },
@@ -2081,6 +2312,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_carolai = {
+      lines = {
+        { id = "w3_carolai_1", text = "Exacting, which I approve of, and impatient, which I don't. She sends her pupils to me with a list, and they come back an hour later to change half of it, because she's looked at what they bought and sighed at them." },
+      },
+      choices = {
+        { text = "Do they ever get it right first time?", next = "w3_right" },
+        { text = "Two exacting women in one town.", next = "BACK", reply = "One exacting woman and one impatient one. I'll let you decide which of us is which, but I know my answer." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_right = {
+      lines = {
+        { id = "w3_right_1", text = "One did, a quiet girl who read the list aloud to me twice before I'd put anything in the basket. Carolai never sighed at her once, and I've told every pupil since to do the same, and none of them ever has." },
+      },
+      choices = {
+        { text = "Reading twice is good advice. Something else.", next = "BACK" },
+      },
+    },
     dried = {
       lines = { { id = "dr_default", text = "Fresh, always, if you can use it the same day, and almost nobody can. A dried herb gives up a little strength and gains a year on the shelf, and Tirisfal's herbs dry better than most, since they are slow to rot even when you would like them to." } },
       choices = {
@@ -2115,6 +2364,7 @@ P:NPC {
         { text = "Why keep a stall out by the road?", next = "road" },
         { text = "What sells to a working alchemist, Selina?", next = "working", when = { profession = "Alchemy" } },
         { text = "Dried or fresh, your sign says. Which is better?", next = "dried" },
+        { text = "What's Carolai Anise like as a teacher?", next = "w3_carolai" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -2200,6 +2450,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_rune = {
+      lines = {
+        { id = "w3_rune_1", text = "A ward for a Deathguard's shield that would not close, however I drew it, because the shield had been a Scarlet's and some part of the old blessing still lived in the iron. I worked on it for nine nights before I understood that the iron was refusing me." },
+      },
+      choices = {
+        { text = "How did you get past it?", next = "w3_past" },
+        { text = "Iron with an opinion. Unsettling.", next = "BACK", reply = "Fascinating, I should say. Most iron has no opinion at all, and I've learned to treasure the ones that do." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_past = {
+      lines = {
+        { id = "w3_past_1", text = "I drew the old blessing out first, gently, like a splinter, and set it in a jar on the shelf. The ward closed at once after that, and the jar still glows a little on cold nights, which my pupils find very distracting." },
+      },
+      choices = {
+        { text = "Keep the jar away from Gina's books. Something else.", next = "BACK" },
+      },
+    },
     pupils = {
       lines = { { id = "pu_default", text = "A handful, and they are an odd handful. Mages who want their staves improved, a tailor who wishes his cloaks to do more than keep the rain off, and one Deathguard who will not say why she is learning and has turned out to be the best of them." } },
       choices = {
@@ -2234,6 +2502,7 @@ P:NPC {
         { text = "Where does a Brill enchanter find anything to work on?", next = "supply" },
         { text = "What's the first thing you'd have me enchant?", next = "first", when = { profession = "Enchanting" } },
         { text = "Do many in Brill come to you to learn?", next = "pupils" },
+        { text = "What's the hardest rune you've ever set?", next = "w3_rune" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -2323,6 +2592,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_strange = {
+      lines = {
+        { id = "w3_strange_1", text = "A Scarlet helmet, polished bright, with a little fish living inside it as snug as you please. I hung it on the post by my stool, fish and all, and it's still in there, and I've named it the Crusader." },
+      },
+      choices = {
+        { text = "The fish is still alive in it?", next = "w3_crusader" },
+        { text = "A fine trophy for a fisherman.", next = "BACK", reply = "The finest I've got. I've never caught anything prouder of its armour." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_crusader = {
+      lines = {
+        { id = "w3_crusader_1", text = "Alive and thriving, and it glares at anybody who comes near, which is how I know it's the right name. Martine wants to sell it to the apothecaries, and I've told her the Crusader stays on my post as long as I sit on this stool." },
+      },
+      choices = {
+        { text = "Long may it glare. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Clyde Kellen. I fish Brightwater, and I teach fishing to whoever asks, which isn't many. Most of the dead think they've no use for it, since they don't eat, and I let them think so and keep the lake to myself." },
@@ -2343,6 +2630,7 @@ P:NPC {
         { text = "Is the lake safe? There are murlocs on these shores.", next = "lake" },
         { text = "What does a camp need from a fisherman?", next = "camp", when = { questActive = TODO_QUEST("Camping 101: Fishing") } },
         { text = "What's biting in Brightwater, Clyde?", next = "biting", when = { profession = "Fishing" } },
+        { text = "What's the strangest thing you've pulled from the lake?", next = "w3_strange" },
         { text = "I'll leave you to the water.", next = "END" },
       },
     },
@@ -2441,6 +2729,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_fish = {
+      lines = {
+        { id = "w3_fish_1", text = "Never, and I'll tell you why: I can't abide the waiting. Clyde can sit for a whole afternoon watching a float bob and call it peace, and I'd sooner talk to a murloc, which at least answers back." },
+      },
+      choices = {
+        { text = "Then why sell fishing tackle?", next = "w3_why" },
+        { text = "Clyde does seem very patient.", next = "BACK", reply = "Patient, or asleep. With the dead it can be hard to tell, and with Clyde it's harder than most." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_why = {
+      lines = {
+        { id = "w3_why_1", text = "Because I like the customers, and they like a person who'll talk them into a better rod, and that's the part of fishing I'm good at. Clyde catches the fish, I catch the fishermen, and between us this shore keeps busy." },
+      },
+      choices = {
+        { text = "A fair division of labour. Something else.", next = "BACK" },
+      },
+    },
     shore = {
       lines = { { id = "so_default", text = "Every plank of it. There was a boathouse where those posts stick up, and a jetty, and on a fine day half of Brill came down to row about and get sunburnt. I kept a stall then too, just there, and it's the same pitch I've got now." } },
       choices = {
@@ -2475,6 +2781,7 @@ P:NPC {
         { text = "Where does your bait come from?", next = "bait" },
         { text = "What line holds a Brightwater bass, Martine?", next = "line", when = { profession = "Fishing" } },
         { text = "You remember this shore from before, I think.", next = "shore" },
+        { text = "Do you ever fish yourself?", next = "w3_fish" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -2563,6 +2870,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_finest = {
+      lines = {
+        { id = "w3_finest_1", text = "A pair of gloves for a Deathguard with three fingers on one hand and five on the other, cut so neat that he could hold a sword without the empty fingers flapping. He wept when he put them on, or did what we do instead, and he's worn them every day since." },
+      },
+      choices = {
+        { text = "That's the work of a real craftswoman.", next = "BACK", reply = "It's the work of someone who listened, which is most of craft. The stitching is the easy part." },
+        { text = "How did you cut for the missing fingers?", next = "w3_cut" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_cut = {
+      lines = {
+        { id = "w3_cut_1", text = "I traced his hand on a hide, exactly as it was, and didn't try to make it look whole. Most of my pupils want to make the dead look as we were, and I tell them to make us fit as we are." },
+      },
+      choices = {
+        { text = "Wise advice. Something else.", next = "BACK" },
+      },
+    },
     d2_orders = {
       lines = {
         { id = "d2_orders_1", text = "Gloves, mostly, because the dead lose fingers in this cold and never notice until one's missing. Executor Zygand sends a list every month, and it's always longer than the last, and he never once says please." },
@@ -2609,7 +2934,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Talk while I work this edge." },
-        { id = "h_again2", text = "Go on, I can stitch and listen." },
+        { id = "h_again2", text = "Go on, I can stitch and listen, and I'll know if you're dull." },
         { id = "h_again3", text = "Was there more? Ask it, and mind the frame behind you." },
       },
       choices = {
@@ -2622,6 +2947,7 @@ P:NPC {
         { text = "What should I make first to get my hand in?", next = "firstwork", when = { profession = "Leatherworking" } },
         { text = "What do the Deathguard order from you?", next = "d2_orders" },
         { text = "Your pupils seem afraid of you.", next = "d2_pupils" },
+        { text = "What's the finest piece you've ever made?", next = "w3_finest" },
         { text = "I'll let you get on.", next = "END" },
       },
     },
@@ -2717,6 +3043,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_knife = {
+      lines = {
+        { id = "w3_knife_1", text = "It was my father's, and his father's before him, and it's been sharpened so often there's only half the blade left. I found it in the house when I woke, exactly where I'd left it, which is more than I can say for most things." },
+      },
+      choices = {
+        { text = "Will you ever replace it?", next = "w3_replace" },
+        { text = "A knife like that remembers the work.", next = "BACK", reply = "It does, and so do I, when I hold it. My father's hands knew a better cut than mine ever will." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_replace = {
+      lines = {
+        { id = "w3_replace_1", text = "When it breaks, and not a day before. Shelene says I'm sentimental, and she says it while lining her gloves with the bat wings I skinned with it, so I'd say we're both sentimental in our way." },
+      },
+      choices = {
+        { text = "I'd say you are. Something else.", next = "BACK" },
+      },
+    },
     d2_other = {
       lines = {
         { id = "d2_other_1", text = "Murlocs, once, from Brightwater Lake, because a lad bet me I couldn't. I could, and it smelled worse than anything I've ever done, and Shelene made me sleep out with the hides for a week, which given we don't sleep was mostly a matter of principle." },
@@ -2776,6 +3120,7 @@ P:NPC {
         { text = "Where am I spoiling my hides, Rand?", next = "spoil", when = { profession = "Skinning" } },
         { text = "Do you skin anything besides beasts?", next = "d2_other" },
         { text = "You talk more than any dead man I've met.", next = "d2_talk" },
+        { text = "That's an old knife you're using.", next = "w3_knife" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -2872,6 +3217,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_lost = {
+      lines = {
+        { id = "w3_lost_1", text = "Oh, everything, pal, hats, swords, a whole roast boar once, and a Forsaken left a finger, which I'm still holdin' for him at no charge, out of the goodness of my heart. The rest goes in the lost and found, and after a month the lost and found goes on sale." },
+      },
+      choices = {
+        { text = "You sell people's lost things?", next = "w3_sell" },
+        { text = "A finger? Truly?", next = "BACK", reply = "In a little box, labelled and everything. Customer care, friend, that's what separates me from the competition." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_sell = {
+      lines = {
+        { id = "w3_sell_1", text = "After a month, sure, and I give the owner first refusal at a very reasonable price if he turns up. Listen, listen, storage costs money, and that boar took up a whole crate, and it was not gettin' any fresher, believe me." },
+      },
+      choices = {
+        { text = "Business is business. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Name's Zapetta, and I run the zeppelin from Tirisfal to Orgrimmar and back, finest airship on the northern route. She's goblin built and goblin flown, so you know she's fast, and you got my personal word she's mostly safe." },
@@ -2888,6 +3251,7 @@ P:NPC {
         { text = "A goblin, working a tower in Tirisfal.", next = "posting" },
         { text = "That other goblin runs the Stranglethorn ship?", next = "hin" },
         { text = "What's holding your engine together, Zapetta?", next = "engine", when = { profession = "Engineering" } },
+        { text = "What do passengers leave behind on the ship?", next = "w3_lost" },
         { text = "I'll wait for the ship.", next = "END" },
       },
     },
@@ -2996,6 +3360,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_saving = {
+      lines = {
+        { id = "w3_saving_1", text = "My own ship, pal, with my name on the bag and no Cartel middleman takin' his slice off every fare. Another six years on this tower, maybe five if the Warchief keeps payin' the bonus, and I'm a captain with my own route." },
+      },
+      choices = {
+        { text = "Where would you fly her?", next = "w3_route" },
+        { text = "Six years in Tirisfal sounds like a high price.", next = "BACK", reply = "It's an investment, friend. Cold now, rich later, and the dead don't steal, which saves me a fortune in locks." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_route = {
+      lines = {
+        { id = "w3_route_1", text = "Somewhere warm, with no fog and plenty of customers, Booty Bay to Ratchet maybe, the pirate run. Zapetta says I'll be broke in a month, and I say he'll be askin' me for a job in two." },
+      },
+      choices = {
+        { text = "I'll ride with you, when she flies. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Hin Denburg, zeppelin master, and that's my ship on the other mooring. She runs from here clear down the world to Grom'gol Base Camp in Stranglethorn, and she's the longest scheduled crossing the Horde's got, which I mention because nobody else will." },
@@ -3012,6 +3394,7 @@ P:NPC {
         { text = "The Durotar master says his is the better ship.", next = "zapetta" },
         { text = "Cold work for a goblin, this tower.", next = "cold" },
         { text = "I'm from those jungles, mon. What do you warn them about?", next = "troll", when = { race = "Troll" } },
+        { text = "What are you saving all that coin for, Hin?", next = "w3_saving" },
         { text = "I'll wait for the ship.", next = "END" },
       },
     },

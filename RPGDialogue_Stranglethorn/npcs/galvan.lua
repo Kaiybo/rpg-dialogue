@@ -31,6 +31,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_bb = {
+      lines = { { id = "w8_bb_a", text = "HAH! Brikk Keencraft hammers well enough for a goblin, Galvan will give him that, but he sells every blade the minute it's cool enough to hold. Steel needs time to settle, and in Booty Bay nobody has time for anything but money!" } },
+      choices = {
+        { text = "How long should steel settle, then?", next = "w8_bb2" },
+        { text = "A goblin must sell to eat, Galvan.", next = "w8_bb2" },
+        { text = "I've trained with Brikk. He taught me fair.", next = "w8_bb2", when = { profession = "Blacksmithing" } },
+        { text = "Something else, Galvan.", next = "BACK" },
+      },
+    },
+    w8_bb2 = {
+      lines = {
+        { id = "w8_bb2_a", text = "A night, at least, hung where the sea air can't reach it, and longer for mithril, which sulks if you rush her. Galvan once left a breastplate cooling for a week, and the trolls came and went twice, and it was the finest piece he ever made." },
+        { id = "w8_bb2_bs", when = { profession = "Blacksmithing" }, text = "Then Brikk taught you the hammer, and Galvan will teach you the waiting, which is the half nobody pays for. Hang your next blade a full night before you sell it, and see if the edge doesn't thank you." },
+      },
+      choices = {
+        { text = "Patience at the forge. I'll try it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -57,6 +77,7 @@ P:NPC {
         { text = "Can you really forge fel steel?", next = "fel", when = { questDone = TODO_QUEST("The Formation of Felbane") } },
         { text = "Teach me about mithril.", next = "xsmith", when = { profession = "Blacksmithing" } },
         { text = "I'd have thought a smith needn't be a miner too.", next = "xminer", when = { profession = "Mining" } },
+        { text = "What does Galvan think of the smiths in Booty Bay?", next = "w8_bb" },
         { text = "Farewell, Galvan.", next = "END" },
       },
     },

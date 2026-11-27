@@ -487,6 +487,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_hab = {
+      lines = { { id = "w8_hab_a", text = "Watching their own blade instead of their enemy's shoulders, because they think a sword is the interesting part. The shoulders tell you everything, and the sword only tells you what you should have seen a heartbeat earlier." } },
+      choices = {
+        { text = "How do you break them of it?", next = "w8_hab2" },
+        { text = "That sounds like an old soldier's lesson.", next = "w8_hab2" },
+        { text = "I'm a warrior. I watch the hips, not the shoulders.", next = "w8_hab2", when = { class = "WARRIOR" } },
+        { text = "Something else, Blademaster.", next = "BACK" },
+      },
+    },
+    w8_hab2 = {
+      lines = {
+        { id = "w8_hab2_a", text = "With a wooden blade on the knuckles every time their eyes drop, and by the end of the first week their eyes stop dropping. It's not kind, but it's kinder than what a cultist will do to them on the road." },
+        { id = "w8_hab2_war", when = { class = "WARRIOR" }, text = "Hips, then, if you'd rather, and against a Skyborne who fights on a ledge you might even be right. Come to the drill yard tomorrow and prove it, and if you're right I'll teach it that way myself." },
+      },
+      choices = {
+        { text = "I'll keep my eyes up.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     ren_ak1 = {
       lines = {
         { id = "ren_ak1_1", text = "It is, and Akeri keeps it that way, because the quieter arts need shadow to practise in. We disagree about almost everything, but we agree that a young fighter should learn to see what the other is teaching." },
@@ -554,7 +574,7 @@ P:NPC {
           text = "A warrior from below the clouds. I'd like to see how your people fight, because ours have had ten thousand years to grow comfortable, and comfortable warriors are dead ones." },
       },
       again = {
-        { id = "h_again", text = "What else? Be quick." },
+        { id = "h_again", text = "What else? Be quick, and stand straight while you ask it." },
         { id = "h_again2", text = "Ask, then. I've drills to run." },
       },
       choices = {
@@ -566,6 +586,7 @@ P:NPC {
         { text = "I trained to join the Empyrean Blades.", next = "xblade", when = { origin = "skyborne_empyrean_recruit" } },
         { text = "Akeri's corner is very dark.", next = "ren_ak1" },
         { text = "What became of the Empyrean Blades?", next = "ren_emp1" },
+        { text = "What's the worst habit your students bring in?", next = "w8_hab" },
         { text = "Farewell, Blademaster.", next = "END" },
       },
     },
@@ -659,6 +680,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_trk = {
+      lines = { { id = "w8_trk_a", text = "The vuldren, because they don't leave tracks; they glide, and the wind takes their scent away the moment they lift. You track a vuldren by watching what the smaller birds do, and that takes patience most young hunters haven't got." } },
+      choices = {
+        { text = "What do the smaller birds do?", next = "w8_trk2" },
+        { text = "Patience is the hunter's real weapon.", next = "w8_trk2" },
+        { text = "Something else, Tai'ree.", next = "BACK" },
+      },
+    },
+    w8_trk2 = {
+      lines = { { id = "w8_trk2_a", text = "They go quiet, all at once, a few breaths before a vuldren passes over. Learn that silence, and you'll learn the isle, and you'll be a better hunter below the clouds than most who've hunted there all their lives." } },
+      choices = {
+        { text = "I'll listen for the silence.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     -- Deeds pass: the player has been culling the ursera.
     dd_ursera = {
       lines = { { id = "du_default", text = "Hunger and desperation, the same as drives any of us. The isle's magic thins and the land gives less, and a beast doesn't understand pylons, only that the berries are gone. So we hunt them, and if we're any good, we take no pleasure in it." } },
@@ -679,7 +716,7 @@ P:NPC {
           text = "You read my note and you came, which is the first test passed. You remind me of how I looked to my own teacher once, all elbows and nerve, but whether you've got what this work needs is something only you can show me." },
       },
       again = {
-        { id = "h_again", text = "Anything else?" },
+        { id = "h_again", text = "Anything else? Say it before the light goes; I like to see a student's face when I answer." },
         { id = "h_again2", text = "Ask. I'm listening." },
       },
       choices = {
@@ -692,6 +729,7 @@ P:NPC {
         { text = "What should a hunter learn before leaving the isle?", next = "hp", when = { class = "HUNTER" } },
         { text = "I'm a dwarf, and dwarves hunt with rifles.", next = "hp_dwarf", when = { race = "Dwarf", class = "HUNTER" } },
         { text = "My people are elves of the forest, like yours once were.", next = "hp_elf", when = { race = "NightElf" } },
+        { text = "What's the hardest beast to track on Zephras?", next = "w8_trk" },
         { text = "Farewell, Tai'ree.", next = "END" },
       },
     },
@@ -824,6 +862,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_buy = {
+      lines = { { id = "w8_buy_a", text = "The rangers, the Peacekeepers, and young ones leaving for the mainland who want a piece of home at their hip. I've started carving a small feather into the pommel of every blade that goes below the clouds, so they don't forget where it came from." } },
+      choices = {
+        { text = "That's a fine tradition.", next = "w8_buy2" },
+        { text = "Do the refugees buy from you?", next = "w8_buy2" },
+        { text = "I smith. Your balance is unlike anything below.", next = "w8_buy2", when = { profession = "Blacksmithing" } },
+        { text = "Something else, Destin.", next = "BACK" },
+      },
+    },
+    w8_buy2 = {
+      lines = {
+        { id = "w8_buy2_a", text = "The refugees mostly bring me blades to sell, the last thing of value they carried off the fallen places, and I give them more than they're worth, because what else would I do. Fevrath calls me soft, and then he does the same with shields." },
+        { id = "w8_buy2_bs", when = { profession = "Blacksmithing" }, text = "So I've been told, and I'd love to see what a smith from below would make of it. Hold one at the third finger, not the first, and you'll feel why Luminarian set the weight so far forward." },
+      },
+      choices = {
+        { text = "Keep carving those feathers.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     des_forge1 = {
       lines = {
         { id = "des_forge1_1", text = "I do, at the back of the house, in plain steel with no enchantment in it at all. Luminarian's patterns are the shape of the old blades, and I keep the shape faithfully, even though I can't put the magic in." },
@@ -887,6 +945,7 @@ P:NPC {
         { text = "Do you take windstones?", next = "stones" },
         { text = "Who forges these, if the magesmiths are gone?", next = "des_forge1" },
         { text = "Fevrath Skyhammer works the shields nearby.", next = "des_fev1" },
+        { text = "Who buys your blades these days?", next = "w8_buy" },
         { text = "Farewell, Destin.", next = "END" },
       },
     },
@@ -1139,7 +1198,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Fevrath Skyhammer. I make armor and shields for anyone in Thendal who means to stand between the village and whatever's coming for it, and lately that's more people than it used to be." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak up over the hammer." },
+        { id = "h_again", text = "What else? Speak up, because I'm not putting this hammer down for anyone." },
         { id = "h_again2", text = "Ask, if you must. I'll keep working." },
       },
       choices = {
@@ -1280,6 +1339,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_brv = {
+      lines = { { id = "w8_brv_a", text = "I walked all the way to the edge of the isle by the elder tree and looked over, right over, where the land stops and there's only clouds! Meeri held the back of my cloak the whole time, but I did the looking." } },
+      choices = {
+        { text = "What did you see?", next = "w8_brv2" },
+        { text = "That's not brave, that's foolish.", next = "w8_brv2" },
+        { text = "Something else, Haal.", next = "BACK" },
+      },
+    },
+    w8_brv2 = {
+      lines = { { id = "w8_brv2_a", text = "Clouds, mostly, and a bit of another island far away, and a bird flying underneath us, which was the strangest thing I ever saw. Don't tell my mum, because she thinks I was at Meeri's grandmother's the whole day." } },
+      choices = {
+        { text = "I won't tell, but stay back from the edge.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       narr = "He doesn't take his eyes off the shimmer in the air beyond the branches.",
       lines = {
@@ -1294,6 +1369,7 @@ P:NPC {
         { text = "Is Meeri your sister?", next = "meeri" },
         { text = "I come from below the clouds, you know.", next = "xout", when = { ["not"] = { race = "Skyborne" } } },
         { text = "I'm leaving the isle on a skycutter soon.", next = "xleave", when = { race = "Skyborne" } },
+        { text = "What's the bravest thing you've ever done?", next = "w8_brv" },
         { text = "Be careful up there, Haal.", next = "END" },
       },
     },
@@ -1397,6 +1473,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_ans = {
+      lines = { { id = "w8_ans_a", text = "Not with words, but sometimes the leaves turn over when I say something nice, and once a feather fell right in my lap. I keep it in a box with my grandfather's comb, and I'm not telling Haal where the box is." } },
+      choices = {
+        { text = "That sounds like an answer to me.", next = "w8_ans2" },
+        { text = "Feathers fall all the time, Meeri.", next = "w8_ans2" },
+        { text = "Something else, Meeri.", next = "BACK" },
+      },
+    },
+    w8_ans2 = {
+      lines = { { id = "w8_ans2_a", text = "Grandmother says the same, that if you want it to be an answer then maybe it is. I'm going to keep talking to it every day, so if it ever does say something, I'll be the one who hears it." } },
+      choices = {
+        { text = "Keep talking to it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Meeri. The spirit comes every day when the sun is on the leaves, and I tell it things, because Grandmother says the spirits went away because nobody talked to them anymore." },
@@ -1410,6 +1502,7 @@ P:NPC {
         { text = "Haal thinks it's only shy.", next = "haal" },
         { text = "Do spirits live where I come from too?", next = "xout", when = { ["not"] = { race = "Skyborne" } } },
         { text = "I hear the wild a little. Shall I listen too?", next = "xdruid", when = { class = "DRUID" } },
+        { text = "Does the spirit ever answer you?", next = "w8_ans" },
         { text = "I'll leave you two to it.", next = "END" },
       },
     },
@@ -1512,6 +1605,33 @@ Critter {
     { id = "g_back", when = { metBefore = true }, text = "*Peeps flutters up onto a fence post at your approach and fluffs out its feathers until it is very nearly a perfect ball.*" },
   },
   nodes = {
+    w8_dust = {
+      lines = { { id = "w8_dust_a", text = "*Peeps finds a patch of dry earth between two houses, settles into it, and begins to wriggle with enormous energy, flinging dust in every direction until it has nearly vanished in its own little cloud.*" } },
+      choices = {
+        { text = "Wait for the dust to settle.", next = "w8_dust2" },
+        { text = "Step back before it reaches you.", next = "BACK" },
+      },
+    },
+    w8_dust2 = {
+      lines = { { id = "w8_dust2_a", text = "*When the cloud clears, Peeps stands up, shakes once from beak to tail, and is exactly as round and fluffy as before, only slightly browner. It looks enormously pleased with itself.*" } },
+      choices = {
+        { text = "Very thorough, Peeps.", next = "BACK" },
+      },
+    },
+    w8_gust = {
+      lines = { { id = "w8_gust_a", text = "*A gust sweeps through Thendal Village, rattling the shutters, and Peeps fluffs out its feathers until it is a perfect ball and simply rolls along the path with the wind.*" } },
+      choices = {
+        { text = "Catch it before it rolls too far.", next = "w8_gust2" },
+        { text = "Watch where it ends up.", next = "w8_gust2" },
+      },
+    },
+    w8_gust2 = {
+      lines = { { id = "w8_gust2_a", text = "*Peeps comes to rest against a fence post, unrolls, and hops back toward you as if nothing at all has happened, though it gives the wind a long, offended look over its shoulder.*" } },
+      choices = {
+        { text = "The wind doesn't scare you, does it?", next = "BACK" },
+      },
+    },
+
     pee_st1 = {
       lines = {
         { id = "pee_st1_1", text = "*Peeps hops ahead of you down the path to the stalls of Thendal Village, stopping every few hops to make sure you're still following.*" },
@@ -1558,6 +1678,8 @@ Critter {
         { text = "Scatter a few crumbs for it.", next = "BACK", reply = "*Peeps descends on the crumbs with tremendous seriousness, eats every last one, and then looks at your hands for more.*" },
         { text = "Follow Peeps toward the merchants' stalls.", next = "pee_st1" },
         { text = "Notice the other pepes on the rooftops.", next = "pee_roof1" },
+        { text = "Watch Peeps take a dust bath.", next = "w8_dust" },
+        { text = "See what happens when the wind gusts.", next = "w8_gust" },
         { text = "Hold out a finger for it to perch on.", next = "END", reply = "*Peeps considers your finger, hops onto it for one wobbling moment, then takes off in a flurry of feathers toward the rooftops.*" },
       },
     },

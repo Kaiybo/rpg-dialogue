@@ -32,6 +32,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2food = {
+      lines = { { id = "w2fo_default", text = "De recruits, mon, when Gornek remembers to send dem. One of dem, a little orc girl wit' a big axe, brings me boar meat every evenin' an' sits wit' me while I eat it, an' she asks me how it felt when de claw went in." } },
+      choices = {
+        { text = "What do you tell her?", next = "w2food2" },
+        { text = "A strange question to ask a wounded troll.", next = "w2food2" },
+        { text = "Something else, Hana'zua.", next = "BACK" },
+      },
+    },
+    w2food2 = {
+      lines = {
+        { id = "w2fo2_troll", when = { race = "Troll" }, text = "De truth, cousin, de way our grandmothers told it to us. It felt like bein' foolish all at once, an' it be de foolish part dat hurt de most. She nods like I gave her a gift, an' maybe I did." },
+        { id = "w2fo2_default", text = "De truth, mon. It felt like bein' foolish all at once, an' de foolish part hurt de most. She nods like I gave her a gift, an' maybe I did, if she watches de tail when her turn comes." },
+      },
+      choices = { { text = "That's worth teaching.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I be Hana'zua of the Darkspear, and a scorpid on the plateau taught me a lesson I didn't ask for. I hit him hard, but he hit me harder, and now I lie here waiting to see which of us the loa favor." },
@@ -57,6 +72,7 @@ P:NPC {
         { text = "Let me look at that wound, Hana'zua.", next = "heal", when = { class = { "PRIEST", "SHAMAN", "DRUID", "PALADIN" } } },
         { text = "I hunt too. How did a hunter get caught like that?", next = "hunter", when = { class = "HUNTER" } },
         { text = "I'll see what needs doing.", next = "BUSINESS" },
+        { text = "Who brings you food out here?", next = "w2food" },
         { text = "Rest, Hana'zua.", next = "END" },
       },
     },

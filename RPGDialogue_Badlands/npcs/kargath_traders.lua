@@ -55,7 +55,28 @@ P:NPC {
         { text = "My beast never seems thirsty.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Which beast does best in the Badlands?", next = "gt_best" },
         { text = "You came from the Frostwolves, you said.", next = "gt_frost" },
+        { text = "What do you feed the beasts out here?", next = "w9_feed" },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+
+    w9_feed = {
+      lines = {
+        { id = "w9_feed_d", text = "Coyote, when the hunters bring it in, and a mash of Grawl's grain soaked in whatever water we can spare. A wolf will eat anything, a raptor will eat anything that moves, and a kodo will eat nothing at all until you've apologised for the Badlands." },
+        { id = "w9_feed_v1", when = { race = "Tauren" }, text = "Coyote and mash, mostly, though you'll know a kodo eats nothing at all out here until you've talked it round. Your people's beasts sulk in this heat worse than any wolf, and I don't blame them for it." },
+      },
+      choices = {
+        { text = "How do you apologise to a kodo?", next = "w9_feed2" },
+        { text = "Do they ever go hungry?", next = "w9_feed2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_feed2 = {
+      lines = { { id = "w9_feed2_d", text = "Shade, cool water on the neck and a lot of patience, which I learned from a tauren who passed through and laughed at me for trying to shout one into eating. Shouting works on grunts, not on kodo, and some days I'm not sure it works on grunts." } },
+      choices = {
+        { text = "Wise advice from a tauren.", next = "BACK", reply = "Aye. I owe him, and I tell every kodo so." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     gt_best = {
@@ -243,7 +264,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Make it quick; it's hot." },
-        { id = "h_again2", text = "Go on, then. I'm listening." },
+        { id = "h_again2", text = "Go on, then, but make it worth the shade you're standing in." },
         { id = "h_again3", text = "Ask, then, but stand in the shade while you do it." },
       },
       choices = {
@@ -255,7 +276,25 @@ P:NPC {
         { text = "Kargath isn't much of a market.", next = "kargath" },
         { text = "You get travellers bound for the Searing Gorge.", next = "gorge" },
         { text = "I need a bow that survives this sun.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "You size up every customer, don't you?", next = "w9_size" },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+
+    w9_size = {
+      lines = { { id = "w9_size_d", text = "I do, and I'm usually right. One look tells me who'll be back next week for a new blade, and who'll be a name the scouts mention once and never again, and I sell to both the same, but I don't let myself get fond of the second kind." } },
+      choices = {
+        { text = "Which kind am I?", next = "w9_size2" },
+        { text = "That's a cold way to run a stall.", next = "w9_size2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_size2 = {
+      lines = { { id = "w9_size2_d", text = "You came back, so you're the first kind, for now. Cold keeps you sane in Kargath, because I've sold the same pair of boots to three grunts in a row, and only the third one lived to wear them out." } },
+      choices = {
+        { text = "Then I'll wear these out.", next = "BACK", reply = "Do that, and I'll sell you the next pair at the same price." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

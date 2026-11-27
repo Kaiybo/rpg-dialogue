@@ -62,7 +62,7 @@ P:NPC {
         { id = "h_nelf", when = { race = "NightElf" }, text = "Your people taught mine the druid's path, long ago. I thank them every day, and I thank you now." },
       },
       again = {
-        { id = "h_again", text = "What more would you ask?" },
+        { id = "h_again", text = "What more would you ask of a traveler from the plains?" },
         { id = "h_again2", text = "Speak freely. Moonglade listens kindly." },
       },
       choices = {
@@ -73,6 +73,7 @@ P:NPC {
 
         { text = "Do the night elves treat you as an equal here?", next = "equal" },
         { text = "What makes Moonglade special?", next = "glade" },
+        { text = "Who was your first friend among the elves?", next = "w_friend" },
         { text = "Farewell, Bessany.", next = "END" },
       },
     },
@@ -94,6 +95,25 @@ P:NPC {
     dream = {
       lines = { { id = "dr_default", text = "The world as it was meant to be, before anyone touched it. The elder druids walk there in their sleep. I am not yet wise enough to follow them." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_friend = {
+      lines = {
+        { id = "w_friend_default", text = "A young kaldorei druid who laughed at my accent and then asked me to teach her a tauren song. We sat by the lake every evening for a month, and she sang it so badly that I laughed at her accent, and then we were friends." },
+      },
+      choices = {
+        { text = "Is she still here?", next = "w_friend2" },
+        { text = "A song for a song.", next = "w_friend2" },
+      },
+    },
+    w_friend2 = {
+      lines = {
+        { id = "w_friend2_default", text = "She went to Ashenvale, to help the Circle tend the groves the Warsong had cut. She writes to me sometimes, in a mixture of Darnassian and bad Taur-ahe. The last letter said she had heard a tauren singing in the woods near Splintertree, and had sung back." },
+        { id = "w_friend2_w1", when = { race = "NightElf" }, text = "You are kaldorei. If you hear one of us singing in the forests of Ashenvale, sing back. It might be her, or someone like her." },
+      },
+      choices = {
+        { text = "Songs cross every border.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Bessany.", next = "BACK" },
+      },
     },
   },
   topics = {
@@ -165,6 +185,7 @@ P:NPC {
 
         { text = "Why keep the peace between enemies?", next = "peace" },
         { text = "What is this place?", next = "place" },
+        { text = "What's the hardest part of your watch?", next = "w_hard" },
         { text = "I'll keep the peace.", next = "END" },
       },
     },
@@ -185,6 +206,26 @@ P:NPC {
     remulos = {
       lines = { { id = "r_default", text = "Keeper Remulos is the son of Cenarius and the guardian of this glade, and he taught Malfurion himself in ages long gone. Show his shrine respect, {class}, and do not trouble him without need." } },
       choices = { { text = "I will. Something else.", next = "BACK" } },
+    },
+    w_hard = {
+      lines = {
+        { id = "w_hard_default", text = "Watching two people who hate each other share a road, and knowing that the moment they leave the glade, one of them may kill the other. Here I can stop it. A mile past the Timbermaw tunnels, I cannot, and I never learn how the story ends." },
+      },
+      choices = {
+        { text = "Does that trouble you?", next = "w_hard2" },
+        { text = "You do what you can here.", next = "w_hard2" },
+      },
+    },
+    w_hard2 = {
+      lines = {
+        { id = "w_hard2_default", text = "It did, for my first century. Now I think of the glade as a place where they learn they can stand side by side without dying of it. Some of them remember that, out there. I like to think the ones who remember are the ones I never hear of again." },
+        { id = "w_hard2_w1", when = { class = "DRUID" }, text = "You are of the Circle; you will carry the glade's peace out with you when you leave, or you are not truly of the Circle at all." },
+      },
+      choices = {
+        { text = "Peace starts somewhere.", next = "BACK", fx = { align = { order = 1 } }, reply = "It starts here, under the Keeper's eye. Where it goes after is up to all of you." },
+        { text = "Enemies stay enemies.", next = "BACK", fx = { align = { order = -1 } }, reply = "Perhaps. But here they eat at one table, and that is not nothing." },
+        { text = "Something else, warden.", next = "BACK" },
+      },
     },
   },
   topics = {

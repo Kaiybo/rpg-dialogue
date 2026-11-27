@@ -637,7 +637,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman. James would have liked you; he always said the Alliance would only win if it stopped being afraid of new things." },
       },
       again = {
-        { id = "h_again", text = "What else? I've nowhere to be but here." },
+        { id = "h_again", text = "What else? My chair by the hearth isn't going anywhere, and neither am I until the rain lets up." },
         { id = "h_again2", text = "Go on. The rain's not stopping, so we may as well talk." },
       },
       choices = {

@@ -60,7 +60,25 @@ P:NPC {
         { text = "You really eat bugs?", next = "bugs" },
         { text = "What do you brew for warlocks who need to pass unnoticed?", next = "xpotion", when = { class = "WARLOCK" } },
         { text = "A goblin should be selling, not serving.", next = "xgoblin", when = { race = { "Orc", "Troll", "Tauren", "Scourge" } } },
+        { text = "What is this Altar of Storms, anyway?", next = "w9_altar" },
         { text = "I'll be on my way.", next = "END" },
+      },
+    },
+
+    w9_altar = {
+      lines = { { id = "w9_altar_d", text = "Old ogre ground, pal, where the Horde's warlocks used to call down storms on the Alliance back in the bad old days. Master Mor'zul likes it because the stone still hums with all that old magic, and I like it because the beetles up here are huge." } },
+      choices = {
+        { text = "Do the ogres still come here?", next = "w9_altar2" },
+        { text = "Old Horde warlocks?", next = "w9_altar2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_altar2 = {
+      lines = { { id = "w9_altar2_d", text = "The Firegut stay down the hill, mostly, on account of master Mor'zul being very scary when he wants to be. Every now and then one wanders up looking for the old chieftain's bones, and then J'eevee gets a snack, and I get a nice quiet week." } },
+      choices = {
+        { text = "I'll mind where I wander, then.", next = "BACK", reply = "Smart, pal! Stay on the path, and bring beetles next time." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

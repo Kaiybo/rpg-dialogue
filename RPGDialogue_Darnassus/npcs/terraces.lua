@@ -1722,6 +1722,7 @@ P:NPC {
         { text = "What do druids usually buy from you, Mydrannul?", next = "xdruid", when = { class = "DRUID", faction = "Alliance" } },
         { text = "Does nobody write songs about the lockpickers, Mydrannul?", next = "xrogue", when = { class = "ROGUE", faction = "Alliance" } },
         { text = "Do you think every adventurer is a hero, Mydrannul?", next = "xdsham", when = { class = "SHAMAN", faction = "Alliance" } },
+        { text = "What sells fastest when the boats come in?", next = "w_boats" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -1739,6 +1740,24 @@ P:NPC {
         { id = "ne_default", text = "An old friend who sells fish at the foot of the tree, by the boats from Auberdine. She's always sending things across the water, and I'm always finding her couriers." },
       },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "teldrassil" } } } },
+    },
+    w_boats = {
+      lines = {
+        { id = "w_boats_default", text = "Waterskins, without fail, because everybody who comes up from Auberdine has discovered on the crossing that theirs leaks. Then bandages, then bread, and then, from the young ones, a cheap dagger they will regret before Dolanaar." },
+      },
+      choices = {
+        { text = "Why regret the dagger?", next = "w_boats2" },
+        { text = "You must know the boat days by heart.", next = "w_boats2" },
+      },
+    },
+    w_boats2 = {
+      lines = {
+        { id = "w_boats2_default", text = "Because they buy it to look like adventurers, and then they find that the Gnarlpine near Dolanaar do not care how anyone looks. The ones who come back buy bandages first, and I always sell them gladly, because they came back." },
+      },
+      choices = {
+        { text = "You care for your customers.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Mydrannul.", next = "BACK" },
+      },
     },
   },
 
@@ -2133,7 +2152,7 @@ P:NPC {
       again = { { id = "h_again", text = "What else? Ask me quickly before Faldron gives me something to sew." } },
       choices = {
         { text = "Leather is a fine material.", next = "BACK", reply = "It is! Finally, someone agrees!", fx = { align = { order = 1 } } },
-        { text = "Leather is for peasants.", next = "BACK", reply = "Oh. Well.", fx = { align = { order = -1 } } },
+        { text = "Leather is for peasants.", next = "BACK", reply = "Oh. Well, I suppose you've never worn good leather, then.", fx = { align = { order = -1 } } },
         { text = "Can you help me train?", next = "BUSINESS", when = { profession = "Leatherworking" } },
         { text = "What are your teachers like?", next = "teachers" },
         { text = "Do you want to be a crafter forever?", next = "future" },

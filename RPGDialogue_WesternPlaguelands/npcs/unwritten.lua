@@ -38,7 +38,25 @@ P:NPC {
         { text = "You know you're dead, don't you?", next = "dead" },
         { text = "What happened to the Barovs?", next = "barov" },
         { text = "Who lives in the keep now?", next = "keep" },
+        { text = "Do you know a boy named Sammy?", next = "w9_sammy" },
         { text = "Carry on, guardsman.", next = "END" },
+      },
+    },
+
+    w9_sammy = {
+      lines = { { id = "w9_sammy_d", text = "Young Sammy, the one forever racing round the fountain? Course I do, his uncle stands the wall with me, by the big cannon. The lad brings him bread every noon, though I've not seen him do it for a while now, come to think of it." } },
+      choices = {
+        { text = "Where is his uncle now?", next = "w9_sammy2" },
+        { text = "The boy is still racing.", next = "w9_sammy2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_sammy2 = {
+      lines = { { id = "w9_sammy2_d", text = "On the wall, same as always, I expect, though I'll confess I can't picture his face right now, which is strange, we've stood a hundred watches together. It'll come back to me, traveller. Everything comes back to me eventually, except the ferry." } },
+      choices = {
+        { text = "I'll tell Sammy his uncle is near.", next = "BACK", reply = "Do that, and tell him to keep off the fountain wall, it's slippery." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dead = {
@@ -313,7 +331,25 @@ P:NPC {
         { text = "Have you seen anything strange?", next = "strange" },
         { text = "Tell me about the Barov guard.", next = "hm_guard" },
         { text = "What lies past the end of your circuit?", next = "hm_beyond" },
+        { text = "What does Bramble eat now?", next = "w9_eat" },
         { text = "Ride on, horseman.", next = "END" },
+      },
+    },
+
+    w9_eat = {
+      lines = { { id = "w9_eat_d", text = "Nothing, traveller, and that's what frightens me more than the robed men. She was always mad for apples, would steal them from the Dalson cart, and now she won't touch the feed bag, and she never seems to grow thin." } },
+      choices = {
+        { text = "Horses know things, your father said.", next = "w9_eat2" },
+        { text = "Maybe she's simply tired.", next = "w9_eat2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_eat2 = {
+      lines = { { id = "w9_eat2_d", text = "Aye, he did, and I think she knows what I won't say aloud. So I don't ask her to eat, and she doesn't ask me to stop riding, and we keep the circle together, the two of us, as long as it lasts." } },
+      choices = {
+        { text = "That's loyalty, horseman.", next = "BACK", reply = "It's all we have left, traveller, and it's not nothing." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     horse = {
@@ -433,7 +469,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "I'm just on my way to the market, though I can't seem to find it, which is very silly in a town this small. Everyone's been so quiet lately, and nobody answers their door." } },
-      again = { { id = "h_again", text = "Was there something else, stranger?" } },
+      again = { { id = "h_again", text = "Was there something else, dear? I really must find that market before all the good bread's gone." } },
       choices = {
         { text = "What's your name?", next = "xname" },
         { text = "Who are the Barovs to you?", next = "xbarov" },
@@ -443,7 +479,26 @@ P:NPC {
         { text = "There is no market anymore.", next = "market" },
         { text = "What did you bake for the harvest festival?", next = "ct_bake" },
         { text = "Who lives near your bakery?", next = "ct_neigh" },
+        { text = "Your basket is empty.", next = "w9_basket" },
         { text = "Good day to you.", next = "END" },
+      },
+    },
+
+    w9_basket = {
+      lines = { { id = "w9_basket_d", text = "Empty? Don't be silly, dear, it's full of eggs, a dozen of them, from the Dalson hens, and I've carried them so carefully all the way from the bridge. Look, you can see the straw." } },
+      choices = {
+        { text = "There's nothing there.", next = "w9_basket2" },
+        { text = "Forgive me. They're lovely eggs.", next = "w9_basket2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_basket2 = {
+      lines = { { id = "w9_basket2_d", text = "I can feel the weight of them, dear, I'm sure I can, and I'm sure I'll find the market around the very next corner. You mustn't upset an old woman, it isn't kind, and Caer Darrow has always been a kind town." } },
+      choices = {
+        { text = "Telling the truth is kinder.", next = "BACK", fx = { align = { order = -1 } }, reply = "Is it? Then why does it feel so cold, dear?" },
+        { text = "Let her believe. It harms no one.", next = "BACK", fx = { align = { order = 1 } }, reply = "There, you see. You're a kind one too. Off to the market, then." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     grain = {
@@ -536,7 +591,25 @@ P:NPC {
         { text = "Who were your neighbours in life?", next = "yneigh" },
         { text = "Do you ever see the living you knew?", next = "yseen" },
         { text = "A fellow Forsaken asks your counsel.", next = "BACK", when = { race = "Scourge" }, reply = "Then hear it: find a task and keep it. The ones who drift become what we fled." },
+        { text = "What do you make of the Gallows' End?", next = "w9_inn" },
         { text = "Farewell, Deathguard.", next = "END" },
+      },
+    },
+
+    w9_inn = {
+      lines = { { id = "w9_inn_d", text = "It's the busiest building in Brill, and the only one where the living and the dead drink under the same roof without anybody being sick, mostly. Innkeeper Renee keeps it tidy, and she charges the living a little extra, which I suspect is the only justice they'll find here." } },
+      choices = {
+        { text = "Do you drink there yourself?", next = "w9_inn2" },
+        { text = "The living pay more?", next = "w9_inn2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_inn2 = {
+      lines = { { id = "w9_inn2_d", text = "I sit there of an evening, for the habit of it, and order a cup of something I can no longer taste. It reminds me of who I was, which some Forsaken avoid, but I would rather remember badly than forget entirely." } },
+      choices = {
+        { text = "That's a fine habit.", next = "BACK", reply = "It's a sad one, but it's mine." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     directions = {
@@ -641,7 +714,26 @@ P:NPC {
         { text = "What did you do in life?", next = "ylife" },
         { text = "Who do you trust in the supply line?", next = "ytrust" },
         { text = "A priest of the Forsaken offers you guidance.", next = "BACK", when = { race = "Scourge", class = "PRIEST" }, reply = "Guidance, from the Shadow? I'll take it, and I'll be suspicious of it, which I think is the point." },
+        { text = "What do the Deathguard do with deserters?", next = "w9_desert" },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+
+    w9_desert = {
+      lines = { { id = "w9_desert_d", text = "Hunt them down, usually, because a Forsaken who walks away from Brill rarely walks anywhere good. Some go to the Scourge, some to the Scarlets with a story to sell, and a few just wander into the hills and stand there until something eats them." } },
+      choices = {
+        { text = "Do you ever let one go?", next = "w9_desert2" },
+        { text = "That's a cold way to treat your own.", next = "w9_desert2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_desert2 = {
+      lines = { { id = "w9_desert2_d", text = "Once, a girl who'd been a farmer's daughter and couldn't bear the fields, and I looked the other way when she took the north road. I've wondered since whether that was mercy or a mistake, and the Dark Lady would say it was both." } },
+      choices = {
+        { text = "A deserter is a danger. Bring them back.", next = "BACK", fx = { align = { order = 1 } }, reply = "That's the rule, and I keep it. Most days." },
+        { text = "You did right. Let her go.", next = "BACK", fx = { align = { order = -1 } }, reply = "Perhaps. Don't tell the executor, and I won't tell him you said so." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     supplies = {
@@ -804,7 +896,7 @@ P:NPC {
     cruel = {
       lines = { { id = "cr_default", text = "The living burned my family in their beds and called it mercy. You'll forgive me if I don't lose sleep, since I no longer sleep at all." } },
       choices = {
-        { text = "They earned it. Let them bleed.", next = "BACK", reply = "Finally, someone who understands.", fx = { align = { order = -1 } } },
+        { text = "They earned it. Let them bleed.", next = "BACK", reply = "At last, a living tongue that doesn't lecture me. How very refreshing.", fx = { align = { order = -1 } } },
         { text = "Cruelty makes us no better than them.", next = "BACK", reply = "We were never better than them, dear. Only more honest.", fx = { align = { order = 1 } } },
       },
     },
@@ -882,7 +974,25 @@ P:NPC {
         { text = "What do you remember of the war at Hyjal?", next = "yhyjal" },
         { text = "Are you afraid here, elder?", next = "yafraid" },
         { text = "A Forsaken pays respects. Will you accept them?", next = "BACK", when = { race = "Scourge" }, reply = "Gladly, child. You were made to walk against your will, and yet you came here to honour the dead. That is enough." },
+        { text = "What will you tell the ancestors of this place?", next = "w9_tell" },
         { text = "Elune keep you, elder.", next = "END" },
+      },
+    },
+
+    w9_tell = {
+      lines = { { id = "w9_tell_d", text = "That the people who lived here loved their fields, child, for I can feel it still in the grey earth, beneath the plague. The ancestors of my people do not know the humans of Lordaeron, and someone should speak for them, even an elf who never met them." } },
+      choices = {
+        { text = "Why you, of all people?", next = "w9_tell2" },
+        { text = "They'd want to be remembered well.", next = "w9_tell2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_tell2 = {
+      lines = { { id = "w9_tell2_d", text = "Because grief needs a witness, and I have no living kin left who need my watching. I have stood at Hyjal and seen my own people burned, and I learned that the only cruelty worse than death is being forgotten after it." } },
+      choices = {
+        { text = "Then I'll remember them too.", next = "BACK", reply = "That is a gift, child. Carry it gently." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -985,7 +1095,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Moonstrike, and I am one of the elders the festival remembers. My spirit keeps watch at Scholomance, where the Cult of the Damned teaches its students to raise the dead." },
         { id = "h_q", when = { questActive = TODO_QUEST("Moonstrike the Elder") }, text = "You have come to honour the elders, and you have come a long and dangerous way to do it. Take this coin of ancestry, and remember me kindly." },
       },
-      again = { { id = "h_again", text = "What else would you know, young one?" } },
+      again = { { id = "h_again", text = "What else, young one? Speak gently; the dead behind these doors do not sleep." } },
       choices = {
         { text = "Why does your spirit linger here, of all places?", next = "why" },
         { text = "What is the Lunar Festival?", next = "festival" },
@@ -994,7 +1104,28 @@ P:NPC {
         { text = "What did you do in life?", next = "ylife" },
         { text = "Do you see the students inside?", next = "ystudents" },
         { text = "A night elf honours you, elder.", next = "BACK", when = { race = "NightElf" }, reply = "Ishnu-alah, child of the moon. It warms me to see one of my own here, even in this dark place." },
+        { text = "How do you keep the dark from touching you?", next = "w9_dark" },
         { text = "Elune-adore, Elder.", next = "END" },
+      },
+    },
+
+    w9_dark = {
+      lines = {
+        { id = "w9_dark_d", text = "By remembering the moon, young one, every hour of every night, as I was taught as a novice in the temple. The foulness of this school presses at me like cold water, but Elune's light was in me before it, and it has older roots." },
+        { id = "w9_dark_v1", when = { class = "PRIEST" }, text = "The way you would, priest: by holding to the light I was given and refusing to set it down. My goddess is Elune and yours is the Light, but this school's darkness presses at us both, and it finds no purchase on a heart that keeps its vigil." },
+      },
+      choices = {
+        { text = "Does it ever get through?", next = "w9_dark2" },
+        { text = "Could the students learn that?", next = "w9_dark2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_dark2 = {
+      lines = { { id = "w9_dark2_d", text = "Once, in the first year, when I heard a child weeping beyond those doors and could not go to it. That was the closest the dark came, for grief opens doors that fear does not, and I learned to grieve with my eyes on the sky." } },
+      choices = {
+        { text = "You bear a heavy vigil.", next = "BACK", reply = "It is lighter for being shared, even for a moment." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {

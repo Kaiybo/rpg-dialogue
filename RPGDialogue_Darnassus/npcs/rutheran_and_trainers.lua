@@ -117,7 +117,7 @@ P:NPC {
         { id = "ddf_default", text = "As safe as anything that flies. A hippogryph has never lost a rider who held on, and they know the way to Auberdine better than I know the steps of this dock. Falls happen on the ground, from cliffs and branches, where nobody is holding you up." },
       },
       choices = {
-        { text = "The hippogryphs connect our people.", next = "BACK", reply = "They do. You understand.", fx = { align = { order = 1 } } },
+        { text = "The hippogryphs connect our people.", next = "BACK", reply = "They do. From Rut'theran to Auberdine and on to Astranaar, every wing carries word as well as riders.", fx = { align = { order = 1 } } },
         { text = "Hippogryphs are just mounts.", next = "BACK", reply = "Then walk.", fx = { align = { order = -1 } } },
         { text = "Then I'll trust the bird.", next = "BACK", fx = { affinity = 1 } },
         { text = "I'll keep both hands on the saddle, all the same.", next = "BACK", reply = "Wise. Every hippogryph prefers a rider who holds on tight." },
@@ -403,7 +403,7 @@ P:NPC {
         { id = "h_again2", text = "Ask, but stand straight while you do." },
       },
       choices = {
-        { text = "A good stance is the foundation.", next = "BACK", reply = "It is. You understand.", fx = { align = { order = 1 } } },
+        { text = "A good stance is the foundation.", next = "BACK", reply = "It is. Plant your feet badly and the finest blade in Darnassus will not save you.", fx = { align = { order = 1 } } },
         { text = "Stance doesn't matter in a real fight.", next = "BACK", reply = "It does. Again.", fx = { align = { order = -1 } } },
         { text = "Teach me a weapon.", next = "BUSINESS" },
         { text = "What do the Sentinels favor?", next = "a" },
@@ -508,7 +508,7 @@ P:NPC {
       big = true,
       lines = { { id = "xdsham_default", text = "They trust those who listen, and you seem to. I am more at ease with beasts than with people myself, and you may be the same." } },
       choices = {
-        { text = "A hunter guards the forest.", next = "BACK", reply = "We do. You understand.", fx = { align = { order = 1 } } },
+        { text = "A hunter guards the forest.", next = "BACK", reply = "We do, and we do it best when the forest never knows we were there.", fx = { align = { order = 1 } } },
         { text = "A hunter hunts for himself.", next = "BACK", reply = "Then hunt alone.", fx = { align = { order = -1 } } },
         { text = "Then I will treat them gently, Jeen'ra.", next = "BACK", reply = "Gently is how they best understand us, shaman. The nightsabers will remember you for it, and so will I.", fx = { align = { honor = 1 } } },
         { text = "Beasts are beasts, Jeen'ra. I don't need their trust.", next = "BACK", reply = "Then they will treat you the same way, and a nightsaber that does not trust you is a very bad thing to meet. I hope you learn otherwise.", fx = { align = { honor = -1 } } },

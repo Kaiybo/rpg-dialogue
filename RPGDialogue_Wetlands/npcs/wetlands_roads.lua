@@ -607,7 +607,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? Keep yer eyes on the grass while ye ask." },
-        { id = "h_again2", text = "Go on, I'm listenin'." },
+        { id = "h_again2", text = "Go on, I'm listenin', but keep one ear on the trees for raptors while ye talk." },
       },
       choices = {
         { text = "You seem to have a special hatred for the raptors.", next = "raptors" },

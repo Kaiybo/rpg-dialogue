@@ -169,7 +169,7 @@ P:Letter {
   id = "origin_tauren_ghost_walker_scout_2", from = "Scout Rhal Ashmane", stranger = true, delay = 2400,
   when = { origin = "tauren_ghost_walker_scout", minLevel = 30 },
   subject = "The Kolkar tell stories too",
-  body = "{name},\n\nWe caught a Kolkar outrider near Kodo Graveyard last week, and before we let him run home with his tail between his legs, he told us something odd. The centaur clans have a name for a {race} {class} who has been killing their raiders all over Kalimdor, and from his description it could only be you.\n\nI laughed until my ribs ached, and then I wrote it on the lodge wall so the recruits would see it. Blanket is so impressed that he has stopped hiding from the ghosts, which is the most useful thing anyone has done at this post all year.\n\nThe spirits still walk. The centaur still raid. Desolace has not changed, but you have, and I am glad of it.\n\nRhal",
+  body = "{name},\n\nWe caught a Kolkar outrider near Kodo Graveyard last week, and before we let him run home with his tail between his legs, he told us something odd. The centaur clans have a name for a {race} {class} who has been killing their raiders all over Kalimdor, and from his description it could only be you.\n\nI laughed until my ribs ached, and then I wrote it on the lodge wall so the recruits would see it. Blanket is so impressed that he has stopped hiding from the ghosts, which is the most useful thing anyone has done at this post all year.\n\nThe spirits still walk and the centaur still raid. Desolace has not changed, but you have, and I am glad of it.\n\nRhal",
 }
 
 ---------------------------------------------------------------------------

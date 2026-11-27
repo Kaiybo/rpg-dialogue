@@ -20,9 +20,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_trap = {
+      lines = { { id = "w8_trap_a", text = "Along the river bends where the bank's been worn smooth, for that's where they slide in an' out. I set them at dusk an' check them at dawn, an' I've learned tae check from a long way back, for a croc in a trap isnae a happy croc." } },
+      choices = {
+        { text = "Have you ever been caught by one?", next = "w8_trap2" },
+        { text = "Traps seem cruel to the beast.", next = "w8_trap2" },
+        { text = "I'm a hunter. I'd rather track them than trap them.", next = "w8_trap2", when = { class = "HUNTER" } },
+        { text = "Something else, Einar.", next = "BACK" },
+      },
+    },
+    w8_trap2 = {
+      lines = {
+        { id = "w8_trap2_a", text = "My own trap, once, when I was tired an' foolish, an' I sat in the reeds a full day till a gnoll trader came by an' freed me for a price. Sida laughed for a week when she heard, an' that was back when we were still speakin'." },
+        { id = "w8_trap2_hu", when = { class = "HUNTER" }, text = "So would I, when I was young an' had the knees for it. A trap doesnae tire an' doesnae miss, {g:lad|lass}, an' an old hunter learns tae let the river do the stalkin' for him." },
+      },
+      choices = {
+        { text = "Maybe go and speak to Sida.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "Einar Stonegrip, hunter, an' this is my camp, an' that's the road to Menethil I'll not walk. I trap crocolisks in the marsh an' sell the skins to James Halloran, if someone'll carry them for me." } },
-      again = { { id = "h_again", text = "What else, {g:lad|lass}?" }, { id = "h_again2", text = "Aye, go on." } },
+      again = { { id = "h_again", text = "Aye, what else? Speak up, {g:lad|lass}, before the raptors catch our scent again." }, { id = "h_again2", text = "Aye, go on, an' keep yer boots out o' the trap line while ye talk." } },
       choices = {
         { text = "Why won't you go to Menethil?", next = "why" },
         { text = "How's crocolisk hunting?", next = "crocs" },
@@ -31,6 +51,7 @@ P:NPC {
         { text = "How did you meet Sida?", next = "ymeet" },
         { text = "Who buys your hides?", next = "ybuy" },
         { text = "I'm a dwarf. Do you miss Ironforge?", next = "BACK", when = { race = "Dwarf" }, reply = "Some days. Mostly I miss the ale, an' the noise, an' Sida's cookin', though I'll nae say that last part tae her." },
+        { text = "Where do you set your crocolisk traps?", next = "w8_trap" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -130,9 +151,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_chess = {
+      lines = { { id = "w8_chess_a", text = "Driftwood from the lake, an' I made the kings tae look like Magni an' the queens like my mother, which is why the queens are the angrier pieces. The pawns are all Rharen, every one, an' he's never noticed." } },
+      choices = {
+        { text = "Does anyone ever play with you?", next = "w8_chess2" },
+        { text = "Rharen as the pawns? That's cruel.", next = "w8_chess2" },
+        { text = "Something else, Grugelm.", next = "BACK" },
+      },
+    },
+    w8_chess2 = {
+      lines = { { id = "w8_chess2_a", text = "A dwarf from the Explorers' League beat me twice last summer, an' I've been practisin' against myself ever since, an' losin'. Rharen won't play because he says the pieces look at him funny, which, aye, I suppose they do." } },
+      choices = {
+        { text = "I'll play you one day.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "Grugelm, mountaineer of Ironforge, and I guard Dun Algaz with that great lump Rharen. The pass is the only road between Loch Modan and the Wetlands, and the Dragonmaw would dearly love to own it." } },
-      again = { { id = "h_again", text = "What else, {g:lad|lass}?" } },
+      again = { { id = "h_again", text = "What else, {g:lad|lass}? Say it plain; the pass doesn't watch itself." } },
       choices = {
         { text = "A pass this important should be held by strict orders.", next = "BACK", reply = "Aye, an' that's how we've held it, though Rharen thinks the orders are optional.", fx = { align = { order = 1 } } }, -- dp_stance
         { text = "A good guard trusts his own judgement over any order.", next = "BACK", reply = "That's the sort o' talk Rharen likes, an' ye'll notice he's the one who keeps gettin' in trouble.", fx = { align = { order = -1 } } }, -- dp_stance
@@ -143,6 +180,7 @@ P:NPC {
         { text = "I'm a dwarf. I'll stand a watch with you.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Do you have family back home?", next = "yfam" },
         { text = "What do you do when it's quiet?", next = "yquiet" },
+        { text = "Tell me about the chessmen you carved.", next = "w8_chess" },
         { text = "Hold the pass. Farewell.", next = "END" },
       },
     },
@@ -243,12 +281,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_tale = {
+      lines = { { id = "w8_tale_a", text = "The night Grugelm fell asleep on watch an' woke up wi' a raptor sniffin' his beard, an' he screamed so loud the Dragonmaw on the ridge ran off thinkin' it was a battle cry! He tells it different, mind, an' in his version I'm the one screamin'." } },
+      choices = {
+        { text = "Who's telling the truth?", next = "w8_tale2" },
+        { text = "So a scream won the night.", next = "w8_tale2" },
+        { text = "Something else, Rharen.", next = "BACK" },
+      },
+    },
+    w8_tale2 = {
+      lines = { { id = "w8_tale2_a", text = "Both of us, a wee bit, for there was a lot o' screamin' that night an' some of it might've been mine. The raptor ran off as well, so whoever screamed, it worked, an' that's the only part that matters on a wall." } },
+      choices = {
+        { text = "A good story, either way.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Rharen's the name, and watchin' this pass is the game. Loch Modan's just through the tunnel, and the Wetlands spread out to the north, so we see everybody comin' and goin'." },
         { id = "h_dwarf", when = { race = "Dwarf" }, text = "A dwarf! Come in, come in, there's a fire and there's stout, though Grugelm will swear there isnae." },
       },
-      again = { { id = "h_again", text = "Anythin' else, friend?" } },
+      again = { { id = "h_again", text = "Anythin' else, friend? There's always time for one more, an' Grugelm's no' listenin'." } },
       choices = {
         { text = "Grugelm's right. The orders keep this pass in dwarven hands.", next = "BACK", reply = "Don't tell him ye said that, or he'll be unbearable for a week.", fx = { align = { order = 1 } } }, -- dp_stance
         { text = "Rules are for Grugelm. A guard can bend them now and then.", next = "BACK", reply = "Ha! That's the spirit, though I'd keep it quiet within earshot o' the old grump.", fx = { align = { order = -1 } } }, -- dp_stance
@@ -261,6 +315,7 @@ P:NPC {
         { text = "Why don't you go home on leave?", next = "yleave" },
         { text = "What do you like about this post?", next = "ylike" },
         { text = "I'm a hunter. Any game near the pass?", next = "BACK", when = { class = "HUNTER" }, reply = "Raptors, all the way up the ridge, and the big crocs down by the river. Bring me a raptor steak and I'll owe ye." },
+        { text = "What's the best tale you tell at the fire?", next = "w8_tale" },
         { text = "Take care, mountaineer.", next = "END" },
       },
     },
@@ -360,6 +415,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_job = {
+      lines = { { id = "w8_job_a", text = "Scraping the hull at low tide, friend, standing up to my waist in Menethil mud with a crowbar and the barnacles fighting back. The captain says a clean hull sails faster, and I say it's the slowest job in the world." } },
+      choices = {
+        { text = "Who gets stuck with it?", next = "w8_job2" },
+        { text = "A clean ship's a proud ship.", next = "w8_job2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_job2 = {
+      lines = { { id = "w8_job2_a", text = "Whoever was last back from the Deepwater on shore leave, which is usually me, if I'm honest. I've started leaving the tavern early, and the barnacles have started missing me, I think." } },
+      choices = {
+        { text = "Leave the tavern earlier, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = { { id = "h_default", text = "I crew the Maiden's Virtue, between here and Theramore across the sea. It's a long haul, but the lady's a good ship, and the captain's fair." } },
       again = { { id = "h_again", text = "Anything else? These ropes won't coil themselves." } },
@@ -372,6 +443,7 @@ P:NPC {
         { text = "I'm a night elf. Do you sail to Auberdine?", next = "xelf", when = { race = "NightElf" } },
         { text = "How long have you sailed?", next = "ylong" },
         { text = "Do you miss anywhere?", next = "ymiss" },
+        { text = "What's the worst job aboard the Maiden's Virtue?", next = "w8_job" },
         { text = "Fair winds.", next = "END" },
       },
     },
@@ -482,6 +554,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_seen = {
+      lines = { { id = "w8_seen_a", text = "The sea, which came and went and came again, and the mountains, which rose and settled. Then small ones with fire and iron, and more small ones after them, each certain they were the first to stand here." } },
+      choices = {
+        { text = "Were we the first, in any way?", next = "w8_seen2" },
+        { text = "That's a humbling thought.", next = "w8_seen2" },
+        { text = "My people came from the stone, the League believes.", next = "w8_seen2", when = { race = "Dwarf" } },
+        { text = "Something else, Aman.", next = "BACK" },
+      },
+    },
+    w8_seen2 = {
+      lines = {
+        { id = "w8_seen2_a", text = "You were the first to ask me, small one, and that is a kind of first. The stones do not often hear a question, and they will remember yours a little longer than they remember most things." },
+        { id = "w8_seen2_dw", when = { race = "Dwarf" }, text = "The League digs well, and it will find what it finds, child of the mountain. I will say only that the stone is not surprised by you, and that should comfort you more than any answer." },
+      },
+      choices = {
+        { text = "Thank you, Aman.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Aman. I was set to watch over what lies beneath, long before your kingdoms raised their walls. I do not speak of what I guard, so do not ask it." },
@@ -499,6 +591,7 @@ P:NPC {
         { text = "My people seek our origins in the stone.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "Do you ever grow weary of watching?", next = "yweary" },
         { text = "Have others come asking before me?", next = "yothers" },
+        { text = "What have the stones seen in this marsh?", next = "w8_seen" },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },

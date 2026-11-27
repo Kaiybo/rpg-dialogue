@@ -54,7 +54,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "I keep vials, solvents and the odd herb that doesn't grow here. Half the guard buys healing draughts from the alchemists I supply, so I like to think I've saved a few of them." } },
-      again = { { id = "h_again", text = "Anything else? I've a batch of leaves to turn." } },
+      again = { { id = "h_again", text = "Anything else? Shut the door behind you if you're staying; the damp's already got into the fadeleaf twice this week." } },
       choices = {
         { text = "What grows well in the marsh?", next = "marsh" },
         { text = "The damp must ruin your stock.", next = "damp" },
@@ -64,7 +64,36 @@ P:NPC {
         { text = "I'm an alchemist. What should I brew here?", next = "xalch", when = { profession = "Alchemy" } },
         { text = "Where did you learn your trade?", next = "ylearn" },
         { text = "Is there anything you can't stock here?", next = "ycant" },
+        { text = "What's that on the roof?", next = "w7_roof" },
         { text = "Good day, Uma.", next = "END" },
+      },
+    },
+    w7_roof = {
+      lines = {
+        { id = "w7_roof_l1", text = "My little garden, in pots, where the sun hits for half the day if the fog lets it. Peacebloom, mostly, and a stubborn sprig of silverleaf that a sailor brought me from Westfall, which has survived three storms out of pure spite." },
+      },
+      choices = {
+        { text = "How do you keep it alive?", next = "w7_roof2" },
+        { text = "Plants on a roof in a swamp?", next = "w7_roof3" },
+        { text = "Something else, Uma.", next = "BACK" },
+      },
+    },
+    w7_roof2 = {
+      lines = {
+        { id = "w7_roof2_l1", text = "Fresh water, carried up the ladder every morning, and a cloth over them when the rain's too hard. And I talk to them, which the guards think is mad, but nothing grows here without a little encouragement." },
+        { id = "w7_roof2_l2", when = { profession = "Herbalism" }, text = "Fresh water from the cistern, never the marsh, and a cloth over them in the heavy rains. You'll know the trick of it: marsh water carries salt and rot, and peacebloom can't abide either." },
+      },
+      choices = {
+        { text = "Good to know.", next = "BACK", reply = "Come up and see them sometime, if you've a head for ladders." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_roof3 = {
+      lines = {
+        { id = "w7_roof3_l1", text = "It's the driest place on the isle. That's not saying much, but it's enough for a few pots." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     marsh = {
@@ -148,7 +177,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I came over with Lady Proudmoore's fleet and I've kept the garrison armed ever since. The damp here eats steel faster than any orc, so most of my day is fighting rust." } },
-      again = { { id = "h_again", text = "Something else? The iron's cooling." } },
+      again = { { id = "h_again", text = "Something else? Say it quick, the iron's cooling and I'll have to heat the whole thing again if it goes grey." } },
       choices = {
         { text = "Keeping the garrison armed is hard work.", next = "BACK", reply = "It is. Lady Proudmoore relies on it.", fx = { align = { order = 1 } } },
         { text = "The garrison could buy cheaper blades.", next = "BACK", reply = "Then they'd break. Mind the sparks.", fx = { align = { order = -1 } } },
@@ -158,7 +187,36 @@ P:NPC {
         { text = "Does the garrison keep you busy?", next = "xbusy" },
         { text = "What's the best steel for this climate?", next = "xsteel" },
         { text = "I'm a warrior. What would you forge for me?", next = "xwarrior", when = { class = "WARRIOR" } },
+        { text = "What's the strangest thing you've been asked to forge?", next = "w7_strange" },
         { text = "Thanks, Marie.", next = "END" },
+      },
+    },
+    w7_strange = {
+      lines = {
+        { id = "w7_strange_l1", text = "A set of iron teeth for a dock hand who'd lost his in a brawl. I made them, against my better judgment, and he wore them for a week before he bit into a crab shell and broke the hinge." },
+      },
+      choices = {
+        { text = "Did you fix them?", next = "w7_strange2" },
+        { text = "You should've said no.", next = "w7_strange3" },
+        { text = "Something else, Marie.", next = "BACK" },
+      },
+    },
+    w7_strange2 = {
+      lines = {
+        { id = "w7_strange2_l1", text = "I made him a second set out of bronze, which doesn't rust, and told him to stay away from crabs. He still comes by every month to have them polished, and he grins at me like I'm his favourite aunt." },
+        { id = "w7_strange2_l2", when = { profession = "Blacksmithing" }, text = "A second set in bronze; you'll know why, iron rusts in a mouth faster than in this marsh. The hinge was the trick; I used a jeweller's pin. He still grins at me with them." },
+      },
+      choices = {
+        { text = "That's quite a commission.", next = "BACK", reply = "Strangest I've had, and I've had a few." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_strange3 = {
+      lines = {
+        { id = "w7_strange3_l1", text = "Probably. But he paid well, and a smith who refuses honest work in a town this size soon has none." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     rust = {
@@ -246,9 +304,9 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I feed the off-watch, the dock hands and anyone who wanders in out of the rain. I also teach a bit of cooking, if you've patience and a strong stomach." } },
-      again = { { id = "h_again", text = "Anything else? The pot won't stir itself." } },
+      again = { { id = "h_again", text = "Anything else? Ask me while I stir, friend; this pot sticks if I leave it for the length of a sneeze." } },
       choices = {
-        { text = "A hot meal keeps the off-watch cheerful.", next = "BACK", reply = "It does! You understand.", fx = { align = { light = 1 } } },
+        { text = "A hot meal keeps the off-watch cheerful.", next = "BACK", reply = "It does, and a cheerful off-watch is a quiet one. Nothing settles a guardsman like a full bowl and a dry seat.", fx = { align = { light = 1 } } },
         { text = "The soldiers should cook for themselves.", next = "BACK", reply = "They'd burn the place down. Pay first.", fx = { align = { light = -1 } } },
         { text = "Who's wrong about salt?", next = "stern" },
         { text = "What do you cook in a swamp?", next = "swamp" },
@@ -256,7 +314,36 @@ P:NPC {
         { text = "Who do you feed, mostly?", next = "xwho" },
         { text = "This place smells better than the marsh.", next = "xsmell" },
         { text = "I'm a dwarf, and I want something with ale in it.", next = "xdwarf", when = { race = "Dwarf" } },
+        { text = "What's your argument with Morgan Stern really about?", next = "w7_morgan" },
         { text = "Later, Craig.", next = "END" },
+      },
+    },
+    w7_morgan = {
+      lines = {
+        { id = "w7_morgan_l1", text = "Salt, on the surface. Underneath, it's that he cooks for the Guard and I cook for everyone else, and the Guard eat better, and I'm jealous of his budget, and he's jealous of my customers." },
+      },
+      choices = {
+        { text = "Have you ever cooked together?", next = "w7_morgan2" },
+        { text = "Sounds like a petty feud.", next = "w7_morgan3" },
+        { text = "Something else, Craig.", next = "BACK" },
+      },
+    },
+    w7_morgan2 = {
+      lines = {
+        { id = "w7_morgan2_l1", text = "Once, for the Lady's midsummer feast, and it was the best meal Theramore's ever had. We didn't speak to each other for a week afterward, because we each thought the other took the credit." },
+        { id = "w7_morgan2_l2", when = { profession = "Cooking" }, text = "Once, for the Lady's midsummer feast. You'll know how it goes with two cooks in one kitchen; it was the best meal we ever made and we nearly came to blows over the gravy." },
+      },
+      choices = {
+        { text = "You should do it again.", next = "BACK", reply = "Maybe next midsummer. If he admits I was right about the salt." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_morgan3 = {
+      lines = {
+        { id = "w7_morgan3_l1", text = "It is, and I love it. A town this small needs something to argue about that isn't the Horde." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     stern = {
@@ -325,7 +412,7 @@ P:NPC {
   topics = {
     crocolisk = { { id = "tp_xcrocolisk", text = "Tough meat, good flavour. Slow is the only way to cook it." } },
     theramore_inn = { { id = "tp_xtheramore_inn", text = "The inn's never empty. Soldiers come in wet and leave full, and I like it that way." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask me about a stew." } } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask me what goes in a fish chowder and I'll talk till the pot boils dry." } } },
 }
 
 -- Helenia Olden: trade supplies, first house by the docks.
@@ -347,7 +434,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "My shop's the first one off the dock, so I see every face that comes to Theramore. Most are lost, a few are trouble, and some just need a spool of thread." } },
-      again = { { id = "h_again", text = "What else can I help you find?" } },
+      again = { { id = "h_again", text = "What else can I help you find? Directions, thread, a dry corner to stand in; I've a little of all three." } },
       choices = {
         { text = "A friendly face makes a new town easier.", next = "BACK", reply = "It does. That's why I'm here.", fx = { align = { light = 1 } } },
         { text = "Newcomers can find their own way.", next = "BACK", reply = "They can. Most get lost.", fx = { align = { light = -1 } } },
@@ -357,7 +444,36 @@ P:NPC {
         { text = "You must hear a lot of gossip here.", next = "xgossip" },
         { text = "Why did you come to Theramore?", next = "xwhy" },
         { text = "I'm a tailor. Is your thread any good?", next = "xtailor", when = { profession = "Tailoring" } },
+        { text = "What's the funniest thing a newcomer has asked you?", next = "w7_funny" },
         { text = "Thank you, Helenia.", next = "END" },
+      },
+    },
+    w7_funny = {
+      lines = {
+        { id = "w7_funny_l1", text = "A young gnome off the Menethil boat who asked me where the city was, and I said this was it, and he looked about at the docks and the inn and the citadel and said, 'Oh, but where's the rest of it?'" },
+      },
+      choices = {
+        { text = "What did you tell him?", next = "w7_funny2" },
+        { text = "Theramore is small.", next = "w7_funny3" },
+        { text = "Something else, Helenia.", next = "BACK" },
+      },
+    },
+    w7_funny2 = {
+      lines = {
+        { id = "w7_funny2_l1", text = "I told him the rest of it was across the sea, under the plague, and that this was all of Lordaeron that got away. He went very quiet and bought a spool of blue thread, and I haven't forgotten his face." },
+        { id = "w7_funny2_l2", when = { race = "Gnome" }, text = "I told him the rest was under the plague in Lordaeron. You'll understand that better than most; your people lost a whole city too. He bought blue thread, and I think of him whenever I sell a spool." },
+      },
+      choices = {
+        { text = "That's sad.", next = "BACK", reply = "It is. But we're still here, and so is he." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_funny3 = {
+      lines = {
+        { id = "w7_funny3_l1", text = "Small, and stubborn, and ours. We'll grow, given time and a little less fog." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     where = {
@@ -456,7 +572,7 @@ P:NPC {
         { id = "ybdwtimothyworthington2", when = { profession = "Tailoring" }, text = "You'll know already, then. Never cut silk on a damp day, and keep your shears oiled, or the marsh will eat them by the season's end." },
       },
       choices = {
-        { text = "Good tailoring takes careful hands.", next = "BACK", reply = "It does. You understand.", fx = { align = { order = 1 } } },
+        { text = "Good tailoring takes careful hands.", next = "BACK", reply = "It does, and hands that rush leave puckers no iron will press out. I'm glad someone appreciates the patience of it.", fx = { align = { order = 1 } } },
         { text = "Clothes are clothes. Just stitch them.", next = "BACK", reply = "Then stitch them yourself.", fx = { align = { order = -1 } } },
         { text = "Do you miss Dalaran?", next = "ydalaran" },
         { text = "Something else.", next = "BACK" },
@@ -484,7 +600,36 @@ P:NPC {
         { text = "I'm a mage. Do you make robes for casters?", next = "xmage", when = { class = "MAGE" } },
         { text = "Will you teach me the Dalaran cut?", next = "BACK", when = { profession = "Tailoring" }, reply = "Gladly. Keep the bias true and never trim a hem before you've hung it, and you'll be ahead of most magi already." },
         { text = "What's the hardest thing to sew in a swamp?", next = "yhardest" },
+        { text = "What's Captain Vimes like to sew for?", next = "w7_vimes" },
         { text = "Good day, Timothy.", next = "END" },
+      },
+    },
+    w7_vimes = {
+      lines = {
+        { id = "w7_vimes_l1", text = "Exacting. He wants his coat pressed, his buttons polished and his seams straight to the width of a hair, and he checks. With a ruler. I respect him enormously and I would like, just once, to hem his trousers an inch short." },
+      },
+      choices = {
+        { text = "Have you ever done it?", next = "w7_vimes2" },
+        { text = "He sounds like a good officer.", next = "w7_vimes3" },
+        { text = "Something else, Timothy.", next = "BACK" },
+      },
+    },
+    w7_vimes2 = {
+      lines = {
+        { id = "w7_vimes2_l1", text = "Never, though I've dreamed of it. He'd notice within a heartbeat and say nothing at all, and just look at me, and that would be far worse than any shouting." },
+        { id = "w7_vimes2_l2", when = { profession = "Tailoring" }, text = "Never; you know as well as I do that a tailor's honour is in the hem. But I've let his collar out a quarter-inch for comfort without telling him, and he's said twice that it fits better than ever." },
+      },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK", reply = "Thank you. A tailor's secrets are all in the seams." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_vimes3 = {
+      lines = {
+        { id = "w7_vimes3_l1", text = "He is, and that's what makes him exhausting. A careless captain's coat is easy; a careful one's is a lifetime of work." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     mageweave = {
@@ -571,7 +716,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I keep the garrison patched up and teach first aid to anyone who'll learn. In this marsh it's fever as often as swords, and fever doesn't care how brave you are." } },
-      again = { { id = "h_again", text = "Anything else? I've a soldier with marsh rot waiting." } },
+      again = { { id = "h_again", text = "Anything else? Quickly, please, I've a soldier with marsh rot on the cot and he will not stop picking at it." } },
       choices = {
         { text = "First aid saves more lives than swords.", next = "BACK", reply = "It does. Thank you for saying so.", fx = { align = { light = 1 } } },
         { text = "First aid is for those who can't fight.", next = "BACK", reply = "Then you'll bleed when it matters. Sit.", fx = { align = { light = -1 } } },
@@ -581,7 +726,36 @@ P:NPC {
         { text = "What's marsh rot, exactly?", next = "xrot" },
         { text = "You look like you haven't slept.", next = "xsleep" },
         { text = "I'm a priest. Could the Light help your patients?", next = "xpriest", when = { class = "PRIEST" } },
+        { text = "What would make your work easier?", next = "w7_easier" },
         { text = "Thanks, Helaina.", next = "END" },
+      },
+    },
+    w7_easier = {
+      lines = {
+        { id = "w7_easier_l1", text = "Dry socks, honestly. Half the marsh rot I treat would never happen if the soldiers changed their socks every watch. I've asked Captain Vimes for an order, and he says he can't order men to change their socks." },
+      },
+      choices = {
+        { text = "Why not?", next = "w7_easier2" },
+        { text = "I'll change my socks.", next = "w7_easier3" },
+        { text = "Something else, Helaina.", next = "BACK" },
+      },
+    },
+    w7_easier2 = {
+      lines = {
+        { id = "w7_easier2_l1", text = "He says it would be undignified, and I said rot between the toes is undignified, and he went red and changed the subject. I've started handing out socks with every bandage, and the men take them, and some of them even wear them." },
+        { id = "w7_easier2_l2", when = { class = "WARRIOR" }, text = "He says it's undignified. You're a soldier, you'll know how it is: nobody wants to be the first to care about his feet. Change yours every watch out here, please, and set an example for the young ones." },
+      },
+      choices = {
+        { text = "Good luck with the socks.", next = "BACK", reply = "Thank you. It's a war, but I'm winning, slowly." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_easier3 = {
+      lines = {
+        { id = "w7_easier3_l1", text = "Thank you. You'd be amazed how rare that promise is." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     worst = {
@@ -687,7 +861,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "I keep the watch rotation and pass reports up to Captain Vimes. Between the deserters, the Horde scouts and the dragons, there's never a short report." } },
-      again = { { id = "h_again", text = "Anything else? Keep it brief, please." } },
+      again = { { id = "h_again", text = "Anything else? Brief as you can, please; Captain Vimes wants this rotation sheet before the evening bell." } },
       choices = {
         { text = "What's in the reports lately?", next = "reports" },
         { text = "Where do I find Captain Vimes?", next = "vimes" },
@@ -697,7 +871,36 @@ P:NPC {
         { text = "I'm a warrior. Do you need another blade?", next = "xwarrior", when = { class = "WARRIOR" } },
         { text = "What's the latest from the Barrens border?", next = "yborder", when = { faction = "Alliance" } },
         { text = "Who's the best soldier on your rotation?", next = "ybest" },
+        { text = "What's the hardest report you've had to write?", next = "w7_report" },
         { text = "Carry on, lieutenant.", next = "END" },
+      },
+    },
+    w7_report = {
+      lines = {
+        { id = "w7_report_l1", text = "The one after the Shady Rest burned. Three dead, an inn gone, and the only clues a few hoofprints and a lot of rumours. I wrote it four times before I could stand to send it up to the captain." },
+      },
+      choices = {
+        { text = "Why was it so hard?", next = "w7_report2" },
+        { text = "Reports are just paper.", next = "w7_report3" },
+        { text = "Something else, lieutenant.", next = "BACK" },
+      },
+    },
+    w7_report2 = {
+      lines = {
+        { id = "w7_report2_l1", text = "Because every way I wrote it, it sounded like the Horde did it, and I don't think they did. If I'd written it badly, I could have started a war; so I wrote what I saw, and nothing more, and hoped it was enough." },
+        { id = "w7_report2_l2", when = { faction = "Horde" }, text = "Because every draft sounded like an accusation against your people, and I don't believe it was them. I wrote only what I saw. I hope, for both our sakes, that someone finds the truth soon." },
+      },
+      choices = {
+        { text = "You did the right thing.", next = "BACK", reply = "I hope so. The Lady thought so, at least." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_report3 = {
+      lines = {
+        { id = "w7_report3_l1", text = "To you. To the men who read them, they're the difference between a patrol and a war." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     reports = {
@@ -803,7 +1006,7 @@ P:NPC {
     },
     hello = {
       lines = { { id = "h_default", text = "I stand watch and I count what comes out of the marsh. Raptors, deserters, now and then a black dragon high up, and fog, always fog." } },
-      again = { { id = "h_again", text = "Anything else? I'm meant to be watching, not chatting." } },
+      again = { { id = "h_again", text = "Anything else? Quickly, please; the sergeant counts how many words I say on watch, and I'm over already." } },
       choices = {
         { text = "Dragons fly this far north?", next = "dragons" },
         { text = "Deserters?", next = "deserters" },
@@ -813,7 +1016,36 @@ P:NPC {
         { text = "I'm a hunter. I could help with those raptors.", next = "xhunter", when = { class = "HUNTER" } },
         { text = "Where are you from originally?", next = "yhome", when = { race = "Human" } },
         { text = "Do you have family here?", next = "yfamily" },
+        { text = "What do you think that blue light in the fog was?", next = "w7_light" },
         { text = "Stay dry.", next = "END" },
+      },
+    },
+    w7_light = {
+      lines = {
+        { id = "w7_light_l1", text = "I've thought about it every night since. Some say ghosts from the old ships that sank off the coast, and some say marsh gas, and the old dock hands say it's a will-o'-the-wisp that leads sailors to drown." },
+      },
+      choices = {
+        { text = "What do you think?", next = "w7_light2" },
+        { text = "It was probably marsh gas.", next = "w7_light3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_light2 = {
+      lines = {
+        { id = "w7_light2_l1", text = "I think it was looking for something. It moved slow, back and forth, like a man searching a field. And I hope it found it, whatever it was, because I don't want it coming any closer to my wall." },
+        { id = "w7_light2_l2", when = { class = { "PRIEST", "PALADIN" } }, text = "I think it was a soul that hasn't found rest. You'd know better than I, Light keep you. If you're ever on the north wall at night and see it, would you say something over it? I don't know the words." },
+      },
+      choices = {
+        { text = "I'll keep an eye out.", next = "BACK", reply = "Thank you. I'll sleep a little better for it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_light3 = {
+      lines = {
+        { id = "w7_light3_l1", text = "Probably. That's what I tell the recruits, anyway. I don't tell them about the humming." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     dragons = {
@@ -889,7 +1121,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "Enforcer guards Brackenwall for the Stonemaul and for the Horde. Stonemaul used to live in the south, but the black dragons came and burned everything, so now we live here." } },
-      again = { { id = "h_again", text = "You still talking? Enforcer is still listening." } },
+      again = { { id = "h_again", text = "You still talking? Good. Enforcer listens with both ears, and Enforcer's ears are very big." } },
       choices = {
         { text = "Enforcer keeps Brackenwall safe.", next = "BACK", reply = "Yes! Enforcer does good work.", fx = { align = { order = 1 } } },
         { text = "Brackenwall doesn't need an enforcer.", next = "BACK", reply = "Enforcer does not like you. Be good.", fx = { align = { order = -1 } } },
@@ -899,7 +1131,36 @@ P:NPC {
         { text = "You keep counting on your fingers.", next = "xfingers" },
         { text = "What do you think of the humans in Theramore?", next = "xhumans" },
         { text = "I am Horde too. Throm-ka, big one.", next = "xorc", when = { race = "Orc" } },
+        { text = "Where did Enforcer get that big mace?", next = "w7_mace" },
         { text = "Goodbye, big one.", next = "END" },
+      },
+    },
+    w7_mace = {
+      lines = {
+        { id = "w7_mace_l1", text = "Zulrg sold it to Enforcer, and Krak put the spikes on, and Enforcer named it Talks-Loud. When Talks-Loud talks, everybody listens, even the crocolisks." },
+      },
+      choices = {
+        { text = "Has Talks-Loud ever lost?", next = "w7_mace2" },
+        { text = "That's a silly name.", next = "w7_mace3" },
+        { text = "Something else, big one.", next = "BACK" },
+      },
+    },
+    w7_mace2 = {
+      lines = {
+        { id = "w7_mace2_l1", text = "Once, to a black dragonspawn, and Talks-Loud got bent. Krak fixed it, and now Talks-Loud has a little bend in the middle, and Enforcer thinks it hits harder that way, because it is angry." },
+        { id = "w7_mace2_l2", when = { class = "WARRIOR" }, text = "Once, to a dragonspawn, and it got bent. You fight, so you know: a weapon that has lost once remembers, and it does not want to lose again. Talks-Loud hits very hard now." },
+      },
+      choices = {
+        { text = "Good mace.", next = "BACK", reply = "Talks-Loud says thank you. Talks-Loud does not talk, but Enforcer knows." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_mace3 = {
+      lines = {
+        { id = "w7_mace3_l1", text = "Talks-Loud does not think so. You say sorry to Talks-Loud, maybe." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     dragons = {
@@ -1033,14 +1294,43 @@ P:NPC {
     hello = {
       big = true,
       lines = { { id = "h_default", text = "I am Emberstrife, and I serve Onyxia, daughter of Deathwing. Dragonspawn who would join her guard come to me, and I test them, and most of them do not come back out." } },
-      again = { { id = "h_again", text = "You are still here, and still talking. How brave, or how foolish." } },
+      again = { { id = "h_again", text = "You are still here, and still talking. Few mortals find their tongues in my den twice; I am almost entertained." } },
       choices = {
         { text = "What is the test?", next = "test" },
         { text = "Why does Onyxia need guards?", next = "onyxia" },
         { text = "Deathwing's brood will fall in time.", next = "defy" },
         { text = "How long have you served Onyxia?", next = "yserved" },
         { text = "What do you make of mortals who come here?", next = "ymortals" },
+        { text = "What do you do with those who fail your test?", next = "w7_fail" },
         { text = "I'll leave you to your den.", next = "END" },
+      },
+    },
+    w7_fail = {
+      lines = {
+        { id = "w7_fail_l1", text = "They feed the whelps, mortal, which is a use of a kind. The Wyrmbog is generous with failure; it is success that is rare, and I have seen perhaps one in ten return with what I asked." },
+      },
+      choices = {
+        { text = "And the one in ten?", next = "w7_fail2" },
+        { text = "That's monstrous.", next = "w7_fail3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_fail2 = {
+      lines = {
+        { id = "w7_fail2_l1", text = "They go south, to Onyxia's lair, where she keeps the ones she finds worthy close and the rest closer. None of them have ever come back to tell me whether they found her service sweet." },
+        { id = "w7_fail2_l2", when = { class = { "MAGE", "WARLOCK" } }, text = "They go south to Onyxia. You dabble in powers, mortal, so you will understand: a servant is only as safe as her mistress is pleased. I have never seen any of them come back to speak of it." },
+      },
+      choices = {
+        { text = "I'll remember that.", next = "BACK", reply = "Remember it in the dark, mortal. That is where it is most useful." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_fail3 = {
+      lines = {
+        { id = "w7_fail3_l1", text = "Monstrous is a word for creatures who do not understand that the strong eat. I am a dragon. The word was invented for me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     test = {
@@ -1116,7 +1406,36 @@ P:NPC {
         { text = "What does a tracker carry into the marsh?", next = "xkit" },
         { text = "You seem uneasy about where those tracks lead.", next = "xuneasy" },
         { text = "Tauren tracks, maybe? I'm tauren myself.", next = "xtauren", when = { race = "Tauren" } },
+        { text = "What will you do if the tracks lead to Brackenwall?", next = "w7_lead" },
         { text = "Good hunting, Falgran.", next = "END" },
+      },
+    },
+    w7_lead = {
+      lines = {
+        { id = "w7_lead_l1", text = "Report it, plainly, and hope the Lady keeps her head. I've seen what happens when soldiers decide on their own who's guilty, back in Lordaeron, and I won't have a hand in starting it here." },
+      },
+      choices = {
+        { text = "What happened in Lordaeron?", next = "w7_lead2" },
+        { text = "Some would want vengeance.", next = "w7_lead3" },
+        { text = "Something else, Falgran.", next = "BACK" },
+      },
+    },
+    w7_lead2 = {
+      lines = {
+        { id = "w7_lead2_l1", text = "A village near Hearthglen burned a family of refugees because they were sure the family carried the plague. They didn't. The real carriers came three days later, and by then the village had nothing left to fight with but its own shame." },
+        { id = "w7_lead2_l2", when = { race = "Human" }, text = "A village near Hearthglen burned a refugee family for the plague they didn't carry. You'll know the kind of story, if you're Lordaeron born. I learned that day to follow the tracks and nothing else." },
+      },
+      choices = {
+        { text = "That's why you track carefully.", next = "BACK", reply = "It is. A wrong guess can kill as surely as a sword." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_lead3 = {
+      lines = {
+        { id = "w7_lead3_l1", text = "Some do, in the barracks every night. Vengeance is easy. The truth is harder, and it's my job." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     whose = {
@@ -1226,7 +1545,36 @@ P:NPC {
         { text = "Have you ever treated a real wound?", next = "xreal" },
         { text = "Your bandages look very neat.", next = "xneat" },
         { text = "I'm a paladin. May the Light guide your hands.", next = "xpaladin", when = { class = "PALADIN" } },
+        { text = "How is Sergeant Linen holding up?", next = "w7_linen" },
         { text = "Keep up the good work.", next = "END" },
+      },
+    },
+    w7_linen = {
+      lines = {
+        { id = "w7_linen_l1", text = "Oh, he's been very brave! I've bandaged his head, his arm, both legs and a wound I invented in his middle, and he hasn't complained once. Doctor VanHowzen walked in on me practising last night and pretended he hadn't seen." },
+      },
+      choices = {
+        { text = "Did he say anything?", next = "w7_linen2" },
+        { text = "You need a real patient.", next = "w7_linen3" },
+        { text = "Something else, Tamberlyn.", next = "BACK" },
+      },
+    },
+    w7_linen2 = {
+      lines = {
+        { id = "w7_linen2_l1", text = "This morning he left a note on my table that said, 'Tighter at the elbow.' I nearly cried, because it means he looked closely, and he thought it was worth correcting." },
+        { id = "w7_linen2_l2", when = { class = { "PRIEST", "PALADIN" } }, text = "He left a note, 'Tighter at the elbow.' You heal, so you'll know what it means when a teacher bothers to correct you. I've been practising the elbow all day." },
+      },
+      choices = {
+        { text = "That's high praise.", next = "BACK", reply = "It's the highest I've ever had!" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_linen3 = {
+      lines = {
+        { id = "w7_linen3_l1", text = "I'd love one! Not because I want anyone hurt, you understand, but because Sergeant Linen never tells me if it's too tight." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {
@@ -1318,7 +1666,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I'm with the Theramore Guard, and I'll point you to the inn, the docks or the citadel, wherever you need. Is there something I can help with?" } },
-      again = { { id = "h_again", text = "Anything else? The marsh breeds trouble faster than flies." } },
+      again = { { id = "h_again", text = "Anything else, traveller? Ask away; the marsh breeds trouble faster than flies, but it hasn't bred any in the last hour." } },
       choices = {
         { text = "Lady Proudmoore keeps the peace well.", next = "BACK", reply = "She does. We're proud to serve her.", fx = { align = { order = 1 } } },
         { text = "Lady Proudmoore is too soft on the Horde.", next = "BACK", reply = "That's not your judgment to make. Mind yourself.", fx = { align = { order = -1 } } },
@@ -1329,7 +1677,36 @@ P:NPC {
         { text = "What's the worst post on the isle?", next = "xpost" },
         { text = "Theramore feels quieter than Stormwind.", next = "xquiet" },
         { text = "I'm human too. Where did you come from?", next = "xhuman", when = { race = "Human" } },
+        { text = "What do the guards do for amusement here?", next = "w7_fun" },
         { text = "Thank you.", next = "END" },
+      },
+    },
+    w7_fun = {
+      lines = {
+        { id = "w7_fun_l1", text = "Dice in the barracks, races along the docks when the sergeant isn't looking, and a long-running wager on whether Craig Nollward or Morgan Stern will be first to poison somebody." },
+      },
+      choices = {
+        { text = "Who's winning the wager?", next = "w7_fun2" },
+        { text = "Soldiers shouldn't gamble.", next = "w7_fun3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_fun2 = {
+      lines = {
+        { id = "w7_fun2_l1", text = "Morgan, by a nose, because of the bogbean stew. But Craig's made up ground lately with a crab chowder that had half the night watch at the latrines, so it's anyone's guess." },
+        { id = "w7_fun2_l2", when = { profession = "Cooking" }, text = "Morgan, but you'd know better than us whether that's fair. Have a taste of both kitchens and tell the barracks which one's more dangerous; we'd pay you in dice winnings, if anyone ever won." },
+      },
+      choices = {
+        { text = "I'll stay out of it.", next = "BACK", reply = "Wise. Half the barracks have food poisoning and opinions." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_fun3 = {
+      lines = {
+        { id = "w7_fun3_l1", text = "Probably not. But a soldier with nothing to do in Dustwallow goes mad, and dice are cheaper than madness." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     marsh = {

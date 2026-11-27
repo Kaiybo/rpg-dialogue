@@ -46,6 +46,7 @@ P:NPC {
         { text = "Who decides what goes on the red folios' shelf?", next = "x_red" },
         { text = "Some knowledge is better left unwritten.", next = "x_stance" },
         { text = "I've read a few old books myself, as a priest.", next = "x_priest", when = { class = "PRIEST" } },
+        { text = "How do you keep the shelf marks straight?", next = "e3_shelf" },
         { text = "I'll leave you to your shelves.", next = "END" },
       },
     },
@@ -123,6 +124,25 @@ P:NPC {
         { text = "I'll ask after your copies there. Something else.", next = "BACK" },
       },
     },
+    e3_shelf = {
+      lines = {
+        { id = "e3_shelf_l0", text = "A red thread for history, blue for the ley lines and green for everything Master Mazen can't decide about, tied round the spine where a careless reader won't notice. The green shelf is now longer than the other two together, which I've told him, gently." },
+      },
+      choices = {
+        { text = "What's on the green shelf?", next = "e3_shelf2" },
+        { text = "Coloured threads. Clever.", next = "BACK" },
+      },
+    },
+    e3_shelf2 = {
+      lines = {
+        { id = "e3_shelf2_l0", text = "A treatise on whether murlocs have a language, three books about the Titans that disagree with each other, and a cookery book from Dalaran someone filed under divination. I've read the cookery book twice, and the soup is excellent." },
+        { id = "e3_shelf2_l1", when = { class = "MAGE" }, text = "A treatise on murloc speech, three books on the Titans that contradict each other, and a Dalaran cookery book someone filed under divination. You'd find the murloc treatise oddly convincing, I think; most mages do." },
+      },
+      choices = {
+        { text = "Try the soup on Mazen. Something else.", next = "BACK" },
+        { text = "That cookery book belongs in a kitchen.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I came to the Academy as a boy to learn spells, and found I liked the books better than the casting. Master Mazen took me on, and I've been up these stairs ever since." } },
@@ -198,6 +218,7 @@ P:NPC {
         { text = "I'm a hunter. I could teach you to read the water.", next = "x_hunt", when = { class = "HUNTER" } },
         { text = "What does your dad do?", next = "ydad" },
         { text = "Where does Billy live?", next = "ywhere" },
+        { text = "How many things have you counted in the canal?", next = "e3_count" },
         { text = "Good luck, Adam.", next = "END" },
       },
     },
@@ -243,6 +264,24 @@ P:NPC {
       },
       choices = {
         { text = "Under the bridge's shadow, where it's cool. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    e3_count = {
+      lines = {
+        { id = "e3_count_l0", text = "One crab, two boots, a broken cup, and forty-three ducks, but the ducks might be the same ones going round again. I write them on the wall with chalk so Billy can't say I made them up." },
+      },
+      choices = {
+        { text = "Why count the ducks at all?", next = "e3_count2" },
+        { text = "That's a fine tally, Adam.", next = "BACK" },
+      },
+    },
+    e3_count2 = {
+      lines = {
+        { id = "e3_count2_l0", text = "Because if you count something every day you know when it changes, and then you know something happened. My dad says that's how the harbor master knows when a ship's late." },
+      },
+      choices = {
+        { text = "Your dad's right. Something else.", next = "BACK" },
+        { text = "Maybe the ducks are counting you.", next = "BACK" },
       },
     },
   },
@@ -295,6 +334,7 @@ P:NPC {
         { text = "What do you make of the Defias on the roads?", next = "x_defias" },
         { text = "Tell me about Danath Trollbane.", next = "x_danath" },
         { text = "Ironforge sent ye south too, then?", next = "x_dwarf", when = { race = "Dwarf" } },
+        { text = "What's the best seat in the Pig and Whistle?", next = "e3_tavern" },
         { text = "Enjoy your ale, Aedis.", next = "END" },
       },
     },
@@ -367,6 +407,24 @@ P:NPC {
         { text = "Fair enough. Something else.", next = "BACK" },
       },
     },
+    e3_tavern = {
+      lines = {
+        { id = "e3_tavern_l0", text = "The bench by the hearth wi' the burn mark on the end, an' I put that burn there in the year the tavern opened, so it's mine by right o' damage. Reese lets me sit there o' an evenin' an' chases off any recruit who thinks otherwise." },
+      },
+      choices = {
+        { text = "How did you burn the bench?", next = "e3_tavern2" },
+        { text = "Right of damage. I like that.", next = "BACK" },
+      },
+    },
+    e3_tavern2 = {
+      lines = {
+        { id = "e3_tavern2_l0", text = "A fire-salt trick Christoph swore wouldnae work, an' it worked twice as well as I promised. David Langston still tells the tale tae new customers, an' he tells it better than I do, which galls me somethin' fierce." },
+      },
+      choices = {
+        { text = "Let David tell it, then. Something else.", next = "BACK" },
+        { text = "Fire-salts and taverns don't mix.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "Born under the mountain and soldiering since my beard was red. These days I walk, I drink and I remember, and that's work enough for an old dwarf." } },
@@ -402,7 +460,7 @@ P:NPC {
         { id = "h_default", text = "Christoph Faral, once a sellsword and now a man who walks to the tavern for his health. A warm room and a cold ale are all Aedis and I ask of the world these days." },
       },
       again = {
-        { id = "h_again", text = "What else would you like to know?" },
+        { id = "h_again", text = "What else, friend? Ask while Aedis catches his breath, because it won't be for long." },
         { id = "h_again2", text = "Ask away, for we've the whole afternoon." },
       },
       choices = {
@@ -412,6 +470,7 @@ P:NPC {
         { text = "Aedis says Danath is still alive.", next = "x_danath" },
         { text = "Old soldiers are owed more than this city gives them.", next = "x_stance" },
         { text = "You'd have made a fine paladin, I think.", next = "x_pal", when = { class = "PALADIN" } },
+        { text = "You said you carried rubble out of Old Town.", next = "e3_rubble" },
         { text = "Good health to you both.", next = "END" },
       },
     },
@@ -482,6 +541,24 @@ P:NPC {
       },
       choices = {
         { text = "It may yet. Something else.", next = "BACK" },
+      },
+    },
+    e3_rubble = {
+      lines = {
+        { id = "e3_rubble_l0", text = "For a year after the war, before the masons came, with a cart and a mule named Sergeant who bit everyone but me. We found things in that rubble you'd not believe, a whole cellar of wine, a cradle with nothing in it, and once a sword I'd lost in the first siege." },
+      },
+      choices = {
+        { text = "Your own sword? How did you know it?", next = "e3_rubble2" },
+        { text = "A cradle with nothing in it. That's grim.", next = "BACK" },
+      },
+    },
+    e3_rubble2 = {
+      lines = {
+        { id = "e3_rubble2_l0", text = "By the notch in the guard, where an orc's axe caught it the night the walls fell, and by the name I'd scratched beside it as a boy. I gave it to Aedis to hang over his bed, because he was the one who dragged me out that night, and he's never once mentioned it." },
+      },
+      choices = {
+        { text = "That's a good friend. Something else.", next = "BACK" },
+        { text = "Some debts don't need words.", next = "BACK" },
       },
     },
   },
@@ -557,7 +634,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Can I ask you something now? Oh, you go first, then." },
-        { id = "h_again2", text = "What else do you want to know?" },
+        { id = "h_again2", text = "What else? Ask me something about statues, I know all of them now." },
       },
       choices = {
         { text = "What has Miss Danna taught you today?", next = "lesson" },
@@ -568,6 +645,7 @@ P:NPC {
         { text = "I'm an elf too, you know.", next = "x_elf", when = { race = "NightElf" } },
         { text = "What did you think of the Cathedral?", next = "d6_cath" },
         { text = "Who's your best friend in the class?", next = "d6_friend" },
+        { text = "Have you seen the statue of Lothar yet?", next = "e3_lothar" },
         { text = "Mind your teacher, Andi.", next = "END" },
       },
     },
@@ -613,6 +691,24 @@ P:NPC {
       },
       choices = {
         { text = "She's telling the truth. Something else.", next = "BACK" },
+      },
+    },
+    e3_lothar = {
+      lines = {
+        { id = "e3_lothar_l0", text = "Yes, and he's the biggest one, with his sword pointing at the sky as if he's telling it off. Miss Danna says he died fighting at Blackrock Spire, and that he looked after King Anduin when he was little, which is why the statue looks so cross." },
+      },
+      choices = {
+        { text = "Lothar looked after Varian, not Anduin.", next = "e3_lothar2" },
+        { text = "He looks very stern up there.", next = "BACK" },
+      },
+    },
+    e3_lothar2 = {
+      lines = {
+        { id = "e3_lothar2_l0", text = "Oh, I know, I got muddled because there are so many kings. Varian's the one who went away, and Anduin's the boy one, and Llane is the one the orcs killed, and I've written it on my hand so I don't forget." },
+      },
+      choices = {
+        { text = "That's a clever trick. Something else.", next = "BACK" },
+        { text = "Kings are confusing for everyone.", next = "BACK" },
       },
     },
   },
@@ -695,6 +791,7 @@ P:NPC {
         { text = "I'm a warrior. That stick needs a better grip.", next = "x_war", when = { class = "WARRIOR" } },
         { text = "Have you ever seen a real Defias?", next = "d6_defias" },
         { text = "Who's the bravest person you know?", next = "d6_brave" },
+        { text = "Where do the guards practise with their wooden swords?", next = "e3_wood" },
         { text = "Keep up with your class, Geoff.", next = "END" },
       },
     },
@@ -740,6 +837,24 @@ P:NPC {
       },
       choices = {
         { text = "Both hands, thumbs round. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    e3_wood = {
+      lines = {
+        { id = "e3_wood_l0", text = "In the yard behind the barracks in Old Town, every morning when the bell goes six. I climb on the wall to watch, and a sergeant with a moustache shouts at them so loud that the pigeons fly off." },
+      },
+      choices = {
+        { text = "That'll be Sergeant Major Clate.", next = "e3_wood2" },
+        { text = "You shouldn't climb the barracks wall.", next = "BACK" },
+      },
+    },
+    e3_wood2 = {
+      lines = {
+        { id = "e3_wood2_l0", text = "Is that his name? I'll call him that next time, and maybe he'll let me come down and hold a wooden one. Jimmy says he'll throw me in the Stockade, but I don't think you get thrown in the Stockade for watching." },
+      },
+      choices = {
+        { text = "Ask politely, and he might. Something else.", next = "BACK" },
+        { text = "Don't push your luck, Geoff.", next = "BACK" },
       },
     },
   },
@@ -817,6 +932,7 @@ P:NPC {
         { text = "Gnomes like sweets too, you know.", next = "x_gnome", when = { race = "Gnome" } },
         { text = "Who is Miss Danna?", next = "ydanna" },
         { text = "Where do you live?", next = "ylive" },
+        { text = "What does your gran cook for supper?", next = "e3_gran" },
         { text = "Run along, Jimmy.", next = "END" },
       },
     },
@@ -862,6 +978,24 @@ P:NPC {
       },
       choices = {
         { text = "Better not wish for that. Something else.", next = "BACK" },
+      },
+    },
+    e3_gran = {
+      lines = {
+        { id = "e3_gran_l0", text = "Fish stew on Tuesdays, and leek soup most other days, because leeks are cheap at the canal market. On feast days she makes a pie with a crust that goes all the way round, and I'm allowed to eat the edges first." },
+      },
+      choices = {
+        { text = "The edges are the best part.", next = "e3_gran2" },
+        { text = "Leek soup sounds healthy.", next = "BACK" },
+      },
+    },
+    e3_gran2 = {
+      lines = {
+        { id = "e3_gran2_l0", text = "That's what I said! Gran says the middle has the meat in it and the edges are just pastry, but she gives me the edges anyway and pretends she doesn't like them." },
+      },
+      choices = {
+        { text = "Your gran sounds lovely. Something else.", next = "BACK" },
+        { text = "She's being kind to you, Jimmy.", next = "BACK" },
       },
     },
   },

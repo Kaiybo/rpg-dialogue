@@ -34,6 +34,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_weapon = {
+      lines = {
+        { id = "w3_weapon_1", text = "A sword from the Undercity's armoury, issued with my uniform, and I've never once drawn it outside of inspection. It's the only blade in the Sepulcher that I can guarantee is accounted for, because it's never been anywhere." },
+      },
+      choices = {
+        { text = "Never drawn it in a fight?", next = "w3_never" },
+        { text = "A clean blade is a well-kept one.", next = "BACK", reply = "Exactly so. The High Executor says I ought to be ashamed, and I've noted his opinion in the margin." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_never = {
+      lines = {
+        { id = "w3_never_1", text = "I'm a quartermaster, not a swordsman, and I'd sooner lose my place in a column than my blade in a worgen. If the worgen ever reach my desk, the Sepulcher will have far worse problems than whether my sword is sharp." },
+      },
+      choices = {
+        { text = "Fair point. Something else.", next = "BACK" },
+      },
+    },
     dd_rothide = {
       lines = { { id = "dd_rothide_default", text = "Taking them off the Deathguard who fell, mostly, and dragging them back to their dens. I've found two of our swords in a gnoll camp already, and I'd like the rest back, though I suppose the Deathguard who carried them are beyond caring." } },
       choices = {
@@ -58,7 +76,7 @@ P:NPC {
           text = "The Rot Hide gnolls are fewer in the woods since you started hunting them, and my count of lost weapons has gone down by three this week. I've written that in the ledger, with your name next to it." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've a column to finish." },
+        { id = "h_again", text = "Anything else? I've a column to finish, and it's a long one." },
         { id = "h_again2", text = "Go on. I'll remember where I stopped; I always do." },
       },
       choices = {
@@ -67,6 +85,7 @@ P:NPC {
         { text = "You seem to enjoy counting swords.", next = "ledger" },
         { text = "Do you have a list of your losses?", next = "list", when = { class = { "ROGUE", "WARRIOR", "HUNTER" } } },
         { text = "Any work for me?", next = "BUSINESS" },
+        { text = "What weapon do you carry, Podrig?", next = "w3_weapon" },
         { text = "I'll let you count.", next = "END" },
         { text = "Were the gnolls taking your Deathguard's weapons, Podrig?", next = "dd_rothide", when = { killed = { name = "Rot Hide", min = 25 } } },
       },

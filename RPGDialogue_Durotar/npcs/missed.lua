@@ -28,6 +28,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2newcomer = {
+      lines = { { id = "w2nw_default", text = "A Forsaken who came up the road carrying a little pot of Tirisfal soil with a sprout in it. He'd brought it all the way from Brill, he said, so that something of home would be alive in Durotar even if he wasn't." } },
+      choices = {
+        { text = "Did the sprout survive?", next = "w2newcomer2" },
+        { text = "A plant? That's a strange thing to carry.", next = "w2newcomer2" },
+        { text = "Something else, Magga.", next = "BACK" },
+      },
+    },
+    w2newcomer2 = {
+      lines = {
+        { id = "w2nw2_scourge", when = { race = "Scourge" }, text = "It did, and it's taller than me now, there by Grosk's inn. You might know why he did it better than I ever could. He passes through every year, and he waters it, and he never stays the night." },
+        { id = "w2nw2_default", text = "It did, and it's taller than me now, there by Grosk's inn. He passes through every year, waters it, and goes on without staying the night. I think it's the only thing in Durotar he talks to." },
+      },
+      choices = { { text = "That's a lovely thing.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     mg_back = {
       lines = { { id = "mg_back_l", text = "Some do, older and taller and with scars they want to show me. One came back last month in armor from the Crossroads and told me I'd been the first orc to smile at him in Durotar, and I've been smiling ever since." } },
       choices = {
@@ -61,7 +76,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "I'm Magga. I welcome the ones who come up from the Valley of Trials, since the grunts are too busy to do it and Gar'Thok only knows how to give orders." } },
       again = {
-        { id = "h_again", text = "Was there something more, {class}?" },
+        { id = "h_again", text = "Something more, {class}? Ask away; I've a kettle on, and nobody else to pour for until the next patrol." },
         { id = "h_again2", text = "Ask away. Welcoming people is the whole of my day." },
       },
       choices = {
@@ -75,6 +90,7 @@ P:NPC {
         { text = "I came through the Valley too.", next = "yorc", when = { race = "Orc" } },
         { text = "Do the recruits ever come back to see you?", next = "mg_back" },
         { text = "Grosk's inn seems a lively place.", next = "mg_inn" },
+        { text = "Who's the strangest newcomer you ever welcomed?", next = "w2newcomer" },
         { text = "I'm glad of the welcome. Farewell.", next = "END" },
       },
     },
@@ -160,6 +176,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2keep = {
+      lines = { { id = "w2kp_default", text = "Grey stone and blue banners on the coast, built by Proudmoore's men when they came to drive us out of Durotar and failed. The ones left behind never went home, and now they sit behind their walls and send patrols up my road to remind us they're there." } },
+      choices = {
+        { text = "Why hasn't Razor Hill taken it?", next = "w2keep2" },
+        { text = "They sound more stubborn than dangerous.", next = "w2keep2" },
+        { text = "Something else, grunt.", next = "BACK" },
+      },
+    },
+    w2keep2 = {
+      lines = {
+        { id = "w2kp2_warrior", when = { class = "WARRIOR" }, text = "Gar'Thok says the Warchief wants no war with Theramore over a pile of rocks. You carry an axe, so you'll understand how much I like that. But orders are orders, and I hold the road, and the marines come to me." },
+        { id = "w2kp2_default", text = "Gar'Thok says the Warchief wants no war with Theramore over a pile of rocks, and orders are orders. So I hold the road, and the marines come to me, and that will have to do." },
+      },
+      choices = { { text = "Hold it well, then.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     kj_road = {
       lines = { { id = "kj_road_l", text = "Quiet is when they come. The marines learned that the hard way, because I was waiting on the hill where they thought nobody would be, and four of them didn't see the morning." } },
       choices = {
@@ -212,6 +243,7 @@ P:NPC {
         { text = "A troll priest sent me. Are you friends?", next = "ytaijin" },
         { text = "Your stretch of road looks quiet now.", next = "kj_road" },
         { text = "You mentioned your father.", next = "kj_father" },
+        { text = "What's Tiragarde Keep like?", next = "w2keep" },
         { text = "Hold fast, grunt.", next = "END" },
       },
     },

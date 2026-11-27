@@ -164,6 +164,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_mom = {
+      lines = { { id = "w8_mom_a", text = "By making me sit in the reeds until the frogs forgot I was there, and then until the herons forgot. When the human patrols came by, I counted their footsteps, and if I spoke, we did not eat that day." } },
+      choices = {
+        { text = "That was a hard childhood.", next = "w8_mom2" },
+        { text = "It made you a good guard.", next = "w8_mom2" },
+        { text = "Something else, Zuul.", next = "BACK" },
+      },
+    },
+    w8_mom2 = {
+      lines = { { id = "w8_mom2_a", text = "Hard, and it kept us alive, and both things are true. She lives in Stonard now, and she still sits in the reeds some evenings, and I sit with her, and neither of us says anything." } },
+      choices = {
+        { text = "That sounds like peace.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     ybefore = {
       lines = {
         { id = "ygruntzuul1", text = "Nowhere. I was born in this swamp, to orcs who hid from the humans' camps. My mother taught me to sit in the reeds for a day without moving, so the patrols would pass. That is why I watch so well." },
@@ -196,7 +212,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "I am Zuul. Tharlak makes the noise for both of us, and I do the watching, and between the two the human has found no moment to run." } },
       again = {
-        { id = "h_again", text = "Ask, if there is more." },
+        { id = "h_again", text = "Ask, if there is more. The prisoner listens, so keep your voice low." },
         { id = "h_again2", text = "I am listening, {class}, though I do not look at you." },
       },
       choices = {
@@ -207,6 +223,7 @@ P:NPC {
         { text = "Where did you serve before Stonard?", next = "ybefore" },
         { text = "What will become of the prisoner?", next = "ybecome" },
         { text = "Were you in the internment camps?", next = "BACK", when = { race = "Orc" }, reply = "No. I was born after, in the swamp, to those who hid. I have never worn a chain, and I do not intend to." },
+        { text = "How did your mother teach you to watch?", next = "w8_mom" },
         { text = "Keep your watch, Zuul.", next = "END" },
       },
     },

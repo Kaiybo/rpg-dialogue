@@ -68,7 +68,36 @@ P:NPC {
         { text = "You said failing teaches the vastness of the Nether?", next = "nether" },
         { text = "I took the leap. Why did I live?", next = "lived", when = { questDone = TODO_QUEST("Test of Faith") } },
         { text = "I'm ready to be tested.", next = "BUSINESS" },
+        { text = "Why do you live out here in the Nook, alone?", next = "w7_nook" },
         { text = "Farewell, Dorn.", next = "END" },
+      },
+    },
+    w7_nook = {
+      lines = {
+        { id = "w7_nook_l1", text = "Because the Needles speak more clearly when no one else is talking. At Freewind they ask me questions all day, and here only the wind asks, and the wind is happy to wait for the answer." },
+      },
+      choices = {
+        { text = "What do the Needles say to you?", next = "w7_nook2" },
+        { text = "You hide from people.", next = "w7_nook3" },
+        { text = "Something else, Dorn.", next = "BACK" },
+      },
+    },
+    w7_nook2 = {
+      lines = {
+        { id = "w7_nook2_l1", text = "That everything falls eventually, the spires as well as the climbers, and that the falling is not the end of anything. That is why I ask people to leap; the Needles have been teaching me the same lesson for years, and I am only passing it on." },
+        { id = "w7_nook2_l2", when = { class = { "SHAMAN", "DRUID" } }, text = "You hear them too, or you will. They say the earth was once a seabed, that the spires are its bones, and that bones can stand a long time after the flesh is gone. I pass the lesson on through the leap." },
+      },
+      choices = {
+        { text = "A strange lesson.", next = "BACK", reply = "The best ones are. The plain ones you forget by evening." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_nook3 = {
+      lines = {
+        { id = "w7_nook3_l1", text = "Perhaps I do, and perhaps you came looking for someone who hides. Either way, you are here, and I am here, and that is enough of a meeting." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {

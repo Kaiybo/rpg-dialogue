@@ -53,7 +53,36 @@ P:NPC {
         { text = "Aren't you afraid of the soldiers at Theramore?", next = "theramore" },
         { text = "There's a dragon's lair to the south.", next = "lair" },
         { text = "It is a beautiful day.", next = "day" },
+        { text = "Do you ever fly, or only lie in the sun?", next = "w7_fly" },
         { text = "I'll leave you to your sun.", next = "END" },
+      },
+    },
+    w7_fly = {
+      lines = {
+        { id = "w7_fly_l1", text = "I fly at dusk, small one, when the marsh is dim and the soldiers' ballistae cannot see me against the clouds. I go out over the sea, very high, and come back before the moon is up. Then I lie in the sun again." },
+      },
+      choices = {
+        { text = "Where do you fly to?", next = "w7_fly2" },
+        { text = "That sounds lonely.", next = "w7_fly3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_fly2 = {
+      lines = {
+        { id = "w7_fly2_l1", text = "Nowhere, which is the point of it. Your kind always fly toward something, but a dragon may fly only to feel the air. I recommend it, if you ever grow wings." },
+        { id = "w7_fly2_l2", when = { class = "DRUID" }, text = "Nowhere, and you of all small ones may understand that, if you have ever taken wing yourself. The air does not need a destination, only a creature willing to be carried." },
+      },
+      choices = {
+        { text = "I'll try it someday.", next = "BACK", reply = "Do. And then come and tell me how it felt." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_fly3 = {
+      lines = {
+        { id = "w7_fly3_l1", text = "Is it? I have been alone a long time, and I have never yet found the sky to be poor company." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
 

@@ -50,7 +50,7 @@ P:NPC {
           text = "News from Stonetalon? Keeper Albagorm's work in the Charred Vale is close to my heart, because a burned forest is a wound to all of us." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask?" },
+        { id = "h_again", text = "What else would you ask, traveller? Speak plainly; Thalanaar has no time for riddles while the Woodpaw sharpen their spears." },
         { id = "h_again2", text = "Speak, then. The road can wait a little while." },
         { id = "h_again_b1", text = "Ask, friend. A quiet post gives a sentry a great deal of time for talk." },
       },
@@ -280,7 +280,7 @@ P:NPC {
           text = "The sprite darters you brought out are flying again over the lake. Kindal cried, though she'll tell you it was the smoke." },
       },
       again = {
-        { id = "h_again", text = "What else? Keep your voice low." },
+        { id = "h_again", text = "What else? Lower than that; the wind runs downhill to their camp, and it carries every word." },
         { id = "h_again2", text = "Quickly, then." },
         { id = "h_again_b1", text = "Still here? Then ask, and watch the ridge while you do." },
       },
@@ -293,7 +293,36 @@ P:NPC {
         { text = "You've a clear view of the whole camp from here.", next = "view" },
         { text = "Show me how you get close to their camp unseen.", next = "stalk", when = { class = { "HUNTER", "ROGUE" } } },
         { text = "What will the General say when you return?", next = "general", when = { race = "NightElf" } },
+        { text = "What will you do when the Grimtotem are gone from here?", next = "w7_after" },
         { text = "I'll go quietly.", next = "END" },
+      },
+    },
+    w7_after = {
+      lines = {
+        { id = "w7_after_l1", text = "Go back to Feathermoon and stand before the General, and accept whatever she decides. If she sends me to the walls, I'll stand them; if she sends me home to Darnassus, I'll go, and I'll tell every Sentinel there what I saw in those cages." },
+      },
+      choices = {
+        { text = "Would you do it again?", next = "w7_after2" },
+        { text = "You should have asked first.", next = "w7_after3" },
+        { text = "Something else, Jer'kai.", next = "BACK" },
+      },
+    },
+    w7_after2 = {
+      lines = {
+        { id = "w7_after2_l1", text = "In a heartbeat. Kindal says I'm too quick to anger, and she's right, but some things should make you angry, and if they don't, there's something wrong with you." },
+        { id = "w7_after2_l2", when = { race = "NightElf" }, text = "In a heartbeat, {g:brother|sister}, and you would too, I think. You have seen what they do to the creatures of Elune's forest. The General will understand that, even if she cannot say so." },
+      },
+      choices = {
+        { text = "I'd stand with you.", next = "BACK", reply = "Then stand with us now. Kindal could use another bow." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_after3 = {
+      lines = {
+        { id = "w7_after3_l1", text = "Perhaps, and then the darters would be dead while we waited for permission. I'll take the reprimand over the guilt." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
 

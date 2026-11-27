@@ -236,6 +236,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2hard = {
+      lines = {
+        { id = "w2hd_sky", when = { race = "Skyborne" }, text = "You'll laugh, because I suspect you felt it too: the roofs. Everything here has a roof, and I keep glancing up for the sky and finding stone, and the orcs think I'm checking for falling rocks." },
+        { id = "w2hd_default", text = "The roofs, if you'll believe it. Everything here has a roof, and I keep glancing up for the sky and finding stone instead, and the orcs think I'm checking for falling rocks." },
+      },
+      choices = {
+        { text = "Are you, sometimes?", next = "w2hard2" },
+        { text = "A roof keeps out the rain, at least.", next = "w2hard2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2hard2 = {
+      lines = { { id = "w2hd2_default", text = "Only after a grunt told me about the earthquakes, so thank you very much for reminding me. I've started standing near the great door of the hall, where I can see a strip of sky, and Corswyn pretends not to notice." } },
+      choices = { { text = "A sensible place to stand.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     ae_corswyn = {
       lines = { { id = "ae_corswyn_l", text = "Whatever he asks, and he asks more than I expected of a warchief. He wants to know how our shaman speak to the wind, and Corswyn answers carefully, because she says every word we give here is a promise someone will remember." } },
       choices = {
@@ -293,6 +308,7 @@ P:NPC {
         { text = "What does Corswyn speak to the Warchief about?", next = "ae_corswyn" },
         { text = "You came from Camp Gev'rek, in Mulgore?", next = "ae_camp" },
         { text = "I'm a tauren. My people took yours in, I hear.", next = "ae_tauren", when = { race = "Tauren" } },
+        { text = "What's the hardest thing to get used to here?", next = "w2hard" },
         { text = "Winds be with you.", next = "END" },
       },
     },
@@ -401,7 +417,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Something else? Keep your voice low; the Cleft carries sound." },
-        { id = "h_again2", text = "Ask, then. I've nowhere to be." },
+        { id = "h_again2", text = "Ask, then. I'll keep one eye on the street while you do, if it's all the same to you." },
       },
       choices = {
         { text = "Why the Cleft, really?", next = "why" },

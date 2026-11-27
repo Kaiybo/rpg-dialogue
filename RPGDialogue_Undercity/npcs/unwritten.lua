@@ -19,6 +19,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_wands = {
+      lines = {
+        { id = "w3_wands_1", text = "Hallowed wands, sold by the innkeepers, that turn a friend into a bat or a skeleton or a ghost for a short while. The young ones in the city love them, and I'll admit there's a certain joy in turning a Deathguard into a pirate and watching him try to stay dignified." },
+      },
+      choices = {
+        { text = "A pirate? On Hallow's End?", next = "w3_pirate" },
+        { text = "Childish tricks, for a sacred night.", next = "BACK", reply = "Perhaps, but we were robbed of childish things by the plague, and if we take a few back on our night, I'll not stop us." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_pirate = {
+      lines = {
+        { id = "w3_pirate_1", text = "Don't ask me, {class}, I only light the fire. Some wandmaker in Booty Bay must have had a sense of humour, and now the Trade Quarter is full of parrots every autumn, and I've stopped trying to explain them to the Dark Lady's guards." },
+      },
+      choices = {
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "A farmer's wife near Brill, who carved turnip lanterns every autumn and set them on the gate to scare off the spirits. Then I became the spirit. I still carve the lanterns, out of spite more than tradition." } },
       choices = {
@@ -54,7 +72,7 @@ P:NPC {
         { id = "h_default", text = "I am Darkcaller Yanka, and I keep the rites of Hallow's End for the Dark Lady's people. The humans made this a night of candles and sweets, but for us it is the night we were set free." },
         { id = "yh_human", when = { race = "Human" }, text = "A living human, here for Hallow's End? You've come to the right fire. Mind you don't stand too close." },
       },
-      again = { { id = "h_again", text = "What else would you know of the festival?" }, { id = "h_again2", text = "Speak, before the fires are lit." } },
+      again = { { id = "h_again", text = "What else would you know of the festival? The fire won't light itself, and neither will I." }, { id = "h_again2", text = "Speak, before the fires are lit." } },
       choices = {
         { text = { normal = "What is the Wickerman?", polite = "Would you tell me what the Wickerman is?", blunt = "What's the Wickerman?" }, next = "wicker" },
         { text = "Hallow's End is a human festival.", next = "human" },
@@ -63,6 +81,7 @@ P:NPC {
         { text = "Who were you before you died?", next = "ylife" },
         { text = "What does the Wickerman mean to you?", next = "ywicker" },
         { text = "Does the Dark Lady approve of all this?", next = "ylady" },
+        { text = "What are those wands everyone's waving tonight?", next = "w3_wands" },
         { text = "I'll come back when the fires burn.", next = "END" },
       },
     },
@@ -121,6 +140,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_strange = {
+      lines = {
+        { id = "w3_strange_1", text = "A notice from Royal Overseer Bauhaus forbidding spitting into the canals, which I cried for three days in my grandest voice. I've proclaimed the deaths of kings and the call to war against the Scourge, and I shall never forget the day the whole Trade Quarter turned to stare at me over spitting." },
+      },
+      choices = {
+        { text = "Did anyone obey it?", next = "w3_obey" },
+        { text = "Every notice deserves the same dignity.", next = "BACK", reply = "It does, and so I gave it mine, every syllable. Bauhaus sent me a note of thanks, which I've kept." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_obey = {
+      lines = {
+        { id = "w3_obey_1", text = "A goblin from the zeppelin tower was fined the very next day, and paid in coppers, one at a time, singing. I'm told the city still talks of it, and I've never been prouder of a proclamation in my life or my death." },
+      },
+      choices = {
+        { text = "The Undercity's a strange place. Something else.", next = "BACK" },
+      },
+    },
     ynews = {
       lines = { { id = "ynews_x", text = "The Bulwark needs hands, the Sepulcher needs blades, and the Apothecarium needs subjects, though I'm told not to cry that last one quite so loudly. Each tunnel hears a different verse of the same song." } },
       choices = {
@@ -145,7 +182,7 @@ P:NPC {
         { id = "h_default", text = "I am Balthazad, harbinger to the Dark Lady. Where the Forsaken must march, I am the one who calls them, and lately I've been calling them to the Plaguelands." },
         { id = "yh_tauren", when = { race = "Tauren" }, text = "Tauren. The Dark Lady values the Bloodhoof's friendship, and so do I. Hear the city's needs, if you'll lend those great ears." },
       },
-      again = { { id = "h_again", text = "What more do you need to hear?" }, { id = "h_again2", text = "Speak, {class}; I've a long circuit to walk." } },
+      again = { { id = "h_again", text = "What more do you need to hear? I've a verse to cry before the hour turns." }, { id = "h_again2", text = "Speak, {class}; I've a long circuit to walk." } },
       choices = {
         { text = { normal = "What's happening in the Plaguelands?", polite = "What news is there from the Plaguelands, Harbinger?", blunt = "What's in the Plaguelands?" }, next = "plague" },
         { text = "You must walk a great distance every day.", next = "walk" },
@@ -154,6 +191,7 @@ P:NPC {
         { text = "I died in Lordaeron too, Harbinger.", next = "BACK", when = { race = "Scourge" }, reply = "Then you know why my voice carries. We were all silenced once." },
         { text = "What news do you carry today?", next = "ynews" },
         { text = "Do you ever tire of the call?", next = "ytire" },
+        { text = "What's the strangest thing you've ever cried?", next = "w3_strange" },
         { text = "I'll keep that in mind.", next = "END" },
       },
     },
@@ -226,6 +264,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_wolves = {
+      lines = {
+        { id = "w3_wolves_1", text = "Every one of us, and the wolves know the gulch as well as we do, every rock and every tunnel. Mine is called Gnasher, and he's taken more elves off their feet than I've taken with my axe, though I'd thank you not to tell him that." },
+        { id = "w3_wolves_2", when = { race = "Orc" }, text = "Every one of us, brother, as our fathers did. Mine is Gnasher, and he's knocked more elves flat than my axe has, though I'd ask you not to tell him so, because he's vain enough already." },
+      },
+      choices = {
+        { text = "Where is Gnasher now?", next = "w3_gnasher" },
+        { text = "A good wolf is worth ten grunts.", next = "BACK", reply = "Ten? Twenty, in a narrow tunnel, and he never asks for his share of the plunder." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_gnasher = {
+      lines = {
+        { id = "w3_gnasher_1", text = "Kennelled at the Splintertree Post, where the air's clean, because I'd not bring a good wolf down into this cold stone for any battlemaster's posting. He'll be angry I'm gone this long, and he'll show it by sitting on my bedroll when I'm back." },
+      },
+      choices = {
+        { text = "Give him my regards. Something else.", next = "BACK" },
+      },
+    },
     ygrom = {
       lines = { { id = "ygrom_x", text = "Grom drank the demon's blood a second time at Ashenvale, and then he killed the demon Mannoroth and freed us all. He died doing it. The Warsong carry his name into that forest like a torch." } },
       choices = {
@@ -261,7 +318,7 @@ P:NPC {
         { id = "h_default", text = "Kurden Bloodclaw, of the Warsong Outriders. The night elves of the Silverwing want us out of Ashenvale, and we mean to keep cutting their trees whether they like it or not." },
         { id = "yh_tauren", when = { race = "Tauren" }, text = "A tauren. Good. Your kind remember what the Ashenvale forest cost us. The Warsong have not forgotten either." },
       },
-      again = { { id = "h_again", text = "What else, warrior?" } },
+      again = { { id = "h_again", text = "What else, warrior? Speak, I've no love for this cold room." } },
       choices = {
         { text = "Tell me about Warsong Gulch.", next = "gulch" },
         { text = "You don't care for the Undercity.", next = "city" },
@@ -272,6 +329,7 @@ P:NPC {
         { text = "What happened to Grom Hellscream?", next = "ygrom" },
         { text = "Who leads the Outriders?", next = "ylead" },
         { text = "What do you want most?", next = "ywant" },
+        { text = "Do the Outriders ride wolves into the gulch?", next = "w3_wolves" },
         { text = "Another time.", next = "END" },
       },
     },
@@ -341,6 +399,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_hunt = {
+      lines = {
+        { id = "w3_hunt_1", text = "Elk in the high meadows and rams when the Stormpike leave any, and the yetis when we must, which is a hunt that every young Frostwolf remembers for the rest of his life. A yeti hides its tracks in fresh snow, and the first you know of it is the shadow on your back." },
+        { id = "w3_hunt_2", when = { class = "HUNTER" }, text = "Elk, rams and yetis, and a hunter like you would love the valley and curse it in the same breath. A yeti hides its tracks in fresh snow, and the first you know of it is the shadow on your back, so you learn to watch the drifts, not the ground." },
+      },
+      choices = {
+        { text = "Have you hunted yetis yourself?", next = "w3_yeti" },
+        { text = "The Stormpike take your game too?", next = "BACK", reply = "They take everything with a pick or a rifle, and they leave the carcasses to rot. A Frostwolf would be ashamed." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_yeti = {
+      lines = {
+        { id = "w3_yeti_1", text = "Once, as a youngling, with my father and three wolves, and I came home with a scar on my shoulder and the yeti's tooth on a cord. The tooth is gone now, lost at Iceblood with half my mane, but the scar stayed, as scars do." },
+      },
+      choices = {
+        { text = "Then the valley marked you twice. Something else.", next = "BACK" },
+      },
+    },
     ysnows = {
       lines = { { id = "ysnows_x", text = "Every day. Down here the cold is wet and sour, and it gets into the joints. In Alterac the cold is clean, and a Frostwolf breathes it like water. I'd trade this post for a snowdrift tomorrow." } },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -376,7 +453,7 @@ P:NPC {
         { id = "h_default", text = "I am Grizzle Halfmane of the Frostwolf clan. Our home is the valley in Alterac where Durotan's people lived in exile, and the Stormpike dig into it as if it were theirs." },
         { id = "yh_orc", when = { race = "Orc" }, text = "Lok'tar, brother. It warms the blood to see an orc face among these cold halls. Speak, and I'll tell you of the valley." },
       },
-      again = { { id = "h_again", text = "Speak, and quickly; the valley waits." } },
+      again = { { id = "h_again", text = "Speak, and quickly; the valley waits, and so does the snow." } },
       choices = {
         { text = "Who are the Stormpike?", next = "stormpike" },
         { text = "Why does the valley matter so much?", next = "valley" },
@@ -387,6 +464,7 @@ P:NPC {
         { text = "Do you miss the snows?", next = "ysnows" },
         { text = "What do you think of the Forsaken?", next = "yforsaken" },
         { text = "Tell me of the Frostwolf clan's history.", next = "yhistory" },
+        { text = "What does a Frostwolf hunt in those mountains?", next = "w3_hunt" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -454,6 +532,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_ghouls = {
+      lines = {
+        { id = "w3_ghouls_1", text = "From the Apothecarium's spares, mostly, the bodies too far gone to be woken as citizens and too whole to waste. I put a little shadow in them and a single instruction, and the instruction is always the same, which is to walk forward and keep walking." },
+      },
+      choices = {
+        { text = "Isn't that what the Scourge does?", next = "w3_scourge" },
+        { text = "Waste not, I suppose.", next = "BACK", reply = "Precisely. The living bury their failures, and we put ours to work, which is the kinder use when you think on it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_scourge = {
+      lines = {
+        { id = "w3_scourge_1", text = "The Scourge does it with a whole people and a single will in Northrend, and I do it with three ghouls and a pit, and I release them when the bout is done. You may call that a small difference, {class}, but every one of us in this city lives inside that small difference." },
+      },
+      choices = {
+        { text = "A fine line, Brother. Something else.", next = "BACK" },
+      },
+    },
     ywager = {
       lines = { { id = "ywager_x", text = "The crowd wagers, and the Cult receives a modest tithe. Coin keeps candles burning and the cages mended. I find the faithful pray far harder when they have silver riding on the outcome." } },
       choices = {
@@ -482,7 +578,7 @@ P:NPC {
         { id = "h_default", text = "Brother Malach, of the Forgotten Shadow. I keep the bouts in this pit, and I mend the fighters afterward, because a priest of shadow knows exactly where a body breaks." },
         { id = "yh_priest", when = { class = "PRIEST" }, text = "A priest. You'll understand, then, that suffering is a teacher, and that I merely provide it with a classroom." },
       },
-      again = { { id = "h_again", text = "Anything else? The next bout starts soon." } },
+      again = { { id = "h_again", text = "Anything else? The next bout starts soon, and Edward is already pacing." } },
       choices = {
         { text = "Who fights here?", next = "fighters" },
         { text = "A priest running fights is an odd thing.", next = "priest" },
@@ -493,6 +589,7 @@ P:NPC {
         { text = "Do you take wagers on the fights?", next = "ywager" },
         { text = "How did you come to the Forgotten Shadow?", next = "ylife" },
         { text = "What becomes of a captive who wins?", next = "ywins" },
+        { text = "Where do the ghouls you send in come from?", next = "w3_ghouls" },
         { text = "I'll watch from a distance.", next = "END" },
       },
     },
@@ -565,6 +662,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_worst = {
+      lines = {
+        { id = "w3_worst_1", text = "Snowballs, sweetheart, and I should've known it before I paid the shipping. The damp in this city turns 'em to slush inside a day, so now I've got a crate of very expensive cold water and a margin that's gone straight down the canal." },
+      },
+      choices = {
+        { text = "Could you sell them as holy water?", next = "w3_holy" },
+        { text = "Write it off as a learning expense.", next = "BACK", reply = "Oh, I did, sweetheart, in red ink, with a little drawing of Nardstrum laughing in the corner." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_holy = {
+      lines = {
+        { id = "w3_holy_1", text = "Ha! In the Undercity? I'd get a fine from Bauhaus and a knife from the first Forsaken who believed me. No, I'm shipping the rest to Orgrimmar, where they melt slower and the orcs throw them at each other for fun." },
+      },
+      choices = {
+        { text = "Smart. Something else.", next = "BACK" },
+      },
+    },
     yhow = {
       lines = { { id = "yhow_x", text = "Me and Nardstrum drew the short straws at the Smokywood meeting, didn't we? The cousins got Orgrimmar and Booty Bay, and we got a cellar full of corpses. Turns out corpses tip better, so who's laughing now?" } },
       choices = {
@@ -602,7 +717,7 @@ P:NPC {
         { id = "h_default", text = "Jaycrue Copperpinch, the premium side of the Copperpinch operation. My brother Nardstrum over there sells the cheap stuff, and I sell the stuff people actually want to unwrap." },
         { id = "yh_troll", when = { race = "Troll" }, text = "A troll! Your people buy mistletoe by the armload, ya know, I've never asked why and I'm not gonna start now." },
       },
-      again = { { id = "h_again", text = "What else, pal? Browsing's free, buying's better." } },
+      again = { { id = "h_again", text = "What else, pal? Browsing's free, buying's better, and the bows are extra." } },
       choices = {
         { text = "Winter Veil in the Undercity?", next = "undercity" },
         { text = "You and Nardstrum compete?", next = "brother" },
@@ -613,6 +728,7 @@ P:NPC {
         { text = "How did you end up in the Undercity?", next = "yhow" },
         { text = "Who runs Smokywood Pastures?", next = "ysmoky" },
         { text = "Do the Forsaken buy much?", next = "ybuy" },
+        { text = "What sells worst down here?", next = "w3_worst" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -678,6 +794,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_cocoa = {
+      lines = {
+        { id = "w3_cocoa_1", text = "A goblin brazier, buddy, best on the market, runs on a little compressed somethin' from Ratchet. It goes off now and then, but only a little, and I've lost two kettles and one eyebrow, which at Winter Veil prices is practically free." },
+      },
+      choices = {
+        { text = "Only a little?", next = "w3_bang" },
+        { text = "You're very calm about that.", next = "BACK", reply = "Calm's cheap, pal. Panic costs you customers, and I don't panic within ten feet of a sale." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_bang = {
+      lines = {
+        { id = "w3_bang_1", text = "Little enough that the Deathguard don't come runnin', which is the industry standard for \"little,\" as far as I'm concerned. The hats sell better right after a bang, anyway, because everybody wants somethin' to cover the soot." },
+      },
+      choices = {
+        { text = "That's a business model. Something else.", next = "BACK" },
+      },
+    },
     yhow = {
       lines = { { id = "yhow_x", text = "Smokywood sends one Copperpinch to each city. Jaycrue got here first and set up shop with the fancy goods, so I set up across the canal with the cheap ones. Competition, pal, it's the true spirit of Winter Veil." } },
       choices = {
@@ -716,7 +850,7 @@ P:NPC {
         { id = "yh_orc", when = { race = "Orc" }, text = "An orc! You lot love a good holiday ham, I know it. Got a deal for you, pal, a real steal, practically criminal." },
         { id = "yh_scourge", when = { race = "Scourge" }, text = "Hey, a Forsaken customer! You don't eat, I don't judge. Have a look at the hats, they're very popular with your crowd." },
       },
-      again = { { id = "h_again", text = "Anything else? Cocoa's gettin' cold, and so's everybody." } },
+      again = { { id = "h_again", text = "Anything else? Cocoa's gettin' cold, and so's everybody, and cold folks don't buy." } },
       choices = {
         { text = "Do the Forsaken even eat cookies?", next = "eat" },
         { text = "Who is Greatfather Winter?", next = "greatfather" },
@@ -727,6 +861,7 @@ P:NPC {
         { text = "How did you end up in the Undercity?", next = "yhow" },
         { text = "Who's your best customer?", next = "ybest" },
         { text = "How do you undercut and still profit?", next = "yprofit" },
+        { text = "How do you keep the cocoa hot down here?", next = "w3_cocoa" },
         { text = "Goodbye.", next = "END" },
       },
     },
@@ -783,6 +918,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_where = {
+      lines = {
+        { id = "w3_where_1", text = "Into crates, onto the zeppelin, and down to Orgrimmar, where the war effort gathers it all in one great heap. Every crate has my mark on the lid, and if one arrives short, Orgrimmar knows whose fault it is, which is why none of them ever do." },
+      },
+      choices = {
+        { text = "How much do you need, all told?", next = "w3_much" },
+        { text = "Orgrimmar must love your crates.", next = "BACK", reply = "Orgrimmar loves nothing that comes with a list of complaints, and mine always does." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_much = {
+      lines = {
+        { id = "w3_much_1", text = "More than any war I fought in life, {class}, enough linen to bandage an army twice and enough bars to arm it three times. The Lordaeron army never needed so much, and it was the biggest army in the world, which tells you something about what's waiting behind that gate." },
+      },
+      choices = {
+        { text = "Then I'll bring what I can. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "A quartermaster sergeant in the Lordaeron army, posted at the Capital City garrison. I counted every boot and every blade. When Arthas returned, I counted the dead instead, and I've never quite stopped." } },
       choices = {
@@ -828,7 +981,7 @@ P:NPC {
         { id = "h_default", text = "Senior Sergeant Grimsford, recruiter for the war effort. The Warchief has called on every city of the Horde to send supplies, and the Undercity will not be the city that sent the least." },
         { id = "yh_orc", when = { race = "Orc" }, text = "An orc, good. Orgrimmar sends its tallies late every week, so perhaps you can tell me why. No? Then bring me linen." },
       },
-      again = { { id = "h_again", text = "Next question, {class}. I've ledgers to fill." }, { id = "h_again2", text = "Anything else? Make it quick." } },
+      again = { { id = "h_again", text = "Next question, {class}. I've ledgers to fill." }, { id = "h_again2", text = "Spit it out and make it short, because there's a queue of fresh recruits behind you." } },
       choices = {
         { text = { normal = "What war is this?", polite = "Which war is the Horde preparing for, Sergeant?", blunt = "What war?" }, next = "war" },
         { text = "What supplies do you need?", next = "need" },
@@ -837,6 +990,7 @@ P:NPC {
         { text = "Who were you before?", next = "ylife" },
         { text = "What's the war effort for?", next = "yeffort" },
         { text = "Are your numbers ever wrong?", next = "ywrong" },
+        { text = "Where does it all go once you've tallied it?", next = "w3_where" },
         { text = "I'll be back.", next = "END" },
       },
     },
@@ -1008,6 +1162,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_colour = {
+      lines = {
+        { id = "w3_colour_1", text = "A healthy pink at the cheek, with the faint grey beneath the eyes that the living get when they've slept too little in a city that never sleeps. I'd give you a year before the first wrinkle, if you'll forgive the estimate." },
+        { id = "w3_colour_2", when = { race = "Scourge" }, text = "A good, settled grey, with a little green at the knuckle that suggests you've been somewhere damp. You'll keep for decades yet if you avoid the Plaguelands, which you won't." },
+        { id = "w3_colour_3", when = { race = "Orc" }, text = "A green that would be alarming on anyone else and is perfectly ordinary on an orc. The ruddy edge to the ears is the blood, which I find enviable." },
+        { id = "w3_colour_4", when = { race = "Tauren" }, text = "Beneath the fur, I cannot honestly say, which is the great frustration of the tauren as a subject. Your nose is wet and warm, and that is the extent of my data." },
+      },
+      choices = {
+        { text = "What does my colour tell you?", next = "w3_tells" },
+        { text = "I'd rather you didn't note me down.", next = "BACK", reply = "Too late, I'm afraid. Everyone who stands before me is noted, and you've stood rather longer than most." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_tells = {
+      lines = {
+        { id = "w3_tells_1", text = "How long you have, give or take, and which of the Society's subjects you most resemble. You'll be glad to hear you resemble none of them yet, and I hope for my notebook's sake that you're back in a year so I can see the change." },
+      },
+      choices = {
+        { text = "I'll try not to change. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "A physician's apprentice in Lordaeron, writing down the symptoms of plague victims in a neat hand while they died. I suppose I never stopped. The only difference is that now nobody asks me to cure them." } },
       choices = {
@@ -1040,7 +1215,7 @@ P:NPC {
         { id = "h_default", text = "Apothecary Lycanus. I study how things decay, which in the Undercity gives me no shortage of subjects." },
         { id = "yh_tauren", when = { race = "Tauren" }, text = "A tauren, and such a quantity of living tissue. Forgive me if I stare, the notebook has not seen one so closely." },
       },
-      again = { { id = "h_again", text = "Something further? I'm taking notes regardless." } },
+      again = { { id = "h_again", text = "Something further? I'm taking notes regardless, and you've given me several." } },
       choices = {
         { text = "What are you writing about me?", next = "notes" },
         { text = "Where do you find your subjects?", next = "subjects" },
@@ -1049,6 +1224,7 @@ P:NPC {
         { text = "Who were you before the Society?", next = "ylife" },
         { text = "What happens to your notes?", next = "ynotes" },
         { text = "Would you study a Forsaken against their will?", next = "ywill" },
+        { text = "What colour am I, then?", next = "w3_colour" },
         { text = "I'll be going now.", next = "END" },
       },
     },
@@ -1118,6 +1294,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_tender = {
+      lines = {
+        { id = "w3_tender_1", text = "A tauren of the Earthen Ring, who builds it higher every hour and keeps inviting me closer to admire it. She means it kindly, and I tell her kindly that I'll admire it from exactly here, which is twelve paces and not one less." },
+        { id = "w3_tender_2", when = { race = "Tauren" }, text = "One of your people, from the Earthen Ring, who keeps inviting me closer and doesn't understand why I won't come. You might explain it to her, kindly, since she listens to a tauren." },
+      },
+      choices = {
+        { text = "Twelve paces? You've measured it.", next = "w3_paces" },
+        { text = "The fire won't harm you if you respect it.", next = "BACK", reply = "So she says. I said much the same about candles, once, before I was made of kindling." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_paces = {
+      lines = {
+        { id = "w3_paces_1", text = "Every year, with string. A spark can travel eight paces in a good wind, and I add four for the wind lying to me. The Earthen Ring think it's a joke, and I've let them think so, because the truth is less festive." },
+      },
+      choices = {
+        { text = "Twelve it is. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "A candlemaker in Brill, of all the trades for a Forsaken to remember. I made the festival tapers every summer. My wife wove the garlands, and our daughter sold them by the bridge." } },
       choices = {
@@ -1156,7 +1351,7 @@ P:NPC {
         { id = "yh_tauren", when = { race = "Tauren" }, text = "A tauren at the fire! You'll know the old rites, I'd wager. Come, buy a garland, and stand on that side of me, if you would." },
         { id = "yh_scourge", when = { race = "Scourge" }, text = "One of us, at the fire festival! Stand back with me, friend. We'll buy the ribbons and let the living do the jumping." },
       },
-      again = { { id = "h_again", text = "Anything else, {class}?" } },
+      again = { { id = "h_again", text = "Anything else for the festival, {class}? The fires burn whether we're merry or not." } },
       choices = {
         { text = "Why would the Forsaken celebrate fire?", next = "fire" },
         { text = "What's the festival about?", next = "festival" },
@@ -1167,6 +1362,7 @@ P:NPC {
         { text = "Who were you before you died?", next = "ylife" },
         { text = "What's your most popular item?", next = "ypopular" },
         { text = "Does fire still frighten you?", next = "yfrighten" },
+        { text = "Who tends the bonfire outside?", next = "w3_tender" },
         { text = "Happy Midsummer.", next = "END" },
       },
     },
@@ -1226,6 +1422,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_crest = {
+      lines = {
+        { id = "w3_crest_1", text = "A ghoul eating a gnome, in full colour, with the gnome waving. The guild was very proud of the idea, and I talked them down to a skull on a purple field, which they thought was dull and I thought was merciful." },
+      },
+      choices = {
+        { text = "The gnome waving is quite funny.", next = "w3_funny" },
+        { text = "A skull's a touch plain for you.", next = "BACK", reply = "It is, and it will outlast every joke ever stitched onto cloth, which is what a crest is for." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_funny = {
+      lines = {
+        { id = "w3_funny_1", text = "It is funny, once, on a tavern wall, and it becomes very tiresome indeed on a battlefield, on forty tabards, for ten years. Heraldry is the art of choosing something you can bear to be buried in, and down here that is rather a practical matter." },
+      },
+      choices = {
+        { text = "Fair point. Something else.", next = "BACK" },
+      },
+    },
     yfinest = {
       lines = { { id = "yfinest_x", text = "A tabard for a knight of the Silver Hand, worked in white and gold, with a lion so fine it seemed to breathe. I cannot remember his name. I remember every stitch of the lion, which tells you what kind of man I was." } },
       choices = {
@@ -1263,7 +1477,7 @@ P:NPC {
         { id = "h_default", text = "Edward Remington, tabard designer. I stitch a guild's colours and crest onto a tabard, and I try to dissuade them from choosing pink." },
         { id = "yh_orc", when = { race = "Orc" }, text = "An orc. Your clan banners are wonderfully bold, you know. Red on black, never a stitch wasted. I envy them." },
       },
-      again = { { id = "h_again", text = "Anything else, before I lose the light?" } },
+      again = { { id = "h_again", text = "Anything else, before I lose the light? Green lamps are cruel to a red thread." } },
       choices = {
         { text = "What makes a good tabard?", next = "good" },
         { text = "Colours are hard to see down here.", next = "light" },
@@ -1273,6 +1487,7 @@ P:NPC {
         { text = "What's your finest work?", next = "yfinest" },
         { text = "Does the Dark Lady have a herald's device?", next = "ydevice" },
         { text = "Do you ever design for the dead?", next = "ydead" },
+        { text = "What's the worst crest you've been asked for?", next = "w3_crest" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -1483,6 +1698,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_scariest = {
+      lines = {
+        { id = "w3_scariest_1", text = "The big demon in the throne room, the one with the wings that folds them up like an umbrella! I floated in there once to say boo and he looked right at me, and nobody ever looks right at me, and I went through three walls before I stopped." },
+      },
+      choices = {
+        { text = "Varimathras saw you?", next = "w3_vari" },
+        { text = "Even ghosts get frightened, then.", next = "BACK", reply = "Only of him! And of the priest with all the words. And maybe a little bit of the big rat under the bank, but don't tell Lord Whiskers." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_vari = {
+      lines = {
+        { id = "w3_vari_1", text = "He smiled, I think, only demons smile wrong, with too many teeth in the wrong places. I don't go to the throne room any more, I go to the bank and scare the bankers instead, and they don't even look up from their counting, which is rude but safer." },
+      },
+      choices = {
+        { text = "Stay away from him, Spoops.", next = "BACK", reply = "I will! I promise, cross my heart, if I had one, which I don't, which is sad." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     yfriends = {
       lines = { { id = "yfriends_x", text = "The rats, mostly. And the bats in the Ruins, but they're rude. There's an old lady ghost in the Royal Quarter who hums, and she lets me listen if I don't giggle. I always giggle." } },
       choices = {
@@ -1515,7 +1749,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Spoops. I float about the city when the Wicker Man is burning, and I try to scare people. The Forsaken are terribly hard to scare, though; they've seen worse than me." },
         { id = "yh_tauren", when = { race = "Tauren" }, text = "Ooh, you're big! Can I sit on your horns? I'm not heavy. I'm not anything, really. Hee hee!" },
       },
-      again = { { id = "h_again", text = "Do you want to hear another secret? I know lots of them, mostly about rats." } },
+      again = { { id = "h_again", text = "Do you want to hear another secret? I know lots of them, mostly about rats, and one about a banker." } },
       choices = {
         { text = "Who were you, before you were a ghost?", next = "before" },
         { text = "What is Hallow's End to you?", next = "hallows" },
@@ -1525,6 +1759,7 @@ P:NPC {
         { text = "I'm dead too, you know. Boo.", next = "BACK", when = { race = "Scourge" }, reply = "Eek! Oh, you got me! Nobody ever gets me. Do it again!" },
         { text = "Do you have any friends, Spoops?", next = "yfriends" },
         { text = "Where do you go when nobody's looking?", next = "ywhere" },
+        { text = "What's the scariest thing in the whole city?", next = "w3_scariest" },
         { text = "Goodbye, Spoops.", next = "END" },
       },
     },

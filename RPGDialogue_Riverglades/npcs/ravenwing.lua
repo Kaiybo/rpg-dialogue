@@ -87,7 +87,25 @@ P:NPC {
         { text = "These whispers. I've heard the like before.", next = "whisper", when = { class = { "PRIEST", "WARLOCK" } } },
         { text = "What does Ashe Amberhall make of the cultists' trinkets?", next = "rv_ashe" },
         { text = "You question me as if I were one of your prisoners.", next = "rv_you" },
+        { text = "What happens to the prisoners afterward?", next = "w9_after" },
         { text = "I'll leave you to your work.", next = "END" },
+      },
+    },
+
+    w9_after = {
+      lines = { { id = "w9_after_d", text = "That's for the Commander to decide, and he decides slowly, which I respect. Most go into the cells under the keep until a ship can take them south, and a few are turned loose with a story we want the Hammer to hear." } },
+      choices = {
+        { text = "You let some of them go?", next = "w9_after2" },
+        { text = "Do any of them repent?", next = "w9_after2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_after2 = {
+      lines = { { id = "w9_after2_d", text = "A few, on purpose, with the wrong maps in their pockets. If the Hammer believes them, their raiders hit an empty field, and if they don't, they kill their own messenger, and either way I've learned something about how they think." } },
+      choices = {
+        { text = "Clever, if a little cruel.", next = "BACK", reply = "Clever is cruel, done carefully. I try to be careful." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

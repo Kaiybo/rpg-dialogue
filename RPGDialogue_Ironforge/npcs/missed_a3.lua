@@ -149,6 +149,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_first = {
+      lines = {
+        { id = "w2_first_l0", text = "A pair of boots, for my brother, who's going for a Mountaineer next year. Fimble says boots are the hardest thing to get right, because a foot changes all day long and leather doesn't." },
+      },
+      choices = {
+        { text = "He'll be proud to wear them.", next = "w2_first_brother" },
+        { text = "Start with gloves. Boots are too ambitious.", next = "BACK" },
+      },
+    },
+    w2_first_brother = {
+      lines = {
+        { id = "w2_first_brother_l0", text = "He says he will, but he also says I'll put a pouch on the side, since I put pouches on everything. I might, a small one, for his pipe. He doesn't smoke yet, but he will once he's a Mountaineer." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Gretta Finespindle, apprentice leatherworker. Fimble teaches me, Bombus keeps me in thread, and Balthus lets me have the scrap hides to practise on, so I'm really very lucky." },
@@ -166,6 +183,7 @@ P:NPC {
         { text = "You have a great many pouches.", next = "pouches" },
         { text = "Where do your practice hides come from?", next = "d0_hides" },
         { text = "The Great Forge must be a noisy place to stitch.", next = "d0_noise" },
+        { text = "What will your first real piece be?", next = "w2_first" },
         { text = "Keep at it, Gretta.", next = "END" },
       },
     },
@@ -265,6 +283,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_burn = {
+      narr = "He holds out his left forearm and points to a pale shiny streak.",
+      lines = {
+        { id = "w2_burn_l0", text = "That one, from a drop o' slag that jumped the trough. I didnae scream, which Da said was the first proper smith's thing I ever did, an' then I fainted, which he said was the second." },
+      },
+      choices = {
+        { text = "Your father sounds a hard teacher.", next = "w2_burn_da" },
+        { text = "Every smith carries scars.", next = "BACK" },
+      },
+    },
+    w2_burn_da = {
+      lines = {
+        { id = "w2_burn_da_l0", text = "Hard, aye, but he sat up wi' me that night wi' a cold cloth an' told me about every scar he's got. There's forty-three, an' he remembers every one o' them by the piece he was makin'." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Groum Stonebeard, apprentice blacksmith. My father Rotgath works the anvil just there, and I pump the bellows, fetch the coal and make nails, and one day I'll make somethin' with an edge on it." },
@@ -279,6 +315,7 @@ P:NPC {
         { text = "It's hot work by the Great Forge.", next = "forge" },
         { text = "What do you want to make, one day?", next = "xs_dream" },
         { text = "I'm a smith too. Want a tip?", next = "xs_smith", when = { profession = "Blacksmithing" } },
+        { text = "What's the worst burn you've had at the forge?", next = "w2_burn" },
         { text = "Back to the bellows with you.", next = "END" },
       },
     },
@@ -374,13 +411,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_regular = {
+      lines = {
+        { id = "w2_regular_l0", text = "Old Bruuk from up the Commons, who comes in for one ale after closin' his own tavern, so he can complain about mine. He's been doin' it twenty years, an' I've never once charged him." },
+      },
+      choices = {
+        { text = "Why not?", next = "w2_regular_why" },
+        { text = "A rival in your own tavern? Bold of him.", next = "BACK" },
+      },
+    },
+    w2_regular_why = {
+      lines = {
+        { id = "w2_regular_why_l0", text = "Because he leaves a silver on the bar every time anyway, an' pretends he forgot it there. We've both got our pride, ye see, an' this way neither of us has tae lose any." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Gwenna Firebrew! The innkeeper's my kin and sees to the beds, and I see to the barrels, so if ye've a thirst, I'm the Firebrew ye want." },
       },
       again = {
         { id = "h_again", text = "What else can I get ye, or tell ye?" },
-        { id = "h_again2", text = "Go on, I'm listenin', I'm only wipin' mugs." },
+        { id = "h_again2", text = "Go on, I'm listenin'. These mugs dinnae need me tae look at them, only tae wipe them." },
       },
       choices = {
         { text = "What's the best thing on tap?", next = "tap" },
@@ -388,6 +442,7 @@ P:NPC {
         { text = "Is there another tavern in the city?", next = "bruuk" },
         { text = "What's the worst brawl you've seen here?", next = "xw_brawl" },
         { text = "Got anything from Kharanos on tap?", next = "xw_dwarf", when = { race = "Dwarf" } },
+        { text = "Who's your most regular customer?", next = "w2_regular" },
         { text = "Just a drink by the fire.", next = "END" },
       },
     },
@@ -478,12 +533,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_cust = {
+      lines = {
+        { id = "w2_cust_l0", text = "Young mages, mostly, who've been told a wand is a crutch an' want one anyway. Then priests, who want somethin' tae point at a trogg that isnae a prayer. An' now an' then a warlock, who never says what he's pointin' it at." },
+      },
+      choices = {
+        { text = "Do you sell to warlocks?", next = "w2_cust_lock" },
+        { text = "Wands for everyone, then.", next = "BACK" },
+      },
+    },
+    w2_cust_lock = {
+      lines = {
+        { id = "w2_cust_lock_l0", text = "I sell tae anyone wi' coin an' a steady hand. What they do after's between them an' the guards. I'll say this, though: the warlocks are the only ones who never come back complainin'." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Harick Boulderdrum. I sell the wands and wee Bingus sells the staves and daggers, and he does most of the talkin', which leaves me free to do most of the thinkin'." },
       },
       again = {
-        { id = "h_again", text = "Aye? Take yer time." },
+        { id = "h_again", text = "Aye? Take yer time, there's nae wand here that'll go off while ye think." },
         { id = "h_again2", text = "Go on, when ye're ready." },
       },
       choices = {
@@ -494,6 +566,7 @@ P:NPC {
         { text = "Bingus says you're very calm.", next = "bingus" },
         { text = "Has a wand ever gone off in your hand?", next = "xh_off" },
         { text = "I'm a priest. What wand suits me?", next = "xh_priest", when = { class = "PRIEST" } },
+        { text = "Who are your usual customers in the Mystic Ward?", next = "w2_cust" },
         { text = "I'll look them over.", next = "END" },
       },
     },
@@ -584,13 +657,30 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_order = {
+      lines = {
+        { id = "w2_order_l0", text = "A blade wi' nae edge an' a point sharp enough tae shave a hair. The customer wouldnae say what it was for, an' I didnae ask, an' I've thought about it every day since." },
+      },
+      choices = {
+        { text = "What do you think it was for?", next = "w2_order_guess" },
+        { text = "Better not to wonder.", next = "BACK" },
+      },
+    },
+    w2_order_guess = {
+      lines = {
+        { id = "w2_order_guess_l0", text = "A lock, I've decided. Somethin' tae open a door no key fits. It's a better guess than the others, an' it lets me sleep, so that's the one I keep." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Hjoldir Stoneblade. I forge blades and I sell them, and the gnome with the springs is Binny, who thinks every knife I make is a first draft." },
       },
       again = {
         { id = "h_again", text = "Somethin' else?" },
-        { id = "h_again2", text = "Aye, I'm listenin'." },
+        { id = "h_again2", text = "Aye, I'm listenin', an' I'll forget it after, same as always." },
       },
       choices = {
         { text = "A blade sold in the dark should still be sold honestly.", next = "BACK", reply = "It should, and down here it's the one thing that keeps a shop open longer than a season.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -600,6 +690,7 @@ P:NPC {
         { text = "How do you bear Binny's improvements?", next = "binny" },
         { text = "Who taught you to forge?", next = "xj_taught" },
         { text = "I need a quiet blade. No questions.", next = "xj_rogue", when = { class = "ROGUE" } },
+        { text = "What's the strangest order you've filled?", next = "w2_order" },
         { text = "I'll browse and ask nothing.", next = "END" },
       },
     },
@@ -697,12 +788,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_worst = {
+      lines = {
+        { id = "w2_worst_l0", text = "A gnome mage who came in wearin' only a robe, in the dead o' winter, because he'd read that cloth \"conducts arcane energies better when unencumbered.\" His knees were blue, dear. Blue." },
+      },
+      choices = {
+        { text = "What did you do?", next = "w2_worst_fix" },
+        { text = "Perhaps he was right about the arcane.", next = "BACK" },
+      },
+    },
+    w2_worst_fix = {
+      lines = {
+        { id = "w2_worst_fix_l0", text = "Put him in wool leggings under the robe an' told him the leggings were enchanted. They werenae, but he came back a month later sayin' his spells were stronger than ever, an' I didnae correct him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Ingrys Stonebrow. It's Maeva's shop and she sees to the robes, and I see to the rest of the cloth: the gloves, the boots, the belts and the mantles that keep a caster's body and soul together." },
       },
       again = {
-        { id = "h_again", text = "What else, dear?" },
+        { id = "h_again", text = "What else, dear? Hold still while ye ask, that sleeve's wrong." },
         { id = "h_again2", text = "Go on, I can talk and fold." },
       },
       choices = {
@@ -713,6 +821,7 @@ P:NPC {
         { text = "A dwarf selling cloth is unusual.", next = "dwarf" },
         { text = "How did you start working for Maeva?", next = "xi_maeva" },
         { text = "I'm a mage. What am I forgetting?", next = "xi_mage", when = { class = "MAGE" } },
+        { text = "What's the worst-dressed caster you've ever fitted?", next = "w2_worst" },
         { text = "I'll see what you have.", next = "END" },
       },
     },

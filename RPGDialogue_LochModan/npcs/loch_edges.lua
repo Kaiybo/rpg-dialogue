@@ -31,6 +31,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_lost = {
+      lines = {
+        { id = "w2_lost_l0", text = "A loch trout the size o' a pony, twenty years past, just off the point by the island. I had her on the line half the night, an' at dawn she simply swam away wi' my hook, my line an' most o' my pride." },
+      },
+      choices = {
+        { text = "Twenty years? Is she still out there?", next = "w2_lost_still" },
+        { text = "Every fisher has a story like that.", next = "BACK" },
+      },
+    },
+    w2_lost_still = {
+      lines = {
+        { id = "w2_lost_still_l0", text = "Khara says she'd be long dead. I say I've seen a fin out by the island on still mornings that nothin' else in the loch could be. One day she'll bite again, an' I'll be ready." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -40,7 +57,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Keep yer voice down, mind." },
-        { id = "h_again2", text = "Go on, then, quiet-like. The fish have ears, whatever the scholars say." },
+        { id = "h_again2", text = "Go on, then, quiet-like. The fish have ears, whatever the scholars in Ironforge say, an' I've caught more fish than they have." },
       },
       choices = {
         { text = "A fisher should throw the small ones back, by rights.", next = "BACK", reply = "Aye, an' that's why there's still fish in this loch for yer grandbairns tae catch.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -51,6 +68,7 @@ P:NPC {
         { text = "Tell me about Khara.", next = "khara" },
         { text = "What's the best bait in the loch?", next = "wd_bait" },
         { text = "Why does Khara run the shop and you don't?", next = "wd_shop" },
+        { text = "What's the biggest fish you've ever lost?", next = "w2_lost" },
         { text = "Good day, Warg.", next = "END" },
       },
     },
@@ -191,6 +209,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_bank = {
+      lines = {
+        { id = "w2_bank_l0", text = "Nobody worth havin' tae supper, if ye ask Warg, but there's the farmhands at the Ironband dig road, an' old travellers campin' by the water. Most nights it's just us an' the frogs." },
+      },
+      choices = {
+        { text = "Do you ever wish you lived in Thelsamar?", next = "w2_bank_town" },
+        { text = "Peace and frogs sounds pleasant.", next = "BACK" },
+      },
+    },
+    w2_bank_town = {
+      lines = {
+        { id = "w2_bank_town_l0", text = "Every market day. Then I walk intae town an' hear the noise, an' Vidra's shoutin' in the inn kitchen, an' I'm glad tae come back tae the frogs. They dinnae ask me for credit." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -214,6 +249,7 @@ P:NPC {
         { text = "What's a busy day for you?", next = "chores" },
         { text = "What do the townsfolk buy from you?", next = "kd_buy" },
         { text = "Do you fish yourself?", next = "kd_fish" },
+        { text = "Who else lives along the western bank?", next = "w2_bank" },
         { text = "Good day, Khara.", next = "END" },
       },
     },

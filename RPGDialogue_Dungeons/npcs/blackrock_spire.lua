@@ -30,6 +30,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_move = {
+      lines = { { id = "w8_move_a", text = "Carefully, mortal, and as something smaller than I am, and never in the same hall twice in a day. The orcs see only another stranger, and the dragonspawn do not look at strangers at all." } },
+      choices = {
+        { text = "Something smaller than you are?", next = "w8_move2" },
+        { text = "You could teach me that trick.", next = "w8_move2" },
+        { text = "Something else, Vaelan.", next = "BACK" },
+      },
+    },
+    w8_move2 = {
+      lines = { { id = "w8_move2_a", text = "You ask the question I told you not to ask, and I will give you the same answer. Be useful to me, and in time you may learn more of who I am, though I hope for both our sakes that you never need to." } },
+      choices = {
+        { text = "Then I'll be useful.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am called Vaelan, and that is all my name will tell you. The black dragonflight rules this mountain through orcs and trolls and ogres, and I would see its hold broken." },
@@ -46,6 +62,7 @@ P:NPC {
         { text = "I sense old magic about you, Vaelan.", next = "sense", when = { class = { "MAGE", "PRIEST", "DRUID" } } },
         { text = "What do you need from me?", next = "BUSINESS" },
         { text = "What did the black flight do to yours?", next = "ywrong" },
+        { text = "How do you move through the Spire unseen?", next = "w8_move" },
         { text = "I'll be on my way.", next = "END" },
       },
     },
@@ -151,6 +168,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_hide = {
+      lines = { { id = "w8_hide_a", text = "None, my friend, none for at least a month, because the very smell of leather now makes me think of being digested. I'll sit by a window and look at the sky and eat something that hasn't been inside a Beast." } },
+      choices = {
+        { text = "And after the month?", next = "w8_hide2" },
+        { text = "You'll be back at it in a week.", next = "w8_hide2" },
+        { text = "I skin too. Any advice for big game?", next = "w8_hide2", when = { profession = "Skinning" } },
+        { text = "Something else, Finkle.", next = "BACK" },
+      },
+    },
+    w8_hide2 = {
+      lines = {
+        { id = "w8_hide2_a", text = "After the month, I'll be back in the mountains looking for something even bigger, because I'm a fool and I know it. A skinner who's been swallowed once has very little left to fear, which is either wisdom or madness." },
+        { id = "w8_hide2_sk", when = { profession = "Skinning" }, text = "Make sure it's dead, my friend, properly dead, not mostly dead and sleeping off its supper. Cut from the belly up, never the back down, and if it hiccups, run." },
+      },
+      choices = {
+        { text = "Wisdom or madness. I'll call it both.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Finkle Einhorn, at your service, and I do mean at your service after what you've done for me. I came up here to skin the Beast and the Beast swallowed me whole instead, which is a hazard of the trade nobody warns you about." },
@@ -166,6 +203,7 @@ P:NPC {
         { text = "What exactly is the Beast, anyway?", next = "beast" },
         { text = "A hunter knows when prey's too big to take.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Can you teach me something?", next = "BUSINESS", when = { profession = { "Skinning", "Leatherworking" } } },
+        { text = "What's the first hide you'll work when you get home?", next = "w8_hide" },
         { text = "Glad you're alive. Farewell.", next = "END" },
       },
     },

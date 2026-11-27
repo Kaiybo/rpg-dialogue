@@ -244,7 +244,7 @@ P:NPC {
         { id = "h_seed_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("The Demon Seed"), days = 3 } }, text = "The stone is broken, and I felt the hills go quiet when it happened. The cultists will be scrambling for a week, and some of them will be angry enough to make mistakes." },
       },
       again = {
-        { id = "h_again", text = "What else would you know?" },
+        { id = "h_again", text = "Ask the rest. I'd rather talk about the Burning Blade than lie awake thinking of it." },
         { id = "h_again2", text = "Ask quickly, because the fires on the peak are lit again tonight." },
       },
       choices = {
@@ -254,7 +254,23 @@ P:NPC {
         { text = "What do you make of Neeru Fireblade?", next = "neeru", when = { questDone = TODO_QUEST("Ak'Zeloth") } },
         { text = "I have dealings with demons myself. Hungry ones.", next = "lock", when = { class = "WARLOCK" } },
         { text = "Give me the task.", next = "BUSINESS" },
+        { text = "Does anyone at the post heed your warnings?", next = "w5_heed" },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+    w5_heed = {
+      lines = { { id = "w5_heed_l", text = "Some do. The scouts listen, because they have seen the fires too. The others hear the word cult and think of old men chanting in caves. The Burning Blade are not old men, {class}. They are young orcs who were told the Horde has gone soft, and believed it." } },
+      choices = {
+        { text = "Why not lead a strike on the peak yourself?", next = "w5_heed2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_heed2 = {
+      lines = { { id = "w5_heed2_l", text = "Because I have no orders, and an orc who acts without orders on Dreadmist Peak is exactly what the Blade wants. They want the Horde quarrelling, and raiding its own hills. So I watch, and I count, and I write it down, and I wait for someone with the authority to use it." } },
+      choices = {
+        { text = "Wait for orders. A lone strike only plays into their hands.", next = "BACK", reply = "Yes. Patience is harder than any fight, but it is the right weapon here.", fx = { align = { order = 1 } } },
+        { text = "Strike now. Orders come too late to matter.", next = "BACK", reply = "You sound like a cultist, {class}. I mean that as a warning, not an insult.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     seed = {
@@ -380,7 +396,23 @@ P:NPC {
         { text = "Tell me about the brutal armor.", next = "brutal", when = { class = "WARRIOR", minLevel = 20 } },
         { text = "What do you think of the Burning Blade?", next = "blade" },
         { text = "I have business with you.", next = "BUSINESS" },
+        { text = "What do you hear from up here, besides the hammer?", next = "w5_hear" },
         { text = "Keep your forge hot, Thun'grim.", next = "END" },
+      },
+    },
+    w5_hear = {
+      lines = { { id = "w5_hear_l", text = "Everything. The caravans on the Gold Road, by the squeal of their axles. Kolkar drums on the far hills, when the wind is west. And at night, from Dreadmist, chanting that I would rather not hear. I hammer louder on those nights." } },
+      choices = {
+        { text = "Can you tell what the chanting says?", next = "w5_hear2" },
+        { text = "My armour rattles less now. I listened to you.", next = "BACK", when = { class = "WARRIOR" }, reply = "So it does. I can hear you coming from twice as far off now, and that is a good thing, warrior." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_hear2 = {
+      lines = { { id = "w5_hear2_l", text = "Not the words. The shape of it, though. It rises the way a forge rises when the bellows are worked too hard, and then it breaks. Something up there is being fed more fire than it can hold. Tell Ak'Zeloth I said so, if you see him. He listens to me." } },
+      choices = {
+        { text = "I'll carry your words to Ak'Zeloth.", next = "BACK", reply = "Good. And keep your own ears open on the way. Eyes can be fooled at night. Ears cannot." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     blind = {

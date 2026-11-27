@@ -286,7 +286,36 @@ P:NPC {
         { text = "Who eats at your fire?", next = "post" },
         { text = "You must miss Mulgore's green.", next = "mulgore", when = { race = "Tauren" } },
         { text = "I could cook for the post while I'm here.", next = "cook", when = { profession = "Cooking" } },
+        { text = "What's the best meal you've made out here?", next = "w7_feast" },
         { text = "I've eaten, thank you. Farewell.", next = "END" },
+      },
+    },
+    w7_feast = {
+      lines = {
+        { id = "w7_feast_l1", text = "The night the braves came back from Thunder Axe Fortress with every one of them still walking. I had saved a wheel of Mulgore cheese for half a year, and I melted it over kodo flank with the last of the sweet onions, and even Felgur Twocuts sat down to eat it." },
+      },
+      choices = {
+        { text = "Felgur sat down? That's a feat.", next = "w7_feast2" },
+        { text = "You should save the next wheel for me.", next = "w7_feast3" },
+        { text = "Something else, Harnor.", next = "BACK" },
+      },
+    },
+    w7_feast2 = {
+      lines = {
+        { id = "w7_feast2_l1", text = "He did, for nearly the whole meal, which no one at this post has seen before or since. He said nothing at all, but he wiped the bowl with his bread, and from an orc that is as good as a speech." },
+        { id = "w7_feast2_l2", when = { race = "Orc" }, text = "He did, and you'll know what it means when an orc of his years puts down his map to eat. He said nothing, but he wiped the bowl clean, and that is as good as a song from your people." },
+      },
+      choices = {
+        { text = "That's high praise from him.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_feast3 = {
+      lines = {
+        { id = "w7_feast3_l1", text = "Bring the braves home whole, and I'll melt two. That is the only price I've ever asked for the good cheese." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -435,7 +464,36 @@ P:NPC {
         { text = "What do you hear of the Kodo Graveyard?", next = "kodo" },
         { text = "Ghost Walker Post is a grim name for a camp.", next = "gname" },
         { text = "Your braves look at me as if I'm one of the ghosts.", next = "forsaken_g", when = { race = "Scourge" } },
+        { text = "How do you price a hide out here?", next = "w7_price" },
         { text = "Farewell, Kireena.", next = "END" },
+      },
+    },
+    w7_price = {
+      lines = {
+        { id = "w7_price_l1", text = "By the weight, the cut and the smell, in that order, and by who carried it in. A brave who skinned it clean gets my best price, and a goblin who found it already lying in the dust gets a much shorter conversation." },
+      },
+      choices = {
+        { text = "Why does it matter who carried it?", next = "w7_price2" },
+        { text = "A hide is a hide. Pay the same for all.", next = "w7_price3" },
+        { text = "Something else, Kireena.", next = "BACK" },
+      },
+    },
+    w7_price2 = {
+      lines = {
+        { id = "w7_price2_l1", text = "Because a hide taken by someone who knew what they were doing will be worked into something that lasts, and a scavenged one might have come from the graveyard. I'll not buy the dead's skins and sell them on to Narv; he'd know, and he'd never forgive me." },
+        { id = "w7_price2_l2", when = { profession = "Skinning" }, text = "Because you can tell a clean cut from a hacked one, as I can, and a hacked hide splits in Narv's hands. Bring me clean work and I'll always pay you as if you were one of the braves." },
+      },
+      choices = {
+        { text = "Fair dealing.", next = "BACK", reply = "It's the only kind that lasts at a post this small." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_price3 = {
+      lines = {
+        { id = "w7_price3_l1", text = "Then you'd make a poor trader and a worse neighbour. Every merchant at this post knows who brings what, and we'd all go hungry if we pretended otherwise." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     kodo = {

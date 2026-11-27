@@ -244,7 +244,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I have a few minutes before the next dispatch." },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again2", text = "Go on. I have a stack of dispatches from Orgrimmar and Stormwind both, but they can wait a moment for you." },
       },
       choices = {
         { text = "Do the night elves still trust humans, my lady?", next = "druid_q", when = { class = "DRUID" } },
@@ -1994,7 +1994,7 @@ P:NPC {
         { id = "h_dd_diplomat", tags = { "news" }, when = { questDone = TODO_QUEST("The Missing Diplomat") }, text = "The whole common room is talking about Private Hendel, and half of them are saying your name in the same breath. I served that man ale every week for a year and never once thought he was anything but dull." },
         { id = "h_dd_drown", when = { deathCause = "drowning" }, text = "You've drowned, haven't you? You've that look the sailors get after a bad night in the harbor, so sit near the fire and dry out properly before you go anywhere near the water again." },
       },
-      again = { { id = "h_again", text = "Anything else, love?" } },
+      again = { { id = "h_again", text = "Anything else, love? Ask away while I count the linen; Lillian's swiped three pillowcases for the bar again." } },
       choices = {
         { text = "The marsh's creatures seem uneasy. Do the soldiers notice?", next = "druid_q", when = { class = "DRUID" } },
         { text = "I'd like a room.", next = "BUSINESS" },

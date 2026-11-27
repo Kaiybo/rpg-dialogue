@@ -67,10 +67,25 @@ P:NPC {
         { text = "How do you keep your beast from fighting the riders?", next = "hunter", when = { class = "HUNTER" } },
         { text = "The winds over these ridges feel restless, Tharm.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Will your riders carry me, given what I am?", next = "dead", when = { race = "Scourge" } },
+        { text = "Which of your wind riders is the oldest?", next = "w5_oldest" },
         { text = "Safe winds, Tharm.", next = "END" },
       },
     },
 
+    w5_oldest = {
+      lines = { { id = "w5_oldest_l", text = "That one on the end, with the grey in her mane. She has flown the routes from Sun Rock to the Crossroads more times than I can count, and she knows the winds better than I do. When she won't fly, I don't send anyone." } },
+      choices = {
+        { text = "What will happen when she's too old?", next = "w5_oldest2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_oldest2 = {
+      lines = { { id = "w5_oldest2_l", text = "She'll stay here, on the rock, and eat too much and bite the young ones when they're foolish. A wind rider who has carried the Horde for twenty years has earned her perch. The young ones learn more from her bites than from me." } },
+      choices = {
+        { text = "A perch earned is a fine retirement.", next = "BACK", reply = "It is. And she'll still sting you if you stand too close, so mind that." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     wild = {
       lines = {
         { id = "wi_default", text = "Some come from these very mountains. Wild wyverns nest on the ridges, the Pridewings, and they are bigger and fiercer than anything I keep, so I watch them the way a herder watches a strong young bull." },
@@ -223,10 +238,26 @@ P:NPC {
         { text = "How do orcs see a hunter's bond with a beast?", next = "bond", when = { class = "HUNTER" } },
         { text = "Who's Besseleth, that marked Maggran?", next = "besseleth" },
         { text = "The kodos must hate this climb.", next = "kodo" },
+        { text = "Which beast here has been through the worst?", next = "w5_worst" },
         { text = "Rest easy, Gereck.", next = "END" },
       },
     },
 
+    w5_worst = {
+      lines = { { id = "w5_worst_l", text = "A wolf from the Charred Vale, half his fur burned off, who came in with a hunter who'd carried him on her back the last five miles. He wouldn't let anyone near him for a week. Now he follows me around the pens like a pup." } },
+      choices = {
+        { text = "What changed his mind?", next = "w5_worst2" },
+        { text = "My companion was hurt once. Patience brought him back.", next = "BACK", when = { class = "HUNTER" }, reply = "Then you know. Patience and quiet. Nothing else works." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_worst2 = {
+      lines = { { id = "w5_worst2_l", text = "Nothing changed it. I sat by his pen every evening and said nothing, and brought him nothing, and one night he put his nose through the bars. That's all a beast needs, most times. Somebody who stays." } },
+      choices = {
+        { text = "Somebody who stays. That's a good rule.", next = "BACK", reply = "It's the only rule. People forget it more than beasts do." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     beasts = {
       lines = {
         { id = "be_default", text = "Wolves from Durotar, cats from the Barrens, and now and then a great spider some fool hunter has charmed off the Webwinder Path. The spiders frighten the kodos, so I keep them at the far end, and I keep my distance too." },

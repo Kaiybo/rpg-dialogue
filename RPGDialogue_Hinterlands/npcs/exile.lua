@@ -32,6 +32,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_temple = {
+      lines = {
+        { id = "w2_temple_l", text = "We kept the flames of the Temple of Atal'Hakkar and we read the old texts, the ones written before the Gurubashi broke apart. I was a reader. I knew the texts better than Jammal'an, and that was my crime." },
+      },
+      choices = {
+        { text = "What did the texts say that he didn't want heard?", next = "w2_temple2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_temple2 = {
+      lines = {
+        { id = "w2_temple2_l", text = "That Hakkar devoured those who served him as readily as those who opposed him. The old Gurubashi learned this, and they cast him out with blood. Jammal'an tore those pages from the scrolls and called the rest a prophecy." },
+        { id = "w2_temple2_l1", when = { race = "Troll" }, text = "That Hakkar devoured his servants as readily as his foes. The old Gurubashi, the empire your own tribe once served, cast him out with blood, troll, and Jammal'an tore those pages from the scrolls so no one would remember." },
+      },
+      choices = {
+        { text = "Then you were right to speak against him.", next = "BACK", reply = "Right, yes. It is a poor comfort, among the Witherbark, but it is the only one I have.", fx = { align = { light = 1 } } },
+        { text = "A god's power is worth the risk of being eaten.", next = "BACK", reply = "So Jammal'an said, and Jammal'an is dead. I will not argue with a fool twice.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -49,7 +69,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The Witherbark are watching us, and their witch doctors are watching hardest." },
-        { id = "h_again2", text = "Ask, if you must. I have time, and nothing else." },
+        { id = "h_again2", text = "Ask, if you must. An exile has much time and little else, and the Witherbark do not ask me anything." },
       },
       choices = {
         { text = "Why were you exiled?", next = "exile" },
@@ -57,6 +77,7 @@ P:NPC {
         { text = "Who is Hakkar?", next = "hakkar" },
         { text = "Living among the Witherbark can't be easy.", next = "witherbark" },
         { text = "I'd guess the loa still answer you.", next = "loa", when = { race = "Troll" } },
+        { text = "What did a priest of the Atal'ai do, day to day?", next = "w2_temple" },
         { text = "I'll leave you in peace.", next = "END" },
       },
     },

@@ -33,6 +33,18 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2deal = {
+      lines = { { id = "w2dl_default", text = "A little stone dwarf statue out of Uldaman, pal, old as dirt and covered in runes nobody can read. I paid two silver for it to a troll who wanted beer money, and a scholar in Ratchet would've paid me fifty gold." } },
+      choices = {
+        { text = "Would have? What happened?", next = "w2deal2" },
+        { text = "Two silver to a thirsty troll. That's robbery.", next = "w2deal2" },
+        { text = "Something else, Dran.", next = "BACK" },
+      },
+    },
+    w2deal2 = {
+      lines = { { id = "w2dl2_default", text = "Malton sold it while I was out, for three silver, to a tauren kid who thought it looked like her grandfather! Three silver! I've told him a thousand times, the face on a thing don't matter, the age does." } },
+      choices = { { text = "At least you made a silver.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     xorig_drag = {
       lines = { { id = "xdr_default", text = "Sure I know you, kid, you collected from that goblin Rizzle for me twice and only broke one of his fingers, which in this business is practically a love letter. So are you still in the collections game, or are you finally lookin' for honest work at a dishonest wage?" } },
       choices = {
@@ -57,6 +69,7 @@ P:NPC {
         { text = "Why would anyone want ripple?", next = "ripple" },
         { text = "Show me what you've got.", next = "BUSINESS" },
         { text = "You know me, Dran. I ran knives through the Drag.", next = "xorig_drag", when = { origin = "orc_drag_runner" } },
+        { text = "What's the best thing you ever bought?", next = "w2deal" },
         { text = "Not today, Dran.", next = "END" },
       },
     },
@@ -146,6 +159,18 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2chicken = {
+      lines = { { id = "w2ck_default", text = "A gnome's mechanical chicken, buddy, salvaged out of the Barrens. It clucked, it walked, it laid little copper eggs, and it never stopped clucking, day or night, not once, not ever." } },
+      choices = {
+        { text = "Who bought it?", next = "w2chicken2" },
+        { text = "Copper eggs sound like a bargain.", next = "w2chicken2" },
+        { text = "Something else, Malton.", next = "BACK" },
+      },
+    },
+    w2chicken2 = {
+      lines = { { id = "w2ck2_default", text = "A grunt on the night watch who said it'd keep him awake, and it did, and it kept the whole barracks awake too. He brought it back the next day and Dad refused to refund him, so I gave him a discount on a sword out of my own pocket." } },
+      choices = { { text = "That was decent of you.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Malton Droffers, the son in Droffers and Son, and the one you should be talkin' to if you want a good deal. Dad handles the buying and I handle the selling, and somehow we both think we're the important one." },
@@ -159,6 +184,7 @@ P:NPC {
         { text = "How did a salvage shop end up on the Drag?", next = "goblins" },
         { text = "That hole in the helmet. It's my tusk's shape.", next = "tusk", when = { race = "Troll" } },
         { text = "Let me see your goods.", next = "BUSINESS" },
+        { text = "What's the worst thing you ever sold?", next = "w2chicken" },
         { text = "Farewell, Malton.", next = "END" },
       },
     },
@@ -406,6 +432,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2batch = {
+      lines = { { id = "w2bt_default", text = "Fire oil, a whole barrel of it, for the Warsong in Ashenvale, who want something that will light a wet tree on the first try. It's meant to be stable, mostly, which is why Whuut is stirring it and not me." } },
+      choices = {
+        { text = "Is that fair to Whuut?", next = "w2batch2" },
+        { text = "Fire oil for burning a forest seems a grim order.", next = "w2batch2" },
+        { text = "Something else, Yelmak.", next = "BACK" },
+      },
+    },
+    w2batch2 = {
+      lines = {
+        { id = "w2bt2_alch", when = { profession = "Alchemy" }, text = "You'd do the same with an apprentice, don't pretend you wouldn't! Besides, I stand behind him with a bucket of sand and tell him what to do with every breath, and he hasn't lost an eyebrow this month." },
+        { id = "w2bt2_default", text = "I stand right behind him with a bucket of sand and tell him what to do with every breath, so it's as fair as alchemy gets. He hasn't lost an eyebrow this month, which is a record for him." },
+      },
+      choices = { { text = "Keep the sand handy.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Yelmak, alchemist, and this is my shop on the Drag. I teach anyone who wants to learn, sell vials to everyone, and only blow up the back room once a season, which is a better record than the old warlocks ever kept with their brews." },
@@ -421,6 +462,7 @@ P:NPC {
         { text = "Why do you keep sniffing everything?", next = "nose" },
         { text = "Does Jandi sell you your herbs?", next = "jandi" },
         { text = "Teach me alchemy.", next = "BUSINESS" },
+        { text = "What's bubbling in your back room right now?", next = "w2batch" },
         { text = "Farewell, Yelmak.", next = "END" },
       },
     },
@@ -657,12 +699,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2one = {
+      lines = { { id = "w2on_default", text = "Because I buy it in crates of fifty, and every single one I sell means a crate with a gap in it. A crafter who buys one vial comes back for the second at sundown, and the third tomorrow, and I've counted that crate three times instead of once." } },
+      choices = {
+        { text = "So you're really saving yourself the counting.", next = "w2one2" },
+        { text = "Some of us can only afford one.", next = "w2one2" },
+        { text = "Something else, Felika.", next = "BACK" },
+      },
+    },
+    w2one2 = {
+      lines = { { id = "w2on2_default", text = "And I'm saving you the walk, which is the part you should care about. If you're short of coin, say so, and I'll sell you five for the price of four, but don't stand there and ask me for one." } },
+      choices = { { text = "Five for four, then.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Felika, and I sell supplies to every crafter on the Drag and most of the ones in the Valley of Honor. The Horde builds on small things, and if it's small, cheap and you'll need fifty of it, I sell it." },
       },
       again = {
-        { id = "h_again", text = "Anything else? There's a line forming." },
+        { id = "h_again", text = "What else, then? Speak up, and remember I've three more customers behind you counting my patience." },
         { id = "h_again2", text = "Go on, then, but if you're about to buy just one of something, I'll want a reason." },
       },
       choices = {
@@ -671,6 +725,7 @@ P:NPC {
         { text = "What do you make of the Droffers?", next = "droffers" },
         { text = "What do you think I've forgotten?", next = "guess" },
         { text = "Show me your supplies.", next = "BUSINESS" },
+        { text = "Why does buying one of something annoy you so?", next = "w2one" },
         { text = "Farewell, Felika.", next = "END" },
       },
     },

@@ -973,7 +973,7 @@ P:NPC {
       },
       again = {
         { id = "h_again1", text = "Speak quickly, for they patrol often, and furbolg ears are sharper than a Sentinel's." },
-        { id = "h_again2", text = "What else? Keep your voice low." },
+        { id = "h_again2", text = "What else? Keep your voice low; whatever wounded me may still be near." },
       },
       choices = {
         { text = "How do we get you out?", next = "escape" },

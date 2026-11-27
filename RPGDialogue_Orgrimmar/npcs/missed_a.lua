@@ -28,6 +28,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2post = {
+      lines = {
+        { id = "w2p_scourge", when = { race = "Scourge" }, text = "By zeppelin from the tower outside Brill, as you will know if you came that way yourself. The goblin crews treat a Forsaken mailbag much as they treat a Forsaken passenger, with a great deal of suspicion and a strong urge to stand upwind." },
+        { id = "w2p_default", text = "By zeppelin, from the tower outside Brill to the one outside this city's gate. The goblin crews handle the mailbags as though the plague might leap out of them, and on two occasions they have simply thrown one overboard to be safe." },
+      },
+      choices = {
+        { text = "What was in the bags they lost?", next = "w2post2" },
+        { text = "I'd have done the same in their place.", next = "w2post2" },
+        { text = "Something else, Advisor.", next = "BACK" },
+      },
+    },
+    w2post2 = {
+      lines = { { id = "w2p2_default", text = "Casualty rolls from the Bulwark, both times, which I have since had to copy out again from memory. The goblins were fined, and I have the satisfaction of knowing that the fine was larger than the cost of being careful." } },
+      choices = { { text = "A small justice, then.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I am Advisor Willington, and I sit in this hall on behalf of the Undercity. The orcs supply the courage, of which they have a great deal, and I supply the arithmetic, of which they have rather less." },
@@ -44,6 +59,7 @@ P:NPC {
         { text = "You were a clerk once, I'd guess.", next = "xclerk" },
         { text = "Do the orcs truly trust the Forsaken?", next = "xtrust" },
         { text = "We of the Dark Lady endure, Advisor.", when = { race = "Scourge" }, next = "xkin" },
+        { text = "How do your despatches reach you from Lordaeron?", next = "w2post" },
         { text = "I'll leave you to your despatches.", next = "END" },
       },
     },
@@ -149,12 +165,27 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2bribe = {
+      lines = {
+        { id = "w2b_troll", when = { race = "Troll" }, text = "You gonna laugh, cousin, but it was a voodoo doll of me, carved by some young Darkspear who thought I'd be scared of it. I kept the doll, an' I sent him back to Warsong Gulch with nothin' but his old shirt." },
+        { id = "w2b_default", text = "A goblin once offered me a share in a gold mine, mon, with a map and everything. I looked at the map an' it was Gold Coast Quarry in Elwynn Forest, right in the middle of the humans' backyard." },
+      },
+      choices = {
+        { text = "Did anyone ever succeed in bribing you?", next = "w2bribe2" },
+        { text = "A bold try, at least.", next = "w2bribe2" },
+        { text = "Something else, Sergeant.", next = "BACK" },
+      },
+    },
+    w2bribe2 = {
+      lines = { { id = "w2b2_default", text = "Never, mon, and they all keep tryin'. The armor on these racks got names stitched inside it, the names of soldiers who bled for it before, an' I don't sell a dead warrior's name for anybody's gold." } },
+      choices = { { text = "Then I'll earn it properly.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I be First Sergeant Hola'mahi, and every piece of armor in this hall passes through my hands first. The Horde gives it to those who earned it on the field, and no amount of gold or sweet talk changes dat." },
       },
       again = {
-        { id = "h_again", text = "What else you want to know, mon?" },
+        { id = "h_again", text = "What else, mon? Keep your hands off my racks while you think of it." },
         { id = "h_again2", text = "Ask it quick, because I got straps to oil." },
       },
       choices = {
@@ -164,6 +195,7 @@ P:NPC {
         { text = "Have you seen the fields of war yourself?", next = "xfield" },
         { text = "Can gold not buy armor here?", next = "xgold" },
         { text = "Your armor wouldn't fit a tauren, would it?", when = { race = "Tauren" }, next = "xtauren" },
+        { text = "What's the strangest thing anyone's offered you for armor?", next = "w2bribe" },
         { text = "Farewell, Sergeant.", next = "END" },
       },
     },
@@ -259,6 +291,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2banner = {
+      lines = { { id = "w2bn_default", text = "Each one is a clan that marched under the Warchief, or a battle the Horde won in his name. The Warsong hang nearest the door because Hellscream would accept no other place, and the Frostwolf banner hangs highest because Thrall is of their blood." } },
+      choices = {
+        { text = "Is your own clan's banner among them?", next = "w2banner2" },
+        { text = "A lot of cloth for so few words.", next = "w2banner2" },
+        { text = "Something else, grunt.", next = "BACK" },
+      },
+    },
+    w2banner2 = {
+      lines = {
+        { id = "w2bn2_orc", when = { race = "Orc" }, text = "Not yet, and you know as well as I do why. Half our clans lost their banners in the camps, and the rest are still sewing them back together from memory, so that's work for orcs like you and me." },
+        { id = "w2bn2_default", text = "Not yet. My clan lost its banner in the internment camps, and there is a bare hook beside the door that I look at every watch. One day I mean to hang something on it." },
+      },
+      choices = { { text = "I hope you fill that hook, Korf.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     gk_zarg = {
       lines = { { id = "gk_zarg_l", text = "He says what needs saying, and that is less than most think. Zarg has stood in this hall since it was built, and he knows every champion's name and every champion's weapon." } },
       choices = {
@@ -306,6 +353,7 @@ P:NPC {
         { text = "I carry rank, grunt. Tell me of this hall.", when = { pvpRank = 6 }, next = "xofficer" },
         { text = "Stone Guard Zarg says very little.", next = "gk_zarg" },
         { text = "What happens to a grunt who falls asleep at this post?", next = "gk_sleep" },
+        { text = "What do the banners in this hall stand for?", next = "w2banner" },
         { text = "Carry on, grunt.", next = "END" },
       },
     },
@@ -391,6 +439,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2voice = {
+      lines = {
+        { id = "w2v_orc", when = { race = "Orc" }, text = "The same way you did, if you grew up behind a fence! In the camps you shouted across the yards to know who was still alive, and I never learned to stop. My mother said I could be heard from Durnholde to the sea." },
+        { id = "w2v_default", text = "In the internment camps, {class}! You shouted across the yards to learn who was still alive, and I never learned to stop. My mother said I could be heard from Durnholde to the sea." },
+      },
+      choices = {
+        { text = "Do the officers complain about it?", next = "w2voice2" },
+        { text = "It must be a useful gift in battle.", next = "w2voice2" },
+        { text = "Something else, Bek'rah.", next = "BACK" },
+      },
+    },
+    w2voice2 = {
+      lines = { { id = "w2v2_default", text = "Every single day! But when a runner comes in with bad news from Ashenvale, it's me they ask to call it down the hall, because nobody can pretend they did not hear Bek'rah. One day I will shout an order across a battlefield instead." } },
+      choices = { { text = "I believe you will.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     bk_korf = {
       lines = { { id = "bk_korf_l", text = "Korf barely speaks to anyone, {class}, and I've stopped taking it personally! He thinks a guard should be a statue, and I think a guard should be awake, and talking keeps me awake." } },
       choices = {
@@ -427,7 +490,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, {class}? I have all day and a post I cannot leave." },
-        { id = "h_again2", text = "Go on, I am listening." },
+        { id = "h_again2", text = "Speak up, {class}! I can hear you over the whole hall, so you may as well be loud as well." },
       },
       choices = {
         { text = "You'd rather be at the front.", next = "front" },
@@ -437,6 +500,7 @@ P:NPC {
         { text = "I'm a warrior. Spar with me some time.", when = { class = "WARRIOR" }, next = "xspar" },
         { text = "Korf barely speaks to you.", next = "bk_korf" },
         { text = "What do you do when your watch ends?", next = "bk_off" },
+        { text = "How did you get a voice that loud?", next = "w2voice" },
         { text = "Stand your post, grunt.", next = "END" },
       },
     },
@@ -519,6 +583,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2fish = {
+      lines = { { id = "w2f_default", text = "Me? Pal, I'm a promoter, not a fisherman, and there's a big difference in the profit margins. I tried it once off the docks in Booty Bay and caught a boot, and then the boot's owner, who was still wearing it, and he was not a happy pirate." } },
+      choices = {
+        { text = "So you sell what you can't do?", next = "w2fish2" },
+        { text = "A boot's still a catch, technically.", next = "w2fish2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2fish2 = {
+      lines = {
+        { id = "w2f2_fisher", when = { profession = "Fishing" }, text = "Exactly, and that's why I need anglers like you, pal. You catch the fish, I catch the crowd, and the Cartel catches the coin from both of us, which is how the whole sea works if you think about it." },
+        { id = "w2f2_default", text = "Sure I do, and so does every merchant on the Drag. A smith doesn't wear every sword he sells, and Grinkle doesn't have to like wet feet to sell the best contest on the coast." },
+      },
+      choices = { { text = "That's honest, for a goblin.", next = "BACK" }, { text = "Something else, Grinkle.", next = "BACK" } },
+    },
     gr_bay = {
       lines = { { id = "gr_bay_l", text = "Long way? Pal, it's a zeppelin to Grom'gol and a nice jungle stroll south, and the stroll only eats one in ten travellers, which are great odds by Stranglethorn standards. I've done it twelve times, and I've still got all my fingers, mostly." } },
       choices = {
@@ -566,6 +645,7 @@ P:NPC {
         { text = "I already fish. What does the winner actually take home?", next = "prize", when = { profession = "Fishing" } },
         { text = "Booty Bay must be a long way from here.", next = "gr_bay" },
         { text = "How many fliers have you handed out today?", next = "gr_fliers" },
+        { text = "Do you ever actually fish yourself?", next = "w2fish" },
         { text = "Not today, goblin.", next = "END" },
       },
     },
@@ -636,6 +716,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2gift = {
+      lines = {
+        { id = "w2g_tauren", when = { race = "Tauren" }, text = "You know the answer as well as I, for our grandmothers gave it to us. A telling by the fire, of a hard winter that the herd came through together, given to someone who has not heard it before." },
+        { id = "w2g_default", text = "A telling, given by the fire to someone who has not heard it before. Among my people, the best gift of the long nights is a story of a hard winter that the herd came through together." },
+      },
+      choices = {
+        { text = "Would you give me such a telling?", next = "w2gift2" },
+        { text = "A story won't fill a hungry belly, Furmund.", next = "w2gift2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2gift2 = {
+      lines = { { id = "w2g2_default", text = "A short one, then. In the winter my grandfather was born, the snow lay on Mulgore so deep the kodo could not graze, and every family on the mesa gave a little of its grain to the herd, until the grass returned to all of them at once. That is the season, friend, and it costs nothing at all." } },
+      choices = { { text = "Thank you, Furmund. I will remember it.", next = "BACK", fx = { affinity = 1 } }, { text = "Something else.", next = "BACK" } },
+    },
     fm_orcs = {
       lines = { { id = "fm_orcs_l", text = "With feasting and shouting, as they keep everything. But I have seen old orcs stand quietly at the edge of the square when the bells ring, and I think the season reminds them of winters in Alterac with the Frostwolves." } },
       choices = {
@@ -672,7 +767,7 @@ P:NPC {
         { id = "h_default", text = "I am Furmund, of Thunder Bluff. I came to share the Feast of Winter Veil with our orc brothers, and I find the goblins of Smokywood Pastures have arrived before me and put the whole season up for sale." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask of me, friend?" },
+        { id = "h_again", text = "Ask, friend. The quiet here is the only gift in this valley that no goblin has thought to put a price on." },
         { id = "h_again2", text = "Speak, and take your time. The stalls will still be shouting when we finish." },
       },
       choices = {
@@ -683,6 +778,7 @@ P:NPC {
         { text = "I am of Mulgore too. How did our elders keep the season?", next = "mulgore", when = { race = "Tauren" } },
         { text = "How do the orcs keep the season?", next = "fm_orcs" },
         { text = "The snow on the stalls isn't real, is it?", next = "fm_snow" },
+        { text = "What gift would you give, if not a goblin's?", next = "w2gift" },
         { text = "Good Winter Veil, Furmund.", next = "END" },
       },
     },
@@ -753,6 +849,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2dream = {
+      lines = {
+        { id = "w2d_druid", when = { class = "DRUID" }, text = "No more than you have, young one, and perhaps less. Only the arch druids walk the Dream in truth, and those I know have come back quieter than they went, as though something there has begun to trouble them." },
+        { id = "w2d_default", text = "No, and few in the Circle have. Only the arch druids walk the Dream in truth, and those I know have come back quieter than they went, as though something there has begun to trouble them." },
+      },
+      choices = {
+        { text = "What troubles them?", next = "w2dream2" },
+        { text = "Dreams seem a poor place to fight a war.", next = "w2dream2" },
+        { text = "Something else, Emissary.", next = "BACK" },
+      },
+    },
+    w2dream2 = {
+      lines = { { id = "w2d2_default", text = "They will not say, and a wise emissary does not press an arch druid. I tend the hurts I can see, in the sands and the hills, and leave the Dream to those whose spirits are strong enough to bear it." } },
+      choices = { { text = "Then the sands are enough work for us.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_druid", when = { class = "DRUID" }, text = "I am Blackhoof, emissary of the Cenarion Circle. You and I answer to the same teachers, young one, so I will speak plainly: the Circle is stretched thin in Silithus, and it has sent me to ask the Horde for aid." },
@@ -763,7 +874,7 @@ P:NPC {
           text = "You carry the whole of the path now, the bear and the cat and the moon, and I can feel it from here. The Circle at Cenarion Hold could use a druid like you more than it can say, and I'll say it for them." },
       },
       again = {
-        { id = "h_again", text = "What more would you know?" },
+        { id = "h_again", text = "There is more on your mind, I think. Speak it, and I will answer as the Circle would." },
         { id = "h_again2", text = "Ask, friend. A question costs the land nothing." },
       },
       choices = {
@@ -774,6 +885,7 @@ P:NPC {
         { text = "What would the Circle ask of a druid like me?", next = "d_hold", when = { class = "DRUID", minLevel = 50 } },
         { text = "Does Malfurion know what stirs in Silithus?", next = "d_stormrage", when = { class = "DRUID", minLevel = 50 } },
         { text = "Would the Circle ever take an orc or troll as a druid?", next = "d_horde", when = { race = { "Orc", "Troll" } } },
+        { text = "Have you ever walked the Emerald Dream?", next = "w2dream" },
         { text = "Walk with the Earth Mother.", next = "END" },
       },
     },

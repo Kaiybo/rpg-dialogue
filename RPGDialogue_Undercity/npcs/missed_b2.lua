@@ -27,13 +27,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_uncle = {
+      lines = {
+        { id = "w3_uncle_1", text = "He calls everyone an idler who doesn't tally crates of linen for a living. I served the Crown in my own fashion, at court and in the chapel, and I don't see why the end of the world should oblige me to start counting bandages." },
+      },
+      choices = {
+        { text = "He seems to care what becomes of you.", next = "w3_care" },
+        { text = "Some work would do you good.", next = "BACK", reply = "So my uncle says, at length, every time I pass his table. I've begun to take the long way round by the bank." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_care = {
+      lines = {
+        { id = "w3_care_1", text = "He does, in his way, which is to shout at me and then ask Selina whether I'm keeping well. I find it touching and unbearable in equal measure, and I suppose that's what family is, even down here." },
+      },
+      choices = {
+        { text = "I suppose it is. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
         { id = "h_default", key = true, text = "Reginald Grimsford. Selina, Davitt and I walk from the Magic Quarter to the Trade Quarter and back each day, because a gentleman who stops taking exercise soon stops being a gentleman, dead or otherwise." },
       },
       again = {
-        { id = "h_again", text = "Was there something further? We do have a schedule to keep." },
+        { id = "h_again", text = "Was there something further? We do have a schedule to keep, and Selina is impatient." },
         { id = "h_again2", text = "Proceed, and walk on my left, if you would." },
       },
       choices = {
@@ -41,6 +59,7 @@ P:NPC {
         { text = "What's wrong with the auction house?", next = "auction" },
         { text = "Tell me about your companions.", next = "companions" },
         { text = "What became of the house near the palace?", next = "rg_house" },
+        { text = "Your uncle the Senior Sergeant calls you an idler.", next = "w3_uncle" },
         { text = "Enjoy your walk.", next = "END" },
       },
     },
@@ -127,6 +146,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_shield = {
+      lines = {
+        { id = "w3_shield_1", text = "That's his fourth this season, and every one of them was Van Brunt work, which tells you how hard Malach's ghouls hit, not how soft our steel is. When one gives, I take it back to James and we look at where, and the next is thicker there." },
+      },
+      choices = {
+        { text = "Where do the broken shields go?", next = "w3_broken" },
+        { text = "Four shields, and he's still standing.", next = "BACK", reply = "That's the best advertising there is. I tell every customer about it, loudly." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_broken = {
+      lines = {
+        { id = "w3_broken_1", text = "To Mirelle Tremayne first, who hangs them on her post and tells everyone exactly where they failed, which I don't much care for. Then back to the forge to be melted, because good iron deserves a second life as much as we did." },
+      },
+      choices = {
+        { text = "Fair enough. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -134,13 +171,14 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Say it between bouts, if you can." },
-        { id = "h_again2", text = "Go on, I'm listening with one ear." },
+        { id = "h_again2", text = "Keep talking, I can hear you fine over this lot, and I've two good ears left, which is more than most down here." },
       },
       choices = {
         { text = "Who's the better fighter, Edward or Tyler?", next = "better" },
         { text = "You don't work the forge yourself?", next = "forge" },
         { text = "Why does Malach use human captives?", next = "captives" },
         { text = "How do you judge a blade by watching it fight?", next = "rv_judge" },
+        { text = "Edward's shield has taken a beating.", next = "w3_shield" },
         { text = "I'll leave you to the fight.", next = "END" },
       },
     },
@@ -227,6 +265,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_longest = {
+      lines = {
+        { id = "w3_longest_1", text = "The abomination, last winter, eleven minutes by the bat handler's sandglass, and I had it at nine, so I lost two coppers to Gossom and I've not forgiven it. It kept getting up because nobody had told it that it was meant to fall over." },
+      },
+      choices = {
+        { text = "Why did it last so long?", next = "w3_why" },
+        { text = "Only two coppers? Hardly a disaster.", next = "BACK", reply = "It's not the coppers, friend, it's the principle. And the principle was worth two coppers." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_why = {
+      lines = {
+        { id = "w3_why_1", text = "Malach had stitched it together from three of the big ones, I think, and gave it more instructions than usual. Edward and Tyler both had to sit down afterwards, and the rail cheered the abomination off the sand, which I'd never seen before." },
+      },
+      choices = {
+        { text = "I'd have cheered too. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -234,13 +290,14 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Keep one eye on the pit for me while you ask." },
-        { id = "h_again2", text = "Go on, the next one isn't up yet." },
+        { id = "h_again2", text = "Go on, the next one isn't up yet, and I've a copper on its knees." },
       },
       choices = {
         { text = "What's your system?", next = "system" },
         { text = "Are you kin to Christoph Walker?", next = "christoph" },
         { text = "Who do you bet against?", next = "against" },
         { text = "Did you ever win big, in life?", next = "rw_big" },
+        { text = "What's lasted longest in the pit?", next = "w3_longest" },
         { text = "Good luck with your coppers.", next = "END" },
       },
     },
@@ -324,6 +381,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_against = {
+      lines = {
+        { id = "w3_against_1", text = "Never, and I never will, friend, not if he faced the Lich King himself with a broken spoon. A man doesn't bet against his own, and Tyler's my own, whether he knows my name or not." },
+      },
+      choices = {
+        { text = "Never even been tempted?", next = "w3_tempted" },
+        { text = "That's loyalty, Gossom.", next = "BACK", reply = "It's stubbornness wearing loyalty's hat, my old mum would've said. She'd have backed Tyler too." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_tempted = {
+      lines = {
+        { id = "w3_tempted_1", text = "Once, when he came up limping and pale and the abomination came up whole. I had the coin in my hand and Riley holding his out, and then Tyler looked up at the rail and grinned, and I put it back in my pocket." },
+      },
+      choices = {
+        { text = "And he won?", next = "BACK", reply = "He won. And I've told the story to anyone who'll stand still, which is how you're hearing it now." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -331,13 +407,14 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Quick, before the next one comes up!" },
-        { id = "h_again2", text = "Go on, I'm all ears, or one ear, at least." },
+        { id = "h_again2", text = "Go on, I'm all ears, or one ear at least, the other's still ringing from the last bout." },
       },
       choices = {
         { text = "Why Tyler over Edward?", next = "tyler" },
         { text = "What do the fights accomplish?", next = "point" },
         { text = "This pit would be small by Orgrimmar's measure.", next = "orc", when = { race = "Orc" } },
         { text = "What did Tyler do in life?", next = "rb_tyler_life" },
+        { text = "Have you ever bet against Tyler?", next = "w3_against" },
         { text = "Cheer him on for me.", next = "END" },
       },
     },
@@ -422,6 +499,25 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_word = {
+      lines = {
+        { id = "w3_word_1", text = "Dozens, and my favourite means the moment, just after waking, when you forget you're dead and reach for something warm. I won't say it aloud for you, because the living always pronounce it as if it were a sneeze." },
+        { id = "w3_word_2", when = { race = "Scourge" }, text = "Dozens, and you'll know my favourite without my saying it: the moment after waking, when you forget and reach for something warm. I've catalogued nineteen ways of saying it, depending on how badly it went." },
+      },
+      choices = {
+        { text = "Nineteen ways?", next = "w3_nineteen" },
+        { text = "That's a sad word to need.", next = "BACK", reply = "It's an honest one. Gutterspeak was made by people with nothing left to be polite about." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_nineteen = {
+      lines = {
+        { id = "w3_nineteen_1", text = "One for each thing you might have reached for: a cup, a pillow, a hand, a hound. The last is the one people use most, which surprised me until I remembered how many of us kept dogs in Lordaeron." },
+      },
+      choices = {
+        { text = "I'd never have guessed. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "The Lordaeron court's archives, cataloguing letters between dead kings. I'm still cataloguing, only now the dead kings include my employer. Pierce says I never noticed I'd died, and I'm not certain he's wrong." } },
       choices = {
@@ -455,7 +551,7 @@ P:NPC {
         { id = "yh_mage", when = { class = "MAGE" }, text = "A mage. Then you won't mind if I keep reading while we talk. Pierce never does, and he's family." },
       },
       again = {
-        { id = "h_again", text = "Yes, what else? I've lost my place already, so you may as well ask." },
+        { id = "h_again", text = "Yes, what else? I've lost my place already, which is the third time this page." },
         { id = "h_again2", text = "Go on, but slowly, I'm translating as I listen." },
       },
       choices = {
@@ -465,6 +561,7 @@ P:NPC {
         { text = "It's good to hear our own tongue spoken.", next = "ours", when = { race = "Scourge" } },
         { text = "What did you study in life?", next = "ylife" },
         { text = "What's the strangest thing you've found here?", next = "ystrange" },
+        { text = "Is there a word in Gutterspeak the living don't have?", next = "w3_word" },
         { text = "I'll let you read.", next = "END" },
       },
     },
@@ -529,6 +626,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_davitt = {
+      lines = {
+        { id = "w3_davitt_1", text = "Only a small one, since he's a dear and very easy to embarrass. Every evening, when we pass the Apothecarium, he slips a copper into the hand of that ghost child, Spoops, and asks her to tell him what the rats have been saying." },
+      },
+      choices = {
+        { text = "Davitt pays a ghost for rat gossip?", next = "w3_spoops" },
+        { text = "That's rather sweet of him.", next = "BACK", reply = "Isn't it? And if you ever tell him I said so, I'll know, and I'll tell everyone what you said to the bat handler." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_spoops = {
+      lines = {
+        { id = "w3_spoops_1", text = "He says it's because he enjoys scandal at every level of society, and I think it's because she's the only one in this city who looks forward to seeing him. The rats, I'm told, are very well informed about the bank." },
+      },
+      choices = {
+        { text = "I'll keep Davitt's secret. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "A lady's maid in a noble house near the capital, the sort of servant nobody notices. I learned that the quietest person in a room hears everything. Death has only made me quieter." } },
       choices = { { text = "Something else.", next = "BACK" } },
@@ -559,7 +674,7 @@ P:NPC {
         { id = "yh_rogue", when = { class = "ROGUE" }, text = "A rogue. We're in a similar trade, you and I, though I never take anything that isn't said aloud." },
       },
       again = {
-        { id = "h_again", text = "What else would you like to know? I may even tell you." },
+        { id = "h_again", text = "What else would you like to know? I may even tell you, if it's interesting." },
         { id = "h_again2", text = "Go on, Reginald's still talking to himself." },
       },
       choices = {
@@ -570,6 +685,7 @@ P:NPC {
         { text = "Who were you in life?", next = "ylife" },
         { text = "What's the biggest secret you know?", next = "ysecret" },
         { text = "Do you sell what you hear?", next = "ysell" },
+        { text = "Tell me one of Davitt's secrets.", next = "w3_davitt" },
         { text = "Good day, Selina.", next = "END" },
       },
     },
@@ -630,6 +746,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_best = {
+      lines = {
+        { id = "w3_best_1", text = "A fisherman's daughter from Southshore, before the plague, who could hold a pike line steady when grown men were running. I made her a corporal at nineteen, and the last I heard she'd made captain of the Southshore watch." },
+      },
+      choices = {
+        { text = "Southshore's Alliance now.", next = "w3_southshore" },
+        { text = "She sounds like she'd shame your recruits.", next = "BACK", reply = "She'd shame half the Deathguard, and I've told Blaye so, which did wonders for her footwork." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_southshore = {
+      lines = {
+        { id = "w3_southshore_1", text = "It is, and so is she, and one day the Deathguard may march on that town and find her on the wall with a pike. I trained her to hold that line, {class}, and I trained her well, and I'd not want to be the one sent to break it." },
+      },
+      choices = {
+        { text = "That's a cruel turn. Something else.", next = "BACK" },
+      },
+    },
     ylife = {
       lines = { { id = "ylife_x", text = "The Lordaeron line at Hillsbrad, during the Second War, against the orcs themselves. Funny how it goes. Now I drill recruits to fight beside the folk I once fought. I'd have laughed at it, living." } },
       choices = {
@@ -666,7 +800,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Make it brisk; Partridge has stopped moving his feet again." },
-        { id = "h_again2", text = "Speak up, and keep clear of the swings." },
+        { id = "h_again2", text = "Speak up, and keep clear of the swings, Blaye's got her elbow wrong again." },
       },
       choices = {
         { text = "How are your recruits shaping up?", next = "recruits" },
@@ -675,6 +809,7 @@ P:NPC {
         { text = "Have you a word for a warrior of the Horde?", next = "warrior", when = { class = "WARRIOR" } },
         { text = "Where did you serve in life?", next = "ylife" },
         { text = "What do you fear for them?", next = "yfear" },
+        { text = "Who's the best soldier you ever trained?", next = "w3_best" },
         { text = "Carry on, Sergeant.", next = "END" },
       },
     },

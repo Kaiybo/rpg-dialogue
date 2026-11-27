@@ -44,7 +44,22 @@ P:NPC {
         { text = "Victory matters more than how you fight.", next = "x_st" },
         { text = "I'm a warrior. Would I impress you?", next = "x_wa", when = { class = "WARRIOR" } },
         { text = "Orcs and tauren fight differently.", next = "x_orc", when = { race = "Orc" } },
+        { text = "Who is the most promising young one in that ring?", next = "w5_promise" },
         { text = "I'll leave you to your watching.", next = "END" },
+      },
+    },
+    w5_promise = {
+      lines = { { id = "w5_promise_l", text = "The small one on the left, who keeps losing. She is too light for most of the others, and they knock her down, and she gets up and watches them. Every time she gets up, she has learned one more thing about how they fall." } },
+      choices = {
+        { text = "She keeps losing, and that's promising?", next = "w5_promise2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_promise2 = {
+      lines = { { id = "w5_promise2_l", text = "Losing well is the rarest gift in a warrior. Sark praises the ones who win, and they grow proud and stop learning. I watch the ones who lose and stay standing. In a season or two, she will start winning, and none of them will understand why." } },
+      choices = {
+        { text = "You watch the ones the teachers miss.", next = "BACK", reply = "That is the whole of my work. Do not tell Sark. He thinks I am only resting." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     look = {
@@ -155,7 +170,7 @@ P:NPC {
       },
       again = { { id = "h_again_x", text = "I see you are still here. Ask what you will." },
         { id = "h_again", text = "What else, {class}? I can listen and look at once." },
-        { id = "h_again2", text = "Ask, friend." },
+        { id = "h_again2", text = "Ask, friend. I will keep one eye on the plains." },
       },
       choices = {
         { text = "What can you see from here?", next = "see" },
@@ -164,7 +179,22 @@ P:NPC {
         { text = "The Venture Company must be driven out by force.", next = "x_st" },
         { text = "I'm a hunter. What should I watch for?", next = "x_hu", when = { class = "HUNTER" } },
         { text = "I'm a druid. Do you feel the land?", next = "x_dr", when = { class = "DRUID" } },
+        { text = "What have you noticed about the city today?", next = "w5_today" },
         { text = "Good watching, Kon.", next = "END" },
+      },
+    },
+    w5_today = {
+      lines = { { id = "w5_today_l", text = "The wind riders are flying low, so a storm is coming from the west. The Honor Guard on the east bridge has a new spear, and he is not used to the weight. And there is a Grimtotem on the Elder Rise who has looked at the High Chieftain's lodge five times since dawn." } },
+      choices = {
+        { text = "Should someone be told about the Grimtotem?", next = "w5_today2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_today2 = {
+      lines = { { id = "w5_today2_l", text = "Someone has been told. I told a Bluffwatcher, and he told me that a Grimtotem may look where he likes. That is true. I will keep watching, because a hunter who has noticed something and stops watching it is no hunter at all." } },
+      choices = {
+        { text = "Keep watching, then. I'll keep my eyes open too.", next = "BACK", reply = "Good. Watch the left side, as I told you. That is where most things come from." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     see = {
@@ -287,7 +317,23 @@ P:NPC {
         { text = "The dead should be left in peace.", next = "x_st" },
         { text = "I'm Forsaken. Will you remember me?", next = "x_fs", when = { race = "Scourge" } },
         { text = "I'm a shaman. Do the spirits speak to you?", next = "x_sh", when = { class = "SHAMAN" } },
+        { text = "What do the Forsaken who come to the Pools ask of you?", next = "w5_ask" },
         { text = "Walk with the Earth Mother, Pawe.", next = "END" },
+      },
+    },
+    w5_ask = {
+      lines = { { id = "w5_ask_l", text = "Most ask nothing. A few ask me to say their names aloud, the names they had when they were alive. They tell me, and I say them, once, and they listen as if they had not heard them in a very long time." } },
+      choices = {
+        { text = "Why does that matter to them?", next = "w5_ask2" },
+        { text = "Will you say my old name? I'll tell you it.", next = "BACK", when = { race = "Scourge" }, reply = "Tell me, then, and I will say it as gently as my grandmother said mine." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_ask2 = {
+      lines = { { id = "w5_ask2_l", text = "I think because no one else will. The living who knew those names are gone or are afraid of them. A name spoken in kindness is a small thing to give. My family feeds the living with bread. I feed the dead with this." } },
+      choices = {
+        { text = "That's a kind of tending only you could do.", next = "BACK", reply = "Perhaps. My mother says I am the strangest Mistrunner. I think that is a compliment." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dead = {
@@ -404,7 +450,7 @@ P:NPC {
       },
       again = { { id = "h_again_x", text = "Ask, friend, and I will listen with both ears." },
         { id = "h_again", text = "What else, {class}? The drums can wait, for they are patient things." },
-        { id = "h_again2", text = "Ask, friend." },
+        { id = "h_again2", text = "Ask, friend, and I will tap a drum for an answer." },
       },
       choices = {
         { text = "What goes into a good drum?", next = "drum" },
@@ -414,7 +460,22 @@ P:NPC {
         { text = "Drums should call warriors to battle.", next = "x_st" },
         { text = "I'm a leatherworker. Could I help?", next = "x_lw", when = { profession = "Leatherworking" } },
         { text = "Are there drums for the shamans?", next = "x_sh", when = { class = "SHAMAN" } },
+        { text = "What happens to a drum that no longer speaks truly?", next = "w5_old" },
         { text = "May they always speak truly.", next = "END" },
+      },
+    },
+    w5_old = {
+      lines = { { id = "w5_old_l", text = "I listen to it for a whole moon before I decide. Sometimes a drum is only tired, and rests, and speaks again. Sometimes the hide has gone deaf, and I take it off and give it back to the Earth Mother, and stretch a new one on the old frame." } },
+      choices = {
+        { text = "The frame is kept?", next = "w5_old2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_old2 = {
+      lines = { { id = "w5_old2_l", text = "Always. The frame remembers every council it has called. Some of the frames on the Elder Rise are older than the city, carried from camp to camp when we were still wanderers. The hide is the voice. The frame is the memory." } },
+      choices = {
+        { text = "A drum is a tribe, then. New voices on old bones.", next = "BACK", reply = "Yes. That is what my grandmother said. You have a drum-maker's ear." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     drum = {
@@ -544,7 +605,22 @@ P:NPC {
         { text = "A guard should never hope for trouble.", next = "x_st" },
         { text = "I'm a hunter too.", next = "x_hu", when = { class = "HUNTER" } },
         { text = "Tauren shouldn't guard goblin coin.", next = "x_ta", when = { race = "Tauren" } },
+        { text = "What's the dullest part of guarding the bank?", next = "w5_dull" },
         { text = "I'll leave you to your round.", next = "END" },
+      },
+    },
+    w5_dull = {
+      lines = { { id = "w5_dull_l", text = "The goblins who come to deposit their coin and then come back an hour later to see if it is still there. And then an hour after that. I have walked past one of them eleven times in a single afternoon, and he looked at me as though I were the thief." } },
+      choices = {
+        { text = "Doesn't that try your patience?", next = "w5_dull2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_dull2 = {
+      lines = { { id = "w5_dull2_l", text = "It tries everything I have. But Cairne asks it, and a hunter who cannot wait is no hunter. I tell myself the goblin is a centaur, and I am waiting in the long grass for him to do something foolish. He never does. That is the worst of it." } },
+      choices = {
+        { text = "Keep waiting. One day he'll try something.", next = "BACK", reply = "I hope so. I have been very patient." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     bank = {
@@ -665,7 +741,22 @@ P:NPC {
         { text = "Wind is only wind. Trust your eyes.", next = "x_st" },
         { text = "I'm a shaman. The winds talk to me.", next = "x_sh", when = { class = "SHAMAN" } },
         { text = "I'm tauren. Teach me to listen.", next = "x_ta", when = { race = "Tauren" } },
+        { text = "Has the wind ever warned you of something nobody else saw?", next = "w5_warned" },
         { text = "Fair winds, hunter.", next = "END" },
+      },
+    },
+    w5_warned = {
+      lines = { { id = "w5_warned_l", text = "Once. A smell of smoke on a morning with no fires. I followed it to the edge of the bluff and saw that a grass fire had started near Bloodhoof, down where no one was looking. The runners got there before it reached the village." } },
+      choices = {
+        { text = "And nobody else noticed it?", next = "w5_warned2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_warned2 = {
+      lines = { { id = "w5_warned2_l", text = "They would have, in time. But time is the thing fire does not give. That is why I walk the bridges with my head tilted. The others think I am listening for poetry. I am only listening for the next fire." } },
+      choices = {
+        { text = "Then the bridges are safer for your tilted head.", next = "BACK", reply = "Perhaps. Hold the rope, friend, the wind is turning again." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     wind = {
@@ -786,7 +877,22 @@ P:NPC {
         { text = "A hunter's place is the plains, not a city.", next = "x_st" },
         { text = "I'm a hunter. Any advice?", next = "x_hu", when = { class = "HUNTER" } },
         { text = "Night elves are hunters too.", next = "x_ne", when = { race = "NightElf" } },
+        { text = "Which plank on these walkways creaks the loudest?", next = "w5_plank" },
         { text = "Good hunting, Thunderhorn.", next = "END" },
+      },
+    },
+    w5_plank = {
+      lines = { { id = "w5_plank_l", text = "The third one from the end of the west bridge, by the lift. It has creaked since the city was built, and the carpenters have replaced it four times. Each new one creaks just the same. The Thunderhorn say it is a spirit who likes to be noticed." } },
+      choices = {
+        { text = "Do you believe that?", next = "w5_plank2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_plank2 = {
+      lines = { { id = "w5_plank2_l", text = "I believe it creaks, and I believe nobody can sneak across that bridge without being heard. If it is a spirit, it is a good guard. I step on it every round, so it knows I have not forgotten it." } },
+      choices = {
+        { text = "A plank that stands watch. I'll step lightly.", next = "BACK", reply = "Do not step lightly. Step on it, and say good morning." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     after = {

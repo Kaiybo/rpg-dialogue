@@ -65,7 +65,25 @@ P:NPC {
         { text = "These walls look sturdy enough.", next = "walls" },
         { text = "What happened during the siege?", next = "siege" },
         { text = "Ironforge would build it differently, wouldn't it?", next = "dwarf", when = { race = "Dwarf" } },
+        { text = "Who helps you build all this?", next = "w9_help" },
         { text = "I'll let you work.", next = "END" },
+      },
+    },
+
+    w9_help = {
+      lines = { { id = "w9_help_d", text = "Thaddeus Brillyard, when he's no' busy wi' his own work, an' whatever soldiers the Commander lets me borrow on their rest days. Half o' them cannae tell mortar from porridge, but they carry stone well enough, an' I teach 'em the rest while they grumble." } },
+      choices = {
+        { text = "Are any of them any good?", next = "w9_help2" },
+        { text = "Sounds like a hard school.", next = "w9_help2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_help2 = {
+      lines = { { id = "w9_help2_d", text = "One lass from the Brotherhood's stables has the hands for it, an' I've half a mind tae make her my apprentice when the war's done. Don't tell her yet, mind, for she'll get proud, an' a proud mason builds crooked walls." } },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK", reply = "Good. Now grab that bucket, since ye're standin' about." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

@@ -35,6 +35,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_trbl = {
+      lines = { { id = "w8_trbl_a", text = "A wolf from the Frostwolf lands, brought down by a hunter who went south into the Blasted Lands and hasn't come back for it. He hates the wet, he hates the frogs, and he howls every night at a moon he can't see through the mist." } },
+      choices = {
+        { text = "Will the hunter come back?", next = "w8_trbl2" },
+        { text = "Poor beast.", next = "w8_trbl2" },
+        { text = "I'm a hunter. Would he come with me?", next = "w8_trbl2", when = { class = "HUNTER" } },
+        { text = "Something else, Hekkru.", next = "BACK" },
+      },
+    },
+    w8_trbl2 = {
+      lines = {
+        { id = "w8_trbl2_a", text = "I've stopped expecting it, but I feed the wolf as though he will, because a beast knows when you've given up on its master. If nobody comes by the next new moon, I'll send him north with the riders to Kargath, where at least it's dry." },
+        { id = "w8_trbl2_hu", when = { class = "HUNTER" }, text = "He'd go with nobody, I think, not while he's still waiting. But sit by his pen a while, hunter, and talk to him, because he's lonely, and a beast that's lonely gets sick in this swamp." },
+      },
+      choices = {
+        { text = "I hope his master returns.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_dd_crocs", when = { killed = { name = "Sawtooth", min = 30 } },
@@ -59,6 +79,7 @@ P:NPC {
         { text = "Do you think beasts belong in war?", next = "war" },
         { text = "Why do tauren calm the beasts, do you think?", next = "xtauren", when = { race = "Tauren" } },
         { text = "My beast has never been ill a day in its life.", next = "xhunter", when = { class = "HUNTER" } },
+        { text = "Which beast in your stables gives you the most trouble?", next = "w8_trbl" },
         { text = "I'll leave you to the pens.", next = "END" },
       },
     },
@@ -320,6 +341,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_odd = {
+      lines = { { id = "w8_odd_a", text = "A warlock wanted forty yards of black silk and a bushel of salt, and paid in advance, which nobody does. I didn't ask, and two days later the mist over the town turned purple for an evening, and I still didn't ask." } },
+      choices = {
+        { text = "Was it Greshka's doing?", next = "w8_odd2" },
+        { text = "Some questions aren't worth asking.", next = "w8_odd2" },
+        { text = "I'm a tailor. Forty yards of silk is a fortune.", next = "w8_odd2", when = { profession = "Tailoring" } },
+        { text = "Something else, Banalash.", next = "BACK" },
+      },
+    },
+    w8_odd2 = {
+      lines = {
+        { id = "w8_odd2_a", text = "I don't name names, as I've said, but the ledger says the coin was warm and smelled of brimstone. A trader learns which questions cost money and which cost more than money, and I never ask the second kind." },
+        { id = "w8_odd2_tl", when = { profession = "Tailoring" }, text = "It was, and I'd have charged double if I'd known what it was for. Next time a buyer wants silk by the forty yards, I'll send them to you, and you can find out what the purple was." },
+      },
+      choices = {
+        { text = "I'll stay out of it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     ban_cr1 = {
       lines = {
         { id = "ban_cr1_1", text = "I do, because what a body buys tells you more than what they say. Thralosh buys thread by the spool and complains about every spool, Gharash buys flux and never complains about anything, and Rogvar's alchemists buy empty vials as if they meant to bottle the whole swamp." },
@@ -387,6 +428,7 @@ P:NPC {
         { text = "Does your thread really hold up in the damp?", next = "xtailor", when = { profession = { "Tailoring", "Leatherworking" } } },
         { text = "You know every crafter in Stonard by their purchases.", next = "ban_cr1" },
         { text = "The caravans pass through some rough country.", next = "ban_car1" },
+        { text = "What's the strangest order you've ever filled?", next = "w8_odd" },
         { text = "I'll be on my way.", next = "END" },
       },
     },

@@ -47,7 +47,7 @@ P:NPC {
         { id = "h_dd_ogres", tags = { "news" }, when = { questDone = TODO_QUEST("The Ogres of Feralas") }, text = "Rok Orhan says you broke the Gordunni outpost for him. Ogres are fine work, but don't forget there are tauren in those hills who need killing more." },
       },
       again = {
-        { id = "h_again", text = "What else? Be quick about it." },
+        { id = "h_again", text = "What else? Out with it, {class}; I've horns to count and a report for Belgrom that won't write itself." },
         { id = "h_again2", text = "More questions? Fine, but make them good ones; I've a camp to guard." },
       },
       choices = {
@@ -57,7 +57,36 @@ P:NPC {
         { text = "How do the tauren here feel about this?", next = "camp" },
         { text = "Give me the bounty.", next = "BUSINESS" },
         { text = "Rok Orhan has me fighting ogres. Is that a problem?", next = "dd_ogres", when = { questDone = TODO_QUEST("The Ogres of Feralas") } },
+        { text = "How did you come to serve Belgrom?", next = "w7_belgrom" },
         { text = "I'll go.", next = "END" },
+      },
+    },
+    w7_belgrom = {
+      lines = {
+        { id = "w7_belgrom_l1", text = "He found me in the camps, a grunt with nothing left but my fists, and when Thrall broke us out, Belgrom said he needed orcs who could follow an order without arguing. I've followed his ever since." },
+      },
+      choices = {
+        { text = "Do you ever argue?", next = "w7_belgrom2" },
+        { text = "Following blindly is dangerous.", next = "w7_belgrom3" },
+        { text = "Something else, Krueg.", next = "BACK" },
+      },
+    },
+    w7_belgrom2 = {
+      lines = {
+        { id = "w7_belgrom2_l1", text = "Once, about sending me here instead of back to the Barrens. He let me speak, then sent me anyway, and he was right, because here I am with a sack of Grimtotem horns and a story for the Warchief." },
+        { id = "w7_belgrom2_l2", when = { race = "Orc" }, text = "Once, and you know how that goes with an old warrior like Belgrom. He let me say my piece, then sent me anyway. Lok'tar, I respect him more for it; a leader who changes his orders for every grunt's grumble isn't a leader." },
+      },
+      choices = {
+        { text = "He sounds like a good commander.", next = "BACK", reply = "He is. Hard, but good. Like a decent axe." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_belgrom3 = {
+      lines = {
+        { id = "w7_belgrom3_l1", text = "Not blindly. I watch. But a Horde where every grunt argues every order is a Horde that loses, and I saw enough losing in the camps." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     dd_ogres = {
@@ -343,7 +372,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm Shyn, and these are the riders of Camp Mojache. They'll carry you to Thunder Bluff, Freewind, or wherever else the Horde has a perch." },
         { id = "h_dd_fall", when = { deathCause = "falling" }, text = "You fell to your death somewhere, I can see it in how tightly you grip the saddle straps. My riders don't drop anyone who holds on, so hold on, and you'll never have that trouble from the sky." },
       },
-      again = { { id = "h_again", text = "Anything else before you fly?" } },
+      again = { { id = "h_again", text = "Anything else before you fly? Ask quick, this one's starting to shake her wings and you'll want to be standing back." } },
       choices = {
         { text = "The wind riders bind the Horde together.", next = "BACK", reply = "They do. Without them, the camps would be very lonely.", fx = { align = { order = 1 } } },
         { text = "Wind riders are just beasts to carry cargo.", next = "BACK", reply = "Tell them that, and see how far they carry you.", fx = { align = { order = -1 } } },
@@ -355,7 +384,36 @@ P:NPC {
         { text = "Do you miss Mulgore?", next = "mulgore", when = { race = "Tauren" } },
         { text = "Your riders don't seem to like me.", next = "fk", when = { race = "Scourge" } },
         { text = "Could a hunter tame a wind rider?", next = "hunter", when = { class = "HUNTER" } },
+        { text = "What do you name your riders?", next = "w7_names" },
         { text = "Farewell, Shyn.", next = "END" },
+      },
+    },
+    w7_names = {
+      lines = {
+        { id = "w7_names_l1", text = "After the weather, mostly, since it rains so much here. That's Drizzle, and that's Downpour, and that grumpy one at the end is Mist, because she's never where you think she is." },
+      },
+      choices = {
+        { text = "Which is your favourite?", next = "w7_names2" },
+        { text = "Riders don't need names.", next = "w7_names3" },
+        { text = "Something else, Shyn.", next = "BACK" },
+      },
+    },
+    w7_names2 = {
+      lines = {
+        { id = "w7_names2_l1", text = "Drizzle, though don't tell the others. She's the slowest flier I have, but she's never once dropped a passenger, and she brings me fish from Wildwind Lake as a present." },
+        { id = "w7_names2_l2", when = { race = "Tauren" }, text = "Drizzle, and you'll understand why: she's slow and steady as a good kodo. My mother would have called her a herd-heart. She brings me fish from the lake, which no rider in Mulgore ever did." },
+      },
+      choices = {
+        { text = "She sounds lovely.", next = "BACK", reply = "She is, though she smells of fish most days." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_names3 = {
+      lines = {
+        { id = "w7_names3_l1", text = "Everything that carries you deserves a name. You'd want one too, if you spent your life flying strangers over the Gordunni." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     danger = {

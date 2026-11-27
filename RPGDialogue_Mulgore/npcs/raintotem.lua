@@ -52,7 +52,36 @@ P:NPC {
         { text = "The spirits here must speak to you.", next = "spirits", when = { class = { "SHAMAN", "PRIEST", "DRUID" } } },
         { text = "How can I help the honored dead?", next = "BUSINESS" },
         { text = "Seer Graytongue says I have finished the Rites.", next = "dd_rites", when = { questDone = TODO_QUEST("Rites of the Earthmother") } },
+        { text = "Who will keep the names after you?", next = "w7_heir" },
         { text = "Rest well, Lorekeeper.", next = "END" },
+      },
+    },
+    w7_heir = {
+      lines = {
+        { id = "w7_heir_l1", text = "I do not know, and it troubles me more than the quilboar. I have had three apprentices, and one went to the Barrens to fight, one went to Thunder Bluff to learn the ways of the shaman, and one could not bear the dead." },
+      },
+      choices = {
+        { text = "Could you teach someone now?", next = "w7_heir2" },
+        { text = "The names will survive in stone.", next = "w7_heir3" },
+        { text = "Something else, Lorekeeper.", next = "BACK" },
+      },
+    },
+    w7_heir2 = {
+      lines = {
+        { id = "w7_heir2_l1", text = "If someone came who would sit with me for a season and learn the names by heart, yes. It is not hard work, only patient work, and patience is rarer in the young than courage." },
+        { id = "w7_heir2_l2", when = { race = "Tauren" }, text = "If you would sit with me for a season, yes. I see a little patience in you, young one. Come back when your road allows, and I will teach you the first ten names, and you will see if you can carry them." },
+      },
+      choices = {
+        { text = "Perhaps someday.", next = "BACK", reply = "The dead are patient. I will try to be." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_heir3 = {
+      lines = {
+        { id = "w7_heir3_l1", text = "Some of them, carved. But a name in stone is only a mark. A name in a living mouth is a person remembered." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     dd_rites = {

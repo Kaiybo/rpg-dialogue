@@ -704,7 +704,25 @@ P:NPC {
         { text = "Do your wind riders carry many warriors?", next = "xwarcl", when = { class = "WARRIOR", faction = "Horde" } },
         { text = "Do your riders really bite hunters' beasts?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Will your riders carry a Forsaken paladin, Gorrik?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "How many riders do you keep here?", next = "w9_count" },
         { text = "Not today.", next = "END" },
+      },
+    },
+
+    w9_count = {
+      lines = { { id = "w9_count_d", text = "Six, and each one bites differently. The old grey one, Skarr, has flown for the Horde since the Warchief's first winter in Durotar, and she's the only rider in Kargath I'd trust to fly through the smoke of the Steppes without me." } },
+      choices = {
+        { text = "What makes Skarr so good?", next = "w9_count2" },
+        { text = "Do they all bite?", next = "w9_count2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_count2 = {
+      lines = { { id = "w9_count2_d", text = "She's seen everything twice and she's not impressed by any of it, which is what you want over Blackrock. When she's too old to fly, I'll keep her in the shade and feed her the best meat in Kargath, and anyone who argues can argue with her teeth." } },
+      choices = {
+        { text = "She's earned it.", next = "BACK", reply = "She has. Don't tell her I said so; she'll get worse." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     heat = {
@@ -857,7 +875,7 @@ P:NPC {
           text = "Jarkal's shelves are full again, and he says you filled them. A full shelf means fewer grunts coming to me begging for something to put on a burn." },
       },
       again = {
-        { id = "h_again", text = "What else? I've got stock to count." },
+        { id = "h_again", text = "What else? Ask, and watch the shelves while you do; I know every waterskin on them." },
         { id = "h_again2", text = "Still here? Then buy something, or ask something." },
       },
       choices = {
@@ -872,7 +890,25 @@ P:NPC {
         { text = "Your stores must go missing now and then.", next = "xrogue", when = { class = "ROGUE", faction = "Horde" } },
         { text = "Why shouldn't I waste arrows on buzzards, Grawl?", next = "xhuntcl", when = { class = "HUNTER", faction = "Horde" } },
         { text = "Does a Forsaken paladin need your supplies, Grawl?", next = "xfpala", when = { class = "PALADIN", faction = "Horde" } },
+        { text = "Who's this Jarkal you mention?", next = "w9_jarkal" },
         { text = "Nothing today.", next = "END" },
+      },
+    },
+
+    w9_jarkal = {
+      lines = { { id = "w9_jarkal_d", text = "Jarkal Mossmeld, who keeps the other stores in Kargath and thinks his shelves are more important than mine. He buys from the Gorge road too, so when a caravan comes in, we both stand at the gate and pretend we aren't racing each other to the first crate." } },
+      choices = {
+        { text = "Who usually wins?", next = "w9_jarkal2" },
+        { text = "Why not share the caravan?", next = "w9_jarkal2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_jarkal2 = {
+      lines = { { id = "w9_jarkal2_d", text = "He does, because he's younger, but I count faster, so I know what he took before he's finished taking it. We grumble at each other all day, and when the coyotes came over the wall last winter, he stood at my door with an axe, so I don't grumble too loud." } },
+      choices = {
+        { text = "A good neighbour, then.", next = "BACK", reply = "Don't tell him that. He'll want a discount." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     supplies = {

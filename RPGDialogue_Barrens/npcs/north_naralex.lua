@@ -39,7 +39,7 @@ P:NPC {
         { id = "h_erad_done", tags = { "news" }, when = { questRecent = { TODO_QUEST("Deviate Eradication"), days = 3 } }, text = "The caverns are quieter, and I thank you. It won't last, because the nightmare breeds them faster than we can thin them, but quiet is a gift down here." },
       },
       again = {
-        { id = "h_again", text = "What else would you ask?" },
+        { id = "h_again", text = "Ask, then. Talking keeps me from listening to the caverns." },
         { id = "h_again2", text = "Ask, but keep your voice down." },
       },
       choices = {
@@ -50,7 +50,23 @@ P:NPC {
         { text = "What do you need done?", next = "BUSINESS" },
         { text = "Who else keeps the watch here with you?", next = "watch" },
         { text = "The oases nearby have gone strange as well.", next = "oases" },
+        { text = "How do you keep faith, when the dream has gone so wrong?", next = "w5_faith" },
         { text = "I'll leave you to your watch.", next = "END" },
+      },
+    },
+    w5_faith = {
+      lines = { { id = "w5_faith_l", text = "Some days I do not. Some days I sit here and think that the beasts below are Naralex's dream, and that we were fools to follow it. Then a fawn comes to the oasis that is not twisted, that is only a fawn, and I remember what he meant us to do." } },
+      choices = {
+        { text = "Is hope enough to keep you here?", next = "w5_faith2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_faith2 = {
+      lines = { { id = "w5_faith2_l", text = "Hope and stubbornness. My friends who turned believed too, and when the dream soured, they let it take them. I will not. If Naralex wakes, he will need someone who did not change, to show him what the Barrens were meant to be." } },
+      choices = {
+        { text = "Hold on to hope. It is what the Fang lost.", next = "BACK", reply = "Yes. That is it exactly. Thank you for saying it aloud.", fx = { align = { light = 1 } } },
+        { text = "Faith in a dream that turned on you is foolishness.", next = "BACK", reply = "Perhaps it is. But foolishness is a kind of loyalty, and I have little else left.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     naralex = {

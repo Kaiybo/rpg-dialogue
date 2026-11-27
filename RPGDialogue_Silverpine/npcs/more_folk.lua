@@ -30,6 +30,25 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_isles = {
+      lines = {
+        { id = "w3_isles_1", text = "Every mornin', mon, when de fog come in off de lake instead of de sun off de sea. Silverpine be cold and grey and full of wolves, and Tiev's toes never warm up, but de water here need help, and de loa don't send you where it be comfortable." },
+        { id = "w3_isles_2", when = { race = "Troll" }, text = "Every mornin', brotha, and you know how it be. De fog come in where de sun ought to, and de toes never warm, but de loa don't send us where it be comfortable, ya?" },
+      },
+      choices = {
+        { text = "What would you do first, back home?", next = "w3_home" },
+        { text = "Sen'jin's waters remember us, wherever we walk.", next = "BACK", when = { race = "Troll" }, reply = "Dat be true, and dat be a fine thing to say. Tiev will carry it back to de Isles, when Tiev goes." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_home = {
+      lines = {
+        { id = "w3_home_1", text = "Sit in de surf at Sen'jin Village till Tiev's whole body be warm, and eat a whole fish dat nobody poisoned first. Then Tiev tell everybody about de dead people in de wet woods, and nobody believe a word, and Tiev laugh." },
+      },
+      choices = {
+        { text = "I'd believe you. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -49,6 +68,7 @@ P:NPC {
         { text = "What's a water sapta?", next = "sapta", when = { class = "SHAMAN" } },
         { text = "A troll, alone among the Forsaken.", next = "forsaken" },
         { text = "Why do you talk about yourself like that?", next = "name" },
+        { text = "Do you miss the Echo Isles, out here?", next = "w3_isles" },
         { text = "Walk with the spirits, Tiev.", next = "END" },
       },
     },

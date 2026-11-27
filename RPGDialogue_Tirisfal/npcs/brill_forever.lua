@@ -52,7 +52,7 @@ P:NPC {
           text = "One of our living allies, come to speak with a dead woman about the Light. I'm glad of it, because it means you don't think the question is foolish." },
       },
       again = {
-        { id = "h_again", text = "What else is on your mind?" },
+        { id = "h_again", text = "Anything more you'd like to work through? Take your time over it." },
         { id = "h_again2", text = "Ask what you need to. I have time, and the Light has patience." },
       },
       choices = {
@@ -275,6 +275,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_worst = {
+      lines = {
+        { id = "w3_worst_1", text = "Spider soup, with the legs left in for texture, which I thought was a clever touch until a troll held one up and asked whether it was meant to be looking at him. He ate the lot anyway and said it was the best thing in Brill, and I've never known whether he was being kind." },
+      },
+      choices = {
+        { text = "Did you make it again?", next = "w3_again" },
+        { text = "Trolls are hard to read.", next = "BACK", reply = "They are, and they enjoy it, I think. He tipped me a copper and winked, and I've been puzzling over that wink for a month." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_again = {
+      lines = {
+        { id = "w3_again_1", text = "Once more, without the legs, and the orcs complained that it had lost its character. So now I serve the legs on the side, in a little bowl, and everyone's happy, and I'm told it's become something of a dare at the Gallows' End." },
+      },
+      choices = {
+        { text = "That's good business. Something else.", next = "BACK" },
+      },
+    },
     d2_renee = {
       lines = {
         { id = "d2_renee_1", text = "She does, and she runs it the way I'd run a kitchen if anyone let me, with a list for everything and a place for every key. She lets me have the hearth and doesn't ask why I'm forever adding pepper, and I've never had a kinder employer, living or otherwise." },
@@ -344,7 +362,7 @@ P:NPC {
           text = "Cooking is a lifelong pursuit, and I see we share the same passion! What can I teach you today?" },
       },
       again = {
-        { id = "h_again", text = "Anything else? The stew won't stir itself, but it can wait a moment." },
+        { id = "h_again", text = "Anything else? The stew won't stir itself, but it's patient, and so am I." },
       },
       choices = {
         { text = "A cook should serve his food as he'd want it served to him.", next = "BACK", reply = "Even though I can't taste it, I try! Cooking for others is the honest pleasure I've got left.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -357,6 +375,7 @@ P:NPC {
         { text = "Innkeeper Renee runs a busy house.", next = "d2_renee" },
         { text = "Where do you get meat, in Brill?", next = "d2_meat" },
         { text = "Do you cook for the dwarf in the cellar?", next = "d2_dwarf" },
+        { text = "What's the worst dish you ever served?", next = "w3_worst" },
         { text = "Goodbye, William.", next = "END" },
       },
     },
@@ -413,7 +432,7 @@ P:NPC {
   topics = {
     background = { { id = "tp_bg", text = "I cooked before I died, and I cook now. Some things the grave doesn't take from you, so long as you don't let it." } },
     advice = { { id = "tp_ad", text = "Never leave a fire unattended in Tirisfal. The damp puts it out, or the Scarlets see it, and either way you've lost your supper." } },
-    _none = { { id = "tp_none", text = "Couldn't tell you, friend. Ask me about a stew." } },
+    _none = { { id = "tp_none", text = "Couldn't tell you, friend, but ask me what goes in a proper Tirisfal stew and you'll not get me to stop." } },
   },
 }
 
@@ -447,6 +466,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_interesting = {
+      lines = {
+        { id = "w3_interesting_1", text = "Ratslin Maime, without question, and it galls me to say it, because he's the only one in town who hears more than I do. We've never spoken a word to each other, but we nod across the square like two cats on opposite walls." },
+      },
+      choices = {
+        { text = "Why not pool what you know?", next = "w3_pool" },
+        { text = "Marion Call might give him a run.", next = "BACK", reply = "Marion hears what's said in the inn. Ratslin hears what's said everywhere else. I hear what's said about both of them." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_pool = {
+      lines = {
+        { id = "w3_pool_1", text = "Because then one of us would have to admit the other was better at it, and neither of us is ready for that. Besides, half the fun of Brill is wondering what he knows that I don't." },
+      },
+      choices = {
+        { text = "I'll keep out of it. Something else.", next = "BACK" },
+      },
+    },
     street = {
       lines = {
         { id = "st_default", text = "Every one, and who's behind it. Mrs. Winters has the general goods and her husband Abe has the armor, and they wave to each other across the road at noon as if they'd been parted for a year. Abigail Shiel next along would sell you the wave, if she could bottle it." },
@@ -502,7 +539,7 @@ P:NPC {
           text = "A paladin, in Brill, walking about as bold as you please. I'd have thought that impossible a year ago, and now there's a trainer for you by the town hall." },
       },
       again = {
-        { id = "h_again", text = "Anything else you'd like to know about the neighbours?" },
+        { id = "h_again", text = "Anything else you'd like to know about the neighbours? I've a new one to tell you about." },
         { id = "h_again2", text = "Go on, I've the whole street to watch and I can still spare you an ear." },
         { id = "h_again3", text = "What else? Ask quickly, somebody's just come out of the town hall looking guilty." },
       },
@@ -514,6 +551,7 @@ P:NPC {
         { text = "You must know every door on this street.", next = "street" },
         { text = "Where do you watch from, Angie?", next = "spot" },
         { text = "What does Brill say about my kind, Angie?", next = "horde", when = { race = { "Orc", "Troll", "Tauren" } } },
+        { text = "Who's the most interesting person in Brill?", next = "w3_interesting" },
         { text = "Goodbye, Angie.", next = "END" },
       },
     },

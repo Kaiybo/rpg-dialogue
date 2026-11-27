@@ -60,6 +60,7 @@ P:NPC {
         { text = "I've seen fel moss on the grells and furbolgs too.", next = "felmoss", when = { any = { { questDone = TODO_QUEST("Gnarlpine Corruption") }, { topicKnown = "fel_moss" } } } },
         { text = "What do you need?", next = "BUSINESS" },
         { text = "The Archdruid says the tree is young, and will heal.", next = "ne_fandral", when = { race = "NightElf" } },
+        { text = "What do you do after you burn them?", next = "w_after" },
         { text = "Goodbye, Rellian.", next = "END" },
       },
     },
@@ -159,6 +160,25 @@ P:NPC {
       choices = {
         { text = "Then we should tell him plainly, and keep telling him.", next = "BACK", reply = "Denalan does, every season, and gets very little thanks. Perhaps it will sound different from you.", fx = { align = { order = -1 } } },
         { text = "Trust the Archdruid. He grew it; he'll mend it.", next = "BACK", reply = "I do trust him. I only wish trust made the timberlings any less sick.", fx = { align = { order = 1 } } },
+      },
+    },
+    w_after = {
+      lines = {
+        { id = "w_after_default", text = "I plant an acorn in the ashes, once they have cooled, and I mark the place with a white stone. Most of the acorns never come up, because the soil there is too tired. A few do, and I go to see those very often." },
+      },
+      choices = {
+        { text = "Why plant in the ashes?", next = "w_after2" },
+        { text = "That's a gentle thing to do.", next = "w_after2" },
+      },
+    },
+    w_after2 = {
+      lines = {
+        { id = "w_after2_default", text = "Because I would rather end each burning with a beginning, even a small one, even one that fails. Denalan says it is sentiment and not druidry, and then I caught him doing the same by the lake, so I know he does not quite believe it." },
+        { id = "w_after2_w1", when = { class = "DRUID" }, text = "You walk the Circle's path, so you know the old teaching that nothing in the forest ends. I am only trying to hurry it along a little." },
+      },
+      choices = {
+        { text = "Hope is worth planting.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Rellian.", next = "BACK" },
       },
     },
   },

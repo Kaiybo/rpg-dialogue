@@ -237,7 +237,7 @@ P:NPC {
           text = "They don't realise that they're dead. They're cursed to relive the last memory they had before the town was eaten alive from the inside out, most of them, anyway. Some were less fortunate." },
       },
       again = {
-        { id = "h_again", text = "Still here? Ask, then." },
+        { id = "h_again", text = "Still here? Then ask, and mind you don't frighten what's left of the fish." },
         { id = "h_again2", text = "What else?" },
         { id = "h_again3", text = "Say it, then. The line's not going anywhere." },
       },
@@ -249,7 +249,26 @@ P:NPC {
         { text = "Tell me about the day it happened.", next = "day" },
         { text = "I've been inside Scholomance.", next = "inside", when = { deed = "dungeon:Scholomance" } },
         { text = "I'm dead too, Rory. It can be borne.", next = "dead", when = { race = "Scourge" } },
+        { text = "What would let you rest, Rory?", next = "w9_rest" },
         { text = "I'll leave you be.", next = "END" },
+      },
+    },
+
+    w9_rest = {
+      lines = { { id = "w9_rest_d", text = "Somebody making them pay for it, the ones who sold us, and the thing in that school that made us into what we are. Marduke's been building his case at the school door since before the rest of us knew we were dead, and if he ever gets his verdict, maybe I'll put the rod down." } },
+      choices = {
+        { text = "Marduke's case is the right way.", next = "w9_rest2" },
+        { text = "Justice won't bring the town back.", next = "w9_rest2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_rest2 = {
+      lines = { { id = "w9_rest2_d", text = "No, it won't, and I know it better than you. But a fisherman spends his whole life waiting for a pull on the line, and I'd like to feel one more before I go, even if it's only the sound of that lich screaming." } },
+      choices = {
+        { text = "Then I'll go and make him scream.", next = "BACK", fx = { align = { light = -1 } }, reply = "Do that, and I'll cast one last line in your honour." },
+        { text = "Let go of the hate, and rest.", next = "BACK", fx = { align = { light = 1 } }, reply = "Easy said by someone with a heart still beating in them." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     scourge = {
@@ -381,7 +400,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? These bins won't empty themselves." },
-        { id = "h_again2", text = "Speak up, friend!" },
+        { id = "h_again2", text = "Speak up, friend, I'm half deaf from the rattle of these cart wheels!" },
         { id = "h_again3", text = "Go on, then, I can talk and tip a bin." },
       },
       choices = {
@@ -392,7 +411,25 @@ P:NPC {
         { text = "How do you find the Barovs, as masters?", next = "barovs" },
         { text = "Do you know the others on the island?", next = "others" },
         { text = "Let me take the other end of that bin.", next = "lift", when = { class = { "WARRIOR", "PALADIN", "SHAMAN" } } },
+        { text = "That handcart's seen some years.", next = "w9_cart" },
         { text = "Good luck with the bins.", next = "END" },
+      },
+    },
+
+    w9_cart = {
+      lines = { { id = "w9_cart_d", text = "Twelve years, friend, and three new wheels, and an axle I forged myself from an old gate hinge off the Barov stables. She's the finest cart on the island, and she carries more than any two men, so long as you oil her on the quarter day." } },
+      choices = {
+        { text = "Does she have a name?", next = "w9_cart2" },
+        { text = "You built the axle yourself?", next = "w9_cart2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_cart2 = {
+      lines = { { id = "w9_cart2_d", text = "Brandy's the only lady I name, friend, but the cart's a close second, and I call her \"Old Faithful\" when nobody's listening. Funny thing, though, she's rolled lighter lately, like there's nothing in the bins at all, and I can't for the life of me work out why." } },
+      choices = {
+        { text = "Perhaps you're just stronger.", next = "BACK", reply = "Ha! That's it, it must be. Good honest work, that's what does it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     refuse = {
@@ -529,7 +566,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, dear? The loaves are rising." },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again2", text = "Go on, dear, I'm listening, though I'll keep on kneading while you talk." },
         { id = "h_again3", text = "Yes, dear? Mind the peel, it's hot." },
       },
       choices = {
@@ -542,7 +579,25 @@ P:NPC {
         { text = "Tell me about your neighbours.", next = "folk" },
         { text = "That's a fine oven for a small island.", next = "oven" },
         { text = "I bake a little myself.", next = "baker", when = { profession = "Cooking" } },
+        { text = "What's for the Barovs' table tonight?", next = "w9_table" },
         { text = "Not today.", next = "END" },
+      },
+    },
+
+    w9_table = {
+      lines = { { id = "w9_table_d", text = "Oh, a feast, dear, the same as every night now! Lord Alexei's guests come up from the cellars after dark, the gentlemen in the black robes, and they've no appetite to speak of, but his lordship insists the table's laid properly." } },
+      choices = {
+        { text = "They never eat?", next = "w9_table2" },
+        { text = "Gentlemen in black robes?", next = "w9_table2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_table2 = {
+      lines = { { id = "w9_table2_d", text = "Not a crumb, dear, and the loaves come back down to me untouched, every one, which is a terrible waste. I tell myself they're scholars and too busy to think of supper, and I don't let myself think about it past that." } },
+      choices = {
+        { text = "That sounds wise.", next = "BACK", reply = "It's what my father taught me. Bake the bread, dear, and leave the rest to the lords." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     customers = {
@@ -681,7 +736,25 @@ P:NPC {
         { text = "What happened to your town?", next = "town" },
         { text = "I've walked his halls. He's worse than you say.", next = "walked", when = { deed = "dungeon:Scholomance" } },
         { text = "Was any of this lawful, magistrate?", next = "law", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "What do you rule on, with no town left?", next = "w9_court" },
         { text = "Court is adjourned, magistrate.", next = "END" },
+      },
+    },
+
+    w9_court = {
+      lines = { { id = "w9_court_d", text = "The dead, {class}. Every ghost of Caer Darrow who remembers enough to bring a complaint comes to this door, and I hear it, and I write it down in a ledger that only I can read. Most of the cases are against the same three names." } },
+      choices = {
+        { text = "Which three names?", next = "w9_court2" },
+        { text = "Do the ghosts accept your rulings?", next = "w9_court2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_court2 = {
+      lines = { { id = "w9_court2_d", text = "Alexei Barov, who sold the cellars, Ras Frostwhisper, who filled them, and Kel'Thuzad, who taught them both that it could be done. I cannot try them, of course, but a magistrate who stops recording the evidence has stopped being a magistrate." } },
+      choices = {
+        { text = "The record matters. Keep it.", next = "BACK", reply = "I will, for as long as I have form enough to hold a pen." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     ras = {
@@ -976,7 +1049,25 @@ P:NPC {
         { text = "I'll say go for you.", next = "go" },
         { text = "I'll race you. I'm your size.", next = "race", when = { race = { "Gnome", "Dwarf" } } },
         { text = "Have a sweet, Melia.", next = "sweet", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "What do you get if you win?", next = "w9_prize" },
         { text = "Go and play, Melia.", next = "END" },
+      },
+    },
+
+    w9_prize = {
+      lines = { { id = "w9_prize_d", text = "Sammy's ribbon! The blue one his mother tied in his hair for the harvest, and he says it's not a hair ribbon, it's a soldier's sash, but it's a ribbon. I've won it three times and he keeps winning it back while I'm not looking." } },
+      choices = {
+        { text = "How does he win it back?", next = "w9_prize2" },
+        { text = "That's a fine prize.", next = "w9_prize2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_prize2 = {
+      lines = { { id = "w9_prize2_d", text = "He says he finds it in the grass, which is cheating, because you're supposed to race for it. I don't mind very much, though, because if he didn't take it back we'd have nothing left to race for, and then we'd have to stop." } },
+      choices = {
+        { text = "Then keep racing.", next = "BACK", reply = "We will! Say go again, please, and say it properly this time." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     winning = {
@@ -1090,7 +1181,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What is it? I've got to watch her or she'll start." },
         { id = "h_again2", text = "Go on. She's tying her shoe, so we've got a minute." },
-        { id = "h_again3", text = "Yes? I'm listening." },
+        { id = "h_again3", text = "Yes? Be quick, before Melia says go without me again." },
       },
       choices = {
         { text = "Does Melia really cheat?", next = "cheat" },
@@ -1099,7 +1190,25 @@ P:NPC {
         { text = "Why don't you like the school?", next = "school" },
         { text = "Here. Hold the hilt, carefully.", next = "sword", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "I'm not ill, Sammy. I'm only different.", next = "ill", when = { race = "Scourge" } },
+        { text = "What will you do when the race is done?", next = "w9_after" },
         { text = "Good luck in the race, Sammy.", next = "END" },
+      },
+    },
+
+    w9_after = {
+      lines = { { id = "w9_after_d", text = "Go home for supper, I think, only I've been thinking that for a while and I haven't been hungry once. Mum always calls from the window when the bells ring, and the bells haven't rung, so we just keep racing." } },
+      choices = {
+        { text = "When did the bells last ring?", next = "w9_after2" },
+        { text = "Maybe she's calling and you can't hear.", next = "w9_after2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_after2 = {
+      lines = { { id = "w9_after2_d", text = "I don't remember, and that's the bit I don't like. Rory says I shouldn't think about it too much, and I'm trying, but it's very hard not to think about something once someone's told you not to." } },
+      choices = {
+        { text = "You're a brave lad, Sammy.", next = "BACK", reply = "Uncle says brave is when you're scared and you run anyway. I run a lot." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     cheat = {

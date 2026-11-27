@@ -596,6 +596,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_nails = {
+      lines = {
+        { id = "w3_nails_1", text = "Into Ephram's horseshoes, I'd wager, though he'll swear on every saint in Lordaeron that he's never touched my stores. A dead horse doesn't need shoes, I've told him, and he looks at me as if I'd insulted his mother." },
+      },
+      choices = {
+        { text = "Have you asked him outright?", next = "w3_ask" },
+        { text = "Eleven nails hardly seems worth a feud.", next = "BACK", reply = "Up here, eleven nails is a door, and a door is the difference between a room and a ruin. I'll have my nails." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_ask = {
+      lines = {
+        { id = "w3_ask_1", text = "I have, and he said a horse is a horse, dead or not, and walked off whistling. I'll find them nailed to a hoof by morning, and I'll write it in the ledger as \"lost to sentiment,\" which is the only column Ephram ever fills." },
+      },
+      choices = {
+        { text = "That's fair accounting. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -615,7 +633,7 @@ P:NPC {
           text = "A Horde traveller this far west? If you've news of the roads east, I'll take it, since nothing reaches us out here but rain and murlocs." },
       },
       again = {
-        { id = "h_again", text = "Anything else? I've a ledger that won't balance itself." },
+        { id = "h_again", text = "More? Fine, but the ledger is short by eleven nails and I mean to find them before supper." },
         { id = "h_again2", text = "Go on, then. Talking is the one thing up here we have plenty of." },
       },
       choices = {
@@ -626,6 +644,7 @@ P:NPC {
         { text = "What's down in the cellar?", next = "cellar", when = { questActive = TODO_QUEST("Making Repairs") } },
         { text = "I served in Lordaeron's army. Supply was always short.", next = "xsoldier", when = { origin = "forsaken_lordaeron_soldier" } },
         { text = "I'll see what I can find.", next = "BUSINESS" },
+        { text = "Where do you think the eleven nails went?", next = "w3_nails" },
         { text = "Good luck with the ledger.", next = "END" },
       },
     },
@@ -758,6 +777,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_shoe = {
+      lines = {
+        { id = "w3_shoe_1", text = "Same as a living one, only it doesn't flinch and it doesn't kick, which takes the fun out of it if I'm honest. Angus makes the shoes from old scrap and I nail them on, and Jorin pretends he doesn't know where the nails come from." },
+      },
+      choices = {
+        { text = "Does a dead horse even need shoes?", next = "w3_need" },
+        { text = "Jorin knows exactly where they come from.", next = "BACK", reply = "Course he does. He writes it in his little book and I don't care, because the horses go sound on the rock and that's my job." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_need = {
+      lines = {
+        { id = "w3_need_1", text = "Need? Oi, a horse wears shoes because it's a horse, and I'll not have one of mine clopping about the keep on bare bone like some Scourge nag. They were proud beasts once, and they can be proud beasts again, if I've anything to say about it." },
+      },
+      choices = {
+        { text = "Fair enough, Ephram. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -776,7 +813,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Well? Spit it out, I've stalls to muck." },
-        { id = "h_again2", text = "Anything else, or can I get back to the horses?" },
+        { id = "h_again2", text = "Anything else, or can I get back to the horses? They're better company." },
       },
       choices = {
         { text = "What's this about a crystal?", next = "crystal" },
@@ -786,6 +823,7 @@ P:NPC {
         { text = "Why smash it with a hammer?", next = "smash", when = { questDone = TODO_QUEST("The One That Got Away") } },
         { text = "I've a way with beasts myself.", next = "xhunt", when = { class = "HUNTER" } },
         { text = "Show me the stables.", next = "BUSINESS" },
+        { text = "How do you shoe a dead horse?", next = "w3_shoe" },
         { text = "I'll leave you to it.", next = "END" },
       },
     },
@@ -896,6 +934,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_prayers = {
+      lines = {
+        { id = "w3_prayers_1", text = "The same evening litany I learned as a squire, word for word, and it's the strangest thing, but I find myself saying it with them. They'd be horrified to know a dead man was praying alongside them through the wood, and I've half a mind to say the amen loudly to see what happens." },
+      },
+      choices = {
+        { text = "Does the Light answer you when you pray?", next = "w3_answer" },
+        { text = "Say the amen loudly. I'd like to see it.", next = "BACK", reply = "Ha! Perhaps on the way out, then, once you've got me past the door. Let them have something to think about." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_answer = {
+      lines = {
+        { id = "w3_answer_1", text = "It does, and it burns, and it's no less real for the burning. The guards outside pray and feel nothing, I think, and I pray and feel the fire, and I can't decide which of us the Light is more disappointed in." },
+      },
+      choices = {
+        { text = "Perhaps neither. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -920,6 +976,7 @@ P:NPC {
         { text = "Are you from the keep? I haven't been there yet.", next = "xpal", when = { class = "PALADIN", race = "Scourge" } },
         { text = "What was the small matter you had to attend to?", next = "matter", when = { questDone = TODO_QUEST("Seeking Refuge") } },
         { text = "Let's get you out of here.", next = "BUSINESS" },
+        { text = "What do the guards pray outside your door?", next = "w3_prayers" },
         { text = "Hold on a little longer.", next = "END" },
       },
     },
@@ -1042,6 +1099,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_danitha = {
+      lines = {
+        { id = "w3_danitha_1", text = "She's the only commander I've served under, living or dead, who's never once asked me to be gentle. She took a ruin and a handful of burned-out knights and called it a keep, and I'd follow her into the Plaguelands with a broken mace and no shield." },
+      },
+      choices = {
+        { text = "High praise, from you.", next = "w3_praise" },
+        { text = "Does she know you think that?", next = "BACK", reply = "No, and if you tell her, I'll break you like a green colt. Some things a commander doesn't need to hear." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_praise = {
+      lines = {
+        { id = "w3_praise_1", text = "I don't give it often, recruit, so you'd best remember you heard it once. Now get out there and swing something, before I start praising you instead and we both regret it." },
+      },
+      choices = {
+        { text = "I'm going. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       hub = true,
       lines = {
@@ -1061,7 +1136,7 @@ P:NPC {
           text = "Ephram smashed that crystal before I could get a look at it. Typical stableman, all hammer and no curiosity." },
       },
       again = {
-        { id = "h_again", text = "What now? The dummies won't hit themselves, recruit." },
+        { id = "h_again", text = "What now? The dummies won't hit themselves, recruit, and neither will you." },
         { id = "h_again2", text = "Ask, and be quick about it. I've three trainees out there who think a mace is for leaning on." },
       },
       choices = {
@@ -1071,6 +1146,7 @@ P:NPC {
         { text = "How are the trainees coming along?", next = "trainees" },
         { text = "Could you train someone who isn't a paladin?", next = "xnonpal", when = { ["not"] = { class = "PALADIN" } } },
         { text = "Please train me.", next = "BUSINESS", when = { class = "PALADIN" } },
+        { text = "What do you make of Danitha Morr?", next = "w3_danitha" },
         { text = "I'll let you get back to it.", next = "END" },
       },
     },
@@ -1181,6 +1257,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_strange = {
+      lines = {
+        { id = "w3_strange_1", text = "A Scarlet chapel bell, cracked through, that the knights dragged up from the road past Solliden Farmstead. I melted it down for shield rims, and every shield I made from it still rings a little when it takes a blow, like it's calling folk to prayer." },
+      },
+      choices = {
+        { text = "Do the paladins mind?", next = "w3_mind" },
+        { text = "A shield that prays for you. Fitting.", next = "BACK", reply = "That's what Aramis said, word for word. I'll not tell him you agreed with him, or he'll be unbearable." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_mind = {
+      lines = {
+        { id = "w3_mind_1", text = "They fight over those shields. Danitha says a bell that once called the living to the Light now calls it into our hands, and I say it's good bronze, and we're both right." },
+      },
+      choices = {
+        { text = "Both right indeed. Something else.", next = "BACK" },
+      },
+    },
     smithy = {
       lines = {
         { id = "sm_default", text = "It is. The hearth's from when this was Dawn's Watch and Lordaeron's army shod its horses here, and I only had to dig a murloc's nest out of the chimney to get it drawing. The tools I carried up from Deathknell on my own back." },
@@ -1251,6 +1345,7 @@ P:NPC {
         { text = "Your forge looks older than your tools.", next = "smithy" },
         { text = "You don't carry the Light yourself, then.", next = "light" },
         { text = "How do you make salvage hold an edge, Angus?", next = "xsmith", when = { profession = "Blacksmithing" } },
+        { text = "What's the strangest salvage you've ever worked?", next = "w3_strange" },
         { text = "Keep the forge hot, Angus.", next = "END" },
       },
     },
@@ -1678,6 +1773,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_locked = {
+      lines = {
+        { id = "w3_locked_1", text = "I've no idea, and that's what keeps me up at night, or would, if I slept. They've been locked since Dawn's Watch was abandoned, and the keys went east with the Argent Dawn, and I've listened at those doors more times than I'd like to admit." },
+      },
+      choices = {
+        { text = "What have you heard behind them?", next = "w3_heard" },
+        { text = "I could pick the locks for you.", next = "BACK", when = { class = "ROGUE" }, reply = "Could you? Oh, don't, please. I'd rather wonder than know, and Danitha would have my title if anything got out." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_heard = {
+      lines = {
+        { id = "w3_heard_1", text = "Dripping, mostly, which is the cistern. Once, though, I heard something like a page turning, very slowly, as if someone were reading in the dark. I fetched Breton Samuels, and he listened a long while, and he said I'd imagined it, and he never once looked me in the eye." },
+      },
+      choices = {
+        { text = "That's unsettling, Evin. Something else.", next = "BACK" },
+      },
+    },
     cistern = {
       lines = {
         { id = "ci_default", text = "They do, and I wish I knew how. There must be a channel from the lake that Lordaeron's masons cut and nobody wrote down, because I've barred the cistern door twice and still found Vile Fin tracks on the inside of it." },
@@ -1746,6 +1859,7 @@ P:NPC {
         { text = "The murlocs get into the cistern?", next = "cistern" },
         { text = "You count the rooms. How many are there?", next = "rooms" },
         { text = "Your knights seem short of everything but faith.", next = "short" },
+        { text = "What's behind the rooms you can't get into?", next = "w3_locked" },
         { text = "I'll let you get on.", next = "END" },
       },
     },
@@ -1968,6 +2082,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_name = {
+      lines = {
+        { id = "w3_name_1", text = "I don't remember it, which is embarrassing for a squire who used to recite his master's titles in full. Hilda calls me \"Recruit,\" and the others call me \"Squire,\" and I answer to both, though I keep hoping someone will call me something else and I'll know it." },
+      },
+      choices = {
+        { text = "What would you like to be called?", next = "w3_choose" },
+        { text = "A name will come back, in time.", next = "BACK", reply = "Do you think so? Breton says names come back to some people, a piece at a time. I'll keep listening for mine." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_choose = {
+      lines = {
+        { id = "w3_choose_1", text = "I've thought about it, on the long nights. Something plain, I think, a name a farmer would give his son, so that when I'm a proper paladin nobody can say I was born to it. Hilda says I'm overthinking a word, and she's probably right." },
+      },
+      choices = {
+        { text = "Pick one you can live up to. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "We're the new ones, the three of us, and Hilda the Breaker has us at these dummies from dawn until she gets bored, which she never does. I was a squire in Lordaeron once, though I don't remember much of it except the smell of horses." },
@@ -1985,6 +2117,7 @@ P:NPC {
         { text = "What happens once Hilda's done with you?", next = "after" },
         { text = "I'm a paladin too. Want some advice?", next = "advice", when = { class = "PALADIN" } },
         { text = "Does it hurt, calling the Light?", next = "hurt", when = { ["not"] = { class = "PALADIN" } } },
+        { text = "What's your name, trainee?", next = "w3_name" },
         { text = "Back to your drill, then.", next = "END" },
       },
     },
@@ -2084,6 +2217,24 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w3_bags = {
+      lines = {
+        { id = "w3_bags_1", text = "<The leather is cracked and the buckle rusted shut, but one bag gives when you tug it. Inside are a curry comb worn smooth with use and a folded letter, stained and soft as cloth.>" },
+      },
+      choices = {
+        { text = "Read the letter.", next = "w3_letter" },
+        { text = "Leave the bags as they are.", next = "BACK" },
+      },
+    },
+    w3_letter = {
+      lines = {
+        { id = "w3_letter_1", text = "<Most of the ink has run, but a few lines remain in a careful hand: a child's request for her father to come home by harvest, and to bring the grey horse. The warhorse is grey beneath the dirt.>" },
+      },
+      choices = {
+        { text = "Fold it away and put it back.", next = "BACK" },
+        { text = "Step back.", next = "BACK" },
+      },
+    },
     yhooves = {
       lines = { { id = "yhooves_x", text = "<The shoes are old Lordaeron iron, worn thin and never replaced. One has been nailed on recently, crooked, by someone who cared more than they knew.>" } },
       choices = {
@@ -2121,6 +2272,7 @@ P:NPC {
         { text = "Check its hooves.", next = "yhooves" },
         { text = "Look at the scars on its flank.", next = "yscars" },
         { text = "Whistle softly to it.", next = "ywhistle" },
+        { text = "Check its saddlebags.", next = "w3_bags" },
         { text = "Leave it be.", next = "END" },
       },
     },

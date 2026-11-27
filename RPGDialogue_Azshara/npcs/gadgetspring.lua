@@ -53,6 +53,7 @@ P:NPC {
         { text = "You test rockets out here?", next = "rocket" },
         { text = "How is Ironforge? It's been a while for me too.", next = "tinkertown", when = { race = "Gnome" } },
         { text = "What sort of engineering are you working on?", next = "schematic", when = { profession = "Engineering" } },
+        { text = "What's the best thing you ever built?", next = "w_best" },
         { text = "Goodbye, Jubie.", next = "END" },
       },
     },
@@ -122,6 +123,25 @@ P:NPC {
       lines = { { id = "sc_default", text = "A self-heating kettle, so Blimo stops complaining about the stove, and it's very nearly finished, except for the bit where it gets hot all at once instead of slowly. The goblins would sell it as a bomb, but I'm a gnome, so it's a kettle." } },
       choices = { { text = "Something else.", next = "BACK", fx = { learn = { "gnomeregan" } } } },
     },
+    w_best = {
+      lines = {
+        { id = "w_best_default", text = "A clockwork songbird, for Blimo, on our hundredth anniversary. It sang every hour on the hour, and it only exploded twice, and both times it was a very small explosion. Blimo keeps it on the mantle and won't let me fix it." },
+      },
+      choices = {
+        { text = "Why won't he let you fix it?", next = "w_best2" },
+        { text = "Only twice! Impressive.", next = "w_best2" },
+      },
+    },
+    w_best2 = {
+      lines = {
+        { id = "w_best2_default", text = "He says it's perfect the way it is, with the scorch marks and the one note it gets wrong every evening. I think he's being sentimental, and I think he's right, and I'd never admit either to his face. Engineers don't like leaving things broken, dear, but we make exceptions for love." },
+        { id = "w_best2_w1", when = { race = "Gnome" }, text = "You'll know how it is, being a gnome! We spend our whole lives fixing things, and then we meet someone who likes us broken." },
+      },
+      choices = {
+        { text = "Some things shouldn't be fixed.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else, Jubie.", next = "BACK" },
+      },
+    },
   },
 
   topics = {
@@ -190,6 +210,7 @@ P:NPC {
         { text = "You count the naga every morning?", next = "count" },
         { text = "How did you and Jubie meet?", next = "meet" },
         { text = "I've fished these waters. What lures work?", next = "fishing", when = { profession = "Fishing" } },
+        { text = "What do you miss about Gnomeregan?", next = "w_miss" },
         { text = "Goodbye, Blimo.", next = "END" },
       },
     },
@@ -253,6 +274,25 @@ P:NPC {
     fishing = {
       lines = { { id = "fi_default", text = "Bright lures in the morning and dull ones at dusk, and never fish near the wreck, because something down there takes the line and the rod and very nearly the fisherman. I sell the bright ones and the dull ones, and I'd sell a longer rod if I had one." } },
       choices = { { text = "Something else.", next = "BACK" } },
+    },
+    w_miss = {
+      lines = {
+        { id = "w_miss_default", text = "The quiet, oddly enough. People think of Gnomeregan as all bangs and whistles, and it was, but there was a little workshop on the fourth level where I sorted valves, and nobody ever came in, and it was the most peaceful place in the world." },
+      },
+      choices = {
+        { text = "Is anywhere here that peaceful?", next = "w_miss2" },
+        { text = "Sorting valves. Peaceful.", next = "w_miss2" },
+      },
+    },
+    w_miss2 = {
+      lines = {
+        { id = "w_miss2_default", text = "The upstairs window at dawn, before Jubie wakes and before the naga start hissing. I count them and I sort my trade goods and I drink tea, and for an hour it is very nearly the fourth level again. Then something explodes, and I'm home." },
+        { id = "w_miss2_w1", when = { race = "Gnome" }, text = "Did you know the fourth level? Somebody must have. I keep hoping I'll meet a gnome who remembers my workshop." },
+      },
+      choices = {
+        { text = "Home is where the explosions are.", next = "BACK", fx = { trait = { witty = 1 } } },
+        { text = "Something else, Blimo.", next = "BACK" },
+      },
     },
   },
 

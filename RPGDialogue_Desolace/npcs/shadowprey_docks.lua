@@ -55,7 +55,37 @@ P:NPC {
         { text = "Will killing them help?", next = "help" },
         { text = "Who were your crew?", next = "crew" },
         { text = "What do you need?", next = "BUSINESS" },
+        { text = "You still keep a boat tied up at the dock.", next = "w7_boat" },
         { text = "I'm sorry about your crew, Drulzegar.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    w7_boat = {
+      lines = {
+        { id = "w7_boat_l1", text = "I do, mon, de little one with de blue paint on her nose, and I bail her out every mornin' though I never take her past de breakers. Lui'Mala keeps tellin' me to sell her, and I keep pretendin' I didn't hear." },
+        { id = "w7_boat_l2", when = { race = "Troll" }, text = "Ya, she be mine, and you know as well as me dat a Darkspear without a boat be only half a troll. I bail her every mornin' and I never take her out, and de whole dock pretends not to notice." },
+      },
+      choices = {
+        { text = "Why not take her out again?", next = "w7_boat2" },
+        { text = "Sell her. She only keeps the wound open.", next = "w7_boat3" },
+        { text = "Something else, Drulzegar.", next = "BACK" },
+      },
+    },
+    w7_boat2 = {
+      lines = {
+        { id = "w7_boat2_l1", text = "Because de last time she went out she came back with one man in her, mon, and she remembers it same as me. One day, when de Slitherblade be fewer, I row her out to where Zul'tek used to sing and I leave somethin' on de water for him." },
+      },
+      choices = {
+        { text = "That sounds like a proper farewell.", next = "BACK", reply = "It be de only one I can give him, mon, so it had better be proper." },
+        { text = "Back to the rest of it.", next = "BACK" },
+      },
+    },
+    w7_boat3 = {
+      lines = {
+        { id = "w7_boat3_l1", text = "Maybe it does, mon, but a wound dat closes too quick goes bad underneath, any healer will tell you. Tanga mended dat boat's nets with her own hands, and I'm not sellin' her knots to some stranger from Ratchet." },
+      },
+      choices = {
+        { text = "Fair enough. Keep her, then.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -228,7 +258,7 @@ P:NPC {
           text = "I'm Sikewa, and I keep the inn at Shadowprey, where the trolls fish, the tauren watch the centaur, and travellers wash the grey dust off their boots. Rest here, and I'll make this your home while you're on the coast." },
       },
       again = {
-        { id = "h_again", text = "Anything else, friend? I've a pot on, but it'll keep." },
+        { id = "h_again", text = "Anything else, friend? The stew will keep, and so will the crab I just chased off your pillow." },
         { id = "h_again2", text = "Go on, ask. Innkeepers hear everything, so I've plenty to tell." },
       },
       choices = {
@@ -242,7 +272,36 @@ P:NPC {
         { text = "Your kitchen smells of fish and something stranger.", next = "pot" },
         { text = "What brings travellers this far into Desolace?", next = "travel" },
         { text = "The spirits are restless here. Do your guests feel it?", next = "restless", when = { class = "SHAMAN" } },
+        { text = "Your guests leave a lot behind, I'd guess.", next = "w7_left" },
         { text = "Farewell, Sikewa.", next = "END" },
+      },
+    },
+    w7_left = {
+      lines = {
+        { id = "w7_left_l1", text = "More than you would think, friend. I have a shelf behind the bar full of things travellers forgot on their way to Maraudon: a hat, three left gloves, a lute with two strings, and a letter nobody ever came back for." },
+      },
+      choices = {
+        { text = "Whose letter was it?", next = "w7_left2" },
+        { text = "You should sell the lot to Tukk.", next = "w7_left3" },
+        { text = "Something else, Sikewa.", next = "BACK" },
+      },
+    },
+    w7_left2 = {
+      lines = {
+        { id = "w7_left2_l1", text = "A young orc's, written to his mother in Orgrimmar and never sent. He went down into Maraudon with three friends and only the friends came back, so I keep the letter safe, and one day a wind rider will carry it east for me." },
+        { id = "w7_left2_l2", when = { faction = "Alliance" }, text = "A young orc's, to his mother. You won't care much for a Horde boy's letter, I know, but he went into Maraudon and never came out, and a mother is a mother on either side of the war." },
+      },
+      choices = {
+        { text = "You're a kind keeper, Sikewa.", next = "BACK", reply = "An inn is only a roof unless someone keeps the kindness under it." },
+        { text = "Send it now. Waiting does nobody good.", next = "BACK" },
+      },
+    },
+    w7_left3 = {
+      lines = {
+        { id = "w7_left3_l1", text = "Tukk would sell the lute back to the next bard and the gloves to anybody with only a left hand, and he would split the coin with me fairly, I'll give him that. But folk come back for things, sometimes years later, and I like to be the one who still has them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     pot = {
@@ -395,7 +454,36 @@ P:NPC {
         { text = "The village trusts your eyes, I think.", next = "watch" },
         { text = "I'd know the wind if you taught me.", next = "wind", when = { class = { "SHAMAN", "HUNTER", "DRUID" } } },
         { text = "A tauren who chose the sea. That's rare.", next = "tauren", when = { race = "Tauren" } },
+        { text = "How do your riders fare in a storm off the sea?", next = "w7_storm" },
         { text = "Farewell, Thalon.", next = "END" },
+      },
+    },
+    w7_storm = {
+      lines = {
+        { id = "w7_storm_l1", text = "Badly, if they're foolish enough to be caught in one. The storms come up out of the west faster than the gulls can warn us, and a wind rider caught over the Great Sea has nothing to land on but whitecaps." },
+      },
+      choices = {
+        { text = "How do you know when one is coming?", next = "w7_storm2" },
+        { text = "A rider who can't read the sky shouldn't fly.", next = "w7_storm3" },
+        { text = "Something else, Thalon.", next = "BACK" },
+      },
+    },
+    w7_storm2 = {
+      lines = {
+        { id = "w7_storm2_l1", text = "The riders tell me before the sky does. They grow restless and pull at their tethers, and the old female, Grey Wing, puts her head under her wing and refuses to look at me, which means I ground every flight until morning." },
+        { id = "w7_storm2_l2", when = { class = { "SHAMAN", "DRUID" } }, text = "The riders tell me first, but you would feel it yourself if you stood here long enough: the air goes heavy and the spirits of the wind fall quiet, as if they are holding their breath before they shout." },
+      },
+      choices = {
+        { text = "I'll trust Grey Wing over any sky.", next = "BACK", reply = "Most do, once they have flown with her. She has never been wrong, and I have." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_storm3 = {
+      lines = {
+        { id = "w7_storm3_l1", text = "Every rider can read the sky, until the sky lies. I lost a messenger bound for Sun Rock three winters ago because the west looked clear, and I have trusted my beasts over my eyes ever since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
 

@@ -85,7 +85,36 @@ P:NPC {
         { text = "Why walk the road alone?", next = "road" },
         { text = "I'm a warrior. How do I fight a quilboar chief?", next = "fight", when = { class = "WARRIOR" } },
         { text = "What can I do?", next = "BUSINESS" },
+        { text = "What will you do when Sharptusk is gone?", next = "w7_after" },
         { text = "Walk safely, Windfeather.", next = "END" },
+      },
+    },
+    w7_after = {
+      lines = {
+        { id = "w7_after_l1", text = "Walk the road again, the next morning and every morning after. There is always another quilboar chief, and another band of Bristleback in the brambles, and the road will still need someone on it." },
+      },
+      choices = {
+        { text = "Doesn't that wear you down?", next = "w7_after2" },
+        { text = "You could ask to be posted elsewhere.", next = "w7_after3" },
+        { text = "Something else, Windfeather.", next = "BACK" },
+      },
+    },
+    w7_after2 = {
+      lines = {
+        { id = "w7_after2_l1", text = "Some days. But then a calf comes down the road from Narache with a pack bigger than he is, and he sees me and stands up a little straighter, and it is worth every tired step." },
+        { id = "w7_after2_l2", when = { race = "Tauren" }, text = "Some days. Then a calf walks past and stands straighter for seeing me. You were that calf once, maybe, not long ago. That is the reason I keep walking." },
+      },
+      choices = {
+        { text = "I understand.", next = "BACK", reply = "Then walk with me a while, when you can. The road is lighter shared." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_after3 = {
+      lines = {
+        { id = "w7_after3_l1", text = "I could, and I won't. This road is mine, and I mean to keep it safe until someone younger can take it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     sharptusk = {

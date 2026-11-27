@@ -71,7 +71,7 @@ P:NPC {
         { id = "h_default", text = "I am Ghok'kah. A Horde that cannot mend its own tents and banners is not an army, it is a mob in the rain, and so I keep this village in thread." },
       },
       again = {
-        { id = "h_again", text = "What else do you want to know?" },
+        { id = "h_again", text = "What else do you want to know? Ask it straight, {class}, the way a warrior should." },
         { id = "h_again2", text = "Speak, I am only sorting needles." },
       },
       choices = {
@@ -82,7 +82,36 @@ P:NPC {
         { text = "What does Brackenwall need most?", next = "yneed" },
         { text = "Did the camps make you weak, as some say?", next = "BACK", when = { race = "Orc" }, reply = "Some say that. They were not there. Lethargy is a sickness, not a choice, and I cured mine with a needle." },
         { text = "What do you think of Brackenwall?", next = "ybrack" },
+        { text = "What's the hardest thing you've ever stitched?", next = "w7_stitch" },
         { text = "Strength and honor, Ghok'kah.", next = "END" },
+      },
+    },
+    w7_stitch = {
+      lines = {
+        { id = "w7_stitch_l1", text = "A Warsong banner, torn nearly in half by a black dragon's claw, which Krog brought to me and said must fly again by sunset. I sewed it on my knees in the mud, and it flew, and the dragon did not come back that night." },
+      },
+      choices = {
+        { text = "Does the banner still fly?", next = "w7_stitch2" },
+        { text = "A banner's just cloth.", next = "w7_stitch3" },
+        { text = "Something else, Ghok'kah.", next = "BACK" },
+      },
+    },
+    w7_stitch2 = {
+      lines = {
+        { id = "w7_stitch2_l1", text = "Over Krog's hut, with my seam across its middle like a scar. The grunts touch it when they go out on patrol, and they think I don't notice, and I do." },
+        { id = "w7_stitch2_l2", when = { race = "Orc" }, text = "Over Krog's hut, with a seam like a scar. You know what a banner means to us, brother. Touch it when you go out; every orc here does, and it has not failed them yet." },
+      },
+      choices = {
+        { text = "I'll touch it on my way out.", next = "BACK", reply = "Good. Throm-ka." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_stitch3 = {
+      lines = {
+        { id = "w7_stitch3_l1", text = "To a human, maybe. To an orc, a banner is the clan, and a clan torn in half must be sewn back together." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     who = {
@@ -181,7 +210,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? Ask while Ogg'marr chops." },
-        { id = "h_again2", text = "Ogg'marr is listening, mostly." },
+        { id = "h_again2", text = "Ogg'marr is listening, mostly. The other part of Ogg'marr is thinking about lunch." },
       },
       choices = {
         { text = "What meat is that on the block?", next = "what" },
@@ -191,7 +220,36 @@ P:NPC {
         { text = "What do ogres think of the orcs here?", next = "yorcs" },
         { text = "What's the meat trolls like best?", next = "BACK", when = { race = "Troll" }, reply = "Raptor, with the bones in! Trolls crunch them, and Ogg'marr likes the sound. It sounds like happy." },
         { text = "What's the best meat in the swamp?", next = "ybest" },
+        { text = "Where does Ogg'marr hunt for the meat?", next = "w7_hunt" },
         { text = "Keep your cleaver sharp.", next = "END" },
+      },
+    },
+    w7_hunt = {
+      lines = {
+        { id = "w7_hunt_l1", text = "Ogg'marr does not hunt. The hunters bring meat, and Ogg'marr chops it. But once, Ogg'marr went to the bog for a crocolisk himself, and the crocolisk chased Ogg'marr back to the village, and now Ogg'marr only chops." },
+      },
+      choices = {
+        { text = "The crocolisk chased you?", next = "w7_hunt2" },
+        { text = "Chopping's a good job.", next = "w7_hunt3" },
+        { text = "Something else, Ogg'marr.", next = "BACK" },
+      },
+    },
+    w7_hunt2 = {
+      lines = {
+        { id = "w7_hunt2_l1", text = "All the way to the gate! Then the Enforcer hit it, and Ogg'marr chopped it, so in the end Ogg'marr won. But Ogg'marr does not tell that part to the orcs, because they laugh." },
+        { id = "w7_hunt2_l2", when = { class = "HUNTER" }, text = "All the way to the gate. You hunt, so you know: crocolisk is faster on land than it looks. Ogg'marr knows now. You bring Ogg'marr a crocolisk, and Ogg'marr will chop it very nicely for you." },
+      },
+      choices = {
+        { text = "Your secret is safe.", next = "BACK", reply = "Ha! Good friend. Ogg'marr saves you the tail." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_hunt3 = {
+      lines = {
+        { id = "w7_hunt3_l1", text = "It is the best job! Ogg'marr gets the first bite of everything, and nobody tells Ogg'marr to stop." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     what = {
@@ -287,7 +345,7 @@ P:NPC {
         { id = "h_default", text = "I am Kagoro. You found hoofprints in the ash of the human inn, and Krog wants to know whose hooves made them, so I am going to ask the ground." },
       },
       again = {
-        { id = "h_again", text = "What else? The light is going." },
+        { id = "h_again", text = "What else? Ask, but quickly; when the light goes, the mud keeps its secrets until morning." },
         { id = "h_again2", text = "Ask, but ask it walking." },
       },
       choices = {
@@ -298,7 +356,36 @@ P:NPC {
         { text = "You suspect my people?", next = "BACK", when = { race = "Tauren" }, reply = "I suspect no one yet. If the hooves were tauren, they were not Thrall's tauren, and I will say so to Krog." },
         { text = "Tell me about the Barrens.", next = "ybarrens" },
         { text = "What do you do when the trail ends?", next = "yends" },
+        { text = "Who taught you to read tracks?", next = "w7_taught" },
         { text = "Good hunting, Kagoro.", next = "END" },
+      },
+    },
+    w7_taught = {
+      lines = {
+        { id = "w7_taught_l1", text = "An old tauren in the Barrens, near the Crossroads, who said an orc tracks like a wolf, too fast and with the nose. He made me lie in the grass for a whole day watching one beetle, until I could follow it by the bent blades." },
+      },
+      choices = {
+        { text = "Did it work?", next = "w7_taught2" },
+        { text = "Seems a waste of a day.", next = "w7_taught3" },
+        { text = "Something else, Kagoro.", next = "BACK" },
+      },
+    },
+    w7_taught2 = {
+      lines = {
+        { id = "w7_taught2_l1", text = "It did. I have not lost a trail since that I could not find again. When Krog gave me these hoofprints, the first thing I did was lie down beside them and look at the reeds, and the old tauren would have laughed at me for being slow." },
+        { id = "w7_taught2_l2", when = { race = "Tauren" }, text = "It did, and you know the patience he meant, I think. Your people taught mine to look before we leapt. When this trail is done, I will bring the old one news of it; he will want to know who walks with tauren hooves in a human ruin." },
+      },
+      choices = {
+        { text = "He taught you well.", next = "BACK", reply = "He taught me to be quiet. That is most of it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_taught3 = {
+      lines = {
+        { id = "w7_taught3_l1", text = "A day lost watching a beetle is a lifetime of trails found. I would give that day again." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     whose = {
@@ -362,7 +449,7 @@ P:NPC {
           text = "My badge, in the ashes of the Shady Rest? So that's where it went. I can see what you're thinking, and you can stop, because I'm a deserter and a thief and I am no burner of children." },
       },
       again = {
-        { id = "h_again", text = "What else? Keep your voice down." },
+        { id = "h_again", text = "What else? Quietly, damn it; I've heard boots on the boardwalk twice since dawn, and neither time were they friendly." },
         { id = "h_again2", text = "Go on, but I'm watching the reeds while you talk." },
       },
       choices = {
@@ -375,7 +462,36 @@ P:NPC {
         { text = "What do you think of Lady Proudmoore now?", next = "kt_jaina" },
         { text = "How do you live out here, alone in the marsh?", next = "live" },
         { text = "The Stonemaul ogres. Have they seen you?", next = "ogres" },
+        { text = "What do you miss most from the marines?", next = "w7_marine" },
         { text = "I never saw you, Reethe.", next = "END" },
+      },
+    },
+    w7_marine = {
+      lines = {
+        { id = "w7_marine_l1", text = "The ship, mostly. The Proudmoore flagship, the Dauntless, with her rigging singing in a good wind and three hundred men who knew exactly where they stood. Out here I don't know where I stand from one hour to the next." },
+      },
+      choices = {
+        { text = "What happened to the Dauntless?", next = "w7_marine2" },
+        { text = "You chose to leave that life.", next = "w7_marine3" },
+        { text = "Something else, Reethe.", next = "BACK" },
+      },
+    },
+    w7_marine2 = {
+      lines = {
+        { id = "w7_marine2_l1", text = "Sunk off this coast, the day the Admiral fell, with half my old crew still aboard. I was ashore with the landing party. I've wondered every night since whether it would have been better to go down with her." },
+        { id = "w7_marine2_l2", when = { faction = "Alliance" }, text = "Sunk off this coast, the day the Admiral died. You'll have heard the Lady's side of it; I was ashore, and I watched the masts go under. Every Kul Tiran in Theramore carries that day differently, and I carry it badly." },
+      },
+      choices = {
+        { text = "I'm sorry.", next = "BACK", reply = "So am I. Not that sorry does anything, in a bog." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_marine3 = {
+      lines = {
+        { id = "w7_marine3_l1", text = "I did, and I'd do it again, and I'd still miss it. A man can be right and miserable at the same time; I'm living proof of it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     why = {

@@ -229,6 +229,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2fur = {
+      lines = { { id = "w2fr_default", text = "A white tiger, mon, from de small islands off de coast, de only one I ever saw. I watched her for three days before I took her, an' I made sure she be old an' slow, not a mother wit' cubs." } },
+      choices = {
+        { text = "Where is the fur now?", next = "w2fur2" },
+        { text = "Three days watching seems a long hunt.", next = "w2fur2" },
+        { text = "Something else, Vel'rin.", next = "BACK" },
+      },
+    },
+    w2fur2 = {
+      lines = {
+        { id = "w2fr2_skin", when = { profession = "Skinning" }, text = "On Master Gadrin's floor, mon, where de elders sit. You skin, so you know a hide like dat be a gift you only get once; I took it in one piece an' I thanked her twice, once before an' once after." },
+        { id = "w2fr2_default", text = "On Master Gadrin's floor, mon, where de elders sit. A hide like dat be a gift you only get once, an' I thanked her twice, once before an' once after." },
+      },
+      choices = { { text = "A worthy end for her.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     dd_raptors = {
       lines = {
         { id = "dd_rp_default", text = "They are, and that be good for the caravans, but a hunter should keep his eye on the balance. Kill all the raptors and the boars run wild, and then Torka at Razor Hill complain the boars be eating his cactus." },
@@ -265,6 +280,7 @@ P:NPC {
         { text = "How do you know when to stop hunting?", next = "cull" },
         { text = "Who else works hides on this shore?", next = "others" },
         { text = "My {pet} could help you track tigers.", next = "xpet", when = { class = "HUNTER" } },
+        { text = "What's the finest fur you've ever brought in?", next = "w2fur" },
         { text = "I'll let you work.", next = "END" },
       },
     },
@@ -381,6 +397,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2hardest = {
+      lines = { { id = "w2hd_default", text = "A spearhead for a Darkspear widow, mon, made from her husband's old axe after he fell on de Echo Isles. De iron did not want to be a spear; it remembered bein' an axe, an' it fought me for three days." } },
+      choices = {
+        { text = "How did you change its mind?", next = "w2hardest2" },
+        { text = "Iron doesn't remember anything.", next = "w2hardest2" },
+        { text = "Something else, Ula'elek.", next = "BACK" },
+      },
+    },
+    w2hardest2 = {
+      lines = {
+        { id = "w2hd2_smith", when = { profession = "Blacksmithing" }, text = "I told it what it be for, mon, de way you talk to a nervous apprentice. You work iron, so you felt it too, I think, de day a piece goes soft under de hammer an' agrees. She carries dat spear still." },
+        { id = "w2hd2_default", text = "I told it what it be for, mon, an' on de fourth day it went soft under de hammer an' agreed. She carries dat spear still, an' she says it never misses." },
+      },
+      choices = { { text = "A spear with a purpose.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     hello = {
       lines = {
         { id = "h_dd_kolkar", tags = { "news" }, when = { questDone = TODO_QUEST("Thwarting Kolkar Aggression") },
@@ -408,6 +439,7 @@ P:NPC {
         { text = "How do you know Thun'grim Firegaze?", next = "thungrim" },
         { text = "You say the spirits tell you things?", next = "spirits" },
         { text = "I'm a warrior. Make me something worth wearing.", next = "xwar", when = { class = "WARRIOR" } },
+        { text = "What's the hardest thing you ever forged?", next = "w2hardest" },
         { text = "I'll come back when I'm ready.", next = "END" },
       },
     },

@@ -180,7 +180,23 @@ P:NPC {
         { text = "What are you carving?", next = "carve" },
         { text = "Our loa and the elements get along fine.", next = "troll_loa", when = { race = "Troll" } },
         { text = "Could a warrior make use of a totem?", next = "warrior_totem", when = { class = "WARRIOR" } },
+        { text = "What's the worst totem placement you've ever seen?", next = "w5_worst" },
         { text = "Farewell, Beram.", next = "END" },
+      },
+    },
+    w5_worst = {
+      lines = { { id = "w5_worst_l", text = "A young shaman fighting quilboar in the Barrens who set his healing totem on the far side of a stream. The water spirits were happy. The shaman, on the other side, bleeding, was less so. He had to wade across in the middle of the fight to reach it." } },
+      choices = {
+        { text = "Did he learn from it?", next = "w5_worst2" },
+        { text = "I once set my fire totem in the wrong place too.", next = "BACK", when = { class = "SHAMAN" }, reply = "Everyone does once. The ones who do it twice are the ones I worry about." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_worst2 = {
+      lines = { { id = "w5_worst2_l", text = "He did. He came back to me and asked where to put a totem, which is more than Tigor's students ever do. I told him the same thing I tell everyone: put it where you will be, not where you are. A fight moves. Your totem does not." } },
+      choices = {
+        { text = "Where you'll be, not where you are. I'll remember.", next = "BACK", reply = "Good. It has saved more shaman than any prayer. Do not tell Tigor I said that." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     where = {
@@ -290,7 +306,22 @@ P:NPC {
         { text = "What are Tigor and Beram like as teachers?", next = "elders" },
         { text = "What's the first thing you teach a shaman?", next = "first_lesson", when = { class = "SHAMAN" } },
         { text = "I could tell you what dying was like.", next = "fk_tell", when = { race = "Scourge" } },
+        { text = "What do the Forsaken below tell you, when you visit?", next = "w5_tell" },
         { text = "Farewell, Siln.", next = "END" },
+      },
+    },
+    w5_tell = {
+      lines = { { id = "w5_tell_l", text = "Stories about their old lives, mostly. Farms, shops, children. One told me about the snow in Tirisfal, and I had never seen snow. He described it for an hour, very carefully, as though he wanted to make sure someone would remember." } },
+      choices = {
+        { text = "Does that ever frighten you?", next = "w5_tell2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_tell2 = {
+      lines = { { id = "w5_tell2_l", text = "At first. They are very still, and their voices are dry, like leaves. But I listen to the wind every day, and the wind is full of things that are gone. The Forsaken are only one more voice. Tigor says I am too soft-hearted. I think a shaman must be." } },
+      choices = {
+        { text = "Soft hearts listen better.", next = "BACK", reply = "That is what I tell Tigor. He says soft hearts break. I say they mend, too." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     below = {
@@ -980,7 +1011,23 @@ P:NPC {
         { text = "My loa grant Shadowguard. Is that your shadow?", next = "troll_loa", when = { race = "Troll", class = "PRIEST" } },
         { text = "Can a priest walk both the Light and the shadow?", next = "both", when = { class = "PRIEST" } },
         { text = "I don't believe in anything anymore.", next = "fk_doubt", when = { race = "Scourge" } },
+        { text = "Do the tauren ever come to you with questions?", next = "w5_tauren" },
         { text = "Farewell, Miles.", next = "END" },
+      },
+    },
+    w5_tauren = {
+      lines = { { id = "w5_tauren_l", text = "Rarely, and always at night. A young tauren shaman came once and asked whether the shadow was evil. I told her it was not. I told her it was only honest, which the Light, in my experience, is not." } },
+      choices = {
+        { text = "What did she say to that?", next = "w5_tauren2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_tauren2 = {
+      lines = { { id = "w5_tauren2_l", text = "Nothing. She thanked me and left, and she has not returned. I think I frightened her, which was not my intent. The shadow does not frighten me. It is the absence of a lie, and for a man who was lied to by the Light all his life, that is a kind of comfort." } },
+      choices = {
+        { text = "Shadow and Light are both tools. Neither is the enemy.", next = "BACK", reply = "A sensible view. Rare among the living, rarer still among the dead.", fx = { align = { light = -1 } } },
+        { text = "The Light still matters, whatever it failed to do for you.", next = "BACK", reply = "Perhaps it does, for you. I wish you well with it. I am done waiting.", fx = { align = { light = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     shadow = {
@@ -1595,7 +1642,22 @@ P:NPC {
         { text = "You never wished to be a shaman yourself?", next = "shaman" },
         { text = "What lies in the Pools of Vision below?", next = "pools" },
         { text = "Do the spirits speak to you, then?", next = "spirits_sham", when = { class = "SHAMAN" } },
+        { text = "What did the shaman say, today, after they finished?", next = "w5_today" },
         { text = "Walk with the Earth Mother.", next = "END" },
+      },
+    },
+    w5_today = {
+      lines = { { id = "w5_today_l", text = "Siln was laughing about something the wind had told her. Beram was arguing with a student about a totem. Tigor said nothing at all, which is how Tigor speaks most of the time. I sat and listened to all of it, and I felt better for it." } },
+      choices = {
+        { text = "Why does listening to them help?", next = "w5_today2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_today2 = {
+      lines = { { id = "w5_today2_l", text = "Because they talk to the spirits all day, and then they come down and talk to each other like anyone. It reminds me that the spirits are not far off, or grand, or frightening. They are the same as the wind on this rise. I find that a comfort, waiting as I do." } },
+      choices = {
+        { text = "The spirits are close. That is a comfort.", next = "BACK", reply = "It is. Stand with me a while, and you will feel it too." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     wind = {

@@ -54,7 +54,23 @@ P:NPC {
         { text = "What happens to a shaman who fails a trial?", next = "fail" },
         { text = "Your fire burns without wood.", next = "nowood" },
         { text = "Thrall taught the orcs the old ways again.", next = "thrall_ways", when = { race = "Orc" } },
+        { text = "Which element is hardest to teach?", next = "w5_hardest" },
         { text = "I'll leave you to your fire.", next = "END" },
+      },
+    },
+    w5_hardest = {
+      lines = { { id = "w5_hardest_l", text = "Air. Fire is eager, earth is patient, water is honest. Air does not want to be taught at all. It comes and goes as it pleases, and a young shaman who tries to hold it ends up holding nothing, and weeping with frustration." } },
+      choices = {
+        { text = "How do you teach it, then?", next = "w5_hardest2" },
+        { text = "The wind has never answered me. What am I doing wrong?", next = "BACK", when = { class = "SHAMAN" }, reply = "Asking. Stop asking, and wait. Air comes to those who have stopped expecting it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_hardest2 = {
+      lines = { { id = "w5_hardest2_l", text = "I do not. I bring them to the edge of Spirit Rise on a windy morning and tell them to stand there until they stop trying. Some stand a day. Some stand a season. Then one morning they look up, and the wind is on their shoulder, and they have no idea when it arrived." } },
+      choices = {
+        { text = "So the lesson is to stop trying to learn.", next = "BACK", reply = "The lesson is to stop forcing. It is a different thing, though it looks the same from outside." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     fail = {
@@ -182,7 +198,22 @@ P:NPC {
         { text = "I could run these rises faster than you.", next = "race", when = { race = "Tauren" } },
         { text = "Is there any word out of Orgrimmar?", next = "org", when = { race = { "Orc", "Troll" } } },
         { text = "Do you carry news down to the Pools of Vision?", next = "pools", when = { race = "Scourge" } },
+        { text = "How fast have you run the rises, at your best?", next = "w5_fast" },
         { text = "Thanks for the news.", next = "END" },
+      },
+    },
+    w5_fast = {
+      lines = { { id = "w5_fast_l", text = "From the lift to Hunter Rise and back to the Elder Rise before the Honor Guard finished their morning greeting. That's three bridges, two climbs and one very startled Bluffwatcher. I still have the bruise from the corner I took too fast." } },
+      choices = {
+        { text = "Who timed you?", next = "w5_fast2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_fast2 = {
+      lines = { { id = "w5_fast2_l", text = "Nobody, which is the trouble! Everyone says they believe me, and then they smile in that tauren way. One day I'll find someone with a good sand-glass and a slow mind and run it again. Then they'll put it in the songs." } },
+      choices = {
+        { text = "Run it again, and I'll count for you.", next = "BACK", reply = "You will? Wonderful! I'll tell everyone I have a witness. Don't blink." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     ashenvale = {
@@ -298,7 +329,22 @@ P:NPC {
         { text = "Hamuul's druids sent me to help.", next = "druids", when = { class = "DRUID" } },
         { text = "How long have you been hauling dirt?", next = "howlong" },
         { text = "You seem to enjoy complaining.", next = "complain" },
+        { text = "What's the worst thing you've found in the soil, Private?", next = "w5_worst" },
         { text = "I'll get out of your way.", next = "END" },
+      },
+    },
+    w5_worst = {
+      lines = { { id = "w5_worst_l", text = "A live centipede the length of my arm, Private, curled up in a sack of Un'Goro dirt that somebody forgot to sift. It came out of the pile at my feet, looked at me, and went straight up my leg. I did not scream. I made a tactical noise." } },
+      choices = {
+        { text = "What happened to the centipede?", next = "w5_worst2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_worst2 = {
+      lines = { { id = "w5_worst2_l", text = "Bashana took it to the druids, who studied it for three weeks and pronounced it \"a very large centipede\". Three weeks, Private. I could have told them that in the time it took to climb my leg. That is the Cenarion Circle for you." } },
+      choices = {
+        { text = "A tactical noise is a perfectly good response.", next = "BACK", reply = "Thank you, Private. You may go far, if you keep away from the dirt piles." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     howlong = {

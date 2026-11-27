@@ -26,7 +26,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "We're the expedition's priests, sent from Ironforge to keep the diggers whole an' their spirits up. The Steppes burn day an' night, an' between the Blackrock orcs an' the black dragons, there's always someone in need o' mendin'." } },
-      again = { { id = "h_again", text = "Aye, what else is on yer mind?" } },
+      again = { { id = "h_again", text = "Aye, what else? Speak up over the diggers; they sing louder the deeper they go." } },
       choices = {
         { text = "The Light walks with the diggers, even this near the dragons.", next = "BACK", reply = "Aye, it does, an' I'd not be out here if I didnae believe it with my whole heart.", fx = { align = { light = 1 } } }, -- dp_stance
         { text = "No prayer will stop a dragon. Trust your axes instead.", next = "BACK", reply = "Axes are fine things, friend, but I've seen what's left of the lads who trusted only that.", fx = { align = { light = -1 } } }, -- dp_stance
@@ -39,7 +39,25 @@ P:NPC {
         { text = "I'm a dwarf too. How can I help?", next = "BACK", when = { race = "Dwarf" }, reply = "Bless ye, cousin. Bring water if ye can find it, an' a strong arm for the diggers. Every pair o' hands is worth a prayer out here." },
         { text = "Have you lost anyone out here?", next = "ylost" },
         { text = "Who do you pray for?", next = "ypray" },
+        { text = "What do the diggers do of an evening?", next = "w9_eve" },
         { text = "Light keep you.", next = "END" },
+      },
+    },
+
+    w9_eve = {
+      lines = { { id = "w9_eve_d", text = "Sing, mostly, an' badly, an' drink the one mug o' ale the expedition allows, which they make last longer than ye'd believe. Then they tell stories about the Dark Irons an' the dragons, each one worse than the last, till somebody's too frightened to sleep an' comes to me." } },
+      choices = {
+        { text = "What do you tell them?", next = "w9_eve2" },
+        { text = "Only one mug of ale?", next = "w9_eve2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_eve2 = {
+      lines = { { id = "w9_eve2_d", text = "That the Light's watched over worse places than this, an' that they've a priest who stays up all night anyway, so they may as well sleep. Most of 'em do, eventually, an' I sit by the fire an' listen to the mountain rumble till dawn." } },
+      choices = {
+        { text = "They're lucky to have you.", next = "BACK", reply = "I'm lucky to have them, an' I tell the Light so every night." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dig = {
@@ -135,7 +153,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Even here, in all this smoke, the new year comes. Welcome, {class}, to an old walker's strange resting place." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "The new moon of the year is upon us, and the Lunar Festival with it. Few walk this far to honor an elder, and I will not forget it." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The year turns, and the festival lanterns burn even in this ash. You walked through the Steppes to honor an old wanderer, {class}, and I will carry that with me on every road." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the ash and the old walker. The Earth Mother is patient, and so am I." },
     { id = "g_done", when = { questDone = TODO_QUEST("Dawnstrider the Elder") }, text = "You have my coin already. Carry it out of this burnt land and somewhere green." },
   },
@@ -155,7 +173,25 @@ P:NPC {
         { text = "My people fought orcs here once, Elder.", next = "kin", when = { faction = "Alliance" } },
         { text = "What was the strangest road you walked?", next = "yroad" },
         { text = "Why see this place, of all places?", next = "ywhy" },
+        { text = "What do you carry with you, walker?", next = "w9_staff" },
         { text = "Rest well, Elder.", next = "END" },
+      },
+    },
+
+    w9_staff = {
+      lines = { { id = "w9_staff_d", text = "Only this staff, {class}, which has a notch cut for every road I walked in life, and there are a great many notches. My grandson carved the first one for me when I left Mulgore, and I carved the rest myself, slowly, as tauren do everything." } },
+      choices = {
+        { text = "Which notch is your favourite?", next = "w9_staff2" },
+        { text = "That's a great many roads.", next = "w9_staff2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_staff2 = {
+      lines = { { id = "w9_staff2_d", text = "The small one near the top, for the road to Moonglade, where I first saw kaldorei and tauren dancing under the same moon. Every road teaches something, and that one taught me that the world is wider and kinder than a young walker believes." } },
+      choices = {
+        { text = "I'll remember that, Elder.", next = "BACK", reply = "Then my staff has done its work. Walk well, {class}." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     life = {

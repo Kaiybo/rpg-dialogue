@@ -38,6 +38,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2scraps = {
+      lines = { { id = "w2sc_default", text = "Nothing gets wasted at the Den if I can help it. The bones go to the cook for the recruits' broth, the tusks go to a troll in Sen'jin who carves charms from them, and the fat gets rendered for lamp oil and boot grease." } },
+      choices = {
+        { text = "Who taught you to waste nothing?", next = "w2scraps2" },
+        { text = "Seems a lot of trouble for a boar.", next = "w2scraps2" },
+        { text = "Something else, Kagil.", next = "BACK" },
+      },
+    },
+    w2scraps2 = {
+      lines = {
+        { id = "w2sc2_skin", when = { profession = "Skinning" }, text = "Hunger, mostly, the same teacher every orc my age had. You've a knife on your belt, so take it from me: a beast you only half use is a beast you killed for half a reason, and the land notices." },
+        { id = "w2sc2_default", text = "Hunger, the same teacher every orc my age had. A beast you only half use is a beast you killed for half a reason, and I don't care to do that twice." },
+      },
+      choices = { { text = "A good rule to live by.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     kg_racks = {
       lines = { { id = "kg_racks_l", text = "They are, and every one of them has to be turned twice a day or it cracks in this heat. Durotar's sun will cure a hide faster than any tanning pit, but it will ruin one just as quickly if you forget it." } },
       choices = {
@@ -95,6 +110,7 @@ P:NPC {
         { text = "Your racks are full of hides drying in the sun.", next = "kg_racks" },
         { text = "What does Gornek make of a skinner at the Den?", next = "kg_gornek" },
         { text = "My pet does half the hunting for me.", next = "kg_pet", when = { class = "HUNTER" } },
+        { text = "What do you do with the parts you can't use?", next = "w2scraps" },
         { text = "Another time, Kagil.", next = "END" },
       },
     },
@@ -188,6 +204,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2find = {
+      lines = { { id = "w2fd_default", text = "A lump of copper the size of my fist, pure as a coin, shaped like a wolf's head if you squint. I found it in the first week the Den was built, and I've kept it on the shelf behind my bench ever since." } },
+      choices = {
+        { text = "You never sold it?", next = "w2find2" },
+        { text = "A wolf's head? You must squint hard.", next = "w2find2" },
+        { text = "Something else, Norzsh.", next = "BACK" },
+      },
+    },
+    w2find2 = {
+      lines = {
+        { id = "w2fd2_miner", when = { profession = "Mining" }, text = "Never. You swing a pick, recruit, so you'll find your own one day, the piece that comes out of the rock like it was waiting for you. Keep it, whatever it's worth, because the next one might take you thirty years." },
+        { id = "w2fd2_default", text = "Never. Every recruit who says I should melt it down gets a season of extra digging, and so far I've not had to say it twice." },
+      },
+      choices = { { text = "I'll keep my eyes open.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     nz_dawn = {
       lines = { { id = "nz_dawn_l", text = "Since before dawn, recruit, because the rock is cooler then and so am I. By noon the cliff walls of this valley are hot enough to cook on, and a miner who works through the heat doesn't work long." } },
       choices = {
@@ -250,6 +281,7 @@ P:NPC {
         { text = "You look like you've been swinging that pick since dawn.", next = "nz_dawn" },
         { text = "Has anyone ever been buried in these hills?", next = "nz_buried" },
         { text = "I'm no orc, but I can swing a pick.", next = "nz_notorc", when = { race = { "Troll", "Tauren", "Scourge" } } },
+        { text = "What's the best find you've had in these hills?", next = "w2find" },
         { text = "Not today.", next = "END" },
       },
     },
@@ -489,6 +521,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2angry = {
+      lines = { { id = "w2ag_default", text = "Earthroot, mon, every time. On de isles it grew fat an' sweet in de wet ground, but here it twists down through de red rock lookin' for water, an' it comes up bitter an' tough an' twice as strong for de healin'." } },
+      choices = {
+        { text = "So the angry ones heal better?", next = "w2angry2" },
+        { text = "Plants don't get angry.", next = "w2angry2" },
+        { text = "Something else, Zor'la.", next = "BACK" },
+      },
+    },
+    w2angry2 = {
+      lines = {
+        { id = "w2ag2_herb", when = { profession = "Herbalism" }, text = "Dey do, mon, an' you seen it yourself, I think. Dig gentle round de root an' it comes up whole; yank it an' it snaps an' you get nothin'. Same as orcs, Zor'la say, but don't tell dem." },
+        { id = "w2ag2_default", text = "Dey do, mon, an' dey heal better for it. Dig gentle round de root an' it comes up whole; yank it an' it snaps. Same as orcs, Zor'la say, but don't tell dem." },
+      },
+      choices = { { text = "Your secret's safe.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     zl_valley = {
       lines = { { id = "zl_valley_l", text = "I do, mon, and the valley needs both. The orcs are good at fighting and bad at picking, and the trolls are the other way round, so when they come to me together, I put them to work side by side and see who learns faster." } },
       choices = {
@@ -535,7 +582,7 @@ P:NPC {
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "A shaman, good. The earth spirits and the roots, they speak the same tongue, so you'll pick this up quick." },
       },
       again = {
-        { id = "h_again", text = "What else you want to know, mon?" },
+        { id = "h_again", text = "Ask Zor'la another, mon. De peacebloom be listenin' too, so ask nice." },
         { id = "h_again2", text = "Ask, ask. The herbs aren't going anywhere." },
       },
       choices = {
@@ -546,6 +593,7 @@ P:NPC {
         { text = "You speak with orcs and trolls alike here.", next = "zl_valley" },
         { text = "What grows in the Burning Blade's cave?", next = "zl_coven" },
         { text = "I walk with the earth spirits too.", next = "zl_shaman", when = { class = "SHAMAN" } },
+        { text = "Which herb grows angriest in Durotar?", next = "w2angry" },
         { text = "Another time, Zor'la.", next = "END" },
       },
     },
@@ -1050,6 +1098,21 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2ride = {
+      lines = { { id = "w2rd_default", text = "Kolkar Crag. The centaur think the ridge is theirs, and I want them to see us come over it, the two of us that everyone said should have been left in the scrub to die." } },
+      choices = {
+        { text = "Is that wise, just the two of you?", next = "w2ride2" },
+        { text = "Revenge makes a poor saddle.", next = "w2ride2" },
+        { text = "Something else, Slizzy.", next = "BACK" },
+      },
+    },
+    w2ride2 = {
+      lines = {
+        { id = "w2rd2_hunter", when = { class = "HUNTER" }, text = "Not wise, no. But you've a beast that follows you, so you'll know there's a day when it stops being a pet and starts being half of you. I want that day to happen on a battlefield, not in a pen." },
+        { id = "w2rd2_default", text = "Not wise, no. But there's a day when a beast stops being a pet and becomes half of you, and I want that day to happen on a battlefield and not in a pen at Rocktusk Farm." },
+      },
+      choices = { { text = "Then may that day come.", next = "BACK" }, { text = "Something else.", next = "BACK" } },
+    },
     sk_boars = {
       lines = { { id = "sk_boars_l", text = "They don't, because Morok'ra is too weak to frighten anything yet, and they know it. The farmers keep the sows penned away from him all the same, because a beast that's starved once never forgets the taste of hunger." } },
       choices = {
@@ -1104,6 +1167,7 @@ P:NPC {
         { text = "I tame beasts myself. Any advice?", next = "xhunter", when = { class = "HUNTER" } },
         { text = "The farm's boars don't seem to fear Morok'ra.", next = "sk_boars" },
         { text = "Scorpids come up out of the rocks round here, I hear.", next = "sk_scorpids" },
+        { text = "Where will you ride first, once Morok'ra is ready?", next = "w2ride" },
         { text = "Good luck with it.", next = "END" },
       },
     },

@@ -36,6 +36,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_eve = {
+      lines = { { id = "w8_eve_a", text = "Sit on the step with a cup of Helbrek's tea and listen to the ships creak, mostly, and pretend I'm a lady of leisure for an hour. James comes out stinking of the vats and sits beside me, and we don't say much, which is the best part of the day." } },
+      choices = {
+        { text = "That sounds like a good marriage.", next = "w8_eve2" },
+        { text = "You deserve more than an hour.", next = "w8_eve2" },
+        { text = "Something else, Andrea.", next = "BACK" },
+      },
+    },
+    w8_eve2 = {
+      lines = { { id = "w8_eve2_a", text = "It is, smell and all, and I'd not trade it for a house in Stormwind with a garden. Though if you ever see a house in Stormwind with a garden going cheap, you may mention it to me, quietly, when James isn't listening." } },
+      choices = {
+        { text = "I'll keep an eye out.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "I'm Andrea Halloran, and my husband James is the tanner here, which you've probably smelled already. Most days I'm keeping our two from falling off something, and the rest of the time I'm scrubbing hides." },
@@ -43,7 +59,7 @@ P:NPC {
       again = {
         { id = "h_again3", text = "Yes? Sorry, I heard a splash, but I think it was only a gull. Go on." },
         { id = "h_again", text = "What else? Quickly, before Regina notices I've stopped watching." },
-        { id = "h_again2", text = "Go on, I'm listening, mostly." },
+        { id = "h_again2", text = "Go on, I'm listening, though I'll keep one eye on the girls while you talk, if you don't mind." },
       },
       choices = {
         { text = "Tell me about your children.", next = "kids" },
@@ -52,6 +68,7 @@ P:NPC {
         { text = "Who do you rely on in this town?", next = "neighbours" },
         { text = "The harbor is no playground.", next = "docks" },
         { text = "I work leather too. How is the trade?", next = "trade", when = { profession = { "Leatherworking", "Skinning" } } },
+        { text = "What do you do when the children are finally asleep?", next = "w8_eve" },
         { text = "Good day, Andrea.", next = "END" },
       },
     },
@@ -152,6 +169,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_last = {
+      lines = { { id = "w8_last_a", text = "That she'd be back before the rain, and to mind the fire. It rained that night, and I minded the fire until it went out, and then I came looking." } },
+      choices = {
+        { text = "Where were you both living then?", next = "w8_last2" },
+        { text = "You kept your promise. She'd know that.", next = "w8_last2" },
+        { text = "Something else, Comar.", next = "BACK" },
+      },
+    },
+    w8_last2 = {
+      lines = { { id = "w8_last2_a", text = "A cottage south of the crossroads, though I've not been back to it in a long while, and I suppose the marsh has it now. Thank you for asking, friend, for most folk only ask whether I've eaten, and that's a smaller question." } },
+      choices = {
+        { text = "I'll watch the roads for her.", next = "BACK", fx = { trait = { kind = 1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "My name is Comar Villard, and I'm looking for my wife. She came this way, I'm sure of it, and I've been walking these roads ever since." },
@@ -168,6 +201,7 @@ P:NPC {
         { text = "Who do you meet on these roads?", next = "roads" },
         { text = "You don't look as though you've eaten.", next = "eaten" },
         { text = "Let me say a prayer for her.", next = "prayer", when = { class = { "PRIEST", "PALADIN" } } },
+        { text = "What was the last thing she said to you?", next = "w8_last" },
         { text = "Farewell, Comar.", next = "END" },
       },
     },
@@ -413,6 +447,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_odd = {
+      lines = { { id = "w8_odd_a", text = "A gnome once wanted forty yards o' rope an' a bucket o' lard, an' wouldnae tell me why, an' I sold it him anyway. Two days later a crocolisk was found tied tae the dock post, greased head tae tail an' furious." } },
+      choices = {
+        { text = "What on earth was he doing?", next = "w8_odd2" },
+        { text = "You sell first and ask later, then.", next = "w8_odd2" },
+        { text = "Something else, Gruham.", next = "BACK" },
+      },
+    },
+    w8_odd2 = {
+      lines = { { id = "w8_odd2_a", text = "He said it was an experiment in friction, an' the crocolisk said otherwise, loudly, all night. Derina made me write it in the ledger as 'rope, lard, regret', an' it's still the funniest line in the book." } },
+      choices = {
+        { text = "Rope, lard, regret. I like that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Gruham Rumdnul. I sell what keeps a body alive between here an' the next dry roof, which in the Wetlands is a long way in any direction." },
@@ -421,7 +471,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? I've sacks tae shift, but they'll keep." },
         { id = "h_again2", text = "Go on, ask. Better here than out in the reeds." },
-        { id = "h_again3", text = "Aye? Speak yer mind." },
+        { id = "h_again3", text = "Aye? Speak yer mind, an' I'll tell ye whether it needs a lantern or a spare pair o' boots." },
       },
       choices = {
         { text = "A shopkeeper should talk folk out of what they don't need.", next = "BACK", reply = "Aye, an' I do, every day. I'd sooner they came back alive than spent their coin.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -434,6 +484,7 @@ P:NPC {
         { text = "What's the one thing nobody thinks to buy?", next = "nobody" },
         { text = "Is the shop a family business?", next = "gr_family" },
         { text = "The Mosshide gnolls must be bad for the supply carts.", next = "gr_gnolls" },
+        { text = "What's the oddest thing a traveller has asked you for?", next = "w8_odd" },
         { text = "Good day, Gruham.", next = "END" },
       },
     },
@@ -551,6 +602,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_sail = {
+      lines = { { id = "w8_sail_a", text = "Once a season, on the Bravery, to send my notes to the herbalists in Darnassus and to let the sea remind me how far I have come. Each time I return, the harbor has sunk a little further into the marsh, and I find I have missed it." } },
+      choices = {
+        { text = "What do the herbalists in Darnassus make of your notes?", next = "w8_sail2" },
+        { text = "You've grown fond of this damp place.", next = "w8_sail2" },
+        { text = "I sail that route myself, sister.", next = "w8_sail2", when = { race = "NightElf" } },
+        { text = "Something else, Dewin.", next = "BACK" },
+      },
+    },
+    w8_sail2 = {
+      lines = {
+        { id = "w8_sail2_a", text = "They are polite, and a little puzzled, as if I had written to them of a strange cousin. A marsh that floods and forgets is not a forest that remembers, but I think there is wisdom in both, and I mean to keep writing until they agree." },
+        { id = "w8_sail2_ne", when = { race = "NightElf" }, text = "Then you know how the Bravery rolls past the Thandol shallows, and how small Menethil looks from the deck. Carry my greetings to Auberdine when you next cross, and tell them the young races grow kingsblood well." },
+      },
+      choices = {
+        { text = "Elune keep you, Dewin.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "I am Dewin Shimmerdawn. I crossed from Auberdine to learn what grows on this side of the sea, and I sell alchemists their supplies so that I may stay and go on learning." },
@@ -559,7 +630,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "Is there something more? I am in no hurry; I seldom am." },
         { id = "h_again2", text = "Ask. A question is a kind of seed." },
-        { id = "h_again3", text = "Yes? Speak, and I will listen." },
+        { id = "h_again3", text = "Yes? Speak, and I will listen as the reeds listen to the tide." },
       },
       choices = {
         { text = "A good alchemist is honest about every ingredient in a potion.", next = "BACK", reply = "That is so. A healer who hides her recipe has something to hide besides.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -572,6 +643,7 @@ P:NPC {
         { text = "What do you miss about Kalimdor?", next = "miss" },
         { text = "Do you know Telurinon, the other kaldorei herbalist here?", next = "dw_tel" },
         { text = "What is the marsh teaching you that Ashenvale could not?", next = "dw_learn" },
+        { text = "Do you ever sail home to Auberdine?", next = "w8_sail" },
         { text = "Farewell, Dewin.", next = "END" },
       },
     },
@@ -688,6 +760,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_cap = {
+      lines = { { id = "w8_cap_a", text = "His axe, aye, though he'd only let me regrind it an' fit a new haft, for the head came wi' him from Ironforge an' he'll trust no other. He brings it in every week an' stands over me the whole time, which a smith hates an' a captain's entitled tae." } },
+      choices = {
+        { text = "What's special about the axe?", next = "w8_cap2" },
+        { text = "He doesn't trust your work?", next = "w8_cap2" },
+        { text = "Something else, Brak.", next = "BACK" },
+      },
+    },
+    w8_cap2 = {
+      lines = { { id = "w8_cap2_a", text = "His father carried it at Grim Batol in the Second War, an' it's got a notch in the bit he'll no' let me grind out. A dwarf's axe carries his family on it, {g:lad|lass}, an' I'd sooner lose a finger than lose that notch." } },
+      choices = {
+        { text = "Then keep that notch safe.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Brak Durnad, weaponsmith. I make blades for a town where the air itself wants tae eat them, so everythin' I sell is forged heavy an' oiled twice before it leaves the shop." },
@@ -695,7 +783,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've an edge on the stone, but I can talk over it." },
-        { id = "h_again2", text = "Go on, ask." },
+        { id = "h_again2", text = "Go on, ask, an' I'll answer between strokes o' the hammer." },
         { id = "h_again3", text = "Aye? Speak up over the wheel." },
       },
       choices = {
@@ -709,6 +797,7 @@ P:NPC {
         { text = "What do you forge when the orders are done?", next = "own" },
         { text = "Do you and Murndan Derth trade, or compete?", next = "bd_murndan" },
         { text = "What would you forge, given proper steel and dry air?", next = "bd_dream" },
+        { text = "Have you ever forged anything for Captain Stoutfist himself?", next = "w8_cap" },
         { text = "Good day, Brak.", next = "END" },
       },
     },
@@ -830,6 +919,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_mend = {
+      lines = { { id = "w8_mend_a", text = "A sail! An entire mainsail, from the Lady Mehley, after a storm off the coast, and I only had the cart and two days and a great deal of thread. I stitched it on the pier with three sailors holding the corners, and it held all the way to Theramore and back." } },
+      choices = {
+        { text = "That's a lot of stitching.", next = "w8_mend2" },
+        { text = "The sailors couldn't mend their own sail?", next = "w8_mend2" },
+        { text = "I'm a tailor. What stitch did you use?", next = "w8_mend2", when = { profession = "Tailoring" } },
+        { text = "Something else, Jennabink.", next = "BACK" },
+      },
+    },
+    w8_mend2 = {
+      lines = {
+        { id = "w8_mend2_a", text = "Four thousand and six stitches, I counted, because I count when I'm nervous and I was very nervous. The sailors could have mended it, but slowly and badly, and the captain wanted it done quickly and well, which is exactly what gnomes are for." },
+        { id = "w8_mend2_tl", when = { profession = "Tailoring" }, text = "A doubled flat seam, waxed twice, with a herringbone at the stress points, and I tested a scrap of it to destruction first, obviously. Four thousand and six stitches, and I'd do it again tomorrow, though my fingers would complain." },
+      },
+      choices = {
+        { text = "Four thousand and six. Impressive.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Jennabink Powerseam! I keep my cart here between the inn and the gryphons because that's where people remember, all at once, that they've a torn sleeve and a long way to go." },
@@ -851,6 +960,7 @@ P:NPC {
         { text = "What colours sell in a port?", next = "colours" },
         { text = "Do you miss Gnomeregan's workshops?", next = "jp_home" },
         { text = "You must see everyone who leaves town.", next = "jp_watch" },
+        { text = "What's the hardest thing anyone's asked you to mend?", next = "w8_mend" },
         { text = "Goodbye, Jennabink.", next = "END" },
       },
     },
@@ -968,6 +1078,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_bell = {
+      lines = { { id = "w8_bell_a", text = "Ship's bells, salvaged from the wreck in the bay, strung on tripwire with a counterweight so they ring loud enough to wake Wenna, which is a very high threshold. The east bell has rung for raptors eleven times and for travellers four, and once for a very confused turtle." } },
+      choices = {
+        { text = "Do the raptors learn to avoid them?", next = "w8_bell2" },
+        { text = "A turtle? That's not much of an alarm.", next = "w8_bell2" },
+        { text = "I'm an engineer. A spring trigger would be quieter.", next = "w8_bell2", when = { profession = "Engineering" } },
+        { text = "Something else, Fradd.", next = "BACK" },
+      },
+    },
+    w8_bell2 = {
+      lines = {
+        { id = "w8_bell2_a", text = "They do, which is fascinating and slightly alarming, so I move the wires every third night and they're back to being surprised. Wenna says I care more about the raptors' learning curve than my own safety, and she's correct, but I think it all evens out." },
+        { id = "w8_bell2_eng", when = { profession = "Engineering" }, text = "Quieter, yes, but the whole point is noise, colleague, and a spring rusts in this damp in a fortnight, which I've measured. Bells don't rust, they just go green and keep ringing, and frankly I find them very reassuring." },
+      },
+      choices = {
+        { text = "Keep the bells ringing, Fradd.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Fradd Swiftgear, engineering supplies. I set up out here because a part that works in the Wetlands will work anywhere, and so far about half of them do, which is very useful to know." },
@@ -989,6 +1119,7 @@ P:NPC {
         { text = "What's the experiment on the tent peg?", next = "peg" },
         { text = "What are you testing at the moment?", next = "fs_test" },
         { text = "Do you sell much to Neal Allen in town?", next = "fs_neal" },
+        { text = "What are the alarm bells around your camp made of?", next = "w8_bell" },
         { text = "Goodbye, Fradd.", next = "END" },
       },
     },
@@ -1105,6 +1236,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_silk = {
+      lines = { { id = "w8_silk_a", text = "From my grandmother in Ironforge, who sewed banners for the Bronzebeard clan an' said a dwarf who can't sew is a dwarf who'll be cold one day. I've nae talent for the needle myself, but I ken good work when I see it, an' I ken what it'll fetch." } },
+      choices = {
+        { text = "So you sell rather than sew.", next = "w8_silk2" },
+        { text = "Your grandmother sounds like a sensible dwarf.", next = "w8_silk2" },
+        { text = "Something else, Wenna.", next = "BACK" },
+      },
+    },
+    w8_silk2 = {
+      lines = { { id = "w8_silk2_a", text = "Aye, an' I'm far better at it, for I've an eye an' a tongue an' no patience for a hem. She'd be proud o' the patterns I carry, if no' the price I ask, but she always said a fair price is the one somebody pays." } },
+      choices = {
+        { text = "That sounds like trade wisdom.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Wenna Silkbeard. I deal in the sort o' goods ye cannae find on a shop shelf, patterns for fine silk work an' the like, an' I keep camp here because every road in the Wetlands can be seen from this rise." },
@@ -1113,7 +1260,7 @@ P:NPC {
       again = {
         { id = "h_again", text = "What else? The kettle's on, so ye may as well ask." },
         { id = "h_again2", text = "Go on. I can talk an' keep an eye on the road both." },
-        { id = "h_again3", text = "Aye? Ask away." },
+        { id = "h_again3", text = "Aye? Ask away, while the kettle's on an' the road's quiet." },
       },
       choices = {
         { text = "I'd sooner pay a fair price than haggle a friend down.", next = "BACK", reply = "Aye, that's how I like it, an' it's why ye're always welcome at this fire.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -1125,6 +1272,7 @@ P:NPC {
         { text = "Where do your patterns come from?", next = "patterns", when = { profession = "Tailoring" } },
         { text = "Who buys fine patterns out here in the marsh?", next = "ws_buyers" },
         { text = "Have you seen trouble from the Dragonmaw on the road?", next = "ws_orcs" },
+        { text = "How did you learn the silk trade?", next = "w8_silk" },
         { text = "Good day, Wenna.", next = "END" },
       },
     },
@@ -1246,6 +1394,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_bad = {
+      lines = { { id = "w8_bad_a", text = "Whoa, whoa, wrong is a strong word, pal, let's say 'surprising'! A dwarf drank a breathin'-water draught on dry land once and spent an hour gaspin' like a fish, and I gave him a full refund, which hurt me more than it hurt him." } },
+      choices = {
+        { text = "Did he come back?", next = "w8_bad2" },
+        { text = "You gave a refund? I'm amazed.", next = "w8_bad2" },
+        { text = "I brew. That's a mislabelled bottle, Kixxle.", next = "w8_bad2", when = { profession = "Alchemy" } },
+        { text = "Something else, Kixxle.", next = "BACK" },
+      },
+    },
+    w8_bad2 = {
+      lines = {
+        { id = "w8_bad2_a", text = "He did, and bought six of the same, 'cause he said it was the most interestin' afternoon he'd had since the Span fell. Out here, friend, a satisfied customer and a survivin' customer are about the same thing, and I'm happy with either." },
+        { id = "w8_bad2_alc", when = { profession = "Alchemy" }, text = "Okay, okay, so it was a labellin' issue, I admit it, colleague to colleague, and the kid who writes my labels has since been retrained. Don't spread it around, pal, I got a reputation as the only potion seller for ten miles to protect." },
+      },
+      choices = {
+        { text = "Your secret's safe, for now.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Kixxle's the name, potions and herbs, and before you ask, yeah, I sell to Alliance, I sell to Horde, and I'd sell to the crocolisks if they carried coin. Out here a potion's worth double what it is in town, and I only charge a little more than that." },
@@ -1267,6 +1435,7 @@ P:NPC {
         { text = "What's your best seller?", next = "seller" },
         { text = "How many customers come down this road in a day?", next = "kx_traffic" },
         { text = "Who do you buy your bottles from?", next = "kx_bottles" },
+        { text = "Ever had a potion go wrong on a customer?", next = "w8_bad" },
         { text = "See you around, Kixxle.", next = "END" },
       },
     },
@@ -1388,6 +1557,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_how = {
+      lines = { { id = "w8_how_a", text = "My father was a fletcher in Lordaeron, and when the plague came south we came with it, one step ahead, and the ship we found was bound for Menethil. I've been here ever since, and I still use his knife for the nocks." } },
+      choices = {
+        { text = "Do you ever think of going back?", next = "w8_how2" },
+        { text = "That knife's travelled a long way.", next = "w8_how2" },
+        { text = "Something else, Naela.", next = "BACK" },
+      },
+    },
+    w8_how2 = {
+      lines = { { id = "w8_how2_a", text = "There's nothing to go back to but the Scourge and the dead, and I'd rather make bows for people who shoot at them. Edwina was here first and thought I'd steal her trade, and I suppose I did, a little, but we've both done well enough out of the damp." } },
+      choices = {
+        { text = "Menethil's lucky to have you both.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "I'm Naela Trance, and I make bows for the guard and for anyone going out past the gate. Edwina Monzor does the same trade across town, so between us nobody in Menethil has an excuse to be unarmed." },
@@ -1408,6 +1593,7 @@ P:NPC {
         { text = "How do I keep a bow alive in the marsh?", next = "keep" },
         { text = "Who in town knows the marsh best?", next = "nt_who" },
         { text = "What wood do you use, with no forest nearby?", next = "nt_wood" },
+        { text = "How did you come to make bows in Menethil?", next = "w8_how" },
         { text = "Farewell, Naela.", next = "END" },
       },
     },
@@ -1524,6 +1710,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_arch = {
+      lines = { { id = "w8_arch_a", text = "A young guard called Karl, who uses one of my bows and won't hear a word against it, so naturally I think he's brilliant. He put an arrow through a murloc's eye at forty paces in the fog last spring, and they still talk about it at the Deepwater." } },
+      choices = {
+        { text = "Karl Boran, the hunter?", next = "w8_arch2" },
+        { text = "Forty paces in fog? I doubt it.", next = "w8_arch2" },
+        { text = "I'm a hunter. I could match that shot.", next = "w8_arch2", when = { class = "HUNTER" } },
+        { text = "Something else, Edwina.", next = "BACK" },
+      },
+    },
+    w8_arch2 = {
+      lines = {
+        { id = "w8_arch2_a", text = "The very same, and he swears it was thirty, which is how I know it was forty, because a good archer always shaves the number. Naela says it was luck, and I say she would, since he wasn't using one of hers." },
+        { id = "w8_arch2_hu", when = { class = "HUNTER" }, text = "Then buy a heavy bow and prove it, {class}, and if you do, I'll make sure the Deepwater hears your name before Karl's. A hunter who can shoot in this fog is worth more to this town than a dozen guards." },
+      },
+      choices = {
+        { text = "I'll see what I can do.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Edwina Monzor. I make a heavy bow, because the beasts in the Wetlands have thick hides and bad tempers, and I fletch every arrow I sell. Naela Trance will tell you a light bow is better, and Naela is wrong." },
@@ -1544,6 +1750,7 @@ P:NPC {
         { text = "What arrowhead should I carry out there?", next = "heads" },
         { text = "Where do you get your feathers?", next = "em_feathers" },
         { text = "What's the hardest beast to bring down out there?", next = "em_beast" },
+        { text = "Who's the best archer on the wall?", next = "w8_arch" },
         { text = "Farewell, Edwina.", next = "END" },
       },
     },
@@ -1660,6 +1867,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_cast = {
+      lines = { { id = "w8_cast_a", text = "Only a little, and only to light a candle when the damp has beaten my matches, which is nearly every evening. I studied in Stormwind for a year before I realised I liked the reagents more than the spells, and the spells did not like me at all." } },
+      choices = {
+        { text = "What went wrong with the spells?", next = "w8_cast2" },
+        { text = "A good merchant is worth more than a bad mage.", next = "w8_cast2" },
+        { text = "I'm a mage. I'd say you chose wisely.", next = "w8_cast2", when = { class = "MAGE" } },
+        { text = "Something else, Falkan.", next = "BACK" },
+      },
+    },
+    w8_cast2 = {
+      lines = {
+        { id = "w8_cast2_a", text = "I set my master's eyebrows alight in my second lesson, and his beard in my fourth, and by the sixth he suggested that I might find my true calling in the shop downstairs. He was right, and I still send him a box of his favourite candles every winter by way of apology." },
+        { id = "w8_cast2_mage", when = { class = "MAGE" }, text = "That is kind of you, and I suspect my old master would agree with you, loudly. Do stock up before your crossing, for the arcane is a hungry art and Theramore's prices are worse than mine, though I would never say so in front of a Kul Tiran." },
+      },
+      choices = {
+        { text = "I'll keep my eyebrows clear of you.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Falkan Armonis, at your service. This is the last place to buy a rune or a candle before the long crossing, so I see every mage and priest who passes through the harbor, usually in a hurry and usually short of something." },
@@ -1679,6 +1906,7 @@ P:NPC {
         { text = "What do casters forget to buy?", next = "forget" },
         { text = "What brought you to Menethil, of all places?", next = "fa_why" },
         { text = "Do the mages here study anything in particular?", next = "fa_mages" },
+        { text = "Do you ever cast spells yourself?", next = "w8_cast" },
         { text = "Farewell, Falkan.", next = "END" },
       },
     },
@@ -1798,6 +2026,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_crew = {
+      lines = { { id = "w8_crew_a", text = "Drill in the morning, shore leave in shifts, and a rule that no man starts a fight at the Deepwater unless he can finish it before the bell. A ship at anchor rots faster than one at sea, and so does her crew, if you let them sit." } },
+      choices = {
+        { text = "Do they break that rule often?", next = "w8_crew2" },
+        { text = "A fair rule. Discipline keeps a ship afloat.", next = "w8_crew2" },
+        { text = "I'm from Kul Tiras stock. You run a tight ship.", next = "w8_crew2", when = { race = "Human" } },
+        { text = "Something else, Captain.", next = "BACK" },
+      },
+    },
+    w8_crew2 = {
+      lines = {
+        { id = "w8_crew2_a", text = "Weekly, and Helbrek sends me the bill, and I take it out of their grog. They grumble and they pay and they do it again, and that's how I know they're still sailors and not yet soldiers stuck on a dock." },
+        { id = "w8_crew2_hu", when = { race = "Human" }, text = "I was trained by men who sailed under Admiral Proudmoore, so I'd hope so. The crew grumble about it weekly, and they'll grumble a good deal more when we're finally sent to sea, but they'll be ready." },
+      },
+      choices = {
+        { text = "Fair winds when they come.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Bart Tidewater, captain of this ship. She's a navy ship of Stormwind, and she holds this harbor for the Alliance while the Lady Mehley runs folk to Theramore Isle and back. I made that crossing for years before my orders changed." },
@@ -1815,6 +2063,7 @@ P:NPC {
         { text = "What do you make of your passengers?", next = "passengers" },
         { text = "What are your orders, holding a harbor at anchor?", next = "bt_orders" },
         { text = "You must know Captain Stoutfist well.", next = "bt_stoutfist" },
+        { text = "How do you keep your crew in good spirits at anchor?", next = "w8_crew" },
         { text = "Fair winds, Captain.", next = "END" },
       },
     },
@@ -1931,13 +2180,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_bye = {
+      lines = { { id = "w8_bye_a", text = "A dwarf soldier and his wife, him bound for Theramore and her staying behind, and she stood here till the ship was out of sight and then a good while after. I didn't know what to say, so I stood with her, which seemed to be the right thing." } },
+      choices = {
+        { text = "Did he ever come back?", next = "w8_bye2" },
+        { text = "That was kind of you.", next = "w8_bye2" },
+        { text = "Something else, Adam.", next = "BACK" },
+      },
+    },
+    w8_bye2 = {
+      lines = { { id = "w8_bye2_a", text = "He did, six months later, and she was standing in the same spot, and I swear she hadn't moved, though she must have gone home at some point. That's the good part of minding a pier, friend, you see the comings as well as the goings." } },
+      choices = {
+        { text = "That's a happy ending.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "I'm Adam Lind, and I mind this pier. The ship that ties up here is the Lady Mehley, and she goes to Theramore Isle in Kalimdor. If it's Auberdine you want, you're on the wrong pier, and you wouldn't be the first today." },
       },
       again = {
         { id = "h_again", text = "Anything else I can tell you while you wait?" },
-        { id = "h_again2", text = "Go on, she's not in yet." },
+        { id = "h_again2", text = "Go on, she's not in yet, and I've told the gulls all my stories already." },
       },
       choices = {
         { text = "How long is the wait, usually?", next = "wait" },
@@ -1947,6 +2212,7 @@ P:NPC {
         { text = "What's the strangest thing you've seen board?", next = "strange" },
         { text = "Have you ever been to Theramore yourself?", next = "al_been" },
         { text = "What do people do while they wait?", next = "al_waiting" },
+        { text = "What's the saddest farewell you've seen on this pier?", next = "w8_bye" },
         { text = "Thanks, Adam.", next = "END" },
       },
     },
@@ -2062,13 +2328,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_out = {
+      lines = { { id = "w8_out_a", text = "Steel, mostly, nails and tools and blades, because the elves won't cut their trees and they won't dig their hills, so they buy ours. And ale, which they say they don't drink, and which never once comes back." } },
+      choices = {
+        { text = "The elves drink ale?", next = "w8_out2" },
+        { text = "Fair trade, steel for cloth.", next = "w8_out2" },
+        { text = "Something else, Don.", next = "BACK" },
+      },
+    },
+    w8_out2 = {
+      lines = { { id = "w8_out2_a", text = "Somebody on that ship does, and I'm not asking who, because a dock man who asks questions about cargo stops getting work. All I know is three barrels go out every week and three empty ones come back, and the sailors look very well rested." } },
+      choices = {
+        { text = "I'll keep that between us.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Don Pompa. I load cargo when there's cargo, and the rest of the day I stand here telling people this is the ship for Auberdine, on the Darkshore coast. From there the night elves will get you to Darnassus." },
       },
       again = {
         { id = "h_again", text = "What else? I've crates waiting." },
-        { id = "h_again2", text = "Go on, then, be quick." },
+        { id = "h_again2", text = "Go on, then, be quick, before another lost soul asks me which pier this is." },
       },
       choices = {
         { text = "What's Auberdine like?", next = "auberdine" },
@@ -2078,6 +2360,7 @@ P:NPC {
         { text = "What's the heaviest thing you've loaded?", next = "heavy" },
         { text = "Who pays your wages?", next = "dp_wages" },
         { text = "Are the docks safe at night?", next = "dp_night" },
+        { text = "What goes out on the Auberdine ship?", next = "w8_out" },
         { text = "Thanks, Don.", next = "END" },
       },
     },
@@ -2194,6 +2477,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_best = {
+      lines = { { id = "w8_best_a", text = "A pump for the lower galleries o' the Ironforge works, an' it's still runnin', an' nobody remembers who built it. That's the trouble wi' good engineerin', {g:lad|lass}, for folk only remember the things that go wrong, like gates." } },
+      choices = {
+        { text = "I'll remember the pump, then.", next = "w8_best2" },
+        { text = "So the floodgate wasn't your only work?", next = "w8_best2" },
+        { text = "I'm an engineer. The quiet work is the real work.", next = "w8_best2", when = { profession = "Engineering" } },
+        { text = "Something else, Hargin.", next = "BACK" },
+      },
+    },
+    w8_best2 = {
+      lines = {
+        { id = "w8_best2_a", text = "Bless ye! Tell Junder, for he thinks I've only ever built the one thing an' got stuck behind it. I've forty years o' pumps an' braces an' sluices in that mountain, an' one gate, an' it's the gate they'll carve on my stone." },
+        { id = "w8_best2_eng", when = { profession = "Engineering" }, text = "Ye understand! Sit down, sit down, an' I'll draw ye the valve on this napkin, an' ye'll see why it's never once stuck in thirty years. Helbrek will charge me for the napkin, but it's worth it for a listener who knows what a valve is." },
+      },
+      choices = {
+        { text = "Here's to the pump.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Hargin Mundar, formerly o' the Ironforge works, an' presently o' this bench. I came tae Menethil tae look at their sea wall, an' the tavern was on the way, an' somehow I've no' got past it yet." },
@@ -2211,6 +2514,7 @@ P:NPC {
         { text = "What's the ale like here?", next = "ale" },
         { text = "Does anyone in town still ask your advice on engineering?", next = "hm_advice" },
         { text = "Junder Brokk keeps an eye on you, I hear.", next = "hm_junder" },
+        { text = "What's the best thing you ever built?", next = "w8_best" },
         { text = "Enjoy your ale, Hargin.", next = "END" },
       },
     },
@@ -2327,12 +2631,28 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_free = {
+      lines = { { id = "w8_free_a", text = "Haulin' granite in Loch Modan, I expect, an' drinkin' a proper stout at the Stoutlager after. But Hargin's got nae family left, an' I'm the nearest thing, so I haul stone here an' sit on this bench instead." } },
+      choices = {
+        { text = "That's a true friend.", next = "w8_free2" },
+        { text = "He's a grown dwarf. Let him manage.", next = "w8_free2" },
+        { text = "Something else, Junder.", next = "BACK" },
+      },
+    },
+    w8_free2 = {
+      lines = { { id = "w8_free2_a", text = "He'd manage, aye, for a week or so, an' then he'd fall in the harbor tryin' tae measure the tide wi' his elbow. Dinnae tell him I said any o' this, for he thinks I'm here for the ale." } },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Junder Brokk. I haul stone, when there's stone tae haul, an' I mend the harbor wall wi' it. The rest o' the time I sit here an' make sure Hargin gets home, which is the harder job." },
       },
       again = {
-        { id = "h_again", text = "What else is on yer mind?" },
+        { id = "h_again", text = "What else is on yer mind, then? Hargin's off tellin' his tale to somebody else, so I've a moment's peace." },
         { id = "h_again2", text = "Go on, I'm listenin'. I've had the practice." },
       },
       choices = {
@@ -2343,6 +2663,7 @@ P:NPC {
         { text = "What's the worst part of the marsh road?", next = "worst" },
         { text = "Where does the wall stone come from?", next = "jb_stone" },
         { text = "What do you make of Captain Stoutfist?", next = "jb_captain" },
+        { text = "What would you be doing if Hargin didn't need watching?", next = "w8_free" },
         { text = "Good evening, Junder.", next = "END" },
       },
     },
@@ -2459,6 +2780,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_drag = {
+      lines = { { id = "w8_drag_a", text = "Lock the door, sit on the powder kegs and wait for someone to knock in a voice I recognise. If no one does, well, the Dragonmaw would get a very loud surprise, and so would I, briefly." } },
+      choices = {
+        { text = "That's a grim plan.", next = "w8_drag2" },
+        { text = "Brave, in its way.", next = "w8_drag2" },
+        { text = "Something else, Murphy.", next = "BACK" },
+      },
+    },
+    w8_drag2 = {
+      lines = { { id = "w8_drag2_a", text = "It's the only plan a storeman's got, and I'd rather they didn't get the powder, because then they'd use it on Timothy and the rest. Don't tell the sergeant I've thought about it, though, or he'll expect me to be brave on other occasions too." } },
+      choices = {
+        { text = "I won't tell a soul.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "Murphy West. I keep the keep's stores, which means flour, salt pork, lamp oil and powder, and I keep them down here because it's the one dry room in the Wetlands. I'd be a fool to leave it." },
@@ -2475,6 +2812,7 @@ P:NPC {
         { text = "What's the oldest thing down here?", next = "oldest" },
         { text = "Who comes down to the stores, besides you?", next = "mw_visitors" },
         { text = "What's the powder for, in a soggy keep?", next = "mw_powder" },
+        { text = "What would you do if the Dragonmaw came over the wall?", next = "w8_drag" },
         { text = "I'll leave you to it, Murphy.", next = "END" },
       },
     },
@@ -2591,6 +2929,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_msg = {
+      lines = { { id = "w8_msg_a", text = "Orders to the wall posts, letters to the harbormaster, and once a sealed letter to the Mountaineers at Dun Algaz that I wasn't allowed to read, and I didn't, even though I wanted to. The captain says a messenger who reads the message is a messenger who gets hanged." } },
+      choices = {
+        { text = "Did you ever wonder what it said?", next = "w8_msg2" },
+        { text = "The captain trusts you. That counts.", next = "w8_msg2" },
+        { text = "Something else, Timothy.", next = "BACK" },
+      },
+    },
+    w8_msg2 = {
+      lines = { { id = "w8_msg2_a", text = "Every step of the way, but I gave it to Mountaineer Thar without even looking at the seal too long. He said I'd make a good soldier because I could keep my mouth shut, and I've been trying not to tell everybody he said that ever since." } },
+      choices = {
+        { text = "You'll make a fine guard.", next = "BACK", fx = { affinity = 1 } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "I'm Timothy Clark. I'm not a guard yet, but I will be, as soon as the captain says I'm old enough and there's a place on the roll. Until then I carry messages and fetch things, and I watch how it's all done." },
@@ -2607,6 +2961,7 @@ P:NPC {
         { text = "What would you do first, as a guard?", next = "firstday" },
         { text = "What's the watch rota like?", next = "tc_rota" },
         { text = "Have you ever been outside the walls?", next = "tc_outside" },
+        { text = "What do you carry for Captain Stoutfist?", next = "w8_msg" },
         { text = "Good luck, Timothy.", next = "END" },
       },
     },
@@ -2722,6 +3077,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_pot = {
+      lines = { { id = "w8_pot_a", text = "A chest-salve for the fishermen, made with liferoot and a little peacebloom and something Ardin found in the reeds that I've never seen written in any book. It smells like a wet dog, but every sailor in the harbor swears by it, and two of the guards." } },
+      choices = {
+        { text = "What did Ardin find?", next = "w8_pot2" },
+        { text = "A wet dog? That's a selling point?", next = "w8_pot2" },
+        { text = "I'm an alchemist. I'd love that recipe.", next = "w8_pot2", when = { profession = "Alchemy" } },
+        { text = "Something else, Caitlin.", next = "BACK" },
+      },
+    },
+    w8_pot2 = {
+      lines = {
+        { id = "w8_pot2_a", text = "A little grey root with a red tip that only grows where the marsh meets the salt, and he won't tell me where, the wretch, because he says it's the only thing he has over me. I let him think so, because it makes him happy and the salve sells." },
+        { id = "w8_pot2_alc", when = { profession = "Alchemy" }, text = "Everyone would, and I'd give it to you, but I don't know the last part myself, because Ardin gathers the root and won't say where. Bring him home safe and I'll make him tell us both, and that's a promise between alchemists." },
+      },
+      choices = {
+        { text = "I'll do my best to bring him home.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", text = "I'm Caitlin Grassman. I make potions for the guard and for the fishing boats, and my husband Ardin gathers the herbs for them. He went to look at some grasses at a dig, he said for a week, and it has been a good deal longer than a week." },
@@ -2742,6 +3117,7 @@ P:NPC {
         { text = "Which marsh herbs are worth gathering?", next = "herbs", when = { profession = { "Herbalism", "Alchemy" } } },
         { text = "What do the neighbours say about Ardin?", next = "cg_neighbours" },
         { text = "How did you two meet?", next = "cg_met" },
+        { text = "What's your best potion, Caitlin?", next = "w8_pot" },
         { text = "Take heart, Caitlin.", next = "END" },
       },
     },

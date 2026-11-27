@@ -470,6 +470,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_fine = {
+      lines = { { id = "w8_fine_a", text = "A vest of green scale, stitched so close the rain beads on it and runs away, which I made for no one and sold to no one. It hangs in my tent, and I look at it when I cannot remember why I still work." } },
+      choices = {
+        { text = "Why not sell it?", next = "w8_fine2" },
+        { text = "It sounds beautiful.", next = "w8_fine2" },
+        { text = "I work leather. Could I see the stitching?", next = "w8_fine2", when = { profession = "Leatherworking" } },
+        { text = "Something else, Masat.", next = "BACK" },
+      },
+    },
+    w8_fine2 = {
+      lines = {
+        { id = "w8_fine2_a", text = "Because it is the one thing I have made that I remember making, every stitch. The patterns of the old home are going from me, but this one I will keep, until I forget even that." },
+        { id = "w8_fine2_lw", when = { profession = "Leatherworking" }, text = "Look, then, but gently, and see how the scales overlap from the bottom, like a roof. My teacher taught me that, the one whose name I have lost, and I think she would be glad someone else has seen it." },
+      },
+      choices = {
+        { text = "Keep it, Masat.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     mas_mag1 = {
       lines = {
         { id = "mas_mag1_1", text = "Magtoor is kind, and he remembers more than the rest of us, which is a heavy thing to carry. He keeps the Harborage together with songs and patience, and I keep it clothed, and that is a fair division of what we have left." },
@@ -536,6 +556,7 @@ P:NPC {
         { text = "How do you trade, out here?", next = "trade" },
         { text = "Magtoor speaks well of your hands.", next = "mas_mag1" },
         { text = "The Lost Ones walk close to the Harborage.", next = "mas_lost1" },
+        { text = "What is the finest piece you've ever made?", next = "w8_fine" },
         { text = "Not today.", next = "END" },
       },
     },

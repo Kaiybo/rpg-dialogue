@@ -31,6 +31,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_odd = {
+      lines = {
+        { id = "w2_odd_l0", text = "Forty candles an' a ball o' twine, by a gnome who wouldnae say why. Two days later the inn smelled o' scorched wax for a week, an' there was a burn on the ceilin' shaped like a gear." },
+      },
+      choices = {
+        { text = "Did you ever learn what it was?", next = "w2_odd_gnome" },
+        { text = "Some things are best not asked.", next = "BACK" },
+      },
+    },
+    w2_odd_gnome = {
+      lines = {
+        { id = "w2_odd_gnome_l0", text = "He said it was a lamp, the brightest in Loch Modan, an' for about four breaths I believe it was. He's bought twine from me since, but I'll no' sell him candles again, no' for any price." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -53,6 +70,7 @@ P:NPC {
         { text = "How's trade in Thelsamar?", next = "trade" },
         { text = "Who are your neighbours at the stalls?", next = "ys_neigh" },
         { text = "Has the trogg trouble touched Thelsamar?", next = "ys_troggs" },
+        { text = "What's the oddest thing anyone's bought from you?", next = "w2_odd" },
         { text = "Good day, Yanni.", next = "END" },
       },
     },
@@ -177,6 +195,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_hard = {
+      lines = {
+        { id = "w2_hard_l0", text = "Good thread, believe it or no'. Flux an' vials come up from Ironforge by the cartload, but Rann Flamespinner buys every spool o' fine thread before it's off the cart, an' then the rest o' Thelsamar sews wi' twine." },
+      },
+      choices = {
+        { text = "Can't you order more?", next = "w2_hard_order" },
+        { text = "Then charge Rann double for it.", next = "BACK" },
+      },
+    },
+    w2_hard_order = {
+      lines = {
+        { id = "w2_hard_order_l0", text = "I've ordered twice the amount, three times runnin', an' Rann buys twice the amount, three times runnin'. I'm startin' tae think the tailor's buildin' somethin' up there, an' it isnae a shirt." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -186,7 +221,7 @@ P:NPC {
       },
       again = {
         { id = "h_again3", text = "Still here? Then buy somethin' or ask somethin', for I'll no' have ye just standin' on my clean floor." },
-        { id = "h_again", text = "What else? I've stock tae count." },
+        { id = "h_again", text = "What else? I've flux tae count an' vials tae wrap, an' they'll no' do it themselves." },
         { id = "h_again2", text = "Ask, then, but be quick about it, for there's a crate o' vials on the step that wants bringin' in before it rains." },
       },
       choices = {
@@ -198,6 +233,7 @@ P:NPC {
         { text = "Do you sell Vidra her spices?", next = "spice", when = { profession = "Cooking" } },
         { text = "You run a stall inside an inn.", next = "inn" },
         { text = "I mine my own ore. What do smiths run short of?", next = "miner", when = { profession = { "Mining", "Blacksmithing" } } },
+        { text = "What's hardest to get hold of out here?", next = "w2_hard" },
         { text = "Good day, Drac.", next = "END" },
       },
     },
@@ -304,6 +340,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_boom = {
+      lines = {
+        { id = "w2_boom_l0", text = "Twice! Once was a bad barrel from a supplier I'll no' name, an' once was me tryin' tae see how much powder a blunderbuss would take. The answer's less than I put in, an' I've a bald patch tae prove it." },
+      },
+      choices = {
+        { text = "You're lucky to still have your eyebrows.", next = "w2_boom_brows" },
+        { text = "Experiments are how the craft moves forward.", next = "BACK" },
+      },
+    },
+    w2_boom_brows = {
+      lines = {
+        { id = "w2_boom_brows_l0", text = "Lucky? Friend, these are the third set. Ghak next door sells a salve that brings them back, an' I'm his best customer after the miners." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -315,7 +368,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've a barrel cleanin' that won't clean itself." },
-        { id = "h_again2", text = "Go on, ask, an' mind ye stand clear o' the bench while ye do." },
+        { id = "h_again2", text = "Go on, ask, an' mind ye stand clear o' the bench while ye do, for it's loaded an' so am I wi' answers." },
       },
       choices = {
         { text = "Every gun should be sold with a fair warning about its kick.", next = "BACK", reply = "Aye, an' that's why my customers have all their teeth, mostly.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -326,6 +379,7 @@ P:NPC {
         { text = "Who's your best customer?", next = "customers" },
         { text = "What's the loudest gun you've made?", next = "vb_loud" },
         { text = "What's Dakk's trouble with the woods?", next = "vb_dakk" },
+        { text = "Has a gun ever blown up in your shop?", next = "w2_boom" },
         { text = "Good day, Vrok.", next = "END" },
       },
     },
@@ -456,6 +510,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_thread = {
+      narr = "He glances at the door before he answers.",
+      lines = {
+        { id = "w2_thread_l0", text = "A banner, if ye must know, for the Mountaineers. Kadrell's lads have been carryin' a scrap o' sacking on a pole since the old one burned, an' I thought they deserved a proper colour tae march under." },
+      },
+      choices = {
+        { text = "Does Kadrell know?", next = "w2_thread_secret" },
+        { text = "That's a kind thing to do for them.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    w2_thread_secret = {
+      lines = {
+        { id = "w2_thread_secret_l0", text = "Nae, an' ye'll no' tell him. It'll be done by midsummer, gold thread on blue, wi' the loch an' the hills on it, an' if Drac asks why he's short o' spools, ye've no idea." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -466,7 +538,7 @@ P:NPC {
       again = {
         { id = "h_again3", text = "Ask what ye like. A question's easier tae untangle than a skein, most days." },
         { id = "h_again", text = "What else? Take yer time, for there's no hurry in thread." },
-        { id = "h_again2", text = "Go on. I'll keep spinnin' while ye think." },
+        { id = "h_again2", text = "Go on. I'll keep spinnin' while ye think, an' I'll pretend no' tae look at yer hem." },
       },
       choices = {
         { text = "A tailor should never pass off another's pattern as their own.", next = "BACK", reply = "Aye, that's right. Every pattern I sell has the maker's name stitched in the corner.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -478,6 +550,7 @@ P:NPC {
         { text = "I sew a little. What should I buy first?", next = "tailor", when = { profession = "Tailoring" } },
         { text = "What do miners want from a tailor?", next = "rf_miners" },
         { text = "Is there tailoring trouble in Thelsamar?", next = "rf_trouble" },
+        { text = "What do you do with all the fine thread you buy?", next = "w2_thread" },
         { text = "Good day, Rann.", next = "END" },
       },
     },

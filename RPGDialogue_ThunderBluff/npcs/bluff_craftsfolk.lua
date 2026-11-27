@@ -41,7 +41,7 @@ P:NPC {
         { id = "h_dd_shield", tags = { "news" }, when = { questDone = TODO_QUEST("The Black Shield") }, text = "Mosarn tells me you carried one of his own shields back from Dustwallow, and that the black dragonflight's servants had it. He's been grumbling about it at the forge ever since, so if you hear a hammer ringing late, that's him working off his temper." },
       },
       again = {
-        { id = "h_again", text = "What else would you know, {class}?" },
+        { id = "h_again", text = "Ask what you will, {class}. Asking costs nothing. A helm costs a great deal more." },
         { id = "h_again2", text = "Speak. The forge can wait a moment." },
       },
       choices = {
@@ -51,7 +51,23 @@ P:NPC {
         { text = "Why work beside the central totem?", next = "totem" },
         { text = "I work a forge as well, Orm.", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "A warrior's helm should be earned, then.", next = "earn", when = { class = "WARRIOR" } },
+        { text = "Who was the last to earn one of your helms?", next = "w5_last" },
         { text = "I'll leave you to the forge.", next = "END" },
+      },
+    },
+    w5_last = {
+      lines = { { id = "w5_last_l", text = "A young shaman of the Winterhoof, who held a bridge alone against three Grimtotem who came at night with clubs. She did not kill them. She held them until the Bluffwatchers came, and then she sat down, because her leg was broken." } },
+      choices = {
+        { text = "Why give a helm for holding, not killing?", next = "w5_last2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_last2 = {
+      lines = { { id = "w5_last2_l", text = "Because anyone can kill. Holding is harder. A helm is for someone who will stand when it would be easier to swing, and she stood on a broken leg. I made her helm with a crest of eagle feathers, so that every time she wears it, the wind reminds her." } },
+      choices = {
+        { text = "Holding the line is greater than any kill.", next = "BACK", reply = "Yes. You might earn a helm one day, if you mean that.", fx = { align = { honor = 1 } } },
+        { text = "A warrior's worth is in what she defeats.", next = "BACK", reply = "Then you will wait a long time for a helm from me, {class}.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     helm = {
@@ -145,7 +161,7 @@ P:NPC {
         { id = "h_smith", when = { profession = "Blacksmithing" },
           text = "Back for another lesson? Good, the iron is warm, and so is my patience today." },
       },
-      again = { { id = "h_again", text = "What else would you know?" } },
+      again = { { id = "h_again", text = "What else? Ask before you learn a bad habit, not after." } },
       choices = {
         { text = "I'm ready to learn.", next = "BUSINESS", when = { profession = "Blacksmithing" } },
         { text = "How did tauren come to the forge?", next = "forge" },
@@ -154,7 +170,23 @@ P:NPC {
         { text = "What should a new smith make first?", next = "first" },
         { text = "Should I learn armour or weapons?", next = "special", when = { profession = "Blacksmithing" } },
         { text = "An orc taught you? Then you know the old ways.", next = "orc_forge", when = { race = "Orc" } },
+        { text = "What do you say to a beginner who hits his own thumb?", next = "w5_thumb" },
         { text = "Farewell, Karn.", next = "END" },
+      },
+    },
+    w5_thumb = {
+      lines = { { id = "w5_thumb_l", text = "Nothing, for a moment. Then I hand him the hammer back. Every smith on this bluff has hit their own thumb, Orm included, though he will tell you otherwise. The ones who give the hammer back to me are the ones I stop teaching." } },
+      choices = {
+        { text = "And the ones who keep the hammer?", next = "w5_thumb2" },
+        { text = "I've hit my own thumb more times than I can count.", next = "BACK", when = { profession = "Blacksmithing" }, reply = "Then you are a smith. The rest is only practice." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_thumb2 = {
+      lines = { { id = "w5_thumb2_l", text = "They learn to watch the iron and not the hammer, which is the whole secret. Your eye goes where you want the blow to land, and the hand follows. Beginners look at the hammer, because they are afraid of it. Once they stop being afraid, the thumbs are safe." } },
+      choices = {
+        { text = "Watch the iron, not the hammer. I'll remember.", next = "BACK", reply = "Good. And if you forget, your thumb will remind you." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     forge = {
@@ -266,7 +298,22 @@ P:NPC {
         { text = "Any advice for curing hides?", next = "curing", when = { profession = "Leatherworking" } },
         { text = "My mother tanned hides too.", next = "tauren_mother", when = { race = "Tauren" } },
         { text = "Does it trouble you, a druid seeing your hides?", next = "druid", when = { class = "DRUID" } },
+        { text = "Hewa writes down everything you give away.", next = "w5_hewa" },
         { text = "Farewell, Ahanu.", next = "END" },
+      },
+    },
+    w5_hewa = {
+      lines = { { id = "w5_hewa_l", text = "I know. He thinks I do not know, but I have seen the column. It has my name at the top and it is very long. Hewa is a good partner. He counts so that I do not have to, and I give so that he does not have to." } },
+      choices = {
+        { text = "He says the giving pays for itself.", next = "w5_hewa2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_hewa2 = {
+      lines = { { id = "w5_hewa2_l", text = "Does he? He has never said that to me. That is very like Hewa, to discover a thing is good and then complain about it anyway. The calf with the drum, the orc with the jerkin, they all came back. Leather has a long memory, and so do people." } },
+      choices = {
+        { text = "Then he's proving you right, one tally at a time.", next = "BACK", reply = "That is the kindest thing anyone has told me about my partner in years." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     hides = {
@@ -374,7 +421,23 @@ P:NPC {
         { text = "What songs do you sing to them?", next = "songs" },
         { text = "My companion doesn't like the stables.", next = "pet_stable", when = { class = "HUNTER" } },
         { text = "Would you stable a raptor?", next = "raptor", when = { race = "Troll" } },
+        { text = "Which beast was hardest to settle up here?", next = "w5_hardest" },
         { text = "Farewell, Bulrug.", next = "END" },
+      },
+    },
+    w5_hardest = {
+      lines = { { id = "w5_hardest_l", text = "A Darkspear's raptor, brought up the lift from the Barrens. It had never been higher than a tree, and when it saw the drop it tried to climb the lift chains. It took me three days of sitting with it before it would eat." } },
+      choices = {
+        { text = "How did you calm it in the end?", next = "w5_hardest2" },
+        { text = "My raptor would have done the same.", next = "BACK", when = { race = "Troll" }, reply = "Then bring it to me early, before it learns to fear the drop. I will sing it the low song." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_hardest2 = {
+      lines = { { id = "w5_hardest2_l", text = "I sang to it. The low song, the one we sing to kodo calves in a storm. It did not understand the words, but it understood the slow breath. On the fourth day it put its head on my knee and slept. Its troll still sends me fish." } },
+      choices = {
+        { text = "A song for every beast. That's your gift.", next = "BACK", reply = "It is the only gift I have, and the beasts seem to like it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     calm = {

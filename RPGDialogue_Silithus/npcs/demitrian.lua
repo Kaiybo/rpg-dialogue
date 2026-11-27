@@ -52,7 +52,29 @@ P:NPC {
         { text = "Why would you want an elemental lord freed?", next = "why" },
         { text = "I have the Bindings of the Windseeker.", next = "bindings", when = { cleared = "Molten Core" } },
         { text = "The spirits of air speak of him too.", next = "shaman", when = { class = "SHAMAN" } },
+        { text = "How did you first hear Thunderaan's voice?", next = "w9_voice" },
         { text = "I'll leave you to the wind.", next = "END" },
+      },
+    },
+
+    w9_voice = {
+      lines = {
+        { id = "w9_voice_d", text = "In a storm over the Crystal Vale, mortal, when I was still a Highlord of the Twilight's Hammer and thought myself very wise. The lightning struck the stone beside me and I heard my name in the thunder, and every word the cult had taught me turned to ash in my mouth." },
+        { id = "w9_voice_v1", when = { class = "SHAMAN" }, text = "You would understand it better than most, shaman. It came in a storm over the Crystal Vale, when I still wore the Hammer's robes, and the air itself spoke my name, and the cult's teachings fell away from me like dead skin." },
+      },
+      choices = {
+        { text = "What did it cost you?", next = "w9_voice2" },
+        { text = "A voice in a storm could be anything.", next = "w9_voice2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_voice2 = {
+      lines = { { id = "w9_voice2_d", text = "Everything I had: my rank, my brothers in the cult, and any welcome among the sane. They would kill me now if they found me, and the Circle would not weep, but I have heard the wind speak, mortal, and I would not trade that for any title." } },
+      choices = {
+        { text = "Faith is worth whatever it costs.", next = "BACK", fx = { align = { light = 1 } }, reply = "You understand, then. Few do, and fewer still say so." },
+        { text = "You traded one master for another.", next = "BACK", fx = { align = { light = -1 } }, reply = "Perhaps. But this master was a prince before your world had names." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

@@ -57,7 +57,36 @@ P:NPC {
         { text = "I'm a smith too. What's your secret?", next = "smith", when = { profession = "Blacksmithing" } },
         { text = "What makes a good shield, for a warrior?", next = "warrior", when = { class = { "WARRIOR", "PALADIN", "SHAMAN" } } },
         { text = "Show me what you have.", next = "BUSINESS" },
+        { text = "Where does Do'gol get iron in a swamp?", next = "w7_iron" },
         { text = "Goodbye, Do'gol.", next = "END" },
+      },
+    },
+    w7_iron = {
+      lines = {
+        { id = "w7_iron_l1", text = "Bad iron comes up from the old mine where the spiders live, and good iron comes on the wind riders from Orgrimmar, and Do'gol pays too much for it. Sometimes the orcs bring broken Theramore swords, and Do'gol melts them, and Do'gol does not ask how they broke." },
+      },
+      choices = {
+        { text = "Why not mine the old shaft yourself?", next = "w7_iron2" },
+        { text = "Melting enemy swords seems fitting.", next = "w7_iron3" },
+        { text = "Something else, Do'gol.", next = "BACK" },
+      },
+    },
+    w7_iron2 = {
+      lines = {
+        { id = "w7_iron2_l1", text = "Spiders. Big ones. Do'gol has said this already, and Do'gol will say it again, because nobody listens. Do'gol is brave about dragons and brave about ogres, but Do'gol is not brave about legs, too many legs." },
+        { id = "w7_iron2_l2", when = { profession = "Mining" }, text = "Spiders, and you know mines, so you know a mine full of webs is not a mine, it is a larder. Bring Do'gol good ore from somewhere with no legs in it, and Do'gol will make you something heavy." },
+      },
+      choices = {
+        { text = "Fair enough.", next = "BACK", reply = "Do'gol is glad somebody understands about the legs." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_iron3 = {
+      lines = {
+        { id = "w7_iron3_l1", text = "Fitting, yes. A Theramore sword becomes a Horde shield, and the shield stops the next Theramore sword. Do'gol thinks this is very funny, and Krog says Do'gol should not say it near the humans." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     shield = {

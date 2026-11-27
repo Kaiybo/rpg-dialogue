@@ -416,7 +416,22 @@ P:NPC {
         { text = "I'll get your feathers.", next = "BUSINESS" },
         { text = "Your workshop smells of cedar and feathers.", next = "workshop" },
         { text = "Do the Windfury ever come near the bluff?", next = "windfury" },
+        { text = "Has Ruul ever worn something you made without complaining?", next = "w5_ruul" },
         { text = "Farewell, Eyahn.", next = "END" },
+      },
+    },
+    w5_ruul = {
+      lines = { { id = "w5_ruul_l", text = "Never. Not once, since we were calves. I made him a feathered cloak for his first hunt, and he said it rustled. I made him a pair of bracers, and he said they pinched. He wore both until they fell apart, and he still complains about them." } },
+      choices = {
+        { text = "He wore them until they fell apart?", next = "w5_ruul2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_ruul2 = {
+      lines = { { id = "w5_ruul2_l", text = "He did. That is how my brother says thank you. He will grumble about this headdress the whole way to the High Chieftain, and then he will stand before Cairne with his chin up and his feathers straight, and I will be prouder than he will ever know." } },
+      choices = {
+        { text = "Then he'll stand tall because of you.", next = "BACK", reply = "He will. Do not tell him I said so. He would complain about that too." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     workshop = {
@@ -552,7 +567,23 @@ P:NPC {
         { text = "I've thinned the Razorfen, Auld. Is it enough?", next = "dd_razorfen", when = { killed = { name = "Razorfen", min = 40 } } },
         { text = "The spirits must speak of your tribe still.", next = "spirits", when = { class = "SHAMAN" } },
         { text = "Our people don't forget their dead, elder.", next = "dead", when = { race = "Tauren" } },
+        { text = "What did the Stonespire lands look like, before?", next = "w5_lands" },
         { text = "Earth Mother keep you, Auld.", next = "END" },
+      },
+    },
+    w5_lands = {
+      lines = { { id = "w5_lands_l", text = "Thorn and red stone, with springs hidden in the gullies, and spires of rock so tall our people named themselves for them. We buried our dead beneath the spires, so that they could look out over the land forever. Now the quilboar's brambles grow over the graves." } },
+      choices = {
+        { text = "Do you ever go back to see them?", next = "w5_lands2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_lands2 = {
+      lines = { { id = "w5_lands2_l", text = "Once, after the Razorfen took it. I stood on a ridge and looked down and could not see a single spire for the thorns. I came back up the lift and I have not gone again. An old bull can carry only so much. I carry the memory, and I let you young ones carry the axes." } },
+      choices = {
+        { text = "Then we'll carry the axes, and clear the thorns.", next = "BACK", reply = "Good. Come back and tell me when you can see a spire again.", fx = { align = { honor = 1 } } },
+        { text = "Let the past go, elder. The living need you here.", next = "BACK", reply = "The living have plenty of elders. The Stonespire dead have only me.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dd_razorfen = {
@@ -688,7 +719,22 @@ P:NPC {
         { text = "Have you work for me?", next = "BUSINESS" },
         { text = "Who buys the leather you gather?", next = "buyers" },
         { text = "Your mate must be very patient.", next = "mate" },
+        { text = "What do you tell your mate about the smell?", next = "w5_smell" },
         { text = "Farewell, Veren.", next = "END" },
+      },
+    },
+    w5_smell = {
+      lines = { { id = "w5_smell_l", text = "The truth. That I spent the day with my hands in a kodo hide and a tub of tanning bark. She says she knew that from the far side of the rise. Then she makes me wash in the river before I come in, and I do it, because she is right." } },
+      choices = {
+        { text = "She sounds very patient.", next = "w5_smell2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_smell2 = {
+      lines = { { id = "w5_smell2_l", text = "She is. She also wears the best leather on the Lower Rise, and everyone knows who made it. I think that is our bargain. I bring home the smell, and she gets the finest boots on the bluff. Neither of us mentions it. That is how you know a bargain is good." } },
+      choices = {
+        { text = "A bargain nobody mentions is the best kind.", next = "BACK", reply = "Exactly. You have been married, or you have paid attention to those who are." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     buyers = {

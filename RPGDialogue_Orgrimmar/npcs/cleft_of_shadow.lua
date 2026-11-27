@@ -33,6 +33,21 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2rav = {
+      lines = {
+        { id = "w2r_rogue", when = { class = "ROGUE" }, text = "You've heard the whispers, then, which means you've been listening in the right taverns. Ravenholdt Manor sits in the hills of Alterac, and its lord takes in rogues of any banner, so long as they hate the Syndicate as much as he does." },
+        { id = "w2r_default", text = "Dealings is a strong word for it. There's a manor in the hills of Alterac where rogues of every banner go to drink together and hunt the Syndicate, and nobody there asks whether you came in by Orgrimmar or by Stormwind." },
+      },
+      choices = {
+        { text = "And you let your rogues go there?", next = "w2rav2" },
+        { text = "Rogues who answer to no banner sound dangerous.", next = "w2rav2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2rav2 = {
+      lines = { { id = "w2r2_default", text = "I let them go, and I listen when they come back, because a human rogue in his cups will tell a troll things he'd never tell his own king. Ravenholdt thinks it's using us, friend, and I'm content to let it think so for as long as the gossip keeps flowing." } },
+      choices = { { text = "Clever. I'll keep that in mind.", next = "BACK" }, { text = "Something else, Shenthul.", next = "BACK" } },
+    },
     sh_hand = {
       lines = { { id = "sh_hand_l", text = "They do, and they're the best two I've ever had. Ormok teaches the knife and Gest teaches the waiting, and between them they make a rogue I can send anywhere without worrying what comes back." } },
       choices = {
@@ -82,6 +97,7 @@ P:NPC {
         { text = "What would you have of a Forsaken rogue?", next = "forsaken", when = { race = "Scourge", class = "ROGUE" } },
         { text = "Ormok and Gest answer to you, I hear.", next = "sh_hand" },
         { text = "Neeru Fireblade sits very comfortably down here.", next = "sh_neeru" },
+        { text = "Have you dealings with the rogues of Ravenholdt?", next = "w2rav" },
         { text = "Farewell, Shenthul.", next = "END" },
       },
     },
@@ -729,7 +745,7 @@ P:NPC {
         { id = "h_warlock", when = { class = "WARLOCK" }, text = "Hagrus, and before you ask, no, I don't sell soul shards. I don't keep them under the counter either, and I never have, so you can stop looking at it." },
       },
       again = {
-        { id = "h_again", text = "What else? I've got stock to count." },
+        { id = "h_again", text = "Well, what else? These powders and candles won't tally themselves, and I've already lost my count twice today." },
         { id = "h_again2", text = "Still here? Then ask, and be quick about it, because my powder doesn't count itself." },
       },
       choices = {

@@ -31,7 +31,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Is there something more? I should be going soon." },
-        { id = "h_again2", text = "Ask, if you like. The trail will wait a little." },
+        { id = "h_again2", text = "Ask, if you like, though I keep looking at the sun; it moves faster when I'm worried, I swear it does." },
       },
       choices = {
         { text = "What is your Rite of Strength?", next = "rite" },
@@ -40,7 +40,36 @@ P:NPC {
         { text = "I walked the Rite myself, not long ago.", next = "tauren", when = { race = "Tauren" } },
         { text = "What will you do after the Rite?", next = "yafter" },
         { text = "Do you have friends at Narache?", next = "yfriends" },
+        { text = "What furs are you carrying?", next = "w7_furs" },
         { text = "Good luck, Antur.", next = "END" },
+      },
+    },
+    w7_furs = {
+      lines = {
+        { id = "w7_furs_l1", text = "Prairie wolf, mostly, and two cougar pelts that my father is very proud of. He wants them delivered to Wunna Darkmane in Bloodhoof before the traders from the Crossroads arrive, because she has promised him a good price." },
+      },
+      choices = {
+        { text = "Can't someone else carry them?", next = "w7_furs2" },
+        { text = "Your father should carry his own furs.", next = "w7_furs3" },
+        { text = "Something else, Antur.", next = "BACK" },
+      },
+    },
+    w7_furs2 = {
+      lines = {
+        { id = "w7_furs2_l1", text = "I've asked everyone at Narache, and they're all on their own rites, or too busy, or Grull Hawkwind laughed at me. Maybe you could, if you're going that way? I'd owe you, truly I would." },
+        { id = "w7_furs2_l2", when = { race = "Tauren" }, text = "Maybe you? You've done your rites, so you're free to walk the road. I'd tell Wunna they came from me, so my father would still have the credit. Please?" },
+      },
+      choices = {
+        { text = "Perhaps.", next = "BACK", reply = "Thank you! I'll keep them ready, just in case." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_furs3 = {
+      lines = {
+        { id = "w7_furs3_l1", text = "He would, but he hurt his leg chasing the second cougar. He says it was worth it. I say he should have chased it more slowly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     rite = {
@@ -131,7 +160,7 @@ P:NPC {
         { id = "h_default", text = "I am a small piece of a very old thing. The young shaman call me to learn whether the stone will listen to them, and some days I listen." },
         { id = "h_shaman", when = { class = "SHAMAN" }, text = "You carry the totem of earth, or you soon will. Then hear me well, for the stone does not repeat itself." },
       },
-      again = { { id = "h_again", text = "Ask. Stone is patient, but not forever." } },
+      again = { { id = "h_again", text = "Ask. Stone is patient, but even stone wears thin under a hundred small questions." } },
       choices = {
         { text = "What does the earth want of a shaman?", next = "want" },
         { text = "Why are you so small?", next = "small" },
@@ -141,7 +170,36 @@ P:NPC {
         { text = "What do you feel beneath Mulgore?", next = "yfeel" },
         { text = "Do other elements speak to you?", next = "yothers" },
         { text = "I am no shaman. Will you speak to me?", next = "BACK", when = { class = { "WARRIOR", "HUNTER", "DRUID" } }, reply = "Stone speaks to anything that stands on it. You stand, so I speak, a little." },
+        { text = "What do you do when no shaman calls you?", next = "w7_idle" },
         { text = "Return to the stone.", next = "END" },
+      },
+    },
+    w7_idle = {
+      lines = {
+        { id = "w7_idle_l1", text = "I sleep in the rock, little mortal, and I listen to the roots. The roots tell slow stories, about rain and dryness and the weight of the herds passing over them, and I have heard every story they know many times." },
+      },
+      choices = {
+        { text = "Which story do you like best?", next = "w7_idle2" },
+        { text = "That sounds dull.", next = "w7_idle3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_idle2 = {
+      lines = {
+        { id = "w7_idle2_l1", text = "The one about the first rain after the long dry, when the tauren came back to this land. The roots felt the herds coming, and the rain came behind them, and both were welcome. It is a short story. I like it more each time." },
+        { id = "w7_idle2_l2", when = { class = "SHAMAN" }, text = "The one about the first rain when your people came home. You can hear it too, if you put your hand to the earth and wait. Try it, when no one is watching, and the roots will tell you." },
+      },
+      choices = {
+        { text = "I'll listen for it.", next = "BACK", reply = "Listen long. Stone does not hurry for anyone." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_idle3 = {
+      lines = {
+        { id = "w7_idle3_l1", text = "Dull to the quick. Stone does not need excitement. It only needs to be." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     want = {
@@ -249,7 +307,7 @@ P:NPC {
         { id = "h_eng", when = { profession = "Engineering" }, text = "You smell of oil and gunpowder, mon! An engineer! Rinling always has work for a tinkerer." },
       },
       again = {
-        { id = "h_again", text = "What else, mon? Keep smilin'." },
+        { id = "h_again", text = "What else, mon? Keep smilin', because Silas be watchin' from somewhere, and he don't like a frown near de gallery." },
         { id = "h_again2", text = "Anything more? The targets ain't goin' anywhere." },
       },
       choices = {
@@ -260,7 +318,36 @@ P:NPC {
         { text = "How long have you been with the Faire?", next = "xlong" },
         { text = "What's the best prize you've seen?", next = "xprize" },
         { text = "A Darkspear in the Faire? Where's home?", next = "xhome", when = { race = "Troll" } },
+        { text = "Who's the best shot you've ever seen at your gallery?", next = "w7_shot" },
         { text = "Maybe later.", next = "END" },
+      },
+    },
+    w7_shot = {
+      lines = {
+        { id = "w7_shot_l1", text = "A tauren girl from Bloodhoof, no taller dan my shoulder, who hit every target in a row with a borrowed rifle and den asked if she could try with a bow. She did it again, mon, and I gave her de prize and a little extra to stop." },
+      },
+      choices = {
+        { text = "What did she win?", next = "w7_shot2" },
+        { text = "She must have cheated.", next = "w7_shot3" },
+        { text = "Something else, Rinling.", next = "BACK" },
+      },
+    },
+    w7_shot2 = {
+      lines = {
+        { id = "w7_shot2_l1", text = "A whole strip of Faire tickets, and she spent every one on candied apples for her little brothers. Dey followed her around de Faire like goslings, mon, and she never once let dem eat dem all at once." },
+        { id = "w7_shot2_l2", when = { class = "HUNTER" }, text = "A strip of tickets, mon, spent on apples for her brothers. You shoot, so you'd like her style: never wasted a shot, never boasted. Come try de gallery yourself, and see if you can match her." },
+      },
+      choices = {
+        { text = "She sounds sensible.", next = "BACK", reply = "More sensible dan most of my customers, mon." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_shot3 = {
+      lines = {
+        { id = "w7_shot3_l1", text = "Cheat? At my gallery? Mon, de only cheatin' here be done by me, and she beat me fair." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     parts = {
@@ -355,7 +442,7 @@ P:NPC {
         { id = "h_default", text = "I am Stamp Thunderhorn, and I feed the Faire wherever it goes. When we camp in Mulgore I cook as my grandmother did, and everyone eats twice." },
         { id = "h_tauren", when = { race = "Tauren" }, text = "A child of Mulgore at my grill! Sit, and I will give you a taste of home before the Faire takes me away again." },
       },
-      again = { { id = "h_again", text = "What else? The skewers will burn if I talk too long." } },
+      again = { { id = "h_again", text = "What else? Quickly, cousin, the skewers are spitting and I can hear the frog legs beginning to complain." } },
       choices = {
         { text = "What's on the grill?", next = "food" },
         { text = "A tauren who travels with the Faire?", next = "travel" },
@@ -364,7 +451,36 @@ P:NPC {
         { text = "Do you ever cook kodo?", next = "xkodo", when = { race = "Tauren" } },
         { text = "What's the strangest thing you've eaten?", next = "ystrange" },
         { text = "Does the Faire ever go hungry?", next = "yhungry" },
+        { text = "What do the other Faire folk like to eat?", next = "w7_folk" },
         { text = "Give me something to eat.", next = "END" },
+      },
+    },
+    w7_folk = {
+      lines = {
+        { id = "w7_folk_l1", text = "Silas Darkmoon likes his meat burnt black and his bread soft as cloud, and the gnome who runs the games eats nothing but sweet things and wonders why he cannot sleep. The fortune teller eats only what the cards tell her, which is mostly soup." },
+      },
+      choices = {
+        { text = "The cards tell her to eat soup?", next = "w7_folk2" },
+        { text = "You know everyone's tastes.", next = "w7_folk3" },
+        { text = "Something else, Stamp.", next = "BACK" },
+      },
+    },
+    w7_folk2 = {
+      lines = {
+        { id = "w7_folk2_l1", text = "Every single day, cousin, and I have never once asked to see the card. A cook does not argue with the cards; he only makes the best soup in Kalimdor, and the cards seem pleased." },
+        { id = "w7_folk2_l2", when = { class = { "SHAMAN", "PRIEST" } }, text = "Every day. You walk with spirits, so maybe you know whether the cards ever lie. I don't ask, I just make the soup, and so far the cards have never complained." },
+      },
+      choices = {
+        { text = "Good soup.", next = "BACK", reply = "The best. Come back at dusk, there is always a bowl." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_folk3 = {
+      lines = {
+        { id = "w7_folk3_l1", text = "A cook who does not know what his people like is only a cook. One who knows is family." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     food = {
@@ -468,7 +584,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "The moon is full on the new year, young one, and the old ones walk among the tents again. Come, stand with me a while." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "The Lunar Festival has come round again, and the ancestors are near tonight. I am glad you came to honor them." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The moon has turned the year, young one, and the old hunters walk the plains again tonight. Come, sit by this cold fire, and let an old Bloodhoof see a living face." },
     { id = "g_back", when = { metBefore = true }, text = "You return to an old bull's fire. The Earth Mother smiles on those who remember twice." },
     { id = "g_done", when = { questDone = TODO_QUEST("Bloodhoof the Elder") }, text = "You have honoured me already, and the coin of my line goes with you. Carry it gently." },
   },
@@ -489,7 +605,36 @@ P:NPC {
         { text = "Tell me something no one remembers.", next = "ymem" },
         { text = "Should the elders be remembered forever?", next = "yforget" },
         { text = "What happens when the festival ends?", next = "ymoon" },
+        { text = "What was the best hunt of your life?", next = "w7_hunt" },
         { text = "Rest well, Elder.", next = "END" },
+      },
+    },
+    w7_hunt = {
+      lines = {
+        { id = "w7_hunt_l1", text = "A great white plainstrider, young one, the size of two kodo, that ran ahead of the herd across the Barrens for nine days. I followed it alone, and on the ninth day it turned and looked at me, and I lowered my spear and let it go." },
+      },
+      choices = {
+        { text = "Why did you let it go?", next = "w7_hunt2" },
+        { text = "You wasted nine days.", next = "w7_hunt3" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    w7_hunt2 = {
+      lines = {
+        { id = "w7_hunt2_l1", text = "Because it had run so well, and so far, and it had earned its life. A hunter takes what the Earth Mother offers, and that day, she was offering me a lesson instead of meat. I came home empty-handed, and my mother was very cross." },
+        { id = "w7_hunt2_l2", when = { class = "HUNTER" }, text = "Because it had earned its life. You know this, I think: some hunts end with meat, and some with a lesson. That one fed me for the rest of my days, though not in the way my mother wanted." },
+      },
+      choices = {
+        { text = "A wise choice.", next = "BACK", reply = "It did not feel wise at the time. It felt like hunger." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_hunt3 = {
+      lines = {
+        { id = "w7_hunt3_l1", text = "Wasted? I learned more in those nine days than in a lifetime of easy kills. Nothing given by the Earth Mother is wasted." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     life = {
@@ -543,14 +688,14 @@ P:NPC {
         { id = "yelderb_yforget_d", text = "Some of the living say we elders should be forgotten, so the young can walk without our shadows. Others say forgetting is how a people loses itself." },
       },
       choices = {
-        { text = "Remember them. The elders guide the living.", next = "BACK", reply = "Then I will stay a while longer, and gladly. Thank you, child.", fx = { align = { light = 1 } } },
-        { text = "Let the dead go. The young need room to grow.", next = "BACK", reply = "Perhaps. But even a young tree drinks from old roots.", fx = { align = { light = -1 } } },
+        { text = "Remember them. The elders guide the living.", next = "BACK", reply = "Then I will linger at the edge of the herd a little longer, and be glad of it. You honour the hunt, child.", fx = { align = { light = 1 } } },
+        { text = "Let the dead go. The young need room to grow.", next = "BACK", reply = "Perhaps, young one. But even the swiftest calf learned to run by following the old cows through the grass.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     ymoon = {
       lines = {
-        { id = "yelderb_ymoon_d", text = "When the festival ends, the elders go back to the quiet. We do not sleep, exactly, but we wait, the way the earth waits through winter. Each year I wonder if anyone will come." },
+        { id = "yelderb_ymoon_d", text = "When the moon turns again, I go back to the long grass beyond seeing, and I wait there as a hunter waits in a blind. Each year I wonder whether the herd will come past again, and each year someone does." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -577,7 +722,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Ah, a dreamer comes to the dreamer. Sit, if the wind allows it, and tell me what you have seen." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "The new moon of the year is upon us, and the Lunar Festival with it. Few walk this far to honor an elder, and I will not forget it." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The new moon of the year has risen over the dunes, dreamer, and it has carried me back among the living. You came a long way through the sand to find an old seer, and I dreamed that you would." },
     { id = "g_back", when = { metBefore = true }, text = "You came back, which I dreamed you might. The dreams are not always wrong." },
     { id = "g_done", when = { questDone = TODO_QUEST("Dreamseer the Elder") }, text = "You have given your respect, and my coin rests with you. May your sleep be kind tonight." },
   },
@@ -598,7 +743,36 @@ P:NPC {
         { text = "Tell me something no one remembers.", next = "ymem" },
         { text = "Should the elders be remembered forever?", next = "yforget" },
         { text = "What happens when the festival ends?", next = "ymoon" },
+        { text = "Do you dream, even now?", next = "w7_dream" },
         { text = "Rest well, Elder.", next = "END" },
+      },
+    },
+    w7_dream = {
+      lines = {
+        { id = "w7_dream_l1", text = "Always, dreamer. The dead dream more than the living, I think, because we have nothing else to do. I dream of the herds crossing the Barrens, and of young ones I never met, and lately of a great dark tree whose roots go down into fire." },
+      },
+      choices = {
+        { text = "What does the tree mean?", next = "w7_dream2" },
+        { text = "Dreams are only dreams.", next = "w7_dream3" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    w7_dream2 = {
+      lines = {
+        { id = "w7_dream2_l1", text = "I do not know, and I have stopped pretending to. In life I would have read it for the chieftain and given him an answer. In death I have learned that some dreams are only questions, and the honest seer leaves them so." },
+        { id = "w7_dream2_l2", when = { class = { "SHAMAN", "DRUID" } }, text = "I do not know. You walk with the spirits, so perhaps you will dream it too, someday. If you do, do not hurry to read it. Some dreams wait years to be understood." },
+      },
+      choices = {
+        { text = "I'll remember it.", next = "BACK", reply = "Remember it softly. Dreams do not like to be held too tight." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_dream3 = {
+      lines = {
+        { id = "w7_dream3_l1", text = "So the young shaman tell me, and they may be right. But they still wake in the night and wonder." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     life = {
@@ -652,14 +826,14 @@ P:NPC {
         { id = "yelderd_yforget_d", text = "There are young shaman who say dreams are only dreams, and that the old seers spoke too much of things they could not prove. Others say the dreams are the Earth Mother's own voice." },
       },
       choices = {
-        { text = "Remember them. The elders guide the living.", next = "BACK", reply = "Then I will stay a while longer, and gladly. Thank you, child.", fx = { align = { light = 1 } } },
-        { text = "Let the dead go. The young need room to grow.", next = "BACK", reply = "Perhaps. But even a young tree drinks from old roots.", fx = { align = { light = -1 } } },
+        { text = "Remember them. The elders guide the living.", next = "BACK", reply = "Then I will linger in your waking a little longer, and gladly. You have given an old dreamer a reason to stay.", fx = { align = { light = 1 } } },
+        { text = "Let the dead go. The young need room to grow.", next = "BACK", reply = "Perhaps. But every dream the young have was dreamed first by someone older, child, and they do not know whose sleep they borrow.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     ymoon = {
       lines = {
-        { id = "yelderd_ymoon_d", text = "When the festival ends, the elders go back to the quiet. We do not sleep, exactly, but we wait, the way the earth waits through winter. Each year I wonder if anyone will come." },
+        { id = "yelderd_ymoon_d", text = "When the festival ends, I sink back into the long dream, where the living are only shapes on the edge of sleep. Each year I dream that someone will wake me, and each year I wonder whether the dream will be true." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -686,7 +860,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "The sky is wide tonight, and every star in it is an old friend. Come, look up with me, {class}." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "The festival lights burn in Moonglade, and I have come back once more to be remembered. Stay a while, and let us honor the old ways together." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The new moon hangs over the needles tonight, {class}, as bright as I ever saw it from the plains. The festival has brought me back to read one more sky, and I am glad you came to read it with me." },
     { id = "g_back", when = { metBefore = true }, text = "Back again under the same sky. It changes less than the living, which is a comfort." },
     { id = "g_done", when = { questDone = TODO_QUEST("Skyseer the Elder") }, text = "You have honoured me already, and my coin is yours. Look up when you are lost." },
   },
@@ -707,7 +881,36 @@ P:NPC {
         { text = "Tell me something no one remembers.", next = "ymem" },
         { text = "Should the elders be remembered forever?", next = "yforget" },
         { text = "What happens when the festival ends?", next = "ymoon" },
+        { text = "Which star did you love most?", next = "w7_star" },
         { text = "Rest well, Elder.", next = "END" },
+      },
+    },
+    w7_star = {
+      lines = {
+        { id = "w7_star_l1", text = "The red one low in the south, which the planters called the Seed Star, because when it rose at dusk it was time to put seed in the ground. I watched for it every spring of my life, and the tribe planted by my word." },
+      },
+      choices = {
+        { text = "Is it still there?", next = "w7_star2" },
+        { text = "Why trust a star over the weather?", next = "w7_star3" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    w7_star2 = {
+      lines = {
+        { id = "w7_star2_l1", text = "It is, {class}, and it rises over these needles a little later than it did over Mulgore. Look for it at dusk in the spring, and when you see it, you will know what an old seer saw, and the planters will be glad." },
+        { id = "w7_star2_l2", when = { race = "Tauren" }, text = "It is, and your grandmother would have watched for it too. When you see it next spring, look for it the way she did, and tell your herd the planting has begun." },
+      },
+      choices = {
+        { text = "I'll look for it.", next = "BACK", reply = "Do, and say my name when you see it. That is all an elder asks." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_star3 = {
+      lines = {
+        { id = "w7_star3_l1", text = "The weather changes, but the stars keep their appointments. A wise planter listens to both, and trusts the star a little more." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     life = {
@@ -761,14 +964,14 @@ P:NPC {
         { id = "yesk_yforget_d", text = "Some say the sky shows nothing, and the old readers were only guessing. Others say the sky remembers everything that happens beneath it." },
       },
       choices = {
-        { text = "Remember them. The elders guide the living.", next = "BACK", reply = "Then I will stay a while longer, and gladly. Thank you, child.", fx = { align = { light = 1 } } },
-        { text = "Let the dead go. The young need room to grow.", next = "BACK", reply = "Perhaps. But even a young tree drinks from old roots.", fx = { align = { light = -1 } } },
+        { text = "Remember them. The elders guide the living.", next = "BACK", reply = "Then I will watch a few more stars with you, and gladly. A sky is always better shared.", fx = { align = { light = 1 } } },
+        { text = "Let the dead go. The young need room to grow.", next = "BACK", reply = "Perhaps. But the young read tomorrow's weather from clouds their grandmothers named, and do not know it.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     ymoon = {
       lines = {
-        { id = "yesk_ymoon_d", text = "When the festival ends, the elders go back to the quiet. We do not sleep, exactly, but we wait, the way the earth waits through winter. Each year I wonder if anyone will come." },
+        { id = "yesk_ymoon_d", text = "When the festival ends, I go back beyond the clouds, where the stars keep me company. I watch the sky from the other side, and each year I wonder whether anyone below will look up and remember me." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -795,7 +998,7 @@ P:NPC {
   },
   greetings = {
     { id = "g_default", text = "Welcome, young one. The stones remember everything, and so do I, at least for tonight." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "Another Lunar Festival, and another year turned. The ancestors smile on those who seek out their elders." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The moon has turned the year over these cold peaks, child, and the frost has not kept you away. An old stoneworker is glad to see a face that came through the snow to find him." },
     { id = "g_back", when = { metBefore = true }, text = "You return to the stones, and they are glad of it, in their slow way." },
     { id = "g_done", when = { questDone = TODO_QUEST("Stonespire the Elder") }, text = "My coin is already in your keeping. Let it be as steady as the stone." },
   },
@@ -816,7 +1019,36 @@ P:NPC {
         { text = "Tell me something no one remembers.", next = "ymem" },
         { text = "Should the elders be remembered forever?", next = "yforget" },
         { text = "What happens when the festival ends?", next = "ymoon" },
+        { text = "How did you raise the standing stones?", next = "w7_raise" },
         { text = "Rest well, Elder.", next = "END" },
+      },
+    },
+    w7_raise = {
+      lines = {
+        { id = "w7_raise_l1", text = "With ropes of kodo hide, rollers of ironwood, and every tauren of the tribe pulling together on the same song. One stone took a whole summer, and when it stood at last, the youngest calf touched it first, and the oldest elder last." },
+      },
+      choices = {
+        { text = "Why the youngest first?", next = "w7_raise2" },
+        { text = "That's a lot of work for a stone.", next = "w7_raise3" },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    w7_raise2 = {
+      lines = {
+        { id = "w7_raise2_l1", text = "Because the calf would see it standing for the longest, and the elder had already seen enough. A stone is a promise to those who come after; it is right that they should touch it first." },
+        { id = "w7_raise2_l2", when = { race = { "Orc", "Troll", "Scourge" } }, text = "Because the stone was for those who would come after. Your people are new to Kalimdor, so you understand that: what you build here, you build for your young. Touch the stone first, and let your elders touch it last." },
+      },
+      choices = {
+        { text = "A wise custom.", next = "BACK", reply = "It was my mother's. I only carried it on." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_raise3 = {
+      lines = {
+        { id = "w7_raise3_l1", text = "It is, child. That is why it still stands. Easy things do not last." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     life = {
@@ -870,14 +1102,14 @@ P:NPC {
         { id = "yess_yforget_d", text = "Some of the young say the old stones should be moved, so the new roads run straight. Others say a stone set by an elder's hand should never be shifted." },
       },
       choices = {
-        { text = "Remember them. The elders guide the living.", next = "BACK", reply = "Then I will stay a while longer, and gladly. Thank you, child.", fx = { align = { light = 1 } } },
-        { text = "Let the dead go. The young need room to grow.", next = "BACK", reply = "Perhaps. But even a young tree drinks from old roots.", fx = { align = { light = -1 } } },
+        { text = "Remember them. The elders guide the living.", next = "BACK", reply = "Then I will stand here a little longer, as my stones do, and gladly. You honour the work of old hands.", fx = { align = { light = 1 } } },
+        { text = "Let the dead go. The young need room to grow.", next = "BACK", reply = "Perhaps. But the young build their lodges on stones that were set before they were born, and never ask who set them.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     ymoon = {
       lines = {
-        { id = "yess_ymoon_d", text = "When the festival ends, the elders go back to the quiet. We do not sleep, exactly, but we wait, the way the earth waits through winter. Each year I wonder if anyone will come." },
+        { id = "yess_ymoon_d", text = "When the festival ends, I go back into the stone, child, and wait the way a standing stone waits for the next herd to pass. Each year I wonder if anyone will come and lay a hand on me." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -915,14 +1147,43 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I am Hulfnar Stonetotem, and I was born in a tent not twenty paces from here. My family is of the Stonetotem line, which is no kin to the Grimtotem, whatever the young ones joke." } },
-      again = { { id = "h_again", text = "Something else, {class}? I have nowhere to be." } },
+      again = { { id = "h_again", text = "Something else, {class}? Ask; I have nowhere to be, and a tauren who is in no hurry is a tauren at peace." } },
       choices = {
         { text = "What's your work in the village?", next = "work" },
         { text = "The Stonetotem and the Grimtotem are different?", next = "names" },
         { text = "Tell me about your family.", next = "xfam" },
         { text = "What do you think of the Horde?", next = "xhorde" },
         { text = "You must know the land well, cousin.", next = "xland", when = { race = "Tauren" } },
+        { text = "What do you do when there's no trouble?", next = "w7_quiet" },
         { text = "Walk with the Earth Mother.", next = "END" },
+      },
+    },
+    w7_quiet = {
+      lines = {
+        { id = "w7_quiet_l1", text = "I carve, {class}, small things from the soft stone by Stonebull Lake: kodo, plainstriders, a cougar once that came out looking more like a fat dog. I give them to the calves, and they lose them in the grass, and I carve more." },
+      },
+      choices = {
+        { text = "Can I see one?", next = "w7_quiet2" },
+        { text = "Carving seems a quiet pastime for you.", next = "w7_quiet3" },
+        { text = "Something else, Hulfnar.", next = "BACK" },
+      },
+    },
+    w7_quiet2 = {
+      lines = {
+        { id = "w7_quiet2_l1", text = "Here, a little kodo, unfinished; its legs are still in the stone. Keep it, if you like, and when you are far from Mulgore, hold it in your hand, and you will remember that there is a village here that knows your face." },
+        { id = "w7_quiet2_l2", when = { race = "Tauren" }, text = "Here, cousin. A little kodo, legs still in the stone. Every Bloodhoof calf has had one of mine; you may have had one yourself and lost it in the grass. Keep this one safer." },
+      },
+      choices = {
+        { text = "Thank you.", next = "BACK", reply = "It is nothing, only stone. But stone remembers." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_quiet3 = {
+      lines = {
+        { id = "w7_quiet3_l1", text = "Quiet is what I am, mostly. The village only sees me when there is trouble, and so they think I am loud." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     work = {
@@ -1018,7 +1279,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I am Thontek Rumblehoof, and they named me for the noise I made as a calf, running through the tents. Now I am a brave of Bloodhoof Village, and I make that noise on purpose." } },
-      again = { { id = "h_again", text = "What else? I have stories, if you have time for them." } },
+      again = { { id = "h_again", text = "What else? I have stories, and every one of them is louder than the last, so stand back a little." } },
       choices = {
         { text = "What do you do for the village?", next = "duty" },
         { text = "Tell me about this famous stomp.", next = "stomp" },
@@ -1027,7 +1288,36 @@ P:NPC {
         { text = "I'm also young. Any advice?", next = "xyoung", when = { race = "Tauren" } },
         { text = "Who do you look up to?", next = "yhero" },
         { text = "Have you ever been in a real fight?", next = "yfight" },
+        { text = "What's the loudest thing you've ever done?", next = "w7_loud" },
         { text = "Farewell, Thontek.", next = "END" },
+      },
+    },
+    w7_loud = {
+      lines = {
+        { id = "w7_loud_l1", text = "I stomped so hard at the Bloodhoof gathering last spring that the totem shook, and Baine looked at me, and I thought I had done something terrible. Then he laughed and stomped back, and the whole village joined in, and the elders said it was the best gathering in years." },
+      },
+      choices = {
+        { text = "Baine stomped?", next = "w7_loud2" },
+        { text = "You should learn to be quiet.", next = "w7_loud3" },
+        { text = "Something else, Thontek.", next = "BACK" },
+      },
+    },
+    w7_loud2 = {
+      lines = {
+        { id = "w7_loud2_l1", text = "He did! The High Chieftain's son, stomping like a calf, and every brave in the village after him. I will remember it until I go to the Earth Mother, and maybe after that too." },
+        { id = "w7_loud2_l2", when = { race = "Tauren" }, text = "He did, and you should have heard it, {class}, every hoof in Bloodhoof at once! If you're ever at a gathering, stomp loud; it's what the ancestors did, and Baine says they would be glad to hear it." },
+      },
+      choices = {
+        { text = "I'll stomp at the next one.", next = "BACK", reply = "Good! Make it loud. The ancestors are a little deaf." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_loud3 = {
+      lines = {
+        { id = "w7_loud3_l1", text = "So the elders say, and I am trying. Brave Strongbash says I am the only tauren who can be heard sneaking." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     duty = {
@@ -1150,7 +1440,36 @@ P:NPC {
         { text = "What was your life as a hunter?", next = "xlife" },
         { text = "Do you know my ancestors?", next = "xmine", when = { race = "Tauren" } },
         { text = "Did you know Cairne's kin?", next = "xcairne" },
+        { text = "What do the dead see of the living?", next = "w7_see" },
         { text = "Rest well, ancestor.", next = "END" },
+      },
+    },
+    w7_see = {
+      lines = {
+        { id = "w7_see_l1", text = "Shapes, child, and warmth, the way you see the sun through closed eyes. We see the young come up to Red Rocks for their rites, and we feel them kneel, and we lean toward them as grass leans toward the light." },
+      },
+      choices = {
+        { text = "Do you see me now?", next = "w7_see2" },
+        { text = "That sounds a lonely way to exist.", next = "w7_see3" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_see2 = {
+      lines = {
+        { id = "w7_see2_l1", text = "I see a warmth, and a little fear, and a great deal of road ahead of you. That is all the dead can see. The rest you must find yourself." },
+        { id = "w7_see2_l2", when = { race = "Tauren" }, text = "I see one of the herd, warm and young, with the dust of Narache still on your hooves. Your own kin lean toward you too, child, from beneath these stones. Kneel, if you wish; they would like that." },
+      },
+      choices = {
+        { text = "Thank you, ancestor.", next = "BACK", reply = "Go well. We are always here." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_see3 = {
+      lines = {
+        { id = "w7_see3_l1", text = "Not lonely. We are many, and we lie close. It is the living who are lonely, I think, each in a separate body." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     wisdom = {

@@ -30,6 +30,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_wst = {
+      lines = { { id = "w8_wst_a", text = "Boiled crocolisk tail, the week the caravan was late, with no salt and no onions and a sauce made of hope. The grunts ate it, because a grunt eats anything, and then three of them went to see the shaman." } },
+      choices = {
+        { text = "Did they recover?", next = "w8_wst2" },
+        { text = "Karakul would never let that happen.", next = "w8_wst2" },
+        { text = "I cook. Crocolisk wants long smoking, not boiling.", next = "w8_wst2", when = { profession = "Cooking" } },
+        { text = "Something else, Thultash.", next = "BACK" },
+      },
+    },
+    w8_wst2 = {
+      lines = {
+        { id = "w8_wst2_a", text = "They did, and they still call it 'Thultash's revenge' when they want to get under my skin. Don't you go repeating that to Karakul, because he'd put it on a sign over the great hall." },
+        { id = "w8_wst2_cook", when = { profession = "Cooking" }, text = "Smoking, aye, if you've got dry wood, and in Stonard dry wood is rarer than a sober grunt. You bring me a cord of it and I'll smoke you a tail that'd shut Karakul up for a month." },
+      },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     thu_kar1 = {
       lines = {
         { id = "thu_kar1_1", text = "Rivals? He cooks one pot of stew a day for the great hall and thinks he's fed the Horde, while I feed everyone else from dawn to dark. We get on well enough, so long as nobody asks either of us whose bread is better." },
@@ -112,6 +132,7 @@ P:NPC {
         { text = "What's good to eat out here?", next = "eats" },
         { text = "Karakul and you seem to be rivals.", next = "thu_kar1" },
         { text = "What do you keep in the hidden store?", next = "thu_store1" },
+        { text = "What's the worst meal you've ever served?", next = "w8_wst" },
         { text = "Farewell, Thultash.", next = "END" },
       },
     },
@@ -201,6 +222,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_care = {
+      lines = { { id = "w8_care_a", text = "Rogvar's students, every one of them, who come in with wet hands and leave with cracked vials and then blame my glass. Rogvar himself is the worst, but he pays for his breakages without complaint, so I forgive him a little." } },
+      choices = {
+        { text = "Why does Rogvar break so much?", next = "w8_care2" },
+        { text = "You could charge a deposit.", next = "w8_care2" },
+        { text = "I'm an alchemist. Wet hands are the enemy.", next = "w8_care2", when = { profession = "Alchemy" } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_care2 = {
+      lines = {
+        { id = "w8_care2_a", text = "Because he gets excited, and an excited orc has no idea where his elbows are. I keep a separate shelf for him, low down and well padded, and he thinks it's a mark of respect." },
+        { id = "w8_care2_alc", when = { profession = "Alchemy" }, text = "Finally, someone who understands. Dry your hands on the cloth by the door before you touch anything, and I'll sell you the good glass, the kind I don't let Rogvar's students near." },
+      },
+      choices = {
+        { text = "I'll mind the shelves.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     thz_ank1 = {
       lines = {
         { id = "thz_ank1_1", text = "For coming back, mostly, since the swamp kills shamans as easily as anyone else, and the ankh lets the spirits send them back. Haromm buys a dozen at a time for his students, and he looks at them the way a father looks at a broken toy." },
@@ -267,6 +308,7 @@ P:NPC {
         { text = "Who buys reagents in a place like this?", next = "customers" },
         { text = "What do the shamans here use all those ankhs for?", next = "thz_ank1" },
         { text = "Have you ever had a shipment stolen?", next = "thz_st1" },
+        { text = "Who's the most careless customer you have?", next = "w8_care" },
         { text = "Good day.", next = "END" },
       },
     },
@@ -354,6 +396,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_frg = {
+      lines = { { id = "w8_frg_a", text = "In the internment camps, if you'll believe it, mending the humans' tools when they weren't looking and making knives from the scraps when they were asleep. When Thrall broke the gates, I walked out with a hammer I'd made myself, and I've carried it ever since." } },
+      choices = {
+        { text = "Do you still have that hammer?", next = "w8_frg2" },
+        { text = "That took courage.", next = "w8_frg2" },
+        { text = "I was in the camps too, smith.", next = "w8_frg2", when = { race = "Orc" } },
+        { text = "Something else, Hartash.", next = "BACK" },
+      },
+    },
+    w8_frg2 = {
+      lines = {
+        { id = "w8_frg2_a", text = "It hangs over the forge, ugly and bent, and I'd not trade it for the Great Axe and all the gold in Booty Bay. Every blade on this rack was shaped by a hand that remembers being chained, and that's why I make them well." },
+        { id = "w8_frg2_orc", when = { race = "Orc" }, text = "Then you know why I make them well. Take the blade you need, brother, and if you ever have a hammer of your own from those days, hang it where you'll see it every morning." },
+      },
+      choices = {
+        { text = "Lok'tar, Hartash.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     har_axe1 = {
       lines = {
         { id = "har_axe1_1", text = "More than most grunts will see in a year, which is why it's still on the rack. I forged it for a Dreadmaul ogre's neck, and every warrior who walks past touches the haft and sighs, and then buys a falchion instead." },
@@ -423,6 +485,7 @@ P:NPC {
         { text = "Do the warrior recruits buy from you?", next = "recruits" },
         { text = "What does a Great Axe like that cost?", next = "har_axe1" },
         { text = "Grimnal sells the armour. Do you two get on?", next = "har_gri1" },
+        { text = "Where did you learn to forge?", next = "w8_frg" },
         { text = "Farewell.", next = "END" },
       },
     },
@@ -684,6 +747,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_bar = {
+      lines = { { id = "w8_bar_a", text = "The sky, friend, the great wide sky with nothing in it but sun and the odd vulture. Here the sky's a grey lid on a pot, and I've not seen a proper sunset since I arrived." } },
+      choices = {
+        { text = "Will you go back one day?", next = "w8_bar2" },
+        { text = "The swamp has its own beauty.", next = "w8_bar2" },
+        { text = "I'm from Mulgore. The sky's even wider there.", next = "w8_bar2", when = { race = "Tauren" } },
+        { text = "Something else, Thralosh.", next = "BACK" },
+      },
+    },
+    w8_bar2 = {
+      lines = {
+        { id = "w8_bar2_a", text = "One day, when Grimnal finally admits leather's better than plate, which means never, so I'll probably die here. Beauty, you say? Then you've been drinking with the grunts, and I'll take that as a compliment to Thultash's grog." },
+        { id = "w8_bar2_tau", when = { race = "Tauren" }, text = "So your people keep telling me, and you all get the same faraway look when you say it. Tell me about the sunsets over Thunder Bluff, and I'll pretend I'm standing in the grass instead of the mud." },
+      },
+      choices = {
+        { text = "May you see a proper sunset soon.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_dd_drown", when = { deathCause = "drowning" },
@@ -707,6 +790,7 @@ P:NPC {
         { text = "Who catches all these crocolisks for you?", next = "crocs" },
         { text = "My people cure hides with smoke, not oil.", next = "tauren", when = { race = "Tauren" } },
         { text = "Does your cloth stand up to spellwork?", next = "cloth", when = { class = { "MAGE", "PRIEST", "WARLOCK" } } },
+        { text = "What do you miss most about the Barrens?", next = "w8_bar" },
         { text = "Farewell.", next = "END" },
       },
     },

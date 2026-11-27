@@ -30,6 +30,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_rack = {
+      lines = {
+        { id = "w3_rack_1", text = "Staves from the lakeside yews, and they'll stay there till midsummer, because a stave that's hurried will twist on you in a year. The deathguards keep asking when they'll be ready, and I keep telling them when the wood says so." },
+      },
+      choices = {
+        { text = "How do you know when the wood says so?", next = "w3_wood" },
+        { text = "Midsummer's a long wait.", next = "BACK", reply = "It is, and it's worth it. A bow made in a hurry fails in a hurry, usually when a worgen is halfway up the bank." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_wood = {
+      lines = {
+        { id = "w3_wood_1", text = "By the weight, and by the colour of the heartwood at the end, and by a little tap with a knuckle. My father could tell by smell, but I never learned that, and now I can't smell anything at all, so I tap." },
+      },
+      choices = {
+        { text = "Tapping seems to work. Something else.", next = "BACK" },
+      },
+    },
     d2_guns = {
       lines = {
         { id = "d2_guns_1", text = "Because a gun tells the whole forest where you are, and a deathstalker's whole trade is that nobody knows where she is. Faerleia's people go into Pyrewood at night, and one shot would bring every worgen in the village down on them." },
@@ -101,6 +119,7 @@ P:NPC {
         { text = "Why bows, when the goblins sell guns?", next = "d2_guns" },
         { text = "Who do you sell to, besides deathstalkers?", next = "d2_buyers" },
         { text = "My arms are too big for your bows, aren't they?", next = "d2_tauren", when = { race = "Tauren" } },
+        { text = "What's curing on the drying rack?", next = "w3_rack" },
         { text = "Good day, Abigail.", next = "END" },
       },
     },

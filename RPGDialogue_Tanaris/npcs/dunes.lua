@@ -992,7 +992,28 @@ P:NPC {
         { text = "Are you damaged?", next = "y_dmg" },
         { text = "Do you have a name?", next = "y_name" },
         { text = "Let me look at your rotors.", next = "BACK", when = { race = "Gnome" }, reply = "*Whirr. The quadcopter holds still, rotors slowing.* Repair accepted. Gratitude subroutine activated." },
+        { text = "What do you see from up there?", next = "w9_see" },
         { text = "Lead the way, little machine.", next = "END", reply = "*The rotors rise to a happy pitch, and it darts off toward the sea.* Affirmative. Follow." },
+      },
+    },
+
+    w9_see = {
+      lines = {
+        { id = "w9_see_d", text = "*The lens sweeps the horizon in a slow arc.* Scan report: sand, sand, Wastewander bandits, sand. Large insect signatures to the south. One goblin caravan, overloaded. *It dips toward you.* One organic, currently talking to unit." },
+        { id = "w9_see_v1", when = { race = "Gnome" }, text = "*The lens whirs and focuses tightly on you.* Scan report: gnome, standard model. Sand, Wastewander bandits, large insect signatures south. *It chirps, oddly pleased.* Gnome scans cleaner than other organics." },
+      },
+      choices = {
+        { text = "What insects to the south?", next = "w9_see2" },
+        { text = "Are the bandits a danger to you?", next = "w9_see2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_see2 = {
+      lines = { { id = "w9_see2_d", text = "*A low, unhappy buzz.* Bandits throw rocks at unit. Rocks are inaccurate. Insects to the south are large, numerous and not inaccurate. Unit does not fly south of Land's End Beach." } },
+      choices = {
+        { text = "Sensible little machine.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xsent = {

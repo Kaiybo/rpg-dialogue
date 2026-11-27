@@ -319,6 +319,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_map = {
+      lines = {
+        { id = "w2_map_l", text = "Runners, ravens and a great deal of shouting. Every tower captain sends word when his banner changes, and I move a pin on the map. Some days the pins move faster than the runners, and then I'm guessing." },
+      },
+      choices = {
+        { text = "What happens when you guess wrong?", next = "w2_map2" },
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
+    w2_map2 = {
+      lines = {
+        { id = "w2_map2_l", text = "Then soldiers march to a tower that's already burning, or past one that's already lost. I lost a company at Iceblood that way, last winter. I don't guess any more when I can help it. I go and look." },
+      },
+      choices = {
+        { text = "Something else, Commander.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -329,7 +346,7 @@ P:NPC {
           text = "That graveyard's ours thanks to you, and every soldier who rises there will owe you a step. Well done." },
       },
       again = {
-        { id = "h_again", text = "What else? The map's waiting." },
+        { id = "h_again", text = "What else? The map's waiting, and half the pins on it are already wrong." },
         { id = "h_again2", text = "Go on, soldier, but keep it brief." },
       },
       choices = {
@@ -338,6 +355,7 @@ P:NPC {
         { text = "You're not a dwarf, Commander.", next = "human" },
         { text = "These orders sound like a lot of dying.", next = "dying" },
         { text = "I'm Lordaeron-born too, Commander. Where did you serve?", next = "lordaeron", when = { race = "Human" } },
+        { text = "How do you keep track of the whole valley?", next = "w2_map" },
         { text = "Dismissed, then.", next = "END" },
       },
     },
@@ -620,6 +638,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_apprentice = {
+      lines = {
+        { id = "w2_apprentice_l", text = "A young Stormpike lass named Brenna, who came up from Ironforge wi' the last supply wagon. She's strong in the arm an' weak in the patience, an' she's burned her eyebrows off twice, which is twice fewer than I did at her age." },
+      },
+      choices = {
+        { text = "Is she any good?", next = "w2_apprentice2" },
+        { text = "Something else, Murgot.", next = "BACK" },
+      },
+    },
+    w2_apprentice2 = {
+      lines = {
+        { id = "w2_apprentice2_l", text = "She will be. She hammers like she's angry at the iron, an' iron doesnae mind bein' shouted at, so long as ye hit it true. Give her ten years an' she'll be better than Regzar, an' I'll tell him so tae his face." },
+      },
+      choices = {
+        { text = "Something else, Murgot.", next = "BACK" },
+      },
+    },
     mur_reg1 = {
       lines = {
         { id = "mur_reg1_1", text = "Meet him? I'd like tae see his forge, an' then break it over his head, but aye, I'd like tae meet him first. His iron's crude, but his edges are sharp, an' I can tell from the scraps that he knows what he's doin'." },
@@ -674,7 +709,7 @@ P:NPC {
           text = "Them scraps ye brought were good iron, an' there's more where they came from. I'll take every load ye carry." },
       },
       again = {
-        { id = "h_again", text = "What else? The iron's coolin'." },
+        { id = "h_again", text = "What else? Make it quick; there's a cartload o' Frostwolf scrap cooling on the anvil, an' it sulks when it's cold." },
         { id = "h_again2", text = "Aye, aye, out wi' it." },
       },
       choices = {
@@ -684,6 +719,7 @@ P:NPC {
         { text = "Do you know smithing, Murgot? Real smithing?", next = "smith", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "You'd like to meet Smith Regzar, I'd guess.", next = "mur_reg1" },
         { text = "How do you keep a forge hot in this snow?", next = "mur_hot1" },
+        { text = "Who works the forge with you?", next = "w2_apprentice" },
         { text = "Keep the fire hot, smith.", next = "END" },
       },
     },
@@ -770,6 +806,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_seams = {
+      lines = {
+        { id = "w2_seams_l", text = "Every vein o' iron an' copper in the valley, an' a few o' silver I've told nobody about. There's a seam under Stonehearth Outpost that runs right intae the mountain, an' if this war ever ends, I'll be the first tae dig it." },
+      },
+      choices = {
+        { text = "Does the General know?", next = "w2_seams2" },
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
+    w2_seams2 = {
+      lines = {
+        { id = "w2_seams2_l", text = "He knows I've a map. He doesnae know what's on it, an' he's polite enough no' tae ask. A general fights for land. A prospector fights for what's under it. Vanndar an' me get on fine because we want different halves o' the same hill." },
+      },
+      choices = {
+        { text = "Something else, Prospector.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -780,7 +833,7 @@ P:NPC {
           text = "Them Coldtooth crates were a treat, an' the Quartermaster's been smilin' since, which I didnae think he could do." },
       },
       again = {
-        { id = "h_again", text = "Somethin' else? I've crates tae count." },
+        { id = "h_again", text = "Somethin' else? Be quick; I've crates tae count, an' the Quartermaster swears there's one missin'." },
         { id = "h_again2", text = "Aye, go on." },
       },
       choices = {
@@ -789,6 +842,7 @@ P:NPC {
         { text = "You seem more interested in ore than war.", next = "ore" },
         { text = "Didn't I see you at the valley's gate?", next = "gate" },
         { text = "A gnome could rig you a drill that triples your yield.", next = "gnome", when = { race = "Gnome" } },
+        { text = "What's on that map of seams you keep?", next = "w2_seams" },
         { text = "I'll get you your crates.", next = "END" },
       },
     },
@@ -916,6 +970,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_beasts = {
+      lines = {
+        { id = "w2_beasts_l", text = "They flee to the high slopes, the rams and the bears both, and they wait. The wolves the Frostwolves ride are another matter. They are bred for war, and I grieve for them, for they never knew another life." },
+      },
+      choices = {
+        { text = "Could they be freed?", next = "w2_beasts2" },
+        { text = "Something else, Arch Druid.", next = "BACK" },
+      },
+    },
+    w2_beasts2 = {
+      lines = {
+        { id = "w2_beasts2_l", text = "Perhaps, if the orcs released them, but the wolves would only follow them home. They are bound by love as much as by leash. I have seen a frost wolf lie down beside its fallen rider and refuse to rise, and I did not have the heart to move it." },
+      },
+      choices = {
+        { text = "Something else, Arch Druid.", next = "BACK" },
+      },
+    },
     ren_dw1 = {
       lines = {
         { id = "ren_dw1_1", text = "They do not, and I have stopped expecting it. They see a druid as a healer who talks to trees, and that is useful enough, but they do not hear what the valley says when the snow is red." },
@@ -971,7 +1042,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Speak; I am listening." },
-        { id = "h_again2", text = "What else troubles you?" },
+        { id = "h_again2", text = "What else troubles you? The snow is patient, and I have learned to be patient with it." },
       },
       choices = {
         { text = "Who is Ivus the Forest Lord?", next = "ivus" },
@@ -980,6 +1051,7 @@ P:NPC {
         { text = "I walk the Dream's path too, Arch Druid.", next = "druid", when = { class = "DRUID" } },
         { text = "The dwarves don't seem to understand you.", next = "ren_dw1" },
         { text = "What does this valley look like in peace?", next = "ren_pea1" },
+        { text = "What do the animals of the valley do in the fighting?", next = "w2_beasts" },
         { text = "Elune keep you, Arch Druid.", next = "END" },
       },
     },
@@ -1068,6 +1140,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_best = {
+      lines = {
+        { id = "w2_best_l", text = "Old Grimtusk, a Dun Morogh ram wi' a horn broke off at the tip. He carried me intae three charges at the Frostwolf lines an' brought me home from all three, an' he bit every officer who ever tried tae pat him." },
+      },
+      choices = {
+        { text = "What happened to him?", next = "w2_best2" },
+        { text = "Something else, Sergeant.", next = "BACK" },
+      },
+    },
+    w2_best2 = {
+      lines = {
+        { id = "w2_best2_l", text = "He's put out tae pasture in Dun Morogh, fat an' grumpy. My cousin writes me that he still bites the postman. I'll ride him one more time before he goes, if this war ever lets me home for a week." },
+      },
+      choices = {
+        { text = "Something else, Sergeant.", next = "BACK" },
+      },
+    },
     dur_tr1 = {
       lines = {
         { id = "dur_tr1_1", text = "Slowly, wi' a sack o' oats in one hand an' a stout shield in the other. A wild ram from these hills doesnae want tae be ridden, an' it'll tell ye so wi' its horns, usually right where ye sit." },
@@ -1122,7 +1211,7 @@ P:NPC {
           text = "Frostwolf hides, soldier, from the wolves they ride. Their own beasts will make our harnesses, an' I find that fittin'." },
       },
       again = {
-        { id = "h_again", text = "Aye? The rams are waitin'." },
+        { id = "h_again", text = "Aye? Out wi' it; the rams are waitin', an' they're no' a patient lot." },
         { id = "h_again2", text = "Speak up, I'm half deaf from the bleatin'." },
       },
       choices = {
@@ -1132,6 +1221,7 @@ P:NPC {
         { text = "I can tame a beast, Sergeant.", next = "hunter", when = { class = "HUNTER" } },
         { text = "How do you train a wild Alterac ram?", next = "dur_tr1" },
         { text = "Your ram riders face the Frostwolf wolves.", next = "dur_wolf1" },
+        { text = "What's the best ram you ever rode?", next = "w2_best" },
         { text = "I'll find your rams.", next = "END" },
       },
     },
@@ -1205,6 +1295,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_cell = {
+      lines = {
+        { id = "w2_cell_l", text = "That they sing at night, slow an' low, for their dead. I didnae expect it. I lay on the stones an' listened tae the guards singin' for a brother we'd killed that mornin', an' I couldnae hate them quite as much after that." },
+      },
+      choices = {
+        { text = "Does that make it harder to fight them?", next = "w2_cell2" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    w2_cell2 = {
+      lines = {
+        { id = "w2_cell2_l", text = "No, soldier. It makes it cleaner. I know now they'll mourn whoever I bring down, same as we do. There's nae shame in fightin' a foe ye respect. The shame's in forgettin' he's got a family." },
+      },
+      choices = {
+        { text = "Respect for the enemy is what separates soldiers from butchers.", next = "BACK", reply = "Aye. Ye've the right o' it, an' ye'd make a fine wing commander someday.", fx = { align = { honor = 1 } } },
+        { text = "An orc is an orc. Don't go soft on them.", next = "BACK", reply = "Soft? I've burned more Frostwolf towers than ye've seen. Respect's no' mercy, soldier.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    w2_wing = {
+      lines = {
+        { id = "w2_wing_l", text = "Twelve, when they're all fit an' none o' them in a Frostwolf cell. Dwarves from the Stormpike, mostly, an' two lads who learned their trade wi' the Wildhammer an' never let us forget it." },
+      },
+      choices = {
+        { text = "Do the Wildhammer-trained ones fly differently?", next = "w2_wing2" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    w2_wing2 = {
+      lines = {
+        { id = "w2_wing2_l", text = "Lower an' faster, an' they never use the reins. They talk tae the birds instead. I thought it was nonsense till I saw one bring his gryphon round in a turn I'd have broken my neck on. Now I'm tryin' it myself." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1214,13 +1340,15 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Aye? Speak while I'm on the ground." },
-        { id = "h_again2", text = "What else, soldier?" },
+        { id = "h_again2", text = "What else, soldier? Quick, while my boots are on the ground an' the bird's no' restless." },
       },
       choices = {
         { text = "How did you end up a prisoner?", next = "prisoner" },
         { text = "Why commanders' medals?", next = "medals" },
         { text = "What's it like, flying a gryphon?", next = "flying" },
         { text = "I've tamed beasts of my own. How do you train a gryphon?", next = "gryphon_train", when = { class = "HUNTER" } },
+        { text = "What did you learn about the Frostwolves in that cell?", next = "w2_cell" },
+        { text = "How many riders do you lead?", next = "w2_wing" },
         { text = "I'll bring your medals.", next = "END" },
       },
     },
@@ -1327,6 +1455,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_after = {
+      lines = {
+        { id = "w2_after_l", text = "Fly, soldier! Just fly, wi' no medals tae count an' no orcs tae burn. I'll take my gryphon over the Alterac peaks tae the Hinterlands an' drink wi' the Wildhammer till they throw me out o' Aerie Peak." },
+      },
+      choices = {
+        { text = "Do you think the war will end?", next = "w2_after2" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    w2_after2 = {
+      lines = {
+        { id = "w2_after2_l", text = "Nae idea, but I'll plan for it anyway. A rider who doesnae have somewhere tae fly when it's over has already lost. That's what I tell my lads, an' it's the only bit o' wisdom I've ever had." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1335,7 +1480,7 @@ P:NPC {
           text = "A gnome! I've a gryphon that'd carry ye an' three o' yer friends, if ye fancy a flight after the war." },
       },
       again = {
-        { id = "h_again", text = "What else, soldier?" },
+        { id = "h_again", text = "What else, soldier? Ask away, I've got all day till the next strike." },
         { id = "h_again2", text = "Speak, before the wind changes." },
       },
       choices = {
@@ -1343,6 +1488,7 @@ P:NPC {
         { text = "Why lieutenants' medals?", next = "medals" },
         { text = "What do you think of the other commanders?", next = "others" },
         { text = "I'll hold you to that flight, Wing Commander.", next = "gnome_flight", when = { race = "Gnome" } },
+        { text = "What will you do once the war's over?", next = "w2_after" },
         { text = "I'll find you medals.", next = "END" },
       },
     },
@@ -1457,6 +1603,40 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_target = {
+      lines = {
+        { id = "w2_target_l", text = "I fly over it twice, at different hours, and I count the guards. Then I come back on the third day at the hour they're fewest, and I don't fly over it at all. I come in low from the mountain side." },
+      },
+      choices = {
+        { text = "Do the orcs ever catch on?", next = "w2_target2" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    w2_target2 = {
+      lines = {
+        { id = "w2_target2_l", text = "Some of them do. The Frostwolf lieutenants have started moving their guards at random, which is clever. It means I fly over four times now instead of two. I'd rather fight a clever enemy than a lucky one." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    w2_before = {
+      lines = {
+        { id = "w2_before_l", text = "Surveyed the Alterac passes for Ironforge, by gryphon. Maps, mostly, and a lot of cold. When the Stormpike came up the valley, I was the one dwarf alive who knew every ridge from the air, so they gave me a fleet." },
+      },
+      choices = {
+        { text = "Do you miss the surveying?", next = "w2_before2" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    w2_before2 = {
+      lines = {
+        { id = "w2_before2_l", text = "I miss knowing where everything was. A map doesn't move. Now every hill I fly over could have a tower on it by morning, and every pass a wolf rider. I still draw maps at night, mind, out of habit." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1465,7 +1645,7 @@ P:NPC {
           text = "A rogue. You'll understand that the best strike is the one they never see coming, and so will my gryphons." },
       },
       again = {
-        { id = "h_again", text = "Yes? Make it count." },
+        { id = "h_again", text = "Yes? Make it count; I've a strike to plan and the wind's going round to the north." },
         { id = "h_again2", text = "Go on, then, and make it brief." },
       },
       choices = {
@@ -1473,6 +1653,8 @@ P:NPC {
         { text = "Why soldiers' medals?", next = "medals" },
         { text = "The Wildhammer and the Stormpike fight together?", next = "wildhammer" },
         { text = "Strike unseen and be gone before they turn. I know that work.", next = "rogue", when = { class = "ROGUE" } },
+        { text = "How do you choose a target?", next = "w2_target" },
+        { text = "What did you do before the fleet?", next = "w2_before" },
         { text = "I'll gather your medals.", next = "END" },
       },
     },
@@ -1839,6 +2021,40 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_short = {
+      lines = {
+        { id = "w2_short_l", text = "Salt, always. The hunts bring meat, but meat rots without salt, and the nearest salt is far beyond the valley. Every caravan from Orgrimmar carries it, and every caravan the Stormpike catch costs us a month of stores." },
+      },
+      choices = {
+        { text = "Do the Stormpike know that?", next = "w2_short2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_short2 = {
+      lines = {
+        { id = "w2_short2_l", text = "Their scouts are not fools. They have burned three caravans this winter, and each time they took the salt and left the weapons. That is a quartermaster's war, and I respect it, though I would kill the one who planned it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_trade = {
+      lines = {
+        { id = "w2_trade_l", text = "Hides, teeth and the marks of the clan's favour. A warrior who has stood at Iceblood brings me a ram horn and a story, and if the story is true, I give him a better axe. I can tell a true story by now." },
+      },
+      choices = {
+        { text = "How can you tell?", next = "w2_trade2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_trade2 = {
+      lines = {
+        { id = "w2_trade2_l", text = "A true one is short and has a wound in it. A false one is long and the teller is always the hero. The clan does not need heroes. It needs warriors who come back, and those tell short stories." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -1848,7 +2064,7 @@ P:NPC {
       },
       again = {
         { id = "xh_again3", when = { reputation = { faction = "Frostwolf Clan", min = "honored" } }, text = "You again, friend of the clan. What do you need?" },
-        { id = "h_again", text = "What else do you need from me?" },
+        { id = "h_again", text = "What else? Ask, and then let me get back to counting. A hide not counted is a hide stolen." },
         { id = "h_again2", text = "Speak quickly, for there is a war outside." },
       },
       choices = {
@@ -1858,6 +2074,8 @@ P:NPC {
         { text = "Why do the Stormpike want this valley?", next = "xwhy" },
         { text = "What is the most precious thing in your stores?", next = "xprecious" },
         { text = "I am an orc. The Frostwolves are my blood.", next = "xorc", when = { race = "Orc" } },
+        { text = "What does the clan run short of first?", next = "w2_short" },
+        { text = "What do the warriors trade with you?", next = "w2_trade" },
         { text = "Just looking.", next = "END" },
       },
     },
@@ -1946,6 +2164,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_peace = {
+      lines = {
+        { id = "w2_peace_l", text = "Ploughs. My grandfather made them on the plains before the Horde, and I have never made one. Drek'Thar says that when the valley is ours alone, the clan will plant on the low meadows, and someone must make the iron for it." },
+      },
+      choices = {
+        { text = "Could a Frostwolf smith learn to make ploughs?", next = "w2_peace2" },
+        { text = "Something else, smith.", next = "BACK" },
+      },
+    },
+    w2_peace2 = {
+      lines = {
+        { id = "w2_peace2_l", text = "A plough is only a blade turned toward the earth instead of a throat. I could make one tomorrow. Whether I can make one without thinking of what else the iron could have been, that I do not yet know." },
+      },
+      choices = {
+        { text = "Something else, smith.", next = "BACK" },
+      },
+    },
     reg_fa1 = {
       lines = {
         { id = "reg_fa1_1", text = "He did, and he taught me with his fists as much as his hammer. He made blades for Durotan when the clan first came to the valley, and the old chieftain carried one of them until the day he was killed." },
@@ -2001,7 +2236,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? The iron cools." },
-        { id = "h_again2", text = "Speak, and then go and fight." },
+        { id = "h_again2", text = "Speak, and quickly. Every word you waste is a blow I am not striking on this iron." },
       },
       choices = {
         { text = "What do you do with Stormpike scraps?", next = "scraps" },
@@ -2010,6 +2245,7 @@ P:NPC {
         { text = "Show me your work, smith.", next = "work", when = { class = { "WARRIOR", "SHAMAN" } } },
         { text = "Your father kept this forge before you.", next = "reg_fa1" },
         { text = "What metal do Frostwolves prefer?", next = "reg_met1" },
+        { text = "What will you forge once the dwarves are gone?", next = "w2_peace" },
         { text = "Keep the forge hot.", next = "END" },
       },
     },
@@ -2092,6 +2328,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_best = {
+      lines = {
+        { id = "w2_best_l", text = "A dwarf's beard comb, made of gold, from the pack of a Stormpike officer. It is worth nothing in battle, and I would not trade it for a wolf. I use it on my own hair now, and the dwarves who see it go red in the face." },
+      },
+      choices = {
+        { text = "Did the officer come after it?", next = "w2_best2" },
+        { text = "Something else, Voggah.", next = "BACK" },
+      },
+    },
+    w2_best2 = {
+      lines = {
+        { id = "w2_best2_l", text = "He sent a messenger to Frostwolf Keep, offering ten crates of ore for its return. Drek'Thar laughed so hard he had to sit down. I kept the comb, and the clan kept its laughter, which was worth more than the ore." },
+      },
+      choices = {
+        { text = "Something else, Voggah.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -2102,7 +2355,7 @@ P:NPC {
           text = "Those crates were well taken. The dwarves are still counting what is missing." },
       },
       again = {
-        { id = "h_again", text = "What else? The crates are waiting." },
+        { id = "h_again", text = "What else? Speak fast. The crates at Irondeep will not steal themselves, though I have hoped they might." },
         { id = "h_again2", text = "Speak, and then go and raid them." },
       },
       choices = {
@@ -2110,6 +2363,7 @@ P:NPC {
         { text = "Raiding seems like a thief's work.", next = "thief" },
         { text = "How did you get your name?", next = "name" },
         { text = "My father raided too, before the humans caged him.", next = "camps", when = { race = "Orc" } },
+        { text = "What's the best thing you've ever stolen?", next = "w2_best" },
         { text = "I'll bring you your crates.", next = "END" },
       },
     },
@@ -2230,6 +2484,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_path = {
+      lines = {
+        { id = "w2_path_l", text = "The cold chose me. I was lost on the Frostwolf peaks as a girl, three nights in the snow, and on the third night something spoke to me in a voice like cracking ice. Drek'Thar found me alive and asked what I had heard." },
+      },
+      choices = {
+        { text = "What did you tell him?", next = "w2_path2" },
+        { text = "Something else, Primalist.", next = "BACK" },
+      },
+    },
+    w2_path2 = {
+      lines = {
+        { id = "w2_path2_l", text = "The truth: that Lokholar had told me I would wake him one day, and that I should not be afraid. Drek'Thar did not laugh. He took me into his tent and taught me the old words, and I have not been warm since." },
+        { id = "w2_path2_l1", when = { class = "SHAMAN" }, text = "The truth, as you would have. Lokholar told me I would wake him one day, and that I should not be afraid. Drek'Thar taught me the old words, as your own teachers taught you, and I have not been warm since." },
+      },
+      choices = {
+        { text = "Something else, Primalist.", next = "BACK" },
+      },
+    },
     thl_sh1 = {
       lines = {
         { id = "thl_sh1_1", text = "Most do, and Drek'Thar most of all, for he taught me the old ways when I was young. But there are some who say we should not wake Lokholar at all, that the Ice Lord should sleep and the clan should fight with its own hands." },
@@ -2285,7 +2557,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Speak. The cold listens too." },
-        { id = "h_again2", text = "What else, young one?" },
+        { id = "h_again2", text = "What else, young one? Speak; the cold has been quiet today, and I have time for warm voices." },
       },
       choices = {
         { text = "Who is Lokholar?", next = "lok" },
@@ -2294,6 +2566,7 @@ P:NPC {
         { text = "I hear the elements too, Primalist.", next = "shaman", when = { class = "SHAMAN" } },
         { text = "Do the shamans of the clan agree with you?", next = "thl_sh1" },
         { text = "What does the cold remember?", next = "thl_col1" },
+        { text = "How did you become a Primalist?", next = "w2_path" },
         { text = "I'll bring you blood.", next = "END" },
       },
     },
@@ -2382,6 +2655,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_wolf = {
+      lines = {
+        { id = "w2_wolf_l", text = "Grey-Ear, the old one by the forge, who sleeps through the noise. She carried me in three wars and now she is too slow to ride. I keep her with me anyway. A wolf who has given her life to the clan deserves to finish it beside a fire." },
+      },
+      choices = {
+        { text = "Will you ride another?", next = "w2_wolf2" },
+        { text = "Something else, Jotek.", next = "BACK" },
+      },
+    },
+    w2_wolf2 = {
+      lines = {
+        { id = "w2_wolf2_l", text = "When Grey-Ear goes to the spirits, I will take one of her pups. There is a black one in the last litter who already bites at harness straps. I think she knows what I do, and she does not approve of it yet." },
+      },
+      choices = {
+        { text = "Something else, Jotek.", next = "BACK" },
+      },
+    },
     jot_pup1 = {
       lines = {
         { id = "jot_pup1_1", text = "Close, from the day it opens its eyes, so that it knows your scent before it knows its mother's. It sleeps at your feet, eats from your hand, and by the end of its first winter it will die for you, and you for it." },
@@ -2434,7 +2724,7 @@ P:NPC {
           text = "An orc! You know the wolves are our brothers, and the riders our pride." },
       },
       again = {
-        { id = "h_again", text = "What else do you need from me?" },
+        { id = "h_again", text = "What else? Ask quickly, while the light holds; I can't cut harness straps by firelight without losing a finger." },
         { id = "h_again2", text = "Speak, and then go and hunt while there is light." },
       },
       choices = {
@@ -2444,6 +2734,7 @@ P:NPC {
         { text = "I can hunt rams easily.", next = "hunter", when = { class = "HUNTER" } },
         { text = "How do you raise a frost wolf pup?", next = "jot_pup1" },
         { text = "The harnesses look like hard work.", next = "jot_har1" },
+        { text = "Which wolf is your own?", next = "w2_wolf" },
         { text = "I'll hunt your rams.", next = "END" },
       },
     },
@@ -2526,6 +2817,42 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_cell = {
+      lines = {
+        { id = "w2_cell_l", text = "Small, and dry, and very loud. The dwarves drank every night above my head and sang songs about killing orcs. By the end I knew the words better than they did. I sing them to the dwarves now when I burn their towers." },
+      },
+      choices = {
+        { text = "Do the dwarves recognise the songs?", next = "w2_cell2" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    w2_cell2 = {
+      lines = {
+        { id = "w2_cell2_l", text = "They do, and it makes them very angry. An angry dwarf aims badly. That is the one thing the cell taught me that I can use, and I am grateful to the Stormpike for the lesson." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    w2_feed = {
+      lines = {
+        { id = "w2_feed_l", text = "Meat, a great deal of it, and fresh. A war rider that has not eaten will not fly over the Stormpike guns. A war rider that has eaten Stormpike flesh flies over them screaming, and the dwarves scatter like goats." },
+      },
+      choices = {
+        { text = "Do the beasts care whose flesh it is?", next = "w2_feed2" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    w2_feed2 = {
+      lines = {
+        { id = "w2_feed2_l", text = "No. But the dwarves do, and they know what we feed the beasts. That is half the reason I ask for it. A war is fought in the enemy's head before it is fought on his walls." },
+      },
+      choices = {
+        { text = "It's grim, but it's war. The beasts need feeding.", next = "BACK", reply = "Yes. It is grim, and I do not pretend it is not. That is the only honour left in it.", fx = { align = { honor = 1 } } },
+        { text = "Make the dwarves watch. Fear is a weapon.", next = "BACK", reply = "Fear is a weapon, aye, but a blunt one. Use it too often and they stop fearing.", fx = { align = { honor = -1 } } },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -2534,14 +2861,16 @@ P:NPC {
           text = "An orc! Then you know the pride of the war riders." },
       },
       again = {
-        { id = "h_again", text = "What else do you need from me?" },
-        { id = "h_again2", text = "Speak, and then go and fight." },
+        { id = "h_again", text = "What else? Ask, and then go. My beasts are hungry and I am tired of the ground." },
+        { id = "h_again2", text = "Speak, and then go to the field. I have spent enough of my life sitting still." },
       },
       choices = {
         { text = "How were you captured?", next = "captured" },
         { text = "Why soldiers' flesh?", next = "flesh" },
         { text = "What are the war riders?", next = "riders" },
         { text = "My clan fought on wolfback. Why take to the sky?", next = "orc_sky", when = { race = "Orc" } },
+        { text = "What was the Stormpike cell like?", next = "w2_cell" },
+        { text = "How do you feed a war rider?", next = "w2_feed" },
         { text = "I'll bring you flesh.", next = "END" },
       },
     },
@@ -2649,6 +2978,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_when = {
+      lines = {
+        { id = "w2_when_l", text = "I wait for the change of the guard. The dwarves stand very still for hours, and then they grow restless and look forward to their relief. For a few breaths, no one is watching the sky. That is when we come." },
+      },
+      choices = {
+        { text = "How long have you waited, at most?", next = "w2_when2" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    w2_when2 = {
+      lines = {
+        { id = "w2_when2_l", text = "Two days above Stonehearth, on a ledge, with my rider asleep beside me. The guard changed eleven times. On the twelfth, a dwarf dropped his gun to scratch his beard, and we burned the bunker before he picked it up." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -2657,7 +3003,7 @@ P:NPC {
           text = "A troll. You know the value of a hunt, and the patience it takes." },
       },
       again = {
-        { id = "h_again", text = "What else do you need from me?" },
+        { id = "h_again", text = "What else? Speak softly; the wind carries words across the valley further than you'd think." },
         { id = "h_again2", text = "Speak quietly. The dwarves have ears." },
       },
       choices = {
@@ -2665,6 +3011,7 @@ P:NPC {
         { text = "What do you remember of your capture?", next = "capture" },
         { text = "You seem calmer than the other commanders.", next = "calm" },
         { text = "Patience I have, mon. Tell me where to wait.", next = "troll_wait", when = { race = "Troll" } },
+        { text = "How do you choose when to strike?", next = "w2_when" },
         { text = "I'll bring you what you need.", next = "END" },
       },
     },
@@ -2779,6 +3126,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_loud = {
+      lines = {
+        { id = "w2_loud_l", text = "Flew over Dun Baldar at midnight and roared the Frostwolf war song into their chimney! Vanndar woke up, I am told, and fell out of his bed. The Stormpike shot at me for an hour and hit nothing but the moon." },
+      },
+      choices = {
+        { text = "Was it worth the risk?", next = "w2_loud2" },
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
+    w2_loud2 = {
+      lines = {
+        { id = "w2_loud2_l", text = "Ha! It was worth every arrow. The next morning, half their guards were asleep at their posts, because none of them had slept. Drek'Thar said it was foolish. Then he sent me back the next week to do it again." },
+      },
+      choices = {
+        { text = "Something else, Wing Commander.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -2787,7 +3151,7 @@ P:NPC {
           text = "An orc! Then you know the joy of the charge, and the war riders charge from the sky." },
       },
       again = {
-        { id = "h_again", text = "What else? Speak up!" },
+        { id = "h_again", text = "What else? Speak up, warrior, the wind is roaring and so am I!" },
         { id = "h_again2", text = "Ha! More questions?" },
       },
       choices = {
@@ -2795,6 +3159,7 @@ P:NPC {
         { text = "The dwarves held you in Dun Baldar?", next = "baldar" },
         { text = "You seem to enjoy this war.", next = "enjoy" },
         { text = "I'll shout louder than you when we charge.", next = "warrior", when = { class = "WARRIOR" } },
+        { text = "What's the loudest thing you've ever done?", next = "w2_loud" },
         { text = "I'll bring you what you need.", next = "END" },
       },
     },
@@ -2904,19 +3269,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_before = {
+      lines = {
+        { id = "w2_before_l", text = "Nightsabers that had gone wild in Teldrassil's lower woods, and once a corrupted bear in Ashenvale that had killed three Sentinels. I hunted it for a month. When I finally loosed, I wept, for I knew it had once been a gentle creature." },
+      },
+      choices = {
+        { text = "Do you weep for the Horde soldiers you hunt?", next = "w2_before2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_before2 = {
+      lines = {
+        { id = "w2_before2_l", text = "No. That is the difference between them and the bear. The bear did not choose what it became. The trolls who fight here chose their war, and they know what it costs. I weigh their trophies and I do not weep." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Athramanis, and I hunt for the Alliance in this valley. Darnassus pays for proof that its enemies have fallen, and I am the one who weighs that proof." },
       },
       again = {
         { id = "h_again1", text = "Speak, and keep your voice low." },
-        { id = "h_again2", text = "What else?" },
+        { id = "h_again2", text = "What else? Speak quietly; my ears are tuned to the treeline, not to conversation." },
       },
       choices = {
         { text = "Why would Darnassus pay for troll trophies?", next = "b1" },
         { text = "Why is a night elf fighting with dwarves?", next = "b2" },
         { text = "Where do the best hunts lie?", next = "b3" },
         { text = "I am Kaldorei too, sister. Elune guide your arrows.", next = "b4", when = { race = "NightElf" } },
+        { text = "What did you hunt before the war?", next = "w2_before" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -3008,19 +3391,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_buyers = {
+      lines = {
+        { id = "w2_buyers_l", text = "The Stormpike pay me, Ironforge pays them, and Gnomeregan's exiles pay me a little extra, since the High Tinker likes his reports detailed. Everybody pays somebody! That's what makes it an economy and not just a pile of hooves." },
+      },
+      choices = {
+        { text = "Do you ever feel bad about it?", next = "w2_buyers2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_buyers2 = {
+      lines = {
+        { id = "w2_buyers2_l", text = "Every night, cousin, right around the time I count my coin. Then I count it again and I feel slightly better. The tauren hunt gnomes on this field, and I'd rather be the one paying for hooves than the one being paid for." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Dirk Swindle, bounty hunter, reliable trader, and loyal son of Gnomeregan! I pay for proof that the Horde has lost a few soldiers, and the tauren make for very large proof indeed." },
       },
       again = {
         { id = "h_again1", text = "Anything else? Time is money, you know." },
-        { id = "h_again2", text = "Yes, yes, what is it?" },
+        { id = "h_again2", text = "Yes, yes, what is it now? Speak up; I've three ledgers open and none of them agrees with the others." },
       },
       choices = {
         { text = "You buy tauren hooves?", next = "b1" },
         { text = "Your name is Swindle. Should I trust you?", next = "b2" },
         { text = "Why are you so far from Gnomeregan?", next = "b3" },
         { text = "A fellow gnome! How's business, cousin?", next = "b4", when = { race = "Gnome" } },
+        { text = "Who actually buys the trophies from you?", next = "w2_buyers" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -3112,12 +3513,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_medals = {
+      lines = {
+        { id = "w2_medals_l", text = "Nail them tae the beam over my bunk, one by one. There's eleven up there now, an' every one's a wing rider who'll no' be droppin' fire on Stonehearth again. I look at them before I sleep, an' I sleep better for it." },
+      },
+      choices = {
+        { text = "Do you keep anything of your own fallen?", next = "w2_medals2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_medals2 = {
+      lines = {
+        { id = "w2_medals2_l", text = "A beard braid from every dwarf I've lost under my command. They're in a box under the bunk, an' I dinnae look at them before I sleep. I look at them on the bad mornin's, tae remember why I nail up the medals." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Commander Duffy, Stormpike Guard. The Frostwolves send their wing commanders over our walls, an' every one that falls carries a medal I'd like tae see on my table." },
       },
       again = {
-        { id = "h_again1", text = "What else, soldier?" },
+        { id = "h_again1", text = "What else, soldier? Talk while I sharpen; the wyverns came low over the wall last night." },
         { id = "h_again2", text = "Out wi' it." },
       },
       choices = {
@@ -3125,6 +3543,7 @@ P:NPC {
         { text = "How goes the war, Commander?", next = "b2" },
         { text = "Where are you from, Commander?", next = "b3" },
         { text = "I'm a warrior, Commander. Point me at them.", next = "b4", when = { class = "WARRIOR" } },
+        { text = "What do you do with the medals once you have them?", next = "w2_medals" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -3216,19 +3635,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_life = {
+      lines = {
+        { id = "w2_life_l", text = "A captain's commission, a house near the capital and a wife who sang badly in the mornings. Karl and I joined the army the same day. We were the Philips brothers, and the sergeants could not tell us apart." },
+      },
+      choices = {
+        { text = "What became of your wife?", next = "w2_life2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_life2 = {
+      lines = {
+        { id = "w2_life2_l", text = "She died of the plague in the first winter, and she did not rise. I looked for her among the Forsaken for a long time. I am told that is common, and that it passes. It has not passed yet, but it has grown quieter." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Commander Louis Philips, and I hold Tower Point for the Frostwolves. In life I was a soldier of Lordaeron. Now I am a soldier of the Dark Lady, and the difference is less than you would think." },
       },
       again = {
-        { id = "h_again1", text = "Something else, then?" },
-        { id = "h_again2", text = "Speak." },
+        { id = "h_again1", text = "Something else, then? Speak; the tower is quiet, and I find quiet harder to bear than noise." },
+        { id = "h_again2", text = "Speak. I have the patience of the dead, but not their silence." },
       },
       choices = {
         { text = "You have a brother among the Alliance?", next = "b1" },
         { text = "Why do you need human bones?", next = "b2" },
         { text = "What is Tower Point like?", next = "b3" },
         { text = "A fellow Forsaken. How fares the Dark Lady's war?", next = "b4", when = { race = "Scourge" } },
+        { text = "What was your life in Lordaeron like?", next = "w2_life" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -3320,12 +3757,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_count = {
+      lines = {
+        { id = "w2_count_l", text = "Four, an' a half! The half was a grunt who ran off wi' my axe in his shoulder, an' I'm countin' him, for I never got the axe back. My sergeant says I talk about it more than I fight, which is a terrible lie." },
+      },
+      choices = {
+        { text = "Is it a lie?", next = "w2_count2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_count2 = {
+      lines = {
+        { id = "w2_count2_l", text = "Well, maybe a wee lie. The truth is I've been on wall duty for two months, an' I've seen more snow than orcs. But when the next push comes, I'll be at the front, an' I'll get my axe back from that grunt." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Corporal Noreg Stormpike, an' aye, the name means what ye think it means, though I'm a long way down the family tree. I'm lookin' for soldiers who want tae kill orcs, an' I'm lookin' right at ye." },
       },
       again = {
-        { id = "h_again1", text = "Aye? What else?" },
+        { id = "h_again1", text = "Aye? What else? Out wi' it, before somebody shouts 'orcs' an' I have tae run." },
         { id = "h_again2", text = "More questions, eh? Ask away!" },
       },
       choices = {
@@ -3333,6 +3787,7 @@ P:NPC {
         { text = "Are you related to Vanndar?", next = "b2" },
         { text = "What's it like serving in Dun Baldar?", next = "b3" },
         { text = "A fellow dwarf! How goes the clan?", next = "b4", when = { race = "Dwarf" } },
+        { text = "Have you killed many orcs yourself?", next = "w2_count" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -3424,12 +3879,31 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_order = {
+      lines = {
+        { id = "w2_order_l", text = "To hold Stonehearth Bunker with twelve men against a Frostwolf push, so the main force could reach the Iceblood Tower. They held for an hour. Four came back. The tower fell to us that night." },
+      },
+      choices = {
+        { text = "Was it worth it?", next = "w2_order2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_order2 = {
+      lines = {
+        { id = "w2_order2_l", text = "I've asked myself that every night since. The tower bought us half the valley for a week. Whether that's worth eight men is a question for the Light, not for me. I gave the order, and I'll answer for it." },
+      },
+      choices = {
+        { text = "A commander must give such orders, or the war is lost.", next = "BACK", reply = "Yes. That is the burden, and I would not wish it on anyone. Keep that view if you ever command.", fx = { align = { order = 1 } } },
+        { text = "No tower is worth eight lives.", next = "BACK", reply = "Perhaps you're right. But the Frostwolves would have taken more than eight if I'd held back.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Field Marshal Teravaine. I command the Alliance forces that march from Dun Baldar, and I give the order to begin the attack. When the horns sound, I want every soldier moving." },
       },
       again = {
-        { id = "h_again1", text = "What else, soldier?" },
+        { id = "h_again1", text = "What else, soldier? Quickly; the horns may sound at any time, and I'll not be caught talking." },
         { id = "h_again2", text = "Make it quick." },
       },
       choices = {
@@ -3437,6 +3911,7 @@ P:NPC {
         { text = "Why does Stormwind fight here?", next = "b2" },
         { text = "How long have you been a soldier?", next = "b3" },
         { text = "I'm a paladin, Field Marshal. The Light is with us.", next = "b4", when = { class = "PALADIN" } },
+        { text = "What's the hardest order you've given?", next = "w2_order" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -3528,12 +4003,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_remember = {
+      lines = {
+        { id = "w2_remember_l", text = "A white female, from the deep hills, that would not take the collar for a whole winter. I fed her every day and she bit me every day. In the spring she let me sit beside her, and then she carried Drek'Thar's own grandson into battle." },
+      },
+      choices = {
+        { text = "Is she still alive?", next = "w2_remember2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_remember2 = {
+      lines = {
+        { id = "w2_remember2_l", text = "She died at Stonehearth, under him, with a Stormpike arrow in her neck. He brought her body back across the valley on his own back. Her pups sleep in the third pen, and they bite me every day, as she did." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I keep the Frostwolf stables, and the stables are empty, because the Stormpike have killed too many of our wolves. I need hunters to bring me young wolves from the valley, so the riders can ride again." },
       },
       again = {
-        { id = "h_again1", text = "What do you want?" },
+        { id = "h_again1", text = "What do you want? Speak, but keep your voice down; the pups are sleeping and they wake angry." },
         { id = "h_again2", text = "Speak, I am busy with the pups." },
       },
       choices = {
@@ -3541,6 +4033,7 @@ P:NPC {
         { text = "Why are the stables empty?", next = "b2" },
         { text = "Where can I find wild wolves?", next = "b3" },
         { text = "I'm a hunter. I know beasts.", next = "b4", when = { class = "HUNTER" } },
+        { text = "What wolf do you remember best?", next = "w2_remember" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -3632,12 +4125,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_train = {
+      lines = {
+        { id = "w2_train_l", text = "We put him on an old wolf, one that has fought many battles and is very patient. The old wolf throws him off for a week. Then, one day, it does not. That is when we know the rider is ready, and the wolf knew before we did." },
+      },
+      choices = {
+        { text = "How many riders fail?", next = "w2_train2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_train2 = {
+      lines = {
+        { id = "w2_train2_l", text = "Half, perhaps more. Some cannot stay on, and some cannot stay calm. A wolf will carry a rider who is afraid, but not one who is angry. Anger makes the hands rough. A wolf remembers rough hands." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I command the wolf riders of the Frostwolf Clan. We strike fast, we strike hard, and we need harnesses made from the hides of the Stormpike rams." },
       },
       again = {
-        { id = "h_again1", text = "What do you want?" },
+        { id = "h_again1", text = "What do you want? Say it quickly; my wolf grows restless when I stand still too long." },
         { id = "h_again2", text = "Speak quickly." },
       },
       choices = {
@@ -3645,6 +4155,7 @@ P:NPC {
         { text = "How do you fight from a wolf?", next = "b2" },
         { text = "What do you think of Drek'Thar?", next = "b3" },
         { text = "I'm an orc. The Frostwolves are my kin too.", next = "b4", when = { race = "Orc" } },
+        { text = "How do you train a new rider?", next = "w2_train" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -3735,12 +4246,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_wrong = {
+      lines = {
+        { id = "w2_wrong_l", text = "Oh, little things! The first one shredded the tree and the soldier who was standing near it. The second one shredded itself. The third one worked perfectly for an hour and then walked off toward Tarren Mill on its own." },
+      },
+      choices = {
+        { text = "Did you ever find it?", next = "w2_wrong2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_wrong2 = {
+      lines = {
+        { id = "w2_wrong2_l", text = "A Forsaken patrol found it, I'm told, still walking. They sent me a bill for the fence it went through. I sent them a bill for the shredder. We're still arguing about it, and the shredder is in a barn in Hillsbrad." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Master Engineer Zinfizzlex, at your service! I build portable shredders for the battlefield, and I build them for anyone with the coin and the parts." },
       },
       again = {
-        { id = "h_again1", text = "What else? Time is money!" },
+        { id = "h_again1", text = "What else? Time is money, and right now you're spending mine!" },
         { id = "h_again2", text = "Yes, yes, what?" },
       },
       choices = {
@@ -3748,6 +4276,7 @@ P:NPC {
         { text = "What is a portable shredder?", next = "b2" },
         { text = "Where do you get your parts?", next = "b3" },
         { text = "I know my way around a lockbox. Need a partner?", next = "b4", when = { class = "ROGUE" } },
+        { text = "What went wrong with the first shredders?", next = "w2_wrong" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -3839,12 +4368,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_voice = {
+      lines = {
+        { id = "w2_voice_l", text = "From the Dun Baldar bridge clear tae Stonehearth, lad, on a still mornin'! I shouted 'wagons comin'' an' the bunker lads heard every word. The Frostwolves at Iceblood heard it too, an' they've been listenin' for me ever since." },
+      },
+      choices = {
+        { text = "Doesn't that give away the wagons?", next = "w2_voice2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_voice2 = {
+      lines = {
+        { id = "w2_voice2_l", text = "That's the beauty of it! Now I shout 'wagons comin'' when there's nae wagons at all, an' the wolves go runnin' tae the wrong road. The real wagons go quiet, by the other pass. A loud dwarf's a fine liar, if he's clever." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Mountaineer Boombellow, an' aye, the name's earned! I keep the supplies movin' tae the Quartermaster, an' I send soldiers tae help when the wagons run dry." },
       },
       again = {
-        { id = "h_again1", text = "What else, lad?" },
+        { id = "h_again1", text = "What else, lad? Speak up, I cannae hear ye over my own echo!" },
         { id = "h_again2", text = "Aye?" },
       },
       choices = {
@@ -3852,6 +4398,7 @@ P:NPC {
         { text = "Why are you called Boombellow?", next = "b2" },
         { text = "What do mountaineers do?", next = "b3" },
         { text = "I'm a dwarf. The mountains are in my blood.", next = "b4", when = { race = "Dwarf" } },
+        { text = "What's the farthest your voice has carried?", next = "w2_voice" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -3943,12 +4490,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_heads = {
+      lines = {
+        { id = "w2_heads_l", text = "Najak don't keep da heads, mon, Najak only count dem. Da proof go to Sen'jin, an' da elders give it to da loa, an' da loa decide what dey be worth. Najak only be da middle of da bargain." },
+      },
+      choices = {
+        { text = "And what do the loa think?", next = "w2_heads2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_heads2 = {
+      lines = {
+        { id = "w2_heads2_l", text = "Bwonsamdi be pleased, mon, 'cause every dead elf be a soul dat come to him. Najak don't ask what he do wit' dem. A troll who ask too many questions of da loa of death meet him early." },
+        { id = "w2_heads2_l1", when = { race = "Troll" }, text = "You know Bwonsamdi, cousin. Every dead elf be a soul dat come to him, an' he be pleased. Najak don't ask what he do wit' dem. You don't ask neither, if you smart." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Najak Hexxen, bounty hunter for da Darkspear. Da tribe pay good for proof dat da Alliance be fallin', an' Najak be da one who count it." },
       },
       again = {
-        { id = "h_again1", text = "What you need, mon?" },
+        { id = "h_again1", text = "What you need, mon? Speak quick; dis cold be eatin' Najak's toes an' he want to keep dem." },
         { id = "h_again2", text = "Speak up, mon." },
       },
       choices = {
@@ -3956,6 +4521,7 @@ P:NPC {
         { text = "Why is a troll fighting in the snow?", next = "b2" },
         { text = "How do you hunt here?", next = "b3" },
         { text = "I'm Darkspear too, mon. Da loa be with us.", next = "b4", when = { race = "Troll" } },
+        { text = "What does Najak do with da heads, mon?", next = "w2_heads" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -4047,19 +4613,39 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_dwarves = {
+      lines = {
+        { id = "w2_dwarves_l", text = "That they fight best when they are drunk, and worst when they are tired, and that they never stop fighting either way. Their beards are full of ice. They sing to their dead. Magatha will find the singing interesting." },
+      },
+      choices = {
+        { text = "What will Magatha do with what you learn?", next = "w2_dwarves2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_dwarves2 = {
+      lines = {
+        { id = "w2_dwarves2_l", text = "Use it, when the time is right, against whoever needs to be used against. That is all the Grimtotem do with knowledge. Cairne would call it cold. Magatha calls it patience, and I agree with her, for now." },
+      },
+      choices = {
+        { text = "Cairne leads the tauren. You should serve his purposes.", next = "BACK", reply = "Cairne leads, yes. But a herd follows the strongest bull, and bulls grow old.", fx = { align = { order = 1 } } },
+        { text = "Cairne's grown soft. Magatha sees further.", next = "BACK", reply = "You are wiser than you look. Keep that thought quiet in Thunder Bluff, for your own sake.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Ravak Grimtotem. Magatha sent me to learn about the other races of this world, and there is no better place to study them than on a battlefield." },
       },
       again = {
-        { id = "h_again1", text = "What else do you wish to know?" },
-        { id = "h_again2", text = "Speak." },
+        { id = "h_again1", text = "What else do you wish to know? Ask; I am collecting your questions as well as your answers." },
+        { id = "h_again2", text = "Speak. Every word you give me goes back to Magatha." },
       },
       choices = {
         { text = "What does Magatha want to learn?", next = "b1" },
         { text = "What bounty do you offer?", next = "b2" },
         { text = "Why do the Grimtotem fight for the Horde?", next = "b3" },
         { text = "I'm a tauren. Cairne leads our people.", next = "b4", when = { race = "Tauren" } },
+        { text = "What have you learned of the dwarves so far?", next = "w2_dwarves" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -4151,19 +4737,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_ram = {
+      lines = {
+        { id = "w2_ram_l", text = "Ironhorn, an' he's the meanest ram in the valley. He's butted three Frostwolf wolves off the Field o' Strife an' one o' my own officers intae a snowbank, an' I've never once had tae tell him which was which." },
+      },
+      choices = {
+        { text = "How did you come by him?", next = "w2_ram2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_ram2 = {
+      lines = {
+        { id = "w2_ram2_l", text = "Won him in a wager at Kharanos, off a farmer who swore nae dwarf could ride him for a full minute. I rode him for an hour an' fell off at the end, an' the farmer gave him up anyway, out o' pure relief." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I command the Stormpike Ram Riders. We charge the Frostwolf lines on the backs o' the finest rams in Khaz Modan, an' we need the hides o' their wolves for our harnesses." },
       },
       again = {
-        { id = "h_again1", text = "What else?" },
-        { id = "h_again2", text = "Aye?" },
+        { id = "h_again1", text = "What else? Quick; Ironhorn's eyein' yer boots, an' he's no' fond o' strangers." },
+        { id = "h_again2", text = "Aye? Speak up over the bleatin'." },
       },
       choices = {
         { text = "Why wolf hides?", next = "b1" },
         { text = "How do you ride a ram?", next = "b2" },
         { text = "What do the riders do in battle?", next = "b3" },
         { text = "I'm a dwarf. I was born on a ram.", next = "b4", when = { race = "Dwarf" } },
+        { text = "What's your own ram's name?", next = "w2_ram" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -4255,19 +4859,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_feed = {
+      lines = {
+        { id = "w2_feed_l", text = "Hay from Dun Morogh, carted up the pass at great expense, an' whatever lichen the rams can dig out o' the snow themselves. They're no' fussy. They'll eat a soldier's boots if he sleeps too near the pen." },
+      },
+      choices = {
+        { text = "Has that happened?", next = "w2_feed2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_feed2 = {
+      lines = {
+        { id = "w2_feed2_l", text = "Three times this winter, lad. The last one was the General's own adjutant, an' he walked tae the morning muster in his socks. Vanndar laughed, which I've only seen him do twice. The rams were very proud of themselves." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I keep the Stormpike stables, an' the stables are empty, for the Frostwolves have killed too many o' our rams. I need hunters tae bring me wild rams from the valley." },
       },
       again = {
-        { id = "h_again1", text = "What else, lad?" },
-        { id = "h_again2", text = "Aye?" },
+        { id = "h_again1", text = "What else, lad? Speak soft; there's a ewe in the back pen near her time, an' she's nervous." },
+        { id = "h_again2", text = "Aye? Mind the pen gate while ye talk." },
       },
       choices = {
         { text = "How do you tame a ram?", next = "b1" },
         { text = "Why are the stables empty?", next = "b2" },
         { text = "Where can I find wild rams?", next = "b3" },
         { text = "I'm a hunter. Beasts trust me.", next = "b4", when = { class = "HUNTER" } },
+        { text = "What do you feed the rams in winter?", next = "w2_feed" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -4359,12 +4981,29 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_horns = {
+      lines = {
+        { id = "w2_horns_l", text = "Like the end of the world, and they should. Three long notes from Frostwolf Keep, and every warrior in the valley stops what he is doing. The dwarves hear them too, and they know what comes next." },
+      },
+      choices = {
+        { text = "Who blows them?", next = "w2_horns2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_horns2 = {
+      lines = {
+        { id = "w2_horns2_l", text = "An old orc named Ragnak, who lost both legs at Stonehearth and asked for the horn instead of a pension. He has blown every attack since. He says he cannot march any more, but his breath still goes to war." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Warmaster Garrick, and I give the order to launch the attack. When the horns sound, the Horde marches north, and the dwarves will learn what fear is." },
       },
       again = {
-        { id = "h_again1", text = "What else?" },
+        { id = "h_again1", text = "What else? Ask it now, before the horns, because after them I will not hear you." },
         { id = "h_again2", text = "Speak." },
       },
       choices = {
@@ -4372,6 +5011,7 @@ P:NPC {
         { text = "Why does the Horde fight here?", next = "b2" },
         { text = "How long have you been a warrior?", next = "b3" },
         { text = "I'm a warrior too, Warmaster. Point me at them.", next = "b4", when = { class = "WARRIOR" } },
+        { text = "What do the horns sound like when the attack starts?", next = "w2_horns" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -4463,19 +5103,37 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_taken = {
+      lines = {
+        { id = "w2_taken_l", text = "My brother, at Coldtooth, two winters ago. He went into the mine with twenty warriors and the dwarves collapsed the tunnel on them. They did not even fight him. They just buried him alive." },
+      },
+      choices = {
+        { text = "Did you recover his body?", next = "w2_taken2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_taken2 = {
+      lines = {
+        { id = "w2_taken2_l", text = "No. He is still down there, under the rock. When the clan holds Coldtooth for good, I will dig him out myself, and I will bury him under the sky where he belongs. Until then, I take beards." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Sergeant Yazra Bloodsnarl, and I want dwarves dead. The Stormpike have taken too much from the Frostwolves, and I mean to take it back, one beard at a time." },
       },
       again = {
-        { id = "h_again1", text = "What?" },
-        { id = "h_again2", text = "Speak." },
+        { id = "h_again1", text = "What? Speak, and then get out of the way of my axe." },
+        { id = "h_again2", text = "Speak, and be quick. There are beards waiting for my axe." },
       },
       choices = {
         { text = "Why do you hate the dwarves so much?", next = "b1" },
         { text = "How do you fight dwarves?", next = "b2" },
         { text = "What do you think of Drek'Thar?", next = "b3" },
         { text = "I'm an orc, sister. Lok'tar ogar!", next = "b4", when = { race = "Orc" } },
+        { text = "What did the dwarves take from you?", next = "w2_taken" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -4571,6 +5229,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_cavein = {
+      lines = {
+        { id = "w2_cavein_l", text = "The east gallery, last spring, when the Frostwolves set a charge at the wrong end o' the shaft. Brought the whole roof down on themselves an' three o' my lads besides. We dug for two days an' found everyone, orc an' dwarf, side by side." },
+      },
+      choices = {
+        { text = "Did anyone survive?", next = "w2_cavein2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_cavein2 = {
+      lines = {
+        { id = "w2_cavein2_l", text = "Two o' mine an' one o' theirs. We carried the orc out wi' our own an' left him at the mine mouth wi' water. Masha's lot came an' took him at dusk, an' nobody fired a shot. Next mornin' we were fightin' again." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_who = {
       lines = {
         { id = "y_y_who", text = "I was a miner in Dun Morogh before the Guard came north. Grew up in the shafts near Gol'Bolar, an' when Vanndar called for dwarves who knew the dark, I put down my pick an' picked up an axe. Well, I brought the pick too." },
@@ -4623,7 +5298,7 @@ P:NPC {
       },
       again = {
         { id = "h_again1", text = "What else do you need?" },
-        { id = "h_again2", text = "Speak, then." },
+        { id = "h_again2", text = "Speak, then, an' keep yer head down. The beams in this gallery are older than my granda." },
       },
       choices = {
         { text = "What's mined here?", next = "b1" },
@@ -4633,6 +5308,7 @@ P:NPC {
         { text = "Who holds it when you don't?", next = "y_masha" },
         { text = "What should be done about the kobolds?", next = "y_kobold" },
         { text = "I've swung a pick myself.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye'll know a good seam when ye see one. Coldtooth's is thin, but it's ours." },
+        { text = "What's the worst cave-in you've seen?", next = "w2_cavein" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -4697,6 +5373,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_barrels = {
+      lines = {
+        { id = "w2_barrels_l", text = "On a ram's back, lad, two at a time, an' I walk beside every load. The Guard tried a wagon once, an' it went off the pass at Dun Garok wi' twelve barrels o' good lager. I still mourn them." },
+      },
+      choices = {
+        { text = "Has the Horde ever stolen a load?", next = "w2_barrels2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_barrels2 = {
+      lines = {
+        { id = "w2_barrels2_l", text = "Once, at the Field o' Strife. Voggah's raiders took four barrels an' left the ram. Next day I heard the Frostwolves were singin' all night at Iceblood. I like tae think they enjoyed it. A Thunderbrew's a Thunderbrew, whoever drinks it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_family = {
       lines = {
         { id = "y_y_family", text = "Thunderbrews have brewed in Kharanos since before Ironforge had a king worth toastin'. My cousins keep the big brewery, an' I drew the short straw an' came up here. Or the long straw, dependin' on how ye see it." },
@@ -4748,7 +5441,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Brogus Thunderbrew, o' the Thunderbrew family that brews the finest ale in Khaz Modan. Up here I keep the Guard fed an' merry, which is a war all its own." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else do ye need, lad? Another pint, or another question? I've plenty o' both." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -4759,6 +5452,7 @@ P:NPC {
         { text = "Do the Frostwolves brew?", next = "y_wolves" },
         { text = "Should soldiers drink before battle?", next = "y_drink" },
         { text = "I've drunk Thunderbrew in Kharanos.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye know the real thing! Mine travels well, but it's never as good as at the source." },
+        { text = "How do you get the barrels up the mountain?", next = "w2_barrels" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -4796,7 +5490,7 @@ P:NPC {
     thunderbrew = { { id = "tp_ythunderbrew", text = "Finest brewery in Khaz Modan, an' I'll fight any dwarf who says otherwise. After a pint." } },
     kharanos = { { id = "tp_ykharanos", text = "Kharanos is home. Warm hearths, good ale, an' nae a single orc." } },
     knows = { { id = "tp_knows", text = "Ale, bread, an' the gossip that comes wi' both." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "Ye've stumped me there. I know ale an' I know who owes me for it, an' that's the end o' my learnin'." } },
   },
 }
 
@@ -4823,6 +5517,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_night = {
+      lines = {
+        { id = "w2_night_l", text = "Torches movin' on the Field o' Strife, an' the glow o' Iceblood's fires tae the south. Some nights the wolves howl, an' the whole valley answers. I count the torches, an' if there's more than yesterday, I wake the General." },
+      },
+      choices = {
+        { text = "How often do you wake him?", next = "w2_night2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_night2 = {
+      lines = {
+        { id = "w2_night2_l", text = "Once a week, near enough. He's never once complained. He comes up in his nightshirt wi' his hammer an' counts the torches himself, an' then he says 'good work, Mortimer' an' goes back tae bed. I'd die for that dwarf." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_who = {
       lines = {
         { id = "y_y_who", text = "I was a guard in Ironforge for twenty years before the Stormpike called. I've walked the walls o' the Great Forge an' the walls o' Dun Baldar, an' I'll tell ye, Dun Baldar's colder." },
@@ -4874,7 +5585,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Commander Mortimer. I keep the guard on Dun Baldar's walls, an' while I stand, the Guard's soldiers keep comin' back after every fall." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Make it quick; the snow's shiftin' on the ridge, an' I've learned no' tae trust it." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -4885,6 +5596,7 @@ P:NPC {
         { text = "Who built these walls?", next = "y_wall" },
         { text = "Should we make a sortie?", next = "y_stance" },
         { text = "I'll watch the walls.", next = "BACK", when = { class = "HUNTER" }, reply = "A hunter! Then watch the treeline. The wolves hide there before they charge." },
+        { text = "What do you see from the walls at night?", next = "w2_night" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -4922,7 +5634,7 @@ P:NPC {
     dun_baldar = { { id = "tp_ydun_baldar", text = "Dun Baldar's walls are old an' thick, an' I mean tae keep them that way." } },
     ironforge = { { id = "tp_yironforge", text = "Ironforge is warm an' loud. I miss the first." } },
     knows = { { id = "tp_knows", text = "Dun Baldar's walls, its guards, an' its weak spots, which I'll no' tell ye." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "Nae idea, soldier. I watch walls. Ask someone who's slept this month." } },
   },
 }
 
@@ -4949,6 +5661,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_snow = {
+      lines = {
+        { id = "w2_snow_l", text = "It remembers every footprint until it melts. When I walk out at dawn, I can read the night in it: where the wolves ran, where the dwarves crept, where a fox stopped to listen. The snow does not take sides. It only remembers." },
+      },
+      choices = {
+        { text = "What have you read in it lately?", next = "w2_snow2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_snow2 = {
+      lines = {
+        { id = "w2_snow2_l", text = "Tracks of something heavy near the Frostwolf graveyard, too large for a wolf and too light for an ogre. The shamans walk there at night, I think, and something walks beside them. I have told the Arch Druid. She did not seem surprised." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_who = {
       lines = {
         { id = "y_y_who", text = "I came from Ashenvale with Arch Druid Renferal, because the Stormpike asked for druids to stand against the Frostwolf shamans. The dwarves are strange allies, loud and smoky, but they have treated the grove with respect." },
@@ -5000,7 +5729,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am a druid of the grove, sent with Arch Druid Renferal to watch over the wild places of this valley. War tramples the land, and someone must speak for it." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else would you ask? Speak gently; the trees here are weary of shouting." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -5011,6 +5740,7 @@ P:NPC {
         { text = "What do you think of the Frostwolf shamans?", next = "y_frost" },
         { text = "Should the Stormpike summon Ivus?", next = "y_ivus" },
         { text = "I hear the trees too.", next = "BACK", when = { class = "DRUID" }, reply = "Then you know why I came. Renferal says the valley's spirits are restless, and I believe him." },
+        { text = "How does the snow speak to you?", next = "w2_snow" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -5048,7 +5778,7 @@ P:NPC {
     renferal = { { id = "tp_yrenferal", text = "Arch Druid Renferal is old and patient, and he does not speak unless he has something worth saying." } },
     ashenvale = { { id = "tp_yashenvale", text = "Ashenvale is my home. The Warsong cut it, and the Sentinels bleed for it." } },
     knows = { { id = "tp_knows", text = "The groves, the wild things, and the slow pain of a land at war." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "That is not a thing the grove has told me. The roots know much, but they keep their own counsel." } },
   },
 }
 
@@ -5075,6 +5805,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_choose = {
+      lines = {
+        { id = "w2_choose_l", text = "He asked every captain in the Guard who they'd want beside them if the wolves broke the gate. Four names came back more than the rest. Mine was one, an' I've been tryin' tae deserve it every day since." },
+      },
+      choices = {
+        { text = "Who were the other three?", next = "w2_choose2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_choose2 = {
+      lines = {
+        { id = "w2_choose2_l", text = "The south marshal, who's a better axe than me an' a worse cook. The two at the west an' east, Icewing an' Stonehearth men both. We swore the oath in Vanndar's hall, wi' our hands on his hammer, an' he wept, which I'll deny if ye repeat it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_bunker = {
       lines = {
         { id = "y_y_bunker", text = "Thick stone, narrow doors, an' a fire that never goes out. The north bunker covers the approach tae Vanndar's hall, an' as long as it stands, the wolves must come through four marshals tae reach him." },
@@ -5126,7 +5873,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm the Dun Baldar North Marshal, one o' the four sworn tae stand wi' General Vanndar. While the north bunker holds, the General's guard is strong." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else do ye need, soldier? Ask it, an' then let me watch the north door." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -5137,6 +5884,7 @@ P:NPC {
         { text = "Do you trust the other marshals?", next = "y_others" },
         { text = "Is it right to bring war to this valley?", next = "y_right" },
         { text = "I'm Stormpike born.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye know what it means tae stand between Vanndar an' the wolves. Hold fast beside me." },
+        { text = "How did Vanndar choose the four marshals?", next = "w2_choose" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -5174,7 +5922,7 @@ P:NPC {
     vanndar = { { id = "tp_yvanndar", text = "General Vanndar Stormpike. The finest commander I've served, an' the loudest." } },
     frostwolf = { { id = "tp_yfrostwolf", text = "The wolves fight hard for their village. I'll respect that, an' I'll still hold this door against them." } },
     knows = { { id = "tp_knows", text = "The bunkers, the General, an' the oath that binds us tae him." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "Nae answer for ye there. I know the bunker an' the General, an' little else worth tellin'." } },
   },
 }
 
@@ -5193,14 +5941,31 @@ P:NPC {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! The south bunker's standin' firm, an' it's soldiers like you who keep it so." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The south bunker doesnae need yer help, an' the General doesnae need yer company." },
     { id = "g_default", text = "Soldier. The south bunker holds, an' so do I." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? Good. Every sword helps." },
-    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde. Ye'll get no closer tae the General than this." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again, are ye? Grand. The south door's always glad o' another axe." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf? Turn round an' march, or I'll see ye carried off this bridge." },
     { id = "yg_0", when = { race = "Dwarf" }, text = "A Stormpike face! Stand easy, kinsman, the south bunker's glad o' ye." },
-    { id = "yg_1", when = { race = "Human" }, text = "A man o' Lordaeron? Ye'll find Alterac colder than the lowlands, but ye'll find it worth the fight." },
+    { id = "yg_1", when = { race = "Human" }, text = "Lordaeron-born, are ye? The lowlands are a long way down, an' the cold up here bites harder. Ye'll get used tae it, or ye'll go home." },
   },
 
   start = "hello",
   nodes = {
+    w2_argue = {
+      lines = {
+        { id = "w2_argue_l", text = "Everythin'! Whose bunker's colder, whose lads are louder, whose beard's whiter. Last week it was whether a Frostwolf can smell Thunderbrew from the Field o' Strife. I said aye. He said nae. We're still waitin' for proof." },
+      },
+      choices = {
+        { text = "Who usually wins?", next = "w2_argue2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_argue2 = {
+      lines = {
+        { id = "w2_argue2_l", text = "Him, if ye ask him, an' me, if ye ask me. Ask Vanndar an' he'll tell ye we both lose, an' then he'll send us back tae our bunkers wi' a bottle each. It's a fine way tae run a war, if ye ask me." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_bunker = {
       lines = {
         { id = "y_y_bunker", text = "Thick stone, narrow doors, an' a fire that never goes out. The south bunker covers the approach tae Vanndar's hall, an' as long as it stands, the wolves must come through four marshals tae reach him." },
@@ -5214,7 +5979,7 @@ P:NPC {
     },
     y_breach = {
       lines = {
-        { id = "y_y_breach", text = "Once, in a bad winter, the wolves got intae the outer room. We drove them out wi' axes an' a barrel o' Thunderbrew set alight. I'll nae tell ye whose idea the barrel was, but it was mine." },
+        { id = "y_y_breach", text = "The wolves got intae the outer hall once, in the worst winter I've seen. The north marshal will tell ye he set a barrel alight tae drive them out. It was my barrel, an' my idea, an' he's never let me forget either." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -5222,8 +5987,8 @@ P:NPC {
     },
     y_vanndar = {
       lines = {
-        { id = "y_y_vanndar", text = "Vanndar Stormpike is a hard dwarf an' a fair one. He brought the Guard up from Ironforge tae claim the land o' our fathers, an' he's never once asked a soldier tae stand where he wouldnae stand himself." },
-        { id = "y_y_vanndar_v0", when = { faction = "Alliance" }, text = "Vanndar's a hard dwarf an' a fair one, an' he's never asked any o' us tae stand where he wouldnae. Ye'd do well tae serve under him, soldier." },
+        { id = "y_y_vanndar", text = "The General's stern, an' he's just, an' he's never sent a dwarf where he'd no' go first. He brought us up from Ironforge tae take back what our fathers held, an' every one o' us came willin'." },
+        { id = "y_y_vanndar_v0", when = { faction = "Alliance" }, text = "Vanndar's stern but just, soldier, an' he goes where he sends. Serve under him an' ye'll never be ashamed o' an order." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -5239,11 +6004,11 @@ P:NPC {
     },
     y_right = {
       lines = {
-        { id = "y_y_right", text = "The Frostwolves say Alterac's theirs since the exile. The Stormpike say it's ours by older right. I've heard both, an' I hold the bunker anyway. Where do ye stand on it?" },
+        { id = "y_y_right", text = "The wolves say the valley's theirs because they were exiled here. We say it's ours because our grandsires dug it first. I've heard both sides shout it, an' I stand at the door either way. What's yer mind?" },
       },
       choices = {
-        { text = "The Stormpike claim is older. The valley is ours by right.", next = "BACK", reply = "Aye! Ye understand it. Our forefathers walked these hills first.", fx = { align = { order = 1 } } },
-        { text = "Both claims are just. We should talk before we fight.", next = "BACK", reply = "Talk tae the wolves? Ye've a soft heart. Mind it doesnae get ye killed.", fx = { align = { order = -1 } } },
+        { text = "The Stormpike claim is older. The valley is ours by right.", next = "BACK", reply = "Spoken like a true Stormpike! The hills remember who dug them first.", fx = { align = { order = 1 } } },
+        { text = "Both claims are just. We should talk before we fight.", next = "BACK", reply = "Talk? Wi' wolves? Ye've a kind heart, soldier, an' it'll get ye a spear in it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -5252,7 +6017,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I'm the Dun Baldar South Marshal, one o' the four sworn tae stand wi' General Vanndar. While the south bunker holds, the General's guard is strong." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Speak up, I've a door tae mind an' a north marshal tae outshout." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -5262,34 +6027,35 @@ P:NPC {
         { text = "What's General Vanndar like?", next = "y_vanndar" },
         { text = "Do you trust the other marshals?", next = "y_others" },
         { text = "Is it right to bring war to this valley?", next = "y_right" },
-        { text = "I'm Stormpike born.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye know what it means tae stand between Vanndar an' the wolves. Hold fast beside me." },
+        { text = "I'm Stormpike born.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye know the oath, kinsman: the General stands, an' we stand in front o' him. Take yer place beside me." },
+        { text = "What do you and the north marshal argue about?", next = "w2_argue" },
         { text = "That's all for now.", next = "END" },
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "When the Frostwolves come for the General, the marshals stand beside him. Kill us first, an' Vanndar fights alone. They know it, an' so do we." } },
+      lines = { { id = "b1_d", text = "The wolves cannae reach Vanndar without goin' through the four o' us. If they want the General, they'll have tae carve through four marshals, an' we're no' easy carvin'." } },
       choices = {
         { text = "What if a bunker falls?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Then the marshal o' that bunker fights all the harder. We dinnae need walls tae be marshals." } },
+      lines = { { id = "b11_d", text = "Then I fight in the snow instead. A marshal's oath doesnae need a roof over it." } },
       choices = {
-        { text = "Kill every orc who reaches the hall.", next = "BACK", reply = "Aye, none will leave it.", fx = { align = { honor = -1 } } },
-        { text = "Hold the line and spare the fallen.", next = "BACK", reply = "A fair heart. Vanndar would agree.", fx = { align = { honor = 1 } } },
+        { text = "Kill every orc who reaches the hall.", next = "BACK", reply = "Aye. Nobody walks out o' this bunker wi'out my say.", fx = { align = { honor = -1 } } },
+        { text = "Hold the line and spare the fallen.", next = "BACK", reply = "Ye've a soft heart, soldier, but Vanndar has one too, under the armour.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "More often than I'd like, for it means they've got that far. Vanndar fights like a mountain, mind ye." } },
+      lines = { { id = "b2_d", text = "Only when they've got this far, an' I'd sooner they never did. But when he fights, the General's like a landslide wi' a beard." } },
       choices = {
         { text = "Is he a good leader?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "The best. He's lost more than most, an' still he leads from the front." } },
+      lines = { { id = "b21_d", text = "The finest. He's buried more friends than he'll ever say, an' still he's first through the gate." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -5297,10 +6063,10 @@ P:NPC {
   },
 
   topics = {
-    vanndar = { { id = "tp_yvanndar", text = "General Vanndar Stormpike. The finest commander I've served, an' the loudest." } },
-    frostwolf = { { id = "tp_yfrostwolf", text = "The wolves fight hard for their village. I'll respect that, an' I'll still hold this door against them." } },
-    knows = { { id = "tp_knows", text = "The bunkers, the General, an' the oath that binds us tae him." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    vanndar = { { id = "tp_yvanndar", text = "Vanndar Stormpike, the General. Hard as granite an' twice as loud." } },
+    frostwolf = { { id = "tp_yfrostwolf", text = "The Frostwolves fight like the village is their bairns, which it is. I respect it. I'll still break their charge at this door." } },
+    knows = { { id = "tp_knows", text = "The south bunker, the General's hall, an' the oath we four swore over his hammer." } },
+    _none = { { id = "tp_none", text = "Ye've lost me there. Ask the north marshal; he thinks he knows everythin'." } },
   },
 }
 
@@ -5327,6 +6093,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_feed = {
+      lines = {
+        { id = "w2_feed_l", text = "Meat for the gryphons, ale for the riders, an' never the other way round. A gryphon on Thunderbrew flies in circles, an' a rider on raw goat flies home sick. I learned that the hard way, the first week up here." },
+      },
+      choices = {
+        { text = "What happened the first week?", next = "w2_feed2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_feed2 = {
+      lines = {
+        { id = "w2_feed2_l", text = "I mixed up the crates. Wing Commander Ichman's bird drank a whole keg an' tried tae land on the General's roof. Vanndar came out shoutin', an' Ichman came down laughin', an' I've labelled every crate twice since." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_aerie = {
       lines = {
         { id = "y_y_aerie", text = "I'm from Aerie Peak in the Hinterlands, where the gryphons nest. The Stormpike needed someone who knew how tae keep gryphon riders fed, an' Wing Commander Vipore put my name forward. I've nae forgiven him." },
@@ -5378,7 +6161,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Gaelden Hammersmith, Stormpike supply officer, an' the only Wildhammer fool enough tae count crates for the Bronzebeards. I've what ye need tae stay alive out there." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else do ye need, friend? Speak up, the gryphons are shriekin' for their supper." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -5389,6 +6172,7 @@ P:NPC {
         { text = "Why don't Wildhammer serve Ironforge?", next = "y_rift" },
         { text = "Should the clans forget their old feud?", next = "y_feud" },
         { text = "I'm a dwarf of Ironforge.", next = "BACK", when = { race = "Dwarf" }, reply = "Ach, a Bronzebeard. Well, I'll forgive ye, seein' as ye came all this way." },
+        { text = "How do you keep gryphon riders fed?", next = "w2_feed" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -5426,7 +6210,7 @@ P:NPC {
     aerie_peak = { { id = "tp_yaerie_peak", text = "Aerie Peak, home o' the Wildhammer an' the finest gryphons in the world." } },
     wildhammer = { { id = "tp_ywildhammer", text = "Wildhammer dwarves live in the open sky, nae under a mountain. Ye can tell us by our tattoos." } },
     knows = { { id = "tp_knows", text = "Supplies, gryphons, an' the old quarrels o' the dwarven clans." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "Nae idea! Ask a Bronzebeard; they're forever tellin' us they know everythin'." } },
   },
 }
 
@@ -5453,6 +6237,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_odd = {
+      lines = {
+        { id = "w2_odd_l", text = "A wedding ring, if ye'll believe it. A young rifleman wanted tae marry a lass from the infirmary before the next push, an' he'd nae time tae send tae Ironforge. I sold him a brass curtain ring an' a length o' red thread." },
+      },
+      choices = {
+        { text = "Did they marry?", next = "w2_odd2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_odd2 = {
+      lines = {
+        { id = "w2_odd2_l", text = "Aye, on the bridge, wi' the whole south bunker cheerin'. He came back from the push, too, an' she's wearin' the curtain ring yet. I've had three more ask since. I keep a box o' curtain rings under the counter now." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_hist = {
       lines = {
         { id = "y_y_hist", text = "My family keeps a trading post in Ironforge, an' I'm the youngest daughter. Svalbrad's my cousin, an' when the Guard needed traders, we both came. He brought the trade goods; I brought everythin' else." },
@@ -5504,7 +6305,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Jonivera Farmountain, an' I sell general goods tae the Guard. It's no' glorious work, but an army marches on what's in its packs." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Out wi' it, I've a pile o' torn packs waitin' on my needle." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -5515,6 +6316,7 @@ P:NPC {
         { text = "Got any gossip?", next = "y_secret" },
         { text = "Should you give soldiers credit?", next = "y_stance" },
         { text = "I'll take some thread.", next = "BACK", when = { profession = "Tailoring" }, reply = "A tailor! Then ye'll know my thread's the finest this side o' the Wetlands." },
+        { text = "What's the oddest thing a soldier's asked you for?", next = "w2_odd" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -5552,7 +6354,7 @@ P:NPC {
     svalbrad = { { id = "tp_ysvalbrad", text = "Svalbrad's my cousin, an' a terrible flirt. Dinnae tell him I said so." } },
     ironforge = { { id = "tp_yironforge", text = "Ironforge is where the caravans start, an' where I'll retire, if this war ever ends." } },
     knows = { { id = "tp_knows", text = "My stock, my prices, an' the soldiers who owe me." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "Ye've asked the wrong Farmountain. Try Svalbrad; he'll no' know either, but he'll talk about it longer." } },
   },
 }
 
@@ -5570,15 +6372,32 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, an' welcome! I've cloth an' leather fresh up from Ironforge, an' ye can have first look." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Take yer cloth an' leather an' be off, an' don't go tellin' Jonivera I was civil." },
-    { id = "g_default", text = "Welcome tae my stall, friend. What can I get ye?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back again! I've restocked since ye left." },
-    { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf at my stall? I'll no' sell tae the Horde, so move along." },
-    { id = "yg_0", when = { race = "Dwarf" }, text = "A Stormpike face, or an Ironforge one? Either way ye're welcome at my stall." },
+    { id = "g_default", text = "Come in, come in! Cloth an' leather an' a fair word, friend. What'll it be?" },
+    { id = "g_back", when = { metBefore = true }, text = "There ye are again! I've bolts up from Ironforge ye've no' seen yet." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf? Nae cloth for ye, nor leather neither. Off wi' ye, back across the field." },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "A dwarf! Ironforge or Stormpike, it's all the same tae my prices. Come an' look." },
     { id = "yg_1", when = { race = "Human" }, text = "A human o' the Alliance! I've a stock o' trade goods that'd suit ye." },
   },
 
   start = "hello",
   nodes = {
+    w2_bargain = {
+      lines = {
+        { id = "w2_bargain_l", text = "A bolt o' Stormwind silk off a gnome engineer who'd mistaken it for a parachute. He wanted rope instead, an' I gave him three coils. He was gone before I noticed the silk was embroidered wi' Lordaeron's royal crest." },
+      },
+      choices = {
+        { text = "Where did it come from?", next = "w2_bargain2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_bargain2 = {
+      lines = {
+        { id = "w2_bargain2_l", text = "Nae idea, an' I've stopped askin'. It's under my bunk, wrapped in oilcloth. When the war's done I'll take it tae Ironforge an' find out who it belonged tae. Jonivera says I'll sell it. Jonivera's usually right." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_hist = {
       lines = {
         { id = "y_y_hist", text = "My cousin Jonivera an' I came up together. Our family's traded in Ironforge for generations, an' when the Guard called for merchants, we drew lots. I lost, so here I am." },
@@ -5592,8 +6411,8 @@ P:NPC {
     },
     y_home = {
       lines = {
-        { id = "y_y_home", text = "Once a year, if the passes allow. I take a ram down tae Ironforge, buy what I can, an' come back up wi' my packs full an' my purse empty. It's nae much of a holiday, but it's a change o' snow." },
-        { id = "y_y_home_v0", when = { race = "Dwarf" }, text = "Once a year, if the passes allow. Ye know how it is, kinsman. The Great Forge is warm, an' I'm always sorry tae leave it." },
+        { id = "y_y_home", text = "Once a year, if the snow lets me. I go down tae Ironforge wi' a ram an' a list as long as my beard, an' I come back wi' half the list an' nae money at all. Jonivera calls it my holiday. It's nae holiday." },
+        { id = "y_y_home_v0", when = { race = "Dwarf" }, text = "Once a year, kinsman, if the passes are clear. Ye'll know the Great Forge on a feast day. I stand in front o' it for an hour every visit, just tae get warm." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -5630,7 +6449,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Svalbrad Farmountain, an' I sell trade goods tae the Guard. It's no' glorious work, but an army marches on what's in its packs." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Speak up, I cannae hear ye over Jonivera tellin' me my prices are wrong." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -5641,6 +6460,7 @@ P:NPC {
         { text = "Got any gossip?", next = "y_secret" },
         { text = "Would you trade with a Frostwolf?", next = "y_stance" },
         { text = "I'll take some cloth.", next = "BACK", when = { profession = "Tailoring" }, reply = "A tailor! Then ye'll forgive the grey. It's all that came up the pass." },
+        { text = "What's the best bargain you ever struck?", next = "w2_bargain" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -5652,10 +6472,10 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Business is steady, which in a war is the best ye can hope for. The day it stops is the day the Guard's lost." } },
+      lines = { { id = "b11_d", text = "Steady as a ram on a ledge, which is all a trader can ask in a war. When the soldiers stop buyin', that's when ye worry." } },
       choices = {
-        { text = "Charge the Horde double if they come.", next = "BACK", reply = "Ha! If they come tae buy, I'll charge them triple.", fx = { align = { order = -1 } } },
-        { text = "Fair prices for every soldier.", next = "BACK", reply = "Aye, that's how my mother ran her stall.", fx = { align = { order = 1 } } },
+        { text = "Charge the Horde double if they come.", next = "BACK", reply = "Triple? Quadruple! I'd have their gold an' their wolves both, if they came.", fx = { align = { order = -1 } } },
+        { text = "Fair prices for every soldier.", next = "BACK", reply = "Fair prices, aye, an' a fair measure. My granda taught me that wi' a strap.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -5667,7 +6487,7 @@ P:NPC {
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "Only when they reach the stalls, an' then I fight like a cornered badger. It hasnae come tae that often." } },
+      lines = { { id = "b21_d", text = "When the wolves reach the stalls, aye, an' I've a cudgel under the counter for that very day. It's only come out twice." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -5677,8 +6497,8 @@ P:NPC {
   topics = {
     jonivera = { { id = "tp_yjonivera", text = "Jonivera's my cousin, an' she does the real work at our stalls." } },
     stormwind = { { id = "tp_ystormwind", text = "Stormwind's where the good dyes come from, an' it's a long, cold road." } },
-    knows = { { id = "tp_knows", text = "My stock, my prices, an' the soldiers who owe me." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    knows = { { id = "tp_knows", text = "Cloth, leather, prices, an' which soldiers have paid me back. That last list's short." } },
+    _none = { { id = "tp_none", text = "Nae notion. Ask Jonivera; she remembers everythin', usually tae my cost." } },
   },
 }
 
@@ -5696,15 +6516,33 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! Reagents for the mages an' somethin' less polite for you, if ye're that sort, eh?" },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Reagents or poison, take what ye came for an' go, an' keep yer hands off the wee black jars." },
-    { id = "g_default", text = "Welcome tae my stall, friend. What can I get ye?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back again! I've restocked since ye left." },
-    { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf at my stall? I'll no' sell tae the Horde, so move along." },
-    { id = "yg_0", when = { race = "Dwarf" }, text = "A Stormpike face, or an Ironforge one? Either way ye're welcome at my stall." },
+    { id = "g_default", text = "Step up, step up! Reagents for the clever an' somethin' sharper for the quiet. What's yer fancy?" },
+    { id = "g_back", when = { metBefore = true }, text = "Back, are ye? I've a fresh crate o' powders up from Ironforge, an' only one o' them's exploded." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf at my stall? I'll sell ye nothin', an' I'll mind my jars till ye're gone." },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "A dwarf! Mage or rogue, I've somethin' for ye. Mind the black jars." },
     { id = "yg_1", when = { race = "Human" }, text = "A human o' the Alliance! I've a stock o' reagents that'd suit ye." },
   },
 
   start = "hello",
   nodes = {
+    w2_jars = {
+      lines = {
+        { id = "w2_jars_l", text = "Nothin' ye'd want tae touch, friend. Venom from the valley's spiders, mixed wi' a bit o' Deathweed from Ironforge, an' a few experiments o' my own. The rogues ask for it by colour, an' I never ask what for." },
+        { id = "w2_jars_l1", when = { class = "ROGUE" }, text = "Ah, ye know exactly what's in them, don't ye? Venom, Deathweed an' a few experiments o' my own. Yer kind ask for it by colour, an' I never ask what for. That's the arrangement." },
+      },
+      choices = {
+        { text = "What's your own experiment?", next = "w2_jars2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_jars2 = {
+      lines = {
+        { id = "w2_jars2_l", text = "A poison that freezes the blood. Alterac's cold enough already, I thought, why no' use it? So far it freezes my fingers an' my eyebrows an' no' much else. Give me another winter an' I'll have it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_hist = {
       lines = {
         { id = "y_y_hist", text = "I was an alchemist's apprentice in Ironforge, but I blew up the master's table twice an' he sent me off tae the Guard. Said I'd do less harm sellin' reagents than mixin' them. He wasnae wrong." },
@@ -5718,8 +6556,8 @@ P:NPC {
     },
     y_home = {
       lines = {
-        { id = "y_y_home", text = "Once a year, if the passes allow. I take a ram down tae Ironforge, buy what I can, an' come back up wi' my packs full an' my purse empty. It's nae much of a holiday, but it's a change o' snow." },
-        { id = "y_y_home_v0", when = { race = "Dwarf" }, text = "Once a year, if the passes allow. Ye know how it is, kinsman. The Great Forge is warm, an' I'm always sorry tae leave it." },
+        { id = "y_y_home", text = "Once a year, if I'm no' snowed in. I go down tae Ironforge for fresh herbs an' a scoldin' from my old master, an' I come back up wi' both. The herbs last longer." },
+        { id = "y_y_home_v0", when = { race = "Dwarf" }, text = "Once a year, kinsman, an' I'm always sorry tae go back up. Ye know the warmth o' the Great Forge. My reagents like it too; they never freeze in Ironforge." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -5756,7 +6594,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Kurdrum Barleybeard, an' I sell reagents tae the Guard. It's no' glorious work, but an army marches on what's in its packs." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Careful wi' yer elbows; that shelf's mostly powders, an' some o' them are cranky." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -5767,6 +6605,7 @@ P:NPC {
         { text = "Got any gossip?", next = "y_secret" },
         { text = "Should the Guard use poison?", next = "y_stance" },
         { text = "I could use some reagents.", next = "BACK", when = { class = "MAGE" }, reply = "A mage! Then ye'll want the powders, an' plenty o' them, by the look o' ye." },
+        { text = "What's in the wee black jars?", next = "w2_jars" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -5778,10 +6617,10 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Business is steady, which in a war is the best ye can hope for. The day it stops is the day the Guard's lost." } },
+      lines = { { id = "b11_d", text = "Brisk, which is a worry. When the rogues buy more poison than the mages buy reagents, ye can be sure a big push is comin'." } },
       choices = {
-        { text = "Charge the Horde double if they come.", next = "BACK", reply = "Ha! If they come tae buy, I'll charge them triple.", fx = { align = { order = -1 } } },
-        { text = "Fair prices for every soldier.", next = "BACK", reply = "Aye, that's how my mother ran her stall.", fx = { align = { order = 1 } } },
+        { text = "Charge the Horde double if they come.", next = "BACK", reply = "Triple, an' I'd sell them the stuff that freezes their fingers. Ha!", fx = { align = { order = -1 } } },
+        { text = "Fair prices for every soldier.", next = "BACK", reply = "Fair, aye. A soldier in debt tae his alchemist doesnae sleep well, an' I want him sleepin'.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -5793,7 +6632,7 @@ P:NPC {
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "Only when they reach the stalls, an' then I fight like a cornered badger. It hasnae come tae that often." } },
+      lines = { { id = "b21_d", text = "When the wolves come for the stalls, I throw whatever's nearest. Last time it was a jar o' Swiftthistle powder, an' the orc sneezed for an hour." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -5803,8 +6642,8 @@ P:NPC {
   topics = {
     alchemy = { { id = "tp_yalchemy", text = "Alchemy's dangerous work, an' I've the singed eyebrows tae prove it." } },
     reagents = { { id = "tp_yreagents", text = "Reagents for mages, priests an' rogues, an' everythin' in between." } },
-    knows = { { id = "tp_knows", text = "My stock, my prices, an' the soldiers who owe me." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    knows = { { id = "tp_knows", text = "Reagents, poisons, an' the officers who buy both an' pretend they buy neither." } },
+    _none = { { id = "tp_none", text = "That's nae in my wee book, friend, an' my wee book has a great deal in it." } },
   },
 }
 
@@ -5822,15 +6661,32 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! The forges are hot an' the coal's dry, an' every sack o' flux I've got is the good stuff." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The coal's the coal an' the price is the price, so buy what ye need an' let me get back tae work." },
-    { id = "g_default", text = "Welcome tae my stall, friend. What can I get ye?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back again! I've restocked since ye left." },
-    { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf at my stall? I'll no' sell tae the Horde, so move along." },
-    { id = "yg_0", when = { race = "Dwarf" }, text = "A Stormpike face, or an Ironforge one? Either way ye're welcome at my stall." },
+    { id = "g_default", text = "Coal, flux an' hammers, friend! What does yer forge need?" },
+    { id = "g_back", when = { metBefore = true }, text = "Back again! I've coal that's dry for once, so buy it before the snow gets in." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf? Ye'll get nae coal from me, an' I've a hammer if ye argue." },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "A dwarf! Ye'll know good coal when ye see it, an' this isnae it, but it's the best in the valley." },
     { id = "yg_1", when = { race = "Human" }, text = "A human o' the Alliance! I've a stock o' coal that'd suit ye." },
   },
 
   start = "hello",
   nodes = {
+    w2_forge = {
+      lines = {
+        { id = "w2_forge_l", text = "Every night, after the stall's shut. Murgot lets me use the small anvil, an' I make nails an' horseshoes an' the odd buckle. Brogus says I'll never be a real smith. Brogus has never lifted anythin' heavier than a tankard." },
+      },
+      choices = {
+        { text = "What would you make, given time?", next = "w2_forge2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_forge2 = {
+      lines = {
+        { id = "w2_forge2_l", text = "A hammer, a proper one, wi' the Thunderbrew mark on the head. The family's made ale for three hundred years an' never once a hammer. I'd like tae be the first, an' I'd like Brogus tae have tae watch me do it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_hist = {
       lines = {
         { id = "y_y_hist", text = "I'm a Thunderbrew, same as Brogus, but I never took tae brewin'. I took tae the forge instead, an' the family's still nae forgiven me. When Murgot came north tae smith for the Guard, I came wi' him tae keep his coal stocked." },
@@ -5844,8 +6700,8 @@ P:NPC {
     },
     y_home = {
       lines = {
-        { id = "y_y_home", text = "Once a year, if the passes allow. I take a ram down tae Ironforge, buy what I can, an' come back up wi' my packs full an' my purse empty. It's nae much of a holiday, but it's a change o' snow." },
-        { id = "y_y_home_v0", when = { race = "Dwarf" }, text = "Once a year, if the passes allow. Ye know how it is, kinsman. The Great Forge is warm, an' I'm always sorry tae leave it." },
+        { id = "y_y_home", text = "Once a year, when the passes are clear. I go down tae Ironforge for coal an' come back wi' a ram half dead from the weight o' it. Brogus comes too, for the ale, an' he carries nothin'." },
+        { id = "y_y_home_v0", when = { race = "Dwarf" }, text = "Once a year, kinsman. Ye'll know the heat o' the Great Forge. I stand by the big bellows an' remember what real coal smells like." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -5882,7 +6738,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Lana Thunderbrew, an' I sell smithing supplies tae the Guard. It's no' glorious work, but an army marches on what's in its packs." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Speak up, the coal sacks don't stack themselves an' Murgot's waitin'." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -5893,6 +6749,7 @@ P:NPC {
         { text = "Got any gossip?", next = "y_secret" },
         { text = "Should Murgot melt Frostwolf axes?", next = "y_stance" },
         { text = "I'm a smith too.", next = "BACK", when = { profession = "Blacksmithing" }, reply = "A smith! Then ye'll know the coal here's rubbish. Buy it anyway, it's all we've got." },
+        { text = "Do you ever work the forge yourself?", next = "w2_forge" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -5904,10 +6761,10 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Business is steady, which in a war is the best ye can hope for. The day it stops is the day the Guard's lost." } },
+      lines = { { id = "b11_d", text = "Steady, an' the forges are hungry. When the smiths stop buyin' coal, the Guard's either won or lost, an' I'd like tae know which." } },
       choices = {
-        { text = "Charge the Horde double if they come.", next = "BACK", reply = "Ha! If they come tae buy, I'll charge them triple.", fx = { align = { order = -1 } } },
-        { text = "Fair prices for every soldier.", next = "BACK", reply = "Aye, that's how my mother ran her stall.", fx = { align = { order = 1 } } },
+        { text = "Charge the Horde double if they come.", next = "BACK", reply = "Triple, an' they'd pay it for good coal. The orcs' forges are as hungry as ours.", fx = { align = { order = -1 } } },
+        { text = "Fair prices for every soldier.", next = "BACK", reply = "Fair, aye. Every soldier's blade comes off a forge I fed. I'll no' cheat my own.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -5919,7 +6776,7 @@ P:NPC {
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "Only when they reach the stalls, an' then I fight like a cornered badger. It hasnae come tae that often." } },
+      lines = { { id = "b21_d", text = "When the wolves reach the stalls, I've a hammer under the counter, an' unlike Brogus, I know how tae swing it." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -5929,8 +6786,8 @@ P:NPC {
   topics = {
     murgot = { { id = "tp_ymurgot", text = "Murgot Deepforge is the Guard's smith. Grumpy, skilled, an' always short o' coal." } },
     brogus = { { id = "tp_ybrogus", text = "Brogus is my uncle, an' he still thinks I should be brewin'." } },
-    knows = { { id = "tp_knows", text = "My stock, my prices, an' the soldiers who owe me." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    knows = { { id = "tp_knows", text = "Coal, flux, hammers, an' how much Brogus owes me for his last keg." } },
+    _none = { { id = "tp_none", text = "I'd nae know. Ask Brogus, he'll tell ye it's a secret o' the brewers, which means he doesnae know either." } },
   },
 }
 
@@ -5957,6 +6814,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_spell = {
+      lines = {
+        { id = "w2_spell_l", text = "Chain lightning, every time. It jumps from one wolf rider to the next, and the Frostwolves bunch up when they charge, which is a terrible habit for them and a lovely one for me. I've calculated the ideal spacing." },
+        { id = "w2_spell_l1", when = { class = "MAGE" }, text = "Not frost, as a fellow mage might expect! The orcs here are half made of snow. I use lightning, which jumps from one wolf rider to the next. I've calculated the ideal spacing, and the Frostwolves keep obliging me." },
+      },
+      choices = {
+        { text = "And when they spread out?", next = "w2_spell2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_spell2 = {
+      lines = {
+        { id = "w2_spell2_l", text = "Then I panic slightly and use fire. It isn't elegant, but the snow melts, the wolves slip, and the dwarves laugh so hard they forget to be frightened. Morale is a variable too, you know." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_hist = {
       lines = {
         { id = "y_y_hist", text = "I'm from Gnomeregan, originally. When the city fell, I joined the Ironforge regulars because I had nowhere else to put my anger. Vanndar took me on for Alterac because I can read a map faster than any dwarf in the Guard." },
@@ -6008,7 +6883,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Lieutenant Greywand, Stormpike Guard. I keep watch around Stonehearth Outpost, and while I stand, the Guard's soldiers keep coming back to hold it." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask quickly; my spell circle needs redrawing every time the snow drifts over it." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -6019,6 +6894,7 @@ P:NPC {
         { text = "What worries you most?", next = "y_worry" },
         { text = "Should we fight on, or seek terms?", next = "y_terms" },
         { text = "Someone of your kind, in a dwarf army?", next = "BACK", when = { race = "Gnome" }, reply = "A gnome lieutenant surprises folk. It surprised me, too, but the Stormpike value a quick head, and I have one." },
+        { text = "What spell do you trust most out here?", next = "w2_spell" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -6056,7 +6932,7 @@ P:NPC {
     stonehearth_outpost = { { id = "tp_ystonehearth_outpost", text = "Stonehearth Outpost. Not much to look at, but it's ours, and we mean to keep it." } },
     vanndar = { { id = "tp_yvanndar", text = "General Vanndar keeps the Guard together with his voice alone. I've never met a louder commander, nor a braver one." } },
     knows = { { id = "tp_knows", text = "Stonehearth Outpost, the patrols, and the Frostwolf raiders who test them." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "That's outside my calculations, I'm afraid. Ask a dwarf; they're confident about everything." } },
   },
 }
 
@@ -6074,15 +6950,32 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good to see you again, soldier. Stonehearth holds, and it holds better when you're on the line with us." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'll take your report, but stay out of the way of the soldiers who actually hold this outpost." },
-    { id = "g_default", text = "Soldier. Stonehearth Outpost holds, and I mean to keep it that way." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, we could use the help." },
-    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde. You're a long way from Frostwolf Keep, and you won't get any closer." },
+    { id = "g_default", text = "Soldier. The outpost's still ours, and I've no intention of handing it over." },
+    { id = "g_back", when = { metBefore = true }, text = "There you are again. Good. I've a gap on the line with your name on it." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde. Frostwolf Keep's behind you, and so is your only safe road." },
     { id = "yg_0", when = { race = "Human" }, text = "A fellow human! The dwarves are fine company, but they never stop talking about beards." },
-    { id = "yg_1", when = { race = "Dwarf" }, text = "A dwarf o' the Guard. Good, Stonehearth Outpost could always use another stout pair o' shoulders." },
+    { id = "yg_1", when = { race = "Dwarf" }, text = "A dwarf of the Guard. Good. I could use a Stormpike who knows this snow better than I do." },
   },
 
   start = "hello",
   nodes = {
+    w2_home = {
+      lines = {
+        { id = "w2_home_l", text = "Lordaeron, you mean, though I've lived in Stormwind since the fall. I miss the orchards outside the capital, and a dry pair of boots. Stormwind's a fine city, but it was never mine. Neither is this, but the cold's honest." },
+      },
+      choices = {
+        { text = "Will you ever go back to Lordaeron?", next = "w2_home2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_home2 = {
+      lines = {
+        { id = "w2_home2_l", text = "There's nothing to go back to but the Forsaken and the Scourge. My family's farm is somewhere under the Plaguelands now. I'd rather hold Stonehearth for the dwarves than look at what's become of it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_hist = {
       lines = {
         { id = "y_y_hist", text = "I was a soldier of Lordaeron before the Plague took the kingdom from under us. When the Stormpike asked for men who knew Alterac, I came. These mountains were once ours too, after a fashion." },
@@ -6096,8 +6989,8 @@ P:NPC {
     },
     y_regret = {
       lines = {
-        { id = "y_y_regret", text = "Some nights, when the wind howls through the bunker and I can't feel my feet. But then I see the dwarves standing beside me, and I remember that soldiers don't choose their wars, only their friends." },
-        { id = "y_y_regret_v0", when = { faction = "Alliance" }, text = "Some nights, when the wind howls and I can't feel my feet. But I'm Alliance, and we hold together. That's worth a little cold." },
+        { id = "y_y_regret", text = "Some nights, when the wind's in the bunker and my feet are numb. Then I look at the dwarves beside me, and I remember Lordaeron fell because people stood alone. I won't make that mistake twice." },
+        { id = "y_y_regret_v0", when = { faction = "Alliance" }, text = "Some nights, when the wind's cruel and my feet are numb. But I've seen a kingdom fall for want of allies. Cold feet are a fair price to keep this one standing." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6105,7 +6998,7 @@ P:NPC {
     },
     y_post = {
       lines = {
-        { id = "y_y_post", text = "Stonehearth Outpost guards the road between Dun Baldar and the middle of the valley. If it falls, the Frostwolves can bring their dead back on our doorstep, and the whole valley tips their way." },
+        { id = "y_y_post", text = "The outpost covers the road from Dun Baldar to the middle of the valley. Lose it and the Frostwolves raise their dead right at our door, and from there the whole valley slides their way." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6113,7 +7006,7 @@ P:NPC {
     },
     y_worry = {
       lines = {
-        { id = "y_y_worry", text = "Supplies, mostly. Every cart of food and every bundle of arrows comes up from Ironforge over the passes, and when the snow comes, the carts stop. We've gone hungry before, and I'd rather not do it again with the wolves at the gate." },
+        { id = "y_y_worry", text = "The passes. Every cart of food and every sheaf of arrows crosses them from Ironforge, and the snow closes them without warning. I've seen soldiers starve once. I won't watch it again, not with the wolves this close." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6121,11 +7014,11 @@ P:NPC {
     },
     y_terms = {
       lines = {
-        { id = "y_y_terms", text = "I've heard the shamans of the Frostwolves speak of peace, once, under a flag of truce. Vanndar wouldn't hear of it. What would you do, soldier, if you had the choice?" },
+        { id = "y_y_terms", text = "Once, under a flag of truce, a Frostwolf shaman spoke of peace. The General sent him back without an answer. I've wondered since. What would you have done, soldier?" },
       },
       choices = {
-        { text = "Hold the line. The Horde would never honour terms.", next = "BACK", reply = "That's what Vanndar said, and maybe he's right. Hold it is.", fx = { align = { order = 1 } } },
-        { text = "Seek terms. Enough soldiers have died in this snow.", next = "BACK", reply = "I'd like to believe that would work. Keep that thought; we may need it someday.", fx = { align = { order = -1 } } },
+        { text = "Hold the line. The Horde would never honour terms.", next = "BACK", reply = "Vanndar's answer too. I hope you're both right. We hold.", fx = { align = { order = 1 } } },
+        { text = "Seek terms. Enough soldiers have died in this snow.", next = "BACK", reply = "You'd talk to them? It's a better instinct than most up here. Hold onto it; it may be needed.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -6134,7 +7027,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Lieutenant Largent, Stormpike Guard. I keep watch around Stonehearth Outpost, and while I stand, the Guard's soldiers keep coming back to hold it." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Quickly, if you can; the wind's coming round and the line needs checking." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -6145,6 +7038,7 @@ P:NPC {
         { text = "What worries you most?", next = "y_worry" },
         { text = "Should we fight on, or seek terms?", next = "y_terms" },
         { text = "Someone of your kind, in a dwarf army?", next = "BACK", when = { race = "Human" }, reply = "I served Lordaeron once, and I miss her every day. Alterac is the closest I come to home." },
+        { text = "What do you miss most about Stormwind?", next = "w2_home" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -6156,22 +7050,22 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "It is cold and dangerous, and I would not trade the company for anything. The Guard looks after its own." } },
+      lines = { { id = "b11_d", text = "It's cold and dangerous, and I'd not trade these dwarves for any company in Stormwind. They look after their own, and they've decided I'm one of them." } },
       choices = {
-        { text = "Take no prisoners out there.", next = "BACK", reply = "That's harsh, but this is a harsh place.", fx = { align = { honor = -1 } } },
-        { text = "Spare those who surrender.", next = "BACK", reply = "Good. That is how the Alliance should fight.", fx = { align = { honor = 1 } } },
+        { text = "Take no prisoners out there.", next = "BACK", reply = "It's a hard line to take. I've seen worse taken in Lordaeron, and I'll not argue.", fx = { align = { honor = -1 } } },
+        { text = "Spare those who surrender.", next = "BACK", reply = "Good. That's the Alliance I joined, and the one worth keeping.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Wolf riders from the south, and anyone who tries to slip past the bunkers to the graveyard. They always try." } },
+      lines = { { id = "b2_d", text = "Wolf riders, coming up from the south, and the clever ones who try to slip round the bunkers toward the graveyard. There's always a clever one." } },
       choices = {
         { text = "How do I stop them?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "Stay close to the bunker, hit hard, and call for help before you need it. Pride gets soldiers killed here." } },
+      lines = { { id = "b21_d", text = "Stay near the bunker, strike hard, and shout for help early. I've buried proud soldiers on this road, and I'd sooner not bury you." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -6179,10 +7073,10 @@ P:NPC {
   },
 
   topics = {
-    stonehearth_outpost = { { id = "tp_ystonehearth_outpost", text = "Stonehearth Outpost. Not much to look at, but it's ours, and we mean to keep it." } },
-    vanndar = { { id = "tp_yvanndar", text = "General Vanndar keeps the Guard together with his voice alone. I've never met a louder commander, nor a braver one." } },
-    knows = { { id = "tp_knows", text = "Stonehearth Outpost, the patrols, and the Frostwolf raiders who test them." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    stonehearth_outpost = { { id = "tp_ystonehearth_outpost", text = "The outpost. A few stone walls and a fire, but it's held, and it's ours." } },
+    vanndar = { { id = "tp_yvanndar", text = "Vanndar holds the Guard together with that voice of his. I've served under quieter commanders and braver ones, but never both at once until now." } },
+    knows = { { id = "tp_knows", text = "The outpost, its patrols, and every Frostwolf scout who's ever tried our road." } },
+    _none = { { id = "tp_none", text = "I wouldn't know. Ask one of the dwarves; they'll have an opinion, even if they've no answer." } },
   },
 }
 
@@ -6201,14 +7095,31 @@ P:NPC {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ishnu-alah. You return, and Icewing holds; I am glad to see you on the path again." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Icewing holds without your help, so keep to the path and away from my patrol." },
     { id = "g_default", text = "Soldier. Icewing Bunker holds, and I mean to keep it that way." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, we could use the help." },
-    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde. You're a long way from Frostwolf Keep, and you won't get any closer." },
+    { id = "g_back", when = { metBefore = true }, text = "You return, and the path is still ours. I am glad of another blade beside me." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "You are Horde, and far from your keep. Turn back before the snow covers your tracks for good." },
     { id = "yg_0", when = { race = "NightElf" }, text = "Ishnu-alah, sister or brother. It is good to hear Darnassian spoken in this cold place." },
     { id = "yg_1", when = { race = "Dwarf" }, text = "A dwarf o' the Guard. Good, Icewing Bunker could always use another stout pair o' shoulders." },
   },
 
   start = "hello",
   nodes = {
+    w2_snow = {
+      lines = {
+        { id = "w2_snow_l", text = "The same way I found it in Ashenvale at night: by the stars, when they show, and by the trees, when they do not. The pines here lean south, away from the wind off the peaks. I have not been lost once." },
+      },
+      choices = {
+        { text = "Do the dwarves ever get lost?", next = "w2_snow2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_snow2 = {
+      lines = {
+        { id = "w2_snow2_l", text = "Often, and loudly. Last month I found a patrol of four walking in circles around a single boulder. They insisted the boulder had moved. I did not argue. In this valley, I am not certain it had not." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_hist = {
       lines = {
         { id = "y_y_hist", text = "I came from Ashenvale, where the Warsong cut our forests. When word came that the same Horde fought for Alterac, I asked the Sentinels to send me. The Stormpike were surprised to see an elf in their ranks, but they have not complained of my bow." },
@@ -6222,8 +7133,8 @@ P:NPC {
     },
     y_regret = {
       lines = {
-        { id = "y_y_regret", text = "Some nights, when the wind howls through the bunker and I can't feel my feet. But then I see the dwarves standing beside me, and I remember that soldiers don't choose their wars, only their friends." },
-        { id = "y_y_regret_v0", when = { faction = "Alliance" }, text = "Some nights, when the wind howls and I can't feel my feet. But I'm Alliance, and we hold together. That's worth a little cold." },
+        { id = "y_y_regret", text = "Some nights, when the wind is cruel and the cold reaches the bone. Then I look at the dwarves beside me, and I remember that the Kaldorei once fought alone, and nearly lost everything for it." },
+        { id = "y_y_regret_v0", when = { faction = "Alliance" }, text = "Some nights, when the cold reaches the bone. But the Alliance stands together, and that is worth a winter of frozen feet." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6239,7 +7150,7 @@ P:NPC {
     },
     y_worry = {
       lines = {
-        { id = "y_y_worry", text = "Supplies, mostly. Every cart of food and every bundle of arrows comes up from Ironforge over the passes, and when the snow comes, the carts stop. We've gone hungry before, and I'd rather not do it again with the wolves at the gate." },
+        { id = "y_y_worry", text = "The supply carts. Every arrow and every loaf comes up from Ironforge over the passes, and the snow takes them when it pleases. I have seen soldiers here go hungry, and I will not see it with the Horde so close." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6247,11 +7158,11 @@ P:NPC {
     },
     y_terms = {
       lines = {
-        { id = "y_y_terms", text = "I've heard the shamans of the Frostwolves speak of peace, once, under a flag of truce. Vanndar wouldn't hear of it. What would you do, soldier, if you had the choice?" },
+        { id = "y_y_terms", text = "Once, a Frostwolf shaman came under a flag of truce and spoke of peace. The General would not hear him. I have thought of that shaman since. What would you have done, in Vanndar's place?" },
       },
       choices = {
-        { text = "Hold the line. The Horde would never honour terms.", next = "BACK", reply = "That's what Vanndar said, and maybe he's right. Hold it is.", fx = { align = { order = 1 } } },
-        { text = "Seek terms. Enough soldiers have died in this snow.", next = "BACK", reply = "I'd like to believe that would work. Keep that thought; we may need it someday.", fx = { align = { order = -1 } } },
+        { text = "Hold the line. The Horde would never honour terms.", next = "BACK", reply = "So the General said. Perhaps it is the only answer this valley allows. We hold.", fx = { align = { order = 1 } } },
+        { text = "Seek terms. Enough soldiers have died in this snow.", next = "BACK", reply = "You would speak with them? The forest would approve, I think. Keep that thought close; it may yet be needed.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -6260,7 +7171,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Lieutenant Lonadin, Stormpike Guard. I keep watch around Icewing Bunker, and while I stand, the Guard's soldiers keep coming back to hold it." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else would you ask? Speak, but I must return to my patrol before the light goes." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -6271,6 +7182,7 @@ P:NPC {
         { text = "What worries you most?", next = "y_worry" },
         { text = "Should we fight on, or seek terms?", next = "y_terms" },
         { text = "Someone of your kind, in a dwarf army?", next = "BACK", when = { race = "NightElf" }, reply = "I am far from the forests of Ashenvale, but the Horde are the same Horde wherever I find them." },
+        { text = "How do you find your way in this snow?", next = "w2_snow" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -6282,22 +7194,22 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "It is cold and dangerous, and I would not trade the company for anything. The Guard looks after its own." } },
+      lines = { { id = "b11_d", text = "It is cold, and it is dangerous, and I would not leave these dwarves for anything. They are louder than Sentinels, but no less loyal." } },
       choices = {
-        { text = "Take no prisoners out there.", next = "BACK", reply = "That's harsh, but this is a harsh place.", fx = { align = { honor = -1 } } },
-        { text = "Spare those who surrender.", next = "BACK", reply = "Good. That is how the Alliance should fight.", fx = { align = { honor = 1 } } },
+        { text = "Take no prisoners out there.", next = "BACK", reply = "That is a hard answer, and this is a hard land. I will not judge you for it.", fx = { align = { honor = -1 } } },
+        { text = "Spare those who surrender.", next = "BACK", reply = "Good. Elune smiles on mercy, even here.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Wolf riders from the south, and anyone who tries to slip past the bunkers to the graveyard. They always try." } },
+      lines = { { id = "b2_d", text = "Wolf riders from the south, and those who creep past the bunkers toward the graveyard. Watch the treeline. They always come from the trees." } },
       choices = {
         { text = "How do I stop them?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "Stay close to the bunker, hit hard, and call for help before you need it. Pride gets soldiers killed here." } },
+      lines = { { id = "b21_d", text = "Stay near the bunker, strike swiftly, and call for aid before you need it. Pride has killed more soldiers here than the Frostwolves have." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -6306,9 +7218,9 @@ P:NPC {
 
   topics = {
     icewing_bunker = { { id = "tp_yicewing_bunker", text = "Icewing Bunker. Not much to look at, but it's ours, and we mean to keep it." } },
-    vanndar = { { id = "tp_yvanndar", text = "General Vanndar keeps the Guard together with his voice alone. I've never met a louder commander, nor a braver one." } },
+    vanndar = { { id = "tp_yvanndar", text = "General Vanndar holds the Guard together with his voice. I have heard war cries in Ashenvale, but none so loud as his." } },
     knows = { { id = "tp_knows", text = "Icewing Bunker, the patrols, and the Frostwolf raiders who test them." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "That is beyond my knowing. Ask the dwarves; they will answer anyway." } },
   },
 }
 
@@ -6327,14 +7239,31 @@ P:NPC {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again! Good, because the ground north of the bunker's crawling, and I'd rather have you than not." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Stonehearth Bunker holds, and it doesn't need you, so stay south of my patrol." },
     { id = "g_default", text = "Soldier. Stonehearth Bunker holds, and I mean to keep it that way." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, we could use the help." },
-    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde. You're a long way from Frostwolf Keep, and you won't get any closer." },
-    { id = "yg_0", when = { race = "Human" }, text = "A fellow human! The dwarves are fine company, but they never stop talking about beards." },
+    { id = "g_back", when = { metBefore = true }, text = "Good, you're back. The patrol's thinner every day, and I'll take any help that walks up." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde, on my patrol? You've wandered too far north, and you won't get any further." },
+    { id = "yg_0", when = { race = "Human" }, text = "Another human! Good. You can help me explain to the dwarves that a beard isn't a measure of courage." },
     { id = "yg_1", when = { race = "Dwarf" }, text = "A dwarf o' the Guard. Good, Stonehearth Bunker could always use another stout pair o' shoulders." },
   },
 
   start = "hello",
   nodes = {
+    w2_north = {
+      lines = {
+        { id = "w2_north_l", text = "The old stone ruins on the ridge. The dwarves say they're from before the Stormpike claim, some lost Alterac outpost. The Frostwolves won't go near them, and when an orc won't go somewhere, I start paying attention." },
+      },
+      choices = {
+        { text = "Have you explored them?", next = "w2_north2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_north2 = {
+      lines = {
+        { id = "w2_north2_l", text = "Once, with two riflemen. We found old armour, rusted through, and a wall with Alterac's crest carved on it. One of the riflemen swore he heard someone breathing. We didn't stay to find out who." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_hist = {
       lines = {
         { id = "y_y_hist", text = "Stromgarde born, Stormpike sworn. When Stromgarde's walls started falling to ogres and the Syndicate, I went looking for a war I could actually win. Alterac seemed as good a place as any, and colder." },
@@ -6348,8 +7277,8 @@ P:NPC {
     },
     y_regret = {
       lines = {
-        { id = "y_y_regret", text = "Some nights, when the wind howls through the bunker and I can't feel my feet. But then I see the dwarves standing beside me, and I remember that soldiers don't choose their wars, only their friends." },
-        { id = "y_y_regret_v0", when = { faction = "Alliance" }, text = "Some nights, when the wind howls and I can't feel my feet. But I'm Alliance, and we hold together. That's worth a little cold." },
+        { id = "y_y_regret", text = "Some nights, when the wind's in my bones and I can't feel my toes. Then I look at the dwarves on the wall, and I remember Lordaeron and Stromgarde both fell alone. We won't." },
+        { id = "y_y_regret_v0", when = { faction = "Alliance" }, text = "Some nights, when the cold's in my bones. But the Alliance holds together, and I've seen what happens when it doesn't. That's worth a bit of frostbite." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6365,7 +7294,7 @@ P:NPC {
     },
     y_worry = {
       lines = {
-        { id = "y_y_worry", text = "Supplies, mostly. Every cart of food and every bundle of arrows comes up from Ironforge over the passes, and when the snow comes, the carts stop. We've gone hungry before, and I'd rather not do it again with the wolves at the gate." },
+        { id = "y_y_worry", text = "The supply road. Food and arrows come over the passes from Ironforge, and the snow decides when. We've gone without before, and I'd rather not do it with the wolves at the bunker." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6373,11 +7302,11 @@ P:NPC {
     },
     y_terms = {
       lines = {
-        { id = "y_y_terms", text = "I've heard the shamans of the Frostwolves speak of peace, once, under a flag of truce. Vanndar wouldn't hear of it. What would you do, soldier, if you had the choice?" },
+        { id = "y_y_terms", text = "A Frostwolf shaman once came under a white flag and spoke of peace. The General sent him away. I wonder about it sometimes. What would you have done, soldier?" },
       },
       choices = {
-        { text = "Hold the line. The Horde would never honour terms.", next = "BACK", reply = "That's what Vanndar said, and maybe he's right. Hold it is.", fx = { align = { order = 1 } } },
-        { text = "Seek terms. Enough soldiers have died in this snow.", next = "BACK", reply = "I'd like to believe that would work. Keep that thought; we may need it someday.", fx = { align = { order = -1 } } },
+        { text = "Hold the line. The Horde would never honour terms.", next = "BACK", reply = "That's Vanndar's way, and maybe the only way up here. We hold.", fx = { align = { order = 1 } } },
+        { text = "Seek terms. Enough soldiers have died in this snow.", next = "BACK", reply = "Talk to them? That's a kinder thought than this valley deserves. Keep it; someone should.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -6386,7 +7315,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Lieutenant Mancuso, Stormpike Guard. I keep watch around Stonehearth Bunker, and while I stand, the Guard's soldiers keep coming back to hold it." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Make it quick; I've a patrol north of the bunker, and the snow won't wait." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -6397,6 +7326,7 @@ P:NPC {
         { text = "What worries you most?", next = "y_worry" },
         { text = "Should we fight on, or seek terms?", next = "y_terms" },
         { text = "Someone of your kind, in a dwarf army?", next = "BACK", when = { race = "Human" }, reply = "Stromgarde gave me my sword, and the Stormpike gave me a reason to keep using it." },
+        { text = "What's north of the bunker that worries you?", next = "w2_north" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -6408,22 +7338,22 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "It is cold and dangerous, and I would not trade the company for anything. The Guard looks after its own." } },
+      lines = { { id = "b11_d", text = "It's cold and dangerous, and I wouldn't trade these dwarves for any company in the south. They've adopted me, and you don't leave family." } },
       choices = {
-        { text = "Take no prisoners out there.", next = "BACK", reply = "That's harsh, but this is a harsh place.", fx = { align = { honor = -1 } } },
-        { text = "Spare those who surrender.", next = "BACK", reply = "Good. That is how the Alliance should fight.", fx = { align = { honor = 1 } } },
+        { text = "Take no prisoners out there.", next = "BACK", reply = "Harsh words, soldier. I've seen harsher deeds from the ogres in Stromgarde.", fx = { align = { honor = -1 } } },
+        { text = "Spare those who surrender.", next = "BACK", reply = "Good. That's how we fought for Stromgarde, and it's how we'll fight here.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Wolf riders from the south, and anyone who tries to slip past the bunkers to the graveyard. They always try." } },
+      lines = { { id = "b2_d", text = "Wolf riders up from the south, and the sneaks who try to get round the bunker to the graveyard. Watch for them; they never stop trying." } },
       choices = {
         { text = "How do I stop them?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "Stay close to the bunker, hit hard, and call for help before you need it. Pride gets soldiers killed here." } },
+      lines = { { id = "b21_d", text = "Stay near the bunker, hit hard and call for help early. I've seen too many proud soldiers die alone up here." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -6432,9 +7362,9 @@ P:NPC {
 
   topics = {
     stonehearth_bunker = { { id = "tp_ystonehearth_bunker", text = "Stonehearth Bunker. Not much to look at, but it's ours, and we mean to keep it." } },
-    vanndar = { { id = "tp_yvanndar", text = "General Vanndar keeps the Guard together with his voice alone. I've never met a louder commander, nor a braver one." } },
+    vanndar = { { id = "tp_yvanndar", text = "Vanndar keeps the Guard together by sheer volume, I swear. Bravest commander I've known, and the loudest." } },
     knows = { { id = "tp_knows", text = "Stonehearth Bunker, the patrols, and the Frostwolf raiders who test them." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "No idea, soldier. I know the patrol, the bunker and the ridge, and that's about the extent of it." } },
   },
 }
 
@@ -6461,6 +7391,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_drill = {
+      lines = {
+        { id = "w2_drill_l", text = "How tae march, how tae shoot, an' how tae keep my mouth shut when a sergeant's shoutin'. None o' it prepared me for snow up tae my belt an' an orc on a wolf comin' out of it. I'm learnin' the rest the hard way." },
+      },
+      choices = {
+        { text = "Who's teaching you now?", next = "w2_drill2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_drill2 = {
+      lines = {
+        { id = "w2_drill2_l", text = "The champion commando, mostly, when he's no' cursin' me for loud boots. He says I walk like a ram in a forge. Last raid he let me take point for the first time, an' I didnae step on a single stick. He didnae say a word. I think that was praise." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
         { id = "y_y_long", text = "Not long, if I'm honest. I came up from the Ironforge barracks this spring, an' I've only been on three raids. The veterans say I'll stop shakin' after the fifth." },
@@ -6512,7 +7459,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Stormpike commando, an' a new one at that. We go where the line's thinnest an' make sure the Frostwolves regret it." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else, soldier? Quick, before the sergeant finds me standin' still." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -6523,6 +7470,7 @@ P:NPC {
         { text = "What do you fear out there?", next = "y_fear" },
         { text = "Do you ever spare the Frostwolf wounded?", next = "y_spare" },
         { text = "I fight from the shadows too.", next = "BACK", when = { class = "ROGUE" }, reply = "Then ye'll do fine wi' us. Bring yer own knives, we're short." },
+        { text = "What did they teach you in the Ironforge barracks?", next = "w2_drill" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -6560,7 +7508,7 @@ P:NPC {
     frostwolf = { { id = "tp_yfrostwolf", text = "The wolves are fierce an' they know these hills. I'll give them that much, an' nae a whit more." } },
     dun_baldar = { { id = "tp_ydun_baldar", text = "Dun Baldar's home, as much as anywhere is out here. Good ale, thick walls, an' Vanndar's bellow tae wake ye." } },
     knows = { { id = "tp_knows", text = "Raids, ambushes, an' where the Frostwolves forget tae look." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "Nae idea. I've only been up here a wee while, ask one o' the old hands." } },
   },
 }
 
@@ -6578,15 +7526,32 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Back again, an' still breathin'! Come on, there's always another raid, an' I want ye on it." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I've seen ye raid, an' I'd sooner go out alone than wi' ye at my back." },
-    { id = "g_default", text = "Ho, soldier! Ready tae hit the wolves where it hurts?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always another raid." },
-    { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf! Commandos, tae me!" },
-    { id = "yg_0", when = { race = "Dwarf" }, text = "Ho, kinsman! Commandos could always use another stout dwarf wi' quiet boots." },
-    { id = "yg_1", when = { class = "ROGUE" }, text = "Ye move like one o' us already. Keep tae the snow shadows an' the wolves'll never smell ye." },
+    { id = "g_default", text = "Ho there! Ready tae go out an' make the wolves sorry they woke up?" },
+    { id = "g_back", when = { metBefore = true }, text = "Back, are ye? Grand, there's a raid goin' out at dusk an' a place in it." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf in the camp! Up, lads, up an' at him!" },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "A Stormpike kinsman! Ye'll want quiet boots an' a sharp knife, an' we've both." },
+    { id = "yg_1", when = { class = "ROGUE" }, text = "Ye've the step o' a commando already. Stay in the snow shadows an' the wolves'll walk right past ye." },
   },
 
   start = "hello",
   nodes = {
+    w2_quiet = {
+      lines = {
+        { id = "w2_quiet_l", text = "Walk where the wind's packed it hard, on the north side o' the ridges, an' step in the tracks o' whoever went before. The wolves smell ye before they hear ye, so a bit o' pine sap behind the ears helps too." },
+      },
+      choices = {
+        { text = "Pine sap? Truly?", next = "w2_quiet2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_quiet2 = {
+      lines = {
+        { id = "w2_quiet2_l", text = "Aye, it hides the smell o' dwarf, which is mostly ale an' wool. Every commando wi' two seasons smells like a pine wood in Dun Morogh, an' the wolves have yet tae work out why the forest keeps stabbin' them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
         { id = "y_y_long", text = "Two seasons. Long enough tae know the wolf trails better than the roads, an' tae stop countin' the raids." },
@@ -6600,8 +7565,8 @@ P:NPC {
     },
     y_hard = {
       lines = {
-        { id = "y_y_hard", text = "A night raid on the Frostwolf Relief Hut, when the snow came down so thick we couldnae see our own beards. We got in, aye, but we came out fewer, an' the wolves howled after us all the way tae Stonehearth." },
-        { id = "y_y_hard_v0", when = { race = "Gnome" }, text = "The Relief Hut raid, in a blizzard. Ye'd have hated it, gnome, the snow was up tae yer chin. We got in, but we came out fewer." },
+        { id = "y_y_hard", text = "The Relief Hut, in a white-out so thick I lost the dwarf in front o' me. We reached it by luck an' left by worse luck. Three didnae come back, an' the wolves chased us all the way tae Stonehearth." },
+        { id = "y_y_hard_v0", when = { race = "Gnome" }, text = "The Relief Hut, in a blizzard so deep ye'd have been swimmin', gnome. We got in. Fewer of us got out." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6609,7 +7574,7 @@ P:NPC {
     },
     y_raid = {
       lines = {
-        { id = "y_y_raid", text = "Quick an' quiet. We go out in small packs, hit a Frostwolf graveyard or a supply line, an' get back before their riders find us. The druids call it dishonourable, an' the Commander says it's war." },
+        { id = "y_y_raid", text = "Small packs an' fast feet. We slip out after dark, hit a graveyard or a supply cart, an' we're back before the wolves have finished countin' their dead. The druids grumble. The Commander doesnae." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6617,7 +7582,7 @@ P:NPC {
     },
     y_fear = {
       lines = {
-        { id = "y_y_fear", text = "The wolf riders, if ye want the truth. A dwarf can stand against an orc on foot, but a Frostwolf on his wolf comes out o' the snow like the mountain's own teeth. I've seen good commandos taken before they could shout." },
+        { id = "y_y_fear", text = "The wolf riders. On foot an orc's a fair fight. On a wolf, comin' out o' the snow at a gallop, he's an avalanche wi' an axe. I've seen commandos vanish before they could draw." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6625,11 +7590,11 @@ P:NPC {
     },
     y_spare = {
       lines = {
-        { id = "y_y_spare", text = "That's a hard question, soldier, an' every commando answers it differently. Some say a wounded wolf is still a wolf. Some say we're Stormpike, nae butchers. What do ye say?" },
+        { id = "y_y_spare", text = "Ye'll get as many answers as there are commandos. Some say a wounded wolf bites hardest. Some say we're Stormpike, an' Stormpike dinnae butcher. Which are ye?" },
       },
       choices = {
-        { text = "Spare the wounded. We're soldiers, not butchers.", next = "BACK", reply = "Aye. My mother would say the same, an' I'd nae argue wi' her.", fx = { align = { light = 1 } } },
-        { text = "A wounded orc fights again tomorrow. Finish it.", next = "BACK", reply = "Cold, but it's the cold that keeps us alive out here. I'll nae fault ye.", fx = { align = { light = -1 } } },
+        { text = "Spare the wounded. We're soldiers, not butchers.", next = "BACK", reply = "Aye. That's what my sergeant said on my first raid, an' he was the best o' us.", fx = { align = { light = 1 } } },
+        { text = "A wounded orc fights again tomorrow. Finish it.", next = "BACK", reply = "Hard, but this valley's hard. I'll no' think less o' ye.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -6638,7 +7603,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Stormpike commando, an' a seasoned one at that. We go where the line's thinnest an' make sure the Frostwolves regret it." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Speak quick, we're movin' out at dusk." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -6648,22 +7613,23 @@ P:NPC {
         { text = "What does a commando raid look like?", next = "y_raid" },
         { text = "What do you fear out there?", next = "y_fear" },
         { text = "Do you ever spare the Frostwolf wounded?", next = "y_spare" },
-        { text = "I fight from the shadows too.", next = "BACK", when = { class = "ROGUE" }, reply = "Then ye'll do fine wi' us. Bring yer own knives, we're short." },
+        { text = "I fight from the shadows too.", next = "BACK", when = { class = "ROGUE" }, reply = "Then ye'll fit right in. Bring yer own blades, mind; we're short." },
+        { text = "What's the trick to moving quietly in snow?", next = "w2_quiet" },
         { text = "That's all for now.", next = "END" },
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "We raid. Towers, graveyards, supply lines, anythin' the wolves leave half-guarded. Quick in, quick out, an' leave a mess behind." } },
+      lines = { { id = "b1_d", text = "Raids. Towers, graveyards, carts, anythin' the wolves leave thin. In fast, out faster, an' leave them somethin' tae clean up." } },
       choices = {
         { text = "Is it dangerous?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Aye, but less dangerous than standin' in one place waitin' for them tae come. A movin' dwarf is a livin' dwarf." } },
+      lines = { { id = "b11_d", text = "Aye, but less than sittin' in a bunker waitin'. A dwarf on the move is a dwarf still breathin'." } },
       choices = {
-        { text = "Hit them hard and leave nothing standing.", next = "BACK", reply = "Aye! That's the commando way.", fx = { align = { honor = -1 } } },
-        { text = "Strike fast, but don't kill needlessly.", next = "BACK", reply = "Hmph. Fair enough, but the wolves'll no' return the favor.", fx = { align = { honor = 1 } } },
+        { text = "Hit them hard and leave nothing standing.", next = "BACK", reply = "Aye! That's how we do it.", fx = { align = { honor = -1 } } },
+        { text = "Strike fast, but don't kill needlessly.", next = "BACK", reply = "Fair, I suppose. Dinnae expect the wolves tae be so kind.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -6675,7 +7641,7 @@ P:NPC {
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "The Guard, an' the thought o' a warm hearth in Ironforge when it's done. An' a good ale, if Brogus has any left." } },
+      lines = { { id = "b21_d", text = "The Guard, an' a hearth back in Ironforge, an' whatever's left in Brogus's barrel when we get in." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -6683,10 +7649,10 @@ P:NPC {
   },
 
   topics = {
-    frostwolf = { { id = "tp_yfrostwolf", text = "The wolves are fierce an' they know these hills. I'll give them that much, an' nae a whit more." } },
-    dun_baldar = { { id = "tp_ydun_baldar", text = "Dun Baldar's home, as much as anywhere is out here. Good ale, thick walls, an' Vanndar's bellow tae wake ye." } },
-    knows = { { id = "tp_knows", text = "Raids, ambushes, an' where the Frostwolves forget tae look." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    frostwolf = { { id = "tp_yfrostwolf", text = "The wolves are hard an' they know the hills better than we do. I'll grant them that, an' no more." } },
+    dun_baldar = { { id = "tp_ydun_baldar", text = "Dun Baldar's as near home as I've got. Thick walls, decent ale, an' the General bellowin' at dawn." } },
+    knows = { { id = "tp_knows", text = "Raids, trails, an' the blind spots in the Frostwolf watch." } },
+    _none = { { id = "tp_none", text = "That's nae my trade, soldier. Ask someone who stays indoors." } },
   },
 }
 
@@ -6704,15 +7670,32 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, there ye are. I've seen enough raids tae know a good soldier, an' you're one o' the good ones." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Twenty raids in this valley, an' I've never trusted anyone less." },
-    { id = "g_default", text = "Ho, soldier! Ready tae hit the wolves where it hurts?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always another raid." },
-    { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf! Commandos, tae me!" },
-    { id = "yg_0", when = { race = "Dwarf" }, text = "Ho, kinsman! Commandos could always use another stout dwarf wi' quiet boots." },
-    { id = "yg_1", when = { class = "ROGUE" }, text = "Ye move like one o' us already. Keep tae the snow shadows an' the wolves'll never smell ye." },
+    { id = "g_default", text = "There ye are. Another raid in the offing, an' I'd hoped ye'd be on it." },
+    { id = "g_back", when = { metBefore = true }, text = "Back, then. Good. There's always another raid, an' fewer of us each time." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "Frostwolf! Commandos, on me, an' mind his wolf!" },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "Kinsman. Ye'll want soft boots an' a hard heart for this work. I've the first tae lend ye." },
+    { id = "yg_1", when = { class = "ROGUE" }, text = "Ye walk like a commando. Keep tae the shadows, an' the wolves'll never know ye were there, which is the best way tae leave them." },
   },
 
   start = "hello",
   nodes = {
+    w2_stables = {
+      lines = {
+        { id = "w2_stables_l", text = "We burned them wi' the wolves inside. The pups, an' all. The Commander said it would break their cavalry for a season, an' it did. I still hear them some nights. I've been on twenty raids since, an' none o' them was that one." },
+      },
+      choices = {
+        { text = "Would you do it again?", next = "w2_stables2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_stables2 = {
+      lines = {
+        { id = "w2_stables2_l", text = "I've asked myself every night. If it saved one dwarf's life, maybe. But the Frostwolves bred new pups by spring, an' we lost more lads that winter than any other. I think we only taught them tae hate us properly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
         { id = "y_y_long", text = "Six seasons. I was on the raid that burned the Frostwolf stables the first time, an' I'm nae proud o' everything we did that night." },
@@ -6726,8 +7709,8 @@ P:NPC {
     },
     y_hard = {
       lines = {
-        { id = "y_y_hard", text = "A night raid on the Frostwolf Relief Hut, when the snow came down so thick we couldnae see our own beards. We got in, aye, but we came out fewer, an' the wolves howled after us all the way tae Stonehearth." },
-        { id = "y_y_hard_v0", when = { race = "Gnome" }, text = "The Relief Hut raid, in a blizzard. Ye'd have hated it, gnome, the snow was up tae yer chin. We got in, but we came out fewer." },
+        { id = "y_y_hard", text = "The Relief Hut, in a blizzard. I'd been on a dozen raids by then, an' I'd never seen snow like it. We got in an' we got out fewer, an' I wrote the letters home myself after." },
+        { id = "y_y_hard_v0", when = { race = "Gnome" }, text = "The Relief Hut, gnome, in snow deep enough tae bury ye. I carried a gnome out o' that raid on my shoulders. He didnae make it, but I got him home." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6735,7 +7718,7 @@ P:NPC {
     },
     y_raid = {
       lines = {
-        { id = "y_y_raid", text = "Quick an' quiet. We go out in small packs, hit a Frostwolf graveyard or a supply line, an' get back before their riders find us. The druids call it dishonourable, an' the Commander says it's war." },
+        { id = "y_y_raid", text = "Small, quiet an' fast. We hit what's lightly held an' leave before the riders come. The druids call it dishonourable. After six seasons, I'll admit they're no' always wrong." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6743,7 +7726,7 @@ P:NPC {
     },
     y_fear = {
       lines = {
-        { id = "y_y_fear", text = "The wolf riders, if ye want the truth. A dwarf can stand against an orc on foot, but a Frostwolf on his wolf comes out o' the snow like the mountain's own teeth. I've seen good commandos taken before they could shout." },
+        { id = "y_y_fear", text = "The wolf riders. Six seasons, an' I still go cold when I hear one in the snow. A Frostwolf on his wolf moves faster than ye can turn. I've seen good dwarves taken in a breath." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6751,11 +7734,11 @@ P:NPC {
     },
     y_spare = {
       lines = {
-        { id = "y_y_spare", text = "That's a hard question, soldier, an' every commando answers it differently. Some say a wounded wolf is still a wolf. Some say we're Stormpike, nae butchers. What do ye say?" },
+        { id = "y_y_spare", text = "I've answered it both ways in my time, soldier. Some say a wounded wolf will kill ye tomorrow. Some say a Stormpike is no butcher. I've been both. What's yer answer?" },
       },
       choices = {
-        { text = "Spare the wounded. We're soldiers, not butchers.", next = "BACK", reply = "Aye. My mother would say the same, an' I'd nae argue wi' her.", fx = { align = { light = 1 } } },
-        { text = "A wounded orc fights again tomorrow. Finish it.", next = "BACK", reply = "Cold, but it's the cold that keeps us alive out here. I'll nae fault ye.", fx = { align = { light = -1 } } },
+        { text = "Spare the wounded. We're soldiers, not butchers.", next = "BACK", reply = "Aye. I wish I'd learned that sooner.", fx = { align = { light = 1 } } },
+        { text = "A wounded orc fights again tomorrow. Finish it.", next = "BACK", reply = "Cold. I was that cold once. It doesnae keep ye warm at night, mind.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -6764,7 +7747,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Stormpike commando, an' a veteran one at that. We go where the line's thinnest an' make sure the Frostwolves regret it." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? I've time; I'm no' on the next raid." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -6774,34 +7757,35 @@ P:NPC {
         { text = "What does a commando raid look like?", next = "y_raid" },
         { text = "What do you fear out there?", next = "y_fear" },
         { text = "Do you ever spare the Frostwolf wounded?", next = "y_spare" },
-        { text = "I fight from the shadows too.", next = "BACK", when = { class = "ROGUE" }, reply = "Then ye'll do fine wi' us. Bring yer own knives, we're short." },
+        { text = "I fight from the shadows too.", next = "BACK", when = { class = "ROGUE" }, reply = "Then ye'll be useful. Bring knives; we're always short, an' I've lost too many." },
+        { text = "What did you do that night at the stables?", next = "w2_stables" },
         { text = "That's all for now.", next = "END" },
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "We raid. Towers, graveyards, supply lines, anythin' the wolves leave half-guarded. Quick in, quick out, an' leave a mess behind." } },
+      lines = { { id = "b1_d", text = "We raid. Towers, graveyards, carts. Hit the weak places an' leave. It's work, no' glory, an' it's ugly work." } },
       choices = {
         { text = "Is it dangerous?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Aye, but less dangerous than standin' in one place waitin' for them tae come. A movin' dwarf is a livin' dwarf." } },
+      lines = { { id = "b11_d", text = "Aye, but standin' still's worse. A dwarf who moves lives longer, an' I've lived long enough tae prove it." } },
       choices = {
-        { text = "Hit them hard and leave nothing standing.", next = "BACK", reply = "Aye! That's the commando way.", fx = { align = { honor = -1 } } },
-        { text = "Strike fast, but don't kill needlessly.", next = "BACK", reply = "Hmph. Fair enough, but the wolves'll no' return the favor.", fx = { align = { honor = 1 } } },
+        { text = "Hit them hard and leave nothing standing.", next = "BACK", reply = "Aye, that's the way. It's no' the only way, though.", fx = { align = { honor = -1 } } },
+        { text = "Strike fast, but don't kill needlessly.", next = "BACK", reply = "Fair. Ye'll sleep better than I do, I'd wager.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Long enough tae lose count o' the raids. The young ones come an' go, but the stubborn ones stay." } },
+      lines = { { id = "b2_d", text = "Six seasons, an' I've stopped countin' the raids. The young ones come up eager an' go home in boxes, but a few stubborn ones like me stay on." } },
       choices = {
         { text = "What keeps you going?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "The Guard, an' the thought o' a warm hearth in Ironforge when it's done. An' a good ale, if Brogus has any left." } },
+      lines = { { id = "b21_d", text = "The Guard. An' I promised a lass in Kharanos I'd come back, an' I've kept every promise I made her so far." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -6809,10 +7793,10 @@ P:NPC {
   },
 
   topics = {
-    frostwolf = { { id = "tp_yfrostwolf", text = "The wolves are fierce an' they know these hills. I'll give them that much, an' nae a whit more." } },
-    dun_baldar = { { id = "tp_ydun_baldar", text = "Dun Baldar's home, as much as anywhere is out here. Good ale, thick walls, an' Vanndar's bellow tae wake ye." } },
-    knows = { { id = "tp_knows", text = "Raids, ambushes, an' where the Frostwolves forget tae look." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    frostwolf = { { id = "tp_yfrostwolf", text = "The wolves are fierce, an' they love this valley like we do. That's the trouble wi' it." } },
+    dun_baldar = { { id = "tp_ydun_baldar", text = "Dun Baldar's home now. Thick walls an' Vanndar's voice, an' more ghosts than I'd like." } },
+    knows = { { id = "tp_knows", text = "Raids, ambushes, an' every mistake I made learnin' the first two." } },
+    _none = { { id = "tp_none", text = "I couldnae say. My memory's full o' raids an' there's no room left for much else." } },
   },
 }
 
@@ -6830,15 +7814,33 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Well met again, champion o' the Guard! The others look tae you now, an' so do I." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. A champion's earned the right tae choose his company, an' I'd no' choose you." },
-    { id = "g_default", text = "Ho, soldier! Ready tae hit the wolves where it hurts?" },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always another raid." },
-    { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf! Commandos, tae me!" },
-    { id = "yg_0", when = { race = "Dwarf" }, text = "Ho, kinsman! Commandos could always use another stout dwarf wi' quiet boots." },
-    { id = "yg_1", when = { class = "ROGUE" }, text = "Ye move like one o' us already. Keep tae the snow shadows an' the wolves'll never smell ye." },
+    { id = "g_default", text = "Ready, soldier? The wolves are thin at the Relief Hut tonight, an' I mean tae thin them further." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again. Good. I've a raid planned an' a gap in it." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "A Frostwolf! On me, commandos, an' cut off his road!" },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "Kinsman! Quiet boots an' a steady hand, that's all I ask o' my commandos. Ye look tae have both." },
+    { id = "yg_1", when = { class = "ROGUE" }, text = "Ye move like ye've done this before. Keep tae the snow shadows an' follow my lead." },
   },
 
   start = "hello",
   nodes = {
+    w2_choose = {
+      lines = {
+        { id = "w2_choose_l", text = "I watch them in camp. The ones who talk loudest about killin' orcs stay home. The ones who clean their knives in silence an' check their boots twice, those come wi' me. A raid's no place for a dwarf wi' somethin' tae prove." },
+        { id = "w2_choose_l1", when = { class = "ROGUE" }, text = "I watch them in camp, the way ye'd watch a mark. The loud ones stay home. The quiet ones who check their boots twice come wi' me. You'd be comin', I think." },
+      },
+      choices = {
+        { text = "Have you ever been wrong?", next = "w2_choose2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_choose2 = {
+      lines = {
+        { id = "w2_choose2_l", text = "Once. A quiet lad who turned out tae be quiet because he was terrified. He froze at Iceblood an' I had tae carry him. He's a cook in Dun Baldar now, an' the best one we've had. Everybody finds their place, given time." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
         { id = "y_y_long", text = "Longer than most o' the Guard's been in the valley. I led the first commandos over the Field o' Strife, an' Vanndar still sends for me when he wants somethin' done quiet." },
@@ -6852,8 +7854,8 @@ P:NPC {
     },
     y_hard = {
       lines = {
-        { id = "y_y_hard", text = "A night raid on the Frostwolf Relief Hut, when the snow came down so thick we couldnae see our own beards. We got in, aye, but we came out fewer, an' the wolves howled after us all the way tae Stonehearth." },
-        { id = "y_y_hard_v0", when = { race = "Gnome" }, text = "The Relief Hut raid, in a blizzard. Ye'd have hated it, gnome, the snow was up tae yer chin. We got in, but we came out fewer." },
+        { id = "y_y_hard", text = "The Relief Hut raid, in a blizzard. I led it. I chose the night because the snow would hide us, an' it did, an' it hid the wolves too. We got in an' we came out fewer, an' that's on me." },
+        { id = "y_y_hard_v0", when = { race = "Gnome" }, text = "The Relief Hut, in a blizzard deep enough tae swallow a gnome. I led it, an' I'll no' lead another in weather like that." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6861,7 +7863,7 @@ P:NPC {
     },
     y_raid = {
       lines = {
-        { id = "y_y_raid", text = "Quick an' quiet. We go out in small packs, hit a Frostwolf graveyard or a supply line, an' get back before their riders find us. The druids call it dishonourable, an' the Commander says it's war." },
+        { id = "y_y_raid", text = "Small, fast an' quiet, as I've taught every commando in the Guard. Hit what's weak, leave before the riders come. The druids call it dishonourable. I call it keepin' my dwarves alive." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6869,7 +7871,7 @@ P:NPC {
     },
     y_fear = {
       lines = {
-        { id = "y_y_fear", text = "The wolf riders, if ye want the truth. A dwarf can stand against an orc on foot, but a Frostwolf on his wolf comes out o' the snow like the mountain's own teeth. I've seen good commandos taken before they could shout." },
+        { id = "y_y_fear", text = "The wolf riders. I've fought every kind o' Frostwolf there is, an' the ones on wolfback are the ones I wake up thinkin' about. Ye cannae outrun them an' ye cannae hear them till they're on ye." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -6877,11 +7879,11 @@ P:NPC {
     },
     y_spare = {
       lines = {
-        { id = "y_y_spare", text = "That's a hard question, soldier, an' every commando answers it differently. Some say a wounded wolf is still a wolf. Some say we're Stormpike, nae butchers. What do ye say?" },
+        { id = "y_y_spare", text = "I've asked every commando I've trained, an' I've heard every answer. Some say a wounded wolf is still dangerous. Some say we're Stormpike, an' that means somethin'. What do ye say, soldier?" },
       },
       choices = {
-        { text = "Spare the wounded. We're soldiers, not butchers.", next = "BACK", reply = "Aye. My mother would say the same, an' I'd nae argue wi' her.", fx = { align = { light = 1 } } },
-        { text = "A wounded orc fights again tomorrow. Finish it.", next = "BACK", reply = "Cold, but it's the cold that keeps us alive out here. I'll nae fault ye.", fx = { align = { light = -1 } } },
+        { text = "Spare the wounded. We're soldiers, not butchers.", next = "BACK", reply = "Aye. That's what I teach the young ones, an' I mean it.", fx = { align = { light = 1 } } },
+        { text = "A wounded orc fights again tomorrow. Finish it.", next = "BACK", reply = "Cold, but I've given that order myself. I'll no' judge ye.", fx = { align = { light = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -6890,7 +7892,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Stormpike commando, an' a champion one at that. We go where the line's thinnest an' make sure the Frostwolves regret it." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask; I've a raid tae plan, but a good question's worth the delay." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -6900,34 +7902,35 @@ P:NPC {
         { text = "What does a commando raid look like?", next = "y_raid" },
         { text = "What do you fear out there?", next = "y_fear" },
         { text = "Do you ever spare the Frostwolf wounded?", next = "y_spare" },
-        { text = "I fight from the shadows too.", next = "BACK", when = { class = "ROGUE" }, reply = "Then ye'll do fine wi' us. Bring yer own knives, we're short." },
+        { text = "I fight from the shadows too.", next = "BACK", when = { class = "ROGUE" }, reply = "Then ye'll come on my next raid. Bring yer own knives; the Guard's stingy." },
+        { text = "How do you choose who goes on a raid?", next = "w2_choose" },
         { text = "That's all for now.", next = "END" },
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "We raid. Towers, graveyards, supply lines, anythin' the wolves leave half-guarded. Quick in, quick out, an' leave a mess behind." } },
+      lines = { { id = "b1_d", text = "We raid, under my command. Towers, graveyards, supply lines. In quick, out quicker, an' the Frostwolves wake tae smoke." } },
       choices = {
         { text = "Is it dangerous?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Aye, but less dangerous than standin' in one place waitin' for them tae come. A movin' dwarf is a livin' dwarf." } },
+      lines = { { id = "b11_d", text = "Aye, but a commando who stands still dies still. I keep my dwarves movin', an' most of them come home." } },
       choices = {
-        { text = "Hit them hard and leave nothing standing.", next = "BACK", reply = "Aye! That's the commando way.", fx = { align = { honor = -1 } } },
-        { text = "Strike fast, but don't kill needlessly.", next = "BACK", reply = "Hmph. Fair enough, but the wolves'll no' return the favor.", fx = { align = { honor = 1 } } },
+        { text = "Hit them hard and leave nothing standing.", next = "BACK", reply = "Aye! That's the way I taught it.", fx = { align = { honor = -1 } } },
+        { text = "Strike fast, but don't kill needlessly.", next = "BACK", reply = "Fair, an' wise. The wolves willnae thank ye, but yer conscience might.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Long enough tae lose count o' the raids. The young ones come an' go, but the stubborn ones stay." } },
+      lines = { { id = "b2_d", text = "Longer than most o' the Guard. I've trained every commando in this valley, an' buried more than I'd like. The stubborn ones stay, an' I'm the stubbornest." } },
       choices = {
         { text = "What keeps you going?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "The Guard, an' the thought o' a warm hearth in Ironforge when it's done. An' a good ale, if Brogus has any left." } },
+      lines = { { id = "b21_d", text = "The Guard, an' the dwarves I've trained. I cannae leave them tae some new champion who doesnae know the trails." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -6935,10 +7938,10 @@ P:NPC {
   },
 
   topics = {
-    frostwolf = { { id = "tp_yfrostwolf", text = "The wolves are fierce an' they know these hills. I'll give them that much, an' nae a whit more." } },
-    dun_baldar = { { id = "tp_ydun_baldar", text = "Dun Baldar's home, as much as anywhere is out here. Good ale, thick walls, an' Vanndar's bellow tae wake ye." } },
-    knows = { { id = "tp_knows", text = "Raids, ambushes, an' where the Frostwolves forget tae look." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    frostwolf = { { id = "tp_yfrostwolf", text = "The Frostwolves are the finest foes I've ever had, an' I've fought them for longer than I've fought anythin'. I'll respect them till the day one takes me." } },
+    dun_baldar = { { id = "tp_ydun_baldar", text = "Dun Baldar's where I'll be buried, an' I've made my peace wi' that. The ale's good an' the walls are thick." } },
+    knows = { { id = "tp_knows", text = "Raids, trails, every ambush in the valley an' the commando who first sprung it." } },
+    _none = { { id = "tp_none", text = "Couldnae tell ye. I know the valley an' the war, an' I've had nae time tae learn anythin' else." } },
   },
 }
 
@@ -6965,6 +7968,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_news = {
+      lines = {
+        { id = "w2_news_l", text = "I stand on the highest stair of Dun Baldar and listen. A tower burning sounds different from a tower holding, and a dwarf running with good news runs differently from one running with bad. After two winters, I hear it before the runner reaches me." },
+      },
+      choices = {
+        { text = "What does good news sound like?", next = "w2_news2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_news2 = {
+      lines = {
+        { id = "w2_news2_l", text = "Boots on the bridge, quick and uneven, because the runner keeps stopping to shout it to the guards. Bad news comes steady and silent, straight to me, and the runner looks at the ground. I know which before he speaks." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_who = {
       lines = {
         { id = "y_y_who", text = "I was a town crier in Southshore before the war. When the Stormpike came through, recruiting, they needed someone with a loud voice and a good memory. I have both, and very little sense, so I volunteered." },
@@ -7016,7 +8036,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am the Stormpike Herald. When a tower falls or a graveyard is taken, I make sure every soldier of the Guard hears it before the echoes fade." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask, and I shall answer with all the clarity my office demands." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -7027,6 +8047,7 @@ P:NPC {
         { text = "Do you ever soften the news?", next = "y_lie" },
         { text = "Should a herald ever lie?", next = "y_truth" },
         { text = "Let me hear a proclamation.", next = "BACK", when = { race = "Human" }, reply = "Hear ye! The Stormpike hold the field, and the General stands! That one never gets old." },
+        { text = "How do you learn the news before anyone else?", next = "w2_news" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -7064,7 +8085,7 @@ P:NPC {
     southshore = { { id = "tp_ysouthshore", text = "Southshore, by the sea. I was a crier there, before the war." } },
     news = { { id = "tp_ynews", text = "News travels fast in the valley. I make sure it travels faster." } },
     knows = { { id = "tp_knows", text = "Every tower, every graveyard, and every change of banner in the valley." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "That is not news I have heard, and a herald does not proclaim what he does not know." } },
   },
 }
 
@@ -7091,6 +8112,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_run = {
+      lines = {
+        { id = "w2_run_l", text = "Wi' miners who'll dig wi' one hand an' fight wi' the other. Half my crew are Thelsamar folk who've worked the Loch Modan seams. They dinnae flinch at troggs, an' they dinnae flinch at orcs, an' they swear at both the same." },
+        { id = "w2_run_l1", when = { race = "Dwarf" }, text = "Wi' miners like yerself, kinsman, who'll dig wi' one hand an' fight wi' the other. Half my crew are Thelsamar folk. They swear at troggs an' orcs the same, an' they dig through both." },
+      },
+      choices = {
+        { text = "Do they ever refuse to go down?", next = "w2_run2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_run2 = {
+      lines = {
+        { id = "w2_run2_l", text = "Once, after the troggs took Bram. I went down alone wi' a lantern an' dug for a day. When I came up, the whole crew was waitin' at the shaft mouth wi' their picks. Nobody said a word, an' we all went down together." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_who = {
       lines = {
         { id = "y_y_who", text = "I was with the Stormpike Expedition when we first found Irondeep. We dug the first shaft, an' we found the troggs the same day. I lost two friends in that first week, an' I swore I'd nae lose the mine too." },
@@ -7142,7 +8181,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Umi Thorson, keepin' Irondeep Mine for the Guard. The Stormpike Expedition dug this mine first, an' I'll no' see it in orcish hands while I breathe." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Out wi' it, the troggs are scratchin' at the east tunnel again." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -7153,6 +8192,7 @@ P:NPC {
         { text = "What's under the mine?", next = "y_deep" },
         { text = "Should the troggs be cleared?", next = "y_trogg" },
         { text = "I know the deep roads.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye know the troggs. Keep yer back tae the wall an' yer axe high." },
+        { text = "How do you keep a mine running in the middle of a war?", next = "w2_run" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -7190,7 +8230,7 @@ P:NPC {
     keetar = { { id = "tp_ykeetar", text = "Keetar. A good miner, for an orc. That's all I'll say." } },
     irondeep = { { id = "tp_yirondeep", text = "Irondeep, the richest mine in the valley. The Stormpike dug it first." } },
     knows = { { id = "tp_knows", text = "Irondeep's seams, its troggs, an' every orc who's tried tae steal it." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "Couldnae tell ye. Ask the troggs; they've been down here longer than any of us." } },
   },
 }
 
@@ -7217,6 +8257,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_fallen = {
+      lines = {
+        { id = "w2_fallen_l", text = "Most say nothing. Some ask whether they won. A few ask whether it was worth it, and to those I give no answer, for I am not certain myself. I only tell them the snow is still falling, and that their friends are still fighting." },
+      },
+      choices = {
+        { text = "Does anyone refuse to go back?", next = "w2_fallen2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_fallen2 = {
+      lines = {
+        { id = "w2_fallen2_l", text = "One, a young dwarf, who had died six times in one day. He asked to rest. I let him sit beside me until the horns sounded, and then he rose on his own. I did not have to send him. I think he only needed to be asked." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_who = {
       lines = {
         { id = "y_y_who", text = "Once I was a soldier, like you. I fell in another war, long before this one, and the Light asked me to stay a while between the worlds. I said yes, and I have not regretted it, though I have often grieved." },
@@ -7265,7 +8322,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I guide the fallen of the Alliance back to the field. Death in this valley is not an ending, only a pause between one charge and the next." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else would you ask, before you return to the field?" },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -7276,6 +8333,7 @@ P:NPC {
         { text = "Is there a guide for the other side?", next = "y_enemy" },
         { text = "Should the fallen be sent back at all?", next = "y_mercy" },
         { text = "Have you guided many back?", next = "BACK", when = { class = "PRIEST" }, reply = "More than snowflakes in this valley. Each one I remember, and each one I would spare if I could." },
+        { text = "What do the fallen say to you, when they come?", next = "w2_fallen" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -7340,6 +8398,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_buried = {
+      lines = {
+        { id = "w2_buried_l", text = "Frostwolves of the exile, first. The ones who came to Alterac with Durotan and died of the cold the first winter. We buried them deep, under stones, so the wolves would not dig them up. The new dead lie on top of them." },
+      },
+      choices = {
+        { text = "Do the new dead know the old ones are there?", next = "w2_buried2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_buried2 = {
+      lines = {
+        { id = "w2_buried2_l", text = "The shamans say they do. They say when a warrior rises here, the old ones push him back to his feet. I do not know if that is true. But I have never seen a warrior rise from this ground and run from the fight." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_who = {
       lines = {
         { id = "y_y_who", text = "I fought in the Second War, under Doomhammer, and I was taken in the end like most of the Horde. When Thrall freed us, I came to the Frostwolves, because they were the only clan that had kept the old ways." },
@@ -7391,7 +8466,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Commander Malgor. I hold the Frostwolf Graveyard, and while I stand, our fallen warriors rise to fight again." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Speak, and then take your place among the stones." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -7402,6 +8477,7 @@ P:NPC {
         { text = "Tell me about your scars.", next = "y_scar" },
         { text = "Should we respect the enemy's dead?", next = "y_burn" },
         { text = "I'm ready to fight.", next = "BACK", when = { class = "WARRIOR" }, reply = "Good. The dwarves come in waves. Stand in front, and I will stand beside you." },
+        { text = "Who is buried in this graveyard?", next = "w2_buried" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -7439,7 +8515,7 @@ P:NPC {
     doomhammer = { { id = "tp_ydoomhammer", text = "Orgrim Doomhammer was the greatest of us. I fought under him, and I still carry his name in my heart." } },
     graveyard = { { id = "tp_ygraveyard", text = "The Frostwolf Graveyard. While it stands, our dead rise close to the keep." } },
     knows = { { id = "tp_knows", text = "The graveyard, the keep, and the warriors who rise again to defend it." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "I do not know. Ask the shamans; they talk to the dead more than I do." } },
   },
 }
 
@@ -7466,6 +8542,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_view = {
+      lines = {
+        { id = "w2_view_l", text = "The whole eastern slope, down to the Relief Hut and the trees beyond. On a clear day I can see the smoke from Dun Baldar's chimneys. On a clear night I can count the Stormpike torches on the bridge and know how many will come." },
+      },
+      choices = {
+        { text = "Do you sleep up there?", next = "w2_view2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_view2 = {
+      lines = {
+        { id = "w2_view2_l", text = "I sleep on the stair, with my axe across my knees. My wife says I have not slept in a bed since we came to the valley. She is right, and she has stopped asking me to come home at night. She brings my food to the tower instead." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_tower = {
       lines = {
         { id = "y_y_tower", text = "East Tower looks down the eastern slope, toward the Frostwolf Relief Hut. If the dwarves come by the eastern trail, I am the first to see them." },
@@ -7517,7 +8610,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am the East Frostwolf Warmaster, one of the four who stand with Drek'Thar. While East Frostwolf Tower holds, the elder's guard is strong." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask, but I keep my eyes on the north while you do." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -7528,6 +8621,7 @@ P:NPC {
         { text = "What happens if the tower falls?", next = "y_fall" },
         { text = "Should a warmaster ever retreat?", next = "y_retreat" },
         { text = "I'm Frostwolf born.", next = "BACK", when = { race = "Orc" }, reply = "Then you know the oath before I say it. Hold, and do not let the tower burn." },
+        { text = "What can you see from the top of the tower?", next = "w2_view" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -7565,7 +8659,7 @@ P:NPC {
     drekthar = { { id = "tp_ydrekthar", text = "Drek'Thar is the elder shaman of the Frostwolves. He raised Thrall's people back from despair, and he will not fall while we stand." } },
     towers = { { id = "tp_ytowers", text = "Four towers, four warmasters. If they all burn, the dwarves will reach the keep, and then we fight in the snow." } },
     knows = { { id = "tp_knows", text = "East Frostwolf Tower, the warmasters, and the oath that binds us to Drek'Thar." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "I do not know. My knowledge stops at the bottom of this tower's stair." } },
   },
 }
 
@@ -7584,14 +8678,31 @@ P:NPC {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back to the west tower. Good, because the Stormpike have been testing the gate all morning." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The west tower has trouble enough without you, so say your piece and be gone." },
     { id = "g_default", text = "Warrior. West Frostwolf Tower stands, and so do I." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. Good. Every axe matters." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance. You will not reach Drek'Thar." },
+    { id = "g_back", when = { metBefore = true }, text = "You come back. Good. The west gate needs every axe the clan can spare." },
+    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance. The west tower is the last thing you will see before the keep, and you will not see the keep." },
     { id = "yg_0", when = { race = "Orc" }, text = "Brother of the clan. West Frostwolf Tower is yours as much as mine while you stand here." },
-    { id = "yg_1", when = { race = "Scourge" }, text = "Forsaken. The cold does not touch you, which makes you a good tower guard. Stand watch with me." },
+    { id = "yg_1", when = { race = "Scourge" }, text = "Forsaken. The cliff wind cannot chill you, which makes you better on these walls than most orcs. Watch the path with me." },
   },
 
   start = "hello",
   nodes = {
+    w2_gate = {
+      lines = {
+        { id = "w2_gate_l", text = "Small parties, at dawn, up the cliff path the dwarves think we do not know. They come with ropes and rifles, and I let them climb halfway before I drop stones on them. They have not learned yet. I hope they never do." },
+      },
+      choices = {
+        { text = "Why let them climb halfway?", next = "w2_gate2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_gate2 = {
+      lines = {
+        { id = "w2_gate2_l", text = "Because halfway is where the path is narrowest and the fall is longest. A dwarf who falls from the top walks away cursing. A dwarf who falls from halfway does not walk again. I am not cruel, but I am a warmaster." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_tower = {
       lines = {
         { id = "y_y_tower", text = "West Tower watches the western cliffs. The dwarves think the cliffs protect our flank. They are wrong; the cliffs only hide them until it is too late." },
@@ -7605,7 +8716,7 @@ P:NPC {
     },
     y_built = {
       lines = {
-        { id = "y_y_built", text = "The clan built them after the exile, stone by stone, when Drek'Thar saw that the mountain alone would not protect us. Each warmaster is sworn to one tower. I swore to mine before the clan, and I will die in it if I must." },
+        { id = "y_y_built", text = "Raised stone by stone after the exile, when Drek'Thar knew the mountains were not enough. Each warmaster swore to one tower before the clan. I swore to the west, where the wind is worst, and I will not leave it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -7613,8 +8724,8 @@ P:NPC {
     },
     y_oath = {
       lines = {
-        { id = "y_y_oath", text = "Drek'Thar is old and blind, but he sees further than any of us. He gave the Frostwolves back their spirit when Thrall came home. The oath means that while I live, no dwarf reaches him by my tower." },
-        { id = "y_y_oath_v0", when = { race = "Tauren" }, text = "Drek'Thar is blind, but the spirits speak to him as they speak to your shamans, tauren. The oath means I am his eyes on this slope, and I do not close them." },
+        { id = "y_y_oath", text = "Drek'Thar cannot see the dwarves, but he sees through them. He woke the clan's spirit when Thrall returned from the camps. My oath means no Stormpike passes the west tower while I breathe." },
+        { id = "y_y_oath_v0", when = { race = "Tauren" }, text = "Drek'Thar is blind, tauren, but your shamans would know how the spirits guide him. My oath makes me his eyes on the western cliffs, and I have not blinked since I took it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -7630,11 +8741,11 @@ P:NPC {
     },
     y_retreat = {
       lines = {
-        { id = "y_y_retreat", text = "Some say a warmaster should fall back to the keep and fight again beside Drek'Thar. Others say the oath is to the tower and nothing else. I have my answer. What is yours?" },
+        { id = "y_y_retreat", text = "Some warmasters say we should fall back to the keep when the tower is lost, and fight beside Drek'Thar. Others say the tower is the oath, and nothing else matters. I know my answer. What is yours?" },
       },
       choices = {
-        { text = "An oath is an oath. Hold the tower to the end.", next = "BACK", reply = "Yes. That is the Frostwolf way, and it is mine.", fx = { align = { honor = 1 } } },
-        { text = "Fall back and live. Drek'Thar needs you more than stone.", next = "BACK", reply = "Hm. Wise, perhaps, but not honourable. I will think on it.", fx = { align = { honor = -1 } } },
+        { text = "An oath is an oath. Hold the tower to the end.", next = "BACK", reply = "Yes. The oath is the tower, and the tower is the oath.", fx = { align = { honor = 1 } } },
+        { text = "Fall back and live. Drek'Thar needs you more than stone.", next = "BACK", reply = "Sensible, perhaps. Not honourable. But I will remember you said it.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -7643,7 +8754,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am the West Frostwolf Warmaster, one of the four who stand with Drek'Thar. While West Frostwolf Tower holds, the elder's guard is strong." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Speak, and then let me watch the cliff path." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -7653,34 +8764,35 @@ P:NPC {
         { text = "What does an oath to Drek'Thar mean?", next = "y_oath" },
         { text = "What happens if the tower falls?", next = "y_fall" },
         { text = "Should a warmaster ever retreat?", next = "y_retreat" },
-        { text = "I'm Frostwolf born.", next = "BACK", when = { race = "Orc" }, reply = "Then you know the oath before I say it. Hold, and do not let the tower burn." },
+        { text = "I'm Frostwolf born.", next = "BACK", when = { race = "Orc" }, reply = "Then you know the oath already, brother. Hold the west gate, and do not let it fall." },
+        { text = "How do the dwarves test the west gate?", next = "w2_gate" },
         { text = "That's all for now.", next = "END" },
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "When the dwarves come for Drek'Thar, the warmasters fight beside him. Kill us first, and he fights alone. The dwarves know it, and so do we." } },
+      lines = { { id = "b1_d", text = "When the Stormpike come for Drek'Thar, the four of us stand at his side. Kill the warmasters and he fights alone. The dwarves have learned that, and so have we." } },
       choices = {
         { text = "What if your tower falls?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Then I fight harder, and the dwarves pay for every stone they take." } },
+      lines = { { id = "b11_d", text = "Then I fight on the cliffs instead, and every dwarf who wants the tower pays in blood for each stone." } },
       choices = {
-        { text = "Kill every dwarf who reaches the keep.", next = "BACK", reply = "Yes. None will leave alive.", fx = { align = { honor = -1 } } },
-        { text = "Hold the line and fight with honor.", next = "BACK", reply = "Honor is strength. I agree.", fx = { align = { honor = 1 } } },
+        { text = "Kill every dwarf who reaches the keep.", next = "BACK", reply = "Yes. None who reach the keep leave it.", fx = { align = { honor = -1 } } },
+        { text = "Hold the line and fight with honor.", next = "BACK", reply = "Honour makes the arm strong. You speak well.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "He is old, and blind, and wiser than any orc I have known. He sees with the spirits, and they do not lie." } },
+      lines = { { id = "b2_d", text = "Old, blind and wiser than any chieftain I have served. He listens to the spirits, and they have never lied to him in my lifetime." } },
       choices = {
         { text = "Would you die for him?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "Without hesitation. That is why I am here." } },
+      lines = { { id = "b21_d", text = "Gladly. That is why I hold the west, and not some easier wall." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -7688,10 +8800,10 @@ P:NPC {
   },
 
   topics = {
-    drekthar = { { id = "tp_ydrekthar", text = "Drek'Thar is the elder shaman of the Frostwolves. He raised Thrall's people back from despair, and he will not fall while we stand." } },
-    towers = { { id = "tp_ytowers", text = "Four towers, four warmasters. If they all burn, the dwarves will reach the keep, and then we fight in the snow." } },
+    drekthar = { { id = "tp_ydrekthar", text = "Drek'Thar, elder shaman of the clan. He gave Thrall's people their spirits back, and he will not fall while the west tower stands." } },
+    towers = { { id = "tp_ytowers", text = "Four towers and four warmasters. Burn all four, and the dwarves will be at the keep, and then we fight in the snow with our teeth." } },
     knows = { { id = "tp_knows", text = "West Frostwolf Tower, the warmasters, and the oath that binds us to Drek'Thar." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "That is not a thing a warmaster would know. Ask the shamans." } },
   },
 }
 
@@ -7710,14 +8822,31 @@ P:NPC {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return to Iceblood. The cold is bitter up here, but I am glad to see a warrior I can trust." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Iceblood is cold enough without your company, so speak quickly and go." },
     { id = "g_default", text = "Warrior. Iceblood Tower stands, and so do I." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. Good. Every axe matters." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance. You will not reach Drek'Thar." },
+    { id = "g_back", when = { metBefore = true }, text = "You come back to Iceblood. Good. The dwarves come here first, and they need to meet every axe." },
+    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance. You have reached the heart of the valley, and here your march ends." },
     { id = "yg_0", when = { race = "Orc" }, text = "Brother of the clan. Iceblood Tower is yours as much as mine while you stand here." },
-    { id = "yg_1", when = { race = "Scourge" }, text = "Forsaken. The cold does not touch you, which makes you a good tower guard. Stand watch with me." },
+    { id = "yg_1", when = { race = "Scourge" }, text = "Forsaken. The cold that kills my warriors cannot touch you. Stand the night watch with me; you will last it better." },
   },
 
   start = "hello",
   nodes = {
+    w2_cold = {
+      lines = {
+        { id = "w2_cold_l", text = "I do not. Nobody does. Iceblood is named for the warriors who held it the first winter, and whose blood froze in their veins while they stood. We carve their names on the inner wall. There is room for mine." },
+      },
+      choices = {
+        { text = "Is that a promise or a fear?", next = "w2_cold2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_cold2 = {
+      lines = {
+        { id = "w2_cold2_l", text = "Neither. It is a fact, the way the cold is a fact. Iceblood is the first tower the dwarves strike and the last they forget. Whoever holds it will be carved on the wall one day. I only want it to be a long day from now." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_tower = {
       lines = {
         { id = "y_y_tower", text = "Iceblood stands at the heart of the valley, beside the garrison. It is the first tower the dwarves reach, and the last one they forget." },
@@ -7731,7 +8860,7 @@ P:NPC {
     },
     y_built = {
       lines = {
-        { id = "y_y_built", text = "The clan built them after the exile, stone by stone, when Drek'Thar saw that the mountain alone would not protect us. Each warmaster is sworn to one tower. I swore to mine before the clan, and I will die in it if I must." },
+        { id = "y_y_built", text = "The clan raised them after the exile, one stone at a time, when Drek'Thar saw the mountain would not shield us alone. Each warmaster swore to one tower. I swore to Iceblood, where the dwarves strike first." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -7739,8 +8868,8 @@ P:NPC {
     },
     y_oath = {
       lines = {
-        { id = "y_y_oath", text = "Drek'Thar is old and blind, but he sees further than any of us. He gave the Frostwolves back their spirit when Thrall came home. The oath means that while I live, no dwarf reaches him by my tower." },
-        { id = "y_y_oath_v0", when = { race = "Tauren" }, text = "Drek'Thar is blind, but the spirits speak to him as they speak to your shamans, tauren. The oath means I am his eyes on this slope, and I do not close them." },
+        { id = "y_y_oath", text = "Drek'Thar is blind, but he sees the shape of things to come. He gave the clan back its pride when Thrall came home. While I hold Iceblood, the dwarves must pay for every step toward him." },
+        { id = "y_y_oath_v0", when = { race = "Tauren" }, text = "Drek'Thar is blind, tauren, and the spirits are his eyes, as your own shamans would understand. I am his eyes too, here in the cold, and they do not close." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -7756,11 +8885,11 @@ P:NPC {
     },
     y_retreat = {
       lines = {
-        { id = "y_y_retreat", text = "Some say a warmaster should fall back to the keep and fight again beside Drek'Thar. Others say the oath is to the tower and nothing else. I have my answer. What is yours?" },
+        { id = "y_y_retreat", text = "Some warmasters say we should fall back to the keep and fight beside the elder when a tower falls. Others say the oath binds us to the stone. I know what I will do. What would you do?" },
       },
       choices = {
-        { text = "An oath is an oath. Hold the tower to the end.", next = "BACK", reply = "Yes. That is the Frostwolf way, and it is mine.", fx = { align = { honor = 1 } } },
-        { text = "Fall back and live. Drek'Thar needs you more than stone.", next = "BACK", reply = "Hm. Wise, perhaps, but not honourable. I will think on it.", fx = { align = { honor = -1 } } },
+        { text = "An oath is an oath. Hold the tower to the end.", next = "BACK", reply = "Yes. Iceblood's dead never fell back, and I will not be the first.", fx = { align = { honor = 1 } } },
+        { text = "Fall back and live. Drek'Thar needs you more than stone.", next = "BACK", reply = "Perhaps that is wisdom. It is not the Iceblood way. I will think on it, in the cold.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -7769,7 +8898,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am the Iceblood Warmaster, one of the four who stand with Drek'Thar. While Iceblood Tower holds, the elder's guard is strong." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask quickly; the cold steals words if you leave them in the air too long." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -7779,34 +8908,35 @@ P:NPC {
         { text = "What does an oath to Drek'Thar mean?", next = "y_oath" },
         { text = "What happens if the tower falls?", next = "y_fall" },
         { text = "Should a warmaster ever retreat?", next = "y_retreat" },
-        { text = "I'm Frostwolf born.", next = "BACK", when = { race = "Orc" }, reply = "Then you know the oath before I say it. Hold, and do not let the tower burn." },
+        { text = "I'm Frostwolf born.", next = "BACK", when = { race = "Orc" }, reply = "Then you know the oath, brother. Hold Iceblood, and add your name to the wall only when you must." },
+        { text = "How do you stand the cold up here?", next = "w2_cold" },
         { text = "That's all for now.", next = "END" },
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "When the dwarves come for Drek'Thar, the warmasters fight beside him. Kill us first, and he fights alone. The dwarves know it, and so do we." } },
+      lines = { { id = "b1_d", text = "When the Stormpike come for Drek'Thar, the four warmasters stand beside him. Kill us and he stands alone. The dwarves know it, and so do I." } },
       choices = {
         { text = "What if your tower falls?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Then I fight harder, and the dwarves pay for every stone they take." } },
+      lines = { { id = "b11_d", text = "Then I fight in the ruins, and the dwarves will find that Iceblood is still cold enough to kill them." } },
       choices = {
-        { text = "Kill every dwarf who reaches the keep.", next = "BACK", reply = "Yes. None will leave alive.", fx = { align = { honor = -1 } } },
-        { text = "Hold the line and fight with honor.", next = "BACK", reply = "Honor is strength. I agree.", fx = { align = { honor = 1 } } },
+        { text = "Kill every dwarf who reaches the keep.", next = "BACK", reply = "Yes. None will leave the keep alive.", fx = { align = { honor = -1 } } },
+        { text = "Hold the line and fight with honor.", next = "BACK", reply = "Honour is strength, and it keeps the blood warm. I agree.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "He is old, and blind, and wiser than any orc I have known. He sees with the spirits, and they do not lie." } },
+      lines = { { id = "b2_d", text = "Old and blind, and wiser than all of us. He sees with the spirits, and they have never once lied to him." } },
       choices = {
         { text = "Would you die for him?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "Without hesitation. That is why I am here." } },
+      lines = { { id = "b21_d", text = "Without a breath of doubt. The names on the wall say the same." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -7814,10 +8944,10 @@ P:NPC {
   },
 
   topics = {
-    drekthar = { { id = "tp_ydrekthar", text = "Drek'Thar is the elder shaman of the Frostwolves. He raised Thrall's people back from despair, and he will not fall while we stand." } },
-    towers = { { id = "tp_ytowers", text = "Four towers, four warmasters. If they all burn, the dwarves will reach the keep, and then we fight in the snow." } },
+    drekthar = { { id = "tp_ydrekthar", text = "Drek'Thar, the elder shaman. He lifted Thrall's people out of despair, and while Iceblood holds, he will not fall." } },
+    towers = { { id = "tp_ytowers", text = "Four towers, four warmasters. If all four burn, the dwarves reach the keep, and we fight them in the snow at Drek'Thar's door." } },
     knows = { { id = "tp_knows", text = "Iceblood Tower, the warmasters, and the oath that binds us to Drek'Thar." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "That I cannot tell you. Ask someone who has been warm this winter." } },
   },
 }
 
@@ -7836,14 +8966,31 @@ P:NPC {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back to Tower Point. Good, because I need every axe, and yours is one I trust." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Tower Point does not need you, so stay off the stairs and out of my way." },
     { id = "g_default", text = "Warrior. Tower Point stands, and so do I." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. Good. Every axe matters." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance. You will not reach Drek'Thar." },
+    { id = "g_back", when = { metBefore = true }, text = "You come back. Good. Tower Point needs warriors who do not run." },
+    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance. You will not reach the graveyard road, and you will not reach Drek'Thar." },
     { id = "yg_0", when = { race = "Orc" }, text = "Brother of the clan. Tower Point is yours as much as mine while you stand here." },
-    { id = "yg_1", when = { race = "Scourge" }, text = "Forsaken. The cold does not touch you, which makes you a good tower guard. Stand watch with me." },
+    { id = "yg_1", when = { race = "Scourge" }, text = "Forsaken. You have risen from a grave yourself, so you know why I guard this road. Stand with me." },
   },
 
   start = "hello",
   nodes = {
+    w2_road = {
+      lines = {
+        { id = "w2_road_l", text = "Because every warrior who falls in the north of the valley rises at the Frostwolf Graveyard and runs back down this road. If the dwarves hold Tower Point, they shoot our dead as they rise. I will not see that again." },
+      },
+      choices = {
+        { text = "You've seen it before?", next = "w2_road2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_road2 = {
+      lines = {
+        { id = "w2_road2_l", text = "Last winter. The tower fell for half a day, and the dwarves stood on my walls and shot warriors as they came up from the graves. Some died three times before they reached the road. We took the tower back that night with axes, and I did not spare anyone." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_tower = {
       lines = {
         { id = "y_y_tower", text = "Tower Point watches the road to the Frostwolf Graveyard. When it falls, the dwarves can bring their dead back closer to our village, and that is a shame I will not allow." },
@@ -7857,7 +9004,7 @@ P:NPC {
     },
     y_built = {
       lines = {
-        { id = "y_y_built", text = "The clan built them after the exile, stone by stone, when Drek'Thar saw that the mountain alone would not protect us. Each warmaster is sworn to one tower. I swore to mine before the clan, and I will die in it if I must." },
+        { id = "y_y_built", text = "The clan built them after the exile, stone on stone, when Drek'Thar saw the mountain alone would not keep us. Each warmaster swore to one tower. I swore to Tower Point, and to the road behind it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -7865,8 +9012,8 @@ P:NPC {
     },
     y_oath = {
       lines = {
-        { id = "y_y_oath", text = "Drek'Thar is old and blind, but he sees further than any of us. He gave the Frostwolves back their spirit when Thrall came home. The oath means that while I live, no dwarf reaches him by my tower." },
-        { id = "y_y_oath_v0", when = { race = "Tauren" }, text = "Drek'Thar is blind, but the spirits speak to him as they speak to your shamans, tauren. The oath means I am his eyes on this slope, and I do not close them." },
+        { id = "y_y_oath", text = "Drek'Thar is blind, and he sees more than any warrior with two eyes. He gave the clan its spirit back. My oath means no dwarf reaches him by this road, and no dwarf stands on my walls again." },
+        { id = "y_y_oath_v0", when = { race = "Tauren" }, text = "Drek'Thar is blind, tauren, but the spirits guide him, as they guide your shamans. I keep his road open, and the spirits keep him." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -7882,11 +9029,11 @@ P:NPC {
     },
     y_retreat = {
       lines = {
-        { id = "y_y_retreat", text = "Some say a warmaster should fall back to the keep and fight again beside Drek'Thar. Others say the oath is to the tower and nothing else. I have my answer. What is yours?" },
+        { id = "y_y_retreat", text = "Some warmasters say fall back to the keep when the tower is lost. Others say the oath binds us to the stone. I hold the road; I know my answer. Tell me yours." },
       },
       choices = {
-        { text = "An oath is an oath. Hold the tower to the end.", next = "BACK", reply = "Yes. That is the Frostwolf way, and it is mine.", fx = { align = { honor = 1 } } },
-        { text = "Fall back and live. Drek'Thar needs you more than stone.", next = "BACK", reply = "Hm. Wise, perhaps, but not honourable. I will think on it.", fx = { align = { honor = -1 } } },
+        { text = "An oath is an oath. Hold the tower to the end.", next = "BACK", reply = "Yes. The road stays ours, or I lie on it.", fx = { align = { honor = 1 } } },
+        { text = "Fall back and live. Drek'Thar needs you more than stone.", next = "BACK", reply = "Wise, maybe, but the road would be lost. I will not take that path.", fx = { align = { honor = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -7895,7 +9042,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am the Tower Point Warmaster, one of the four who stand with Drek'Thar. While Tower Point holds, the elder's guard is strong." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Speak, and then take your place on the stairs." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -7905,34 +9052,35 @@ P:NPC {
         { text = "What does an oath to Drek'Thar mean?", next = "y_oath" },
         { text = "What happens if the tower falls?", next = "y_fall" },
         { text = "Should a warmaster ever retreat?", next = "y_retreat" },
-        { text = "I'm Frostwolf born.", next = "BACK", when = { race = "Orc" }, reply = "Then you know the oath before I say it. Hold, and do not let the tower burn." },
+        { text = "I'm Frostwolf born.", next = "BACK", when = { race = "Orc" }, reply = "Then you know the oath, brother. Hold Tower Point, and let none of our dead be shot as they rise." },
+        { text = "Why does the road to the graveyard matter so much?", next = "w2_road" },
         { text = "That's all for now.", next = "END" },
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "When the dwarves come for Drek'Thar, the warmasters fight beside him. Kill us first, and he fights alone. The dwarves know it, and so do we." } },
+      lines = { { id = "b1_d", text = "When the dwarves come for Drek'Thar, we four stand with him. Kill us and the elder fights alone. They know it, and they come for us first." } },
       choices = {
         { text = "What if your tower falls?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Then I fight harder, and the dwarves pay for every stone they take." } },
+      lines = { { id = "b11_d", text = "Then I fight on the road, and the dwarves will not walk it without paying." } },
       choices = {
-        { text = "Kill every dwarf who reaches the keep.", next = "BACK", reply = "Yes. None will leave alive.", fx = { align = { honor = -1 } } },
-        { text = "Hold the line and fight with honor.", next = "BACK", reply = "Honor is strength. I agree.", fx = { align = { honor = 1 } } },
+        { text = "Kill every dwarf who reaches the keep.", next = "BACK", reply = "Yes. Not one of them leaves.", fx = { align = { honor = -1 } } },
+        { text = "Hold the line and fight with honor.", next = "BACK", reply = "Honour is strength. You and I agree on that.", fx = { align = { honor = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "He is old, and blind, and wiser than any orc I have known. He sees with the spirits, and they do not lie." } },
+      lines = { { id = "b2_d", text = "Old, blind and wise beyond any orc I have known. The spirits speak through him, and they have never lied." } },
       choices = {
         { text = "Would you die for him?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "Without hesitation. That is why I am here." } },
+      lines = { { id = "b21_d", text = "Without question. That is why I stand on this road." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -7940,10 +9088,10 @@ P:NPC {
   },
 
   topics = {
-    drekthar = { { id = "tp_ydrekthar", text = "Drek'Thar is the elder shaman of the Frostwolves. He raised Thrall's people back from despair, and he will not fall while we stand." } },
-    towers = { { id = "tp_ytowers", text = "Four towers, four warmasters. If they all burn, the dwarves will reach the keep, and then we fight in the snow." } },
+    drekthar = { { id = "tp_ydrekthar", text = "Drek'Thar, elder shaman of the Frostwolves. He raised the clan from despair, and he will not fall while Tower Point holds his road." } },
+    towers = { { id = "tp_ytowers", text = "Four towers, four warmasters. If all four burn, the dwarves reach the keep, and we fight them in the snow with whatever is left." } },
     knows = { { id = "tp_knows", text = "Tower Point, the warmasters, and the oath that binds us to Drek'Thar." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "That is beyond me. Ask the shamans; I know only the road and the tower." } },
   },
 }
 
@@ -7970,6 +9118,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_regzar = {
+      lines = {
+        { id = "w2_regzar_l", text = "To know good iron by the sound it makes when it is dropped. Bad iron thuds. Good iron rings. I cannot shape it well, but I can tell you which bar will make a blade and which will make a doorstop, and I am never wrong." },
+      },
+      choices = {
+        { text = "Does Regzar trust your judgement?", next = "w2_regzar2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_regzar2 = {
+      lines = {
+        { id = "w2_regzar2_l", text = "He drops every bar I sell him, to check. Then he buys it, without a word. That is how a smith says thank you. I have stopped waiting for him to say it any other way." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_hist = {
       lines = {
         { id = "y_y_hist", text = "I was apprenticed to Regzar the smith when I was young. My hands were too slow for the anvil, he said, but quick enough for counting. So now I sell him his iron, and he complains about my prices." },
@@ -8021,7 +9186,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Grelkor, and I sell smithing supplies to the Frostwolves. It is not glorious work, but a warrior with an empty pack is a dead warrior." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Speak; the coal will not sell itself, and Regzar wants more by nightfall." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -8032,6 +9197,7 @@ P:NPC {
         { text = "Tell me something about the village.", next = "y_secret" },
         { text = "Should you charge the clan?", next = "y_stance" },
         { text = "I know the forge.", next = "BACK", when = { class = "WARRIOR" }, reply = "Then you know good iron from bad. Look closely at mine; it is good." },
+        { text = "What did Regzar teach you before he sent you away?", next = "w2_regzar" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -8069,7 +9235,7 @@ P:NPC {
     regzar = { { id = "tp_yregzar", text = "Regzar is the clan's smith. His temper is hot and his steel is strong." } },
     iron = { { id = "tp_yiron", text = "Good iron comes from the mines. Bad iron comes from the dwarves' leftovers." } },
     knows = { { id = "tp_knows", text = "My stock, my prices, and who in the village owes me." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "I do not know that. Ask Regzar; he thinks he knows everything worth knowing." } },
   },
 }
 
@@ -8087,15 +9253,32 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back! Good, I have rope and torches and furs, and all of it is yours for honest coin." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Buy what you need quickly, because I would rather stand in the snow than stand here with you." },
-    { id = "g_default", text = "You need supplies? I have them, if you have the coin." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. I have restocked since you left." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance? I do not sell to the enemy. Leave." },
-    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Look over my stall. For the clan, I give a fair price." },
+    { id = "g_default", text = "You need rope? Torches? Furs? I have all three, and fair coin buys them." },
+    { id = "g_back", when = { metBefore = true }, text = "You come back. Good; the shelves are full again, and the wolf pups have not reached them yet." },
+    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance? Nothing on my stall is for you. Turn around before I call the guards." },
+    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Take what you need. For the clan, I do not haggle." },
     { id = "yg_1", when = { race = "Troll" }, text = "Darkspear. You came a long way to buy packs in the snow." },
   },
 
   start = "hello",
   nodes = {
+    w2_knee = {
+      lines = {
+        { id = "w2_knee_l", text = "I was tracking a ram on the ridge above Iceblood, and a Stormpike scout was tracking me. He was patient. I was not. I heard the string a breath too late, and I have walked with a limp since." },
+      },
+      choices = {
+        { text = "Did you catch the scout?", next = "w2_knee2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_knee2 = {
+      lines = {
+        { id = "w2_knee2_l", text = "No. I crawled home, and he let me, which I still do not understand. Maybe he only wanted the ram. Maybe he was a hunter like me, and knew a wounded beast is not worth the second arrow. I would like to ask him one day." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_hist = {
       lines = {
         { id = "y_y_hist", text = "I was a hunter, once, before a Stormpike arrow found my knee. Drek'Thar said the clan needed traders as much as hunters, so I took the stall. My knee still aches in the cold, which here is always." },
@@ -8109,8 +9292,8 @@ P:NPC {
     },
     y_fight = {
       lines = {
-        { id = "y_y_fight", text = "I fought before the exile ended, when the clan had nothing but snow and hunger. Now my axe hangs above my stall, and I fight with prices. Some days I miss the axe. Some days I do not." },
-        { id = "y_y_fight_v0", when = { race = "Orc" }, text = "You know what the exile was, brother. I fought then, with nothing. Now my axe hangs on the wall, and some days I miss it." },
+        { id = "y_y_fight", text = "I hunted before the exile ended, when there was nothing in these hills but snow and hunger. Then a Stormpike arrow took my knee, and now I fight with prices. My bow still hangs above the stall." },
+        { id = "y_y_fight_v0", when = { race = "Orc" }, text = "You know the exile, brother. I hunted then, with nothing. Now my bow hangs on the wall, and some mornings I take it down just to feel the string." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -8147,7 +9330,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Rarck, and I sell general goods to the Frostwolves. It is not glorious work, but a warrior with an empty pack is a dead warrior." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask quickly; the pups are in my thread again, I can hear them." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -8158,6 +9341,7 @@ P:NPC {
         { text = "Tell me something about the village.", next = "y_secret" },
         { text = "Would you trade with the dwarves?", next = "y_stance" },
         { text = "I'm a hunter too.", next = "BACK", when = { class = "HUNTER" }, reply = "Then watch your knees. The Stormpike aim low." },
+        { text = "How did the Stormpike arrow find your knee?", next = "w2_knee" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -8169,22 +9353,22 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Business is steady, and in a war, that is enough. When it stops, the clan has lost." } },
+      lines = { { id = "b11_d", text = "Steady. Warriors always tear their packs and lose their torches. When they stop coming to me, the clan is in trouble." } },
       choices = {
-        { text = "Charge the weak ones double.", next = "BACK", reply = "Ha! You think like a goblin.", fx = { align = { order = -1 } } },
-        { text = "Fair prices for every warrior.", next = "BACK", reply = "Yes. The clan comes first.", fx = { align = { order = 1 } } },
+        { text = "Charge the weak ones double.", next = "BACK", reply = "Ha! You would do well in Orgrimmar's markets.", fx = { align = { order = -1 } } },
+        { text = "Fair prices for every warrior.", next = "BACK", reply = "Yes. A trader who cheats the clan does not stay a trader long.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "When the dwarves reach the village, yes. Every Frostwolf fights when the clan is threatened." } },
+      lines = { { id = "b2_d", text = "When the dwarves reach the village, I limp to the gate with everyone else. Every Frostwolf fights when the clan is threatened." } },
       choices = {
         { text = "Have they ever reached the village?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "Once or twice, and they did not leave it alive." } },
+      lines = { { id = "b21_d", text = "Twice. My bow found both of them before they found me." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -8194,8 +9378,8 @@ P:NPC {
   topics = {
     hillsbrad = { { id = "tp_yhillsbrad", text = "The traders come from Hillsbrad, over the passes. When they come at all." } },
     wolves = { { id = "tp_ywolves", text = "The Frostwolves ride wolves. The wolves eat my thread." } },
-    knows = { { id = "tp_knows", text = "My stock, my prices, and who in the village owes me." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    knows = { { id = "tp_knows", text = "My stock, my prices, and how many spools the wolf pups have stolen this week." } },
+    _none = { { id = "tp_none", text = "That I do not know. Ask a warrior; they wander further than I can." } },
   },
 }
 
@@ -8213,15 +9397,32 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return, and hungry, I see. Sit by the fire and eat; the clan feeds those who fight for it." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I will feed you, because nobody starves in a Frostwolf camp, but eat it away from my fire." },
-    { id = "g_default", text = "You need supplies? I have them, if you have the coin." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. I have restocked since you left." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance? I do not sell to the enemy. Leave." },
-    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Look over my stall. For the clan, I give a fair price." },
+    { id = "g_default", text = "Hungry? Sit by the fire. Ram, bread and something hot to drink, if you have coin." },
+    { id = "g_back", when = { metBefore = true }, text = "You come back. Good; the pot is full again, and the ram is fresh." },
+    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance? You will get nothing to eat here. Go back to your dwarves and their ale." },
+    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Sit and eat. For the clan, the portions are large." },
     { id = "yg_1", when = { race = "Troll" }, text = "Darkspear. You came a long way to buy food in the snow." },
   },
 
   start = "hello",
   nodes = {
+    w2_mother = {
+      lines = {
+        { id = "w2_mother_l", text = "Lichen soup, and bark, and the bones of whatever the hunters brought, boiled three times. She could make one rabbit feed twelve. When Thrall came and the caravans started, she cried the first time she cooked a whole boar." },
+      },
+      choices = {
+        { text = "Do you still make the lichen soup?", next = "w2_mother2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_mother2 = {
+      lines = {
+        { id = "w2_mother2_l", text = "Once a year, on the night we remember the exile. The whole village eats it, even Drek'Thar. It is terrible. Everyone finishes the bowl. Nobody complains. That is how we remember what we were." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_hist = {
       lines = {
         { id = "y_y_hist", text = "My mother cooked for the clan during the exile, when there was barely anything to cook. She taught me that a full belly is a strong arm. When she died, I took her pot and her stall." },
@@ -8235,8 +9436,8 @@ P:NPC {
     },
     y_fight = {
       lines = {
-        { id = "y_y_fight", text = "I fought before the exile ended, when the clan had nothing but snow and hunger. Now my axe hangs above my stall, and I fight with prices. Some days I miss the axe. Some days I do not." },
-        { id = "y_y_fight_v0", when = { race = "Orc" }, text = "You know what the exile was, brother. I fought then, with nothing. Now my axe hangs on the wall, and some days I miss it." },
+        { id = "y_y_fight", text = "I fought before the exile ended, when the clan had nothing to eat but snow. Now my axe hangs over the cooking fire, and I fight with ladles. Some days I miss the axe more than others." },
+        { id = "y_y_fight_v0", when = { race = "Orc" }, text = "You know what the exile was, brother. My mother fed us on nothing, and I fought with less. Now my axe hangs over the fire, and some nights I look at it longer than I should." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -8273,7 +9474,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Shrye Ragefist, and I sell food and drink to the Frostwolves. It is not glorious work, but a warrior with an empty pack is a dead warrior." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Speak while I stir; the stew burns if I stop." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -8284,6 +9485,7 @@ P:NPC {
         { text = "Tell me something about the village.", next = "y_secret" },
         { text = "Should the clan burn the Stormpike's herds?", next = "y_stance" },
         { text = "I could eat.", next = "BACK", when = { race = "Tauren" }, reply = "A tauren who eats ram? Hm. I have roots too, if you prefer." },
+        { text = "What did your mother cook during the exile?", next = "w2_mother" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -8295,22 +9497,22 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Business is steady, and in a war, that is enough. When it stops, the clan has lost." } },
+      lines = { { id = "b11_d", text = "Steady. Warriors always come back hungry. The day they stop coming, the clan has lost." } },
       choices = {
-        { text = "Charge the weak ones double.", next = "BACK", reply = "Ha! You think like a goblin.", fx = { align = { order = -1 } } },
-        { text = "Fair prices for every warrior.", next = "BACK", reply = "Yes. The clan comes first.", fx = { align = { order = 1 } } },
+        { text = "Charge the weak ones double.", next = "BACK", reply = "Ha! Spoken like a goblin who has never been hungry.", fx = { align = { order = -1 } } },
+        { text = "Fair prices for every warrior.", next = "BACK", reply = "Yes. Nobody pays double for food in a Frostwolf camp. Not while I stir the pot.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "When the dwarves reach the village, yes. Every Frostwolf fights when the clan is threatened." } },
+      lines = { { id = "b2_d", text = "When the dwarves reach the village, I fight with the cleaver. Every Frostwolf fights when the clan is threatened." } },
       choices = {
         { text = "Have they ever reached the village?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "Once or twice, and they did not leave it alive." } },
+      lines = { { id = "b21_d", text = "Once or twice, and they were roasted, the same as the rams." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -8320,8 +9522,8 @@ P:NPC {
   topics = {
     ram = { { id = "tp_yram", text = "Roasted ram, from the dwarves' own herds. Tell no one." } },
     exile = { { id = "tp_yexile", text = "During the exile, the Frostwolves ate what the snow allowed. My mother made it enough." } },
-    knows = { { id = "tp_knows", text = "My stock, my prices, and who in the village owes me." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    knows = { { id = "tp_knows", text = "My pot, my prices, and which warriors eat more than they pay for." } },
+    _none = { { id = "tp_none", text = "I do not know that. Ask someone who is not stirring a pot all day." } },
   },
 }
 
@@ -8339,15 +9541,33 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back, and alive. Good; either my poisons did their work or you did yours. Come and see what I have." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Take your reagents and go, and keep your hands well away from the poisons." },
-    { id = "g_default", text = "You need supplies? I have them, if you have the coin." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. I have restocked since you left." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance? I do not sell to the enemy. Leave." },
-    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Look over my stall. For the clan, I give a fair price." },
+    { id = "g_default", text = "You need reagents? Or something sharper? I have both, if you have coin." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. I have fresh herbs from the cliffs, and the poisons are ready." },
+    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance? Nothing I sell is for you, except perhaps on the edge of a blade." },
+    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Look over my stall. For the clan, a fair price, and a word of advice with every vial." },
     { id = "yg_1", when = { race = "Troll" }, text = "Darkspear. You came a long way to buy poison in the snow." },
   },
 
   start = "hello",
   nodes = {
+    w2_herbs = {
+      lines = {
+        { id = "w2_herbs_l", text = "Frost lotus, when the spirits are kind, and a bitter moss the shamans use for fevers. I grow them in cracks where the wind cannot reach, and I cover them with wolf fur at night. It is slow. Everything in Alterac is slow, except the dwarves." },
+        { id = "w2_herbs_l1", when = { class = "SHAMAN" }, text = "The moss you will know from your own teachers, shaman, the bitter grey one for fever. Frost lotus, when the spirits allow it. I grow them in cracks the wind cannot reach, and cover them with wolf fur at night." },
+      },
+      choices = {
+        { text = "What do you use them for?", next = "w2_herbs2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_herbs2 = {
+      lines = {
+        { id = "w2_herbs2_l", text = "Medicine for the clan, and poison for the dwarves. The same plant, often. A little heals and a little more kills. The shamans do not like to hear that. The rogues understand it perfectly." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_hist = {
       lines = {
         { id = "y_y_hist", text = "I learned herbs from the shamans, and poisons from a Darkspear trader who passed through years ago. The shamans did not approve. But the clan needed both, and I was the one who listened to both teachers." },
@@ -8361,8 +9581,8 @@ P:NPC {
     },
     y_fight = {
       lines = {
-        { id = "y_y_fight", text = "I fought before the exile ended, when the clan had nothing but snow and hunger. Now my axe hangs above my stall, and I fight with prices. Some days I miss the axe. Some days I do not." },
-        { id = "y_y_fight_v0", when = { race = "Orc" }, text = "You know what the exile was, brother. I fought then, with nothing. Now my axe hangs on the wall, and some days I miss it." },
+        { id = "y_y_fight", text = "I gathered herbs before the exile ended, when the clan had nothing but snow and hunger and what I could find in the rock. Now my axe hangs above the stall, and I fight with poison. It is quieter." },
+        { id = "y_y_fight_v0", when = { race = "Orc" }, text = "You know what the exile was, brother. I found herbs in the snow when there was nothing else. Now my axe hangs on the wall, and my vials do its work." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -8399,7 +9619,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Yaelika Farclaw, and I sell reagents and poisons to the Frostwolves. It is not glorious work, but a warrior with an empty pack is a dead warrior." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask softly; some of these jars do not like noise." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -8410,6 +9630,7 @@ P:NPC {
         { text = "Tell me something about the village.", next = "y_secret" },
         { text = "Is poison honourable?", next = "y_stance" },
         { text = "I use poisons myself.", next = "BACK", when = { class = "ROGUE" }, reply = "Then you know mine are good. Buy, and use them well." },
+        { text = "What grows in the shelter of the cliffs?", next = "w2_herbs" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -8421,22 +9642,22 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Business is steady, and in a war, that is enough. When it stops, the clan has lost." } },
+      lines = { { id = "b11_d", text = "Steady. The rogues buy more before a big push. When they stop buying, either we have won or there are none left to buy." } },
       choices = {
-        { text = "Charge the weak ones double.", next = "BACK", reply = "Ha! You think like a goblin.", fx = { align = { order = -1 } } },
-        { text = "Fair prices for every warrior.", next = "BACK", reply = "Yes. The clan comes first.", fx = { align = { order = 1 } } },
+        { text = "Charge the weak ones double.", next = "BACK", reply = "Ha! You would make a fine poisoner.", fx = { align = { order = -1 } } },
+        { text = "Fair prices for every warrior.", next = "BACK", reply = "Yes. A fair price keeps the clan healthy, and a healthy clan buys more.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "When the dwarves reach the village, yes. Every Frostwolf fights when the clan is threatened." } },
+      lines = { { id = "b2_d", text = "When the dwarves reach the village, yes. I have a dagger, and it is not clean." } },
       choices = {
         { text = "Have they ever reached the village?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "Once or twice, and they did not leave it alive." } },
+      lines = { { id = "b21_d", text = "Once or twice. They did not leave, and they did not die quickly." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -8446,8 +9667,8 @@ P:NPC {
   topics = {
     herbs = { { id = "tp_yherbs", text = "Herbs grow slowly in Alterac. I coax them from the rocks like a mother with a stubborn child." } },
     drekthar = { { id = "tp_ydrekthar", text = "Drek'Thar buys my herbs, for the wolves, he says." } },
-    knows = { { id = "tp_knows", text = "My stock, my prices, and who in the village owes me." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    knows = { { id = "tp_knows", text = "My herbs, my poisons, and who in the village pretends not to buy them." } },
+    _none = { { id = "tp_none", text = "I do not know. Ask the shamans; they talk to the spirits, and the spirits gossip." } },
   },
 }
 
@@ -8465,15 +9686,32 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return! I have cloth, leather and thread up from Orgrimmar, and I would rather sell it to you than anyone." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I sell trade goods, not friendship, and you will get only the first from me." },
-    { id = "g_default", text = "You need supplies? I have them, if you have the coin." },
-    { id = "g_back", when = { metBefore = true }, text = "You return. I have restocked since you left." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance? I do not sell to the enemy. Leave." },
-    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Look over my stall. For the clan, I give a fair price." },
+    { id = "g_default", text = "You need cloth? Leather? Thread? I have them, and fair coin will do." },
+    { id = "g_back", when = { metBefore = true }, text = "You come back. Good; the caravan from Orgrimmar arrived, and the leather is good this time." },
+    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance? No leather for you. Go and skin your own rams." },
+    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Look over my stall. For the clan, my best hides." },
     { id = "yg_1", when = { race = "Troll" }, text = "Darkspear. You came a long way to buy leather in the snow." },
   },
 
   start = "hello",
   nodes = {
+    w2_leather = {
+      lines = {
+        { id = "w2_leather_l", text = "A cloak for Drek'Thar, from the hide of a white wolf that died of age in the kennels. I tanned it for a month and did not cut a single hole. He cannot see it, but he runs his hand over it every morning and says it is warm." },
+      },
+      choices = {
+        { text = "Why a wolf that died of age?", next = "w2_leather2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_leather2 = {
+      lines = {
+        { id = "w2_leather2_l", text = "Because it was the only way he would wear it. Drek'Thar will not wear the hide of a wolf that was killed. He says the wolves are clan. A wolf that gave its whole life to us, he said, could give its skin too." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_hist = {
       lines = {
         { id = "y_y_hist", text = "I was a tanner in the exile, and a good one. When the clan began trading with Orgrimmar, Drek'Thar put me in charge of the stall, because I could tell a good hide from a bad one by smell alone." },
@@ -8487,8 +9725,8 @@ P:NPC {
     },
     y_fight = {
       lines = {
-        { id = "y_y_fight", text = "I fought before the exile ended, when the clan had nothing but snow and hunger. Now my axe hangs above my stall, and I fight with prices. Some days I miss the axe. Some days I do not." },
-        { id = "y_y_fight_v0", when = { race = "Orc" }, text = "You know what the exile was, brother. I fought then, with nothing. Now my axe hangs on the wall, and some days I miss it." },
+        { id = "y_y_fight", text = "I tanned hides during the exile, when the clan had nothing but snow and hunger and the skins of what we ate. Now my axe hangs above my stall, and I fight with needles. Some days the needle is enough." },
+        { id = "y_y_fight_v0", when = { race = "Orc" }, text = "You know what the exile was, brother. I tanned hides then, with nothing to cure them but snow. Now my axe hangs on the wall, and I miss it less than I thought I would." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -8525,7 +9763,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Zora Guthrek, and I sell trade goods to the Frostwolves. It is not glorious work, but a warrior with an empty pack is a dead warrior." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask quickly; the hides are curing and they need turning." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -8536,6 +9774,7 @@ P:NPC {
         { text = "Tell me something about the village.", next = "y_secret" },
         { text = "Should the clan trade more with Orgrimmar?", next = "y_stance" },
         { text = "I'm a leatherworker.", next = "BACK", when = { profession = "Leatherworking" }, reply = "Then smell this hide. Ram, dwarf-raised. The best." },
+        { text = "What's the finest piece of leather you've made?", next = "w2_leather" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -8547,22 +9786,22 @@ P:NPC {
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Business is steady, and in a war, that is enough. When it stops, the clan has lost." } },
+      lines = { { id = "b11_d", text = "Steady. Crafters always need thread, and warriors always need leather mended. When they stop, the clan is lost." } },
       choices = {
-        { text = "Charge the weak ones double.", next = "BACK", reply = "Ha! You think like a goblin.", fx = { align = { order = -1 } } },
-        { text = "Fair prices for every warrior.", next = "BACK", reply = "Yes. The clan comes first.", fx = { align = { order = 1 } } },
+        { text = "Charge the weak ones double.", next = "BACK", reply = "Ha! You think like a trader from Ratchet.", fx = { align = { order = -1 } } },
+        { text = "Fair prices for every warrior.", next = "BACK", reply = "Yes. The clan's crafters get my best prices, always.", fx = { align = { order = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "When the dwarves reach the village, yes. Every Frostwolf fights when the clan is threatened." } },
+      lines = { { id = "b2_d", text = "When the dwarves reach the village, I fight with the skinning knife. Every Frostwolf fights when the clan is threatened." } },
       choices = {
         { text = "Have they ever reached the village?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "Once or twice, and they did not leave it alive." } },
+      lines = { { id = "b21_d", text = "Twice, and their hides are curing behind my stall. That was a joke. Mostly." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -8572,8 +9811,8 @@ P:NPC {
   topics = {
     orgrimmar = { { id = "tp_yorgrimmar", text = "Orgrimmar is far, but Thrall is a Frostwolf, and so the city remembers us." } },
     leather = { { id = "tp_yleather", text = "Good leather comes from good hides. Good hides come from the dwarves' rams." } },
-    knows = { { id = "tp_knows", text = "My stock, my prices, and who in the village owes me." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    knows = { { id = "tp_knows", text = "My stock, my prices, and the caravan schedule from Orgrimmar." } },
+    _none = { { id = "tp_none", text = "That is not my trade. Ask someone who leaves the village more than I do." } },
   },
 }
 
@@ -8600,6 +9839,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_lantern = {
+      lines = {
+        { id = "w2_lantern_l", text = "Because the troggs fear the light, and because the humans kept us in the dark. In the camps they took our lanterns at night so we could not see each other's faces. When Thrall freed us, the first thing I took was a lantern." },
+      },
+      choices = {
+        { text = "Is it the same one?", next = "w2_lantern2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_lantern2 = {
+      lines = {
+        { id = "w2_lantern2_l", text = "The same. A human guard's lantern, with the crest of Lordaeron scratched off. I have mended it a dozen times. When the dwarves take the mine and I fall back, it is the only thing I carry out." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_who = {
       lines = {
         { id = "y_y_who", text = "I was a miner in the internment camps, before Thrall freed us. The humans made us dig, and I learned the stone better than I ever wanted. Now I dig for the clan, and I choose my own tunnels." },
@@ -8651,7 +9907,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I am Keetar, and I hold Irondeep for the Frostwolves. The dwarves dug this mine, but the clan will take its ore." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Speak quickly; the troggs grow bold when the lantern is turned away." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -8662,6 +9918,7 @@ P:NPC {
         { text = "What's beneath the mine?", next = "y_deep" },
         { text = "Should the troggs be driven out?", next = "y_trogg" },
         { text = "Lok'tar, Keetar.", next = "BACK", when = { race = "Orc" }, reply = "Lok'tar. Fight beside me in the deep and I will owe you a wolf's share of the ore." },
+        { text = "Why do you carry that lantern everywhere?", next = "w2_lantern" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -8699,7 +9956,7 @@ P:NPC {
     umi = { { id = "tp_yumi", text = "Umi Thorson. A stubborn dwarf. I respect her more than I like her." } },
     internment = { { id = "tp_yinternment", text = "The camps were dark. Thrall freed us, and I have dug only for the clan since." } },
     knows = { { id = "tp_knows", text = "Irondeep, its troggs, and the dwarves who keep trying to take it back." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "I do not know. Ask someone who sees the sky more often than I do." } },
   },
 }
 
@@ -8726,6 +9983,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_aggi = {
+      lines = {
+        { id = "w2_aggi_l", text = "She came back the next day with nine dwarves and took the mine from me. I had a cut across my arm from her axe. She had one across her face from my blade. We looked at each other across the tunnel, and she nodded." },
+      },
+      choices = {
+        { text = "What did the nod mean?", next = "w2_aggi2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_aggi2 = {
+      lines = {
+        { id = "w2_aggi2_l", text = "That we were even, and that next time neither of us would let the other crawl away. I believe her. But I think she will hesitate, the same as I did, and I think whoever hesitates longer will be the one who lives." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_who = {
       lines = {
         { id = "y_y_who", text = "I grew up in Frostwolf Village, the daughter of a wolf handler. My father wanted me to raise wolves, but I wanted to fight. He gave me two knives on my coming of age and said, if you must fight, fight fast." },
@@ -8777,7 +10051,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Masha Swiftcut, holding Coldtooth for the Frostwolves. The ore here is not as rich as Irondeep, but it is close to home, and I will not lose it." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Talk fast. The kobolds are in the side tunnels again." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -8788,6 +10062,7 @@ P:NPC {
         { text = "Why does Coldtooth matter?", next = "y_close" },
         { text = "Have you ever spared a foe?", next = "y_spare" },
         { text = "I'm quick with a blade too.", next = "BACK", when = { class = "ROGUE" }, reply = "Then prove it. Cut ten candle-heads before I do, and I will buy you a drink." },
+        { text = "What happened the time you spared Aggi?", next = "w2_aggi" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -8825,7 +10100,7 @@ P:NPC {
     aggi = { { id = "tp_yaggi", text = "Aggi Rumblestomp. Stubborn as stone. Worthy foe." } },
     kobolds = { { id = "tp_ykobolds", text = "Candle-heads. They squeal and steal. I cut them when they come close." } },
     knows = { { id = "tp_knows", text = "Coldtooth, its kobolds, and every dwarf who has tried to take it." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "No idea. Ask someone who has time to wonder about things." } },
   },
 }
 
@@ -8852,6 +10127,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_friend = {
+      lines = {
+        { id = "w2_friend_l", text = "Lewis! Lewis is Grummus's best friend. Lewis fix stitches when snow make Grummus squishy, and Lewis tell Grummus stories about place called Lordaeron. Lewis not smile much, but Lewis never tell Grummus go away." },
+      },
+      choices = {
+        { text = "What stories does Lewis tell?", next = "w2_friend2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_friend2 = {
+      lines = {
+        { id = "w2_friend2_l", text = "About big castle, and king, and lots of people who live there before. Lewis say they all gone now. Grummus ask where they go. Lewis go quiet for long time. Then Lewis say, some of them are us. Grummus not understand, but Grummus hold Lewis's hand." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_serve = {
       lines = {
         { id = "y_y_serve", text = "Grummus serve Dark Lady, and Dark Lady say help orcs, so Grummus help orcs. Commander tell Grummus where to stand. Grummus stand there very hard." },
@@ -8903,7 +10195,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Grummus is lieutenant! Grummus guard for Horde, and Grummus smash dwarfs who come close. Grummus very good at smashing." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "Friend want to say more? Grummus listen! Grummus good at listening, almost as good as smashing." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -8914,6 +10206,7 @@ P:NPC {
         { text = "Are you ever afraid?", next = "y_afraid" },
         { text = "Do you ever feel sorry for the dwarves?", next = "y_sorry" },
         { text = "We were both made by the apothecaries.", next = "BACK", when = { race = "Scourge" }, reply = "Yes! Apothecaries make Grummus with love. And needles. Mostly needles." },
+        { text = "Does Grummus have a favourite friend?", next = "w2_friend" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -8978,6 +10271,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_grummus = {
+      lines = {
+        { id = "w2_grummus_l", text = "I mend his stitches when the snow rots them, and I tell him stories when he asks. He is a child, more or less, made out of men who were once soldiers. Some nights I wonder whose arms he is carrying." },
+      },
+      choices = {
+        { text = "Does that trouble you?", next = "w2_grummus2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_grummus2 = {
+      lines = {
+        { id = "w2_grummus2_l", text = "It should. It doesn't, much. He is kind, which is more than most of the parts he was made from could say in life. If any of my old regiment are in there, I hope they have found something better than what they had." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_reg = {
       lines = {
         { id = "y_y_reg", text = "I served in the Alterac Foothills garrison under Lordaeron's banner. We watched this very valley for Perenolde's traitors. Now I watch it again, for the Horde, which my old captain would have found very funny or very terrible." },
@@ -9029,7 +10339,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Lieutenant Lewis, Forsaken, serving the Frostwolves outside Iceblood. Once I wore the colors of Lordaeron. Now I wear these, and I find they suit me better." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Make your report; the snow is falling heavier, and Grummus will want mending." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -9040,6 +10350,7 @@ P:NPC {
         { text = "What do you think of the orcs?", next = "y_orcs" },
         { text = "Do you hate the living?", next = "y_hate" },
         { text = "I was once Lordaeron's too.", next = "BACK", when = { race = "Scourge" }, reply = "Then you know what it is to wear an old uniform over new bones. We are the Dark Lady's now." },
+        { text = "How do you look after Grummus?", next = "w2_grummus" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -9077,7 +10388,7 @@ P:NPC {
     lordaeron = { { id = "tp_ylordaeron", text = "Lordaeron is a ruin now, and the Dark Lady sits beneath it. I prefer not to think about what was above." } },
     iceblood = { { id = "tp_yiceblood", text = "Iceblood Garrison is a cold place, even by my standards. The Frostwolves seem fond of it." } },
     knows = { { id = "tp_knows", text = "Iceblood, the Forsaken, and the old roads of Lordaeron." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "I could not say. Lordaeron taught me many things, and most of them were useless here." } },
   },
 }
 
@@ -9104,6 +10415,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_winter = {
+      lines = {
+        { id = "w2_winter_l", text = "I do not remember it. I was born in it. My mother told me that half the cave died before spring, and that she fed me from her own share and walked out into the snow so there would be one mouth fewer. The elders found her in the thaw." },
+      },
+      choices = {
+        { text = "Is that why you became a reaver?", next = "w2_winter2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_winter2 = {
+      lines = {
+        { id = "w2_winter2_l", text = "It is why I do not stop. She gave her life so the clan would live in this valley. The dwarves want to dig it out from under us. I will not let them make her death a small thing." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_who = {
       lines = {
         { id = "y_y_who", text = "I was born in the exile, in a cave above Frostwolf Village, during the worst winter the elders remember. My mother said I came out screaming and never stopped. The reavers seemed the right place for me." },
@@ -9155,7 +10483,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Frostwolf reaver, and I have seen more battles than most. We strike where the dwarves are weakest and leave nothing standing." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Speak, and then take up your axe; the raid leaves soon." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -9166,6 +10494,7 @@ P:NPC {
         { text = "What do you think of the Forsaken?", next = "y_ally" },
         { text = "What do you do with a dwarf who surrenders?", next = "y_mercy" },
         { text = "Lok'tar ogar!", next = "BACK", when = { race = "Orc" }, reply = "Victory or death! That is the reaver's only oath, and it is enough." },
+        { text = "What was the worst winter of the exile like?", next = "w2_winter" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -9203,7 +10532,7 @@ P:NPC {
     reavers = { { id = "tp_yreavers", text = "The reavers are the clan's shock troops. We break lines and we do not stop." } },
     exile = { { id = "tp_yexile", text = "I was born in the exile. The snow is in my blood." } },
     knows = { { id = "tp_knows", text = "Raids, ambushes, and where the dwarves forget to look." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "I do not know. Ask someone who has time between raids." } },
   },
 }
 
@@ -9230,6 +10559,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_kit = {
+      lines = {
+        { id = "w2_kit_l", text = "An axe, a pick, a lantern wi' a shutter, an' a pouch o' chalk. The chalk's the important bit. Every turnin' I take, I mark the wall, so when the roof comes down or the kobolds come screamin', I can find the way out in the dark." },
+      },
+      choices = {
+        { text = "Do the Frostwolves use your marks?", next = "w2_kit2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_kit2 = {
+      lines = {
+        { id = "w2_kit2_l", text = "They did, once, an' walked straight intae a dead end where we were waitin'. Now I mark the walls wrong on purpose near the side shafts, an' only the Stormpike know which marks are true. Ye learn a few tricks in two winters." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
         { id = "y_y_long", text = "Two winters I've fought for these tunnels, an' I've the scars tae show for both." },
@@ -9290,7 +10636,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Stormpike invader, and a seasoned one. When Coldtooth Mine flies the wrong banner, we go in and take it back." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask, then grab a lantern; we're due back in the tunnels." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -9301,6 +10647,7 @@ P:NPC {
         { text = "What are the kobolds like down there?", next = "y_foe" },
         { text = "Is a mine worth this much blood?", next = "y_worth" },
         { text = "I know a thing or two about stone.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye'll know Coldtooth rock when ye smell it. It's rich an' cold, an' it hates us all equally." },
+        { text = "What do you carry into the mine?", next = "w2_kit" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -9338,7 +10685,7 @@ P:NPC {
     stormpike = { { id = "tp_ystormpike", text = "The Stormpike Guard came up from Ironforge tae claim Alterac for the dwarves, an' we're nae leavin' till it's done." } },
     coldtooth = { { id = "tp_ycoldtooth", text = "Coldtooth Mine is cold an' deep an' never quiet. Somethin's always diggin' somewhere." } },
     knows = { { id = "tp_knows", text = "Coldtooth Mine, its tunnels, and how to take it." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "Nae idea. Ask somebody who's no' spent two winters underground." } },
   },
 }
 
@@ -9356,15 +10703,32 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's yerself again. I've taken that mine twice already, an' I'd like you wi' me for the third." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I've taken that mine twice wi' better company than you, an' I'll take it again wi'out ye." },
-    { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
-    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
-    { id = "yg_0", when = { race = "Dwarf" }, text = "A fellow dwarf! Grab a pick or an axe, either one'll do, an' mind yer back in the tunnels." },
-    { id = "yg_1", when = { race = "Gnome" }, text = "A gnome! Good, we need someone small enough tae see what's down the narrow shafts." },
+    { id = "g_default", text = "Soldier. That banner's comin' down again soon, an' I'll be the one tae pull it." },
+    { id = "g_back", when = { metBefore = true }, text = "Back, are ye? Good. There's always more rock tae take, an' fewer of us tae take it." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! Ye'll find the mine full o' Stormpike, an' the Stormpike full o' grudges." },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "A dwarf! Take a pick or an axe, it doesnae matter which, an' stay close in the tunnels." },
+    { id = "yg_1", when = { race = "Gnome" }, text = "A gnome! Ye're just the size for the narrow shafts, an' I've lost too many lads tae what's in them." },
   },
 
   start = "hello",
   nodes = {
+    w2_friend = {
+      lines = {
+        { id = "w2_friend_l", text = "Torvald Ironbrow, who taught me tae swing an axe in a tunnel wi'out hittin' the roof. He went intae the east gallery ahead o' me on my third raid, an' the kobolds collapsed it. I heard him singin' for an hour behind the rock." },
+      },
+      choices = {
+        { text = "Could you not dig him out?", next = "w2_friend2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_friend2 = {
+      lines = {
+        { id = "w2_friend2_l", text = "We tried, an' the Frostwolves came while we were diggin'. We had tae choose between Torvald an' the mine, an' the sergeant chose the mine. I've never forgiven him, an' I've never told him so. He was right, an' that's worse." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
         { id = "y_y_long", text = "Five winters now. I've lost count o' the times this mine's changed hands, but I've nae lost count o' the friends it cost." },
@@ -9378,8 +10742,8 @@ P:NPC {
     },
     y_teach = {
       lines = {
-        { id = "y_y_teach", text = "Old miners from Ironforge, mostly, who'd fought Dark Irons under the mountain long before any orc came tae Alterac. They said a tunnel fight's won by the dwarf who knows where the roof's weakest, an' they were right." },
-        { id = "y_y_teach_v0", when = { faction = "Alliance" }, text = "Old miners out of Ironforge, who'd fought the Dark Irons under the mountain. They taught me that the roof's yer best weapon an' yer worst enemy, an' that ye never forget which." },
+        { id = "y_y_teach", text = "Miners from Ironforge, old lads who'd fought the Dark Irons deep under the mountain. They said the roof wins a tunnel fight, no' the axe. I've buried enough friends tae know they were right." },
+        { id = "y_y_teach_v0", when = { faction = "Alliance" }, text = "Old Ironforge miners who'd fought the Dark Irons. They taught me the roof's the best weapon an' the worst enemy, an' I've seen it be both in the same breath." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -9387,7 +10751,7 @@ P:NPC {
     },
     y_ore = {
       lines = {
-        { id = "y_y_ore", text = "Iron, mostly, an' a seam o' something brighter that the smiths in Dun Baldar fight over. Whoever holds Coldtooth keeps their forges hot, an' an army wi' cold forges is an army wi' blunt axes." },
+        { id = "y_y_ore", text = "Iron, an' a vein o' somethin' brighter the Dun Baldar smiths quarrel over. Five winters I've watched that ore go north. Without it, the forges go cold, an' cold forges make blunt axes." },
       },
       choices = {
         { text = "So you fight for the forges, not for glory?", next = "y_ore2" },
@@ -9396,7 +10760,7 @@ P:NPC {
     },
     y_ore2 = {
       lines = {
-        { id = "y_y_ore2", text = "Glory's for the heralds tae shout about. I'm here because Vanndar needs steel an' the Stormpike need these hills. My clan claims Alterac by old right, an' every cart o' ore is a stone in that claim." },
+        { id = "y_y_ore2", text = "Glory's for the young ones. I fight because Vanndar needs steel an' my clan needs these hills, an' because if I stop, the lads I lost will have died for a mine we gave back." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -9404,7 +10768,7 @@ P:NPC {
     },
     y_foe = {
       lines = {
-        { id = "y_y_foe", text = "The kobolds are the worst o' it, wee rat-faced things that come swarmin' out o' the side shafts screamin' about candles. They were here first, I'll grant them that, an' they've never forgiven anyone for it." },
+        { id = "y_y_foe", text = "Kobolds, swarmin' out o' the side shafts, screamin' about their candles. They were here first, an' they hate us for it. After five winters, I cannae say I blame them." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -9412,11 +10776,11 @@ P:NPC {
     },
     y_worth = {
       lines = {
-        { id = "y_y_worth", text = "Some nights I wonder. Then I think o' the wolves holdin' it, an' sellin' the ore tae their own smiths, an' I stop wonderin'. What do ye think, soldier? Should we hold it at any cost?" },
+        { id = "y_y_worth", text = "I used tae be sure. Then I counted the friends it cost me, an' I stopped bein' sure. But the wolves would sell the ore tae their own smiths. What's yer view? Hold it at any price?" },
       },
       choices = {
-        { text = "Hold it. Ground given up is never won back.", next = "BACK", reply = "Spoken like a Stormpike! Ye'll fit right in down here.", fx = { align = { order = 1 } } },
-        { text = "No mine is worth a whole company of lives.", next = "BACK", reply = "Aye, well. Say that tae the Commander, nae me. But I'll nae say ye're wrong.", fx = { align = { order = -1 } } },
+        { text = "Hold it. Ground given up is never won back.", next = "BACK", reply = "Aye. That's what I'd have said at yer age.", fx = { align = { order = 1 } } },
+        { text = "No mine is worth a whole company of lives.", next = "BACK", reply = "Ye might be right. Dinnae say it near the Commander, but I've thought the same these five winters.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -9425,7 +10789,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Stormpike invader, and a veteran one. When Coldtooth Mine flies the wrong banner, we go in and take it back." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask; I've heard every question in five winters, but I'll answer one more." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -9435,34 +10799,35 @@ P:NPC {
         { text = "What's actually in the mine worth dying for?", next = "y_ore" },
         { text = "What are the kobolds like down there?", next = "y_foe" },
         { text = "Is a mine worth this much blood?", next = "y_worth" },
-        { text = "I know a thing or two about stone.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye'll know Coldtooth rock when ye smell it. It's rich an' cold, an' it hates us all equally." },
+        { text = "I know a thing or two about stone.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye'll smell Coldtooth rock before ye see it. Rich, an' cold, an' it hates every one of us the same." },
+        { text = "Which friend do you think of most?", next = "w2_friend" },
         { text = "That's all for now.", next = "END" },
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "Fast and loud. We kill the guards, cut down whoever leads them, and raise the Stormpike banner before the orcs can answer." } },
+      lines = { { id = "b1_d", text = "Fast an' hard. Kill the guards, take down the one who leads them, an' get the banner up before the wolves can send for help. I've done it more times than I can count." } },
       choices = {
         { text = "What about the creatures inside?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Kobolds, troggs, orcs, it does not matter. Anything that stands in the tunnels falls." } },
+      lines = { { id = "b11_d", text = "Kobolds, troggs, orcs. In the tunnels they're all the same: they stand in the way, an' they fall." } },
       choices = {
-        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Miners are miners, whoever they dig for.", fx = { align = { light = 1 } } },
+        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Aye, the rock'll take them. It's taken enough o' ours.", fx = { align = { light = -1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Aye. I've seen orc miners dig as hard as ours. Let them run.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Ore feeds the forges, and the forges feed the war. The side that holds the mines fights with better steel." } },
+      lines = { { id = "b2_d", text = "Ore makes forges, an' forges make wars. Whoever holds the mines fights wi' the sharper steel. That's all there is tae it." } },
       choices = {
         { text = "Who holds them now?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "It changes by the hour. Ask me again after the next raid." } },
+      lines = { { id = "b21_d", text = "Changes by the hour. Ask me after the next raid, if I'm still here tae answer." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -9470,10 +10835,10 @@ P:NPC {
   },
 
   topics = {
-    stormpike = { { id = "tp_ystormpike", text = "The Stormpike Guard came up from Ironforge tae claim Alterac for the dwarves, an' we're nae leavin' till it's done." } },
-    coldtooth = { { id = "tp_ycoldtooth", text = "Coldtooth Mine is cold an' deep an' never quiet. Somethin's always diggin' somewhere." } },
-    knows = { { id = "tp_knows", text = "Coldtooth Mine, its tunnels, and how to take it." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    stormpike = { { id = "tp_ystormpike", text = "The Stormpike came up from Ironforge tae claim Alterac for the clan, an' we'll no' go home till the job's done, or till we're carried." } },
+    coldtooth = { { id = "tp_ycoldtooth", text = "Coldtooth's cold an' deep, an' it never stops movin'. Somethin's always diggin'." } },
+    knows = { { id = "tp_knows", text = "Coldtooth's tunnels, every turn an' cave-in, an' how tae take it back." } },
+    _none = { { id = "tp_none", text = "I couldnae say. My head's full o' tunnels an' names, an' there's nae room for more." } },
   },
 }
 
@@ -9491,15 +10856,32 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Well met, friend! When the banner goes up over Coldtooth, I want you standin' right beside me." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. A champion's banner flies over honest company, an' that's no' you." },
-    { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
-    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
-    { id = "yg_0", when = { race = "Dwarf" }, text = "A fellow dwarf! Grab a pick or an axe, either one'll do, an' mind yer back in the tunnels." },
-    { id = "yg_1", when = { race = "Gnome" }, text = "A gnome! Good, we need someone small enough tae see what's down the narrow shafts." },
+    { id = "g_default", text = "Soldier! That mine'll be ours again by nightfall, an' I'll lead the charge." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Good. I've a raid planned, an' I want ye in it." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! I've cleared ye out o' Coldtooth more times than ye've cleared yer throats. Turn back." },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "Kinsman! Pick or axe, take whichever, an' follow my lead in the tunnels." },
+    { id = "yg_1", when = { race = "Gnome" }, text = "A gnome! Grand. I need someone small an' clever for the side shafts, an' ye look tae be both." },
   },
 
   start = "hello",
   nodes = {
+    w2_champ = {
+      lines = {
+        { id = "w2_champ_l", text = "He said I'd taken Coldtooth more times than any dwarf in the Guard, an' that a champion's badge was cheaper than a statue. Then he pinned it on crooked, an' laughed, an' I've worn it crooked ever since." },
+      },
+      choices = {
+        { text = "Do the others look to you now?", next = "w2_champ2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_champ2 = {
+      lines = {
+        { id = "w2_champ2_l", text = "They do, an' it's heavier than the badge. Every raid I lead, the young ones watch what I do an' do the same. If I hesitate, they hesitate. So I dinnae, an' I make my peace wi' it after, in the dark, where they cannae see." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
         { id = "y_y_long", text = "Since the first shaft was cut, near enough. Vanndar pinned a champion's badge on me after I held the mouth alone through a whole night." },
@@ -9513,8 +10895,8 @@ P:NPC {
     },
     y_teach = {
       lines = {
-        { id = "y_y_teach", text = "Old miners from Ironforge, mostly, who'd fought Dark Irons under the mountain long before any orc came tae Alterac. They said a tunnel fight's won by the dwarf who knows where the roof's weakest, an' they were right." },
-        { id = "y_y_teach_v0", when = { faction = "Alliance" }, text = "Old miners out of Ironforge, who'd fought the Dark Irons under the mountain. They taught me that the roof's yer best weapon an' yer worst enemy, an' that ye never forget which." },
+        { id = "y_y_teach", text = "Old Ironforge miners who'd fought the Dark Irons deep under the mountain, back before Alterac had an orc in it. They said the dwarf who knows the roof wins. I've led every raid by that rule." },
+        { id = "y_y_teach_v0", when = { faction = "Alliance" }, text = "Ironforge miners who fought the Dark Irons. They taught me the roof is weapon an' enemy both, an' that a champion never forgets which, or his lads pay for it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -9522,7 +10904,7 @@ P:NPC {
     },
     y_ore = {
       lines = {
-        { id = "y_y_ore", text = "Iron, mostly, an' a seam o' something brighter that the smiths in Dun Baldar fight over. Whoever holds Coldtooth keeps their forges hot, an' an army wi' cold forges is an army wi' blunt axes." },
+        { id = "y_y_ore", text = "Iron, an' a seam o' somethin' bright the Dun Baldar smiths would kill each other over. Whoever holds Coldtooth keeps the forges hot. I mean that tae be us." },
       },
       choices = {
         { text = "So you fight for the forges, not for glory?", next = "y_ore2" },
@@ -9531,7 +10913,7 @@ P:NPC {
     },
     y_ore2 = {
       lines = {
-        { id = "y_y_ore2", text = "Glory's for the heralds tae shout about. I'm here because Vanndar needs steel an' the Stormpike need these hills. My clan claims Alterac by old right, an' every cart o' ore is a stone in that claim." },
+        { id = "y_y_ore2", text = "Glory? They gave me a badge for it, an' it's no' why I fight. Vanndar needs steel, the clan needs these hills, an' I've the most experience o' anyone at takin' this mine. Somebody has tae." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -9539,7 +10921,7 @@ P:NPC {
     },
     y_foe = {
       lines = {
-        { id = "y_y_foe", text = "The kobolds are the worst o' it, wee rat-faced things that come swarmin' out o' the side shafts screamin' about candles. They were here first, I'll grant them that, an' they've never forgiven anyone for it." },
+        { id = "y_y_foe", text = "Kobolds. Rat-faced, candle-mad, an' furious about it. They were here first, an' they let every one of us know it, screamin' out o' the side shafts. I've learned their tunnels better than they have." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -9547,11 +10929,11 @@ P:NPC {
     },
     y_worth = {
       lines = {
-        { id = "y_y_worth", text = "Some nights I wonder. Then I think o' the wolves holdin' it, an' sellin' the ore tae their own smiths, an' I stop wonderin'. What do ye think, soldier? Should we hold it at any cost?" },
+        { id = "y_y_worth", text = "I've asked myself that before every raid I've led. Then I remember the wolves would arm their whole clan wi' this ore. What do ye say, soldier? Hold it whatever it costs?" },
       },
       choices = {
-        { text = "Hold it. Ground given up is never won back.", next = "BACK", reply = "Spoken like a Stormpike! Ye'll fit right in down here.", fx = { align = { order = 1 } } },
-        { text = "No mine is worth a whole company of lives.", next = "BACK", reply = "Aye, well. Say that tae the Commander, nae me. But I'll nae say ye're wrong.", fx = { align = { order = -1 } } },
+        { text = "Hold it. Ground given up is never won back.", next = "BACK", reply = "Aye! That's the Stormpike answer, an' it's mine.", fx = { align = { order = 1 } } },
+        { text = "No mine is worth a whole company of lives.", next = "BACK", reply = "Hmph. Ye've a point. I'll no' say it tae Vanndar, but I've lain awake on it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -9560,7 +10942,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Stormpike invader, and a champion one. When Coldtooth Mine flies the wrong banner, we go in and take it back." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Quick, now; I've a raid tae lead, an' they'll no' go in wi'out me." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -9570,34 +10952,35 @@ P:NPC {
         { text = "What's actually in the mine worth dying for?", next = "y_ore" },
         { text = "What are the kobolds like down there?", next = "y_foe" },
         { text = "Is a mine worth this much blood?", next = "y_worth" },
-        { text = "I know a thing or two about stone.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye'll know Coldtooth rock when ye smell it. It's rich an' cold, an' it hates us all equally." },
+        { text = "I know a thing or two about stone.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye'll know Coldtooth rock, kinsman. Rich an' cold, an' it hates every one of us alike." },
+        { text = "What did Vanndar say when he named you champion?", next = "w2_champ" },
         { text = "That's all for now.", next = "END" },
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "Fast and loud. We kill the guards, cut down whoever leads them, and raise the Stormpike banner before the orcs can answer." } },
+      lines = { { id = "b1_d", text = "Fast an' loud, an' I'm at the front. Kill the guards, cut down their leader, an' get the banner up before the wolves can answer. I've done it a score o' times." } },
       choices = {
         { text = "What about the creatures inside?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Kobolds, troggs, orcs, it does not matter. Anything that stands in the tunnels falls." } },
+      lines = { { id = "b11_d", text = "Kobolds, troggs, orcs, whatever's in the tunnels. If it stands against the Guard, it falls." } },
       choices = {
-        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Miners are miners, whoever they dig for.", fx = { align = { light = 1 } } },
+        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Aye, the rock'll hide them, an' nobody'll ask.", fx = { align = { light = -1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Fair. A miner's a miner. Let them dig somewhere else.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Ore feeds the forges, and the forges feed the war. The side that holds the mines fights with better steel." } },
+      lines = { { id = "b2_d", text = "Ore feeds the forges an' forges feed the war. Hold the mines an' ye fight wi' better steel. I've taught that tae every raider in the Guard." } },
       choices = {
         { text = "Who holds them now?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "It changes by the hour. Ask me again after the next raid." } },
+      lines = { { id = "b21_d", text = "Changes by the hour. Ask me after the next raid; I'll likely be the one who changed it." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -9605,10 +10988,10 @@ P:NPC {
   },
 
   topics = {
-    stormpike = { { id = "tp_ystormpike", text = "The Stormpike Guard came up from Ironforge tae claim Alterac for the dwarves, an' we're nae leavin' till it's done." } },
-    coldtooth = { { id = "tp_ycoldtooth", text = "Coldtooth Mine is cold an' deep an' never quiet. Somethin's always diggin' somewhere." } },
-    knows = { { id = "tp_knows", text = "Coldtooth Mine, its tunnels, and how to take it." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    stormpike = { { id = "tp_ystormpike", text = "The Stormpike came up from Ironforge tae claim Alterac, an' I'll see it claimed before I go home." } },
+    coldtooth = { { id = "tp_ycoldtooth", text = "Coldtooth's cold an' deep an' never still. I know every noise in it, an' I still jump at half of them." } },
+    knows = { { id = "tp_knows", text = "Coldtooth, every tunnel in it, an' every way it's ever been taken." } },
+    _none = { { id = "tp_none", text = "Couldnae tell ye. Ask someone who's no' spent his life in Coldtooth." } },
   },
 }
 
@@ -9635,6 +11018,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_read = {
+      lines = {
+        { id = "w2_read_l", text = "With my hands and my nose. Good iron rock is cold and smells of blood when it is wet. Copper smells sweeter. The dwarves use tools and charts. I use what the old hunters taught me, and I find the seams before they do." },
+      },
+      choices = {
+        { text = "Do the dwarves know you're better at it?", next = "w2_read2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_read2 = {
+      lines = {
+        { id = "w2_read2_l", text = "They suspect. When they take the mine, they dig where my peons were digging, because they know I found the good seams first. So now I set my peons on poor rock whenever the dwarves are close, and let them waste a week." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
         { id = "y_y_long", text = "Two winters. Long enough to learn the tunnels in the dark, not long enough to stop hating them." },
@@ -9648,7 +11048,7 @@ P:NPC {
     },
     y_teach = {
       lines = {
-        { id = "y_y_teach", text = "The clan. When the Frostwolves were exiled to Alterac by Blackhand's sons, these mountains kept us alive. Now the dwarves dig our mountains for their own forges, and I go back down because someone must." },
+        { id = "y_y_teach", text = "The clan. When Gul'dan exiled the Frostwolves to Alterac, these mountains kept us alive. Now the dwarves dig our mountains for their own forges, and I go back down because someone must." },
         { id = "y_y_teach_v0", when = { race = "Troll" }, text = "The clan, troll. You Darkspear know exile too. These mountains kept the Frostwolves alive when no one else would, and I will not see them dug hollow by the Stormpike." },
       },
       choices = {
@@ -9695,7 +11095,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Frostwolf surveyor, and a seasoned one. I read the rock of Coldtooth Mine and tell the clan where the ore runs and where the enemy waits." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask; then I must go back down and read the walls before the dwarves move." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -9706,6 +11106,7 @@ P:NPC {
         { text = "What lives in the deep shafts?", next = "y_foe" },
         { text = "Is the mine worth the blood?", next = "y_worth" },
         { text = "Lok'tar. I have fought in tunnels before.", next = "BACK", when = { race = "Orc" }, reply = "Then you know to strike first and talk after. Good. Stay at my left." },
+        { text = "How do you read the rock?", next = "w2_read" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -9719,20 +11120,20 @@ P:NPC {
     b1_1 = {
       lines = { { id = "b11_d", text = "The tunnels are dark, and the dwarves and the deep things both wait in them. I carry an axe as well as a pick." } },
       choices = {
-        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
+        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. Let the tunnel close over them.", fx = { align = { light = -1 } } },
         { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Peons are peons, whoever they serve.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Ore feeds the forges, and the forges feed the war. The side that holds the mines fights with better steel." } },
+      lines = { { id = "b2_d", text = "The forges eat ore, and the war eats steel. Whoever holds the mines eats best." } },
       choices = {
         { text = "Who holds them now?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "It changes by the hour. Ask me again after the next raid." } },
+      lines = { { id = "b21_d", text = "It shifts every hour. Come back after the next raid and I will tell you." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -9742,8 +11143,8 @@ P:NPC {
   topics = {
     frostwolf = { { id = "tp_yfrostwolf", text = "The Frostwolf clan were exiled here, and here we became strong. Alterac is our home now, whatever the dwarves say." } },
     coldtooth = { { id = "tp_ycoldtooth", text = "Coldtooth Mine. Cold, dark, and full of things that bite. But the ore is good." } },
-    knows = { { id = "tp_knows", text = "Coldtooth Mine, its tunnels, and how to take it." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    knows = { { id = "tp_knows", text = "Coldtooth's tunnels, where the seams run and where the dwarves hide." } },
+    _none = { { id = "tp_none", text = "I do not know. My knowledge goes no further than the mine's mouth." } },
   },
 }
 
@@ -9761,15 +11162,32 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return. I have surveyed this mine many times, and it always goes better with you here." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I have surveyed this mine for years, and I do not need you underfoot while I work." },
-    { id = "g_default", text = "Warrior. The mines will be ours again soon." },
-    { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
-    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Take a torch and keep close. The tunnels eat those who wander." },
-    { id = "yg_1", when = { race = "Tauren" }, text = "Tauren. Duck your horns in the low shafts, or the rock will take them." },
+    { id = "g_default", text = "Warrior. Five winters I have watched this mine change hands. It will be ours again." },
+    { id = "g_back", when = { metBefore = true }, text = "You return. Good. There is always rock to take, and fewer of us every winter to take it." },
+    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! I have buried enough of my brothers in this mine. I will gladly bury you." },
+    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Take a torch, and stay close. I have lost too many in the dark to lose another." },
+    { id = "yg_1", when = { race = "Tauren" }, text = "Tauren. Bend low in the shafts. I have dug a tauren out of a fall once, and I would rather not again." },
   },
 
   start = "hello",
   nodes = {
+    w2_tunnel = {
+      lines = {
+        { id = "w2_tunnel_l", text = "The kobold warren at the bottom of the east shaft. It goes down further than any of us have followed. Once I sent two peons to mark it, and only their candles came back up, still lit, carried by kobolds." },
+      },
+      choices = {
+        { text = "What do you think is down there?", next = "w2_tunnel2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_tunnel2 = {
+      lines = {
+        { id = "w2_tunnel2_l", text = "Their king, the kobolds say, if you can understand them. Something old. I have stopped sending peons to the warren, and I mark it on my maps with the old sign for death. The young surveyors laugh. They do not go there either." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
         { id = "y_y_long", text = "Five winters. I have buried more brothers in that mine than I have pulled ore from it." },
@@ -9783,8 +11201,8 @@ P:NPC {
     },
     y_teach = {
       lines = {
-        { id = "y_y_teach", text = "The clan. When the Frostwolves were exiled to Alterac by Blackhand's sons, these mountains kept us alive. Now the dwarves dig our mountains for their own forges, and I go back down because someone must." },
-        { id = "y_y_teach_v0", when = { race = "Troll" }, text = "The clan, troll. You Darkspear know exile too. These mountains kept the Frostwolves alive when no one else would, and I will not see them dug hollow by the Stormpike." },
+        { id = "y_y_teach", text = "The clan. When Gul'dan exiled the Frostwolves to Alterac, these mountains were all we had. Five winters I have dug them for the clan, and I go back down because no one else knows the way." },
+        { id = "y_y_teach_v0", when = { race = "Troll" }, text = "The clan, troll. Your people know exile too. These hills kept the Frostwolves breathing when the Horde forgot us, and I will not watch them dug hollow by dwarves." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -9792,7 +11210,7 @@ P:NPC {
     },
     y_ore = {
       lines = {
-        { id = "y_y_ore", text = "Iron for axes and for the harness of the wolves. Drek'Thar's smiths in Frostwolf Village work the ore day and night. Without Coldtooth, our blades go dull while the dwarves sharpen theirs." },
+        { id = "y_y_ore", text = "Iron, for the clan's axes and the wolves' harness. The smiths in Frostwolf Village work it every hour of the day. Without Coldtooth, we fight with dull blades. I have seen what dull blades cost." },
       },
       choices = {
         { text = "Do the Frostwolves mine, or only raid?", next = "y_ore2" },
@@ -9801,7 +11219,7 @@ P:NPC {
     },
     y_ore2 = {
       lines = {
-        { id = "y_y_ore2", text = "We were hunters, not miners, before the exile. The mountains taught us to dig the way they taught us to survive. The dwarves laugh at our tunnels, but our tunnels have never fallen on us." },
+        { id = "y_y_ore2", text = "The exile made us miners. We were hunters on the plains before, and the snow taught us to dig to survive. The dwarves laugh at our tunnels, but I have never seen one of ours fall in." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -9809,7 +11227,7 @@ P:NPC {
     },
     y_foe = {
       lines = {
-        { id = "y_y_foe", text = "Kobolds, many of them, with candles on their heads. They squeal and they bite. They were in this mine before any of us, and they fight both sides gladly." },
+        { id = "y_y_foe", text = "Kobolds, with candles on their heads, squealing and biting. They were here first, and they fight everyone. After five winters, I find I respect their stubbornness." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -9817,11 +11235,11 @@ P:NPC {
     },
     y_worth = {
       lines = {
-        { id = "y_y_worth", text = "The elders say a clan that cannot hold its own hills will soon not hold its own village. But I have carried many brothers out of this mine. Tell me what you think, warrior." },
+        { id = "y_y_worth", text = "The elders say a clan that cannot hold its hills will lose its village. I have carried too many brothers out of this mine to be sure of anything. What do you say, warrior?" },
       },
       choices = {
-        { text = "Every stone of Alterac belongs to the Frostwolves. Hold it.", next = "BACK", reply = "Yes. That is the answer of the clan, and it is mine too.", fx = { align = { order = 1 } } },
-        { text = "Let the mine go. Brothers matter more than ore.", next = "BACK", reply = "Perhaps. Do not say it near the Warmasters, but I hear you.", fx = { align = { order = -1 } } },
+        { text = "Every stone of Alterac belongs to the Frostwolves. Hold it.", next = "BACK", reply = "Yes. The clan's answer, and mine, though it weighs more every winter.", fx = { align = { order = 1 } } },
+        { text = "Let the mine go. Brothers matter more than ore.", next = "BACK", reply = "Perhaps. Five winters ago I would have argued. Now I only listen.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -9830,7 +11248,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Frostwolf surveyor, and a veteran one. I read the rock of Coldtooth Mine and tell the clan where the ore runs and where the enemy waits." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask; I have time before the next survey, and few who ask." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -9840,34 +11258,35 @@ P:NPC {
         { text = "Why does the clan need this ore?", next = "y_ore" },
         { text = "What lives in the deep shafts?", next = "y_foe" },
         { text = "Is the mine worth the blood?", next = "y_worth" },
-        { text = "Lok'tar. I have fought in tunnels before.", next = "BACK", when = { race = "Orc" }, reply = "Then you know to strike first and talk after. Good. Stay at my left." },
+        { text = "Lok'tar. I have fought in tunnels before.", next = "BACK", when = { race = "Orc" }, reply = "Then you know to strike first. Stay at my left; I see better from the right." },
+        { text = "Which tunnel do you fear most?", next = "w2_tunnel" },
         { text = "That's all for now.", next = "END" },
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "I walk the tunnels of Coldtooth Mine, mark the seams, and send the peons where the ore is richest. A mine without a surveyor is just a hole." } },
+      lines = { { id = "b1_d", text = "I walk Coldtooth's tunnels, mark the seams and send the peons to the richest rock. Five winters I have done it, and I know this mine better than the dwarves who dug it." } },
       choices = {
         { text = "Is it dangerous?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "The tunnels are dark, and the dwarves and the deep things both wait in them. I carry an axe as well as a pick." } },
+      lines = { { id = "b11_d", text = "The tunnels are dark, and dwarves and deeper things wait in them. I carry an axe as well as my pick, and I have used it more." } },
       choices = {
-        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Peons are peons, whoever they serve.", fx = { align = { light = 1 } } },
+        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The mine buries everyone in the end.", fx = { align = { light = -1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Peons are peons, whoever they dig for. I have seen dwarf miners die as hard as ours.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Ore feeds the forges, and the forges feed the war. The side that holds the mines fights with better steel." } },
+      lines = { { id = "b2_d", text = "Ore feeds the forges and forges feed the war. Five winters, and that has never changed." } },
       choices = {
         { text = "Who holds them now?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "It changes by the hour. Ask me again after the next raid." } },
+      lines = { { id = "b21_d", text = "It changes with every raid. Ask me tomorrow, if the mine has not taken me." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -9875,10 +11294,10 @@ P:NPC {
   },
 
   topics = {
-    frostwolf = { { id = "tp_yfrostwolf", text = "The Frostwolf clan were exiled here, and here we became strong. Alterac is our home now, whatever the dwarves say." } },
-    coldtooth = { { id = "tp_ycoldtooth", text = "Coldtooth Mine. Cold, dark, and full of things that bite. But the ore is good." } },
-    knows = { { id = "tp_knows", text = "Coldtooth Mine, its tunnels, and how to take it." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    frostwolf = { { id = "tp_yfrostwolf", text = "Gul'dan exiled the Frostwolves to Alterac, and the valley made us strong. This is our home, and the dwarves only dig in it." } },
+    coldtooth = { { id = "tp_ycoldtooth", text = "Coldtooth. Cold and dark and full of biting things. The ore is good. The cost is high." } },
+    knows = { { id = "tp_knows", text = "Coldtooth's tunnels, its seams and its dead, and how to take it back." } },
+    _none = { { id = "tp_none", text = "I could not say. Five winters in the mine leaves no room for other knowledge." } },
   },
 }
 
@@ -9896,15 +11315,32 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back! Good; a champion should have champions beside him, and you are one." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. A champion of the clan chooses who stands with him, and I do not choose you." },
-    { id = "g_default", text = "Warrior. The mines will be ours again soon." },
-    { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
-    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Take a torch and keep close. The tunnels eat those who wander." },
-    { id = "yg_1", when = { race = "Tauren" }, text = "Tauren. Duck your horns in the low shafts, or the rock will take them." },
+    { id = "g_default", text = "Warrior. The mine will be ours again soon, and I will be the one to raise the clan's banner." },
+    { id = "g_back", when = { metBefore = true }, text = "You come back. Good. There is always rock to take, and I lead the taking." },
+    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! I have driven your kind from Coldtooth more times than you have entered it." },
+    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Take a torch and follow me. I know every tunnel; stay close and you will live." },
+    { id = "yg_1", when = { race = "Tauren" }, text = "Tauren. Duck your horns in the low shafts. I have taught every tauren in the clan the same, and none has lost a horn yet." },
   },
 
   start = "hello",
   nodes = {
+    w2_banner = {
+      lines = {
+        { id = "w2_banner_l", text = "The dwarves had hidden their reserve banner in the deepest shaft, so they could raise it again when we took the mine. I knew the rock there; it was soft. I dug around their guards for three days and came up behind them." },
+      },
+      choices = {
+        { text = "What did Drek'Thar say?", next = "w2_banner2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_banner2 = {
+      lines = {
+        { id = "w2_banner2_l", text = "He held the banner in his hands, felt the dwarven stitching, and laughed. Then he said a surveyor who can dig behind the enemy is worth more than ten who fight in front of them. He named me champion that night." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
         { id = "y_y_long", text = "Since Thrall first spoke of the valley in my hearing. Drek'Thar named me champion after I brought back a Stormpike banner from the deepest shaft." },
@@ -9918,8 +11354,8 @@ P:NPC {
     },
     y_teach = {
       lines = {
-        { id = "y_y_teach", text = "The clan. When the Frostwolves were exiled to Alterac by Blackhand's sons, these mountains kept us alive. Now the dwarves dig our mountains for their own forges, and I go back down because someone must." },
-        { id = "y_y_teach_v0", when = { race = "Troll" }, text = "The clan, troll. You Darkspear know exile too. These mountains kept the Frostwolves alive when no one else would, and I will not see them dug hollow by the Stormpike." },
+        { id = "y_y_teach", text = "The clan. When Gul'dan exiled the Frostwolves to these mountains, the mountains kept us alive. Now the dwarves dig them for their forges. I go back down because I am the best at it." },
+        { id = "y_y_teach_v0", when = { race = "Troll" }, text = "The clan, troll. You Darkspear know exile. These hills sheltered us when nothing else would, and a champion does not let the Stormpike hollow them out." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -9927,7 +11363,7 @@ P:NPC {
     },
     y_ore = {
       lines = {
-        { id = "y_y_ore", text = "Iron for axes and for the harness of the wolves. Drek'Thar's smiths in Frostwolf Village work the ore day and night. Without Coldtooth, our blades go dull while the dwarves sharpen theirs." },
+        { id = "y_y_ore", text = "Iron, for the clan's axes and the harness of the wolves. Drek'Thar's smiths work it day and night. Without Coldtooth, our blades go dull. I will not let that happen while I live." },
       },
       choices = {
         { text = "Do the Frostwolves mine, or only raid?", next = "y_ore2" },
@@ -9936,7 +11372,7 @@ P:NPC {
     },
     y_ore2 = {
       lines = {
-        { id = "y_y_ore2", text = "We were hunters, not miners, before the exile. The mountains taught us to dig the way they taught us to survive. The dwarves laugh at our tunnels, but our tunnels have never fallen on us." },
+        { id = "y_y_ore2", text = "We were hunters before the exile, not miners. The mountains taught us to dig. The dwarves laugh at our tunnels, and then they take the mine and hide in them, because ours do not fall." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -9944,7 +11380,7 @@ P:NPC {
     },
     y_foe = {
       lines = {
-        { id = "y_y_foe", text = "Kobolds, many of them, with candles on their heads. They squeal and they bite. They were in this mine before any of us, and they fight both sides gladly." },
+        { id = "y_y_foe", text = "Kobolds, with candles on their heads. They squeal and bite and fight everyone. I learned their tunnels when I was young, and that is how I find the ways the dwarves do not know." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -9952,11 +11388,11 @@ P:NPC {
     },
     y_worth = {
       lines = {
-        { id = "y_y_worth", text = "The elders say a clan that cannot hold its own hills will soon not hold its own village. But I have carried many brothers out of this mine. Tell me what you think, warrior." },
+        { id = "y_y_worth", text = "The elders say a clan that cannot hold its hills cannot hold its village. I have carried many brothers out, and led many more in. What do you say, warrior?" },
       },
       choices = {
-        { text = "Every stone of Alterac belongs to the Frostwolves. Hold it.", next = "BACK", reply = "Yes. That is the answer of the clan, and it is mine too.", fx = { align = { order = 1 } } },
-        { text = "Let the mine go. Brothers matter more than ore.", next = "BACK", reply = "Perhaps. Do not say it near the Warmasters, but I hear you.", fx = { align = { order = -1 } } },
+        { text = "Every stone of Alterac belongs to the Frostwolves. Hold it.", next = "BACK", reply = "Yes. The clan's answer, and a champion's.", fx = { align = { order = 1 } } },
+        { text = "Let the mine go. Brothers matter more than ore.", next = "BACK", reply = "Perhaps. A champion must hear such words, even if he cannot heed them.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -9965,7 +11401,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Frostwolf surveyor, and a champion one. I read the rock of Coldtooth Mine and tell the clan where the ore runs and where the enemy waits." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask; then follow me into the mine." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -9975,34 +11411,35 @@ P:NPC {
         { text = "Why does the clan need this ore?", next = "y_ore" },
         { text = "What lives in the deep shafts?", next = "y_foe" },
         { text = "Is the mine worth the blood?", next = "y_worth" },
-        { text = "Lok'tar. I have fought in tunnels before.", next = "BACK", when = { race = "Orc" }, reply = "Then you know to strike first and talk after. Good. Stay at my left." },
+        { text = "Lok'tar. I have fought in tunnels before.", next = "BACK", when = { race = "Orc" }, reply = "Then you know the rule: strike first, talk after. Stay at my left, and do as I do." },
+        { text = "How did you take the banner from the deepest shaft?", next = "w2_banner" },
         { text = "That's all for now.", next = "END" },
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "I walk the tunnels of Coldtooth Mine, mark the seams, and send the peons where the ore is richest. A mine without a surveyor is just a hole." } },
+      lines = { { id = "b1_d", text = "I walk Coldtooth's tunnels and read its rock, and I tell the clan where the ore runs and where the dwarves wait. I have done it longer than any surveyor alive." } },
       choices = {
         { text = "Is it dangerous?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "The tunnels are dark, and the dwarves and the deep things both wait in them. I carry an axe as well as a pick." } },
+      lines = { { id = "b11_d", text = "The tunnels are dark, and dwarves and deeper things wait in them. A champion carries an axe as well as a pick, and uses both." } },
       choices = {
-        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Peons are peons, whoever they serve.", fx = { align = { light = 1 } } },
+        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock hides everything, in the end.", fx = { align = { light = -1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Let the peons run. A champion has better things to kill.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Ore feeds the forges, and the forges feed the war. The side that holds the mines fights with better steel." } },
+      lines = { { id = "b2_d", text = "Ore feeds the forges and forges feed the war. Whoever holds the mines fights with better steel, and I mean that to be the clan." } },
       choices = {
         { text = "Who holds them now?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "It changes by the hour. Ask me again after the next raid." } },
+      lines = { { id = "b21_d", text = "It changes by the hour, and often I am the one who changes it. Ask after the next raid." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -10010,10 +11447,10 @@ P:NPC {
   },
 
   topics = {
-    frostwolf = { { id = "tp_yfrostwolf", text = "The Frostwolf clan were exiled here, and here we became strong. Alterac is our home now, whatever the dwarves say." } },
-    coldtooth = { { id = "tp_ycoldtooth", text = "Coldtooth Mine. Cold, dark, and full of things that bite. But the ore is good." } },
-    knows = { { id = "tp_knows", text = "Coldtooth Mine, its tunnels, and how to take it." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    frostwolf = { { id = "tp_yfrostwolf", text = "Gul'dan sent the Frostwolves into exile here, and here we grew strong. Alterac is ours, and a champion will keep it so." } },
+    coldtooth = { { id = "tp_ycoldtooth", text = "Coldtooth. Cold, and dark, and full of biting things. But the ore is good, and I know where all of it lies." } },
+    knows = { { id = "tp_knows", text = "Coldtooth Mine, every tunnel and every seam, and every way to take it." } },
+    _none = { { id = "tp_none", text = "That I do not know. Ask someone who has spent less of his life underground." } },
   },
 }
 
@@ -10031,18 +11468,35 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back. Good; there is always more rock to take in Irondeep, and more dwarves to take it from." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. Raid Irondeep with someone else, because I will not have you at my back." },
-    { id = "g_default", text = "Warrior. The mines will be ours again soon." },
-    { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
-    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Take a torch and keep close. The tunnels eat those who wander." },
-    { id = "yg_1", when = { race = "Tauren" }, text = "Tauren. Duck your horns in the low shafts, or the rock will take them." },
+    { id = "g_default", text = "Warrior. Irondeep will fly the clan's banner again before the moon turns." },
+    { id = "g_back", when = { metBefore = true }, text = "You come back. Good; the dwarves have dug deeper since you left, and we will take what they dug." },
+    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The deep shafts are no place for you, and the troggs agree with me." },
+    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Take a torch, keep close, and do not wander toward the trogg warrens." },
+    { id = "yg_1", when = { race = "Tauren" }, text = "Tauren. The shafts here were cut by dwarves, for dwarves. Keep your head down or leave your horns in the roof." },
   },
 
   start = "hello",
   nodes = {
+    w2_umi = {
+      lines = {
+        { id = "w2_umi_l", text = "A dwarf woman, Umi Thorson, with a pick on her back and an axe in her hand. She dug the first shaft, they say, and she fights like the mine is her own child. I have faced her twice and I am still alive, so she is either merciful or slow." },
+      },
+      choices = {
+        { text = "Which do you think?", next = "w2_umi2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_umi2 = {
+      lines = {
+        { id = "w2_umi2_l", text = "Neither. I think she was watching the troggs behind me, not me. That is the worst of Irondeep. You fight the dwarf in front of you, and you both forget the thing coming up from the deep until it is too late." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
-        { id = "y_y_long", text = "Two winters. Long enough to learn the tunnels in the dark, not long enough to stop hating them." },
+        { id = "y_y_long", text = "Two winters. I learned Irondeep's tunnels in the dark, and every night I dream of them, and I hate them more each time." },
       },
       choices = {
         { text = "Let the dwarves retreat if they give up the mine.", next = "BACK", reply = "Yes. If they leave, they live. That is how a Frostwolf takes a mine.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -10053,8 +11507,8 @@ P:NPC {
     },
     y_teach = {
       lines = {
-        { id = "y_y_teach", text = "The clan. When the Frostwolves were exiled to Alterac by Blackhand's sons, these mountains kept us alive. Now the dwarves dig our mountains for their own forges, and I go back down because someone must." },
-        { id = "y_y_teach_v0", when = { race = "Troll" }, text = "The clan, troll. You Darkspear know exile too. These mountains kept the Frostwolves alive when no one else would, and I will not see them dug hollow by the Stormpike." },
+        { id = "y_y_teach", text = "The clan. When Gul'dan exiled the Frostwolves to Alterac, these mountains fed us and hid us. Now the dwarves dig them for their own forges, and I go back down into Irondeep because somebody must." },
+        { id = "y_y_teach_v0", when = { race = "Troll" }, text = "The clan, troll. You Darkspear were exiles too, and you know what a home is worth. These hills kept the Frostwolves alive, and I will not let the Stormpike hollow them out." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10071,7 +11525,7 @@ P:NPC {
     },
     y_ore2 = {
       lines = {
-        { id = "y_y_ore2", text = "We were hunters, not miners, before the exile. The mountains taught us to dig the way they taught us to survive. The dwarves laugh at our tunnels, but our tunnels have never fallen on us." },
+        { id = "y_y_ore2", text = "We hunted before the exile, and the mountains made us dig. The dwarves laugh at how we tunnel. Then the troggs bring their shafts down on them, and ours stand." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10087,11 +11541,11 @@ P:NPC {
     },
     y_worth = {
       lines = {
-        { id = "y_y_worth", text = "The elders say a clan that cannot hold its own hills will soon not hold its own village. But I have carried many brothers out of this mine. Tell me what you think, warrior." },
+        { id = "y_y_worth", text = "The elders say a clan that loses its hills will soon lose its village. I have dragged many brothers out of Irondeep, and some of them were still breathing. Tell me your mind, warrior." },
       },
       choices = {
-        { text = "Every stone of Alterac belongs to the Frostwolves. Hold it.", next = "BACK", reply = "Yes. That is the answer of the clan, and it is mine too.", fx = { align = { order = 1 } } },
-        { text = "Let the mine go. Brothers matter more than ore.", next = "BACK", reply = "Perhaps. Do not say it near the Warmasters, but I hear you.", fx = { align = { order = -1 } } },
+        { text = "Every stone of Alterac belongs to the Frostwolves. Hold it.", next = "BACK", reply = "Yes. The clan says so, and so do I.", fx = { align = { order = 1 } } },
+        { text = "Let the mine go. Brothers matter more than ore.", next = "BACK", reply = "Perhaps. Keep it from the Warmasters' ears, but I have thought it too.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -10100,7 +11554,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Frostwolf raider, and a seasoned one. When Irondeep Mine flies the wrong banner, we go in and take it back." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask, and then take a torch; we go down soon." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -10110,7 +11564,8 @@ P:NPC {
         { text = "Why does the clan need this ore?", next = "y_ore" },
         { text = "What lives in the deep shafts?", next = "y_foe" },
         { text = "Is the mine worth the blood?", next = "y_worth" },
-        { text = "Lok'tar. I have fought in tunnels before.", next = "BACK", when = { race = "Orc" }, reply = "Then you know to strike first and talk after. Good. Stay at my left." },
+        { text = "Lok'tar. I have fought in tunnels before.", next = "BACK", when = { race = "Orc" }, reply = "Then you know the tunnel way: strike first, talk later. Stay on my left." },
+        { text = "Who leads the Stormpike in Irondeep?", next = "w2_umi" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -10124,20 +11579,20 @@ P:NPC {
     b1_1 = {
       lines = { { id = "b11_d", text = "Kobolds, troggs, it does not matter. Anything that stands in the tunnels falls." } },
       choices = {
-        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Peons are peons, whoever they serve.", fx = { align = { light = 1 } } },
+        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. Irondeep has buried many, and will bury more.", fx = { align = { light = -1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Peons are peons. Let them run back to their forges.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Ore feeds the forges, and the forges feed the war. The side that holds the mines fights with better steel." } },
+      lines = { { id = "b2_d", text = "Ore makes forges hot, and hot forges make war. Hold the mines, and your steel is better than theirs." } },
       choices = {
         { text = "Who holds them now?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "It changes by the hour. Ask me again after the next raid." } },
+      lines = { { id = "b21_d", text = "It changes every hour. Come back after the next raid and I will tell you." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -10145,10 +11600,10 @@ P:NPC {
   },
 
   topics = {
-    frostwolf = { { id = "tp_yfrostwolf", text = "The Frostwolf clan were exiled here, and here we became strong. Alterac is our home now, whatever the dwarves say." } },
+    frostwolf = { { id = "tp_yfrostwolf", text = "Gul'dan sent the clan into exile here, and the valley made us strong. It is our home, whatever the dwarves claim." } },
     irondeep = { { id = "tp_yirondeep", text = "Irondeep Mine. Cold, dark, and full of things that bite. But the ore is good." } },
     knows = { { id = "tp_knows", text = "Irondeep Mine, its tunnels, and how to take it." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    _none = { { id = "tp_none", text = "I do not know. My head is full of tunnels, and there is no room for anything else." } },
   },
 }
 
@@ -10166,18 +11621,35 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You return to Irondeep! Good; the troggs are thick in the lower shafts, and I want your axe beside mine." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I have raided Irondeep many times, and I will raid it again without you." },
-    { id = "g_default", text = "Warrior. The mines will be ours again soon." },
-    { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
-    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Take a torch and keep close. The tunnels eat those who wander." },
-    { id = "yg_1", when = { race = "Tauren" }, text = "Tauren. Duck your horns in the low shafts, or the rock will take them." },
+    { id = "g_default", text = "Warrior. Five winters, and Irondeep will be ours again. It always is, for a while." },
+    { id = "g_back", when = { metBefore = true }, text = "You come back. Good. There is always more rock to take, and fewer brothers to take it with." },
+    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! I have buried my brothers in Irondeep. I will not let you walk on their graves." },
+    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Take a torch. Keep close. I have lost too many who wandered." },
+    { id = "yg_1", when = { race = "Tauren" }, text = "Tauren. Keep your horns low; the dwarves dug these shafts small, and the rock takes what it can." },
   },
 
   start = "hello",
   nodes = {
+    w2_troggs = {
+      lines = {
+        { id = "w2_troggs_l", text = "My shield-brother, Grosh, in my second winter. A trogg came up through the floor of the lower shaft, where there was no tunnel the day before, and dragged him down. We dug for him for an hour and found only his axe." },
+      },
+      choices = {
+        { text = "Do you still have it?", next = "w2_troggs2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_troggs2 = {
+      lines = {
+        { id = "w2_troggs2_l", text = "I carry it on my back, beside my own. When the clan holds Irondeep for good, I will go down to the lowest shaft and leave it there, so he has it wherever the troggs took him. Then I will come up and not go down again." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
-        { id = "y_y_long", text = "Five winters. I have buried more brothers in that mine than I have pulled ore from it." },
+        { id = "y_y_long", text = "Five winters. More of my brothers lie in that mine than ore has come out of it, and I have stopped counting either." },
       },
       choices = {
         { text = "The ore we take feeds the clan, not our own purses.", next = "BACK", reply = "Yes. I have never kept a single nugget, and I never will.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -10188,8 +11660,8 @@ P:NPC {
     },
     y_teach = {
       lines = {
-        { id = "y_y_teach", text = "The clan. When the Frostwolves were exiled to Alterac by Blackhand's sons, these mountains kept us alive. Now the dwarves dig our mountains for their own forges, and I go back down because someone must." },
-        { id = "y_y_teach_v0", when = { race = "Troll" }, text = "The clan, troll. You Darkspear know exile too. These mountains kept the Frostwolves alive when no one else would, and I will not see them dug hollow by the Stormpike." },
+        { id = "y_y_teach", text = "The clan. Gul'dan exiled us to Alterac, and these mountains saved us. The dwarves want to dig them out from under us. Five winters I have gone back down, because the clan cannot spare anyone who knows the way." },
+        { id = "y_y_teach_v0", when = { race = "Troll" }, text = "The clan, troll. You know exile. These hills kept us alive when the Horde forgot us, and I will not let the dwarves hollow them while I can swing an axe." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10197,7 +11669,7 @@ P:NPC {
     },
     y_ore = {
       lines = {
-        { id = "y_y_ore", text = "Iron for axes and for the harness of the wolves. Drek'Thar's smiths in Frostwolf Village work the ore day and night. Without Irondeep, our blades go dull while the dwarves sharpen theirs." },
+        { id = "y_y_ore", text = "Iron, for axes and wolf harness. The smiths in Frostwolf Village never stop working it. Without Irondeep, our blades go dull, and I have seen what dull blades cost us." },
       },
       choices = {
         { text = "Do the Frostwolves mine, or only raid?", next = "y_ore2" },
@@ -10206,7 +11678,7 @@ P:NPC {
     },
     y_ore2 = {
       lines = {
-        { id = "y_y_ore2", text = "We were hunters, not miners, before the exile. The mountains taught us to dig the way they taught us to survive. The dwarves laugh at our tunnels, but our tunnels have never fallen on us." },
+        { id = "y_y_ore2", text = "The exile made us diggers. We hunted the plains before. The dwarves laugh at our tunnels, and in five winters I have never seen one of ours fall in." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10214,7 +11686,7 @@ P:NPC {
     },
     y_foe = {
       lines = {
-        { id = "y_y_foe", text = "Troggs, crawling up from somewhere deeper than any of us have gone. They fight dwarf and orc alike. I have heard the dwarves fear them more than they fear us, and I believe it." },
+        { id = "y_y_foe", text = "Troggs, from somewhere deeper than any of us have dug. They take dwarf and orc alike. The dwarves fear them more than us, I am told, and after five winters, so do I." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10222,11 +11694,11 @@ P:NPC {
     },
     y_worth = {
       lines = {
-        { id = "y_y_worth", text = "The elders say a clan that cannot hold its own hills will soon not hold its own village. But I have carried many brothers out of this mine. Tell me what you think, warrior." },
+        { id = "y_y_worth", text = "The elders say a clan that cannot hold its hills cannot hold its village. I have carried many brothers out of Irondeep. Some I carried out twice. Tell me what you think." },
       },
       choices = {
-        { text = "Every stone of Alterac belongs to the Frostwolves. Hold it.", next = "BACK", reply = "Yes. That is the answer of the clan, and it is mine too.", fx = { align = { order = 1 } } },
-        { text = "Let the mine go. Brothers matter more than ore.", next = "BACK", reply = "Perhaps. Do not say it near the Warmasters, but I hear you.", fx = { align = { order = -1 } } },
+        { text = "Every stone of Alterac belongs to the Frostwolves. Hold it.", next = "BACK", reply = "Yes. The clan's answer. It weighs more on me each winter, but it is mine.", fx = { align = { order = 1 } } },
+        { text = "Let the mine go. Brothers matter more than ore.", next = "BACK", reply = "Perhaps. I would not have listened, once. I listen now.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -10235,7 +11707,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Frostwolf raider, and a veteran one. When Irondeep Mine flies the wrong banner, we go in and take it back." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Speak; I am not on the next raid, so I have time." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -10245,34 +11717,35 @@ P:NPC {
         { text = "Why does the clan need this ore?", next = "y_ore" },
         { text = "What lives in the deep shafts?", next = "y_foe" },
         { text = "Is the mine worth the blood?", next = "y_worth" },
-        { text = "Lok'tar. I have fought in tunnels before.", next = "BACK", when = { race = "Orc" }, reply = "Then you know to strike first and talk after. Good. Stay at my left." },
+        { text = "Lok'tar. I have fought in tunnels before.", next = "BACK", when = { race = "Orc" }, reply = "Then you know the tunnels. Strike first, and stay at my left; my right eye is not what it was." },
+        { text = "What have the troggs taken from you?", next = "w2_troggs" },
         { text = "That's all for now.", next = "END" },
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "Fast and loud. We kill the guards, cut down whoever leads them, and raise the clan's banner before the dwarves can answer." } },
+      lines = { { id = "b1_d", text = "Fast and hard. Kill the guards, kill whoever leads them, and raise the banner before Umi Thorson can rally her miners." } },
       choices = {
         { text = "What about the creatures inside?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Kobolds, troggs, it does not matter. Anything that stands in the tunnels falls." } },
+      lines = { { id = "b11_d", text = "Troggs, dwarves, whatever is in the tunnel. If it stands, it falls. I have stopped asking what it was." } },
       choices = {
-        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Peons are peons, whoever they serve.", fx = { align = { light = 1 } } },
+        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. Irondeep hides everything.", fx = { align = { light = -1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Let them run. I have killed enough peons for one life.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Ore feeds the forges, and the forges feed the war. The side that holds the mines fights with better steel." } },
+      lines = { { id = "b2_d", text = "Ore feeds the forges, and the forges feed the war. Five winters, and that has never changed." } },
       choices = {
         { text = "Who holds them now?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "It changes by the hour. Ask me again after the next raid." } },
+      lines = { { id = "b21_d", text = "It changes by the hour. Ask me after the next raid, if the mine leaves me alive to answer." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -10280,10 +11753,10 @@ P:NPC {
   },
 
   topics = {
-    frostwolf = { { id = "tp_yfrostwolf", text = "The Frostwolf clan were exiled here, and here we became strong. Alterac is our home now, whatever the dwarves say." } },
-    irondeep = { { id = "tp_yirondeep", text = "Irondeep Mine. Cold, dark, and full of things that bite. But the ore is good." } },
-    knows = { { id = "tp_knows", text = "Irondeep Mine, its tunnels, and how to take it." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    frostwolf = { { id = "tp_yfrostwolf", text = "The clan was exiled here by Gul'dan, and the valley made us strong. It is our home. The dwarves only dig in it." } },
+    irondeep = { { id = "tp_yirondeep", text = "Irondeep. Cold and dark and full of biting things. The ore is good. It is not worth what it costs." } },
+    knows = { { id = "tp_knows", text = "Irondeep's tunnels, every one of them, and the brothers I have lost in each." } },
+    _none = { { id = "tp_none", text = "I could not say. Five winters underground leaves little room for other things." } },
   },
 }
 
@@ -10301,18 +11774,35 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "You come back! The clan sings of Irondeep, and I would have you in the next song beside me." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. The clan sings no songs of you, and I will not raid beside someone who has earned none." },
-    { id = "g_default", text = "Warrior. The mines will be ours again soon." },
-    { id = "g_back", when = { metBefore = true }, text = "You come back. Good, there is always more rock to take." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is no place for you." },
-    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Take a torch and keep close. The tunnels eat those who wander." },
-    { id = "yg_1", when = { race = "Tauren" }, text = "Tauren. Duck your horns in the low shafts, or the rock will take them." },
+    { id = "g_default", text = "Warrior. Irondeep will be ours again, and I will be first through the tunnels." },
+    { id = "g_back", when = { metBefore = true }, text = "You come back. Good. There is rock to take, and I lead the taking." },
+    { id = "g_enemy", when = { faction = "Alliance" }, text = "Alliance! The mine is ours by blood. You will not walk out of it." },
+    { id = "yg_0", when = { race = "Orc" }, text = "Brother. Take a torch and follow me. I know where the troggs sleep." },
+    { id = "yg_1", when = { race = "Tauren" }, text = "Tauren. Duck your horns, and follow where I lead; I know where the roof is high." },
   },
 
   start = "hello",
   nodes = {
+    w2_song = {
+      lines = {
+        { id = "w2_song_l", text = "That the mine was taken seven times in one day, and the seventh time by a raider who came up through the troggs' own tunnel. The song does not name him. Everyone in the village knows it was me, and I am glad it does not." },
+      },
+      choices = {
+        { text = "Why are you glad?", next = "w2_song2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_song2 = {
+      lines = {
+        { id = "w2_song2_l", text = "Because the twenty who went in with me are not in the song either, and only four of them came out. A song with one name in it forgets the rest. I would rather it forgot me too, and remembered that Irondeep was taken." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
-        { id = "y_y_long", text = "Since Thrall first spoke of the valley in my hearing. Drek'Thar named me champion after I brought back a Stormpike banner from the deepest shaft." },
+        { id = "y_y_long", text = "Since the first raid on Irondeep. Drek'Thar named me champion after I went into the troggs' tunnels and came out behind the Stormpike, and the clan has sung of it since, though I wish they would not." },
       },
       choices = {
         { text = "Songs should be sung only of deeds truly done.", next = "BACK", reply = "Yes. A false song shames the singer and the one it is sung for.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -10323,8 +11813,8 @@ P:NPC {
     },
     y_teach = {
       lines = {
-        { id = "y_y_teach", text = "The clan. When the Frostwolves were exiled to Alterac by Blackhand's sons, these mountains kept us alive. Now the dwarves dig our mountains for their own forges, and I go back down because someone must." },
-        { id = "y_y_teach_v0", when = { race = "Troll" }, text = "The clan, troll. You Darkspear know exile too. These mountains kept the Frostwolves alive when no one else would, and I will not see them dug hollow by the Stormpike." },
+        { id = "y_y_teach", text = "The clan. Gul'dan exiled the Frostwolves to Alterac, and these mountains kept us alive. The dwarves dig them for their forges. A champion goes back down, because the others follow." },
+        { id = "y_y_teach_v0", when = { race = "Troll" }, text = "The clan, troll. You Darkspear know what exile is. These hills sheltered us when nothing else would, and a champion of the Frostwolves will not let the Stormpike hollow them." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10332,7 +11822,7 @@ P:NPC {
     },
     y_ore = {
       lines = {
-        { id = "y_y_ore", text = "Iron for axes and for the harness of the wolves. Drek'Thar's smiths in Frostwolf Village work the ore day and night. Without Irondeep, our blades go dull while the dwarves sharpen theirs." },
+        { id = "y_y_ore", text = "Iron, for the clan's axes and the harness of the wolves. Drek'Thar's smiths work it day and night. Without Irondeep, our blades go dull, and a champion does not fight with a dull blade." },
       },
       choices = {
         { text = "Do the Frostwolves mine, or only raid?", next = "y_ore2" },
@@ -10341,7 +11831,7 @@ P:NPC {
     },
     y_ore2 = {
       lines = {
-        { id = "y_y_ore2", text = "We were hunters, not miners, before the exile. The mountains taught us to dig the way they taught us to survive. The dwarves laugh at our tunnels, but our tunnels have never fallen on us." },
+        { id = "y_y_ore2", text = "We were hunters before the exile. The mountains taught us to dig. The dwarves laugh at our tunnels, and then they use them to escape when I come for them." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10349,7 +11839,7 @@ P:NPC {
     },
     y_foe = {
       lines = {
-        { id = "y_y_foe", text = "Troggs, crawling up from somewhere deeper than any of us have gone. They fight dwarf and orc alike. I have heard the dwarves fear them more than they fear us, and I believe it." },
+        { id = "y_y_foe", text = "Troggs, from deeper than anyone has gone, except perhaps me. They fight everyone. I have walked their tunnels and come back. I do not recommend it." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10357,11 +11847,11 @@ P:NPC {
     },
     y_worth = {
       lines = {
-        { id = "y_y_worth", text = "The elders say a clan that cannot hold its own hills will soon not hold its own village. But I have carried many brothers out of this mine. Tell me what you think, warrior." },
+        { id = "y_y_worth", text = "The elders say a clan that cannot hold its hills cannot hold its village. I have led many brothers into Irondeep, and carried many out. What do you say, warrior?" },
       },
       choices = {
-        { text = "Every stone of Alterac belongs to the Frostwolves. Hold it.", next = "BACK", reply = "Yes. That is the answer of the clan, and it is mine too.", fx = { align = { order = 1 } } },
-        { text = "Let the mine go. Brothers matter more than ore.", next = "BACK", reply = "Perhaps. Do not say it near the Warmasters, but I hear you.", fx = { align = { order = -1 } } },
+        { text = "Every stone of Alterac belongs to the Frostwolves. Hold it.", next = "BACK", reply = "Yes. That is what the clan says, and a champion says it loudest.", fx = { align = { order = 1 } } },
+        { text = "Let the mine go. Brothers matter more than ore.", next = "BACK", reply = "Perhaps. A champion must hear such words. He cannot always heed them.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -10370,7 +11860,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Frostwolf raider, and a champion one. When Irondeep Mine flies the wrong banner, we go in and take it back." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask, and then follow me down." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -10380,34 +11870,35 @@ P:NPC {
         { text = "Why does the clan need this ore?", next = "y_ore" },
         { text = "What lives in the deep shafts?", next = "y_foe" },
         { text = "Is the mine worth the blood?", next = "y_worth" },
-        { text = "Lok'tar. I have fought in tunnels before.", next = "BACK", when = { race = "Orc" }, reply = "Then you know to strike first and talk after. Good. Stay at my left." },
+        { text = "Lok'tar. I have fought in tunnels before.", next = "BACK", when = { race = "Orc" }, reply = "Then you know: strike first. Stay at my left, and do as I do." },
+        { text = "What do the clan's songs say of Irondeep?", next = "w2_song" },
         { text = "That's all for now.", next = "END" },
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "Fast and loud. We kill the guards, cut down whoever leads them, and raise the clan's banner before the dwarves can answer." } },
+      lines = { { id = "b1_d", text = "Fast and loud, with me at the front. We kill the guards, cut down their leader, and raise the clan's banner before the dwarves can answer." } },
       choices = {
         { text = "What about the creatures inside?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "Kobolds, troggs, it does not matter. Anything that stands in the tunnels falls." } },
+      lines = { { id = "b11_d", text = "Kobolds, troggs, dwarves. If it stands in the tunnel, it falls before my axe." } },
       choices = {
-        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Peons are peons, whoever they serve.", fx = { align = { light = 1 } } },
+        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will take them, and nobody will look.", fx = { align = { light = -1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Let them run. A champion has better quarry.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Ore feeds the forges, and the forges feed the war. The side that holds the mines fights with better steel." } },
+      lines = { { id = "b2_d", text = "Ore feeds the forges, and the forges feed the war. Hold the mines, and the clan's steel is better." } },
       choices = {
         { text = "Who holds them now?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "It changes by the hour. Ask me again after the next raid." } },
+      lines = { { id = "b21_d", text = "It changes by the hour. Ask me after the next raid; I will likely be the one who changed it." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -10415,10 +11906,10 @@ P:NPC {
   },
 
   topics = {
-    frostwolf = { { id = "tp_yfrostwolf", text = "The Frostwolf clan were exiled here, and here we became strong. Alterac is our home now, whatever the dwarves say." } },
-    irondeep = { { id = "tp_yirondeep", text = "Irondeep Mine. Cold, dark, and full of things that bite. But the ore is good." } },
-    knows = { { id = "tp_knows", text = "Irondeep Mine, its tunnels, and how to take it." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    frostwolf = { { id = "tp_yfrostwolf", text = "Gul'dan sent us into exile here, and here we grew strong. Alterac is ours, and the champions of the clan keep it." } },
+    irondeep = { { id = "tp_yirondeep", text = "Irondeep. Cold and dark and full of biting things. The ore is the best in the valley, and I know every seam." } },
+    knows = { { id = "tp_knows", text = "Irondeep, every tunnel, every trogg warren, and every way to take it back." } },
+    _none = { { id = "tp_none", text = "That I do not know. Ask someone who has spent less of his life in the dark." } },
   },
 }
 
@@ -10436,18 +11927,35 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Good tae see ye still standin'! Come an' stand wi' us a while; there's always more rock tae take." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You again. Say what ye came tae say, an' leave us tae our surveyin'." },
-    { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
-    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
-    { id = "yg_0", when = { race = "Dwarf" }, text = "A fellow dwarf! Grab a pick or an axe, either one'll do, an' mind yer back in the tunnels." },
-    { id = "yg_1", when = { race = "Gnome" }, text = "A gnome! Good, we need someone small enough tae see what's down the narrow shafts." },
+    { id = "g_default", text = "Soldier. Irondeep'll fly the Stormpike colours again before the week's out, mark my words." },
+    { id = "g_back", when = { metBefore = true }, text = "Back, are ye? Good. Irondeep's always got more rock in her, an' I've found the next seam." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The deep's nae place for ye, an' the troggs will tell ye so if I dinnae." },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "A dwarf! Grab a pick or an axe an' watch the walls; Irondeep shifts when she's angry." },
+    { id = "yg_1", when = { race = "Gnome" }, text = "A gnome! Grand, I've a shaft too narrow for any dwarf, an' I'd love tae know what's at the bottom." },
   },
 
   start = "hello",
   nodes = {
+    w2_deep = {
+      lines = {
+        { id = "w2_deep_l", text = "Old Titan-stone, smooth as glass, wi' marks on it that nae dwarf carved. I showed it tae a scholar from the Explorers' League once, an' he went white an' asked tae see the shaft. Umi Thorson wouldnae let him past the troggs." },
+      },
+      choices = {
+        { text = "What did the scholar think it was?", next = "w2_deep2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_deep2 = {
+      lines = {
+        { id = "w2_deep2_l", text = "He wouldnae say, which is how I knew it was important. He wrote a letter tae Ironforge that same night. I've no' heard a word since, but I mark that shaft on my maps wi' a wee star, an' I dinnae send miners down it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
-        { id = "y_y_long", text = "Two winters I've fought for these tunnels, an' I've the scars tae show for both." },
+        { id = "y_y_long", text = "Two winters in these tunnels, an' a scar for each, though one's from a trogg an' the other's from a fallin' beam, an' I'll no' tell ye which hurt more." },
       },
       choices = {
         { text = "A survey should mark every weak beam, honest and true.", next = "BACK", reply = "Aye, an' I mark them all, for a dwarf who lies about a beam buries his kin.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -10458,8 +11966,8 @@ P:NPC {
     },
     y_teach = {
       lines = {
-        { id = "y_y_teach", text = "Old miners from Ironforge, mostly, who'd fought Dark Irons under the mountain long before any orc came tae Alterac. They said a tunnel fight's won by the dwarf who knows where the roof's weakest, an' they were right." },
-        { id = "y_y_teach_v0", when = { faction = "Alliance" }, text = "Old miners out of Ironforge, who'd fought the Dark Irons under the mountain. They taught me that the roof's yer best weapon an' yer worst enemy, an' that ye never forget which." },
+        { id = "y_y_teach", text = "Old Ironforge miners who'd fought Dark Irons deep under the mountain, long before any orc saw Alterac. They said the dwarf who knows the roof wins the tunnel, an' I read roofs for a livin' now." },
+        { id = "y_y_teach_v0", when = { faction = "Alliance" }, text = "Ironforge miners who fought the Dark Irons. They taught me the roof's a weapon an' an enemy both. A surveyor learns which before anybody else does." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10476,7 +11984,7 @@ P:NPC {
     },
     y_ore2 = {
       lines = {
-        { id = "y_y_ore2", text = "Glory's for the heralds tae shout about. I'm here because Vanndar needs steel an' the Stormpike need these hills. My clan claims Alterac by old right, an' every cart o' ore is a stone in that claim." },
+        { id = "y_y_ore2", text = "Glory's for the heralds. I'm here because Vanndar needs steel, an' the Stormpike need these hills, an' because nae one else in the Guard can read Irondeep's rock like I can." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10492,11 +12000,11 @@ P:NPC {
     },
     y_worth = {
       lines = {
-        { id = "y_y_worth", text = "Some nights I wonder. Then I think o' the wolves holdin' it, an' sellin' the ore tae their own smiths, an' I stop wonderin'. What do ye think, soldier? Should we hold it at any cost?" },
+        { id = "y_y_worth", text = "Some nights I wonder. Then I think o' the wolves sellin' Irondeep's ore tae their own smiths, an' I stop. What do ye say, soldier? Hold it whatever it costs?" },
       },
       choices = {
-        { text = "Hold it. Ground given up is never won back.", next = "BACK", reply = "Spoken like a Stormpike! Ye'll fit right in down here.", fx = { align = { order = 1 } } },
-        { text = "No mine is worth a whole company of lives.", next = "BACK", reply = "Aye, well. Say that tae the Commander, nae me. But I'll nae say ye're wrong.", fx = { align = { order = -1 } } },
+        { text = "Hold it. Ground given up is never won back.", next = "BACK", reply = "Aye! A Stormpike answer. Ye'll do fine in the deep.", fx = { align = { order = 1 } } },
+        { text = "No mine is worth a whole company of lives.", next = "BACK", reply = "Hmph. Say that tae the Commander, no' me. Mind, I'll no' say ye're wrong.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -10505,7 +12013,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Stormpike surveyor, and a seasoned one. I read the rock of Irondeep Mine and tell the Guard where the ore runs and where the enemy waits." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask quick; I've a seam tae mark before the troggs move it." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -10516,6 +12024,7 @@ P:NPC {
         { text = "What are the troggs like down there?", next = "y_foe" },
         { text = "Is a mine worth this much blood?", next = "y_worth" },
         { text = "I know a thing or two about stone.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye'll know Irondeep rock when ye smell it. It's rich an' cold, an' it hates us all equally." },
+        { text = "What have you found in the deepest shafts?", next = "w2_deep" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -10529,20 +12038,20 @@ P:NPC {
     b1_1 = {
       lines = { { id = "b11_d", text = "The tunnels are dark, and the orcs and the deep things both wait in them. I carry an axe as well as a pick." } },
       choices = {
-        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Miners are miners, whoever they dig for.", fx = { align = { light = 1 } } },
+        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Aye, the rock will cover them. Irondeep keeps her dead.", fx = { align = { light = -1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Fair. Miners are miners. I've watched orc peons work the same seams as ours, an' bleed the same when the roof comes down.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Ore feeds the forges, and the forges feed the war. The side that holds the mines fights with better steel." } },
+      lines = { { id = "b2_d", text = "Ore feeds the forges, an' forges feed the war. I find the ore, so I suppose I feed the war too." } },
       choices = {
         { text = "Who holds them now?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "It changes by the hour. Ask me again after the next raid." } },
+      lines = { { id = "b21_d", text = "Changes by the hour. Ask me after the next raid, an' I'll mark it on the map." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -10550,10 +12059,10 @@ P:NPC {
   },
 
   topics = {
-    stormpike = { { id = "tp_ystormpike", text = "The Stormpike Guard came up from Ironforge tae claim Alterac for the dwarves, an' we're nae leavin' till it's done." } },
+    stormpike = { { id = "tp_ystormpike", text = "The Stormpike came up from Ironforge tae claim Alterac for the clan, an' we're no' leavin' till it's done." } },
     irondeep = { { id = "tp_yirondeep", text = "Irondeep Mine is cold an' deep an' never quiet. Somethin's always diggin' somewhere." } },
-    knows = { { id = "tp_knows", text = "Irondeep Mine, its tunnels, and how to take it." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    knows = { { id = "tp_knows", text = "Irondeep's tunnels, her seams an' her troggs, an' every way tae take her back." } },
+    _none = { { id = "tp_none", text = "Nae idea. Ask a dwarf who spends more time in daylight than I do." } },
   },
 }
 
@@ -10571,18 +12080,35 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Ah, it's yerself. Come an' look at the new shaft wi' me; it's the finest seam in Alterac." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "Stay clear o' the camp unless ye've orders tae be here, an' I doubt ye have." },
-    { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
-    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
-    { id = "yg_0", when = { race = "Dwarf" }, text = "A fellow dwarf! Grab a pick or an axe, either one'll do, an' mind yer back in the tunnels." },
-    { id = "yg_1", when = { race = "Gnome" }, text = "A gnome! Good, we need someone small enough tae see what's down the narrow shafts." },
+    { id = "g_default", text = "Soldier. Five winters, an' Irondeep's been ours an' theirs more times than I can count. It'll be ours again." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Good. There's always more rock, an' fewer friends tae dig it wi'." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! Ye'll no' take Irondeep while I can read her walls." },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "A dwarf! Take a pick or an axe, an' mind yer back. I've lost too many who didnae." },
+    { id = "yg_1", when = { race = "Gnome" }, text = "A gnome! Good, I've narrow shafts that need a small lantern, an' I'll keep ye safe as I can." },
   },
 
   start = "hello",
   nodes = {
+    w2_shaft = {
+      lines = {
+        { id = "w2_shaft_l", text = "Cut it myself, last spring, followin' a vein o' iron so pure it rings when ye strike it. It goes down an' east, toward the Frostwolf side o' the mountain. If it goes far enough, we could come up under their village." },
+      },
+      choices = {
+        { text = "Does the General know?", next = "w2_shaft2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_shaft2 = {
+      lines = {
+        { id = "w2_shaft2_l", text = "He knows, an' he's told me tae keep diggin' an' tae keep my mouth shut. I've told you because ye'll no' be believed if ye repeat it, an' because after five winters a dwarf needs tae tell somebody somethin' good." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
-        { id = "y_y_long", text = "Five winters now. I've lost count o' the times this mine's changed hands, but I've nae lost count o' the friends it cost." },
+        { id = "y_y_long", text = "Five winters. The mine's changed hands so often I've stopped countin', but I've counted every friend it took, an' I'll never stop that." },
       },
       choices = {
         { text = "Irondeep's ore should go to the Guard's forges, every nugget.", next = "BACK", reply = "Aye, an' it does, under my count. The Guard's armour comes out o' this hole.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -10593,8 +12119,8 @@ P:NPC {
     },
     y_teach = {
       lines = {
-        { id = "y_y_teach", text = "Old miners from Ironforge, mostly, who'd fought Dark Irons under the mountain long before any orc came tae Alterac. They said a tunnel fight's won by the dwarf who knows where the roof's weakest, an' they were right." },
-        { id = "y_y_teach_v0", when = { faction = "Alliance" }, text = "Old miners out of Ironforge, who'd fought the Dark Irons under the mountain. They taught me that the roof's yer best weapon an' yer worst enemy, an' that ye never forget which." },
+        { id = "y_y_teach", text = "Old Ironforge miners who'd fought the Dark Irons under the mountain. They said a tunnel fight's won by the one who knows the roof. I've known it five winters, an' I still lost friends tae it." },
+        { id = "y_y_teach_v0", when = { faction = "Alliance" }, text = "Ironforge miners who'd fought the Dark Irons. They said the roof's a weapon an' an enemy both. I've seen it be both in the same breath, an' buried the proof." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10602,7 +12128,7 @@ P:NPC {
     },
     y_ore = {
       lines = {
-        { id = "y_y_ore", text = "Iron, mostly, an' a seam o' something brighter that the smiths in Dun Baldar fight over. Whoever holds Irondeep keeps their forges hot, an' an army wi' cold forges is an army wi' blunt axes." },
+        { id = "y_y_ore", text = "Iron, an' a seam o' somethin' bright the Dun Baldar smiths quarrel over. I found that seam myself, four winters ago, an' it's cost more lives than it's worth." },
       },
       choices = {
         { text = "So you survey for the forges, not for glory?", next = "y_ore2" },
@@ -10611,7 +12137,7 @@ P:NPC {
     },
     y_ore2 = {
       lines = {
-        { id = "y_y_ore2", text = "Glory's for the heralds tae shout about. I'm here because Vanndar needs steel an' the Stormpike need these hills. My clan claims Alterac by old right, an' every cart o' ore is a stone in that claim." },
+        { id = "y_y_ore2", text = "Glory's for the young ones an' the heralds. I'm here because Vanndar needs steel, an' because after five winters I'm the only surveyor left who knows every shaft." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10619,7 +12145,7 @@ P:NPC {
     },
     y_foe = {
       lines = {
-        { id = "y_y_foe", text = "Troggs, big an' stupid an' strong as a ram. They crawl up from the deep wi' their Taskmaster, an' they hate dwarves wi' a hatred that's older than my grandsire. I've often wondered where that hatred came from." },
+        { id = "y_y_foe", text = "Troggs, big an' dull an' strong as rams, crawlin' up from the deep. I've mapped their tunnels as well as ours, an' theirs go further down than I like tae think about." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10627,11 +12153,11 @@ P:NPC {
     },
     y_worth = {
       lines = {
-        { id = "y_y_worth", text = "Some nights I wonder. Then I think o' the wolves holdin' it, an' sellin' the ore tae their own smiths, an' I stop wonderin'. What do ye think, soldier? Should we hold it at any cost?" },
+        { id = "y_y_worth", text = "I wonder every night now. Then I think o' the wolves takin' the ore, an' I stop. What do ye think, soldier? Is it worth any cost?" },
       },
       choices = {
-        { text = "Hold it. Ground given up is never won back.", next = "BACK", reply = "Spoken like a Stormpike! Ye'll fit right in down here.", fx = { align = { order = 1 } } },
-        { text = "No mine is worth a whole company of lives.", next = "BACK", reply = "Aye, well. Say that tae the Commander, nae me. But I'll nae say ye're wrong.", fx = { align = { order = -1 } } },
+        { text = "Hold it. Ground given up is never won back.", next = "BACK", reply = "Aye. I'd have said that once, wi' more fire.", fx = { align = { order = 1 } } },
+        { text = "No mine is worth a whole company of lives.", next = "BACK", reply = "Ye might be right. Five winters have taught me tae listen.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -10640,7 +12166,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Stormpike surveyor, and a veteran one. I read the rock of Irondeep Mine and tell the Guard where the ore runs and where the enemy waits." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask; I've time, an' few folk ask me anythin' but where the ore is." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -10650,34 +12176,35 @@ P:NPC {
         { text = "What's actually in the mine worth dying for?", next = "y_ore" },
         { text = "What are the troggs like down there?", next = "y_foe" },
         { text = "Is a mine worth this much blood?", next = "y_worth" },
-        { text = "I know a thing or two about stone.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye'll know Irondeep rock when ye smell it. It's rich an' cold, an' it hates us all equally." },
+        { text = "I know a thing or two about stone.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye'll know Irondeep's rock, kinsman. Rich an' cold, an' it's never once forgiven us for diggin'." },
+        { text = "Tell me about the new shaft.", next = "w2_shaft" },
         { text = "That's all for now.", next = "END" },
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "I walk the tunnels of Irondeep Mine, mark the seams, and send the miners where the ore is richest. A mine without a surveyor is just a hole." } },
+      lines = { { id = "b1_d", text = "I walk Irondeep's tunnels, mark the seams an' send the miners where the ore's richest. Five winters o' it, an' I know this mine like my own beard." } },
       choices = {
         { text = "Is it dangerous?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "The tunnels are dark, and the orcs and the deep things both wait in them. I carry an axe as well as a pick." } },
+      lines = { { id = "b11_d", text = "The tunnels are dark, an' orcs an' troggs both wait in them. I carry an axe as well as my pick, an' I've used the axe more." } },
       choices = {
-        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Miners are miners, whoever they dig for.", fx = { align = { light = 1 } } },
+        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Aye. Irondeep buries everyone, given time.", fx = { align = { light = -1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Fair. I've seen orc miners die as hard as ours.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Ore feeds the forges, and the forges feed the war. The side that holds the mines fights with better steel." } },
+      lines = { { id = "b2_d", text = "Ore feeds the forges, forges feed the war. It's the same sum every winter, an' it never comes out even." } },
       choices = {
         { text = "Who holds them now?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "It changes by the hour. Ask me again after the next raid." } },
+      lines = { { id = "b21_d", text = "Changes by the hour. Ask me after the next raid, if I'm still here." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -10685,10 +12212,10 @@ P:NPC {
   },
 
   topics = {
-    stormpike = { { id = "tp_ystormpike", text = "The Stormpike Guard came up from Ironforge tae claim Alterac for the dwarves, an' we're nae leavin' till it's done." } },
-    irondeep = { { id = "tp_yirondeep", text = "Irondeep Mine is cold an' deep an' never quiet. Somethin's always diggin' somewhere." } },
-    knows = { { id = "tp_knows", text = "Irondeep Mine, its tunnels, and how to take it." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    stormpike = { { id = "tp_ystormpike", text = "The Stormpike came up from Ironforge tae claim Alterac. I came wi' them, an' I'll go home when it's done, or when they carry me." } },
+    irondeep = { { id = "tp_yirondeep", text = "Irondeep's cold an' deep an' never quiet. Somethin's always diggin', an' it's no' always us." } },
+    knows = { { id = "tp_knows", text = "Irondeep's tunnels, every seam an' every grave in her." } },
+    _none = { { id = "tp_none", text = "I couldnae tell ye. Five winters underground's left nae room for anythin' else." } },
   },
 }
 
@@ -10706,18 +12233,35 @@ P:NPC {
   greetings = {
     { id = "dp_svw", when = { metBefore = true, disposition = { min = 60 } }, text = "Well met again! We could use a few more o' your sort in the deep, an' I'm glad tae see ye." },
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You. I'd no' trust ye tae hold a lantern in the deep, an' I'll no' pretend otherwise." },
-    { id = "g_default", text = "Soldier. That mine will fly the Stormpike banner again soon, mark me." },
-    { id = "g_back", when = { metBefore = true }, text = "Back again? Good, there's always more rock tae take." },
-    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! The mine's no place for the likes o' you." },
-    { id = "yg_0", when = { race = "Dwarf" }, text = "A fellow dwarf! Grab a pick or an axe, either one'll do, an' mind yer back in the tunnels." },
-    { id = "yg_1", when = { race = "Gnome" }, text = "A gnome! Good, we need someone small enough tae see what's down the narrow shafts." },
+    { id = "g_default", text = "Soldier! Irondeep'll be ours again by nightfall, an' I'll lead the way in." },
+    { id = "g_back", when = { metBefore = true }, text = "Back again? Good. There's always rock tae take, an' I've a raid tae lead." },
+    { id = "g_enemy", when = { faction = "Horde" }, text = "Horde! I held this mine's mouth alone once, an' I'll do it again against you." },
+    { id = "yg_0", when = { race = "Dwarf" }, text = "Kinsman! Grab a pick or an axe an' follow me. I know every tunnel in Irondeep." },
+    { id = "yg_1", when = { race = "Gnome" }, text = "A gnome! Grand. I need a clever wee head for the narrow shafts, an' ye'll be safe wi' me." },
   },
 
   start = "hello",
   nodes = {
+    w2_night = {
+      lines = {
+        { id = "w2_night_l", text = "The rest o' the company was down below, cut off by a trogg rush, an' the Frostwolves came up the road at dusk. I stood in the mouth wi' a lantern an' my axe an' shouted orders tae nobody, so they'd think we were many." },
+      },
+      choices = {
+        { text = "And they believed it?", next = "w2_night2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_night2 = {
+      lines = {
+        { id = "w2_night2_l", text = "Long enough. They charged twice an' fell back twice, an' at dawn my lads came up out o' the dark covered in trogg blood. Vanndar pinned the badge on me that week. I've never told him the shoutin' was the cleverest part." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_long = {
       lines = {
-        { id = "y_y_long", text = "Since the first shaft was cut, near enough. Vanndar pinned a champion's badge on me after I held the mouth alone through a whole night." },
+        { id = "y_y_long", text = "Since the first shaft was cut, near enough. Vanndar pinned a champion's badge on me after I held the mouth alone through a whole night, shoutin' tae an army that wasnae there." },
       },
       choices = {
         { text = "Claim the mine back in a fair fight, and keep it.", next = "BACK", reply = "Aye, that's the way, an' what's won fair stays won.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -10728,8 +12272,8 @@ P:NPC {
     },
     y_teach = {
       lines = {
-        { id = "y_y_teach", text = "Old miners from Ironforge, mostly, who'd fought Dark Irons under the mountain long before any orc came tae Alterac. They said a tunnel fight's won by the dwarf who knows where the roof's weakest, an' they were right." },
-        { id = "y_y_teach_v0", when = { faction = "Alliance" }, text = "Old miners out of Ironforge, who'd fought the Dark Irons under the mountain. They taught me that the roof's yer best weapon an' yer worst enemy, an' that ye never forget which." },
+        { id = "y_y_teach", text = "Old Ironforge miners who'd fought the Dark Irons under the mountain before any orc came tae Alterac. They said the dwarf who knows the roof wins the tunnel. I've won a good many." },
+        { id = "y_y_teach_v0", when = { faction = "Alliance" }, text = "Ironforge miners who fought the Dark Irons. The roof's yer best weapon an' worst enemy, they said, an' a champion never forgets which." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10737,7 +12281,7 @@ P:NPC {
     },
     y_ore = {
       lines = {
-        { id = "y_y_ore", text = "Iron, mostly, an' a seam o' something brighter that the smiths in Dun Baldar fight over. Whoever holds Irondeep keeps their forges hot, an' an army wi' cold forges is an army wi' blunt axes." },
+        { id = "y_y_ore", text = "Iron, an' a seam o' somethin' bright that the Dun Baldar smiths fight over. Whoever holds Irondeep keeps the forges hot, an' I mean it tae be us." },
       },
       choices = {
         { text = "So you survey for the forges, not for glory?", next = "y_ore2" },
@@ -10746,7 +12290,7 @@ P:NPC {
     },
     y_ore2 = {
       lines = {
-        { id = "y_y_ore2", text = "Glory's for the heralds tae shout about. I'm here because Vanndar needs steel an' the Stormpike need these hills. My clan claims Alterac by old right, an' every cart o' ore is a stone in that claim." },
+        { id = "y_y_ore2", text = "Glory? They gave me a badge, but that's no' why I'm here. Vanndar needs steel, the Stormpike need these hills, an' I know Irondeep better than any dwarf alive." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10754,7 +12298,7 @@ P:NPC {
     },
     y_foe = {
       lines = {
-        { id = "y_y_foe", text = "Troggs, big an' stupid an' strong as a ram. They crawl up from the deep wi' their Taskmaster, an' they hate dwarves wi' a hatred that's older than my grandsire. I've often wondered where that hatred came from." },
+        { id = "y_y_foe", text = "Troggs, big an' stupid an' strong as rams. They crawl up from the deep an' fight everyone. I've mapped their warrens an' killed their chieftains, an' still they come." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10762,11 +12306,11 @@ P:NPC {
     },
     y_worth = {
       lines = {
-        { id = "y_y_worth", text = "Some nights I wonder. Then I think o' the wolves holdin' it, an' sellin' the ore tae their own smiths, an' I stop wonderin'. What do ye think, soldier? Should we hold it at any cost?" },
+        { id = "y_y_worth", text = "I've wondered before every raid. Then I think o' the wolves smeltin' Irondeep's ore, an' I stop. What do ye say, soldier? Hold it at any cost?" },
       },
       choices = {
-        { text = "Hold it. Ground given up is never won back.", next = "BACK", reply = "Spoken like a Stormpike! Ye'll fit right in down here.", fx = { align = { order = 1 } } },
-        { text = "No mine is worth a whole company of lives.", next = "BACK", reply = "Aye, well. Say that tae the Commander, nae me. But I'll nae say ye're wrong.", fx = { align = { order = -1 } } },
+        { text = "Hold it. Ground given up is never won back.", next = "BACK", reply = "Aye! That's the Stormpike answer, an' a champion's.", fx = { align = { order = 1 } } },
+        { text = "No mine is worth a whole company of lives.", next = "BACK", reply = "Hmph. A champion has tae hear that, even if he cannae act on it.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -10775,7 +12319,7 @@ P:NPC {
         { id = "h_default", key = true, text = "Stormpike surveyor, and a champion one. I read the rock of Irondeep Mine and tell the Guard where the ore runs and where the enemy waits." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else? Ask; then grab a lantern an' follow me down." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -10785,34 +12329,35 @@ P:NPC {
         { text = "What's actually in the mine worth dying for?", next = "y_ore" },
         { text = "What are the troggs like down there?", next = "y_foe" },
         { text = "Is a mine worth this much blood?", next = "y_worth" },
-        { text = "I know a thing or two about stone.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye'll know Irondeep rock when ye smell it. It's rich an' cold, an' it hates us all equally." },
+        { text = "I know a thing or two about stone.", next = "BACK", when = { race = "Dwarf" }, reply = "Then ye'll know Irondeep's rock, kinsman. Rich an' cold, an' it hates us all alike, champions included." },
+        { text = "How did you hold the mine mouth alone?", next = "w2_night" },
         { text = "That's all for now.", next = "END" },
       },
     },
     b1 = {
-      lines = { { id = "b1_d", text = "I walk the tunnels of Irondeep Mine, mark the seams, and send the miners where the ore is richest. A mine without a surveyor is just a hole." } },
+      lines = { { id = "b1_d", text = "I walk Irondeep's tunnels, read her rock an' send the miners tae the richest seams. I've done it since the first shaft, an' I've never once been wrong about a vein." } },
       choices = {
         { text = "Is it dangerous?", next = "b1_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b1_1 = {
-      lines = { { id = "b11_d", text = "The tunnels are dark, and the orcs and the deep things both wait in them. I carry an axe as well as a pick." } },
+      lines = { { id = "b11_d", text = "The tunnels are dark, an' orcs an' troggs wait in them both. A champion carries an axe as well as a pick, an' knows when tae use each." } },
       choices = {
-        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Yes. The rock will hide them.", fx = { align = { light = -1 } } },
-        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Hmph. Miners are miners, whoever they dig for.", fx = { align = { light = 1 } } },
+        { text = "Kill everyone in the tunnels.", next = "BACK", reply = "Aye, the rock will hide them, an' nobody'll come lookin'.", fx = { align = { light = -1 } } },
+        { text = "Take the mine, but let the miners run.", next = "BACK", reply = "Fair. Let the miners run; a champion's got better quarry.", fx = { align = { light = 1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2 = {
-      lines = { { id = "b2_d", text = "Ore feeds the forges, and the forges feed the war. The side that holds the mines fights with better steel." } },
+      lines = { { id = "b2_d", text = "Ore feeds the forges an' forges feed the war. Hold the mines an' the Guard fights wi' better steel. I've seen tae that for years." } },
       choices = {
         { text = "Who holds them now?", next = "b2_1" },
         { text = "Something else.", next = "BACK" },
       },
     },
     b2_1 = {
-      lines = { { id = "b21_d", text = "It changes by the hour. Ask me again after the next raid." } },
+      lines = { { id = "b21_d", text = "Changes by the hour, an' my axe changes it as often as anybody's. Come back after the raid an' I'll tell ye." } },
       choices = {
         { text = "Something else.", next = "BACK" },
       },
@@ -10820,10 +12365,10 @@ P:NPC {
   },
 
   topics = {
-    stormpike = { { id = "tp_ystormpike", text = "The Stormpike Guard came up from Ironforge tae claim Alterac for the dwarves, an' we're nae leavin' till it's done." } },
-    irondeep = { { id = "tp_yirondeep", text = "Irondeep Mine is cold an' deep an' never quiet. Somethin's always diggin' somewhere." } },
-    knows = { { id = "tp_knows", text = "Irondeep Mine, its tunnels, and how to take it." } },
-    _none = { { id = "tp_none", text = "I could not tell you. Ask someone with more time on their hands." } },
+    stormpike = { { id = "tp_ystormpike", text = "The Stormpike came up from Ironforge tae claim Alterac, an' I'll see it claimed before I set foot in Ironforge again." } },
+    irondeep = { { id = "tp_yirondeep", text = "Irondeep's cold an' deep an' never quiet. I know every noise in her, an' I still dinnae like the half o' them." } },
+    knows = { { id = "tp_knows", text = "Irondeep, every tunnel an' warren in her, an' every way tae take her back." } },
+    _none = { { id = "tp_none", text = "Couldnae say. Ask a dwarf who's spent less o' his life in the dark." } },
   },
 }
 
@@ -10843,13 +12388,31 @@ P:NPC {
     { id = "dp_svc", when = { metBefore = true, disposition = { max = 34 } }, text = "You return to me. I will send you back, as the ancestors ask, but they do not speak warmly of you." },
     { id = "g_default", text = "You have fallen, warrior, but the ancestors are not finished with you. Rest, and I will send you back." },
     { id = "g_back", when = { metBefore = true }, text = "Again you come to me. The valley is hungry." },
-    { id = "g_enemy", when = { faction = "Alliance" }, text = "You are not one of mine, wandering spirit. Seek your own guide." },
-    { id = "yg_0", when = { race = "Tauren" }, text = "Peace, child. You fell bravely, and the ancestors has not finished with you." },
+    { id = "g_enemy", when = { faction = "Alliance" }, text = "You do not belong to my ancestors, wandering spirit. Go and find the guide who waits for you." },
+    { id = "yg_0", when = { race = "Tauren" }, text = "Peace, child. You fell bravely, and the ancestors have not finished with you yet." },
     { id = "yg_1", when = { class = "SHAMAN" }, text = "You who walk with the ancestors should know me already. Be still, and you will rise." },
   },
 
   start = "hello",
   nodes = {
+    w2_anc = {
+      lines = {
+        { id = "w2_anc_l", text = "Always, though not in words. They are a warmth at my back when I send a warrior home, and a cold at my shoulder when I send one back too many times. The Frostwolf ancestors are very old, and very patient, and they remember the exile." },
+        { id = "w2_anc_l1", when = { class = "SHAMAN" }, text = "You will know how they speak, shaman: a warmth at the back, a cold at the shoulder. The Frostwolf ancestors are old and patient, and they remember the exile. They watch you as closely as they watch me." },
+      },
+      choices = {
+        { text = "What do they say about this war?", next = "w2_anc2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_anc2 = {
+      lines = {
+        { id = "w2_anc2_l", text = "That the valley has been fought over before, long before orc or dwarf, and will be fought over again. They do not tell me who wins. I think they do not care, so long as the warriors are brave and the dead are honoured." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     y_who = {
       lines = {
         { id = "y_y_who", text = "Once I was a soldier, like you. I fell in another war, long before this one, and the ancestors asked me to stay a while between the worlds. I said yes, and I have not regretted it, though I have often grieved." },
@@ -10861,7 +12424,7 @@ P:NPC {
     },
     y_war = {
       lines = {
-        { id = "y_y_war", text = "I no longer remember its name. I remember the cold, and a voice calling me back, and choosing not to go. Some memories the passage takes from you, and I think that was a kindness." },
+        { id = "y_y_war", text = "I have forgotten its name. I remember snow, and a voice that called me onward, and that I chose to turn back. The ancestors took the rest, and I do not ask for it again." },
         { id = "y_y_war_v0", when = { race = "Scourge" }, text = "I no longer remember. You, of all souls, know that the passage takes things from those who cross it. Be glad you kept your will, if nothing else." },
       },
       choices = {
@@ -10870,7 +12433,7 @@ P:NPC {
     },
     y_tired = {
       lines = {
-        { id = "y_y_tired", text = "Spirits do not tire, but they do grow heavy. Each soul I return carries a little of the valley's sorrow, and some of it stays with me. It is a small price for what I give back." },
+        { id = "y_y_tired", text = "Spirits do not weary, but we grow heavy. Every warrior I return leaves a little of their grief with me. The ancestors carry the rest. It is a fair burden." },
       },
       choices = {
         { text = "Something else.", next = "BACK" },
@@ -10886,11 +12449,11 @@ P:NPC {
     },
     y_mercy = {
       lines = {
-        { id = "y_y_mercy", text = "I could refuse to send you back. You would rest, then, and the war would go on without you. Some say returning the fallen only lengthens the killing. What do you believe?" },
+        { id = "y_y_mercy", text = "I could let you rest. The war would go on, and you would not be in it. Some of the elders say that sending the fallen back only feeds the valley more blood. What do you believe, warrior?" },
       },
       choices = {
         { text = "Send me back. The fight is not finished.", next = "BACK", reply = "Then go, with the ancestors at your back. I will be here when you fall again.", fx = { align = { order = 1 } } },
-        { text = "Perhaps the dead should be allowed to rest.", next = "BACK", reply = "A merciful thought. But the choice was never mine alone to make.", fx = { align = { order = -1 } } },
+        { text = "Perhaps the dead should be allowed to rest.", next = "BACK", reply = "A kind thought. But the ancestors decide, not I.", fx = { align = { order = -1 } } },
         { text = "Something else.", next = "BACK" },
       },
     },
@@ -10899,7 +12462,7 @@ P:NPC {
         { id = "h_default", key = true, text = "I guide the fallen of the Horde back to the field. The ancestors watch this valley, and they do not let the Frostwolves' warriors rest while the fight goes on." },
       },
       again = {
-        { id = "h_again1", text = "What else do you need?" },
+        { id = "h_again1", text = "What else would you ask, warrior? The field is waiting, but the ancestors will allow a little time." },
         { id = "h_again2", text = "Speak, then." },
       },
       choices = {
@@ -10909,7 +12472,8 @@ P:NPC {
         { text = "Do you ever grow tired?", next = "y_tired" },
         { text = "Is there a guide for the other side?", next = "y_enemy" },
         { text = "Should the fallen be sent back at all?", next = "y_mercy" },
-        { text = "Have you guided many back?", next = "BACK", when = { class = "SHAMAN" }, reply = "More than snowflakes in this valley. Each one I remember, and each one I would spare if I could." },
+        { text = "Have you guided many back?", next = "BACK", when = { class = "SHAMAN" }, reply = "More than there are stones in the Frostwolf Graveyard. I remember each one, and the ancestors remember them all." },
+        { text = "Do the ancestors speak to you?", next = "w2_anc" },
         { text = "That's all for now.", next = "END" },
       },
     },
@@ -10944,9 +12508,9 @@ P:NPC {
   },
 
   topics = {
-    death = { { id = "tp_ydeath", text = "Death in this valley is a door that swings both ways. I only keep it oiled." } },
+    death = { { id = "tp_ydeath", text = "In this valley, death is a door that opens both ways. The ancestors hold it, and I only stand beside it." } },
     frostwolf = { { id = "tp_yfrostwolf", text = "The Frostwolf fight bravely. I have returned every one of them at least once." } },
     knows = { { id = "tp_knows", text = "Death, the ancestors, and the long road back." } },
-    _none = { { id = "tp_none", text = "That is a matter for the living." } },
+    _none = { { id = "tp_none", text = "That is for the living to answer, and the ancestors do not meddle with it." } },
   },
 }

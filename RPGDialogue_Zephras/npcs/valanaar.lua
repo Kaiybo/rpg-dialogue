@@ -428,6 +428,22 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_reg = {
+      lines = { { id = "w8_reg_a", text = "Swimmers, every night, at the table nearest the fire, and a Peacekeeper and a Windshaper who sit in the corner and argue in whispers so the other customers don't hear. And the refugees, now, on the floor by the hearth when the beds are full." } },
+      choices = {
+        { text = "Do the Peacekeeper and the Windshaper ever settle it?", next = "w8_reg2" },
+        { text = "You've a soft heart, taking in refugees.", next = "w8_reg2" },
+        { text = "Something else, Donaal.", next = "BACK" },
+      },
+    },
+    w8_reg2 = {
+      lines = { { id = "w8_reg2_a", text = "Never, and I hope they never do, because they tip better when they're both sure they're right. As for the refugees, a bed's a bed, and an empty one earns nothing either way, so I'll thank you not to call it soft where Swimmers can hear." } },
+      choices = {
+        { text = "Your secret's safe.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     -- Deeds pass: Alvarion Windfield, avenged by the player (Blood Tithe).
     dd_alvarion = {
       lines = { { id = "da_default", text = "Better, and complaining about it, which Melasa says is the surest sign. He keeps asking whether the orchard's been picked, and I keep telling him Aamelia's seeing to it, and he keeps not believing me." } },
@@ -460,6 +476,7 @@ P:NPC {
         { text = "What's good to eat here?", next = "food" },
         { text = "Anything worth seeing in the inn?", next = "crystal" },
         { text = "I'd like a room, please.", next = "BUSINESS" },
+        { text = "Who are your regulars at the Calmbreeze?", next = "w8_reg" },
         { text = "Just passing through.", next = "END" },
       },
     },
@@ -570,6 +587,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_dish = {
+      lines = { { id = "w8_dish_a", text = "Stormapple tart with a crust of crushed flutterfly honey, which my grandmother made on every coming-of-age in Valanaar. Since the Windfields had their trouble, I've only had enough apples for half the tarts, so I make them smaller and everyone pretends not to notice." } },
+      choices = {
+        { text = "Could I help gather apples?", next = "w8_dish2" },
+        { text = "Smaller tarts still taste of home.", next = "w8_dish2" },
+        { text = "I cook. What's the secret to the crust?", next = "w8_dish2", when = { profession = "Cooking" } },
+        { text = "Something else, Nyalah.", next = "BACK" },
+      },
+    },
+    w8_dish2 = {
+      lines = {
+        { id = "w8_dish2_a", text = "If you're passing Windfield Orchard, Aamelia would be glad of the hands, and I'd be glad of the apples, so that's two of us in your debt. Small tarts or large, the young ones eat them on the day they come of age, and that's what matters." },
+        { id = "w8_dish2_cook", when = { profession = "Cooking" }, text = "Cold butter, cold hands, and a pinch of salt in the honey, which my grandmother swore by and nobody believes until they taste it. Try it below the clouds, with whatever apples they have there, and write and tell me if it works." },
+      },
+      choices = {
+        { text = "I'll remember the salt.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_dd_news", when = { questDone = TODO_QUEST("Deliver the News") },
@@ -591,6 +628,7 @@ P:NPC {
         { text = "I could tell you about moonberries.", next = "xnelf", when = { race = "NightElf" } },
         { text = "I'll be leaving the isle soon.", next = "xleave", when = { race = "Skyborne" } },
         { text = "I wove cloaks on your street, Nyalah. Do you remember me?", next = "xorig_cloth", when = { origin = "skyborne_valanaar_clothcrafter" } },
+        { text = "What's the dish everyone asks you for?", next = "w8_dish" },
         { text = "Winds be with you, Nyalah.", next = "END" },
       },
     },

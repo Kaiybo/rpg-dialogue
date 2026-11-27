@@ -25,6 +25,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_long = {
+      lines = { { id = "w8_long_a", text = "Long enough that Murta's started naming the vultures, pal, and that's a bad sign for everybody's sanity. The trolls feed us just enough to keep us fresh for the sacrifice, which is very thoughtful of them, if you think about it." } },
+      choices = {
+        { text = "What has Murta named them?", next = "w8_long2" },
+        { text = "You don't seem too worried.", next = "w8_long2" },
+        { text = "Something else, Sergeant.", next = "BACK" },
+      },
+    },
+    w8_long2 = {
+      lines = { { id = "w8_long2_a", text = "The big one's called Bly, because she says it's got my nose, and I'm choosing to take that as a compliment. Worried? Sure I'm worried, but worryin' don't open cages, and you just might." } },
+      choices = {
+        { text = "Then let's open some cages.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Sergeant Bly, at your service, and I mean that very sincerely right now. Me and my crew came for troll gold and got a cage and a sunburn instead. Get us off this pyramid and we'll fight alongside you." },
@@ -37,6 +53,7 @@ P:NPC {
         { text = "Fight with us down the steps.", next = "fight" },
         { text = "You're a thief, Sergeant. I can tell.", next = "rogue", when = { class = "ROGUE" } },
         { text = "Gadgetzan's goblins know your name, I'll bet.", next = "gadgetzan", when = { race = { "Gnome", "Dwarf", "Human" } } },
+        { text = "How long have you been stuck on this pyramid?", next = "w8_long" },
         { text = "I'll be back for you.", next = "END" },
       },
     },
@@ -124,6 +141,26 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_boot = {
+      lines = { { id = "w8_boot_a", text = "Enough to open one door, pal, or two small ones, or one door and most of a troll, if he's standin' close! I keep it wrapped in oilcloth with a sock round it, and I've only set my foot on fire the once." } },
+      choices = {
+        { text = "The trolls didn't search your boots?", next = "w8_boot2" },
+        { text = "Walking around on powder seems unwise.", next = "w8_boot2" },
+        { text = "I'm an engineer. Show me that charge.", next = "w8_boot2", when = { profession = "Engineering" } },
+        { text = "Something else, Weegli.", next = "BACK" },
+      },
+    },
+    w8_boot2 = {
+      lines = {
+        { id = "w8_boot2_a", text = "They tried, but I told 'em it was a goblin foot ointment and they backed right off, 'cause nobody wants to touch goblin foot ointment. Unwise, sure, but every goblin in Gadgetzan walks around on somethin' that could go bang, and most of us still got toes." },
+        { id = "w8_boot2_eng", when = { profession = "Engineering" }, text = "Ooh, a colleague! See this? Double-wrapped, short fuse, and a little cap I filed out of a troll's tooth, so it won't spark till I want it to. Don't tell Sarge I showed you, he thinks the boot's only full of socks." },
+      },
+      choices = {
+        { text = "Keep your toes, Weegli.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Weegli Blastfuse, demolitions expert! Well, expert-ish. The trolls took my good charges, but I can still blow the door at the bottom of the steps if you keep them off me for a minute." },
@@ -138,6 +175,7 @@ P:NPC {
         { text = "I know a thing or two about explosives.", next = "fuses", when = { profession = { "Engineering" } } },
         { text = "What's the biggest thing you ever blew up?", next = "ybig" },
         { text = "Got any family back in Gadgetzan?", next = "yfamily" },
+        { text = "How much powder do you actually have in that boot?", next = "w8_boot" },
         { text = "Get ready, Weegli.", next = "END" },
       },
     },

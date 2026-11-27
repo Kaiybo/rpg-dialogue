@@ -1436,6 +1436,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_fine = {
+      lines = { { id = "w8_fine_a", text = "A captain's coat for one of the Blackwater officers, pal, red silk with gold thread at the cuffs, and I stitched every buttonhole by hand in one night because he was sailing at dawn. He wore it into a fight with the Bloodsail and came home without a single tear in it, which I take personally." } },
+      choices = {
+        { text = "Personally? He came home safe.", next = "w8_fine2" },
+        { text = "You must have charged him a fortune.", next = "w8_fine2" },
+        { text = "I'm a tailor too. Gold thread on silk is murder.", next = "w8_fine2", when = { profession = "Tailoring" } },
+        { text = "Something else, Xizk.", next = "BACK" },
+      },
+    },
+    w8_fine2 = {
+      lines = {
+        { id = "w8_fine2_a", text = "Exactly, and he hasn't needed a repair since, so I've made one sale off the finest work of my life! That's the curse of quality, pal, and it's why I sell cheap canvas to sailors by the yard." },
+        { id = "w8_fine2_tl", when = { profession = "Tailoring" }, text = "Murder! Finally, somebody who understands! You wax the thread twice and work it by lamplight, sweetheart, and you curse every goblin who ever invented gold, and then you charge double, because you've earned it." },
+      },
+      choices = {
+        { text = "The curse of quality. I'll remember that.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     xwarcl = {
       big = true,
       lines = { { id = "xwarcl_default", text = "Because a tabard says who you fight for, and a frayed one says nobody's looking after you, and nobody hires a soldier who looks cheap. Stitch it right and stitch it tight, I always say, and you'll look like a soldier and not a scarecrow out of Westfall." } },
@@ -1521,6 +1541,7 @@ P:NPC {
         { text = "What cloth holds up best in the jungle, Xizk?", next = "xhuntcl", when = { class = "HUNTER" } },
         { text = "What happens to a druid's robes when the druid becomes a bear?", next = "xdruid", when = { class = "DRUID" } },
         { text = "Does a frayed tabard really matter that much, Xizk?", next = "xapala", when = { class = "PALADIN" } },
+        { text = "What's the finest thing you've ever stitched?", next = "w8_fine" },
         { text = "Later.", next = "END" },
       },
     },

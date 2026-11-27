@@ -56,10 +56,25 @@ P:NPC {
         { text = "What's the trouble on the road?", next = "trouble" },
         { text = "How did an orc end up up here?", next = "why_here" },
         { text = "Let me see your goods.", next = "BUSINESS" },
+        { text = "What did the last caravan lose on the road up?", next = "w5_lost" },
         { text = "Farewell, Grawnal.", next = "END" },
       },
     },
 
+    w5_lost = {
+      lines = { { id = "w5_lost_l", text = "Two crates of thread and a kodo's dignity. A harpy came down on the switchbacks and spooked the lead beast, and the crates went over the edge into the canyon. I sent a brave down after them. He came back with one crate and a broken horn." } },
+      choices = {
+        { text = "Was the thread worth a broken horn?", next = "w5_lost2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_lost2 = {
+      lines = { { id = "w5_lost2_l", text = "To Kulwia it was. She'd been waiting a season for that thread, and when it came up the road she nearly kissed the brave. He says the horn was worth it. I say next time we tie the crates down properly, and I said it loud enough for the whole caravan to hear." } },
+      choices = {
+        { text = "Tie the crates, and keep the horns. Sound advice.", next = "BACK", reply = "Ha! Somebody listens to me at last. Buy something, while you're in a listening mood." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     road = {
       lines = {
         { id = "rd_default", text = "On a kodo, up from the Barrens, through the pass and past the Grimtotem, who watch every caravan go by like they're pricing it. The drovers are tauren and they're braver than I'd be, because I only count the crates once they're safe." },
@@ -199,10 +214,25 @@ P:NPC {
         { text = "Show me your supplies.", next = "BUSINESS" },
         { text = "Who else trades here on Sun Rock?", next = "neighbours" },
         { text = "The Venture Company must make your work harder.", next = "venture" },
+        { text = "What's the finest thing a crafter has made from your supplies?", next = "w5_finest" },
         { text = "Earth Mother keep you.", next = "END" },
       },
     },
 
+    w5_finest = {
+      lines = { { id = "w5_finest_l", text = "A wand, from one of Hgarth's students, that held a little of the mountain wind in it. When she tipped it, you could hear the gale over the Crag. She cried when it was done, and so did I, and then I put the price of my rods up." } },
+      choices = {
+        { text = "You raised your prices for that?", next = "w5_finest2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_finest2 = {
+      lines = { { id = "w5_finest2_l", text = "Of course. If my rods make wands like that, they're worth more than I've been charging. She laughed and paid it, and so have the others since. A crafter should be proud of what she sells. Pride costs a little extra." } },
+      choices = {
+        { text = "Pride costs extra. That's fair.", next = "BACK", reply = "It is, {class}. And humility is free, but nobody wants to buy it." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hgarth = {
       lines = {
         { id = "hg_default", text = "Up on the cliff above the town, on a ledge you would never find by looking for it. There's a narrow path from a nook behind the largest tent, steep enough that I've watched orcs climb it on their hands." },
@@ -360,10 +390,25 @@ P:NPC {
         { text = "Let me see what you've got.", next = "BUSINESS" },
         { text = "How did an orc butcher end up on a tauren mountain?", next = "how" },
         { text = "Mirkfallon Lake. What's it like down there?", next = "lake" },
+        { text = "What's the worst thing a customer ever asked you to cook?", next = "w5_worst" },
         { text = "I'm not hungry. Farewell.", next = "END" },
       },
     },
 
+    w5_worst = {
+      lines = { { id = "w5_worst_l", text = "Harpy. Every brave on this rock asks me at least once, usually after they've been clawed. I tell them a harpy tastes like a buzzard that was angry about something. They don't believe me until they try it. Then they go back to goat." } },
+      choices = {
+        { text = "You've tried it yourself?", next = "w5_worst2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_worst2 = {
+      lines = { { id = "w5_worst2_l", text = "Once, to settle an argument. It's stringy, sour and the feathers get in your teeth no matter how you pluck it. The tauren who lost the argument apologised to the harpy afterward. I laughed so hard I nearly dropped my cleaver." } },
+      choices = {
+        { text = "So harpy stays off the menu.", next = "BACK", reply = "Off the menu forever, unless the goats run out. And the goats will never run out." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     meat = {
       lines = {
         { id = "me_default", text = "Goats from the high slopes, boar when the hunters go down to the foothills, and mutton that comes up from the Barrens salted, because sheep don't climb. The quail are from Mirkfallon Lake, where they're fat and foolish." },
@@ -511,10 +556,26 @@ P:NPC {
         { text = "Let me see your stock.", next = "BUSINESS" },
         { text = "What makes a harpy hard to shoot?", next = "harpies" },
         { text = "You said there's no smith here. Why not?", next = "smith" },
+        { text = "How long does a mountain ash bow take to make?", next = "w5_time" },
         { text = "Farewell, Borand.", next = "END" },
       },
     },
 
+    w5_time = {
+      lines = { { id = "w5_time_l", text = "A full season, if you want it to last. Cut the stave in the cold, let it dry for three moons, then shape it slow so the grain doesn't split. The Venture Company cuts the ash down by the hundred. I take one tree a year, and I ask it first." } },
+      choices = {
+        { text = "You ask the tree?", next = "w5_time2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_time2 = {
+      lines = { { id = "w5_time2_l", text = "The tauren taught me. I laughed the first time, and then I watched one of their bows outlast mine by ten years. Maybe it's the asking, maybe it's the waiting that goes with it. Either way, my bows don't crack in the cold any more." } },
+      choices = {
+        { text = "Patience and asking. That's the secret, then.", next = "BACK", reply = "It's two secrets. Both of them take a season to learn." },
+        { text = "I'll ask the tree, too, when I make my next bow.", next = "BACK", when = { class = "HUNTER" }, reply = "Good. And if it says no, find another tree." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     why = {
       lines = {
         { id = "wh_default", text = "Because I watched three good grunts die on these cliffs with axes in their hands and nothing to swing them at. The harpies sat on the rocks and laughed, and I went and learned the bow the next season." },

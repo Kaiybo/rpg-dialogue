@@ -173,7 +173,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else would you know? Ask, and I will try not to wander in the telling." },
-        { id = "h_again2", text = "Yes? I am listening, truly." },
+        { id = "h_again2", text = "Yes? Say it, and I will hold my thoughts still as a pool until you finish." },
       },
       choices = {
         { text = "Who lies in Maraudon?", next = "zaetar" },
@@ -181,7 +181,36 @@ P:NPC {
         { text = "Your brother is at Nijel's Point.", next = "brother" },
         { text = "What happened to this land?", next = "land" },
         { text = "Theradras is dead. I was there.", next = "dead", when = { cleared = "Maraudon" } },
+        { text = "Your sisters guard you with spears. Are you safe here?", next = "w7_sisters" },
         { text = "I'll do what I can.", next = "END", fx = { affinity = 1 } },
+      },
+    },
+    w7_sisters = {
+      lines = {
+        { id = "w7_sisters_l1", text = "Safer than I would be alone, and less safe than I would be in Stonetalon. My sisters are fierce, fiercer than I ever was, and they have sworn to stand on this strand until Zaetar is free or the sea takes us all." },
+      },
+      choices = {
+        { text = "What will you do when he is free?", next = "w7_sisters2" },
+        { text = "The naga could overwhelm you in a night.", next = "w7_sisters3" },
+        { text = "Something else, Selendra.", next = "BACK" },
+      },
+    },
+    w7_sisters2 = {
+      lines = {
+        { id = "w7_sisters2_l1", text = "Carry him home to the mountains, to a grove where the water still runs clean, and sing to him until the earth remembers him kindly. And then, I think, I will sit by a stream for a very long time and say nothing to anyone at all." },
+      },
+      choices = {
+        { text = "He'll be at peace, then.", next = "BACK", reply = "I pray so. Cenarius taught us to hope, even here." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_sisters3 = {
+      lines = {
+        { id = "w7_sisters3_l1", text = "They could, and they have tried. But the naga want the sea and the ruins, and we want nothing they have, so they watch us more than they fight us, and I have learned to sleep with one eye on the waves." },
+        { id = "w7_sisters3_l2", when = { faction = "Horde" }, text = "They could, and they have tried. The trolls of Shadowprey have come down the strand to help us twice, which my brother at Nijel's Point would find very hard to hear, so I have not told him." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     zaetar = {

@@ -32,6 +32,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_commission = {
+      lines = {
+        { id = "w2_commission_l0", text = "A wedding band for a thane's son, set with a sapphire from the Badlands, cut so the light went round the inside like water round a stone. Half the Mystic Ward came to look before I delivered it." },
+      },
+      choices = {
+        { text = "What happened to it?", next = "w2_commission_after" },
+        { text = "One ring doesn't make a name.", next = "BACK" },
+      },
+    },
+    w2_commission_after = {
+      lines = {
+        { id = "w2_commission_after_l0", text = "His bride wears it still, I'm told. She's one of the few who never believed the rumours, and she sends her friends to me, though they rarely buy. A good word is still a good word, even if it doesn't pay the rent." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -59,6 +76,7 @@ P:NPC {
         { text = "I found your ring in Gnomeregan.", next = "ring", when = { questDone = TODO_QUEST("Return of the Ring") } },
         { text = "Where do you get your gems?", next = "d0_gems" },
         { text = "Your cases look sad without any stock.", next = "d0_cases" },
+        { text = "What was your best commission, before the rumours?", next = "w2_commission" },
         { text = "I'll come back when I'm buying.", next = "END" },
       },
     },
@@ -183,6 +201,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_others = {
+      lines = {
+        { id = "w2_others_l0", text = "The dwarven ones think I'm wastin' a good mind on elves, an' the elven ones think a dwarf has nae business wi' their glyphs. So I'm laughed at in two languages, which I've decided is an honour." },
+      },
+      choices = {
+        { text = "Has anyone helped you?", next = "w2_others_help" },
+        { text = "Prove them wrong, then.", next = "BACK" },
+      },
+    },
+    w2_others_help = {
+      lines = {
+        { id = "w2_others_help_l0", text = "A night elf priestess in Darnassus writes now an' again, though she always signs off wi' a warnin' about what Azshara's mages did wi' their knowledge. She's no' wrong, which makes me read her letters very carefully." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -195,7 +230,7 @@ P:NPC {
           text = "The rubbin's are up on the wall, all four, an' I've been starin' at them for three nights runnin'. I think they're rules, laws o' magic, an' I think the elves who wrote them were very sure o' themselves." },
       },
       again = {
-        { id = "h_again", text = "What else? Ask away, I love a question." },
+        { id = "h_again", text = "What else? Ask away, I love a question, especially one wi' a rune in it." },
         { id = "h_again2", text = "Go on, the runes have waited ten thousand years, they can wait a wee bit more." },
       },
       choices = {
@@ -206,6 +241,7 @@ P:NPC {
         { text = "I can read a little of that arcane script.", next = "mage", when = { class = { "MAGE", "WARLOCK" } } },
         { text = "How did you learn to read the old elven script?", next = "d0_learn" },
         { text = "The papers on your floor are in three languages.", next = "d0_papers" },
+        { text = "What do the other scholars make of your work?", next = "w2_others" },
         { text = "I'll leave you to your runes.", next = "END" },
       },
     },

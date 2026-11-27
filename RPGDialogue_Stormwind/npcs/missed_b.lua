@@ -41,6 +41,7 @@ P:NPC {
         { text = "Is Gil's father with you today?", next = "x_father" },
         { text = "Children should be told the truth, even hard truths.", next = "x_stance" },
         { text = "I know Charys's shop. Her reagents are good.", next = "x_mage", when = { class = "MAGE" } },
+        { text = "Paige says you make medicines for the neighbours.", next = "e3_medicine" },
         { text = "Enjoy your walk.", next = "END" },
       },
     },
@@ -104,6 +105,25 @@ P:NPC {
       },
       choices = {
         { text = "I'll leave that mystery alone. Something else.", next = "BACK" },
+      },
+    },
+    e3_medicine = {
+      lines = {
+        { id = "e3_medicine_l0", text = "Only simple things, willow bark for fevers and peacebloom poultices for cuts, which my own mother taught me in Goldshire. The neighbours pay in eggs and bread, and it's a fair trade, for the apothecaries in the Mage Quarter charge more than a docker earns in a week." },
+        { id = "e3_medicine_l1", when = { profession = "Herbalism" }, text = "Only simple things, willow bark and peacebloom, which you'd know better than I do, I expect. The neighbours pay in eggs and bread, and the apothecaries in the Mage Quarter would charge a docker a week's wages for the same." },
+      },
+      choices = {
+        { text = "Have you ever thought of selling them properly?", next = "e3_medicine2" },
+        { text = "Eggs and bread are honest payment.", next = "BACK" },
+      },
+    },
+    e3_medicine2 = {
+      lines = {
+        { id = "e3_medicine2_l0", text = "I'd need a licence from the guild, and the guild would want a fee I haven't got. Besides, the woman in the next street brings me her children's coughs at midnight, and a shop would close its door on her." },
+      },
+      choices = {
+        { text = "Then keep doing it your way. Something else.", next = "BACK" },
+        { text = "A licence would protect you, too.", next = "BACK" },
       },
     },
   },
@@ -188,6 +208,7 @@ P:NPC {
         { text = "What does your mommy do?", next = "ymommy" },
         { text = "Do you want to see a gnome trick?", next = "BACK", when = { race = "Gnome" }, reply = "Yes, yes! Gil, look, the gnome's doing a trick! Do it again, slower, so Gil can see." },
         { text = "What rabbit would you have?", next = "yrabbit" },
+        { text = "What will you bring Fizzles?", next = "e3_carrot" },
         { text = "Be gentle with the rabbit, Paige.", next = "END" },
       },
     },
@@ -222,6 +243,24 @@ P:NPC {
       choices = {
         { text = "Stories are fun, true or not.", next = "BACK", reply = "Yes! And this one is true anyway.", fx = { align = { order = -1 } } },
         { text = "It's better to know what's really true.", next = "BACK", reply = "Then I'll ask Fizzles myself, and he'll tell me.", fx = { align = { order = 1 } } },
+      },
+    },
+    e3_carrot = {
+      lines = {
+        { id = "e3_carrot_l0", text = "A carrot from the market, a little one, because a big one might be too heavy for a bunny who used to be a wizard. Gil says I should bring him a book instead, so he doesn't forget how to read." },
+      },
+      choices = {
+        { text = "Rabbits prefer carrots to books, Paige.", next = "e3_carrot2" },
+        { text = "A book's a thoughtful present.", next = "BACK" },
+      },
+    },
+    e3_carrot2 = {
+      lines = {
+        { id = "e3_carrot2_l0", text = "That's what I think, and I'm going to tell Gil you said so. If Fizzles eats the carrot, that means he's mostly a bunny now, and I'll be sad for him, but he'll be happy, so that's all right." },
+      },
+      choices = {
+        { text = "That's very wise. Something else.", next = "BACK" },
+        { text = "Maybe bring both, to be sure.", next = "BACK" },
       },
     },
   },
@@ -261,7 +300,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else did you want to ask? I can spare a moment while Janey's talking." },
-        { id = "h_again2", text = "Go on, I'm listening, mostly." },
+        { id = "h_again2", text = "Go on, though I'll be writing as you talk, so speak slowly if you want to be quoted correctly." },
       },
       choices = {
         { text = "Which do you say it is, spell or potion?", next = "which" },
@@ -270,6 +309,7 @@ P:NPC {
         { text = "Who teaches you three at the Sanctum?", next = "x_teach" },
         { text = "Rules slow magic down. You should experiment more.", next = "x_stance" },
         { text = "I've studied at the Sanctum too.", next = "x_mage", when = { class = "MAGE" } },
+        { text = "Can I see one of your eleven pages of notes?", next = "e3_notes" },
         { text = "I'll leave you to your debate.", next = "END" },
       },
     },
@@ -335,6 +375,24 @@ P:NPC {
         { text = "Only the old ones, so far. Something else.", next = "BACK" },
       },
     },
+    e3_notes = {
+      lines = {
+        { id = "e3_notes_l0", text = "You may see the cover, which says \"Not for Janey\" in large letters, and that's as far as anyone gets. Inside is every argument we've had, with the date and who was right, and I'm well ahead on the tally." },
+      },
+      choices = {
+        { text = "You keep score of who wins your arguments?", next = "e3_notes2" },
+        { text = "Janey would only add drawings of frogs.", next = "BACK" },
+      },
+    },
+    e3_notes2 = {
+      lines = {
+        { id = "e3_notes2_l0", text = "Of course, because otherwise Janey remembers it differently and Suzanne says it doesn't matter. Suzanne is winning, actually, if you count the times she was right without arguing, which I've only just started to." },
+      },
+      choices = {
+        { text = "That seems fair. Something else.", next = "BACK" },
+        { text = "Perhaps stop counting, Lisan.", next = "BACK" },
+      },
+    },
   },
   topics = {
     background = { { id = "tp_bg", text = "I study at the Wizard's Sanctum, and I keep the notes for the three of us because nobody else will." } },
@@ -379,6 +437,7 @@ P:NPC {
         { text = "Why would you leave your name off it?", next = "x_name" },
         { text = "A useful thing should be given away freely.", next = "x_stance" },
         { text = "An alchemist might help with your potion.", next = "x_alch", when = { profession = "Alchemy" } },
+        { text = "What does your father think of the project?", next = "e3_docks" },
         { text = "Good luck with it, Suzanne.", next = "END" },
       },
     },
@@ -442,6 +501,24 @@ P:NPC {
       },
       choices = {
         { text = "Blackmouth oil, for a start. Something else.", next = "BACK", fx = { affinity = 1 } },
+      },
+    },
+    e3_docks = {
+      lines = {
+        { id = "e3_docks_l0", text = "He doesn't know, and I'd rather he didn't until it works, because he'd tell every docker on the pier and they'd be queueing at the Sanctum steps. He thinks I'm learning to light lamps, which is honest enough, as I did that in my first week." },
+      },
+      choices = {
+        { text = "He'd be proud, surely.", next = "e3_docks2" },
+        { text = "Secrets are wise until it works.", next = "BACK" },
+      },
+    },
+    e3_docks2 = {
+      lines = {
+        { id = "e3_docks2_l0", text = "He would, and loudly, and that's rather the trouble. He told the whole harbor when I passed the Sanctum's entrance test, and for a month the dockers called me \"the little archmage\" every time I brought him his lunch." },
+      },
+      choices = {
+        { text = "There are worse names. Something else.", next = "BACK" },
+        { text = "Then let him shout when it works.", next = "BACK" },
       },
     },
   },

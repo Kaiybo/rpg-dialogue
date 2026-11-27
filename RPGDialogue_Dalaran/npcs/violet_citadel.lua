@@ -640,7 +640,7 @@ P:NPC {
           text = "Another of the High Order. Your people ask more questions in an hour than my last three apprentices did in a year, and I mean that as a compliment, mostly." },
       },
       again = {
-        { id = "h_again", text = "Something else? Quickly, please." },
+        { id = "h_again", text = "Something else? Quickly, please; the wards in the north stair do not recast themselves." },
         { id = "h_again2", text = "Go on, then. The ward will hold another minute." },
       },
       choices = {
@@ -935,7 +935,7 @@ P:NPC {
         { id = "h_skyborne", when = { race = "Skyborne" },
           text = "Ah, the High Order. Your weavers' patterns sell faster than anything else on my shelves, and I've stopped pretending to understand why." },
       },
-      again = { { id = "h_again", text = "Anything else? I've a ledger that won't balance itself." } },
+      again = { { id = "h_again", text = "Anything else? There's a column of requisitions here that adds up differently every time I look at it." } },
       choices = {
         { text = "I'd sooner pay full price than see the scaffolds go short.", next = "BACK", reply = "I'm relieved to hear it, because most people shout at me when I explain the rationing.", fx = { align = { honor = 1 } } }, -- dp_stance
         { text = "Surely a borrowed Kirin Tor seal gets me past the rationing.", next = "BACK", reply = "It might, until you met the people who guard the seals, and they are not as polite as I am.", fx = { align = { honor = -1 } } }, -- dp_stance

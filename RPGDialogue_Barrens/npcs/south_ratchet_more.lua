@@ -50,7 +50,23 @@ P:NPC {
         { text = "What was trogg brew like?", next = "trogg", when = { questDone = TODO_QUEST("Chen's Empty Keg") } },
         { text = "Who drinks your ale, mostly?", next = "drinkers" },
         { text = "Your mentor got out of a trogg cave alive, you said.", next = "mentor" },
+        { text = "What do you brew with, so far from good grain?", next = "w5_grain" },
         { text = "I'll leave you to your barrel.", next = "END" },
+      },
+    },
+    w5_grain = {
+      lines = { { id = "w5_grain_l", text = "Mulgore barley, when the Thunder Bluff caravans make it through, and Durotar sorghum when they don't. It's the water that gives me grief. The oases used to be sweet, but since the trouble in the Wailing Caverns I boil every bucket three times before it goes near a barrel." } },
+      choices = {
+        { text = "Is the oasis water truly unsafe?", next = "w5_grain2" },
+        { text = "Mulgore barley is the best there is.", next = "BACK", when = { race = "Tauren" }, reply = "It is, friend, and I'd brew with nothing else if the road let me. Tell your kin to send more." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_grain2 = {
+      lines = { { id = "w5_grain2_l", text = "I'd not drink it raw, no. A sailor did, last summer, on a dare, and he spent three nights talking to the rafters about green dreams. My mentor taught me that a brewer's first duty is to the water. I didn't know he meant it quite this literally." } },
+      choices = {
+        { text = "Three boilings. I'll remember that.", next = "BACK", reply = "Do. And if anyone offers you a cup of oasis water with a smile, ask them to drink first." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     chen = {

@@ -28,6 +28,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_gwyn = {
+      lines = {
+        { id = "w3_gwyn_1", text = "Gwyn Farrow, who sells mushrooms at the Sepulcher for soup and swears that's all they're for. Half of what's on my shelf starts in her basket, dear, and she knows it, and she charges me double the soup price with a smile." },
+      },
+      choices = {
+        { text = "Does she know what you make with them?", next = "w3_knows" },
+        { text = "Double the price seems fair.", next = "BACK", reply = "Oh, it's fair, but she'll never hear me say so. We haggle every week and enjoy it far too much." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_knows = {
+      lines = {
+        { id = "w3_knows_1", text = "She's never asked, and I've never told, and that's how good neighbours stay neighbours in the Sepulcher. She did leave a pair of gloves on top of the basket last week, without a word, so I think she's guessed." },
+      },
+      choices = {
+        { text = "Wear the gloves. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Patrice Dwyer, poison supplies, and everything on my shelf is perfectly legal in the Undercity before you say a word. Rogues buy from me, apothecaries sneer at me, and the worgen have never once complained." },
@@ -35,7 +53,7 @@ P:NPC {
           text = "So you're the one who brought Renferrel his gnoll ichor. He sneers at my shelf, but he brews with worse than anything I sell, and now I know who to thank for the smell." },
       },
       again = {
-        { id = "h_again", text = "Something else, dear? Mind the green jars." },
+        { id = "h_again", text = "Something else, dear? Mind the green jars, and the blue, and keep your hands behind your back." },
       },
       choices = {
         { text = "Every poison jar should be labelled truthfully, whoever buys it.", next = "BACK", reply = "Of course they should, and mine are! The apothecaries sneer all they like, but they've never caught me with a wrong label.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -47,6 +65,7 @@ P:NPC {
         { text = "Who buys the most from you?", next = "buyers" },
         { text = "Show me a trick for mixing on the road.", next = "xrogue", when = { class = "ROGUE" } },
         { text = "My people have brewed poisons since before Lordaeron.", next = "xtroll", when = { race = "Troll" } },
+        { text = "You mentioned Gwyn's mushrooms. Who's Gwyn?", next = "w3_gwyn" },
         { text = "I'll go.", next = "END" },
       },
     },
@@ -156,12 +175,30 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_best = {
+      lines = {
+        { id = "w3_best_1", text = "A lump of raw silver the size of a fist, shaped so like a hand that the foreman thought I'd found a statue. I kept it on my mantel for years, and when I woke and went back to the house, it was gone, along with the mantel." },
+      },
+      choices = {
+        { text = "Who took it, do you think?", next = "w3_took" },
+        { text = "A silver hand? That's an omen.", next = "BACK", reply = "Aye, the Silver Hand's own, the lads said, and they laughed, and we know now what that order came to. I've stopped believing in omens." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_took = {
+      lines = {
+        { id = "w3_took_1", text = "Looters, after the plague came through, or the Scarlets, or someone in Gilneas wearing it on a chain. I like to think it's in a drawer somewhere, being found again by someone who'll wonder what it is." },
+      },
+      choices = {
+        { text = "Perhaps it will turn up. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Johan Focht. I teach mining, which in Silverpine means teaching you to swing a pick without waking anything in the hills that ought to stay asleep." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Ask it plain." },
+        { id = "h_again", text = "Anything else? Ask it plain, and mind the pick." },
       },
       choices = {
         { text = "A miner should leave a vein alone if someone's already working it.", next = "BACK", reply = "Aye, that's the old rule, and it's kept more miners alive than any pick ever has.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -173,6 +210,7 @@ P:NPC {
         { text = "Any advice for a new miner?", next = "tip" },
         { text = "Silverpine rock? We'd call this gravel in Ironforge.", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "I've been working the hills east of the road.", next = "xminer", when = { profession = "Mining" } },
+        { text = "What's the best thing you ever dug up?", next = "w3_best" },
         { text = "I'll go.", next = "END" },
       },
     },

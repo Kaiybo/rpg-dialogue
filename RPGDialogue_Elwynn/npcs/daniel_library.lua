@@ -92,6 +92,7 @@ P:NPC {
         { text = "Any work for me?", next = "BUSINESS" },
         { text = "What's the oldest book in the Abbey?", next = "d6_oldest" },
         { text = "What's life like at Northshire Abbey?", next = "d6_life" },
+        { text = "Your father was a cobbler?", next = "e3_father" },
         { text = "I'll let you get back to counting.", next = "END" },
       },
     },
@@ -150,6 +151,24 @@ P:NPC {
       lines = { { id = "tr_default", text = "Well, Goldshire's the place to start, just south of here, and there's more in Stormwind for proper training. Tell me what you fancy and I'll point you the right way." },
       },
       choices = { { text = "Thank you, Daniel.", next = "BACK", fx = { affinity = 1 } } },
+    },
+    e3_father = {
+      lines = {
+        { id = "e3_father_l0", text = "In Goldshire, just off the square, and he could make a boot that would outlast the man wearing it. He wanted me to take the shop, but I liked the letters on the leather better than the leather, so he sent me to the Abbey to learn reading instead." },
+      },
+      choices = {
+        { text = "Does he mind that you didn't follow him?", next = "e3_father2" },
+        { text = "You'd have made a poor cobbler, I think.", next = "BACK" },
+      },
+    },
+    e3_father2 = {
+      lines = {
+        { id = "e3_father2_l0", text = "He says not, and he sends me a pair of boots every winter with a note tucked in the toe asking if I've read anything good. I always write back with a list, and I always put a cobbler in one of the stories, just for him." },
+      },
+      choices = {
+        { text = "That's lovely, Daniel. Something else.", next = "BACK" },
+        { text = "You should visit him more.", next = "BACK" },
+      },
     },
   },
 

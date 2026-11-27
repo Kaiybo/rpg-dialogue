@@ -37,7 +37,7 @@ P:NPC {
         { id = "hello_4", when = { class = "WARLOCK", minLevel = 20 }, text = "You've come a long way back to a graveyard, and with a good deal more on your books than when you left. I keep notes on every pairing I've seen, so tell me how they've treated you." },
       },
       again = {
-        { id = "hello_again1", text = "Was there something further?" },
+        { id = "hello_again1", text = "Was there something further? Speak plainly; the dead here keep better hours than the living." },
         { id = "hello_again2", text = "Go on. I've a great deal of patience, because the work requires it." },
         { id = "hello_again3", when = { class = "WARLOCK" }, text = "Something more for the ledger, then?" },
       },
@@ -246,6 +246,7 @@ P:NPC {
         { text = "A gnome could build you a self-filling milk dish.", next = "dish", when = { race = "Gnome" } },
         { text = "Who comes all this way to buy a kitten?", next = "d6_buyers" },
         { text = "Do the forest wolves ever bother the cats?", next = "d6_wolves" },
+        { text = "Why doesn't the orange one have a name?", next = "e3_names" },
         { text = "Goodbye, Donni.", next = "END" },
       },
     },
@@ -307,6 +308,24 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_names = {
+      lines = {
+        { id = "e3_names_l0", text = "Oh, I've tried, dear, I've tried a dozen, and he looks at me as if I'd insulted his mother every time. I called him Marmalade for a month and he wouldn't come in for supper once, so now I just say \"you there\", and he comes running." },
+      },
+      choices = {
+        { text = "Perhaps he already has a name, and won't tell.", next = "e3_names2" },
+        { text = "\"You there\" suits him, then.", next = "BACK" },
+      },
+    },
+    e3_names2 = {
+      lines = {
+        { id = "e3_names2_l0", text = "That's exactly what I think, dear, and I'd love to know what it is. The bombay knows, I'm certain, because she looks at him in a particular way when I get it wrong, and she's never once been unkind about it." },
+      },
+      choices = {
+        { text = "Cats keep their own counsel. Something else.", next = "BACK" },
+        { text = "He's just a stubborn cat, Donni.", next = "BACK" },
       },
     },
   },
@@ -390,7 +409,7 @@ P:NPC {
       again = {
         { id = "hello_again1", text = "Is there anything else? I've a sleeve to set, but it will keep." },
         { id = "hello_again2", text = "Do go on. I can baste and listen." },
-        { id = "hello_again3", text = "Yes? Ask, by all means." },
+        { id = "hello_again3", text = "Yes? Ask away, and do stand still; your hem is crooked and it pains me." },
       },
       choices = {
         { text = "A tailor learns by stitching, seam after seam, without shortcuts.", next = "BACK", reply = "Just so. Every crooked seam teaches what a straight one cannot.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -404,6 +423,7 @@ P:NPC {
         { text = "What does a tailor make for someone in plate?", next = "plate", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "What's Eastvale like to live in?", next = "d6_eastvale" },
         { text = "What's the finest thing you've ever sewn?", next = "d6_finest" },
+        { text = "Which logger tears the most shirts?", next = "e3_loggers" },
         { text = "Good day, Eldrin.", next = "END" },
       },
     },
@@ -465,6 +485,24 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_loggers = {
+      lines = {
+        { id = "e3_loggers_l0", text = "A great ox of a man called Rory, who swings an axe as if the tree had insulted him personally and splits a seam at the shoulder every second day. I've taken to sewing his shirts with a gusset under the arm, which he calls fussy and wears without complaint." },
+      },
+      choices = {
+        { text = "Does he pay for all that mending?", next = "e3_loggers2" },
+        { text = "A gusset for an ox. Practical.", next = "BACK" },
+      },
+    },
+    e3_loggers2 = {
+      lines = {
+        { id = "e3_loggers2_l0", text = "In firewood, mostly, which I accept because Eastvale winters are cruel and Rory cuts beautifully even logs. It is the most honest bargain I have ever struck, and the warmest." },
+      },
+      choices = {
+        { text = "That's a good trade. Something else.", next = "BACK" },
+        { text = "Firewood won't pay the rent, surely.", next = "BACK" },
       },
     },
   },
@@ -560,6 +598,7 @@ P:NPC {
         { text = "What's this work you spoke of?", next = "work", when = { class = { "WARRIOR", "PALADIN", "HUNTER", "ROGUE" } } },
         { text = "Who buys most of your catch?", next = "d6_catch" },
         { text = "What's the lake like after dark?", next = "d6_night" },
+        { text = "How do you mend a net the murlocs have cut?", next = "e3_nets" },
         { text = "Good day, Jason.", next = "END" },
       },
     },
@@ -621,6 +660,25 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_nets = {
+      lines = {
+        { id = "e3_nets_l0", text = "With a netting needle, a ball of tarred twine and a long evening by the fire, cursing the murlocs knot by knot. A torn net takes longer to mend than to make new, which they've no notion of, the slimy devils." },
+        { id = "e3_nets_l1", when = { profession = "Fishing" }, text = "You'll know the job, I expect: a netting needle, tarred twine and an evening of cursing. A torn net takes longer to mend than to make, and the murlocs cut them in the middle where it's worst." },
+      },
+      choices = {
+        { text = "Could you make a net they can't cut?", next = "e3_nets2" },
+        { text = "I'd sooner fight the murlocs than mend nets.", next = "BACK" },
+      },
+    },
+    e3_nets2 = {
+      lines = {
+        { id = "e3_nets2_l0", text = "I've tried wire, which rusted, and leather, which rotted, and Lee Brown's idea of hanging bells on it, which only told me they were cutting it while I lay in bed. The best net is one the murlocs aren't near, and that's a job for a sword, not a needle." },
+      },
+      choices = {
+        { text = "Then I'll bring a sword. Something else.", next = "BACK" },
+        { text = "Bells were a clever idea, at least.", next = "BACK" },
       },
     },
   },
@@ -701,7 +759,7 @@ P:NPC {
         { id = "hello_2", when = { origin = "human_city_guard" }, text = "Quartermaster Hicks, weapons. You've the city guard's training, so you'll know the issue sword. Mine are the same pattern, only I've put a proper edge on them, which the royal armoury never troubles to." },
       },
       again = {
-        { id = "hello_again1", text = "Anything else?" },
+        { id = "hello_again1", text = "Anything else? Say it short; the rack needs counting." },
         { id = "hello_again2", text = "Go on. Short, if you can." },
         { id = "hello_again3", text = "Aye?" },
       },
@@ -717,6 +775,7 @@ P:NPC {
         { text = "Hogger's finished. I thought you'd want to know.", next = "hogger", when = { questDone = TODO_QUEST("Wanted: \"Hogger\"") } },
         { text = "This garrison seems thin on men.", next = "d6_thin" },
         { text = "How do you keep the blades in order?", next = "d6_order" },
+        { text = "Who signed out the sword found in Hogger's camp?", next = "e3_signed" },
         { text = "Carry on, Quartermaster.", next = "END" },
       },
     },
@@ -778,6 +837,24 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_signed = {
+      lines = {
+        { id = "e3_signed_l0", text = "A young guard from Goldshire, Talan, who went out on the river road alone because he thought he could manage. He didn't come back, and his blade did, in a gnoll's fist." },
+      },
+      choices = {
+        { text = "What did you do with the sword?", next = "e3_signed2" },
+        { text = "The road's no place to go alone.", next = "BACK" },
+      },
+    },
+    e3_signed2 = {
+      lines = {
+        { id = "e3_signed2_l0", text = "Cleaned it, sharpened it and put it back on the rack with his name scratched on the tang. It's the best blade I've got now, and I give it only to someone I think will come back." },
+      },
+      choices = {
+        { text = "That's a fitting end for it. Something else.", next = "BACK" },
+        { text = "I hope I'm worth that sword.", next = "BACK" },
       },
     },
   },
@@ -876,6 +953,7 @@ P:NPC {
         { text = "How do you get on with Hicks?", next = "hicks" },
         { text = "What's the worst you've seen come back through that door?", next = "d6_worst" },
         { text = "What do you make of Deputy Rainer?", next = "d6_rainer" },
+        { text = "Why does everyone forget the helm?", next = "e3_helms" },
         { text = "Stay safe, Quartermaster.", next = "END" },
       },
     },
@@ -937,6 +1015,24 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_helms = {
+      lines = {
+        { id = "e3_helms_l0", text = "Because a helm is hot and heavy and makes you look like a kettle, and a young fighter would sooner look brave than be alive. I've seen three lads come through this door with kobold dents in their skulls, and each of them swore he'd never needed one before." },
+      },
+      choices = {
+        { text = "Did they buy one afterwards?", next = "e3_helms2" },
+        { text = "I'll wear mine, Hudson.", next = "BACK" },
+      },
+    },
+    e3_helms2 = {
+      lines = {
+        { id = "e3_helms2_l0", text = "All three, and two of them came back again with their helms dented instead, which I consider a triumph. The third went to Westfall and I've not heard, which is the sort of thing I mostly hear." },
+      },
+      choices = {
+        { text = "Two out of three isn't bad. Something else.", next = "BACK" },
+        { text = "You might cheer up a little.", next = "BACK" },
       },
     },
   },
@@ -1018,9 +1114,9 @@ P:NPC {
         { id = "hello_2", when = { class = { "ROGUE", "HUNTER", "DRUID" } }, text = "Veldan Lightfoot, and leather's your trade as much as mine, I see. I've jerkins, bracers and soft-soled boots, all cut for somebody who'd rather not be heard, and you may try on anything you like." },
       },
       again = {
-        { id = "hello_again1", text = "What else can I show you?" },
+        { id = "hello_again1", text = "What else can I show you? I've bracers just in, and a pair of gloves that'd suit you." },
         { id = "hello_again2", text = "Go on, friend. I can stitch and listen." },
-        { id = "hello_again3", text = "Yes, ask away, by all means." },
+        { id = "hello_again3", text = "Yes, yes, ask, friend, and I'll have measured your wrist before you've finished." },
       },
       choices = {
         { text = "A good salesman tells the buyer what the leather can't do.", next = "BACK", reply = "Ha! You've found me out. I do, though I make it sound charming.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -1034,6 +1130,7 @@ P:NPC {
         { text = "What are Hicks and Hudson like to share a room with?", next = "neighbours" },
         { text = "How do you bargain with the hunters?", next = "d6_bargain" },
         { text = "What do the travellers say about Westfall?", next = "d6_west" },
+        { text = "What did you sell on the old roadside stall?", next = "e3_stall" },
         { text = "Good day, Veldan.", next = "END" },
       },
     },
@@ -1095,6 +1192,24 @@ P:NPC {
       },
       choices = {
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    e3_stall = {
+      lines = {
+        { id = "e3_stall_l0", text = "Leather, boots, and a little of everything a traveller forgets: needles, laces, soap, and a very good line in waterskins. The Riverpaw took the waterskins when they burned it, and I still wonder what a gnoll wants with forty waterskins." },
+      },
+      choices = {
+        { text = "Would you ever set up on the road again?", next = "e3_stall2" },
+        { text = "Gnolls get thirsty, I suppose.", next = "BACK" },
+      },
+    },
+    e3_stall2 = {
+      lines = {
+        { id = "e3_stall2_l0", text = "The day the Riverpaw go back to the hills and the Defias stop watching the hedges, friend, I'll be out there with a new awning before the dust settles. Until then, the garrison's corner is the safest stall on the road." },
+      },
+      choices = {
+        { text = "I hope that day comes soon. Something else.", next = "BACK" },
+        { text = "It may never come.", next = "BACK" },
       },
     },
   },

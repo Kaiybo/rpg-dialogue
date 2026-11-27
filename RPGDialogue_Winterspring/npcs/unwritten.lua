@@ -40,7 +40,29 @@ P:NPC {
         { text = "Do you remember the city before?", next = "ycity" },
         { text = "What would free you?", next = "yfree" },
         { text = "Is there anything left of the old magic here?", next = "ymagic", when = { class = "MAGE" } },
+        { text = "Did you ever see Queen Azshara?", next = "w9_azshara" },
         { text = "Farewell, spirit.", next = "END" },
+      },
+    },
+
+    w9_azshara = {
+      lines = {
+        { id = "w9_azshara_d", text = "Once, across a hall of white marble, and her beauty struck me so that I forgot my own name for an hour. That is how she ruled us, mortal: not by force, but by being so lovely that no one could bear to disappoint her." },
+        { id = "w9_azshara_v1", when = { race = "NightElf" }, text = "Once, kaldorei, across a hall of white marble. Your ancestors called her a tyrant, and they were right, but you never stood in her light, and you cannot know how gladly we followed her into the dark." },
+      },
+      choices = {
+        { text = "Would you have followed her anyway?", next = "w9_azshara2" },
+        { text = "That is no excuse for what you did.", next = "w9_azshara2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_azshara2 = {
+      lines = { { id = "w9_azshara2_d", text = "No, it is not, and I have had ten thousand years to understand that. I would follow her again, I think, if she stood before me now, and that is the true curse of Kel'Theril, that I am sorry and I am not cured." } },
+      choices = {
+        { text = "Then the sorrow is your atonement.", next = "BACK", fx = { align = { light = 1 } }, reply = "Perhaps. You are kinder than I deserve, mortal." },
+        { text = "Some sins can't be atoned for.", next = "BACK", fx = { align = { light = -1 } }, reply = "I know. I have always known. It does not stop me trying." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     kel = {
@@ -165,7 +187,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else, eh? Sit by the fire while ye ask." },
-        { id = "h_again2", text = "Aye? Out with it." },
+        { id = "h_again2", text = "Aye? Out with it, an' pass me that bottle while ye're at it." },
       },
       choices = {
         { text = "What have you found in the ruins so far?", next = "xfound" },
@@ -178,7 +200,25 @@ P:NPC {
         { text = "Do you miss Ironforge?", next = "ymiss" },
         { text = "Have you seen ghosts here?", next = "yghost" },
         { text = "What's the best find you've made?", next = "ybest" },
+        { text = "What do the Winterfall make of you?", next = "w9_furb" },
         { text = "Farewell, Grum.", next = "END" },
+      },
+    },
+
+    w9_furb = {
+      lines = { { id = "w9_furb_d", text = "They used tae leave me be, an' even traded me a fish now an' then for a bit o' bread, but these last months they've turned nasty. Somethin' in their water, the hot-springs dwarf says, an' I've seen the green in their eyes meself, which I didnae like one bit." } },
+      choices = {
+        { text = "Have they come at you?", next = "w9_furb2" },
+        { text = "You should move somewhere safer.", next = "w9_furb2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_furb2 = {
+      lines = { { id = "w9_furb2_d", text = "Twice, an' twice I've seen 'em off wi' a frying pan an' some language I'll no' repeat. I'll not leave, mind, for this den's the warmest I've slept in since Dun Morogh, an' I've paid for it in bruises." } },
+      choices = {
+        { text = "I'll keep the furbolgs off your doorstep.", next = "BACK", reply = "Ye're a good sort. Bring back a fish if they've any left." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     jaron = {
@@ -293,7 +333,25 @@ P:NPC {
         { text = "Do you trust anyone in Everlook?", next = "ytrust" },
         { text = "Does anyone ever catch you watching?", next = "ycaught" },
         { text = "What's Everlook's real business?", next = "yreal" },
+        { text = "Who actually reads your reports?", next = "w9_reports" },
         { text = "See you around, Umaron.", next = "END" },
+      },
+    },
+
+    w9_reports = {
+      lines = { { id = "w9_reports_d", text = "Some accountant in Gadgetzan with a desk bigger than this inn, pal, who's never seen snow and never will. I send him who bought what and who's sweet on who, and he sends back two words: \"noted\" and, when I'm lucky, \"more.\"" } },
+      choices = {
+        { text = "Does he ever answer properly?", next = "w9_reports2" },
+        { text = "Sounds like a thankless job.", next = "w9_reports2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_reports2 = {
+      lines = { { id = "w9_reports2_d", text = "Once, when I told him the Timbermaw were trading honey for steel, he wrote a whole page, all of it numbers. Thankless, sure, but it pays, and nobody in Everlook ever suspects the goblin who does nothing all day." } },
+      choices = {
+        { text = "I'll keep your secret.", next = "BACK", reply = "Pal, you just became part of the report. Don't worry, you're a good line." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     who = {
@@ -373,7 +431,7 @@ P:NPC {
   nodes = {
     hello = {
       lines = { { id = "h_default", text = "I am Brightspear, an elder of the Kaldorei. I come to Kel'Theril each year at the festival, to remember what was lost here." } },
-      again = { { id = "h_again", text = "Ask what you wish." } },
+      again = { { id = "h_again", text = "Ask what you wish, child. The snow muffles the old voices, and I am glad of a living one." } },
       choices = {
         { text = "What happened at Kel'Theril?", next = "ruins" },
         { text = "What is the Lunar Festival?", next = "festival" },
@@ -382,7 +440,25 @@ P:NPC {
         { text = "Did you know the Highborne of Kel'Theril?", next = "yknew" },
         { text = "Do you forgive them?", next = "yforgive" },
         { text = "What would you have me remember?", next = "yremember" },
+        { text = "Why carry a spear, even in death?", next = "w9_spear" },
         { text = "Farewell.", next = "END" },
+      },
+    },
+
+    w9_spear = {
+      lines = { { id = "w9_spear_d", text = "Because I carried one for nine hundred years in life, and the hand does not forget its habits easily. I was a hunter of the moonwell guard at Kel'Theril, before it fell, and the spear is the only thing of mine the elders let me keep." } },
+      choices = {
+        { text = "You guarded this very place?", next = "w9_spear2" },
+        { text = "What did you guard against?", next = "w9_spear2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_spear2 = {
+      lines = { { id = "w9_spear2_d", text = "I guarded its outer wells, and when the Highborne within brought ruin on themselves, I stood at the gate and watched the light go out of the towers. My spear could not stop it, and I have carried that knowledge longer than the spear." } },
+      choices = {
+        { text = "You did what you could.", next = "BACK", reply = "Perhaps. It is the festival's gift to believe so, for a night." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     ruins = {
@@ -516,7 +592,26 @@ P:NPC {
         { text = "Do you ever lose faith?", next = "yfaith" },
         { text = "Who built these shrines?", next = "ybuilt" },
         { text = "Do the furbolgs trouble you?", next = "yfurbolg" },
+        { text = "What do you pray for, here in the snow?", next = "w9_pray" },
         { text = "Elune-adore, priestess.", next = "END" },
+      },
+    },
+
+    w9_pray = {
+      lines = { { id = "w9_pray_d", text = "For the Winterfall, first, that whatever sickness is in their springs may pass and leave them whole. Then for the restless dead of Kel'Theril, who wronged our people, and then for whoever is out on the road in the storm, which tonight may be you." } },
+      choices = {
+        { text = "You pray for the Highborne?", next = "w9_pray2" },
+        { text = "The Winterfall are attacking travellers.", next = "w9_pray2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_pray2 = {
+      lines = { { id = "w9_pray2_d", text = "Elune's light falls on the wicked and the good alike, friend, and it is not mine to decide who stands outside it. The Winterfall did not choose their madness, and the Highborne have suffered ten thousand years for theirs." } },
+      choices = {
+        { text = "Mercy for all is Elune's way.", next = "BACK", fx = { align = { light = 1 } }, reply = "It is the only way I know. The moon does not choose." },
+        { text = "Some don't deserve her light.", next = "BACK", fx = { align = { light = -1 } }, reply = "Then pray they find it anyway. That is when it matters most." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     land = {

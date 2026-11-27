@@ -58,7 +58,23 @@ P:NPC {
         { text = "I was born Grimtotem. I chose the Bloodhoof.", next = "o_grim", when = { origin = "tauren_grimtotem_born" } },
         { text = "What task do you have?", next = "BUSINESS" },
         { text = "I studied under the Elder Crone once, Rahauro.", next = "xorig_magatha", when = { origin = "tauren_magatha_acolyte" } },
+        { text = "What does the Elder Crone ask of you each day?", next = "w5_daily" },
         { text = "Good day, Rahauro.", next = "END" },
+      },
+    },
+    w5_daily = {
+      lines = { { id = "w5_daily_l", text = "To listen. To the council, to the visitors on the bridges, to what the Bloodhoof say when they think no Grimtotem is near. Magatha has many ears. I am one of the more useful ones, because I am polite, and people forget that politeness is not the same as agreement." } },
+      choices = {
+        { text = "Is that why you're so polite with me?", next = "w5_daily2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_daily2 = {
+      lines = { { id = "w5_daily2_l", text = "I am polite with you because you are useful, and because Magatha has asked me to be. Whether I agree with you is a different matter, and not one I would share on a bridge in the middle of Cairne's city. You understand, I think." } },
+      choices = {
+        { text = "Every chieftain needs ears. Magatha is wise to use you.", next = "BACK", reply = "I will tell her you said so. She keeps a record of who understands her.", fx = { align = { order = -1 } } },
+        { text = "Listening in secret is a betrayal of the council.", next = "BACK", reply = "A strong word. I would be careful whom you say it to, on the Elder Rise.", fx = { align = { order = 1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     xorig_magatha = {
@@ -196,7 +212,22 @@ P:NPC {
         { text = "Show me your seeds.", next = "BUSINESS" },
         { text = "What grows best on Elder Rise?", next = "grow" },
         { text = "Un'Goro soil is a long way to carry.", next = "soil" },
+        { text = "What's the first thing you ever grew?", next = "w5_first" },
         { text = "Earth Mother keep you, Bashana.", next = "END" },
+      },
+    },
+    w5_first = {
+      lines = { { id = "w5_first_l", text = "A peacebloom, in a broken pot, when I was barely past my calf years. My father came home from the council exhausted and saw it on the step, and he sat beside it for a long time without saying anything. Then he said, \"Good.\" That was all." } },
+      choices = {
+        { text = "Just \"good\"?", next = "w5_first2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_first2 = {
+      lines = { { id = "w5_first2_l", text = "From the Archdruid, that is a great deal. I have grown a thousand things since, and I still listen for it. Everyone wants to talk to me about my father. Nobody asks what I grew first. Thank you for asking." } },
+      choices = {
+        { text = "Then here it is again. Good.", next = "BACK", reply = "Ha! You are kind. Go on, before I make you sort seeds." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     grow = {

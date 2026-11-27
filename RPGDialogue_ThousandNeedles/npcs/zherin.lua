@@ -86,7 +86,36 @@ P:NPC {
         { text = "I didn't expect a tauren tracker at a goblin raceway.", next = "why" },
         { text = "How do you track on salt?", next = "track", when = { class = { "HUNTER", "DRUID" } } },
         { text = "I'll take the work.", next = "BUSINESS" },
+        { text = "Do you ever miss the plains, out here on the salt?", next = "w7_plains" },
         { text = "Good luck with the races.", next = "END" },
+      },
+    },
+    w7_plains = {
+      lines = {
+        { id = "w7_plains_l1", text = "Every time a rocket goes past my ear, friend. Mulgore had wind and grass and the sound of a herd at dusk, and here I have salt and engines and goblins shouting odds at each other." },
+      },
+      choices = {
+        { text = "Then why stay?", next = "w7_plains2" },
+        { text = "You seem to have a knack for this.", next = "w7_plains3" },
+        { text = "Something else, Zherin.", next = "BACK" },
+      },
+    },
+    w7_plains2 = {
+      lines = {
+        { id = "w7_plains2_l1", text = "Because the pay buys my mother a new kodo every two seasons, and because somebody has to stop the basilisks from being flattened, and the goblins certainly will not. The beasts out here were here first, and I think of myself as their guard as much as the track's." },
+        { id = "w7_plains2_l2", when = { race = "Tauren" }, text = "You know why, I think: the herd back home eats well because I'm out here. And the beasts on the flats deserve someone who cares if they live, which the goblins do not, and the Earth Mother would not forgive me for leaving them to it." },
+      },
+      choices = {
+        { text = "That's a good reason.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_plains3 = {
+      lines = {
+        { id = "w7_plains3_l1", text = "A knack, yes, which I discovered by accident and now cannot be rid of. The goblins call me 'the Brake', because things stop when I arrive, and I have decided to take it as a compliment." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     crash = {

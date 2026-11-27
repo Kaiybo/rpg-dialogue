@@ -60,7 +60,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "Graw Cornerstone, mail smith an' merchant, late o' Ironforge an' now, Light help me, a guest o' the Thorium Brotherhood. They pay good coin for news from home, an' I sell armor to whoever's brave enough to walk the Gorge." } },
       again = {
-        { id = "h_again", text = "Aye, what else can I tell ye?" },
+        { id = "h_again", text = "Aye, what else? Mind the rivets on the counter; they roll, an' I count every one." },
         { id = "h_again2", text = "Ask away, {g:lad|lass}, the rivets'll keep." },
       },
       choices = {
@@ -74,7 +74,25 @@ P:NPC {
         { text = "I'm a warrior. What would you have me wear?", next = "ywarrior", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Who buys mail out here, besides travellers?", next = "gc_buy" },
         { text = "There are dwarves in chains down in the Slag Pit.", next = "gc_slaves" },
+        { text = "Have you made any friends among the Brotherhood?", next = "w9_friends" },
         { text = "Let me see your wares.", next = "END" },
+      },
+    },
+
+    w9_friends = {
+      lines = { { id = "w9_friends_d", text = "One, an' it surprised us both. An old bellows-hand o' the Brotherhood sat down at my fire one night wi' a jug, an' we argued about ore till dawn, an' I've no' found a dwarf in Ironforge who argues better." } },
+      choices = {
+        { text = "A Dark Iron friend?", next = "w9_friends2" },
+        { text = "What did you argue about?", next = "w9_friends2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_friends2 = {
+      lines = { { id = "w9_friends2_d", text = "Whether thorium's better smelted hot or slow, which is the oldest quarrel in dwarven smithing, an' it turns out the Dark Irons have the same quarrel. We'll never agree, an' that's why we keep drinkin' together." } },
+      choices = {
+        { text = "Some things unite all dwarves.", next = "BACK", reply = "Ale an' arguin', aye. The rest is just politics." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     brotherhood = {
@@ -198,7 +216,26 @@ P:NPC {
         { text = "What made you leave Thaurissan yourself?", next = "yleave" },
         { text = "How does an outsider earn the Brotherhood's trust?", next = "tl_earn" },
         { text = "The Cauldron is right below us, isn't it?", next = "tl_caul" },
+        { text = "What's the worst you've seen from up here?", next = "w9_worst" },
         { text = "I'll go on up.", next = "END" },
+      },
+    },
+
+    w9_worst = {
+      lines = { { id = "w9_worst_d", text = "A slave column out of the Cauldron, forty of them, dwarves and humans both, marched up the Slag Pit road in the noon heat. Three of them fell, and the overseers didn't stop, and I watched through the sight of my crossbow and couldn't do anything about it." } },
+      choices = {
+        { text = "Why couldn't you?", next = "w9_worst2" },
+        { text = "You still think about it.", next = "w9_worst2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_worst2 = {
+      lines = { { id = "w9_worst2_d", text = "Because one bolt from Thorium Point and Thaurissan's whole army comes up this cliff, and the Brotherhood dies with them. Oilfist says we save more by surviving, and I believe him most days, but not on the days I remember that road." } },
+      choices = {
+        { text = "Survival is how you save them.", next = "BACK", fx = { align = { order = 1 } }, reply = "That's the Brotherhood's word, aye. I'm still learning to believe it." },
+        { text = "Some days you should loose the bolt.", next = "BACK", fx = { align = { order = -1 } }, reply = "Some days I nearly do. Don't tell Oilfist you said that." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     watch = {
@@ -295,7 +332,25 @@ P:NPC {
         { text = "How do you keep going?", next = "xgoing" },
         { text = "I'm a dwarf. I'll free you, cousin.", next = "BACK", when = { race = "Dwarf" }, reply = "Cousin! Bless ye. If ye can, find the overseer's keys, but don't get yerself chained beside me. One captive's enough for the family." },
         { text = "Who's waiting for you in Ironforge?", next = "yhome" },
+        { text = "What do the overseers do to slow workers?", next = "w9_slow" },
         { text = "I'll find a way to help.", next = "END" },
+      },
+    },
+
+    w9_slow = {
+      lines = { { id = "w9_slow_d", text = "Cut their water, first, an' then their food, an' then they stop botherin' to feed them at all. I've a young lad on the next chain who cannae keep up, so I hide a bit o' my bread in the rubble for him every night." } },
+      choices = {
+        { text = "That's dangerous for you both.", next = "w9_slow2" },
+        { text = "What's the lad's name?", next = "w9_slow2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_slow2 = {
+      lines = { { id = "w9_slow2_d", text = "Aye, an' if they catch me, they'll take the rest of my ration, an' I'll be the slow one. But the League taught me ye look after yer team, whatever ye're diggin' for, an' he's the only team I've got left." } },
+      choices = {
+        { text = "I'll get you both out.", next = "BACK", reply = "Do that, an' I'll name my next dig after ye." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     dig = {
@@ -433,7 +488,25 @@ P:NPC {
         { text = "What did you break, for the Legion?", next = "ylegion" },
         { text = "Why does Nilith keep spiders in the Gorge?", next = "rz_spiders" },
         { text = "The ground under your feet has turned to glass.", next = "rz_glass" },
+        { text = "Do you dream, infernal?", next = "w9_dream" },
         { text = "I'll leave you be.", next = "END" },
+      },
+    },
+
+    w9_dream = {
+      lines = { { id = "w9_dream_d", text = "The stone of me does not sleep, little flesh, but sometimes, in the cold hours, the fire inside me remembers falling. A sky of green flame, and the ground rushing up, and a city of white towers breaking under me like eggshell." } },
+      choices = {
+        { text = "Do you miss it?", next = "w9_dream2" },
+        { text = "That's not a dream. That's a memory.", next = "w9_dream2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_dream2 = {
+      lines = { { id = "w9_dream2_d", text = "I do not miss, little flesh. I only wait to fall again. When the mistress's binding fails, as all bindings fail, I will choose where I land, and it will not be in this gorge of spiders and sulking dwarves." } },
+      choices = {
+        { text = "Then I hope her binding holds.", next = "BACK", reply = "So does she, little flesh. So does she." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     serve = {

@@ -415,7 +415,7 @@ P:NPC {
         { id = "h_again", text = "Something else, pal? The interest on this conversation is zero, so make it quick." },
       },
       choices = {
-        { text = "A safe vault is worth the fee.", next = "BACK", reply = "It is, pal. You get it.", fx = { align = { honor = 1 } } },
+        { text = "A safe vault is worth the fee.", next = "BACK", reply = "Now that's a customer talking. Fees are what keep the door locked, pal.", fx = { align = { honor = 1 } } },
         { text = "Banks just take your money.", next = "BACK", reply = "Then keep it under your bed.", fx = { align = { honor = -1 } } },
         { text = "Is the vault really that safe?", next = "vault" },
         { text = "Horde and Alliance gold in the same vault, then.", next = "both" },
@@ -424,7 +424,22 @@ P:NPC {
         { text = "What's the oddest thing anyone's stored here?", next = "odd" },
         { text = "Who do you answer to, Fuzruckle?", next = "boss" },
         { text = "Does the Alliance get the same rates?", next = "alliance", when = { faction = "Alliance" } },
+        { text = "How do you and Zikkel split the work?", next = "w5_zikkel" },
         { text = "That's all, Fuzruckle.", next = "END" },
+      },
+    },
+    w5_zikkel = {
+      lines = { { id = "w5_zikkel_l", text = "I count the money, he worries about the money, and between the two of us the money's very well looked after. He checks the vault three times a day. I check it once, and then I check on Zikkel, which is the bigger risk." } },
+      choices = {
+        { text = "Is he right to worry so much?", next = "w5_zikkel2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_zikkel2 = {
+      lines = { { id = "w5_zikkel2_l", text = "Half right, which is the annoying kind of right. Ratchet's full of people who'd love to rob us, pal. But a banker who looks scared makes the customers scared, and scared customers pull their gold. So I smile, and Zikkel sweats, and the vault stays full." } },
+      choices = {
+        { text = "So you're the smile, and he's the lock.", next = "BACK", reply = "Exactly, pal. Don't tell him he's the lock. He'll want a raise." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     vault = {
@@ -551,7 +566,23 @@ P:NPC {
         { text = "You learned the trade in Booty Bay?", next = "booty" },
         { text = "Do you sell any proper plate?", next = "plate", when = { class = { "WARRIOR", "PALADIN" } } },
         { text = "Have you anything in my size?", next = "tauren", when = { race = "Tauren" } },
+        { text = "Vexspindle wants to rename the shop. You're against it?", next = "w5_name" },
         { text = "Not today, Grazlix.", next = "END" },
+      },
+    },
+    w5_name = {
+      lines = { { id = "w5_name_l", text = "Over my dead body, pal, and I'd sell the armour off my own corpse to make the point. Plate-n-Chain's a name people remember. Nobody remembers \"Vexspindle's Fine Cloth and Also Some Armour Over There.\"" } },
+      choices = {
+        { text = "But you don't sell much plate, do you?", next = "w5_name2" },
+        { text = "I'm a goblin too. Never change a working sign.", next = "BACK", when = { race = "Goblin" }, reply = "Ha! See, you get it. Old sign, old customers, new prices. That's the formula." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_name2 = {
+      lines = { { id = "w5_name2_l", text = "Not much, no. Plate's heavy to ship and the Barrens cooks anybody wearin' it. But people walk in lookin' for plate, and they walk out with mail and a buckler and a smile. The name gets 'em in the door. The door's all a name has to do." } },
+      choices = {
+        { text = "So the name's a lie that works.", next = "BACK", reply = "Every good sign's a lie that works, pal. That's what signs are for." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     source = {
@@ -668,7 +699,23 @@ P:NPC {
         { text = "Who else trades on these docks?", next = "docks" },
         { text = "I'm new out here. What should I buy?", next = "green", when = { maxLevel = 15 } },
         { text = "Got anything for a rogue's kit?", next = "rogue", when = { class = "ROGUE" } },
+        { text = "You told the bruisers where that pirate went, I hear.", next = "w5_pirate" },
         { text = "Later, Jazzik.", next = "END" },
+      },
+    },
+    w5_pirate = {
+      lines = { { id = "w5_pirate_l", text = "Sure did. Sold him forty feet of good hemp, watched him walk toward the cliffs, and mentioned it to a bruiser over lunch. He was usin' my rope to climb into somebody's warehouse, chum, and I don't want my rope havin' that reputation." } },
+      choices = {
+        { text = "Doesn't that make you an informer?", next = "w5_pirate2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_pirate2 = {
+      lines = { { id = "w5_pirate2_l", text = "It makes me a goblin who lives in Ratchet and likes Ratchet the way it is. A customer's business is his business, right up until he starts robbin' my neighbours. Then it's everybody's business, and mine first." } },
+      choices = {
+        { text = "Good. A town only stands if folk look out for it.", next = "BACK", reply = "That's how I see it. Gazlowe gave me a free lunch for that one, too.", fx = { align = { order = 1 } } },
+        { text = "A merchant should never rat on a customer.", next = "BACK", reply = "Then you go buy rope somewhere else, pal. Oh, wait, there isn't anywhere else.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     rope = {
@@ -777,7 +824,7 @@ P:NPC {
         { id = "h_again", text = "Anything else? The fish ain't getting any fresher while we talk, pal." },
       },
       choices = {
-        { text = "Fresh fish is worth paying for.", next = "BACK", reply = "It is, pal. You get it.", fx = { align = { honor = 1 } } },
+        { text = "Fresh fish is worth paying for.", next = "BACK", reply = "Fresh off the pier this morning, and no crocolisk got it first. That's worth a silver.", fx = { align = { honor = 1 } } },
         { text = "Old fish is just as good.", next = "BACK", reply = "Then eat old fish.", fx = { align = { honor = -1 } } },
         { text = "What's biting off Ratchet?", next = "biting" },
         { text = "The pirates must bother your boats.", next = "pirates" },
@@ -787,7 +834,22 @@ P:NPC {
         { text = "Where do these pirates come from?", next = "southsea" },
         { text = "Teach me something about the fishing here.", next = "teach", when = { profession = "Fishing" } },
         { text = "Darkspear fish these waters too, mon.", next = "troll", when = { race = "Troll" } },
+        { text = "What do you do when a storm comes in off the sea?", next = "w5_storm" },
         { text = "Just looking, Kilxx.", next = "END" },
+      },
+    },
+    w5_storm = {
+      lines = { { id = "w5_storm_l", text = "Pull the boats up, tie down the nets, and sit under the pier swearin' at the sky. A big blow off the Great Sea can snap a mast like a twig, and I already got one cousin with no boat. I ain't makin' it two." } },
+      choices = {
+        { text = "Does anything good come in with a storm?", next = "w5_storm2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_storm2 = {
+      lines = { { id = "w5_storm2_l", text = "Wreckage, mostly. Barrels, crates, now and then a Southsea flag. And the morning after, the fish are crazy, pal, crazy, bitin' at anything. Best catch of the month comes the day after the worst weather. The sea gives a little back, I guess." } },
+      choices = {
+        { text = "Storm luck. I'll remember that.", next = "BACK", reply = "Do. And remember the storm part too, so you live to use the luck." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     biting = {
@@ -915,7 +977,23 @@ P:NPC {
         { text = "What happened to your workshop in Undermine?", next = "workshop" },
         { text = "What's the best powder you stock?", next = "powder", when = { profession = "Engineering" } },
         { text = "Show me your stock.", next = "BUSINESS" },
+        { text = "Do you ever test the stock yourself?", next = "w5_test" },
         { text = "I'll come back, Liv.", next = "END" },
+      },
+    },
+    w5_test = {
+      lines = { { id = "w5_test_l", text = "Every new crate, sweetheart, one sample, far out past the Merchant Coast where the only thing I can hurt is a crocolisk. I'm not sellin' blind. A goblin who sells powder she hasn't lit is just a goblin waitin' to find out." } },
+      choices = {
+        { text = "What happens if a batch fails?", next = "w5_test2" },
+        { text = "A gnome would measure the batch, not light it.", next = "BACK", when = { race = "Gnome" }, reply = "And a goblin would still be standin' there with the measurement when it blows. Lighting's faster, sweetheart." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_test2 = {
+      lines = { { id = "w5_test2_l", text = "Then it gets marked down, painted green, and sold to the folk who want somethin' that only goes off sometimes. You'd be surprised how many customers want exactly that. Mostly the ones who've met the red crates." } },
+      choices = {
+        { text = "So that's what green means.", next = "BACK", reply = "Now you know, sweetheart. Don't tell the bruisers. They think green means \"safe\"." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     neighbours = {

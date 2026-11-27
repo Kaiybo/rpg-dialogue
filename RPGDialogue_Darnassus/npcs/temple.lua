@@ -894,7 +894,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Something more? Be quick about it, because a student of mine is kneeling by the pool and pretending not to listen." } },
       choices = {
-        { text = "Healing the wounded is sacred work.", next = "BACK", reply = "It is. You understand.", fx = { align = { light = 1 } } },
+        { text = "Healing the wounded is sacred work.", next = "BACK", reply = "It is. Every wound I bind is a small prayer, and Elune hears each one.", fx = { align = { light = 1 } } },
         { text = "Healers should fight too.", next = "BACK", reply = "Then who heals you?", fx = { align = { light = -1 } } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What's the hardest thing to teach?", next = "hard" },
@@ -1100,7 +1100,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Is there more you wish to know? Keep your voice low by the moonwell, for it carries." } },
       choices = {
-        { text = "A still pool reflects Elune's light.", next = "BACK", reply = "It does. You understand.", fx = { align = { light = 1 } } },
+        { text = "A still pool reflects Elune's light.", next = "BACK", reply = "It does. Still your own waters, and you may find her face in them too.", fx = { align = { light = 1 } } },
         { text = "A pool is just water.", next = "BACK", reply = "Then it will reflect nothing for you.", fx = { align = { light = -1 } } },
         { text = "Train me.", next = "BUSINESS", when = { class = "PRIEST" } },
         { text = "What does the pool tell you?", next = "pool" },
@@ -1662,7 +1662,7 @@ P:NPC {
       },
       again = { { id = "h_again", text = "Is there more? Ask it quietly." } },
       choices = {
-        { text = "The Temple deserves our reverence.", next = "BACK", reply = "It does. Thank you.", fx = { align = { light = 1 } } },
+        { text = "The Temple deserves our reverence.", next = "BACK", reply = "It does, and Elune sees how you keep it.", fx = { align = { light = 1 } } },
         { text = "The Temple is just a building.", next = "BACK", reply = "Walk softly, or leave.", fx = { align = { light = -1 } } },
         { text = "What do you guard here?", next = "guard" },
         { text = "Who may enter the Temple?", next = "enter" },
@@ -1672,6 +1672,7 @@ P:NPC {
         { text = "Why do the Sisterhood lead, and not the druids?", next = "druids" },
         { text = "I serve Elune too, as a priestess.", next = "priest", when = { class = "PRIEST", race = "NightElf" } },
         { text = "Even a human may pray here?", next = "human", when = { race = "Human" } },
+        { text = "What happens here on the night of the full moon?", next = "w_moon" },
         { text = "Elune guide you, Highguard.", next = "END" },
       },
     },
@@ -1729,6 +1730,26 @@ P:NPC {
     human = {
       lines = { { id = "hu_default", text = "Elune turns no one away, and your Light and her moon may be closer than either of our priests would admit. Pray softly, and do not touch the moonwell." } },
       choices = { { text = "I'll be careful. Something else.", next = "BACK" } },
+    },
+    w_moon = {
+      lines = {
+        { id = "w_moon_default", text = "The whole Sisterhood gathers around the moonwell, and the High Priestess leads the hymn, and the light through the roof falls straight down onto the water. For an hour nobody in the Temple speaks a word that is not a prayer." },
+      },
+      choices = {
+        { text = "Do the Highguard pray too?", next = "w_moon2" },
+        { text = "It must be beautiful.", next = "w_moon2" },
+      },
+    },
+    w_moon2 = {
+      lines = {
+        { id = "w_moon2_default", text = "We pray with our eyes open, which the priestesses say still counts. It is the one night I am most afraid, because every priestess in Darnassus is standing in one room with her face turned up, and that is exactly when I must look down." },
+        { id = "w_moon2_w1", when = { class = "PRIEST" }, text = "You will stand among them one night, sister, if you are here at the full moon. Sing for both of us; I will be watching the door." },
+      },
+      choices = {
+        { text = "Someone must watch while others pray.", next = "BACK", fx = { align = { light = 1 } }, reply = "Someone must, and Elune sees the watchers too. I believe that." },
+        { text = "Close your eyes for once.", next = "BACK", fx = { align = { light = -1 } }, reply = "Not while I wear this armor. Perhaps when I lay it down." },
+        { text = "Something else, Highguard.", next = "BACK" },
+      },
     },
   },
   topics = {

@@ -13,11 +13,31 @@ P:NPC {
   notices = { "race", "quest" },
   greetings = {
     { id = "g_default", text = "Ishnu-alah, traveller. You have walked through the Atal'ai's dark halls to reach me, and the ancestors see your courage." },
-    { id = "g_festival", when = { holiday = "lunar" }, text = "The festival lights burn in Moonglade, and I have come back once more to be remembered. Stay a while, and let us honor the old ways together." },
+    { id = "g_festival", when = { holiday = "lunar" }, text = "The festival lanterns burn in Moonglade, and still I come down into this drowned temple to keep my watch. Stay a little, child, and let the old ways warm you even here." },
     { id = "g_done", when = { questDone = TODO_QUEST("Starsong the Elder") }, text = "Your coin carries my blessing now. Go gently, and may Elune light your way out of this sunken place." },
   },
   start = "hello",
   nodes = {
+    w8_grn = {
+      lines = { { id = "w8_grn_a", text = "They do, though they do not speak to me, for they are troubled in their sleep and their eyes see something I cannot. Each festival I sing them an old kaldorei song from before the Sundering, and each year they listen a little less." } },
+      choices = {
+        { text = "What troubles their sleep?", next = "w8_grn2" },
+        { text = "Keep singing to them, Elder.", next = "w8_grn2" },
+        { text = "I know some of those songs, Elder.", next = "w8_grn2", when = { race = "NightElf" } },
+        { text = "Something else, Elder.", next = "BACK" },
+      },
+    },
+    w8_grn2 = {
+      lines = {
+        { id = "w8_grn2_a", text = "Something in the Dream, child, a shadow I feel only at the edges, like cold water under warm. I do not know its name, and I will keep singing, because a song is the only thing I have left to give them." },
+        { id = "w8_grn2_ne", when = { race = "NightElf" }, text = "Then sing with me, child, softly, for two voices carry further than one in these drowned halls. Perhaps the dragons will remember a little more of the waking world if they hear it from the young as well as the old." },
+      },
+      choices = {
+        { text = "May Elune keep them.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I am Starsong, an elder of my people, and each Lunar Festival I wait here for those who honour the ancestors. This temple was built for a blood god, but even here the old ways may be remembered." },
@@ -31,6 +51,7 @@ P:NPC {
         { text = "Elune be with you, elder.", next = "nelf", when = { race = "NightElf" } },
         { text = "Do you remember the old kaldorei?", next = "yold" },
         { text = "Does Hakkar's evil touch the festival?", next = "yhakkar" },
+        { text = "Do the green dragons here know you, Elder?", next = "w8_grn" },
         { text = "Farewell, elder.", next = "END" },
       },
     },

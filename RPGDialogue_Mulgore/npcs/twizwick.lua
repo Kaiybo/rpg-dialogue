@@ -53,7 +53,36 @@ P:NPC {
         { text = "What are you working on right now?", next = "project" },
         { text = "The tauren must find you strange.", next = "tauren_odd" },
         { text = "My last target dummy exploded. Normal?", next = "dummy", when = { profession = { name = "Engineering", min = 50 } } },
+        { text = "Do the tauren ever buy your inventions?", next = "w7_buy" },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+    w7_buy = {
+      lines = {
+        { id = "w7_buy_l1", text = "Buy? Pal, the tauren don't buy, they borrow. A fella from Bloodhoof borrowed my automatic kodo brush three weeks ago, and I've had four kodo come up the hill since asking for a turn, and none of their owners have paid a copper." },
+      },
+      choices = {
+        { text = "Kodo came up the hill on their own?", next = "w7_buy2" },
+        { text = "That doesn't sound like business.", next = "w7_buy3" },
+        { text = "Something else, Twizwick.", next = "BACK" },
+      },
+    },
+    w7_buy2 = {
+      lines = {
+        { id = "w7_buy2_l1", text = "Swear on my last sprocket, chum. They follow the smell of the oil, and they line up very politely, and they stand there until I turn it on. I've started charging their owners in hay, which is a currency, kinda." },
+        { id = "w7_buy2_l2", when = { profession = "Engineering" }, text = "On my mother's ledger, pal. You build, so you'll appreciate this: I didn't design it to attract kodo, it just does. I'm callin' it an unexpected market feature and chargin' in hay." },
+      },
+      choices = {
+        { text = "Hay's a fine currency.", next = "BACK", reply = "It is when you've got a kodo-brush business, pal." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_buy3 = {
+      lines = {
+        { id = "w7_buy3_l1", text = "It ain't, but it's good public relations, and that's an investment, friend. The tauren like me now, and nobody's tried to run me off the hill in a month." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     project = {

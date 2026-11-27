@@ -51,7 +51,28 @@ P:NPC {
         { text = "How do you get on with the dwarves?", next = "dwarves" },
         { text = "As a mage, I wonder whether arcane blasts would serve better.", next = "gt_arcane", when = { class = "MAGE" } },
         { text = "Did you come here from Gnomeregan?", next = "gt_gnomer", when = { race = "Gnome" } },
+        { text = "What's the worst explosion you've caused?", next = "w9_boom" },
         { text = "Mind the candles, Arcanist.", next = "END" },
+      },
+    },
+
+    w9_boom = {
+      lines = {
+        { id = "w9_boom_d", text = "Define \"worst.\" The largest was a test charge under a dune that moved the dune twenty yards east, and the loudest was in Ironforge, when I set off a sample in the Hall of Explorers and the dwarves applauded, thinking it was a demonstration." },
+        { id = "w9_boom_v1", when = { race = "Gnome" }, text = "Oh, you'll appreciate this! The largest moved a whole dune twenty yards east, and the loudest went off in Ironforge's Hall of Explorers, where the dwarves applauded, thinking it was a demonstration, which I decided after the fact that it was." },
+      },
+      choices = {
+        { text = "Did anyone get hurt?", next = "w9_boom2" },
+        { text = "You moved a dune?", next = "w9_boom2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_boom2 = {
+      lines = { { id = "w9_boom2_d", text = "Only my eyebrows and the dignity of a passing scorpid, both of which grew back. The Captain asked me to write a report, and I wrote fourteen pages, and he read the first line and asked if I could move the next dune somewhere useful." } },
+      choices = {
+        { text = "Can you?", next = "BACK", reply = "Given enough powder? Anywhere you like, more or less." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     collapse = {
@@ -125,7 +146,7 @@ P:NPC {
     hello = {
       lines = { { id = "h_default", text = "Scout Azenel, of the Cenarion Circle. Commander Mar'alith wants to know what Hive'Zora is breeding, and somebody had to come inside to count, so here I am among the eggs." } },
       again = {
-        { id = "h_again", text = "What else? Be brief." },
+        { id = "h_again", text = "More? Then whisper it, and keep one eye on the tunnel behind you." },
         { id = "h_again2", text = "Ask, but softly." },
       },
       choices = {
@@ -135,7 +156,25 @@ P:NPC {
         { text = "Where are you from, scout?", next = "y_home" },
         { text = "What frightens you most in here?", next = "y_fear" },
         { text = "Has anyone else come this far?", next = "y_others" },
+        { text = "How do you keep count of what you see?", next = "w9_count" },
         { text = "Elune guard you, scout.", next = "END" },
+      },
+    },
+
+    w9_count = {
+      lines = { { id = "w9_count_d", text = "With knots, in a cord tied around my wrist, because ink smells and paper rustles and the silithid notice both. One knot for a drone, two for a warrior, and a knot with a bead for the things I have no name for yet." } },
+      choices = {
+        { text = "How many beads are there?", next = "w9_count2" },
+        { text = "That's clever.", next = "w9_count2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_count2 = {
+      lines = { { id = "w9_count2_d", text = "Seven, and there were none when I came here. Commander Mar'alith will want to know what each one means, and I will have to tell her that I only know they were tall, and quiet, and that the drones made way for them." } },
+      choices = {
+        { text = "Seven is enough to worry about.", next = "BACK", reply = "It is. Carry that to the Hold if you go, and say it plainly." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     seen = {
@@ -174,7 +213,7 @@ P:NPC {
     y_saw = {
       lines = { { id = "y_saw_d", text = "A shape too tall for the tunnels, with drones bowing before it. I could have followed it and learned more, or stayed and kept my count true. I stayed. Was that wise or cowardly?" } },
       choices = {
-        { text = "Wise. Your count is what the Hold needs.", next = "BACK", reply = "That is what I tell myself. Thank you.", fx = { align = { order = 1 } } },
+        { text = "Wise. Your count is what the Hold needs.", next = "BACK", reply = "I tell myself the same, in the dark, between patrols. It helps to hear it said aloud.", fx = { align = { order = 1 } } },
         { text = "You should have followed it.", next = "BACK", reply = "Perhaps. Next time, if there is a next time.", fx = { align = { order = -1 } } },
       },
     },
@@ -227,7 +266,25 @@ P:NPC {
         { text = "Where did you range before this?", next = "y_before" },
         { text = "Will the Circle attack the hive?", next = "y_attack" },
         { text = "Do you have anyone waiting for you?", next = "y_wait" },
+        { text = "How do you tell the time down here?", next = "w9_time" },
         { text = "Stay hidden, scout.", next = "END" },
+      },
+    },
+
+    w9_time = {
+      lines = { { id = "w9_time_d", text = "By the patrols. A drone column passes this chamber every hour or so, and a larger one at what I think is dusk, so I count columns the way a sailor counts bells. I have lost track of the days twice, which is a strange thing for an elf who has seen centuries." } },
+      choices = {
+        { text = "What do you do between columns?", next = "w9_time2" },
+        { text = "You've lost track of days?", next = "w9_time2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_time2 = {
+      lines = { { id = "w9_time2_d", text = "Sleep, a little, in the shadow by the wall, and draw maps of the chambers I have seen. The maps are the only thing I will be proud of when I leave, and I mean to give them to the Circle and never look at them again." } },
+      choices = {
+        { text = "The Circle will be grateful.", next = "BACK", reply = "The Circle will file them. Gratitude is for the living." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     different = {

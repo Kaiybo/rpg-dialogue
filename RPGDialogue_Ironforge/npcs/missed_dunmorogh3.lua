@@ -29,12 +29,29 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_family = {
+      lines = {
+        { id = "w2_family_l0", text = "Wanted it? My father wept when I picked up a hammer. Every Amberstill for nine generations has raised rams, an' I was meant tae be the tenth. Instead I made him a set o' shears that never dulled, an' he forgave me." },
+      },
+      choices = {
+        { text = "Do you regret it?", next = "w2_family_regret" },
+        { text = "A clan needs its smiths too.", next = "BACK" },
+      },
+    },
+    w2_family_regret = {
+      lines = {
+        { id = "w2_family_regret_l0", text = "Never. But I'll admit, on a spring mornin' when the lambs are out on the hill an' Veron's walkin' among them, I put the hammer down for a minute an' just watch. Then I pick it back up." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Turuk Amberstill. The family breeds the finest rams in Khaz Modan, an' I make the weapons, because every clan needs one dwarf who's nae good wi' animals." },
       },
       again = {
-        { id = "h_again", text = "What else, {class}?" },
+        { id = "h_again", text = "What else, {class}? Ask while the forge is hot an' the rams are quiet." },
         { id = "h_again2", text = "Aye, go on, the forge will keep." },
         { id = "h_again_x0", when = { class = "WARRIOR" }, text = "Back fer another look at the hammers, {class}? Mind the ram, he's in a mood." },
       },
@@ -48,6 +65,7 @@ P:NPC {
         { text = "What do you think of Ultham Ironhorn?", next = "ultham" },
         { text = "I'm a smith too. Any advice?", next = "smithadv", when = { profession = "Blacksmithing" } },
         { text = "Could a gnome ride one of your rams?", next = "BACK", when = { race = "Gnome" }, reply = "Veron would sell ye one if he could, but the rams are fer dwarves, an' yer folk have those clockwork striders. I'm told they dinnae need feedin'." },
+        { text = "Did your family want you to raise rams instead?", next = "w2_family" },
         { text = "Let me see your work.", next = "END" },
       },
     },
@@ -263,6 +281,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_strange = {
+      lines = {
+        { id = "w2_strange_l0", text = "A night elf druid who came in as a cat, sat by the fire, an' only changed back when Belm brought out the stew. I'd been scratchin' her behind the ears for an hour, an' I've never been so embarrassed." },
+      },
+      choices = {
+        { text = "What did she say?", next = "w2_strange_say" },
+        { text = "Kharanos must see all sorts.", next = "BACK" },
+      },
+    },
+    w2_strange_say = {
+      lines = {
+        { id = "w2_strange_say_l0", text = "\"Thank you,\" very gravely, an' then she ate two bowls o' stew. She comes back every winter now, on two legs, an' she always sits in the same spot by the fire. I've learned no' tae pet the cats." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Yori Crackhelm, an' it's my pleasure tae be the first friendly word a traveller hears in Kharanos. Innkeeper Belm does the beds an' the Thunderbrews do the ale, so I do the welcomin'." },
@@ -280,6 +315,7 @@ P:NPC {
         { text = "What's Innkeeper Belm like?", next = "belm" },
         { text = "Thank you for welcoming my people.", next = "BACK", when = { race = "Gnome" }, reply = "Och, nae thanks needed. Ye'd have done the same fer us, an' ye still might, if we ever lose a city.", fx = { affinity = 1 } },
         { text = "It's far colder here than Stormwind.", next = "BACK", when = { race = "Human" }, reply = "Ha! Every human says that on their first day. Stand by the fire, an' have a stout, an' ye'll stop noticin' in a week." },
+        { text = "Who's the strangest traveller you've ever welcomed?", next = "w2_strange" },
         { text = "Thank you for the welcome.", next = "END" },
       },
     },
@@ -362,6 +398,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_remember = {
+      lines = {
+        { id = "w2_remember_l0", text = "My brother Durgan, who marched south wi' the Alliance in the Second War an' never came home. He loved fireworks more than anythin', an' I light the first rocket every year for him." },
+      },
+      choices = {
+        { text = "Do you know how he fell?", next = "w2_remember_how" },
+        { text = "He'd be glad you remember him.", next = "BACK" },
+      },
+    },
+    w2_remember_how = {
+      lines = {
+        { id = "w2_remember_how_l0", text = "Only that it was in Lordaeron, under Uther's command, an' that he held a bridge till the orcs stopped comin'. A human soldier wrote tae us after. I keep the letter in my coat, an' I read it once a year, tonight." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Wagner Hammerstrike. I keep the Harvest Festival here at the gates, where we eat well, light the sky, an' remember the heroes who paid fer the bread on the table." },
@@ -377,6 +430,7 @@ P:NPC {
         { text = "I knew some who didn't come home.", next = "lost" },
         { text = "Who cooks for this table?", next = "d0_table" },
         { text = "There are plenty of empty seats at this table.", next = "d0_seats" },
+        { text = "Who are you remembering at this table?", next = "w2_remember" },
         { text = "A good festival to you.", next = "END" },
       },
     },

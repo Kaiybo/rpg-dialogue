@@ -99,7 +99,25 @@ P:NPC {
         { text = "Gnomes don't sell their best machines.", next = "xgnome", when = { race = "Gnome" } },
         { text = "Who is this Overseer Oilfist you mentioned?", next = "es_oil" },
         { text = "Plenty of Dark Iron here still kneel to the Emperor.", next = "es_loyal" },
+        { text = "Where do you sell what you find?", next = "w9_sell" },
         { text = "I'll leave you to it.", next = "END" },
+      },
+    },
+
+    w9_sell = {
+      lines = { { id = "w9_sell_d", text = "Tae Lokhtos, in the Depths, for the Brotherhood's coffers, an' tae Graw Cornerstone, the Ironforge fella here, when Lokhtos isnae lookin'. Graw pays in silver an' complaints, an' Lokhtos pays in thorium an' threats, so I like Graw better." } },
+      choices = {
+        { text = "Doesn't Lokhtos mind?", next = "w9_sell2" },
+        { text = "Sounds risky.", next = "w9_sell2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_sell2 = {
+      lines = { { id = "w9_sell2_d", text = "He'd mind if he knew, which is why I never sell Graw anythin' Lokhtos would want. It's no' cheatin', it's what the goblins call diversification, an' I learned it from a goblin, so it must be respectable." } },
+      choices = {
+        { text = "Very respectable.", next = "BACK", reply = "See? Ye understand. I knew ye were one o' the clever ones." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

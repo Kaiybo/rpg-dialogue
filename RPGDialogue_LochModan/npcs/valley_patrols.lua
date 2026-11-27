@@ -218,6 +218,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_count = {
+      lines = {
+        { id = "w2_count_l0", text = "Forty-one seen, nineteen shot, six that might have been the same one twice. I keep it in a book, an' the book goes tae Rugelfuss, an' Rugelfuss sends it tae Ironforge, an' nobody in Ironforge reads it." },
+      },
+      choices = {
+        { text = "How do you know nobody reads it?", next = "w2_count_read" },
+        { text = "Counting troggs won't stop them.", next = "BACK" },
+      },
+    },
+    w2_count_read = {
+      lines = {
+        { id = "w2_count_read_l0", text = "Because I wrote \"the dam is on fire\" on page thirty, as a test, an' no one sent so much as a bucket. I've no' told Rugelfuss, an' I'll thank ye no' tae either." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -239,6 +256,7 @@ P:NPC {
         { text = "You don't trust anyone, do you?", next = "trust" },
         { text = "How did you spot me? I was careful.", next = "spotted", when = { class = { "ROGUE", "DRUID" } } },
         { text = "My people keep vigil too, under the moon.", next = "elf", when = { race = "NightElf" } },
+        { text = "How many troggs have you counted this month?", next = "w2_count" },
         { text = "I'll leave you to your watch.", next = "END" },
       },
     },
@@ -365,6 +383,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_scary = {
+      lines = {
+        { id = "w2_scary_l0", text = "A trogg shaman, up on the ridge, with a ring o' stones lit round it like candles. I was meant tae shoot it, an' I froze, an' Langarr shot it instead an' said nothin' about it, which was worse than shoutin'." },
+      },
+      choices = {
+        { text = "Everyone freezes once.", next = "w2_scary_once" },
+        { text = "A Mountaineer can't afford to freeze.", next = "BACK" },
+      },
+    },
+    w2_scary_once = {
+      lines = {
+        { id = "w2_scary_once_l0", text = "That's what Wallbang said, when I told him. He said he froze his first time too, against a gnoll, an' then he said it was a very big gnoll, which I think he added for my sake." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -384,6 +419,7 @@ P:NPC {
         { text = "You're holding that rifle like it might bite.", next = "rifle" },
         { text = "Ye remind me of myself at your age, lass.", next = "dwarf", when = { race = "Dwarf", minLevel = 20 } },
         { text = "I could use a strong arm. Ever fought beside a paladin?", next = "paladin", when = { class = "PALADIN" } },
+        { text = "What's the scariest thing you've seen out here?", next = "w2_scary" },
         { text = "Good luck on your patrol, Gwarth.", next = "END" },
       },
     },

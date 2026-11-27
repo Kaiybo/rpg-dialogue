@@ -58,7 +58,36 @@ P:NPC {
         { text = "Why study curses?", next = "curses" },
         { text = "How do the druids see Darnassus's research?", next = "xdruid", when = { class = "DRUID" } },
         { text = "What can I do for you?", next = "BUSINESS" },
+        { text = "What's the worst curse you've ever lifted?", next = "w7_curse" },
         { text = "I'll mind the third rung on my way down.", next = "END" },
+      },
+    },
+    w7_curse = {
+      lines = {
+        { id = "w7_curse_l1", text = "A Sentinel's helm, salvaged from the Ruins of Isildien, that whispered to whoever wore it about all the people they had ever failed. Three soldiers wore it in a week before anyone thought to bring it to me, and none of them would say what they'd heard." },
+      },
+      choices = {
+        { text = "How did you lift it?", next = "w7_curse2" },
+        { text = "Some things should stay buried.", next = "w7_curse3" },
+        { text = "Something else, Quintis.", next = "BACK" },
+      },
+    },
+    w7_curse2 = {
+      lines = {
+        { id = "w7_curse2_l1", text = "Patiently, and with a great deal of tea. I sat with it for four nights and listened to it, and on the fifth I found the voice was only an echo of the Highborne who'd enchanted it, nagging still after ten thousand years. I told it to be quiet, firmly, and it was." },
+        { id = "w7_curse2_l2", when = { class = { "PRIEST", "MAGE", "WARLOCK" } }, text = "You'll appreciate the method: no banishing, no counterspell. I listened to it until I found the Highborne echo at the bottom, and then I simply answered it back. Most curses are only questions that nobody ever answered." },
+      },
+      choices = {
+        { text = "That's an odd sort of cure.", next = "BACK", reply = "Odd works. Ask Ginro, he's lost enough cards to me to know." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_curse3 = {
+      lines = {
+        { id = "w7_curse3_l1", text = "They should, and they won't, because someone always digs. Better they dig and bring it to me than dig and keep it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -198,7 +227,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else? I've a dispatch to finish, but it can wait." },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again2", text = "Go on, I'm listening, and I'll deal you in if the story's good enough." },
         { id = "h_again_b1", text = "Anything more? The courier bag is still empty, so I've time." },
       },
       choices = {

@@ -36,6 +36,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_camp = {
+      lines = {
+        { id = "w3_camp_1", text = "I mend the Deathguard's cloaks, because my fingers still remember a needle, and because a woman with work in her hands looks less like she's waiting. Vorrel used to tease me that I'd darn the moon if it came down low enough." },
+      },
+      choices = {
+        { text = "Do the Deathguard thank you?", next = "w3_thank" },
+        { text = "Work keeps the waiting bearable.", next = "BACK", reply = "It does, a little. The needle goes in and out and the road stays empty, and I count stitches instead of days." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_thank = {
+      lines = {
+        { id = "w3_thank_1", text = "In their way, which is to bring me more cloaks. One of them left a pressed flower in a pocket last week, by accident or not, and I've kept it, though I couldn't tell you why." },
+      },
+      choices = {
+        { text = "Keep it, Monika. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -49,7 +67,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Is there something else, stranger?" },
-        { id = "h_again2", text = "Ask, then. I've nowhere to be." },
+        { id = "h_again2", text = "Go on and ask. I'm not going anywhere till Vorrel comes up that road, one way or another." },
       },
       choices = {
         { text = "Tell me about Vorrel.", next = "vorrel" },
@@ -57,6 +75,7 @@ P:NPC {
         { text = "How do you bear the waiting?", next = "waiting" },
         { text = "Vorrel asked me to bring you this ring.", next = "ring", when = { questActive = Q_VORREL } },
         { text = "Who was Nancy Vishas?", next = "nancy", when = { questDone = Q_VORREL } },
+        { text = "What do you do in camp while you wait?", next = "w3_camp" },
         { text = "I'll leave you be.", next = "END" },
       },
     },
@@ -154,6 +173,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_ride = {
+      lines = {
+        { id = "w3_ride_1", text = "Never. I've sat a hundred living horses and broken a dozen, and I'll not climb onto something that doesn't know I'm there. The Forsaken think me a snob for it, and they're quite right." },
+      },
+      choices = {
+        { text = "What would it take to change your mind?", next = "w3_change" },
+        { text = "A horse should know its rider.", next = "BACK", reply = "Precisely. A living horse knows your weight, your temper, the hand you favour. A dead one only knows the way." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_change = {
+      lines = {
+        { id = "w3_change_1", text = "A living horse that would let me near it, and I've not found one since I woke. They shy from the smell of me, every one, and I've decided I'd rather walk than ride a beast that can't refuse me." },
+      },
+      choices = {
+        { text = "That's a horseman's pride. Something else.", next = "BACK" },
+      },
+    },
     d2_beasts = {
       lines = {
         { id = "d2_beasts_1", text = "Wolves from Orgrimmar, mostly, which the orcs ride and insist on calling mounts, and the hunters' pets, which are everything from a bear to a crab the size of a cart. The bats belong to the bat handler, and I don't go near them, nor they me." },
@@ -227,7 +264,7 @@ P:NPC {
           text = "A hunter, and you've kept your beast well. I'll see it rested, and I'll not let the bats near it." },
       },
       again = {
-        { id = "h_again", text = "Something further?" },
+        { id = "h_again", text = "Something further? The wolves are restless, so be brief." },
       },
       choices = {
         { text = "I'd like to stable my pet.", next = "BUSINESS" },
@@ -236,6 +273,7 @@ P:NPC {
         { text = "What beasts do you stable here?", next = "d2_beasts" },
         { text = "Tarren Mill was a human town once.", next = "d2_town" },
         { text = "My beast took to you quickly.", next = "d2_pet", when = { class = "HUNTER" } },
+        { text = "Do you ride one of the skeletal horses yourself?", next = "w3_ride" },
         { text = "Good day, Theodore.", next = "END" },
       },
     },
@@ -295,6 +333,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_taught = {
+      lines = {
+        { id = "w3_taught_1", text = "A smith in the internment camps, an old orc called Grukh, who was made to forge chains for the humans and taught me in the hours they didn't watch. My first axe was made from a broken shackle, and I still have it, though it's a poor axe." },
+      },
+      choices = {
+        { text = "Why keep a poor axe?", next = "w3_axe" },
+        { text = "The camps made many orcs strong.", next = "BACK", reply = "They made us angry. Strong we were before. The Warchief turned the anger into something better, and so did Grukh, in his small way." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_axe = {
+      lines = {
+        { id = "w3_axe_1", text = "Because a chain that becomes an axe is the whole story of the Horde in one piece of iron. When a young orc asks me why we fight for Thrall, I put it in his hands and let him feel the links still in the steel." },
+      },
+      choices = {
+        { text = "A good answer. Something else.", next = "BACK" },
+      },
+    },
     d2_orcs = {
       lines = {
         { id = "d2_orcs_1", text = "Cold and quiet, and it smells of the apothecaries. Krusk keeps to himself and grieves for his brothers in Durnholde, and the rest of us sharpen and wait, because the Forsaken do not like orcs wandering about their town after dark." },
@@ -359,7 +415,7 @@ P:NPC {
           text = "A warrior. Finally someone who'll buy an axe. Look at this one, and feel the weight." },
       },
       again = {
-        { id = "h_again", text = "Something more?" },
+        { id = "h_again", text = "Something more? Ask, then buy an axe." },
       },
       choices = {
         { text = "A weaponsmith should test every edge before he sells it.", next = "BACK", reply = "I do, on my own thumb, and the scars prove it. An untested edge is a lie.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -370,6 +426,7 @@ P:NPC {
         { text = "How do the orcs here find Tarren Mill?", next = "d2_orcs" },
         { text = "Where does your steel come from?", next = "d2_steel" },
         { text = "Show me the heaviest axe you've got.", next = "d2_axe", when = { class = "WARRIOR" } },
+        { text = "Who taught you to make blades?", next = "w3_taught" },
         { text = "Farewell, Ott.", next = "END" },
       },
     },
@@ -432,6 +489,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_refuse = {
+      lines = {
+        { id = "w3_refuse_1", text = "Once, flat out, a fellow in a good coat who swore he was a merchant from Lordamere. The bird took one sniff of him and shrieked fit to wake the dead, and Marshal Redpath's men found a Syndicate mask in his saddlebag." },
+      },
+      choices = {
+        { text = "The gryphon knew?", next = "w3_knew" },
+        { text = "Smart bird.", next = "BACK", reply = "Smarter than most of the militia, and I've told them so. They didn't like it, but they've stopped arguing with the birds." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_knew = {
+      lines = {
+        { id = "w3_knew_1", text = "I think it smelled Alterac on him, the mountain damp and the camp smoke, because the Wildhammer birds hate the Syndicate as much as the dwarves do. I gave that gryphon a whole salmon that night, and I'd give it another." },
+      },
+      choices = {
+        { text = "It earned it. Something else.", next = "BACK" },
+      },
+    },
     d2_routes = {
       lines = {
         { id = "d2_routes_1", text = "South to Menethil over the marshes and on to Ironforge, and east to Aerie Peak when the Wildhammer will have us. The birds know the routes better than I do, which is a good thing, because I've never once been up there myself." },
@@ -515,7 +590,7 @@ P:NPC {
           text = "You fell, didn't you? I can always tell, because folk who've fallen to their deaths look up at my gryphons afterwards with a sort of wounded envy." },
       },
       again = {
-        { id = "h_again", text = "Anything else before you fly?" },
+        { id = "h_again", text = "Anything else before I send you up? The birds get restless if they're kept waiting, and so do I." },
       },
       choices = {
         { text = "I need a flight.", next = "BUSINESS" },
@@ -525,6 +600,7 @@ P:NPC {
         { text = "How do you care for birds like these?", next = "d2_care" },
         { text = "Do the Wildhammer still come by?", next = "d2_wild" },
         { text = "I've ridden a gryphon or two in my time.", next = "d2_dwarf", when = { race = "Dwarf" } },
+        { text = "Has a gryphon ever refused a rider?", next = "w3_refuse" },
         { text = "Thanks, Darla.", next = "END" },
       },
     },
@@ -578,6 +654,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_attack = {
+      lines = {
+        { id = "w3_attack_1", text = "Hide, honestly, in the hay at the back, with the horses. No, wait, I'd open the stalls first, so the horses could run, and then I'd hide, and then I'd probably come out to look and hide again." },
+      },
+      choices = {
+        { text = "You'd let the horses out first?", next = "w3_first" },
+        { text = "Hiding's not so bad a plan.", next = "BACK", reply = "It isn't, is it? Everyone says I should take up a sword, but I think the town has enough swords and not enough people who know where the hay is." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_first = {
+      lines = {
+        { id = "w3_first_1", text = "Of course! They can't open the latches, and they didn't choose to live next to Tarren Mill any more than I did. I've practised it, at night, when nobody's looking. I can do all six stalls in under a minute." },
+      },
+      choices = {
+        { text = "That's braver than you think, Wesley. Something else.", next = "BACK" },
+      },
+    },
     d2_feed = {
       lines = {
         { id = "d2_feed_1", text = "Hay from the Hillsbrad Fields, when Farmer Ray can spare it, and oats off the ship when he can't. Farmer Ray's been sending less every month because his hands keep leaving, and I don't like to ask him why, because I think I know." },
@@ -651,6 +745,7 @@ P:NPC {
         { text = "What do you feed the horses?", next = "d2_feed" },
         { text = "Has anyone ever tried to steal from you?", next = "d2_thief" },
         { text = "I'm not here to hurt anything, Wesley.", next = "d2_horde", when = { faction = "Horde" } },
+        { text = "What would you do if the Forsaken attacked?", next = "w3_attack" },
         { text = "Goodbye, Wesley.", next = "END" },
       },
     },
@@ -710,6 +805,24 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_kelly = {
+      lines = {
+        { id = "w3_kelly_1", text = "And he takes the credit for every good night in this house, love. I make the food, I carry the trays, I remember who wants what, and Kelly stands behind the bar polishing the same mug and accepting everyone's thanks." },
+      },
+      choices = {
+        { text = "Do you two get on?", next = "w3_geton" },
+        { text = "Sounds like you run the place.", next = "BACK", reply = "I do, and Kelly knows it, and I'd thank you not to tell him I said so. He's sensitive about the mug." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_geton = {
+      lines = {
+        { id = "w3_geton_1", text = "Like an old married couple, and we're not even married. He's a good man, and he'd stand in the door with a mallet if Tarren Mill came down the road, which is more than some, so I let him have his mug." },
+      },
+      choices = {
+        { text = "A fair trade. Something else.", next = "BACK" },
+      },
+    },
     d2_regulars = {
       lines = {
         { id = "d2_regulars_1", text = "Hal McAllister at the corner table, who smells of fish and doesn't care, and Bront the butcher, who plays draughts with him and loses. Loremaster Dibbs comes in for tea and stays for the arguments, and Marshal Redpath comes in when he can't sleep, which is most nights." },
@@ -785,6 +898,7 @@ P:NPC {
         { text = "Who are your regulars?", next = "d2_regulars" },
         { text = "The soldiers tip in stories, you said.", next = "d2_stories" },
         { text = "Any decent ale in this house?", next = "d2_ale", when = { race = "Dwarf" } },
+        { text = "Barkeep Kelly only pours, you said.", next = "w3_kelly" },
         { text = "Thanks, Neema.", next = "END" },
       },
     },

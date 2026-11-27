@@ -43,7 +43,7 @@ P:NPC {
           text = "One of the trade. Everything you need for your blades is here, and I'll not ask what they're for." },
       },
       again = {
-        { id = "h_again", text = "Anything else? Quietly, now." },
+        { id = "h_again", text = "Anything else? Lower your voice, friend; my wares don't care for noise, and nor do my customers." },
         { id = "h_again2", text = "Go on. I'm discreet, not deaf." },
       },
       choices = {

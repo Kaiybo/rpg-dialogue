@@ -35,6 +35,23 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w2_young = {
+      lines = {
+        { id = "w2_young_l0", text = "Fewer boars an' more wolves, an' the wolves kept the boars honest. Somebody in Ironforge paid good coin for wolf pelts a few years back, an' the trappers took nearly all of them. Now look at the place." },
+      },
+      choices = {
+        { text = "So the boars have no hunter left but you.", next = "w2_young_hunter" },
+        { text = "The wolves were a danger to travellers.", next = "BACK" },
+      },
+    },
+    w2_young_hunter = {
+      lines = {
+        { id = "w2_young_hunter_l0", text = "Me, an' every recruit Sten sends me. I'll grant ye, the recruits are keen. But a wolf takes the weak boars an' leaves the strong; a recruit takes whatever's nearest, an' the strong ones get stronger." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "I'm Talin Keeneye, an' I've been huntin' boar by this lake since before ye were born, likely, an' I've never seen so many o' the brutes. It almost takes the fun out of it." },
@@ -64,6 +81,7 @@ P:NPC {
         { text = "Teach a fellow hunter something, Talin.", next = "hunter", when = { class = "HUNTER" } },
         { text = "Could the troggs be pushing the boars down too?", next = "troggs", when = { questDone = TODO_QUEST("The Boar Hunter") } },
         { text = "I'll help thin them.", next = "BUSINESS" },
+        { text = "What did the valley look like when you were young?", next = "w2_young" },
         { text = "Good hunting, Talin.", next = "END" },
       },
     },

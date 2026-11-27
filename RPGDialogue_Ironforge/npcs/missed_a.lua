@@ -27,6 +27,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_odd = {
+      lines = {
+        { id = "w2_odd_l0", text = "A single left boot, enchanted, the seller swore, tae make the wearer run faster. No right boot. It went for thirty silver tae a gnome who said he'd build the other one himself." },
+      },
+      choices = {
+        { text = "Did he?", next = "w2_odd_gnome" },
+        { text = "Who buys one boot?", next = "BACK" },
+      },
+    },
+    w2_odd_gnome = {
+      lines = {
+        { id = "w2_odd_gnome_l0", text = "He did, wi' a spring in the heel. Last I saw him, he was hoppin' round the Commons at tremendous speed in a perfect circle. I'd call that a successful sale, all things considered." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Auctioneer Buckler, at yer service! Redmuse keeps the ledger straight and wee Lympkin does the sums, and I do the shoutin', which suits all three of us." },
@@ -34,7 +51,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "What else can I call for ye?" },
-        { id = "h_again2", text = "Go on, then, the hall's nae quiet but I can hear ye." },
+        { id = "h_again2", text = "Go on, then, the hall's nae quiet but I can hear ye, an' I'll answer louder than ye asked." },
         { id = "h_again_x0", when = { profession = "Mining" }, text = "Back with more bars, miner? Bring them here, and let the hall decide what they're worth." },
       },
       choices = {
@@ -45,6 +62,7 @@ P:NPC {
         { text = "Do goblins sell through your hall?", next = "goblins" },
         { text = "Does cloth sell well here?", next = "cloth", when = { profession = "Tailoring" } },
         { text = "Is Lympkin a gnome from Gnomeregan too?", next = "BACK", when = { race = "Gnome" }, reply = "Aye, came up wi' the first refugees and walked straight to the counter. She's the quickest pair of hands in the hall, and she knows it." },
+        { text = "What's the oddest thing you've ever called a lot for?", next = "w2_odd" },
         { text = "I'll look over the lots.", next = "END" },
       },
     },
@@ -128,6 +146,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_barnum = {
+      lines = {
+        { id = "w2_barnum_l0", text = "He counts my till after I've counted it, every night, an' he's never once found a mistake. Twenty years o' that. I've started leavin' him wee notes in the coin bags, just tae see his face." },
+      },
+      choices = {
+        { text = "What do the notes say?", next = "w2_barnum_notes" },
+        { text = "He's only doing his duty.", next = "BACK" },
+      },
+    },
+    w2_barnum_notes = {
+      lines = {
+        { id = "w2_barnum_notes_l0", text = "\"Still right,\" mostly. Once I wrote \"Ye've miscounted,\" an' he counted that bag six times before he found the note. He didnae speak tae me for a week, an' then he started leavin' notes back." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Bailey Stonemantle, banker. My brother Barnum is the serious one at the next window, so if ye want yer gold counted with a smile, ye've come to the right Stonemantle." },
@@ -142,6 +177,7 @@ P:NPC {
         { text = "You seem cheerful for a banker.", next = "cheer" },
         { text = "What's the strangest thing anyone's deposited?", next = "xb_odd" },
         { text = "Do you trust gnomes with ledgers?", next = "xb_gnome", when = { race = "Gnome" } },
+        { text = "What's the hardest part of working beside Barnum?", next = "w2_barnum" },
         { text = "Just my box, thank you.", next = "END" },
       },
     },
@@ -231,12 +267,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_missing = {
+      lines = {
+        { id = "w2_missing_l0", text = "Find it. However long it took. I'd search every box an' every ledger an' every crack in the floor, an' I'd no' sleep till it was back. That's what my father would've done, an' his mother before him." },
+      },
+      choices = {
+        { text = "Even a single copper?", next = "w2_missing_copper" },
+        { text = "A bank's word is worth more than gold.", next = "BACK", reply = "Aye. That's the whole o' the trade, an' I'll keep it whole.", fx = { align = { honor = 1 } } },
+        { text = "A copper here and there hardly matters.", next = "BACK", reply = "It matters tae the one whose copper it was. That's what folk forget.", fx = { align = { honor = -1 } } },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w2_missing_copper = {
+      lines = {
+        { id = "w2_missing_copper_l0", text = "Especially a single copper. A big theft ye can track; it's the wee losses that teach a bank it can afford tae be careless. I'll no' learn that lesson, no' while I'm at this window." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Barnum Stonemantle, banker of the Vault. My family has kept Ironforge's gold for generations, and in all that time nae a single coin has gone astray, so I'll thank ye to be patient while I count." },
       },
       again = {
-        { id = "h_again", text = "Is there somethin' further?" },
+        { id = "h_again", text = "Is there somethin' further? State it plain, an' I'll write it down." },
         { id = "h_again2", text = "Go on, and I'll mark my place in the ledger." },
       },
       choices = {
@@ -245,6 +300,7 @@ P:NPC {
         { text = "What do folk keep here besides gold?", next = "keep" },
         { text = "How does a family keep a trust so long?", next = "xn_trust" },
         { text = "A dwarf should know how the Vault was built.", next = "xn_dwarf", when = { race = "Dwarf" } },
+        { text = "What would you do if a coin ever went missing?", next = "w2_missing" },
         { text = "My box, please.", next = "END" },
       },
     },
@@ -335,6 +391,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_won = {
+      lines = {
+        { id = "w2_won_l0", text = "Nae, an' I've entered every year. I came second once, by a single tastyfish, tae a goblin wi' a net he said was a rod. The judges didnae look too close, for he'd paid their bar tab in advance." },
+      },
+      choices = {
+        { text = "And you still promote it?", next = "w2_won_still" },
+        { text = "That goblin should have been disqualified.", next = "BACK" },
+      },
+    },
+    w2_won_still = {
+      lines = {
+        { id = "w2_won_still_l0", text = "Aye! For the fishin', friend, no' the winnin'. Ye've never lived till ye've stood on a Stranglethorn beach at dawn wi' a hundred other fools, all castin' at once. It's the finest madness in the world." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     ba_dwarf = {
       lines = { { id = "bad_default", text = "Do they now! Then ye'll ken the trick of a cold lake at dawn, and that's half the battle. Tell them from me that the Stranglethorn coast is warmer, and the fish bite back." } },
       choices = { { text = "I'll pass it on. Something else.", next = "BACK", fx = { affinity = 1 } } },
@@ -358,6 +431,7 @@ P:NPC {
         { text = "Dwarves aren't known for fishing.", next = "dwarves" },
         { text = "My kin fish Loch Modan every summer.", next = "ba_dwarf", when = { race = "Dwarf" } },
         { text = "A gnome could build a better fishing pole.", next = "ba_gnome", when = { race = "Gnome" } },
+        { text = "Have you ever won the Extravaganza yourself?", next = "w2_won" },
         { text = "Not for me. Good day.", next = "END" },
       },
     },
@@ -422,6 +496,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_worst = {
+      lines = {
+        { id = "w2_worst_l0", text = "A staff carved by a human in Goldshire, with a crystal on top the size of my head. It tipped forward so badly that the mage carrying it kept bowing to people. He thought it was very polite of him." },
+      },
+      choices = {
+        { text = "Did you fix it?", next = "w2_worst_fix" },
+        { text = "Perhaps he liked bowing.", next = "BACK" },
+      },
+    },
+    w2_worst_fix = {
+      lines = {
+        { id = "w2_worst_fix_l0", text = "I added a lead counterweight to the base, exactly three hundred and twelve grams. He walked out standing up straight and looked quite disappointed. I think he missed being thought polite." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Bingus, and I handle the staves and blades, while Harick over there handles the wands. Between the two of us, a wizard can walk out of here prepared for the sixty percent of problems a spell solves and the forty percent it doesn't." },
@@ -438,6 +529,7 @@ P:NPC {
         { text = "A gnome and a dwarf sharing a shop?", next = "harick" },
         { text = "Which wand pairs best with a staff?", next = "xg_pair" },
         { text = "I'm a mage. What should I carry?", next = "xg_mage", when = { class = "MAGE" } },
+        { text = "What's the worst-balanced weapon you've ever seen?", next = "w2_worst" },
         { text = "I'll browse the wall.", next = "END" },
       },
     },
@@ -527,6 +619,23 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_cavern = {
+      lines = {
+        { id = "w2_cavern_l0", text = "The rent, mostly! Tinker Town was too full after the fall, and Hjoldir needed someone to help with the fiddly bits. Nobody here asks what I'm building, which is nice, because half the time I don't know either." },
+      },
+      choices = {
+        { text = "Do you miss Tinker Town?", next = "w2_cavern_miss" },
+        { text = "The cavern seems to suit you.", next = "BACK" },
+      },
+    },
+    w2_cavern_miss = {
+      lines = {
+        { id = "w2_cavern_miss_l0", text = "A little. The noise, mostly, and the smell of oil. But the cavern's quiet enough to hear a spring click into place, and I can't say that about Tinker Town. You'd never hear a spring over those tram whistles." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "I'm Binny Springblade, and no, I didn't choose the name to suit the shop, though I admit it's a happy coincidence. Hjoldir forges and sells the blades, and I keep thinking of ways to improve them, which he bears very patiently." },
@@ -541,6 +650,7 @@ P:NPC {
         { text = "It's a gloomy corner for a gnome.", next = "cavern" },
         { text = "What's your best invention so far?", next = "xy_best" },
         { text = "Could you improve my lockpicks too?", next = "xy_picks", when = { class = "ROGUE" } },
+        { text = "What brought you down to the Forlorn Cavern?", next = "w2_cavern" },
         { text = "I'll speak with Hjoldir.", next = "END" },
       },
     },
@@ -630,13 +740,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_lost = {
+      narr = "His hand tightens on the ring.",
+      lines = {
+        { id = "w2_lost_l0", text = "Once, forty years ago, for the length of an afternoon. It was under my own bench, where I'd dropped it, an' I'd already sent word tae the King an' had the guards searchin' the Commons. I've counted them every hour since." },
+      },
+      choices = {
+        { text = "What did the King say?", next = "w2_lost_king" },
+        { text = "Every keeper drops a key once.", next = "BACK" },
+      },
+    },
+    w2_lost_king = {
+      lines = {
+        { id = "w2_lost_king_l0", text = "He laughed, an' said a Keymaster who'd raise half the city over one key was exactly the Keymaster he wanted. That's the King's way. I'd still sooner no' have tested it." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Brombar Higgleby, Keymaster. If there's a door in this city that matters, I cut its lock and I carry its key, and I stand by the forge because good brass wants good heat." },
       },
       again = {
         { id = "h_again", text = "Somethin' else? Keep yer hands where I can see them." },
-        { id = "h_again2", text = "Aye, go on." },
+        { id = "h_again2", text = "Aye, go on, an' keep yer eyes off the ring." },
       },
       choices = {
         { text = "What do all those keys open?", next = "open" },
@@ -644,6 +772,7 @@ P:NPC {
         { text = "It must be a heavy trust to carry.", next = "trust" },
         { text = "How did you become Keymaster?", next = "xk_how" },
         { text = "I'm a smith. Who cast your best lock?", next = "xk_smith", when = { profession = "Blacksmithing" } },
+        { text = "Have you ever lost a key?", next = "w2_lost" },
         { text = "I'll keep my hands to myself.", next = "END" },
       },
     },
@@ -740,13 +869,31 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w2_proud = {
+      narr = "He raps a dull grey breastplate at the back of the rack, and it rings like a bell.",
+      lines = {
+        { id = "w2_proud_l0", text = "That one. Plain as a stone, no' a line o' gilt on it, an' it'll take a war axe square an' hand it back. I made it for my own son, an' he went tae the Wetlands in a newer one, so here it hangs." },
+      },
+      choices = {
+        { text = "Will you sell it?", next = "w2_proud_sell" },
+        { text = "Your son should have taken it.", next = "BACK" },
+      },
+    },
+    w2_proud_sell = {
+      lines = {
+        { id = "w2_proud_sell_l0", text = "Tae the right buyer. Somebody who stands like they mean it, an' doesnae ask for gold leaf. I've turned away three this year. I'll know them when they walk in." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", text = "Bromiir Ormsen, heavy armour. A dwarf who goes to war without good steel on his back comes home on a shield, so I sell the steel and I sleep well at night." },
       },
       again = {
-        { id = "h_again", text = "What else can I tell ye?" },
-        { id = "h_again2", text = "Aye, go on, {class}." },
+        { id = "h_again", text = "What else? Stand up straight while ye ask, an' I'll tell ye what plate ye're fit for." },
+        { id = "h_again2", text = "Aye, go on, {class}, an' straighten yer shoulders while ye ask." },
       },
       choices = {
         { text = "Armour should be sold with its flaws told plainly.", next = "BACK", reply = "Aye, and I tell them, for a hidden crack in a breastplate is a grave waitin' to be dug.", fx = { align = { honor = 1 } } }, -- dp_stance
@@ -756,6 +903,7 @@ P:NPC {
         { text = "Who forges what you sell?", next = "forge" },
         { text = "What was the Second War like?", next = "xm_war" },
         { text = "I'm a paladin. Will your plate take a blessing?", next = "xm_pal", when = { class = "PALADIN" } },
+        { text = "Which piece in your shop are you proudest of?", next = "w2_proud" },
         { text = "I'll look it over.", next = "END" },
       },
     },

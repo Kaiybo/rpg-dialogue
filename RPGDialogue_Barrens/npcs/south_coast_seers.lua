@@ -53,7 +53,23 @@ P:NPC {
         { text = "How do you know Xanis Flameweaver of Thunder Bluff?", next = "xanis" },
         { text = "Mahren Skyseer lives along this coast too.", next = "mahren" },
         { text = "What does the sea say, today?", next = "sea" },
+        { text = "The Manifestation you call at the Tidus Stair. What is it to you?", next = "w5_manif" },
         { text = "I'll leave you to the tide.", next = "END" },
+      },
+    },
+    w5_manif = {
+      lines = { { id = "w5_manif_l", text = "A guest, and a very old one. When I hold up fouled water from the wells and ask, the sea sends something of itself to taste it. It does not serve me. It answers because it is curious about the land, the way the land is curious about the sea." } },
+      choices = {
+        { text = "Is it dangerous to call it?", next = "w5_manif2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_manif2 = {
+      lines = { { id = "w5_manif2_l", text = "Only if you forget that it is the sea. The sea does not hate anyone, and it does not love anyone either. If I asked it for more than a taste of the wells, it might give me more than I could stand on. So I ask small, and I thank it, and I let it go." } },
+      choices = {
+        { text = "Ask small and give thanks. The spirits deserve respect.", next = "BACK", reply = "Yes. That is the whole of the shaman's road, in one breath.", fx = { align = { order = 1 } } },
+        { text = "A shaman's strength is in commanding the elements, not asking.", next = "BACK", reply = "Some believe so. The sea has drowned a few of them, quite politely.", fx = { align = { order = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     water = {
@@ -175,7 +191,24 @@ P:NPC {
         { text = "What does it mean, to learn to see?", next = "see", when = { questDone = TODO_QUEST("Isha Awak") } },
         { text = "Islen Waterseer listens to the tide further down the shore.", next = "islen" },
         { text = "What else hunts in these shallows?", next = "shallows" },
+        { text = "Do the murlocs along this coast trouble you?", next = "w5_murloc" },
         { text = "I'll leave you to watch the water.", next = "END" },
+      },
+    },
+    w5_murloc = {
+      lines = { { id = "w5_murloc_l", text = "They trouble everyone who sets a foot in the surf. They come up in packs, shrieking, and they take nets, fish, and now and then a careless fisher. But they are of the sea, as Isha Awak is. They hunt here because the sea made them hunters." } },
+      choices = {
+        { text = "Should they be driven off the coast?", next = "w5_murloc2" },
+        { text = "I hunt the coast too. Murlocs ruin a good stalk.", next = "BACK", when = { class = "HUNTER" }, reply = "They do. Learn the sound they make before they rise, and you will hear them coming long before your beast does." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w5_murloc2 = {
+      lines = { { id = "w5_murloc2_l", text = "My brother Jorn would say they should be culled, as any pest. I see them as part of the tide. When there are too many, the sharks feed well, and when the sharks have fed, there are fewer. The sea keeps its own balance, if we let it." } },
+      choices = {
+        { text = "Let the sea keep its balance. We take only what we need.", next = "BACK", reply = "Spoken like a true hunter of the shore. Jorn would argue, but he is far inland.", fx = { align = { light = 1 } } },
+        { text = "Cull them. They prey on fishers, and that's enough.", next = "BACK", reply = "You sound like my brother. Come back when one has nearly drowned you, and we will speak again.", fx = { align = { light = -1 } } },
+        { text = "Something else.", next = "BACK" },
       },
     },
     isha = {

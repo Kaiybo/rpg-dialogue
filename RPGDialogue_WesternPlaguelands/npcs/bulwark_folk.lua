@@ -103,7 +103,28 @@ P:NPC {
         { text = "Which of your wares sells best?", next = "wares" },
         { text = "Garush sends people to you with scourgestones?", next = "hs_stones" },
         { text = "That Barov fellow on the wall keeps to himself.", next = "hs_barov" },
+        { text = "What does a troll make of the Dawn's holy water?", next = "w9_holy" },
         { text = "Farewell, Hasana.", next = "END" },
+      },
+    },
+
+    w9_holy = {
+      lines = {
+        { id = "w9_holy_d", text = "Hasana think it be good mojo, mon, even if de priests call it Light and de loa call it somethin' else. Splash it on a ghoul and de ghoul stop, and when somethin' work dat well, a troll don't argue about whose spirit be in de bottle." },
+        { id = "w9_holy_v1", when = { race = "Troll" }, text = "You be askin' what I ask myself, cousin. De priests call it Light, and our witch doctors would call it a strong blessin', and Hasana call it whatever stop de ghoul, which it do very well." },
+      },
+      choices = {
+        { text = "Do the loa mind?", next = "w9_holy2" },
+        { text = "The priests might not like that view.", next = "w9_holy2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_holy2 = {
+      lines = { { id = "w9_holy2_d", text = "De loa hate de Scourge more dan anybody, mon, because de dead belong to Bwonsamdi and de Lich King be stealin' from him. So Hasana figure de loa be laughin' every time a bottle of holy water break on a skeleton." } },
+      choices = {
+        { text = "Then the Dawn and the loa agree.", next = "BACK", reply = "For once, mon, everybody agree. Dat be rarer dan holy water." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -254,7 +275,25 @@ P:NPC {
         { text = "How will you get into Hearthglen?", next = "hearthglen" },
         { text = "The grass here is grey, right down to the roots.", next = "bd_land" },
         { text = "Is anyone else hunting those Scarlet weapons?", next = "bd_rival" },
+        { text = "Have you met the Dawn's people here?", next = "w9_dawn" },
         { text = "Earth Mother guide you, Bardu.", next = "END" },
+      },
+    },
+
+    w9_dawn = {
+      lines = { { id = "w9_dawn_d", text = "Hasana, the troll who keeps their stores, who laughs at everything and misses nothing, and Garush, who takes their scourgestones. They are good people, and they do not ask what tribe a tauren comes from, only whether he will carry water to the wall." } },
+      choices = {
+        { text = "Will you join the Dawn?", next = "w9_dawn2" },
+        { text = "Do they trust a Horde hunter?", next = "w9_dawn2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_dawn2 = {
+      lines = { { id = "w9_dawn2_d", text = "I carry their water already, and that is a kind of joining. When I have found what I came for, I may stay and hunt the plague's beasts for them, for the Earth Mother's land is sick here, and a hunter is a kind of healer too." } },
+      choices = {
+        { text = "The Dawn could use you.", next = "BACK", reply = "Then perhaps they will have me. I eat little, and I walk far." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -346,7 +385,7 @@ P:NPC {
         { id = "h_orc", when = { race = "Orc" }, text = "Werg Thickblade. Good to see a green face at this wall, {class}. I sell leatherworking supplies, and I'd trade the lot for one dry afternoon in Durotar." },
       },
       again = {
-        { id = "h_again", text = "What else? Make it quick." },
+        { id = "h_again", text = "What else? Speak fast, because the wind off the Plaguelands bites." },
         { id = "h_again2", text = "Speak. The wind's cold and I'm not getting warmer." },
         { id = "h_again3", text = "Hrm. Go on, then." },
       },
@@ -361,7 +400,28 @@ P:NPC {
         { text = "You must see everything that crosses east.", next = "east" },
         { text = "The camps. You grew up in them?", next = "camps", when = { race = "Orc" } },
         { text = "What supplies does a leatherworker need out here?", next = "need", when = { profession = "Leatherworking" } },
+        { text = "What's the best hide you've ever worked?", next = "w9_best" },
         { text = "I'll be going.", next = "END" },
+      },
+    },
+
+    w9_best = {
+      lines = {
+        { id = "w9_best_d", text = "A kodo bull from the Barrens, old and scarred, that a hunter brought into Crossroads the summer after Thrall freed us. The hide was thick as a door and warm from the sun, and I made armor from it that a grunt still wears in Orgrimmar." },
+        { id = "w9_best_v1", when = { race = "Orc" }, text = "A kodo bull from the Barrens, the summer after the camps fell, when every orc was hungry and free for the first time. Thick as a door and warm from the sun, that hide, and I made armor from it that a grunt still wears today." },
+      },
+      choices = {
+        { text = "Nothing like it here, I suppose.", next = "w9_best2" },
+        { text = "You miss the Barrens.", next = "w9_best2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_best2 = {
+      lines = { { id = "w9_best2_d", text = "Here, the hides are grey and thin and they smell of the grave before I've even salted them. I miss the heat, aye, and the sound of the Crossroads at night, but the Horde needs leather at this wall, so the Barrens can wait for me." } },
+      choices = {
+        { text = "The Horde is lucky to have you here.", next = "BACK", reply = "Hrm. Tell that to the Forsaken. They never say it." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 
@@ -510,7 +570,25 @@ P:NPC {
         { text = "What did the Crusade do to you?", next = "grudge" },
         { text = "What's it like, living at the Bulwark?", next = "bulwark" },
         { text = "Termites, Mickey? I'd rather just shoot them.", next = "xhunt", when = { class = "HUNTER" } },
+        { text = "How do you keep the termites alive?", next = "w9_keep" },
         { text = "I'll leave you to your insects.", next = "END" },
+      },
+    },
+
+    w9_keep = {
+      lines = { { id = "w9_keep_d", text = "Rotten wood, damp cloth and a warm corner of the cellar, and I talk to them, which the Forsaken find more unsettling than the termites themselves. They eat about a plank a day each, and I've been feeding them from the Bulwark's woodpile, which nobody's noticed yet." } },
+      choices = {
+        { text = "Nobody's noticed the woodpile shrinking?", next = "w9_keep2" },
+        { text = "You talk to them?", next = "w9_keep2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_keep2 = {
+      lines = { { id = "w9_keep2_d", text = "The Forsaken don't burn much wood, since they don't feel the cold, so the pile's been there since before the plague, and nobody counts it. By the time anyone does, the termites will be eating Crusade timber at Northridge, and the Bulwark's woodpile will be a small price for that." } },
+      choices = {
+        { text = "A fine trade, then.", next = "BACK", reply = "The best I've ever made. I'll take the blame happily when they find out." },
+        { text = "Something else.", next = "BACK" },
       },
     },
 

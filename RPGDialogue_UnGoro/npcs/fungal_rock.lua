@@ -55,7 +55,25 @@ P:NPC {
         { text = "Do you think, or do you only follow orders?", next = "think" },
         { text = "Let me look at your casing.", next = "xeng", when = { profession = "Engineering" } },
         { text = "I know what it is to be made by someone else.", next = "xmade", when = { race = "Scourge" } },
+        { text = "What will you do once you're mended?", next = "w9_mended" },
         { text = "Rest now, A-Me.", next = "END" },
+      },
+    },
+
+    w9_mended = {
+      lines = { { id = "w9_mended_d", text = "I would like to go back to the apes, if Karna lets me, and watch them again, but quietly, from the trees this time. The young one who shared the mushroom will be bigger now, and I want to know if it remembers me." } },
+      choices = {
+        { text = "Do you think it will?", next = "w9_mended2" },
+        { text = "Wouldn't Karna rather keep you safe?", next = "w9_mended2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
+    w9_mended2 = {
+      lines = { { id = "w9_mended2_d", text = "I do not know if apes remember, but I remember, and that seems to be the important part. Karna says a companion who only stays safe is a doorstop, and I do not want to be a doorstop." } },
+      choices = {
+        { text = "Then go back, A-Me.", next = "BACK", reply = "I will. Thank you. I am storing that in the safe place too." },
+        { text = "Something else.", next = "BACK" },
       },
     },
     fungal = {

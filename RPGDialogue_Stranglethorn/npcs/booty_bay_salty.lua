@@ -794,6 +794,26 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w8_ing = {
+      lines = { { id = "w8_ing_a", text = "The jungle, mostly, through hunters who don't ask what I want with spider glands and snake venom. A good half of it comes from the river crocolisks and the coastal jellyfish, and the other half I'd rather not name in a tavern." } },
+      choices = {
+        { text = "Who collects the venom for you?", next = "w8_ing2" },
+        { text = "Name it anyway.", next = "w8_ing2" },
+        { text = "I gather herbs. Would you buy from me?", next = "w8_ing2", when = { profession = "Herbalism" } },
+        { text = "Something else, Garrett.", next = "BACK" },
+      },
+    },
+    w8_ing2 = {
+      lines = {
+        { id = "w8_ing2_a", text = "A troll from the Bloodscalp lands who walks into town twice a season with a sealed jar and walks out with my coin, and that's all I know of him, and all I want to. A poisoner who's too curious about his suppliers ends up a customer of his own trade." },
+        { id = "w8_ing2_herb", when = { profession = "Herbalism" }, text = "I'd buy, if you bring me the right leaves, and fadeleaf most of all, which grows in the shade near the old troll ruins. Bring it fresh and wrapped in wet cloth, and I'll pay you fairly, by the standards of this counter." },
+      },
+      choices = {
+        { text = "I'll think on it.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
     hello = {
       lines = {
         { id = "h_default", key = true,
@@ -824,6 +844,7 @@ P:NPC {
         { text = "Is it safe to keep poison in a tavern?", next = "safety" },
         { text = "Strom says never buy from goblins on the docks.", next = "rogue_strom", when = { class = "ROGUE", any = { { heardLine = "ianstrom.trp_default" }, { heardLine = "ianstrom.trp_vet" } } } },
         { text = "Selling poison is a vile trade.", next = "xpala", when = { class = { "PALADIN", "PRIEST" } } },
+        { text = "Where do you get your ingredients?", next = "w8_ing" },
         { text = "I'll be on my way.", next = "END" },
       },
     },

@@ -16,7 +16,7 @@ P:NPC {
 
   greetings = {
     { id = "g_disp_warm", when = { disposition = { min = 65 } }, text = "Welcome back, friend! Sit; I've a new style just for you." },
-    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Sit, if you must." },
+    { id = "g_disp_cold", when = { disposition = { max = 34 } }, text = "Welcome. Sit down, if you must, and let me see what the wind has done to your hair." },
     { id = "g_default", text = "Welcome to my barbershop! Cuts, colours and more; have a seat and we'll get to work." },
     { id = "g_back", when = { metBefore = true }, text = "Back so soon? Either you loved it or you hated it, and I'm hoping for the first." },
     { id = "g_fl_face", when = { flirt = true, chance = 0.4 },
@@ -59,6 +59,7 @@ P:NPC {
         { text = "Who sits in your chair?", next = "who" },
         { text = "Would you trim a dwarf's beard?", next = "xdwarf", when = { race = "Dwarf" } },
         { text = "You're staring, Teuren. Is something wrong with my hair?", next = "fl_stare", when = { flirt = true } },
+        { text = "What's the hardest cut you've ever done?", next = "w_hard" },
         { text = "Farewell, Teuren.", next = "END" },
       },
     },
@@ -73,7 +74,7 @@ P:NPC {
           text = "Wrong? Nothing, and that's the trouble! You humans grow lovelier in a single season than we manage in a century, which hardly seems fair, and I've decided I don't mind in the least." },
       },
       choices = {
-        { text = "A good haircut lifts the spirit.", next = "BACK", reply = "It does! You understand.", fx = { align = { light = 1 } } },
+        { text = "A good haircut lifts the spirit.", next = "BACK", reply = "It does! Nobody ever faced a dragon feeling worse for a tidy braid.", fx = { align = { light = 1 } } },
         { text = "Haircuts are vanity.", next = "BACK", reply = "Then look shaggy.", fx = { align = { light = -1 } } },
         { text = "Then admire away, Teuren. I'll sit as long as you like.", next = "fl_stare2",
           fx = { affinity = 1, trait = { charming = 1 }, npcFlag = { set = { "fl_muse" } } } },
@@ -149,6 +150,25 @@ P:NPC {
       choices = {
         { text = "Comb it, then, and gently, please.", next = "BUSINESS", fx = { affinity = 2 } },
         { text = "Something else.", next = "BACK" },
+      },
+    },
+    w_hard = {
+      lines = {
+        { id = "w_hard_default", text = "A Sentinel captain who wanted her hair cut short for the first time in four thousand years, the night before she left for Ashenvale. She sat in that chair without a word while I worked, and I have never been so afraid of my own scissors." },
+      },
+      choices = {
+        { text = "Why did she want it cut?", next = "w_hard2" },
+        { text = "Four thousand years is a long time to grow.", next = "w_hard2" },
+      },
+    },
+    w_hard2 = {
+      lines = {
+        { id = "w_hard2_default", text = "She said a helmet sits better without it, which was true, and that she wanted to look like someone new when she reached the front, which was the real reason. I kept a lock of it for her, in a little silk bag, in case she wanted it when she came back." },
+        { id = "w_hard2_w1", when = { race = "NightElf" }, text = "You are kaldorei, so you know what it means for us to cut our hair. Not many outlanders understand why she wept a little when she saw it." },
+      },
+      choices = {
+        { text = "Did she come back for it?", next = "BACK" },
+        { text = "Something else, Teuren.", next = "BACK" },
       },
     },
   },

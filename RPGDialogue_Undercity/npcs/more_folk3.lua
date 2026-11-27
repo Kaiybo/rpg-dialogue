@@ -86,7 +86,7 @@ P:NPC {
         { id = "hello_2", when = { metBefore = true }, text = "Louis Warren, as before. The stock's much the same, good plain steel from the War Quarter forges. I've nothing fancy and I'd not sell it to you if I had." },
       },
       again = {
-        { id = "hello_a1", text = "Was there something more?" },
+        { id = "hello_a1", text = "Was there anything else? I'm afraid I'm in no hurry to be alone with my thoughts." },
         { id = "hello_a2", text = "Go on, friend. I've time." },
         { id = "hello_a3", text = "Ask what you like." },
       },
@@ -915,7 +915,7 @@ P:NPC {
         { id = "hello_2", when = { metBefore = true }, text = "Felicia Doan. I've restocked since you came, and the weak flux went in an afternoon, which tells me the smiths have a large order." },
       },
       again = {
-        { id = "hello_a1", text = "What else are you short of?" },
+        { id = "hello_a1", text = "What else do you need for the road? Tell me plainly and I'll tell you if I have it." },
         { id = "hello_a2", text = "Go on, I'm only counting." },
         { id = "hello_a3", text = "Yes?" },
       },
@@ -1194,14 +1194,32 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_luck = {
+      lines = {
+        { id = "w3_luck_1", text = "I do it every time, and I'd thank you not to make light of it. I never sell the last candle of a box, I step over the canal grate with my left foot, and I don't say the Lich King's name aloud, because I said it once in the old days and the very next week the plague came to my street." },
+      },
+      choices = {
+        { text = "You think saying the name brought the plague?", next = "w3_name" },
+        { text = "Trolls would call that respecting the spirits.", next = "BACK", when = { race = "Troll" }, reply = "Would they? Then trolls have sense. Not many down here would agree with you." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_name = {
+      lines = {
+        { id = "w3_name_1", text = "I think I died and got up again, and after that I'll not rule out anything. If knocking on a counter does nothing, it costs me nothing, and if it does something, I've knocked." },
+      },
+      choices = {
+        { text = "That's sound reasoning, Mordan. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "hello_1", key = true, text = "Thomas Mordan. I sell reagents. Powders, runes, candles, feathers, a few things in jars. Hannah Akeley has the Magic Quarter's trade and I have the travellers', and I've never had a complaint that lived to be made." },
         { id = "hello_2", when = { metBefore = true }, text = "Mordan. The stock's the same, and the tongs are the same. What do you need?" },
       },
       again = {
-        { id = "hello_a1", text = "Something else?" },
-        { id = "hello_a2", text = "Go on." },
+        { id = "hello_a1", text = "Something else? Mind the jars on your way past." },
+        { id = "hello_a2", text = "Go on. I'll keep the lid on while you ask." },
         { id = "hello_a3", text = "Well?" },
       },
       choices = {
@@ -1212,6 +1230,7 @@ P:NPC {
         { text = "Who buys the most from you?", next = "buyers" },
         { text = "What's in the jars?", next = "jars" },
         { text = "I can tell you what the ankh is like.", next = "ankh", when = { class = "SHAMAN" } },
+        { text = "You touched the counter twice before you spoke.", next = "w3_luck" },
         { text = "I'll not open anything. Farewell.", next = "END" },
       },
     },
@@ -1863,7 +1882,7 @@ P:NPC {
         { id = "hello_2", when = { metBefore = true }, text = "Francis Eliot, at your service once more. I have acquired a sabre from the Barov estate since you called, with the crest quite unmarked. One doesn't see its like twice." },
       },
       again = {
-        { id = "hello_a1", text = "Was there something further?" },
+        { id = "hello_a1", text = "Is there anything further? Do try not to lean on the display." },
         { id = "hello_a2", text = "Do go on." },
         { id = "hello_a3", text = "Yes? I am attending." },
       },
@@ -2527,7 +2546,7 @@ P:NPC {
         { id = "hello_2", when = { profession = "Mining" }, text = "Sarah Killian. I've picks, lamps, oil and a good stout sack. Brom's the one to ask about finding a vein. I'm the one to ask about getting home again after." },
       },
       again = {
-        { id = "hello_a1", text = "Anything else, love?" },
+        { id = "hello_a1", text = "Go on, petal, what else? I've a crate to unpack, but it's not going anywhere." },
         { id = "hello_a2", text = "Go on. Brom's busy with a pupil." },
         { id = "hello_a3", text = "Yes?" },
       },
@@ -3675,7 +3694,7 @@ P:NPC {
         { id = "hello_2", when = { metBefore = true }, text = "Yarly. I've nothing new to tell you, except that silk is thin on the stands and wool's plentiful. Make of it what you will." },
       },
       again = {
-        { id = "hello_a1", text = "Was there something else?" },
+        { id = "hello_a1", text = "Something else you'd know? The bids will wait a moment for you." },
         { id = "hello_a2", text = "Take your time." },
         { id = "hello_a3", text = "Yes?" },
       },

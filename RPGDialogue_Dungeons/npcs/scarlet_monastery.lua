@@ -24,6 +24,22 @@ P:NPC {
   },
   start = "hello",
   nodes = {
+    w8_tm = {
+      lines = { { id = "w8_tm_a", text = "Quiet, and wet, and full of apothecaries muttering over their work, which is how it always is. Monika walked me to the edge of the town and told me to come back, and I told her I would, and I have kept very few promises in my life." } },
+      choices = {
+        { text = "You kept your silence. That's a promise kept.", next = "w8_tm2" },
+        { text = "Did you know the risk when you left?", next = "w8_tm2" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w8_tm2 = {
+      lines = { { id = "w8_tm2_a", text = "Perhaps that is the one that counts. Tell her that, when you see her, and tell her the mill road in autumn was the last thing I thought of before Vishas began his questions." } },
+      choices = {
+        { text = "I'll tell her.", next = "BACK" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+
 
     vs_learn = {
       lines = { { id = "vsl_1", text = "That the Monastery is four houses under one roof. The dead mage Thalnos in the graveyard outside, the Houndmaster and Arcanist Doan among the books, Herod drilling his men in the armoury, and in the cathedral, Mograine and Whitemane, who are the heart of it all." } },
@@ -75,6 +91,7 @@ P:NPC {
         { text = "I'll avenge you, brother.", next = "avenge", when = { race = "Scourge" } },
         { text = "What did you learn about the Crusade in here?", next = "vs_learn" },
         { text = "They kept you alive for weeks. That wasn't mercy.", next = "vs_alive" },
+        { text = "What was Tarren Mill like, when you were sent out?", next = "w8_tm" },
         { text = "Rest now.", next = "END" },
       },
     },

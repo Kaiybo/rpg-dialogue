@@ -136,7 +136,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Anything else? The birds are waiting, and they don't wait patiently in the rain." },
-        { id = "h_again2", text = "Go on, I'm listening." },
+        { id = "h_again2", text = "Go on, I'm listening, though half my mind is on the gryphon in the third roost that won't eat." },
       },
       choices = {
         { text = "Show me where I can fly.", next = "BUSINESS" },
@@ -519,7 +519,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A shaman! I've sold to gnomes and sailors and soldiers, but never to someone who talks to the weather. What does the weather need?" },
       },
       again = {
-        { id = "h_again", text = "Anything else you need?" },
+        { id = "h_again", text = "Anything else you need? Blasting powder, copper tubing and twine, I've a crate of each, so ask." },
         { id = "h_again2", text = "Go on, I've got time." },
       },
       choices = {

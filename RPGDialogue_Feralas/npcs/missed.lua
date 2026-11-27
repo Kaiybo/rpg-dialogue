@@ -35,7 +35,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Ask what you will. The tide is in no haste, and neither am I." },
-        { id = "h_again2", text = "There was something more, I think." },
+        { id = "h_again2", text = "There was something more, I think. Say it; the water will carry my thoughts away again if you wait too long." },
       },
       choices = {
         { text = "A quiet house is worth tending.", next = "BACK", reply = "It is. The druids need peace for their work.", fx = { align = { order = 1 } } },
@@ -45,7 +45,36 @@ P:NPC {
         { text = "What do you watch the water for?", next = "water" },
         { text = "This is the druids' house, then.", next = "house" },
         { text = "You don't seem troubled by the naga.", next = "naga" },
+        { text = "What's the strangest thing the tide has brought in?", next = "w7_tide" },
         { text = "Elune light your path.", next = "END" },
+      },
+    },
+    w7_tide = {
+      lines = {
+        { id = "w7_tide_l1", text = "A sealed bottle from the Isle of Dread, with a letter inside in a hand I did not know. It was written by a sailor to a woman named Elsa, and it promised that he would come home before the next full moon." },
+      },
+      choices = {
+        { text = "Did you find Elsa?", next = "w7_tide2" },
+        { text = "It's just a bottle.", next = "w7_tide3" },
+        { text = "Something else, Bethan.", next = "BACK" },
+      },
+    },
+    w7_tide2 = {
+      lines = {
+        { id = "w7_tide2_l1", text = "I sent it with the next boat to Auberdine, and the next to Stormwind, and I do not know what became of it. I like to think she read it, and that he came home, though the Isle of Dread does not let many go." },
+        { id = "w7_tide2_l2", when = { race = "Human" }, text = "It was a human hand, so I sent it on to Stormwind. If you hear of a woman named Elsa whose sailor came home late, tell her a night elf on Feathermoon kept his letter dry for her." },
+      },
+      choices = {
+        { text = "That was kind of you.", next = "BACK", reply = "It was the least the tide asked of me." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_tide3 = {
+      lines = {
+        { id = "w7_tide3_l1", text = "Everything the sea brings is just something, until you ask whose it was." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     water = {
@@ -151,7 +180,7 @@ P:NPC {
         { id = "h_default", text = "I am Savanne, and I keep the stronghold in hooks, line and bait. Brannock teaches the art and I supply the means, and between us nobody on this island need go hungry." },
       },
       again = {
-        { id = "h_again", text = "Was there something more you needed?" },
+        { id = "h_again", text = "Was there something more you needed? Ask, and I will tell you which three hooks you can do without." },
         { id = "h_again2", text = "Ask, then. The fish will wait, as they always do." },
       },
       choices = {
@@ -162,7 +191,36 @@ P:NPC {
         { text = "What does a fisher need for these waters?", next = "need" },
         { text = "You and Brannock work side by side.", next = "brannock" },
         { text = "Do the naga trouble your trade?", next = "naga" },
+        { text = "Which of your lures is your own design?", next = "w7_lure" },
         { text = "Fair winds, Savanne.", next = "END" },
+      },
+    },
+    w7_lure = {
+      lines = {
+        { id = "w7_lure_l1", text = "The silver one with the blue bead, there, which I carved from a broken Sentinel's buckle. The yellowtail cannot resist it, and Brannock refuses to use it on principle, because he did not think of it first." },
+      },
+      choices = {
+        { text = "Does it really work?", next = "w7_lure2" },
+        { text = "A buckle makes a strange lure.", next = "w7_lure3" },
+        { text = "Something else, Savanne.", next = "BACK" },
+      },
+    },
+    w7_lure2 = {
+      lines = {
+        { id = "w7_lure2_l1", text = "Better than any worm on this island, and I have the tally to prove it. I keep it on the wall behind me, and Brannock keeps one on his side, and his numbers have been falling behind since spring." },
+        { id = "w7_lure2_l2", when = { profession = "Fishing" }, text = "See for yourself: cast it off the north side at dusk and count. You will catch more yellowtail than Brannock has all week, and then you may tell him so, because I am too polite." },
+      },
+      choices = {
+        { text = "I'll tell him.", next = "BACK", reply = "Do, and watch his face. It is the best part." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_lure3 = {
+      lines = {
+        { id = "w7_lure3_l1", text = "The Sentinel did not need it any more, and the fish do. Everything on this island finds a second use." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     need = {
@@ -259,7 +317,7 @@ P:NPC {
         { id = "h_default", text = "I am Dulciea Frostmoon. In a stronghold full of mail and glaives I sell silk and woven cloth, and you would be surprised how many Sentinels come to me when their watch is over." },
       },
       again = {
-        { id = "h_again", text = "What else may I tell you?" },
+        { id = "h_again", text = "What else, {class}? Ask, and stand still while you do; I am measuring your sleeve by eye." },
         { id = "h_again2", text = "Speak freely. Folding can wait." },
       },
       choices = {
@@ -270,7 +328,36 @@ P:NPC {
         { text = "Who buys robes in a garrison?", next = "who" },
         { text = "How does cloth fare in this wet forest?", next = "wet" },
         { text = "Cloth won't turn an ogre's club.", next = "club" },
+        { text = "What colours are hardest to keep in this damp?", next = "w7_dye" },
         { text = "Good day, Dulciea.", next = "END" },
+      },
+    },
+    w7_dye = {
+      lines = {
+        { id = "w7_dye_l1", text = "The blues, always. Moonlight blue fades to grey in a single season here, and the Sentinels' tabards come back to me looking like the sky over Desolace. Greens hold better, as though the forest approves of them." },
+      },
+      choices = {
+        { text = "Why do the blues fade?", next = "w7_dye2" },
+        { text = "Dye them green, then.", next = "w7_dye3" },
+        { text = "Something else, Dulciea.", next = "BACK" },
+      },
+    },
+    w7_dye2 = {
+      lines = {
+        { id = "w7_dye2_l1", text = "Because the blue is made from a flower that grows only in Ashenvale, and it does not care for the salt. I have been trying a dye from the Feralas sea-shells, but so far it comes out the colour of a bruise." },
+        { id = "w7_dye2_l2", when = { profession = "Tailoring" }, text = "The blue is from an Ashenvale flower, and the salt eats it. If you try a sea-shell dye, set it with alum and seawater, not fresh; mine came out bruise-purple, but it held a full season." },
+      },
+      choices = {
+        { text = "Keep trying.", next = "BACK", reply = "I will. A Sentinel deserves to look like the moon, not a bruise." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_dye3 = {
+      lines = {
+        { id = "w7_dye3_l1", text = "The Sentinels wear the moon's colours, not the forest's. That is not my choice to change, however much easier it would make my work." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     who = {
@@ -367,7 +454,7 @@ P:NPC {
         { id = "h_default", text = "I am Faralorn, and anything a traveller needs that is not a weapon passes across my counter. The Sentinels provision here before every crossing to the mainland, and I have yet to send one out short." },
       },
       again = {
-        { id = "h_again", text = "What else do you need to know before you go?" },
+        { id = "h_again", text = "What else do you need to know before you go? Ask now; once you are on the boat, I can't hand you what you forgot." },
         { id = "h_again2", text = "Go on. I am listening while I count." },
       },
       choices = {
@@ -378,7 +465,36 @@ P:NPC {
         { text = "What do travellers forget most?", next = "forget" },
         { text = "How do supplies reach an island?", next = "ships" },
         { text = "The Sentinels seem stretched thin.", next = "thin" },
+        { text = "What do you never let a patrol leave without?", next = "w7_never" },
         { text = "I'm well packed. Farewell.", next = "END" },
+      },
+    },
+    w7_never = {
+      lines = {
+        { id = "w7_never_l1", text = "Dry tinder, wrapped in oilcloth, and a spare bowstring for every archer. A Sentinel can fight wet and fight hungry, but a Sentinel without fire or a string is only a very brave elf with a stick." },
+      },
+      choices = {
+        { text = "Has a patrol ever gone without?", next = "w7_never2" },
+        { text = "That's a short list.", next = "w7_never3" },
+        { text = "Something else, Faralorn.", next = "BACK" },
+      },
+    },
+    w7_never2 = {
+      lines = {
+        { id = "w7_never2_l1", text = "Once, early, when the boat was late and the stores were bare. They came back two days early with half their bows unstrung, and one of them had a fever from sleeping wet. I have kept a hidden store of tinder and string ever since." },
+        { id = "w7_never2_l2", when = { class = "HUNTER" }, text = "Once, and you will understand what that means to an archer. They came back with half their bows unstrung. Take two spare strings from me before you cross, hunter, and keep one somewhere you will not think to look." },
+      },
+      choices = {
+        { text = "Good thinking.", next = "BACK", reply = "It is only memory, written down as rules." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_never3 = {
+      lines = {
+        { id = "w7_never3_l1", text = "Short, but those two things have saved more lives than any blade I could sell." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     forget = {
@@ -474,7 +590,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Is there anything else I can tell you?" },
-        { id = "h_again2", text = "Please, go on." },
+        { id = "h_again2", text = "Please, go on, and mind your elbow; that crate beside you holds forty vials and every one of them is spoken for." },
       },
       choices = {
         { text = "Supplying the students is important work.", next = "BACK", reply = "It is humble work, but they need it. Thank you.", fx = { align = { order = 1 } } },
@@ -484,7 +600,36 @@ P:NPC {
         { text = "How do you keep glass whole out here?", next = "glass" },
         { text = "What is it like working beside Kylanna?", next = "kylanna" },
         { text = "Her students must break a great deal.", next = "students" },
+        { text = "How do you pack glass for a hippogryph flight?", next = "w7_pack" },
         { text = "I'll mind the crates. Farewell.", next = "END" },
+      },
+    },
+    w7_pack = {
+      lines = {
+        { id = "w7_pack_l1", text = "In moss, in a crate, in a basket, wrapped in a blanket, with a note on top in three languages saying 'gently'. The hippogryphs ignore the note, of course, but the riders read it, and that is the point." },
+      },
+      choices = {
+        { text = "Do you lose many vials?", next = "w7_pack2" },
+        { text = "Seems excessive.", next = "w7_pack3" },
+        { text = "Something else, Logannas.", next = "BACK" },
+      },
+    },
+    w7_pack2 = {
+      lines = {
+        { id = "w7_pack2_l1", text = "One in twenty, on average, though once a whole crate arrived as powder because the rider took a shortcut over the Twin Colossals. Kylanna did not speak to him for a month, and he still flies the long way round." },
+        { id = "w7_pack2_l2", when = { profession = "Alchemy" }, text = "One in twenty, which you'll know is a fine rate for Feralas. If you ever order from me, ask for the cedar crate, not the pine; it costs more, but the pine splits in the damp." },
+      },
+      choices = {
+        { text = "Good to know.", next = "BACK", reply = "I keep a list of such things. It is the only book I have written." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_pack3 = {
+      lines = {
+        { id = "w7_pack3_l1", text = "It is, until the vials arrive whole. Then it is simply enough." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     glass = {
@@ -581,7 +726,7 @@ P:NPC {
         { id = "h_default", text = "I am Mardrack Greenwell, and I keep the Sentinels fed, which is harder than keeping them armed. A soldier will forgive a dull blade sooner than a cold supper, and I have ten thousand years of experience to say so." },
       },
       again = {
-        { id = "h_again", text = "What else, friend? Eat while you ask." },
+        { id = "h_again", text = "What else, friend? Eat while you ask, and don't let that bread go cold on my account." },
         { id = "h_again2", text = "Go on, I am only watching the kettle." },
       },
       choices = {
@@ -592,7 +737,36 @@ P:NPC {
         { text = "What does the island put on your table?", next = "table" },
         { text = "You're merrier than most of your kin.", next = "merry" },
         { text = "Does the garrison ever run short?", next = "short" },
+        { text = "What's your favourite thing to cook?", next = "w7_fav" },
         { text = "Thank you, Mardrack.", next = "END" },
+      },
+    },
+    w7_fav = {
+      lines = {
+        { id = "w7_fav_l1", text = "Moonberry tart, the way my mother made it before the Sundering, with the crust pressed by hand and the berries picked at dusk when they are sweetest. I make it once a year, on the night the Sentinels remember the fallen." },
+      },
+      choices = {
+        { text = "Why that night?", next = "w7_fav2" },
+        { text = "A tart seems a small thing for the fallen.", next = "w7_fav3" },
+        { text = "Something else, Mardrack.", next = "BACK" },
+      },
+    },
+    w7_fav2 = {
+      lines = {
+        { id = "w7_fav2_l1", text = "Because every soldier who ate my tart before a battle and did not come home deserves to have it baked once more. I set out a slice for each of them at the head of the table, and the young ones think it a strange custom, and the old ones weep." },
+        { id = "w7_fav2_l2", when = { race = "NightElf" }, text = "You will know the night I mean, {g:brother|sister}. I bake a slice for each of the fallen and set them out at the head of the table; if you are on Feathermoon that night, come and share one with me." },
+      },
+      choices = {
+        { text = "I'll remember that.", next = "BACK", reply = "Then there will be one more at the table to remember them." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_fav3 = {
+      lines = {
+        { id = "w7_fav3_l1", text = "Small things are what the fallen miss most. A banner is for the living. A tart is for them." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     table = {
@@ -689,7 +863,7 @@ P:NPC {
       },
       again = {
         { id = "h_again", text = "Now, what were we speaking of? Ask me again." },
-        { id = "h_again2", text = "Yes? I am listening, mostly." },
+        { id = "h_again2", text = "Yes? I am listening, mostly, though the wind keeps trying to tell me something too." },
       },
       choices = {
         { text = "Watching over Feralas is a worthy duty.", next = "BACK", reply = "It is, though Kalin does the harder half. Thank you.", fx = { align = { order = 1 } } },
@@ -699,7 +873,36 @@ P:NPC {
         { text = "What are the two of you watching?", next = "watch" },
         { text = "How does Kalin get up there?", next = "kalin" },
         { text = "Tell me about the Colossals themselves.", next = "stones" },
+        { text = "What do you do when the watch is quiet?", next = "w7_quiet" },
         { text = "Keep hold of your cloak. Farewell.", next = "END" },
+      },
+    },
+    w7_quiet = {
+      lines = {
+        { id = "w7_quiet_l1", text = "I write letters to Kalin and tie them to stones and throw them up the Colossal. Most of them come back down, and I find them again in a week and cannot remember what I wanted to tell him." },
+      },
+      choices = {
+        { text = "Do any reach him?", next = "w7_quiet2" },
+        { text = "Why not just climb up and tell him?", next = "w7_quiet3" },
+        { text = "Something else, Marli.", next = "BACK" },
+      },
+    },
+    w7_quiet2 = {
+      lines = {
+        { id = "w7_quiet2_l1", text = "One did, once, and he answered by dropping an acorn on my head. I still have the acorn, though I have forgotten what my letter said; I like to think it was something kind." },
+        { id = "w7_quiet2_l2", when = { race = "NightElf" }, text = "One did, and he answered with an acorn. You will understand, {g:brother|sister}, how the long years blur; I have forgotten the letter, but the acorn I keep in my pouch, and it reminds me of something I cannot name." },
+      },
+      choices = {
+        { text = "I'm sure it was kind.", next = "BACK", reply = "It must have been. He kept the stone, after all." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_quiet3 = {
+      lines = {
+        { id = "w7_quiet3_l1", text = "Because I would have to remember the way up, and the way is very old and very winding. Stones are quicker, even when they do not arrive." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     watch = {
@@ -794,7 +997,7 @@ P:NPC {
         { id = "h_default", text = "I am Kalin Windflight. From this stone I can see the highlands, the road and the sea, and I send word of what moves on them to Feathermoon. My partner Marli keeps the camp below, and decides when I come down." },
       },
       again = {
-        { id = "h_again", text = "What else? I have time, as you may have gathered." },
+        { id = "h_again", text = "What else? Ask; I have time, wind and a very long view, and only the first is running short." },
         { id = "h_again2", text = "Speak up, the wind takes half of every word." },
       },
       choices = {
@@ -805,7 +1008,36 @@ P:NPC {
         { text = "What can you see from here?", next = "see" },
         { text = "Marli decides when you come down?", next = "marli" },
         { text = "It's a lonely post.", next = "lonely" },
+        { text = "What do you eat up here?", next = "w7_food" },
         { text = "I'll watch my step. Farewell.", next = "END" },
+      },
+    },
+    w7_food = {
+      lines = {
+        { id = "w7_food_l1", text = "Whatever Marli remembers to send up the rope, which is usually bread, sometimes fruit, and once, for reasons she cannot explain, a single boot. I also keep a few hippogryph eggs that the birds abandon, but I try not to think too hard about that." },
+      },
+      choices = {
+        { text = "A boot?", next = "w7_food2" },
+        { text = "You should keep more stores.", next = "w7_food3" },
+        { text = "Something else, Kalin.", next = "BACK" },
+      },
+    },
+    w7_food2 = {
+      lines = {
+        { id = "w7_food2_l1", text = "A left boot, very good leather, not mine and not hers. We have argued for a season about where it came from, and I have decided it is a sign that one day she will send the right one." },
+        { id = "w7_food2_l2", when = { class = "DRUID" }, text = "A boot. You might fly up with something more useful next time, if you're passing in bird form; I would trade you the boot for a loaf, and I would think it a bargain." },
+      },
+      choices = {
+        { text = "Good luck with the second boot.", next = "BACK", reply = "Thank you. I live in hope, and in one boot." },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w7_food3 = {
+      lines = {
+        { id = "w7_food3_l1", text = "I tried, and the hippogryphs ate them. Up here, you learn to depend on the people below you, whether you like it or not." },
+      },
+      choices = {
+        { text = "Something else.", next = "BACK" },
       },
     },
     see = {

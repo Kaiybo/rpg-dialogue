@@ -179,6 +179,33 @@ P:NPC {
 
   start = "hello",
   nodes = {
+    w3_lesson = {
+      lines = {
+        { id = "w3_lesson_1", text = "To stand perfectly still in a lit room and not be noticed, which is harder than any shadow. Most of them fidget, or they look at the person they're hiding from, and a guard can feel a look on the back of his neck before he can hear a footstep." },
+        { id = "w3_lesson_2", when = { class = "ROGUE" }, text = "You'll have learned it already, or you wouldn't be alive: stand still in a lit room and don't look at the man you're hiding from. I'll know within a minute whether you truly learned it or only heard it." },
+      },
+      choices = {
+        { text = "Test me, then.", next = "w3_test", when = { class = "ROGUE" } },
+        { text = "A guard can feel a look?", next = "w3_look" },
+        { text = "Something else.", next = "BACK" },
+      },
+    },
+    w3_look = {
+      lines = {
+        { id = "w3_look_1", text = "Every good one can. I kept my lord alive for eleven years by feeling looks, and the one time I ignored the itch, I was arguing with his steward about a bill." },
+      },
+      choices = {
+        { text = "A costly bill. Something else.", next = "BACK" },
+      },
+    },
+    w3_test = {
+      lines = {
+        { id = "w3_test_1", text = "You've been looking at my left hand since you sat down, because you think I keep a knife in it. I keep it in the right, so you'd have been dead at the start, and you'll practise that in the yard until you stop wondering where my knives are." },
+      },
+      choices = {
+        { text = "I'll practise. Something else.", next = "BACK" },
+      },
+    },
     hello = {
       lines = {
         { id = "h_default", key = true, text = "Gregory Charles. I train rogues for the Dark Lady's service, and before the plague I kept a nobleman of Lordaeron alive, which was the harder task by far." },
@@ -186,7 +213,7 @@ P:NPC {
         { id = "h_party", when = { party = true }, text = "You've brought company, I see, and you let them walk behind you. I'd not have kept my post a week with habits like that." },
       },
       again = {
-        { id = "h_again", text = "Is there something more? Be precise, please." },
+        { id = "h_again", text = "Is there something more? Be precise, please, and keep your hands where I can see them." },
         { id = "h_again2", text = "Continue. I am listening, and also watching the door behind you, so don't take offence if I don't look at you." },
       },
       choices = {
@@ -198,6 +225,7 @@ P:NPC {
         { text = "Why do you doubt Mennet Carkad?", next = "mennet" },
         { text = "I could slip past you, Charles, back to the wall or not.", next = "slip", when = { class = "ROGUE", minLevel = 30 } },
         { text = "Train me.", next = "BUSINESS", when = { class = "ROGUE" } },
+        { text = "What's the first lesson you teach a new rogue?", next = "w3_lesson" },
         { text = "Good evening.", next = "END" },
       },
     },

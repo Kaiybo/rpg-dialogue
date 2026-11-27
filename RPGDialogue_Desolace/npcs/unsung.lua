@@ -341,7 +341,7 @@ P:NPC {
         { id = "h_dshaman", when = { class = "SHAMAN", faction = "Alliance" }, text = "A dwarf shaman! You'll eat before you go down there, spirits or no spirits, because Desolace takes more out of you than any of them give back." },
       },
       again = {
-        { id = "h_again", text = "Anything else, dear?" },
+        { id = "h_again", text = "Anything else, dear? Mind the flour on that bench, I've had three soldiers sit in it this week already." },
         { id = "h_again2", text = "What else can I get you, dear, while the dough rises?" },
       },
       choices = {
